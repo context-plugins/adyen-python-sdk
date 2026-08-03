@@ -1,0 +1,781 @@
+# AP Icredentials-Companylevel
+
+```python
+ap_icredentials_companylevel_api = client.ap_icredentials_companylevel
+```
+
+## Class Name
+
+`ApIcredentialsCompanylevelApi`
+
+## Methods
+
+* [Get-Companies-Company Id-Api Credentials](../../doc/controllers/ap-icredentials-companylevel.md#get-companies-company-id-api-credentials)
+* [Post-Companies-Company Id-Api Credentials](../../doc/controllers/ap-icredentials-companylevel.md#post-companies-company-id-api-credentials)
+* [Get-Companies-Company Id-Api Credentials-Api Credential Id](../../doc/controllers/ap-icredentials-companylevel.md#get-companies-company-id-api-credentials-api-credential-id)
+* [Patch-Companies-Company Id-Api Credentials-Api Credential Id](../../doc/controllers/ap-icredentials-companylevel.md#patch-companies-company-id-api-credentials-api-credential-id)
+
+
+# Get-Companies-Company Id-Api Credentials
+
+Returns the list of [API credentials](https://docs.adyen.com/development-resources/api-credentials) for the company account. The list is grouped into pages as defined by the query parameters.
+
+To make this request, your API credential must have the following [roles](https://docs.adyen.com/development-resources/api-credentials#api-permissions):
+
+* Management API—API credentials read and write
+
+```python
+def get_companies_company_id_api_credentials(self,
+                                            company_id,
+                                            page_number=None,
+                                            page_size=None)
+```
+
+## Authentication
+
+This endpoint requires [BasicAuth](../../doc/auth/basic-authentication.md) **OR** [ApiKeyAuth](../../doc/auth/custom-header-signature.md)
+
+## Parameters
+
+| Parameter | Type | Tags | Description |
+|  --- | --- | --- | --- |
+| `company_id` | `str` | Template, Required | The unique identifier of the company account. |
+| `page_number` | `int` | Query, Optional | The number of the page to fetch. |
+| `page_size` | `int` | Query, Optional | The number of items to have on a page, maximum 100. The default is 10 items on a page. |
+
+## Response Type
+
+**200**: OK - the request has succeeded.
+
+This method returns an [`ApiResponse`](../../doc/api-response.md) instance. The `body` property of this instance returns the response data which is of type [`ListCompanyApiCredentialsResponse`](../../doc/models/list-company-api-credentials-response.md).
+
+## Example Usage
+
+```python
+company_id = 'companyId0'
+
+result = api_credentials_company_level_api.get_companies_company_id_api_credentials(company_id)
+
+if result.is_success():
+    print(result.body)
+elif result.is_error():
+    print(result.errors)
+```
+
+## Example Response *(as JSON)*
+
+```json
+{
+  "_links": {
+    "first": {
+      "href": "https://management-test.adyen.com/v1/companies/YOUR_COMPANY_ACCOUNT/apiCredentials?pageNumber=1&pageSize=10"
+    },
+    "last": {
+      "href": "https://management-test.adyen.com/v1/companies/YOUR_COMPANY_ACCOUNT/apiCredentials?pageNumber=3&pageSize=10"
+    },
+    "next": {
+      "href": "https://management-test.adyen.com/v1/companies/YOUR_COMPANY_ACCOUNT/apiCredentials?pageNumber=2&pageSize=10"
+    },
+    "self": {
+      "href": "https://management-test.adyen.com/v1/companies/YOUR_COMPANY_ACCOUNT/apiCredentials?pageNumber=1&pageSize=10"
+    }
+  },
+  "itemsTotal": 25,
+  "pagesTotal": 3,
+  "data": [
+    {
+      "id": "YOUR_API_CREDENTIAL_1",
+      "username": "YOUR_USERNAME_1",
+      "clientKey": "YOUR_CLIENT_KEY_1",
+      "allowedIpAddresses": [],
+      "roles": [
+        "Checkout encrypted cardholder data",
+        "Merchant Recurring role",
+        "Checkout webservice role"
+      ],
+      "active": true,
+      "allowedOrigins": [
+        {
+          "id": "YOUR_ALLOWED_ORIGIN_1",
+          "domain": "http://localhost",
+          "_links": {
+            "self": {
+              "href": "https://management-test.adyen.com/v1/companies/YOUR_COMPANY_ACCOUNT/apiCredentials/YOUR_API_CREDENTIAL_1/allowedOrigins/YOUR_ALLOWED_ORIGIN_1"
+            }
+          }
+        },
+        {
+          "id": "YOUR_ALLOWED_ORIGIN_2",
+          "domain": "http://localhost:3000",
+          "_links": {
+            "self": {
+              "href": "https://management-test.adyen.com/v1/companies/YOUR_COMPANY_ACCOUNT/apiCredentials/YOUR_API_CREDENTIAL_1/allowedOrigins/YOUR_ALLOWED_ORIGIN_2"
+            }
+          }
+        }
+      ],
+      "_links": {
+        "self": {
+          "href": "https://management-test.adyen.com/v1/companies/YOUR_COMPANY_ACCOUNT/apiCredentials/YOUR_API_CREDENTIAL_1"
+        },
+        "allowedOrigins": {
+          "href": "https://management-test.adyen.com/v1/companies/YOUR_COMPANY_ACCOUNT/apiCredentials/YOUR_API_CREDENTIAL_1/allowedOrigins"
+        },
+        "company": {
+          "href": "https://management-test.adyen.com/v1/companies/YOUR_COMPANY_ACCOUNT"
+        },
+        "generateApiKey": {
+          "href": "https://management-test.adyen.com/v1/companies/YOUR_COMPANY_ACCOUNT/apiCredentials/YOUR_API_CREDENTIAL_1/generateApiKey"
+        },
+        "generateClientKey": {
+          "href": "https://management-test.adyen.com/v1/companies/YOUR_COMPANY_ACCOUNT/apiCredentials/YOUR_API_CREDENTIAL_1/generateClientKey"
+        }
+      },
+      "associatedMerchantAccounts": []
+    },
+    {
+      "id": "YOUR_API_CREDENTIAL_2",
+      "username": "YOUR_USERNAME_2",
+      "clientKey": "YOUR_CLIENT_KEY_2",
+      "allowedIpAddresses": [],
+      "roles": [
+        "Checkout encrypted cardholder data",
+        "Merchant Recurring role",
+        "Checkout webservice role"
+      ],
+      "active": true,
+      "_links": {
+        "self": {
+          "href": "https://management-test.adyen.com/v1/companies/YOUR_COMPANY_ACCOUNT/apiCredentials/YOUR_API_CREDENTIAL_2"
+        },
+        "allowedOrigins": {
+          "href": "https://management-test.adyen.com/v1/companies/YOUR_COMPANY_ACCOUNT/apiCredentials/YOUR_API_CREDENTIAL_2/allowedOrigins"
+        },
+        "company": {
+          "href": "https://management-test.adyen.com/v1/companies/YOUR_COMPANY_ACCOUNT"
+        },
+        "generateApiKey": {
+          "href": "https://management-test.adyen.com/v1/companies/YOUR_COMPANY_ACCOUNT/apiCredentials/YOUR_API_CREDENTIAL_2/generateApiKey"
+        },
+        "generateClientKey": {
+          "href": "https://management-test.adyen.com/v1/companies/YOUR_COMPANY_ACCOUNT/apiCredentials/YOUR_API_CREDENTIAL_2/generateClientKey"
+        }
+      },
+      "associatedMerchantAccounts": []
+    },
+    {
+      "id": "YOUR_API_CREDENTIAL_3",
+      "username": "YOUR_USERNAME_3",
+      "clientKey": "YOUR_CLIENT_KEY_3",
+      "allowedIpAddresses": [],
+      "roles": [
+        "API Supply MPI data with Payments",
+        "Checkout encrypted cardholder data",
+        "Merchant Recurring role",
+        "API PCI Payments role",
+        "Checkout webservice role",
+        "API 3DS 2.0 to retrieve the ThreeDS2Result for authentication only"
+      ],
+      "active": true,
+      "_links": {
+        "self": {
+          "href": "https://management-test.adyen.com/v1/companies/YOUR_COMPANY_ACCOUNT/apiCredentials/YOUR_API_CREDENTIAL_3"
+        },
+        "allowedOrigins": {
+          "href": "https://management-test.adyen.com/v1/companies/YOUR_COMPANY_ACCOUNT/apiCredentials/YOUR_API_CREDENTIAL_3/allowedOrigins"
+        },
+        "company": {
+          "href": "https://management-test.adyen.com/v1/companies/YOUR_COMPANY_ACCOUNT"
+        },
+        "generateApiKey": {
+          "href": "https://management-test.adyen.com/v1/companies/YOUR_COMPANY_ACCOUNT/apiCredentials/YOUR_API_CREDENTIAL_3/generateApiKey"
+        },
+        "generateClientKey": {
+          "href": "https://management-test.adyen.com/v1/companies/YOUR_COMPANY_ACCOUNT/apiCredentials/YOUR_API_CREDENTIAL_3/generateClientKey"
+        }
+      },
+      "associatedMerchantAccounts": []
+    },
+    {
+      "id": "YOUR_API_CREDENTIAL_4",
+      "username": "YOUR_USERNAME_4",
+      "clientKey": "YOUR_CLIENT_KEY_4",
+      "allowedIpAddresses": [],
+      "roles": [
+        "Checkout encrypted cardholder data",
+        "Checkout webservice role"
+      ],
+      "active": true,
+      "_links": {
+        "self": {
+          "href": "https://management-test.adyen.com/v1/companies/YOUR_COMPANY_ACCOUNT/apiCredentials/YOUR_API_CREDENTIAL_4"
+        },
+        "allowedOrigins": {
+          "href": "https://management-test.adyen.com/v1/companies/YOUR_COMPANY_ACCOUNT/apiCredentials/YOUR_API_CREDENTIAL_4/allowedOrigins"
+        },
+        "company": {
+          "href": "https://management-test.adyen.com/v1/companies/YOUR_COMPANY_ACCOUNT"
+        },
+        "generateApiKey": {
+          "href": "https://management-test.adyen.com/v1/companies/YOUR_COMPANY_ACCOUNT/apiCredentials/YOUR_API_CREDENTIAL_4/generateApiKey"
+        },
+        "generateClientKey": {
+          "href": "https://management-test.adyen.com/v1/companies/YOUR_COMPANY_ACCOUNT/apiCredentials/YOUR_API_CREDENTIAL_4/generateClientKey"
+        }
+      },
+      "associatedMerchantAccounts": [
+        "YOUR_MERCHANT_ACCOUNT_1"
+      ]
+    },
+    {
+      "id": "YOUR_API_CREDENTIAL_5",
+      "username": "YOUR_USERNAME_5",
+      "clientKey": "YOUR_CLIENT_KEY_5",
+      "allowedIpAddresses": [],
+      "roles": [
+        "Checkout encrypted cardholder data",
+        "Merchant Recurring role",
+        "API Authorise Referred Payments",
+        "API PCI Payments role",
+        "Checkout webservice role",
+        "Merchant PAL Webservice role"
+      ],
+      "active": true,
+      "_links": {
+        "self": {
+          "href": "https://management-test.adyen.com/v1/companies/YOUR_COMPANY_ACCOUNT/apiCredentials/YOUR_API_CREDENTIAL_5"
+        },
+        "allowedOrigins": {
+          "href": "https://management-test.adyen.com/v1/companies/YOUR_COMPANY_ACCOUNT/apiCredentials/YOUR_API_CREDENTIAL_5/allowedOrigins"
+        },
+        "company": {
+          "href": "https://management-test.adyen.com/v1/companies/YOUR_COMPANY_ACCOUNT"
+        },
+        "generateApiKey": {
+          "href": "https://management-test.adyen.com/v1/companies/YOUR_COMPANY_ACCOUNT/apiCredentials/YOUR_API_CREDENTIAL_5/generateApiKey"
+        },
+        "generateClientKey": {
+          "href": "https://management-test.adyen.com/v1/companies/YOUR_COMPANY_ACCOUNT/apiCredentials/YOUR_API_CREDENTIAL_5/generateClientKey"
+        }
+      },
+      "associatedMerchantAccounts": []
+    },
+    {
+      "id": "YOUR_API_CREDENTIAL_6",
+      "username": "YOUR_USERNAME_6",
+      "clientKey": "YOUR_CLIENT_KEY_6",
+      "allowedIpAddresses": [],
+      "roles": [
+        "Merchant Report Download role"
+      ],
+      "active": true,
+      "_links": {
+        "self": {
+          "href": "https://management-test.adyen.com/v1/companies/YOUR_COMPANY_ACCOUNT/apiCredentials/YOUR_API_CREDENTIAL_6"
+        },
+        "allowedOrigins": {
+          "href": "https://management-test.adyen.com/v1/companies/YOUR_COMPANY_ACCOUNT/apiCredentials/YOUR_API_CREDENTIAL_6/allowedOrigins"
+        },
+        "company": {
+          "href": "https://management-test.adyen.com/v1/companies/YOUR_COMPANY_ACCOUNT"
+        },
+        "generateApiKey": {
+          "href": "https://management-test.adyen.com/v1/companies/YOUR_COMPANY_ACCOUNT/apiCredentials/YOUR_API_CREDENTIAL_6/generateApiKey"
+        },
+        "generateClientKey": {
+          "href": "https://management-test.adyen.com/v1/companies/YOUR_COMPANY_ACCOUNT/apiCredentials/YOUR_API_CREDENTIAL_6/generateClientKey"
+        }
+      },
+      "associatedMerchantAccounts": []
+    },
+    {
+      "id": "YOUR_API_CREDENTIAL_7",
+      "username": "YOUR_USERNAME_7",
+      "clientKey": "YOUR_CLIENT_KEY_7",
+      "allowedIpAddresses": [],
+      "roles": [
+        "Merchant Report Download role"
+      ],
+      "active": true,
+      "_links": {
+        "self": {
+          "href": "https://management-test.adyen.com/v1/companies/YOUR_COMPANY_ACCOUNT/apiCredentials/YOUR_API_CREDENTIAL_7"
+        },
+        "allowedOrigins": {
+          "href": "https://management-test.adyen.com/v1/companies/YOUR_COMPANY_ACCOUNT/apiCredentials/YOUR_API_CREDENTIAL_7/allowedOrigins"
+        },
+        "company": {
+          "href": "https://management-test.adyen.com/v1/companies/YOUR_COMPANY_ACCOUNT"
+        },
+        "generateApiKey": {
+          "href": "https://management-test.adyen.com/v1/companies/YOUR_COMPANY_ACCOUNT/apiCredentials/YOUR_API_CREDENTIAL_7/generateApiKey"
+        },
+        "generateClientKey": {
+          "href": "https://management-test.adyen.com/v1/companies/YOUR_COMPANY_ACCOUNT/apiCredentials/YOUR_API_CREDENTIAL_7/generateClientKey"
+        }
+      },
+      "associatedMerchantAccounts": [
+        "YOUR_MERCHANT_ACCOUNT_2",
+        "YOUR_MERCHANT_ACCOUNT_3"
+      ]
+    },
+    {
+      "id": "YOUR_API_CREDENTIAL_8",
+      "username": "YOUR_USERNAME_8",
+      "clientKey": "YOUR_CLIENT_KEY_8",
+      "allowedIpAddresses": [],
+      "roles": [
+        "Merchant Report Download role"
+      ],
+      "active": true,
+      "_links": {
+        "self": {
+          "href": "https://management-test.adyen.com/v1/companies/YOUR_COMPANY_ACCOUNT/apiCredentials/YOUR_API_CREDENTIAL_8"
+        },
+        "allowedOrigins": {
+          "href": "https://management-test.adyen.com/v1/companies/YOUR_COMPANY_ACCOUNT/apiCredentials/YOUR_API_CREDENTIAL_8/allowedOrigins"
+        },
+        "company": {
+          "href": "https://management-test.adyen.com/v1/companies/YOUR_COMPANY_ACCOUNT"
+        },
+        "generateApiKey": {
+          "href": "https://management-test.adyen.com/v1/companies/YOUR_COMPANY_ACCOUNT/apiCredentials/YOUR_API_CREDENTIAL_8/generateApiKey"
+        },
+        "generateClientKey": {
+          "href": "https://management-test.adyen.com/v1/companies/YOUR_COMPANY_ACCOUNT/apiCredentials/YOUR_API_CREDENTIAL_8/generateClientKey"
+        }
+      },
+      "associatedMerchantAccounts": []
+    },
+    {
+      "id": "YOUR_API_CREDENTIAL_9",
+      "username": "YOUR_USERNAME_9",
+      "clientKey": "YOUR_CLIENT_KEY_9",
+      "allowedIpAddresses": [],
+      "roles": [
+        "Merchant Report Download role"
+      ],
+      "active": true,
+      "_links": {
+        "self": {
+          "href": "https://management-test.adyen.com/v1/companies/YOUR_COMPANY_ACCOUNT/apiCredentials/YOUR_API_CREDENTIAL_9"
+        },
+        "allowedOrigins": {
+          "href": "https://management-test.adyen.com/v1/companies/YOUR_COMPANY_ACCOUNT/apiCredentials/YOUR_API_CREDENTIAL_9/allowedOrigins"
+        },
+        "company": {
+          "href": "https://management-test.adyen.com/v1/companies/YOUR_COMPANY_ACCOUNT"
+        },
+        "generateApiKey": {
+          "href": "https://management-test.adyen.com/v1/companies/YOUR_COMPANY_ACCOUNT/apiCredentials/YOUR_API_CREDENTIAL_9/generateApiKey"
+        },
+        "generateClientKey": {
+          "href": "https://management-test.adyen.com/v1/companies/YOUR_COMPANY_ACCOUNT/apiCredentials/YOUR_API_CREDENTIAL_9/generateClientKey"
+        }
+      },
+      "associatedMerchantAccounts": [
+        "YOUR_MERCHANT_ACCOUNT_4",
+        "YOUR_MERCHANT_ACCOUNT_5"
+      ]
+    },
+    {
+      "id": "YOUR_API_CREDENTIAL_10",
+      "username": "YOUR_USERNAME_10",
+      "clientKey": "YOUR_CLIENT_KEY_10",
+      "allowedIpAddresses": [],
+      "roles": [
+        "Merchant Report Download role"
+      ],
+      "active": true,
+      "_links": {
+        "self": {
+          "href": "https://management-test.adyen.com/v1/companies/YOUR_COMPANY_ACCOUNT/apiCredentials/YOUR_API_CREDENTIAL_10"
+        },
+        "allowedOrigins": {
+          "href": "https://management-test.adyen.com/v1/companies/YOUR_COMPANY_ACCOUNT/apiCredentials/YOUR_API_CREDENTIAL_10/allowedOrigins"
+        },
+        "company": {
+          "href": "https://management-test.adyen.com/v1/companies/YOUR_COMPANY_ACCOUNT"
+        },
+        "generateApiKey": {
+          "href": "https://management-test.adyen.com/v1/companies/YOUR_COMPANY_ACCOUNT/apiCredentials/YOUR_API_CREDENTIAL_10/generateApiKey"
+        },
+        "generateClientKey": {
+          "href": "https://management-test.adyen.com/v1/companies/YOUR_COMPANY_ACCOUNT/apiCredentials/YOUR_API_CREDENTIAL_10/generateClientKey"
+        }
+      },
+      "associatedMerchantAccounts": []
+    }
+  ]
+}
+```
+
+## Errors
+
+| HTTP Status Code | Error Description | Exception Class |
+|  --- | --- | --- |
+| 400 | Bad Request - a problem reading or understanding the request. | [`RestServiceErrorException`](../../doc/models/rest-service-error-exception.md) |
+| 401 | Unauthorized - authentication required. | [`RestServiceErrorException`](../../doc/models/rest-service-error-exception.md) |
+| 403 | Forbidden - insufficient permissions to process the request. | [`RestServiceErrorException`](../../doc/models/rest-service-error-exception.md) |
+| 422 | Unprocessable Entity - a request validation error. | [`RestServiceErrorException`](../../doc/models/rest-service-error-exception.md) |
+| 500 | Internal Server Error - the server could not process the request. | [`RestServiceErrorException`](../../doc/models/rest-service-error-exception.md) |
+
+
+# Post-Companies-Company Id-Api Credentials
+
+Creates an [API credential](https://docs.adyen.com/development-resources/api-credentials) for the company account identified in the path. In the request, you can specify which merchant accounts the new API credential will have access to, as well as its roles and allowed origins.
+
+The response includes several types of authentication details:
+
+* [API key](https://docs.adyen.com/development-resources/api-authentication#api-key-authentication): used for API request authentication.
+* [Client key](https://docs.adyen.com/development-resources/client-side-authentication#how-it-works): public key used for client-side authentication.
+* [Username and password](https://docs.adyen.com/development-resources/api-authentication#using-basic-authentication): used for basic authentication.
+
+> Make sure you store the API key securely in your system. You won't be able to retrieve it later.
+
+If your API key is lost or compromised, you need to [generate a new API key](https://docs.adyen.com/api-explorer/#/ManagementService/v1/post/companies/{companyId}/apiCredentials/{apiCredentialId}/generateApiKey).
+
+To make this request, your API credential must have the following [roles](https://docs.adyen.com/development-resources/api-credentials#api-permissions):
+
+* Management API—API credentials read and write
+
+```python
+def post_companies_company_id_api_credentials(self,
+                                             company_id,
+                                             body=None)
+```
+
+## Authentication
+
+This endpoint requires [BasicAuth](../../doc/auth/basic-authentication.md) **OR** [ApiKeyAuth](../../doc/auth/custom-header-signature.md)
+
+## Parameters
+
+| Parameter | Type | Tags | Description |
+|  --- | --- | --- | --- |
+| `company_id` | `str` | Template, Required | The unique identifier of the company account. |
+| `body` | [`CreateCompanyApiCredentialRequest`](../../doc/models/create-company-api-credential-request.md) | Body, Optional | - |
+
+## Response Type
+
+**200**: OK - the request has succeeded.
+
+This method returns an [`ApiResponse`](../../doc/api-response.md) instance. The `body` property of this instance returns the response data which is of type [`CreateCompanyApiCredentialResponse`](../../doc/models/create-company-api-credential-response.md).
+
+## Example Usage
+
+```python
+company_id = 'companyId0'
+
+body = CreateCompanyApiCredentialRequest(
+    allowed_origins=[
+        'https://www.mystore.com'
+    ],
+    associated_merchant_accounts=[
+        'YOUR_MERCHANT_ACCOUNT_AU',
+        'YOUR_MERCHANT_ACCOUNT_EU',
+        'YOUR_MERCHANT_ACCOUNT_US'
+    ],
+    roles=[
+        'Checkout webservice role'
+    ]
+)
+
+result = api_credentials_company_level_api.post_companies_company_id_api_credentials(
+    company_id,
+    body=body
+)
+
+if result.is_success():
+    print(result.body)
+elif result.is_error():
+    print(result.errors)
+```
+
+## Example Response *(as JSON)*
+
+```json
+{
+  "id": "YOUR_API_CREDENTIAL",
+  "username": "YOUR_USERNAME",
+  "clientKey": "YOUR_CLIENT_KEY",
+  "allowedIpAddresses": [],
+  "roles": [
+    "Checkout webservice role"
+  ],
+  "active": true,
+  "allowedOrigins": [
+    {
+      "id": "YOUR_ALLOWED_ORIGIN",
+      "domain": "https://www.mystore.com",
+      "_links": {
+        "self": {
+          "href": "https://management-test.adyen.com/v1/companies/YOUR_COMPANY_ACCOUNT/apiCredentials/YOUR_API_CREDENTIAL/allowedOrigins/YOUR_ALLOWED_ORIGIN"
+        }
+      }
+    }
+  ],
+  "_links": {
+    "self": {
+      "href": "https://management-test.adyen.com/v1/companies/YOUR_COMPANY_ACCOUNT/apiCredentials/YOUR_API_CREDENTIAL"
+    },
+    "allowedOrigins": {
+      "href": "https://management-test.adyen.com/v1/companies/YOUR_COMPANY_ACCOUNT/apiCredentials/YOUR_API_CREDENTIAL/allowedOrigins"
+    },
+    "company": {
+      "href": "https://management-test.adyen.com/v1/companies/YOUR_COMPANY_ACCOUNT"
+    },
+    "generateApiKey": {
+      "href": "https://management-test.adyen.com/v1/companies/YOUR_COMPANY_ACCOUNT/apiCredentials/YOUR_API_CREDENTIAL/generateApiKey"
+    },
+    "generateClientKey": {
+      "href": "https://management-test.adyen.com/v1/companies/YOUR_COMPANY_ACCOUNT/apiCredentials/YOUR_API_CREDENTIAL/generateClientKey"
+    }
+  },
+  "apiKey": "YOUR_API_KEY",
+  "password": "YOUR_PASSWORD",
+  "associatedMerchantAccounts": [
+    "YOUR_MERCHANT_ACCOUNT_AU",
+    "YOUR_MERCHANT_ACCOUNT_EU",
+    "YOUR_MERCHANT_ACCOUNT_US"
+  ]
+}
+```
+
+## Errors
+
+| HTTP Status Code | Error Description | Exception Class |
+|  --- | --- | --- |
+| 400 | Bad Request - a problem reading or understanding the request. | [`RestServiceErrorException`](../../doc/models/rest-service-error-exception.md) |
+| 401 | Unauthorized - authentication required. | [`RestServiceErrorException`](../../doc/models/rest-service-error-exception.md) |
+| 403 | Forbidden - insufficient permissions to process the request. | [`RestServiceErrorException`](../../doc/models/rest-service-error-exception.md) |
+| 422 | Unprocessable Entity - a request validation error. | [`RestServiceErrorException`](../../doc/models/rest-service-error-exception.md) |
+| 500 | Internal Server Error - the server could not process the request. | [`RestServiceErrorException`](../../doc/models/rest-service-error-exception.md) |
+
+
+# Get-Companies-Company Id-Api Credentials-Api Credential Id
+
+Returns the [API credential](https://docs.adyen.com/development-resources/api-credentials) identified in the path.
+
+To make this request, your API credential must have the following [roles](https://docs.adyen.com/development-resources/api-credentials#api-permissions):
+
+* Management API—API credentials read and write
+
+```python
+def get_companies_company_id_api_credentials_api_credential_id(self,
+                                                              company_id,
+                                                              api_credential_id)
+```
+
+## Authentication
+
+This endpoint requires [BasicAuth](../../doc/auth/basic-authentication.md) **OR** [ApiKeyAuth](../../doc/auth/custom-header-signature.md)
+
+## Parameters
+
+| Parameter | Type | Tags | Description |
+|  --- | --- | --- | --- |
+| `company_id` | `str` | Template, Required | The unique identifier of the company account. |
+| `api_credential_id` | `str` | Template, Required | Unique identifier of the API credential. |
+
+## Response Type
+
+**200**: OK - the request has succeeded.
+
+This method returns an [`ApiResponse`](../../doc/api-response.md) instance. The `body` property of this instance returns the response data which is of type [`CompanyApiCredential`](../../doc/models/company-api-credential.md).
+
+## Example Usage
+
+```python
+company_id = 'companyId0'
+
+api_credential_id = 'apiCredentialId8'
+
+result = api_credentials_company_level_api.get_companies_company_id_api_credentials_api_credential_id(
+    company_id,
+    api_credential_id
+)
+
+if result.is_success():
+    print(result.body)
+elif result.is_error():
+    print(result.errors)
+```
+
+## Example Response *(as JSON)*
+
+```json
+{
+  "id": "YOUR_API_CREDENTIAL",
+  "username": "YOUR_USERNAME",
+  "clientKey": "YOUR_CLIENT_KEY",
+  "allowedIpAddresses": [],
+  "roles": [
+    "Checkout encrypted cardholder data",
+    "Merchant Recurring role",
+    "Checkout webservice role"
+  ],
+  "active": true,
+  "allowedOrigins": [
+    {
+      "id": "YOUR_ALLOWED_ORIGIN_1",
+      "domain": "http://localhost",
+      "_links": {
+        "self": {
+          "href": "https://management-test.adyen.com/v1/companies/YOUR_COMPANY_ACCOUNT/apiCredentials/YOUR_API_CREDENTIAL/allowedOrigins/YOUR_ALLOWED_ORIGIN_1"
+        }
+      }
+    },
+    {
+      "id": "YOUR_ALLOWED_ORIGIN_2",
+      "domain": "http://localhost:3000",
+      "_links": {
+        "self": {
+          "href": "https://management-test.adyen.com/v1/companies/YOUR_COMPANY_ACCOUNT/apiCredentials/YOUR_API_CREDENTIAL/allowedOrigins/YOUR_ALLOWED_ORIGIN_2"
+        }
+      }
+    }
+  ],
+  "_links": {
+    "self": {
+      "href": "https://management-test.adyen.com/v1/companies/YOUR_COMPANY_ACCOUNT/apiCredentials/YOUR_API_CREDENTIAL"
+    },
+    "allowedOrigins": {
+      "href": "https://management-test.adyen.com/v1/companies/YOUR_COMPANY_ACCOUNT/apiCredentials/YOUR_API_CREDENTIAL/allowedOrigins"
+    },
+    "company": {
+      "href": "https://management-test.adyen.com/v1/companies/YOUR_COMPANY_ACCOUNT"
+    },
+    "generateApiKey": {
+      "href": "https://management-test.adyen.com/v1/companies/YOUR_COMPANY_ACCOUNT/apiCredentials/YOUR_API_CREDENTIAL/generateApiKey"
+    },
+    "generateClientKey": {
+      "href": "https://management-test.adyen.com/v1/companies/YOUR_COMPANY_ACCOUNT/apiCredentials/YOUR_API_CREDENTIAL/generateClientKey"
+    }
+  },
+  "associatedMerchantAccounts": []
+}
+```
+
+## Errors
+
+| HTTP Status Code | Error Description | Exception Class |
+|  --- | --- | --- |
+| 400 | Bad Request - a problem reading or understanding the request. | [`RestServiceErrorException`](../../doc/models/rest-service-error-exception.md) |
+| 401 | Unauthorized - authentication required. | [`RestServiceErrorException`](../../doc/models/rest-service-error-exception.md) |
+| 403 | Forbidden - insufficient permissions to process the request. | [`RestServiceErrorException`](../../doc/models/rest-service-error-exception.md) |
+| 422 | Unprocessable Entity - a request validation error. | [`RestServiceErrorException`](../../doc/models/rest-service-error-exception.md) |
+| 500 | Internal Server Error - the server could not process the request. | [`RestServiceErrorException`](../../doc/models/rest-service-error-exception.md) |
+
+
+# Patch-Companies-Company Id-Api Credentials-Api Credential Id
+
+Changes the API credential's roles, merchant account access, or allowed origins. The request has the new values for the fields you want to change. The response contains the full updated API credential, including the new values from the request.
+
+To make this request, your API credential must have the following [roles](https://docs.adyen.com/development-resources/api-credentials#api-permissions):
+
+* Management API—API credentials read and write
+
+```python
+def patch_companies_company_id_api_credentials_api_credential_id(self,
+                                                                company_id,
+                                                                api_credential_id,
+                                                                body=None)
+```
+
+## Authentication
+
+This endpoint requires [BasicAuth](../../doc/auth/basic-authentication.md) **OR** [ApiKeyAuth](../../doc/auth/custom-header-signature.md)
+
+## Parameters
+
+| Parameter | Type | Tags | Description |
+|  --- | --- | --- | --- |
+| `company_id` | `str` | Template, Required | The unique identifier of the company account. |
+| `api_credential_id` | `str` | Template, Required | Unique identifier of the API credential. |
+| `body` | [`UpdateCompanyApiCredentialRequest`](../../doc/models/update-company-api-credential-request.md) | Body, Optional | - |
+
+## Response Type
+
+**200**: OK - the request has succeeded.
+
+This method returns an [`ApiResponse`](../../doc/api-response.md) instance. The `body` property of this instance returns the response data which is of type [`CompanyApiCredential`](../../doc/models/company-api-credential.md).
+
+## Example Usage
+
+```python
+company_id = 'companyId0'
+
+api_credential_id = 'apiCredentialId8'
+
+body = UpdateCompanyApiCredentialRequest(
+    active=True
+)
+
+result = api_credentials_company_level_api.patch_companies_company_id_api_credentials_api_credential_id(
+    company_id,
+    api_credential_id,
+    body=body
+)
+
+if result.is_success():
+    print(result.body)
+elif result.is_error():
+    print(result.errors)
+```
+
+## Example Response *(as JSON)*
+
+```json
+{
+  "id": "YOUR_API_CREDENTIAL",
+  "username": "YOUR_USERNAME",
+  "clientKey": "YOUR_CLIENT_KEY",
+  "allowedIpAddresses": [],
+  "roles": [
+    "Management API - Accounts read",
+    "Management API - Webhooks read",
+    "Management API - API credentials read and write",
+    "Management API - Stores read",
+    "Management API — Payment methods read",
+    "Management API - Stores read and write",
+    "Management API - Webhooks read and write",
+    "Merchant Recurring role",
+    "Data Protection API",
+    "Management API - Payout Account Settings Read",
+    "Checkout webservice role",
+    "Management API - Accounts read and write",
+    "Merchant PAL Webservice role"
+  ],
+  "active": true,
+  "_links": {
+    "self": {
+      "href": "https://management-test.adyen.com/v1/companies/YOUR_COMPANY_ACCOUNT/apiCredentials/YOUR_API_CREDENTIAL"
+    },
+    "allowedOrigins": {
+      "href": "https://management-test.adyen.com/v1/companies/YOUR_COMPANY_ACCOUNT/apiCredentials/YOUR_API_CREDENTIAL/allowedOrigins"
+    },
+    "company": {
+      "href": "https://management-test.adyen.com/v1/companies/YOUR_COMPANY_ACCOUNT"
+    },
+    "generateApiKey": {
+      "href": "https://management-test.adyen.com/v1/companies/YOUR_COMPANY_ACCOUNT/apiCredentials/YOUR_API_CREDENTIAL/generateApiKey"
+    },
+    "generateClientKey": {
+      "href": "https://management-test.adyen.com/v1/companies/YOUR_COMPANY_ACCOUNT/apiCredentials/YOUR_API_CREDENTIAL/generateClientKey"
+    }
+  },
+  "associatedMerchantAccounts": []
+}
+```
+
+## Errors
+
+| HTTP Status Code | Error Description | Exception Class |
+|  --- | --- | --- |
+| 400 | Bad Request - a problem reading or understanding the request. | [`RestServiceErrorException`](../../doc/models/rest-service-error-exception.md) |
+| 401 | Unauthorized - authentication required. | [`RestServiceErrorException`](../../doc/models/rest-service-error-exception.md) |
+| 403 | Forbidden - insufficient permissions to process the request. | [`RestServiceErrorException`](../../doc/models/rest-service-error-exception.md) |
+| 422 | Unprocessable Entity - a request validation error. | [`RestServiceErrorException`](../../doc/models/rest-service-error-exception.md) |
+| 500 | Internal Server Error - the server could not process the request. | [`RestServiceErrorException`](../../doc/models/rest-service-error-exception.md) |
+

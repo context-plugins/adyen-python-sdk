@@ -1,0 +1,19 @@
+[build-system]
+requires = ["setuptools>=61.0"]
+build-backend = "setuptools.build_meta"
+[project]
+name = "adyen"
+description = "The A2A payments API provides endpoints for A2A payment flows, enabling issuers to facilitate direct payments through Adyen for users with an Adyen business account.  With these endpoints, you can: - **Retrieve payment details**: Retrieve transaction information for specific payments. - **Confirm payments**: Confirm payments with Strong Customer Authentication (SCA). - **Cancel payments**: Cancel pending transactions.  ## Authentication Each request made to the A2A Payments API must be signed with an API key. Generate an API key in your Customer Area.  To connect to the API, add an `X-API-Key` header with the API key as the value, for example:   ``` curl -H \"Content-Type: application/json\" \\ -H \"X-API-Key: YOUR_API_KEY\" \\ ... ```  ## Roles and permissions To use the A2A Payments API, your API credential must have the following roles: - **Role for A2A Issuer payments - API**  Reach out to your Adyen contact to set up these roles. ## Going live When going live, generate an API key in your [live Customer Area](https://ca-live.adyen.com/ca). You can then use the API key to send requests to `https://balanceplatform-api-live.adyen.com/a2aissuer-api/v{version}/payments`.  "
+version = "1.0.0"
+dependencies = ["apimatic-core~=0.2.0, >= 0.2.24", "apimatic-core-interfaces~=0.1.0, >= 0.1.8", "apimatic-requests-client-adapter~=0.1.0, >= 0.1.10", "python-dotenv>=0.21, <2.0", "deprecation~=2.1"]
+requires-python = ">=3.7"
+[[project.authors]]
+name = "Adyen Developer Experience team"
+
+[project.optional-dependencies]
+testutils = ["pytest>=7.2.2"]
+[tool]
+[tool.setuptools]
+[tool.setuptools.packages]
+[tool.setuptools.packages.find]
+exclude = ["tests", "tests.*"]

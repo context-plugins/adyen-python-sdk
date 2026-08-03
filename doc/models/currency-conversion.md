@@ -1,0 +1,51 @@
+
+# Currency Conversion
+
+Information related to a currency conversion.
+A currency conversion occurred in the payment, and the merchant needs to know information related to this conversion (e.g. to print on the sale receipt).
+
+*This model accepts additional fields of type Any.*
+
+## Structure
+
+`CurrencyConversion`
+
+## Fields
+
+| Name | Type | Tags | Description |
+|  --- | --- | --- | --- |
+| `customer_approved_flag` | `bool` | Optional | Notify if the customer has approved something. Indicates if the customer has accepted a currency conversion.<br><br>**Default**: `True` |
+| `converted_amount` | [`ConvertedAmount`](../../doc/models/converted-amount.md) | Required | - |
+| `rate` | `float` | Optional | Rate of currency conversion. |
+| `markup` | `float` | Optional | Markup of a currency conversion amount as a percentage. |
+| `commission` | `float` | Optional | Commission for a currency conversion.<br><br>**Constraints**: `>= 0`, `<= 99999999.999999` |
+| `declaration` | `str` | Optional | Declaration to present to the customer or the cashier for validation.<br>If a declaration has to be presented to the customer.<br><br>**Constraints**: *Pattern*: `^.+$` |
+| `additional_properties` | `Dict[str, Any]` | Optional | - |
+
+## Example
+
+```python
+import jsonpickle
+
+from adyen.models.converted_amount import ConvertedAmount
+from adyen.models.currency_conversion import CurrencyConversion
+
+currency_conversion = CurrencyConversion(
+    converted_amount=ConvertedAmount(
+        amount_value=81.82,
+        currency='Currency0',
+        additional_properties={
+            'exampleAdditionalProperty': jsonpickle.decode('{"key1":"val1","key2":"val2"}')
+        }
+    ),
+    customer_approved_flag=True,
+    rate=3.48,
+    markup=24.14,
+    commission=18.5,
+    declaration='Declaration2',
+    additional_properties={
+        'exampleAdditionalProperty': jsonpickle.decode('{"key1":"val1","key2":"val2"}')
+    }
+)
+```
+

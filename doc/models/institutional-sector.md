@@ -1,0 +1,39 @@
+
+# Institutional Sector
+
+The institutional sector the organization operates within.
+
+## Enumeration
+
+`InstitutionalSector`
+
+## Fields
+
+| Name |
+|  --- |
+| `NONFINANCIALCORPORATION` |
+| `CENTRALBANK` |
+| `CREDITINSTITUTIONS` |
+| `DEPOSITTAKINGCORPORATIONS` |
+| `MONEYMARKETFUNDS` |
+| `NONMMFINVESTMENTFUNDS` |
+| `FINANCIALVEHICLECORPORATION` |
+| `OTHERFINANCIALINTERMEDIARIES` |
+| `FINANCIALAUXILIARIES` |
+| `CAPTIVEFINANCIALINSTITUTIONSANDMONEYLENDERS` |
+| `INSURANCECORPORATIONS` |
+| `PENSIONFUNDS` |
+| `CENTRALGOVERNMENT` |
+| `STATEGOVERNMENT` |
+| `LOCALGOVERNMENT` |
+| `SOCIALSECURITYFUNDS` |
+| `NONPROFITINSTITUTIONSSERVINGHOUSEHOLDS` |
+
+## Example
+
+```python
+from adyen.models.institutional_sector import InstitutionalSector
+
+institutional_sector = InstitutionalSector.SOCIALSECURITYFUNDS
+```
+

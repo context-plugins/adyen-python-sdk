@@ -1,0 +1,54 @@
+
+# Update Account Request
+
+*This model accepts additional fields of type Any.*
+
+## Structure
+
+`UpdateAccountRequest`
+
+## Fields
+
+| Name | Type | Tags | Description |
+|  --- | --- | --- | --- |
+| `account_code` | `str` | Required | The code of the account to update. |
+| `bank_account_uuid` | `str` | Optional | The bankAccountUUID of the bank account held by the account holder to couple the account with. Scheduled payouts in currencies matching the currency of this bank account will be sent to this bank account. Payouts in different currencies will be sent to a matching bank account of the account holder. |
+| `description` | `str` | Optional | A description of the account, maximum 256 characters.You can use alphanumeric characters (A-Z, a-z, 0-9), white spaces, and underscores `_`. |
+| `metadata` | `Dict[str, str]` | Optional | A set of key and value pairs for general use by the merchant.<br>The keys do not have specific names and may be used for storing miscellaneous data as desired.<br><br>> Note that during an update of metadata, the omission of existing key-value pairs will result in the deletion of those key-value pairs. |
+| `payout_method_code` | `str` | Optional | The payout method code held by the account holder to couple the account with. Scheduled card payouts will be sent using this payout method code. |
+| `payout_schedule` | [`UpdatePayoutScheduleRequest`](../../doc/models/update-payout-schedule-request.md) | Optional | - |
+| `payout_speed` | [`PayoutSpeed1`](../../doc/models/payout-speed-1.md) | Optional | - |
+| `additional_properties` | `Dict[str, Any]` | Optional | - |
+
+## Example
+
+```python
+import jsonpickle
+
+from adyen.models.action import Action
+from adyen.models.schedule_1 import Schedule1
+from adyen.models.update_account_request import UpdateAccountRequest
+from adyen.models.update_payout_schedule_request import UpdatePayoutScheduleRequest
+
+update_account_request = UpdateAccountRequest(
+    account_code='accountCode0',
+    bank_account_uuid='bankAccountUUID6',
+    description='description0',
+    metadata={
+        'key0': 'metadata3'
+    },
+    payout_method_code='payoutMethodCode0',
+    payout_schedule=UpdatePayoutScheduleRequest(
+        schedule=Schedule1.WEEKLY_ON_TUE_FRI_MIDNIGHT,
+        action=Action.NOTHING,
+        reason='reason0',
+        additional_properties={
+            'exampleAdditionalProperty': jsonpickle.decode('{"key1":"val1","key2":"val2"}')
+        }
+    ),
+    additional_properties={
+        'exampleAdditionalProperty': jsonpickle.decode('{"key1":"val1","key2":"val2"}')
+    }
+)
+```
+
