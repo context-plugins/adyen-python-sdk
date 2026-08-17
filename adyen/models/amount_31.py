@@ -10,42 +10,34 @@ from adyen.api_helper import APIHelper
 class Amount31(object):
     """Implementation of the 'Amount31' model.
 
+    The amount that you want to capture. The `currency` must match the currency used
+    in authorisation, the `value` must be smaller than or equal to the authorised
+    amount.
+
     Attributes:
         currency (str): The three-character [ISO currency
-            code](https://docs.adyen.com/development-resources/currency-codes). By
-            default, this is the original payment currency.
-        value (int): The value of the split amount, in [minor
-            units](https://docs.adyen.com/development-resources/currency-codes).
-        additional_properties (Dict[str, Any]): The additional properties for the
-            model.
+            code](https://docs.adyen.com/development-resources/currency-codes#currency
+            -codes) of the amount.
+        value (int): The numeric value of the amount, in [minor
+            units](https://docs.adyen.com/development-resources/currency-codes#minor-u
+            nits).
 
     """
 
     # Create a mapping from Model property names to API property names
     _names = {
-        "value": "value",
         "currency": "currency",
+        "value": "value",
     }
-
-    _optionals = [
-        "currency",
-    ]
 
     def __init__(
         self,
-        value=None,
-        currency=APIHelper.SKIP,
-        additional_properties=None):
+        currency=None,
+        value=None):
         """Initialize a Amount31 instance."""
         # Initialize members of the class
-        if currency is not APIHelper.SKIP:
-            self.currency = currency
+        self.currency = currency
         self.value = value
-
-        # Add additional model properties to the instance
-        if additional_properties is None:
-            additional_properties = {}
-        self.additional_properties = additional_properties
 
     @classmethod
     def from_dictionary(cls,
@@ -65,24 +57,18 @@ class Amount31(object):
             return None
 
         # Extract variables from the dictionary
+        currency =\
+            dictionary.get("currency")\
+            if dictionary.get("currency")\
+                else None
         value =\
             dictionary.get("value")\
             if dictionary.get("value")\
                 else None
-        currency =\
-            dictionary.get("currency")\
-            if dictionary.get("currency")\
-                else APIHelper.SKIP
-
-        additional_properties = APIHelper.get_additional_properties(
-            dictionary={k: v for k, v in dictionary.items()
-                        if k not in cls._names.values()},
-            unboxing_function=lambda value: value)
 
         # Return an object of this model
-        return cls(value,
-                   currency,
-                   additional_properties)
+        return cls(currency,
+                   value)
 
     @classmethod
     def validate(cls, dictionary):
@@ -99,6 +85,13 @@ class Amount31(object):
         """
         if isinstance(dictionary, cls):
             return APIHelper.is_valid_type(
+                    value=dictionary.currency,
+                    type_callable=lambda value:
+                        isinstance(
+                        value,
+                        str,
+                )) \
+                and APIHelper.is_valid_type(
                     value=dictionary.value,
                     type_callable=lambda value:
                         isinstance(
@@ -110,6 +103,13 @@ class Amount31(object):
             return False
 
         return APIHelper.is_valid_type(
+                value=dictionary.get("currency"),
+                type_callable=lambda value:
+                    isinstance(
+                    value,
+                    str,
+            )) \
+            and APIHelper.is_valid_type(
                 value=dictionary.get("value"),
                 type_callable=lambda value:
                     isinstance(
@@ -119,34 +119,22 @@ class Amount31(object):
 
     def __repr__(self):
         """Return a unambiguous string representation."""
-        _currency=(
-            self.currency
-            if hasattr(self, "currency")
-            else None
-        )
+        _currency=self.currency
         _value=self.value
-        _additional_properties=self.additional_properties
         return (
             f"{self.__class__.__name__}("
             f"currency={_currency!r}, "
             f"value={_value!r}, "
-            f"additional_properties={_additional_properties!r}, "
             f")"
         )
 
     def __str__(self):
         """Return a human-readable string representation."""
-        _currency=(
-            self.currency
-            if hasattr(self, "currency")
-            else None
-        )
+        _currency=self.currency
         _value=self.value
-        _additional_properties=self.additional_properties
         return (
             f"{self.__class__.__name__}("
             f"currency={_currency!s}, "
             f"value={_value!s}, "
-            f"additional_properties={_additional_properties!s}, "
             f")"
         )

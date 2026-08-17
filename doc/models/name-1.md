@@ -1,7 +1,7 @@
 
 # Name 1
 
-*This model accepts additional fields of type Any.*
+The name of the person funding the money.
 
 ## Structure
 
@@ -11,25 +11,17 @@
 
 | Name | Type | Tags | Description |
 |  --- | --- | --- | --- |
-| `first_name` | `str` | Required | The individual's first name. Must not be blank. |
-| `infix` | `str` | Optional | The infix in the individual's name, if any. |
-| `last_name` | `str` | Required | The individual's last name. Must not be blank. |
-| `additional_properties` | `Dict[str, Any]` | Optional | - |
+| `first_name` | `str` | Required | The first name.<br><br>**Constraints**: *Maximum Length*: `80` |
+| `last_name` | `str` | Required | The last name.<br><br>**Constraints**: *Maximum Length*: `80` |
 
 ## Example
 
 ```python
-import jsonpickle
-
 from adyen.models.name_1 import Name1
 
 name_1 = Name1(
     first_name='firstName2',
-    last_name='lastName6',
-    infix='infix6',
-    additional_properties={
-        'exampleAdditionalProperty': jsonpickle.decode('{"key1":"val1","key2":"val2"}')
-    }
+    last_name='lastName6'
 )
 ```
 

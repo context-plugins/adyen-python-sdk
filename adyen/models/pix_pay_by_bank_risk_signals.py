@@ -23,8 +23,6 @@ class PixPayByBankRiskSignals(object):
         screen_dimensions (ScreenDimensions): The model property of type
             ScreenDimensions.
         user_time_zone_offset (int): The model property of type int.
-        additional_properties (Dict[str, Any]): The additional properties for the
-            model.
 
     """
 
@@ -60,8 +58,7 @@ class PixPayByBankRiskSignals(object):
         os_version=APIHelper.SKIP,
         screen_brightness=APIHelper.SKIP,
         screen_dimensions=APIHelper.SKIP,
-        user_time_zone_offset=APIHelper.SKIP,
-        additional_properties=None):
+        user_time_zone_offset=APIHelper.SKIP):
         """Initialize a PixPayByBankRiskSignals instance."""
         # Initialize members of the class
         if confidence_score is not APIHelper.SKIP:
@@ -80,11 +77,6 @@ class PixPayByBankRiskSignals(object):
             self.screen_dimensions = screen_dimensions
         if user_time_zone_offset is not APIHelper.SKIP:
             self.user_time_zone_offset = user_time_zone_offset
-
-        # Add additional model properties to the instance
-        if additional_properties is None:
-            additional_properties = {}
-        self.additional_properties = additional_properties
 
     @classmethod
     def from_dictionary(cls,
@@ -139,11 +131,6 @@ class PixPayByBankRiskSignals(object):
             if dictionary.get("userTimeZoneOffset")\
                 else APIHelper.SKIP
 
-        additional_properties = APIHelper.get_additional_properties(
-            dictionary={k: v for k, v in dictionary.items()
-                        if k not in cls._names.values()},
-            unboxing_function=lambda value: value)
-
         # Return an object of this model
         return cls(confidence_score,
                    elapsed_time_since_boot,
@@ -152,8 +139,7 @@ class PixPayByBankRiskSignals(object):
                    os_version,
                    screen_brightness,
                    screen_dimensions,
-                   user_time_zone_offset,
-                   additional_properties)
+                   user_time_zone_offset)
 
     @classmethod
     def validate(cls, dictionary):
@@ -218,7 +204,6 @@ class PixPayByBankRiskSignals(object):
             if hasattr(self, "user_time_zone_offset")
             else None
         )
-        _additional_properties=self.additional_properties
         return (
             f"{self.__class__.__name__}("
             f"confidence_score={_confidence_score!r}, "
@@ -229,7 +214,6 @@ class PixPayByBankRiskSignals(object):
             f"screen_brightness={_screen_brightness!r}, "
             f"screen_dimensions={_screen_dimensions!r}, "
             f"user_time_zone_offset={_user_time_zone_offset!r}, "
-            f"additional_properties={_additional_properties!r}, "
             f")"
         )
 
@@ -275,7 +259,6 @@ class PixPayByBankRiskSignals(object):
             if hasattr(self, "user_time_zone_offset")
             else None
         )
-        _additional_properties=self.additional_properties
         return (
             f"{self.__class__.__name__}("
             f"confidence_score={_confidence_score!s}, "
@@ -286,6 +269,5 @@ class PixPayByBankRiskSignals(object):
             f"screen_brightness={_screen_brightness!s}, "
             f"screen_dimensions={_screen_dimensions!s}, "
             f"user_time_zone_offset={_user_time_zone_offset!s}, "
-            f"additional_properties={_additional_properties!s}, "
             f")"
         )

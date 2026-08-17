@@ -14,8 +14,6 @@ class UpdatePayoutSettingsRequest(object):
         enabled (bool): Indicates if payouts to this bank account are enabled.
             Default: **true**.  To receive payouts into this bank account, both
             `enabled` and `allowed` must be **true**.
-        additional_properties (Dict[str, Any]): The additional properties for the
-            model.
 
     """
 
@@ -30,17 +28,11 @@ class UpdatePayoutSettingsRequest(object):
 
     def __init__(
         self,
-        enabled=APIHelper.SKIP,
-        additional_properties=None):
+        enabled=APIHelper.SKIP):
         """Initialize a UpdatePayoutSettingsRequest instance."""
         # Initialize members of the class
         if enabled is not APIHelper.SKIP:
             self.enabled = enabled
-
-        # Add additional model properties to the instance
-        if additional_properties is None:
-            additional_properties = {}
-        self.additional_properties = additional_properties
 
     @classmethod
     def from_dictionary(cls,
@@ -65,14 +57,8 @@ class UpdatePayoutSettingsRequest(object):
             if "enabled" in dictionary.keys()\
                 else APIHelper.SKIP
 
-        additional_properties = APIHelper.get_additional_properties(
-            dictionary={k: v for k, v in dictionary.items()
-                        if k not in cls._names.values()},
-            unboxing_function=lambda value: value)
-
         # Return an object of this model
-        return cls(enabled,
-                   additional_properties)
+        return cls(enabled)
 
     def __repr__(self):
         """Return a unambiguous string representation."""
@@ -81,11 +67,9 @@ class UpdatePayoutSettingsRequest(object):
             if hasattr(self, "enabled")
             else None
         )
-        _additional_properties=self.additional_properties
         return (
             f"{self.__class__.__name__}("
             f"enabled={_enabled!r}, "
-            f"additional_properties={_additional_properties!r}, "
             f")"
         )
 
@@ -96,10 +80,8 @@ class UpdatePayoutSettingsRequest(object):
             if hasattr(self, "enabled")
             else None
         )
-        _additional_properties=self.additional_properties
         return (
             f"{self.__class__.__name__}("
             f"enabled={_enabled!s}, "
-            f"additional_properties={_additional_properties!s}, "
             f")"
         )

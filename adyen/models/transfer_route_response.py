@@ -15,8 +15,6 @@ class TransferRouteResponse(object):
         transfer_routes (List[TransferRoute]): List of available priorities for a
             transfer, along with requirements. Use this information to initiate a
             transfer.
-        additional_properties (Dict[str, Any]): The additional properties for the
-            model.
 
     """
 
@@ -31,17 +29,11 @@ class TransferRouteResponse(object):
 
     def __init__(
         self,
-        transfer_routes=APIHelper.SKIP,
-        additional_properties=None):
+        transfer_routes=APIHelper.SKIP):
         """Initialize a TransferRouteResponse instance."""
         # Initialize members of the class
         if transfer_routes is not APIHelper.SKIP:
             self.transfer_routes = transfer_routes
-
-        # Add additional model properties to the instance
-        if additional_properties is None:
-            additional_properties = {}
-        self.additional_properties = additional_properties
 
     @classmethod
     def from_dictionary(cls,
@@ -70,14 +62,8 @@ class TransferRouteResponse(object):
         else:
             transfer_routes = APIHelper.SKIP
 
-        additional_properties = APIHelper.get_additional_properties(
-            dictionary={k: v for k, v in dictionary.items()
-                        if k not in cls._names.values()},
-            unboxing_function=lambda value: value)
-
         # Return an object of this model
-        return cls(transfer_routes,
-                   additional_properties)
+        return cls(transfer_routes)
 
     def __repr__(self):
         """Return a unambiguous string representation."""
@@ -86,11 +72,9 @@ class TransferRouteResponse(object):
             if hasattr(self, "transfer_routes")
             else None
         )
-        _additional_properties=self.additional_properties
         return (
             f"{self.__class__.__name__}("
             f"transfer_routes={_transfer_routes!r}, "
-            f"additional_properties={_additional_properties!r}, "
             f")"
         )
 
@@ -101,10 +85,8 @@ class TransferRouteResponse(object):
             if hasattr(self, "transfer_routes")
             else None
         )
-        _additional_properties=self.additional_properties
         return (
             f"{self.__class__.__name__}("
             f"transfer_routes={_transfer_routes!s}, "
-            f"additional_properties={_additional_properties!s}, "
             f")"
         )

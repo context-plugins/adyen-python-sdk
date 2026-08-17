@@ -15,8 +15,6 @@ class DisbursementRepaymentInfoUpdate(object):
             deducted for repaying the grant. The percentage expressed in [basis
             points](https://www.investopedia.com/terms/b/basispoint.asp).
         update_description (str): The model property of type str.
-        additional_properties (Dict[str, Any]): The additional properties for the
-            model.
 
     """
 
@@ -34,19 +32,13 @@ class DisbursementRepaymentInfoUpdate(object):
     def __init__(
         self,
         basis_points=APIHelper.SKIP,
-        update_description=APIHelper.SKIP,
-        additional_properties=None):
+        update_description=APIHelper.SKIP):
         """Initialize a DisbursementRepaymentInfoUpdate instance."""
         # Initialize members of the class
         if basis_points is not APIHelper.SKIP:
             self.basis_points = basis_points
         if update_description is not APIHelper.SKIP:
             self.update_description = update_description
-
-        # Add additional model properties to the instance
-        if additional_properties is None:
-            additional_properties = {}
-        self.additional_properties = additional_properties
 
     @classmethod
     def from_dictionary(cls,
@@ -75,15 +67,9 @@ class DisbursementRepaymentInfoUpdate(object):
             if dictionary.get("updateDescription")\
                 else APIHelper.SKIP
 
-        additional_properties = APIHelper.get_additional_properties(
-            dictionary={k: v for k, v in dictionary.items()
-                        if k not in cls._names.values()},
-            unboxing_function=lambda value: value)
-
         # Return an object of this model
         return cls(basis_points,
-                   update_description,
-                   additional_properties)
+                   update_description)
 
     def __repr__(self):
         """Return a unambiguous string representation."""
@@ -97,12 +83,10 @@ class DisbursementRepaymentInfoUpdate(object):
             if hasattr(self, "update_description")
             else None
         )
-        _additional_properties=self.additional_properties
         return (
             f"{self.__class__.__name__}("
             f"basis_points={_basis_points!r}, "
             f"update_description={_update_description!r}, "
-            f"additional_properties={_additional_properties!r}, "
             f")"
         )
 
@@ -118,11 +102,9 @@ class DisbursementRepaymentInfoUpdate(object):
             if hasattr(self, "update_description")
             else None
         )
-        _additional_properties=self.additional_properties
         return (
             f"{self.__class__.__name__}("
             f"basis_points={_basis_points!s}, "
             f"update_description={_update_description!s}, "
-            f"additional_properties={_additional_properties!s}, "
             f")"
         )

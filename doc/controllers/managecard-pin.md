@@ -6,7 +6,7 @@ managecard_pin_api = client.managecard_pin
 
 ## Class Name
 
-`ManagecardPinApi`
+`ManagecardPINApi`
 
 ## Methods
 
@@ -42,7 +42,7 @@ This endpoint requires [clientKey](../../doc/auth/custom-query-parameter.md) **O
 
 **200**: OK - the request has succeeded.
 
-This method returns an [`ApiResponse`](../../doc/api-response.md) instance. The `body` property of this instance returns the response data which is of type [`PinChangeResponse`](../../doc/models/pin-change-response.md).
+[`PinChangeResponse`](../../doc/models/pin-change-response.md)
 
 ## Example Usage
 
@@ -57,11 +57,7 @@ body = PinChangeRequest(
 result = manage_card_pin_api.post_pins_change(
     body=body
 )
-
-if result.is_success():
-    print(result.body)
-elif result.is_error():
-    print(result.errors)
+print(result)
 ```
 
 ## Example Response *(as JSON)*
@@ -103,18 +99,18 @@ This endpoint requires [clientKey](../../doc/auth/custom-query-parameter.md) **O
 
 | Parameter | Type | Tags | Description |
 |  --- | --- | --- | --- |
-| `body` | [`PaymentInstrumentRevealRequest`](../../doc/models/payment-instrument-reveal-request.md) | Body, Optional | - |
+| `body` | [`RevealPinRequest`](../../doc/models/reveal-pin-request.md) | Body, Optional | - |
 
 ## Response Type
 
 **200**: OK - the request has succeeded.
 
-This method returns an [`ApiResponse`](../../doc/api-response.md) instance. The `body` property of this instance returns the response data which is of type [`RevealPinResponse`](../../doc/models/reveal-pin-response.md).
+[`RevealPinResponse`](../../doc/models/reveal-pin-response.md)
 
 ## Example Usage
 
 ```python
-body = PaymentInstrumentRevealRequest(
+body = RevealPinRequest(
     encrypted_key='75989E8881284D10153ABACF022EEA09F5...',
     payment_instrument_id='PI3227C223222B5BPCMFXD2XG'
 )
@@ -122,11 +118,7 @@ body = PaymentInstrumentRevealRequest(
 result = manage_card_pin_api.post_pins_reveal(
     body=body
 )
-
-if result.is_success():
-    print(result.body)
-elif result.is_error():
-    print(result.errors)
+print(result)
 ```
 
 ## Example Response *(as JSON)*
@@ -179,17 +171,13 @@ This endpoint requires [clientKey](../../doc/auth/custom-query-parameter.md) **O
 
 **200**: OK - the request has succeeded.
 
-This method returns an [`ApiResponse`](../../doc/api-response.md) instance. The `body` property of this instance returns the response data which is of type [`PublicKeyResponse`](../../doc/models/public-key-response.md).
+[`PublicKeyResponse`](../../doc/models/public-key-response.md)
 
 ## Example Usage
 
 ```python
 result = manage_card_pin_api.get_public_key()
-
-if result.is_success():
-    print(result.body)
-elif result.is_error():
-    print(result.errors)
+print(result)
 ```
 
 ## Example Response *(as JSON)*

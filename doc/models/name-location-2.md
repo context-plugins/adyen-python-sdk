@@ -3,8 +3,6 @@
 
 Contains the name and location of the merchant.
 
-*This model accepts additional fields of type Any.*
-
 ## Structure
 
 `NameLocation2`
@@ -19,13 +17,10 @@ Contains the name and location of the merchant.
 | `name` | `str` | Optional | The name of the merchant's shop or service. |
 | `raw_data` | `str` | Optional | The raw data. |
 | `state` | `str` | Optional | The state where the merchant is located. |
-| `additional_properties` | `Dict[str, Any]` | Optional | - |
 
 ## Example
 
 ```python
-import jsonpickle
-
 from adyen.models.name_location_2 import NameLocation2
 
 name_location_2 = NameLocation2(
@@ -33,10 +28,7 @@ name_location_2 = NameLocation2(
     country='country8',
     country_of_origin='countryOfOrigin0',
     name='name4',
-    raw_data='rawData0',
-    additional_properties={
-        'exampleAdditionalProperty': jsonpickle.decode('{"key1":"val1","key2":"val2"}')
-    }
+    raw_data='rawData0'
 )
 ```
 

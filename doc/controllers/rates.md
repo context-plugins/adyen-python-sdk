@@ -24,46 +24,42 @@ def post_rates_calculate(self,
 
 | Parameter | Type | Tags | Description |
 |  --- | --- | --- | --- |
-| `body` | [`RatesCalculateRequest`](../../doc/models/rates-calculate-request.md) | Body, Required | - |
+| `body` | [`CalculateRateRequest`](../../doc/models/calculate-rate-request.md) | Body, Required | - |
 
 ## Response Type
 
 **200**: Successful operation
 
-This method returns an [`ApiResponse`](../../doc/api-response.md) instance. The `body` property of this instance returns the response data which is of type [`RatesCalculateResponse`](../../doc/models/rates-calculate-response.md).
+[`CalculateRateResponse`](../../doc/models/calculate-rate-response.md)
 
 ## Example Usage
 
 ```python
-body = RatesCalculateRequest(
+body = CalculateRateRequest(
     exchange_calculations=[
         CalculateRateRequestItem(
-            exchange_side=ExchangeSide2.BUY,
-            source_amount=SourceAmount(
+            exchange_side=ExchangeSide2Enum.BUY,
+            source_amount=Amount19(
                 currency='CZK',
                 value=112300
             ),
             target_currency='EUR',
-            mtype=RateType2.SPLITPAYMENT
+            mtype=RateType2Enum.SPLITPAYMENT
         ),
         CalculateRateRequestItem(
-            exchange_side=ExchangeSide2.SELL,
-            source_amount=SourceAmount(
+            exchange_side=ExchangeSide2Enum.SELL,
+            source_amount=Amount19(
                 currency='CZK',
                 value=24000
             ),
             target_currency='USD',
-            mtype=RateType2.SPLITREFUND
+            mtype=RateType2Enum.SPLITREFUND
         )
     ]
 )
 
 result = rates_api.post_rates_calculate(body)
-
-if result.is_success():
-    print(result.body)
-elif result.is_error():
-    print(result.errors)
+print(result)
 ```
 
 ## Example Response *(as JSON)*
@@ -105,7 +101,7 @@ elif result.is_error():
 
 | HTTP Status Code | Error Description | Exception Class |
 |  --- | --- | --- |
-| 401 | Unauthorized | [`RatesCalculate401ErrorException`](../../doc/models/rates-calculate-401-error-exception.md) |
-| 403 | Forbidden | [`RatesCalculate403ErrorException`](../../doc/models/rates-calculate-403-error-exception.md) |
-| 422 | Unprocessable Entity - a request validation error. | [`RatesCalculate422ErrorException`](../../doc/models/rates-calculate-422-error-exception.md) |
+| 401 | Unauthorized | [`DefaultErrorResponseEntityException`](../../doc/models/default-error-response-entity-exception.md) |
+| 403 | Forbidden | [`DefaultErrorResponseEntityException`](../../doc/models/default-error-response-entity-exception.md) |
+| 422 | Unprocessable Entity - a request validation error. | [`DefaultErrorResponseEntityException`](../../doc/models/default-error-response-entity-exception.md) |
 

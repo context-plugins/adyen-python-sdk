@@ -83,8 +83,6 @@ class AdditionalDataCarRental(object):
             dataset will be submitted or is being submitted. Value should be 'A' for
             car rental. This should be included in the auth message. * Format:
             Alphanumeric * maxLength: 1
-        additional_properties (Dict[str, Any]): The additional properties for the
-            model.
 
     """
 
@@ -167,8 +165,7 @@ class AdditionalDataCarRental(object):
         car_rental_return_state_province=APIHelper.SKIP,
         car_rental_tax_exempt_indicator=APIHelper.SKIP,
         travel_entertainment_auth_data_duration=APIHelper.SKIP,
-        travel_entertainment_auth_data_market=APIHelper.SKIP,
-        additional_properties=None):
+        travel_entertainment_auth_data_market=APIHelper.SKIP):
         """Initialize a AdditionalDataCarRental instance."""
         # Initialize members of the class
         if car_rental_check_out_date is not APIHelper.SKIP:
@@ -223,11 +220,6 @@ class AdditionalDataCarRental(object):
         if travel_entertainment_auth_data_market is not APIHelper.SKIP:
             self.travel_entertainment_auth_data_market =\
                  travel_entertainment_auth_data_market
-
-        # Add additional model properties to the instance
-        if additional_properties is None:
-            additional_properties = {}
-        self.additional_properties = additional_properties
 
     @classmethod
     def from_dictionary(cls,
@@ -340,11 +332,6 @@ class AdditionalDataCarRental(object):
             if dictionary.get("travelEntertainmentAuthData.market")\
                 else APIHelper.SKIP
 
-        additional_properties = APIHelper.get_additional_properties(
-            dictionary={k: v for k, v in dictionary.items()
-                        if k not in cls._names.values()},
-            unboxing_function=lambda value: value)
-
         # Return an object of this model
         return cls(car_rental_check_out_date,
                    car_rental_customer_service_toll_free_number,
@@ -368,8 +355,7 @@ class AdditionalDataCarRental(object):
                    car_rental_return_state_province,
                    car_rental_tax_exempt_indicator,
                    travel_entertainment_auth_data_duration,
-                   travel_entertainment_auth_data_market,
-                   additional_properties)
+                   travel_entertainment_auth_data_market)
 
     def __repr__(self):
         """Return a unambiguous string representation."""
@@ -488,7 +474,6 @@ class AdditionalDataCarRental(object):
             if hasattr(self, "travel_entertainment_auth_data_market")
             else None
         )
-        _additional_properties=self.additional_properties
         return (
             f"{self.__class__.__name__}("
             f"car_rental_check_out_date={_car_rental_check_out_date!r}, "
@@ -514,7 +499,6 @@ class AdditionalDataCarRental(object):
             f"car_rental_tax_exempt_indicator={_car_rental_tax_exempt_indicator!r}, "
             f"travel_entertainment_auth_data_duration={_travel_entertainment_auth_data_duration!r}, "
             f"travel_entertainment_auth_data_market={_travel_entertainment_auth_data_market!r}, "
-            f"additional_properties={_additional_properties!r}, "
             f")"
         )
 
@@ -635,7 +619,6 @@ class AdditionalDataCarRental(object):
             if hasattr(self, "travel_entertainment_auth_data_market")
             else None
         )
-        _additional_properties=self.additional_properties
         return (
             f"{self.__class__.__name__}("
             f"car_rental_check_out_date={_car_rental_check_out_date!s}, "
@@ -661,6 +644,5 @@ class AdditionalDataCarRental(object):
             f"car_rental_tax_exempt_indicator={_car_rental_tax_exempt_indicator!s}, "
             f"travel_entertainment_auth_data_duration={_travel_entertainment_auth_data_duration!s}, "
             f"travel_entertainment_auth_data_market={_travel_entertainment_auth_data_market!s}, "
-            f"additional_properties={_additional_properties!s}, "
             f")"
         )

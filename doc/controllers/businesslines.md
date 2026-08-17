@@ -51,7 +51,7 @@ This endpoint requires [BasicAuth](../../doc/auth/basic-authentication.md) **OR*
 
 **200**: OK - the request has succeeded.
 
-This method returns an [`ApiResponse`](../../doc/api-response.md) instance. The `body` property of this instance returns the response data which is of type [`BusinessLine`](../../doc/models/business-line.md).
+[`BusinessLine`](../../doc/models/business-line.md)
 
 ## Example Usage
 
@@ -59,15 +59,15 @@ This method returns an [`ApiResponse`](../../doc/api-response.md) instance. The 
 body = BusinessLineInfo(
     industry_code='4531',
     legal_entity_id='LE00000000000000000000001',
-    service=Service.BANKING,
-    source_of_funds=SourceOfFunds(
+    service=ServiceEnum.BANKING,
+    source_of_funds=SourceOfFunds11(
         adyen_processed_funds=False,
-        amount=Amount64(
+        amount=PatchableAmountDTO(
             currency='EUR',
             value=600000
         ),
         description='Funds from my flower shop business',
-        mtype=Type72.BUSINESS
+        mtype=Type74Enum.BUSINESS
     ),
     web_data=[
         WebData(
@@ -79,11 +79,7 @@ body = BusinessLineInfo(
 result = business_lines_api.post_business_lines(
     body=body
 )
-
-if result.is_success():
-    print(result.body)
-elif result.is_error():
-    print(result.errors)
+print(result)
 ```
 
 ## Example Response *(as JSON)*
@@ -116,11 +112,11 @@ elif result.is_error():
 
 | HTTP Status Code | Error Description | Exception Class |
 |  --- | --- | --- |
-| 400 | Bad Request - a problem reading or understanding the request. | [`ServiceErrorException`](../../doc/models/service-error-exception.md) |
-| 401 | Unauthorized - authentication required. | [`ServiceErrorException`](../../doc/models/service-error-exception.md) |
-| 403 | Forbidden - insufficient permissions to process the request. | [`ServiceErrorException`](../../doc/models/service-error-exception.md) |
-| 422 | Unprocessable Entity - a request validation error. | [`ServiceErrorException`](../../doc/models/service-error-exception.md) |
-| 500 | Internal Server Error - the server could not process the request. | [`ServiceErrorException`](../../doc/models/service-error-exception.md) |
+| 400 | Bad Request - a problem reading or understanding the request. | [`ServiceErrorError1Exception`](../../doc/models/service-error-error-1-exception.md) |
+| 401 | Unauthorized - authentication required. | [`ServiceErrorError1Exception`](../../doc/models/service-error-error-1-exception.md) |
+| 403 | Forbidden - insufficient permissions to process the request. | [`ServiceErrorError1Exception`](../../doc/models/service-error-error-1-exception.md) |
+| 422 | Unprocessable Entity - a request validation error. | [`ServiceErrorError1Exception`](../../doc/models/service-error-error-1-exception.md) |
+| 500 | Internal Server Error - the server could not process the request. | [`ServiceErrorError1Exception`](../../doc/models/service-error-error-1-exception.md) |
 
 
 # Get-Business Lines-Id
@@ -154,7 +150,7 @@ This endpoint requires [BasicAuth](../../doc/auth/basic-authentication.md) **OR*
 
 **200**: OK - the request has succeeded.
 
-This method returns an [`ApiResponse`](../../doc/api-response.md) instance. The `body` property of this instance returns the response data which is of type [`BusinessLine`](../../doc/models/business-line.md).
+[`BusinessLine`](../../doc/models/business-line.md)
 
 ## Example Usage
 
@@ -162,11 +158,7 @@ This method returns an [`ApiResponse`](../../doc/api-response.md) instance. The 
 id = 'id0'
 
 result = business_lines_api.get_business_lines_id(id)
-
-if result.is_success():
-    print(result.body)
-elif result.is_error():
-    print(result.errors)
+print(result)
 ```
 
 ## Example Response *(as JSON)*
@@ -195,11 +187,11 @@ elif result.is_error():
 
 | HTTP Status Code | Error Description | Exception Class |
 |  --- | --- | --- |
-| 400 | Bad Request - a problem reading or understanding the request. | [`ServiceErrorException`](../../doc/models/service-error-exception.md) |
-| 401 | Unauthorized - authentication required. | [`ServiceErrorException`](../../doc/models/service-error-exception.md) |
-| 403 | Forbidden - insufficient permissions to process the request. | [`ServiceErrorException`](../../doc/models/service-error-exception.md) |
-| 422 | Unprocessable Entity - a request validation error. | [`ServiceErrorException`](../../doc/models/service-error-exception.md) |
-| 500 | Internal Server Error - the server could not process the request. | [`ServiceErrorException`](../../doc/models/service-error-exception.md) |
+| 400 | Bad Request - a problem reading or understanding the request. | [`ServiceErrorError1Exception`](../../doc/models/service-error-error-1-exception.md) |
+| 401 | Unauthorized - authentication required. | [`ServiceErrorError1Exception`](../../doc/models/service-error-error-1-exception.md) |
+| 403 | Forbidden - insufficient permissions to process the request. | [`ServiceErrorError1Exception`](../../doc/models/service-error-error-1-exception.md) |
+| 422 | Unprocessable Entity - a request validation error. | [`ServiceErrorError1Exception`](../../doc/models/service-error-error-1-exception.md) |
+| 500 | Internal Server Error - the server could not process the request. | [`ServiceErrorError1Exception`](../../doc/models/service-error-error-1-exception.md) |
 
 
 # Delete-Business Lines-Id
@@ -235,30 +227,25 @@ This endpoint requires [BasicAuth](../../doc/auth/basic-authentication.md) **OR*
 
 **204**: No Content - look at the actual response code for the status of the request.
 
-This method returns an [`ApiResponse`](../../doc/api-response.md) instance.
+`void`
 
 ## Example Usage
 
 ```python
 id = 'id0'
 
-result = business_lines_api.delete_business_lines_id(id)
-
-if result.is_success():
-    print(result.body)
-elif result.is_error():
-    print(result.errors)
+business_lines_api.delete_business_lines_id(id)
 ```
 
 ## Errors
 
 | HTTP Status Code | Error Description | Exception Class |
 |  --- | --- | --- |
-| 400 | Bad Request - a problem reading or understanding the request. | [`ServiceErrorException`](../../doc/models/service-error-exception.md) |
-| 401 | Unauthorized - authentication required. | [`ServiceErrorException`](../../doc/models/service-error-exception.md) |
-| 403 | Forbidden - insufficient permissions to process the request. | [`ServiceErrorException`](../../doc/models/service-error-exception.md) |
-| 422 | Unprocessable Entity - a request validation error. | [`ServiceErrorException`](../../doc/models/service-error-exception.md) |
-| 500 | Internal Server Error - the server could not process the request. | [`ServiceErrorException`](../../doc/models/service-error-exception.md) |
+| 400 | Bad Request - a problem reading or understanding the request. | [`ServiceErrorError1Exception`](../../doc/models/service-error-error-1-exception.md) |
+| 401 | Unauthorized - authentication required. | [`ServiceErrorError1Exception`](../../doc/models/service-error-error-1-exception.md) |
+| 403 | Forbidden - insufficient permissions to process the request. | [`ServiceErrorError1Exception`](../../doc/models/service-error-error-1-exception.md) |
+| 422 | Unprocessable Entity - a request validation error. | [`ServiceErrorError1Exception`](../../doc/models/service-error-error-1-exception.md) |
+| 500 | Internal Server Error - the server could not process the request. | [`ServiceErrorError1Exception`](../../doc/models/service-error-error-1-exception.md) |
 
 
 # Patch-Business Lines-Id
@@ -294,7 +281,7 @@ This endpoint requires [BasicAuth](../../doc/auth/basic-authentication.md) **OR*
 
 **200**: OK - the request has succeeded.
 
-This method returns an [`ApiResponse`](../../doc/api-response.md) instance. The `body` property of this instance returns the response data which is of type [`BusinessLine`](../../doc/models/business-line.md).
+[`BusinessLine`](../../doc/models/business-line.md)
 
 ## Example Usage
 
@@ -314,11 +301,7 @@ result = business_lines_api.patch_business_lines_id(
     id,
     body=body
 )
-
-if result.is_success():
-    print(result.body)
-elif result.is_error():
-    print(result.errors)
+print(result)
 ```
 
 ## Example Response *(as JSON)*
@@ -347,9 +330,9 @@ elif result.is_error():
 
 | HTTP Status Code | Error Description | Exception Class |
 |  --- | --- | --- |
-| 400 | Bad Request - a problem reading or understanding the request. | [`ServiceErrorException`](../../doc/models/service-error-exception.md) |
-| 401 | Unauthorized - authentication required. | [`ServiceErrorException`](../../doc/models/service-error-exception.md) |
-| 403 | Forbidden - insufficient permissions to process the request. | [`ServiceErrorException`](../../doc/models/service-error-exception.md) |
-| 422 | Unprocessable Entity - a request validation error. | [`ServiceErrorException`](../../doc/models/service-error-exception.md) |
-| 500 | Internal Server Error - the server could not process the request. | [`ServiceErrorException`](../../doc/models/service-error-exception.md) |
+| 400 | Bad Request - a problem reading or understanding the request. | [`ServiceErrorError1Exception`](../../doc/models/service-error-error-1-exception.md) |
+| 401 | Unauthorized - authentication required. | [`ServiceErrorError1Exception`](../../doc/models/service-error-error-1-exception.md) |
+| 403 | Forbidden - insufficient permissions to process the request. | [`ServiceErrorError1Exception`](../../doc/models/service-error-error-1-exception.md) |
+| 422 | Unprocessable Entity - a request validation error. | [`ServiceErrorError1Exception`](../../doc/models/service-error-error-1-exception.md) |
+| 500 | Internal Server Error - the server could not process the request. | [`ServiceErrorError1Exception`](../../doc/models/service-error-error-1-exception.md) |
 

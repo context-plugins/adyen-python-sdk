@@ -40,7 +40,7 @@ This endpoint requires [clientKey](../../doc/auth/custom-query-parameter.md) **O
 
 **200**: OK - the request has succeeded.
 
-This method returns an [`ApiResponse`](../../doc/api-response.md) instance. The `body` property of this instance returns the response data which is of type [`BalanceAccount`](../../doc/models/balance-account.md).
+[`BalanceAccount`](../../doc/models/balance-account.md)
 
 ## Example Usage
 
@@ -53,11 +53,7 @@ body = BalanceAccountInfo(
 result = balance_accounts_api.post_balance_accounts(
     body=body
 )
-
-if result.is_success():
-    print(result.body)
-elif result.is_error():
-    print(result.errors)
+print(result)
 ```
 
 ## Example Response *(as JSON)*
@@ -115,7 +111,7 @@ This endpoint requires [clientKey](../../doc/auth/custom-query-parameter.md) **O
 
 **200**: OK - the request has succeeded.
 
-This method returns an [`ApiResponse`](../../doc/api-response.md) instance. The `body` property of this instance returns the response data which is of type [`BalanceAccount`](../../doc/models/balance-account.md).
+[`BalanceAccount`](../../doc/models/balance-account.md)
 
 ## Example Usage
 
@@ -123,11 +119,7 @@ This method returns an [`ApiResponse`](../../doc/api-response.md) instance. The 
 id = 'id0'
 
 result = balance_accounts_api.get_balance_accounts_id(id)
-
-if result.is_success():
-    print(result.body)
-elif result.is_error():
-    print(result.errors)
+print(result)
 ```
 
 ## Example Response *(as JSON)*
@@ -188,7 +180,7 @@ This endpoint requires [clientKey](../../doc/auth/custom-query-parameter.md) **O
 
 **200**: OK - the request has succeeded.
 
-This method returns an [`ApiResponse`](../../doc/api-response.md) instance. The `body` property of this instance returns the response data which is of type [`BalanceAccount`](../../doc/models/balance-account.md).
+[`BalanceAccount`](../../doc/models/balance-account.md)
 
 ## Example Usage
 
@@ -203,11 +195,7 @@ result = balance_accounts_api.patch_balance_accounts_id(
     id,
     body=body
 )
-
-if result.is_success():
-    print(result.body)
-elif result.is_error():
-    print(result.errors)
+print(result)
 ```
 
 ## Example Response *(as JSON)*
@@ -272,7 +260,7 @@ This endpoint requires [clientKey](../../doc/auth/custom-query-parameter.md) **O
 
 **200**: OK - the request has succeeded.
 
-This method returns an [`ApiResponse`](../../doc/api-response.md) instance. The `body` property of this instance returns the response data which is of type [`PaginatedPaymentInstrumentsResponse`](../../doc/models/paginated-payment-instruments-response.md).
+[`PaginatedPaymentInstrumentsResponse`](../../doc/models/paginated-payment-instruments-response.md)
 
 ## Example Usage
 
@@ -280,11 +268,7 @@ This method returns an [`ApiResponse`](../../doc/api-response.md) instance. The 
 id = 'id0'
 
 result = balance_accounts_api.get_balance_accounts_id_payment_instruments(id)
-
-if result.is_success():
-    print(result.body)
-elif result.is_error():
-    print(result.errors)
+print(result)
 ```
 
 ## Example Response *(as JSON)*
@@ -372,7 +356,7 @@ This endpoint requires [clientKey](../../doc/auth/custom-query-parameter.md) **O
 
 **200**: OK - the request has succeeded.
 
-This method returns an [`ApiResponse`](../../doc/api-response.md) instance. The `body` property of this instance returns the response data which is of type [`TransactionRulesResponse`](../../doc/models/transaction-rules-response.md).
+[`TransactionRulesResponse`](../../doc/models/transaction-rules-response.md)
 
 ## Example Usage
 
@@ -380,11 +364,7 @@ This method returns an [`ApiResponse`](../../doc/api-response.md) instance. The 
 id = 'id0'
 
 result = balance_accounts_api.get_balance_accounts_id_transaction_rules(id)
-
-if result.is_success():
-    print(result.body)
-elif result.is_error():
-    print(result.errors)
+print(result)
 ```
 
 ## Errors

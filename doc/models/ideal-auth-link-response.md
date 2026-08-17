@@ -1,8 +1,6 @@
 
 # Ideal Auth Link Response
 
-*This model accepts additional fields of type Any.*
-
 ## Structure
 
 `IdealAuthLinkResponse`
@@ -11,27 +9,18 @@
 
 | Name | Type | Tags | Description |
 |  --- | --- | --- | --- |
-| `redirect_url` | [`Href`](../../doc/models/href.md) | Optional | - |
-| `additional_properties` | `Dict[str, Any]` | Optional | - |
+| `redirect_url` | [`Href3`](../../doc/models/href-3.md) | Optional | A short-lived URL that redirects the user to the iDEAL profile management page. |
 
 ## Example
 
 ```python
-import jsonpickle
-
-from adyen.models.href import Href
+from adyen.models.href_3 import Href3
 from adyen.models.ideal_auth_link_response import IdealAuthLinkResponse
 
 ideal_auth_link_response = IdealAuthLinkResponse(
-    redirect_url=Href(
-        href='href8',
-        additional_properties={
-            'exampleAdditionalProperty': jsonpickle.decode('{"key1":"val1","key2":"val2"}')
-        }
-    ),
-    additional_properties={
-        'exampleAdditionalProperty': jsonpickle.decode('{"key1":"val1","key2":"val2"}')
-    }
+    redirect_url=Href3(
+        href='href8'
+    )
 )
 ```
 

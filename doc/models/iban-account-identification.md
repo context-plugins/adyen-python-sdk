@@ -1,36 +1,26 @@
 
 # Iban Account Identification
 
-*This model accepts additional fields of type Any.*
-
 ## Structure
 
 `IbanAccountIdentification`
-
-## Inherits From
-
-[`AccountIdentification`](../../doc/models/account-identification.md)
 
 ## Fields
 
 | Name | Type | Tags | Description |
 |  --- | --- | --- | --- |
-| `iban` | `str` | Required | The IBAN of the bank account.<br><br>**Constraints**: *Minimum Length*: `1` |
-| `additional_properties` | `Dict[str, Any]` | Optional | - |
+| `bic` | `str` | Optional | The bank's 8- or 11-character BIC or SWIFT code. |
+| `iban` | `str` | Required | The international bank account number as defined in the [ISO-13616](https://www.iso.org/standard/81090.html) standard. |
+| `mtype` | `str` | Required, Constant | **iban**<br><br>**Value**: `"iban"` |
 
 ## Example
 
 ```python
-import jsonpickle
-
-from adyen.models.account_identification import IbanAccountIdentification
+from adyen.models.iban_account_identification import IbanAccountIdentification
 
 iban_account_identification = IbanAccountIdentification(
-    iban='NL00AAAA0000000000',
-    mtype='iban',
-    additional_properties={
-        'exampleAdditionalProperty': jsonpickle.decode('{"key1":"val1","key2":"val2"}')
-    }
+    iban='iban8',
+    bic='bic6'
 )
 ```
 

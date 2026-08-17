@@ -1,8 +1,6 @@
 
 # Givex Info
 
-*This model accepts additional fields of type Any.*
-
 ## Structure
 
 `GivexInfo`
@@ -13,26 +11,20 @@
 |  --- | --- | --- | --- |
 | `currency_code` | `str` | Required | The three-character ISO currency code, such as **EUR**. |
 | `password` | `str` | Required | The password provided by the acquirer. |
-| `payment_flow` | [`ShopperInteraction`](../../doc/models/shopper-interaction.md) | Required | - |
+| `payment_flow` | [`PaymentFlowEnum`](../../doc/models/payment-flow-enum.md) | Required | The sales channel used for the payment. |
 | `username` | `str` | Required | The username provided by the acquirer. |
-| `additional_properties` | `Dict[str, Any]` | Optional | - |
 
 ## Example
 
 ```python
-import jsonpickle
-
 from adyen.models.givex_info import GivexInfo
-from adyen.models.shopper_interaction import ShopperInteraction
+from adyen.models.payment_flow_enum import PaymentFlowEnum
 
 givex_info = GivexInfo(
     currency_code='currencyCode0',
     password='password4',
-    payment_flow=ShopperInteraction.ECOMMERCE,
-    username='username0',
-    additional_properties={
-        'exampleAdditionalProperty': jsonpickle.decode('{"key1":"val1","key2":"val2"}')
-    }
+    payment_flow=PaymentFlowEnum.ECOMMERCE,
+    username='username0'
 )
 ```
 

@@ -3,8 +3,6 @@
 
 Content of the Reversal Response message.
 
-*This model accepts additional fields of type Any.*
-
 ## Structure
 
 `ReversalResponse2`
@@ -13,86 +11,67 @@ Content of the Reversal Response message.
 
 | Name | Type | Tags | Description |
 |  --- | --- | --- | --- |
-| `response` | [`Response3`](../../doc/models/response-3.md) | Required | - |
-| `poi_data` | [`PoiData2`](../../doc/models/poi-data-2.md) | Optional | - |
-| `original_poi_transaction` | [`OriginalPoiTransaction3`](../../doc/models/original-poi-transaction-3.md) | Optional | - |
+| `response` | [`Response11`](../../doc/models/response-11.md) | Required | Result of a message request processing. |
+| `poi_data` | [`POIData4`](../../doc/models/poi-data-4.md) | Optional | Data related to the POI System.<br>If Result is Success. |
+| `original_poi_transaction` | [`OriginalPOITransaction`](../../doc/models/original-poi-transaction.md) | Optional | Identification of a previous POI transaction.<br>In the Payment Request message, it allows using the card of a previous CardAcquisition or Payment request. |
 | `reversed_amount` | `float` | Optional | Amount of the payment or loyalty to reverse.<br>Copy.<br><br>**Constraints**: `>= 0`, `<= 99999999.999999` |
 | `payment_receipt` | [`List[PaymentReceipt]`](../../doc/models/payment-receipt.md) | Optional | - |
-| `additional_properties` | `Dict[str, Any]` | Optional | - |
 
 ## Example
 
 ```python
 import dateutil.parser
-import jsonpickle
 
-from adyen.models.character_height_1 import CharacterHeight1
-from adyen.models.character_width_1 import CharacterWidth1
-from adyen.models.document_qualifier_1 import DocumentQualifier1
-from adyen.models.error_condition_1 import ErrorCondition1
-from adyen.models.original_poi_transaction_3 import OriginalPoiTransaction3
-from adyen.models.output_barcode import OutputBarcode
-from adyen.models.output_content_2 import OutputContent2
-from adyen.models.output_format_1 import OutputFormat1
+from adyen.models.character_height_1_enum import CharacterHeight1Enum
+from adyen.models.character_width_1_enum import CharacterWidth1Enum
+from adyen.models.document_qualifier_1_enum import DocumentQualifier1Enum
+from adyen.models.error_condition_1_enum import ErrorCondition1Enum
+from adyen.models.original_poi_transaction import OriginalPOITransaction
+from adyen.models.output_barcode_1 import OutputBarcode1
+from adyen.models.output_content_1 import OutputContent1
+from adyen.models.output_format_1_enum import OutputFormat1Enum
 from adyen.models.output_text import OutputText
 from adyen.models.payment_receipt import PaymentReceipt
-from adyen.models.poi_data_2 import PoiData2
-from adyen.models.poi_transaction_id import PoiTransactionId
-from adyen.models.predefined_content_2 import PredefinedContent2
-from adyen.models.response_3 import Response3
-from adyen.models.result_11 import Result11
+from adyen.models.poi_data_4 import POIData4
+from adyen.models.predefined_content_1 import PredefinedContent1
+from adyen.models.response_11 import Response11
+from adyen.models.result_11_enum import Result11Enum
 from adyen.models.reversal_response_2 import ReversalResponse2
+from adyen.models.transaction_id_type_2 import TransactionIDType2
+from adyen.models.transaction_id_type_4 import TransactionIDType4
 
 reversal_response_2 = ReversalResponse2(
-    response=Response3(
-        result=Result11.PARTIAL,
-        error_condition=ErrorCondition1.PAYMENTRESTRICTION,
-        additional_response='AdditionalResponse8',
-        additional_properties={
-            'exampleAdditionalProperty': jsonpickle.decode('{"key1":"val1","key2":"val2"}')
-        }
+    response=Response11(
+        result=Result11Enum.PARTIAL,
+        error_condition=ErrorCondition1Enum.PAYMENTRESTRICTION,
+        additional_response='AdditionalResponse8'
     ),
-    poi_data=PoiData2(
-        poi_transaction_id=PoiTransactionId(
+    poi_data=POIData4(
+        poi_transaction_id=TransactionIDType2(
             transaction_id='TransactionID2',
-            time_stamp=dateutil.parser.parse('2016-03-13T12:52:32.123Z'),
-            additional_properties={
-                'exampleAdditionalProperty': jsonpickle.decode('{"key1":"val1","key2":"val2"}')
-            }
+            time_stamp=dateutil.parser.parse('2016-03-13T12:52:32.123Z')
         ),
-        poi_reconciliation_id=52,
-        additional_properties={
-            'exampleAdditionalProperty': jsonpickle.decode('{"key1":"val1","key2":"val2"}')
-        }
+        poi_reconciliation_id=52
     ),
-    original_poi_transaction=OriginalPoiTransaction3(
+    original_poi_transaction=OriginalPOITransaction(
         sale_id='SaleID6',
         poiid='POIID0',
-        poi_transaction_id=PoiTransactionId(
+        poi_transaction_id=TransactionIDType4(
             transaction_id='TransactionID2',
-            time_stamp=dateutil.parser.parse('2016-03-13T12:52:32.123Z'),
-            additional_properties={
-                'exampleAdditionalProperty': jsonpickle.decode('{"key1":"val1","key2":"val2"}')
-            }
+            time_stamp=dateutil.parser.parse('2016-03-13T12:52:32.123Z')
         ),
         reuse_card_data_flag=False,
-        approval_code='ApprovalCode0',
-        additional_properties={
-            'exampleAdditionalProperty': jsonpickle.decode('{"key1":"val1","key2":"val2"}')
-        }
+        approval_code='ApprovalCode0'
     ),
     reversed_amount=190.22,
     payment_receipt=[
         PaymentReceipt(
-            document_qualifier=DocumentQualifier1.CUSTOMERRECEIPT,
-            output_content=OutputContent2(
-                output_format=OutputFormat1.XHTML,
-                predefined_content=PredefinedContent2(
+            document_qualifier=DocumentQualifier1Enum.CUSTOMERRECEIPT,
+            output_content=OutputContent1(
+                output_format=OutputFormat1Enum.XHTML,
+                predefined_content=PredefinedContent1(
                     reference_id='ReferenceID0',
-                    language='Language2',
-                    additional_properties={
-                        'exampleAdditionalProperty': jsonpickle.decode('{"key1":"val1","key2":"val2"}')
-                    }
+                    language='Language2'
                 ),
                 output_text=[
                     OutputText(
@@ -100,40 +79,25 @@ reversal_response_2 = ReversalResponse2(
                         character_set=194,
                         start_row=74,
                         start_column=220,
-                        character_width=CharacterWidth1.SINGLEWIDTH,
-                        character_height=CharacterHeight1.SINGLEHEIGHT,
-                        additional_properties={
-                            'exampleAdditionalProperty': jsonpickle.decode('{"key1":"val1","key2":"val2"}')
-                        }
+                        character_width=CharacterWidth1Enum.SINGLEWIDTH,
+                        character_height=CharacterHeight1Enum.SINGLEHEIGHT
                     )
                 ],
                 output_xhtml='OutputXHTML2',
-                output_barcode=OutputBarcode(
-                    barcode_value='BarcodeValue2',
-                    additional_properties={
-                        'exampleAdditionalProperty': jsonpickle.decode('{"key1":"val1","key2":"val2"}')
-                    }
-                ),
-                additional_properties={
-                    'exampleAdditionalProperty': jsonpickle.decode('{"key1":"val1","key2":"val2"}')
-                }
+                output_barcode=OutputBarcode1(
+                    barcode_value='BarcodeValue2'
+                )
             ),
             integrated_print_flag=False,
-            required_signature_flag=False,
-            additional_properties={
-                'exampleAdditionalProperty': jsonpickle.decode('{"key1":"val1","key2":"val2"}')
-            }
+            required_signature_flag=False
         ),
         PaymentReceipt(
-            document_qualifier=DocumentQualifier1.CUSTOMERRECEIPT,
-            output_content=OutputContent2(
-                output_format=OutputFormat1.XHTML,
-                predefined_content=PredefinedContent2(
+            document_qualifier=DocumentQualifier1Enum.CUSTOMERRECEIPT,
+            output_content=OutputContent1(
+                output_format=OutputFormat1Enum.XHTML,
+                predefined_content=PredefinedContent1(
                     reference_id='ReferenceID0',
-                    language='Language2',
-                    additional_properties={
-                        'exampleAdditionalProperty': jsonpickle.decode('{"key1":"val1","key2":"val2"}')
-                    }
+                    language='Language2'
                 ),
                 output_text=[
                     OutputText(
@@ -141,40 +105,25 @@ reversal_response_2 = ReversalResponse2(
                         character_set=194,
                         start_row=74,
                         start_column=220,
-                        character_width=CharacterWidth1.SINGLEWIDTH,
-                        character_height=CharacterHeight1.SINGLEHEIGHT,
-                        additional_properties={
-                            'exampleAdditionalProperty': jsonpickle.decode('{"key1":"val1","key2":"val2"}')
-                        }
+                        character_width=CharacterWidth1Enum.SINGLEWIDTH,
+                        character_height=CharacterHeight1Enum.SINGLEHEIGHT
                     )
                 ],
                 output_xhtml='OutputXHTML2',
-                output_barcode=OutputBarcode(
-                    barcode_value='BarcodeValue2',
-                    additional_properties={
-                        'exampleAdditionalProperty': jsonpickle.decode('{"key1":"val1","key2":"val2"}')
-                    }
-                ),
-                additional_properties={
-                    'exampleAdditionalProperty': jsonpickle.decode('{"key1":"val1","key2":"val2"}')
-                }
+                output_barcode=OutputBarcode1(
+                    barcode_value='BarcodeValue2'
+                )
             ),
             integrated_print_flag=False,
-            required_signature_flag=False,
-            additional_properties={
-                'exampleAdditionalProperty': jsonpickle.decode('{"key1":"val1","key2":"val2"}')
-            }
+            required_signature_flag=False
         ),
         PaymentReceipt(
-            document_qualifier=DocumentQualifier1.CUSTOMERRECEIPT,
-            output_content=OutputContent2(
-                output_format=OutputFormat1.XHTML,
-                predefined_content=PredefinedContent2(
+            document_qualifier=DocumentQualifier1Enum.CUSTOMERRECEIPT,
+            output_content=OutputContent1(
+                output_format=OutputFormat1Enum.XHTML,
+                predefined_content=PredefinedContent1(
                     reference_id='ReferenceID0',
-                    language='Language2',
-                    additional_properties={
-                        'exampleAdditionalProperty': jsonpickle.decode('{"key1":"val1","key2":"val2"}')
-                    }
+                    language='Language2'
                 ),
                 output_text=[
                     OutputText(
@@ -182,34 +131,19 @@ reversal_response_2 = ReversalResponse2(
                         character_set=194,
                         start_row=74,
                         start_column=220,
-                        character_width=CharacterWidth1.SINGLEWIDTH,
-                        character_height=CharacterHeight1.SINGLEHEIGHT,
-                        additional_properties={
-                            'exampleAdditionalProperty': jsonpickle.decode('{"key1":"val1","key2":"val2"}')
-                        }
+                        character_width=CharacterWidth1Enum.SINGLEWIDTH,
+                        character_height=CharacterHeight1Enum.SINGLEHEIGHT
                     )
                 ],
                 output_xhtml='OutputXHTML2',
-                output_barcode=OutputBarcode(
-                    barcode_value='BarcodeValue2',
-                    additional_properties={
-                        'exampleAdditionalProperty': jsonpickle.decode('{"key1":"val1","key2":"val2"}')
-                    }
-                ),
-                additional_properties={
-                    'exampleAdditionalProperty': jsonpickle.decode('{"key1":"val1","key2":"val2"}')
-                }
+                output_barcode=OutputBarcode1(
+                    barcode_value='BarcodeValue2'
+                )
             ),
             integrated_print_flag=False,
-            required_signature_flag=False,
-            additional_properties={
-                'exampleAdditionalProperty': jsonpickle.decode('{"key1":"val1","key2":"val2"}')
-            }
+            required_signature_flag=False
         )
-    ],
-    additional_properties={
-        'exampleAdditionalProperty': jsonpickle.decode('{"key1":"val1","key2":"val2"}')
-    }
+    ]
 )
 ```
 

@@ -8,26 +8,22 @@ import dateutil.parser
 
 from adyen.api_helper import APIHelper
 from adyen.models.account_info import AccountInfo
-from adyen.models.additional_amount import AdditionalAmount
-from adyen.models.amount_16 import Amount16
-from adyen.models.application_info_1 import (
-    ApplicationInfo1,
+from adyen.models.address_1 import Address1
+from adyen.models.address_2 import Address2
+from adyen.models.amount_1 import Amount1
+from adyen.models.amount_2 import Amount2
+from adyen.models.application_info import ApplicationInfo
+from adyen.models.browser_info import BrowserInfo
+from adyen.models.forex_quote_2 import ForexQuote2
+from adyen.models.installments import Installments
+from adyen.models.merchant_risk_indicator_1 import (
+    MerchantRiskIndicator1,
 )
-from adyen.models.billing_address_7 import BillingAddress7
-from adyen.models.browser_info_2 import BrowserInfo2
-from adyen.models.delivery_address_6 import (
-    DeliveryAddress6,
-)
-from adyen.models.forex_quote import ForexQuote
-from adyen.models.installments_2 import Installments2
-from adyen.models.merchant_risk_indicator import (
-    MerchantRiskIndicator,
-)
-from adyen.models.recurring_3 import Recurring3
-from adyen.models.shopper_name import ShopperName
+from adyen.models.name_7 import Name7
+from adyen.models.recurring import Recurring
 from adyen.models.split import Split
-from adyen.models.three_ds_2_request_data import (
-    ThreeDs2RequestData,
+from adyen.models.three_ds_2_request_data_2 import (
+    ThreeDS2RequestData2,
 )
 
 
@@ -35,24 +31,45 @@ class BalanceCheckRequest(object):
     """Implementation of the 'BalanceCheckRequest' model.
 
     Attributes:
-        account_info (AccountInfo): The model property of type AccountInfo.
-        additional_amount (AdditionalAmount): The model property of type
-            AdditionalAmount.
+        account_info (AccountInfo): Shopper account information for 3D Secure 2. >
+            For 3D Secure 2 transactions, we recommend that you include this object
+            to increase the chances of achieving a frictionless flow.
+        additional_amount (Amount1): If you want a [BIN or card
+            verification](https://docs.adyen.com/payment-methods/cards/bin-data-and-ca
+            rd-verification) request to use a non-zero value, assign this value to
+            `additionalAmount` (while the amount must be still set to 0 to trigger
+            BIN or card verification). Required to be in the same currency as the
+            `amount`.
         additional_data (Dict[str, str]): This field contains additional data, which
             may be required for a particular payment request.  The `additionalData`
             object consists of entries, each of which includes the key and value.
-        amount (Amount16): The model property of type Amount16.
-        application_info (ApplicationInfo1): The model property of type
-            ApplicationInfo1.
-        billing_address (BillingAddress7): The model property of type BillingAddress7.
-        browser_info (BrowserInfo2): The model property of type BrowserInfo2.
+        amount (Amount2): The amount information for the transaction (in [minor
+            units](https://docs.adyen.com/development-resources/currency-codes)). For
+            [BIN or card
+            verification](https://docs.adyen.com/payment-methods/cards/bin-data-and-ca
+            rd-verification) requests, set amount to 0 (zero).
+        application_info (ApplicationInfo): Information about your application. For
+            more details, see [Building Adyen
+            solutions](https://docs.adyen.com/development-resources/building-adyen-sol
+            utions).
+        billing_address (Address1): The address where to send the invoice. > The
+            `billingAddress` object is required in the following scenarios. Include
+            all of the fields within this object. >* For 3D Secure 2 transactions in
+            all browser-based and mobile implementations. >* For cross-border payouts
+            to and from Canada.
+        browser_info (BrowserInfo): The shopper's browser information. > For 3D
+            Secure, the full object is required for web integrations. For mobile app
+            integrations, include the `userAgent` and `acceptHeader` fields to
+            indicate  that your integration can support a redirect in case a payment
+            is routed to 3D Secure 2 redirect.
         capture_delay_hours (int): The delay between the authorisation and scheduled
             auto-capture, specified in hours.
         date_of_birth (date): The shopper's date of birth.  Format
             [ISO-8601](https://www.w3.org/TR/NOTE-datetime): YYYY-MM-DD
-        dcc_quote (ForexQuote): The model property of type ForexQuote.
-        delivery_address (DeliveryAddress6): The model property of type
-            DeliveryAddress6.
+        dcc_quote (ForexQuote2): The forex quote as returned in the response of the
+            forex service.
+        delivery_address (Address2): The address where the purchased goods should be
+            delivered.
         delivery_date (datetime): The date and time the purchased goods should be
             delivered.  Format [ISO 8601](https://www.w3.org/TR/NOTE-datetime):
             YYYY-MM-DDThh:mm:ss.sssTZD  Example: 2017-07-17T13:42:40.428+01:00
@@ -62,7 +79,10 @@ class BalanceCheckRequest(object):
             ng).
         fraud_offset (int): An integer value that is added to the normal fraud score.
             The value can be either positive or negative.
-        installments (Installments2): The model property of type Installments2.
+        installments (Installments): Contains installment settings. For more
+            information, refer to
+            [Installments](https://docs.adyen.com/payment-methods/cards/credit-card-in
+            stallments).
         localized_shopper_statement (Dict[str, str]): The `localizedShopperStatement`
             field lets you use dynamic values for your shopper statement in a local
             character set. If this parameter is left empty, not provided, or not
@@ -87,8 +107,10 @@ class BalanceCheckRequest(object):
             addition, we recommend you provide `retry.orderAttemptNumber`,
             `retry.chainAttemptNumber`, and `retry.skipRetry` values in
             `PaymentRequest.additionalData`.
-        merchant_risk_indicator (MerchantRiskIndicator): The model property of type
-            MerchantRiskIndicator.
+        merchant_risk_indicator (MerchantRiskIndicator1): Additional risk fields for
+            3D Secure 2. > For 3D Secure 2 transactions, we recommend that you
+            include this object to increase the chances of achieving a frictionless
+            flow.
         metadata (Dict[str, str]): Metadata consists of entries, each of which
             includes a key and a value. Limits: * Maximum 20 key-value pairs per
             request. When exceeding, the "177" error occurs: "Metadata size exceeds
@@ -100,9 +122,21 @@ class BalanceCheckRequest(object):
             linking multiple payments, use the `merchantOrderReference`instead.
         payment_method (Dict[str, str]): The collection that contains the type of the
             payment method and its specific information.
-        recurring (Recurring3): The model property of type Recurring3.
-        recurring_processing_model (RecurringProcessingModel): The model property of
-            type RecurringProcessingModel.
+        recurring (Recurring): The recurring settings for the payment. Use this
+            property when you want to enable [recurring
+            payments](https://docs.adyen.com/classic-integration/recurring-payments).
+        recurring_processing_model (RecurringProcessingModelEnum): Defines a
+            recurring payment type. Required when creating a token to store payment
+            details or using stored payment details. Allowed values: * `Subscription`
+            – A transaction for a fixed or variable amount, which follows a fixed
+            schedule. * `CardOnFile` – With a card-on-file (CoF) transaction, card
+            details are stored to enable one-click or omnichannel journeys, or simply
+            to streamline the checkout process. Any subscription not following a
+            fixed schedule is also considered a card-on-file transaction. *
+            `UnscheduledCardOnFile` – An unscheduled card-on-file (UCoF) transaction
+            is a transaction that occurs on a non-fixed schedule and/or have variable
+            amounts. For example, automatic top-ups when a cardholder's balance drops
+            below a certain amount.
         reference (str): The reference to uniquely identify a payment. This reference
             is used in all communication with you about the payment status. We
             recommend using a unique value per payment; however, it is not a
@@ -131,8 +165,20 @@ class BalanceCheckRequest(object):
             mandatory for some merchants depending on your business model. For more
             information, [contact
             Support](https://www.adyen.help/hc/en-us/requests/new).
-        shopper_interaction (ShopperInteraction1): The model property of type
-            ShopperInteraction1.
+        shopper_interaction (ShopperInteractionEnum): Specifies the sales channel,
+            through which the shopper gives their card details, and whether the
+            shopper is a returning customer. For the web service API, Adyen assumes
+            Ecommerce shopper interaction by default.  This field has the following
+            possible values: * `Ecommerce` - Online transactions where the cardholder
+            is present (online). For better authorisation rates, we recommend sending
+            the card security code (CSC) along with the request. * `ContAuth` - Card
+            on file and/or subscription transactions, where the cardholder is known
+            to the merchant (returning customer). If the shopper is present (online),
+            you can supply also the CSC to improve authorisation (one-click payment).
+            * `Moto` - Mail-order and telephone-order transactions where the shopper
+            is in contact with the merchant via email or telephone. * `POS` -
+            Point-of-sale transactions where the shopper is physically present to
+            make a payment using a secure payment terminal.
         shopper_locale (str): The language for the payment. The value combines the
             two-letter [ISO
             639-1](https://en.wikipedia.org/wiki/List_of_ISO_639_language_codes)
@@ -141,7 +187,7 @@ class BalanceCheckRequest(object):
             country code. For example, **nl-NL**.  When using Drop-in/Components, the
             specified language appears if your front-end global configuration does
             not set the `locale`.
-        shopper_name (ShopperName): The model property of type ShopperName.
+        shopper_name (Name7): The shopper's full name.
         shopper_reference (str): Required for recurring payments.  Your reference to
             uniquely identify this shopper, for example user ID or account ID. The
             value is case-sensitive and must be at least three characters. > Your
@@ -175,8 +221,11 @@ class BalanceCheckRequest(object):
             guidelines, we do not submit it for authentication. > Required for Visa
             and JCB transactions that require 3D Secure 2 authentication, if you did
             not include the `shopperEmail`.
-        three_ds_2_request_data (ThreeDs2RequestData): The model property of type
-            ThreeDs2RequestData.
+        three_ds_2_request_data (ThreeDS2RequestData2): Request fields for 3D Secure
+            2. To check if any of the following fields are required for your
+            integration, refer to [Online
+            payments](https://docs.adyen.com/online-payments) or [Classic
+            integration](https://docs.adyen.com/classic-integration) documentation.
         three_ds_authentication_only (bool): Required to trigger the
             [authentication-only
             flow](https://docs.adyen.com/online-payments/3d-secure/authentication-only
@@ -187,8 +236,6 @@ class BalanceCheckRequest(object):
             reporting. When not specified, the store field is used (if available).
         trusted_shopper (bool): Set to true if the payment should be routed to a
             trusted MID.
-        additional_properties (Dict[str, Any]): The additional properties for the
-            model.
 
     """
 
@@ -329,8 +376,7 @@ class BalanceCheckRequest(object):
         three_ds_2_request_data=APIHelper.SKIP,
         three_ds_authentication_only=False,
         totals_group=APIHelper.SKIP,
-        trusted_shopper=APIHelper.SKIP,
-        additional_properties=None):
+        trusted_shopper=APIHelper.SKIP):
         """Initialize a BalanceCheckRequest instance."""
         # Initialize members of the class
         if account_info is not APIHelper.SKIP:
@@ -422,11 +468,6 @@ class BalanceCheckRequest(object):
         if trusted_shopper is not APIHelper.SKIP:
             self.trusted_shopper = trusted_shopper
 
-        # Add additional model properties to the instance
-        if additional_properties is None:
-            additional_properties = {}
-        self.additional_properties = additional_properties
-
     @classmethod
     def from_dictionary(cls,
                         dictionary):
@@ -446,7 +487,7 @@ class BalanceCheckRequest(object):
 
         # Extract variables from the dictionary
         amount =\
-            Amount16.from_dictionary(
+            Amount2.from_dictionary(
                 dictionary.get("amount"))\
                 if dictionary.get("amount") else None
         merchant_account =\
@@ -463,7 +504,7 @@ class BalanceCheckRequest(object):
                 if "accountInfo" in dictionary.keys()\
                 else APIHelper.SKIP
         additional_amount =\
-            AdditionalAmount.from_dictionary(
+            Amount1.from_dictionary(
                 dictionary.get("additionalAmount"))\
                 if "additionalAmount" in dictionary.keys()\
                 else APIHelper.SKIP
@@ -472,17 +513,17 @@ class BalanceCheckRequest(object):
             if dictionary.get("additionalData")\
                 else APIHelper.SKIP
         application_info =\
-            ApplicationInfo1.from_dictionary(
+            ApplicationInfo.from_dictionary(
                 dictionary.get("applicationInfo"))\
                 if "applicationInfo" in dictionary.keys()\
                 else APIHelper.SKIP
         billing_address =\
-            BillingAddress7.from_dictionary(
+            Address1.from_dictionary(
                 dictionary.get("billingAddress"))\
                 if "billingAddress" in dictionary.keys()\
                 else APIHelper.SKIP
         browser_info =\
-            BrowserInfo2.from_dictionary(
+            BrowserInfo.from_dictionary(
                 dictionary.get("browserInfo"))\
                 if "browserInfo" in dictionary.keys()\
                 else APIHelper.SKIP
@@ -494,12 +535,12 @@ class BalanceCheckRequest(object):
             dictionary.get("dateOfBirth")).date()\
             if dictionary.get("dateOfBirth") else APIHelper.SKIP
         dcc_quote =\
-            ForexQuote.from_dictionary(
+            ForexQuote2.from_dictionary(
                 dictionary.get("dccQuote"))\
                 if "dccQuote" in dictionary.keys()\
                 else APIHelper.SKIP
         delivery_address =\
-            DeliveryAddress6.from_dictionary(
+            Address2.from_dictionary(
                 dictionary.get("deliveryAddress"))\
                 if "deliveryAddress" in dictionary.keys()\
                 else APIHelper.SKIP
@@ -515,7 +556,7 @@ class BalanceCheckRequest(object):
             if dictionary.get("fraudOffset")\
                 else APIHelper.SKIP
         installments =\
-            Installments2.from_dictionary(
+            Installments.from_dictionary(
                 dictionary.get("installments"))\
                 if "installments" in dictionary.keys()\
                 else APIHelper.SKIP
@@ -532,7 +573,7 @@ class BalanceCheckRequest(object):
             if dictionary.get("merchantOrderReference")\
                 else APIHelper.SKIP
         merchant_risk_indicator =\
-            MerchantRiskIndicator.from_dictionary(
+            MerchantRiskIndicator1.from_dictionary(
                 dictionary.get("merchantRiskIndicator"))\
                 if "merchantRiskIndicator" in dictionary.keys()\
                 else APIHelper.SKIP
@@ -545,7 +586,7 @@ class BalanceCheckRequest(object):
             if dictionary.get("orderReference")\
                 else APIHelper.SKIP
         recurring =\
-            Recurring3.from_dictionary(
+            Recurring.from_dictionary(
                 dictionary.get("recurring"))\
                 if "recurring" in dictionary.keys()\
                 else APIHelper.SKIP
@@ -586,7 +627,7 @@ class BalanceCheckRequest(object):
             if dictionary.get("shopperLocale")\
                 else APIHelper.SKIP
         shopper_name =\
-            ShopperName.from_dictionary(
+            Name7.from_dictionary(
                 dictionary.get("shopperName"))\
                 if "shopperName" in dictionary.keys()\
                 else APIHelper.SKIP
@@ -619,7 +660,7 @@ class BalanceCheckRequest(object):
             if dictionary.get("telephoneNumber")\
                 else APIHelper.SKIP
         three_ds_2_request_data =\
-            ThreeDs2RequestData.from_dictionary(
+            ThreeDS2RequestData2.from_dictionary(
                 dictionary.get("threeDS2RequestData"))\
                 if "threeDS2RequestData" in dictionary.keys()\
                 else APIHelper.SKIP
@@ -635,11 +676,6 @@ class BalanceCheckRequest(object):
             dictionary.get("trustedShopper")\
             if "trustedShopper" in dictionary.keys()\
                 else APIHelper.SKIP
-
-        additional_properties = APIHelper.get_additional_properties(
-            dictionary={k: v for k, v in dictionary.items()
-                        if k not in cls._names.values()},
-            unboxing_function=lambda value: value)
 
         # Return an object of this model
         return cls(amount,
@@ -685,8 +721,7 @@ class BalanceCheckRequest(object):
                    three_ds_2_request_data,
                    three_ds_authentication_only,
                    totals_group,
-                   trusted_shopper,
-                   additional_properties)
+                   trusted_shopper)
 
     def __repr__(self):
         """Return a unambiguous string representation."""
@@ -898,7 +933,6 @@ class BalanceCheckRequest(object):
             if hasattr(self, "trusted_shopper")
             else None
         )
-        _additional_properties=self.additional_properties
         return (
             f"{self.__class__.__name__}("
             f"account_info={_account_info!r}, "
@@ -945,7 +979,6 @@ class BalanceCheckRequest(object):
             f"three_ds_authentication_only={_three_ds_authentication_only!r}, "
             f"totals_group={_totals_group!r}, "
             f"trusted_shopper={_trusted_shopper!r}, "
-            f"additional_properties={_additional_properties!r}, "
             f")"
         )
 
@@ -1159,7 +1192,6 @@ class BalanceCheckRequest(object):
             if hasattr(self, "trusted_shopper")
             else None
         )
-        _additional_properties=self.additional_properties
         return (
             f"{self.__class__.__name__}("
             f"account_info={_account_info!s}, "
@@ -1206,6 +1238,5 @@ class BalanceCheckRequest(object):
             f"three_ds_authentication_only={_three_ds_authentication_only!s}, "
             f"totals_group={_totals_group!s}, "
             f"trusted_shopper={_trusted_shopper!s}, "
-            f"additional_properties={_additional_properties!s}, "
             f")"
         )

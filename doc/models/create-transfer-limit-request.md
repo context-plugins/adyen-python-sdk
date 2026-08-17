@@ -1,8 +1,6 @@
 
 # Create Transfer Limit Request
 
-*This model accepts additional fields of type Any.*
-
 ## Structure
 
 `CreateTransferLimitRequest`
@@ -11,51 +9,40 @@
 
 | Name | Type | Tags | Description |
 |  --- | --- | --- | --- |
-| `amount` | [`Amount5`](../../doc/models/amount-5.md) | Required | - |
+| `amount` | [`Amount17`](../../doc/models/amount-17.md) | Required | The amount for the transfer limit. This is the maximum amount allowed per transfer or per day based on the `scope` of the limit. |
 | `ends_at` | `datetime` | Optional | The date and time when the transfer limit becomes inactive. If you do not specify an end date, the limit stays active until you override it with a new limit.<br><br>Format [ISO 8601](https://www.w3.org/TR/NOTE-datetime): **YYYY-MM-DDThh:mm:ss.sssTZD** |
 | `reference` | `str` | Optional | Your reference for the transfer limit. |
-| `sca_information` | [`CreateScaInformation`](../../doc/models/create-sca-information.md) | Optional | - |
-| `scope` | [`Scope`](../../doc/models/scope.md) | Required | - |
+| `sca_information` | [`CreateScaInformation1`](../../doc/models/create-sca-information-1.md) | Optional | Information for the Strong Customer Authentication (SCA) |
+| `scope` | [`ScopeEnum`](../../doc/models/scope-enum.md) | Required | The scope to which the transfer limit applies. Possible values:<br><br>* **perTransaction**: you set a maximum amount for each transfer made from the balance account or balance platform.<br>* **perDay**: you set a maximum total amount for all transfers made from the balance account or balance platform in a day. |
 | `starts_at` | `datetime` | Optional | The date and time when the transfer limit becomes active. If you specify a date in the future, we will schedule a transfer limit.<br><br>Format [ISO 8601](https://www.w3.org/TR/NOTE-datetime): **YYYY-MM-DDThh:mm:ss.sssTZD** |
-| `transfer_type` | [`TransferType`](../../doc/models/transfer-type.md) | Required | - |
-| `additional_properties` | `Dict[str, Any]` | Optional | - |
+| `transfer_type` | [`TransferTypeEnum`](../../doc/models/transfer-type-enum.md) | Required | The type of transfer to which the limit applies. Possible values:<br><br>* **instant**: the limit applies to transfers with an **instant** priority.<br>* **all**: the limit applies to all transfers, regardless of priority. |
 
 ## Example
 
 ```python
 import dateutil.parser
-import jsonpickle
 
-from adyen.models.amount_5 import Amount5
-from adyen.models.create_sca_information import CreateScaInformation
+from adyen.models.amount_17 import Amount17
+from adyen.models.create_sca_information_1 import CreateScaInformation1
 from adyen.models.create_transfer_limit_request import CreateTransferLimitRequest
-from adyen.models.sca_exemption import ScaExemption
-from adyen.models.scope import Scope
-from adyen.models.transfer_type import TransferType
+from adyen.models.sca_exemption_enum import ScaExemptionEnum
+from adyen.models.scope_enum import ScopeEnum
+from adyen.models.transfer_type_enum import TransferTypeEnum
 
 create_transfer_limit_request = CreateTransferLimitRequest(
-    amount=Amount5(
+    amount=Amount17(
         currency='currency2',
-        value=110,
-        additional_properties={
-            'exampleAdditionalProperty': jsonpickle.decode('{"key1":"val1","key2":"val2"}')
-        }
+        value=110
     ),
-    scope=Scope.PERDAY,
-    transfer_type=TransferType.INSTANT,
+    scope=ScopeEnum.PERDAY,
+    transfer_type=TransferTypeEnum.INSTANT,
     ends_at=dateutil.parser.parse('2016-03-13T12:52:32.123Z'),
     reference='reference0',
-    sca_information=CreateScaInformation(
-        exemption=ScaExemption.NOTREGULATED,
-        sca_on_approval=False,
-        additional_properties={
-            'exampleAdditionalProperty': jsonpickle.decode('{"key1":"val1","key2":"val2"}')
-        }
+    sca_information=CreateScaInformation1(
+        exemption=ScaExemptionEnum.NOTREGULATED,
+        sca_on_approval=False
     ),
-    starts_at=dateutil.parser.parse('2016-03-13T12:52:32.123Z'),
-    additional_properties={
-        'exampleAdditionalProperty': jsonpickle.decode('{"key1":"val1","key2":"val2"}')
-    }
+    starts_at=dateutil.parser.parse('2016-03-13T12:52:32.123Z')
 )
 ```
 

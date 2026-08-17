@@ -15,14 +15,16 @@ class CardAcquisitionTransaction(object):
             System for the payment transaction.
         allowed_loyalty_brand (List[str]): Loyalty brands or programs allowed by the
             Sale System for the loyalty transaction.
-        loyalty_handling (LoyaltyHandling2): The model property of type
-            LoyaltyHandling2.
+        loyalty_handling (LoyaltyHandling2Enum): Type of Loyalty processing requested
+            by the Sale System. An way to specify what the POI has to handle
+            concerning the loyalty. Possible values: * **Allowed** * **Forbidden** *
+            **Processed** * **Proposed** * **Required**
         customer_language (str): The language used on the terminal screen or in text
             printed by the terminal.   Typical use case is setting the language on
             unattended terminals. Format: two-character [ISO
             639:2023](https://en.wikipedia.org/wiki/List_of_ISO_639_language_codes)
             format.
-        force_entry_mode (List[ForceEntryMode]): Payment instrument entry mode
+        force_entry_mode (List[ForceEntryModeEnum]): Payment instrument entry mode
             requested by the Sale System. Avoid retry on an out of order card reading
             device, when the sale system knows that some card entry modes on the POI
             do not work. Possible values: * **CheckReader** * **Contactless** *
@@ -32,12 +34,15 @@ class CardAcquisitionTransaction(object):
             selection of the card application.
         total_amount (float): Amount of a transaction. In the Card Acquisition
             Request message, it allows the processing of a contactless card.
-        payment_type (PaymentType1): The model property of type PaymentType1.
+        payment_type (PaymentType1Enum): Type of payment transaction. Elements
+            requested by the Sale System that are related to the payment only.
+            Possible values: * **CashAdvance** * **CashDeposit** * **Completion** *
+            **FirstReservation** * **Instalment** * **IssuerInstalment** * **Normal**
+            * **OneTimeReservation** * **PaidOut** * **Recurring** * **Refund** *
+            **UpdateReservation**
         cash_back_flag (bool): Cash back has been requested with the payment
             transaction. Allows choice of the Customer language when the POI displays
             messages or print text to Merchant interface.
-        additional_properties (Dict[str, Any]): The additional properties for the
-            model.
 
     """
 
@@ -76,8 +81,7 @@ class CardAcquisitionTransaction(object):
         force_customer_selection_flag=APIHelper.SKIP,
         total_amount=APIHelper.SKIP,
         payment_type=APIHelper.SKIP,
-        cash_back_flag=APIHelper.SKIP,
-        additional_properties=None):
+        cash_back_flag=APIHelper.SKIP):
         """Initialize a CardAcquisitionTransaction instance."""
         # Initialize members of the class
         if allowed_payment_brand is not APIHelper.SKIP:
@@ -98,11 +102,6 @@ class CardAcquisitionTransaction(object):
             self.payment_type = payment_type
         if cash_back_flag is not APIHelper.SKIP:
             self.cash_back_flag = cash_back_flag
-
-        # Add additional model properties to the instance
-        if additional_properties is None:
-            additional_properties = {}
-        self.additional_properties = additional_properties
 
     @classmethod
     def from_dictionary(cls,
@@ -159,11 +158,6 @@ class CardAcquisitionTransaction(object):
             if "CashBackFlag" in dictionary.keys()\
                 else APIHelper.SKIP
 
-        additional_properties = APIHelper.get_additional_properties(
-            dictionary={k: v for k, v in dictionary.items()
-                        if k not in cls._names.values()},
-            unboxing_function=lambda value: value)
-
         # Return an object of this model
         return cls(allowed_payment_brand,
                    allowed_loyalty_brand,
@@ -173,8 +167,7 @@ class CardAcquisitionTransaction(object):
                    force_customer_selection_flag,
                    total_amount,
                    payment_type,
-                   cash_back_flag,
-                   additional_properties)
+                   cash_back_flag)
 
     def __repr__(self):
         """Return a unambiguous string representation."""
@@ -223,7 +216,6 @@ class CardAcquisitionTransaction(object):
             if hasattr(self, "cash_back_flag")
             else None
         )
-        _additional_properties=self.additional_properties
         return (
             f"{self.__class__.__name__}("
             f"allowed_payment_brand={_allowed_payment_brand!r}, "
@@ -235,7 +227,6 @@ class CardAcquisitionTransaction(object):
             f"total_amount={_total_amount!r}, "
             f"payment_type={_payment_type!r}, "
             f"cash_back_flag={_cash_back_flag!r}, "
-            f"additional_properties={_additional_properties!r}, "
             f")"
         )
 
@@ -286,7 +277,6 @@ class CardAcquisitionTransaction(object):
             if hasattr(self, "cash_back_flag")
             else None
         )
-        _additional_properties=self.additional_properties
         return (
             f"{self.__class__.__name__}("
             f"allowed_payment_brand={_allowed_payment_brand!s}, "
@@ -298,6 +288,5 @@ class CardAcquisitionTransaction(object):
             f"total_amount={_total_amount!s}, "
             f"payment_type={_payment_type!s}, "
             f"cash_back_flag={_cash_back_flag!s}, "
-            f"additional_properties={_additional_properties!s}, "
             f")"
         )

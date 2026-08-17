@@ -1,8 +1,6 @@
 
 # Valuelink Response Info
 
-*This model accepts additional fields of type Any.*
-
 ## Structure
 
 `ValuelinkResponseInfo`
@@ -12,27 +10,21 @@
 | Name | Type | Tags | Description |
 |  --- | --- | --- | --- |
 | `authorisation_mid` | `str` | Optional | Authorisation Mid |
-| `pin_support` | [`PinSupport`](../../doc/models/pin-support.md) | Optional | - |
+| `pin_support` | [`PinSupportEnum`](../../doc/models/pin-support-enum.md) | Optional | PIN Support. For ecommerce, PIN is required. |
 | `submitter_id` | `str` | Optional | Submitter ID |
 | `terminal_id` | `str` | Optional | Terminal ID |
-| `additional_properties` | `Dict[str, Any]` | Optional | - |
 
 ## Example
 
 ```python
-import jsonpickle
-
-from adyen.models.pin_support import PinSupport
+from adyen.models.pin_support_enum import PinSupportEnum
 from adyen.models.valuelink_response_info import ValuelinkResponseInfo
 
 valuelink_response_info = ValuelinkResponseInfo(
     authorisation_mid='authorisationMid6',
-    pin_support=PinSupport.PIN,
+    pin_support=PinSupportEnum.PIN,
     submitter_id='submitterId2',
-    terminal_id='terminalId2',
-    additional_properties={
-        'exampleAdditionalProperty': jsonpickle.decode('{"key1":"val1","key2":"val2"}')
-    }
+    terminal_id='terminalId2'
 )
 ```
 

@@ -20,8 +20,6 @@ class PayPalResponseInfo1(object):
         payer_id (str): PayPal Merchant ID. Character length and limitations: 13
             single-byte alphanumeric characters.
         subject (str): Your business email address.
-        additional_properties (Dict[str, Any]): The additional properties for the
-            model.
 
     """
 
@@ -42,8 +40,7 @@ class PayPalResponseInfo1(object):
         self,
         direct_capture=APIHelper.SKIP,
         payer_id=APIHelper.SKIP,
-        subject=APIHelper.SKIP,
-        additional_properties=None):
+        subject=APIHelper.SKIP):
         """Initialize a PayPalResponseInfo1 instance."""
         # Initialize members of the class
         if direct_capture is not APIHelper.SKIP:
@@ -52,11 +49,6 @@ class PayPalResponseInfo1(object):
             self.payer_id = payer_id
         if subject is not APIHelper.SKIP:
             self.subject = subject
-
-        # Add additional model properties to the instance
-        if additional_properties is None:
-            additional_properties = {}
-        self.additional_properties = additional_properties
 
     @classmethod
     def from_dictionary(cls,
@@ -89,16 +81,10 @@ class PayPalResponseInfo1(object):
             if dictionary.get("subject")\
                 else APIHelper.SKIP
 
-        additional_properties = APIHelper.get_additional_properties(
-            dictionary={k: v for k, v in dictionary.items()
-                        if k not in cls._names.values()},
-            unboxing_function=lambda value: value)
-
         # Return an object of this model
         return cls(direct_capture,
                    payer_id,
-                   subject,
-                   additional_properties)
+                   subject)
 
     def __repr__(self):
         """Return a unambiguous string representation."""
@@ -117,13 +103,11 @@ class PayPalResponseInfo1(object):
             if hasattr(self, "subject")
             else None
         )
-        _additional_properties=self.additional_properties
         return (
             f"{self.__class__.__name__}("
             f"direct_capture={_direct_capture!r}, "
             f"payer_id={_payer_id!r}, "
             f"subject={_subject!r}, "
-            f"additional_properties={_additional_properties!r}, "
             f")"
         )
 
@@ -144,12 +128,10 @@ class PayPalResponseInfo1(object):
             if hasattr(self, "subject")
             else None
         )
-        _additional_properties=self.additional_properties
         return (
             f"{self.__class__.__name__}("
             f"direct_capture={_direct_capture!s}, "
             f"payer_id={_payer_id!s}, "
             f"subject={_subject!s}, "
-            f"additional_properties={_additional_properties!s}, "
             f")"
         )

@@ -20,11 +20,16 @@ class AndroidApp(object):
         id (str): The unique identifier of the app.
         label (str): The app name that is shown on the terminal.
         package_name (str): The package name that uniquely identifies the Android app.
-        status (Status15): The model property of type Status15.
+        status (Status7Enum): The status of the app. Possible values:  *
+            `processing`: the app is being signed and converted to a format that the
+            terminal can handle. * `error`: something went wrong. Check that the app
+            matches the
+            [requirements](https://docs.adyen.com/point-of-sale/android-terminals/app-
+            requirements). * `invalid`: there is something wrong with the APK file of
+            the app. * `ready`: the app has been signed and converted. * `archived`:
+            the app is no longer available.
         version_code (int): The version number of the app.
         version_name (str): The app version number that is shown on the terminal.
-        additional_properties (Dict[str, Any]): The additional properties for the
-            model.
 
     """
 
@@ -61,8 +66,7 @@ class AndroidApp(object):
         label=APIHelper.SKIP,
         package_name=APIHelper.SKIP,
         version_code=APIHelper.SKIP,
-        version_name=APIHelper.SKIP,
-        additional_properties=None):
+        version_name=APIHelper.SKIP):
         """Initialize a AndroidApp instance."""
         # Initialize members of the class
         if description is not APIHelper.SKIP:
@@ -81,11 +85,6 @@ class AndroidApp(object):
             self.version_code = version_code
         if version_name is not APIHelper.SKIP:
             self.version_name = version_name
-
-        # Add additional model properties to the instance
-        if additional_properties is None:
-            additional_properties = {}
-        self.additional_properties = additional_properties
 
     @classmethod
     def from_dictionary(cls,
@@ -146,11 +145,6 @@ class AndroidApp(object):
             if dictionary.get("versionName")\
                 else APIHelper.SKIP
 
-        additional_properties = APIHelper.get_additional_properties(
-            dictionary={k: v for k, v in dictionary.items()
-                        if k not in cls._names.values()},
-            unboxing_function=lambda value: value)
-
         # Return an object of this model
         return cls(id,
                    status,
@@ -160,8 +154,7 @@ class AndroidApp(object):
                    label,
                    package_name,
                    version_code,
-                   version_name,
-                   additional_properties)
+                   version_name)
 
     def __repr__(self):
         """Return a unambiguous string representation."""
@@ -202,7 +195,6 @@ class AndroidApp(object):
             if hasattr(self, "version_name")
             else None
         )
-        _additional_properties=self.additional_properties
         return (
             f"{self.__class__.__name__}("
             f"description={_description!r}, "
@@ -214,7 +206,6 @@ class AndroidApp(object):
             f"status={_status!r}, "
             f"version_code={_version_code!r}, "
             f"version_name={_version_name!r}, "
-            f"additional_properties={_additional_properties!r}, "
             f")"
         )
 
@@ -257,7 +248,6 @@ class AndroidApp(object):
             if hasattr(self, "version_name")
             else None
         )
-        _additional_properties=self.additional_properties
         return (
             f"{self.__class__.__name__}("
             f"description={_description!s}, "
@@ -269,6 +259,5 @@ class AndroidApp(object):
             f"status={_status!s}, "
             f"version_code={_version_code!s}, "
             f"version_name={_version_name!s}, "
-            f"additional_properties={_additional_properties!s}, "
             f")"
         )

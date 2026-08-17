@@ -22,9 +22,19 @@ class SessionResultResponse(object):
         reference (str): The unique reference that you provided in the original
             `/sessions` request. This identifies the payment and is used in all
             communication with you about the payment status.
-        status (Status52): The model property of type Status52.
-        additional_properties (Dict[str, Any]): The additional properties for the
-            model.
+        status (Status5Enum): The status of the session. The status included in the
+            response doesn't get updated. Don't make the request again to check for
+            payment status updates.  Possible values: * **completed**: the shopper
+            completed the payment, and the payment was authorized. *
+            **paymentPending**: the shopper is in the process of making the payment.
+            This applies to payment methods with an asynchronous flow, like voucher
+            payments where the shopper completes the payment in a physical shop. *
+            **refused**: the session has been refused, because of too many refused
+            payment attempts. The shopper can no longer complete the payment with
+            this session. * **canceled**: the shopper canceled the payment. *
+            **expired**: the session expired. The shopper can no longer complete the
+            payment with this session. By default, the session expires one hour after
+            it is created.
 
     """
 
@@ -51,8 +61,7 @@ class SessionResultResponse(object):
         id=APIHelper.SKIP,
         payments=APIHelper.SKIP,
         reference=APIHelper.SKIP,
-        status=APIHelper.SKIP,
-        additional_properties=None):
+        status=APIHelper.SKIP):
         """Initialize a SessionResultResponse instance."""
         # Initialize members of the class
         if additional_data is not APIHelper.SKIP:
@@ -65,11 +74,6 @@ class SessionResultResponse(object):
             self.reference = reference
         if status is not APIHelper.SKIP:
             self.status = status
-
-        # Add additional model properties to the instance
-        if additional_properties is None:
-            additional_properties = {}
-        self.additional_properties = additional_properties
 
     @classmethod
     def from_dictionary(cls,
@@ -114,18 +118,12 @@ class SessionResultResponse(object):
             if dictionary.get("status")\
                 else APIHelper.SKIP
 
-        additional_properties = APIHelper.get_additional_properties(
-            dictionary={k: v for k, v in dictionary.items()
-                        if k not in cls._names.values()},
-            unboxing_function=lambda value: value)
-
         # Return an object of this model
         return cls(additional_data,
                    id,
                    payments,
                    reference,
-                   status,
-                   additional_properties)
+                   status)
 
     def __repr__(self):
         """Return a unambiguous string representation."""
@@ -154,7 +152,6 @@ class SessionResultResponse(object):
             if hasattr(self, "status")
             else None
         )
-        _additional_properties=self.additional_properties
         return (
             f"{self.__class__.__name__}("
             f"additional_data={_additional_data!r}, "
@@ -162,7 +159,6 @@ class SessionResultResponse(object):
             f"payments={_payments!r}, "
             f"reference={_reference!r}, "
             f"status={_status!r}, "
-            f"additional_properties={_additional_properties!r}, "
             f")"
         )
 
@@ -193,7 +189,6 @@ class SessionResultResponse(object):
             if hasattr(self, "status")
             else None
         )
-        _additional_properties=self.additional_properties
         return (
             f"{self.__class__.__name__}("
             f"additional_data={_additional_data!s}, "
@@ -201,6 +196,5 @@ class SessionResultResponse(object):
             f"payments={_payments!s}, "
             f"reference={_reference!s}, "
             f"status={_status!s}, "
-            f"additional_properties={_additional_properties!s}, "
             f")"
         )

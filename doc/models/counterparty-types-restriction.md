@@ -1,8 +1,6 @@
 
 # Counterparty Types Restriction
 
-*This model accepts additional fields of type Any.*
-
 ## Structure
 
 `CounterpartyTypesRestriction`
@@ -12,25 +10,19 @@
 | Name | Type | Tags | Description |
 |  --- | --- | --- | --- |
 | `operation` | `str` | Required | Defines how the condition must be evaluated. |
-| `value` | [`List[Value]`](../../doc/models/value.md) | Optional | The list of counterparty types to be evaluated. |
-| `additional_properties` | `Dict[str, Any]` | Optional | - |
+| `value` | [`List[ValueEnum]`](../../doc/models/value-enum.md) | Optional | The list of counterparty types to be evaluated. |
 
 ## Example
 
 ```python
-import jsonpickle
-
 from adyen.models.counterparty_types_restriction import CounterpartyTypesRestriction
-from adyen.models.value import Value
+from adyen.models.value_enum import ValueEnum
 
 counterparty_types_restriction = CounterpartyTypesRestriction(
     operation='operation8',
     value=[
-        Value.BALANCEACCOUNT
-    ],
-    additional_properties={
-        'exampleAdditionalProperty': jsonpickle.decode('{"key1":"val1","key2":"val2"}')
-    }
+        ValueEnum.BALANCEACCOUNT
+    ]
 )
 ```
 

@@ -49,7 +49,7 @@ This endpoint requires [BasicAuth](../../doc/auth/basic-authentication.md) **OR*
 
 **200**: OK - the request has succeeded.
 
-This method returns an [`ApiResponse`](../../doc/api-response.md) instance. The `body` property of this instance returns the response data which is of type [`ListMerchantUsersResponse`](../../doc/models/list-merchant-users-response.md).
+[`ListMerchantUsersResponse`](../../doc/models/list-merchant-users-response.md)
 
 ## Example Usage
 
@@ -57,11 +57,7 @@ This method returns an [`ApiResponse`](../../doc/api-response.md) instance. The 
 merchant_id = 'merchantId6'
 
 result = users_merchant_level_api.get_merchants_merchant_id_users(merchant_id)
-
-if result.is_success():
-    print(result.body)
-elif result.is_error():
-    print(result.errors)
+print(result)
 ```
 
 ## Errors
@@ -104,7 +100,7 @@ This endpoint requires [BasicAuth](../../doc/auth/basic-authentication.md) **OR*
 
 **200**: OK - the request has succeeded.
 
-This method returns an [`ApiResponse`](../../doc/api-response.md) instance. The `body` property of this instance returns the response data which is of type [`CreateUserResponse`](../../doc/models/create-user-response.md).
+[`CreateUserResponse`](../../doc/models/create-user-response.md)
 
 ## Example Usage
 
@@ -113,7 +109,7 @@ merchant_id = 'merchantId6'
 
 body = CreateMerchantUserRequest(
     email='john.smith@example.com',
-    name=Name5(
+    name=Name(
         first_name='John',
         last_name='Smith'
     ),
@@ -129,11 +125,7 @@ result = users_merchant_level_api.post_merchants_merchant_id_users(
     merchant_id,
     body=body
 )
-
-if result.is_success():
-    print(result.body)
-elif result.is_error():
-    print(result.errors)
+print(result)
 ```
 
 ## Example Response *(as JSON)*
@@ -200,7 +192,7 @@ This endpoint requires [BasicAuth](../../doc/auth/basic-authentication.md) **OR*
 
 **200**: OK - the request has succeeded.
 
-This method returns an [`ApiResponse`](../../doc/api-response.md) instance. The `body` property of this instance returns the response data which is of type [`User`](../../doc/models/user.md).
+[`User`](../../doc/models/user.md)
 
 ## Example Usage
 
@@ -213,11 +205,7 @@ result = users_merchant_level_api.get_merchants_merchant_id_users_user_id(
     merchant_id,
     user_id
 )
-
-if result.is_success():
-    print(result.body)
-elif result.is_error():
-    print(result.errors)
+print(result)
 ```
 
 ## Errors
@@ -262,7 +250,7 @@ This endpoint requires [BasicAuth](../../doc/auth/basic-authentication.md) **OR*
 
 **200**: OK - the request has succeeded.
 
-This method returns an [`ApiResponse`](../../doc/api-response.md) instance. The `body` property of this instance returns the response data which is of type [`User`](../../doc/models/user.md).
+[`User`](../../doc/models/user.md)
 
 ## Example Usage
 
@@ -275,11 +263,7 @@ result = users_merchant_level_api.patch_merchants_merchant_id_users_user_id(
     merchant_id,
     user_id
 )
-
-if result.is_success():
-    print(result.body)
-elif result.is_error():
-    print(result.errors)
+print(result)
 ```
 
 ## Errors

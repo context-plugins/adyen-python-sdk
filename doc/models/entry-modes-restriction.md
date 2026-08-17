@@ -1,8 +1,6 @@
 
 # Entry Modes Restriction
 
-*This model accepts additional fields of type Any.*
-
 ## Structure
 
 `EntryModesRestriction`
@@ -12,27 +10,21 @@
 | Name | Type | Tags | Description |
 |  --- | --- | --- | --- |
 | `operation` | `str` | Required | Defines how the condition must be evaluated. |
-| `value` | [`List[Value2]`](../../doc/models/value-2.md) | Optional | List of point-of-sale entry modes.<br><br>Possible values: **barcode**, **chip**, **cof**, **contactless**, **magstripe**, **manual**, **ocr**, **server**. |
-| `additional_properties` | `Dict[str, Any]` | Optional | - |
+| `value` | [`List[Value2Enum]`](../../doc/models/value-2-enum.md) | Optional | List of point-of-sale entry modes.<br><br>Possible values: **barcode**, **chip**, **cof**, **contactless**, **magstripe**, **manual**, **ocr**, **server**. |
 
 ## Example
 
 ```python
-import jsonpickle
-
 from adyen.models.entry_modes_restriction import EntryModesRestriction
-from adyen.models.value_2 import Value2
+from adyen.models.value_2_enum import Value2Enum
 
 entry_modes_restriction = EntryModesRestriction(
     operation='operation8',
     value=[
-        Value2.CHIP,
-        Value2.COF,
-        Value2.CONTACTLESS
-    ],
-    additional_properties={
-        'exampleAdditionalProperty': jsonpickle.decode('{"key1":"val1","key2":"val2"}')
-    }
+        Value2Enum.CHIP,
+        Value2Enum.COF,
+        Value2Enum.CONTACTLESS
+    ]
 )
 ```
 

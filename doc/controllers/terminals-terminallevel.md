@@ -56,17 +56,13 @@ This endpoint requires [BasicAuth](../../doc/auth/basic-authentication.md) **OR*
 
 **200**: OK - the request has succeeded.
 
-This method returns an [`ApiResponse`](../../doc/api-response.md) instance. The `body` property of this instance returns the response data which is of type [`ListTerminalsResponse`](../../doc/models/list-terminals-response.md).
+[`ListTerminalsResponse`](../../doc/models/list-terminals-response.md)
 
 ## Example Usage
 
 ```python
 result = terminals_terminal_level_api.get_terminals()
-
-if result.is_success():
-    print(result.body)
-elif result.is_error():
-    print(result.errors)
+print(result)
 ```
 
 ## Example Response *(as JSON)*
@@ -160,7 +156,7 @@ This endpoint requires [BasicAuth](../../doc/auth/basic-authentication.md) **OR*
 
 **200**: No Content - look at the actual response code for the status of the request.
 
-This method returns an [`ApiResponse`](../../doc/api-response.md) instance.
+`void`
 
 ## Example Usage
 
@@ -172,15 +168,10 @@ body = TerminalReassignmentRequest(
     merchant_id='YOUR_MERCHANT_ID'
 )
 
-result = terminals_terminal_level_api.post_terminals_terminal_id_reassign(
+terminals_terminal_level_api.post_terminals_terminal_id_reassign(
     terminal_id,
     body=body
 )
-
-if result.is_success():
-    print(result.body)
-elif result.is_error():
-    print(result.errors)
 ```
 
 ## Errors

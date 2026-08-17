@@ -10,12 +10,11 @@ from adyen.api_helper import APIHelper
 class Name1(object):
     """Implementation of the 'Name1' model.
 
+    The name of the person funding the money.
+
     Attributes:
-        first_name (str): The individual's first name. Must not be blank.
-        infix (str): The infix in the individual's name, if any.
-        last_name (str): The individual's last name. Must not be blank.
-        additional_properties (Dict[str, Any]): The additional properties for the
-            model.
+        first_name (str): The first name.
+        last_name (str): The last name.
 
     """
 
@@ -23,30 +22,16 @@ class Name1(object):
     _names = {
         "first_name": "firstName",
         "last_name": "lastName",
-        "infix": "infix",
     }
-
-    _optionals = [
-        "infix",
-    ]
 
     def __init__(
         self,
         first_name=None,
-        last_name=None,
-        infix=APIHelper.SKIP,
-        additional_properties=None):
+        last_name=None):
         """Initialize a Name1 instance."""
         # Initialize members of the class
         self.first_name = first_name
-        if infix is not APIHelper.SKIP:
-            self.infix = infix
         self.last_name = last_name
-
-        # Add additional model properties to the instance
-        if additional_properties is None:
-            additional_properties = {}
-        self.additional_properties = additional_properties
 
     @classmethod
     def from_dictionary(cls,
@@ -74,56 +59,76 @@ class Name1(object):
             dictionary.get("lastName")\
             if dictionary.get("lastName")\
                 else None
-        infix =\
-            dictionary.get("infix")\
-            if dictionary.get("infix")\
-                else APIHelper.SKIP
-
-        additional_properties = APIHelper.get_additional_properties(
-            dictionary={k: v for k, v in dictionary.items()
-                        if k not in cls._names.values()},
-            unboxing_function=lambda value: value)
 
         # Return an object of this model
         return cls(first_name,
-                   last_name,
-                   infix,
-                   additional_properties)
+                   last_name)
+
+    @classmethod
+    def validate(cls, dictionary):
+        """Validate dictionary against class required properties
+
+        Args:
+            dictionary (dictionary): A dictionary representation of the object
+            as obtained from the deserialization of the server's response. The
+            keys MUST match property names in the API description.
+
+        Returns:
+            boolean : if dictionary is valid contains required properties.
+
+        """
+        if isinstance(dictionary, cls):
+            return APIHelper.is_valid_type(
+                    value=dictionary.first_name,
+                    type_callable=lambda value:
+                        isinstance(
+                        value,
+                        str,
+                )) \
+                and APIHelper.is_valid_type(
+                    value=dictionary.last_name,
+                    type_callable=lambda value:
+                        isinstance(
+                        value,
+                        str,
+                ))
+
+        if not isinstance(dictionary, dict):
+            return False
+
+        return APIHelper.is_valid_type(
+                value=dictionary.get("firstName"),
+                type_callable=lambda value:
+                    isinstance(
+                    value,
+                    str,
+            )) \
+            and APIHelper.is_valid_type(
+                value=dictionary.get("lastName"),
+                type_callable=lambda value:
+                    isinstance(
+                    value,
+                    str,
+            ))
 
     def __repr__(self):
         """Return a unambiguous string representation."""
         _first_name=self.first_name
-        _infix=(
-            self.infix
-            if hasattr(self, "infix")
-            else None
-        )
         _last_name=self.last_name
-        _additional_properties=self.additional_properties
         return (
             f"{self.__class__.__name__}("
             f"first_name={_first_name!r}, "
-            f"infix={_infix!r}, "
             f"last_name={_last_name!r}, "
-            f"additional_properties={_additional_properties!r}, "
             f")"
         )
 
     def __str__(self):
         """Return a human-readable string representation."""
         _first_name=self.first_name
-        _infix=(
-            self.infix
-            if hasattr(self, "infix")
-            else None
-        )
         _last_name=self.last_name
-        _additional_properties=self.additional_properties
         return (
             f"{self.__class__.__name__}("
             f"first_name={_first_name!s}, "
-            f"infix={_infix!s}, "
             f"last_name={_last_name!s}, "
-            f"additional_properties={_additional_properties!s}, "
             f")"
         )

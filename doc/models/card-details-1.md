@@ -3,8 +3,6 @@
 
 The payment method used by the shopper.
 
-*This model accepts additional fields of type Any.*
-
 ## Structure
 
 `CardDetails1`
@@ -27,7 +25,7 @@ The payment method used by the shopper.
 | `expiry_month` | `str` | Optional | The card expiry month. Only collect raw card data if you are [fully PCI compliant](https://docs.adyen.com/development-resources/pci-dss-compliance-guide). |
 | `expiry_year` | `str` | Optional | The card expiry year. Only collect raw card data if you are [fully PCI compliant](https://docs.adyen.com/development-resources/pci-dss-compliance-guide). |
 | `fastlane_data` | `str` | Optional | The encoded fastlane data blob |
-| `funding_source` | [`FundingSource`](../../doc/models/funding-source.md) | Optional | - |
+| `funding_source` | [`FundingSourceEnum`](../../doc/models/funding-source-enum.md) | Optional | The funding source that should be used when multiple sources are available. For Brazilian combo cards, by default the funding source is credit. To use debit, set this value to **debit**. |
 | `holder_name` | `str` | Optional | The name of the card holder.<br><br>**Constraints**: *Maximum Length*: `15000` |
 | `network_payment_reference` | `str` | Optional | The transaction identifier from card schemes. This is the [`networkTxReference`](https://docs.adyen.com/api-explorer/Checkout/latest/post/payments#responses-200-additionalData-ResponseAdditionalDataCommon-networkTxReference) from the response to the first payment. |
 | `number` | `str` | Optional | The card number. Only collect raw card data if you are [fully PCI compliant](https://docs.adyen.com/development-resources/pci-dss-compliance-guide). |
@@ -40,15 +38,13 @@ The payment method used by the shopper.
 | `src_token_reference` | `str` | Optional | The reference for the Click to Pay token. |
 | `stored_payment_method_id` | `str` | Optional | This is the `recurringDetailReference` returned in the response when you created the token.<br><br>**Constraints**: *Maximum Length*: `64` |
 | `three_ds_2_sdk_version` | `str` | Optional | Required for mobile integrations. Version of the 3D Secure 2 mobile SDK.<br><br>**Constraints**: *Maximum Length*: `12` |
-| `mtype` | [`Type141`](../../doc/models/type-141.md) | Optional | - |
-| `additional_properties` | `Dict[str, Any]` | Optional | - |
+| `mtype` | [`Type14Enum`](../../doc/models/type-14-enum.md) | Optional | Default payment method details. Common for scheme payment methods, and for simple payment method details.<br><br>**Default**: `"scheme"` |
 
 ## Example
 
 ```python
-import jsonpickle
-
 from adyen.models.card_details_1 import CardDetails1
+from adyen.models.type_14_enum import Type14Enum
 
 card_details_1 = CardDetails1(
     billing_sequence_number='billingSequenceNumber4',
@@ -56,9 +52,7 @@ card_details_1 = CardDetails1(
     checkout_attempt_id='checkoutAttemptId0',
     cupsecureplus_smscode='cupsecureplus.smscode2',
     cvc='cvc8',
-    additional_properties={
-        'exampleAdditionalProperty': jsonpickle.decode('{"key1":"val1","key2":"val2"}')
-    }
+    mtype=Type14Enum.SCHEME
 )
 ```
 

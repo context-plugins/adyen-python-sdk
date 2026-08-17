@@ -14,8 +14,6 @@ class PayMeResponseInfo(object):
         display_name (str): Merchant display name
         logo (str): Merchant logo. Format: Base64-encoded string.
         support_email (str): The email address of merchant support.
-        additional_properties (Dict[str, Any]): The additional properties for the
-            model.
 
     """
 
@@ -36,8 +34,7 @@ class PayMeResponseInfo(object):
         self,
         display_name=APIHelper.SKIP,
         logo=APIHelper.SKIP,
-        support_email=APIHelper.SKIP,
-        additional_properties=None):
+        support_email=APIHelper.SKIP):
         """Initialize a PayMeResponseInfo instance."""
         # Initialize members of the class
         if display_name is not APIHelper.SKIP:
@@ -46,11 +43,6 @@ class PayMeResponseInfo(object):
             self.logo = logo
         if support_email is not APIHelper.SKIP:
             self.support_email = support_email
-
-        # Add additional model properties to the instance
-        if additional_properties is None:
-            additional_properties = {}
-        self.additional_properties = additional_properties
 
     @classmethod
     def from_dictionary(cls,
@@ -83,16 +75,10 @@ class PayMeResponseInfo(object):
             if dictionary.get("supportEmail")\
                 else APIHelper.SKIP
 
-        additional_properties = APIHelper.get_additional_properties(
-            dictionary={k: v for k, v in dictionary.items()
-                        if k not in cls._names.values()},
-            unboxing_function=lambda value: value)
-
         # Return an object of this model
         return cls(display_name,
                    logo,
-                   support_email,
-                   additional_properties)
+                   support_email)
 
     def __repr__(self):
         """Return a unambiguous string representation."""
@@ -111,13 +97,11 @@ class PayMeResponseInfo(object):
             if hasattr(self, "support_email")
             else None
         )
-        _additional_properties=self.additional_properties
         return (
             f"{self.__class__.__name__}("
             f"display_name={_display_name!r}, "
             f"logo={_logo!r}, "
             f"support_email={_support_email!r}, "
-            f"additional_properties={_additional_properties!r}, "
             f")"
         )
 
@@ -138,12 +122,10 @@ class PayMeResponseInfo(object):
             if hasattr(self, "support_email")
             else None
         )
-        _additional_properties=self.additional_properties
         return (
             f"{self.__class__.__name__}("
             f"display_name={_display_name!s}, "
             f"logo={_logo!s}, "
             f"support_email={_support_email!s}, "
-            f"additional_properties={_additional_properties!s}, "
             f")"
         )

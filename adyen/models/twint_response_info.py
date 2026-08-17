@@ -12,8 +12,6 @@ class TwintResponseInfo(object):
 
     Attributes:
         logo (str): Twint logo. Format: Base64-encoded string.
-        additional_properties (Dict[str, Any]): The additional properties for the
-            model.
 
     """
 
@@ -28,17 +26,11 @@ class TwintResponseInfo(object):
 
     def __init__(
         self,
-        logo=APIHelper.SKIP,
-        additional_properties=None):
+        logo=APIHelper.SKIP):
         """Initialize a TwintResponseInfo instance."""
         # Initialize members of the class
         if logo is not APIHelper.SKIP:
             self.logo = logo
-
-        # Add additional model properties to the instance
-        if additional_properties is None:
-            additional_properties = {}
-        self.additional_properties = additional_properties
 
     @classmethod
     def from_dictionary(cls,
@@ -63,14 +55,8 @@ class TwintResponseInfo(object):
             if dictionary.get("logo")\
                 else APIHelper.SKIP
 
-        additional_properties = APIHelper.get_additional_properties(
-            dictionary={k: v for k, v in dictionary.items()
-                        if k not in cls._names.values()},
-            unboxing_function=lambda value: value)
-
         # Return an object of this model
-        return cls(logo,
-                   additional_properties)
+        return cls(logo)
 
     def __repr__(self):
         """Return a unambiguous string representation."""
@@ -79,11 +65,9 @@ class TwintResponseInfo(object):
             if hasattr(self, "logo")
             else None
         )
-        _additional_properties=self.additional_properties
         return (
             f"{self.__class__.__name__}("
             f"logo={_logo!r}, "
-            f"additional_properties={_additional_properties!r}, "
             f")"
         )
 
@@ -94,10 +78,8 @@ class TwintResponseInfo(object):
             if hasattr(self, "logo")
             else None
         )
-        _additional_properties=self.additional_properties
         return (
             f"{self.__class__.__name__}("
             f"logo={_logo!s}, "
-            f"additional_properties={_additional_properties!s}, "
             f")"
         )

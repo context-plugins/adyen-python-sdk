@@ -60,8 +60,6 @@ class AdditionalDataOpenInvoice(object):
             the shipment.
         openinvoicedata_line_item_nr_tracking_uri (str): URI where the customer can
             track their shipment.
-        additional_properties (Dict[str, Any]): The additional properties for the
-            model.
 
     """
 
@@ -140,8 +138,7 @@ class AdditionalDataOpenInvoice(object):
         openinvoicedata_line_item_nr_shipping_company=APIHelper.SKIP,
         openinvoicedata_line_item_nr_shipping_method=APIHelper.SKIP,
         openinvoicedata_line_item_nr_tracking_number=APIHelper.SKIP,
-        openinvoicedata_line_item_nr_tracking_uri=APIHelper.SKIP,
-        additional_properties=None):
+        openinvoicedata_line_item_nr_tracking_uri=APIHelper.SKIP):
         """Initialize a AdditionalDataOpenInvoice instance."""
         # Initialize members of the class
         if openinvoicedata_merchant_data is not APIHelper.SKIP:
@@ -196,11 +193,6 @@ class AdditionalDataOpenInvoice(object):
         if openinvoicedata_line_item_nr_tracking_uri is not APIHelper.SKIP:
             self.openinvoicedata_line_item_nr_tracking_uri =\
                  openinvoicedata_line_item_nr_tracking_uri
-
-        # Add additional model properties to the instance
-        if additional_properties is None:
-            additional_properties = {}
-        self.additional_properties = additional_properties
 
     @classmethod
     def from_dictionary(cls,
@@ -293,11 +285,6 @@ class AdditionalDataOpenInvoice(object):
             if dictionary.get("openinvoicedataLine[itemNr].trackingUri")\
                 else APIHelper.SKIP
 
-        additional_properties = APIHelper.get_additional_properties(
-            dictionary={k: v for k, v in dictionary.items()
-                        if k not in cls._names.values()},
-            unboxing_function=lambda value: value)
-
         # Return an object of this model
         return cls(openinvoicedata_merchant_data,
                    openinvoicedata_number_of_lines,
@@ -316,8 +303,7 @@ class AdditionalDataOpenInvoice(object):
                    openinvoicedata_line_item_nr_shipping_company,
                    openinvoicedata_line_item_nr_shipping_method,
                    openinvoicedata_line_item_nr_tracking_number,
-                   openinvoicedata_line_item_nr_tracking_uri,
-                   additional_properties)
+                   openinvoicedata_line_item_nr_tracking_uri)
 
     def __repr__(self):
         """Return a unambiguous string representation."""
@@ -411,7 +397,6 @@ class AdditionalDataOpenInvoice(object):
             if hasattr(self, "openinvoicedata_line_item_nr_tracking_uri")
             else None
         )
-        _additional_properties=self.additional_properties
         return (
             f"{self.__class__.__name__}("
             f"openinvoicedata_merchant_data={_openinvoicedata_merchant_data!r}, "
@@ -432,7 +417,6 @@ class AdditionalDataOpenInvoice(object):
             f"openinvoicedata_line_item_nr_shipping_method={_openinvoicedata_line_item_nr_shipping_method!r}, "
             f"openinvoicedata_line_item_nr_tracking_number={_openinvoicedata_line_item_nr_tracking_number!r}, "
             f"openinvoicedata_line_item_nr_tracking_uri={_openinvoicedata_line_item_nr_tracking_uri!r}, "
-            f"additional_properties={_additional_properties!r}, "
             f")"
         )
 
@@ -528,7 +512,6 @@ class AdditionalDataOpenInvoice(object):
             if hasattr(self, "openinvoicedata_line_item_nr_tracking_uri")
             else None
         )
-        _additional_properties=self.additional_properties
         return (
             f"{self.__class__.__name__}("
             f"openinvoicedata_merchant_data={_openinvoicedata_merchant_data!s}, "
@@ -549,6 +532,5 @@ class AdditionalDataOpenInvoice(object):
             f"openinvoicedata_line_item_nr_shipping_method={_openinvoicedata_line_item_nr_shipping_method!s}, "
             f"openinvoicedata_line_item_nr_tracking_number={_openinvoicedata_line_item_nr_tracking_number!s}, "
             f"openinvoicedata_line_item_nr_tracking_uri={_openinvoicedata_line_item_nr_tracking_uri!s}, "
-            f"additional_properties={_additional_properties!s}, "
             f")"
         )

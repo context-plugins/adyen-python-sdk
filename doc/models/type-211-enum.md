@@ -1,0 +1,51 @@
+
+# Type 211 Enum
+
+The type of check.
+
+Possible values:
+
+* **BANK_ACCOUNT_VERIFICATION**: Used in v5 and earlier. Replaced by **PAYOUT_METHOD_VERIFICATION** in v6 and later.
+
+* **COMPANY_VERIFICATION**
+
+* **CARD_VERIFICATION**
+
+* **IDENTITY_VERIFICATION**
+
+* **LEGAL_ARRANGEMENT_VERIFICATION**
+
+* **NONPROFIT_VERIFICATION**
+
+* **PASSPORT_VERIFICATION**
+
+* **PAYOUT_METHOD_VERIFICATION**: Used in v6 and later.
+
+* **PCI_VERIFICATION**
+
+## Enumeration
+
+`Type211Enum`
+
+## Fields
+
+| Name |
+|  --- |
+| `BANK_ACCOUNT_VERIFICATION` |
+| `CARD_VERIFICATION` |
+| `COMPANY_VERIFICATION` |
+| `IDENTITY_VERIFICATION` |
+| `LEGAL_ARRANGEMENT_VERIFICATION` |
+| `NONPROFIT_VERIFICATION` |
+| `PASSPORT_VERIFICATION` |
+| `PAYOUT_METHOD_VERIFICATION` |
+| `PCI_VERIFICATION` |
+
+## Example
+
+```python
+from adyen.models.type_211_enum import Type211Enum
+
+type_211 = Type211Enum.PASSPORT_VERIFICATION
+```
+

@@ -12,9 +12,7 @@ class InstallAndroidAppDetails(object):
 
     Attributes:
         app_id (str): The unique identifier of the app to be installed.
-        mtype (Type310): The model property of type Type310.
-        additional_properties (Dict[str, Any]): The additional properties for the
-            model.
+        mtype (Type32Enum): Type of terminal action: Install an Android app.
 
     """
 
@@ -32,19 +30,12 @@ class InstallAndroidAppDetails(object):
     def __init__(
         self,
         app_id=APIHelper.SKIP,
-        mtype=APIHelper.SKIP,
-        additional_properties=None):
+        mtype="InstallAndroidApp"):
         """Initialize a InstallAndroidAppDetails instance."""
         # Initialize members of the class
         if app_id is not APIHelper.SKIP:
             self.app_id = app_id
-        if mtype is not APIHelper.SKIP:
-            self.mtype = mtype
-
-        # Add additional model properties to the instance
-        if additional_properties is None:
-            additional_properties = {}
-        self.additional_properties = additional_properties
+        self.mtype = mtype
 
     @classmethod
     def from_dictionary(cls,
@@ -71,17 +62,11 @@ class InstallAndroidAppDetails(object):
         mtype =\
             dictionary.get("type")\
             if dictionary.get("type")\
-                else APIHelper.SKIP
-
-        additional_properties = APIHelper.get_additional_properties(
-            dictionary={k: v for k, v in dictionary.items()
-                        if k not in cls._names.values()},
-            unboxing_function=lambda value: value)
+                else "InstallAndroidApp"
 
         # Return an object of this model
         return cls(app_id,
-                   mtype,
-                   additional_properties)
+                   mtype)
 
     @classmethod
     def validate(cls, dictionary):
@@ -116,12 +101,10 @@ class InstallAndroidAppDetails(object):
             if hasattr(self, "mtype")
             else None
         )
-        _additional_properties=self.additional_properties
         return (
             f"{self.__class__.__name__}("
             f"app_id={_app_id!r}, "
             f"mtype={_mtype!r}, "
-            f"additional_properties={_additional_properties!r}, "
             f")"
         )
 
@@ -137,11 +120,9 @@ class InstallAndroidAppDetails(object):
             if hasattr(self, "mtype")
             else None
         )
-        _additional_properties=self.additional_properties
         return (
             f"{self.__class__.__name__}("
             f"app_id={_app_id!s}, "
             f"mtype={_mtype!s}, "
-            f"additional_properties={_additional_properties!s}, "
             f")"
         )

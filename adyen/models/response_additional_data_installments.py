@@ -36,8 +36,6 @@ class ResponseAdditionalDataInstallments(object):
         installments_value (str): The number of installments that the payment amount
             should be charged with.  Example: 5 > Only relevant for card payments in
             countries that support installments.
-        additional_properties (Dict[str, Any]): The additional properties for the
-            model.
 
     """
 
@@ -99,8 +97,7 @@ class ResponseAdditionalDataInstallments(object):
             APIHelper.SKIP,
         installment_payment_data_option_item_nr_total_amount_due=APIHelper.SKIP,
         installment_payment_data_payment_options=APIHelper.SKIP,
-        installments_value=APIHelper.SKIP,
-        additional_properties=None):
+        installments_value=APIHelper.SKIP):
         """Initialize a ResponseAdditionalDataInstallments instance."""
         # Initialize members of the class
         if installment_payment_data_installment_type is not APIHelper.SKIP:
@@ -138,11 +135,6 @@ class ResponseAdditionalDataInstallments(object):
                  installment_payment_data_payment_options
         if installments_value is not APIHelper.SKIP:
             self.installments_value = installments_value
-
-        # Add additional model properties to the instance
-        if additional_properties is None:
-            additional_properties = {}
-        self.additional_properties = additional_properties
 
     @classmethod
     def from_dictionary(cls,
@@ -211,11 +203,6 @@ class ResponseAdditionalDataInstallments(object):
             if dictionary.get("installments.value")\
                 else APIHelper.SKIP
 
-        additional_properties = APIHelper.get_additional_properties(
-            dictionary={k: v for k, v in dictionary.items()
-                        if k not in cls._names.values()},
-            unboxing_function=lambda value: value)
-
         # Return an object of this model
         return cls(installment_payment_data_installment_type,
                    installment_payment_data_option_item_nr_annual_percentage_rate,
@@ -228,8 +215,7 @@ class ResponseAdditionalDataInstallments(object):
                    installment_payment_data_option_item_nr_subsequent_installment_amount,
                    installment_payment_data_option_item_nr_total_amount_due,
                    installment_payment_data_payment_options,
-                   installments_value,
-                   additional_properties)
+                   installments_value)
 
     def __repr__(self):
         """Return a unambiguous string representation."""
@@ -293,7 +279,6 @@ class ResponseAdditionalDataInstallments(object):
             if hasattr(self, "installments_value")
             else None
         )
-        _additional_properties=self.additional_properties
         return (
             f"{self.__class__.__name__}("
             f"installment_payment_data_installment_type={_installment_payment_data_installment_type!r}, "
@@ -308,7 +293,6 @@ class ResponseAdditionalDataInstallments(object):
             f"installment_payment_data_option_item_nr_total_amount_due={_installment_payment_data_option_item_nr_total_amount_due!r}, "
             f"installment_payment_data_payment_options={_installment_payment_data_payment_options!r}, "
             f"installments_value={_installments_value!r}, "
-            f"additional_properties={_additional_properties!r}, "
             f")"
         )
 
@@ -374,7 +358,6 @@ class ResponseAdditionalDataInstallments(object):
             if hasattr(self, "installments_value")
             else None
         )
-        _additional_properties=self.additional_properties
         return (
             f"{self.__class__.__name__}("
             f"installment_payment_data_installment_type={_installment_payment_data_installment_type!s}, "
@@ -389,6 +372,5 @@ class ResponseAdditionalDataInstallments(object):
             f"installment_payment_data_option_item_nr_total_amount_due={_installment_payment_data_option_item_nr_total_amount_due!s}, "
             f"installment_payment_data_payment_options={_installment_payment_data_payment_options!s}, "
             f"installments_value={_installments_value!s}, "
-            f"additional_properties={_additional_properties!s}, "
             f")"
         )

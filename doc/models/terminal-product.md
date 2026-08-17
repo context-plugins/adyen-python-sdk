@@ -1,8 +1,6 @@
 
 # Terminal Product
 
-*This model accepts additional fields of type Any.*
-
 ## Structure
 
 `TerminalProduct`
@@ -15,16 +13,13 @@
 | `id` | `str` | Optional | The unique identifier of the product. |
 | `items_included` | `List[str]` | Optional | A list of parts included in the terminal package. |
 | `name` | `str` | Optional | The descriptive name of the product. |
-| `price` | [`TerminalProductPrice`](../../doc/models/terminal-product-price.md) | Optional | - |
-| `additional_properties` | `Dict[str, Any]` | Optional | - |
+| `price` | [`TerminalProductPrice2`](../../doc/models/terminal-product-price-2.md) | Optional | The price of the product. |
 
 ## Example
 
 ```python
-import jsonpickle
-
 from adyen.models.terminal_product import TerminalProduct
-from adyen.models.terminal_product_price import TerminalProductPrice
+from adyen.models.terminal_product_price_2 import TerminalProductPrice2
 
 terminal_product = TerminalProduct(
     description='description6',
@@ -34,16 +29,10 @@ terminal_product = TerminalProduct(
         'itemsIncluded0'
     ],
     name='name6',
-    price=TerminalProductPrice(
+    price=TerminalProductPrice2(
         currency='currency2',
-        value=203.04,
-        additional_properties={
-            'exampleAdditionalProperty': jsonpickle.decode('{"key1":"val1","key2":"val2"}')
-        }
-    ),
-    additional_properties={
-        'exampleAdditionalProperty': jsonpickle.decode('{"key1":"val1","key2":"val2"}')
-    }
+        value=203.04
+    )
 )
 ```
 

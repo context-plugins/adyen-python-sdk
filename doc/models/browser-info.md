@@ -5,8 +5,6 @@ The shopper's browser information.
 
 > For 3D Secure, the full object is required for web integrations. For mobile app integrations, include the `userAgent` and `acceptHeader` fields to indicate  that your integration can support a redirect in case a payment is routed to 3D Secure 2 redirect.
 
-*This model accepts additional fields of type Any.*
-
 ## Structure
 
 `BrowserInfo`
@@ -24,13 +22,10 @@ The shopper's browser information.
 | `screen_width` | `int` | Required | The total width of the shopper's device screen in pixels. |
 | `time_zone_offset` | `int` | Required | Time difference between UTC time and the shopper's browser local time, in minutes. |
 | `user_agent` | `str` | Required | The user agent value of the shopper's browser. |
-| `additional_properties` | `Dict[str, Any]` | Optional | - |
 
 ## Example
 
 ```python
-import jsonpickle
-
 from adyen.models.browser_info import BrowserInfo
 
 browser_info = BrowserInfo(
@@ -42,10 +37,7 @@ browser_info = BrowserInfo(
     screen_width=112,
     time_zone_offset=164,
     user_agent='userAgent8',
-    java_script_enabled=True,
-    additional_properties={
-        'exampleAdditionalProperty': jsonpickle.decode('{"key1":"val1","key2":"val2"}')
-    }
+    java_script_enabled=True
 )
 ```
 

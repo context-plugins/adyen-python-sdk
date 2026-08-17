@@ -11,7 +11,8 @@ class DisputeAttachment(object):
     """Implementation of the 'DisputeAttachment' model.
 
     Attributes:
-        attachment_type (AttachmentType1): The model property of type AttachmentType1.
+        attachment_type (AttachmentType1Enum): The type of information contained in
+            the attachment: **receipt**, **correspondence**, **other**.
         content (str): The content of the image. An attachment must be base64-encoded
             data. Make sure that all base64-encoded data strings are generated
             without line breaks or "wrapping". For example, do not use
@@ -21,8 +22,6 @@ class DisputeAttachment(object):
         file_name (str): The name of the attachment, including its filename
             extension. Supported filename extensions: **jpeg**, **pdf**, **tiff**.
         id (str): The unique identifier of the attachment.
-        additional_properties (Dict[str, Any]): The additional properties for the
-            model.
 
     """
 
@@ -43,8 +42,7 @@ class DisputeAttachment(object):
         attachment_type=None,
         content=None,
         file_name=None,
-        id=APIHelper.SKIP,
-        additional_properties=None):
+        id=APIHelper.SKIP):
         """Initialize a DisputeAttachment instance."""
         # Initialize members of the class
         self.attachment_type = attachment_type
@@ -52,11 +50,6 @@ class DisputeAttachment(object):
         self.file_name = file_name
         if id is not APIHelper.SKIP:
             self.id = id
-
-        # Add additional model properties to the instance
-        if additional_properties is None:
-            additional_properties = {}
-        self.additional_properties = additional_properties
 
     @classmethod
     def from_dictionary(cls,
@@ -93,17 +86,11 @@ class DisputeAttachment(object):
             if dictionary.get("id")\
                 else APIHelper.SKIP
 
-        additional_properties = APIHelper.get_additional_properties(
-            dictionary={k: v for k, v in dictionary.items()
-                        if k not in cls._names.values()},
-            unboxing_function=lambda value: value)
-
         # Return an object of this model
         return cls(attachment_type,
                    content,
                    file_name,
-                   id,
-                   additional_properties)
+                   id)
 
     def __repr__(self):
         """Return a unambiguous string representation."""
@@ -115,14 +102,12 @@ class DisputeAttachment(object):
             if hasattr(self, "id")
             else None
         )
-        _additional_properties=self.additional_properties
         return (
             f"{self.__class__.__name__}("
             f"attachment_type={_attachment_type!r}, "
             f"content={_content!r}, "
             f"file_name={_file_name!r}, "
             f"id={_id!r}, "
-            f"additional_properties={_additional_properties!r}, "
             f")"
         )
 
@@ -136,13 +121,11 @@ class DisputeAttachment(object):
             if hasattr(self, "id")
             else None
         )
-        _additional_properties=self.additional_properties
         return (
             f"{self.__class__.__name__}("
             f"attachment_type={_attachment_type!s}, "
             f"content={_content!s}, "
             f"file_name={_file_name!s}, "
             f"id={_id!s}, "
-            f"additional_properties={_additional_properties!s}, "
             f")"
         )

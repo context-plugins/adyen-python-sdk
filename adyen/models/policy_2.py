@@ -25,8 +25,6 @@ class Policy2(object):
             is the ID of the account holder that is associated with the balance
             account shown in the component.
         roles (List[str]): The name of the role required to use the component.
-        additional_properties (Dict[str, Any]): The additional properties for the
-            model.
 
     """
 
@@ -44,19 +42,13 @@ class Policy2(object):
     def __init__(
         self,
         resources=APIHelper.SKIP,
-        roles=APIHelper.SKIP,
-        additional_properties=None):
+        roles=APIHelper.SKIP):
         """Initialize a Policy2 instance."""
         # Initialize members of the class
         if resources is not APIHelper.SKIP:
             self.resources = resources
         if roles is not APIHelper.SKIP:
             self.roles = roles
-
-        # Add additional model properties to the instance
-        if additional_properties is None:
-            additional_properties = {}
-        self.additional_properties = additional_properties
 
     @classmethod
     def from_dictionary(cls,
@@ -89,15 +81,9 @@ class Policy2(object):
             if dictionary.get("roles")\
                 else APIHelper.SKIP
 
-        additional_properties = APIHelper.get_additional_properties(
-            dictionary={k: v for k, v in dictionary.items()
-                        if k not in cls._names.values()},
-            unboxing_function=lambda value: value)
-
         # Return an object of this model
         return cls(resources,
-                   roles,
-                   additional_properties)
+                   roles)
 
     def __repr__(self):
         """Return a unambiguous string representation."""
@@ -111,12 +97,10 @@ class Policy2(object):
             if hasattr(self, "roles")
             else None
         )
-        _additional_properties=self.additional_properties
         return (
             f"{self.__class__.__name__}("
             f"resources={_resources!r}, "
             f"roles={_roles!r}, "
-            f"additional_properties={_additional_properties!r}, "
             f")"
         )
 
@@ -132,11 +116,9 @@ class Policy2(object):
             if hasattr(self, "roles")
             else None
         )
-        _additional_properties=self.additional_properties
         return (
             f"{self.__class__.__name__}("
             f"resources={_resources!s}, "
             f"roles={_roles!s}, "
-            f"additional_properties={_additional_properties!s}, "
             f")"
         )

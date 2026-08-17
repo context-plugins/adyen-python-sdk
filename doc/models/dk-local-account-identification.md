@@ -1,11 +1,9 @@
 
-# Dk Local Account Identification
-
-*This model accepts additional fields of type Any.*
+# DK Local Account Identification
 
 ## Structure
 
-`DkLocalAccountIdentification`
+`DKLocalAccountIdentification`
 
 ## Fields
 
@@ -13,24 +11,16 @@
 |  --- | --- | --- | --- |
 | `account_number` | `str` | Required | The 4-10 digits bank account number (Kontonummer) (without separators or whitespace).<br><br>**Constraints**: *Minimum Length*: `4`, *Maximum Length*: `10` |
 | `bank_code` | `str` | Required | The 4-digit bank code (Registreringsnummer) (without separators or whitespace).<br><br>**Constraints**: *Minimum Length*: `4`, *Maximum Length*: `4` |
-| `mtype` | [`Type173`](../../doc/models/type-173.md) | Required | **dkLocal** |
-| `additional_properties` | `Dict[str, Any]` | Optional | - |
+| `mtype` | `str` | Required, Constant | **dkLocal**<br><br>**Value**: `"dkLocal"` |
 
 ## Example
 
 ```python
-import jsonpickle
+from adyen.models.dk_local_account_identification import DKLocalAccountIdentification
 
-from adyen.models.dk_local_account_identification import DkLocalAccountIdentification
-from adyen.models.type_173 import Type173
-
-dk_local_account_identification = DkLocalAccountIdentification(
+dk_local_account_identification = DKLocalAccountIdentification(
     account_number='accountNumber0',
-    bank_code='bankCode2',
-    mtype=Type173.DKLOCAL,
-    additional_properties={
-        'exampleAdditionalProperty': jsonpickle.decode('{"key1":"val1","key2":"val2"}')
-    }
+    bank_code='bankCode2'
 )
 ```
 

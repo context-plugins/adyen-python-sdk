@@ -28,9 +28,14 @@ from adyen.models.android_apps_response import (
 from adyen.models.android_certificates_response import (
     AndroidCertificatesResponse,
 )
-from adyen.models.entity_reference import EntityReference
 from adyen.models.reprocess_android_app_response import (
     ReprocessAndroidAppResponse,
+)
+from adyen.models.upload_android_app_response import (
+    UploadAndroidAppResponse,
+)
+from adyen.models.upload_android_certificate_response import (
+    UploadAndroidCertificateResponse,
 )
 
 
@@ -76,24 +81,22 @@ class AndroidFilesCompanyLevelApi(BaseApi):
             version_code (int, optional): The version number of the app.
 
         Returns:
-            ApiResponse: An object with the response value as well as other useful
-                information such as status codes and headers. OK - the request has
+            AndroidAppsResponse: Response from the API. OK - the request has
                 succeeded.
 
         Raises:
-            ApiException: When an error occurs while fetching the data from the
+            APIException: When an error occurs while fetching the data from the
                 remote API. This exception includes the HTTP Response code, an error
                 message, and the HTTP body that was received in the request.
 
         """
         return super().new_api_call_builder.request(
-            RequestBuilder().server(Server.DEFAULT)
+            RequestBuilder().server(Server.DEFAULT9)
             .path("/companies/{companyId}/androidApps")
             .http_method(HttpMethodEnum.GET)
             .template_param(Parameter()
                 .key("companyId")
                 .value(company_id)
-                .is_required(True)
                 .should_encode(True))
             .query_param(Parameter()
                 .key("pageNumber")
@@ -115,7 +118,6 @@ class AndroidFilesCompanyLevelApi(BaseApi):
             ResponseHandler()
             .deserializer(APIHelper.json_deserialize)
             .deserialize_into(AndroidAppsResponse.from_dictionary)
-            .is_api_response(True)
             .local_error("400",
                 "Bad Request - a problem reading or understanding the request.",
                 RestServiceErrorException)
@@ -154,24 +156,22 @@ class AndroidFilesCompanyLevelApi(BaseApi):
             company_id (str): The unique identifier of the company account.
 
         Returns:
-            ApiResponse: An object with the response value as well as other useful
-                information such as status codes and headers. OK - the request has
+            UploadAndroidAppResponse: Response from the API. OK - the request has
                 succeeded.
 
         Raises:
-            ApiException: When an error occurs while fetching the data from the
+            APIException: When an error occurs while fetching the data from the
                 remote API. This exception includes the HTTP Response code, an error
                 message, and the HTTP body that was received in the request.
 
         """
         return super().new_api_call_builder.request(
-            RequestBuilder().server(Server.DEFAULT)
+            RequestBuilder().server(Server.DEFAULT9)
             .path("/companies/{companyId}/androidApps")
             .http_method(HttpMethodEnum.POST)
             .template_param(Parameter()
                 .key("companyId")
                 .value(company_id)
-                .is_required(True)
                 .should_encode(True))
             .header_param(Parameter()
                 .key("accept")
@@ -180,8 +180,7 @@ class AndroidFilesCompanyLevelApi(BaseApi):
         ).response(
             ResponseHandler()
             .deserializer(APIHelper.json_deserialize)
-            .deserialize_into(EntityReference.from_dictionary)
-            .is_api_response(True)
+            .deserialize_into(UploadAndroidAppResponse.from_dictionary)
             .local_error("400",
                 "Bad Request - a problem reading or understanding the request.",
                 RestServiceErrorException)
@@ -223,29 +222,25 @@ class AndroidFilesCompanyLevelApi(BaseApi):
             id (str): The unique identifier of the app.
 
         Returns:
-            ApiResponse: An object with the response value as well as other useful
-                information such as status codes and headers. OK - the request has
-                succeeded.
+            AndroidApp: Response from the API. OK - the request has succeeded.
 
         Raises:
-            ApiException: When an error occurs while fetching the data from the
+            APIException: When an error occurs while fetching the data from the
                 remote API. This exception includes the HTTP Response code, an error
                 message, and the HTTP body that was received in the request.
 
         """
         return super().new_api_call_builder.request(
-            RequestBuilder().server(Server.DEFAULT)
+            RequestBuilder().server(Server.DEFAULT9)
             .path("/companies/{companyId}/androidApps/{id}")
             .http_method(HttpMethodEnum.GET)
             .template_param(Parameter()
                 .key("companyId")
                 .value(company_id)
-                .is_required(True)
                 .should_encode(True))
             .template_param(Parameter()
                 .key("id")
                 .value(id)
-                .is_required(True)
                 .should_encode(True))
             .header_param(Parameter()
                 .key("accept")
@@ -255,7 +250,6 @@ class AndroidFilesCompanyLevelApi(BaseApi):
             ResponseHandler()
             .deserializer(APIHelper.json_deserialize)
             .deserialize_into(AndroidApp.from_dictionary)
-            .is_api_response(True)
             .local_error("400",
                 "Bad Request - a problem reading or understanding the request.",
                 RestServiceErrorException)
@@ -295,29 +289,26 @@ class AndroidFilesCompanyLevelApi(BaseApi):
             id (str): The unique identifier of the app.
 
         Returns:
-            ApiResponse: An object with the response value as well as other useful
-                information such as status codes and headers. OK - the request has
+            ReprocessAndroidAppResponse: Response from the API. OK - the request has
                 succeeded.
 
         Raises:
-            ApiException: When an error occurs while fetching the data from the
+            APIException: When an error occurs while fetching the data from the
                 remote API. This exception includes the HTTP Response code, an error
                 message, and the HTTP body that was received in the request.
 
         """
         return super().new_api_call_builder.request(
-            RequestBuilder().server(Server.DEFAULT)
+            RequestBuilder().server(Server.DEFAULT9)
             .path("/companies/{companyId}/androidApps/{id}")
             .http_method(HttpMethodEnum.PATCH)
             .template_param(Parameter()
                 .key("companyId")
                 .value(company_id)
-                .is_required(True)
                 .should_encode(True))
             .template_param(Parameter()
                 .key("id")
                 .value(id)
-                .is_required(True)
                 .should_encode(True))
             .header_param(Parameter()
                 .key("accept")
@@ -327,7 +318,6 @@ class AndroidFilesCompanyLevelApi(BaseApi):
             ResponseHandler()
             .deserializer(APIHelper.json_deserialize)
             .deserialize_into(ReprocessAndroidAppResponse.from_dictionary)
-            .is_api_response(True)
             .local_error("400",
                 "Bad Request - a problem reading or understanding the request.",
                 RestServiceErrorException)
@@ -378,24 +368,22 @@ class AndroidFilesCompanyLevelApi(BaseApi):
             certificate_name (str, optional): The name of the certificate.
 
         Returns:
-            ApiResponse: An object with the response value as well as other useful
-                information such as status codes and headers. OK - the request has
+            AndroidCertificatesResponse: Response from the API. OK - the request has
                 succeeded.
 
         Raises:
-            ApiException: When an error occurs while fetching the data from the
+            APIException: When an error occurs while fetching the data from the
                 remote API. This exception includes the HTTP Response code, an error
                 message, and the HTTP body that was received in the request.
 
         """
         return super().new_api_call_builder.request(
-            RequestBuilder().server(Server.DEFAULT)
+            RequestBuilder().server(Server.DEFAULT9)
             .path("/companies/{companyId}/androidCertificates")
             .http_method(HttpMethodEnum.GET)
             .template_param(Parameter()
                 .key("companyId")
                 .value(company_id)
-                .is_required(True)
                 .should_encode(True))
             .query_param(Parameter()
                 .key("pageNumber")
@@ -414,7 +402,6 @@ class AndroidFilesCompanyLevelApi(BaseApi):
             ResponseHandler()
             .deserializer(APIHelper.json_deserialize)
             .deserialize_into(AndroidCertificatesResponse.from_dictionary)
-            .is_api_response(True)
             .local_error("400",
                 "Bad Request - a problem reading or understanding the request.",
                 RestServiceErrorException)
@@ -446,24 +433,22 @@ class AndroidFilesCompanyLevelApi(BaseApi):
             company_id (str): The unique identifier of the company account.
 
         Returns:
-            ApiResponse: An object with the response value as well as other useful
-                information such as status codes and headers. OK - the request has
-                succeeded.
+            UploadAndroidCertificateResponse: Response from the API. OK - the request
+                has succeeded.
 
         Raises:
-            ApiException: When an error occurs while fetching the data from the
+            APIException: When an error occurs while fetching the data from the
                 remote API. This exception includes the HTTP Response code, an error
                 message, and the HTTP body that was received in the request.
 
         """
         return super().new_api_call_builder.request(
-            RequestBuilder().server(Server.DEFAULT)
+            RequestBuilder().server(Server.DEFAULT9)
             .path("/companies/{companyId}/androidCertificates")
             .http_method(HttpMethodEnum.POST)
             .template_param(Parameter()
                 .key("companyId")
                 .value(company_id)
-                .is_required(True)
                 .should_encode(True))
             .header_param(Parameter()
                 .key("accept")
@@ -472,8 +457,7 @@ class AndroidFilesCompanyLevelApi(BaseApi):
         ).response(
             ResponseHandler()
             .deserializer(APIHelper.json_deserialize)
-            .deserialize_into(EntityReference.from_dictionary)
-            .is_api_response(True)
+            .deserialize_into(UploadAndroidCertificateResponse.from_dictionary)
             .local_error("400",
                 "Bad Request - a problem reading or understanding the request.",
                 RestServiceErrorException)

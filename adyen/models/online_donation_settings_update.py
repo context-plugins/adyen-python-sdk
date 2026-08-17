@@ -11,18 +11,16 @@ class OnlineDonationSettingsUpdate(object):
     """Implementation of the 'OnlineDonationSettingsUpdate' model.
 
     Attributes:
-        default_amount (DonationAmountUpdate | Any | None): The default amount for
+        default_amount (DonationAmountUpdate | None): The default amount for
             donations.
-        donation_type (DonationType | Any | None): The type of donation to collect
-            from the shopper. Possible values:   - **roundup**: Round up the
-            transaction amount.  - **fixedAmounts**: Choose a fixed amount.  -
+        donation_type (DonationTypeEnum | None): The type of donation to collect from
+            the shopper. Possible values:   - **roundup**: Round up the transaction
+            amount.  - **fixedAmounts**: Choose a fixed amount.  -
             **fixedAmountsRoundup**: Round up, or choose a fixed amount.
         merchant_accounts (List[str]): The merchant accounts for this sales channel
             that are associated with the donation campaign.
         store_ids (List[str]): The Adyen-generated unique identifiers of stores for
             this sales channel that are associated with the donation campaign.
-        additional_properties (Dict[str, Any]): The additional properties for the
-            model.
 
     """
 
@@ -42,6 +40,8 @@ class OnlineDonationSettingsUpdate(object):
     ]
 
     _nullables = [
+        "default_amount",
+        "donation_type",
         "merchant_accounts",
         "store_ids",
     ]
@@ -51,8 +51,7 @@ class OnlineDonationSettingsUpdate(object):
         default_amount=APIHelper.SKIP,
         donation_type=APIHelper.SKIP,
         merchant_accounts=APIHelper.SKIP,
-        store_ids=APIHelper.SKIP,
-        additional_properties=None):
+        store_ids=APIHelper.SKIP):
         """Initialize a OnlineDonationSettingsUpdate instance."""
         # Initialize members of the class
         if default_amount is not APIHelper.SKIP:
@@ -63,11 +62,6 @@ class OnlineDonationSettingsUpdate(object):
             self.merchant_accounts = merchant_accounts
         if store_ids is not APIHelper.SKIP:
             self.store_ids = store_ids
-
-        # Add additional model properties to the instance
-        if additional_properties is None:
-            additional_properties = {}
-        self.additional_properties = additional_properties
 
     @classmethod
     def from_dictionary(cls,
@@ -91,18 +85,24 @@ class OnlineDonationSettingsUpdate(object):
             return None
 
         # Extract variables from the dictionary
-        default_amount = APIHelper.deserialize_union_type(
+        if "defaultAmount" in dictionary.keys():
+            default_amount = APIHelper.deserialize_union_type(
             UnionTypeLookUp.get("OnlineDonationSettingsUpdateDefaultAmount"),
             dictionary.get("defaultAmount"),
             False)\
             if dictionary.get("defaultAmount") is not None\
-            else APIHelper.SKIP
-        donation_type = APIHelper.deserialize_union_type(
+            else None
+        else:
+            default_amount = APIHelper.SKIP
+        if "donationType" in dictionary.keys():
+            donation_type = APIHelper.deserialize_union_type(
             UnionTypeLookUp.get("OnlineDonationSettingsUpdateDonationType"),
             dictionary.get("donationType"),
             False)\
             if dictionary.get("donationType") is not None\
-            else APIHelper.SKIP
+            else None
+        else:
+            donation_type = APIHelper.SKIP
         merchant_accounts =\
             dictionary.get("merchantAccounts")\
             if "merchantAccounts" in dictionary.keys()\
@@ -112,17 +112,11 @@ class OnlineDonationSettingsUpdate(object):
             if "storeIds" in dictionary.keys()\
                 else APIHelper.SKIP
 
-        additional_properties = APIHelper.get_additional_properties(
-            dictionary={k: v for k, v in dictionary.items()
-                        if k not in cls._names.values()},
-            unboxing_function=lambda value: value)
-
         # Return an object of this model
         return cls(default_amount,
                    donation_type,
                    merchant_accounts,
-                   store_ids,
-                   additional_properties)
+                   store_ids)
 
     @classmethod
     def validate(cls, dictionary):
@@ -167,14 +161,12 @@ class OnlineDonationSettingsUpdate(object):
             if hasattr(self, "store_ids")
             else None
         )
-        _additional_properties=self.additional_properties
         return (
             f"{self.__class__.__name__}("
             f"default_amount={_default_amount!r}, "
             f"donation_type={_donation_type!r}, "
             f"merchant_accounts={_merchant_accounts!r}, "
             f"store_ids={_store_ids!r}, "
-            f"additional_properties={_additional_properties!r}, "
             f")"
         )
 
@@ -200,13 +192,11 @@ class OnlineDonationSettingsUpdate(object):
             if hasattr(self, "store_ids")
             else None
         )
-        _additional_properties=self.additional_properties
         return (
             f"{self.__class__.__name__}("
             f"default_amount={_default_amount!s}, "
             f"donation_type={_donation_type!s}, "
             f"merchant_accounts={_merchant_accounts!s}, "
             f"store_ids={_store_ids!s}, "
-            f"additional_properties={_additional_properties!s}, "
             f")"
         )

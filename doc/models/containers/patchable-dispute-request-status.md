@@ -3,32 +3,21 @@
 
 ## Data Type
 
-`DisputeStatus | Any | None`
+`DisputeStatusEnum`
 
 ## Cases
 
 | Type |
 |  --- |
-| [`DisputeStatus`](../../../doc/models/dispute-status.md) |
-| `Any` |
+| [`DisputeStatusEnum`](../../../doc/models/dispute-status-enum.md) |
 
-## DisputeStatus
-
-### Initialization Code
-
-#### Example
-
-```python
-value = DisputeStatus.DRAFT
-```
-
-## Any
+## DisputeStatusEnum
 
 ### Initialization Code
 
 #### Example
 
 ```python
-value = jsonpickle.decode('{"key1":"val1","key2":"val2"}')
+value = DisputeStatusEnum.DRAFT
 ```
 

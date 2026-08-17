@@ -13,8 +13,6 @@ class SwishResponseInfo(object):
     Attributes:
         swish_number (str): Swish number. Format: 10 digits without spaces. For
             example, **1231111111**.
-        additional_properties (Dict[str, Any]): The additional properties for the
-            model.
 
     """
 
@@ -29,17 +27,11 @@ class SwishResponseInfo(object):
 
     def __init__(
         self,
-        swish_number=APIHelper.SKIP,
-        additional_properties=None):
+        swish_number=APIHelper.SKIP):
         """Initialize a SwishResponseInfo instance."""
         # Initialize members of the class
         if swish_number is not APIHelper.SKIP:
             self.swish_number = swish_number
-
-        # Add additional model properties to the instance
-        if additional_properties is None:
-            additional_properties = {}
-        self.additional_properties = additional_properties
 
     @classmethod
     def from_dictionary(cls,
@@ -64,14 +56,8 @@ class SwishResponseInfo(object):
             if dictionary.get("swishNumber")\
                 else APIHelper.SKIP
 
-        additional_properties = APIHelper.get_additional_properties(
-            dictionary={k: v for k, v in dictionary.items()
-                        if k not in cls._names.values()},
-            unboxing_function=lambda value: value)
-
         # Return an object of this model
-        return cls(swish_number,
-                   additional_properties)
+        return cls(swish_number)
 
     def __repr__(self):
         """Return a unambiguous string representation."""
@@ -80,11 +66,9 @@ class SwishResponseInfo(object):
             if hasattr(self, "swish_number")
             else None
         )
-        _additional_properties=self.additional_properties
         return (
             f"{self.__class__.__name__}("
             f"swish_number={_swish_number!r}, "
-            f"additional_properties={_additional_properties!r}, "
             f")"
         )
 
@@ -95,10 +79,8 @@ class SwishResponseInfo(object):
             if hasattr(self, "swish_number")
             else None
         )
-        _additional_properties=self.additional_properties
         return (
             f"{self.__class__.__name__}("
             f"swish_number={_swish_number!s}, "
-            f"additional_properties={_additional_properties!s}, "
             f")"
         )

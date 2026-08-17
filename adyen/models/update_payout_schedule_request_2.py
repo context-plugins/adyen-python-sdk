@@ -13,12 +13,17 @@ class UpdatePayoutScheduleRequest2(object):
     The details of the payout schedule to which the account must be updated.
 
     Attributes:
-        action (Action): The model property of type Action.
+        action (ActionEnum): Direction on how to handle any payouts that have already
+            been scheduled.  Possible values: * `CLOSE`: close the existing batch of
+            payouts. * `UPDATE`: reschedule the existing batch to the new schedule. *
+            `NOTHING` (**default**): allow the payout to proceed.
         reason (str): The reason for the payout schedule update. > This field is
             required when the `schedule` parameter is set to `HOLD`.
-        schedule (Schedule1): The model property of type Schedule1.
-        additional_properties (Dict[str, Any]): The additional properties for the
-            model.
+        schedule (Schedule1Enum): The new payout schedule for the account.  Possible
+            values: `DEFAULT`, `DAILY`, `DAILY_US`, `DAILY_EU`, `DAILY_AU`,
+            `DAILY_SG`, `WEEKLY`, `WEEKLY_ON_TUE_FRI_MIDNIGHT`,
+            `BIWEEKLY_ON_1ST_AND_15TH_AT_MIDNIGHT`, `MONTHLY`, `HOLD`. > `HOLD`
+            prevents scheduled payouts, but you can still initiate payouts manually.
 
     """
 
@@ -38,8 +43,7 @@ class UpdatePayoutScheduleRequest2(object):
         self,
         schedule=None,
         action=APIHelper.SKIP,
-        reason=APIHelper.SKIP,
-        additional_properties=None):
+        reason=APIHelper.SKIP):
         """Initialize a UpdatePayoutScheduleRequest2 instance."""
         # Initialize members of the class
         if action is not APIHelper.SKIP:
@@ -47,11 +51,6 @@ class UpdatePayoutScheduleRequest2(object):
         if reason is not APIHelper.SKIP:
             self.reason = reason
         self.schedule = schedule
-
-        # Add additional model properties to the instance
-        if additional_properties is None:
-            additional_properties = {}
-        self.additional_properties = additional_properties
 
     @classmethod
     def from_dictionary(cls,
@@ -84,16 +83,10 @@ class UpdatePayoutScheduleRequest2(object):
             if dictionary.get("reason")\
                 else APIHelper.SKIP
 
-        additional_properties = APIHelper.get_additional_properties(
-            dictionary={k: v for k, v in dictionary.items()
-                        if k not in cls._names.values()},
-            unboxing_function=lambda value: value)
-
         # Return an object of this model
         return cls(schedule,
                    action,
-                   reason,
-                   additional_properties)
+                   reason)
 
     def __repr__(self):
         """Return a unambiguous string representation."""
@@ -108,13 +101,11 @@ class UpdatePayoutScheduleRequest2(object):
             else None
         )
         _schedule=self.schedule
-        _additional_properties=self.additional_properties
         return (
             f"{self.__class__.__name__}("
             f"action={_action!r}, "
             f"reason={_reason!r}, "
             f"schedule={_schedule!r}, "
-            f"additional_properties={_additional_properties!r}, "
             f")"
         )
 
@@ -131,12 +122,10 @@ class UpdatePayoutScheduleRequest2(object):
             else None
         )
         _schedule=self.schedule
-        _additional_properties=self.additional_properties
         return (
             f"{self.__class__.__name__}("
             f"action={_action!s}, "
             f"reason={_reason!s}, "
             f"schedule={_schedule!s}, "
-            f"additional_properties={_additional_properties!s}, "
             f")"
         )

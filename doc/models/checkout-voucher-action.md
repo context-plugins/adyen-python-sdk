@@ -1,8 +1,6 @@
 
 # Checkout Voucher Action
 
-*This model accepts additional fields of type Any.*
-
 ## Structure
 
 `CheckoutVoucherAction`
@@ -16,7 +14,7 @@
 | `download_url` | `str` | Optional | The URL to download the voucher. |
 | `entity` | `str` | Optional | An entity number of Multibanco. |
 | `expires_at` | `str` | Optional | The date time of the voucher expiry. |
-| `initial_amount` | [`InitialAmount`](../../doc/models/initial-amount.md) | Optional | - |
+| `initial_amount` | [`Amount14`](../../doc/models/amount-14.md) | Optional | The initial amount. |
 | `instructions_url` | `str` | Optional | The URL to the detailed instructions to make payment using the voucher. |
 | `issuer` | `str` | Optional | The issuer of the voucher. |
 | `masked_telephone_number` | `str` | Optional | The shopper telephone number (partially masked). |
@@ -28,30 +26,22 @@
 | `reference` | `str` | Optional | The voucher reference code. |
 | `shopper_email` | `str` | Optional | The shopper email. |
 | `shopper_name` | `str` | Optional | The shopper name. |
-| `surcharge` | [`Surcharge5`](../../doc/models/surcharge-5.md) | Optional | - |
-| `total_amount` | [`TotalAmount2`](../../doc/models/total-amount-2.md) | Optional | - |
-| `mtype` | [`Type594`](../../doc/models/type-594.md) | Required | **voucher** |
+| `surcharge` | [`Amount15`](../../doc/models/amount-15.md) | Optional | The surcharge amount. |
+| `total_amount` | [`Amount16`](../../doc/models/amount-16.md) | Optional | The total amount (initial plus surcharge amount). |
+| `mtype` | `str` | Required, Constant | **voucher**<br><br>**Value**: `"voucher"` |
 | `url` | `str` | Optional | Specifies the URL to redirect to. |
-| `additional_properties` | `Dict[str, Any]` | Optional | - |
 
 ## Example
 
 ```python
-import jsonpickle
-
 from adyen.models.checkout_voucher_action import CheckoutVoucherAction
-from adyen.models.type_594 import Type594
 
 checkout_voucher_action = CheckoutVoucherAction(
-    mtype=Type594.VOUCHER,
     alternative_reference='alternativeReference2',
     collection_institution_number='collectionInstitutionNumber6',
     download_url='downloadUrl6',
     entity='entity2',
-    expires_at='expiresAt0',
-    additional_properties={
-        'exampleAdditionalProperty': jsonpickle.decode('{"key1":"val1","key2":"val2"}')
-    }
+    expires_at='expiresAt0'
 )
 ```
 

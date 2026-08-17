@@ -14,10 +14,20 @@ class RoutingDetails(object):
         detail (str): A human-readable explanation specific to this occurrence of the
             problem.
         error_code (str): A code that identifies the problem type.
-        priority (Priority): The model property of type Priority.
+        priority (Priority1Enum): The priority for the bank transfer. This sets the
+            speed at which the transfer is sent and the fees that you have to pay.
+            Required for transfers with `category` **bank**.  Possible values:  *
+            **regular**: For normal, low-value transactions.  * **fast**: A faster
+            way to transfer funds, but the fees are higher. Recommended for
+            high-priority, low-value transactions.  * **wire**: The fastest way to
+            transfer funds, but this has the highest fees. Recommended for
+            high-priority, high-value transactions.  * **instant**: For instant funds
+            transfers within the United States and in [SEPA
+            locations](https://www.ecb.europa.eu/paym/integration/retail/sepa/html/ind
+            ex.en.html).  * **crossBorder**: For high-value transfers to a recipient
+            in a different country.  * **internal**: For transfers to an Adyen-issued
+            business bank account (by bank account number/IBAN).
         title (str): A short, human-readable summary of the problem type.
-        additional_properties (Dict[str, Any]): The additional properties for the
-            model.
 
     """
 
@@ -41,8 +51,7 @@ class RoutingDetails(object):
         detail=APIHelper.SKIP,
         error_code=APIHelper.SKIP,
         priority=APIHelper.SKIP,
-        title=APIHelper.SKIP,
-        additional_properties=None):
+        title=APIHelper.SKIP):
         """Initialize a RoutingDetails instance."""
         # Initialize members of the class
         if detail is not APIHelper.SKIP:
@@ -53,11 +62,6 @@ class RoutingDetails(object):
             self.priority = priority
         if title is not APIHelper.SKIP:
             self.title = title
-
-        # Add additional model properties to the instance
-        if additional_properties is None:
-            additional_properties = {}
-        self.additional_properties = additional_properties
 
     @classmethod
     def from_dictionary(cls,
@@ -94,17 +98,11 @@ class RoutingDetails(object):
             if dictionary.get("title")\
                 else APIHelper.SKIP
 
-        additional_properties = APIHelper.get_additional_properties(
-            dictionary={k: v for k, v in dictionary.items()
-                        if k not in cls._names.values()},
-            unboxing_function=lambda value: value)
-
         # Return an object of this model
         return cls(detail,
                    error_code,
                    priority,
-                   title,
-                   additional_properties)
+                   title)
 
     def __repr__(self):
         """Return a unambiguous string representation."""
@@ -128,14 +126,12 @@ class RoutingDetails(object):
             if hasattr(self, "title")
             else None
         )
-        _additional_properties=self.additional_properties
         return (
             f"{self.__class__.__name__}("
             f"detail={_detail!r}, "
             f"error_code={_error_code!r}, "
             f"priority={_priority!r}, "
             f"title={_title!r}, "
-            f"additional_properties={_additional_properties!r}, "
             f")"
         )
 
@@ -161,13 +157,11 @@ class RoutingDetails(object):
             if hasattr(self, "title")
             else None
         )
-        _additional_properties=self.additional_properties
         return (
             f"{self.__class__.__name__}("
             f"detail={_detail!s}, "
             f"error_code={_error_code!s}, "
             f"priority={_priority!s}, "
             f"title={_title!s}, "
-            f"additional_properties={_additional_properties!s}, "
             f")"
         )

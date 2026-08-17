@@ -56,7 +56,7 @@ This endpoint requires [BasicAuth](../../doc/auth/basic-authentication.md) **OR*
 
 **200**: OK - the request has succeeded.
 
-This method returns an [`ApiResponse`](../../doc/api-response.md) instance. The `body` property of this instance returns the response data which is of type [`ListStoresResponse`](../../doc/models/list-stores-response.md).
+[`ListStoresResponse`](../../doc/models/list-stores-response.md)
 
 ## Example Usage
 
@@ -64,11 +64,7 @@ This method returns an [`ApiResponse`](../../doc/api-response.md) instance. The 
 merchant_id = 'merchantId6'
 
 result = account_store_level_api.get_merchants_merchant_id_stores(merchant_id)
-
-if result.is_success():
-    print(result.body)
-elif result.is_error():
-    print(result.errors)
+print(result)
 ```
 
 ## Example Response *(as JSON)*
@@ -181,7 +177,7 @@ This endpoint requires [BasicAuth](../../doc/auth/basic-authentication.md) **OR*
 
 **200**: OK - the request has succeeded.
 
-This method returns an [`ApiResponse`](../../doc/api-response.md) instance. The `body` property of this instance returns the response data which is of type [`Store`](../../doc/models/store.md).
+[`Store`](../../doc/models/store.md)
 
 ## Example Usage
 
@@ -189,7 +185,7 @@ This method returns an [`ApiResponse`](../../doc/api-response.md) instance. The 
 merchant_id = 'merchantId6'
 
 body = StoreCreationRequest(
-    address=Address15(
+    address=StoreLocation1(
         country='US',
         city='Springfield',
         line_1='200 Main Street',
@@ -208,11 +204,7 @@ result = account_store_level_api.post_merchants_merchant_id_stores(
     merchant_id,
     body=body
 )
-
-if result.is_success():
-    print(result.body)
-elif result.is_error():
-    print(result.errors)
+print(result)
 ```
 
 ## Example Response *(as JSON)*
@@ -286,7 +278,7 @@ This endpoint requires [BasicAuth](../../doc/auth/basic-authentication.md) **OR*
 
 **200**: OK - the request has succeeded.
 
-This method returns an [`ApiResponse`](../../doc/api-response.md) instance. The `body` property of this instance returns the response data which is of type [`Store`](../../doc/models/store.md).
+[`Store`](../../doc/models/store.md)
 
 ## Example Usage
 
@@ -299,11 +291,7 @@ result = account_store_level_api.get_merchants_merchant_id_stores_store_id(
     merchant_id,
     store_id
 )
-
-if result.is_success():
-    print(result.body)
-elif result.is_error():
-    print(result.errors)
+print(result)
 ```
 
 ## Example Response *(as JSON)*
@@ -376,7 +364,7 @@ This endpoint requires [BasicAuth](../../doc/auth/basic-authentication.md) **OR*
 
 **200**: OK - the request has succeeded.
 
-This method returns an [`ApiResponse`](../../doc/api-response.md) instance. The `body` property of this instance returns the response data which is of type [`Store`](../../doc/models/store.md).
+[`Store`](../../doc/models/store.md)
 
 ## Example Usage
 
@@ -386,7 +374,7 @@ merchant_id = 'merchantId6'
 store_id = 'storeId6'
 
 body = UpdateStoreRequest(
-    address=UpdatableAddress(
+    address=UpdatableAddress1(
         line_1='1776 West Pinewood Avenue',
         line_2='Heartland Building',
         line_3='',
@@ -399,11 +387,7 @@ result = account_store_level_api.patch_merchants_merchant_id_stores_store_id(
     store_id,
     body=body
 )
-
-if result.is_success():
-    print(result.body)
-elif result.is_error():
-    print(result.errors)
+print(result)
 ```
 
 ## Example Response *(as JSON)*
@@ -481,17 +465,13 @@ This endpoint requires [BasicAuth](../../doc/auth/basic-authentication.md) **OR*
 
 **200**: OK - the request has succeeded.
 
-This method returns an [`ApiResponse`](../../doc/api-response.md) instance. The `body` property of this instance returns the response data which is of type [`ListStoresResponse`](../../doc/models/list-stores-response.md).
+[`ListStoresResponse`](../../doc/models/list-stores-response.md)
 
 ## Example Usage
 
 ```python
 result = account_store_level_api.get_stores()
-
-if result.is_success():
-    print(result.body)
-elif result.is_error():
-    print(result.errors)
+print(result)
 ```
 
 ## Example Response *(as JSON)*
@@ -602,13 +582,13 @@ This endpoint requires [BasicAuth](../../doc/auth/basic-authentication.md) **OR*
 
 **200**: OK - the request has succeeded.
 
-This method returns an [`ApiResponse`](../../doc/api-response.md) instance. The `body` property of this instance returns the response data which is of type [`Store`](../../doc/models/store.md).
+[`Store`](../../doc/models/store.md)
 
 ## Example Usage
 
 ```python
 body = StoreCreationWithMerchantCodeRequest(
-    address=Address15(
+    address=StoreLocation1(
         country='US',
         city='Springfield',
         line_1='200 Main Street',
@@ -627,11 +607,7 @@ body = StoreCreationWithMerchantCodeRequest(
 result = account_store_level_api.post_stores(
     body=body
 )
-
-if result.is_success():
-    print(result.body)
-elif result.is_error():
-    print(result.errors)
+print(result)
 ```
 
 ## Example Response *(as JSON)*
@@ -703,7 +679,7 @@ This endpoint requires [BasicAuth](../../doc/auth/basic-authentication.md) **OR*
 
 **200**: OK - the request has succeeded.
 
-This method returns an [`ApiResponse`](../../doc/api-response.md) instance. The `body` property of this instance returns the response data which is of type [`Store`](../../doc/models/store.md).
+[`Store`](../../doc/models/store.md)
 
 ## Example Usage
 
@@ -711,11 +687,7 @@ This method returns an [`ApiResponse`](../../doc/api-response.md) instance. The 
 store_id = 'storeId6'
 
 result = account_store_level_api.get_stores_store_id(store_id)
-
-if result.is_success():
-    print(result.body)
-elif result.is_error():
-    print(result.errors)
+print(result)
 ```
 
 ## Example Response *(as JSON)*
@@ -788,7 +760,7 @@ This endpoint requires [BasicAuth](../../doc/auth/basic-authentication.md) **OR*
 
 **200**: OK - the request has succeeded.
 
-This method returns an [`ApiResponse`](../../doc/api-response.md) instance. The `body` property of this instance returns the response data which is of type [`Store`](../../doc/models/store.md).
+[`Store`](../../doc/models/store.md)
 
 ## Example Usage
 
@@ -796,7 +768,7 @@ This method returns an [`ApiResponse`](../../doc/api-response.md) instance. The 
 store_id = 'storeId6'
 
 body = UpdateStoreRequest(
-    address=UpdatableAddress(
+    address=UpdatableAddress1(
         line_1='1776 West Pinewood Avenue',
         line_2='Heartland Building',
         line_3='',
@@ -808,11 +780,7 @@ result = account_store_level_api.patch_stores_store_id(
     store_id,
     body=body
 )
-
-if result.is_success():
-    print(result.body)
-elif result.is_error():
-    print(result.errors)
+print(result)
 ```
 
 ## Example Response *(as JSON)*

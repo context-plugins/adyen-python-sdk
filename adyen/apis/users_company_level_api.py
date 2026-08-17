@@ -59,24 +59,22 @@ class UsersCompanyLevelApi(BaseApi):
                 users that match.
 
         Returns:
-            ApiResponse: An object with the response value as well as other useful
-                information such as status codes and headers. OK - the request has
+            ListCompanyUsersResponse: Response from the API. OK - the request has
                 succeeded.
 
         Raises:
-            ApiException: When an error occurs while fetching the data from the
+            APIException: When an error occurs while fetching the data from the
                 remote API. This exception includes the HTTP Response code, an error
                 message, and the HTTP body that was received in the request.
 
         """
         return super().new_api_call_builder.request(
-            RequestBuilder().server(Server.DEFAULT)
+            RequestBuilder().server(Server.DEFAULT9)
             .path("/companies/{companyId}/users")
             .http_method(HttpMethodEnum.GET)
             .template_param(Parameter()
                 .key("companyId")
                 .value(company_id)
-                .is_required(True)
                 .should_encode(True))
             .query_param(Parameter()
                 .key("pageNumber")
@@ -95,7 +93,6 @@ class UsersCompanyLevelApi(BaseApi):
             ResponseHandler()
             .deserializer(APIHelper.json_deserialize)
             .deserialize_into(ListCompanyUsersResponse.from_dictionary)
-            .is_api_response(True)
             .local_error("400",
                 "Bad Request - a problem reading or understanding the request.",
                 RestServiceErrorException)
@@ -129,24 +126,22 @@ class UsersCompanyLevelApi(BaseApi):
             body (CreateCompanyUserRequest, optional): The request body parameter.
 
         Returns:
-            ApiResponse: An object with the response value as well as other useful
-                information such as status codes and headers. OK - the request has
+            CreateCompanyUserResponse: Response from the API. OK - the request has
                 succeeded.
 
         Raises:
-            ApiException: When an error occurs while fetching the data from the
+            APIException: When an error occurs while fetching the data from the
                 remote API. This exception includes the HTTP Response code, an error
                 message, and the HTTP body that was received in the request.
 
         """
         return super().new_api_call_builder.request(
-            RequestBuilder().server(Server.DEFAULT)
+            RequestBuilder().server(Server.DEFAULT9)
             .path("/companies/{companyId}/users")
             .http_method(HttpMethodEnum.POST)
             .template_param(Parameter()
                 .key("companyId")
                 .value(company_id)
-                .is_required(True)
                 .should_encode(True))
             .header_param(Parameter()
                 .key("Content-Type")
@@ -162,7 +157,6 @@ class UsersCompanyLevelApi(BaseApi):
             ResponseHandler()
             .deserializer(APIHelper.json_deserialize)
             .deserialize_into(CreateCompanyUserResponse.from_dictionary)
-            .is_api_response(True)
             .local_error("400",
                 "Bad Request - a problem reading or understanding the request.",
                 RestServiceErrorException)
@@ -197,29 +191,25 @@ class UsersCompanyLevelApi(BaseApi):
             user_id (str): The unique identifier of the user.
 
         Returns:
-            ApiResponse: An object with the response value as well as other useful
-                information such as status codes and headers. OK - the request has
-                succeeded.
+            CompanyUser: Response from the API. OK - the request has succeeded.
 
         Raises:
-            ApiException: When an error occurs while fetching the data from the
+            APIException: When an error occurs while fetching the data from the
                 remote API. This exception includes the HTTP Response code, an error
                 message, and the HTTP body that was received in the request.
 
         """
         return super().new_api_call_builder.request(
-            RequestBuilder().server(Server.DEFAULT)
+            RequestBuilder().server(Server.DEFAULT9)
             .path("/companies/{companyId}/users/{userId}")
             .http_method(HttpMethodEnum.GET)
             .template_param(Parameter()
                 .key("companyId")
                 .value(company_id)
-                .is_required(True)
                 .should_encode(True))
             .template_param(Parameter()
                 .key("userId")
                 .value(user_id)
-                .is_required(True)
                 .should_encode(True))
             .header_param(Parameter()
                 .key("accept")
@@ -229,7 +219,6 @@ class UsersCompanyLevelApi(BaseApi):
             ResponseHandler()
             .deserializer(APIHelper.json_deserialize)
             .deserialize_into(CompanyUser.from_dictionary)
-            .is_api_response(True)
             .local_error("400",
                 "Bad Request - a problem reading or understanding the request.",
                 RestServiceErrorException)
@@ -266,29 +255,25 @@ class UsersCompanyLevelApi(BaseApi):
             body (UpdateCompanyUserRequest, optional): The request body parameter.
 
         Returns:
-            ApiResponse: An object with the response value as well as other useful
-                information such as status codes and headers. OK - the request has
-                succeeded.
+            CompanyUser: Response from the API. OK - the request has succeeded.
 
         Raises:
-            ApiException: When an error occurs while fetching the data from the
+            APIException: When an error occurs while fetching the data from the
                 remote API. This exception includes the HTTP Response code, an error
                 message, and the HTTP body that was received in the request.
 
         """
         return super().new_api_call_builder.request(
-            RequestBuilder().server(Server.DEFAULT)
+            RequestBuilder().server(Server.DEFAULT9)
             .path("/companies/{companyId}/users/{userId}")
             .http_method(HttpMethodEnum.PATCH)
             .template_param(Parameter()
                 .key("companyId")
                 .value(company_id)
-                .is_required(True)
                 .should_encode(True))
             .template_param(Parameter()
                 .key("userId")
                 .value(user_id)
-                .is_required(True)
                 .should_encode(True))
             .header_param(Parameter()
                 .key("Content-Type")
@@ -304,7 +289,6 @@ class UsersCompanyLevelApi(BaseApi):
             ResponseHandler()
             .deserializer(APIHelper.json_deserialize)
             .deserialize_into(CompanyUser.from_dictionary)
-            .is_api_response(True)
             .local_error("400",
                 "Bad Request - a problem reading or understanding the request.",
                 RestServiceErrorException)

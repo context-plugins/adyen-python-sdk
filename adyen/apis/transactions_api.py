@@ -21,7 +21,7 @@ from adyen.exceptions.rest_service_error_exception import (
     RestServiceErrorException,
 )
 from adyen.http.http_method_enum import HttpMethodEnum
-from adyen.models.transaction_1 import Transaction1
+from adyen.models.transaction import Transaction
 from adyen.models.transaction_search_response import (
     TransactionSearchResponse,
 )
@@ -90,7 +90,7 @@ class TransactionsApi(BaseApi):
                 `accountHolderId`.
             cursor (str, optional): The `cursor` returned in the links of the
                 previous response.
-            sort_order (SortOrder2, optional): Determines the sort order of the
+            sort_order (SortOrderEnum, optional): Determines the sort order of the
                 returned transactions. The sort order is based on the creation date
                 of the transaction.  Possible values:   - **asc**: Ascending order,
                 from oldest to most recent.  - **desc**: Descending order, from most
@@ -99,30 +99,27 @@ class TransactionsApi(BaseApi):
                 100 items. By default, the response returns 10 items per page.
 
         Returns:
-            ApiResponse: An object with the response value as well as other useful
-                information such as status codes and headers. OK - the request has
+            TransactionSearchResponse: Response from the API. OK - the request has
                 succeeded.
 
         Raises:
-            ApiException: When an error occurs while fetching the data from the
+            APIException: When an error occurs while fetching the data from the
                 remote API. This exception includes the HTTP Response code, an error
                 message, and the HTTP body that was received in the request.
 
         """
         return super().new_api_call_builder.request(
-            RequestBuilder().server(Server.DEFAULT)
+            RequestBuilder().server(Server.DEFAULT14)
             .path("/transactions")
             .http_method(HttpMethodEnum.GET)
             .query_param(Parameter()
                 .key("createdSince")
                 .value(APIHelper.when_defined(APIHelper.RFC3339DateTime,
-                    created_since))
-                .is_required(True))
+                    created_since)))
             .query_param(Parameter()
                 .key("createdUntil")
                 .value(APIHelper.when_defined(APIHelper.RFC3339DateTime,
-                    created_until))
-                .is_required(True))
+                    created_until)))
             .query_param(Parameter()
                 .key("balancePlatform")
                 .value(balance_platform))
@@ -152,7 +149,6 @@ class TransactionsApi(BaseApi):
             ResponseHandler()
             .deserializer(APIHelper.json_deserialize)
             .deserialize_into(TransactionSearchResponse.from_dictionary)
-            .is_api_response(True)
             .local_error("401",
                 "Unauthorized - authentication required.",
                 RestServiceErrorException)
@@ -179,24 +175,21 @@ class TransactionsApi(BaseApi):
             id (str): The unique identifier of the transaction.
 
         Returns:
-            ApiResponse: An object with the response value as well as other useful
-                information such as status codes and headers. OK - the request has
-                succeeded.
+            Transaction: Response from the API. OK - the request has succeeded.
 
         Raises:
-            ApiException: When an error occurs while fetching the data from the
+            APIException: When an error occurs while fetching the data from the
                 remote API. This exception includes the HTTP Response code, an error
                 message, and the HTTP body that was received in the request.
 
         """
         return super().new_api_call_builder.request(
-            RequestBuilder().server(Server.DEFAULT)
+            RequestBuilder().server(Server.DEFAULT14)
             .path("/transactions/{id}")
             .http_method(HttpMethodEnum.GET)
             .template_param(Parameter()
                 .key("id")
                 .value(id)
-                .is_required(True)
                 .should_encode(True))
             .header_param(Parameter()
                 .key("accept")
@@ -205,8 +198,7 @@ class TransactionsApi(BaseApi):
         ).response(
             ResponseHandler()
             .deserializer(APIHelper.json_deserialize)
-            .deserialize_into(Transaction1.from_dictionary)
-            .is_api_response(True)
+            .deserialize_into(Transaction.from_dictionary)
             .local_error("401",
                 "Unauthorized - authentication required.",
                 RestServiceErrorException)

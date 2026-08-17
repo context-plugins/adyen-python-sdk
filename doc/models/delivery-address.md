@@ -1,10 +1,6 @@
 
 # Delivery Address
 
-The address of the store.
-
-*This model accepts additional fields of type Any.*
-
 ## Structure
 
 `DeliveryAddress`
@@ -13,32 +9,29 @@ The address of the store.
 
 | Name | Type | Tags | Description |
 |  --- | --- | --- | --- |
-| `city` | `str` | Optional | The name of the city. |
+| `city` | `str` | Required | The name of the city. Maximum length: 3000 characters.<br><br>**Constraints**: *Maximum Length*: `3000` |
 | `country` | `str` | Required | The two-character ISO-3166-1 alpha-2 country code. For example, **US**.<br><br>> If you don't know the country or are not collecting the country from the shopper, provide `country` as `ZZ`. |
-| `line_1` | `str` | Optional | The name of the street. Do not include the number of the building.<br><br>For example, if the address is Simon Carmiggeltstraat 6-50, provide **Simon Carmiggeltstraat**. |
-| `line_2` | `str` | Optional | The number of the building.<br><br>For example, if the address is Simon Carmiggeltstraat 6-50, provide **6-50**. |
-| `line_3` | `str` | Optional | Additional information about the delivery address. |
-| `postal_code` | `str` | Optional | The postal code.<br>Maximum length:<br><br>* 5 digits for an address in the US.<br>* 10 characters for an address in all other countries. |
-| `state_or_province` | `str` | Optional | The state or province code, maximum 3 characters. For example, **CA** for California in the US or **ON** for Ontario in Canada.<br><br>> Required for the US and Canada. |
-| `additional_properties` | `Dict[str, Any]` | Optional | - |
+| `first_name` | `str` | Optional | - |
+| `house_number_or_name` | `str` | Required | The number or name of the house. Maximum length: 3000 characters.<br><br>**Constraints**: *Maximum Length*: `3000` |
+| `last_name` | `str` | Optional | - |
+| `postal_code` | `str` | Required | A maximum of five digits for an address in the US, or a maximum of ten characters for an address in all other countries.<br><br>**Constraints**: *Maximum Length*: `10` |
+| `state_or_province` | `str` | Optional | The two-character ISO 3166-2 state or province code. For example, **CA** in the US or **ON** in Canada.<br><br>> Required for the US and Canada.<br><br>**Constraints**: *Maximum Length*: `3` |
+| `street` | `str` | Required | The name of the street. Maximum length: 3000 characters.<br><br>> The house number should not be included in this field; it should be separately provided via `houseNumberOrName`.<br><br>**Constraints**: *Maximum Length*: `3000` |
 
 ## Example
 
 ```python
-import jsonpickle
-
 from adyen.models.delivery_address import DeliveryAddress
 
 delivery_address = DeliveryAddress(
-    country='country8',
     city='city4',
-    line_1='line16',
-    line_2='line28',
-    line_3='line36',
+    country='country8',
+    house_number_or_name='houseNumberOrName2',
     postal_code='postalCode6',
-    additional_properties={
-        'exampleAdditionalProperty': jsonpickle.decode('{"key1":"val1","key2":"val2"}')
-    }
+    street='street4',
+    first_name='firstName0',
+    last_name='lastName8',
+    state_or_province='stateOrProvince2'
 )
 ```
 

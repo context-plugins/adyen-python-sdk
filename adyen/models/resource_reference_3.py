@@ -17,8 +17,6 @@ class ResourceReference3(object):
         description (str): The description of the resource.
         id (str): The unique identifier of the resource.
         reference (str): The reference for the resource.
-        additional_properties (Dict[str, Any]): The additional properties for the
-            model.
 
     """
 
@@ -39,8 +37,7 @@ class ResourceReference3(object):
         self,
         description=APIHelper.SKIP,
         id=APIHelper.SKIP,
-        reference=APIHelper.SKIP,
-        additional_properties=None):
+        reference=APIHelper.SKIP):
         """Initialize a ResourceReference3 instance."""
         # Initialize members of the class
         if description is not APIHelper.SKIP:
@@ -49,11 +46,6 @@ class ResourceReference3(object):
             self.id = id
         if reference is not APIHelper.SKIP:
             self.reference = reference
-
-        # Add additional model properties to the instance
-        if additional_properties is None:
-            additional_properties = {}
-        self.additional_properties = additional_properties
 
     @classmethod
     def from_dictionary(cls,
@@ -86,16 +78,10 @@ class ResourceReference3(object):
             if dictionary.get("reference")\
                 else APIHelper.SKIP
 
-        additional_properties = APIHelper.get_additional_properties(
-            dictionary={k: v for k, v in dictionary.items()
-                        if k not in cls._names.values()},
-            unboxing_function=lambda value: value)
-
         # Return an object of this model
         return cls(description,
                    id,
-                   reference,
-                   additional_properties)
+                   reference)
 
     def __repr__(self):
         """Return a unambiguous string representation."""
@@ -114,13 +100,11 @@ class ResourceReference3(object):
             if hasattr(self, "reference")
             else None
         )
-        _additional_properties=self.additional_properties
         return (
             f"{self.__class__.__name__}("
             f"description={_description!r}, "
             f"id={_id!r}, "
             f"reference={_reference!r}, "
-            f"additional_properties={_additional_properties!r}, "
             f")"
         )
 
@@ -141,12 +125,10 @@ class ResourceReference3(object):
             if hasattr(self, "reference")
             else None
         )
-        _additional_properties=self.additional_properties
         return (
             f"{self.__class__.__name__}("
             f"description={_description!s}, "
             f"id={_id!s}, "
             f"reference={_reference!s}, "
-            f"additional_properties={_additional_properties!s}, "
             f")"
         )

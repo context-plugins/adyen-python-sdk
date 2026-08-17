@@ -15,8 +15,6 @@ class ResponseAdditionalDataDomesticError(object):
             given by the local issuer.  Currently available for merchants in Japan.
         domestic_shopper_advice (str): The action the shopper should take, in a local
             language.  Currently available in Japanese, for merchants in Japan.
-        additional_properties (Dict[str, Any]): The additional properties for the
-            model.
 
     """
 
@@ -34,19 +32,13 @@ class ResponseAdditionalDataDomesticError(object):
     def __init__(
         self,
         domestic_refusal_reason_raw=APIHelper.SKIP,
-        domestic_shopper_advice=APIHelper.SKIP,
-        additional_properties=None):
+        domestic_shopper_advice=APIHelper.SKIP):
         """Initialize a ResponseAdditionalDataDomesticError instance."""
         # Initialize members of the class
         if domestic_refusal_reason_raw is not APIHelper.SKIP:
             self.domestic_refusal_reason_raw = domestic_refusal_reason_raw
         if domestic_shopper_advice is not APIHelper.SKIP:
             self.domestic_shopper_advice = domestic_shopper_advice
-
-        # Add additional model properties to the instance
-        if additional_properties is None:
-            additional_properties = {}
-        self.additional_properties = additional_properties
 
     @classmethod
     def from_dictionary(cls,
@@ -75,15 +67,9 @@ class ResponseAdditionalDataDomesticError(object):
             if dictionary.get("domesticShopperAdvice")\
                 else APIHelper.SKIP
 
-        additional_properties = APIHelper.get_additional_properties(
-            dictionary={k: v for k, v in dictionary.items()
-                        if k not in cls._names.values()},
-            unboxing_function=lambda value: value)
-
         # Return an object of this model
         return cls(domestic_refusal_reason_raw,
-                   domestic_shopper_advice,
-                   additional_properties)
+                   domestic_shopper_advice)
 
     def __repr__(self):
         """Return a unambiguous string representation."""
@@ -97,12 +83,10 @@ class ResponseAdditionalDataDomesticError(object):
             if hasattr(self, "domestic_shopper_advice")
             else None
         )
-        _additional_properties=self.additional_properties
         return (
             f"{self.__class__.__name__}("
             f"domestic_refusal_reason_raw={_domestic_refusal_reason_raw!r}, "
             f"domestic_shopper_advice={_domestic_shopper_advice!r}, "
-            f"additional_properties={_additional_properties!r}, "
             f")"
         )
 
@@ -118,11 +102,9 @@ class ResponseAdditionalDataDomesticError(object):
             if hasattr(self, "domestic_shopper_advice")
             else None
         )
-        _additional_properties=self.additional_properties
         return (
             f"{self.__class__.__name__}("
             f"domestic_refusal_reason_raw={_domestic_refusal_reason_raw!s}, "
             f"domestic_shopper_advice={_domestic_shopper_advice!s}, "
-            f"additional_properties={_additional_properties!s}, "
             f")"
         )

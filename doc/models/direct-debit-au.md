@@ -1,8 +1,6 @@
 
 # Direct Debit Au
 
-*This model accepts additional fields of type Any.*
-
 ## Structure
 
 `DirectDebitAu`
@@ -18,15 +16,13 @@
 | `recurring_detail_reference` | `str` | Optional | This is the `recurringDetailReference` returned in the response when you created the token. |
 | `sdk_data` | `str` | Optional | Base64-encoded JSON object containing SDK related parameters required by the SDK<br><br>**Constraints**: *Maximum Length*: `50000` |
 | `stored_payment_method_id` | `str` | Optional | This is the `recurringDetailReference` returned in the response when you created the token.<br><br>**Constraints**: *Maximum Length*: `64` |
-| `mtype` | [`Type221`](../../doc/models/type-221.md) | Optional | - |
-| `additional_properties` | `Dict[str, Any]` | Optional | - |
+| `mtype` | [`Type22Enum`](../../doc/models/type-22-enum.md) | Optional | **directdebit_AU**<br><br>**Default**: `"directdebit_AU"` |
 
 ## Example
 
 ```python
-import jsonpickle
-
 from adyen.models.direct_debit_au import DirectDebitAu
+from adyen.models.type_22_enum import Type22Enum
 
 direct_debit_au = DirectDebitAu(
     holder_name='holderName2',
@@ -35,9 +31,7 @@ direct_debit_au = DirectDebitAu(
     checkout_attempt_id='checkoutAttemptId2',
     recurring_detail_reference='recurringDetailReference6',
     sdk_data='sdkData6',
-    additional_properties={
-        'exampleAdditionalProperty': jsonpickle.decode('{"key1":"val1","key2":"val2"}')
-    }
+    mtype=Type22Enum.DIRECTDEBIT_AU
 )
 ```
 

@@ -11,41 +11,14 @@ from apimatic_core.types.parameter import Parameter
 from adyen.api_helper import APIHelper
 from adyen.apis.base_api import BaseApi
 from adyen.configuration import Server
-from adyen.exceptions.mandates_401_error_exception import (
-    Mandates401ErrorException,
-)
-from adyen.exceptions.mandates_403_error_exception import (
-    Mandates403ErrorException,
-)
-from adyen.exceptions.mandates_404_error_exception import (
-    Mandates404ErrorException,
-)
-from adyen.exceptions.mandates_422_error_exception import (
-    Mandates422ErrorException,
-)
-from adyen.exceptions.mandates_500_error_exception import (
-    Mandates500ErrorException,
-)
-from adyen.exceptions.mandates_cancel_401_error_exception import (
-    MandatesCancel401ErrorException,
-)
-from adyen.exceptions.mandates_cancel_403_error_exception import (
-    MandatesCancel403ErrorException,
-)
-from adyen.exceptions.mandates_cancel_404_error_exception import (
-    MandatesCancel404ErrorException,
-)
-from adyen.exceptions.mandates_cancel_422_error_exception import (
-    MandatesCancel422ErrorException,
-)
-from adyen.exceptions.mandates_cancel_500_error_exception import (
-    MandatesCancel500ErrorException,
+from adyen.exceptions.default_error_response_entity_exception import (
+    DefaultErrorResponseEntityException,
 )
 from adyen.http.http_method_enum import HttpMethodEnum
 from adyen.models.list_mandates_response import (
     ListMandatesResponse,
 )
-from adyen.models.mandate import Mandate
+from adyen.models.mandate_1 import Mandate1
 
 
 class DirectDebitMandatesApi(BaseApi):
@@ -74,18 +47,17 @@ class DirectDebitMandatesApi(BaseApi):
                 `/mandates` request.
 
         Returns:
-            ApiResponse: An object with the response value as well as other useful
-                information such as status codes and headers. OK - The request has
+            ListMandatesResponse: Response from the API. OK - The request has
                 succeeded
 
         Raises:
-            ApiException: When an error occurs while fetching the data from the
+            APIException: When an error occurs while fetching the data from the
                 remote API. This exception includes the HTTP Response code, an error
                 message, and the HTTP body that was received in the request.
 
         """
         return super().new_api_call_builder.request(
-            RequestBuilder().server(Server.DEFAULT)
+            RequestBuilder().server(Server.DEFAULT13)
             .path("/mandates")
             .http_method(HttpMethodEnum.GET)
             .query_param(Parameter()
@@ -104,19 +76,18 @@ class DirectDebitMandatesApi(BaseApi):
             ResponseHandler()
             .deserializer(APIHelper.json_deserialize)
             .deserialize_into(ListMandatesResponse.from_dictionary)
-            .is_api_response(True)
             .local_error("401",
                 "Unauthorized - authentication required.",
-                Mandates401ErrorException)
+                DefaultErrorResponseEntityException)
             .local_error("403",
                 "Forbidden - insufficient permissions to process the request.",
-                Mandates403ErrorException)
+                DefaultErrorResponseEntityException)
             .local_error("422",
                 "Unprocessable Entity - a request validation error.",
-                Mandates422ErrorException)
+                DefaultErrorResponseEntityException)
             .local_error("500",
                 "Internal Server Error - the server could not process the request.",
-                Mandates500ErrorException),
+                DefaultErrorResponseEntityException),
         ).execute()
 
     def get_mandates_mandate_id(self,
@@ -130,24 +101,21 @@ class DirectDebitMandatesApi(BaseApi):
             mandate_id (str): The unique identifier of the mandate.
 
         Returns:
-            ApiResponse: An object with the response value as well as other useful
-                information such as status codes and headers. OK - The request has
-                succeeded
+            Mandate1: Response from the API. OK - The request has succeeded
 
         Raises:
-            ApiException: When an error occurs while fetching the data from the
+            APIException: When an error occurs while fetching the data from the
                 remote API. This exception includes the HTTP Response code, an error
                 message, and the HTTP body that was received in the request.
 
         """
         return super().new_api_call_builder.request(
-            RequestBuilder().server(Server.DEFAULT)
+            RequestBuilder().server(Server.DEFAULT13)
             .path("/mandates/{mandateId}")
             .http_method(HttpMethodEnum.GET)
             .template_param(Parameter()
                 .key("mandateId")
                 .value(mandate_id)
-                .is_required(True)
                 .should_encode(True))
             .header_param(Parameter()
                 .key("accept")
@@ -155,23 +123,22 @@ class DirectDebitMandatesApi(BaseApi):
         ).response(
             ResponseHandler()
             .deserializer(APIHelper.json_deserialize)
-            .deserialize_into(Mandate.from_dictionary)
-            .is_api_response(True)
+            .deserialize_into(Mandate1.from_dictionary)
             .local_error("401",
                 "Unauthorized - authentication required.",
-                Mandates401ErrorException)
+                DefaultErrorResponseEntityException)
             .local_error("403",
                 "Forbidden - insufficient permissions to process the request.",
-                Mandates403ErrorException)
+                DefaultErrorResponseEntityException)
             .local_error("404",
                 "The mandate was not found.",
-                Mandates404ErrorException)
+                DefaultErrorResponseEntityException)
             .local_error("422",
                 "Unprocessable Entity - a request validation error.",
-                Mandates422ErrorException)
+                DefaultErrorResponseEntityException)
             .local_error("500",
                 "Internal Server Error - the server could not process the request.",
-                Mandates500ErrorException),
+                DefaultErrorResponseEntityException),
         ).execute()
 
     def patch_mandates_mandate_id(self,
@@ -187,50 +154,28 @@ class DirectDebitMandatesApi(BaseApi):
             body (MandateUpdate): The request body parameter.
 
         Returns:
-            ApiResponse: An object with the response value as well as other useful
-                information such as status codes and headers. Accepted - The request
-                has been accepted
+            void: Response from the API. Accepted - The request has been accepted
 
         Raises:
-            ApiException: When an error occurs while fetching the data from the
+            APIException: When an error occurs while fetching the data from the
                 remote API. This exception includes the HTTP Response code, an error
                 message, and the HTTP body that was received in the request.
 
         """
         return super().new_api_call_builder.request(
-            RequestBuilder().server(Server.DEFAULT)
+            RequestBuilder().server(Server.DEFAULT13)
             .path("/mandates/{mandateId}")
             .http_method(HttpMethodEnum.PATCH)
             .template_param(Parameter()
                 .key("mandateId")
                 .value(mandate_id)
-                .is_required(True)
                 .should_encode(True))
             .header_param(Parameter()
                 .key("Content-Type")
                 .value("application/json"))
             .body_param(Parameter()
-                .value(body)
-                .is_required(True))
+                .value(body))
             .body_serializer(APIHelper.json_serialize),
-        ).response(
-            ResponseHandler()
-            .is_api_response(True)
-            .local_error("401",
-                "Unauthorized - authentication required.",
-                Mandates401ErrorException)
-            .local_error("403",
-                "Forbidden - insufficient permissions to process the request.",
-                Mandates403ErrorException)
-            .local_error("404",
-                "The mandate was not found",
-                Mandates404ErrorException)
-            .local_error("422",
-                "Unprocessable Entity - a request validation error.",
-                Mandates422ErrorException)
-            .local_error("500",
-                "Internal Server Error - the server could not process the request.",
-                Mandates500ErrorException),
         ).execute()
 
     def post_mandates_mandate_id_cancel(self,
@@ -244,41 +189,20 @@ class DirectDebitMandatesApi(BaseApi):
             mandate_id (str): The unique identifier of the mandate.
 
         Returns:
-            ApiResponse: An object with the response value as well as other useful
-                information such as status codes and headers. Accepted - The request
-                has been accepted
+            void: Response from the API. Accepted - The request has been accepted
 
         Raises:
-            ApiException: When an error occurs while fetching the data from the
+            APIException: When an error occurs while fetching the data from the
                 remote API. This exception includes the HTTP Response code, an error
                 message, and the HTTP body that was received in the request.
 
         """
         return super().new_api_call_builder.request(
-            RequestBuilder().server(Server.DEFAULT)
+            RequestBuilder().server(Server.DEFAULT13)
             .path("/mandates/{mandateId}/cancel")
             .http_method(HttpMethodEnum.POST)
             .template_param(Parameter()
                 .key("mandateId")
                 .value(mandate_id)
-                .is_required(True)
                 .should_encode(True)),
-        ).response(
-            ResponseHandler()
-            .is_api_response(True)
-            .local_error("401",
-                "Unauthorized - authentication required.",
-                MandatesCancel401ErrorException)
-            .local_error("403",
-                "Forbidden - insufficient permissions to process the request.",
-                MandatesCancel403ErrorException)
-            .local_error("404",
-                "The mandate was not found.",
-                MandatesCancel404ErrorException)
-            .local_error("422",
-                "Unprocessable Entity - a request validation error.",
-                MandatesCancel422ErrorException)
-            .local_error("500",
-                "Internal Server Error - the server could not process the request.",
-                MandatesCancel500ErrorException),
         ).execute()

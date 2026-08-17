@@ -4,8 +4,6 @@
 It conveys Information related to the Stored Value transaction processed by the POI System.
 Content of the Stored Value Response message.
 
-*This model accepts additional fields of type Any.*
-
 ## Structure
 
 `StoredValueResponse`
@@ -14,195 +12,145 @@ Content of the Stored Value Response message.
 
 | Name | Type | Tags | Description |
 |  --- | --- | --- | --- |
-| `response` | [`Response3`](../../doc/models/response-3.md) | Required | - |
-| `sale_data` | [`SaleData2`](../../doc/models/sale-data-2.md) | Required | - |
-| `poi_data` | [`PoiData2`](../../doc/models/poi-data-2.md) | Required | - |
+| `response` | [`Response11`](../../doc/models/response-11.md) | Required | Result of a message request processing. |
+| `sale_data` | [`SaleData1`](../../doc/models/sale-data-1.md) | Required | Data related to the Sale System. |
+| `poi_data` | [`POIData1`](../../doc/models/poi-data-1.md) | Required | Data related to the POI System. |
 | `stored_value_result` | [`List[StoredValueResult]`](../../doc/models/stored-value-result.md) | Optional | Result of loading/reloading a stored value card.<br>If StoredValueResponse.Result is Success or Partial, one entry per StoredValueRequest.StoredValueData loaded or activated. |
 | `payment_receipt` | [`List[PaymentReceipt]`](../../doc/models/payment-receipt.md) | Optional | - |
-| `additional_properties` | `Dict[str, Any]` | Optional | - |
 
 ## Example
 
 ```python
 import dateutil.parser
-import jsonpickle
 
-from adyen.models.character_height_1 import CharacterHeight1
-from adyen.models.character_width_1 import CharacterWidth1
-from adyen.models.document_qualifier_1 import DocumentQualifier1
-from adyen.models.entry_mode import EntryMode
-from adyen.models.error_condition_1 import ErrorCondition1
-from adyen.models.identification_type_11 import IdentificationType11
-from adyen.models.output_barcode import OutputBarcode
-from adyen.models.output_content_2 import OutputContent2
-from adyen.models.output_format_1 import OutputFormat1
+from adyen.models.character_height_1_enum import CharacterHeight1Enum
+from adyen.models.character_width_1_enum import CharacterWidth1Enum
+from adyen.models.document_qualifier_1_enum import DocumentQualifier1Enum
+from adyen.models.entry_mode_enum import EntryModeEnum
+from adyen.models.error_condition_1_enum import ErrorCondition1Enum
+from adyen.models.identification_type_11_enum import IdentificationType11Enum
+from adyen.models.output_barcode_1 import OutputBarcode1
+from adyen.models.output_content_1 import OutputContent1
+from adyen.models.output_format_1_enum import OutputFormat1Enum
 from adyen.models.output_text import OutputText
 from adyen.models.payment_receipt import PaymentReceipt
-from adyen.models.poi_data_2 import PoiData2
-from adyen.models.poi_transaction_id import PoiTransactionId
-from adyen.models.predefined_content_2 import PredefinedContent2
-from adyen.models.response_3 import Response3
-from adyen.models.result_11 import Result11
-from adyen.models.sale_data_2 import SaleData2
-from adyen.models.sale_terminal_data_3 import SaleTerminalData3
-from adyen.models.sale_transaction_id import SaleTransactionId
-from adyen.models.stored_value_account_id_2 import StoredValueAccountId2
-from adyen.models.stored_value_account_status import StoredValueAccountStatus
-from adyen.models.stored_value_account_type_1 import StoredValueAccountType1
+from adyen.models.poi_data_1 import POIData1
+from adyen.models.predefined_content_1 import PredefinedContent1
+from adyen.models.response_11 import Response11
+from adyen.models.result_11_enum import Result11Enum
+from adyen.models.sale_data_1 import SaleData1
+from adyen.models.sale_terminal_data_1 import SaleTerminalData1
+from adyen.models.stored_value_account_id import StoredValueAccountID
+from adyen.models.stored_value_account_status_1 import StoredValueAccountStatus1
+from adyen.models.stored_value_account_type_1_enum import StoredValueAccountType1Enum
 from adyen.models.stored_value_response import StoredValueResponse
 from adyen.models.stored_value_result import StoredValueResult
-from adyen.models.stored_value_transaction_type_2 import StoredValueTransactionType2
+from adyen.models.stored_value_transaction_type_2_enum import StoredValueTransactionType2Enum
+from adyen.models.transaction_id_type_1 import TransactionIDType1
+from adyen.models.transaction_id_type_2 import TransactionIDType2
 
 stored_value_response = StoredValueResponse(
-    response=Response3(
-        result=Result11.PARTIAL,
-        error_condition=ErrorCondition1.PAYMENTRESTRICTION,
-        additional_response='AdditionalResponse8',
-        additional_properties={
-            'exampleAdditionalProperty': jsonpickle.decode('{"key1":"val1","key2":"val2"}')
-        }
+    response=Response11(
+        result=Result11Enum.PARTIAL,
+        error_condition=ErrorCondition1Enum.PAYMENTRESTRICTION,
+        additional_response='AdditionalResponse8'
     ),
-    sale_data=SaleData2(
-        sale_transaction_id=SaleTransactionId(
+    sale_data=SaleData1(
+        sale_transaction_id=TransactionIDType1(
             transaction_id='TransactionID2',
-            time_stamp=dateutil.parser.parse('2016-03-13T12:52:32.123Z'),
-            additional_properties={
-                'exampleAdditionalProperty': jsonpickle.decode('{"key1":"val1","key2":"val2"}')
-            }
+            time_stamp=dateutil.parser.parse('2016-03-13T12:52:32.123Z')
         ),
         operator_id='OperatorID8',
         operator_language='OperatorLanguage2',
         shift_number='ShiftNumber0',
         sale_reference_id='SaleReferenceID8',
-        sale_terminal_data=SaleTerminalData3(
-            totals_group_id='TotalsGroupID4',
-            additional_properties={
-                'exampleAdditionalProperty': jsonpickle.decode('{"key1":"val1","key2":"val2"}')
-            }
-        ),
-        additional_properties={
-            'exampleAdditionalProperty': jsonpickle.decode('{"key1":"val1","key2":"val2"}')
-        }
+        sale_terminal_data=SaleTerminalData1(
+            totals_group_id='TotalsGroupID4'
+        )
     ),
-    poi_data=PoiData2(
-        poi_transaction_id=PoiTransactionId(
+    poi_data=POIData1(
+        poi_transaction_id=TransactionIDType2(
             transaction_id='TransactionID2',
-            time_stamp=dateutil.parser.parse('2016-03-13T12:52:32.123Z'),
-            additional_properties={
-                'exampleAdditionalProperty': jsonpickle.decode('{"key1":"val1","key2":"val2"}')
-            }
+            time_stamp=dateutil.parser.parse('2016-03-13T12:52:32.123Z')
         ),
-        poi_reconciliation_id=52,
-        additional_properties={
-            'exampleAdditionalProperty': jsonpickle.decode('{"key1":"val1","key2":"val2"}')
-        }
+        poi_reconciliation_id=52
     ),
     stored_value_result=[
         StoredValueResult(
-            stored_value_transaction_type=StoredValueTransactionType2.REVERSE,
+            stored_value_transaction_type=StoredValueTransactionType2Enum.REVERSE,
             product_code=20,
             ean_upc=136,
             item_amount=5.58,
             currency='Currency2',
-            stored_value_account_status=StoredValueAccountStatus(
-                stored_value_account_id=StoredValueAccountId2(
-                    stored_value_account_type=StoredValueAccountType1.PHONECARD,
+            stored_value_account_status=StoredValueAccountStatus1(
+                stored_value_account_id=StoredValueAccountID(
+                    stored_value_account_type=StoredValueAccountType1Enum.PHONECARD,
                     entry_mode=[
-                        EntryMode.MAGSTRIPE,
-                        EntryMode.SCANNED
+                        EntryModeEnum.MAGSTRIPE,
+                        EntryModeEnum.SCANNED
                     ],
-                    identification_type=IdentificationType11.PHONENUMBER,
+                    identification_type=IdentificationType11Enum.PHONENUMBER,
                     stored_value_id='StoredValueID8',
                     stored_value_provider='StoredValueProvider4',
                     owner_name='OwnerName0',
-                    expiry_date=4,
-                    additional_properties={
-                        'exampleAdditionalProperty': jsonpickle.decode('{"key1":"val1","key2":"val2"}')
-                    }
+                    expiry_date=4
                 ),
-                current_balance=45.56,
-                additional_properties={
-                    'exampleAdditionalProperty': jsonpickle.decode('{"key1":"val1","key2":"val2"}')
-                }
-            ),
-            additional_properties={
-                'exampleAdditionalProperty': jsonpickle.decode('{"key1":"val1","key2":"val2"}')
-            }
+                current_balance=45.56
+            )
         ),
         StoredValueResult(
-            stored_value_transaction_type=StoredValueTransactionType2.REVERSE,
+            stored_value_transaction_type=StoredValueTransactionType2Enum.REVERSE,
             product_code=20,
             ean_upc=136,
             item_amount=5.58,
             currency='Currency2',
-            stored_value_account_status=StoredValueAccountStatus(
-                stored_value_account_id=StoredValueAccountId2(
-                    stored_value_account_type=StoredValueAccountType1.PHONECARD,
+            stored_value_account_status=StoredValueAccountStatus1(
+                stored_value_account_id=StoredValueAccountID(
+                    stored_value_account_type=StoredValueAccountType1Enum.PHONECARD,
                     entry_mode=[
-                        EntryMode.MAGSTRIPE,
-                        EntryMode.SCANNED
+                        EntryModeEnum.MAGSTRIPE,
+                        EntryModeEnum.SCANNED
                     ],
-                    identification_type=IdentificationType11.PHONENUMBER,
+                    identification_type=IdentificationType11Enum.PHONENUMBER,
                     stored_value_id='StoredValueID8',
                     stored_value_provider='StoredValueProvider4',
                     owner_name='OwnerName0',
-                    expiry_date=4,
-                    additional_properties={
-                        'exampleAdditionalProperty': jsonpickle.decode('{"key1":"val1","key2":"val2"}')
-                    }
+                    expiry_date=4
                 ),
-                current_balance=45.56,
-                additional_properties={
-                    'exampleAdditionalProperty': jsonpickle.decode('{"key1":"val1","key2":"val2"}')
-                }
-            ),
-            additional_properties={
-                'exampleAdditionalProperty': jsonpickle.decode('{"key1":"val1","key2":"val2"}')
-            }
+                current_balance=45.56
+            )
         ),
         StoredValueResult(
-            stored_value_transaction_type=StoredValueTransactionType2.REVERSE,
+            stored_value_transaction_type=StoredValueTransactionType2Enum.REVERSE,
             product_code=20,
             ean_upc=136,
             item_amount=5.58,
             currency='Currency2',
-            stored_value_account_status=StoredValueAccountStatus(
-                stored_value_account_id=StoredValueAccountId2(
-                    stored_value_account_type=StoredValueAccountType1.PHONECARD,
+            stored_value_account_status=StoredValueAccountStatus1(
+                stored_value_account_id=StoredValueAccountID(
+                    stored_value_account_type=StoredValueAccountType1Enum.PHONECARD,
                     entry_mode=[
-                        EntryMode.MAGSTRIPE,
-                        EntryMode.SCANNED
+                        EntryModeEnum.MAGSTRIPE,
+                        EntryModeEnum.SCANNED
                     ],
-                    identification_type=IdentificationType11.PHONENUMBER,
+                    identification_type=IdentificationType11Enum.PHONENUMBER,
                     stored_value_id='StoredValueID8',
                     stored_value_provider='StoredValueProvider4',
                     owner_name='OwnerName0',
-                    expiry_date=4,
-                    additional_properties={
-                        'exampleAdditionalProperty': jsonpickle.decode('{"key1":"val1","key2":"val2"}')
-                    }
+                    expiry_date=4
                 ),
-                current_balance=45.56,
-                additional_properties={
-                    'exampleAdditionalProperty': jsonpickle.decode('{"key1":"val1","key2":"val2"}')
-                }
-            ),
-            additional_properties={
-                'exampleAdditionalProperty': jsonpickle.decode('{"key1":"val1","key2":"val2"}')
-            }
+                current_balance=45.56
+            )
         )
     ],
     payment_receipt=[
         PaymentReceipt(
-            document_qualifier=DocumentQualifier1.CUSTOMERRECEIPT,
-            output_content=OutputContent2(
-                output_format=OutputFormat1.XHTML,
-                predefined_content=PredefinedContent2(
+            document_qualifier=DocumentQualifier1Enum.CUSTOMERRECEIPT,
+            output_content=OutputContent1(
+                output_format=OutputFormat1Enum.XHTML,
+                predefined_content=PredefinedContent1(
                     reference_id='ReferenceID0',
-                    language='Language2',
-                    additional_properties={
-                        'exampleAdditionalProperty': jsonpickle.decode('{"key1":"val1","key2":"val2"}')
-                    }
+                    language='Language2'
                 ),
                 output_text=[
                     OutputText(
@@ -210,34 +158,19 @@ stored_value_response = StoredValueResponse(
                         character_set=194,
                         start_row=74,
                         start_column=220,
-                        character_width=CharacterWidth1.SINGLEWIDTH,
-                        character_height=CharacterHeight1.SINGLEHEIGHT,
-                        additional_properties={
-                            'exampleAdditionalProperty': jsonpickle.decode('{"key1":"val1","key2":"val2"}')
-                        }
+                        character_width=CharacterWidth1Enum.SINGLEWIDTH,
+                        character_height=CharacterHeight1Enum.SINGLEHEIGHT
                     )
                 ],
                 output_xhtml='OutputXHTML2',
-                output_barcode=OutputBarcode(
-                    barcode_value='BarcodeValue2',
-                    additional_properties={
-                        'exampleAdditionalProperty': jsonpickle.decode('{"key1":"val1","key2":"val2"}')
-                    }
-                ),
-                additional_properties={
-                    'exampleAdditionalProperty': jsonpickle.decode('{"key1":"val1","key2":"val2"}')
-                }
+                output_barcode=OutputBarcode1(
+                    barcode_value='BarcodeValue2'
+                )
             ),
             integrated_print_flag=False,
-            required_signature_flag=False,
-            additional_properties={
-                'exampleAdditionalProperty': jsonpickle.decode('{"key1":"val1","key2":"val2"}')
-            }
+            required_signature_flag=False
         )
-    ],
-    additional_properties={
-        'exampleAdditionalProperty': jsonpickle.decode('{"key1":"val1","key2":"val2"}')
-    }
+    ]
 )
 ```
 

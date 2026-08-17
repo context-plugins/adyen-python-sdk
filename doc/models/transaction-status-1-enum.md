@@ -1,0 +1,74 @@
+
+# Transaction Status 1 Enum
+
+The status of the transaction.
+
+> Permitted values: `PendingCredit`, `CreditFailed`, `CreditClosed`, `CreditSuspended`, `Credited`, `Converted`, `PendingDebit`, `DebitFailed`, `Debited`, `DebitReversedReceived`, `DebitedReversed`, `ChargebackReceived`, `Chargeback`, `ChargebackReversedReceived`, `ChargebackReversed`, `Payout`, `PayoutReversed`, `FundTransfer`, `PendingFundTransfer`, `ManualCorrected`.
+
+## Enumeration
+
+`TransactionStatus1Enum`
+
+## Fields
+
+| Name |
+|  --- |
+| `BALANCENOTPAIDOUTTRANSFER` |
+| `BALANCEPLATFORMFUNDTRANSFER` |
+| `BALANCEPLATFORMSWEEP` |
+| `BALANCEPLATFORMSWEEPRETURNED` |
+| `CHARGEBACK` |
+| `CHARGEBACKCORRECTION` |
+| `CHARGEBACKCORRECTIONRECEIVED` |
+| `CHARGEBACKRECEIVED` |
+| `CHARGEBACKREVERSED` |
+| `CHARGEBACKREVERSEDCORRECTION` |
+| `CHARGEBACKREVERSEDCORRECTIONRECEIVED` |
+| `CHARGEBACKREVERSEDRECEIVED` |
+| `CONVERTED` |
+| `CREDITCLOSED` |
+| `CREDITFAILED` |
+| `CREDITREVERSED` |
+| `CREDITREVERSEDRECEIVED` |
+| `CREDITSUSPENDED` |
+| `CREDITED` |
+| `DEBITFAILED` |
+| `DEBITREVERSEDRECEIVED` |
+| `DEBITED` |
+| `DEBITEDREVERSED` |
+| `DEPOSITCORRECTIONCREDITED` |
+| `DEPOSITCORRECTIONDEBITED` |
+| `DEPOSITCORRECTIONRECEIVED` |
+| `FEE` |
+| `FEERECEIVED` |
+| `FUNDTRANSFER` |
+| `FUNDTRANSFERREVERSED` |
+| `INVOICEDEDUCTIONCREDITED` |
+| `INVOICEDEDUCTIONDEBITED` |
+| `INVOICEDEDUCTIONRECEIVED` |
+| `MANUALCORRECTED` |
+| `MANUALCORRECTIONCREDITED` |
+| `MANUALCORRECTIONDEBITED` |
+| `MERCHANTPAYIN` |
+| `MERCHANTPAYINRECEIVED` |
+| `MERCHANTPAYINREVERSED` |
+| `PAYOUT` |
+| `PAYOUTREVERSED` |
+| `PENDINGCREDIT` |
+| `PENDINGDEBIT` |
+| `PENDINGFUNDTRANSFER` |
+| `RECREDITED` |
+| `RECREDITEDRECEIVED` |
+| `SECONDCHARGEBACK` |
+| `SECONDCHARGEBACKCORRECTION` |
+| `SECONDCHARGEBACKCORRECTIONRECEIVED` |
+| `SECONDCHARGEBACKRECEIVED` |
+
+## Example
+
+```python
+from adyen.models.transaction_status_1_enum import TransactionStatus1Enum
+
+transaction_status_1 = TransactionStatus1Enum.PENDINGDEBIT
+```
+

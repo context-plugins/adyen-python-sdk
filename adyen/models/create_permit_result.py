@@ -16,8 +16,6 @@ class CreatePermitResult(object):
         psp_reference (str): A unique reference associated with the request. This
             value is globally unique; quote it when communicating with us about this
             request.
-        additional_properties (Dict[str, Any]): The additional properties for the
-            model.
 
     """
 
@@ -35,19 +33,13 @@ class CreatePermitResult(object):
     def __init__(
         self,
         permit_result_list=APIHelper.SKIP,
-        psp_reference=APIHelper.SKIP,
-        additional_properties=None):
+        psp_reference=APIHelper.SKIP):
         """Initialize a CreatePermitResult instance."""
         # Initialize members of the class
         if permit_result_list is not APIHelper.SKIP:
             self.permit_result_list = permit_result_list
         if psp_reference is not APIHelper.SKIP:
             self.psp_reference = psp_reference
-
-        # Add additional model properties to the instance
-        if additional_properties is None:
-            additional_properties = {}
-        self.additional_properties = additional_properties
 
     @classmethod
     def from_dictionary(cls,
@@ -80,15 +72,9 @@ class CreatePermitResult(object):
             if dictionary.get("pspReference")\
                 else APIHelper.SKIP
 
-        additional_properties = APIHelper.get_additional_properties(
-            dictionary={k: v for k, v in dictionary.items()
-                        if k not in cls._names.values()},
-            unboxing_function=lambda value: value)
-
         # Return an object of this model
         return cls(permit_result_list,
-                   psp_reference,
-                   additional_properties)
+                   psp_reference)
 
     def __repr__(self):
         """Return a unambiguous string representation."""
@@ -102,12 +88,10 @@ class CreatePermitResult(object):
             if hasattr(self, "psp_reference")
             else None
         )
-        _additional_properties=self.additional_properties
         return (
             f"{self.__class__.__name__}("
             f"permit_result_list={_permit_result_list!r}, "
             f"psp_reference={_psp_reference!r}, "
-            f"additional_properties={_additional_properties!r}, "
             f")"
         )
 
@@ -123,11 +107,9 @@ class CreatePermitResult(object):
             if hasattr(self, "psp_reference")
             else None
         )
-        _additional_properties=self.additional_properties
         return (
             f"{self.__class__.__name__}("
             f"permit_result_list={_permit_result_list!s}, "
             f"psp_reference={_psp_reference!s}, "
-            f"additional_properties={_additional_properties!s}, "
             f")"
         )

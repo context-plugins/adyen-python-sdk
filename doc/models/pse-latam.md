@@ -1,11 +1,9 @@
 
-# Pse Latam
-
-*This model accepts additional fields of type Any.*
+# PSE Latam
 
 ## Structure
 
-`PseLatam`
+`PSELatam`
 
 ## Fields
 
@@ -17,28 +15,22 @@
 | `identification` | `str` | Required | The identification code. |
 | `identification_type` | `str` | Required | The identification type. |
 | `sdk_data` | `str` | Optional | Base64-encoded JSON object containing SDK related parameters required by the SDK<br><br>**Constraints**: *Maximum Length*: `50000` |
-| `mtype` | [`Type46`](../../doc/models/type-46.md) | Optional | - |
-| `additional_properties` | `Dict[str, Any]` | Optional | - |
+| `mtype` | [`Type46Enum`](../../doc/models/type-46-enum.md) | Optional | The payment method type. |
 
 ## Example
 
 ```python
-import jsonpickle
+from adyen.models.pse_latam import PSELatam
+from adyen.models.type_46_enum import Type46Enum
 
-from adyen.models.pse_latam import PseLatam
-from adyen.models.type_46 import Type46
-
-pse_latam = PseLatam(
+pse_latam = PSELatam(
     bank='bank2',
     client_type='clientType2',
     identification='identification8',
     identification_type='identificationType6',
     checkout_attempt_id='checkoutAttemptId0',
     sdk_data='sdkData6',
-    mtype=Type46.PSE_PAYULATAM,
-    additional_properties={
-        'exampleAdditionalProperty': jsonpickle.decode('{"key1":"val1","key2":"val2"}')
-    }
+    mtype=Type46Enum.PSE_PAYULATAM
 )
 ```
 

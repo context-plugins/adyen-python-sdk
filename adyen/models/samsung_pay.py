@@ -8,11 +8,14 @@ from adyen.api_helper import APIHelper
 
 
 class SamsungPay(object):
-    """Implementation of the 'SamsungPay' model.
+    """Implementation of the 'Samsung Pay' model.
 
     Attributes:
         checkout_attempt_id (str): The checkout attempt identifier.
-        funding_source (FundingSource): The model property of type FundingSource.
+        funding_source (FundingSourceEnum): The funding source that should be used
+            when multiple sources are available. For Brazilian combo cards, by
+            default the funding source is credit. To use debit, set this value to
+            **debit**.
         recurring_detail_reference (str): This is the `recurringDetailReference`
             returned in the response when you created the token.
         samsung_pay_token (str): The payload you received from the Samsung Pay SDK
@@ -21,9 +24,7 @@ class SamsungPay(object):
             required by the SDK
         stored_payment_method_id (str): This is the `recurringDetailReference`
             returned in the response when you created the token.
-        mtype (Type50): The model property of type Type50.
-        additional_properties (Dict[str, Any]): The additional properties for the
-            model.
+        mtype (Type50Enum): **samsungpay**
 
     """
 
@@ -55,8 +56,7 @@ class SamsungPay(object):
         recurring_detail_reference=APIHelper.SKIP,
         sdk_data=APIHelper.SKIP,
         stored_payment_method_id=APIHelper.SKIP,
-        mtype=APIHelper.SKIP,
-        additional_properties=None):
+        mtype="samsungpay"):
         """Initialize a SamsungPay instance."""
         # Initialize members of the class
         if checkout_attempt_id is not APIHelper.SKIP:
@@ -70,13 +70,7 @@ class SamsungPay(object):
             self.sdk_data = sdk_data
         if stored_payment_method_id is not APIHelper.SKIP:
             self.stored_payment_method_id = stored_payment_method_id
-        if mtype is not APIHelper.SKIP:
-            self.mtype = mtype
-
-        # Add additional model properties to the instance
-        if additional_properties is None:
-            additional_properties = {}
-        self.additional_properties = additional_properties
+        self.mtype = mtype
 
     @classmethod
     def from_dictionary(cls,
@@ -123,12 +117,7 @@ class SamsungPay(object):
         mtype =\
             dictionary.get("type")\
             if dictionary.get("type")\
-                else APIHelper.SKIP
-
-        additional_properties = APIHelper.get_additional_properties(
-            dictionary={k: v for k, v in dictionary.items()
-                        if k not in cls._names.values()},
-            unboxing_function=lambda value: value)
+                else "samsungpay"
 
         # Return an object of this model
         return cls(samsung_pay_token,
@@ -137,8 +126,7 @@ class SamsungPay(object):
                    recurring_detail_reference,
                    sdk_data,
                    stored_payment_method_id,
-                   mtype,
-                   additional_properties)
+                   mtype)
 
     @classmethod
     def validate(cls, dictionary):
@@ -206,7 +194,6 @@ class SamsungPay(object):
             if hasattr(self, "mtype")
             else None
         )
-        _additional_properties=self.additional_properties
         return (
             f"{self.__class__.__name__}("
             f"checkout_attempt_id={_checkout_attempt_id!r}, "
@@ -216,7 +203,6 @@ class SamsungPay(object):
             f"sdk_data={_sdk_data!r}, "
             f"stored_payment_method_id={_stored_payment_method_id!r}, "
             f"mtype={_mtype!r}, "
-            f"additional_properties={_additional_properties!r}, "
             f")"
         )
 
@@ -253,7 +239,6 @@ class SamsungPay(object):
             if hasattr(self, "mtype")
             else None
         )
-        _additional_properties=self.additional_properties
         return (
             f"{self.__class__.__name__}("
             f"checkout_attempt_id={_checkout_attempt_id!s}, "
@@ -263,6 +248,5 @@ class SamsungPay(object):
             f"sdk_data={_sdk_data!s}, "
             f"stored_payment_method_id={_stored_payment_method_id!s}, "
             f"mtype={_mtype!s}, "
-            f"additional_properties={_additional_properties!s}, "
             f")"
         )

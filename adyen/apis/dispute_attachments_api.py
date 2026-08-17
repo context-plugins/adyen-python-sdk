@@ -11,14 +11,8 @@ from apimatic_core.types.parameter import Parameter
 from adyen.api_helper import APIHelper
 from adyen.apis.base_api import BaseApi
 from adyen.configuration import Server
-from adyen.exceptions.disputes_attachments_401_error_exception import (
-    DisputesAttachments401ErrorException,
-)
-from adyen.exceptions.disputes_attachments_403_error_exception import (
-    DisputesAttachments403ErrorException,
-)
-from adyen.exceptions.disputes_attachments_422_error_exception import (
-    DisputesAttachments422ErrorException,
+from adyen.exceptions.default_error_response_entity_exception import (
+    DefaultErrorResponseEntityException,
 )
 from adyen.http.http_method_enum import HttpMethodEnum
 from adyen.models.attach_document_response import (
@@ -46,24 +40,22 @@ class DisputeAttachmentsApi(BaseApi):
             dispute_id (str): The unique identifier of the raised dispute.
 
         Returns:
-            ApiResponse: An object with the response value as well as other useful
-                information such as status codes and headers. OK - the request has
+            List[DisputeAttachment]: Response from the API. OK - the request has
                 succeeded.
 
         Raises:
-            ApiException: When an error occurs while fetching the data from the
+            APIException: When an error occurs while fetching the data from the
                 remote API. This exception includes the HTTP Response code, an error
                 message, and the HTTP body that was received in the request.
 
         """
         return super().new_api_call_builder.request(
-            RequestBuilder().server(Server.DEFAULT)
+            RequestBuilder().server(Server.DEFAULT23)
             .path("/disputes/{disputeId}/attachments")
             .http_method(HttpMethodEnum.GET)
             .template_param(Parameter()
                 .key("disputeId")
                 .value(dispute_id)
-                .is_required(True)
                 .should_encode(True))
             .header_param(Parameter()
                 .key("accept")
@@ -72,16 +64,15 @@ class DisputeAttachmentsApi(BaseApi):
             ResponseHandler()
             .deserializer(APIHelper.json_deserialize)
             .deserialize_into(DisputeAttachment.from_dictionary)
-            .is_api_response(True)
             .local_error("401",
                 "Authentication required.",
-                DisputesAttachments401ErrorException)
+                DefaultErrorResponseEntityException)
             .local_error("403",
                 "Insufficient permissions to process the request.",
-                DisputesAttachments403ErrorException)
+                DefaultErrorResponseEntityException)
             .local_error("422",
                 "A request validation error.",
-                DisputesAttachments422ErrorException),
+                DefaultErrorResponseEntityException),
         ).execute()
 
     def post_disputes_dispute_id_attachments(self,
@@ -97,31 +88,28 @@ class DisputeAttachmentsApi(BaseApi):
             body (DisputeAttachment): The request body parameter.
 
         Returns:
-            ApiResponse: An object with the response value as well as other useful
-                information such as status codes and headers. OK - the request has
+            AttachDocumentResponse: Response from the API. OK - the request has
                 succeeded.
 
         Raises:
-            ApiException: When an error occurs while fetching the data from the
+            APIException: When an error occurs while fetching the data from the
                 remote API. This exception includes the HTTP Response code, an error
                 message, and the HTTP body that was received in the request.
 
         """
         return super().new_api_call_builder.request(
-            RequestBuilder().server(Server.DEFAULT)
+            RequestBuilder().server(Server.DEFAULT23)
             .path("/disputes/{disputeId}/attachments")
             .http_method(HttpMethodEnum.POST)
             .template_param(Parameter()
                 .key("disputeId")
                 .value(dispute_id)
-                .is_required(True)
                 .should_encode(True))
             .header_param(Parameter()
                 .key("Content-Type")
                 .value("application/json"))
             .body_param(Parameter()
-                .value(body)
-                .is_required(True))
+                .value(body))
             .header_param(Parameter()
                 .key("accept")
                 .value("application/json"))
@@ -130,16 +118,15 @@ class DisputeAttachmentsApi(BaseApi):
             ResponseHandler()
             .deserializer(APIHelper.json_deserialize)
             .deserialize_into(AttachDocumentResponse.from_dictionary)
-            .is_api_response(True)
             .local_error("401",
                 "Authentication required.",
-                DisputesAttachments401ErrorException)
+                DefaultErrorResponseEntityException)
             .local_error("403",
                 "Insufficient permissions to process the request.",
-                DisputesAttachments403ErrorException)
+                DefaultErrorResponseEntityException)
             .local_error("422",
                 "A request validation error.",
-                DisputesAttachments422ErrorException),
+                DefaultErrorResponseEntityException),
         ).execute()
 
     def delete_disputes_dispute_id_attachments_attachment_id(self,
@@ -156,42 +143,26 @@ class DisputeAttachmentsApi(BaseApi):
             attachment_id (str): The unique identifier of the attachment.
 
         Returns:
-            ApiResponse: An object with the response value as well as other useful
-                information such as status codes and headers. The attachment was
-                successfully removed
+            void: Response from the API. The attachment was successfully removed
 
         Raises:
-            ApiException: When an error occurs while fetching the data from the
+            APIException: When an error occurs while fetching the data from the
                 remote API. This exception includes the HTTP Response code, an error
                 message, and the HTTP body that was received in the request.
 
         """
         return super().new_api_call_builder.request(
-            RequestBuilder().server(Server.DEFAULT)
+            RequestBuilder().server(Server.DEFAULT23)
             .path("/disputes/{disputeId}/attachments/{attachmentId}")
             .http_method(HttpMethodEnum.DELETE)
             .template_param(Parameter()
                 .key("disputeId")
                 .value(dispute_id)
-                .is_required(True)
                 .should_encode(True))
             .template_param(Parameter()
                 .key("attachmentId")
                 .value(attachment_id)
-                .is_required(True)
                 .should_encode(True)),
-        ).response(
-            ResponseHandler()
-            .is_api_response(True)
-            .local_error("401",
-                "Authentication required.",
-                DisputesAttachments401ErrorException)
-            .local_error("403",
-                "Insufficient permissions to process the request.",
-                DisputesAttachments403ErrorException)
-            .local_error("422",
-                "A request validation error.",
-                DisputesAttachments422ErrorException),
         ).execute()
 
     def get_disputes_dispute_id_attachments_attachment_id(self,
@@ -208,29 +179,25 @@ class DisputeAttachmentsApi(BaseApi):
             attachment_id (str): The unique identifier of the attachment.
 
         Returns:
-            ApiResponse: An object with the response value as well as other useful
-                information such as status codes and headers. OK - the request has
-                succeeded.
+            DisputeAttachment: Response from the API. OK - the request has succeeded.
 
         Raises:
-            ApiException: When an error occurs while fetching the data from the
+            APIException: When an error occurs while fetching the data from the
                 remote API. This exception includes the HTTP Response code, an error
                 message, and the HTTP body that was received in the request.
 
         """
         return super().new_api_call_builder.request(
-            RequestBuilder().server(Server.DEFAULT)
+            RequestBuilder().server(Server.DEFAULT23)
             .path("/disputes/{disputeId}/attachments/{attachmentId}")
             .http_method(HttpMethodEnum.GET)
             .template_param(Parameter()
                 .key("disputeId")
                 .value(dispute_id)
-                .is_required(True)
                 .should_encode(True))
             .template_param(Parameter()
                 .key("attachmentId")
                 .value(attachment_id)
-                .is_required(True)
                 .should_encode(True))
             .header_param(Parameter()
                 .key("accept")
@@ -239,14 +206,13 @@ class DisputeAttachmentsApi(BaseApi):
             ResponseHandler()
             .deserializer(APIHelper.json_deserialize)
             .deserialize_into(DisputeAttachment.from_dictionary)
-            .is_api_response(True)
             .local_error("401",
                 "Authentication required.",
-                DisputesAttachments401ErrorException)
+                DefaultErrorResponseEntityException)
             .local_error("403",
                 "Insufficient permissions to process the request.",
-                DisputesAttachments403ErrorException)
+                DefaultErrorResponseEntityException)
             .local_error("422",
                 "A request validation error.",
-                DisputesAttachments422ErrorException),
+                DefaultErrorResponseEntityException),
         ).execute()

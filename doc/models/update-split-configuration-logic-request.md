@@ -1,8 +1,6 @@
 
 # Update Split Configuration Logic Request
 
-*This model accepts additional fields of type Any.*
-
 ## Structure
 
 `UpdateSplitConfigurationLogicRequest`
@@ -11,62 +9,50 @@
 
 | Name | Type | Tags | Description |
 |  --- | --- | --- | --- |
-| `acquiring_fees` | [`AcquiringFees`](../../doc/models/acquiring-fees.md) | Optional | - |
-| `additional_commission` | [`AdditionalCommission`](../../doc/models/additional-commission.md) | Optional | - |
-| `adyen_commission` | [`AdyenCommission`](../../doc/models/adyen-commission.md) | Optional | - |
-| `adyen_fees` | [`AdyenFees`](../../doc/models/adyen-fees.md) | Optional | - |
-| `adyen_markup` | [`AdyenMarkup`](../../doc/models/adyen-markup.md) | Optional | - |
-| `chargeback` | [`Behavior`](../../doc/models/behavior.md) | Optional | - |
-| `chargeback_cost_allocation` | [`ChargebackCostAllocation`](../../doc/models/chargeback-cost-allocation.md) | Optional | - |
-| `commission` | [`Commission`](../../doc/models/commission.md) | Required | - |
-| `dcc` | [`SplitDcc`](../../doc/models/split-dcc.md) | Optional | - |
-| `interchange` | [`Interchange`](../../doc/models/interchange.md) | Optional | - |
-| `payment_fee` | [`PaymentFee`](../../doc/models/payment-fee.md) | Optional | - |
-| `refund` | [`Behavior`](../../doc/models/behavior.md) | Optional | - |
-| `refund_cost_allocation` | [`RefundCostAllocation`](../../doc/models/refund-cost-allocation.md) | Optional | - |
-| `remainder` | [`Remainder`](../../doc/models/remainder.md) | Optional | - |
-| `scheme_fee` | [`SchemeFee`](../../doc/models/scheme-fee.md) | Optional | - |
+| `acquiring_fees` | [`AcquiringFeesEnum`](../../doc/models/acquiring-fees-enum.md) | Optional | Deducts the acquiring fees (the aggregated amount of interchange and scheme fee) from the specified balance account.<br><br>Possible values: **deductFromLiableAccount**, **deductFromOneBalanceAccount**. |
+| `additional_commission` | [`AdditionalCommission1`](../../doc/models/additional-commission-1.md) | Optional | Defines whether to book an additional commission for payments to your user's balance account. The commission amount can be defined as a fixed amount (specified in minor units), a percentage (specified in basis points), or both. |
+| `adyen_commission` | [`AdyenCommissionEnum`](../../doc/models/adyen-commission-enum.md) | Optional | Deducts the transaction fee due to Adyen under [blended rates](https://www.adyen.com/knowledge-hub/guides/payments-training-guide/get-the-best-from-your-card-processing) from the specified balance account.<br><br>Possible values: **deductFromLiableAccount**, **deductFromOneBalanceAccount**. |
+| `adyen_fees` | [`AdyenFeesEnum`](../../doc/models/adyen-fees-enum.md) | Optional | Deducts the fees due to Adyen (markup or commission) from the specified balance account.<br><br>Possible values: **deductFromLiableAccount**, **deductFromOneBalanceAccount**. |
+| `adyen_markup` | [`AdyenMarkupEnum`](../../doc/models/adyen-markup-enum.md) | Optional | Deducts the transaction fee due to Adyen under [Interchange ++ pricing](https://www.adyen.com/what-is-interchange) from the specified balance account.<br><br>Possible values: **deductFromLiableAccount**, **deductFromOneBalanceAccount**. |
+| `chargeback` | [`BehaviorEnum`](../../doc/models/behavior-enum.md) | Optional | Specifies how and from which balance account(s) to deduct the chargeback amount.<br><br>Possible values: **deductFromLiableAccount**, **deductFromOneBalanceAccount**, **deductAccordingToSplitRatio**. |
+| `chargeback_cost_allocation` | [`ChargebackCostAllocationEnum`](../../doc/models/chargeback-cost-allocation-enum.md) | Optional | Deducts the chargeback costs from the specified balance account.<br><br>Possible values: **deductFromLiableAccount**, **deductFromOneBalanceAccount** |
+| `commission` | [`Commission1`](../../doc/models/commission-1.md) | Required | Defines your platform's commission for the processed payments as a fixed amount (specified in minor units), a percentage (specified in basis points), or both. The commission is booked to your platform's liable balance account. |
+| `dcc` | [`SplitDcc2`](../../doc/models/split-dcc-2.md) | Optional | Defines the logic for booking the markup paid by the customer for Dynamic Currency Conversion (DCC).<br><br>> This field is in pilot phase, and not yet available for all platforms. |
+| `interchange` | [`InterchangeEnum`](../../doc/models/interchange-enum.md) | Optional | Deducts the interchange fee from specified balance account.<br><br>Possible values: **deductFromLiableAccount**, **deductFromOneBalanceAccount**. |
+| `payment_fee` | [`PaymentFeeEnum`](../../doc/models/payment-fee-enum.md) | Optional | Deducts all transaction fees incurred by the payment from the specified balance account. The transaction fees include the acquiring fees (interchange and scheme fee), and the fees due to Adyen (markup or commission). You can book any and all these fees to different balance account by specifying other transaction fee parameters in your split configuration profile:<br><br>- [`adyenCommission`](https://docs.adyen.com/api-explorer/Management/latest/post/merchants/(merchantId)/splitConfigurations#request-rules-splitLogic-adyenCommission): The transaction fee due to Adyen under [blended rates](https://www.adyen.com/knowledge-hub/interchange-fees-explained#interchange-vs-blended).<br>- [`adyenMarkup`](https://docs.adyen.com/api-explorer/Management/latest/post/merchants/(merchantId)/splitConfigurations#request-rules-splitLogic-adyenMarkup): The transaction fee due to Adyen under [Interchange ++ pricing](https://www.adyen.com/knowledge-hub/interchange-fees-explained#interchange-vs-blended).<br>- [`schemeFee`](https://docs.adyen.com/api-explorer/Management/latest/post/merchants/(merchantId)/splitConfigurations#request-rules-splitLogic-schemeFee): The fee paid to the card scheme for using their network.<br>- [`interchange`](https://docs.adyen.com/api-explorer/Management/latest/post/merchants/(merchantId)/splitConfigurations#request-rules-splitLogic-interchange): The fee paid to the issuer for each payment transaction made with the card network.<br>- [`adyenFees`](https://docs.adyen.com/api-explorer/Management/latest/post/merchants/(merchantId)/splitConfigurations#request-rules-splitLogic-adyenFees): The aggregated amount of Adyen's commission and markup.<br>- [`acquiringFees`](https://docs.adyen.com/api-explorer/Management/latest/post/merchants/(merchantId)/splitConfigurations#request-rules-splitLogic-acquiringFees): The aggregated amount of the interchange and scheme fees.<br><br>If you don't include at least one transaction fee type in the `splitLogic` object, Adyen updates the payment request with the `paymentFee` parameter, booking all transaction fees to your platform's liable balance account.<br><br>Possible values: **deductFromLiableAccount**, **deductFromOneBalanceAccount**. |
+| `refund` | [`BehaviorEnum`](../../doc/models/behavior-enum.md) | Optional | Specifies how and from which balance account(s) to deduct the refund amount.<br><br>Possible values: **deductFromLiableAccount**, **deductFromOneBalanceAccount**, **deductAccordingToSplitRatio** |
+| `refund_cost_allocation` | [`RefundCostAllocationEnum`](../../doc/models/refund-cost-allocation-enum.md) | Optional | Deducts the refund costs from the specified balance account.<br><br>Possible values: **deductFromLiableAccount**, **deductFromOneBalanceAccount** |
+| `remainder` | [`RemainderEnum`](../../doc/models/remainder-enum.md) | Optional | Books the amount left over after currency conversion to the specified balance account.<br><br>Possible values: **addToLiableAccount**, **addToOneBalanceAccount**. |
+| `scheme_fee` | [`SchemeFeeEnum`](../../doc/models/scheme-fee-enum.md) | Optional | Deducts the scheme fee from the specified balance account.<br><br>Possible values: **deductFromLiableAccount**, **deductFromOneBalanceAccount**. |
 | `split_logic_id` | `str` | Optional, Read-only | Unique identifier of the collection of split instructions that are applied when the rule conditions are met. |
-| `surcharge` | [`Surcharge3`](../../doc/models/surcharge-3.md) | Optional | - |
-| `tip` | [`Tip`](../../doc/models/tip.md) | Optional | - |
-| `additional_properties` | `Dict[str, Any]` | Optional | - |
+| `surcharge` | [`Surcharge3Enum`](../../doc/models/surcharge-3-enum.md) | Optional | Books the surcharge amount to the specified balance account.<br><br>Possible values: **addToLiableAccount**, **addToOneBalanceAccount** |
+| `tip` | [`TipEnum`](../../doc/models/tip-enum.md) | Optional | Books the tips (gratuity) to the specified balance account.<br><br>Possible values: **addToLiableAccount**, **addToOneBalanceAccount**. |
 
 ## Example
 
 ```python
-import jsonpickle
-
-from adyen.models.acquiring_fees import AcquiringFees
-from adyen.models.additional_commission import AdditionalCommission
-from adyen.models.adyen_commission import AdyenCommission
-from adyen.models.adyen_fees import AdyenFees
-from adyen.models.adyen_markup import AdyenMarkup
-from adyen.models.commission import Commission
+from adyen.models.acquiring_fees_enum import AcquiringFeesEnum
+from adyen.models.additional_commission_1 import AdditionalCommission1
+from adyen.models.adyen_commission_enum import AdyenCommissionEnum
+from adyen.models.adyen_fees_enum import AdyenFeesEnum
+from adyen.models.adyen_markup_enum import AdyenMarkupEnum
+from adyen.models.commission_1 import Commission1
 from adyen.models.update_split_configuration_logic_request import UpdateSplitConfigurationLogicRequest
 
 update_split_configuration_logic_request = UpdateSplitConfigurationLogicRequest(
-    commission=Commission(
+    commission=Commission1(
         fixed_amount=112,
-        variable_percentage=52,
-        additional_properties={
-            'exampleAdditionalProperty': jsonpickle.decode('{"key1":"val1","key2":"val2"}')
-        }
+        variable_percentage=52
     ),
-    acquiring_fees=AcquiringFees.DEDUCTFROMLIABLEACCOUNT,
-    additional_commission=AdditionalCommission(
+    acquiring_fees=AcquiringFeesEnum.DEDUCTFROMLIABLEACCOUNT,
+    additional_commission=AdditionalCommission1(
         balance_account_id='balanceAccountId0',
         fixed_amount=100,
-        variable_percentage=64,
-        additional_properties={
-            'exampleAdditionalProperty': jsonpickle.decode('{"key1":"val1","key2":"val2"}')
-        }
+        variable_percentage=64
     ),
-    adyen_commission=AdyenCommission.DEDUCTFROMLIABLEACCOUNT,
-    adyen_fees=AdyenFees.DEDUCTFROMLIABLEACCOUNT,
-    adyen_markup=AdyenMarkup.DEDUCTFROMLIABLEACCOUNT,
-    additional_properties={
-        'exampleAdditionalProperty': jsonpickle.decode('{"key1":"val1","key2":"val2"}')
-    }
+    adyen_commission=AdyenCommissionEnum.DEDUCTFROMLIABLEACCOUNT,
+    adyen_fees=AdyenFeesEnum.DEDUCTFROMLIABLEACCOUNT,
+    adyen_markup=AdyenMarkupEnum.DEDUCTFROMLIABLEACCOUNT
 )
 ```
 

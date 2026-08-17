@@ -5,8 +5,6 @@ Information regarding the transaction description.
 
 > You cannot configure the transaction description in the test environment.
 
-*This model accepts additional fields of type Any.*
-
 ## Structure
 
 `TransactionDescriptionInfo1`
@@ -16,23 +14,17 @@ Information regarding the transaction description.
 | Name | Type | Tags | Description |
 |  --- | --- | --- | --- |
 | `doing_business_as_name` | `str` | Optional | The text to be shown on the shopper's bank statement.<br>We recommend sending a maximum of 22 characters, otherwise banks might truncate the string.<br>Allowed characters: **a-z**, **A-Z**, **0-9**, spaces, and special characters **. , ' _ - ? + * /**.<br><br>**Constraints**: *Maximum Length*: `22` |
-| `mtype` | [`Type33`](../../doc/models/type-33.md) | Optional | - |
-| `additional_properties` | `Dict[str, Any]` | Optional | - |
+| `mtype` | [`Type8Enum`](../../doc/models/type-8-enum.md) | Optional | The type of transaction description you want to use:<br><br>- **fixed**: The transaction description set in this request is used for all payments with this payment method.<br>- **append**: The transaction description set in this request is used as a base for all payments with this payment method. The [transaction description set in the request to process the payment](https://docs.adyen.com/api-explorer/Checkout/70/post/sessions#request-shopperStatement) is appended to this base description. Note that if the combined length exceeds 22 characters, banks may truncate the string.<br>- **dynamic**: Only the [transaction description set in the request to process the payment](https://docs.adyen.com/api-explorer/Checkout/70/post/sessions#request-shopperStatement) is used for payments with this payment method.<br><br>**Default**: `"dynamic"` |
 
 ## Example
 
 ```python
-import jsonpickle
-
 from adyen.models.transaction_description_info_1 import TransactionDescriptionInfo1
-from adyen.models.type_33 import Type33
+from adyen.models.type_8_enum import Type8Enum
 
 transaction_description_info_1 = TransactionDescriptionInfo1(
     doing_business_as_name='doingBusinessAsName0',
-    mtype=Type33.FIXED,
-    additional_properties={
-        'exampleAdditionalProperty': jsonpickle.decode('{"key1":"val1","key2":"val2"}')
-    }
+    mtype=Type8Enum.DYNAMIC
 )
 ```
 

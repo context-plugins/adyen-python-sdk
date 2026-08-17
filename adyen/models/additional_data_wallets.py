@@ -18,8 +18,6 @@ class AdditionalDataWallets(object):
         paywithgoogle_token (str): The Google Pay token retrieved from the SDK.
         samsungpay_token (str): The Samsung Pay token retrieved from the SDK.
         visacheckout_call_id (str): The Visa Checkout Call ID retrieved from the SDK.
-        additional_properties (Dict[str, Any]): The additional properties for the
-            model.
 
     """
 
@@ -49,8 +47,7 @@ class AdditionalDataWallets(object):
         payment_token=APIHelper.SKIP,
         paywithgoogle_token=APIHelper.SKIP,
         samsungpay_token=APIHelper.SKIP,
-        visacheckout_call_id=APIHelper.SKIP,
-        additional_properties=None):
+        visacheckout_call_id=APIHelper.SKIP):
         """Initialize a AdditionalDataWallets instance."""
         # Initialize members of the class
         if androidpay_token is not APIHelper.SKIP:
@@ -65,11 +62,6 @@ class AdditionalDataWallets(object):
             self.samsungpay_token = samsungpay_token
         if visacheckout_call_id is not APIHelper.SKIP:
             self.visacheckout_call_id = visacheckout_call_id
-
-        # Add additional model properties to the instance
-        if additional_properties is None:
-            additional_properties = {}
-        self.additional_properties = additional_properties
 
     @classmethod
     def from_dictionary(cls,
@@ -114,19 +106,13 @@ class AdditionalDataWallets(object):
             if dictionary.get("visacheckout.callId")\
                 else APIHelper.SKIP
 
-        additional_properties = APIHelper.get_additional_properties(
-            dictionary={k: v for k, v in dictionary.items()
-                        if k not in cls._names.values()},
-            unboxing_function=lambda value: value)
-
         # Return an object of this model
         return cls(androidpay_token,
                    masterpass_transaction_id,
                    payment_token,
                    paywithgoogle_token,
                    samsungpay_token,
-                   visacheckout_call_id,
-                   additional_properties)
+                   visacheckout_call_id)
 
     def __repr__(self):
         """Return a unambiguous string representation."""
@@ -160,7 +146,6 @@ class AdditionalDataWallets(object):
             if hasattr(self, "visacheckout_call_id")
             else None
         )
-        _additional_properties=self.additional_properties
         return (
             f"{self.__class__.__name__}("
             f"androidpay_token={_androidpay_token!r}, "
@@ -169,7 +154,6 @@ class AdditionalDataWallets(object):
             f"paywithgoogle_token={_paywithgoogle_token!r}, "
             f"samsungpay_token={_samsungpay_token!r}, "
             f"visacheckout_call_id={_visacheckout_call_id!r}, "
-            f"additional_properties={_additional_properties!r}, "
             f")"
         )
 
@@ -205,7 +189,6 @@ class AdditionalDataWallets(object):
             if hasattr(self, "visacheckout_call_id")
             else None
         )
-        _additional_properties=self.additional_properties
         return (
             f"{self.__class__.__name__}("
             f"androidpay_token={_androidpay_token!s}, "
@@ -214,6 +197,5 @@ class AdditionalDataWallets(object):
             f"paywithgoogle_token={_paywithgoogle_token!s}, "
             f"samsungpay_token={_samsungpay_token!s}, "
             f"visacheckout_call_id={_visacheckout_call_id!s}, "
-            f"additional_properties={_additional_properties!s}, "
             f")"
         )

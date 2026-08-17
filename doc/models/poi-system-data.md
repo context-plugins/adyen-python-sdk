@@ -1,58 +1,45 @@
 
-# Poi System Data
-
-*This model accepts additional fields of type Any.*
+# POI System Data
 
 ## Structure
 
-`PoiSystemData`
+`POISystemData`
 
 ## Fields
 
 | Name | Type | Tags | Description |
 |  --- | --- | --- | --- |
 | `date_time` | `datetime` | Required | Date and Time. In the response, the POI System gives its date and time to the Sale System. |
-| `poi_software` | [`PoiSoftware1`](../../doc/models/poi-software-1.md) | Required | - |
-| `poi_status` | [`PoiStatus2`](../../doc/models/poi-status-2.md) | Optional | - |
-| `additional_properties` | `Dict[str, Any]` | Optional | - |
+| `poi_software` | [`POISoftware`](../../doc/models/poi-software.md) | Required | Information related to the software of the POI System which manages the Sale to POI protocol. In a session allows identifying the product features of a POI System. |
+| `poi_status` | [`POIStatus`](../../doc/models/poi-status.md) | Optional | Indicate the availability of the POI Terminal components. The data element is absent if the component is not part of the POI Terminal.<br>State of a POI Terminal. |
 
 ## Example
 
 ```python
 import dateutil.parser
-import jsonpickle
 
-from adyen.models.global_status_1 import GlobalStatus1
-from adyen.models.poi_software_1 import PoiSoftware1
-from adyen.models.poi_status_2 import PoiStatus2
-from adyen.models.poi_system_data import PoiSystemData
-from adyen.models.printer_status_1 import PrinterStatus1
+from adyen.models.global_status_1_enum import GlobalStatus1Enum
+from adyen.models.poi_software import POISoftware
+from adyen.models.poi_status import POIStatus
+from adyen.models.poi_system_data import POISystemData
+from adyen.models.printer_status_1_enum import PrinterStatus1Enum
 
-poi_system_data = PoiSystemData(
+poi_system_data = POISystemData(
     date_time=dateutil.parser.parse('2016-03-13T12:52:32.123Z'),
-    poi_software=PoiSoftware1(
+    poi_software=POISoftware(
         manufacturer_id='ManufacturerID4',
         application_name='ApplicationName8',
         software_version='SoftwareVersion0',
-        certification_code='CertificationCode4',
-        additional_properties={
-            'exampleAdditionalProperty': jsonpickle.decode('{"key1":"val1","key2":"val2"}')
-        }
+        certification_code='CertificationCode4'
     ),
-    poi_status=PoiStatus2(
-        global_status=GlobalStatus1.MAINTENANCE,
+    poi_status=POIStatus(
+        global_status=GlobalStatus1Enum.MAINTENANCE,
         security_ok_flag=False,
         pedok_flag=False,
         card_reader_ok_flag=False,
-        printer_status=PrinterStatus1.PAPERLOW,
-        communication_ok_flag=False,
-        additional_properties={
-            'exampleAdditionalProperty': jsonpickle.decode('{"key1":"val1","key2":"val2"}')
-        }
-    ),
-    additional_properties={
-        'exampleAdditionalProperty': jsonpickle.decode('{"key1":"val1","key2":"val2"}')
-    }
+        printer_status=PrinterStatus1Enum.PAPERLOW,
+        communication_ok_flag=False
+    )
 )
 ```
 

@@ -37,7 +37,7 @@ This endpoint requires [clientKey](../../doc/auth/custom-query-parameter.md) **O
 
 **200**: OK - the request has succeeded.
 
-This method returns an [`ApiResponse`](../../doc/api-response.md) instance. The `body` property of this instance returns the response data which is of type [`GetNetworkTokenResponse`](../../doc/models/get-network-token-response.md).
+[`GetNetworkTokenResponse`](../../doc/models/get-network-token-response.md)
 
 ## Example Usage
 
@@ -45,11 +45,7 @@ This method returns an [`ApiResponse`](../../doc/api-response.md) instance. The 
 network_token_id = 'networkTokenId4'
 
 result = network_tokens_api.get_network_tokens_network_token_id(network_token_id)
-
-if result.is_success():
-    print(result.body)
-elif result.is_error():
-    print(result.errors)
+print(result)
 ```
 
 ## Errors
@@ -87,19 +83,14 @@ This endpoint requires [clientKey](../../doc/auth/custom-query-parameter.md) **O
 
 **202**: No Content - look at the actual response code for the status of the request.
 
-This method returns an [`ApiResponse`](../../doc/api-response.md) instance.
+`void`
 
 ## Example Usage
 
 ```python
 network_token_id = 'networkTokenId4'
 
-result = network_tokens_api.patch_network_tokens_network_token_id(network_token_id)
-
-if result.is_success():
-    print(result.body)
-elif result.is_error():
-    print(result.errors)
+network_tokens_api.patch_network_tokens_network_token_id(network_token_id)
 ```
 
 ## Errors

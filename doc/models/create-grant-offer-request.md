@@ -1,8 +1,6 @@
 
 # Create Grant Offer Request
 
-*This model accepts additional fields of type Any.*
-
 ## Structure
 
 `CreateGrantOfferRequest`
@@ -11,28 +9,19 @@
 
 | Name | Type | Tags | Description |
 |  --- | --- | --- | --- |
-| `amount` | [`Amount5`](../../doc/models/amount-5.md) | Required | - |
-| `additional_properties` | `Dict[str, Any]` | Optional | - |
+| `amount` | [`Amount17`](../../doc/models/amount-17.md) | Required | The financing amount that the user selected from the dynamic offer. Adyen uses this amount to create a static offer. |
 
 ## Example
 
 ```python
-import jsonpickle
-
-from adyen.models.amount_5 import Amount5
+from adyen.models.amount_17 import Amount17
 from adyen.models.create_grant_offer_request import CreateGrantOfferRequest
 
 create_grant_offer_request = CreateGrantOfferRequest(
-    amount=Amount5(
+    amount=Amount17(
         currency='currency2',
-        value=110,
-        additional_properties={
-            'exampleAdditionalProperty': jsonpickle.decode('{"key1":"val1","key2":"val2"}')
-        }
-    ),
-    additional_properties={
-        'exampleAdditionalProperty': jsonpickle.decode('{"key1":"val1","key2":"val2"}')
-    }
+        value=110
+    )
 )
 ```
 

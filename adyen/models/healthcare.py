@@ -33,8 +33,6 @@ class Healthcare(object):
             units](https://docs.adyen.com/development-resources/currency-codes). *
             For example, 2000 means USD 20.00. * Encoding: Numeric * Max value:
             10000000000
-        additional_properties (Dict[str, Any]): The additional properties for the
-            model.
 
     """
 
@@ -60,8 +58,7 @@ class Healthcare(object):
         dental_value=APIHelper.SKIP,
         other_medical_value=APIHelper.SKIP,
         prescription_value=APIHelper.SKIP,
-        vision_prescription_value=APIHelper.SKIP,
-        additional_properties=None):
+        vision_prescription_value=APIHelper.SKIP):
         """Initialize a Healthcare instance."""
         # Initialize members of the class
         if dental_value is not APIHelper.SKIP:
@@ -73,11 +70,6 @@ class Healthcare(object):
         self.total_healthcare_value = total_healthcare_value
         if vision_prescription_value is not APIHelper.SKIP:
             self.vision_prescription_value = vision_prescription_value
-
-        # Add additional model properties to the instance
-        if additional_properties is None:
-            additional_properties = {}
-        self.additional_properties = additional_properties
 
     @classmethod
     def from_dictionary(cls,
@@ -118,51 +110,12 @@ class Healthcare(object):
             if dictionary.get("visionPrescriptionValue")\
                 else APIHelper.SKIP
 
-        additional_properties = APIHelper.get_additional_properties(
-            dictionary={k: v for k, v in dictionary.items()
-                        if k not in cls._names.values()},
-            unboxing_function=lambda value: value)
-
         # Return an object of this model
         return cls(total_healthcare_value,
                    dental_value,
                    other_medical_value,
                    prescription_value,
-                   vision_prescription_value,
-                   additional_properties)
-
-    @classmethod
-    def validate(cls, dictionary):
-        """Validate dictionary against class required properties
-
-        Args:
-            dictionary (dictionary): A dictionary representation of the object
-            as obtained from the deserialization of the server's response. The
-            keys MUST match property names in the API description.
-
-        Returns:
-            boolean : if dictionary is valid contains required properties.
-
-        """
-        if isinstance(dictionary, cls):
-            return APIHelper.is_valid_type(
-                    value=dictionary.total_healthcare_value,
-                    type_callable=lambda value:
-                        isinstance(
-                        value,
-                        int,
-                ))
-
-        if not isinstance(dictionary, dict):
-            return False
-
-        return APIHelper.is_valid_type(
-                value=dictionary.get("totalHealthcareValue"),
-                type_callable=lambda value:
-                    isinstance(
-                    value,
-                    int,
-            ))
+                   vision_prescription_value)
 
     def __repr__(self):
         """Return a unambiguous string representation."""
@@ -187,7 +140,6 @@ class Healthcare(object):
             if hasattr(self, "vision_prescription_value")
             else None
         )
-        _additional_properties=self.additional_properties
         return (
             f"{self.__class__.__name__}("
             f"dental_value={_dental_value!r}, "
@@ -195,7 +147,6 @@ class Healthcare(object):
             f"prescription_value={_prescription_value!r}, "
             f"total_healthcare_value={_total_healthcare_value!r}, "
             f"vision_prescription_value={_vision_prescription_value!r}, "
-            f"additional_properties={_additional_properties!r}, "
             f")"
         )
 
@@ -222,7 +173,6 @@ class Healthcare(object):
             if hasattr(self, "vision_prescription_value")
             else None
         )
-        _additional_properties=self.additional_properties
         return (
             f"{self.__class__.__name__}("
             f"dental_value={_dental_value!s}, "
@@ -230,6 +180,5 @@ class Healthcare(object):
             f"prescription_value={_prescription_value!s}, "
             f"total_healthcare_value={_total_healthcare_value!s}, "
             f"vision_prescription_value={_vision_prescription_value!s}, "
-            f"additional_properties={_additional_properties!s}, "
             f")"
         )

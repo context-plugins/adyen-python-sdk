@@ -13,15 +13,22 @@ class CreateScaInformation1(object):
     Information for the Strong Customer Authentication (SCA)
 
     Attributes:
-        exemption (ScaExemption): The model property of type ScaExemption.
+        exemption (ScaExemptionEnum): The type of exemption for Strong Customer
+            Authentication (SCA). Possible values: * **lowerLimit**: the newly
+            created limit is lower than the existing limit. * **notRegulated**: the
+            limit is created in a country, region, or industry where it is not
+            mandated by law to use SCA. * **setByPlatform**: you set a limit for one
+            of your user's balance accounts, or for your balance platform. *
+            **initialLimit**: there are no existing transfer limits set on the
+            balance account or balance platform. * **alreadyPerformed**: you are
+            confident about your user's identity and do not need to verify this using
+            SCA.
         sca_on_approval (bool): Indicates whether to initiate Strong Customer
             Authentication (SCA) later, during approval, or immediately after you
             submit this request. Possible values: * **true**: you can initiate SCA
             later, during approval, for all pending transfer limits. * **false**
             (default): you initiate SCA immediately after submitting the transfer
             limit request.
-        additional_properties (Dict[str, Any]): The additional properties for the
-            model.
 
     """
 
@@ -39,19 +46,13 @@ class CreateScaInformation1(object):
     def __init__(
         self,
         exemption=APIHelper.SKIP,
-        sca_on_approval=APIHelper.SKIP,
-        additional_properties=None):
+        sca_on_approval=APIHelper.SKIP):
         """Initialize a CreateScaInformation1 instance."""
         # Initialize members of the class
         if exemption is not APIHelper.SKIP:
             self.exemption = exemption
         if sca_on_approval is not APIHelper.SKIP:
             self.sca_on_approval = sca_on_approval
-
-        # Add additional model properties to the instance
-        if additional_properties is None:
-            additional_properties = {}
-        self.additional_properties = additional_properties
 
     @classmethod
     def from_dictionary(cls,
@@ -80,15 +81,9 @@ class CreateScaInformation1(object):
             if "scaOnApproval" in dictionary.keys()\
                 else APIHelper.SKIP
 
-        additional_properties = APIHelper.get_additional_properties(
-            dictionary={k: v for k, v in dictionary.items()
-                        if k not in cls._names.values()},
-            unboxing_function=lambda value: value)
-
         # Return an object of this model
         return cls(exemption,
-                   sca_on_approval,
-                   additional_properties)
+                   sca_on_approval)
 
     def __repr__(self):
         """Return a unambiguous string representation."""
@@ -102,12 +97,10 @@ class CreateScaInformation1(object):
             if hasattr(self, "sca_on_approval")
             else None
         )
-        _additional_properties=self.additional_properties
         return (
             f"{self.__class__.__name__}("
             f"exemption={_exemption!r}, "
             f"sca_on_approval={_sca_on_approval!r}, "
-            f"additional_properties={_additional_properties!r}, "
             f")"
         )
 
@@ -123,11 +116,9 @@ class CreateScaInformation1(object):
             if hasattr(self, "sca_on_approval")
             else None
         )
-        _additional_properties=self.additional_properties
         return (
             f"{self.__class__.__name__}("
             f"exemption={_exemption!s}, "
             f"sca_on_approval={_sca_on_approval!s}, "
-            f"additional_properties={_additional_properties!s}, "
             f")"
         )

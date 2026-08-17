@@ -46,7 +46,7 @@ This endpoint requires [clientKey](../../doc/auth/custom-query-parameter.md) **O
 
 **200**: OK - the request has succeeded.
 
-This method returns an [`ApiResponse`](../../doc/api-response.md) instance. The `body` property of this instance returns the response data which is of type [`PaymentInstrument`](../../doc/models/payment-instrument.md).
+[`PaymentInstrument1`](../../doc/models/payment-instrument-1.md)
 
 ## Example Usage
 
@@ -54,18 +54,14 @@ This method returns an [`ApiResponse`](../../doc/api-response.md) instance. The 
 body = PaymentInstrumentInfo(
     balance_account_id='BA3227C223222B5CTBLR8BWJB',
     issuing_country_code='NL',
-    mtype=Type11.BANKACCOUNT,
+    mtype=Type111Enum.BANKACCOUNT,
     description='YOUR_DESCRIPTION'
 )
 
 result = payment_instruments_api.post_payment_instruments(
     body=body
 )
-
-if result.is_success():
-    print(result.body)
-elif result.is_error():
-    print(result.errors)
+print(result)
 ```
 
 ## Example Response *(as JSON)*
@@ -130,17 +126,13 @@ This endpoint requires [clientKey](../../doc/auth/custom-query-parameter.md) **O
 
 **200**: OK - the request has succeeded.
 
-This method returns an [`ApiResponse`](../../doc/api-response.md) instance. The `body` property of this instance returns the response data which is of type [`PaymentInstrumentRevealResponse`](../../doc/models/payment-instrument-reveal-response.md).
+[`PaymentInstrumentRevealResponse`](../../doc/models/payment-instrument-reveal-response.md)
 
 ## Example Usage
 
 ```python
 result = payment_instruments_api.post_payment_instruments_reveal()
-
-if result.is_success():
-    print(result.body)
-elif result.is_error():
-    print(result.errors)
+print(result)
 ```
 
 ## Errors
@@ -177,7 +169,7 @@ This endpoint requires [clientKey](../../doc/auth/custom-query-parameter.md) **O
 
 **200**: OK - the request has succeeded.
 
-This method returns an [`ApiResponse`](../../doc/api-response.md) instance. The `body` property of this instance returns the response data which is of type [`PaymentInstrument`](../../doc/models/payment-instrument.md).
+[`PaymentInstrument1`](../../doc/models/payment-instrument-1.md)
 
 ## Example Usage
 
@@ -185,11 +177,7 @@ This method returns an [`ApiResponse`](../../doc/api-response.md) instance. The 
 id = 'id0'
 
 result = payment_instruments_api.get_payment_instruments_id(id)
-
-if result.is_success():
-    print(result.body)
-elif result.is_error():
-    print(result.errors)
+print(result)
 ```
 
 ## Example Response *(as JSON)*
@@ -254,7 +242,7 @@ This endpoint requires [clientKey](../../doc/auth/custom-query-parameter.md) **O
 
 **200**: OK - the request has succeeded.
 
-This method returns an [`ApiResponse`](../../doc/api-response.md) instance. The `body` property of this instance returns the response data which is of type [`UpdatePaymentInstrument`](../../doc/models/update-payment-instrument.md).
+[`UpdatePaymentInstrument`](../../doc/models/update-payment-instrument.md)
 
 ## Example Usage
 
@@ -269,11 +257,7 @@ result = payment_instruments_api.patch_payment_instruments_id(
     id,
     body=body
 )
-
-if result.is_success():
-    print(result.body)
-elif result.is_error():
-    print(result.errors)
+print(result)
 ```
 
 ## Example Response *(as JSON)*
@@ -336,7 +320,7 @@ This endpoint requires [clientKey](../../doc/auth/custom-query-parameter.md) **O
 
 **200**: OK - the request has succeeded.
 
-This method returns an [`ApiResponse`](../../doc/api-response.md) instance. The `body` property of this instance returns the response data which is of type [`NetworkTokenActivationDataResponse`](../../doc/models/network-token-activation-data-response.md).
+[`NetworkTokenActivationDataResponse`](../../doc/models/network-token-activation-data-response.md)
 
 ## Example Usage
 
@@ -344,11 +328,7 @@ This method returns an [`ApiResponse`](../../doc/api-response.md) instance. The 
 id = 'id0'
 
 result = payment_instruments_api.get_payment_instruments_id_network_token_activation_data(id)
-
-if result.is_success():
-    print(result.body)
-elif result.is_error():
-    print(result.errors)
+print(result)
 ```
 
 ## Errors
@@ -387,7 +367,7 @@ This endpoint requires [clientKey](../../doc/auth/custom-query-parameter.md) **O
 
 **200**: OK - the request has succeeded.
 
-This method returns an [`ApiResponse`](../../doc/api-response.md) instance. The `body` property of this instance returns the response data which is of type [`NetworkTokenActivationDataResponse`](../../doc/models/network-token-activation-data-response.md).
+[`NetworkTokenActivationDataResponse`](../../doc/models/network-token-activation-data-response.md)
 
 ## Example Usage
 
@@ -395,11 +375,7 @@ This method returns an [`ApiResponse`](../../doc/api-response.md) instance. The 
 id = 'id0'
 
 result = payment_instruments_api.post_payment_instruments_id_network_token_activation_data(id)
-
-if result.is_success():
-    print(result.body)
-elif result.is_error():
-    print(result.errors)
+print(result)
 ```
 
 ## Errors
@@ -436,7 +412,7 @@ This endpoint requires [clientKey](../../doc/auth/custom-query-parameter.md) **O
 
 **200**: OK - the request has succeeded.
 
-This method returns an [`ApiResponse`](../../doc/api-response.md) instance. The `body` property of this instance returns the response data which is of type [`ListNetworkTokensResponse`](../../doc/models/list-network-tokens-response.md).
+[`ListNetworkTokensResponse`](../../doc/models/list-network-tokens-response.md)
 
 ## Example Usage
 
@@ -444,11 +420,7 @@ This method returns an [`ApiResponse`](../../doc/api-response.md) instance. The 
 id = 'id0'
 
 result = payment_instruments_api.get_payment_instruments_id_network_tokens(id)
-
-if result.is_success():
-    print(result.body)
-elif result.is_error():
-    print(result.errors)
+print(result)
 ```
 
 ## Errors
@@ -489,7 +461,7 @@ This endpoint requires [clientKey](../../doc/auth/custom-query-parameter.md) **O
 
 **200**: OK - the request has succeeded.
 
-This method returns an [`ApiResponse`](../../doc/api-response.md) instance. The `body` property of this instance returns the response data which is of type [`PaymentInstrumentRevealInfo`](../../doc/models/payment-instrument-reveal-info.md).
+[`PaymentInstrumentRevealInfo`](../../doc/models/payment-instrument-reveal-info.md)
 
 ## Example Usage
 
@@ -497,11 +469,7 @@ This method returns an [`ApiResponse`](../../doc/api-response.md) instance. The 
 id = 'id0'
 
 result = payment_instruments_api.get_payment_instruments_id_reveal(id)
-
-if result.is_success():
-    print(result.body)
-elif result.is_error():
-    print(result.errors)
+print(result)
 ```
 
 ## Example Response *(as JSON)*
@@ -551,7 +519,7 @@ This endpoint requires [clientKey](../../doc/auth/custom-query-parameter.md) **O
 
 **200**: OK - the request has succeeded.
 
-This method returns an [`ApiResponse`](../../doc/api-response.md) instance. The `body` property of this instance returns the response data which is of type [`TransactionRulesResponse`](../../doc/models/transaction-rules-response.md).
+[`TransactionRulesResponse`](../../doc/models/transaction-rules-response.md)
 
 ## Example Usage
 
@@ -559,11 +527,7 @@ This method returns an [`ApiResponse`](../../doc/api-response.md) instance. The 
 id = 'id0'
 
 result = payment_instruments_api.get_payment_instruments_id_transaction_rules(id)
-
-if result.is_success():
-    print(result.body)
-elif result.is_error():
-    print(result.errors)
+print(result)
 ```
 
 ## Example Response *(as JSON)*

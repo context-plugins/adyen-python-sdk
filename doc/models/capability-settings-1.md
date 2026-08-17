@@ -3,8 +3,6 @@
 
 A JSON object containing the settings that were requested for the account holder.
 
-*This model accepts additional fields of type Any.*
-
 ## Structure
 
 `CapabilitySettings1`
@@ -13,57 +11,42 @@ A JSON object containing the settings that were requested for the account holder
 
 | Name | Type | Tags | Description |
 |  --- | --- | --- | --- |
-| `amount_per_industry` | [`Dict[str, Amount3]`](../../doc/models/amount-3.md) | Optional | - |
+| `amount_per_industry` | [`Dict[str, Amount17]`](../../doc/models/amount-17.md) | Optional | - |
 | `authorized_card_users` | `bool` | Optional | - |
-| `funding_source` | [`List[FundingSource]`](../../doc/models/funding-source.md) | Optional | - |
-| `interval` | [`Interval`](../../doc/models/interval.md) | Optional | The period when the rule conditions apply. |
-| `max_amount` | [`Amount3`](../../doc/models/amount-3.md) | Optional | The amount that must be pushed out or pulled in. You can configure either `sweepAmount` or `targetAmount`, not both. |
-| `additional_properties` | `Dict[str, Any]` | Optional | - |
+| `funding_source` | [`List[FundingSourceEnum]`](../../doc/models/funding-source-enum.md) | Optional | - |
+| `interval` | [`IntervalEnum`](../../doc/models/interval-enum.md) | Optional | - |
+| `max_amount` | [`Amount17`](../../doc/models/amount-17.md) | Optional | - |
 
 ## Example
 
 ```python
-import jsonpickle
-
-from adyen.models.amount_3 import Amount3
+from adyen.models.amount_17 import Amount17
 from adyen.models.capability_settings_1 import CapabilitySettings1
-from adyen.models.funding_source import FundingSource
-from adyen.models.interval import Interval
+from adyen.models.funding_source_enum import FundingSourceEnum
+from adyen.models.interval_enum import IntervalEnum
 
 capability_settings_1 = CapabilitySettings1(
     amount_per_industry={
-        'key0': Amount3(
+        'key0': Amount17(
             currency='currency8',
-            value=56,
-            additional_properties={
-                'exampleAdditionalProperty': jsonpickle.decode('{"key1":"val1","key2":"val2"}')
-            }
+            value=56
         ),
-        'key1': Amount3(
+        'key1': Amount17(
             currency='currency8',
-            value=56,
-            additional_properties={
-                'exampleAdditionalProperty': jsonpickle.decode('{"key1":"val1","key2":"val2"}')
-            }
+            value=56
         )
     },
     authorized_card_users=False,
     funding_source=[
-        FundingSource.CREDIT,
-        FundingSource.PREPAID,
-        FundingSource.DEBIT
+        FundingSourceEnum.CREDIT,
+        FundingSourceEnum.PREPAID,
+        FundingSourceEnum.DEBIT
     ],
-    interval=Interval.DAILY,
-    max_amount=Amount3(
+    interval=IntervalEnum.DAILY,
+    max_amount=Amount17(
         currency='currency4',
-        value=160,
-        additional_properties={
-            'exampleAdditionalProperty': jsonpickle.decode('{"key1":"val1","key2":"val2"}')
-        }
-    ),
-    additional_properties={
-        'exampleAdditionalProperty': jsonpickle.decode('{"key1":"val1","key2":"val2"}')
-    }
+        value=160
+    )
 )
 ```
 

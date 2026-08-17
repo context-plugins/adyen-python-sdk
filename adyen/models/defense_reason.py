@@ -21,8 +21,6 @@ class DefenseReason(object):
         defense_reason_code (str): The defense reason code that was selected to
             defend this dispute.
         satisfied (bool): Indicates if sufficient defense material has been supplied.
-        additional_properties (Dict[str, Any]): The additional properties for the
-            model.
 
     """
 
@@ -41,19 +39,13 @@ class DefenseReason(object):
         self,
         defense_reason_code=None,
         satisfied=None,
-        defense_document_types=APIHelper.SKIP,
-        additional_properties=None):
+        defense_document_types=APIHelper.SKIP):
         """Initialize a DefenseReason instance."""
         # Initialize members of the class
         if defense_document_types is not APIHelper.SKIP:
             self.defense_document_types = defense_document_types
         self.defense_reason_code = defense_reason_code
         self.satisfied = satisfied
-
-        # Add additional model properties to the instance
-        if additional_properties is None:
-            additional_properties = {}
-        self.additional_properties = additional_properties
 
     @classmethod
     def from_dictionary(cls,
@@ -90,16 +82,10 @@ class DefenseReason(object):
         else:
             defense_document_types = APIHelper.SKIP
 
-        additional_properties = APIHelper.get_additional_properties(
-            dictionary={k: v for k, v in dictionary.items()
-                        if k not in cls._names.values()},
-            unboxing_function=lambda value: value)
-
         # Return an object of this model
         return cls(defense_reason_code,
                    satisfied,
-                   defense_document_types,
-                   additional_properties)
+                   defense_document_types)
 
     def __repr__(self):
         """Return a unambiguous string representation."""
@@ -110,13 +96,11 @@ class DefenseReason(object):
         )
         _defense_reason_code=self.defense_reason_code
         _satisfied=self.satisfied
-        _additional_properties=self.additional_properties
         return (
             f"{self.__class__.__name__}("
             f"defense_document_types={_defense_document_types!r}, "
             f"defense_reason_code={_defense_reason_code!r}, "
             f"satisfied={_satisfied!r}, "
-            f"additional_properties={_additional_properties!r}, "
             f")"
         )
 
@@ -129,12 +113,10 @@ class DefenseReason(object):
         )
         _defense_reason_code=self.defense_reason_code
         _satisfied=self.satisfied
-        _additional_properties=self.additional_properties
         return (
             f"{self.__class__.__name__}("
             f"defense_document_types={_defense_document_types!s}, "
             f"defense_reason_code={_defense_reason_code!s}, "
             f"satisfied={_satisfied!s}, "
-            f"additional_properties={_additional_properties!s}, "
             f")"
         )

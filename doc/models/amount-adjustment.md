@@ -1,8 +1,6 @@
 
 # Amount Adjustment
 
-*This model accepts additional fields of type Any.*
-
 ## Structure
 
 `AmountAdjustment`
@@ -11,33 +9,24 @@
 
 | Name | Type | Tags | Description |
 |  --- | --- | --- | --- |
-| `amount` | [`Amount5`](../../doc/models/amount-5.md) | Optional | - |
-| `amount_adjustment_type` | [`AmountAdjustmentType`](../../doc/models/amount-adjustment-type.md) | Optional | - |
+| `amount` | [`Amount17`](../../doc/models/amount-17.md) | Optional | The adjustment amount. |
+| `amount_adjustment_type` | [`AmountAdjustmentTypeEnum`](../../doc/models/amount-adjustment-type-enum.md) | Optional | The type of markup that is applied to an authorised payment.<br><br>Possible values: **exchange**, **forexMarkup**, **authHoldReserve**, **atmMarkup**. |
 | `basepoints` | `int` | Optional | The basepoints associated with the applied markup. |
-| `additional_properties` | `Dict[str, Any]` | Optional | - |
 
 ## Example
 
 ```python
-import jsonpickle
-
-from adyen.models.amount_5 import Amount5
+from adyen.models.amount_17 import Amount17
 from adyen.models.amount_adjustment import AmountAdjustment
-from adyen.models.amount_adjustment_type import AmountAdjustmentType
+from adyen.models.amount_adjustment_type_enum import AmountAdjustmentTypeEnum
 
 amount_adjustment = AmountAdjustment(
-    amount=Amount5(
+    amount=Amount17(
         currency='currency2',
-        value=110,
-        additional_properties={
-            'exampleAdditionalProperty': jsonpickle.decode('{"key1":"val1","key2":"val2"}')
-        }
+        value=110
     ),
-    amount_adjustment_type=AmountAdjustmentType.ATMMARKUP,
-    basepoints=162,
-    additional_properties={
-        'exampleAdditionalProperty': jsonpickle.decode('{"key1":"val1","key2":"val2"}')
-    }
+    amount_adjustment_type=AmountAdjustmentTypeEnum.ATMMARKUP,
+    basepoints=162
 )
 ```
 

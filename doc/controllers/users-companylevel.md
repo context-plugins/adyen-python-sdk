@@ -49,7 +49,7 @@ This endpoint requires [BasicAuth](../../doc/auth/basic-authentication.md) **OR*
 
 **200**: OK - the request has succeeded.
 
-This method returns an [`ApiResponse`](../../doc/api-response.md) instance. The `body` property of this instance returns the response data which is of type [`ListCompanyUsersResponse`](../../doc/models/list-company-users-response.md).
+[`ListCompanyUsersResponse`](../../doc/models/list-company-users-response.md)
 
 ## Example Usage
 
@@ -57,11 +57,7 @@ This method returns an [`ApiResponse`](../../doc/api-response.md) instance. The 
 company_id = 'companyId0'
 
 result = users_company_level_api.get_companies_company_id_users(company_id)
-
-if result.is_success():
-    print(result.body)
-elif result.is_error():
-    print(result.errors)
+print(result)
 ```
 
 ## Errors
@@ -104,7 +100,7 @@ This endpoint requires [BasicAuth](../../doc/auth/basic-authentication.md) **OR*
 
 **200**: OK - the request has succeeded.
 
-This method returns an [`ApiResponse`](../../doc/api-response.md) instance. The `body` property of this instance returns the response data which is of type [`CreateCompanyUserResponse`](../../doc/models/create-company-user-response.md).
+[`CreateCompanyUserResponse`](../../doc/models/create-company-user-response.md)
 
 ## Example Usage
 
@@ -113,7 +109,7 @@ company_id = 'companyId0'
 
 body = CreateCompanyUserRequest(
     email='john.smith@example.com',
-    name=Name5(
+    name=Name(
         first_name='John',
         last_name='Smith'
     ),
@@ -133,11 +129,7 @@ result = users_company_level_api.post_companies_company_id_users(
     company_id,
     body=body
 )
-
-if result.is_success():
-    print(result.body)
-elif result.is_error():
-    print(result.errors)
+print(result)
 ```
 
 ## Example Response *(as JSON)*
@@ -208,7 +200,7 @@ This endpoint requires [BasicAuth](../../doc/auth/basic-authentication.md) **OR*
 
 **200**: OK - the request has succeeded.
 
-This method returns an [`ApiResponse`](../../doc/api-response.md) instance. The `body` property of this instance returns the response data which is of type [`CompanyUser`](../../doc/models/company-user.md).
+[`CompanyUser`](../../doc/models/company-user.md)
 
 ## Example Usage
 
@@ -221,11 +213,7 @@ result = users_company_level_api.get_companies_company_id_users_user_id(
     company_id,
     user_id
 )
-
-if result.is_success():
-    print(result.body)
-elif result.is_error():
-    print(result.errors)
+print(result)
 ```
 
 ## Errors
@@ -270,7 +258,7 @@ This endpoint requires [BasicAuth](../../doc/auth/basic-authentication.md) **OR*
 
 **200**: OK - the request has succeeded.
 
-This method returns an [`ApiResponse`](../../doc/api-response.md) instance. The `body` property of this instance returns the response data which is of type [`CompanyUser`](../../doc/models/company-user.md).
+[`CompanyUser`](../../doc/models/company-user.md)
 
 ## Example Usage
 
@@ -283,11 +271,7 @@ result = users_company_level_api.patch_companies_company_id_users_user_id(
     company_id,
     user_id
 )
-
-if result.is_success():
-    print(result.body)
-elif result.is_error():
-    print(result.errors)
+print(result)
 ```
 
 ## Errors

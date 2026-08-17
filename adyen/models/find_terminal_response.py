@@ -26,8 +26,6 @@ class FindTerminalResponse(object):
             terminal is ready to be boarded, or is already boarded.
         store (str): The store code of the store that the terminal is assigned to.
         terminal (str): The unique terminal ID.
-        additional_properties (Dict[str, Any]): The additional properties for the
-            model.
 
     """
 
@@ -52,8 +50,7 @@ class FindTerminalResponse(object):
         terminal=None,
         merchant_account=APIHelper.SKIP,
         merchant_inventory=APIHelper.SKIP,
-        store=APIHelper.SKIP,
-        additional_properties=None):
+        store=APIHelper.SKIP):
         """Initialize a FindTerminalResponse instance."""
         # Initialize members of the class
         self.company_account = company_account
@@ -64,11 +61,6 @@ class FindTerminalResponse(object):
         if store is not APIHelper.SKIP:
             self.store = store
         self.terminal = terminal
-
-        # Add additional model properties to the instance
-        if additional_properties is None:
-            additional_properties = {}
-        self.additional_properties = additional_properties
 
     @classmethod
     def from_dictionary(cls,
@@ -109,18 +101,12 @@ class FindTerminalResponse(object):
             if dictionary.get("store")\
                 else APIHelper.SKIP
 
-        additional_properties = APIHelper.get_additional_properties(
-            dictionary={k: v for k, v in dictionary.items()
-                        if k not in cls._names.values()},
-            unboxing_function=lambda value: value)
-
         # Return an object of this model
         return cls(company_account,
                    terminal,
                    merchant_account,
                    merchant_inventory,
-                   store,
-                   additional_properties)
+                   store)
 
     def __repr__(self):
         """Return a unambiguous string representation."""
@@ -141,7 +127,6 @@ class FindTerminalResponse(object):
             else None
         )
         _terminal=self.terminal
-        _additional_properties=self.additional_properties
         return (
             f"{self.__class__.__name__}("
             f"company_account={_company_account!r}, "
@@ -149,7 +134,6 @@ class FindTerminalResponse(object):
             f"merchant_inventory={_merchant_inventory!r}, "
             f"store={_store!r}, "
             f"terminal={_terminal!r}, "
-            f"additional_properties={_additional_properties!r}, "
             f")"
         )
 
@@ -172,7 +156,6 @@ class FindTerminalResponse(object):
             else None
         )
         _terminal=self.terminal
-        _additional_properties=self.additional_properties
         return (
             f"{self.__class__.__name__}("
             f"company_account={_company_account!s}, "
@@ -180,6 +163,5 @@ class FindTerminalResponse(object):
             f"merchant_inventory={_merchant_inventory!s}, "
             f"store={_store!s}, "
             f"terminal={_terminal!s}, "
-            f"additional_properties={_additional_properties!s}, "
             f")"
         )

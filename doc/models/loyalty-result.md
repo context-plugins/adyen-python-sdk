@@ -4,8 +4,6 @@
 Data related to the result of a processed loyalty transaction.
 In the Message Response, the result of each loyalty brand transaction.
 
-*This model accepts additional fields of type Any.*
-
 ## Structure
 
 `LoyaltyResult`
@@ -14,63 +12,46 @@ In the Message Response, the result of each loyalty brand transaction.
 
 | Name | Type | Tags | Description |
 |  --- | --- | --- | --- |
-| `loyalty_account` | [`LoyaltyAccount12`](../../doc/models/loyalty-account-12.md) | Required | - |
+| `loyalty_account` | [`LoyaltyAccount1`](../../doc/models/loyalty-account-1.md) | Required | Data related to a loyalty account processed in the transaction. |
 | `current_balance` | `float` | Optional | Balance of an account.<br>If known (provided by the card or an external host).<br><br>**Constraints**: `>= 0`, `<= 99999999.999999` |
-| `loyalty_acquirer_data` | [`LoyaltyAcquirerData`](../../doc/models/loyalty-acquirer-data.md) | Optional | - |
-| `additional_properties` | `Dict[str, Any]` | Optional | - |
+| `loyalty_acquirer_data` | [`LoyaltyAcquirerData1`](../../doc/models/loyalty-acquirer-data-1.md) | Optional | Data related to the loyalty Acquirer during a loyalty transaction.<br>If content not empty. |
 
 ## Example
 
 ```python
 import dateutil.parser
-import jsonpickle
 
-from adyen.models.entry_mode import EntryMode
-from adyen.models.identification_support_1 import IdentificationSupport1
-from adyen.models.identification_type_11 import IdentificationType11
-from adyen.models.loyalty_account_12 import LoyaltyAccount12
-from adyen.models.loyalty_account_id_3 import LoyaltyAccountId3
-from adyen.models.loyalty_acquirer_data import LoyaltyAcquirerData
+from adyen.models.entry_mode_enum import EntryModeEnum
+from adyen.models.identification_support_1_enum import IdentificationSupport1Enum
+from adyen.models.identification_type_11_enum import IdentificationType11Enum
+from adyen.models.loyalty_account_1 import LoyaltyAccount1
+from adyen.models.loyalty_account_id_2 import LoyaltyAccountID2
+from adyen.models.loyalty_acquirer_data_1 import LoyaltyAcquirerData1
 from adyen.models.loyalty_result import LoyaltyResult
-from adyen.models.loyalty_transaction_id import LoyaltyTransactionId
+from adyen.models.transaction_id_type import TransactionIDType
 
 loyalty_result = LoyaltyResult(
-    loyalty_account=LoyaltyAccount12(
-        loyalty_account_id=LoyaltyAccountId3(
+    loyalty_account=LoyaltyAccount1(
+        loyalty_account_id=LoyaltyAccountID2(
             entry_mode=[
-                EntryMode.FILE
+                EntryModeEnum.FILE
             ],
-            identification_type=IdentificationType11.ISOTRACK2,
+            identification_type=IdentificationType11Enum.ISOTRACK2,
             loyalty_id='LoyaltyID4',
-            identification_support=IdentificationSupport1.HYBRIDCARD,
-            additional_properties={
-                'exampleAdditionalProperty': jsonpickle.decode('{"key1":"val1","key2":"val2"}')
-            }
+            identification_support=IdentificationSupport1Enum.HYBRIDCARD
         ),
-        loyalty_brand='LoyaltyBrand0',
-        additional_properties={
-            'exampleAdditionalProperty': jsonpickle.decode('{"key1":"val1","key2":"val2"}')
-        }
+        loyalty_brand='LoyaltyBrand0'
     ),
     current_balance=180.58,
-    loyalty_acquirer_data=LoyaltyAcquirerData(
+    loyalty_acquirer_data=LoyaltyAcquirerData1(
         loyalty_acquirer_id='LoyaltyAcquirerID4',
         approval_code='ApprovalCode4',
-        loyalty_transaction_id=LoyaltyTransactionId(
+        loyalty_transaction_id=TransactionIDType(
             transaction_id='TransactionID6',
-            time_stamp=dateutil.parser.parse('2016-03-13T12:52:32.123Z'),
-            additional_properties={
-                'exampleAdditionalProperty': jsonpickle.decode('{"key1":"val1","key2":"val2"}')
-            }
+            time_stamp=dateutil.parser.parse('2016-03-13T12:52:32.123Z')
         ),
-        host_reconciliation_id='HostReconciliationID4',
-        additional_properties={
-            'exampleAdditionalProperty': jsonpickle.decode('{"key1":"val1","key2":"val2"}')
-        }
-    ),
-    additional_properties={
-        'exampleAdditionalProperty': jsonpickle.decode('{"key1":"val1","key2":"val2"}')
-    }
+        host_reconciliation_id='HostReconciliationID4'
+    )
 )
 ```
 

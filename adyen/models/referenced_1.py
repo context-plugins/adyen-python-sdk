@@ -15,8 +15,6 @@ class Referenced1(object):
     Attributes:
         enable_standalone_refunds (bool): Indicates whether referenced refunds are
             enabled on the standalone terminal.
-        additional_properties (Dict[str, Any]): The additional properties for the
-            model.
 
     """
 
@@ -31,17 +29,11 @@ class Referenced1(object):
 
     def __init__(
         self,
-        enable_standalone_refunds=APIHelper.SKIP,
-        additional_properties=None):
+        enable_standalone_refunds=APIHelper.SKIP):
         """Initialize a Referenced1 instance."""
         # Initialize members of the class
         if enable_standalone_refunds is not APIHelper.SKIP:
             self.enable_standalone_refunds = enable_standalone_refunds
-
-        # Add additional model properties to the instance
-        if additional_properties is None:
-            additional_properties = {}
-        self.additional_properties = additional_properties
 
     @classmethod
     def from_dictionary(cls,
@@ -66,14 +58,8 @@ class Referenced1(object):
             if "enableStandaloneRefunds" in dictionary.keys()\
                 else APIHelper.SKIP
 
-        additional_properties = APIHelper.get_additional_properties(
-            dictionary={k: v for k, v in dictionary.items()
-                        if k not in cls._names.values()},
-            unboxing_function=lambda value: value)
-
         # Return an object of this model
-        return cls(enable_standalone_refunds,
-                   additional_properties)
+        return cls(enable_standalone_refunds)
 
     def __repr__(self):
         """Return a unambiguous string representation."""
@@ -82,11 +68,9 @@ class Referenced1(object):
             if hasattr(self, "enable_standalone_refunds")
             else None
         )
-        _additional_properties=self.additional_properties
         return (
             f"{self.__class__.__name__}("
             f"enable_standalone_refunds={_enable_standalone_refunds!r}, "
-            f"additional_properties={_additional_properties!r}, "
             f")"
         )
 
@@ -97,10 +81,8 @@ class Referenced1(object):
             if hasattr(self, "enable_standalone_refunds")
             else None
         )
-        _additional_properties=self.additional_properties
         return (
             f"{self.__class__.__name__}("
             f"enable_standalone_refunds={_enable_standalone_refunds!s}, "
-            f"additional_properties={_additional_properties!s}, "
             f")"
         )

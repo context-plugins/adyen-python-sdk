@@ -55,18 +55,17 @@ class AccountCompanyLevelApi(BaseApi):
                 100. The default is 10 items on a page.
 
         Returns:
-            ApiResponse: An object with the response value as well as other useful
-                information such as status codes and headers. OK - the request has
+            ListCompanyResponse: Response from the API. OK - the request has
                 succeeded.
 
         Raises:
-            ApiException: When an error occurs while fetching the data from the
+            APIException: When an error occurs while fetching the data from the
                 remote API. This exception includes the HTTP Response code, an error
                 message, and the HTTP body that was received in the request.
 
         """
         return super().new_api_call_builder.request(
-            RequestBuilder().server(Server.DEFAULT)
+            RequestBuilder().server(Server.DEFAULT9)
             .path("/companies")
             .http_method(HttpMethodEnum.GET)
             .query_param(Parameter()
@@ -83,7 +82,6 @@ class AccountCompanyLevelApi(BaseApi):
             ResponseHandler()
             .deserializer(APIHelper.json_deserialize)
             .deserialize_into(ListCompanyResponse.from_dictionary)
-            .is_api_response(True)
             .local_error("400",
                 "Bad Request - a problem reading or understanding the request.",
                 RestServiceErrorException)
@@ -116,24 +114,21 @@ class AccountCompanyLevelApi(BaseApi):
             company_id (str): The unique identifier of the company account.
 
         Returns:
-            ApiResponse: An object with the response value as well as other useful
-                information such as status codes and headers. OK - the request has
-                succeeded.
+            Company2: Response from the API. OK - the request has succeeded.
 
         Raises:
-            ApiException: When an error occurs while fetching the data from the
+            APIException: When an error occurs while fetching the data from the
                 remote API. This exception includes the HTTP Response code, an error
                 message, and the HTTP body that was received in the request.
 
         """
         return super().new_api_call_builder.request(
-            RequestBuilder().server(Server.DEFAULT)
+            RequestBuilder().server(Server.DEFAULT9)
             .path("/companies/{companyId}")
             .http_method(HttpMethodEnum.GET)
             .template_param(Parameter()
                 .key("companyId")
                 .value(company_id)
-                .is_required(True)
                 .should_encode(True))
             .header_param(Parameter()
                 .key("accept")
@@ -143,7 +138,6 @@ class AccountCompanyLevelApi(BaseApi):
             ResponseHandler()
             .deserializer(APIHelper.json_deserialize)
             .deserialize_into(Company2.from_dictionary)
-            .is_api_response(True)
             .local_error("400",
                 "Bad Request - a problem reading or understanding the request.",
                 RestServiceErrorException)
@@ -183,24 +177,22 @@ class AccountCompanyLevelApi(BaseApi):
                 100. The default is 10 items on a page.
 
         Returns:
-            ApiResponse: An object with the response value as well as other useful
-                information such as status codes and headers. OK - the request has
+            ListMerchantResponse: Response from the API. OK - the request has
                 succeeded.
 
         Raises:
-            ApiException: When an error occurs while fetching the data from the
+            APIException: When an error occurs while fetching the data from the
                 remote API. This exception includes the HTTP Response code, an error
                 message, and the HTTP body that was received in the request.
 
         """
         return super().new_api_call_builder.request(
-            RequestBuilder().server(Server.DEFAULT)
+            RequestBuilder().server(Server.DEFAULT9)
             .path("/companies/{companyId}/merchants")
             .http_method(HttpMethodEnum.GET)
             .template_param(Parameter()
                 .key("companyId")
                 .value(company_id)
-                .is_required(True)
                 .should_encode(True))
             .query_param(Parameter()
                 .key("pageNumber")
@@ -216,7 +208,6 @@ class AccountCompanyLevelApi(BaseApi):
             ResponseHandler()
             .deserializer(APIHelper.json_deserialize)
             .deserialize_into(ListMerchantResponse.from_dictionary)
-            .is_api_response(True)
             .local_error("400",
                 "Bad Request - a problem reading or understanding the request.",
                 RestServiceErrorException)

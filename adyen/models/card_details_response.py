@@ -22,8 +22,6 @@ class CardDetailsResponse(object):
             a consumer card.
         issuing_country_code (str): The two-letter country code  of the country where
             the card was issued.
-        additional_properties (Dict[str, Any]): The additional properties for the
-            model.
 
     """
 
@@ -47,8 +45,7 @@ class CardDetailsResponse(object):
         brands=APIHelper.SKIP,
         funding_source=APIHelper.SKIP,
         is_card_commercial=APIHelper.SKIP,
-        issuing_country_code=APIHelper.SKIP,
-        additional_properties=None):
+        issuing_country_code=APIHelper.SKIP):
         """Initialize a CardDetailsResponse instance."""
         # Initialize members of the class
         if brands is not APIHelper.SKIP:
@@ -59,11 +56,6 @@ class CardDetailsResponse(object):
             self.is_card_commercial = is_card_commercial
         if issuing_country_code is not APIHelper.SKIP:
             self.issuing_country_code = issuing_country_code
-
-        # Add additional model properties to the instance
-        if additional_properties is None:
-            additional_properties = {}
-        self.additional_properties = additional_properties
 
     @classmethod
     def from_dictionary(cls,
@@ -104,17 +96,11 @@ class CardDetailsResponse(object):
             if dictionary.get("issuingCountryCode")\
                 else APIHelper.SKIP
 
-        additional_properties = APIHelper.get_additional_properties(
-            dictionary={k: v for k, v in dictionary.items()
-                        if k not in cls._names.values()},
-            unboxing_function=lambda value: value)
-
         # Return an object of this model
         return cls(brands,
                    funding_source,
                    is_card_commercial,
-                   issuing_country_code,
-                   additional_properties)
+                   issuing_country_code)
 
     def __repr__(self):
         """Return a unambiguous string representation."""
@@ -138,14 +124,12 @@ class CardDetailsResponse(object):
             if hasattr(self, "issuing_country_code")
             else None
         )
-        _additional_properties=self.additional_properties
         return (
             f"{self.__class__.__name__}("
             f"brands={_brands!r}, "
             f"funding_source={_funding_source!r}, "
             f"is_card_commercial={_is_card_commercial!r}, "
             f"issuing_country_code={_issuing_country_code!r}, "
-            f"additional_properties={_additional_properties!r}, "
             f")"
         )
 
@@ -171,13 +155,11 @@ class CardDetailsResponse(object):
             if hasattr(self, "issuing_country_code")
             else None
         )
-        _additional_properties=self.additional_properties
         return (
             f"{self.__class__.__name__}("
             f"brands={_brands!s}, "
             f"funding_source={_funding_source!s}, "
             f"is_card_commercial={_is_card_commercial!s}, "
             f"issuing_country_code={_issuing_country_code!s}, "
-            f"additional_properties={_additional_properties!s}, "
             f")"
         )

@@ -10,7 +10,7 @@ from adyen.api_helper import APIHelper
 class Phone2(object):
     """Implementation of the 'Phone2' model.
 
-    The mobile phone number provided by the cardholder. The phone number must consist
+    The work phone number provided by the cardholder. The phone number must consist
     of a country code, followed by the number. If the value you provide does not
     follow the guidelines, we do not submit it for authentication.
     > Required for Visa and JCB transactions that require 3D Secure 2 authentication,
@@ -20,8 +20,6 @@ class Phone2(object):
     Attributes:
         cc (str): Country code. Length: 1–3 digits.
         subscriber (str): Subscriber number. Length: 4-15  digits.
-        additional_properties (Dict[str, Any]): The additional properties for the
-            model.
 
     """
 
@@ -39,19 +37,13 @@ class Phone2(object):
     def __init__(
         self,
         cc=APIHelper.SKIP,
-        subscriber=APIHelper.SKIP,
-        additional_properties=None):
+        subscriber=APIHelper.SKIP):
         """Initialize a Phone2 instance."""
         # Initialize members of the class
         if cc is not APIHelper.SKIP:
             self.cc = cc
         if subscriber is not APIHelper.SKIP:
             self.subscriber = subscriber
-
-        # Add additional model properties to the instance
-        if additional_properties is None:
-            additional_properties = {}
-        self.additional_properties = additional_properties
 
     @classmethod
     def from_dictionary(cls,
@@ -80,15 +72,30 @@ class Phone2(object):
             if dictionary.get("subscriber")\
                 else APIHelper.SKIP
 
-        additional_properties = APIHelper.get_additional_properties(
-            dictionary={k: v for k, v in dictionary.items()
-                        if k not in cls._names.values()},
-            unboxing_function=lambda value: value)
-
         # Return an object of this model
         return cls(cc,
-                   subscriber,
-                   additional_properties)
+                   subscriber)
+
+    @classmethod
+    def validate(cls, dictionary):
+        """Validate dictionary against class required properties
+
+        Args:
+            dictionary (dictionary): A dictionary representation of the object
+            as obtained from the deserialization of the server's response. The
+            keys MUST match property names in the API description.
+
+        Returns:
+            boolean : if dictionary is valid contains required properties.
+
+        """
+        if isinstance(dictionary, cls):
+            return True
+
+        if not isinstance(dictionary, dict):
+            return False
+
+        return True
 
     def __repr__(self):
         """Return a unambiguous string representation."""
@@ -102,12 +109,10 @@ class Phone2(object):
             if hasattr(self, "subscriber")
             else None
         )
-        _additional_properties=self.additional_properties
         return (
             f"{self.__class__.__name__}("
             f"cc={_cc!r}, "
             f"subscriber={_subscriber!r}, "
-            f"additional_properties={_additional_properties!r}, "
             f")"
         )
 
@@ -123,11 +128,9 @@ class Phone2(object):
             if hasattr(self, "subscriber")
             else None
         )
-        _additional_properties=self.additional_properties
         return (
             f"{self.__class__.__name__}("
             f"cc={_cc!s}, "
             f"subscriber={_subscriber!s}, "
-            f"additional_properties={_additional_properties!s}, "
             f")"
         )

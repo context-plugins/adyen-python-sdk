@@ -20,8 +20,6 @@ class PhoneNumber(object):
             `phone.number`
         mtype (str): The type of phone number.  Possible values: **mobile**,
             **landline**, **sip**, **fax.**
-        additional_properties (Dict[str, Any]): The additional properties for the
-            model.
 
     """
 
@@ -41,8 +39,7 @@ class PhoneNumber(object):
         self,
         number=None,
         phone_country_code=APIHelper.SKIP,
-        mtype=APIHelper.SKIP,
-        additional_properties=None):
+        mtype=APIHelper.SKIP):
         """Initialize a PhoneNumber instance."""
         # Initialize members of the class
         self.number = number
@@ -50,11 +47,6 @@ class PhoneNumber(object):
             self.phone_country_code = phone_country_code
         if mtype is not APIHelper.SKIP:
             self.mtype = mtype
-
-        # Add additional model properties to the instance
-        if additional_properties is None:
-            additional_properties = {}
-        self.additional_properties = additional_properties
 
     @classmethod
     def from_dictionary(cls,
@@ -87,16 +79,10 @@ class PhoneNumber(object):
             if dictionary.get("type")\
                 else APIHelper.SKIP
 
-        additional_properties = APIHelper.get_additional_properties(
-            dictionary={k: v for k, v in dictionary.items()
-                        if k not in cls._names.values()},
-            unboxing_function=lambda value: value)
-
         # Return an object of this model
         return cls(number,
                    phone_country_code,
-                   mtype,
-                   additional_properties)
+                   mtype)
 
     def __repr__(self):
         """Return a unambiguous string representation."""
@@ -111,13 +97,11 @@ class PhoneNumber(object):
             if hasattr(self, "mtype")
             else None
         )
-        _additional_properties=self.additional_properties
         return (
             f"{self.__class__.__name__}("
             f"number={_number!r}, "
             f"phone_country_code={_phone_country_code!r}, "
             f"mtype={_mtype!r}, "
-            f"additional_properties={_additional_properties!r}, "
             f")"
         )
 
@@ -134,12 +118,10 @@ class PhoneNumber(object):
             if hasattr(self, "mtype")
             else None
         )
-        _additional_properties=self.additional_properties
         return (
             f"{self.__class__.__name__}("
             f"number={_number!s}, "
             f"phone_country_code={_phone_country_code!s}, "
             f"mtype={_mtype!s}, "
-            f"additional_properties={_additional_properties!s}, "
             f")"
         )

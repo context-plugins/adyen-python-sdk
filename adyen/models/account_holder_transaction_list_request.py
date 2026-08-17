@@ -20,8 +20,8 @@ class AccountHolderTransactionListRequest(object):
             accounts to include in the transaction list. If left blank, the last
             fifty (50) transactions for all accounts of the account holder will be
             included.
-        transaction_statuses (List[TransactionStatus]): A list of statuses to include
-            in the transaction list. If left blank, all transactions will be
+        transaction_statuses (List[TransactionStatusEnum]): A list of statuses to
+            include in the transaction list. If left blank, all transactions will be
             included. >Permitted values: >* `PendingCredit` - a pending balance
             credit. >* `CreditFailed` - a pending credit failure; the balance will
             not be credited. >* `Credited` - a credited balance. >* `PendingDebit` -
@@ -39,8 +39,6 @@ class AccountHolderTransactionListRequest(object):
             payout. >* `PendingFundTransfer` - a pending transfer of funds from one
             account to another. >* `FundTransfer` - a transfer of funds from one
             account to another.
-        additional_properties (Dict[str, Any]): The additional properties for the
-            model.
 
     """
 
@@ -60,8 +58,7 @@ class AccountHolderTransactionListRequest(object):
         self,
         account_holder_code=None,
         transaction_lists_per_account=APIHelper.SKIP,
-        transaction_statuses=APIHelper.SKIP,
-        additional_properties=None):
+        transaction_statuses=APIHelper.SKIP):
         """Initialize a AccountHolderTransactionListRequest instance."""
         # Initialize members of the class
         self.account_holder_code = account_holder_code
@@ -69,11 +66,6 @@ class AccountHolderTransactionListRequest(object):
             self.transaction_lists_per_account = transaction_lists_per_account
         if transaction_statuses is not APIHelper.SKIP:
             self.transaction_statuses = transaction_statuses
-
-        # Add additional model properties to the instance
-        if additional_properties is None:
-            additional_properties = {}
-        self.additional_properties = additional_properties
 
     @classmethod
     def from_dictionary(cls,
@@ -110,16 +102,10 @@ class AccountHolderTransactionListRequest(object):
             if dictionary.get("transactionStatuses")\
                 else APIHelper.SKIP
 
-        additional_properties = APIHelper.get_additional_properties(
-            dictionary={k: v for k, v in dictionary.items()
-                        if k not in cls._names.values()},
-            unboxing_function=lambda value: value)
-
         # Return an object of this model
         return cls(account_holder_code,
                    transaction_lists_per_account,
-                   transaction_statuses,
-                   additional_properties)
+                   transaction_statuses)
 
     def __repr__(self):
         """Return a unambiguous string representation."""
@@ -134,13 +120,11 @@ class AccountHolderTransactionListRequest(object):
             if hasattr(self, "transaction_statuses")
             else None
         )
-        _additional_properties=self.additional_properties
         return (
             f"{self.__class__.__name__}("
             f"account_holder_code={_account_holder_code!r}, "
             f"transaction_lists_per_account={_transaction_lists_per_account!r}, "
             f"transaction_statuses={_transaction_statuses!r}, "
-            f"additional_properties={_additional_properties!r}, "
             f")"
         )
 
@@ -157,12 +141,10 @@ class AccountHolderTransactionListRequest(object):
             if hasattr(self, "transaction_statuses")
             else None
         )
-        _additional_properties=self.additional_properties
         return (
             f"{self.__class__.__name__}("
             f"account_holder_code={_account_holder_code!s}, "
             f"transaction_lists_per_account={_transaction_lists_per_account!s}, "
             f"transaction_statuses={_transaction_statuses!s}, "
-            f"additional_properties={_additional_properties!s}, "
             f")"
         )

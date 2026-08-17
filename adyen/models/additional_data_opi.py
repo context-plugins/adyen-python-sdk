@@ -17,8 +17,6 @@ class AdditionalDataOpi(object):
             Interface token in your Oracle Opera database. For more information and
             required settings, see [Oracle
             Opera](https://docs.adyen.com/plugins/oracle-opera#opi-token-ecommerce).
-        additional_properties (Dict[str, Any]): The additional properties for the
-            model.
 
     """
 
@@ -33,17 +31,11 @@ class AdditionalDataOpi(object):
 
     def __init__(
         self,
-        opi_include_trans_token=APIHelper.SKIP,
-        additional_properties=None):
+        opi_include_trans_token=APIHelper.SKIP):
         """Initialize a AdditionalDataOpi instance."""
         # Initialize members of the class
         if opi_include_trans_token is not APIHelper.SKIP:
             self.opi_include_trans_token = opi_include_trans_token
-
-        # Add additional model properties to the instance
-        if additional_properties is None:
-            additional_properties = {}
-        self.additional_properties = additional_properties
 
     @classmethod
     def from_dictionary(cls,
@@ -68,14 +60,8 @@ class AdditionalDataOpi(object):
             if dictionary.get("opi.includeTransToken")\
                 else APIHelper.SKIP
 
-        additional_properties = APIHelper.get_additional_properties(
-            dictionary={k: v for k, v in dictionary.items()
-                        if k not in cls._names.values()},
-            unboxing_function=lambda value: value)
-
         # Return an object of this model
-        return cls(opi_include_trans_token,
-                   additional_properties)
+        return cls(opi_include_trans_token)
 
     def __repr__(self):
         """Return a unambiguous string representation."""
@@ -84,11 +70,9 @@ class AdditionalDataOpi(object):
             if hasattr(self, "opi_include_trans_token")
             else None
         )
-        _additional_properties=self.additional_properties
         return (
             f"{self.__class__.__name__}("
             f"opi_include_trans_token={_opi_include_trans_token!r}, "
-            f"additional_properties={_additional_properties!r}, "
             f")"
         )
 
@@ -99,10 +83,8 @@ class AdditionalDataOpi(object):
             if hasattr(self, "opi_include_trans_token")
             else None
         )
-        _additional_properties=self.additional_properties
         return (
             f"{self.__class__.__name__}("
             f"opi_include_trans_token={_opi_include_trans_token!s}, "
-            f"additional_properties={_additional_properties!s}, "
             f")"
         )

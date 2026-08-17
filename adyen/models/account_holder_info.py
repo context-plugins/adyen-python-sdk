@@ -8,7 +8,7 @@ from adyen.api_helper import APIHelper
 from adyen.models.account_holder_capability import (
     AccountHolderCapability,
 )
-from adyen.models.contact_details import ContactDetails
+from adyen.models.contact_details_1 import ContactDetails1
 
 
 class AccountHolderInfo(object):
@@ -25,7 +25,7 @@ class AccountHolderInfo(object):
             The key is a capability required for your integration. For example,
             **issueCard** for Issuing. The value is an object containing the settings
             for the capability.
-        contact_details (ContactDetails): The model property of type ContactDetails.
+        contact_details (ContactDetails1): Contact details of the account holder.
         description (str): Your description for the account holder.
         legal_entity_id (str): The unique identifier of the [legal
             entity](https://docs.adyen.com/api-explorer/legalentity/latest/post/legalE
@@ -44,8 +44,6 @@ class AccountHolderInfo(object):
             **Europe/Amsterdam**. Defaults to the time zone of the balance platform
             if no time zone is set. For possible values, see the [list of time zone
             codes](https://en.wikipedia.org/wiki/List_of_tz_database_time_zones).
-        additional_properties (Dict[str, Any]): The additional properties for the
-            model.
 
     """
 
@@ -83,8 +81,7 @@ class AccountHolderInfo(object):
         metadata=APIHelper.SKIP,
         migrated_account_holder_code=APIHelper.SKIP,
         reference=APIHelper.SKIP,
-        time_zone=APIHelper.SKIP,
-        additional_properties=None):
+        time_zone=APIHelper.SKIP):
         """Initialize a AccountHolderInfo instance."""
         # Initialize members of the class
         if balance_platform is not APIHelper.SKIP:
@@ -104,11 +101,6 @@ class AccountHolderInfo(object):
             self.reference = reference
         if time_zone is not APIHelper.SKIP:
             self.time_zone = time_zone
-
-        # Add additional model properties to the instance
-        if additional_properties is None:
-            additional_properties = {}
-        self.additional_properties = additional_properties
 
     @classmethod
     def from_dictionary(cls,
@@ -142,7 +134,7 @@ class AccountHolderInfo(object):
                 if "capabilities" in dictionary.keys()\
                 else APIHelper.SKIP
         contact_details =\
-            ContactDetails.from_dictionary(
+            ContactDetails1.from_dictionary(
                 dictionary.get("contactDetails"))\
                 if "contactDetails" in dictionary.keys()\
                 else APIHelper.SKIP
@@ -167,11 +159,6 @@ class AccountHolderInfo(object):
             if dictionary.get("timeZone")\
                 else APIHelper.SKIP
 
-        additional_properties = APIHelper.get_additional_properties(
-            dictionary={k: v for k, v in dictionary.items()
-                        if k not in cls._names.values()},
-            unboxing_function=lambda value: value)
-
         # Return an object of this model
         return cls(legal_entity_id,
                    balance_platform,
@@ -181,8 +168,7 @@ class AccountHolderInfo(object):
                    metadata,
                    migrated_account_holder_code,
                    reference,
-                   time_zone,
-                   additional_properties)
+                   time_zone)
 
     def __repr__(self):
         """Return a unambiguous string representation."""
@@ -227,7 +213,6 @@ class AccountHolderInfo(object):
             if hasattr(self, "time_zone")
             else None
         )
-        _additional_properties=self.additional_properties
         return (
             f"{self.__class__.__name__}("
             f"balance_platform={_balance_platform!r}, "
@@ -239,7 +224,6 @@ class AccountHolderInfo(object):
             f"migrated_account_holder_code={_migrated_account_holder_code!r}, "
             f"reference={_reference!r}, "
             f"time_zone={_time_zone!r}, "
-            f"additional_properties={_additional_properties!r}, "
             f")"
         )
 
@@ -286,7 +270,6 @@ class AccountHolderInfo(object):
             if hasattr(self, "time_zone")
             else None
         )
-        _additional_properties=self.additional_properties
         return (
             f"{self.__class__.__name__}("
             f"balance_platform={_balance_platform!s}, "
@@ -298,6 +281,5 @@ class AccountHolderInfo(object):
             f"migrated_account_holder_code={_migrated_account_holder_code!s}, "
             f"reference={_reference!s}, "
             f"time_zone={_time_zone!s}, "
-            f"additional_properties={_additional_properties!s}, "
             f")"
         )

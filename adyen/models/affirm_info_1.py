@@ -16,8 +16,6 @@ class AffirmInfo1(object):
         price_plan (str): Selected Affirm financing package. Choose from **core**,
             **standard**, or **signature**. Defaults to **core** if no selection made.
         support_email (str): Merchant support email used to manage disputes.
-        additional_properties (Dict[str, Any]): The additional properties for the
-            model.
 
     """
 
@@ -34,18 +32,12 @@ class AffirmInfo1(object):
     def __init__(
         self,
         support_email=None,
-        price_plan=APIHelper.SKIP,
-        additional_properties=None):
+        price_plan=APIHelper.SKIP):
         """Initialize a AffirmInfo1 instance."""
         # Initialize members of the class
         if price_plan is not APIHelper.SKIP:
             self.price_plan = price_plan
         self.support_email = support_email
-
-        # Add additional model properties to the instance
-        if additional_properties is None:
-            additional_properties = {}
-        self.additional_properties = additional_properties
 
     @classmethod
     def from_dictionary(cls,
@@ -74,15 +66,9 @@ class AffirmInfo1(object):
             if dictionary.get("pricePlan")\
                 else APIHelper.SKIP
 
-        additional_properties = APIHelper.get_additional_properties(
-            dictionary={k: v for k, v in dictionary.items()
-                        if k not in cls._names.values()},
-            unboxing_function=lambda value: value)
-
         # Return an object of this model
         return cls(support_email,
-                   price_plan,
-                   additional_properties)
+                   price_plan)
 
     def __repr__(self):
         """Return a unambiguous string representation."""
@@ -92,12 +78,10 @@ class AffirmInfo1(object):
             else None
         )
         _support_email=self.support_email
-        _additional_properties=self.additional_properties
         return (
             f"{self.__class__.__name__}("
             f"price_plan={_price_plan!r}, "
             f"support_email={_support_email!r}, "
-            f"additional_properties={_additional_properties!r}, "
             f")"
         )
 
@@ -109,11 +93,9 @@ class AffirmInfo1(object):
             else None
         )
         _support_email=self.support_email
-        _additional_properties=self.additional_properties
         return (
             f"{self.__class__.__name__}("
             f"price_plan={_price_plan!s}, "
             f"support_email={_support_email!s}, "
-            f"additional_properties={_additional_properties!s}, "
             f")"
         )

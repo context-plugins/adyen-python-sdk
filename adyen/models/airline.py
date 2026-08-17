@@ -62,8 +62,6 @@ class Airline(object):
         passengers (List[Passenger]): The model property of type List[Passenger].
         ticket (Ticket): The model property of type Ticket.
         travel_agency (TravelAgency): The model property of type TravelAgency.
-        additional_properties (Dict[str, Any]): The additional properties for the
-            model.
 
     """
 
@@ -113,8 +111,7 @@ class Airline(object):
         legs=APIHelper.SKIP,
         passengers=APIHelper.SKIP,
         ticket=APIHelper.SKIP,
-        travel_agency=APIHelper.SKIP,
-        additional_properties=None):
+        travel_agency=APIHelper.SKIP):
         """Initialize a Airline instance."""
         # Initialize members of the class
         if agency is not APIHelper.SKIP:
@@ -145,11 +142,6 @@ class Airline(object):
             self.ticket = ticket
         if travel_agency is not APIHelper.SKIP:
             self.travel_agency = travel_agency
-
-        # Add additional model properties to the instance
-        if additional_properties is None:
-            additional_properties = {}
-        self.additional_properties = additional_properties
 
     @classmethod
     def from_dictionary(cls,
@@ -232,11 +224,6 @@ class Airline(object):
                 if "travelAgency" in dictionary.keys()\
                 else APIHelper.SKIP
 
-        additional_properties = APIHelper.get_additional_properties(
-            dictionary={k: v for k, v in dictionary.items()
-                        if k not in cls._names.values()},
-            unboxing_function=lambda value: value)
-
         # Return an object of this model
         return cls(passenger_name,
                    agency,
@@ -250,41 +237,7 @@ class Airline(object):
                    legs,
                    passengers,
                    ticket,
-                   travel_agency,
-                   additional_properties)
-
-    @classmethod
-    def validate(cls, dictionary):
-        """Validate dictionary against class required properties
-
-        Args:
-            dictionary (dictionary): A dictionary representation of the object
-            as obtained from the deserialization of the server's response. The
-            keys MUST match property names in the API description.
-
-        Returns:
-            boolean : if dictionary is valid contains required properties.
-
-        """
-        if isinstance(dictionary, cls):
-            return APIHelper.is_valid_type(
-                    value=dictionary.passenger_name,
-                    type_callable=lambda value:
-                        isinstance(
-                        value,
-                        str,
-                ))
-
-        if not isinstance(dictionary, dict):
-            return False
-
-        return APIHelper.is_valid_type(
-                value=dictionary.get("passengerName"),
-                type_callable=lambda value:
-                    isinstance(
-                    value,
-                    str,
-            ))
+                   travel_agency)
 
     def __repr__(self):
         """Return a unambiguous string representation."""
@@ -349,7 +302,6 @@ class Airline(object):
             if hasattr(self, "travel_agency")
             else None
         )
-        _additional_properties=self.additional_properties
         return (
             f"{self.__class__.__name__}("
             f"agency={_agency!r}, "
@@ -365,7 +317,6 @@ class Airline(object):
             f"passengers={_passengers!r}, "
             f"ticket={_ticket!r}, "
             f"travel_agency={_travel_agency!r}, "
-            f"additional_properties={_additional_properties!r}, "
             f")"
         )
 
@@ -432,7 +383,6 @@ class Airline(object):
             if hasattr(self, "travel_agency")
             else None
         )
-        _additional_properties=self.additional_properties
         return (
             f"{self.__class__.__name__}("
             f"agency={_agency!s}, "
@@ -448,6 +398,5 @@ class Airline(object):
             f"passengers={_passengers!s}, "
             f"ticket={_ticket!s}, "
             f"travel_agency={_travel_agency!s}, "
-            f"additional_properties={_additional_properties!s}, "
             f")"
         )

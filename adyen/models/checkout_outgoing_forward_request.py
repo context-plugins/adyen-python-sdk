@@ -29,12 +29,11 @@ class CheckoutOutgoingForwardRequest(object):
             `{{credentials}}`
             [placeholder](https://docs.adyen.com/online-payments/tokenization/forward-
             payment-details#placeholders).
-        http_method (HttpMethod): The model property of type HttpMethod.
+        http_method (HttpMethodEnum): The HTTP method to use for the request Adyen
+            makes on your behalf to the third party.
         url_suffix (str): The suffix that Adyen needs to append to the `baseUrl` to
             construct the destination URL that belongs to the third party. This is
             usually the endpoint name for the request, for example, **/payments**.
-        additional_properties (Dict[str, Any]): The additional properties for the
-            model.
 
     """
 
@@ -59,8 +58,7 @@ class CheckoutOutgoingForwardRequest(object):
         http_method=None,
         credentials=APIHelper.SKIP,
         headers=APIHelper.SKIP,
-        url_suffix=APIHelper.SKIP,
-        additional_properties=None):
+        url_suffix=APIHelper.SKIP):
         """Initialize a CheckoutOutgoingForwardRequest instance."""
         # Initialize members of the class
         self.body = body
@@ -71,11 +69,6 @@ class CheckoutOutgoingForwardRequest(object):
         self.http_method = http_method
         if url_suffix is not APIHelper.SKIP:
             self.url_suffix = url_suffix
-
-        # Add additional model properties to the instance
-        if additional_properties is None:
-            additional_properties = {}
-        self.additional_properties = additional_properties
 
     @classmethod
     def from_dictionary(cls,
@@ -116,18 +109,12 @@ class CheckoutOutgoingForwardRequest(object):
             if dictionary.get("urlSuffix")\
                 else APIHelper.SKIP
 
-        additional_properties = APIHelper.get_additional_properties(
-            dictionary={k: v for k, v in dictionary.items()
-                        if k not in cls._names.values()},
-            unboxing_function=lambda value: value)
-
         # Return an object of this model
         return cls(body,
                    http_method,
                    credentials,
                    headers,
-                   url_suffix,
-                   additional_properties)
+                   url_suffix)
 
     def __repr__(self):
         """Return a unambiguous string representation."""
@@ -148,7 +135,6 @@ class CheckoutOutgoingForwardRequest(object):
             if hasattr(self, "url_suffix")
             else None
         )
-        _additional_properties=self.additional_properties
         return (
             f"{self.__class__.__name__}("
             f"body={_body!r}, "
@@ -156,7 +142,6 @@ class CheckoutOutgoingForwardRequest(object):
             f"headers={_headers!r}, "
             f"http_method={_http_method!r}, "
             f"url_suffix={_url_suffix!r}, "
-            f"additional_properties={_additional_properties!r}, "
             f")"
         )
 
@@ -179,7 +164,6 @@ class CheckoutOutgoingForwardRequest(object):
             if hasattr(self, "url_suffix")
             else None
         )
-        _additional_properties=self.additional_properties
         return (
             f"{self.__class__.__name__}("
             f"body={_body!s}, "
@@ -187,6 +171,5 @@ class CheckoutOutgoingForwardRequest(object):
             f"headers={_headers!s}, "
             f"http_method={_http_method!s}, "
             f"url_suffix={_url_suffix!s}, "
-            f"additional_properties={_additional_properties!s}, "
             f")"
         )

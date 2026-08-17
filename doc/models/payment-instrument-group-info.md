@@ -1,8 +1,6 @@
 
 # Payment Instrument Group Info
 
-*This model accepts additional fields of type Any.*
-
 ## Structure
 
 `PaymentInstrumentGroupInfo`
@@ -16,13 +14,10 @@
 | `properties` | `Dict[str, str]` | Optional | Properties of the payment instrument group. |
 | `reference` | `str` | Optional | Your reference for the payment instrument group.<br><br>**Constraints**: *Maximum Length*: `150` |
 | `tx_variant` | `str` | Required | The tx variant of the payment instrument group. |
-| `additional_properties` | `Dict[str, Any]` | Optional | - |
 
 ## Example
 
 ```python
-import jsonpickle
-
 from adyen.models.payment_instrument_group_info import PaymentInstrumentGroupInfo
 
 payment_instrument_group_info = PaymentInstrumentGroupInfo(
@@ -32,10 +27,7 @@ payment_instrument_group_info = PaymentInstrumentGroupInfo(
     properties={
         'key0': 'properties4'
     },
-    reference='reference8',
-    additional_properties={
-        'exampleAdditionalProperty': jsonpickle.decode('{"key1":"val1","key2":"val2"}')
-    }
+    reference='reference8'
 )
 ```
 

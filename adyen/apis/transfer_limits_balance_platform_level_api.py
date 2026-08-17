@@ -11,16 +11,11 @@ from apimatic_core.types.parameter import Parameter
 from adyen.api_helper import APIHelper
 from adyen.apis.base_api import BaseApi
 from adyen.configuration import Server
-from adyen.exceptions.balance_platforms_transfer_limits_404_error_exception import (
-    BalancePlatformsTransferLimits404ErrorException,
-)
-from adyen.exceptions.balance_platforms_transfer_limits_422_error_exception import (
-    BalancePlatformsTransferLimits422ErrorException,
+from adyen.exceptions.default_error_response_entity_exception import (
+    DefaultErrorResponseEntityException,
 )
 from adyen.http.http_method_enum import HttpMethodEnum
-from adyen.models.balance_platforms_transfer_limits_response_1 import (
-    BalancePlatformsTransferLimitsResponse1,
-)
+from adyen.models.transfer_limit import TransferLimit
 from adyen.models.transfer_limit_list_response import (
     TransferLimitListResponse,
 )
@@ -45,40 +40,38 @@ class TransferLimitsBalancePlatformLevelApi(BaseApi):
 
         Args:
             id (str): The unique identifier of the balance platform.
-            scope (Scope, optional): The scope to which the transfer limit applies.
-                Possible values: * **perTransaction**: you set a maximum amount for
-                each transfer made from the balance account or balance platform. *
-                **perDay**: you set a maximum total amount for all transfers made
-                from the balance account or balance platform in a day.
-            transfer_type (TransferType, optional): The type of transfer to which the
-                limit applies. Possible values: * **instant**: the limit applies to
-                transfers with an **instant** priority. * **all**: the limit applies
-                to all transfers, regardless of priority.
-            status (LimitStatus, optional): The status of the transfer limit.
+            scope (ScopeEnum, optional): The scope to which the transfer limit
+                applies. Possible values: * **perTransaction**: you set a maximum
+                amount for each transfer made from the balance account or balance
+                platform. * **perDay**: you set a maximum total amount for all
+                transfers made from the balance account or balance platform in a day.
+            transfer_type (TransferTypeEnum, optional): The type of transfer to which
+                the limit applies. Possible values: * **instant**: the limit applies
+                to transfers with an **instant** priority. * **all**: the limit
+                applies to all transfers, regardless of priority.
+            status (LimitStatusEnum, optional): The status of the transfer limit.
                 Possible values:    * **active**: the limit is currently active. *
                 **inactive**: the limit is currently inactive. * **pendingSCA**: the
                 limit is pending until your user performs SCA. * **scheduled**: the
                 limit is scheduled to become active at a future date.
 
         Returns:
-            ApiResponse: An object with the response value as well as other useful
-                information such as status codes and headers. OK - The request has
+            TransferLimitListResponse: Response from the API. OK - The request has
                 succeeded.
 
         Raises:
-            ApiException: When an error occurs while fetching the data from the
+            APIException: When an error occurs while fetching the data from the
                 remote API. This exception includes the HTTP Response code, an error
                 message, and the HTTP body that was received in the request.
 
         """
         return super().new_api_call_builder.request(
-            RequestBuilder().server(Server.DEFAULT)
+            RequestBuilder().server(Server.DEFAULT13)
             .path("/balancePlatforms/{id}/transferLimits")
             .http_method(HttpMethodEnum.GET)
             .template_param(Parameter()
                 .key("id")
                 .value(id)
-                .is_required(True)
                 .should_encode(True))
             .query_param(Parameter()
                 .key("scope")
@@ -96,13 +89,12 @@ class TransferLimitsBalancePlatformLevelApi(BaseApi):
             ResponseHandler()
             .deserializer(APIHelper.json_deserialize)
             .deserialize_into(TransferLimitListResponse.from_dictionary)
-            .is_api_response(True)
             .local_error("404",
                 "Not found - One of the transfer limits could not be found.",
-                BalancePlatformsTransferLimits404ErrorException)
+                DefaultErrorResponseEntityException)
             .local_error("422",
                 "Unprocessable Content - A request validation error.",
-                BalancePlatformsTransferLimits422ErrorException),
+                DefaultErrorResponseEntityException),
         ).execute()
 
     def post_balance_platforms_id_transfer_limits(self,
@@ -118,31 +110,27 @@ class TransferLimitsBalancePlatformLevelApi(BaseApi):
             body (CreateTransferLimitRequest): The request body parameter.
 
         Returns:
-            ApiResponse: An object with the response value as well as other useful
-                information such as status codes and headers. OK - The request has
-                succeeded.
+            TransferLimit: Response from the API. OK - The request has succeeded.
 
         Raises:
-            ApiException: When an error occurs while fetching the data from the
+            APIException: When an error occurs while fetching the data from the
                 remote API. This exception includes the HTTP Response code, an error
                 message, and the HTTP body that was received in the request.
 
         """
         return super().new_api_call_builder.request(
-            RequestBuilder().server(Server.DEFAULT)
+            RequestBuilder().server(Server.DEFAULT13)
             .path("/balancePlatforms/{id}/transferLimits")
             .http_method(HttpMethodEnum.POST)
             .template_param(Parameter()
                 .key("id")
                 .value(id)
-                .is_required(True)
                 .should_encode(True))
             .header_param(Parameter()
                 .key("Content-Type")
                 .value("application/json"))
             .body_param(Parameter()
-                .value(body)
-                .is_required(True))
+                .value(body))
             .header_param(Parameter()
                 .key("accept")
                 .value("application/json"))
@@ -150,14 +138,13 @@ class TransferLimitsBalancePlatformLevelApi(BaseApi):
         ).response(
             ResponseHandler()
             .deserializer(APIHelper.json_deserialize)
-            .deserialize_into(BalancePlatformsTransferLimitsResponse1.from_dictionary)
-            .is_api_response(True)
+            .deserialize_into(TransferLimit.from_dictionary)
             .local_error("404",
                 "Not found - One of the transfer limits could not be found.",
-                BalancePlatformsTransferLimits404ErrorException)
+                DefaultErrorResponseEntityException)
             .local_error("422",
                 "Unprocessable Content - A request validation error.",
-                BalancePlatformsTransferLimits422ErrorException),
+                DefaultErrorResponseEntityException),
         ).execute()
 
     def get_balance_platforms_id_transfer_limits_transfer_limit_id(self,
@@ -173,29 +160,25 @@ class TransferLimitsBalancePlatformLevelApi(BaseApi):
             transfer_limit_id (str): The unique identifier of the transfer limit.
 
         Returns:
-            ApiResponse: An object with the response value as well as other useful
-                information such as status codes and headers. OK - The request has
-                succeeded.
+            TransferLimit: Response from the API. OK - The request has succeeded.
 
         Raises:
-            ApiException: When an error occurs while fetching the data from the
+            APIException: When an error occurs while fetching the data from the
                 remote API. This exception includes the HTTP Response code, an error
                 message, and the HTTP body that was received in the request.
 
         """
         return super().new_api_call_builder.request(
-            RequestBuilder().server(Server.DEFAULT)
+            RequestBuilder().server(Server.DEFAULT13)
             .path("/balancePlatforms/{id}/transferLimits/{transferLimitId}")
             .http_method(HttpMethodEnum.GET)
             .template_param(Parameter()
                 .key("id")
                 .value(id)
-                .is_required(True)
                 .should_encode(True))
             .template_param(Parameter()
                 .key("transferLimitId")
                 .value(transfer_limit_id)
-                .is_required(True)
                 .should_encode(True))
             .header_param(Parameter()
                 .key("accept")
@@ -203,14 +186,13 @@ class TransferLimitsBalancePlatformLevelApi(BaseApi):
         ).response(
             ResponseHandler()
             .deserializer(APIHelper.json_deserialize)
-            .deserialize_into(BalancePlatformsTransferLimitsResponse1.from_dictionary)
-            .is_api_response(True)
+            .deserialize_into(TransferLimit.from_dictionary)
             .local_error("404",
                 "Not found - One of the transfer limits could not be found.",
-                BalancePlatformsTransferLimits404ErrorException)
+                DefaultErrorResponseEntityException)
             .local_error("422",
                 "Unprocessable Content - A request validation error.",
-                BalancePlatformsTransferLimits422ErrorException),
+                DefaultErrorResponseEntityException),
         ).execute()
 
     def delete_balance_platforms_id_transfer_limits_transfer_limit_id(self,
@@ -227,37 +209,24 @@ class TransferLimitsBalancePlatformLevelApi(BaseApi):
             transfer_limit_id (str): The unique identifier of the transfer limit.
 
         Returns:
-            ApiResponse: An object with the response value as well as other useful
-                information such as status codes and headers. No Content - The
-                request has succeeded.
+            void: Response from the API. No Content - The request has succeeded.
 
         Raises:
-            ApiException: When an error occurs while fetching the data from the
+            APIException: When an error occurs while fetching the data from the
                 remote API. This exception includes the HTTP Response code, an error
                 message, and the HTTP body that was received in the request.
 
         """
         return super().new_api_call_builder.request(
-            RequestBuilder().server(Server.DEFAULT)
+            RequestBuilder().server(Server.DEFAULT13)
             .path("/balancePlatforms/{id}/transferLimits/{transferLimitId}")
             .http_method(HttpMethodEnum.DELETE)
             .template_param(Parameter()
                 .key("id")
                 .value(id)
-                .is_required(True)
                 .should_encode(True))
             .template_param(Parameter()
                 .key("transferLimitId")
                 .value(transfer_limit_id)
-                .is_required(True)
                 .should_encode(True)),
-        ).response(
-            ResponseHandler()
-            .is_api_response(True)
-            .local_error("404",
-                "Not found - One of the transfer limits could not be found.",
-                BalancePlatformsTransferLimits404ErrorException)
-            .local_error("422",
-                "Unprocessable Content - A request validation error.",
-                BalancePlatformsTransferLimits422ErrorException),
         ).execute()

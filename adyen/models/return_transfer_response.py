@@ -13,10 +13,9 @@ class ReturnTransferResponse(object):
     Attributes:
         id (str): The unique identifier of the return.
         reference (str): Your internal reference for the return.
-        status (Status61): The model property of type Status61.
+        status (Status62Enum): The resulting status of the return.  Possible values:
+            **Authorised**, **Declined**.
         transfer_id (str): The unique identifier of the original transfer.
-        additional_properties (Dict[str, Any]): The additional properties for the
-            model.
 
     """
 
@@ -40,8 +39,7 @@ class ReturnTransferResponse(object):
         id=APIHelper.SKIP,
         reference=APIHelper.SKIP,
         status=APIHelper.SKIP,
-        transfer_id=APIHelper.SKIP,
-        additional_properties=None):
+        transfer_id=APIHelper.SKIP):
         """Initialize a ReturnTransferResponse instance."""
         # Initialize members of the class
         if id is not APIHelper.SKIP:
@@ -52,11 +50,6 @@ class ReturnTransferResponse(object):
             self.status = status
         if transfer_id is not APIHelper.SKIP:
             self.transfer_id = transfer_id
-
-        # Add additional model properties to the instance
-        if additional_properties is None:
-            additional_properties = {}
-        self.additional_properties = additional_properties
 
     @classmethod
     def from_dictionary(cls,
@@ -93,17 +86,11 @@ class ReturnTransferResponse(object):
             if dictionary.get("transferId")\
                 else APIHelper.SKIP
 
-        additional_properties = APIHelper.get_additional_properties(
-            dictionary={k: v for k, v in dictionary.items()
-                        if k not in cls._names.values()},
-            unboxing_function=lambda value: value)
-
         # Return an object of this model
         return cls(id,
                    reference,
                    status,
-                   transfer_id,
-                   additional_properties)
+                   transfer_id)
 
     def __repr__(self):
         """Return a unambiguous string representation."""
@@ -127,14 +114,12 @@ class ReturnTransferResponse(object):
             if hasattr(self, "transfer_id")
             else None
         )
-        _additional_properties=self.additional_properties
         return (
             f"{self.__class__.__name__}("
             f"id={_id!r}, "
             f"reference={_reference!r}, "
             f"status={_status!r}, "
             f"transfer_id={_transfer_id!r}, "
-            f"additional_properties={_additional_properties!r}, "
             f")"
         )
 
@@ -160,13 +145,11 @@ class ReturnTransferResponse(object):
             if hasattr(self, "transfer_id")
             else None
         )
-        _additional_properties=self.additional_properties
         return (
             f"{self.__class__.__name__}("
             f"id={_id!s}, "
             f"reference={_reference!s}, "
             f"status={_status!s}, "
             f"transfer_id={_transfer_id!s}, "
-            f"additional_properties={_additional_properties!s}, "
             f")"
         )

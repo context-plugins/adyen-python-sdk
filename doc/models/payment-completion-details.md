@@ -1,8 +1,6 @@
 
 # Payment Completion Details
 
-*This model accepts additional fields of type Any.*
-
 ## Structure
 
 `PaymentCompletionDetails`
@@ -31,13 +29,10 @@
 | `threeds_2_challenge_result` | `str` | Optional | Base64-encoded string returned by the Component after the challenge flow. It contains the following parameter: `transStatus`.<br><br>**Constraints**: *Maximum Length*: `50000` |
 | `threeds_2_fingerprint` | `str` | Optional | Base64-encoded string returned by the Component after the challenge flow. It contains the following parameter: `threeDSCompInd`.<br><br>**Constraints**: *Maximum Length*: `100000` |
 | `vault_token` | `str` | Optional | PayPalv2-generated token for recurring payments. |
-| `additional_properties` | `Dict[str, Any]` | Optional | - |
 
 ## Example
 
 ```python
-import jsonpickle
-
 from adyen.models.payment_completion_details import PaymentCompletionDetails
 
 payment_completion_details = PaymentCompletionDetails(
@@ -45,10 +40,7 @@ payment_completion_details = PaymentCompletionDetails(
     pa_req='PaReq6',
     pa_res='PaRes6',
     authorization_token='authorization_token0',
-    billing_token='billingToken8',
-    additional_properties={
-        'exampleAdditionalProperty': jsonpickle.decode('{"key1":"val1","key2":"val2"}')
-    }
+    billing_token='billingToken8'
 )
 ```
 

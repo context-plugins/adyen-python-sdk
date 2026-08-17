@@ -14,8 +14,6 @@ class ClearpayResponseInfo1(object):
 
     Attributes:
         support_url (str): Support Url
-        additional_properties (Dict[str, Any]): The additional properties for the
-            model.
 
     """
 
@@ -30,17 +28,11 @@ class ClearpayResponseInfo1(object):
 
     def __init__(
         self,
-        support_url=APIHelper.SKIP,
-        additional_properties=None):
+        support_url=APIHelper.SKIP):
         """Initialize a ClearpayResponseInfo1 instance."""
         # Initialize members of the class
         if support_url is not APIHelper.SKIP:
             self.support_url = support_url
-
-        # Add additional model properties to the instance
-        if additional_properties is None:
-            additional_properties = {}
-        self.additional_properties = additional_properties
 
     @classmethod
     def from_dictionary(cls,
@@ -65,14 +57,8 @@ class ClearpayResponseInfo1(object):
             if dictionary.get("supportUrl")\
                 else APIHelper.SKIP
 
-        additional_properties = APIHelper.get_additional_properties(
-            dictionary={k: v for k, v in dictionary.items()
-                        if k not in cls._names.values()},
-            unboxing_function=lambda value: value)
-
         # Return an object of this model
-        return cls(support_url,
-                   additional_properties)
+        return cls(support_url)
 
     def __repr__(self):
         """Return a unambiguous string representation."""
@@ -81,11 +67,9 @@ class ClearpayResponseInfo1(object):
             if hasattr(self, "support_url")
             else None
         )
-        _additional_properties=self.additional_properties
         return (
             f"{self.__class__.__name__}("
             f"support_url={_support_url!r}, "
-            f"additional_properties={_additional_properties!r}, "
             f")"
         )
 
@@ -96,10 +80,8 @@ class ClearpayResponseInfo1(object):
             if hasattr(self, "support_url")
             else None
         )
-        _additional_properties=self.additional_properties
         return (
             f"{self.__class__.__name__}("
             f"support_url={_support_url!s}, "
-            f"additional_properties={_additional_properties!s}, "
             f")"
         )

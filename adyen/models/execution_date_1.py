@@ -27,8 +27,6 @@ class ExecutionDate1(object):
             timezone identifier from the [tz
             database](https://en.wikipedia.org/wiki/List_of_tz_database_time_zones).
             Example: **America/Los_Angeles**.  Default value: **Europe/Amsterdam**.
-        additional_properties (Dict[str, Any]): The additional properties for the
-            model.
 
     """
 
@@ -46,19 +44,13 @@ class ExecutionDate1(object):
     def __init__(
         self,
         date=APIHelper.SKIP,
-        timezone=APIHelper.SKIP,
-        additional_properties=None):
+        timezone=APIHelper.SKIP):
         """Initialize a ExecutionDate1 instance."""
         # Initialize members of the class
         if date is not APIHelper.SKIP:
             self.date = date
         if timezone is not APIHelper.SKIP:
             self.timezone = timezone
-
-        # Add additional model properties to the instance
-        if additional_properties is None:
-            additional_properties = {}
-        self.additional_properties = additional_properties
 
     @classmethod
     def from_dictionary(cls,
@@ -86,15 +78,30 @@ class ExecutionDate1(object):
             if dictionary.get("timezone")\
                 else APIHelper.SKIP
 
-        additional_properties = APIHelper.get_additional_properties(
-            dictionary={k: v for k, v in dictionary.items()
-                        if k not in cls._names.values()},
-            unboxing_function=lambda value: value)
-
         # Return an object of this model
         return cls(date,
-                   timezone,
-                   additional_properties)
+                   timezone)
+
+    @classmethod
+    def validate(cls, dictionary):
+        """Validate dictionary against class required properties
+
+        Args:
+            dictionary (dictionary): A dictionary representation of the object
+            as obtained from the deserialization of the server's response. The
+            keys MUST match property names in the API description.
+
+        Returns:
+            boolean : if dictionary is valid contains required properties.
+
+        """
+        if isinstance(dictionary, cls):
+            return True
+
+        if not isinstance(dictionary, dict):
+            return False
+
+        return True
 
     def __repr__(self):
         """Return a unambiguous string representation."""
@@ -108,12 +115,10 @@ class ExecutionDate1(object):
             if hasattr(self, "timezone")
             else None
         )
-        _additional_properties=self.additional_properties
         return (
             f"{self.__class__.__name__}("
             f"date={_date!r}, "
             f"timezone={_timezone!r}, "
-            f"additional_properties={_additional_properties!r}, "
             f")"
         )
 
@@ -129,11 +134,9 @@ class ExecutionDate1(object):
             if hasattr(self, "timezone")
             else None
         )
-        _additional_properties=self.additional_properties
         return (
             f"{self.__class__.__name__}("
             f"date={_date!s}, "
             f"timezone={_timezone!s}, "
-            f"additional_properties={_additional_properties!s}, "
             f")"
         )

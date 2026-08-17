@@ -26,8 +26,6 @@ class AdditionalSettings1(object):
             example, `includeCaptureDelayHours`: **true** means the standard
             notifications you get will contain the number of hours remaining until
             the payment will be captured.
-        additional_properties (Dict[str, Any]): The additional properties for the
-            model.
 
     """
 
@@ -45,19 +43,13 @@ class AdditionalSettings1(object):
     def __init__(
         self,
         include_event_codes=APIHelper.SKIP,
-        properties=APIHelper.SKIP,
-        additional_properties=None):
+        properties=APIHelper.SKIP):
         """Initialize a AdditionalSettings1 instance."""
         # Initialize members of the class
         if include_event_codes is not APIHelper.SKIP:
             self.include_event_codes = include_event_codes
         if properties is not APIHelper.SKIP:
             self.properties = properties
-
-        # Add additional model properties to the instance
-        if additional_properties is None:
-            additional_properties = {}
-        self.additional_properties = additional_properties
 
     @classmethod
     def from_dictionary(cls,
@@ -86,15 +78,9 @@ class AdditionalSettings1(object):
             if "properties" in dictionary.keys()\
                 else APIHelper.SKIP
 
-        additional_properties = APIHelper.get_additional_properties(
-            dictionary={k: v for k, v in dictionary.items()
-                        if k not in cls._names.values()},
-            unboxing_function=lambda value: value)
-
         # Return an object of this model
         return cls(include_event_codes,
-                   properties,
-                   additional_properties)
+                   properties)
 
     def __repr__(self):
         """Return a unambiguous string representation."""
@@ -108,12 +94,10 @@ class AdditionalSettings1(object):
             if hasattr(self, "properties")
             else None
         )
-        _additional_properties=self.additional_properties
         return (
             f"{self.__class__.__name__}("
             f"include_event_codes={_include_event_codes!r}, "
             f"properties={_properties!r}, "
-            f"additional_properties={_additional_properties!r}, "
             f")"
         )
 
@@ -129,11 +113,9 @@ class AdditionalSettings1(object):
             if hasattr(self, "properties")
             else None
         )
-        _additional_properties=self.additional_properties
         return (
             f"{self.__class__.__name__}("
             f"include_event_codes={_include_event_codes!s}, "
             f"properties={_properties!s}, "
-            f"additional_properties={_additional_properties!s}, "
             f")"
         )

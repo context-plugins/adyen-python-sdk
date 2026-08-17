@@ -1,11 +1,9 @@
 
-# Upi Collect
-
-*This model accepts additional fields of type Any.*
+# UPI Collect
 
 ## Structure
 
-`UpiCollect`
+`UPICollect`
 
 ## Fields
 
@@ -17,28 +15,20 @@
 | `sdk_data` | `str` | Optional | Base64-encoded JSON object containing SDK related parameters required by the SDK<br><br>**Constraints**: *Maximum Length*: `50000` |
 | `shopper_notification_reference` | `str` | Optional | The `shopperNotificationReference` returned in the response when you requested to notify the shopper. Used for recurring payment only. |
 | `stored_payment_method_id` | `str` | Optional | This is the `recurringDetailReference` returned in the response when you created the token.<br><br>**Constraints**: *Maximum Length*: `64` |
-| `mtype` | [`Type78`](../../doc/models/type-78.md) | Required | **upi_collect** |
+| `mtype` | `str` | Required, Constant | **upi_collect**<br><br>**Value**: `"upi_collect"` |
 | `virtual_payment_address` | `str` | Optional | The virtual payment address for UPI. |
-| `additional_properties` | `Dict[str, Any]` | Optional | - |
 
 ## Example
 
 ```python
-import jsonpickle
+from adyen.models.upi_collect import UPICollect
 
-from adyen.models.type_78 import Type78
-from adyen.models.upi_collect import UpiCollect
-
-upi_collect = UpiCollect(
-    mtype=Type78.UPI_COLLECT,
+upi_collect = UPICollect(
     billing_sequence_number='billingSequenceNumber4',
     checkout_attempt_id='checkoutAttemptId0',
     recurring_detail_reference='recurringDetailReference4',
     sdk_data='sdkData6',
-    shopper_notification_reference='shopperNotificationReference4',
-    additional_properties={
-        'exampleAdditionalProperty': jsonpickle.decode('{"key1":"val1","key2":"val2"}')
-    }
+    shopper_notification_reference='shopperNotificationReference4'
 )
 ```
 

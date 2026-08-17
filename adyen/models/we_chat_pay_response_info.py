@@ -14,8 +14,6 @@ class WeChatPayResponseInfo(object):
         contact_person_name (str): The name of the contact person from merchant
             support.
         email (str): The email address of merchant support.
-        additional_properties (Dict[str, Any]): The additional properties for the
-            model.
 
     """
 
@@ -33,19 +31,13 @@ class WeChatPayResponseInfo(object):
     def __init__(
         self,
         contact_person_name=APIHelper.SKIP,
-        email=APIHelper.SKIP,
-        additional_properties=None):
+        email=APIHelper.SKIP):
         """Initialize a WeChatPayResponseInfo instance."""
         # Initialize members of the class
         if contact_person_name is not APIHelper.SKIP:
             self.contact_person_name = contact_person_name
         if email is not APIHelper.SKIP:
             self.email = email
-
-        # Add additional model properties to the instance
-        if additional_properties is None:
-            additional_properties = {}
-        self.additional_properties = additional_properties
 
     @classmethod
     def from_dictionary(cls,
@@ -74,15 +66,9 @@ class WeChatPayResponseInfo(object):
             if dictionary.get("email")\
                 else APIHelper.SKIP
 
-        additional_properties = APIHelper.get_additional_properties(
-            dictionary={k: v for k, v in dictionary.items()
-                        if k not in cls._names.values()},
-            unboxing_function=lambda value: value)
-
         # Return an object of this model
         return cls(contact_person_name,
-                   email,
-                   additional_properties)
+                   email)
 
     def __repr__(self):
         """Return a unambiguous string representation."""
@@ -96,12 +82,10 @@ class WeChatPayResponseInfo(object):
             if hasattr(self, "email")
             else None
         )
-        _additional_properties=self.additional_properties
         return (
             f"{self.__class__.__name__}("
             f"contact_person_name={_contact_person_name!r}, "
             f"email={_email!r}, "
-            f"additional_properties={_additional_properties!r}, "
             f")"
         )
 
@@ -117,11 +101,9 @@ class WeChatPayResponseInfo(object):
             if hasattr(self, "email")
             else None
         )
-        _additional_properties=self.additional_properties
         return (
             f"{self.__class__.__name__}("
             f"contact_person_name={_contact_person_name!s}, "
             f"email={_email!s}, "
-            f"additional_properties={_additional_properties!s}, "
             f")"
         )

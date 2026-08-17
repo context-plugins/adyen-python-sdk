@@ -11,15 +11,13 @@ class CalculatePciStatusRequest(object):
     """Implementation of the 'CalculatePciStatusRequest' model.
 
     Attributes:
-        additional_sales_channels (List[AdditionalSalesChannel]): An array of
+        additional_sales_channels (List[AdditionalSalesChannelEnum]): An array of
             additional sales channels to generate PCI questionnaires. Include the
             relevant sales channels if you need your user to sign PCI questionnaires.
             Not required if you [create stores](https://docs.adyen.com/platforms) and
             [add payment methods](https://docs.adyen.com/adyen-for-platforms-model)
             before you generate the questionnaires.  Possible values: *
             **eCommerce** *  **pos** *  **ecomMoto** *  **posMoto**
-        additional_properties (Dict[str, Any]): The additional properties for the
-            model.
 
     """
 
@@ -34,17 +32,11 @@ class CalculatePciStatusRequest(object):
 
     def __init__(
         self,
-        additional_sales_channels=APIHelper.SKIP,
-        additional_properties=None):
+        additional_sales_channels=APIHelper.SKIP):
         """Initialize a CalculatePciStatusRequest instance."""
         # Initialize members of the class
         if additional_sales_channels is not APIHelper.SKIP:
             self.additional_sales_channels = additional_sales_channels
-
-        # Add additional model properties to the instance
-        if additional_properties is None:
-            additional_properties = {}
-        self.additional_properties = additional_properties
 
     @classmethod
     def from_dictionary(cls,
@@ -69,14 +61,8 @@ class CalculatePciStatusRequest(object):
             if dictionary.get("additionalSalesChannels")\
                 else APIHelper.SKIP
 
-        additional_properties = APIHelper.get_additional_properties(
-            dictionary={k: v for k, v in dictionary.items()
-                        if k not in cls._names.values()},
-            unboxing_function=lambda value: value)
-
         # Return an object of this model
-        return cls(additional_sales_channels,
-                   additional_properties)
+        return cls(additional_sales_channels)
 
     def __repr__(self):
         """Return a unambiguous string representation."""
@@ -85,11 +71,9 @@ class CalculatePciStatusRequest(object):
             if hasattr(self, "additional_sales_channels")
             else None
         )
-        _additional_properties=self.additional_properties
         return (
             f"{self.__class__.__name__}("
             f"additional_sales_channels={_additional_sales_channels!r}, "
-            f"additional_properties={_additional_properties!r}, "
             f")"
         )
 
@@ -100,10 +84,8 @@ class CalculatePciStatusRequest(object):
             if hasattr(self, "additional_sales_channels")
             else None
         )
-        _additional_properties=self.additional_properties
         return (
             f"{self.__class__.__name__}("
             f"additional_sales_channels={_additional_sales_channels!s}, "
-            f"additional_properties={_additional_properties!s}, "
             f")"
         )

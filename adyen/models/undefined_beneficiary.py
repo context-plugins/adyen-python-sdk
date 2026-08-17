@@ -13,8 +13,6 @@ class UndefinedBeneficiary(object):
     Attributes:
         description (str): The details of the undefined beneficiary.
         reference (str): The reference of the undefined beneficiary.
-        additional_properties (Dict[str, Any]): The additional properties for the
-            model.
 
     """
 
@@ -32,19 +30,13 @@ class UndefinedBeneficiary(object):
     def __init__(
         self,
         description=APIHelper.SKIP,
-        reference=APIHelper.SKIP,
-        additional_properties=None):
+        reference=APIHelper.SKIP):
         """Initialize a UndefinedBeneficiary instance."""
         # Initialize members of the class
         if description is not APIHelper.SKIP:
             self.description = description
         if reference is not APIHelper.SKIP:
             self.reference = reference
-
-        # Add additional model properties to the instance
-        if additional_properties is None:
-            additional_properties = {}
-        self.additional_properties = additional_properties
 
     @classmethod
     def from_dictionary(cls,
@@ -73,15 +65,9 @@ class UndefinedBeneficiary(object):
             if dictionary.get("reference")\
                 else APIHelper.SKIP
 
-        additional_properties = APIHelper.get_additional_properties(
-            dictionary={k: v for k, v in dictionary.items()
-                        if k not in cls._names.values()},
-            unboxing_function=lambda value: value)
-
         # Return an object of this model
         return cls(description,
-                   reference,
-                   additional_properties)
+                   reference)
 
     def __repr__(self):
         """Return a unambiguous string representation."""
@@ -95,12 +81,10 @@ class UndefinedBeneficiary(object):
             if hasattr(self, "reference")
             else None
         )
-        _additional_properties=self.additional_properties
         return (
             f"{self.__class__.__name__}("
             f"description={_description!r}, "
             f"reference={_reference!r}, "
-            f"additional_properties={_additional_properties!r}, "
             f")"
         )
 
@@ -116,11 +100,9 @@ class UndefinedBeneficiary(object):
             if hasattr(self, "reference")
             else None
         )
-        _additional_properties=self.additional_properties
         return (
             f"{self.__class__.__name__}("
             f"description={_description!s}, "
             f"reference={_reference!s}, "
-            f"additional_properties={_additional_properties!s}, "
             f")"
         )

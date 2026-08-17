@@ -16,8 +16,6 @@ class OrderItem(object):
         name (str): The name of the product.
         quantity (int): The number of items with the specified product `id` included
             in the order.
-        additional_properties (Dict[str, Any]): The additional properties for the
-            model.
 
     """
 
@@ -41,8 +39,7 @@ class OrderItem(object):
         id=APIHelper.SKIP,
         installments=APIHelper.SKIP,
         name=APIHelper.SKIP,
-        quantity=APIHelper.SKIP,
-        additional_properties=None):
+        quantity=APIHelper.SKIP):
         """Initialize a OrderItem instance."""
         # Initialize members of the class
         if id is not APIHelper.SKIP:
@@ -53,11 +50,6 @@ class OrderItem(object):
             self.name = name
         if quantity is not APIHelper.SKIP:
             self.quantity = quantity
-
-        # Add additional model properties to the instance
-        if additional_properties is None:
-            additional_properties = {}
-        self.additional_properties = additional_properties
 
     @classmethod
     def from_dictionary(cls,
@@ -94,17 +86,11 @@ class OrderItem(object):
             if dictionary.get("quantity")\
                 else APIHelper.SKIP
 
-        additional_properties = APIHelper.get_additional_properties(
-            dictionary={k: v for k, v in dictionary.items()
-                        if k not in cls._names.values()},
-            unboxing_function=lambda value: value)
-
         # Return an object of this model
         return cls(id,
                    installments,
                    name,
-                   quantity,
-                   additional_properties)
+                   quantity)
 
     def __repr__(self):
         """Return a unambiguous string representation."""
@@ -128,14 +114,12 @@ class OrderItem(object):
             if hasattr(self, "quantity")
             else None
         )
-        _additional_properties=self.additional_properties
         return (
             f"{self.__class__.__name__}("
             f"id={_id!r}, "
             f"installments={_installments!r}, "
             f"name={_name!r}, "
             f"quantity={_quantity!r}, "
-            f"additional_properties={_additional_properties!r}, "
             f")"
         )
 
@@ -161,13 +145,11 @@ class OrderItem(object):
             if hasattr(self, "quantity")
             else None
         )
-        _additional_properties=self.additional_properties
         return (
             f"{self.__class__.__name__}("
             f"id={_id!s}, "
             f"installments={_installments!s}, "
             f"name={_name!s}, "
             f"quantity={_quantity!s}, "
-            f"additional_properties={_additional_properties!s}, "
             f")"
         )

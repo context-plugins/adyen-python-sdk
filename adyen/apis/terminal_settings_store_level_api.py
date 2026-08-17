@@ -63,34 +63,29 @@ class TerminalSettingsStoreLevelApi(BaseApi):
                 S1F2, S1L, S1U, S7T.
 
         Returns:
-            ApiResponse: An object with the response value as well as other useful
-                information such as status codes and headers. OK - the request has
-                succeeded.
+            Logo: Response from the API. OK - the request has succeeded.
 
         Raises:
-            ApiException: When an error occurs while fetching the data from the
+            APIException: When an error occurs while fetching the data from the
                 remote API. This exception includes the HTTP Response code, an error
                 message, and the HTTP body that was received in the request.
 
         """
         return super().new_api_call_builder.request(
-            RequestBuilder().server(Server.DEFAULT)
+            RequestBuilder().server(Server.DEFAULT9)
             .path("/merchants/{merchantId}/stores/{reference}/terminalLogos")
             .http_method(HttpMethodEnum.GET)
             .template_param(Parameter()
                 .key("merchantId")
                 .value(merchant_id)
-                .is_required(True)
                 .should_encode(True))
             .template_param(Parameter()
                 .key("reference")
                 .value(reference)
-                .is_required(True)
                 .should_encode(True))
             .query_param(Parameter()
                 .key("model")
-                .value(model)
-                .is_required(True))
+                .value(model))
             .header_param(Parameter()
                 .key("accept")
                 .value("application/json"))
@@ -99,7 +94,6 @@ class TerminalSettingsStoreLevelApi(BaseApi):
             ResponseHandler()
             .deserializer(APIHelper.json_deserialize)
             .deserialize_into(Logo.from_dictionary)
-            .is_api_response(True)
             .local_error("400",
                 "Bad Request - a problem reading or understanding the request.",
                 RestServiceErrorException)
@@ -151,34 +145,29 @@ class TerminalSettingsStoreLevelApi(BaseApi):
             body (Logo, optional): The request body parameter.
 
         Returns:
-            ApiResponse: An object with the response value as well as other useful
-                information such as status codes and headers. OK - the request has
-                succeeded.
+            Logo: Response from the API. OK - the request has succeeded.
 
         Raises:
-            ApiException: When an error occurs while fetching the data from the
+            APIException: When an error occurs while fetching the data from the
                 remote API. This exception includes the HTTP Response code, an error
                 message, and the HTTP body that was received in the request.
 
         """
         return super().new_api_call_builder.request(
-            RequestBuilder().server(Server.DEFAULT)
+            RequestBuilder().server(Server.DEFAULT9)
             .path("/merchants/{merchantId}/stores/{reference}/terminalLogos")
             .http_method(HttpMethodEnum.PATCH)
             .template_param(Parameter()
                 .key("merchantId")
                 .value(merchant_id)
-                .is_required(True)
                 .should_encode(True))
             .template_param(Parameter()
                 .key("reference")
                 .value(reference)
-                .is_required(True)
                 .should_encode(True))
             .query_param(Parameter()
                 .key("model")
-                .value(model)
-                .is_required(True))
+                .value(model))
             .header_param(Parameter()
                 .key("Content-Type")
                 .value("application/json"))
@@ -193,7 +182,6 @@ class TerminalSettingsStoreLevelApi(BaseApi):
             ResponseHandler()
             .deserializer(APIHelper.json_deserialize)
             .deserialize_into(Logo.from_dictionary)
-            .is_api_response(True)
             .local_error("400",
                 "Bad Request - a problem reading or understanding the request.",
                 RestServiceErrorException)
@@ -239,29 +227,25 @@ class TerminalSettingsStoreLevelApi(BaseApi):
             reference (str): The reference that identifies the store.
 
         Returns:
-            ApiResponse: An object with the response value as well as other useful
-                information such as status codes and headers. OK - the request has
-                succeeded.
+            TerminalSettings: Response from the API. OK - the request has succeeded.
 
         Raises:
-            ApiException: When an error occurs while fetching the data from the
+            APIException: When an error occurs while fetching the data from the
                 remote API. This exception includes the HTTP Response code, an error
                 message, and the HTTP body that was received in the request.
 
         """
         return super().new_api_call_builder.request(
-            RequestBuilder().server(Server.DEFAULT)
+            RequestBuilder().server(Server.DEFAULT9)
             .path("/merchants/{merchantId}/stores/{reference}/terminalSettings")
             .http_method(HttpMethodEnum.GET)
             .template_param(Parameter()
                 .key("merchantId")
                 .value(merchant_id)
-                .is_required(True)
                 .should_encode(True))
             .template_param(Parameter()
                 .key("reference")
                 .value(reference)
-                .is_required(True)
                 .should_encode(True))
             .header_param(Parameter()
                 .key("accept")
@@ -271,7 +255,6 @@ class TerminalSettingsStoreLevelApi(BaseApi):
             ResponseHandler()
             .deserializer(APIHelper.json_deserialize)
             .deserialize_into(TerminalSettings.from_dictionary)
-            .is_api_response(True)
             .local_error("400",
                 "Bad Request - a problem reading or understanding the request.",
                 RestServiceErrorException)
@@ -324,29 +307,25 @@ class TerminalSettingsStoreLevelApi(BaseApi):
             body (TerminalSettings, optional): The request body parameter.
 
         Returns:
-            ApiResponse: An object with the response value as well as other useful
-                information such as status codes and headers. OK - the request has
-                succeeded.
+            TerminalSettings: Response from the API. OK - the request has succeeded.
 
         Raises:
-            ApiException: When an error occurs while fetching the data from the
+            APIException: When an error occurs while fetching the data from the
                 remote API. This exception includes the HTTP Response code, an error
                 message, and the HTTP body that was received in the request.
 
         """
         return super().new_api_call_builder.request(
-            RequestBuilder().server(Server.DEFAULT)
+            RequestBuilder().server(Server.DEFAULT9)
             .path("/merchants/{merchantId}/stores/{reference}/terminalSettings")
             .http_method(HttpMethodEnum.PATCH)
             .template_param(Parameter()
                 .key("merchantId")
                 .value(merchant_id)
-                .is_required(True)
                 .should_encode(True))
             .template_param(Parameter()
                 .key("reference")
                 .value(reference)
-                .is_required(True)
                 .should_encode(True))
             .header_param(Parameter()
                 .key("Content-Type")
@@ -362,7 +341,6 @@ class TerminalSettingsStoreLevelApi(BaseApi):
             ResponseHandler()
             .deserializer(APIHelper.json_deserialize)
             .deserialize_into(TerminalSettings.from_dictionary)
-            .is_api_response(True)
             .local_error("400",
                 "Bad Request - a problem reading or understanding the request.",
                 RestServiceErrorException)
@@ -408,29 +386,25 @@ class TerminalSettingsStoreLevelApi(BaseApi):
                 S1F2, S1L, S1U, S7T.
 
         Returns:
-            ApiResponse: An object with the response value as well as other useful
-                information such as status codes and headers. OK - the request has
-                succeeded.
+            Logo: Response from the API. OK - the request has succeeded.
 
         Raises:
-            ApiException: When an error occurs while fetching the data from the
+            APIException: When an error occurs while fetching the data from the
                 remote API. This exception includes the HTTP Response code, an error
                 message, and the HTTP body that was received in the request.
 
         """
         return super().new_api_call_builder.request(
-            RequestBuilder().server(Server.DEFAULT)
+            RequestBuilder().server(Server.DEFAULT9)
             .path("/stores/{storeId}/terminalLogos")
             .http_method(HttpMethodEnum.GET)
             .template_param(Parameter()
                 .key("storeId")
                 .value(store_id)
-                .is_required(True)
                 .should_encode(True))
             .query_param(Parameter()
                 .key("model")
-                .value(model)
-                .is_required(True))
+                .value(model))
             .header_param(Parameter()
                 .key("accept")
                 .value("application/json"))
@@ -439,7 +413,6 @@ class TerminalSettingsStoreLevelApi(BaseApi):
             ResponseHandler()
             .deserializer(APIHelper.json_deserialize)
             .deserialize_into(Logo.from_dictionary)
-            .is_api_response(True)
             .local_error("400",
                 "Bad Request - a problem reading or understanding the request.",
                 RestServiceErrorException)
@@ -488,29 +461,25 @@ class TerminalSettingsStoreLevelApi(BaseApi):
             body (Logo, optional): The request body parameter.
 
         Returns:
-            ApiResponse: An object with the response value as well as other useful
-                information such as status codes and headers. OK - the request has
-                succeeded.
+            Logo: Response from the API. OK - the request has succeeded.
 
         Raises:
-            ApiException: When an error occurs while fetching the data from the
+            APIException: When an error occurs while fetching the data from the
                 remote API. This exception includes the HTTP Response code, an error
                 message, and the HTTP body that was received in the request.
 
         """
         return super().new_api_call_builder.request(
-            RequestBuilder().server(Server.DEFAULT)
+            RequestBuilder().server(Server.DEFAULT9)
             .path("/stores/{storeId}/terminalLogos")
             .http_method(HttpMethodEnum.PATCH)
             .template_param(Parameter()
                 .key("storeId")
                 .value(store_id)
-                .is_required(True)
                 .should_encode(True))
             .query_param(Parameter()
                 .key("model")
-                .value(model)
-                .is_required(True))
+                .value(model))
             .header_param(Parameter()
                 .key("Content-Type")
                 .value("application/json"))
@@ -525,7 +494,6 @@ class TerminalSettingsStoreLevelApi(BaseApi):
             ResponseHandler()
             .deserializer(APIHelper.json_deserialize)
             .deserialize_into(Logo.from_dictionary)
-            .is_api_response(True)
             .local_error("400",
                 "Bad Request - a problem reading or understanding the request.",
                 RestServiceErrorException)
@@ -568,24 +536,21 @@ class TerminalSettingsStoreLevelApi(BaseApi):
             store_id (str): The unique identifier of the store.
 
         Returns:
-            ApiResponse: An object with the response value as well as other useful
-                information such as status codes and headers. OK - the request has
-                succeeded.
+            TerminalSettings: Response from the API. OK - the request has succeeded.
 
         Raises:
-            ApiException: When an error occurs while fetching the data from the
+            APIException: When an error occurs while fetching the data from the
                 remote API. This exception includes the HTTP Response code, an error
                 message, and the HTTP body that was received in the request.
 
         """
         return super().new_api_call_builder.request(
-            RequestBuilder().server(Server.DEFAULT)
+            RequestBuilder().server(Server.DEFAULT9)
             .path("/stores/{storeId}/terminalSettings")
             .http_method(HttpMethodEnum.GET)
             .template_param(Parameter()
                 .key("storeId")
                 .value(store_id)
-                .is_required(True)
                 .should_encode(True))
             .header_param(Parameter()
                 .key("accept")
@@ -595,7 +560,6 @@ class TerminalSettingsStoreLevelApi(BaseApi):
             ResponseHandler()
             .deserializer(APIHelper.json_deserialize)
             .deserialize_into(TerminalSettings.from_dictionary)
-            .is_api_response(True)
             .local_error("400",
                 "Bad Request - a problem reading or understanding the request.",
                 RestServiceErrorException)
@@ -645,24 +609,21 @@ class TerminalSettingsStoreLevelApi(BaseApi):
             body (TerminalSettings, optional): The request body parameter.
 
         Returns:
-            ApiResponse: An object with the response value as well as other useful
-                information such as status codes and headers. OK - the request has
-                succeeded.
+            TerminalSettings: Response from the API. OK - the request has succeeded.
 
         Raises:
-            ApiException: When an error occurs while fetching the data from the
+            APIException: When an error occurs while fetching the data from the
                 remote API. This exception includes the HTTP Response code, an error
                 message, and the HTTP body that was received in the request.
 
         """
         return super().new_api_call_builder.request(
-            RequestBuilder().server(Server.DEFAULT)
+            RequestBuilder().server(Server.DEFAULT9)
             .path("/stores/{storeId}/terminalSettings")
             .http_method(HttpMethodEnum.PATCH)
             .template_param(Parameter()
                 .key("storeId")
                 .value(store_id)
-                .is_required(True)
                 .should_encode(True))
             .header_param(Parameter()
                 .key("Content-Type")
@@ -678,7 +639,6 @@ class TerminalSettingsStoreLevelApi(BaseApi):
             ResponseHandler()
             .deserializer(APIHelper.json_deserialize)
             .deserialize_into(TerminalSettings.from_dictionary)
-            .is_api_response(True)
             .local_error("400",
                 "Bad Request - a problem reading or understanding the request.",
                 RestServiceErrorException)

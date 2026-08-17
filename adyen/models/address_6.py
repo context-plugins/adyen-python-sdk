@@ -11,75 +11,66 @@ class Address6(object):
     """Implementation of the 'Address6' model.
 
     Attributes:
-        city (str): The name of the city.
-        company_name (str): The name of the company.
-        country (str): The two-letter country code, in [ISO 3166-1
-            alpha-2](https://en.wikipedia.org/wiki/ISO_3166-1_alpha-2) format.
-        postal_code (str): The postal code.
-        state_or_province (str): The state or province as defined in [ISO
-            3166-2](https://www.iso.org/standard/72483.html). For example, **ON** for
-            Ontario, Canada.   Applicable for the following countries: - Australia -
-            Brazil - Canada - India - Mexico - New Zealand - United States
-        street_address (str): The name of the street, and the house or building
-            number.
-        street_address_2 (str): Additional address details, if any.
-        additional_properties (Dict[str, Any]): The additional properties for the
-            model.
+        city (str): The name of the city.  Supported characters: **[a-z] [A-Z] [0-9]
+            . - — / # , ’ ° ( ) : ; [ ] & \ |** and Space.  > Required when the
+            `category` is **card**.
+        country (str): The two-character ISO 3166-1 alpha-2 country code. For
+            example, **US**, **NL**, or **GB**.
+        line_1 (str): The first line of the street address.  Supported characters:
+            **[a-z] [A-Z] [0-9] . - — / # , ’ ° ( ) : ; [ ] & \ |** and Space.  >
+            Required when the `category` is **card**.
+        line_2 (str): The second line of the street address.  Supported characters:
+            **[a-z] [A-Z] [0-9] . - — / # , ’ ° ( ) : ; [ ] & \ |** and Space.  >
+            Required when the `category` is **card**.
+        postal_code (str): The postal code. Maximum length: * 5 digits for an address
+            in the US. * 10 characters for an address in all other countries.
+            Supported characters: **[a-z] [A-Z] [0-9]** and Space.  > Required for
+            addresses in the US.
+        state_or_province (str): The two-letter ISO 3166-2 state or province code.
+            For example, **CA** in the US or **ON** in Canada.     > Required for the
+            US and Canada.
 
     """
 
     # Create a mapping from Model property names to API property names
     _names = {
-        "city": "city",
-        "company_name": "companyName",
         "country": "country",
+        "city": "city",
+        "line_1": "line1",
+        "line_2": "line2",
         "postal_code": "postalCode",
         "state_or_province": "stateOrProvince",
-        "street_address": "streetAddress",
-        "street_address_2": "streetAddress2",
     }
 
     _optionals = [
         "city",
-        "company_name",
-        "country",
+        "line_1",
+        "line_2",
         "postal_code",
         "state_or_province",
-        "street_address",
-        "street_address_2",
     ]
 
     def __init__(
         self,
+        country=None,
         city=APIHelper.SKIP,
-        company_name=APIHelper.SKIP,
-        country=APIHelper.SKIP,
+        line_1=APIHelper.SKIP,
+        line_2=APIHelper.SKIP,
         postal_code=APIHelper.SKIP,
-        state_or_province=APIHelper.SKIP,
-        street_address=APIHelper.SKIP,
-        street_address_2=APIHelper.SKIP,
-        additional_properties=None):
+        state_or_province=APIHelper.SKIP):
         """Initialize a Address6 instance."""
         # Initialize members of the class
         if city is not APIHelper.SKIP:
             self.city = city
-        if company_name is not APIHelper.SKIP:
-            self.company_name = company_name
-        if country is not APIHelper.SKIP:
-            self.country = country
+        self.country = country
+        if line_1 is not APIHelper.SKIP:
+            self.line_1 = line_1
+        if line_2 is not APIHelper.SKIP:
+            self.line_2 = line_2
         if postal_code is not APIHelper.SKIP:
             self.postal_code = postal_code
         if state_or_province is not APIHelper.SKIP:
             self.state_or_province = state_or_province
-        if street_address is not APIHelper.SKIP:
-            self.street_address = street_address
-        if street_address_2 is not APIHelper.SKIP:
-            self.street_address_2 = street_address_2
-
-        # Add additional model properties to the instance
-        if additional_properties is None:
-            additional_properties = {}
-        self.additional_properties = additional_properties
 
     @classmethod
     def from_dictionary(cls,
@@ -99,17 +90,21 @@ class Address6(object):
             return None
 
         # Extract variables from the dictionary
+        country =\
+            dictionary.get("country")\
+            if dictionary.get("country")\
+                else None
         city =\
             dictionary.get("city")\
             if dictionary.get("city")\
                 else APIHelper.SKIP
-        company_name =\
-            dictionary.get("companyName")\
-            if dictionary.get("companyName")\
+        line_1 =\
+            dictionary.get("line1")\
+            if dictionary.get("line1")\
                 else APIHelper.SKIP
-        country =\
-            dictionary.get("country")\
-            if dictionary.get("country")\
+        line_2 =\
+            dictionary.get("line2")\
+            if dictionary.get("line2")\
                 else APIHelper.SKIP
         postal_code =\
             dictionary.get("postalCode")\
@@ -119,29 +114,14 @@ class Address6(object):
             dictionary.get("stateOrProvince")\
             if dictionary.get("stateOrProvince")\
                 else APIHelper.SKIP
-        street_address =\
-            dictionary.get("streetAddress")\
-            if dictionary.get("streetAddress")\
-                else APIHelper.SKIP
-        street_address_2 =\
-            dictionary.get("streetAddress2")\
-            if dictionary.get("streetAddress2")\
-                else APIHelper.SKIP
-
-        additional_properties = APIHelper.get_additional_properties(
-            dictionary={k: v for k, v in dictionary.items()
-                        if k not in cls._names.values()},
-            unboxing_function=lambda value: value)
 
         # Return an object of this model
-        return cls(city,
-                   company_name,
-                   country,
+        return cls(country,
+                   city,
+                   line_1,
+                   line_2,
                    postal_code,
-                   state_or_province,
-                   street_address,
-                   street_address_2,
-                   additional_properties)
+                   state_or_province)
 
     def __repr__(self):
         """Return a unambiguous string representation."""
@@ -150,14 +130,15 @@ class Address6(object):
             if hasattr(self, "city")
             else None
         )
-        _company_name=(
-            self.company_name
-            if hasattr(self, "company_name")
+        _country=self.country
+        _line_1=(
+            self.line_1
+            if hasattr(self, "line_1")
             else None
         )
-        _country=(
-            self.country
-            if hasattr(self, "country")
+        _line_2=(
+            self.line_2
+            if hasattr(self, "line_2")
             else None
         )
         _postal_code=(
@@ -170,27 +151,14 @@ class Address6(object):
             if hasattr(self, "state_or_province")
             else None
         )
-        _street_address=(
-            self.street_address
-            if hasattr(self, "street_address")
-            else None
-        )
-        _street_address_2=(
-            self.street_address_2
-            if hasattr(self, "street_address_2")
-            else None
-        )
-        _additional_properties=self.additional_properties
         return (
             f"{self.__class__.__name__}("
             f"city={_city!r}, "
-            f"company_name={_company_name!r}, "
             f"country={_country!r}, "
+            f"line_1={_line_1!r}, "
+            f"line_2={_line_2!r}, "
             f"postal_code={_postal_code!r}, "
             f"state_or_province={_state_or_province!r}, "
-            f"street_address={_street_address!r}, "
-            f"street_address_2={_street_address_2!r}, "
-            f"additional_properties={_additional_properties!r}, "
             f")"
         )
 
@@ -201,14 +169,15 @@ class Address6(object):
             if hasattr(self, "city")
             else None
         )
-        _company_name=(
-            self.company_name
-            if hasattr(self, "company_name")
+        _country=self.country
+        _line_1=(
+            self.line_1
+            if hasattr(self, "line_1")
             else None
         )
-        _country=(
-            self.country
-            if hasattr(self, "country")
+        _line_2=(
+            self.line_2
+            if hasattr(self, "line_2")
             else None
         )
         _postal_code=(
@@ -221,26 +190,13 @@ class Address6(object):
             if hasattr(self, "state_or_province")
             else None
         )
-        _street_address=(
-            self.street_address
-            if hasattr(self, "street_address")
-            else None
-        )
-        _street_address_2=(
-            self.street_address_2
-            if hasattr(self, "street_address_2")
-            else None
-        )
-        _additional_properties=self.additional_properties
         return (
             f"{self.__class__.__name__}("
             f"city={_city!s}, "
-            f"company_name={_company_name!s}, "
             f"country={_country!s}, "
+            f"line_1={_line_1!s}, "
+            f"line_2={_line_2!s}, "
             f"postal_code={_postal_code!s}, "
             f"state_or_province={_state_or_province!s}, "
-            f"street_address={_street_address!s}, "
-            f"street_address_2={_street_address_2!s}, "
-            f"additional_properties={_additional_properties!s}, "
             f")"
         )

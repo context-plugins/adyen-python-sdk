@@ -49,26 +49,22 @@ def get_disputes(self,
 
 **200**: OK - the request has succeeded.
 
-This method returns an [`ApiResponse`](../../doc/api-response.md) instance. The `body` property of this instance returns the response data which is of type [`List[DisputeResponse]`](../../doc/models/dispute-response.md).
+[`List[DisputeResponse]`](../../doc/models/dispute-response.md)
 
 ## Example Usage
 
 ```python
 result = raise_disputes_api.get_disputes()
-
-if result.is_success():
-    print(result.body)
-elif result.is_error():
-    print(result.errors)
+print(result)
 ```
 
 ## Errors
 
 | HTTP Status Code | Error Description | Exception Class |
 |  --- | --- | --- |
-| 401 | Authentication required. | [`Disputes401ErrorException`](../../doc/models/disputes-401-error-exception.md) |
-| 403 | Insufficient permissions to process the request. | [`Disputes403ErrorException`](../../doc/models/disputes-403-error-exception.md) |
-| 422 | A request validation error. | [`Disputes422ErrorException`](../../doc/models/disputes-422-error-exception.md) |
+| 401 | Authentication required. | [`DefaultErrorResponseEntityException`](../../doc/models/default-error-response-entity-exception.md) |
+| 403 | Insufficient permissions to process the request. | [`DefaultErrorResponseEntityException`](../../doc/models/default-error-response-entity-exception.md) |
+| 422 | A request validation error. | [`DefaultErrorResponseEntityException`](../../doc/models/default-error-response-entity-exception.md) |
 
 
 # Post-Disputes
@@ -94,7 +90,7 @@ def post_disputes(self,
 
 **200**: OK - the request has succeeded.
 
-This method returns an [`ApiResponse`](../../doc/api-response.md) instance. The `body` property of this instance returns the response data which is of type [`DisputeResponse`](../../doc/models/dispute-response.md).
+[`DisputeResponse`](../../doc/models/dispute-response.md)
 
 ## Example Usage
 
@@ -105,20 +101,16 @@ body = DisputeRequest(
 )
 
 result = raise_disputes_api.post_disputes(body)
-
-if result.is_success():
-    print(result.body)
-elif result.is_error():
-    print(result.errors)
+print(result)
 ```
 
 ## Errors
 
 | HTTP Status Code | Error Description | Exception Class |
 |  --- | --- | --- |
-| 401 | Authentication required. | [`Disputes401ErrorException`](../../doc/models/disputes-401-error-exception.md) |
-| 403 | Insufficient permissions to process the request. | [`Disputes403ErrorException`](../../doc/models/disputes-403-error-exception.md) |
-| 422 | A request validation error. | [`Disputes422ErrorException`](../../doc/models/disputes-422-error-exception.md) |
+| 401 | Authentication required. | [`DefaultErrorResponseEntityException`](../../doc/models/default-error-response-entity-exception.md) |
+| 403 | Insufficient permissions to process the request. | [`DefaultErrorResponseEntityException`](../../doc/models/default-error-response-entity-exception.md) |
+| 422 | A request validation error. | [`DefaultErrorResponseEntityException`](../../doc/models/default-error-response-entity-exception.md) |
 
 
 # Get-Disputes-Id
@@ -142,7 +134,7 @@ def get_disputes_id(self,
 
 **200**: OK - the request has succeeded.
 
-This method returns an [`ApiResponse`](../../doc/api-response.md) instance. The `body` property of this instance returns the response data which is of type [`DisputeResponse`](../../doc/models/dispute-response.md).
+[`DisputeResponse`](../../doc/models/dispute-response.md)
 
 ## Example Usage
 
@@ -150,20 +142,16 @@ This method returns an [`ApiResponse`](../../doc/api-response.md) instance. The 
 id = 'id0'
 
 result = raise_disputes_api.get_disputes_id(id)
-
-if result.is_success():
-    print(result.body)
-elif result.is_error():
-    print(result.errors)
+print(result)
 ```
 
 ## Errors
 
 | HTTP Status Code | Error Description | Exception Class |
 |  --- | --- | --- |
-| 401 | Authentication required. | [`Disputes401ErrorException`](../../doc/models/disputes-401-error-exception.md) |
-| 403 | Insufficient permissions to process the request. | [`Disputes403ErrorException`](../../doc/models/disputes-403-error-exception.md) |
-| 422 | A request validation error. | [`Disputes422ErrorException`](../../doc/models/disputes-422-error-exception.md) |
+| 401 | Authentication required. | [`DefaultErrorResponseEntityException`](../../doc/models/default-error-response-entity-exception.md) |
+| 403 | Insufficient permissions to process the request. | [`DefaultErrorResponseEntityException`](../../doc/models/default-error-response-entity-exception.md) |
+| 422 | A request validation error. | [`DefaultErrorResponseEntityException`](../../doc/models/default-error-response-entity-exception.md) |
 
 
 # Patch-Disputes-Id
@@ -191,7 +179,7 @@ def patch_disputes_id(self,
 
 **200**: OK - the request has succeeded.
 
-This method returns an [`ApiResponse`](../../doc/api-response.md) instance. The `body` property of this instance returns the response data which is of type [`DisputeResponse`](../../doc/models/dispute-response.md).
+[`DisputeResponse`](../../doc/models/dispute-response.md)
 
 ## Example Usage
 
@@ -199,18 +187,14 @@ This method returns an [`ApiResponse`](../../doc/api-response.md) instance. The 
 id = 'id0'
 
 result = raise_disputes_api.patch_disputes_id(id)
-
-if result.is_success():
-    print(result.body)
-elif result.is_error():
-    print(result.errors)
+print(result)
 ```
 
 ## Errors
 
 | HTTP Status Code | Error Description | Exception Class |
 |  --- | --- | --- |
-| 401 | Authentication required. | [`Disputes401ErrorException`](../../doc/models/disputes-401-error-exception.md) |
-| 403 | Insufficient permissions to process the request. | [`Disputes403ErrorException`](../../doc/models/disputes-403-error-exception.md) |
-| 422 | A request validation error. | [`Disputes422ErrorException`](../../doc/models/disputes-422-error-exception.md) |
+| 401 | Authentication required. | [`DefaultErrorResponseEntityException`](../../doc/models/default-error-response-entity-exception.md) |
+| 403 | Insufficient permissions to process the request. | [`DefaultErrorResponseEntityException`](../../doc/models/default-error-response-entity-exception.md) |
+| 422 | A request validation error. | [`DefaultErrorResponseEntityException`](../../doc/models/default-error-response-entity-exception.md) |
 

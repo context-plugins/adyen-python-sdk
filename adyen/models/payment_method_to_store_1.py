@@ -38,8 +38,6 @@ class PaymentMethodToStore1(object):
             compliant](https://docs.adyen.com/development-resources/pci-dss-compliance
             -guide).
         mtype (str): Set to **scheme**.
-        additional_properties (Dict[str, Any]): The additional properties for the
-            model.
 
     """
 
@@ -87,8 +85,7 @@ class PaymentMethodToStore1(object):
         expiry_year=APIHelper.SKIP,
         holder_name=APIHelper.SKIP,
         number=APIHelper.SKIP,
-        mtype=APIHelper.SKIP,
-        additional_properties=None):
+        mtype=APIHelper.SKIP):
         """Initialize a PaymentMethodToStore1 instance."""
         # Initialize members of the class
         if brand is not APIHelper.SKIP:
@@ -115,11 +112,6 @@ class PaymentMethodToStore1(object):
             self.number = number
         if mtype is not APIHelper.SKIP:
             self.mtype = mtype
-
-        # Add additional model properties to the instance
-        if additional_properties is None:
-            additional_properties = {}
-        self.additional_properties = additional_properties
 
     @classmethod
     def from_dictionary(cls,
@@ -188,11 +180,6 @@ class PaymentMethodToStore1(object):
             if dictionary.get("type")\
                 else APIHelper.SKIP
 
-        additional_properties = APIHelper.get_additional_properties(
-            dictionary={k: v for k, v in dictionary.items()
-                        if k not in cls._names.values()},
-            unboxing_function=lambda value: value)
-
         # Return an object of this model
         return cls(brand,
                    cvc,
@@ -205,8 +192,7 @@ class PaymentMethodToStore1(object):
                    expiry_year,
                    holder_name,
                    number,
-                   mtype,
-                   additional_properties)
+                   mtype)
 
     def __repr__(self):
         """Return a unambiguous string representation."""
@@ -270,7 +256,6 @@ class PaymentMethodToStore1(object):
             if hasattr(self, "mtype")
             else None
         )
-        _additional_properties=self.additional_properties
         return (
             f"{self.__class__.__name__}("
             f"brand={_brand!r}, "
@@ -285,7 +270,6 @@ class PaymentMethodToStore1(object):
             f"holder_name={_holder_name!r}, "
             f"number={_number!r}, "
             f"mtype={_mtype!r}, "
-            f"additional_properties={_additional_properties!r}, "
             f")"
         )
 
@@ -351,7 +335,6 @@ class PaymentMethodToStore1(object):
             if hasattr(self, "mtype")
             else None
         )
-        _additional_properties=self.additional_properties
         return (
             f"{self.__class__.__name__}("
             f"brand={_brand!s}, "
@@ -366,6 +349,5 @@ class PaymentMethodToStore1(object):
             f"holder_name={_holder_name!s}, "
             f"number={_number!s}, "
             f"mtype={_mtype!s}, "
-            f"additional_properties={_additional_properties!s}, "
             f")"
         )

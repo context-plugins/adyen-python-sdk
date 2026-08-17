@@ -14,8 +14,6 @@ class PermitResult(object):
         result_key (str): The key to link permit requests to permit results.
         token (str): The permit token which is used to make payments by the partner
             company.
-        additional_properties (Dict[str, Any]): The additional properties for the
-            model.
 
     """
 
@@ -33,19 +31,13 @@ class PermitResult(object):
     def __init__(
         self,
         result_key=APIHelper.SKIP,
-        token=APIHelper.SKIP,
-        additional_properties=None):
+        token=APIHelper.SKIP):
         """Initialize a PermitResult instance."""
         # Initialize members of the class
         if result_key is not APIHelper.SKIP:
             self.result_key = result_key
         if token is not APIHelper.SKIP:
             self.token = token
-
-        # Add additional model properties to the instance
-        if additional_properties is None:
-            additional_properties = {}
-        self.additional_properties = additional_properties
 
     @classmethod
     def from_dictionary(cls,
@@ -74,15 +66,9 @@ class PermitResult(object):
             if dictionary.get("token")\
                 else APIHelper.SKIP
 
-        additional_properties = APIHelper.get_additional_properties(
-            dictionary={k: v for k, v in dictionary.items()
-                        if k not in cls._names.values()},
-            unboxing_function=lambda value: value)
-
         # Return an object of this model
         return cls(result_key,
-                   token,
-                   additional_properties)
+                   token)
 
     def __repr__(self):
         """Return a unambiguous string representation."""
@@ -96,12 +82,10 @@ class PermitResult(object):
             if hasattr(self, "token")
             else None
         )
-        _additional_properties=self.additional_properties
         return (
             f"{self.__class__.__name__}("
             f"result_key={_result_key!r}, "
             f"token={_token!r}, "
-            f"additional_properties={_additional_properties!r}, "
             f")"
         )
 
@@ -117,11 +101,9 @@ class PermitResult(object):
             if hasattr(self, "token")
             else None
         )
-        _additional_properties=self.additional_properties
         return (
             f"{self.__class__.__name__}("
             f"result_key={_result_key!s}, "
             f"token={_token!s}, "
-            f"additional_properties={_additional_properties!s}, "
             f")"
         )

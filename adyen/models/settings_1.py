@@ -17,8 +17,6 @@ class Settings1(object):
             multiple bands. Possible values: All, 2.4GHz, 5GHz.
         roaming (bool): Indicates whether roaming is enabled on the terminals.
         timeout (int): The connection time-out in seconds. Minimum value: 0.
-        additional_properties (Dict[str, Any]): The additional properties for the
-            model.
 
     """
 
@@ -39,8 +37,7 @@ class Settings1(object):
         self,
         band=APIHelper.SKIP,
         roaming=APIHelper.SKIP,
-        timeout=APIHelper.SKIP,
-        additional_properties=None):
+        timeout=APIHelper.SKIP):
         """Initialize a Settings1 instance."""
         # Initialize members of the class
         if band is not APIHelper.SKIP:
@@ -49,11 +46,6 @@ class Settings1(object):
             self.roaming = roaming
         if timeout is not APIHelper.SKIP:
             self.timeout = timeout
-
-        # Add additional model properties to the instance
-        if additional_properties is None:
-            additional_properties = {}
-        self.additional_properties = additional_properties
 
     @classmethod
     def from_dictionary(cls,
@@ -86,16 +78,10 @@ class Settings1(object):
             if dictionary.get("timeout")\
                 else APIHelper.SKIP
 
-        additional_properties = APIHelper.get_additional_properties(
-            dictionary={k: v for k, v in dictionary.items()
-                        if k not in cls._names.values()},
-            unboxing_function=lambda value: value)
-
         # Return an object of this model
         return cls(band,
                    roaming,
-                   timeout,
-                   additional_properties)
+                   timeout)
 
     def __repr__(self):
         """Return a unambiguous string representation."""
@@ -114,13 +100,11 @@ class Settings1(object):
             if hasattr(self, "timeout")
             else None
         )
-        _additional_properties=self.additional_properties
         return (
             f"{self.__class__.__name__}("
             f"band={_band!r}, "
             f"roaming={_roaming!r}, "
             f"timeout={_timeout!r}, "
-            f"additional_properties={_additional_properties!r}, "
             f")"
         )
 
@@ -141,12 +125,10 @@ class Settings1(object):
             if hasattr(self, "timeout")
             else None
         )
-        _additional_properties=self.additional_properties
         return (
             f"{self.__class__.__name__}("
             f"band={_band!s}, "
             f"roaming={_roaming!s}, "
             f"timeout={_timeout!s}, "
-            f"additional_properties={_additional_properties!s}, "
             f")"
         )

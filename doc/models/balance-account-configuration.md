@@ -1,8 +1,6 @@
 
 # Balance Account Configuration
 
-*This model accepts additional fields of type Any.*
-
 ## Structure
 
 `BalanceAccountConfiguration`
@@ -28,13 +26,11 @@
 | `sales_day_closing_time` | `str` | Optional | The time of day when the sales day is closed in balance account time zone. The sales day closing time can be between 00:00 to 07:00.<br><br>Format: **HH:mm:ss** |
 | `transfer_instrument_id` | `str` | Required | The unique identifier of the transfer instrument to which the funds are paid out. |
 | `updated_at` | `datetime` | Optional | The date and time when the payout schedule was updated. |
-| `additional_properties` | `Dict[str, Any]` | Optional | - |
 
 ## Example
 
 ```python
 import dateutil.parser
-import jsonpickle
 
 from adyen.models.balance_account_configuration import BalanceAccountConfiguration
 
@@ -47,10 +43,7 @@ balance_account_configuration = BalanceAccountConfiguration(
     description='description2',
     enabled=False,
     frequency='frequency8',
-    frequency_value=216,
-    additional_properties={
-        'exampleAdditionalProperty': jsonpickle.decode('{"key1":"val1","key2":"val2"}')
-    }
+    frequency_value=216
 )
 ```
 

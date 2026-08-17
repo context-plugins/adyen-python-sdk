@@ -1,8 +1,6 @@
 
 # Pay to Response Info
 
-*This model accepts additional fields of type Any.*
-
 ## Structure
 
 `PayToResponseInfo`
@@ -13,21 +11,15 @@
 |  --- | --- | --- | --- |
 | `merchant_name` | `str` | Optional | Merchant name displayed to the shopper in the Agreements |
 | `pay_to_purpose` | `str` | Optional | Represents the purpose of the Agreements created, it relates to the business type<br>**Allowed values**: mortgage, utility, loan, gambling, retail, salary, personal, government, pension, tax, other |
-| `additional_properties` | `Dict[str, Any]` | Optional | - |
 
 ## Example
 
 ```python
-import jsonpickle
-
 from adyen.models.pay_to_response_info import PayToResponseInfo
 
 pay_to_response_info = PayToResponseInfo(
     merchant_name='merchantName6',
-    pay_to_purpose='payToPurpose2',
-    additional_properties={
-        'exampleAdditionalProperty': jsonpickle.decode('{"key1":"val1","key2":"val2"}')
-    }
+    pay_to_purpose='payToPurpose2'
 )
 ```
 

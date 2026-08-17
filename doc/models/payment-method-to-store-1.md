@@ -3,8 +3,6 @@
 
 Contains the information required to store a payment method.
 
-*This model accepts additional fields of type Any.*
-
 ## Structure
 
 `PaymentMethodToStore1`
@@ -25,13 +23,10 @@ Contains the information required to store a payment method.
 | `holder_name` | `str` | Optional | The name of the card holder. |
 | `number` | `str` | Optional | The card number. Only collect raw card data if you are [fully PCI compliant](https://docs.adyen.com/development-resources/pci-dss-compliance-guide). |
 | `mtype` | `str` | Optional | Set to **scheme**. |
-| `additional_properties` | `Dict[str, Any]` | Optional | - |
 
 ## Example
 
 ```python
-import jsonpickle
-
 from adyen.models.payment_method_to_store_1 import PaymentMethodToStore1
 
 payment_method_to_store_1 = PaymentMethodToStore1(
@@ -39,10 +34,7 @@ payment_method_to_store_1 = PaymentMethodToStore1(
     cvc='cvc0',
     encrypted_card='encryptedCard8',
     encrypted_card_number='encryptedCardNumber4',
-    encrypted_expiry_month='encryptedExpiryMonth2',
-    additional_properties={
-        'exampleAdditionalProperty': jsonpickle.decode('{"key1":"val1","key2":"val2"}')
-    }
+    encrypted_expiry_month='encryptedExpiryMonth2'
 )
 ```
 

@@ -1,9 +1,7 @@
 
 # Amount 11
 
-The lower bound of the processing tier (i.e., an account holder must have processed at least this amount of money in order to be placed into this tier).
-
-*This model accepts additional fields of type Any.*
+The amount of the forwarded payment.
 
 ## Structure
 
@@ -13,23 +11,17 @@ The lower bound of the processing tier (i.e., an account holder must have proces
 
 | Name | Type | Tags | Description |
 |  --- | --- | --- | --- |
-| `currency` | `str` | Required | The three-character [ISO currency code](https://docs.adyen.com/development-resources/currency-codes).<br><br>**Constraints**: *Minimum Length*: `3`, *Maximum Length*: `3` |
-| `value` | `int` | Required | The amount of the transaction, in [minor units](https://docs.adyen.com/development-resources/currency-codes). |
-| `additional_properties` | `Dict[str, Any]` | Optional | - |
+| `currency` | `str` | Required | The three-character [ISO currency code](https://docs.adyen.com/development-resources/currency-codes#currency-codes) of the amount.<br><br>**Constraints**: *Minimum Length*: `3`, *Maximum Length*: `3` |
+| `value` | `int` | Required | The numeric value of the amount, in [minor units](https://docs.adyen.com/development-resources/currency-codes#minor-units). |
 
 ## Example
 
 ```python
-import jsonpickle
-
 from adyen.models.amount_11 import Amount11
 
 amount_11 = Amount11(
     currency='currency8',
-    value=38,
-    additional_properties={
-        'exampleAdditionalProperty': jsonpickle.decode('{"key1":"val1","key2":"val2"}')
-    }
+    value=38
 )
 ```
 

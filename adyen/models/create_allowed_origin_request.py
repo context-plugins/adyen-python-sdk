@@ -12,11 +12,9 @@ class CreateAllowedOriginRequest(object):
     """Implementation of the 'CreateAllowedOriginRequest' model.
 
     Attributes:
-        links (Links2): The model property of type Links2.
+        links (Links2): References to resources linked to the allowed origin.
         domain (str): Domain of the allowed origin.
         id (str): Unique identifier of the allowed origin.
-        additional_properties (Dict[str, Any]): The additional properties for the
-            model.
 
     """
 
@@ -36,8 +34,7 @@ class CreateAllowedOriginRequest(object):
         self,
         domain=None,
         links=APIHelper.SKIP,
-        id=APIHelper.SKIP,
-        additional_properties=None):
+        id=APIHelper.SKIP):
         """Initialize a CreateAllowedOriginRequest instance."""
         # Initialize members of the class
         if links is not APIHelper.SKIP:
@@ -45,11 +42,6 @@ class CreateAllowedOriginRequest(object):
         self.domain = domain
         if id is not APIHelper.SKIP:
             self.id = id
-
-        # Add additional model properties to the instance
-        if additional_properties is None:
-            additional_properties = {}
-        self.additional_properties = additional_properties
 
     @classmethod
     def from_dictionary(cls,
@@ -83,16 +75,10 @@ class CreateAllowedOriginRequest(object):
             if dictionary.get("id")\
                 else APIHelper.SKIP
 
-        additional_properties = APIHelper.get_additional_properties(
-            dictionary={k: v for k, v in dictionary.items()
-                        if k not in cls._names.values()},
-            unboxing_function=lambda value: value)
-
         # Return an object of this model
         return cls(domain,
                    links,
-                   id,
-                   additional_properties)
+                   id)
 
     def __repr__(self):
         """Return a unambiguous string representation."""
@@ -107,13 +93,11 @@ class CreateAllowedOriginRequest(object):
             if hasattr(self, "id")
             else None
         )
-        _additional_properties=self.additional_properties
         return (
             f"{self.__class__.__name__}("
             f"links={_links!r}, "
             f"domain={_domain!r}, "
             f"id={_id!r}, "
-            f"additional_properties={_additional_properties!r}, "
             f")"
         )
 
@@ -130,12 +114,10 @@ class CreateAllowedOriginRequest(object):
             if hasattr(self, "id")
             else None
         )
-        _additional_properties=self.additional_properties
         return (
             f"{self.__class__.__name__}("
             f"links={_links!s}, "
             f"domain={_domain!s}, "
             f"id={_id!s}, "
-            f"additional_properties={_additional_properties!s}, "
             f")"
         )

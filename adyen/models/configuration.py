@@ -23,8 +23,6 @@ class Configuration(object):
         currencies (List[Currency]): Currency and percentage or amount of the
             surcharge.
         sources (List[str]): Funding source. Possible values: * **Credit** * **Debit**
-        additional_properties (Dict[str, Any]): The additional properties for the
-            model.
 
     """
 
@@ -49,8 +47,7 @@ class Configuration(object):
         currencies=None,
         commercial=APIHelper.SKIP,
         country=APIHelper.SKIP,
-        sources=APIHelper.SKIP,
-        additional_properties=None):
+        sources=APIHelper.SKIP):
         """Initialize a Configuration instance."""
         # Initialize members of the class
         self.brand = brand
@@ -61,11 +58,6 @@ class Configuration(object):
         self.currencies = currencies
         if sources is not APIHelper.SKIP:
             self.sources = sources
-
-        # Add additional model properties to the instance
-        if additional_properties is None:
-            additional_properties = {}
-        self.additional_properties = additional_properties
 
     @classmethod
     def from_dictionary(cls,
@@ -108,18 +100,12 @@ class Configuration(object):
             if dictionary.get("sources")\
                 else APIHelper.SKIP
 
-        additional_properties = APIHelper.get_additional_properties(
-            dictionary={k: v for k, v in dictionary.items()
-                        if k not in cls._names.values()},
-            unboxing_function=lambda value: value)
-
         # Return an object of this model
         return cls(brand,
                    currencies,
                    commercial,
                    country,
-                   sources,
-                   additional_properties)
+                   sources)
 
     def __repr__(self):
         """Return a unambiguous string representation."""
@@ -140,7 +126,6 @@ class Configuration(object):
             if hasattr(self, "sources")
             else None
         )
-        _additional_properties=self.additional_properties
         return (
             f"{self.__class__.__name__}("
             f"brand={_brand!r}, "
@@ -148,7 +133,6 @@ class Configuration(object):
             f"country={_country!r}, "
             f"currencies={_currencies!r}, "
             f"sources={_sources!r}, "
-            f"additional_properties={_additional_properties!r}, "
             f")"
         )
 
@@ -171,7 +155,6 @@ class Configuration(object):
             if hasattr(self, "sources")
             else None
         )
-        _additional_properties=self.additional_properties
         return (
             f"{self.__class__.__name__}("
             f"brand={_brand!s}, "
@@ -179,6 +162,5 @@ class Configuration(object):
             f"country={_country!s}, "
             f"currencies={_currencies!s}, "
             f"sources={_sources!s}, "
-            f"additional_properties={_additional_properties!s}, "
             f")"
         )

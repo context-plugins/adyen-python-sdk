@@ -34,8 +34,6 @@ class TerminalConnectivity2(object):
             TerminalConnectivityEthernet.
         wifi (TerminalConnectivityWifi): The model property of type
             TerminalConnectivityWifi.
-        additional_properties (Dict[str, Any]): The additional properties for the
-            model.
 
     """
 
@@ -59,8 +57,7 @@ class TerminalConnectivity2(object):
         bluetooth=APIHelper.SKIP,
         cellular=APIHelper.SKIP,
         ethernet=APIHelper.SKIP,
-        wifi=APIHelper.SKIP,
-        additional_properties=None):
+        wifi=APIHelper.SKIP):
         """Initialize a TerminalConnectivity2 instance."""
         # Initialize members of the class
         if bluetooth is not APIHelper.SKIP:
@@ -71,11 +68,6 @@ class TerminalConnectivity2(object):
             self.ethernet = ethernet
         if wifi is not APIHelper.SKIP:
             self.wifi = wifi
-
-        # Add additional model properties to the instance
-        if additional_properties is None:
-            additional_properties = {}
-        self.additional_properties = additional_properties
 
     @classmethod
     def from_dictionary(cls,
@@ -116,17 +108,11 @@ class TerminalConnectivity2(object):
                 if "wifi" in dictionary.keys()\
                 else APIHelper.SKIP
 
-        additional_properties = APIHelper.get_additional_properties(
-            dictionary={k: v for k, v in dictionary.items()
-                        if k not in cls._names.values()},
-            unboxing_function=lambda value: value)
-
         # Return an object of this model
         return cls(bluetooth,
                    cellular,
                    ethernet,
-                   wifi,
-                   additional_properties)
+                   wifi)
 
     def __repr__(self):
         """Return a unambiguous string representation."""
@@ -150,14 +136,12 @@ class TerminalConnectivity2(object):
             if hasattr(self, "wifi")
             else None
         )
-        _additional_properties=self.additional_properties
         return (
             f"{self.__class__.__name__}("
             f"bluetooth={_bluetooth!r}, "
             f"cellular={_cellular!r}, "
             f"ethernet={_ethernet!r}, "
             f"wifi={_wifi!r}, "
-            f"additional_properties={_additional_properties!r}, "
             f")"
         )
 
@@ -183,13 +167,11 @@ class TerminalConnectivity2(object):
             if hasattr(self, "wifi")
             else None
         )
-        _additional_properties=self.additional_properties
         return (
             f"{self.__class__.__name__}("
             f"bluetooth={_bluetooth!s}, "
             f"cellular={_cellular!s}, "
             f"ethernet={_ethernet!s}, "
             f"wifi={_wifi!s}, "
-            f"additional_properties={_additional_properties!s}, "
             f")"
         )

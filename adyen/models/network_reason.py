@@ -13,9 +13,9 @@ class NetworkReason(object):
     Attributes:
         code (str): The reason code provided by the network.
         description (str): The description of the reason code.
-        namespace (Namespace): The model property of type Namespace.
-        additional_properties (Dict[str, Any]): The additional properties for the
-            model.
+        namespace (NamespaceEnum): The namespace that corresponds to the reason code.
+            Possible values: *  **ukFpsRejectionCode** *  **ukFpsReturnReasonCode** *
+            **usAchReturnReasonCode** *  **iso8583ResponseCode**
 
     """
 
@@ -36,8 +36,7 @@ class NetworkReason(object):
         self,
         code=APIHelper.SKIP,
         description=APIHelper.SKIP,
-        namespace=APIHelper.SKIP,
-        additional_properties=None):
+        namespace=APIHelper.SKIP):
         """Initialize a NetworkReason instance."""
         # Initialize members of the class
         if code is not APIHelper.SKIP:
@@ -46,11 +45,6 @@ class NetworkReason(object):
             self.description = description
         if namespace is not APIHelper.SKIP:
             self.namespace = namespace
-
-        # Add additional model properties to the instance
-        if additional_properties is None:
-            additional_properties = {}
-        self.additional_properties = additional_properties
 
     @classmethod
     def from_dictionary(cls,
@@ -83,37 +77,10 @@ class NetworkReason(object):
             if dictionary.get("namespace")\
                 else APIHelper.SKIP
 
-        additional_properties = APIHelper.get_additional_properties(
-            dictionary={k: v for k, v in dictionary.items()
-                        if k not in cls._names.values()},
-            unboxing_function=lambda value: value)
-
         # Return an object of this model
         return cls(code,
                    description,
-                   namespace,
-                   additional_properties)
-
-    @classmethod
-    def validate(cls, dictionary):
-        """Validate dictionary against class required properties
-
-        Args:
-            dictionary (dictionary): A dictionary representation of the object
-            as obtained from the deserialization of the server's response. The
-            keys MUST match property names in the API description.
-
-        Returns:
-            boolean : if dictionary is valid contains required properties.
-
-        """
-        if isinstance(dictionary, cls):
-            return True
-
-        if not isinstance(dictionary, dict):
-            return False
-
-        return True
+                   namespace)
 
     def __repr__(self):
         """Return a unambiguous string representation."""
@@ -132,13 +99,11 @@ class NetworkReason(object):
             if hasattr(self, "namespace")
             else None
         )
-        _additional_properties=self.additional_properties
         return (
             f"{self.__class__.__name__}("
             f"code={_code!r}, "
             f"description={_description!r}, "
             f"namespace={_namespace!r}, "
-            f"additional_properties={_additional_properties!r}, "
             f")"
         )
 
@@ -159,12 +124,10 @@ class NetworkReason(object):
             if hasattr(self, "namespace")
             else None
         )
-        _additional_properties=self.additional_properties
         return (
             f"{self.__class__.__name__}("
             f"code={_code!s}, "
             f"description={_description!s}, "
             f"namespace={_namespace!s}, "
-            f"additional_properties={_additional_properties!s}, "
             f")"
         )

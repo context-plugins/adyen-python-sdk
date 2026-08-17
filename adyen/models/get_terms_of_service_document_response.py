@@ -23,9 +23,11 @@ class GetTermsOfServiceDocumentResponse(object):
             document.
         terms_of_service_document_id (str): The unique identifier of the Terms of
             Service document.
-        mtype (Type25): The model property of type Type25.
-        additional_properties (Dict[str, Any]): The additional properties for the
-            model.
+        mtype (Type64Enum): The type of Terms of Service.  Possible values: *
+            **adyenForPlatformsManage** *  **adyenIssuing** *
+            **adyenForPlatformsAdvanced** *  **adyenCapital** *  **adyenAccount** *
+            **adyenCard** *  **adyenFranchisee** *  **adyenPccr** *
+            **adyenChargeCard** *  **kycOnInvite**
 
     """
 
@@ -55,8 +57,7 @@ class GetTermsOfServiceDocumentResponse(object):
         language=APIHelper.SKIP,
         terms_of_service_document_format=APIHelper.SKIP,
         terms_of_service_document_id=APIHelper.SKIP,
-        mtype=APIHelper.SKIP,
-        additional_properties=None):
+        mtype=APIHelper.SKIP):
         """Initialize a GetTermsOfServiceDocumentResponse instance."""
         # Initialize members of the class
         if document is not APIHelper.SKIP:
@@ -71,11 +72,6 @@ class GetTermsOfServiceDocumentResponse(object):
             self.terms_of_service_document_id = terms_of_service_document_id
         if mtype is not APIHelper.SKIP:
             self.mtype = mtype
-
-        # Add additional model properties to the instance
-        if additional_properties is None:
-            additional_properties = {}
-        self.additional_properties = additional_properties
 
     @classmethod
     def from_dictionary(cls,
@@ -120,19 +116,13 @@ class GetTermsOfServiceDocumentResponse(object):
             if dictionary.get("type")\
                 else APIHelper.SKIP
 
-        additional_properties = APIHelper.get_additional_properties(
-            dictionary={k: v for k, v in dictionary.items()
-                        if k not in cls._names.values()},
-            unboxing_function=lambda value: value)
-
         # Return an object of this model
         return cls(document,
                    id,
                    language,
                    terms_of_service_document_format,
                    terms_of_service_document_id,
-                   mtype,
-                   additional_properties)
+                   mtype)
 
     def __repr__(self):
         """Return a unambiguous string representation."""
@@ -166,7 +156,6 @@ class GetTermsOfServiceDocumentResponse(object):
             if hasattr(self, "mtype")
             else None
         )
-        _additional_properties=self.additional_properties
         return (
             f"{self.__class__.__name__}("
             f"document={_document!r}, "
@@ -175,7 +164,6 @@ class GetTermsOfServiceDocumentResponse(object):
             f"terms_of_service_document_format={_terms_of_service_document_format!r}, "
             f"terms_of_service_document_id={_terms_of_service_document_id!r}, "
             f"mtype={_mtype!r}, "
-            f"additional_properties={_additional_properties!r}, "
             f")"
         )
 
@@ -211,7 +199,6 @@ class GetTermsOfServiceDocumentResponse(object):
             if hasattr(self, "mtype")
             else None
         )
-        _additional_properties=self.additional_properties
         return (
             f"{self.__class__.__name__}("
             f"document={_document!s}, "
@@ -220,6 +207,5 @@ class GetTermsOfServiceDocumentResponse(object):
             f"terms_of_service_document_format={_terms_of_service_document_format!s}, "
             f"terms_of_service_document_id={_terms_of_service_document_id!s}, "
             f"mtype={_mtype!s}, "
-            f"additional_properties={_additional_properties!s}, "
             f")"
         )

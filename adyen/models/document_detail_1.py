@@ -26,7 +26,28 @@ class DocumentDetail1(object):
             **BANK_STATEMENT**, where a document is being submitted in order to
             verify a bank account.
         description (str): Description of the document.
-        document_type (DocumentType): The model property of type DocumentType.
+        document_type (DocumentTypeEnum): The type of the document. Refer to
+            [Verification
+            checks](https://docs.adyen.com/classic-platforms/verification-checks) for
+            details on when each document type should be submitted and for the
+            accepted file formats.  Permitted values: * **BANK_STATEMENT**: A file
+            containing a bank statement or other document proving ownership of a
+            specific bank account. * **COMPANY_REGISTRATION_SCREENING** (Supported
+            from v5 and later): A file containing a company registration document. *
+            **CONSTITUTIONAL_DOCUMENT**: A file containing information about the
+            account holder's legal arrangement. * **PASSPORT**: A file containing the
+            identity page(s) of a passport. * **ID_CARD_FRONT**: A file containing
+            only the front of the ID card. In order for a document to be usable, both
+            the **ID_CARD_FRONT** and **ID_CARD_BACK** must be submitted. *
+            **ID_CARD_BACK**: A file containing only the back of the ID card. In
+            order for a document to be usable, both the **ID_CARD_FRONT** and
+            **ID_CARD_BACK** must be submitted. * **DRIVING_LICENCE_FRONT**: A file
+            containing only the front of the driving licence. In order for a document
+            to be usable, both the **DRIVING_LICENCE_FRONT** and
+            **DRIVING_LICENCE_BACK** must be submitted. * **DRIVING_LICENCE_BACK**: A
+            file containing only the back of the driving licence. In order for a
+            document to be usable, both the **DRIVING_LICENCE_FRONT** and
+            **DRIVING_LICENCE_FRONT** must be submitted.
         filename (str): Filename of the document.
         legal_arrangement_code (str): The Adyen-generated
             [`legalArrangementCode`](https://docs.adyen.com/api-explorer/#/Account/lat
@@ -51,8 +72,6 @@ class DocumentDetail1(object):
             [`signatoryCode`](https://docs.adyen.com/api-explorer/#/Account/v6/post/cr
             eateAccountHolder__resParam_accountHolderDetails-businessDetails-signatori
             es-signatoryCode) to which the document must be linked.
-        additional_properties (Dict[str, Any]): The additional properties for the
-            model.
 
     """
 
@@ -90,8 +109,7 @@ class DocumentDetail1(object):
         legal_arrangement_code=APIHelper.SKIP,
         legal_arrangement_entity_code=APIHelper.SKIP,
         shareholder_code=APIHelper.SKIP,
-        signatory_code=APIHelper.SKIP,
-        additional_properties=None):
+        signatory_code=APIHelper.SKIP):
         """Initialize a DocumentDetail1 instance."""
         # Initialize members of the class
         if account_holder_code is not APIHelper.SKIP:
@@ -111,11 +129,6 @@ class DocumentDetail1(object):
             self.shareholder_code = shareholder_code
         if signatory_code is not APIHelper.SKIP:
             self.signatory_code = signatory_code
-
-        # Add additional model properties to the instance
-        if additional_properties is None:
-            additional_properties = {}
-        self.additional_properties = additional_properties
 
     @classmethod
     def from_dictionary(cls,
@@ -172,11 +185,6 @@ class DocumentDetail1(object):
             if dictionary.get("signatoryCode")\
                 else APIHelper.SKIP
 
-        additional_properties = APIHelper.get_additional_properties(
-            dictionary={k: v for k, v in dictionary.items()
-                        if k not in cls._names.values()},
-            unboxing_function=lambda value: value)
-
         # Return an object of this model
         return cls(document_type,
                    account_holder_code,
@@ -186,8 +194,7 @@ class DocumentDetail1(object):
                    legal_arrangement_code,
                    legal_arrangement_entity_code,
                    shareholder_code,
-                   signatory_code,
-                   additional_properties)
+                   signatory_code)
 
     def __repr__(self):
         """Return a unambiguous string representation."""
@@ -232,7 +239,6 @@ class DocumentDetail1(object):
             if hasattr(self, "signatory_code")
             else None
         )
-        _additional_properties=self.additional_properties
         return (
             f"{self.__class__.__name__}("
             f"account_holder_code={_account_holder_code!r}, "
@@ -244,7 +250,6 @@ class DocumentDetail1(object):
             f"legal_arrangement_entity_code={_legal_arrangement_entity_code!r}, "
             f"shareholder_code={_shareholder_code!r}, "
             f"signatory_code={_signatory_code!r}, "
-            f"additional_properties={_additional_properties!r}, "
             f")"
         )
 
@@ -291,7 +296,6 @@ class DocumentDetail1(object):
             if hasattr(self, "signatory_code")
             else None
         )
-        _additional_properties=self.additional_properties
         return (
             f"{self.__class__.__name__}("
             f"account_holder_code={_account_holder_code!s}, "
@@ -303,6 +307,5 @@ class DocumentDetail1(object):
             f"legal_arrangement_entity_code={_legal_arrangement_entity_code!s}, "
             f"shareholder_code={_shareholder_code!s}, "
             f"signatory_code={_signatory_code!s}, "
-            f"additional_properties={_additional_properties!s}, "
             f")"
         )

@@ -18,9 +18,11 @@ class GetTermsOfServiceDocumentRequest(object):
         terms_of_service_document_format (str): The requested format for the Terms of
             Service document. Default value: JSON. Possible values: **JSON**,
             **PDF**, or **TXT**.
-        mtype (Type25): The model property of type Type25.
-        additional_properties (Dict[str, Any]): The additional properties for the
-            model.
+        mtype (Type64Enum): The type of Terms of Service.  Possible values: *
+            **adyenForPlatformsManage** *  **adyenIssuing** *
+            **adyenForPlatformsAdvanced** *  **adyenCapital** *  **adyenAccount** *
+            **adyenCard** *  **adyenFranchisee** *  **adyenPccr** *
+            **adyenChargeCard** *  **kycOnInvite**
 
     """
 
@@ -39,19 +41,13 @@ class GetTermsOfServiceDocumentRequest(object):
         self,
         language=None,
         mtype=None,
-        terms_of_service_document_format=APIHelper.SKIP,
-        additional_properties=None):
+        terms_of_service_document_format=APIHelper.SKIP):
         """Initialize a GetTermsOfServiceDocumentRequest instance."""
         # Initialize members of the class
         self.language = language
         if terms_of_service_document_format is not APIHelper.SKIP:
             self.terms_of_service_document_format = terms_of_service_document_format
         self.mtype = mtype
-
-        # Add additional model properties to the instance
-        if additional_properties is None:
-            additional_properties = {}
-        self.additional_properties = additional_properties
 
     @classmethod
     def from_dictionary(cls,
@@ -84,16 +80,10 @@ class GetTermsOfServiceDocumentRequest(object):
             if dictionary.get("termsOfServiceDocumentFormat")\
                 else APIHelper.SKIP
 
-        additional_properties = APIHelper.get_additional_properties(
-            dictionary={k: v for k, v in dictionary.items()
-                        if k not in cls._names.values()},
-            unboxing_function=lambda value: value)
-
         # Return an object of this model
         return cls(language,
                    mtype,
-                   terms_of_service_document_format,
-                   additional_properties)
+                   terms_of_service_document_format)
 
     def __repr__(self):
         """Return a unambiguous string representation."""
@@ -104,13 +94,11 @@ class GetTermsOfServiceDocumentRequest(object):
             else None
         )
         _mtype=self.mtype
-        _additional_properties=self.additional_properties
         return (
             f"{self.__class__.__name__}("
             f"language={_language!r}, "
             f"terms_of_service_document_format={_terms_of_service_document_format!r}, "
             f"mtype={_mtype!r}, "
-            f"additional_properties={_additional_properties!r}, "
             f")"
         )
 
@@ -123,12 +111,10 @@ class GetTermsOfServiceDocumentRequest(object):
             else None
         )
         _mtype=self.mtype
-        _additional_properties=self.additional_properties
         return (
             f"{self.__class__.__name__}("
             f"language={_language!s}, "
             f"terms_of_service_document_format={_terms_of_service_document_format!s}, "
             f"mtype={_mtype!s}, "
-            f"additional_properties={_additional_properties!s}, "
             f")"
         )

@@ -1,8 +1,6 @@
 
 # Shipping Location
 
-*This model accepts additional fields of type Any.*
-
 ## Structure
 
 `ShippingLocation`
@@ -11,47 +9,35 @@
 
 | Name | Type | Tags | Description |
 |  --- | --- | --- | --- |
-| `address` | [`Address6`](../../doc/models/address-6.md) | Optional | - |
-| `contact` | [`Contact`](../../doc/models/contact.md) | Optional | - |
+| `address` | [`Address21`](../../doc/models/address-21.md) | Optional | The address details of the shipping location. |
+| `contact` | [`Contact1`](../../doc/models/contact-1.md) | Optional | The contact details for the shipping location. |
 | `id` | `str` | Optional | The unique identifier of the shipping location, for use as `shippingLocationId` when creating an order. |
 | `name` | `str` | Optional | The unique name of the shipping location. |
-| `additional_properties` | `Dict[str, Any]` | Optional | - |
 
 ## Example
 
 ```python
-import jsonpickle
-
-from adyen.models.address_6 import Address6
-from adyen.models.contact import Contact
+from adyen.models.address_21 import Address21
+from adyen.models.contact_1 import Contact1
 from adyen.models.shipping_location import ShippingLocation
 
 shipping_location = ShippingLocation(
-    address=Address6(
+    address=Address21(
         city='city6',
         company_name='companyName8',
         country='country0',
         postal_code='postalCode8',
-        state_or_province='stateOrProvince4',
-        additional_properties={
-            'exampleAdditionalProperty': jsonpickle.decode('{"key1":"val1","key2":"val2"}')
-        }
+        state_or_province='stateOrProvince4'
     ),
-    contact=Contact(
+    contact=Contact1(
         email='email4',
         first_name='firstName2',
         infix='infix6',
         last_name='lastName6',
-        phone_number='phoneNumber2',
-        additional_properties={
-            'exampleAdditionalProperty': jsonpickle.decode('{"key1":"val1","key2":"val2"}')
-        }
+        phone_number='phoneNumber2'
     ),
     id='id4',
-    name='name4',
-    additional_properties={
-        'exampleAdditionalProperty': jsonpickle.decode('{"key1":"val1","key2":"val2"}')
-    }
+    name='name4'
 )
 ```
 

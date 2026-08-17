@@ -13,8 +13,6 @@ class AuthorisedCardUsers(object):
     Attributes:
         legal_entity_ids (List[str]): The legal entity IDs of the authorized card
             users linked to the specified payment instrument.
-        additional_properties (Dict[str, Any]): The additional properties for the
-            model.
 
     """
 
@@ -29,17 +27,11 @@ class AuthorisedCardUsers(object):
 
     def __init__(
         self,
-        legal_entity_ids=APIHelper.SKIP,
-        additional_properties=None):
+        legal_entity_ids=APIHelper.SKIP):
         """Initialize a AuthorisedCardUsers instance."""
         # Initialize members of the class
         if legal_entity_ids is not APIHelper.SKIP:
             self.legal_entity_ids = legal_entity_ids
-
-        # Add additional model properties to the instance
-        if additional_properties is None:
-            additional_properties = {}
-        self.additional_properties = additional_properties
 
     @classmethod
     def from_dictionary(cls,
@@ -64,14 +56,8 @@ class AuthorisedCardUsers(object):
             if dictionary.get("legalEntityIds")\
                 else APIHelper.SKIP
 
-        additional_properties = APIHelper.get_additional_properties(
-            dictionary={k: v for k, v in dictionary.items()
-                        if k not in cls._names.values()},
-            unboxing_function=lambda value: value)
-
         # Return an object of this model
-        return cls(legal_entity_ids,
-                   additional_properties)
+        return cls(legal_entity_ids)
 
     def __repr__(self):
         """Return a unambiguous string representation."""
@@ -80,11 +66,9 @@ class AuthorisedCardUsers(object):
             if hasattr(self, "legal_entity_ids")
             else None
         )
-        _additional_properties=self.additional_properties
         return (
             f"{self.__class__.__name__}("
             f"legal_entity_ids={_legal_entity_ids!r}, "
-            f"additional_properties={_additional_properties!r}, "
             f")"
         )
 
@@ -95,10 +79,8 @@ class AuthorisedCardUsers(object):
             if hasattr(self, "legal_entity_ids")
             else None
         )
-        _additional_properties=self.additional_properties
         return (
             f"{self.__class__.__name__}("
             f"legal_entity_ids={_legal_entity_ids!s}, "
-            f"additional_properties={_additional_properties!s}, "
             f")"
         )

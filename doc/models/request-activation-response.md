@@ -1,8 +1,6 @@
 
 # Request Activation Response
 
-*This model accepts additional fields of type Any.*
-
 ## Structure
 
 `RequestActivationResponse`
@@ -13,21 +11,15 @@
 |  --- | --- | --- | --- |
 | `company_id` | `str` | Optional | The unique identifier of the company account. |
 | `merchant_id` | `str` | Optional | The unique identifier of the merchant account you requested to activate. |
-| `additional_properties` | `Dict[str, Any]` | Optional | - |
 
 ## Example
 
 ```python
-import jsonpickle
-
 from adyen.models.request_activation_response import RequestActivationResponse
 
 request_activation_response = RequestActivationResponse(
     company_id='companyId0',
-    merchant_id='merchantId6',
-    additional_properties={
-        'exampleAdditionalProperty': jsonpickle.decode('{"key1":"val1","key2":"val2"}')
-    }
+    merchant_id='merchantId6'
 )
 ```
 

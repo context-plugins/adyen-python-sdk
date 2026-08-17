@@ -39,41 +39,37 @@ This endpoint requires [clientKey](../../doc/auth/custom-query-parameter.md) **O
 
 **200**: OK - the request has succeeded.
 
-This method returns an [`ApiResponse`](../../doc/api-response.md) instance. The `body` property of this instance returns the response data which is of type [`TransactionRule`](../../doc/models/transaction-rule.md).
+[`TransactionRule`](../../doc/models/transaction-rule.md)
 
 ## Example Usage
 
 ```python
 body = TransactionRuleInfo(
     description='Allow only point-of-sale transactions',
-    entity_key=TransactionRuleEntityKey(
+    entity_key=TransactionRuleEntityKey2(
         entity_reference='PI3227C223222B5FG88SB8BHR',
         entity_type='paymentInstrument'
     ),
-    interval=TransactionRuleInterval(
-        mtype=Type13.PERTRANSACTION
+    interval=TransactionRuleInterval1(
+        mtype=Type131Enum.PERTRANSACTION
     ),
     reference='YOUR_REFERENCE_4F7346',
-    rule_restrictions=TransactionRuleRestrictions(
-        processing_types=ProcessingTypesRestriction(
+    rule_restrictions=TransactionRuleRestrictions1(
+        processing_types=ProcessingTypesRestriction1(
             operation='noneMatch',
             value=[
-                Value4.POS
+                Value4Enum.POS
             ]
         )
     ),
-    mtype=Type14.BLOCKLIST,
-    status=Status14.ACTIVE
+    mtype=Type141Enum.BLOCKLIST,
+    status=Status6Enum.ACTIVE
 )
 
 result = transaction_rules_api.post_transaction_rules(
     body=body
 )
-
-if result.is_success():
-    print(result.body)
-elif result.is_error():
-    print(result.errors)
+print(result)
 ```
 
 ## Example Response *(as JSON)*
@@ -141,7 +137,7 @@ This endpoint requires [clientKey](../../doc/auth/custom-query-parameter.md) **O
 
 **200**: OK - the request has succeeded.
 
-This method returns an [`ApiResponse`](../../doc/api-response.md) instance. The `body` property of this instance returns the response data which is of type [`TransactionRuleResponse`](../../doc/models/transaction-rule-response.md).
+[`TransactionRuleResponse`](../../doc/models/transaction-rule-response.md)
 
 ## Example Usage
 
@@ -149,11 +145,7 @@ This method returns an [`ApiResponse`](../../doc/api-response.md) instance. The 
 transaction_rule_id = 'transactionRuleId2'
 
 result = transaction_rules_api.get_transaction_rules_transaction_rule_id(transaction_rule_id)
-
-if result.is_success():
-    print(result.body)
-elif result.is_error():
-    print(result.errors)
+print(result)
 ```
 
 ## Example Response *(as JSON)*
@@ -223,7 +215,7 @@ This endpoint requires [clientKey](../../doc/auth/custom-query-parameter.md) **O
 
 **200**: OK - the request has succeeded.
 
-This method returns an [`ApiResponse`](../../doc/api-response.md) instance. The `body` property of this instance returns the response data which is of type [`TransactionRule`](../../doc/models/transaction-rule.md).
+[`TransactionRule`](../../doc/models/transaction-rule.md)
 
 ## Example Usage
 
@@ -231,11 +223,7 @@ This method returns an [`ApiResponse`](../../doc/api-response.md) instance. The 
 transaction_rule_id = 'transactionRuleId2'
 
 result = transaction_rules_api.delete_transaction_rules_transaction_rule_id(transaction_rule_id)
-
-if result.is_success():
-    print(result.body)
-elif result.is_error():
-    print(result.errors)
+print(result)
 ```
 
 ## Example Response *(as JSON)*
@@ -313,7 +301,7 @@ This endpoint requires [clientKey](../../doc/auth/custom-query-parameter.md) **O
 
 **200**: OK - the request has succeeded.
 
-This method returns an [`ApiResponse`](../../doc/api-response.md) instance. The `body` property of this instance returns the response data which is of type [`TransactionRule`](../../doc/models/transaction-rule.md).
+[`TransactionRule`](../../doc/models/transaction-rule.md)
 
 ## Example Usage
 
@@ -322,35 +310,31 @@ transaction_rule_id = 'transactionRuleId2'
 
 body = TransactionRuleInfo(
     description='Allow only point-of-sale transactions',
-    entity_key=TransactionRuleEntityKey(
+    entity_key=TransactionRuleEntityKey2(
         entity_reference='PI3227C223222B5FG88SB8BHR',
         entity_type='paymentInstrument'
     ),
-    interval=TransactionRuleInterval(
-        mtype=Type13.WEEKLY
+    interval=TransactionRuleInterval1(
+        mtype=Type131Enum.WEEKLY
     ),
     reference='YOUR_REFERENCE_4F7346',
-    rule_restrictions=TransactionRuleRestrictions(
-        processing_types=ProcessingTypesRestriction(
+    rule_restrictions=TransactionRuleRestrictions1(
+        processing_types=ProcessingTypesRestriction1(
             operation='noneMatch',
             value=[
-                Value4.POS
+                Value4Enum.POS
             ]
         )
     ),
-    mtype=Type14.BLOCKLIST,
-    status=Status14.INACTIVE
+    mtype=Type141Enum.BLOCKLIST,
+    status=Status6Enum.INACTIVE
 )
 
 result = transaction_rules_api.patch_transaction_rules_transaction_rule_id(
     transaction_rule_id,
     body=body
 )
-
-if result.is_success():
-    print(result.body)
-elif result.is_error():
-    print(result.errors)
+print(result)
 ```
 
 ## Example Response *(as JSON)*

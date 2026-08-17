@@ -8,7 +8,7 @@ from adyen.api_helper import APIHelper
 from adyen.models.geographic_coordinates import (
     GeographicCoordinates,
 )
-from adyen.models.utm_coordinates import UtmCoordinates
+from adyen.models.utm_coordinates import UTMCoordinates
 
 
 class Geolocation(object):
@@ -17,9 +17,7 @@ class Geolocation(object):
     Attributes:
         geographic_coordinates (GeographicCoordinates): The model property of type
             GeographicCoordinates.
-        utm_coordinates (UtmCoordinates): The model property of type UtmCoordinates.
-        additional_properties (Dict[str, Any]): The additional properties for the
-            model.
+        utm_coordinates (UTMCoordinates): The model property of type UTMCoordinates.
 
     """
 
@@ -37,19 +35,13 @@ class Geolocation(object):
     def __init__(
         self,
         geographic_coordinates=APIHelper.SKIP,
-        utm_coordinates=APIHelper.SKIP,
-        additional_properties=None):
+        utm_coordinates=APIHelper.SKIP):
         """Initialize a Geolocation instance."""
         # Initialize members of the class
         if geographic_coordinates is not APIHelper.SKIP:
             self.geographic_coordinates = geographic_coordinates
         if utm_coordinates is not APIHelper.SKIP:
             self.utm_coordinates = utm_coordinates
-
-        # Add additional model properties to the instance
-        if additional_properties is None:
-            additional_properties = {}
-        self.additional_properties = additional_properties
 
     @classmethod
     def from_dictionary(cls,
@@ -75,20 +67,14 @@ class Geolocation(object):
                 if "GeographicCoordinates" in dictionary.keys()\
                 else APIHelper.SKIP
         utm_coordinates =\
-            UtmCoordinates.from_dictionary(
+            UTMCoordinates.from_dictionary(
                 dictionary.get("UTMCoordinates"))\
                 if "UTMCoordinates" in dictionary.keys()\
                 else APIHelper.SKIP
 
-        additional_properties = APIHelper.get_additional_properties(
-            dictionary={k: v for k, v in dictionary.items()
-                        if k not in cls._names.values()},
-            unboxing_function=lambda value: value)
-
         # Return an object of this model
         return cls(geographic_coordinates,
-                   utm_coordinates,
-                   additional_properties)
+                   utm_coordinates)
 
     def __repr__(self):
         """Return a unambiguous string representation."""
@@ -102,12 +88,10 @@ class Geolocation(object):
             if hasattr(self, "utm_coordinates")
             else None
         )
-        _additional_properties=self.additional_properties
         return (
             f"{self.__class__.__name__}("
             f"geographic_coordinates={_geographic_coordinates!r}, "
             f"utm_coordinates={_utm_coordinates!r}, "
-            f"additional_properties={_additional_properties!r}, "
             f")"
         )
 
@@ -123,11 +107,9 @@ class Geolocation(object):
             if hasattr(self, "utm_coordinates")
             else None
         )
-        _additional_properties=self.additional_properties
         return (
             f"{self.__class__.__name__}("
             f"geographic_coordinates={_geographic_coordinates!s}, "
             f"utm_coordinates={_utm_coordinates!s}, "
-            f"additional_properties={_additional_properties!s}, "
             f")"
         )

@@ -23,7 +23,9 @@
 #### Example
 
 ```python
-value = ForceRebootDetails()
+value = ForceRebootDetails(
+    mtype=Type210Enum.FORCEREBOOT
+)
 ```
 
 ## InstallAndroidAppDetails
@@ -33,7 +35,9 @@ value = ForceRebootDetails()
 #### Example
 
 ```python
-value = InstallAndroidAppDetails()
+value = InstallAndroidAppDetails(
+    mtype=Type32Enum.INSTALLANDROIDAPP
+)
 ```
 
 ## InstallAndroidCertificateDetails
@@ -43,7 +47,9 @@ value = InstallAndroidAppDetails()
 #### Example
 
 ```python
-value = InstallAndroidCertificateDetails()
+value = InstallAndroidCertificateDetails(
+    mtype=Type42Enum.INSTALLANDROIDCERTIFICATE
+)
 ```
 
 ## ReleaseUpdateDetails
@@ -53,7 +59,9 @@ value = InstallAndroidCertificateDetails()
 #### Example
 
 ```python
-value = ReleaseUpdateDetails()
+value = ReleaseUpdateDetails(
+    mtype=Type61Enum.RELEASEUPDATE
+)
 ```
 
 ## UninstallAndroidAppDetails
@@ -63,7 +71,9 @@ value = ReleaseUpdateDetails()
 #### Example
 
 ```python
-value = UninstallAndroidAppDetails()
+value = UninstallAndroidAppDetails(
+    mtype=Type71Enum.UNINSTALLANDROIDAPP
+)
 ```
 
 ## UninstallAndroidCertificateDetails
@@ -73,6 +83,8 @@ value = UninstallAndroidAppDetails()
 #### Example
 
 ```python
-value = UninstallAndroidCertificateDetails()
+value = UninstallAndroidCertificateDetails(
+    mtype=Type81Enum.UNINSTALLANDROIDCERTIFICATE
+)
 ```
 

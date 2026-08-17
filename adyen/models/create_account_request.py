@@ -29,13 +29,16 @@ class CreateAccountRequest(object):
         payout_method_code (str): The payout method code held by the account holder
             to couple the account with. Scheduled card payouts will be sent using
             this payout method code.
-        payout_schedule (PayoutSchedule): The model property of type PayoutSchedule.
+        payout_schedule (PayoutScheduleEnum): The payout schedule for the account.
+            Possible values: `DEFAULT`, `DAILY`, `DAILY_US`, `DAILY_EU`, `DAILY_AU`,
+            `DAILY_SG`, `WEEKLY`, `WEEKLY_ON_TUE_FRI_MIDNIGHT`,
+            `BIWEEKLY_ON_1ST_AND_15TH_AT_MIDNIGHT`, `MONTHLY`, `HOLD`. > `HOLD`
+            prevents scheduled payouts, but you can still initiate payouts manually.
         payout_schedule_reason (str): The reason for the payout schedule choice. >
             This field is required when the `payoutSchedule` parameter is set to
             `HOLD`.
-        payout_speed (PayoutSpeed1): The model property of type PayoutSpeed1.
-        additional_properties (Dict[str, Any]): The additional properties for the
-            model.
+        payout_speed (PayoutSpeed1Enum): Speed at which payouts for this account are
+            processed.  Possible values: `STANDARD` (default), `SAME_DAY`.
 
     """
 
@@ -70,8 +73,7 @@ class CreateAccountRequest(object):
         payout_method_code=APIHelper.SKIP,
         payout_schedule=APIHelper.SKIP,
         payout_schedule_reason=APIHelper.SKIP,
-        payout_speed=APIHelper.SKIP,
-        additional_properties=None):
+        payout_speed="STANDARD"):
         """Initialize a CreateAccountRequest instance."""
         # Initialize members of the class
         self.account_holder_code = account_holder_code
@@ -87,13 +89,7 @@ class CreateAccountRequest(object):
             self.payout_schedule = payout_schedule
         if payout_schedule_reason is not APIHelper.SKIP:
             self.payout_schedule_reason = payout_schedule_reason
-        if payout_speed is not APIHelper.SKIP:
-            self.payout_speed = payout_speed
-
-        # Add additional model properties to the instance
-        if additional_properties is None:
-            additional_properties = {}
-        self.additional_properties = additional_properties
+        self.payout_speed = payout_speed
 
     @classmethod
     def from_dictionary(cls,
@@ -144,12 +140,7 @@ class CreateAccountRequest(object):
         payout_speed =\
             dictionary.get("payoutSpeed")\
             if dictionary.get("payoutSpeed")\
-                else APIHelper.SKIP
-
-        additional_properties = APIHelper.get_additional_properties(
-            dictionary={k: v for k, v in dictionary.items()
-                        if k not in cls._names.values()},
-            unboxing_function=lambda value: value)
+                else "STANDARD"
 
         # Return an object of this model
         return cls(account_holder_code,
@@ -159,8 +150,7 @@ class CreateAccountRequest(object):
                    payout_method_code,
                    payout_schedule,
                    payout_schedule_reason,
-                   payout_speed,
-                   additional_properties)
+                   payout_speed)
 
     def __repr__(self):
         """Return a unambiguous string representation."""
@@ -200,7 +190,6 @@ class CreateAccountRequest(object):
             if hasattr(self, "payout_speed")
             else None
         )
-        _additional_properties=self.additional_properties
         return (
             f"{self.__class__.__name__}("
             f"account_holder_code={_account_holder_code!r}, "
@@ -211,7 +200,6 @@ class CreateAccountRequest(object):
             f"payout_schedule={_payout_schedule!r}, "
             f"payout_schedule_reason={_payout_schedule_reason!r}, "
             f"payout_speed={_payout_speed!r}, "
-            f"additional_properties={_additional_properties!r}, "
             f")"
         )
 
@@ -253,7 +241,6 @@ class CreateAccountRequest(object):
             if hasattr(self, "payout_speed")
             else None
         )
-        _additional_properties=self.additional_properties
         return (
             f"{self.__class__.__name__}("
             f"account_holder_code={_account_holder_code!s}, "
@@ -264,6 +251,5 @@ class CreateAccountRequest(object):
             f"payout_schedule={_payout_schedule!s}, "
             f"payout_schedule_reason={_payout_schedule_reason!s}, "
             f"payout_speed={_payout_speed!s}, "
-            f"additional_properties={_additional_properties!s}, "
             f")"
         )

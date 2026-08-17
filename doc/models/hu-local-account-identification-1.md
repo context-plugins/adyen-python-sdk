@@ -1,11 +1,9 @@
 
-# Hu Local Account Identification 1
-
-*This model accepts additional fields of type Any.*
+# HU Local Account Identification 1
 
 ## Structure
 
-`HuLocalAccountIdentification1`
+`HULocalAccountIdentification1`
 
 ## Inherits From
 
@@ -16,21 +14,15 @@
 | Name | Type | Tags | Description |
 |  --- | --- | --- | --- |
 | `account_number` | `str` | Required | The 24-digit bank account number, without separators or whitespace.<br><br>**Constraints**: *Minimum Length*: `24`, *Maximum Length*: `24` |
-| `additional_properties` | `Dict[str, Any]` | Optional | - |
 
 ## Example
 
 ```python
-import jsonpickle
+from adyen.models.bank_account_identification import HULocalAccountIdentification1
 
-from adyen.models.bank_account_identification import HuLocalAccountIdentification1
-
-hu_local_account_identification_1 = HuLocalAccountIdentification1(
+hu_local_account_identification_1 = HULocalAccountIdentification1(
     account_number='accountNumber2',
-    mtype='huLocal',
-    additional_properties={
-        'exampleAdditionalProperty': jsonpickle.decode('{"key1":"val1","key2":"val2"}')
-    }
+    mtype='huLocal'
 )
 ```
 

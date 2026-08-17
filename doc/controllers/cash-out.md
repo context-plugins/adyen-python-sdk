@@ -30,23 +30,23 @@ def post_cashouts(self,
 
 **200**: OK - The request has succeeded.
 
-This method returns an [`ApiResponse`](../../doc/api-response.md) instance. The `body` property of this instance returns the response data which is of type [`CashOut`](../../doc/models/cash-out.md).
+[`CashOut`](../../doc/models/cash-out.md)
 
 ## Example Usage
 
 ```python
 body = CashOutInfo(
-    amount=Amount5(
+    amount=Amount17(
         currency='EUR',
         value=50000
     ),
     instructing_balance_account_id='BA00000000000000000000001',
-    counterparty=CashOutInfoCounterparty(
+    counterparty=CashOutInfoCounterparty1(
         transfer_instrument_id='SE00000000000000000000001'
     ),
     description='Cashout to bank account',
-    fee=Fee2(
-        amount=Amount5(
+    fee=Fee21(
+        amount=Amount17(
             currency='EUR',
             value=500
         )
@@ -55,11 +55,7 @@ body = CashOutInfo(
 )
 
 result = cash_out_api.post_cashouts(body)
-
-if result.is_success():
-    print(result.body)
-elif result.is_error():
-    print(result.errors)
+print(result)
 ```
 
 ## Example Response *(as JSON)*
@@ -108,11 +104,11 @@ elif result.is_error():
 
 | HTTP Status Code | Error Description | Exception Class |
 |  --- | --- | --- |
-| 400 | Bad Request - The request is malformed or is not in the expected format. | [`Cashouts400ErrorException`](../../doc/models/cashouts-400-error-exception.md) |
-| 401 | Unauthorized - The API credential used in the request is invalid. | [`Cashouts401ErrorException`](../../doc/models/cashouts-401-error-exception.md) |
-| 403 | Forbidden - The API credential does not have the right permissions. | [`Cashouts403ErrorException`](../../doc/models/cashouts-403-error-exception.md) |
-| 404 | Not Found - The requested resource was not found. | [`Cashouts404ErrorException`](../../doc/models/cashouts-404-error-exception.md) |
-| 422 | Unprocessable Entity - A request validation error. | [`Cashouts422ErrorException`](../../doc/models/cashouts-422-error-exception.md) |
-| 429 | Too Many Requests - Request rate limit exceeded. | [`Cashouts429ErrorException`](../../doc/models/cashouts-429-error-exception.md) |
-| 500 | Internal Service Error - An unrecoverable error occurred while trying to perform the request. | [`Cashouts500ErrorException`](../../doc/models/cashouts-500-error-exception.md) |
+| 400 | Bad Request - The request is malformed or is not in the expected format. | [`DefaultErrorResponseEntityException`](../../doc/models/default-error-response-entity-exception.md) |
+| 401 | Unauthorized - The API credential used in the request is invalid. | [`DefaultErrorResponseEntityException`](../../doc/models/default-error-response-entity-exception.md) |
+| 403 | Forbidden - The API credential does not have the right permissions. | [`DefaultErrorResponseEntityException`](../../doc/models/default-error-response-entity-exception.md) |
+| 404 | Not Found - The requested resource was not found. | [`DefaultErrorResponseEntityException`](../../doc/models/default-error-response-entity-exception.md) |
+| 422 | Unprocessable Entity - A request validation error. | [`DefaultErrorResponseEntityException`](../../doc/models/default-error-response-entity-exception.md) |
+| 429 | Too Many Requests - Request rate limit exceeded. | [`DefaultErrorResponseEntityException`](../../doc/models/default-error-response-entity-exception.md) |
+| 500 | Internal Service Error - An unrecoverable error occurred while trying to perform the request. | [`DefaultErrorResponseEntityException`](../../doc/models/default-error-response-entity-exception.md) |
 

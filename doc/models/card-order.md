@@ -1,8 +1,6 @@
 
 # Card Order
 
-*This model accepts additional fields of type Any.*
-
 ## Structure
 
 `CardOrder`
@@ -18,14 +16,12 @@
 | `id` | `str` | Optional | The unique identifier of the card order. |
 | `lock_date` | `datetime` | Optional | The date when the card order processing begins. |
 | `service_center` | `str` | Optional | The service center. |
-| `status` | [`Status6`](../../doc/models/status-6.md) | Optional | - |
-| `additional_properties` | `Dict[str, Any]` | Optional | - |
+| `status` | [`Status61Enum`](../../doc/models/status-61-enum.md) | Optional | The status of the card order.<br><br>Possible values: **Open**, **Closed**. |
 
 ## Example
 
 ```python
 import dateutil.parser
-import jsonpickle
 
 from adyen.models.card_order import CardOrder
 
@@ -34,10 +30,7 @@ card_order = CardOrder(
     card_manufacturing_profile_id='cardManufacturingProfileId8',
     closed_date=dateutil.parser.parse('2016-03-13T12:52:32.123Z'),
     end_date=dateutil.parser.parse('2016-03-13T12:52:32.123Z'),
-    id='id4',
-    additional_properties={
-        'exampleAdditionalProperty': jsonpickle.decode('{"key1":"val1","key2":"val2"}')
-    }
+    id='id4'
 )
 ```
 

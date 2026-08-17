@@ -1,8 +1,6 @@
 
 # Response Additional Data Installments
 
-*This model accepts additional fields of type Any.*
-
 ## Structure
 
 `ResponseAdditionalDataInstallments`
@@ -23,13 +21,10 @@
 | `installment_payment_data_option_item_nr_total_amount_due` | `str` | Optional | Total amount in minor units. |
 | `installment_payment_data_payment_options` | `str` | Optional | Possible values:<br><br>* PayInInstallmentsOnly<br>* PayInFullOnly<br>* PayInFullOrInstallments |
 | `installments_value` | `str` | Optional | The number of installments that the payment amount should be charged with.<br><br>Example: 5<br><br>> Only relevant for card payments in countries that support installments. |
-| `additional_properties` | `Dict[str, Any]` | Optional | - |
 
 ## Example
 
 ```python
-import jsonpickle
-
 from adyen.models.response_additional_data_installments import ResponseAdditionalDataInstallments
 
 response_additional_data_installments = ResponseAdditionalDataInstallments(
@@ -37,10 +32,7 @@ response_additional_data_installments = ResponseAdditionalDataInstallments(
     installment_payment_data_option_item_nr_annual_percentage_rate=Liquid error: Value cannot be null. (Parameter 'key'),
     installment_payment_data_option_item_nr_first_installment_amount=Liquid error: Value cannot be null. (Parameter 'key'),
     installment_payment_data_option_item_nr_installment_fee=Liquid error: Value cannot be null. (Parameter 'key'),
-    installment_payment_data_option_item_nr_interest_rate=Liquid error: Value cannot be null. (Parameter 'key'),
-    additional_properties={
-        'exampleAdditionalProperty': jsonpickle.decode('{"key1":"val1","key2":"val2"}')
-    }
+    installment_payment_data_option_item_nr_interest_rate=Liquid error: Value cannot be null. (Parameter 'key')
 )
 ```
 

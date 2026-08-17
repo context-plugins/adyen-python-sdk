@@ -14,8 +14,6 @@ class CompanyBalances(object):
     Attributes:
         merchant_balances_overview (List[MerchantBalance]): The model property of
             type List[MerchantBalance].
-        additional_properties (Dict[str, Any]): The additional properties for the
-            model.
 
     """
 
@@ -30,17 +28,11 @@ class CompanyBalances(object):
 
     def __init__(
         self,
-        merchant_balances_overview=APIHelper.SKIP,
-        additional_properties=None):
+        merchant_balances_overview=APIHelper.SKIP):
         """Initialize a CompanyBalances instance."""
         # Initialize members of the class
         if merchant_balances_overview is not APIHelper.SKIP:
             self.merchant_balances_overview = merchant_balances_overview
-
-        # Add additional model properties to the instance
-        if additional_properties is None:
-            additional_properties = {}
-        self.additional_properties = additional_properties
 
     @classmethod
     def from_dictionary(cls,
@@ -69,14 +61,8 @@ class CompanyBalances(object):
         else:
             merchant_balances_overview = APIHelper.SKIP
 
-        additional_properties = APIHelper.get_additional_properties(
-            dictionary={k: v for k, v in dictionary.items()
-                        if k not in cls._names.values()},
-            unboxing_function=lambda value: value)
-
         # Return an object of this model
-        return cls(merchant_balances_overview,
-                   additional_properties)
+        return cls(merchant_balances_overview)
 
     def __repr__(self):
         """Return a unambiguous string representation."""
@@ -85,11 +71,9 @@ class CompanyBalances(object):
             if hasattr(self, "merchant_balances_overview")
             else None
         )
-        _additional_properties=self.additional_properties
         return (
             f"{self.__class__.__name__}("
             f"merchant_balances_overview={_merchant_balances_overview!r}, "
-            f"additional_properties={_additional_properties!r}, "
             f")"
         )
 
@@ -100,10 +84,8 @@ class CompanyBalances(object):
             if hasattr(self, "merchant_balances_overview")
             else None
         )
-        _additional_properties=self.additional_properties
         return (
             f"{self.__class__.__name__}("
             f"merchant_balances_overview={_merchant_balances_overview!s}, "
-            f"additional_properties={_additional_properties!s}, "
             f")"
         )

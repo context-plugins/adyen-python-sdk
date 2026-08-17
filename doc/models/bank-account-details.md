@@ -1,8 +1,6 @@
 
 # Bank Account Details
 
-*This model accepts additional fields of type Any.*
-
 ## Structure
 
 `BankAccountDetails`
@@ -18,26 +16,20 @@
 | `iban` | `str` | Optional | The international bank account number as defined in the [ISO-13616](https://www.iso.org/standard/81090.html) standard. |
 | `routing_number` | `str` | Optional | The [routing number](https://en.wikipedia.org/wiki/ABA_routing_transit_number), without separators or whitespace. |
 | `sort_code` | `str` | Optional | The [sort code](https://en.wikipedia.org/wiki/Sort_code), without separators or whitespace. |
-| `mtype` | `str` | Required | **iban** or **usLocal** or **ukLocal** |
-| `additional_properties` | `Dict[str, Any]` | Optional | - |
+| `mtype` | `str` | Required | **iban** or **usLocal** or **ukLocal**<br><br>**Default**: `"iban"` |
 
 ## Example
 
 ```python
-import jsonpickle
-
 from adyen.models.bank_account_details import BankAccountDetails
 
 bank_account_details = BankAccountDetails(
-    mtype='type0',
+    mtype='iban',
     account_number='accountNumber2',
     account_type='checking',
     branch_number='branchNumber0',
     form_factor='physical',
-    iban='iban4',
-    additional_properties={
-        'exampleAdditionalProperty': jsonpickle.decode('{"key1":"val1","key2":"val2"}')
-    }
+    iban='iban4'
 )
 ```
 

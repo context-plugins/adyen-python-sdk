@@ -35,8 +35,6 @@ class AdditionalDataTemporaryServices(object):
         enhanced_scheme_data_total_tax_amount (str): The total tax amount, in [minor
             units](https://docs.adyen.com/development-resources/currency-codes). For
             example, 2000 means USD 20.00 * maxLength: 12
-        additional_properties (Dict[str, Any]): The additional properties for the
-            model.
 
     """
 
@@ -78,8 +76,7 @@ class AdditionalDataTemporaryServices(object):
         enhanced_scheme_data_request_name=APIHelper.SKIP,
         enhanced_scheme_data_temp_start_date=APIHelper.SKIP,
         enhanced_scheme_data_temp_week_ending=APIHelper.SKIP,
-        enhanced_scheme_data_total_tax_amount=APIHelper.SKIP,
-        additional_properties=None):
+        enhanced_scheme_data_total_tax_amount=APIHelper.SKIP):
         """Initialize a AdditionalDataTemporaryServices instance."""
         # Initialize members of the class
         if enhanced_scheme_data_customer_reference is not APIHelper.SKIP:
@@ -109,11 +106,6 @@ class AdditionalDataTemporaryServices(object):
         if enhanced_scheme_data_total_tax_amount is not APIHelper.SKIP:
             self.enhanced_scheme_data_total_tax_amount =\
                  enhanced_scheme_data_total_tax_amount
-
-        # Add additional model properties to the instance
-        if additional_properties is None:
-            additional_properties = {}
-        self.additional_properties = additional_properties
 
     @classmethod
     def from_dictionary(cls,
@@ -170,11 +162,6 @@ class AdditionalDataTemporaryServices(object):
             if dictionary.get("enhancedSchemeData.totalTaxAmount")\
                 else APIHelper.SKIP
 
-        additional_properties = APIHelper.get_additional_properties(
-            dictionary={k: v for k, v in dictionary.items()
-                        if k not in cls._names.values()},
-            unboxing_function=lambda value: value)
-
         # Return an object of this model
         return cls(enhanced_scheme_data_customer_reference,
                    enhanced_scheme_data_employee_name,
@@ -184,8 +171,7 @@ class AdditionalDataTemporaryServices(object):
                    enhanced_scheme_data_request_name,
                    enhanced_scheme_data_temp_start_date,
                    enhanced_scheme_data_temp_week_ending,
-                   enhanced_scheme_data_total_tax_amount,
-                   additional_properties)
+                   enhanced_scheme_data_total_tax_amount)
 
     def __repr__(self):
         """Return a unambiguous string representation."""
@@ -234,7 +220,6 @@ class AdditionalDataTemporaryServices(object):
             if hasattr(self, "enhanced_scheme_data_total_tax_amount")
             else None
         )
-        _additional_properties=self.additional_properties
         return (
             f"{self.__class__.__name__}("
             f"enhanced_scheme_data_customer_reference={_enhanced_scheme_data_customer_reference!r}, "
@@ -246,7 +231,6 @@ class AdditionalDataTemporaryServices(object):
             f"enhanced_scheme_data_temp_start_date={_enhanced_scheme_data_temp_start_date!r}, "
             f"enhanced_scheme_data_temp_week_ending={_enhanced_scheme_data_temp_week_ending!r}, "
             f"enhanced_scheme_data_total_tax_amount={_enhanced_scheme_data_total_tax_amount!r}, "
-            f"additional_properties={_additional_properties!r}, "
             f")"
         )
 
@@ -297,7 +281,6 @@ class AdditionalDataTemporaryServices(object):
             if hasattr(self, "enhanced_scheme_data_total_tax_amount")
             else None
         )
-        _additional_properties=self.additional_properties
         return (
             f"{self.__class__.__name__}("
             f"enhanced_scheme_data_customer_reference={_enhanced_scheme_data_customer_reference!s}, "
@@ -309,6 +292,5 @@ class AdditionalDataTemporaryServices(object):
             f"enhanced_scheme_data_temp_start_date={_enhanced_scheme_data_temp_start_date!s}, "
             f"enhanced_scheme_data_temp_week_ending={_enhanced_scheme_data_temp_week_ending!s}, "
             f"enhanced_scheme_data_total_tax_amount={_enhanced_scheme_data_total_tax_amount!s}, "
-            f"additional_properties={_additional_properties!s}, "
             f")"
         )

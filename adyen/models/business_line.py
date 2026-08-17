@@ -8,10 +8,12 @@ from adyen.api_helper import APIHelper
 from adyen.models.capability_problem_1 import (
     CapabilityProblem1,
 )
-from adyen.models.source_of_funds import SourceOfFunds
+from adyen.models.source_of_funds_11 import (
+    SourceOfFunds11,
+)
 from adyen.models.web_data import WebData
-from adyen.models.web_data_exemption import (
-    WebDataExemption,
+from adyen.models.web_data_exemption_1 import (
+    WebDataExemption1,
 )
 
 
@@ -37,16 +39,18 @@ class BusinessLine(object):
             sold.  Possible values: **pos**, **posMoto**, **eCommerce**,
             **ecomMoto**, **payByLink**.  Required only in combination with the
             `service` **paymentProcessing**.
-        service (Service): The model property of type Service.
-        source_of_funds (SourceOfFunds): The model property of type SourceOfFunds.
+        service (ServiceEnum): The service for which you are creating the business
+            line.    Possible values: *  **paymentProcessing** *  **issuing** *
+            **banking**
+        source_of_funds (SourceOfFunds11): Contains information about the source of
+            your user's funds. Required only if the `service` is **banking** or
+            **issuing**.
         web_data (List[WebData]): List of website URLs where your user's goods or
             services are sold. When this is required for a service but your user does
             not have an online presence, provide the reason in the `webDataExemption`
             object.
-        web_data_exemption (WebDataExemption): The model property of type
-            WebDataExemption.
-        additional_properties (Dict[str, Any]): The additional properties for the
-            model.
+        web_data_exemption (WebDataExemption1): The reason why the web data is not
+            provided.
 
     """
 
@@ -84,8 +88,7 @@ class BusinessLine(object):
         sales_channels=APIHelper.SKIP,
         source_of_funds=APIHelper.SKIP,
         web_data=APIHelper.SKIP,
-        web_data_exemption=APIHelper.SKIP,
-        additional_properties=None):
+        web_data_exemption=APIHelper.SKIP):
         """Initialize a BusinessLine instance."""
         # Initialize members of the class
         self.id = id
@@ -104,11 +107,6 @@ class BusinessLine(object):
             self.web_data = web_data
         if web_data_exemption is not APIHelper.SKIP:
             self.web_data_exemption = web_data_exemption
-
-        # Add additional model properties to the instance
-        if additional_properties is None:
-            additional_properties = {}
-        self.additional_properties = additional_properties
 
     @classmethod
     def from_dictionary(cls,
@@ -161,7 +159,7 @@ class BusinessLine(object):
             if dictionary.get("salesChannels")\
                 else APIHelper.SKIP
         source_of_funds =\
-            SourceOfFunds.from_dictionary(
+            SourceOfFunds11.from_dictionary(
                 dictionary.get("sourceOfFunds"))\
                 if "sourceOfFunds" in dictionary.keys()\
                 else APIHelper.SKIP
@@ -174,15 +172,10 @@ class BusinessLine(object):
         else:
             web_data = APIHelper.SKIP
         web_data_exemption =\
-            WebDataExemption.from_dictionary(
+            WebDataExemption1.from_dictionary(
                 dictionary.get("webDataExemption"))\
                 if "webDataExemption" in dictionary.keys()\
                 else APIHelper.SKIP
-
-        additional_properties = APIHelper.get_additional_properties(
-            dictionary={k: v for k, v in dictionary.items()
-                        if k not in cls._names.values()},
-            unboxing_function=lambda value: value)
 
         # Return an object of this model
         return cls(id,
@@ -194,8 +187,7 @@ class BusinessLine(object):
                    sales_channels,
                    source_of_funds,
                    web_data,
-                   web_data_exemption,
-                   additional_properties)
+                   web_data_exemption)
 
     def __repr__(self):
         """Return a unambiguous string representation."""
@@ -233,7 +225,6 @@ class BusinessLine(object):
             if hasattr(self, "web_data_exemption")
             else None
         )
-        _additional_properties=self.additional_properties
         return (
             f"{self.__class__.__name__}("
             f"id={_id!r}, "
@@ -246,7 +237,6 @@ class BusinessLine(object):
             f"source_of_funds={_source_of_funds!r}, "
             f"web_data={_web_data!r}, "
             f"web_data_exemption={_web_data_exemption!r}, "
-            f"additional_properties={_additional_properties!r}, "
             f")"
         )
 
@@ -286,7 +276,6 @@ class BusinessLine(object):
             if hasattr(self, "web_data_exemption")
             else None
         )
-        _additional_properties=self.additional_properties
         return (
             f"{self.__class__.__name__}("
             f"id={_id!s}, "
@@ -299,6 +288,5 @@ class BusinessLine(object):
             f"source_of_funds={_source_of_funds!s}, "
             f"web_data={_web_data!s}, "
             f"web_data_exemption={_web_data_exemption!s}, "
-            f"additional_properties={_additional_properties!s}, "
             f")"
         )

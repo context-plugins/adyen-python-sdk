@@ -22,11 +22,9 @@ class SecureRemoteCommerceCheckoutData(object):
             -security-code-cvc-cvv-cid).
         digital_card_id (str): A unique identifier that represents the token
             associated with a card enrolled. Required for scheme 'mc'.
-        scheme (Scheme): The model property of type Scheme.
+        scheme (SchemeEnum): The Secure Remote Commerce scheme.
         token_reference (str): A unique identifier that represents the token
             associated with a card enrolled. Required for scheme 'visa'.
-        additional_properties (Dict[str, Any]): The additional properties for the
-            model.
 
     """
 
@@ -56,8 +54,7 @@ class SecureRemoteCommerceCheckoutData(object):
         cvc=APIHelper.SKIP,
         digital_card_id=APIHelper.SKIP,
         scheme=APIHelper.SKIP,
-        token_reference=APIHelper.SKIP,
-        additional_properties=None):
+        token_reference=APIHelper.SKIP):
         """Initialize a SecureRemoteCommerceCheckoutData instance."""
         # Initialize members of the class
         if checkout_payload is not APIHelper.SKIP:
@@ -72,11 +69,6 @@ class SecureRemoteCommerceCheckoutData(object):
             self.scheme = scheme
         if token_reference is not APIHelper.SKIP:
             self.token_reference = token_reference
-
-        # Add additional model properties to the instance
-        if additional_properties is None:
-            additional_properties = {}
-        self.additional_properties = additional_properties
 
     @classmethod
     def from_dictionary(cls,
@@ -121,19 +113,13 @@ class SecureRemoteCommerceCheckoutData(object):
             if dictionary.get("tokenReference")\
                 else APIHelper.SKIP
 
-        additional_properties = APIHelper.get_additional_properties(
-            dictionary={k: v for k, v in dictionary.items()
-                        if k not in cls._names.values()},
-            unboxing_function=lambda value: value)
-
         # Return an object of this model
         return cls(checkout_payload,
                    correlation_id,
                    cvc,
                    digital_card_id,
                    scheme,
-                   token_reference,
-                   additional_properties)
+                   token_reference)
 
     def __repr__(self):
         """Return a unambiguous string representation."""
@@ -167,7 +153,6 @@ class SecureRemoteCommerceCheckoutData(object):
             if hasattr(self, "token_reference")
             else None
         )
-        _additional_properties=self.additional_properties
         return (
             f"{self.__class__.__name__}("
             f"checkout_payload={_checkout_payload!r}, "
@@ -176,7 +161,6 @@ class SecureRemoteCommerceCheckoutData(object):
             f"digital_card_id={_digital_card_id!r}, "
             f"scheme={_scheme!r}, "
             f"token_reference={_token_reference!r}, "
-            f"additional_properties={_additional_properties!r}, "
             f")"
         )
 
@@ -212,7 +196,6 @@ class SecureRemoteCommerceCheckoutData(object):
             if hasattr(self, "token_reference")
             else None
         )
-        _additional_properties=self.additional_properties
         return (
             f"{self.__class__.__name__}("
             f"checkout_payload={_checkout_payload!s}, "
@@ -221,6 +204,5 @@ class SecureRemoteCommerceCheckoutData(object):
             f"digital_card_id={_digital_card_id!s}, "
             f"scheme={_scheme!s}, "
             f"token_reference={_token_reference!s}, "
-            f"additional_properties={_additional_properties!s}, "
             f")"
         )

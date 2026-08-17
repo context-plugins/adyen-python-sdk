@@ -59,8 +59,6 @@ class AdditionalDataRisk(object):
         riskdata_skip_risk (str): If this parameter is provided with the value
             **true**, risk checks for the payment request are skipped and the
             transaction will not get a risk score.
-        additional_properties (Dict[str, Any]): The additional properties for the
-            model.
 
     """
 
@@ -149,8 +147,7 @@ class AdditionalDataRisk(object):
             APIHelper.SKIP,
         riskdata_promotions_promotion_item_nr_promotion_name=APIHelper.SKIP,
         riskdata_risk_profile_reference=APIHelper.SKIP,
-        riskdata_skip_risk=APIHelper.SKIP,
-        additional_properties=None):
+        riskdata_skip_risk=APIHelper.SKIP):
         """Initialize a AdditionalDataRisk instance."""
         # Initialize members of the class
         if riskdata_custom_field_name is not APIHelper.SKIP:
@@ -211,11 +208,6 @@ class AdditionalDataRisk(object):
             self.riskdata_risk_profile_reference = riskdata_risk_profile_reference
         if riskdata_skip_risk is not APIHelper.SKIP:
             self.riskdata_skip_risk = riskdata_skip_risk
-
-        # Add additional model properties to the instance
-        if additional_properties is None:
-            additional_properties = {}
-        self.additional_properties = additional_properties
 
     @classmethod
     def from_dictionary(cls,
@@ -320,11 +312,6 @@ class AdditionalDataRisk(object):
             if dictionary.get("riskdata.skipRisk")\
                 else APIHelper.SKIP
 
-        additional_properties = APIHelper.get_additional_properties(
-            dictionary={k: v for k, v in dictionary.items()
-                        if k not in cls._names.values()},
-            unboxing_function=lambda value: value)
-
         # Return an object of this model
         return cls(riskdata_custom_field_name,
                    riskdata_basket_item_item_nr_amount_per_item,
@@ -346,8 +333,7 @@ class AdditionalDataRisk(object):
                    riskdata_promotions_promotion_item_nr_promotion_discount_percentage,
                    riskdata_promotions_promotion_item_nr_promotion_name,
                    riskdata_risk_profile_reference,
-                   riskdata_skip_risk,
-                   additional_properties)
+                   riskdata_skip_risk)
 
     def __repr__(self):
         """Return a unambiguous string representation."""
@@ -456,7 +442,6 @@ class AdditionalDataRisk(object):
             if hasattr(self, "riskdata_skip_risk")
             else None
         )
-        _additional_properties=self.additional_properties
         return (
             f"{self.__class__.__name__}("
             f"riskdata_custom_field_name={_riskdata_custom_field_name!r}, "
@@ -480,7 +465,6 @@ class AdditionalDataRisk(object):
             f"riskdata_promotions_promotion_item_nr_promotion_name={_riskdata_promotions_promotion_item_nr_promotion_name!r}, "
             f"riskdata_risk_profile_reference={_riskdata_risk_profile_reference!r}, "
             f"riskdata_skip_risk={_riskdata_skip_risk!r}, "
-            f"additional_properties={_additional_properties!r}, "
             f")"
         )
 
@@ -591,7 +575,6 @@ class AdditionalDataRisk(object):
             if hasattr(self, "riskdata_skip_risk")
             else None
         )
-        _additional_properties=self.additional_properties
         return (
             f"{self.__class__.__name__}("
             f"riskdata_custom_field_name={_riskdata_custom_field_name!s}, "
@@ -615,6 +598,5 @@ class AdditionalDataRisk(object):
             f"riskdata_promotions_promotion_item_nr_promotion_name={_riskdata_promotions_promotion_item_nr_promotion_name!s}, "
             f"riskdata_risk_profile_reference={_riskdata_risk_profile_reference!s}, "
             f"riskdata_skip_risk={_riskdata_skip_risk!s}, "
-            f"additional_properties={_additional_properties!s}, "
             f")"
         )

@@ -3,8 +3,6 @@
 
 References to resources connected with this merchant.
 
-*This model accepts additional fields of type Any.*
-
 ## Structure
 
 `MerchantLinks2`
@@ -13,49 +11,31 @@ References to resources connected with this merchant.
 
 | Name | Type | Tags | Description |
 |  --- | --- | --- | --- |
-| `api_credentials` | [`Href2`](../../doc/models/href-2.md) | Optional | List of allowed origins. |
-| `mself` | [`Self`](../../doc/models/self.md) | Required | - |
-| `users` | [`Href2`](../../doc/models/href-2.md) | Optional | List of allowed origins. |
-| `webhooks` | [`Href2`](../../doc/models/href-2.md) | Optional | List of allowed origins. |
-| `additional_properties` | `Dict[str, Any]` | Optional | - |
+| `api_credentials` | [`LinksElement`](../../doc/models/links-element.md) | Optional | - |
+| `mself` | [`LinksElement6`](../../doc/models/links-element-6.md) | Required | Link to the resource itself. |
+| `users` | [`LinksElement`](../../doc/models/links-element.md) | Optional | - |
+| `webhooks` | [`LinksElement`](../../doc/models/links-element.md) | Optional | - |
 
 ## Example
 
 ```python
-import jsonpickle
-
-from adyen.models.href_2 import Href2
+from adyen.models.links_element import LinksElement
+from adyen.models.links_element_6 import LinksElement6
 from adyen.models.merchant_links_2 import MerchantLinks2
-from adyen.models.mself import Self
 
 merchant_links_2 = MerchantLinks2(
-    mself=Self(
-        href='href0',
-        additional_properties={
-            'exampleAdditionalProperty': jsonpickle.decode('{"key1":"val1","key2":"val2"}')
-        }
+    mself=LinksElement6(
+        href='href0'
     ),
-    api_credentials=Href2(
-        href='href8',
-        additional_properties={
-            'exampleAdditionalProperty': jsonpickle.decode('{"key1":"val1","key2":"val2"}')
-        }
+    api_credentials=LinksElement(
+        href='href8'
     ),
-    users=Href2(
-        href='href8',
-        additional_properties={
-            'exampleAdditionalProperty': jsonpickle.decode('{"key1":"val1","key2":"val2"}')
-        }
+    users=LinksElement(
+        href='href8'
     ),
-    webhooks=Href2(
-        href='href8',
-        additional_properties={
-            'exampleAdditionalProperty': jsonpickle.decode('{"key1":"val1","key2":"val2"}')
-        }
-    ),
-    additional_properties={
-        'exampleAdditionalProperty': jsonpickle.decode('{"key1":"val1","key2":"val2"}')
-    }
+    webhooks=LinksElement(
+        href='href8'
+    )
 )
 ```
 

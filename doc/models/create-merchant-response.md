@@ -1,8 +1,6 @@
 
 # Create Merchant Response
 
-*This model accepts additional fields of type Any.*
-
 ## Structure
 
 `CreateMerchantResponse`
@@ -18,13 +16,10 @@
 | `legal_entity_id` | `str` | Optional | The unique identifier of the [legal entity](https://docs.adyen.com/api-explorer/#/legalentity/latest/post/legalEntities). |
 | `pricing_plan` | `str` | Optional | Partner pricing plan for the merchant, applicable for merchants under AfP managed company accounts. |
 | `reference` | `str` | Optional | Your reference for the merchant account. |
-| `additional_properties` | `Dict[str, Any]` | Optional | - |
 
 ## Example
 
 ```python
-import jsonpickle
-
 from adyen.models.create_merchant_response import CreateMerchantResponse
 
 create_merchant_response = CreateMerchantResponse(
@@ -32,10 +27,7 @@ create_merchant_response = CreateMerchantResponse(
     company_id='companyId0',
     description='description0',
     id='id0',
-    legal_entity_id='legalEntityId6',
-    additional_properties={
-        'exampleAdditionalProperty': jsonpickle.decode('{"key1":"val1","key2":"val2"}')
-    }
+    legal_entity_id='legalEntityId6'
 )
 ```
 

@@ -35,8 +35,6 @@ class PayoutMethod(object):
             `/payments` request when you [saved the account holder's card
             details](https://docs.adyen.com/classic-platforms/payouts/manual-payout/pa
             yout-to-cards#check-and-store).
-        additional_properties (Dict[str, Any]): The additional properties for the
-            model.
 
     """
 
@@ -60,8 +58,7 @@ class PayoutMethod(object):
         recurring_detail_reference=None,
         shopper_reference=None,
         payout_method_code=APIHelper.SKIP,
-        payout_method_reference=APIHelper.SKIP,
-        additional_properties=None):
+        payout_method_reference=APIHelper.SKIP):
         """Initialize a PayoutMethod instance."""
         # Initialize members of the class
         self.merchant_account = merchant_account
@@ -71,11 +68,6 @@ class PayoutMethod(object):
             self.payout_method_reference = payout_method_reference
         self.recurring_detail_reference = recurring_detail_reference
         self.shopper_reference = shopper_reference
-
-        # Add additional model properties to the instance
-        if additional_properties is None:
-            additional_properties = {}
-        self.additional_properties = additional_properties
 
     @classmethod
     def from_dictionary(cls,
@@ -116,18 +108,12 @@ class PayoutMethod(object):
             if dictionary.get("payoutMethodReference")\
                 else APIHelper.SKIP
 
-        additional_properties = APIHelper.get_additional_properties(
-            dictionary={k: v for k, v in dictionary.items()
-                        if k not in cls._names.values()},
-            unboxing_function=lambda value: value)
-
         # Return an object of this model
         return cls(merchant_account,
                    recurring_detail_reference,
                    shopper_reference,
                    payout_method_code,
-                   payout_method_reference,
-                   additional_properties)
+                   payout_method_reference)
 
     def __repr__(self):
         """Return a unambiguous string representation."""
@@ -144,7 +130,6 @@ class PayoutMethod(object):
         )
         _recurring_detail_reference=self.recurring_detail_reference
         _shopper_reference=self.shopper_reference
-        _additional_properties=self.additional_properties
         return (
             f"{self.__class__.__name__}("
             f"merchant_account={_merchant_account!r}, "
@@ -152,7 +137,6 @@ class PayoutMethod(object):
             f"payout_method_reference={_payout_method_reference!r}, "
             f"recurring_detail_reference={_recurring_detail_reference!r}, "
             f"shopper_reference={_shopper_reference!r}, "
-            f"additional_properties={_additional_properties!r}, "
             f")"
         )
 
@@ -171,7 +155,6 @@ class PayoutMethod(object):
         )
         _recurring_detail_reference=self.recurring_detail_reference
         _shopper_reference=self.shopper_reference
-        _additional_properties=self.additional_properties
         return (
             f"{self.__class__.__name__}("
             f"merchant_account={_merchant_account!s}, "
@@ -179,6 +162,5 @@ class PayoutMethod(object):
             f"payout_method_reference={_payout_method_reference!s}, "
             f"recurring_detail_reference={_recurring_detail_reference!s}, "
             f"shopper_reference={_shopper_reference!s}, "
-            f"additional_properties={_additional_properties!s}, "
             f")"
         )

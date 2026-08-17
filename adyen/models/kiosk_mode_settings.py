@@ -15,8 +15,6 @@ class KioskModeSettings(object):
             allowed to run in kiosk mode.
         kiosk_app_on_startup (str): The package name of the app to launch on startup.
             This must be one of the apps included in `allowedAppsInKioskMode`.
-        additional_properties (Dict[str, Any]): The additional properties for the
-            model.
 
     """
 
@@ -34,19 +32,13 @@ class KioskModeSettings(object):
     def __init__(
         self,
         allowed_apps_in_kiosk_mode=APIHelper.SKIP,
-        kiosk_app_on_startup=APIHelper.SKIP,
-        additional_properties=None):
+        kiosk_app_on_startup=APIHelper.SKIP):
         """Initialize a KioskModeSettings instance."""
         # Initialize members of the class
         if allowed_apps_in_kiosk_mode is not APIHelper.SKIP:
             self.allowed_apps_in_kiosk_mode = allowed_apps_in_kiosk_mode
         if kiosk_app_on_startup is not APIHelper.SKIP:
             self.kiosk_app_on_startup = kiosk_app_on_startup
-
-        # Add additional model properties to the instance
-        if additional_properties is None:
-            additional_properties = {}
-        self.additional_properties = additional_properties
 
     @classmethod
     def from_dictionary(cls,
@@ -75,15 +67,9 @@ class KioskModeSettings(object):
             if dictionary.get("kioskAppOnStartup")\
                 else APIHelper.SKIP
 
-        additional_properties = APIHelper.get_additional_properties(
-            dictionary={k: v for k, v in dictionary.items()
-                        if k not in cls._names.values()},
-            unboxing_function=lambda value: value)
-
         # Return an object of this model
         return cls(allowed_apps_in_kiosk_mode,
-                   kiosk_app_on_startup,
-                   additional_properties)
+                   kiosk_app_on_startup)
 
     def __repr__(self):
         """Return a unambiguous string representation."""
@@ -97,12 +83,10 @@ class KioskModeSettings(object):
             if hasattr(self, "kiosk_app_on_startup")
             else None
         )
-        _additional_properties=self.additional_properties
         return (
             f"{self.__class__.__name__}("
             f"allowed_apps_in_kiosk_mode={_allowed_apps_in_kiosk_mode!r}, "
             f"kiosk_app_on_startup={_kiosk_app_on_startup!r}, "
-            f"additional_properties={_additional_properties!r}, "
             f")"
         )
 
@@ -118,11 +102,9 @@ class KioskModeSettings(object):
             if hasattr(self, "kiosk_app_on_startup")
             else None
         )
-        _additional_properties=self.additional_properties
         return (
             f"{self.__class__.__name__}("
             f"allowed_apps_in_kiosk_mode={_allowed_apps_in_kiosk_mode!s}, "
             f"kiosk_app_on_startup={_kiosk_app_on_startup!s}, "
-            f"additional_properties={_additional_properties!s}, "
             f")"
         )

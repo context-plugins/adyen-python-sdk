@@ -14,18 +14,28 @@ class AccountSupportingEntityCapability(object):
         allowed (bool): Indicates whether the supporting entity capability is
             allowed. Adyen sets this to **true** if the verification is successful
             and the account holder is permitted to use the capability.
-        allowed_level (AllowedLevel): The model property of type AllowedLevel.
+        allowed_level (AllowedLevelEnum): The capability level that is allowed for
+            the account holder.  Possible values: **notApplicable**, **low**,
+            **medium**, **high**.
         enabled (bool): Indicates whether the capability is enabled. If **false**,
             the capability is temporarily disabled for the account holder.
         id (str): The ID of the supporting entity.
         requested (bool): Indicates whether the capability is requested. To check
             whether the account holder is permitted to use the capability, refer to
             the `allowed` field.
-        requested_level (RequestedLevel): The model property of type RequestedLevel.
-        verification_status (VerificationStatus): The model property of type
-            VerificationStatus.
-        additional_properties (Dict[str, Any]): The additional properties for the
-            model.
+        requested_level (RequestedLevelEnum): The requested level of the capability.
+            Some capabilities, such as those used in [card
+            issuing](https://docs.adyen.com/issuing/add-capabilities#capability-levels
+            ), have different levels. Levels increase the capability, but also
+            require additional checks and increased monitoring.  Possible values:
+            **notApplicable**, **low**, **medium**, **high**.
+        verification_status (VerificationStatusEnum): The status of the verification
+            checks for the supporting entity capability.  Possible values:  *
+            **pending**: Adyen is running the verification.  * **invalid**: The
+            verification failed. Check if the `errors` array contains more
+            information.  * **valid**: The verification has been successfully
+            completed.  * **rejected**: Adyen has verified the information, but found
+            reasons to not allow the capability.
 
     """
 
@@ -58,8 +68,7 @@ class AccountSupportingEntityCapability(object):
         id=APIHelper.SKIP,
         requested=APIHelper.SKIP,
         requested_level=APIHelper.SKIP,
-        verification_status=APIHelper.SKIP,
-        additional_properties=None):
+        verification_status=APIHelper.SKIP):
         """Initialize a AccountSupportingEntityCapability instance."""
         # Initialize members of the class
         if allowed is not APIHelper.SKIP:
@@ -76,11 +85,6 @@ class AccountSupportingEntityCapability(object):
             self.requested_level = requested_level
         if verification_status is not APIHelper.SKIP:
             self.verification_status = verification_status
-
-        # Add additional model properties to the instance
-        if additional_properties is None:
-            additional_properties = {}
-        self.additional_properties = additional_properties
 
     @classmethod
     def from_dictionary(cls,
@@ -129,11 +133,6 @@ class AccountSupportingEntityCapability(object):
             if dictionary.get("verificationStatus")\
                 else APIHelper.SKIP
 
-        additional_properties = APIHelper.get_additional_properties(
-            dictionary={k: v for k, v in dictionary.items()
-                        if k not in cls._names.values()},
-            unboxing_function=lambda value: value)
-
         # Return an object of this model
         return cls(allowed,
                    allowed_level,
@@ -141,8 +140,7 @@ class AccountSupportingEntityCapability(object):
                    id,
                    requested,
                    requested_level,
-                   verification_status,
-                   additional_properties)
+                   verification_status)
 
     def __repr__(self):
         """Return a unambiguous string representation."""
@@ -181,7 +179,6 @@ class AccountSupportingEntityCapability(object):
             if hasattr(self, "verification_status")
             else None
         )
-        _additional_properties=self.additional_properties
         return (
             f"{self.__class__.__name__}("
             f"allowed={_allowed!r}, "
@@ -191,7 +188,6 @@ class AccountSupportingEntityCapability(object):
             f"requested={_requested!r}, "
             f"requested_level={_requested_level!r}, "
             f"verification_status={_verification_status!r}, "
-            f"additional_properties={_additional_properties!r}, "
             f")"
         )
 
@@ -232,7 +228,6 @@ class AccountSupportingEntityCapability(object):
             if hasattr(self, "verification_status")
             else None
         )
-        _additional_properties=self.additional_properties
         return (
             f"{self.__class__.__name__}("
             f"allowed={_allowed!s}, "
@@ -242,6 +237,5 @@ class AccountSupportingEntityCapability(object):
             f"requested={_requested!s}, "
             f"requested_level={_requested_level!s}, "
             f"verification_status={_verification_status!s}, "
-            f"additional_properties={_additional_properties!s}, "
             f")"
         )

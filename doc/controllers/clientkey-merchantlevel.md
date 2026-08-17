@@ -38,7 +38,7 @@ This endpoint requires [BasicAuth](../../doc/auth/basic-authentication.md) **OR*
 
 **200**: OK - the request has succeeded.
 
-This method returns an [`ApiResponse`](../../doc/api-response.md) instance. The `body` property of this instance returns the response data which is of type [`GenerateClientKeyResponse`](../../doc/models/generate-client-key-response.md).
+[`GenerateClientKeyResponse`](../../doc/models/generate-client-key-response.md)
 
 ## Example Usage
 
@@ -51,11 +51,7 @@ result = client_key_merchant_level_api.post_merchants_merchant_id_api_credential
     merchant_id,
     api_credential_id
 )
-
-if result.is_success():
-    print(result.body)
-elif result.is_error():
-    print(result.errors)
+print(result)
 ```
 
 ## Errors

@@ -3,8 +3,6 @@
 
 Contains risk data, such as client-side data, used to identify risk for a transaction.
 
-*This model accepts additional fields of type Any.*
-
 ## Structure
 
 `RiskData4`
@@ -17,13 +15,10 @@ Contains risk data, such as client-side data, used to identify risk for a transa
 | `custom_fields` | `Dict[str, str]` | Optional | Any custom fields used as part of the input to configured risk rules. |
 | `fraud_offset` | `int` | Optional | An integer value that is added to the normal fraud score. The value can be either positive or negative. |
 | `profile_reference` | `str` | Optional | The risk profile to assign to this payment. When left empty, the merchant-level account's default risk profile will be applied. |
-| `additional_properties` | `Dict[str, Any]` | Optional | - |
 
 ## Example
 
 ```python
-import jsonpickle
-
 from adyen.models.risk_data_4 import RiskData4
 
 risk_data_4 = RiskData4(
@@ -34,10 +29,7 @@ risk_data_4 = RiskData4(
         'key2': 'customFields2'
     },
     fraud_offset=138,
-    profile_reference='profileReference0',
-    additional_properties={
-        'exampleAdditionalProperty': jsonpickle.decode('{"key1":"val1","key2":"val2"}')
-    }
+    profile_reference='profileReference0'
 )
 ```
 

@@ -119,8 +119,6 @@ class AdditionalDataAirline(object):
         airline_travel_agency_name (str): The name of the travel agency.  * Encoding:
             ASCII * minLength: 1 character * maxLength: 25 characters * Must not be
             all spaces * Must not be all zeros.
-        additional_properties (Dict[str, Any]): The additional properties for the
-            model.
 
     """
 
@@ -219,8 +217,7 @@ class AdditionalDataAirline(object):
         airline_ticket_issue_address=APIHelper.SKIP,
         airline_ticket_number=APIHelper.SKIP,
         airline_travel_agency_code=APIHelper.SKIP,
-        airline_travel_agency_name=APIHelper.SKIP,
-        additional_properties=None):
+        airline_travel_agency_name=APIHelper.SKIP):
         """Initialize a AdditionalDataAirline instance."""
         # Initialize members of the class
         if airline_agency_invoice_number is not APIHelper.SKIP:
@@ -282,11 +279,6 @@ class AdditionalDataAirline(object):
             self.airline_travel_agency_code = airline_travel_agency_code
         if airline_travel_agency_name is not APIHelper.SKIP:
             self.airline_travel_agency_name = airline_travel_agency_name
-
-        # Add additional model properties to the instance
-        if additional_properties is None:
-            additional_properties = {}
-        self.additional_properties = additional_properties
 
     @classmethod
     def from_dictionary(cls,
@@ -423,11 +415,6 @@ class AdditionalDataAirline(object):
             if dictionary.get("airline.travel_agency_name")\
                 else APIHelper.SKIP
 
-        additional_properties = APIHelper.get_additional_properties(
-            dictionary={k: v for k, v in dictionary.items()
-                        if k not in cls._names.values()},
-            unboxing_function=lambda value: value)
-
         # Return an object of this model
         return cls(airline_passenger_name,
                    airline_agency_invoice_number,
@@ -457,8 +444,7 @@ class AdditionalDataAirline(object):
                    airline_ticket_issue_address,
                    airline_ticket_number,
                    airline_travel_agency_code,
-                   airline_travel_agency_name,
-                   additional_properties)
+                   airline_travel_agency_name)
 
     def __repr__(self):
         """Return a unambiguous string representation."""
@@ -603,7 +589,6 @@ class AdditionalDataAirline(object):
             if hasattr(self, "airline_travel_agency_name")
             else None
         )
-        _additional_properties=self.additional_properties
         return (
             f"{self.__class__.__name__}("
             f"airline_agency_invoice_number={_airline_agency_invoice_number!r}, "
@@ -635,7 +620,6 @@ class AdditionalDataAirline(object):
             f"airline_ticket_number={_airline_ticket_number!r}, "
             f"airline_travel_agency_code={_airline_travel_agency_code!r}, "
             f"airline_travel_agency_name={_airline_travel_agency_name!r}, "
-            f"additional_properties={_additional_properties!r}, "
             f")"
         )
 
@@ -782,7 +766,6 @@ class AdditionalDataAirline(object):
             if hasattr(self, "airline_travel_agency_name")
             else None
         )
-        _additional_properties=self.additional_properties
         return (
             f"{self.__class__.__name__}("
             f"airline_agency_invoice_number={_airline_agency_invoice_number!s}, "
@@ -814,6 +797,5 @@ class AdditionalDataAirline(object):
             f"airline_ticket_number={_airline_ticket_number!s}, "
             f"airline_travel_agency_code={_airline_travel_agency_code!s}, "
             f"airline_travel_agency_name={_airline_travel_agency_name!s}, "
-            f"additional_properties={_additional_properties!s}, "
             f")"
         )

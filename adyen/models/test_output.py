@@ -42,8 +42,6 @@ class TestOutput(object):
             [`responseCode`](https://docs.adyen.com/api-explorer/#/ManagementService/v
             1/post/merchants/{merchantId}/webhooks/{id}/test__resParam_data-responseCo
             de) value to troubleshoot failed test webhooks.
-        additional_properties (Dict[str, Any]): The additional properties for the
-            model.
 
     """
 
@@ -72,8 +70,7 @@ class TestOutput(object):
         output=APIHelper.SKIP,
         request_sent=APIHelper.SKIP,
         response_code=APIHelper.SKIP,
-        response_time=APIHelper.SKIP,
-        additional_properties=None):
+        response_time=APIHelper.SKIP):
         """Initialize a TestOutput instance."""
         # Initialize members of the class
         if merchant_id is not APIHelper.SKIP:
@@ -87,11 +84,6 @@ class TestOutput(object):
         if response_time is not APIHelper.SKIP:
             self.response_time = response_time
         self.status = status
-
-        # Add additional model properties to the instance
-        if additional_properties is None:
-            additional_properties = {}
-        self.additional_properties = additional_properties
 
     @classmethod
     def from_dictionary(cls,
@@ -136,19 +128,13 @@ class TestOutput(object):
             if dictionary.get("responseTime")\
                 else APIHelper.SKIP
 
-        additional_properties = APIHelper.get_additional_properties(
-            dictionary={k: v for k, v in dictionary.items()
-                        if k not in cls._names.values()},
-            unboxing_function=lambda value: value)
-
         # Return an object of this model
         return cls(status,
                    merchant_id,
                    output,
                    request_sent,
                    response_code,
-                   response_time,
-                   additional_properties)
+                   response_time)
 
     def __repr__(self):
         """Return a unambiguous string representation."""
@@ -178,7 +164,6 @@ class TestOutput(object):
             else None
         )
         _status=self.status
-        _additional_properties=self.additional_properties
         return (
             f"{self.__class__.__name__}("
             f"merchant_id={_merchant_id!r}, "
@@ -187,7 +172,6 @@ class TestOutput(object):
             f"response_code={_response_code!r}, "
             f"response_time={_response_time!r}, "
             f"status={_status!r}, "
-            f"additional_properties={_additional_properties!r}, "
             f")"
         )
 
@@ -219,7 +203,6 @@ class TestOutput(object):
             else None
         )
         _status=self.status
-        _additional_properties=self.additional_properties
         return (
             f"{self.__class__.__name__}("
             f"merchant_id={_merchant_id!s}, "
@@ -228,6 +211,5 @@ class TestOutput(object):
             f"response_code={_response_code!s}, "
             f"response_time={_response_time!s}, "
             f"status={_status!s}, "
-            f"additional_properties={_additional_properties!s}, "
             f")"
         )

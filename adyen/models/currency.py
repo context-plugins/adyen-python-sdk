@@ -20,8 +20,6 @@ class Currency(object):
             units](https://docs.adyen.com/development-resources/currency-codes).
         percentage (float): Surcharge percentage per transaction. The maximum number
             of decimal places is two. For example, **1%** or **2.27%**.
-        additional_properties (Dict[str, Any]): The additional properties for the
-            model.
 
     """
 
@@ -44,8 +42,7 @@ class Currency(object):
         currency_code=None,
         amount=APIHelper.SKIP,
         max_amount=APIHelper.SKIP,
-        percentage=APIHelper.SKIP,
-        additional_properties=None):
+        percentage=APIHelper.SKIP):
         """Initialize a Currency instance."""
         # Initialize members of the class
         if amount is not APIHelper.SKIP:
@@ -55,11 +52,6 @@ class Currency(object):
             self.max_amount = max_amount
         if percentage is not APIHelper.SKIP:
             self.percentage = percentage
-
-        # Add additional model properties to the instance
-        if additional_properties is None:
-            additional_properties = {}
-        self.additional_properties = additional_properties
 
     @classmethod
     def from_dictionary(cls,
@@ -96,17 +88,11 @@ class Currency(object):
             if dictionary.get("percentage")\
                 else APIHelper.SKIP
 
-        additional_properties = APIHelper.get_additional_properties(
-            dictionary={k: v for k, v in dictionary.items()
-                        if k not in cls._names.values()},
-            unboxing_function=lambda value: value)
-
         # Return an object of this model
         return cls(currency_code,
                    amount,
                    max_amount,
-                   percentage,
-                   additional_properties)
+                   percentage)
 
     def __repr__(self):
         """Return a unambiguous string representation."""
@@ -126,14 +112,12 @@ class Currency(object):
             if hasattr(self, "percentage")
             else None
         )
-        _additional_properties=self.additional_properties
         return (
             f"{self.__class__.__name__}("
             f"amount={_amount!r}, "
             f"currency_code={_currency_code!r}, "
             f"max_amount={_max_amount!r}, "
             f"percentage={_percentage!r}, "
-            f"additional_properties={_additional_properties!r}, "
             f")"
         )
 
@@ -155,13 +139,11 @@ class Currency(object):
             if hasattr(self, "percentage")
             else None
         )
-        _additional_properties=self.additional_properties
         return (
             f"{self.__class__.__name__}("
             f"amount={_amount!s}, "
             f"currency_code={_currency_code!s}, "
             f"max_amount={_max_amount!s}, "
             f"percentage={_percentage!s}, "
-            f"additional_properties={_additional_properties!s}, "
             f")"
         )

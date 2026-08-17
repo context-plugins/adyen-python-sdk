@@ -20,8 +20,6 @@ class DiagnosisRequest(object):
         host_diagnosis_flag (bool): Indicates if Host Diagnosis are required.
         acquirer_id (List[int]): Identification of the Acquirer. Present if
             requesting the diagnosis of these hosts only.
-        additional_properties (Dict[str, Any]): The additional properties for the
-            model.
 
     """
 
@@ -42,8 +40,7 @@ class DiagnosisRequest(object):
         self,
         poiid=APIHelper.SKIP,
         host_diagnosis_flag=False,
-        acquirer_id=APIHelper.SKIP,
-        additional_properties=None):
+        acquirer_id=APIHelper.SKIP):
         """Initialize a DiagnosisRequest instance."""
         # Initialize members of the class
         if poiid is not APIHelper.SKIP:
@@ -51,11 +48,6 @@ class DiagnosisRequest(object):
         self.host_diagnosis_flag = host_diagnosis_flag
         if acquirer_id is not APIHelper.SKIP:
             self.acquirer_id = acquirer_id
-
-        # Add additional model properties to the instance
-        if additional_properties is None:
-            additional_properties = {}
-        self.additional_properties = additional_properties
 
     @classmethod
     def from_dictionary(cls,
@@ -88,16 +80,10 @@ class DiagnosisRequest(object):
             if dictionary.get("AcquirerID")\
                 else APIHelper.SKIP
 
-        additional_properties = APIHelper.get_additional_properties(
-            dictionary={k: v for k, v in dictionary.items()
-                        if k not in cls._names.values()},
-            unboxing_function=lambda value: value)
-
         # Return an object of this model
         return cls(poiid,
                    host_diagnosis_flag,
-                   acquirer_id,
-                   additional_properties)
+                   acquirer_id)
 
     def __repr__(self):
         """Return a unambiguous string representation."""
@@ -116,13 +102,11 @@ class DiagnosisRequest(object):
             if hasattr(self, "acquirer_id")
             else None
         )
-        _additional_properties=self.additional_properties
         return (
             f"{self.__class__.__name__}("
             f"poiid={_poiid!r}, "
             f"host_diagnosis_flag={_host_diagnosis_flag!r}, "
             f"acquirer_id={_acquirer_id!r}, "
-            f"additional_properties={_additional_properties!r}, "
             f")"
         )
 
@@ -143,12 +127,10 @@ class DiagnosisRequest(object):
             if hasattr(self, "acquirer_id")
             else None
         )
-        _additional_properties=self.additional_properties
         return (
             f"{self.__class__.__name__}("
             f"poiid={_poiid!s}, "
             f"host_diagnosis_flag={_host_diagnosis_flag!s}, "
             f"acquirer_id={_acquirer_id!s}, "
-            f"additional_properties={_additional_properties!s}, "
             f")"
         )

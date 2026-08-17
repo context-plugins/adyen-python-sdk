@@ -60,8 +60,6 @@ class Leg(object):
             entitled to make a stopover, or X if they are not. * Encoding: ASCII *
             minLength: 1 character * maxLength: 1 character * **additionalData key:**
             `airline.leg[N].stop_over_code`
-        additional_properties (Dict[str, Any]): The additional properties for the
-            model.
 
     """
 
@@ -100,8 +98,7 @@ class Leg(object):
         destination_airport_code=APIHelper.SKIP,
         fare_basis_code=APIHelper.SKIP,
         flight_number=APIHelper.SKIP,
-        stop_over_code=APIHelper.SKIP,
-        additional_properties=None):
+        stop_over_code=APIHelper.SKIP):
         """Initialize a Leg instance."""
         # Initialize members of the class
         if carrier_code is not APIHelper.SKIP:
@@ -125,11 +122,6 @@ class Leg(object):
             self.flight_number = flight_number
         if stop_over_code is not APIHelper.SKIP:
             self.stop_over_code = stop_over_code
-
-        # Add additional model properties to the instance
-        if additional_properties is None:
-            additional_properties = {}
-        self.additional_properties = additional_properties
 
     @classmethod
     def from_dictionary(cls,
@@ -185,11 +177,6 @@ class Leg(object):
             if dictionary.get("stopOverCode")\
                 else APIHelper.SKIP
 
-        additional_properties = APIHelper.get_additional_properties(
-            dictionary={k: v for k, v in dictionary.items()
-                        if k not in cls._names.values()},
-            unboxing_function=lambda value: value)
-
         # Return an object of this model
         return cls(carrier_code,
                    class_of_travel,
@@ -199,8 +186,7 @@ class Leg(object):
                    destination_airport_code,
                    fare_basis_code,
                    flight_number,
-                   stop_over_code,
-                   additional_properties)
+                   stop_over_code)
 
     @classmethod
     def validate(cls, dictionary):
@@ -270,7 +256,6 @@ class Leg(object):
             if hasattr(self, "stop_over_code")
             else None
         )
-        _additional_properties=self.additional_properties
         return (
             f"{self.__class__.__name__}("
             f"carrier_code={_carrier_code!r}, "
@@ -282,7 +267,6 @@ class Leg(object):
             f"fare_basis_code={_fare_basis_code!r}, "
             f"flight_number={_flight_number!r}, "
             f"stop_over_code={_stop_over_code!r}, "
-            f"additional_properties={_additional_properties!r}, "
             f")"
         )
 
@@ -333,7 +317,6 @@ class Leg(object):
             if hasattr(self, "stop_over_code")
             else None
         )
-        _additional_properties=self.additional_properties
         return (
             f"{self.__class__.__name__}("
             f"carrier_code={_carrier_code!s}, "
@@ -345,6 +328,5 @@ class Leg(object):
             f"fare_basis_code={_fare_basis_code!s}, "
             f"flight_number={_flight_number!s}, "
             f"stop_over_code={_stop_over_code!s}, "
-            f"additional_properties={_additional_properties!s}, "
             f")"
         )

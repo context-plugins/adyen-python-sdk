@@ -15,8 +15,6 @@ class PayToResponseInfo(object):
         pay_to_purpose (str): Represents the purpose of the Agreements created, it
             relates to the business type **Allowed values**: mortgage, utility, loan,
             gambling, retail, salary, personal, government, pension, tax, other
-        additional_properties (Dict[str, Any]): The additional properties for the
-            model.
 
     """
 
@@ -34,19 +32,13 @@ class PayToResponseInfo(object):
     def __init__(
         self,
         merchant_name=APIHelper.SKIP,
-        pay_to_purpose=APIHelper.SKIP,
-        additional_properties=None):
+        pay_to_purpose=APIHelper.SKIP):
         """Initialize a PayToResponseInfo instance."""
         # Initialize members of the class
         if merchant_name is not APIHelper.SKIP:
             self.merchant_name = merchant_name
         if pay_to_purpose is not APIHelper.SKIP:
             self.pay_to_purpose = pay_to_purpose
-
-        # Add additional model properties to the instance
-        if additional_properties is None:
-            additional_properties = {}
-        self.additional_properties = additional_properties
 
     @classmethod
     def from_dictionary(cls,
@@ -75,15 +67,9 @@ class PayToResponseInfo(object):
             if dictionary.get("payToPurpose")\
                 else APIHelper.SKIP
 
-        additional_properties = APIHelper.get_additional_properties(
-            dictionary={k: v for k, v in dictionary.items()
-                        if k not in cls._names.values()},
-            unboxing_function=lambda value: value)
-
         # Return an object of this model
         return cls(merchant_name,
-                   pay_to_purpose,
-                   additional_properties)
+                   pay_to_purpose)
 
     def __repr__(self):
         """Return a unambiguous string representation."""
@@ -97,12 +83,10 @@ class PayToResponseInfo(object):
             if hasattr(self, "pay_to_purpose")
             else None
         )
-        _additional_properties=self.additional_properties
         return (
             f"{self.__class__.__name__}("
             f"merchant_name={_merchant_name!r}, "
             f"pay_to_purpose={_pay_to_purpose!r}, "
-            f"additional_properties={_additional_properties!r}, "
             f")"
         )
 
@@ -118,11 +102,9 @@ class PayToResponseInfo(object):
             if hasattr(self, "pay_to_purpose")
             else None
         )
-        _additional_properties=self.additional_properties
         return (
             f"{self.__class__.__name__}("
             f"merchant_name={_merchant_name!s}, "
             f"pay_to_purpose={_pay_to_purpose!s}, "
-            f"additional_properties={_additional_properties!s}, "
             f")"
         )

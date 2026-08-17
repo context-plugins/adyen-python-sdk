@@ -8,17 +8,22 @@ from adyen.api_helper import APIHelper
 from adyen.models.bank_account_detail import (
     BankAccountDetail,
 )
-from adyen.models.business_details import BusinessDetails
-from adyen.models.individual_details import (
-    IndividualDetails,
+from adyen.models.business_details_3 import (
+    BusinessDetails3,
+)
+from adyen.models.individual_details_3 import (
+    IndividualDetails3,
 )
 from adyen.models.legal_arrangement_detail import (
     LegalArrangementDetail,
 )
 from adyen.models.payout_method import PayoutMethod
-from adyen.models.phone_number_3 import PhoneNumber3
 from adyen.models.store_detail import StoreDetail
-from adyen.models.vias_address import ViasAddress
+from adyen.models.vias_address_6 import ViasAddress6
+from adyen.models.vias_address_9 import ViasAddress9
+from adyen.models.vias_phone_number_3 import (
+    ViasPhoneNumber3,
+)
 
 
 class AccountHolderDetails3(object):
@@ -27,7 +32,7 @@ class AccountHolderDetails3(object):
     Details of the account holder.
 
     Attributes:
-        address (ViasAddress): The model property of type ViasAddress.
+        address (ViasAddress9): The address of the account holder.
         bank_account_details (List[BankAccountDetail]): Array of bank accounts
             associated with the account holder. For details about the required
             `bankAccountDetail` fields, see [Required
@@ -35,14 +40,16 @@ class AccountHolderDetails3(object):
             /required-information).
         bank_aggregator_data_reference (str): The opaque reference value returned by
             the Adyen API during bank account login.
-        business_details (BusinessDetails): The model property of type
-            BusinessDetails.
+        business_details (BusinessDetails3): Details about the business or nonprofit
+            account holder. Required when creating an account holder with
+            `legalEntity` **Business** or **NonProfit**.
         email (str): The email address of the account holder.
         full_phone_number (str): The phone number of the account holder provided as a
             single string. It will be handled as a landline phone. **Examples:**
             "0031 6 11 22 33 44", "+316/1122-3344", "(0031) 611223344"
-        individual_details (IndividualDetails): The model property of type
-            IndividualDetails.
+        individual_details (IndividualDetails3): Details about the individual account
+            holder. Required when creating an account holder with `legalEntity`
+            **Individual**.
         last_review_date (str): Date when you last reviewed the account holder's
             information, in ISO-8601 YYYY-MM-DD format. For example, **2020-01-31**.
         legal_arrangements (List[LegalArrangementDetail]): An array containing
@@ -63,16 +70,15 @@ class AccountHolderDetails3(object):
             associated with the account holder. For details about how you can use the
             tokens to pay out, refer to [Pay out to
             cards](https://docs.adyen.com/classic-platforms/payout-to-cards).
-        phone_number (PhoneNumber3): The model property of type PhoneNumber3.
-        principal_business_address (ViasAddress): The model property of type
-            ViasAddress.
+        phone_number (ViasPhoneNumber3): The phone number of the account holder. >
+            Required if a `fullPhoneNumber` is not provided.
+        principal_business_address (ViasAddress6): The principal business address of
+            the account holder.
         store_details (List[StoreDetail]): Array of stores associated with the
             account holder. Required when onboarding account holders that have an
             Adyen [point of
             sale](https://docs.adyen.com/classic-platforms/platforms-for-pos).
         web_address (str): The URL of the website of the account holder.
-        additional_properties (Dict[str, Any]): The additional properties for the
-            model.
 
     """
 
@@ -131,8 +137,7 @@ class AccountHolderDetails3(object):
         phone_number=APIHelper.SKIP,
         principal_business_address=APIHelper.SKIP,
         store_details=APIHelper.SKIP,
-        web_address=APIHelper.SKIP,
-        additional_properties=None):
+        web_address=APIHelper.SKIP):
         """Initialize a AccountHolderDetails3 instance."""
         # Initialize members of the class
         self.address = address
@@ -167,11 +172,6 @@ class AccountHolderDetails3(object):
         if web_address is not APIHelper.SKIP:
             self.web_address = web_address
 
-        # Add additional model properties to the instance
-        if additional_properties is None:
-            additional_properties = {}
-        self.additional_properties = additional_properties
-
     @classmethod
     def from_dictionary(cls,
                         dictionary):
@@ -191,7 +191,7 @@ class AccountHolderDetails3(object):
 
         # Extract variables from the dictionary
         address =\
-            ViasAddress.from_dictionary(
+            ViasAddress9.from_dictionary(
                 dictionary.get("address"))\
                 if dictionary.get("address") else None
         bank_account_details = None
@@ -207,7 +207,7 @@ class AccountHolderDetails3(object):
             if dictionary.get("bankAggregatorDataReference")\
                 else APIHelper.SKIP
         business_details =\
-            BusinessDetails.from_dictionary(
+            BusinessDetails3.from_dictionary(
                 dictionary.get("businessDetails"))\
                 if "businessDetails" in dictionary.keys()\
                 else APIHelper.SKIP
@@ -220,7 +220,7 @@ class AccountHolderDetails3(object):
             if dictionary.get("fullPhoneNumber")\
                 else APIHelper.SKIP
         individual_details =\
-            IndividualDetails.from_dictionary(
+            IndividualDetails3.from_dictionary(
                 dictionary.get("individualDetails"))\
                 if "individualDetails" in dictionary.keys()\
                 else APIHelper.SKIP
@@ -253,12 +253,12 @@ class AccountHolderDetails3(object):
         else:
             payout_methods = APIHelper.SKIP
         phone_number =\
-            PhoneNumber3.from_dictionary(
+            ViasPhoneNumber3.from_dictionary(
                 dictionary.get("phoneNumber"))\
                 if "phoneNumber" in dictionary.keys()\
                 else APIHelper.SKIP
         principal_business_address =\
-            ViasAddress.from_dictionary(
+            ViasAddress6.from_dictionary(
                 dictionary.get("principalBusinessAddress"))\
                 if "principalBusinessAddress" in dictionary.keys()\
                 else APIHelper.SKIP
@@ -274,11 +274,6 @@ class AccountHolderDetails3(object):
             dictionary.get("webAddress")\
             if dictionary.get("webAddress")\
                 else APIHelper.SKIP
-
-        additional_properties = APIHelper.get_additional_properties(
-            dictionary={k: v for k, v in dictionary.items()
-                        if k not in cls._names.values()},
-            unboxing_function=lambda value: value)
 
         # Return an object of this model
         return cls(address,
@@ -296,8 +291,7 @@ class AccountHolderDetails3(object):
                    phone_number,
                    principal_business_address,
                    store_details,
-                   web_address,
-                   additional_properties)
+                   web_address)
 
     def __repr__(self):
         """Return a unambiguous string representation."""
@@ -377,7 +371,6 @@ class AccountHolderDetails3(object):
             if hasattr(self, "web_address")
             else None
         )
-        _additional_properties=self.additional_properties
         return (
             f"{self.__class__.__name__}("
             f"address={_address!r}, "
@@ -396,7 +389,6 @@ class AccountHolderDetails3(object):
             f"principal_business_address={_principal_business_address!r}, "
             f"store_details={_store_details!r}, "
             f"web_address={_web_address!r}, "
-            f"additional_properties={_additional_properties!r}, "
             f")"
         )
 
@@ -478,7 +470,6 @@ class AccountHolderDetails3(object):
             if hasattr(self, "web_address")
             else None
         )
-        _additional_properties=self.additional_properties
         return (
             f"{self.__class__.__name__}("
             f"address={_address!s}, "
@@ -497,6 +488,5 @@ class AccountHolderDetails3(object):
             f"principal_business_address={_principal_business_address!s}, "
             f"store_details={_store_details!s}, "
             f"web_address={_web_address!s}, "
-            f"additional_properties={_additional_properties!s}, "
             f")"
         )

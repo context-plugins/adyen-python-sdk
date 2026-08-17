@@ -1,8 +1,6 @@
 
 # Pin Change Response
 
-*This model accepts additional fields of type Any.*
-
 ## Structure
 
 `PinChangeResponse`
@@ -11,22 +9,16 @@
 
 | Name | Type | Tags | Description |
 |  --- | --- | --- | --- |
-| `status` | [`Status13`](../../doc/models/status-13.md) | Required | - |
-| `additional_properties` | `Dict[str, Any]` | Optional | - |
+| `status` | [`Status13Enum`](../../doc/models/status-13-enum.md) | Required | The status of the request for PIN change.<br><br>Possible values: **completed**, **pending**, **unavailable**. |
 
 ## Example
 
 ```python
-import jsonpickle
-
 from adyen.models.pin_change_response import PinChangeResponse
-from adyen.models.status_13 import Status13
+from adyen.models.status_13_enum import Status13Enum
 
 pin_change_response = PinChangeResponse(
-    status=Status13.UNAVAILABLE,
-    additional_properties={
-        'exampleAdditionalProperty': jsonpickle.decode('{"key1":"val1","key2":"val2"}')
-    }
+    status=Status13Enum.UNAVAILABLE
 )
 ```
 

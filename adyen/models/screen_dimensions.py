@@ -13,8 +13,6 @@ class ScreenDimensions(object):
     Attributes:
         height (int): The model property of type int.
         width (int): The model property of type int.
-        additional_properties (Dict[str, Any]): The additional properties for the
-            model.
 
     """
 
@@ -32,19 +30,13 @@ class ScreenDimensions(object):
     def __init__(
         self,
         height=APIHelper.SKIP,
-        width=APIHelper.SKIP,
-        additional_properties=None):
+        width=APIHelper.SKIP):
         """Initialize a ScreenDimensions instance."""
         # Initialize members of the class
         if height is not APIHelper.SKIP:
             self.height = height
         if width is not APIHelper.SKIP:
             self.width = width
-
-        # Add additional model properties to the instance
-        if additional_properties is None:
-            additional_properties = {}
-        self.additional_properties = additional_properties
 
     @classmethod
     def from_dictionary(cls,
@@ -73,15 +65,9 @@ class ScreenDimensions(object):
             if dictionary.get("width")\
                 else APIHelper.SKIP
 
-        additional_properties = APIHelper.get_additional_properties(
-            dictionary={k: v for k, v in dictionary.items()
-                        if k not in cls._names.values()},
-            unboxing_function=lambda value: value)
-
         # Return an object of this model
         return cls(height,
-                   width,
-                   additional_properties)
+                   width)
 
     @classmethod
     def validate(cls, dictionary):
@@ -116,12 +102,10 @@ class ScreenDimensions(object):
             if hasattr(self, "width")
             else None
         )
-        _additional_properties=self.additional_properties
         return (
             f"{self.__class__.__name__}("
             f"height={_height!r}, "
             f"width={_width!r}, "
-            f"additional_properties={_additional_properties!r}, "
             f")"
         )
 
@@ -137,11 +121,9 @@ class ScreenDimensions(object):
             if hasattr(self, "width")
             else None
         )
-        _additional_properties=self.additional_properties
         return (
             f"{self.__class__.__name__}("
             f"height={_height!s}, "
             f"width={_width!s}, "
-            f"additional_properties={_additional_properties!s}, "
             f")"
         )

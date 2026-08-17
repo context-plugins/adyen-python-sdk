@@ -1,8 +1,6 @@
 
 # Card 4
 
-*This model accepts additional fields of type Any.*
-
 ## Structure
 
 `Card4`
@@ -11,55 +9,43 @@
 
 | Name | Type | Tags | Description |
 |  --- | --- | --- | --- |
-| `card_holder` | [`PartyIdentification`](../../doc/models/party-identification.md) | Required | - |
-| `card_identification` | [`CardIdentification`](../../doc/models/card-identification.md) | Required | - |
-| `additional_properties` | `Dict[str, Any]` | Optional | - |
+| `card_holder` | [`PartyIdentification1`](../../doc/models/party-identification-1.md) | Required | Contains information about the cardholder. |
+| `card_identification` | [`CardIdentification3`](../../doc/models/card-identification-3.md) | Required | Contains the identification details of the card. |
 
 ## Example
 
 ```python
 import dateutil.parser
-import jsonpickle
 
-from adyen.models.address_8 import Address8
+from adyen.models.address_12 import Address12
 from adyen.models.card_4 import Card4
-from adyen.models.card_identification import CardIdentification
-from adyen.models.party_identification import PartyIdentification
+from adyen.models.card_identification_3 import CardIdentification3
+from adyen.models.party_identification_1 import PartyIdentification1
+from adyen.models.type_112_enum import Type112Enum
 
 card_4 = Card4(
-    card_holder=PartyIdentification(
-        address=Address8(
+    card_holder=PartyIdentification1(
+        address=Address12(
             country='country0',
             city='city6',
             line_1='line18',
             line_2='line20',
             postal_code='postalCode8',
-            state_or_province='stateOrProvince4',
-            additional_properties={
-                'exampleAdditionalProperty': jsonpickle.decode('{"key1":"val1","key2":"val2"}')
-            }
+            state_or_province='stateOrProvince4'
         ),
         date_of_birth=dateutil.parser.parse('2016-03-13').date(),
         email='email0',
         first_name='firstName8',
         full_name='fullName6',
-        additional_properties={
-            'exampleAdditionalProperty': jsonpickle.decode('{"key1":"val1","key2":"val2"}')
-        }
+        mtype=Type112Enum.UNKNOWN
     ),
-    card_identification=CardIdentification(
+    card_identification=CardIdentification3(
         expiry_month='expiryMonth2',
         expiry_year='expiryYear2',
         issue_number='issueNumber0',
         number='number6',
-        start_month='startMonth8',
-        additional_properties={
-            'exampleAdditionalProperty': jsonpickle.decode('{"key1":"val1","key2":"val2"}')
-        }
-    ),
-    additional_properties={
-        'exampleAdditionalProperty': jsonpickle.decode('{"key1":"val1","key2":"val2"}')
-    }
+        start_month='startMonth8'
+    )
 )
 ```
 

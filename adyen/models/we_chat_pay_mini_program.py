@@ -8,7 +8,7 @@ from adyen.api_helper import APIHelper
 
 
 class WeChatPayMiniProgram(object):
-    """Implementation of the 'WeChatPay-MiniProgram' model.
+    """Implementation of the 'WeChat Pay - Mini Program' model.
 
     Attributes:
         app_id (str): The model property of type str.
@@ -20,9 +20,7 @@ class WeChatPayMiniProgram(object):
             required by the SDK
         stored_payment_method_id (str): This is the `recurringDetailReference`
             returned in the response when you created the token.
-        mtype (Type57): The model property of type Type57.
-        additional_properties (Dict[str, Any]): The additional properties for the
-            model.
+        mtype (Type57Enum): **wechatpayMiniProgram**
 
     """
 
@@ -55,8 +53,7 @@ class WeChatPayMiniProgram(object):
         recurring_detail_reference=APIHelper.SKIP,
         sdk_data=APIHelper.SKIP,
         stored_payment_method_id=APIHelper.SKIP,
-        mtype=APIHelper.SKIP,
-        additional_properties=None):
+        mtype="wechatpayMiniProgram"):
         """Initialize a WeChatPayMiniProgram instance."""
         # Initialize members of the class
         if app_id is not APIHelper.SKIP:
@@ -71,13 +68,7 @@ class WeChatPayMiniProgram(object):
             self.sdk_data = sdk_data
         if stored_payment_method_id is not APIHelper.SKIP:
             self.stored_payment_method_id = stored_payment_method_id
-        if mtype is not APIHelper.SKIP:
-            self.mtype = mtype
-
-        # Add additional model properties to the instance
-        if additional_properties is None:
-            additional_properties = {}
-        self.additional_properties = additional_properties
+        self.mtype = mtype
 
     @classmethod
     def from_dictionary(cls,
@@ -124,12 +115,7 @@ class WeChatPayMiniProgram(object):
         mtype =\
             dictionary.get("type")\
             if dictionary.get("type")\
-                else APIHelper.SKIP
-
-        additional_properties = APIHelper.get_additional_properties(
-            dictionary={k: v for k, v in dictionary.items()
-                        if k not in cls._names.values()},
-            unboxing_function=lambda value: value)
+                else "wechatpayMiniProgram"
 
         # Return an object of this model
         return cls(app_id,
@@ -138,8 +124,7 @@ class WeChatPayMiniProgram(object):
                    recurring_detail_reference,
                    sdk_data,
                    stored_payment_method_id,
-                   mtype,
-                   additional_properties)
+                   mtype)
 
     @classmethod
     def validate(cls, dictionary):
@@ -199,7 +184,6 @@ class WeChatPayMiniProgram(object):
             if hasattr(self, "mtype")
             else None
         )
-        _additional_properties=self.additional_properties
         return (
             f"{self.__class__.__name__}("
             f"app_id={_app_id!r}, "
@@ -209,7 +193,6 @@ class WeChatPayMiniProgram(object):
             f"sdk_data={_sdk_data!r}, "
             f"stored_payment_method_id={_stored_payment_method_id!r}, "
             f"mtype={_mtype!r}, "
-            f"additional_properties={_additional_properties!r}, "
             f")"
         )
 
@@ -250,7 +233,6 @@ class WeChatPayMiniProgram(object):
             if hasattr(self, "mtype")
             else None
         )
-        _additional_properties=self.additional_properties
         return (
             f"{self.__class__.__name__}("
             f"app_id={_app_id!s}, "
@@ -260,6 +242,5 @@ class WeChatPayMiniProgram(object):
             f"sdk_data={_sdk_data!s}, "
             f"stored_payment_method_id={_stored_payment_method_id!s}, "
             f"mtype={_mtype!s}, "
-            f"additional_properties={_additional_properties!s}, "
             f")"
         )

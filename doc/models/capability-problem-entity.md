@@ -1,8 +1,6 @@
 
 # Capability Problem Entity
 
-*This model accepts additional fields of type Any.*
-
 ## Structure
 
 `CapabilityProblemEntity`
@@ -13,18 +11,15 @@
 |  --- | --- | --- | --- |
 | `documents` | `List[str]` | Optional | List of document IDs to which the verification errors related to the capabilities correspond to. |
 | `id` | `str` | Optional | The ID of the entity. |
-| `owner` | [`CapabilityProblemEntityRecursive`](../../doc/models/capability-problem-entity-recursive.md) | Optional | - |
-| `mtype` | [`Type3`](../../doc/models/type-3.md) | Optional | - |
-| `additional_properties` | `Dict[str, Any]` | Optional | - |
+| `owner` | [`CapabilityProblemEntityRecursive2`](../../doc/models/capability-problem-entity-recursive-2.md) | Optional | Contains details about the owner of the entity that has an error. |
+| `mtype` | [`Type33Enum`](../../doc/models/type-33-enum.md) | Optional | Type of entity.<br><br>Possible values: **LegalEntity**, **BankAccount**, **Document**. |
 
 ## Example
 
 ```python
-import jsonpickle
-
 from adyen.models.capability_problem_entity import CapabilityProblemEntity
-from adyen.models.capability_problem_entity_recursive import CapabilityProblemEntityRecursive
-from adyen.models.type_3 import Type3
+from adyen.models.capability_problem_entity_recursive_2 import CapabilityProblemEntityRecursive2
+from adyen.models.type_33_enum import Type33Enum
 
 capability_problem_entity = CapabilityProblemEntity(
     documents=[
@@ -32,21 +27,15 @@ capability_problem_entity = CapabilityProblemEntity(
         'documents8'
     ],
     id='id8',
-    owner=CapabilityProblemEntityRecursive(
+    owner=CapabilityProblemEntityRecursive2(
         documents=[
             'documents3',
             'documents4'
         ],
         id='id4',
-        mtype=Type3.LEGALENTITY,
-        additional_properties={
-            'exampleAdditionalProperty': jsonpickle.decode('{"key1":"val1","key2":"val2"}')
-        }
+        mtype=Type33Enum.LEGALENTITY
     ),
-    mtype=Type3.DOCUMENT,
-    additional_properties={
-        'exampleAdditionalProperty': jsonpickle.decode('{"key1":"val1","key2":"val2"}')
-    }
+    mtype=Type33Enum.DOCUMENT
 )
 ```
 

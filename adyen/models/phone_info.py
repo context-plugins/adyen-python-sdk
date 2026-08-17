@@ -17,8 +17,6 @@ class PhoneInfo(object):
             provision the network token.
         number (str): The full phone number of the device used to provision the
             network token.
-        additional_properties (Dict[str, Any]): The additional properties for the
-            model.
 
     """
 
@@ -39,8 +37,7 @@ class PhoneInfo(object):
         self,
         hashed_number=APIHelper.SKIP,
         last_four_digits=APIHelper.SKIP,
-        number=APIHelper.SKIP,
-        additional_properties=None):
+        number=APIHelper.SKIP):
         """Initialize a PhoneInfo instance."""
         # Initialize members of the class
         if hashed_number is not APIHelper.SKIP:
@@ -49,11 +46,6 @@ class PhoneInfo(object):
             self.last_four_digits = last_four_digits
         if number is not APIHelper.SKIP:
             self.number = number
-
-        # Add additional model properties to the instance
-        if additional_properties is None:
-            additional_properties = {}
-        self.additional_properties = additional_properties
 
     @classmethod
     def from_dictionary(cls,
@@ -86,16 +78,10 @@ class PhoneInfo(object):
             if dictionary.get("number")\
                 else APIHelper.SKIP
 
-        additional_properties = APIHelper.get_additional_properties(
-            dictionary={k: v for k, v in dictionary.items()
-                        if k not in cls._names.values()},
-            unboxing_function=lambda value: value)
-
         # Return an object of this model
         return cls(hashed_number,
                    last_four_digits,
-                   number,
-                   additional_properties)
+                   number)
 
     def __repr__(self):
         """Return a unambiguous string representation."""
@@ -114,13 +100,11 @@ class PhoneInfo(object):
             if hasattr(self, "number")
             else None
         )
-        _additional_properties=self.additional_properties
         return (
             f"{self.__class__.__name__}("
             f"hashed_number={_hashed_number!r}, "
             f"last_four_digits={_last_four_digits!r}, "
             f"number={_number!r}, "
-            f"additional_properties={_additional_properties!r}, "
             f")"
         )
 
@@ -141,12 +125,10 @@ class PhoneInfo(object):
             if hasattr(self, "number")
             else None
         )
-        _additional_properties=self.additional_properties
         return (
             f"{self.__class__.__name__}("
             f"hashed_number={_hashed_number!s}, "
             f"last_four_digits={_last_four_digits!s}, "
             f"number={_number!s}, "
-            f"additional_properties={_additional_properties!s}, "
             f")"
         )

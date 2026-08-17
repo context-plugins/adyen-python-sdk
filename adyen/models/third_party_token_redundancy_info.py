@@ -17,8 +17,6 @@ class ThirdPartyTokenRedundancyInfo(object):
         request_template_code (str): Identifier for the third-party token request
             template configured in your Adyen account. This template defines the
             structure and endpoint for token requests.
-        additional_properties (Dict[str, Any]): The additional properties for the
-            model.
 
     """
 
@@ -35,18 +33,12 @@ class ThirdPartyTokenRedundancyInfo(object):
     def __init__(
         self,
         request_template_code=None,
-        request_parameters=APIHelper.SKIP,
-        additional_properties=None):
+        request_parameters=APIHelper.SKIP):
         """Initialize a ThirdPartyTokenRedundancyInfo instance."""
         # Initialize members of the class
         if request_parameters is not APIHelper.SKIP:
             self.request_parameters = request_parameters
         self.request_template_code = request_template_code
-
-        # Add additional model properties to the instance
-        if additional_properties is None:
-            additional_properties = {}
-        self.additional_properties = additional_properties
 
     @classmethod
     def from_dictionary(cls,
@@ -75,48 +67,9 @@ class ThirdPartyTokenRedundancyInfo(object):
             if dictionary.get("requestParameters")\
                 else APIHelper.SKIP
 
-        additional_properties = APIHelper.get_additional_properties(
-            dictionary={k: v for k, v in dictionary.items()
-                        if k not in cls._names.values()},
-            unboxing_function=lambda value: value)
-
         # Return an object of this model
         return cls(request_template_code,
-                   request_parameters,
-                   additional_properties)
-
-    @classmethod
-    def validate(cls, dictionary):
-        """Validate dictionary against class required properties
-
-        Args:
-            dictionary (dictionary): A dictionary representation of the object
-            as obtained from the deserialization of the server's response. The
-            keys MUST match property names in the API description.
-
-        Returns:
-            boolean : if dictionary is valid contains required properties.
-
-        """
-        if isinstance(dictionary, cls):
-            return APIHelper.is_valid_type(
-                    value=dictionary.request_template_code,
-                    type_callable=lambda value:
-                        isinstance(
-                        value,
-                        str,
-                ))
-
-        if not isinstance(dictionary, dict):
-            return False
-
-        return APIHelper.is_valid_type(
-                value=dictionary.get("requestTemplateCode"),
-                type_callable=lambda value:
-                    isinstance(
-                    value,
-                    str,
-            ))
+                   request_parameters)
 
     def __repr__(self):
         """Return a unambiguous string representation."""
@@ -126,12 +79,10 @@ class ThirdPartyTokenRedundancyInfo(object):
             else None
         )
         _request_template_code=self.request_template_code
-        _additional_properties=self.additional_properties
         return (
             f"{self.__class__.__name__}("
             f"request_parameters={_request_parameters!r}, "
             f"request_template_code={_request_template_code!r}, "
-            f"additional_properties={_additional_properties!r}, "
             f")"
         )
 
@@ -143,11 +94,9 @@ class ThirdPartyTokenRedundancyInfo(object):
             else None
         )
         _request_template_code=self.request_template_code
-        _additional_properties=self.additional_properties
         return (
             f"{self.__class__.__name__}("
             f"request_parameters={_request_parameters!s}, "
             f"request_template_code={_request_template_code!s}, "
-            f"additional_properties={_additional_properties!s}, "
             f")"
         )

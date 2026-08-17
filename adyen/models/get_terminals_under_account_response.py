@@ -17,8 +17,6 @@ class GetTerminalsUnderAccountResponse(object):
             that are in the inventory of the company account.
         merchant_accounts (List[MerchantAccount]): Array that returns a list of all
             merchant accounts belonging to the company account.
-        additional_properties (Dict[str, Any]): The additional properties for the
-            model.
 
     """
 
@@ -38,8 +36,7 @@ class GetTerminalsUnderAccountResponse(object):
         self,
         company_account=None,
         inventory_terminals=APIHelper.SKIP,
-        merchant_accounts=APIHelper.SKIP,
-        additional_properties=None):
+        merchant_accounts=APIHelper.SKIP):
         """Initialize a GetTerminalsUnderAccountResponse instance."""
         # Initialize members of the class
         self.company_account = company_account
@@ -47,11 +44,6 @@ class GetTerminalsUnderAccountResponse(object):
             self.inventory_terminals = inventory_terminals
         if merchant_accounts is not APIHelper.SKIP:
             self.merchant_accounts = merchant_accounts
-
-        # Add additional model properties to the instance
-        if additional_properties is None:
-            additional_properties = {}
-        self.additional_properties = additional_properties
 
     @classmethod
     def from_dictionary(cls,
@@ -88,16 +80,10 @@ class GetTerminalsUnderAccountResponse(object):
         else:
             merchant_accounts = APIHelper.SKIP
 
-        additional_properties = APIHelper.get_additional_properties(
-            dictionary={k: v for k, v in dictionary.items()
-                        if k not in cls._names.values()},
-            unboxing_function=lambda value: value)
-
         # Return an object of this model
         return cls(company_account,
                    inventory_terminals,
-                   merchant_accounts,
-                   additional_properties)
+                   merchant_accounts)
 
     def __repr__(self):
         """Return a unambiguous string representation."""
@@ -112,13 +98,11 @@ class GetTerminalsUnderAccountResponse(object):
             if hasattr(self, "merchant_accounts")
             else None
         )
-        _additional_properties=self.additional_properties
         return (
             f"{self.__class__.__name__}("
             f"company_account={_company_account!r}, "
             f"inventory_terminals={_inventory_terminals!r}, "
             f"merchant_accounts={_merchant_accounts!r}, "
-            f"additional_properties={_additional_properties!r}, "
             f")"
         )
 
@@ -135,12 +119,10 @@ class GetTerminalsUnderAccountResponse(object):
             if hasattr(self, "merchant_accounts")
             else None
         )
-        _additional_properties=self.additional_properties
         return (
             f"{self.__class__.__name__}("
             f"company_account={_company_account!s}, "
             f"inventory_terminals={_inventory_terminals!s}, "
             f"merchant_accounts={_merchant_accounts!s}, "
-            f"additional_properties={_additional_properties!s}, "
             f")"
         )

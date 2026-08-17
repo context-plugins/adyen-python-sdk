@@ -44,9 +44,8 @@ class NotificationConfigurationDetails(object):
             the specified username.
         notify_url (str): The URL to which the notifications are to be sent.
         notify_username (str): The username to use when accessing the notifyURL.
-        ssl_protocol (SslProtocol): The model property of type SslProtocol.
-        additional_properties (Dict[str, Any]): The additional properties for the
-            model.
+        ssl_protocol (SslProtocolEnum): The SSL protocol employed by the endpoint.
+            >Permitted values: `TLSv12`, `TLSv13`.
 
     """
 
@@ -88,8 +87,7 @@ class NotificationConfigurationDetails(object):
         notify_password=APIHelper.SKIP,
         notify_url=APIHelper.SKIP,
         notify_username=APIHelper.SKIP,
-        ssl_protocol=APIHelper.SKIP,
-        additional_properties=None):
+        ssl_protocol=APIHelper.SKIP):
         """Initialize a NotificationConfigurationDetails instance."""
         # Initialize members of the class
         if active is not APIHelper.SKIP:
@@ -112,11 +110,6 @@ class NotificationConfigurationDetails(object):
             self.notify_username = notify_username
         if ssl_protocol is not APIHelper.SKIP:
             self.ssl_protocol = ssl_protocol
-
-        # Add additional model properties to the instance
-        if additional_properties is None:
-            additional_properties = {}
-        self.additional_properties = additional_properties
 
     @classmethod
     def from_dictionary(cls,
@@ -181,11 +174,6 @@ class NotificationConfigurationDetails(object):
             if dictionary.get("sslProtocol")\
                 else APIHelper.SKIP
 
-        additional_properties = APIHelper.get_additional_properties(
-            dictionary={k: v for k, v in dictionary.items()
-                        if k not in cls._names.values()},
-            unboxing_function=lambda value: value)
-
         # Return an object of this model
         return cls(active,
                    api_version,
@@ -196,8 +184,7 @@ class NotificationConfigurationDetails(object):
                    notify_password,
                    notify_url,
                    notify_username,
-                   ssl_protocol,
-                   additional_properties)
+                   ssl_protocol)
 
     def __repr__(self):
         """Return a unambiguous string representation."""
@@ -251,7 +238,6 @@ class NotificationConfigurationDetails(object):
             if hasattr(self, "ssl_protocol")
             else None
         )
-        _additional_properties=self.additional_properties
         return (
             f"{self.__class__.__name__}("
             f"active={_active!r}, "
@@ -264,7 +250,6 @@ class NotificationConfigurationDetails(object):
             f"notify_url={_notify_url!r}, "
             f"notify_username={_notify_username!r}, "
             f"ssl_protocol={_ssl_protocol!r}, "
-            f"additional_properties={_additional_properties!r}, "
             f")"
         )
 
@@ -320,7 +305,6 @@ class NotificationConfigurationDetails(object):
             if hasattr(self, "ssl_protocol")
             else None
         )
-        _additional_properties=self.additional_properties
         return (
             f"{self.__class__.__name__}("
             f"active={_active!s}, "
@@ -333,6 +317,5 @@ class NotificationConfigurationDetails(object):
             f"notify_url={_notify_url!s}, "
             f"notify_username={_notify_username!s}, "
             f"ssl_protocol={_ssl_protocol!s}, "
-            f"additional_properties={_additional_properties!s}, "
             f")"
         )

@@ -11,24 +11,26 @@ from adyen.models.capability_problem_1 import (
 from adyen.models.document_reference import (
     DocumentReference,
 )
-from adyen.models.entity_reference import EntityReference
-from adyen.models.individual import Individual
+from adyen.models.individual_1 import Individual1
 from adyen.models.legal_entity_association import (
     LegalEntityAssociation,
 )
 from adyen.models.legal_entity_capability import (
     LegalEntityCapability,
 )
-from adyen.models.organization import Organization
-from adyen.models.sole_proprietorship import (
-    SoleProprietorship,
+from adyen.models.organization_1 import Organization1
+from adyen.models.sole_proprietorship_1 import (
+    SoleProprietorship1,
 )
 from adyen.models.transfer_instrument_reference import (
     TransferInstrumentReference,
 )
-from adyen.models.trust import Trust
-from adyen.models.unincorporated_partnership import (
-    UnincorporatedPartnership,
+from adyen.models.trust_1 import Trust1
+from adyen.models.unincorporated_partnership_1 import (
+    UnincorporatedPartnership1,
+)
+from adyen.models.upload_android_app_response import (
+    UploadAndroidAppResponse,
 )
 from adyen.models.verification_deadline import (
     VerificationDeadline,
@@ -46,26 +48,30 @@ class LegalEntity3(object):
             settings for the capability.
         document_details (List[DocumentReference]): List of documents uploaded for
             the legal entity.
-        documents (List[EntityReference]): List of documents uploaded for the legal
-            entity.
+        documents (List[UploadAndroidAppResponse]): List of documents uploaded for
+            the legal entity.
         entity_associations (List[LegalEntityAssociation]): List of legal entities
             associated with the current legal entity. For example, ultimate
             beneficial owners associated with an organization through ownership or
             control, or as signatories.
         id (str): The unique identifier of the legal entity.
-        individual (Individual): The model property of type Individual.
-        organization (Organization): The model property of type Organization.
+        individual (Individual1): Information about the individual. Required if
+            `type` is **individual**.
+        organization (Organization1): Information about the organization. Required if
+            `type` is **organization**.
         problems (List[CapabilityProblem1]): List of verification errors related to
             capabilities for the legal entity.
         reference (str): Your reference for the legal entity, maximum 150 characters.
-        sole_proprietorship (SoleProprietorship): The model property of type
-            SoleProprietorship.
+        sole_proprietorship (SoleProprietorship1): Information about the sole
+            proprietorship. Required if `type` is **soleProprietorship**.
         transfer_instruments (List[TransferInstrumentReference]): List of transfer
             instruments that the legal entity owns.
-        trust (Trust): The model property of type Trust.
-        mtype (Type182): The model property of type Type182.
-        unincorporated_partnership (UnincorporatedPartnership): The model property of
-            type UnincorporatedPartnership.
+        trust (Trust1): Information about the trust. Required if `type` is **trust**.
+        mtype (Type182Enum): The type of legal entity.  Possible values:
+            **individual**, **organization**, **soleProprietorship**, or **trust**.
+        unincorporated_partnership (UnincorporatedPartnership1): Information about
+            the unincorporated partnership. Required if `type` is
+            **unincorporatedPartnership**.
         verification_deadlines (List[VerificationDeadline]): List of verification
             deadlines and the capabilities that will be disallowed if verification
             errors are not resolved.
@@ -74,8 +80,6 @@ class LegalEntity3(object):
             for
             [marketplaces](https://docs.adyen.com/marketplaces/verification-overview/v
             erification-types/#upfront-verification).
-        additional_properties (Dict[str, Any]): The additional properties for the
-            model.
 
     """
 
@@ -134,8 +138,7 @@ class LegalEntity3(object):
         mtype=APIHelper.SKIP,
         unincorporated_partnership=APIHelper.SKIP,
         verification_deadlines=APIHelper.SKIP,
-        verification_plan=APIHelper.SKIP,
-        additional_properties=None):
+        verification_plan=APIHelper.SKIP):
         """Initialize a LegalEntity3 instance."""
         # Initialize members of the class
         if capabilities is not APIHelper.SKIP:
@@ -169,11 +172,6 @@ class LegalEntity3(object):
             self.verification_deadlines = verification_deadlines
         if verification_plan is not APIHelper.SKIP:
             self.verification_plan = verification_plan
-
-        # Add additional model properties to the instance
-        if additional_properties is None:
-            additional_properties = {}
-        self.additional_properties = additional_properties
 
     @classmethod
     def from_dictionary(cls,
@@ -213,7 +211,7 @@ class LegalEntity3(object):
         documents = None
         if dictionary.get("documents") is not None:
             documents = [
-                EntityReference.from_dictionary(x)
+                UploadAndroidAppResponse.from_dictionary(x)
                     for x in dictionary.get("documents")
             ]
         else:
@@ -227,12 +225,12 @@ class LegalEntity3(object):
         else:
             entity_associations = APIHelper.SKIP
         individual =\
-            Individual.from_dictionary(
+            Individual1.from_dictionary(
                 dictionary.get("individual"))\
                 if "individual" in dictionary.keys()\
                 else APIHelper.SKIP
         organization =\
-            Organization.from_dictionary(
+            Organization1.from_dictionary(
                 dictionary.get("organization"))\
                 if "organization" in dictionary.keys()\
                 else APIHelper.SKIP
@@ -249,7 +247,7 @@ class LegalEntity3(object):
             if dictionary.get("reference")\
                 else APIHelper.SKIP
         sole_proprietorship =\
-            SoleProprietorship.from_dictionary(
+            SoleProprietorship1.from_dictionary(
                 dictionary.get("soleProprietorship"))\
                 if "soleProprietorship" in dictionary.keys()\
                 else APIHelper.SKIP
@@ -262,7 +260,7 @@ class LegalEntity3(object):
         else:
             transfer_instruments = APIHelper.SKIP
         trust =\
-            Trust.from_dictionary(
+            Trust1.from_dictionary(
                 dictionary.get("trust"))\
                 if "trust" in dictionary.keys()\
                 else APIHelper.SKIP
@@ -271,7 +269,7 @@ class LegalEntity3(object):
             if dictionary.get("type")\
                 else APIHelper.SKIP
         unincorporated_partnership =\
-            UnincorporatedPartnership.from_dictionary(
+            UnincorporatedPartnership1.from_dictionary(
                 dictionary.get("unincorporatedPartnership"))\
                 if "unincorporatedPartnership" in dictionary.keys()\
                 else APIHelper.SKIP
@@ -287,11 +285,6 @@ class LegalEntity3(object):
             dictionary.get("verificationPlan")\
             if dictionary.get("verificationPlan")\
                 else APIHelper.SKIP
-
-        additional_properties = APIHelper.get_additional_properties(
-            dictionary={k: v for k, v in dictionary.items()
-                        if k not in cls._names.values()},
-            unboxing_function=lambda value: value)
 
         # Return an object of this model
         return cls(id,
@@ -309,8 +302,7 @@ class LegalEntity3(object):
                    mtype,
                    unincorporated_partnership,
                    verification_deadlines,
-                   verification_plan,
-                   additional_properties)
+                   verification_plan)
 
     def __repr__(self):
         """Return a unambiguous string representation."""
@@ -390,7 +382,6 @@ class LegalEntity3(object):
             if hasattr(self, "verification_plan")
             else None
         )
-        _additional_properties=self.additional_properties
         return (
             f"{self.__class__.__name__}("
             f"capabilities={_capabilities!r}, "
@@ -409,7 +400,6 @@ class LegalEntity3(object):
             f"unincorporated_partnership={_unincorporated_partnership!r}, "
             f"verification_deadlines={_verification_deadlines!r}, "
             f"verification_plan={_verification_plan!r}, "
-            f"additional_properties={_additional_properties!r}, "
             f")"
         )
 
@@ -491,7 +481,6 @@ class LegalEntity3(object):
             if hasattr(self, "verification_plan")
             else None
         )
-        _additional_properties=self.additional_properties
         return (
             f"{self.__class__.__name__}("
             f"capabilities={_capabilities!s}, "
@@ -510,6 +499,5 @@ class LegalEntity3(object):
             f"unincorporated_partnership={_unincorporated_partnership!s}, "
             f"verification_deadlines={_verification_deadlines!s}, "
             f"verification_plan={_verification_plan!s}, "
-            f"additional_properties={_additional_properties!s}, "
             f")"
         )

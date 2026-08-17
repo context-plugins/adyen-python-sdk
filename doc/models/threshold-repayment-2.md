@@ -3,8 +3,6 @@
 
 An object containing the details of the 30-day repayment threshold.
 
-*This model accepts additional fields of type Any.*
-
 ## Structure
 
 `ThresholdRepayment2`
@@ -13,28 +11,19 @@ An object containing the details of the 30-day repayment threshold.
 
 | Name | Type | Tags | Description |
 |  --- | --- | --- | --- |
-| `amount` | [`Amount5`](../../doc/models/amount-5.md) | Required | - |
-| `additional_properties` | `Dict[str, Any]` | Optional | - |
+| `amount` | [`Amount17`](../../doc/models/amount-17.md) | Required | The amount to be repaid on a 30-day basis. |
 
 ## Example
 
 ```python
-import jsonpickle
-
-from adyen.models.amount_5 import Amount5
+from adyen.models.amount_17 import Amount17
 from adyen.models.threshold_repayment_2 import ThresholdRepayment2
 
 threshold_repayment_2 = ThresholdRepayment2(
-    amount=Amount5(
+    amount=Amount17(
         currency='currency2',
-        value=110,
-        additional_properties={
-            'exampleAdditionalProperty': jsonpickle.decode('{"key1":"val1","key2":"val2"}')
-        }
-    ),
-    additional_properties={
-        'exampleAdditionalProperty': jsonpickle.decode('{"key1":"val1","key2":"val2"}')
-    }
+        value=110
+    )
 )
 ```
 

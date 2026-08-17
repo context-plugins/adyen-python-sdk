@@ -12,11 +12,9 @@ class EntryModesRestriction(object):
 
     Attributes:
         operation (str): Defines how the condition must be evaluated.
-        value (List[Value2]): List of point-of-sale entry modes.  Possible values:
-            **barcode**, **chip**, **cof**, **contactless**, **magstripe**,
+        value (List[Value2Enum]): List of point-of-sale entry modes.  Possible
+            values: **barcode**, **chip**, **cof**, **contactless**, **magstripe**,
             **manual**, **ocr**, **server**.
-        additional_properties (Dict[str, Any]): The additional properties for the
-            model.
 
     """
 
@@ -33,18 +31,12 @@ class EntryModesRestriction(object):
     def __init__(
         self,
         operation=None,
-        value=APIHelper.SKIP,
-        additional_properties=None):
+        value=APIHelper.SKIP):
         """Initialize a EntryModesRestriction instance."""
         # Initialize members of the class
         self.operation = operation
         if value is not APIHelper.SKIP:
             self.value = value
-
-        # Add additional model properties to the instance
-        if additional_properties is None:
-            additional_properties = {}
-        self.additional_properties = additional_properties
 
     @classmethod
     def from_dictionary(cls,
@@ -73,15 +65,9 @@ class EntryModesRestriction(object):
             if dictionary.get("value")\
                 else APIHelper.SKIP
 
-        additional_properties = APIHelper.get_additional_properties(
-            dictionary={k: v for k, v in dictionary.items()
-                        if k not in cls._names.values()},
-            unboxing_function=lambda value: value)
-
         # Return an object of this model
         return cls(operation,
-                   value,
-                   additional_properties)
+                   value)
 
     def __repr__(self):
         """Return a unambiguous string representation."""
@@ -91,12 +77,10 @@ class EntryModesRestriction(object):
             if hasattr(self, "value")
             else None
         )
-        _additional_properties=self.additional_properties
         return (
             f"{self.__class__.__name__}("
             f"operation={_operation!r}, "
             f"value={_value!r}, "
-            f"additional_properties={_additional_properties!r}, "
             f")"
         )
 
@@ -108,11 +92,9 @@ class EntryModesRestriction(object):
             if hasattr(self, "value")
             else None
         )
-        _additional_properties=self.additional_properties
         return (
             f"{self.__class__.__name__}("
             f"operation={_operation!s}, "
             f"value={_value!s}, "
-            f"additional_properties={_additional_properties!s}, "
             f")"
         )

@@ -17,8 +17,6 @@ class GetAccountHolderRequest(object):
             retrieve the details. > Required if no `accountCode` is provided.
         show_details (bool): True if the request should return the account holder
             details
-        additional_properties (Dict[str, Any]): The additional properties for the
-            model.
 
     """
 
@@ -39,8 +37,7 @@ class GetAccountHolderRequest(object):
         self,
         account_code=APIHelper.SKIP,
         account_holder_code=APIHelper.SKIP,
-        show_details=APIHelper.SKIP,
-        additional_properties=None):
+        show_details=APIHelper.SKIP):
         """Initialize a GetAccountHolderRequest instance."""
         # Initialize members of the class
         if account_code is not APIHelper.SKIP:
@@ -49,11 +46,6 @@ class GetAccountHolderRequest(object):
             self.account_holder_code = account_holder_code
         if show_details is not APIHelper.SKIP:
             self.show_details = show_details
-
-        # Add additional model properties to the instance
-        if additional_properties is None:
-            additional_properties = {}
-        self.additional_properties = additional_properties
 
     @classmethod
     def from_dictionary(cls,
@@ -86,16 +78,10 @@ class GetAccountHolderRequest(object):
             if "showDetails" in dictionary.keys()\
                 else APIHelper.SKIP
 
-        additional_properties = APIHelper.get_additional_properties(
-            dictionary={k: v for k, v in dictionary.items()
-                        if k not in cls._names.values()},
-            unboxing_function=lambda value: value)
-
         # Return an object of this model
         return cls(account_code,
                    account_holder_code,
-                   show_details,
-                   additional_properties)
+                   show_details)
 
     def __repr__(self):
         """Return a unambiguous string representation."""
@@ -114,13 +100,11 @@ class GetAccountHolderRequest(object):
             if hasattr(self, "show_details")
             else None
         )
-        _additional_properties=self.additional_properties
         return (
             f"{self.__class__.__name__}("
             f"account_code={_account_code!r}, "
             f"account_holder_code={_account_holder_code!r}, "
             f"show_details={_show_details!r}, "
-            f"additional_properties={_additional_properties!r}, "
             f")"
         )
 
@@ -141,12 +125,10 @@ class GetAccountHolderRequest(object):
             if hasattr(self, "show_details")
             else None
         )
-        _additional_properties=self.additional_properties
         return (
             f"{self.__class__.__name__}("
             f"account_code={_account_code!s}, "
             f"account_holder_code={_account_holder_code!s}, "
             f"show_details={_show_details!s}, "
-            f"additional_properties={_additional_properties!s}, "
             f")"
         )

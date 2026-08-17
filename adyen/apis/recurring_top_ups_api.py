@@ -11,23 +11,8 @@ from apimatic_core.types.parameter import Parameter
 from adyen.api_helper import APIHelper
 from adyen.apis.base_api import BaseApi
 from adyen.configuration import Server
-from adyen.exceptions.balance_accounts_recurring_top_ups_400_error_exception import (
-    BalanceAccountsRecurringTopUps400ErrorException,
-)
-from adyen.exceptions.balance_accounts_recurring_top_ups_401_error_exception import (
-    BalanceAccountsRecurringTopUps401ErrorException,
-)
-from adyen.exceptions.balance_accounts_recurring_top_ups_403_error_exception import (
-    BalanceAccountsRecurringTopUps403ErrorException,
-)
-from adyen.exceptions.balance_accounts_recurring_top_ups_404_error_exception import (
-    BalanceAccountsRecurringTopUps404ErrorException,
-)
-from adyen.exceptions.balance_accounts_recurring_top_ups_422_error_exception import (
-    BalanceAccountsRecurringTopUps422ErrorException,
-)
-from adyen.exceptions.balance_accounts_recurring_top_ups_500_error_exception import (
-    BalanceAccountsRecurringTopUps500ErrorException,
+from adyen.exceptions.default_error_response_entity_exception import (
+    DefaultErrorResponseEntityException,
 )
 from adyen.http.http_method_enum import HttpMethodEnum
 from adyen.models.recurring_top_up import RecurringTopUp
@@ -63,24 +48,22 @@ class RecurringTopUpsApi(BaseApi):
                 want to see the next or previous page of results.
 
         Returns:
-            ApiResponse: An object with the response value as well as other useful
-                information such as status codes and headers. OK - the request has
+            RecurringTopUpsResult: Response from the API. OK - the request has
                 succeeded.
 
         Raises:
-            ApiException: When an error occurs while fetching the data from the
+            APIException: When an error occurs while fetching the data from the
                 remote API. This exception includes the HTTP Response code, an error
                 message, and the HTTP body that was received in the request.
 
         """
         return super().new_api_call_builder.request(
-            RequestBuilder().server(Server.DEFAULT)
+            RequestBuilder().server(Server.DEFAULT13)
             .path("/balanceAccounts/{balanceAccountId}/recurringTopUps")
             .http_method(HttpMethodEnum.GET)
             .template_param(Parameter()
                 .key("balanceAccountId")
                 .value(balance_account_id)
-                .is_required(True)
                 .should_encode(True))
             .query_param(Parameter()
                 .key("limit")
@@ -95,19 +78,18 @@ class RecurringTopUpsApi(BaseApi):
             ResponseHandler()
             .deserializer(APIHelper.json_deserialize)
             .deserialize_into(RecurringTopUpsResult.from_dictionary)
-            .is_api_response(True)
             .local_error("401",
                 "Unauthorized - authentication required.",
-                BalanceAccountsRecurringTopUps401ErrorException)
+                DefaultErrorResponseEntityException)
             .local_error("403",
                 "Forbidden - insufficient permissions to process the request.",
-                BalanceAccountsRecurringTopUps403ErrorException)
+                DefaultErrorResponseEntityException)
             .local_error("404",
                 "Not Found - the recurring top up was not found",
-                BalanceAccountsRecurringTopUps404ErrorException)
+                DefaultErrorResponseEntityException)
             .local_error("500",
                 "Internal Server Error - the server could not process the request.",
-                BalanceAccountsRecurringTopUps500ErrorException),
+                DefaultErrorResponseEntityException),
         ).execute()
 
     def post_balance_accounts_balance_account_id_recurring_top_ups(self,
@@ -126,31 +108,27 @@ class RecurringTopUpsApi(BaseApi):
             body (CreateRecurringTopUp): The request body parameter.
 
         Returns:
-            ApiResponse: An object with the response value as well as other useful
-                information such as status codes and headers. OK - the request has
-                succeeded.
+            RecurringTopUp: Response from the API. OK - the request has succeeded.
 
         Raises:
-            ApiException: When an error occurs while fetching the data from the
+            APIException: When an error occurs while fetching the data from the
                 remote API. This exception includes the HTTP Response code, an error
                 message, and the HTTP body that was received in the request.
 
         """
         return super().new_api_call_builder.request(
-            RequestBuilder().server(Server.DEFAULT)
+            RequestBuilder().server(Server.DEFAULT13)
             .path("/balanceAccounts/{balanceAccountId}/recurringTopUps")
             .http_method(HttpMethodEnum.POST)
             .template_param(Parameter()
                 .key("balanceAccountId")
                 .value(balance_account_id)
-                .is_required(True)
                 .should_encode(True))
             .header_param(Parameter()
                 .key("Content-Type")
                 .value("application/json"))
             .body_param(Parameter()
-                .value(body)
-                .is_required(True))
+                .value(body))
             .header_param(Parameter()
                 .key("accept")
                 .value("application/json"))
@@ -159,19 +137,18 @@ class RecurringTopUpsApi(BaseApi):
             ResponseHandler()
             .deserializer(APIHelper.json_deserialize)
             .deserialize_into(RecurringTopUp.from_dictionary)
-            .is_api_response(True)
             .local_error("400",
                 "Bad Request - a problem reading or understanding the request.",
-                BalanceAccountsRecurringTopUps400ErrorException)
+                DefaultErrorResponseEntityException)
             .local_error("401",
                 "Unauthorized - authentication required.",
-                BalanceAccountsRecurringTopUps401ErrorException)
+                DefaultErrorResponseEntityException)
             .local_error("403",
                 "Forbidden - insufficient permissions to process the request.",
-                BalanceAccountsRecurringTopUps403ErrorException)
+                DefaultErrorResponseEntityException)
             .local_error("422",
                 "Unprocessable Entity - a request validation error.",
-                BalanceAccountsRecurringTopUps422ErrorException),
+                DefaultErrorResponseEntityException),
         ).execute()
 
     def delete_balance_accounts_balance_account_id_recurring_top_ups_top_up_id(self,
@@ -191,56 +168,51 @@ class RecurringTopUpsApi(BaseApi):
                 to delete.
 
         Returns:
-            ApiResponse: An object with the response value as well as other useful
-                information such as status codes and headers. No Content - the
-                request has been successfully processed, but there is no additional
-                content.
+            Any: Response from the API. No Content - the request has been
+                successfully processed, but there is no additional content.
 
         Raises:
-            ApiException: When an error occurs while fetching the data from the
+            APIException: When an error occurs while fetching the data from the
                 remote API. This exception includes the HTTP Response code, an error
                 message, and the HTTP body that was received in the request.
 
         """
         return super().new_api_call_builder.request(
-            RequestBuilder().server(Server.DEFAULT)
+            RequestBuilder().server(Server.DEFAULT13)
             .path("/balanceAccounts/{balanceAccountId}/recurringTopUps/{topUpId}")
             .http_method(HttpMethodEnum.DELETE)
             .template_param(Parameter()
                 .key("balanceAccountId")
                 .value(balance_account_id)
-                .is_required(True)
                 .should_encode(True))
             .template_param(Parameter()
                 .key("topUpId")
                 .value(top_up_id)
-                .is_required(True)
                 .should_encode(True))
             .header_param(Parameter()
                 .key("accept")
                 .value("application/json")),
         ).response(
             ResponseHandler()
-            .deserializer(APIHelper.json_deserialize)
-            .is_api_response(True)
+            .deserializer(APIHelper.dynamic_deserialize)
             .local_error("400",
                 "Bad Request - a problem reading or understanding the request.",
-                BalanceAccountsRecurringTopUps400ErrorException)
+                DefaultErrorResponseEntityException)
             .local_error("401",
                 "Unauthorized - authentication required.",
-                BalanceAccountsRecurringTopUps401ErrorException)
+                DefaultErrorResponseEntityException)
             .local_error("403",
                 "Forbidden - insufficient permissions to process the request.",
-                BalanceAccountsRecurringTopUps403ErrorException)
+                DefaultErrorResponseEntityException)
             .local_error("404",
                 "Not Found - the recurring top up was not found",
-                BalanceAccountsRecurringTopUps404ErrorException)
+                DefaultErrorResponseEntityException)
             .local_error("422",
                 "Unprocessable Entity - a request validation error.",
-                BalanceAccountsRecurringTopUps422ErrorException)
+                DefaultErrorResponseEntityException)
             .local_error("500",
                 "Internal Server Error - the server could not process the request.",
-                BalanceAccountsRecurringTopUps500ErrorException),
+                DefaultErrorResponseEntityException),
         ).execute()
 
     def patch_balance_accounts_balance_account_id_recurring_top_ups_top_up_id(self,
@@ -262,36 +234,31 @@ class RecurringTopUpsApi(BaseApi):
             body (PatchableCreateRecurringTopUp): The request body parameter.
 
         Returns:
-            ApiResponse: An object with the response value as well as other useful
-                information such as status codes and headers. OK - the request has
-                succeeded.
+            RecurringTopUp: Response from the API. OK - the request has succeeded.
 
         Raises:
-            ApiException: When an error occurs while fetching the data from the
+            APIException: When an error occurs while fetching the data from the
                 remote API. This exception includes the HTTP Response code, an error
                 message, and the HTTP body that was received in the request.
 
         """
         return super().new_api_call_builder.request(
-            RequestBuilder().server(Server.DEFAULT)
+            RequestBuilder().server(Server.DEFAULT13)
             .path("/balanceAccounts/{balanceAccountId}/recurringTopUps/{topUpId}")
             .http_method(HttpMethodEnum.PATCH)
             .template_param(Parameter()
                 .key("balanceAccountId")
                 .value(balance_account_id)
-                .is_required(True)
                 .should_encode(True))
             .template_param(Parameter()
                 .key("topUpId")
                 .value(top_up_id)
-                .is_required(True)
                 .should_encode(True))
             .header_param(Parameter()
                 .key("Content-Type")
                 .value("application/json"))
             .body_param(Parameter()
-                .value(body)
-                .is_required(True))
+                .value(body))
             .header_param(Parameter()
                 .key("accept")
                 .value("application/json"))
@@ -300,17 +267,16 @@ class RecurringTopUpsApi(BaseApi):
             ResponseHandler()
             .deserializer(APIHelper.json_deserialize)
             .deserialize_into(RecurringTopUp.from_dictionary)
-            .is_api_response(True)
             .local_error("400",
                 "Bad Request - a problem reading or understanding the request.",
-                BalanceAccountsRecurringTopUps400ErrorException)
+                DefaultErrorResponseEntityException)
             .local_error("401",
                 "Unauthorized - authentication required.",
-                BalanceAccountsRecurringTopUps401ErrorException)
+                DefaultErrorResponseEntityException)
             .local_error("403",
                 "Forbidden - insufficient permissions to process the request.",
-                BalanceAccountsRecurringTopUps403ErrorException)
+                DefaultErrorResponseEntityException)
             .local_error("422",
                 "Unprocessable Entity - a request validation error.",
-                BalanceAccountsRecurringTopUps422ErrorException),
+                DefaultErrorResponseEntityException),
         ).execute()

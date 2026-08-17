@@ -31,8 +31,6 @@ class CreateMerchantRequest(object):
             `reference` is required and must be unique within the company account.
         sales_channels (List[str]): List of sales channels that the merchant will
             process payments with
-        additional_properties (Dict[str, Any]): The additional properties for the
-            model.
 
     """
 
@@ -64,8 +62,7 @@ class CreateMerchantRequest(object):
         legal_entity_id=APIHelper.SKIP,
         pricing_plan=APIHelper.SKIP,
         reference=APIHelper.SKIP,
-        sales_channels=APIHelper.SKIP,
-        additional_properties=None):
+        sales_channels=APIHelper.SKIP):
         """Initialize a CreateMerchantRequest instance."""
         # Initialize members of the class
         if business_line_id is not APIHelper.SKIP:
@@ -81,11 +78,6 @@ class CreateMerchantRequest(object):
             self.reference = reference
         if sales_channels is not APIHelper.SKIP:
             self.sales_channels = sales_channels
-
-        # Add additional model properties to the instance
-        if additional_properties is None:
-            additional_properties = {}
-        self.additional_properties = additional_properties
 
     @classmethod
     def from_dictionary(cls,
@@ -134,11 +126,6 @@ class CreateMerchantRequest(object):
             if dictionary.get("salesChannels")\
                 else APIHelper.SKIP
 
-        additional_properties = APIHelper.get_additional_properties(
-            dictionary={k: v for k, v in dictionary.items()
-                        if k not in cls._names.values()},
-            unboxing_function=lambda value: value)
-
         # Return an object of this model
         return cls(company_id,
                    business_line_id,
@@ -146,8 +133,7 @@ class CreateMerchantRequest(object):
                    legal_entity_id,
                    pricing_plan,
                    reference,
-                   sales_channels,
-                   additional_properties)
+                   sales_channels)
 
     def __repr__(self):
         """Return a unambiguous string representation."""
@@ -182,7 +168,6 @@ class CreateMerchantRequest(object):
             if hasattr(self, "sales_channels")
             else None
         )
-        _additional_properties=self.additional_properties
         return (
             f"{self.__class__.__name__}("
             f"business_line_id={_business_line_id!r}, "
@@ -192,7 +177,6 @@ class CreateMerchantRequest(object):
             f"pricing_plan={_pricing_plan!r}, "
             f"reference={_reference!r}, "
             f"sales_channels={_sales_channels!r}, "
-            f"additional_properties={_additional_properties!r}, "
             f")"
         )
 
@@ -229,7 +213,6 @@ class CreateMerchantRequest(object):
             if hasattr(self, "sales_channels")
             else None
         )
-        _additional_properties=self.additional_properties
         return (
             f"{self.__class__.__name__}("
             f"business_line_id={_business_line_id!s}, "
@@ -239,6 +222,5 @@ class CreateMerchantRequest(object):
             f"pricing_plan={_pricing_plan!s}, "
             f"reference={_reference!s}, "
             f"sales_channels={_sales_channels!s}, "
-            f"additional_properties={_additional_properties!s}, "
             f")"
         )

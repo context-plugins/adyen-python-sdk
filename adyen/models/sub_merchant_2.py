@@ -30,8 +30,6 @@ class SubMerchant2(object):
             card statement. * Format: Alphanumeric * Maximum length: 22 characters
         tax_id (str): The tax ID of the sub-merchant. * Format: Numeric * Fixed
             length: 11 digits for the CPF or 14 digits for the CNPJ
-        additional_properties (Dict[str, Any]): The additional properties for the
-            model.
 
     """
 
@@ -58,8 +56,7 @@ class SubMerchant2(object):
         country=APIHelper.SKIP,
         mcc=APIHelper.SKIP,
         name=APIHelper.SKIP,
-        tax_id=APIHelper.SKIP,
-        additional_properties=None):
+        tax_id=APIHelper.SKIP):
         """Initialize a SubMerchant2 instance."""
         # Initialize members of the class
         if city is not APIHelper.SKIP:
@@ -72,11 +69,6 @@ class SubMerchant2(object):
             self.name = name
         if tax_id is not APIHelper.SKIP:
             self.tax_id = tax_id
-
-        # Add additional model properties to the instance
-        if additional_properties is None:
-            additional_properties = {}
-        self.additional_properties = additional_properties
 
     @classmethod
     def from_dictionary(cls,
@@ -117,18 +109,33 @@ class SubMerchant2(object):
             if dictionary.get("taxId")\
                 else APIHelper.SKIP
 
-        additional_properties = APIHelper.get_additional_properties(
-            dictionary={k: v for k, v in dictionary.items()
-                        if k not in cls._names.values()},
-            unboxing_function=lambda value: value)
-
         # Return an object of this model
         return cls(city,
                    country,
                    mcc,
                    name,
-                   tax_id,
-                   additional_properties)
+                   tax_id)
+
+    @classmethod
+    def validate(cls, dictionary):
+        """Validate dictionary against class required properties
+
+        Args:
+            dictionary (dictionary): A dictionary representation of the object
+            as obtained from the deserialization of the server's response. The
+            keys MUST match property names in the API description.
+
+        Returns:
+            boolean : if dictionary is valid contains required properties.
+
+        """
+        if isinstance(dictionary, cls):
+            return True
+
+        if not isinstance(dictionary, dict):
+            return False
+
+        return True
 
     def __repr__(self):
         """Return a unambiguous string representation."""
@@ -157,7 +164,6 @@ class SubMerchant2(object):
             if hasattr(self, "tax_id")
             else None
         )
-        _additional_properties=self.additional_properties
         return (
             f"{self.__class__.__name__}("
             f"city={_city!r}, "
@@ -165,7 +171,6 @@ class SubMerchant2(object):
             f"mcc={_mcc!r}, "
             f"name={_name!r}, "
             f"tax_id={_tax_id!r}, "
-            f"additional_properties={_additional_properties!r}, "
             f")"
         )
 
@@ -196,7 +201,6 @@ class SubMerchant2(object):
             if hasattr(self, "tax_id")
             else None
         )
-        _additional_properties=self.additional_properties
         return (
             f"{self.__class__.__name__}("
             f"city={_city!s}, "
@@ -204,6 +208,5 @@ class SubMerchant2(object):
             f"mcc={_mcc!s}, "
             f"name={_name!s}, "
             f"tax_id={_tax_id!s}, "
-            f"additional_properties={_additional_properties!s}, "
             f")"
         )

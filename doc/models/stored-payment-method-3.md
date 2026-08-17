@@ -1,8 +1,6 @@
 
 # Stored Payment Method 3
 
-*This model accepts additional fields of type Any.*
-
 ## Structure
 
 `StoredPaymentMethod3`
@@ -30,13 +28,10 @@
 | `supported_recurring_processing_models` | `List[str]` | Optional | The supported recurring processing models for this stored payment method. |
 | `supported_shopper_interactions` | `List[str]` | Optional | The supported shopper interactions for this stored payment method. |
 | `mtype` | `str` | Optional | The type of payment method. |
-| `additional_properties` | `Dict[str, Any]` | Optional | - |
 
 ## Example
 
 ```python
-import jsonpickle
-
 from adyen.models.stored_payment_method_3 import StoredPaymentMethod3
 
 stored_payment_method_3 = StoredPaymentMethod3(
@@ -44,10 +39,7 @@ stored_payment_method_3 = StoredPaymentMethod3(
     bank_location_id='bankLocationId2',
     brand='brand2',
     cashtag='cashtag4',
-    expiry_month='expiryMonth2',
-    additional_properties={
-        'exampleAdditionalProperty': jsonpickle.decode('{"key1":"val1","key2":"val2"}')
-    }
+    expiry_month='expiryMonth2'
 )
 ```
 

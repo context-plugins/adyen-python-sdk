@@ -20,8 +20,6 @@ class DocumentReference(object):
         pages (List[DocumentPage]): List of document pages
         mtype (str): Type of document, used when providing an ID number or uploading
             a document.
-        additional_properties (Dict[str, Any]): The additional properties for the
-            model.
 
     """
 
@@ -54,8 +52,7 @@ class DocumentReference(object):
         id=APIHelper.SKIP,
         modification_date=APIHelper.SKIP,
         pages=APIHelper.SKIP,
-        mtype=APIHelper.SKIP,
-        additional_properties=None):
+        mtype=APIHelper.SKIP):
         """Initialize a DocumentReference instance."""
         # Initialize members of the class
         if active is not APIHelper.SKIP:
@@ -75,11 +72,6 @@ class DocumentReference(object):
             self.pages = pages
         if mtype is not APIHelper.SKIP:
             self.mtype = mtype
-
-        # Add additional model properties to the instance
-        if additional_properties is None:
-            additional_properties = {}
-        self.additional_properties = additional_properties
 
     @classmethod
     def from_dictionary(cls,
@@ -131,11 +123,6 @@ class DocumentReference(object):
             if dictionary.get("type")\
                 else APIHelper.SKIP
 
-        additional_properties = APIHelper.get_additional_properties(
-            dictionary={k: v for k, v in dictionary.items()
-                        if k not in cls._names.values()},
-            unboxing_function=lambda value: value)
-
         # Return an object of this model
         return cls(active,
                    description,
@@ -143,8 +130,7 @@ class DocumentReference(object):
                    id,
                    modification_date,
                    pages,
-                   mtype,
-                   additional_properties)
+                   mtype)
 
     def __repr__(self):
         """Return a unambiguous string representation."""
@@ -183,7 +169,6 @@ class DocumentReference(object):
             if hasattr(self, "mtype")
             else None
         )
-        _additional_properties=self.additional_properties
         return (
             f"{self.__class__.__name__}("
             f"active={_active!r}, "
@@ -193,7 +178,6 @@ class DocumentReference(object):
             f"modification_date={_modification_date!r}, "
             f"pages={_pages!r}, "
             f"mtype={_mtype!r}, "
-            f"additional_properties={_additional_properties!r}, "
             f")"
         )
 
@@ -234,7 +218,6 @@ class DocumentReference(object):
             if hasattr(self, "mtype")
             else None
         )
-        _additional_properties=self.additional_properties
         return (
             f"{self.__class__.__name__}("
             f"active={_active!s}, "
@@ -244,6 +227,5 @@ class DocumentReference(object):
             f"modification_date={_modification_date!s}, "
             f"pages={_pages!s}, "
             f"mtype={_mtype!s}, "
-            f"additional_properties={_additional_properties!s}, "
             f")"
         )

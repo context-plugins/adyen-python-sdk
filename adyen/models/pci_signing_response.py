@@ -16,8 +16,6 @@ class PciSigningResponse(object):
         signed_by (str): The [legal entity
             ID](https://docs.adyen.com/api-explorer/#/legalentity/latest/post/legalEnt
             ities__resParam_id) of the individual who signed the PCI questionnaire.
-        additional_properties (Dict[str, Any]): The additional properties for the
-            model.
 
     """
 
@@ -35,19 +33,13 @@ class PciSigningResponse(object):
     def __init__(
         self,
         pci_questionnaire_ids=APIHelper.SKIP,
-        signed_by=APIHelper.SKIP,
-        additional_properties=None):
+        signed_by=APIHelper.SKIP):
         """Initialize a PciSigningResponse instance."""
         # Initialize members of the class
         if pci_questionnaire_ids is not APIHelper.SKIP:
             self.pci_questionnaire_ids = pci_questionnaire_ids
         if signed_by is not APIHelper.SKIP:
             self.signed_by = signed_by
-
-        # Add additional model properties to the instance
-        if additional_properties is None:
-            additional_properties = {}
-        self.additional_properties = additional_properties
 
     @classmethod
     def from_dictionary(cls,
@@ -76,15 +68,9 @@ class PciSigningResponse(object):
             if dictionary.get("signedBy")\
                 else APIHelper.SKIP
 
-        additional_properties = APIHelper.get_additional_properties(
-            dictionary={k: v for k, v in dictionary.items()
-                        if k not in cls._names.values()},
-            unboxing_function=lambda value: value)
-
         # Return an object of this model
         return cls(pci_questionnaire_ids,
-                   signed_by,
-                   additional_properties)
+                   signed_by)
 
     def __repr__(self):
         """Return a unambiguous string representation."""
@@ -98,12 +84,10 @@ class PciSigningResponse(object):
             if hasattr(self, "signed_by")
             else None
         )
-        _additional_properties=self.additional_properties
         return (
             f"{self.__class__.__name__}("
             f"pci_questionnaire_ids={_pci_questionnaire_ids!r}, "
             f"signed_by={_signed_by!r}, "
-            f"additional_properties={_additional_properties!r}, "
             f")"
         )
 
@@ -119,11 +103,9 @@ class PciSigningResponse(object):
             if hasattr(self, "signed_by")
             else None
         )
-        _additional_properties=self.additional_properties
         return (
             f"{self.__class__.__name__}("
             f"pci_questionnaire_ids={_pci_questionnaire_ids!s}, "
             f"signed_by={_signed_by!s}, "
-            f"additional_properties={_additional_properties!s}, "
             f")"
         )

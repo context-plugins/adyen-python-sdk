@@ -17,8 +17,6 @@ class Opi1(object):
         pay_at_table_store_number (str): The store number to use for Pay at Table.
         pay_at_table_url (str): The URL and port number used for Pay at Table
             communication.
-        additional_properties (Dict[str, Any]): The additional properties for the
-            model.
 
     """
 
@@ -39,8 +37,7 @@ class Opi1(object):
         self,
         enable_pay_at_table=APIHelper.SKIP,
         pay_at_table_store_number=APIHelper.SKIP,
-        pay_at_table_url=APIHelper.SKIP,
-        additional_properties=None):
+        pay_at_table_url=APIHelper.SKIP):
         """Initialize a Opi1 instance."""
         # Initialize members of the class
         if enable_pay_at_table is not APIHelper.SKIP:
@@ -49,11 +46,6 @@ class Opi1(object):
             self.pay_at_table_store_number = pay_at_table_store_number
         if pay_at_table_url is not APIHelper.SKIP:
             self.pay_at_table_url = pay_at_table_url
-
-        # Add additional model properties to the instance
-        if additional_properties is None:
-            additional_properties = {}
-        self.additional_properties = additional_properties
 
     @classmethod
     def from_dictionary(cls,
@@ -86,16 +78,10 @@ class Opi1(object):
             if dictionary.get("payAtTableURL")\
                 else APIHelper.SKIP
 
-        additional_properties = APIHelper.get_additional_properties(
-            dictionary={k: v for k, v in dictionary.items()
-                        if k not in cls._names.values()},
-            unboxing_function=lambda value: value)
-
         # Return an object of this model
         return cls(enable_pay_at_table,
                    pay_at_table_store_number,
-                   pay_at_table_url,
-                   additional_properties)
+                   pay_at_table_url)
 
     def __repr__(self):
         """Return a unambiguous string representation."""
@@ -114,13 +100,11 @@ class Opi1(object):
             if hasattr(self, "pay_at_table_url")
             else None
         )
-        _additional_properties=self.additional_properties
         return (
             f"{self.__class__.__name__}("
             f"enable_pay_at_table={_enable_pay_at_table!r}, "
             f"pay_at_table_store_number={_pay_at_table_store_number!r}, "
             f"pay_at_table_url={_pay_at_table_url!r}, "
-            f"additional_properties={_additional_properties!r}, "
             f")"
         )
 
@@ -141,12 +125,10 @@ class Opi1(object):
             if hasattr(self, "pay_at_table_url")
             else None
         )
-        _additional_properties=self.additional_properties
         return (
             f"{self.__class__.__name__}("
             f"enable_pay_at_table={_enable_pay_at_table!s}, "
             f"pay_at_table_store_number={_pay_at_table_store_number!s}, "
             f"pay_at_table_url={_pay_at_table_url!s}, "
-            f"additional_properties={_additional_properties!s}, "
             f")"
         )

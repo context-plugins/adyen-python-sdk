@@ -17,8 +17,8 @@ from apimatic_core.types.parameter import Parameter
 from adyen.api_helper import APIHelper
 from adyen.apis.base_api import BaseApi
 from adyen.configuration import Server
-from adyen.exceptions.service_error_exception import (
-    ServiceErrorException,
+from adyen.exceptions.service_error_error_1_exception import (
+    ServiceErrorError1Exception,
 )
 from adyen.exceptions.transfer_service_rest_service_error_exception import (
     TransferServiceRestServiceErrorException,
@@ -100,8 +100,8 @@ class TransfersApi(BaseApi):
             reference (str, optional): The reference you provided in the POST
                 [/transfers](https://docs.adyen.com/api-explorer/transfers/latest/post
                 /transfers) request
-            category (Category2, optional): The category of the transfer.  Possible
-                values:   - **bank**: A transfer involving a [transfer
+            category (Category2Enum, optional): The category of the transfer.
+                Possible values:   - **bank**: A transfer involving a [transfer
                 instrument](https://docs.adyen.com/api-explorer/legalentity/latest/pos
                 t/transferInstruments#responses-200-id) or a bank account.  -
                 **card**: A transfer involving a third-party card.  - **internal**: A
@@ -112,7 +112,7 @@ class TransfersApi(BaseApi):
                 **platformPayment**: Funds movements related to payments that are
                 acquired for your users.  - **topUp**: An incoming transfer initiated
                 by your user to top up their balance account.
-            sort_order (SortOrder1, optional): Determines the sort order of the
+            sort_order (SortOrderEnum, optional): Determines the sort order of the
                 returned transfers. The sort order is based on the creation date of
                 the transfers.  Possible values:   - **asc**: Ascending order, from
                 oldest to most recent.  - **desc**: Descending order, from most
@@ -123,30 +123,27 @@ class TransfersApi(BaseApi):
                 100 items. By default, the response returns 10 items per page.
 
         Returns:
-            ApiResponse: An object with the response value as well as other useful
-                information such as status codes and headers. OK - the request has
+            FindTransfersResponse: Response from the API. OK - the request has
                 succeeded.
 
         Raises:
-            ApiException: When an error occurs while fetching the data from the
+            APIException: When an error occurs while fetching the data from the
                 remote API. This exception includes the HTTP Response code, an error
                 message, and the HTTP body that was received in the request.
 
         """
         return super().new_api_call_builder.request(
-            RequestBuilder().server(Server.DEFAULT)
+            RequestBuilder().server(Server.DEFAULT14)
             .path("/transfers")
             .http_method(HttpMethodEnum.GET)
             .query_param(Parameter()
                 .key("createdSince")
                 .value(APIHelper.when_defined(APIHelper.RFC3339DateTime,
-                    created_since))
-                .is_required(True))
+                    created_since)))
             .query_param(Parameter()
                 .key("createdUntil")
                 .value(APIHelper.when_defined(APIHelper.RFC3339DateTime,
-                    created_until))
-                .is_required(True))
+                    created_until)))
             .query_param(Parameter()
                 .key("balancePlatform")
                 .value(balance_platform))
@@ -182,7 +179,6 @@ class TransfersApi(BaseApi):
             ResponseHandler()
             .deserializer(APIHelper.json_deserialize)
             .deserialize_into(FindTransfersResponse.from_dictionary)
-            .is_api_response(True)
             .local_error("401",
                 "Unauthorized - authentication required.",
                 TransferServiceRestServiceErrorException)
@@ -234,18 +230,17 @@ class TransfersApi(BaseApi):
             body (TransferInfo, optional): The request body parameter.
 
         Returns:
-            ApiResponse: An object with the response value as well as other useful
-                information such as status codes and headers. OK - The request has
-                been accepted for processing, but has not been completed.
+            Transfer: Response from the API. OK - The request has been accepted for
+                processing, but has not been completed.
 
         Raises:
-            ApiException: When an error occurs while fetching the data from the
+            APIException: When an error occurs while fetching the data from the
                 remote API. This exception includes the HTTP Response code, an error
                 message, and the HTTP body that was received in the request.
 
         """
         return super().new_api_call_builder.request(
-            RequestBuilder().server(Server.DEFAULT)
+            RequestBuilder().server(Server.DEFAULT14)
             .path("/transfers")
             .http_method(HttpMethodEnum.POST)
             .header_param(Parameter()
@@ -268,10 +263,9 @@ class TransfersApi(BaseApi):
             ResponseHandler()
             .deserializer(APIHelper.json_deserialize)
             .deserialize_into(Transfer.from_dictionary)
-            .is_api_response(True)
             .local_error("401",
                 "Unauthorized - authentication required.",
-                ServiceErrorException)
+                ServiceErrorError1Exception)
             .local_error("403",
                 "Forbidden - insufficient permissions to process the request.",
                 TransferServiceRestServiceErrorException)
@@ -309,18 +303,17 @@ class TransfersApi(BaseApi):
             body (ApproveTransfersRequest, optional): The request body parameter.
 
         Returns:
-            ApiResponse: An object with the response value as well as other useful
-                information such as status codes and headers. No Content - look at
-                the actual response code for the status of the request.
+            Any: Response from the API. No Content - look at the actual response code
+                for the status of the request.
 
         Raises:
-            ApiException: When an error occurs while fetching the data from the
+            APIException: When an error occurs while fetching the data from the
                 remote API. This exception includes the HTTP Response code, an error
                 message, and the HTTP body that was received in the request.
 
         """
         return super().new_api_call_builder.request(
-            RequestBuilder().server(Server.DEFAULT)
+            RequestBuilder().server(Server.DEFAULT14)
             .path("/transfers/approve")
             .http_method(HttpMethodEnum.POST)
             .header_param(Parameter()
@@ -341,11 +334,10 @@ class TransfersApi(BaseApi):
             .auth(Or(Single("clientKey"), Single("BasicAuth"), Single("ApiKeyAuth"))),
         ).response(
             ResponseHandler()
-            .deserializer(APIHelper.json_deserialize)
-            .is_api_response(True)
+            .deserializer(APIHelper.dynamic_deserialize)
             .local_error("401",
                 "Unauthorized - authentication required.",
-                ServiceErrorException)
+                ServiceErrorError1Exception)
             .local_error("403",
                 "Forbidden - insufficient permissions to process the request.",
                 TransferServiceRestServiceErrorException)
@@ -382,18 +374,17 @@ class TransfersApi(BaseApi):
             body (CancelTransfersRequest, optional): The request body parameter.
 
         Returns:
-            ApiResponse: An object with the response value as well as other useful
-                information such as status codes and headers. No Content - look at
-                the actual response code for the status of the request.
+            Any: Response from the API. No Content - look at the actual response code
+                for the status of the request.
 
         Raises:
-            ApiException: When an error occurs while fetching the data from the
+            APIException: When an error occurs while fetching the data from the
                 remote API. This exception includes the HTTP Response code, an error
                 message, and the HTTP body that was received in the request.
 
         """
         return super().new_api_call_builder.request(
-            RequestBuilder().server(Server.DEFAULT)
+            RequestBuilder().server(Server.DEFAULT14)
             .path("/transfers/cancel")
             .http_method(HttpMethodEnum.POST)
             .header_param(Parameter()
@@ -411,8 +402,7 @@ class TransfersApi(BaseApi):
             .auth(Or(Single("clientKey"), Single("BasicAuth"), Single("ApiKeyAuth"))),
         ).response(
             ResponseHandler()
-            .deserializer(APIHelper.json_deserialize)
-            .is_api_response(True)
+            .deserializer(APIHelper.dynamic_deserialize)
             .local_error("401",
                 "Unauthorized - authentication required.",
                 TransferServiceRestServiceErrorException)
@@ -437,24 +427,21 @@ class TransfersApi(BaseApi):
             id (str): Unique identifier of the transfer.
 
         Returns:
-            ApiResponse: An object with the response value as well as other useful
-                information such as status codes and headers. OK - the request has
-                succeeded.
+            TransferData: Response from the API. OK - the request has succeeded.
 
         Raises:
-            ApiException: When an error occurs while fetching the data from the
+            APIException: When an error occurs while fetching the data from the
                 remote API. This exception includes the HTTP Response code, an error
                 message, and the HTTP body that was received in the request.
 
         """
         return super().new_api_call_builder.request(
-            RequestBuilder().server(Server.DEFAULT)
+            RequestBuilder().server(Server.DEFAULT14)
             .path("/transfers/{id}")
             .http_method(HttpMethodEnum.GET)
             .template_param(Parameter()
                 .key("id")
                 .value(id)
-                .is_required(True)
                 .should_encode(True))
             .header_param(Parameter()
                 .key("accept")
@@ -464,7 +451,6 @@ class TransfersApi(BaseApi):
             ResponseHandler()
             .deserializer(APIHelper.json_deserialize)
             .deserialize_into(TransferData.from_dictionary)
-            .is_api_response(True)
             .local_error("401",
                 "Unauthorized - authentication required.",
                 TransferServiceRestServiceErrorException)
@@ -495,24 +481,22 @@ class TransfersApi(BaseApi):
             body (ReturnTransferRequest, optional): The request body parameter.
 
         Returns:
-            ApiResponse: An object with the response value as well as other useful
-                information such as status codes and headers. OK - the request has
+            ReturnTransferResponse: Response from the API. OK - the request has
                 succeeded.
 
         Raises:
-            ApiException: When an error occurs while fetching the data from the
+            APIException: When an error occurs while fetching the data from the
                 remote API. This exception includes the HTTP Response code, an error
                 message, and the HTTP body that was received in the request.
 
         """
         return super().new_api_call_builder.request(
-            RequestBuilder().server(Server.DEFAULT)
+            RequestBuilder().server(Server.DEFAULT14)
             .path("/transfers/{transferId}/returns")
             .http_method(HttpMethodEnum.POST)
             .template_param(Parameter()
                 .key("transferId")
                 .value(transfer_id)
-                .is_required(True)
                 .should_encode(True))
             .header_param(Parameter()
                 .key("Content-Type")
@@ -531,7 +515,6 @@ class TransfersApi(BaseApi):
             ResponseHandler()
             .deserializer(APIHelper.json_deserialize)
             .deserialize_into(ReturnTransferResponse.from_dictionary)
-            .is_api_response(True)
             .local_error("401",
                 "Unauthorized - authentication required.",
                 TransferServiceRestServiceErrorException)

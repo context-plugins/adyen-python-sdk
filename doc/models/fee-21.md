@@ -1,9 +1,7 @@
 
 # Fee 21
 
-Contains information about the fee that your user must pay for the disbursement.
-
-*This model accepts additional fields of type Any.*
+Contains the currency and value of the cashout fee, in [minor units](https://docs.adyen.com/development-resources/currency-codes).
 
 ## Structure
 
@@ -13,28 +11,19 @@ Contains information about the fee that your user must pay for the disbursement.
 
 | Name | Type | Tags | Description |
 |  --- | --- | --- | --- |
-| `amount` | [`Amount5`](../../doc/models/amount-5.md) | Required | - |
-| `additional_properties` | `Dict[str, Any]` | Optional | - |
+| `amount` | [`Amount17`](../../doc/models/amount-17.md) | Required | Contains the fee amount. |
 
 ## Example
 
 ```python
-import jsonpickle
-
-from adyen.models.amount_5 import Amount5
+from adyen.models.amount_17 import Amount17
 from adyen.models.fee_21 import Fee21
 
 fee_21 = Fee21(
-    amount=Amount5(
+    amount=Amount17(
         currency='currency2',
-        value=110,
-        additional_properties={
-            'exampleAdditionalProperty': jsonpickle.decode('{"key1":"val1","key2":"val2"}')
-        }
-    ),
-    additional_properties={
-        'exampleAdditionalProperty': jsonpickle.decode('{"key1":"val1","key2":"val2"}')
-    }
+        value=110
+    )
 )
 ```
 

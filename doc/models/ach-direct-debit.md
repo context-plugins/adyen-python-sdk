@@ -1,19 +1,17 @@
 
-# Ach Direct Debit
-
-*This model accepts additional fields of type Any.*
+# ACH Direct Debit
 
 ## Structure
 
-`AchDirectDebit`
+`ACHDirectDebit`
 
 ## Fields
 
 | Name | Type | Tags | Description |
 |  --- | --- | --- | --- |
-| `account_holder_type` | [`AccountHolderType`](../../doc/models/account-holder-type.md) | Optional | - |
+| `account_holder_type` | [`AccountHolderTypeEnum`](../../doc/models/account-holder-type-enum.md) | Optional | The account holder type (personal or business). |
 | `bank_account_number` | `str` | Optional | The bank account number (without separators). |
-| `bank_account_type` | [`BankAccountType`](../../doc/models/bank-account-type.md) | Optional | - |
+| `bank_account_type` | [`BankAccountTypeEnum`](../../doc/models/bank-account-type-enum.md) | Optional | The bank account type (checking, savings...). |
 | `bank_location_id` | `str` | Optional | The bank routing number of the account. The field value is `nil` in most cases. |
 | `checkout_attempt_id` | `str` | Optional | The checkout attempt identifier. |
 | `encrypted_bank_account_number` | `str` | Optional | Encrypted bank account number. The bank account number (without separators). |
@@ -23,27 +21,23 @@
 | `sdk_data` | `str` | Optional | Base64-encoded JSON object containing SDK related parameters required by the SDK<br><br>**Constraints**: *Maximum Length*: `50000` |
 | `stored_payment_method_id` | `str` | Optional | This is the `recurringDetailReference` returned in the response when you created the token.<br><br>**Constraints**: *Maximum Length*: `64` |
 | `transfer_instrument_id` | `str` | Optional | The unique identifier of your user's verified transfer instrument, which you can use to top up their balance accounts. |
-| `mtype` | [`Type9`](../../doc/models/type-9.md) | Optional | - |
-| `additional_properties` | `Dict[str, Any]` | Optional | - |
+| `mtype` | [`TypeEnum`](../../doc/models/type-enum.md) | Optional | **ach**<br><br>**Default**: `"ach"` |
 
 ## Example
 
 ```python
-import jsonpickle
+from adyen.models.account_holder_type_enum import AccountHolderTypeEnum
+from adyen.models.ach_direct_debit import ACHDirectDebit
+from adyen.models.bank_account_type_enum import BankAccountTypeEnum
+from adyen.models.type_enum import TypeEnum
 
-from adyen.models.account_holder_type import AccountHolderType
-from adyen.models.ach_direct_debit import AchDirectDebit
-from adyen.models.bank_account_type import BankAccountType
-
-ach_direct_debit = AchDirectDebit(
-    account_holder_type=AccountHolderType.BUSINESS,
+ach_direct_debit = ACHDirectDebit(
+    account_holder_type=AccountHolderTypeEnum.BUSINESS,
     bank_account_number='bankAccountNumber2',
-    bank_account_type=BankAccountType.CHECKING,
+    bank_account_type=BankAccountTypeEnum.CHECKING,
     bank_location_id='bankLocationId6',
     checkout_attempt_id='checkoutAttemptId8',
-    additional_properties={
-        'exampleAdditionalProperty': jsonpickle.decode('{"key1":"val1","key2":"val2"}')
-    }
+    mtype=TypeEnum.ACH
 )
 ```
 

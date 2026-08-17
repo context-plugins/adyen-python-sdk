@@ -13,8 +13,6 @@ class DisputeServiceResult(object):
     Attributes:
         error_message (str): The general error message.
         success (bool): Indicates whether the request succeeded.
-        additional_properties (Dict[str, Any]): The additional properties for the
-            model.
 
     """
 
@@ -31,18 +29,12 @@ class DisputeServiceResult(object):
     def __init__(
         self,
         success=None,
-        error_message=APIHelper.SKIP,
-        additional_properties=None):
+        error_message=APIHelper.SKIP):
         """Initialize a DisputeServiceResult instance."""
         # Initialize members of the class
         if error_message is not APIHelper.SKIP:
             self.error_message = error_message
         self.success = success
-
-        # Add additional model properties to the instance
-        if additional_properties is None:
-            additional_properties = {}
-        self.additional_properties = additional_properties
 
     @classmethod
     def from_dictionary(cls,
@@ -71,15 +63,9 @@ class DisputeServiceResult(object):
             if dictionary.get("errorMessage")\
                 else APIHelper.SKIP
 
-        additional_properties = APIHelper.get_additional_properties(
-            dictionary={k: v for k, v in dictionary.items()
-                        if k not in cls._names.values()},
-            unboxing_function=lambda value: value)
-
         # Return an object of this model
         return cls(success,
-                   error_message,
-                   additional_properties)
+                   error_message)
 
     def __repr__(self):
         """Return a unambiguous string representation."""
@@ -89,12 +75,10 @@ class DisputeServiceResult(object):
             else None
         )
         _success=self.success
-        _additional_properties=self.additional_properties
         return (
             f"{self.__class__.__name__}("
             f"error_message={_error_message!r}, "
             f"success={_success!r}, "
-            f"additional_properties={_additional_properties!r}, "
             f")"
         )
 
@@ -106,11 +90,9 @@ class DisputeServiceResult(object):
             else None
         )
         _success=self.success
-        _additional_properties=self.additional_properties
         return (
             f"{self.__class__.__name__}("
             f"error_message={_error_message!s}, "
             f"success={_success!s}, "
-            f"additional_properties={_additional_properties!s}, "
             f")"
         )

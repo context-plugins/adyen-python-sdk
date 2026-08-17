@@ -19,8 +19,6 @@ class BalanceMutation(object):
             credited on the received accounting register.
         reserved (int): The amount in the payment's currency that is debited or
             credited on the reserved accounting register.
-        additional_properties (Dict[str, Any]): The additional properties for the
-            model.
 
     """
 
@@ -44,8 +42,7 @@ class BalanceMutation(object):
         balance=APIHelper.SKIP,
         currency=APIHelper.SKIP,
         received=APIHelper.SKIP,
-        reserved=APIHelper.SKIP,
-        additional_properties=None):
+        reserved=APIHelper.SKIP):
         """Initialize a BalanceMutation instance."""
         # Initialize members of the class
         if balance is not APIHelper.SKIP:
@@ -56,11 +53,6 @@ class BalanceMutation(object):
             self.received = received
         if reserved is not APIHelper.SKIP:
             self.reserved = reserved
-
-        # Add additional model properties to the instance
-        if additional_properties is None:
-            additional_properties = {}
-        self.additional_properties = additional_properties
 
     @classmethod
     def from_dictionary(cls,
@@ -97,17 +89,11 @@ class BalanceMutation(object):
             if dictionary.get("reserved")\
                 else APIHelper.SKIP
 
-        additional_properties = APIHelper.get_additional_properties(
-            dictionary={k: v for k, v in dictionary.items()
-                        if k not in cls._names.values()},
-            unboxing_function=lambda value: value)
-
         # Return an object of this model
         return cls(balance,
                    currency,
                    received,
-                   reserved,
-                   additional_properties)
+                   reserved)
 
     @classmethod
     def validate(cls, dictionary):
@@ -152,14 +138,12 @@ class BalanceMutation(object):
             if hasattr(self, "reserved")
             else None
         )
-        _additional_properties=self.additional_properties
         return (
             f"{self.__class__.__name__}("
             f"balance={_balance!r}, "
             f"currency={_currency!r}, "
             f"received={_received!r}, "
             f"reserved={_reserved!r}, "
-            f"additional_properties={_additional_properties!r}, "
             f")"
         )
 
@@ -185,13 +169,11 @@ class BalanceMutation(object):
             if hasattr(self, "reserved")
             else None
         )
-        _additional_properties=self.additional_properties
         return (
             f"{self.__class__.__name__}("
             f"balance={_balance!s}, "
             f"currency={_currency!s}, "
             f"received={_received!s}, "
             f"reserved={_reserved!s}, "
-            f"additional_properties={_additional_properties!s}, "
             f")"
         )

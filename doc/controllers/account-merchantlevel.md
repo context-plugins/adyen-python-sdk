@@ -45,17 +45,13 @@ This endpoint requires [BasicAuth](../../doc/auth/basic-authentication.md) **OR*
 
 **200**: OK - the request has succeeded.
 
-This method returns an [`ApiResponse`](../../doc/api-response.md) instance. The `body` property of this instance returns the response data which is of type [`ListMerchantResponse`](../../doc/models/list-merchant-response.md).
+[`ListMerchantResponse`](../../doc/models/list-merchant-response.md)
 
 ## Example Usage
 
 ```python
 result = account_merchant_level_api.get_merchants()
-
-if result.is_success():
-    print(result.body)
-elif result.is_error():
-    print(result.errors)
+print(result)
 ```
 
 ## Example Response *(as JSON)*
@@ -358,7 +354,7 @@ This endpoint requires [BasicAuth](../../doc/auth/basic-authentication.md) **OR*
 
 **200**: OK - the request has succeeded.
 
-This method returns an [`ApiResponse`](../../doc/api-response.md) instance. The `body` property of this instance returns the response data which is of type [`CreateMerchantResponse`](../../doc/models/create-merchant-response.md).
+[`CreateMerchantResponse`](../../doc/models/create-merchant-response.md)
 
 ## Example Usage
 
@@ -374,11 +370,7 @@ body = CreateMerchantRequest(
 result = account_merchant_level_api.post_merchants(
     body=body
 )
-
-if result.is_success():
-    print(result.body)
-elif result.is_error():
-    print(result.errors)
+print(result)
 ```
 
 ## Example Response *(as JSON)*
@@ -432,7 +424,7 @@ This endpoint requires [BasicAuth](../../doc/auth/basic-authentication.md) **OR*
 
 **200**: OK - the request has succeeded.
 
-This method returns an [`ApiResponse`](../../doc/api-response.md) instance. The `body` property of this instance returns the response data which is of type [`Merchant`](../../doc/models/merchant.md).
+[`Merchant`](../../doc/models/merchant.md)
 
 ## Example Usage
 
@@ -440,11 +432,7 @@ This method returns an [`ApiResponse`](../../doc/api-response.md) instance. The 
 merchant_id = 'merchantId6'
 
 result = account_merchant_level_api.get_merchants_merchant_id(merchant_id)
-
-if result.is_success():
-    print(result.body)
-elif result.is_error():
-    print(result.errors)
+print(result)
 ```
 
 ## Example Response *(as JSON)*
@@ -518,7 +506,7 @@ This endpoint requires [BasicAuth](../../doc/auth/basic-authentication.md) **OR*
 
 **200**: OK - the request has succeeded.
 
-This method returns an [`ApiResponse`](../../doc/api-response.md) instance. The `body` property of this instance returns the response data which is of type [`RequestActivationResponse`](../../doc/models/request-activation-response.md).
+[`RequestActivationResponse`](../../doc/models/request-activation-response.md)
 
 ## Example Usage
 
@@ -526,11 +514,7 @@ This method returns an [`ApiResponse`](../../doc/api-response.md) instance. The 
 merchant_id = 'merchantId6'
 
 result = account_merchant_level_api.post_merchants_merchant_id_activate(merchant_id)
-
-if result.is_success():
-    print(result.body)
-elif result.is_error():
-    print(result.errors)
+print(result)
 ```
 
 ## Errors

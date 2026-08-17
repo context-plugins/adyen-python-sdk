@@ -1,8 +1,6 @@
 
 # Sub Merchant Data 2
 
-*This model accepts additional fields of type Any.*
-
 ## Structure
 
 `SubMerchantData2`
@@ -23,13 +21,10 @@
 | `state` | `str` | Optional | The state code of the sub-merchant's address, if applicable for the country or region. |
 | `street` | `str` | Optional | The street name and house number of the sub-merchant's address. |
 | `tax_id` | `str` | Optional | The tax ID of the sub-merchant. Required only in Brazil and for Cartes Bancaires in France.<br>For Brazil, this is the 11-digit CPF or 14-digit CNPJ.<br>For France, this is the SIRET, with a maximum of 14 digits. |
-| `additional_properties` | `Dict[str, Any]` | Optional | - |
 
 ## Example
 
 ```python
-import jsonpickle
-
 from adyen.models.sub_merchant_data_2 import SubMerchantData2
 
 sub_merchant_data_2 = SubMerchantData2(
@@ -41,10 +36,7 @@ sub_merchant_data_2 = SubMerchantData2(
     country='country2',
     email='email8',
     phone_number='phoneNumber2',
-    postal_code='postalCode0',
-    additional_properties={
-        'exampleAdditionalProperty': jsonpickle.decode('{"key1":"val1","key2":"val2"}')
-    }
+    postal_code='postalCode0'
 )
 ```
 

@@ -23,8 +23,6 @@ class Ticket(object):
         number (str): The ticket's unique identifier. * minLength: 1 character *
             maxLength: 15 characters * Must not start with a space or be all spaces.
             * Must not be all zeros. * **additionalData key:** `airline.ticket_number`
-        additional_properties (Dict[str, Any]): The additional properties for the
-            model.
 
     """
 
@@ -45,8 +43,7 @@ class Ticket(object):
         self,
         issue_address=APIHelper.SKIP,
         issue_date=APIHelper.SKIP,
-        number=APIHelper.SKIP,
-        additional_properties=None):
+        number=APIHelper.SKIP):
         """Initialize a Ticket instance."""
         # Initialize members of the class
         if issue_address is not APIHelper.SKIP:
@@ -55,11 +52,6 @@ class Ticket(object):
             self.issue_date = issue_date
         if number is not APIHelper.SKIP:
             self.number = number
-
-        # Add additional model properties to the instance
-        if additional_properties is None:
-            additional_properties = {}
-        self.additional_properties = additional_properties
 
     @classmethod
     def from_dictionary(cls,
@@ -91,16 +83,10 @@ class Ticket(object):
             if dictionary.get("number")\
                 else APIHelper.SKIP
 
-        additional_properties = APIHelper.get_additional_properties(
-            dictionary={k: v for k, v in dictionary.items()
-                        if k not in cls._names.values()},
-            unboxing_function=lambda value: value)
-
         # Return an object of this model
         return cls(issue_address,
                    issue_date,
-                   number,
-                   additional_properties)
+                   number)
 
     @classmethod
     def validate(cls, dictionary):
@@ -140,13 +126,11 @@ class Ticket(object):
             if hasattr(self, "number")
             else None
         )
-        _additional_properties=self.additional_properties
         return (
             f"{self.__class__.__name__}("
             f"issue_address={_issue_address!r}, "
             f"issue_date={_issue_date!r}, "
             f"number={_number!r}, "
-            f"additional_properties={_additional_properties!r}, "
             f")"
         )
 
@@ -167,12 +151,10 @@ class Ticket(object):
             if hasattr(self, "number")
             else None
         )
-        _additional_properties=self.additional_properties
         return (
             f"{self.__class__.__name__}("
             f"issue_address={_issue_address!s}, "
             f"issue_date={_issue_date!s}, "
             f"number={_number!s}, "
-            f"additional_properties={_additional_properties!s}, "
             f")"
         )

@@ -15,8 +15,6 @@ class CashOutInfoCounterparty(object):
             transfer instrument.  If you do not provide this field, the cashout funds
             remain in the instructing balance account after the cashout transfer is
             settled.
-        additional_properties (Dict[str, Any]): The additional properties for the
-            model.
 
     """
 
@@ -31,17 +29,11 @@ class CashOutInfoCounterparty(object):
 
     def __init__(
         self,
-        transfer_instrument_id=APIHelper.SKIP,
-        additional_properties=None):
+        transfer_instrument_id=APIHelper.SKIP):
         """Initialize a CashOutInfoCounterparty instance."""
         # Initialize members of the class
         if transfer_instrument_id is not APIHelper.SKIP:
             self.transfer_instrument_id = transfer_instrument_id
-
-        # Add additional model properties to the instance
-        if additional_properties is None:
-            additional_properties = {}
-        self.additional_properties = additional_properties
 
     @classmethod
     def from_dictionary(cls,
@@ -66,14 +58,8 @@ class CashOutInfoCounterparty(object):
             if dictionary.get("transferInstrumentId")\
                 else APIHelper.SKIP
 
-        additional_properties = APIHelper.get_additional_properties(
-            dictionary={k: v for k, v in dictionary.items()
-                        if k not in cls._names.values()},
-            unboxing_function=lambda value: value)
-
         # Return an object of this model
-        return cls(transfer_instrument_id,
-                   additional_properties)
+        return cls(transfer_instrument_id)
 
     def __repr__(self):
         """Return a unambiguous string representation."""
@@ -82,11 +68,9 @@ class CashOutInfoCounterparty(object):
             if hasattr(self, "transfer_instrument_id")
             else None
         )
-        _additional_properties=self.additional_properties
         return (
             f"{self.__class__.__name__}("
             f"transfer_instrument_id={_transfer_instrument_id!r}, "
-            f"additional_properties={_additional_properties!r}, "
             f")"
         )
 
@@ -97,10 +81,8 @@ class CashOutInfoCounterparty(object):
             if hasattr(self, "transfer_instrument_id")
             else None
         )
-        _additional_properties=self.additional_properties
         return (
             f"{self.__class__.__name__}("
             f"transfer_instrument_id={_transfer_instrument_id!s}, "
-            f"additional_properties={_additional_properties!s}, "
             f")"
         )

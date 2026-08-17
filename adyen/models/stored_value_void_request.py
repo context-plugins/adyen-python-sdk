@@ -19,8 +19,6 @@ class StoredValueVoidRequest(object):
         store (str): The physical store, for which this payment is processed.
         tender_reference (str): The reference of the tender.
         unique_terminal_id (str): The unique ID of a POS terminal.
-        additional_properties (Dict[str, Any]): The additional properties for the
-            model.
 
     """
 
@@ -48,8 +46,7 @@ class StoredValueVoidRequest(object):
         reference=APIHelper.SKIP,
         store=APIHelper.SKIP,
         tender_reference=APIHelper.SKIP,
-        unique_terminal_id=APIHelper.SKIP,
-        additional_properties=None):
+        unique_terminal_id=APIHelper.SKIP):
         """Initialize a StoredValueVoidRequest instance."""
         # Initialize members of the class
         self.merchant_account = merchant_account
@@ -62,11 +59,6 @@ class StoredValueVoidRequest(object):
             self.tender_reference = tender_reference
         if unique_terminal_id is not APIHelper.SKIP:
             self.unique_terminal_id = unique_terminal_id
-
-        # Add additional model properties to the instance
-        if additional_properties is None:
-            additional_properties = {}
-        self.additional_properties = additional_properties
 
     @classmethod
     def from_dictionary(cls,
@@ -111,19 +103,13 @@ class StoredValueVoidRequest(object):
             if dictionary.get("uniqueTerminalId")\
                 else APIHelper.SKIP
 
-        additional_properties = APIHelper.get_additional_properties(
-            dictionary={k: v for k, v in dictionary.items()
-                        if k not in cls._names.values()},
-            unboxing_function=lambda value: value)
-
         # Return an object of this model
         return cls(merchant_account,
                    original_reference,
                    reference,
                    store,
                    tender_reference,
-                   unique_terminal_id,
-                   additional_properties)
+                   unique_terminal_id)
 
     def __repr__(self):
         """Return a unambiguous string representation."""
@@ -149,7 +135,6 @@ class StoredValueVoidRequest(object):
             if hasattr(self, "unique_terminal_id")
             else None
         )
-        _additional_properties=self.additional_properties
         return (
             f"{self.__class__.__name__}("
             f"merchant_account={_merchant_account!r}, "
@@ -158,7 +143,6 @@ class StoredValueVoidRequest(object):
             f"store={_store!r}, "
             f"tender_reference={_tender_reference!r}, "
             f"unique_terminal_id={_unique_terminal_id!r}, "
-            f"additional_properties={_additional_properties!r}, "
             f")"
         )
 
@@ -186,7 +170,6 @@ class StoredValueVoidRequest(object):
             if hasattr(self, "unique_terminal_id")
             else None
         )
-        _additional_properties=self.additional_properties
         return (
             f"{self.__class__.__name__}("
             f"merchant_account={_merchant_account!s}, "
@@ -195,6 +178,5 @@ class StoredValueVoidRequest(object):
             f"store={_store!s}, "
             f"tender_reference={_tender_reference!s}, "
             f"unique_terminal_id={_unique_terminal_id!s}, "
-            f"additional_properties={_additional_properties!s}, "
             f")"
         )

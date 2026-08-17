@@ -15,11 +15,10 @@ class TestCardRangeCreationResult(object):
             card range.  Example: 5432 1234 1234 4321
         card_number_range_start (str): The first test card number in the generated
             test card range.  Example: 5432 1234 1234 1234
-        creation_result_code (CreationResultCode): The model property of type
-            CreationResultCode.
+        creation_result_code (CreationResultCodeEnum): Notification message. It
+            informs about the outcome of the operation. Possible values: * CREATED *
+            ALREADY_EXISTS * ERROR
         message (str): An optional information message about the result.
-        additional_properties (Dict[str, Any]): The additional properties for the
-            model.
 
     """
 
@@ -40,8 +39,7 @@ class TestCardRangeCreationResult(object):
         card_number_range_end=None,
         card_number_range_start=None,
         creation_result_code=None,
-        message=APIHelper.SKIP,
-        additional_properties=None):
+        message=APIHelper.SKIP):
         """Initialize a TestCardRangeCreationResult instance."""
         # Initialize members of the class
         self.card_number_range_end = card_number_range_end
@@ -49,11 +47,6 @@ class TestCardRangeCreationResult(object):
         self.creation_result_code = creation_result_code
         if message is not APIHelper.SKIP:
             self.message = message
-
-        # Add additional model properties to the instance
-        if additional_properties is None:
-            additional_properties = {}
-        self.additional_properties = additional_properties
 
     @classmethod
     def from_dictionary(cls,
@@ -90,17 +83,11 @@ class TestCardRangeCreationResult(object):
             if dictionary.get("message")\
                 else APIHelper.SKIP
 
-        additional_properties = APIHelper.get_additional_properties(
-            dictionary={k: v for k, v in dictionary.items()
-                        if k not in cls._names.values()},
-            unboxing_function=lambda value: value)
-
         # Return an object of this model
         return cls(card_number_range_end,
                    card_number_range_start,
                    creation_result_code,
-                   message,
-                   additional_properties)
+                   message)
 
     def __repr__(self):
         """Return a unambiguous string representation."""
@@ -112,14 +99,12 @@ class TestCardRangeCreationResult(object):
             if hasattr(self, "message")
             else None
         )
-        _additional_properties=self.additional_properties
         return (
             f"{self.__class__.__name__}("
             f"card_number_range_end={_card_number_range_end!r}, "
             f"card_number_range_start={_card_number_range_start!r}, "
             f"creation_result_code={_creation_result_code!r}, "
             f"message={_message!r}, "
-            f"additional_properties={_additional_properties!r}, "
             f")"
         )
 
@@ -133,13 +118,11 @@ class TestCardRangeCreationResult(object):
             if hasattr(self, "message")
             else None
         )
-        _additional_properties=self.additional_properties
         return (
             f"{self.__class__.__name__}("
             f"card_number_range_end={_card_number_range_end!s}, "
             f"card_number_range_start={_card_number_range_start!s}, "
             f"creation_result_code={_creation_result_code!s}, "
             f"message={_message!s}, "
-            f"additional_properties={_additional_properties!s}, "
             f")"
         )

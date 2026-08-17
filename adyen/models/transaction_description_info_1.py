@@ -18,9 +18,19 @@ class TransactionDescriptionInfo1(object):
             statement.  We recommend sending a maximum of 22 characters, otherwise
             banks might truncate the string.  Allowed characters: **a-z**, **A-Z**,
             **0-9**, spaces, and special characters **. , ' _ - ? + * /**.
-        mtype (Type33): The model property of type Type33.
-        additional_properties (Dict[str, Any]): The additional properties for the
-            model.
+        mtype (Type8Enum): The type of transaction description you want to use: -
+            **fixed**: The transaction description set in this request is used for
+            all payments with this payment method. - **append**: The transaction
+            description set in this request is used as a base for all payments with
+            this payment method. The [transaction description set in the request to
+            process the
+            payment](https://docs.adyen.com/api-explorer/Checkout/70/post/sessions#req
+            uest-shopperStatement) is appended to this base description. Note that if
+            the combined length exceeds 22 characters, banks may truncate the string.
+            - **dynamic**: Only the [transaction description set in the request to
+            process the
+            payment](https://docs.adyen.com/api-explorer/Checkout/70/post/sessions#req
+            uest-shopperStatement) is used for payments with this payment method.
 
     """
 
@@ -38,19 +48,12 @@ class TransactionDescriptionInfo1(object):
     def __init__(
         self,
         doing_business_as_name=APIHelper.SKIP,
-        mtype=APIHelper.SKIP,
-        additional_properties=None):
+        mtype="dynamic"):
         """Initialize a TransactionDescriptionInfo1 instance."""
         # Initialize members of the class
         if doing_business_as_name is not APIHelper.SKIP:
             self.doing_business_as_name = doing_business_as_name
-        if mtype is not APIHelper.SKIP:
-            self.mtype = mtype
-
-        # Add additional model properties to the instance
-        if additional_properties is None:
-            additional_properties = {}
-        self.additional_properties = additional_properties
+        self.mtype = mtype
 
     @classmethod
     def from_dictionary(cls,
@@ -77,17 +80,11 @@ class TransactionDescriptionInfo1(object):
         mtype =\
             dictionary.get("type")\
             if dictionary.get("type")\
-                else APIHelper.SKIP
-
-        additional_properties = APIHelper.get_additional_properties(
-            dictionary={k: v for k, v in dictionary.items()
-                        if k not in cls._names.values()},
-            unboxing_function=lambda value: value)
+                else "dynamic"
 
         # Return an object of this model
         return cls(doing_business_as_name,
-                   mtype,
-                   additional_properties)
+                   mtype)
 
     def __repr__(self):
         """Return a unambiguous string representation."""
@@ -101,12 +98,10 @@ class TransactionDescriptionInfo1(object):
             if hasattr(self, "mtype")
             else None
         )
-        _additional_properties=self.additional_properties
         return (
             f"{self.__class__.__name__}("
             f"doing_business_as_name={_doing_business_as_name!r}, "
             f"mtype={_mtype!r}, "
-            f"additional_properties={_additional_properties!r}, "
             f")"
         )
 
@@ -122,11 +117,9 @@ class TransactionDescriptionInfo1(object):
             if hasattr(self, "mtype")
             else None
         )
-        _additional_properties=self.additional_properties
         return (
             f"{self.__class__.__name__}("
             f"doing_business_as_name={_doing_business_as_name!s}, "
             f"mtype={_mtype!s}, "
-            f"additional_properties={_additional_properties!s}, "
             f")"
         )

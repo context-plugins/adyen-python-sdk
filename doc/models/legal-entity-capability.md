@@ -1,8 +1,6 @@
 
 # Legal Entity Capability
 
-*This model accepts additional fields of type Any.*
-
 ## Structure
 
 `LegalEntityCapability`
@@ -12,71 +10,47 @@
 | Name | Type | Tags | Description |
 |  --- | --- | --- | --- |
 | `allowed` | `bool` | Optional, Read-only | Indicates whether the capability is allowed. Adyen sets this to **true** if the verification is successful. |
-| `allowed_level` | [`AllowedLevel`](../../doc/models/allowed-level.md) | Optional, Read-only | - |
-| `allowed_settings` | [`CapabilitySettings2`](../../doc/models/capability-settings-2.md) | Optional | - |
+| `allowed_level` | [`AllowedLevelEnum`](../../doc/models/allowed-level-enum.md) | Optional, Read-only | The capability level that is allowed for the legal entity.<br><br>Possible values: **notApplicable**, **low**, **medium**, **high**. |
+| `allowed_settings` | [`CapabilitySettings11`](../../doc/models/capability-settings-11.md) | Optional | The settings that are allowed for the legal entity. |
 | `requested` | `bool` | Optional, Read-only | Indicates whether the capability is requested. To check whether the legal entity is permitted to use the capability, refer to the `allowed` field. |
-| `requested_level` | [`AllowedLevel`](../../doc/models/allowed-level.md) | Optional, Read-only | - |
-| `requested_settings` | [`CapabilitySettings2`](../../doc/models/capability-settings-2.md) | Optional | - |
+| `requested_level` | [`AllowedLevelEnum`](../../doc/models/allowed-level-enum.md) | Optional, Read-only | The requested level of the capability. Some capabilities, such as those used in [card issuing](https://docs.adyen.com/issuing/add-capabilities#capability-levels), have different levels. Levels increase the capability, but also require additional checks and increased monitoring.<br><br>Possible values: **notApplicable**, **low**, **medium**, **high**. |
+| `requested_settings` | [`CapabilitySettings21`](../../doc/models/capability-settings-21.md) | Optional | The settings that are requested for the legal entity. |
 | `transfer_instruments` | [`List[SupportingEntityCapability]`](../../doc/models/supporting-entity-capability.md) | Optional, Read-only | The capability status of transfer instruments associated with the legal entity. |
 | `verification_status` | `str` | Optional, Read-only | The status of the verification checks for the capability.<br><br>Possible values:<br><br>* **pending**: Adyen is running the verification.<br><br>* **invalid**: The verification failed. Check if the `errors` array contains more information.<br><br>* **valid**: The verification has been successfully completed.<br><br>* **rejected**: Adyen has verified the information, but found reasons to not allow the capability. |
-| `additional_properties` | `Dict[str, Any]` | Optional | - |
 
 ## Example
 
 ```python
-import jsonpickle
-
-from adyen.models.allowed_level import AllowedLevel
-from adyen.models.capability_settings_2 import CapabilitySettings2
-from adyen.models.funding_source import FundingSource
-from adyen.models.interval import Interval
+from adyen.models.capability_settings_11 import CapabilitySettings11
+from adyen.models.funding_source_enum import FundingSourceEnum
+from adyen.models.interval_enum import IntervalEnum
 from adyen.models.legal_entity_capability import LegalEntityCapability
-from adyen.models.max_amount import MaxAmount
-from adyen.models.patchable_amount_dto import PatchableAmountDto
+from adyen.models.patchable_amount_dto import PatchableAmountDTO
 
 legal_entity_capability = LegalEntityCapability(
-    allowed=False,
-    allowed_level=AllowedLevel.HIGH,
-    allowed_settings=CapabilitySettings2(
+    allowed_settings=CapabilitySettings11(
         amount_per_industry={
-            'key0': PatchableAmountDto(
+            'key0': PatchableAmountDTO(
                 currency='currency8',
-                value=56,
-                additional_properties={
-                    'exampleAdditionalProperty': jsonpickle.decode('{"key1":"val1","key2":"val2"}')
-                }
+                value=56
             ),
-            'key1': PatchableAmountDto(
+            'key1': PatchableAmountDTO(
                 currency='currency8',
-                value=56,
-                additional_properties={
-                    'exampleAdditionalProperty': jsonpickle.decode('{"key1":"val1","key2":"val2"}')
-                }
+                value=56
             )
         },
         authorized_card_users=False,
         funding_source=[
-            FundingSource.CREDIT,
-            FundingSource.DEBIT,
-            FundingSource.PREPAID
+            FundingSourceEnum.CREDIT,
+            FundingSourceEnum.DEBIT,
+            FundingSourceEnum.PREPAID
         ],
-        interval=Interval.DAILY,
-        max_amount=MaxAmount(
+        interval=IntervalEnum.DAILY,
+        max_amount=PatchableAmountDTO(
             currency='currency4',
-            value=160,
-            additional_properties={
-                'exampleAdditionalProperty': jsonpickle.decode('{"key1":"val1","key2":"val2"}')
-            }
-        ),
-        additional_properties={
-            'exampleAdditionalProperty': jsonpickle.decode('{"key1":"val1","key2":"val2"}')
-        }
-    ),
-    requested=False,
-    requested_level=AllowedLevel.HIGH,
-    additional_properties={
-        'exampleAdditionalProperty': jsonpickle.decode('{"key1":"val1","key2":"val2"}')
-    }
+            value=160
+        )
+    )
 )
 ```
 

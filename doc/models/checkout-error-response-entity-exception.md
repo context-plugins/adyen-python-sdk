@@ -1,8 +1,6 @@
 
 # Checkout Error Response Entity Exception
 
-*This model accepts additional fields of type Any.*
-
 ## Structure
 
 `CheckoutErrorResponseEntityException`
@@ -16,7 +14,6 @@
 | `message` | `str` | Required | - |
 | `psp_reference` | `str` | Optional | - |
 | `status` | `int` | Optional | - |
-| `additional_properties` | `Dict[str, Any]` | Optional | - |
 
 ## Example
 
@@ -25,7 +22,7 @@ try:
     # make the API call
 except CheckoutErrorResponseEntityException as e:
     print(e)
-except ApiException as e:
+except APIException as e:
     print(e)
 ```
 

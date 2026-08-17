@@ -36,12 +36,11 @@ class NotDeliveredInfo1(object):
             non-fungible token (NFT) related.  Possible values: **true**, **false**.
         last_expected_date (date): The date the undelivered goods or services were
             expected to be delivered in YYYY-MM-DD format.
-        what_was_not_delivered (ProductType2): The model property of type
-            ProductType2.
-        who_cancelled (CancellingEntity1): The model property of type
-            CancellingEntity1.
-        additional_properties (Dict[str, Any]): The additional properties for the
-            model.
+        what_was_not_delivered (ProductType21Enum): The type of product that you
+            expected to receive.  Possible values: **goods**, **services**.
+        who_cancelled (CancellingEntity1Enum): The party that initiated the
+            cancellation of the transaction.  Possible values: **merchant**,
+            **cardholder**.
 
     """
 
@@ -83,8 +82,7 @@ class NotDeliveredInfo1(object):
         is_delivery_late=APIHelper.SKIP,
         is_merchant_bankrupt=APIHelper.SKIP,
         is_non_fiat_or_nft=APIHelper.SKIP,
-        who_cancelled=APIHelper.SKIP,
-        additional_properties=None):
+        who_cancelled=APIHelper.SKIP):
         """Initialize a NotDeliveredInfo1 instance."""
         # Initialize members of the class
         if agreed_delivery_location is not APIHelper.SKIP:
@@ -106,11 +104,6 @@ class NotDeliveredInfo1(object):
         self.what_was_not_delivered = what_was_not_delivered
         if who_cancelled is not APIHelper.SKIP:
             self.who_cancelled = who_cancelled
-
-        # Add additional model properties to the instance
-        if additional_properties is None:
-            additional_properties = {}
-        self.additional_properties = additional_properties
 
     @classmethod
     def from_dictionary(cls,
@@ -173,11 +166,6 @@ class NotDeliveredInfo1(object):
             if dictionary.get("whoCancelled")\
                 else APIHelper.SKIP
 
-        additional_properties = APIHelper.get_additional_properties(
-            dictionary={k: v for k, v in dictionary.items()
-                        if k not in cls._names.values()},
-            unboxing_function=lambda value: value)
-
         # Return an object of this model
         return cls(description_of_issue,
                    last_expected_date,
@@ -189,8 +177,7 @@ class NotDeliveredInfo1(object):
                    is_delivery_late,
                    is_merchant_bankrupt,
                    is_non_fiat_or_nft,
-                   who_cancelled,
-                   additional_properties)
+                   who_cancelled)
 
     def __repr__(self):
         """Return a unambiguous string representation."""
@@ -237,7 +224,6 @@ class NotDeliveredInfo1(object):
             if hasattr(self, "who_cancelled")
             else None
         )
-        _additional_properties=self.additional_properties
         return (
             f"{self.__class__.__name__}("
             f"agreed_delivery_location={_agreed_delivery_location!r}, "
@@ -251,7 +237,6 @@ class NotDeliveredInfo1(object):
             f"last_expected_date={_last_expected_date!r}, "
             f"what_was_not_delivered={_what_was_not_delivered!r}, "
             f"who_cancelled={_who_cancelled!r}, "
-            f"additional_properties={_additional_properties!r}, "
             f")"
         )
 
@@ -300,7 +285,6 @@ class NotDeliveredInfo1(object):
             if hasattr(self, "who_cancelled")
             else None
         )
-        _additional_properties=self.additional_properties
         return (
             f"{self.__class__.__name__}("
             f"agreed_delivery_location={_agreed_delivery_location!s}, "
@@ -314,6 +298,5 @@ class NotDeliveredInfo1(object):
             f"last_expected_date={_last_expected_date!s}, "
             f"what_was_not_delivered={_what_was_not_delivered!s}, "
             f"who_cancelled={_who_cancelled!s}, "
-            f"additional_properties={_additional_properties!s}, "
             f")"
         )

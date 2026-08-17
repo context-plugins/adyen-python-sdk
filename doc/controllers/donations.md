@@ -39,7 +39,7 @@ This endpoint requires [BasicAuth](../../doc/auth/basic-authentication.md) **OR*
 
 **200**: OK - the request has succeeded.
 
-This method returns an [`ApiResponse`](../../doc/api-response.md) instance. The `body` property of this instance returns the response data which is of type [`DonationCampaignsResponse`](../../doc/models/donation-campaigns-response.md).
+[`DonationCampaignsResponse`](../../doc/models/donation-campaigns-response.md)
 
 ## Example Usage
 
@@ -52,11 +52,7 @@ body = DonationCampaignsRequest(
 result = donations_api.post_donation_campaigns(
     body=body
 )
-
-if result.is_success():
-    print(result.body)
-elif result.is_error():
-    print(result.errors)
+print(result)
 ```
 
 ## Example Response *(as JSON)*
@@ -110,11 +106,11 @@ elif result.is_error():
 
 | HTTP Status Code | Error Description | Exception Class |
 |  --- | --- | --- |
-| 400 | Bad Request - a problem reading or understanding the request. | [`ServiceError1Exception`](../../doc/models/service-error-1-exception.md) |
-| 401 | Unauthorized - authentication required. | [`ServiceError1Exception`](../../doc/models/service-error-1-exception.md) |
-| 403 | Forbidden - insufficient permissions to process the request. | [`ServiceError1Exception`](../../doc/models/service-error-1-exception.md) |
-| 422 | Unprocessable Entity - a request validation error. | [`ServiceError1Exception`](../../doc/models/service-error-1-exception.md) |
-| 500 | Internal Server Error - the server could not process the request. | [`ServiceError1Exception`](../../doc/models/service-error-1-exception.md) |
+| 400 | Bad Request - a problem reading or understanding the request. | [`ServiceErrorException`](../../doc/models/service-error-exception.md) |
+| 401 | Unauthorized - authentication required. | [`ServiceErrorException`](../../doc/models/service-error-exception.md) |
+| 403 | Forbidden - insufficient permissions to process the request. | [`ServiceErrorException`](../../doc/models/service-error-exception.md) |
+| 422 | Unprocessable Entity - a request validation error. | [`ServiceErrorException`](../../doc/models/service-error-exception.md) |
+| 500 | Internal Server Error - the server could not process the request. | [`ServiceErrorException`](../../doc/models/service-error-exception.md) |
 
 
 # Post-Donations
@@ -144,13 +140,13 @@ This endpoint requires [BasicAuth](../../doc/auth/basic-authentication.md) **OR*
 
 **200**: OK - the request has succeeded.
 
-This method returns an [`ApiResponse`](../../doc/api-response.md) instance. The `body` property of this instance returns the response data which is of type [`DonationPaymentResponse`](../../doc/models/donation-payment-response.md).
+[`DonationPaymentResponse`](../../doc/models/donation-payment-response.md)
 
 ## Example Usage
 
 ```python
 body = DonationPaymentRequest(
-    amount=Amount16(
+    amount=Amount2(
         currency='EUR',
         value=1000
     ),
@@ -161,18 +157,14 @@ body = DonationPaymentRequest(
     donation_original_psp_reference='991559660454807J',
     donation_token='YOUR_DONATION_TOKEN',
     payment_method=CardDonations(
-        mtype=Type141.SCHEME
+        mtype=Type14Enum.SCHEME
     )
 )
 
 result = donations_api.post_donations(
     body=body
 )
-
-if result.is_success():
-    print(result.body)
-elif result.is_error():
-    print(result.errors)
+print(result)
 ```
 
 ## Example Response *(as JSON)*
@@ -203,9 +195,9 @@ elif result.is_error():
 
 | HTTP Status Code | Error Description | Exception Class |
 |  --- | --- | --- |
-| 400 | Bad Request - a problem reading or understanding the request. | [`ServiceError1Exception`](../../doc/models/service-error-1-exception.md) |
-| 401 | Unauthorized - authentication required. | [`ServiceError1Exception`](../../doc/models/service-error-1-exception.md) |
-| 403 | Forbidden - insufficient permissions to process the request. | [`ServiceError1Exception`](../../doc/models/service-error-1-exception.md) |
-| 422 | Unprocessable Entity - a request validation error. | [`ServiceError1Exception`](../../doc/models/service-error-1-exception.md) |
-| 500 | Internal Server Error - the server could not process the request. | [`ServiceError1Exception`](../../doc/models/service-error-1-exception.md) |
+| 400 | Bad Request - a problem reading or understanding the request. | [`ServiceErrorException`](../../doc/models/service-error-exception.md) |
+| 401 | Unauthorized - authentication required. | [`ServiceErrorException`](../../doc/models/service-error-exception.md) |
+| 403 | Forbidden - insufficient permissions to process the request. | [`ServiceErrorException`](../../doc/models/service-error-exception.md) |
+| 422 | Unprocessable Entity - a request validation error. | [`ServiceErrorException`](../../doc/models/service-error-exception.md) |
+| 500 | Internal Server Error - the server could not process the request. | [`ServiceErrorException`](../../doc/models/service-error-exception.md) |
 

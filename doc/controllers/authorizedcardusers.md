@@ -37,7 +37,7 @@ def get_payment_instruments_payment_instrument_id_authorised_card_users(self,
 
 **200**: Successful operation
 
-This method returns an [`ApiResponse`](../../doc/api-response.md) instance. The `body` property of this instance returns the response data which is of type [`AuthorisedCardUsers`](../../doc/models/authorised-card-users.md).
+[`AuthorisedCardUsers`](../../doc/models/authorised-card-users.md)
 
 ## Example Usage
 
@@ -45,11 +45,7 @@ This method returns an [`ApiResponse`](../../doc/api-response.md) instance. The 
 payment_instrument_id = 'paymentInstrumentId2'
 
 result = authorized_card_users_api.get_payment_instruments_payment_instrument_id_authorised_card_users(payment_instrument_id)
-
-if result.is_success():
-    print(result.body)
-elif result.is_error():
-    print(result.errors)
+print(result)
 ```
 
 ## Example Response *(as JSON)*
@@ -67,10 +63,10 @@ elif result.is_error():
 
 | HTTP Status Code | Error Description | Exception Class |
 |  --- | --- | --- |
-| 401 | Unauthorized | [`PaymentInstrumentsAuthorisedCardUsers401ErrorException`](../../doc/models/payment-instruments-authorised-card-users-401-error-exception.md) |
-| 403 | Forbidden | [`PaymentInstrumentsAuthorisedCardUsers403ErrorException`](../../doc/models/payment-instruments-authorised-card-users-403-error-exception.md) |
-| 404 | Not Found | [`PaymentInstrumentsAuthorisedCardUsers404ErrorException`](../../doc/models/payment-instruments-authorised-card-users-404-error-exception.md) |
-| 422 | Unprocessable Entity - a request validation error. | [`PaymentInstrumentsAuthorisedCardUsers422ErrorException`](../../doc/models/payment-instruments-authorised-card-users-422-error-exception.md) |
+| 401 | Unauthorized | [`DefaultErrorResponseEntityException`](../../doc/models/default-error-response-entity-exception.md) |
+| 403 | Forbidden | [`DefaultErrorResponseEntityException`](../../doc/models/default-error-response-entity-exception.md) |
+| 404 | Not Found | [`DefaultErrorResponseEntityException`](../../doc/models/default-error-response-entity-exception.md) |
+| 422 | Unprocessable Entity - a request validation error. | [`DefaultErrorResponseEntityException`](../../doc/models/default-error-response-entity-exception.md) |
 
 
 # Post-Payment Instruments-Payment Instrument Id-Authorised Card Users
@@ -96,7 +92,7 @@ def post_payment_instruments_payment_instrument_id_authorised_card_users(self,
 
 **204**: Successful operation
 
-This method returns an [`ApiResponse`](../../doc/api-response.md) instance.
+`void`
 
 ## Example Usage
 
@@ -110,25 +106,20 @@ body = AuthorisedCardUsers(
     ]
 )
 
-result = authorized_card_users_api.post_payment_instruments_payment_instrument_id_authorised_card_users(
+authorized_card_users_api.post_payment_instruments_payment_instrument_id_authorised_card_users(
     payment_instrument_id,
     body
 )
-
-if result.is_success():
-    print(result.body)
-elif result.is_error():
-    print(result.errors)
 ```
 
 ## Errors
 
 | HTTP Status Code | Error Description | Exception Class |
 |  --- | --- | --- |
-| 400 | Bad request | [`PaymentInstrumentsAuthorisedCardUsers400ErrorException`](../../doc/models/payment-instruments-authorised-card-users-400-error-exception.md) |
-| 401 | Unauthorized | [`PaymentInstrumentsAuthorisedCardUsers401ErrorException`](../../doc/models/payment-instruments-authorised-card-users-401-error-exception.md) |
-| 403 | Forbidden | [`PaymentInstrumentsAuthorisedCardUsers403ErrorException`](../../doc/models/payment-instruments-authorised-card-users-403-error-exception.md) |
-| 422 | Unprocessable Entity - a request validation error. | [`PaymentInstrumentsAuthorisedCardUsers422ErrorException`](../../doc/models/payment-instruments-authorised-card-users-422-error-exception.md) |
+| 400 | Bad request | [`DefaultErrorResponseEntityException`](../../doc/models/default-error-response-entity-exception.md) |
+| 401 | Unauthorized | [`DefaultErrorResponseEntityException`](../../doc/models/default-error-response-entity-exception.md) |
+| 403 | Forbidden | [`DefaultErrorResponseEntityException`](../../doc/models/default-error-response-entity-exception.md) |
+| 422 | Unprocessable Entity - a request validation error. | [`DefaultErrorResponseEntityException`](../../doc/models/default-error-response-entity-exception.md) |
 
 
 # Delete-Payment Instruments-Payment Instrument Id-Authorised Card Users
@@ -152,27 +143,22 @@ def delete_payment_instruments_payment_instrument_id_authorised_card_users(self,
 
 **204**: Successful operation
 
-This method returns an [`ApiResponse`](../../doc/api-response.md) instance.
+`void`
 
 ## Example Usage
 
 ```python
 payment_instrument_id = 'paymentInstrumentId2'
 
-result = authorized_card_users_api.delete_payment_instruments_payment_instrument_id_authorised_card_users(payment_instrument_id)
-
-if result.is_success():
-    print(result.body)
-elif result.is_error():
-    print(result.errors)
+authorized_card_users_api.delete_payment_instruments_payment_instrument_id_authorised_card_users(payment_instrument_id)
 ```
 
 ## Errors
 
 | HTTP Status Code | Error Description | Exception Class |
 |  --- | --- | --- |
-| 401 | Unauthorized | [`PaymentInstrumentsAuthorisedCardUsers401ErrorException`](../../doc/models/payment-instruments-authorised-card-users-401-error-exception.md) |
-| 403 | Forbidden | [`PaymentInstrumentsAuthorisedCardUsers403ErrorException`](../../doc/models/payment-instruments-authorised-card-users-403-error-exception.md) |
+| 401 | Unauthorized | [`DefaultErrorResponseEntityException`](../../doc/models/default-error-response-entity-exception.md) |
+| 403 | Forbidden | [`DefaultErrorResponseEntityException`](../../doc/models/default-error-response-entity-exception.md) |
 
 
 # Patch-Payment Instruments-Payment Instrument Id-Authorised Card Users
@@ -200,7 +186,7 @@ def patch_payment_instruments_payment_instrument_id_authorised_card_users(self,
 
 **204**: Successful operation
 
-This method returns an [`ApiResponse`](../../doc/api-response.md) instance.
+`void`
 
 ## Example Usage
 
@@ -214,23 +200,18 @@ body = AuthorisedCardUsers(
     ]
 )
 
-result = authorized_card_users_api.patch_payment_instruments_payment_instrument_id_authorised_card_users(
+authorized_card_users_api.patch_payment_instruments_payment_instrument_id_authorised_card_users(
     payment_instrument_id,
     body
 )
-
-if result.is_success():
-    print(result.body)
-elif result.is_error():
-    print(result.errors)
 ```
 
 ## Errors
 
 | HTTP Status Code | Error Description | Exception Class |
 |  --- | --- | --- |
-| 400 | Bad request | [`PaymentInstrumentsAuthorisedCardUsers400ErrorException`](../../doc/models/payment-instruments-authorised-card-users-400-error-exception.md) |
-| 401 | Unauthorized | [`PaymentInstrumentsAuthorisedCardUsers401ErrorException`](../../doc/models/payment-instruments-authorised-card-users-401-error-exception.md) |
-| 403 | Forbidden | [`PaymentInstrumentsAuthorisedCardUsers403ErrorException`](../../doc/models/payment-instruments-authorised-card-users-403-error-exception.md) |
-| 422 | Unprocessable Entity - a request validation error. | [`PaymentInstrumentsAuthorisedCardUsers422ErrorException`](../../doc/models/payment-instruments-authorised-card-users-422-error-exception.md) |
+| 400 | Bad request | [`DefaultErrorResponseEntityException`](../../doc/models/default-error-response-entity-exception.md) |
+| 401 | Unauthorized | [`DefaultErrorResponseEntityException`](../../doc/models/default-error-response-entity-exception.md) |
+| 403 | Forbidden | [`DefaultErrorResponseEntityException`](../../doc/models/default-error-response-entity-exception.md) |
+| 422 | Unprocessable Entity - a request validation error. | [`DefaultErrorResponseEntityException`](../../doc/models/default-error-response-entity-exception.md) |
 

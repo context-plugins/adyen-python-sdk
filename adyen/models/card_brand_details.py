@@ -14,8 +14,6 @@ class CardBrandDetails(object):
         healthcare (bool): Indicates if the card supports FSA/HSA healthcare payments.
         supported (bool): Indicates if you support the card brand.
         mtype (str): The name of the card brand.
-        additional_properties (Dict[str, Any]): The additional properties for the
-            model.
 
     """
 
@@ -36,8 +34,7 @@ class CardBrandDetails(object):
         self,
         healthcare=APIHelper.SKIP,
         supported=APIHelper.SKIP,
-        mtype=APIHelper.SKIP,
-        additional_properties=None):
+        mtype=APIHelper.SKIP):
         """Initialize a CardBrandDetails instance."""
         # Initialize members of the class
         if healthcare is not APIHelper.SKIP:
@@ -46,11 +43,6 @@ class CardBrandDetails(object):
             self.supported = supported
         if mtype is not APIHelper.SKIP:
             self.mtype = mtype
-
-        # Add additional model properties to the instance
-        if additional_properties is None:
-            additional_properties = {}
-        self.additional_properties = additional_properties
 
     @classmethod
     def from_dictionary(cls,
@@ -83,16 +75,10 @@ class CardBrandDetails(object):
             if dictionary.get("type")\
                 else APIHelper.SKIP
 
-        additional_properties = APIHelper.get_additional_properties(
-            dictionary={k: v for k, v in dictionary.items()
-                        if k not in cls._names.values()},
-            unboxing_function=lambda value: value)
-
         # Return an object of this model
         return cls(healthcare,
                    supported,
-                   mtype,
-                   additional_properties)
+                   mtype)
 
     def __repr__(self):
         """Return a unambiguous string representation."""
@@ -111,13 +97,11 @@ class CardBrandDetails(object):
             if hasattr(self, "mtype")
             else None
         )
-        _additional_properties=self.additional_properties
         return (
             f"{self.__class__.__name__}("
             f"healthcare={_healthcare!r}, "
             f"supported={_supported!r}, "
             f"mtype={_mtype!r}, "
-            f"additional_properties={_additional_properties!r}, "
             f")"
         )
 
@@ -138,12 +122,10 @@ class CardBrandDetails(object):
             if hasattr(self, "mtype")
             else None
         )
-        _additional_properties=self.additional_properties
         return (
             f"{self.__class__.__name__}("
             f"healthcare={_healthcare!s}, "
             f"supported={_supported!s}, "
             f"mtype={_mtype!s}, "
-            f"additional_properties={_additional_properties!s}, "
             f")"
         )

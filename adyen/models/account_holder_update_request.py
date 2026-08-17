@@ -8,7 +8,7 @@ from adyen.api_helper import APIHelper
 from adyen.models.account_holder_capability import (
     AccountHolderCapability,
 )
-from adyen.models.contact_details import ContactDetails
+from adyen.models.contact_details_1 import ContactDetails1
 from adyen.models.verification_deadline import (
     VerificationDeadline,
 )
@@ -28,7 +28,7 @@ class AccountHolderUpdateRequest(object):
             The key is a capability required for your integration. For example,
             **issueCard** for Issuing. The value is an object containing the settings
             for the capability.
-        contact_details (ContactDetails): The model property of type ContactDetails.
+        contact_details (ContactDetails1): Contact details of the account holder.
         description (str): Your description for the account holder.
         metadata (Dict[str, str]): A set of key and value pairs for general use. The
             keys do not have specific names and may be used for storing miscellaneous
@@ -42,7 +42,14 @@ class AccountHolderUpdateRequest(object):
             create for the account holder. To assign a different balance account,
             send a PATCH request.
         reference (str): Your reference for the account holder.
-        status (Status5): The model property of type Status5.
+        status (Status9Enum): The status of the account holder.  Possible values:
+            * **active**: The account holder is active and allowed to use its
+            capabilities. This is the initial status for account holders and balance
+            accounts. You can change this status to **suspended** or **closed**.    *
+            **suspended**: The account holder is temporarily disabled and payouts are
+            blocked. You can change this status to **active** or **closed**.   *
+            **closed**: The account holder and all of its capabilities are
+            permanently disabled. This is a final status and cannot be changed.
         time_zone (str): The time zone of the account holder. For example,
             **Europe/Amsterdam**. Defaults to the time zone of the balance platform
             if no time zone is set. For possible values, see the [list of time zone
@@ -50,8 +57,6 @@ class AccountHolderUpdateRequest(object):
         verification_deadlines (List[VerificationDeadline]): List of verification
             deadlines and the capabilities that will be disallowed if verification
             errors are not resolved.
-        additional_properties (Dict[str, Any]): The additional properties for the
-            model.
 
     """
 
@@ -96,8 +101,7 @@ class AccountHolderUpdateRequest(object):
         reference=APIHelper.SKIP,
         status=APIHelper.SKIP,
         time_zone=APIHelper.SKIP,
-        verification_deadlines=APIHelper.SKIP,
-        additional_properties=None):
+        verification_deadlines=APIHelper.SKIP):
         """Initialize a AccountHolderUpdateRequest instance."""
         # Initialize members of the class
         if balance_platform is not APIHelper.SKIP:
@@ -122,11 +126,6 @@ class AccountHolderUpdateRequest(object):
             self.time_zone = time_zone
         if verification_deadlines is not APIHelper.SKIP:
             self.verification_deadlines = verification_deadlines
-
-        # Add additional model properties to the instance
-        if additional_properties is None:
-            additional_properties = {}
-        self.additional_properties = additional_properties
 
     @classmethod
     def from_dictionary(cls,
@@ -156,7 +155,7 @@ class AccountHolderUpdateRequest(object):
                 if "capabilities" in dictionary.keys()\
                 else APIHelper.SKIP
         contact_details =\
-            ContactDetails.from_dictionary(
+            ContactDetails1.from_dictionary(
                 dictionary.get("contactDetails"))\
                 if "contactDetails" in dictionary.keys()\
                 else APIHelper.SKIP
@@ -197,11 +196,6 @@ class AccountHolderUpdateRequest(object):
         else:
             verification_deadlines = APIHelper.SKIP
 
-        additional_properties = APIHelper.get_additional_properties(
-            dictionary={k: v for k, v in dictionary.items()
-                        if k not in cls._names.values()},
-            unboxing_function=lambda value: value)
-
         # Return an object of this model
         return cls(balance_platform,
                    capabilities,
@@ -213,8 +207,7 @@ class AccountHolderUpdateRequest(object):
                    reference,
                    status,
                    time_zone,
-                   verification_deadlines,
-                   additional_properties)
+                   verification_deadlines)
 
     def __repr__(self):
         """Return a unambiguous string representation."""
@@ -273,7 +266,6 @@ class AccountHolderUpdateRequest(object):
             if hasattr(self, "verification_deadlines")
             else None
         )
-        _additional_properties=self.additional_properties
         return (
             f"{self.__class__.__name__}("
             f"balance_platform={_balance_platform!r}, "
@@ -287,7 +279,6 @@ class AccountHolderUpdateRequest(object):
             f"status={_status!r}, "
             f"time_zone={_time_zone!r}, "
             f"verification_deadlines={_verification_deadlines!r}, "
-            f"additional_properties={_additional_properties!r}, "
             f")"
         )
 
@@ -348,7 +339,6 @@ class AccountHolderUpdateRequest(object):
             if hasattr(self, "verification_deadlines")
             else None
         )
-        _additional_properties=self.additional_properties
         return (
             f"{self.__class__.__name__}("
             f"balance_platform={_balance_platform!s}, "
@@ -362,6 +352,5 @@ class AccountHolderUpdateRequest(object):
             f"status={_status!s}, "
             f"time_zone={_time_zone!s}, "
             f"verification_deadlines={_verification_deadlines!s}, "
-            f"additional_properties={_additional_properties!s}, "
             f")"
         )

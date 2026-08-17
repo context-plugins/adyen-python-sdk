@@ -1,8 +1,6 @@
 
 # Additional Data Car Rental
 
-*This model accepts additional fields of type Any.*
-
 ## Structure
 
 `AdditionalDataCarRental`
@@ -34,13 +32,10 @@
 | `car_rental_tax_exempt_indicator` | `str` | Optional | Indicates if the goods or services were tax-exempt, or if tax was not paid on them.<br><br>Values:<br><br>* Y - Goods or services were tax exempt<br>* N - Tax was not collected |
 | `travel_entertainment_auth_data_duration` | `str` | Optional | Number of days the car is rented for. This should be included in the auth message.<br><br>* Format: Numeric<br>* maxLength: 4 |
 | `travel_entertainment_auth_data_market` | `str` | Optional | Indicates what market-specific dataset will be submitted or is being submitted. Value should be 'A' for car rental. This should be included in the auth message.<br><br>* Format: Alphanumeric<br>* maxLength: 1 |
-| `additional_properties` | `Dict[str, Any]` | Optional | - |
 
 ## Example
 
 ```python
-import jsonpickle
-
 from adyen.models.additional_data_car_rental import AdditionalDataCarRental
 
 additional_data_car_rental = AdditionalDataCarRental(
@@ -48,10 +43,7 @@ additional_data_car_rental = AdditionalDataCarRental(
     car_rental_customer_service_toll_free_number='carRental.customerServiceTollFreeNumber6',
     car_rental_days_rented='carRental.daysRented8',
     car_rental_fuel_charges='carRental.fuelCharges4',
-    car_rental_insurance_charges='carRental.insuranceCharges4',
-    additional_properties={
-        'exampleAdditionalProperty': jsonpickle.decode('{"key1":"val1","key2":"val2"}')
-    }
+    car_rental_insurance_charges='carRental.insuranceCharges4'
 )
 ```
 

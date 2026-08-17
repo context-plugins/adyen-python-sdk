@@ -17,65 +17,8 @@ from apimatic_core.types.parameter import Parameter
 from adyen.api_helper import APIHelper
 from adyen.apis.base_api import BaseApi
 from adyen.configuration import Server
-from adyen.exceptions.companies_campaign_management_400_error_exception import (
-    CompaniesCampaignManagement400ErrorException,
-)
-from adyen.exceptions.companies_campaign_management_401_error_exception import (
-    CompaniesCampaignManagement401ErrorException,
-)
-from adyen.exceptions.companies_campaign_management_403_error_exception import (
-    CompaniesCampaignManagement403ErrorException,
-)
-from adyen.exceptions.companies_campaign_management_422_error_exception import (
-    CompaniesCampaignManagement422ErrorException,
-)
-from adyen.exceptions.companies_campaign_management_500_error_exception import (
-    CompaniesCampaignManagement500ErrorException,
-)
-from adyen.exceptions.companies_campaign_management_account_holders_400_error_exception import (  # noqa: E501
-    CompaniesCampaignManagementAccountHolders400ErrorException,
-)
-from adyen.exceptions.companies_campaign_management_account_holders_401_error_exception import (  # noqa: E501
-    CompaniesCampaignManagementAccountHolders401ErrorException,
-)
-from adyen.exceptions.companies_campaign_management_account_holders_403_error_exception import (  # noqa: E501
-    CompaniesCampaignManagementAccountHolders403ErrorException,
-)
-from adyen.exceptions.companies_campaign_management_account_holders_422_error_exception import (  # noqa: E501
-    CompaniesCampaignManagementAccountHolders422ErrorException,
-)
-from adyen.exceptions.companies_campaign_management_account_holders_500_error_exception import (  # noqa: E501
-    CompaniesCampaignManagementAccountHolders500ErrorException,
-)
-from adyen.exceptions.companies_campaign_management_status_status_400_error_exception import (  # noqa: E501
-    CompaniesCampaignManagementStatusStatus400ErrorException,
-)
-from adyen.exceptions.companies_campaign_management_status_status_401_error_exception import (  # noqa: E501
-    CompaniesCampaignManagementStatusStatus401ErrorException,
-)
-from adyen.exceptions.companies_campaign_management_status_status_403_error_exception import (  # noqa: E501
-    CompaniesCampaignManagementStatusStatus403ErrorException,
-)
-from adyen.exceptions.companies_campaign_management_status_status_422_error_exception import (  # noqa: E501
-    CompaniesCampaignManagementStatusStatus422ErrorException,
-)
-from adyen.exceptions.companies_campaign_management_status_status_500_error_exception import (  # noqa: E501
-    CompaniesCampaignManagementStatusStatus500ErrorException,
-)
-from adyen.exceptions.companies_nonprofits_400_error_exception import (
-    CompaniesNonprofits400ErrorException,
-)
-from adyen.exceptions.companies_nonprofits_401_error_exception import (
-    CompaniesNonprofits401ErrorException,
-)
-from adyen.exceptions.companies_nonprofits_403_error_exception import (
-    CompaniesNonprofits403ErrorException,
-)
-from adyen.exceptions.companies_nonprofits_422_error_exception import (
-    CompaniesNonprofits422ErrorException,
-)
-from adyen.exceptions.companies_nonprofits_500_error_exception import (
-    CompaniesNonprofits500ErrorException,
+from adyen.exceptions.default_error_response_entity_exception import (
+    DefaultErrorResponseEntityException,
 )
 from adyen.http.http_method_enum import HttpMethodEnum
 from adyen.models.donation_campaign_1 import (
@@ -114,24 +57,21 @@ class DonationCampaignsApi(BaseApi):
             body (DonationCampaignRequest, optional): The request body parameter.
 
         Returns:
-            ApiResponse: An object with the response value as well as other useful
-                information such as status codes and headers. OK - the request has
-                succeeded.
+            DonationCampaign1: Response from the API. OK - the request has succeeded.
 
         Raises:
-            ApiException: When an error occurs while fetching the data from the
+            APIException: When an error occurs while fetching the data from the
                 remote API. This exception includes the HTTP Response code, an error
                 message, and the HTTP body that was received in the request.
 
         """
         return super().new_api_call_builder.request(
-            RequestBuilder().server(Server.DEFAULT)
+            RequestBuilder().server(Server.DEFAULT9)
             .path("/companies/{companyId}/campaignManagement")
             .http_method(HttpMethodEnum.POST)
             .template_param(Parameter()
                 .key("companyId")
                 .value(company_id)
-                .is_required(True)
                 .should_encode(True))
             .header_param(Parameter()
                 .key("Content-Type")
@@ -147,22 +87,21 @@ class DonationCampaignsApi(BaseApi):
             ResponseHandler()
             .deserializer(APIHelper.json_deserialize)
             .deserialize_into(DonationCampaign1.from_dictionary)
-            .is_api_response(True)
             .local_error("400",
                 "Bad Request - a problem reading or understanding the request.",
-                CompaniesCampaignManagement400ErrorException)
+                DefaultErrorResponseEntityException)
             .local_error("401",
                 "Unauthorized - authentication required.",
-                CompaniesCampaignManagement401ErrorException)
+                DefaultErrorResponseEntityException)
             .local_error("403",
                 "Forbidden - insufficient permissions to process the request.",
-                CompaniesCampaignManagement403ErrorException)
+                DefaultErrorResponseEntityException)
             .local_error("422",
                 "Unprocessable Entity - a request validation error.",
-                CompaniesCampaignManagement422ErrorException)
+                DefaultErrorResponseEntityException)
             .local_error("500",
                 "Internal Server Error - the server could not process the request.",
-                CompaniesCampaignManagement500ErrorException),
+                DefaultErrorResponseEntityException),
         ).execute()
 
     def get_companies_company_id_campaign_management_account_holders_account_holder_id(self,
@@ -192,29 +131,26 @@ class DonationCampaignsApi(BaseApi):
                 100. The default is 10 items on a page.
 
         Returns:
-            ApiResponse: An object with the response value as well as other useful
-                information such as status codes and headers. OK - the request has
-                succeeded.
+            ListDonationCampaignsResponse: Response from the API. OK - the request
+                has succeeded.
 
         Raises:
-            ApiException: When an error occurs while fetching the data from the
+            APIException: When an error occurs while fetching the data from the
                 remote API. This exception includes the HTTP Response code, an error
                 message, and the HTTP body that was received in the request.
 
         """
         return super().new_api_call_builder.request(
-            RequestBuilder().server(Server.DEFAULT)
+            RequestBuilder().server(Server.DEFAULT9)
             .path("/companies/{companyId}/campaignManagement/accountHolders/{accountHolderId}")
             .http_method(HttpMethodEnum.GET)
             .template_param(Parameter()
                 .key("companyId")
                 .value(company_id)
-                .is_required(True)
                 .should_encode(True))
             .template_param(Parameter()
                 .key("accountHolderId")
                 .value(account_holder_id)
-                .is_required(True)
                 .should_encode(True))
             .query_param(Parameter()
                 .key("status")
@@ -233,22 +169,21 @@ class DonationCampaignsApi(BaseApi):
             ResponseHandler()
             .deserializer(APIHelper.json_deserialize)
             .deserialize_into(ListDonationCampaignsResponse.from_dictionary)
-            .is_api_response(True)
             .local_error("400",
                 "Bad Request - a problem reading or understanding the request.",
-                CompaniesCampaignManagementAccountHolders400ErrorException)
+                DefaultErrorResponseEntityException)
             .local_error("401",
                 "Unauthorized - authentication required.",
-                CompaniesCampaignManagementAccountHolders401ErrorException)
+                DefaultErrorResponseEntityException)
             .local_error("403",
                 "Forbidden - insufficient permissions to process the request.",
-                CompaniesCampaignManagementAccountHolders403ErrorException)
+                DefaultErrorResponseEntityException)
             .local_error("422",
                 "Unprocessable Entity - a request validation error.",
-                CompaniesCampaignManagementAccountHolders422ErrorException)
+                DefaultErrorResponseEntityException)
             .local_error("500",
                 "Internal Server Error - the server could not process the request.",
-                CompaniesCampaignManagementAccountHolders500ErrorException),
+                DefaultErrorResponseEntityException),
         ).execute()
 
     def delete_companies_company_id_campaign_management_donation_campaign_id(self,
@@ -270,50 +205,28 @@ class DonationCampaignsApi(BaseApi):
                 campaign to be deleted.
 
         Returns:
-            ApiResponse: An object with the response value as well as other useful
-                information such as status codes and headers. No Content - the
-                request has been successfully processed, but there is no additional
-                content.
+            void: Response from the API. No Content - the request has been
+                successfully processed, but there is no additional content.
 
         Raises:
-            ApiException: When an error occurs while fetching the data from the
+            APIException: When an error occurs while fetching the data from the
                 remote API. This exception includes the HTTP Response code, an error
                 message, and the HTTP body that was received in the request.
 
         """
         return super().new_api_call_builder.request(
-            RequestBuilder().server(Server.DEFAULT)
+            RequestBuilder().server(Server.DEFAULT9)
             .path("/companies/{companyId}/campaignManagement/{donationCampaignId}")
             .http_method(HttpMethodEnum.DELETE)
             .template_param(Parameter()
                 .key("companyId")
                 .value(company_id)
-                .is_required(True)
                 .should_encode(True))
             .template_param(Parameter()
                 .key("donationCampaignId")
                 .value(donation_campaign_id)
-                .is_required(True)
                 .should_encode(True))
             .auth(Or(Single("BasicAuth"), Single("ApiKeyAuth"))),
-        ).response(
-            ResponseHandler()
-            .is_api_response(True)
-            .local_error("400",
-                "Bad Request - a problem reading or understanding the request.",
-                CompaniesCampaignManagement400ErrorException)
-            .local_error("401",
-                "Unauthorized - authentication required.",
-                CompaniesCampaignManagement401ErrorException)
-            .local_error("403",
-                "Forbidden - insufficient permissions to process the request.",
-                CompaniesCampaignManagement403ErrorException)
-            .local_error("422",
-                "Unprocessable Entity - a request validation error.",
-                CompaniesCampaignManagement422ErrorException)
-            .local_error("500",
-                "Internal Server Error - the server could not process the request.",
-                CompaniesCampaignManagement500ErrorException),
         ).execute()
 
     def patch_companies_company_id_campaign_management_donation_campaign_id(self,
@@ -342,29 +255,25 @@ class DonationCampaignsApi(BaseApi):
             body (DonationCampaignUpdate, optional): The request body parameter.
 
         Returns:
-            ApiResponse: An object with the response value as well as other useful
-                information such as status codes and headers. OK - the request has
-                succeeded.
+            DonationCampaign1: Response from the API. OK - the request has succeeded.
 
         Raises:
-            ApiException: When an error occurs while fetching the data from the
+            APIException: When an error occurs while fetching the data from the
                 remote API. This exception includes the HTTP Response code, an error
                 message, and the HTTP body that was received in the request.
 
         """
         return super().new_api_call_builder.request(
-            RequestBuilder().server(Server.DEFAULT)
+            RequestBuilder().server(Server.DEFAULT9)
             .path("/companies/{companyId}/campaignManagement/{donationCampaignId}")
             .http_method(HttpMethodEnum.PATCH)
             .template_param(Parameter()
                 .key("companyId")
                 .value(company_id)
-                .is_required(True)
                 .should_encode(True))
             .template_param(Parameter()
                 .key("donationCampaignId")
                 .value(donation_campaign_id)
-                .is_required(True)
                 .should_encode(True))
             .header_param(Parameter()
                 .key("Content-Type")
@@ -380,22 +289,21 @@ class DonationCampaignsApi(BaseApi):
             ResponseHandler()
             .deserializer(APIHelper.json_deserialize)
             .deserialize_into(DonationCampaign1.from_dictionary)
-            .is_api_response(True)
             .local_error("400",
                 "Bad Request - a problem reading or understanding the request.",
-                CompaniesCampaignManagement400ErrorException)
+                DefaultErrorResponseEntityException)
             .local_error("401",
                 "Unauthorized - authentication required.",
-                CompaniesCampaignManagement401ErrorException)
+                DefaultErrorResponseEntityException)
             .local_error("403",
                 "Forbidden - insufficient permissions to process the request.",
-                CompaniesCampaignManagement403ErrorException)
+                DefaultErrorResponseEntityException)
             .local_error("422",
                 "Unprocessable Entity - a request validation error.",
-                CompaniesCampaignManagement422ErrorException)
+                DefaultErrorResponseEntityException)
             .local_error("500",
                 "Internal Server Error - the server could not process the request.",
-                CompaniesCampaignManagement500ErrorException),
+                DefaultErrorResponseEntityException),
         ).execute()
 
     def post_companies_company_id_campaign_management_donation_campaign_id_status_status(self,
@@ -418,38 +326,33 @@ class DonationCampaignsApi(BaseApi):
             company_id (str): The unique identifier of the company account.
             donation_campaign_id (str): The unique identifier of the donation
                 campaign to activate or end.
-            status (CampaignStatusTransition1): The desired status change. Possible
-                values: **activate** or **end**.
+            status (CampaignStatusTransitionEnum): The desired status change.
+                Possible values: **activate** or **end**.
 
         Returns:
-            ApiResponse: An object with the response value as well as other useful
-                information such as status codes and headers. OK - the request has
-                succeeded.
+            DonationCampaign1: Response from the API. OK - the request has succeeded.
 
         Raises:
-            ApiException: When an error occurs while fetching the data from the
+            APIException: When an error occurs while fetching the data from the
                 remote API. This exception includes the HTTP Response code, an error
                 message, and the HTTP body that was received in the request.
 
         """
         return super().new_api_call_builder.request(
-            RequestBuilder().server(Server.DEFAULT)
+            RequestBuilder().server(Server.DEFAULT9)
             .path("/companies/{companyId}/campaignManagement/{donationCampaignId}/status/{status}")
             .http_method(HttpMethodEnum.POST)
             .template_param(Parameter()
                 .key("companyId")
                 .value(company_id)
-                .is_required(True)
                 .should_encode(True))
             .template_param(Parameter()
                 .key("donationCampaignId")
                 .value(donation_campaign_id)
-                .is_required(True)
                 .should_encode(True))
             .template_param(Parameter()
                 .key("status")
                 .value(status)
-                .is_required(True)
                 .should_encode(True))
             .header_param(Parameter()
                 .key("accept")
@@ -459,22 +362,21 @@ class DonationCampaignsApi(BaseApi):
             ResponseHandler()
             .deserializer(APIHelper.json_deserialize)
             .deserialize_into(DonationCampaign1.from_dictionary)
-            .is_api_response(True)
             .local_error("400",
                 "Bad Request - a problem reading or understanding the request.",
-                CompaniesCampaignManagementStatusStatus400ErrorException)
+                DefaultErrorResponseEntityException)
             .local_error("401",
                 "Unauthorized - authentication required.",
-                CompaniesCampaignManagementStatusStatus401ErrorException)
+                DefaultErrorResponseEntityException)
             .local_error("403",
                 "Forbidden - insufficient permissions to process the request.",
-                CompaniesCampaignManagementStatusStatus403ErrorException)
+                DefaultErrorResponseEntityException)
             .local_error("422",
                 "Unprocessable Entity - a request validation error.",
-                CompaniesCampaignManagementStatusStatus422ErrorException)
+                DefaultErrorResponseEntityException)
             .local_error("500",
                 "Internal Server Error - the server could not process the request.",
-                CompaniesCampaignManagementStatusStatus500ErrorException),
+                DefaultErrorResponseEntityException),
         ).execute()
 
     def post_companies_company_id_nonprofits(self,
@@ -503,24 +405,22 @@ class DonationCampaignsApi(BaseApi):
             body (ListNonprofitsRequest, optional): The request body parameter.
 
         Returns:
-            ApiResponse: An object with the response value as well as other useful
-                information such as status codes and headers. OK - the request has
+            ListNonprofitsResponse: Response from the API. OK - the request has
                 succeeded.
 
         Raises:
-            ApiException: When an error occurs while fetching the data from the
+            APIException: When an error occurs while fetching the data from the
                 remote API. This exception includes the HTTP Response code, an error
                 message, and the HTTP body that was received in the request.
 
         """
         return super().new_api_call_builder.request(
-            RequestBuilder().server(Server.DEFAULT)
+            RequestBuilder().server(Server.DEFAULT9)
             .path("/companies/{companyId}/nonprofits")
             .http_method(HttpMethodEnum.POST)
             .template_param(Parameter()
                 .key("companyId")
                 .value(company_id)
-                .is_required(True)
                 .should_encode(True))
             .header_param(Parameter()
                 .key("Content-Type")
@@ -548,20 +448,19 @@ class DonationCampaignsApi(BaseApi):
             ResponseHandler()
             .deserializer(APIHelper.json_deserialize)
             .deserialize_into(ListNonprofitsResponse.from_dictionary)
-            .is_api_response(True)
             .local_error("400",
                 "Bad Request - a problem reading or understanding the request.",
-                CompaniesNonprofits400ErrorException)
+                DefaultErrorResponseEntityException)
             .local_error("401",
                 "Unauthorized - authentication required.",
-                CompaniesNonprofits401ErrorException)
+                DefaultErrorResponseEntityException)
             .local_error("403",
                 "Forbidden - insufficient permissions to process the request.",
-                CompaniesNonprofits403ErrorException)
+                DefaultErrorResponseEntityException)
             .local_error("422",
                 "Unprocessable Entity - a request validation error.",
-                CompaniesNonprofits422ErrorException)
+                DefaultErrorResponseEntityException)
             .local_error("500",
                 "Internal Server Error - the server could not process the request.",
-                CompaniesNonprofits500ErrorException),
+                DefaultErrorResponseEntityException),
         ).execute()

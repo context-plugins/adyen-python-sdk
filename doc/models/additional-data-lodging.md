@@ -1,8 +1,6 @@
 
 # Additional Data Lodging
 
-*This model accepts additional fields of type Any.*
-
 ## Structure
 
 `AdditionalDataLodging`
@@ -28,13 +26,10 @@
 | `lodging_total_tax` | `str` | Optional | The total tax amount, in [minor units](https://docs.adyen.com/development-resources/currency-codes).<br><br>* Format: numeric<br>* Max length: 12 characters<br>* Must not be a negative number |
 | `travel_entertainment_auth_data_duration` | `str` | Optional | The number of nights. This should be included in the auth message.<br><br>* Format: numeric<br>* Max length: 4 characters |
 | `travel_entertainment_auth_data_market` | `str` | Optional | Indicates what market-specific dataset will be submitted. Must be 'H' for Hotel. This should be included in the auth message.<br><br>* Format: alphanumeric<br>* Max length: 1 character |
-| `additional_properties` | `Dict[str, Any]` | Optional | - |
 
 ## Example
 
 ```python
-import jsonpickle
-
 from adyen.models.additional_data_lodging import AdditionalDataLodging
 
 additional_data_lodging = AdditionalDataLodging(
@@ -42,10 +37,7 @@ additional_data_lodging = AdditionalDataLodging(
     lodging_check_in_date='lodging.checkInDate6',
     lodging_check_out_date='lodging.checkOutDate0',
     lodging_customer_service_toll_free_number='lodging.customerServiceTollFreeNumber8',
-    lodging_fire_safety_act_indicator='lodging.fireSafetyActIndicator8',
-    additional_properties={
-        'exampleAdditionalProperty': jsonpickle.decode('{"key1":"val1","key2":"val2"}')
-    }
+    lodging_fire_safety_act_indicator='lodging.fireSafetyActIndicator8'
 )
 ```
 

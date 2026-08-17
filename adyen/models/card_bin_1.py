@@ -38,8 +38,6 @@ class CardBin1(object):
             you verify a card BIN or estimate costs, and only if `payoutEligible` is
             different from "N" or "U".
         summary (str): The last four digits of the card number.
-        additional_properties (Dict[str, Any]): The additional properties for the
-            model.
 
     """
 
@@ -84,8 +82,7 @@ class CardBin1(object):
         issuing_currency=APIHelper.SKIP,
         payment_method=APIHelper.SKIP,
         payout_eligible=APIHelper.SKIP,
-        summary=APIHelper.SKIP,
-        additional_properties=None):
+        summary=APIHelper.SKIP):
         """Initialize a CardBin1 instance."""
         # Initialize members of the class
         if bin is not APIHelper.SKIP:
@@ -110,11 +107,6 @@ class CardBin1(object):
             self.payout_eligible = payout_eligible
         if summary is not APIHelper.SKIP:
             self.summary = summary
-
-        # Add additional model properties to the instance
-        if additional_properties is None:
-            additional_properties = {}
-        self.additional_properties = additional_properties
 
     @classmethod
     def from_dictionary(cls,
@@ -179,11 +171,6 @@ class CardBin1(object):
             if dictionary.get("summary")\
                 else APIHelper.SKIP
 
-        additional_properties = APIHelper.get_additional_properties(
-            dictionary={k: v for k, v in dictionary.items()
-                        if k not in cls._names.values()},
-            unboxing_function=lambda value: value)
-
         # Return an object of this model
         return cls(bin,
                    commercial,
@@ -195,8 +182,7 @@ class CardBin1(object):
                    issuing_currency,
                    payment_method,
                    payout_eligible,
-                   summary,
-                   additional_properties)
+                   summary)
 
     def __repr__(self):
         """Return a unambiguous string representation."""
@@ -255,7 +241,6 @@ class CardBin1(object):
             if hasattr(self, "summary")
             else None
         )
-        _additional_properties=self.additional_properties
         return (
             f"{self.__class__.__name__}("
             f"bin={_bin!r}, "
@@ -269,7 +254,6 @@ class CardBin1(object):
             f"payment_method={_payment_method!r}, "
             f"payout_eligible={_payout_eligible!r}, "
             f"summary={_summary!r}, "
-            f"additional_properties={_additional_properties!r}, "
             f")"
         )
 
@@ -330,7 +314,6 @@ class CardBin1(object):
             if hasattr(self, "summary")
             else None
         )
-        _additional_properties=self.additional_properties
         return (
             f"{self.__class__.__name__}("
             f"bin={_bin!s}, "
@@ -344,6 +327,5 @@ class CardBin1(object):
             f"payment_method={_payment_method!s}, "
             f"payout_eligible={_payout_eligible!s}, "
             f"summary={_summary!s}, "
-            f"additional_properties={_additional_properties!s}, "
             f")"
         )

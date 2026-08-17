@@ -1,8 +1,6 @@
 
 # Donation Campaign Nonprofit Cause
 
-*This model accepts additional fields of type Any.*
-
 ## Structure
 
 `DonationCampaignNonprofitCause`
@@ -19,13 +17,10 @@
 | `logo_url` | `str` | Optional | The URL to the logo of the nonprofit organization. |
 | `nonprofit_name` | `str` | Optional | The name of the nonprofit organization. |
 | `terms_and_conditions_url` | `str` | Optional | The URL to the terms and conditions of the nonprofit organization. |
-| `additional_properties` | `Dict[str, Any]` | Optional | - |
 
 ## Example
 
 ```python
-import jsonpickle
-
 from adyen.models.donation_campaign_nonprofit_cause import DonationCampaignNonprofitCause
 
 donation_campaign_nonprofit_cause = DonationCampaignNonprofitCause(
@@ -37,10 +32,7 @@ donation_campaign_nonprofit_cause = DonationCampaignNonprofitCause(
         'goals9',
         'goals0',
         'goals1'
-    ],
-    additional_properties={
-        'exampleAdditionalProperty': jsonpickle.decode('{"key1":"val1","key2":"val2"}')
-    }
+    ]
 )
 ```
 

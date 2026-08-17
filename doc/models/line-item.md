@@ -1,8 +1,6 @@
 
 # Line Item
 
-*This model accepts additional fields of type Any.*
-
 ## Structure
 
 `LineItem`
@@ -36,13 +34,10 @@
 | `tracking_number` | `str` | Optional | Tracking number for the delivery of the item. |
 | `tracking_uri` | `str` | Optional | Tracking URI for the delivery of the item. |
 | `upc` | `str` | Optional | Universal Product Code. |
-| `additional_properties` | `Dict[str, Any]` | Optional | - |
 
 ## Example
 
 ```python
-import jsonpickle
-
 from adyen.models.line_item import LineItem
 
 line_item = LineItem(
@@ -50,10 +45,7 @@ line_item = LineItem(
     amount_including_tax=122,
     brand='brand0',
     color='color0',
-    description='description6',
-    additional_properties={
-        'exampleAdditionalProperty': jsonpickle.decode('{"key1":"val1","key2":"val2"}')
-    }
+    description='description6'
 )
 ```
 

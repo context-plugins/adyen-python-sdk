@@ -4,8 +4,6 @@
 Information related to the mobile for the payment transaction.
 If PaymentInstrumentType is Mobile.
 
-*This model accepts additional fields of type Any.*
-
 ## Structure
 
 `MobileData1`
@@ -17,49 +15,34 @@ If PaymentInstrumentType is Mobile.
 | `mobile_country_code` | `int` | Optional | Identifies the country of a mobile phone operator.<br>If data available.<br><br>**Constraints**: `>= 3`, `<= 3` |
 | `mobile_network_code` | `int` | Optional | Identifies the mobile phone operator inside a country.<br>If data available.<br><br>**Constraints**: `>= 2`, `<= 3` |
 | `masked_msisdn` | `int` | Optional | Masked Mobile Subscriber Integrated Service Digital Network.<br>If data available. |
-| `geolocation` | [`Geolocation`](../../doc/models/geolocation.md) | Optional | - |
+| `geolocation` | [`Geolocation1`](../../doc/models/geolocation-1.md) | Optional | Geographic location specified by geographic or UTM coordinates.<br>If data available. |
 | `protected_mobile_data` | `str` | Optional | Sensitive information related to the mobile phone, protected by CMS.<br>SensitiveMobileData. |
-| `sensitive_mobile_data` | [`SensitiveMobileData`](../../doc/models/sensitive-mobile-data.md) | Optional | - |
-| `additional_properties` | `Dict[str, Any]` | Optional | - |
+| `sensitive_mobile_data` | [`SensitiveMobileData1`](../../doc/models/sensitive-mobile-data-1.md) | Optional | Sensitive information related to the mobile phone.<br>If unprotected mobile data. |
 
 ## Example
 
 ```python
-import jsonpickle
-
 from adyen.models.geographic_coordinates import GeographicCoordinates
-from adyen.models.geolocation import Geolocation
+from adyen.models.geolocation_1 import Geolocation1
 from adyen.models.mobile_data_1 import MobileData1
-from adyen.models.utm_coordinates import UtmCoordinates
+from adyen.models.utm_coordinates import UTMCoordinates
 
 mobile_data_1 = MobileData1(
     mobile_country_code=3,
     mobile_network_code=3,
     masked_msisdn=16,
-    geolocation=Geolocation(
+    geolocation=Geolocation1(
         geographic_coordinates=GeographicCoordinates(
             latitude='Latitude4',
-            longitude='Longitude2',
-            additional_properties={
-                'exampleAdditionalProperty': jsonpickle.decode('{"key1":"val1","key2":"val2"}')
-            }
+            longitude='Longitude2'
         ),
-        utm_coordinates=UtmCoordinates(
+        utm_coordinates=UTMCoordinates(
             utm_zone='UTMZone6',
             utm_eastward='UTMEastward0',
-            utm_northward='UTMNorthward0',
-            additional_properties={
-                'exampleAdditionalProperty': jsonpickle.decode('{"key1":"val1","key2":"val2"}')
-            }
-        ),
-        additional_properties={
-            'exampleAdditionalProperty': jsonpickle.decode('{"key1":"val1","key2":"val2"}')
-        }
+            utm_northward='UTMNorthward0'
+        )
     ),
-    protected_mobile_data='ProtectedMobileData6',
-    additional_properties={
-        'exampleAdditionalProperty': jsonpickle.decode('{"key1":"val1","key2":"val2"}')
-    }
+    protected_mobile_data='ProtectedMobileData6'
 )
 ```
 

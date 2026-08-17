@@ -3,8 +3,6 @@
 
 The sub-merchant data relevant for registered payment facilitators transacting on standalone terminals.
 
-*This model accepts additional fields of type Any.*
-
 ## Structure
 
 `SubMerchantData1`
@@ -17,23 +15,17 @@ The sub-merchant data relevant for registered payment facilitators transacting o
 | `id` | `str` | Required | A unique identifier that you create for the sub-merchant, used by schemes to identify the sub-merchant.<br><br>* Format: Alphanumeric<br>* Maximum length: 15 characters |
 | `mcc` | `str` | Required | The sub-merchant's 4-digit Merchant Category Code (MCC).<br><br>* Format: Numeric<br>* Fixed length: 4 digits |
 | `name` | `str` | Required | The name of the sub-merchant. Based on scheme specifications, this value will overwrite the shopper statement that will appear in the card statement.<br><br>* Format: Alphanumeric<br>* Maximum length: 22 characters |
-| `additional_properties` | `Dict[str, Any]` | Optional | - |
 
 ## Example
 
 ```python
-import jsonpickle
-
 from adyen.models.sub_merchant_data_1 import SubMerchantData1
 
 sub_merchant_data_1 = SubMerchantData1(
     email='email6',
     id='id0',
     mcc='mcc0',
-    name='name0',
-    additional_properties={
-        'exampleAdditionalProperty': jsonpickle.decode('{"key1":"val1","key2":"val2"}')
-    }
+    name='name0'
 )
 ```
 

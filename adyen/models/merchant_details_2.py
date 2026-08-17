@@ -23,8 +23,6 @@ class MerchantDetails2(object):
             relates to a particular market segment. This code reflects the
             predominant activity that is conducted by the merchant.  The list of MCCs
             can be found [here](https://en.wikipedia.org/wiki/Merchant_category_code).
-        additional_properties (Dict[str, Any]): The additional properties for the
-            model.
 
     """
 
@@ -45,8 +43,7 @@ class MerchantDetails2(object):
         self,
         country_code=APIHelper.SKIP,
         enrolled_in_3_d_secure=APIHelper.SKIP,
-        mcc=APIHelper.SKIP,
-        additional_properties=None):
+        mcc=APIHelper.SKIP):
         """Initialize a MerchantDetails2 instance."""
         # Initialize members of the class
         if country_code is not APIHelper.SKIP:
@@ -55,11 +52,6 @@ class MerchantDetails2(object):
             self.enrolled_in_3_d_secure = enrolled_in_3_d_secure
         if mcc is not APIHelper.SKIP:
             self.mcc = mcc
-
-        # Add additional model properties to the instance
-        if additional_properties is None:
-            additional_properties = {}
-        self.additional_properties = additional_properties
 
     @classmethod
     def from_dictionary(cls,
@@ -92,16 +84,10 @@ class MerchantDetails2(object):
             if dictionary.get("mcc")\
                 else APIHelper.SKIP
 
-        additional_properties = APIHelper.get_additional_properties(
-            dictionary={k: v for k, v in dictionary.items()
-                        if k not in cls._names.values()},
-            unboxing_function=lambda value: value)
-
         # Return an object of this model
         return cls(country_code,
                    enrolled_in_3_d_secure,
-                   mcc,
-                   additional_properties)
+                   mcc)
 
     def __repr__(self):
         """Return a unambiguous string representation."""
@@ -120,13 +106,11 @@ class MerchantDetails2(object):
             if hasattr(self, "mcc")
             else None
         )
-        _additional_properties=self.additional_properties
         return (
             f"{self.__class__.__name__}("
             f"country_code={_country_code!r}, "
             f"enrolled_in_3_d_secure={_enrolled_in_3_d_secure!r}, "
             f"mcc={_mcc!r}, "
-            f"additional_properties={_additional_properties!r}, "
             f")"
         )
 
@@ -147,12 +131,10 @@ class MerchantDetails2(object):
             if hasattr(self, "mcc")
             else None
         )
-        _additional_properties=self.additional_properties
         return (
             f"{self.__class__.__name__}("
             f"country_code={_country_code!s}, "
             f"enrolled_in_3_d_secure={_enrolled_in_3_d_secure!s}, "
             f"mcc={_mcc!s}, "
-            f"additional_properties={_additional_properties!s}, "
             f")"
         )

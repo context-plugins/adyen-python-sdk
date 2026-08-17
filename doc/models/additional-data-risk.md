@@ -1,8 +1,6 @@
 
 # Additional Data Risk
 
-*This model accepts additional fields of type Any.*
-
 ## Structure
 
 `AdditionalDataRisk`
@@ -32,13 +30,10 @@
 | `riskdata_promotions_promotion_item_nr_promotion_name` | `str` | Optional | Name of the promotion. |
 | `riskdata_risk_profile_reference` | `str` | Optional | Reference number of the risk profile that you want to apply to the payment. If not provided or left blank, the merchant-level account's default risk profile will be applied to the payment. For more information, see [dynamically assign a risk profile to a payment](https://docs.adyen.com/risk-management/create-and-use-risk-profiles#dynamically-assign-a-risk-profile-to-a-payment). |
 | `riskdata_skip_risk` | `str` | Optional | If this parameter is provided with the value **true**, risk checks for the payment request are skipped and the transaction will not get a risk score. |
-| `additional_properties` | `Dict[str, Any]` | Optional | - |
 
 ## Example
 
 ```python
-import jsonpickle
-
 from adyen.models.additional_data_risk import AdditionalDataRisk
 
 additional_data_risk = AdditionalDataRisk(
@@ -46,10 +41,7 @@ additional_data_risk = AdditionalDataRisk(
     riskdata_basket_item_item_nr_amount_per_item=Liquid error: Value cannot be null. (Parameter 'key'),
     riskdata_basket_item_item_nr_brand=Liquid error: Value cannot be null. (Parameter 'key'),
     riskdata_basket_item_item_nr_category=Liquid error: Value cannot be null. (Parameter 'key'),
-    riskdata_basket_item_item_nr_color=Liquid error: Value cannot be null. (Parameter 'key'),
-    additional_properties={
-        'exampleAdditionalProperty': jsonpickle.decode('{"key1":"val1","key2":"val2"}')
-    }
+    riskdata_basket_item_item_nr_color=Liquid error: Value cannot be null. (Parameter 'key')
 )
 ```
 

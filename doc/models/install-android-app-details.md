@@ -1,8 +1,6 @@
 
 # Install Android App Details
 
-*This model accepts additional fields of type Any.*
-
 ## Structure
 
 `InstallAndroidAppDetails`
@@ -12,23 +10,17 @@
 | Name | Type | Tags | Description |
 |  --- | --- | --- | --- |
 | `app_id` | `str` | Optional | The unique identifier of the app to be installed. |
-| `mtype` | [`Type310`](../../doc/models/type-310.md) | Optional | - |
-| `additional_properties` | `Dict[str, Any]` | Optional | - |
+| `mtype` | [`Type32Enum`](../../doc/models/type-32-enum.md) | Optional | Type of terminal action: Install an Android app.<br><br>**Default**: `"InstallAndroidApp"` |
 
 ## Example
 
 ```python
-import jsonpickle
-
 from adyen.models.install_android_app_details import InstallAndroidAppDetails
-from adyen.models.type_310 import Type310
+from adyen.models.type_32_enum import Type32Enum
 
 install_android_app_details = InstallAndroidAppDetails(
     app_id='appId2',
-    mtype=Type310.INSTALLANDROIDAPP,
-    additional_properties={
-        'exampleAdditionalProperty': jsonpickle.decode('{"key1":"val1","key2":"val2"}')
-    }
+    mtype=Type32Enum.INSTALLANDROIDAPP
 )
 ```
 

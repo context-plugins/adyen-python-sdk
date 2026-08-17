@@ -17,8 +17,8 @@ from apimatic_core.types.parameter import Parameter
 from adyen.api_helper import APIHelper
 from adyen.apis.base_api import BaseApi
 from adyen.configuration import Server
-from adyen.exceptions.service_error_exception import (
-    ServiceErrorException,
+from adyen.exceptions.service_error_error_1_exception import (
+    ServiceErrorError1Exception,
 )
 from adyen.http.http_method_enum import HttpMethodEnum
 from adyen.models.get_onboarding_url_response import (
@@ -46,18 +46,17 @@ class HostedOnboardingPageApi(BaseApi):
             body (GetOnboardingUrlRequest, optional): The request body parameter.
 
         Returns:
-            ApiResponse: An object with the response value as well as other useful
-                information such as status codes and headers. OK - the request has
+            GetOnboardingUrlResponse: Response from the API. OK - the request has
                 succeeded.
 
         Raises:
-            ApiException: When an error occurs while fetching the data from the
+            APIException: When an error occurs while fetching the data from the
                 remote API. This exception includes the HTTP Response code, an error
                 message, and the HTTP body that was received in the request.
 
         """
         return super().new_api_call_builder.request(
-            RequestBuilder().server(Server.DEFAULT)
+            RequestBuilder().server(Server.DEFAULT19)
             .path("/getOnboardingUrl")
             .http_method(HttpMethodEnum.POST)
             .header_param(Parameter()
@@ -74,20 +73,19 @@ class HostedOnboardingPageApi(BaseApi):
             ResponseHandler()
             .deserializer(APIHelper.json_deserialize)
             .deserialize_into(GetOnboardingUrlResponse.from_dictionary)
-            .is_api_response(True)
             .local_error("400",
                 "Bad Request - a problem reading or understanding the request.",
-                ServiceErrorException)
+                ServiceErrorError1Exception)
             .local_error("401",
                 "Unauthorized - authentication required.",
-                ServiceErrorException)
+                ServiceErrorError1Exception)
             .local_error("403",
                 "Forbidden - insufficient permissions to process the request.",
-                ServiceErrorException)
+                ServiceErrorError1Exception)
             .local_error("422",
                 "Unprocessable Entity - a request validation error.",
-                ServiceErrorException)
+                ServiceErrorError1Exception)
             .local_error("500",
                 "Internal Server Error - the server could not process the request.",
-                ServiceErrorException),
+                ServiceErrorError1Exception),
         ).execute()

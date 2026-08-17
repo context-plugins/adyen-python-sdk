@@ -1,11 +1,9 @@
 
-# Three Ds 2 Card Range Detail
-
-*This model accepts additional fields of type Any.*
+# Three DS 2 Card Range Detail
 
 ## Structure
 
-`ThreeDs2CardRangeDetail`
+`ThreeDS2CardRangeDetail`
 
 ## Fields
 
@@ -17,16 +15,13 @@
 | `start_range` | `str` | Optional | BIN start range. |
 | `three_ds_2_versions` | `List[str]` | Optional | Supported 3D Secure protocol versions |
 | `three_ds_method_url` | `str` | Optional | In a 3D Secure 2 browser-based flow, this is the URL where you should send the device fingerprint to. |
-| `additional_properties` | `Dict[str, Any]` | Optional | - |
 
 ## Example
 
 ```python
-import jsonpickle
+from adyen.models.three_ds_2_card_range_detail import ThreeDS2CardRangeDetail
 
-from adyen.models.three_ds_2_card_range_detail import ThreeDs2CardRangeDetail
-
-three_ds_2_card_range_detail = ThreeDs2CardRangeDetail(
+three_ds_2_card_range_detail = ThreeDS2CardRangeDetail(
     acs_info_ind=[
         'acsInfoInd5',
         'acsInfoInd6'
@@ -36,10 +31,7 @@ three_ds_2_card_range_detail = ThreeDs2CardRangeDetail(
     start_range='startRange4',
     three_ds_2_versions=[
         'threeDS2Versions3'
-    ],
-    additional_properties={
-        'exampleAdditionalProperty': jsonpickle.decode('{"key1":"val1","key2":"val2"}')
-    }
+    ]
 )
 ```
 

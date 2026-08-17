@@ -1,8 +1,6 @@
 
 # Payout Settings Response
 
-*This model accepts additional fields of type Any.*
-
 ## Structure
 
 `PayoutSettingsResponse`
@@ -12,17 +10,14 @@
 | Name | Type | Tags | Description |
 |  --- | --- | --- | --- |
 | `data` | [`List[PayoutSettings]`](../../doc/models/payout-settings.md) | Optional | The list of payout accounts. |
-| `additional_properties` | `Dict[str, Any]` | Optional | - |
 
 ## Example
 
 ```python
-import jsonpickle
-
 from adyen.models.payout_settings import PayoutSettings
 from adyen.models.payout_settings_response import PayoutSettingsResponse
-from adyen.models.priority_1 import Priority1
-from adyen.models.verification_status import VerificationStatus
+from adyen.models.priority_enum import PriorityEnum
+from adyen.models.verification_status_1_enum import VerificationStatus1Enum
 
 payout_settings_response = PayoutSettingsResponse(
     data=[
@@ -32,11 +27,8 @@ payout_settings_response = PayoutSettingsResponse(
             allowed=False,
             enabled=False,
             enabled_from_date='enabledFromDate2',
-            priority=Priority1.URGENT,
-            verification_status=VerificationStatus.REJECTED,
-            additional_properties={
-                'exampleAdditionalProperty': jsonpickle.decode('{"key1":"val1","key2":"val2"}')
-            }
+            priority=PriorityEnum.URGENT,
+            verification_status=VerificationStatus1Enum.REJECTED
         ),
         PayoutSettings(
             id='id0',
@@ -44,11 +36,8 @@ payout_settings_response = PayoutSettingsResponse(
             allowed=False,
             enabled=False,
             enabled_from_date='enabledFromDate2',
-            priority=Priority1.URGENT,
-            verification_status=VerificationStatus.REJECTED,
-            additional_properties={
-                'exampleAdditionalProperty': jsonpickle.decode('{"key1":"val1","key2":"val2"}')
-            }
+            priority=PriorityEnum.URGENT,
+            verification_status=VerificationStatus1Enum.REJECTED
         ),
         PayoutSettings(
             id='id0',
@@ -56,16 +45,10 @@ payout_settings_response = PayoutSettingsResponse(
             allowed=False,
             enabled=False,
             enabled_from_date='enabledFromDate2',
-            priority=Priority1.URGENT,
-            verification_status=VerificationStatus.REJECTED,
-            additional_properties={
-                'exampleAdditionalProperty': jsonpickle.decode('{"key1":"val1","key2":"val2"}')
-            }
+            priority=PriorityEnum.URGENT,
+            verification_status=VerificationStatus1Enum.REJECTED
         )
-    ],
-    additional_properties={
-        'exampleAdditionalProperty': jsonpickle.decode('{"key1":"val1","key2":"val2"}')
-    }
+    ]
 )
 ```
 

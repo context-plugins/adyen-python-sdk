@@ -13,8 +13,6 @@ class Expiry(object):
     Attributes:
         month (str): The month in which the card will expire.
         year (str): The year in which the card will expire.
-        additional_properties (Dict[str, Any]): The additional properties for the
-            model.
 
     """
 
@@ -32,19 +30,13 @@ class Expiry(object):
     def __init__(
         self,
         month=APIHelper.SKIP,
-        year=APIHelper.SKIP,
-        additional_properties=None):
+        year=APIHelper.SKIP):
         """Initialize a Expiry instance."""
         # Initialize members of the class
         if month is not APIHelper.SKIP:
             self.month = month
         if year is not APIHelper.SKIP:
             self.year = year
-
-        # Add additional model properties to the instance
-        if additional_properties is None:
-            additional_properties = {}
-        self.additional_properties = additional_properties
 
     @classmethod
     def from_dictionary(cls,
@@ -73,15 +65,9 @@ class Expiry(object):
             if dictionary.get("year")\
                 else APIHelper.SKIP
 
-        additional_properties = APIHelper.get_additional_properties(
-            dictionary={k: v for k, v in dictionary.items()
-                        if k not in cls._names.values()},
-            unboxing_function=lambda value: value)
-
         # Return an object of this model
         return cls(month,
-                   year,
-                   additional_properties)
+                   year)
 
     def __repr__(self):
         """Return a unambiguous string representation."""
@@ -95,12 +81,10 @@ class Expiry(object):
             if hasattr(self, "year")
             else None
         )
-        _additional_properties=self.additional_properties
         return (
             f"{self.__class__.__name__}("
             f"month={_month!r}, "
             f"year={_year!r}, "
-            f"additional_properties={_additional_properties!r}, "
             f")"
         )
 
@@ -116,11 +100,9 @@ class Expiry(object):
             if hasattr(self, "year")
             else None
         )
-        _additional_properties=self.additional_properties
         return (
             f"{self.__class__.__name__}("
             f"month={_month!s}, "
             f"year={_year!s}, "
-            f"additional_properties={_additional_properties!s}, "
             f")"
         )

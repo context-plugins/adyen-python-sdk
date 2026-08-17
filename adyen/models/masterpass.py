@@ -12,13 +12,14 @@ class Masterpass(object):
 
     Attributes:
         checkout_attempt_id (str): The checkout attempt identifier.
-        funding_source (FundingSource): The model property of type FundingSource.
+        funding_source (FundingSourceEnum): The funding source that should be used
+            when multiple sources are available. For Brazilian combo cards, by
+            default the funding source is credit. To use debit, set this value to
+            **debit**.
         masterpass_transaction_id (str): The Masterpass transaction ID.
         sdk_data (str): Base64-encoded JSON object containing SDK related parameters
             required by the SDK
-        mtype (Type35): The model property of type Type35.
-        additional_properties (Dict[str, Any]): The additional properties for the
-            model.
+        mtype (Type35Enum): **masterpass**
 
     """
 
@@ -44,8 +45,7 @@ class Masterpass(object):
         checkout_attempt_id=APIHelper.SKIP,
         funding_source=APIHelper.SKIP,
         sdk_data=APIHelper.SKIP,
-        mtype=APIHelper.SKIP,
-        additional_properties=None):
+        mtype="masterpass"):
         """Initialize a Masterpass instance."""
         # Initialize members of the class
         if checkout_attempt_id is not APIHelper.SKIP:
@@ -55,13 +55,7 @@ class Masterpass(object):
         self.masterpass_transaction_id = masterpass_transaction_id
         if sdk_data is not APIHelper.SKIP:
             self.sdk_data = sdk_data
-        if mtype is not APIHelper.SKIP:
-            self.mtype = mtype
-
-        # Add additional model properties to the instance
-        if additional_properties is None:
-            additional_properties = {}
-        self.additional_properties = additional_properties
+        self.mtype = mtype
 
     @classmethod
     def from_dictionary(cls,
@@ -100,20 +94,14 @@ class Masterpass(object):
         mtype =\
             dictionary.get("type")\
             if dictionary.get("type")\
-                else APIHelper.SKIP
-
-        additional_properties = APIHelper.get_additional_properties(
-            dictionary={k: v for k, v in dictionary.items()
-                        if k not in cls._names.values()},
-            unboxing_function=lambda value: value)
+                else "masterpass"
 
         # Return an object of this model
         return cls(masterpass_transaction_id,
                    checkout_attempt_id,
                    funding_source,
                    sdk_data,
-                   mtype,
-                   additional_properties)
+                   mtype)
 
     @classmethod
     def validate(cls, dictionary):
@@ -171,7 +159,6 @@ class Masterpass(object):
             if hasattr(self, "mtype")
             else None
         )
-        _additional_properties=self.additional_properties
         return (
             f"{self.__class__.__name__}("
             f"checkout_attempt_id={_checkout_attempt_id!r}, "
@@ -179,7 +166,6 @@ class Masterpass(object):
             f"masterpass_transaction_id={_masterpass_transaction_id!r}, "
             f"sdk_data={_sdk_data!r}, "
             f"mtype={_mtype!r}, "
-            f"additional_properties={_additional_properties!r}, "
             f")"
         )
 
@@ -206,7 +192,6 @@ class Masterpass(object):
             if hasattr(self, "mtype")
             else None
         )
-        _additional_properties=self.additional_properties
         return (
             f"{self.__class__.__name__}("
             f"checkout_attempt_id={_checkout_attempt_id!s}, "
@@ -214,6 +199,5 @@ class Masterpass(object):
             f"masterpass_transaction_id={_masterpass_transaction_id!s}, "
             f"sdk_data={_sdk_data!s}, "
             f"mtype={_mtype!s}, "
-            f"additional_properties={_additional_properties!s}, "
             f")"
         )

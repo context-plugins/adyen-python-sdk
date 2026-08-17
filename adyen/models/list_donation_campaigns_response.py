@@ -8,19 +8,19 @@ from adyen.api_helper import APIHelper
 from adyen.models.donation_campaign_1 import (
     DonationCampaign1,
 )
-from adyen.models.pagination_links import PaginationLinks
+from adyen.models.pagination_links_1 import (
+    PaginationLinks1,
+)
 
 
 class ListDonationCampaignsResponse(object):
     """Implementation of the 'ListDonationCampaignsResponse' model.
 
     Attributes:
-        links (PaginationLinks): The model property of type PaginationLinks.
+        links (PaginationLinks1): Pagination references.
         campaigns (List[DonationCampaign1]): The list of donation campaigns.
         items_total (int): Total number of items.
         pages_total (int): Total number of pages.
-        additional_properties (Dict[str, Any]): The additional properties for the
-            model.
 
     """
 
@@ -42,8 +42,7 @@ class ListDonationCampaignsResponse(object):
         items_total=None,
         pages_total=None,
         links=APIHelper.SKIP,
-        campaigns=APIHelper.SKIP,
-        additional_properties=None):
+        campaigns=APIHelper.SKIP):
         """Initialize a ListDonationCampaignsResponse instance."""
         # Initialize members of the class
         if links is not APIHelper.SKIP:
@@ -52,11 +51,6 @@ class ListDonationCampaignsResponse(object):
             self.campaigns = campaigns
         self.items_total = items_total
         self.pages_total = pages_total
-
-        # Add additional model properties to the instance
-        if additional_properties is None:
-            additional_properties = {}
-        self.additional_properties = additional_properties
 
     @classmethod
     def from_dictionary(cls,
@@ -85,7 +79,7 @@ class ListDonationCampaignsResponse(object):
             if dictionary.get("pagesTotal")\
                 else None
         links =\
-            PaginationLinks.from_dictionary(
+            PaginationLinks1.from_dictionary(
                 dictionary.get("_links"))\
                 if "_links" in dictionary.keys()\
                 else APIHelper.SKIP
@@ -98,17 +92,11 @@ class ListDonationCampaignsResponse(object):
         else:
             campaigns = APIHelper.SKIP
 
-        additional_properties = APIHelper.get_additional_properties(
-            dictionary={k: v for k, v in dictionary.items()
-                        if k not in cls._names.values()},
-            unboxing_function=lambda value: value)
-
         # Return an object of this model
         return cls(items_total,
                    pages_total,
                    links,
-                   campaigns,
-                   additional_properties)
+                   campaigns)
 
     def __repr__(self):
         """Return a unambiguous string representation."""
@@ -124,14 +112,12 @@ class ListDonationCampaignsResponse(object):
         )
         _items_total=self.items_total
         _pages_total=self.pages_total
-        _additional_properties=self.additional_properties
         return (
             f"{self.__class__.__name__}("
             f"links={_links!r}, "
             f"campaigns={_campaigns!r}, "
             f"items_total={_items_total!r}, "
             f"pages_total={_pages_total!r}, "
-            f"additional_properties={_additional_properties!r}, "
             f")"
         )
 
@@ -149,13 +135,11 @@ class ListDonationCampaignsResponse(object):
         )
         _items_total=self.items_total
         _pages_total=self.pages_total
-        _additional_properties=self.additional_properties
         return (
             f"{self.__class__.__name__}("
             f"links={_links!s}, "
             f"campaigns={_campaigns!s}, "
             f"items_total={_items_total!s}, "
             f"pages_total={_pages_total!s}, "
-            f"additional_properties={_additional_properties!s}, "
             f")"
         )

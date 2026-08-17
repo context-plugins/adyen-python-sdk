@@ -1,8 +1,6 @@
 
 # Merchants Restriction
 
-*This model accepts additional fields of type Any.*
-
 ## Structure
 
 `MerchantsRestriction`
@@ -13,13 +11,10 @@
 |  --- | --- | --- | --- |
 | `operation` | `str` | Required | Defines how the condition must be evaluated. |
 | `value` | [`List[MerchantAcquirerPair]`](../../doc/models/merchant-acquirer-pair.md) | Optional | List of merchant ID and acquirer ID pairs. |
-| `additional_properties` | `Dict[str, Any]` | Optional | - |
 
 ## Example
 
 ```python
-import jsonpickle
-
 from adyen.models.merchant_acquirer_pair import MerchantAcquirerPair
 from adyen.models.merchants_restriction import MerchantsRestriction
 
@@ -28,15 +23,9 @@ merchants_restriction = MerchantsRestriction(
     value=[
         MerchantAcquirerPair(
             acquirer_id='acquirerId4',
-            merchant_id='merchantId8',
-            additional_properties={
-                'exampleAdditionalProperty': jsonpickle.decode('{"key1":"val1","key2":"val2"}')
-            }
+            merchant_id='merchantId8'
         )
-    ],
-    additional_properties={
-        'exampleAdditionalProperty': jsonpickle.decode('{"key1":"val1","key2":"val2"}')
-    }
+    ]
 )
 ```
 

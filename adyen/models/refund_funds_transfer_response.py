@@ -21,8 +21,6 @@ class RefundFundsTransferResponse(object):
         psp_reference (str): The reference of a request. Can be used to uniquely
             identify the request.
         result_code (str): The result code.
-        additional_properties (Dict[str, Any]): The additional properties for the
-            model.
 
     """
 
@@ -52,8 +50,7 @@ class RefundFundsTransferResponse(object):
         message=APIHelper.SKIP,
         original_reference=APIHelper.SKIP,
         psp_reference=APIHelper.SKIP,
-        result_code=APIHelper.SKIP,
-        additional_properties=None):
+        result_code=APIHelper.SKIP):
         """Initialize a RefundFundsTransferResponse instance."""
         # Initialize members of the class
         if invalid_fields is not APIHelper.SKIP:
@@ -68,11 +65,6 @@ class RefundFundsTransferResponse(object):
             self.psp_reference = psp_reference
         if result_code is not APIHelper.SKIP:
             self.result_code = result_code
-
-        # Add additional model properties to the instance
-        if additional_properties is None:
-            additional_properties = {}
-        self.additional_properties = additional_properties
 
     @classmethod
     def from_dictionary(cls,
@@ -121,19 +113,13 @@ class RefundFundsTransferResponse(object):
             if dictionary.get("resultCode")\
                 else APIHelper.SKIP
 
-        additional_properties = APIHelper.get_additional_properties(
-            dictionary={k: v for k, v in dictionary.items()
-                        if k not in cls._names.values()},
-            unboxing_function=lambda value: value)
-
         # Return an object of this model
         return cls(invalid_fields,
                    merchant_reference,
                    message,
                    original_reference,
                    psp_reference,
-                   result_code,
-                   additional_properties)
+                   result_code)
 
     def __repr__(self):
         """Return a unambiguous string representation."""
@@ -167,7 +153,6 @@ class RefundFundsTransferResponse(object):
             if hasattr(self, "result_code")
             else None
         )
-        _additional_properties=self.additional_properties
         return (
             f"{self.__class__.__name__}("
             f"invalid_fields={_invalid_fields!r}, "
@@ -176,7 +161,6 @@ class RefundFundsTransferResponse(object):
             f"original_reference={_original_reference!r}, "
             f"psp_reference={_psp_reference!r}, "
             f"result_code={_result_code!r}, "
-            f"additional_properties={_additional_properties!r}, "
             f")"
         )
 
@@ -212,7 +196,6 @@ class RefundFundsTransferResponse(object):
             if hasattr(self, "result_code")
             else None
         )
-        _additional_properties=self.additional_properties
         return (
             f"{self.__class__.__name__}("
             f"invalid_fields={_invalid_fields!s}, "
@@ -221,6 +204,5 @@ class RefundFundsTransferResponse(object):
             f"original_reference={_original_reference!s}, "
             f"psp_reference={_psp_reference!s}, "
             f"result_code={_result_code!s}, "
-            f"additional_properties={_additional_properties!s}, "
             f")"
         )

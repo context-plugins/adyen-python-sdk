@@ -21,8 +21,6 @@ class CapabilityProblem1(object):
             CapabilityProblemEntity1.
         verification_errors (List[VerificationError1]): The model property of type
             List[VerificationError1].
-        additional_properties (Dict[str, Any]): The additional properties for the
-            model.
 
     """
 
@@ -40,19 +38,13 @@ class CapabilityProblem1(object):
     def __init__(
         self,
         entity=APIHelper.SKIP,
-        verification_errors=APIHelper.SKIP,
-        additional_properties=None):
+        verification_errors=APIHelper.SKIP):
         """Initialize a CapabilityProblem1 instance."""
         # Initialize members of the class
         if entity is not APIHelper.SKIP:
             self.entity = entity
         if verification_errors is not APIHelper.SKIP:
             self.verification_errors = verification_errors
-
-        # Add additional model properties to the instance
-        if additional_properties is None:
-            additional_properties = {}
-        self.additional_properties = additional_properties
 
     @classmethod
     def from_dictionary(cls,
@@ -86,15 +78,9 @@ class CapabilityProblem1(object):
         else:
             verification_errors = APIHelper.SKIP
 
-        additional_properties = APIHelper.get_additional_properties(
-            dictionary={k: v for k, v in dictionary.items()
-                        if k not in cls._names.values()},
-            unboxing_function=lambda value: value)
-
         # Return an object of this model
         return cls(entity,
-                   verification_errors,
-                   additional_properties)
+                   verification_errors)
 
     def __repr__(self):
         """Return a unambiguous string representation."""
@@ -108,12 +94,10 @@ class CapabilityProblem1(object):
             if hasattr(self, "verification_errors")
             else None
         )
-        _additional_properties=self.additional_properties
         return (
             f"{self.__class__.__name__}("
             f"entity={_entity!r}, "
             f"verification_errors={_verification_errors!r}, "
-            f"additional_properties={_additional_properties!r}, "
             f")"
         )
 
@@ -129,11 +113,9 @@ class CapabilityProblem1(object):
             if hasattr(self, "verification_errors")
             else None
         )
-        _additional_properties=self.additional_properties
         return (
             f"{self.__class__.__name__}("
             f"entity={_entity!s}, "
             f"verification_errors={_verification_errors!s}, "
-            f"additional_properties={_additional_properties!s}, "
             f")"
         )

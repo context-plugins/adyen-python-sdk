@@ -15,8 +15,6 @@ class CheckoutNetworkTokenOption(object):
             cryptograms.
         use_network_token (bool): Set to **true** to forward the network token for a
             card.
-        additional_properties (Dict[str, Any]): The additional properties for the
-            model.
 
     """
 
@@ -34,19 +32,13 @@ class CheckoutNetworkTokenOption(object):
     def __init__(
         self,
         include_cryptogram=APIHelper.SKIP,
-        use_network_token=APIHelper.SKIP,
-        additional_properties=None):
+        use_network_token=APIHelper.SKIP):
         """Initialize a CheckoutNetworkTokenOption instance."""
         # Initialize members of the class
         if include_cryptogram is not APIHelper.SKIP:
             self.include_cryptogram = include_cryptogram
         if use_network_token is not APIHelper.SKIP:
             self.use_network_token = use_network_token
-
-        # Add additional model properties to the instance
-        if additional_properties is None:
-            additional_properties = {}
-        self.additional_properties = additional_properties
 
     @classmethod
     def from_dictionary(cls,
@@ -75,15 +67,9 @@ class CheckoutNetworkTokenOption(object):
             if "useNetworkToken" in dictionary.keys()\
                 else APIHelper.SKIP
 
-        additional_properties = APIHelper.get_additional_properties(
-            dictionary={k: v for k, v in dictionary.items()
-                        if k not in cls._names.values()},
-            unboxing_function=lambda value: value)
-
         # Return an object of this model
         return cls(include_cryptogram,
-                   use_network_token,
-                   additional_properties)
+                   use_network_token)
 
     def __repr__(self):
         """Return a unambiguous string representation."""
@@ -97,12 +83,10 @@ class CheckoutNetworkTokenOption(object):
             if hasattr(self, "use_network_token")
             else None
         )
-        _additional_properties=self.additional_properties
         return (
             f"{self.__class__.__name__}("
             f"include_cryptogram={_include_cryptogram!r}, "
             f"use_network_token={_use_network_token!r}, "
-            f"additional_properties={_additional_properties!r}, "
             f")"
         )
 
@@ -118,11 +102,9 @@ class CheckoutNetworkTokenOption(object):
             if hasattr(self, "use_network_token")
             else None
         )
-        _additional_properties=self.additional_properties
         return (
             f"{self.__class__.__name__}("
             f"include_cryptogram={_include_cryptogram!s}, "
             f"use_network_token={_use_network_token!s}, "
-            f"additional_properties={_additional_properties!s}, "
             f")"
         )

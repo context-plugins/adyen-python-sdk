@@ -59,7 +59,7 @@ This endpoint requires [BasicAuth](../../doc/auth/basic-authentication.md) **OR*
 
 **200**: OK - the request has succeeded.
 
-This method returns an [`ApiResponse`](../../doc/api-response.md) instance. The `body` property of this instance returns the response data which is of type [`AndroidAppsResponse`](../../doc/models/android-apps-response.md).
+[`AndroidAppsResponse`](../../doc/models/android-apps-response.md)
 
 ## Example Usage
 
@@ -67,11 +67,7 @@ This method returns an [`ApiResponse`](../../doc/api-response.md) instance. The 
 company_id = 'companyId0'
 
 result = android_files_company_level_api.get_companies_company_id_android_apps(company_id)
-
-if result.is_success():
-    print(result.body)
-elif result.is_error():
-    print(result.errors)
+print(result)
 ```
 
 ## Example Response *(as JSON)*
@@ -143,7 +139,7 @@ This endpoint requires [BasicAuth](../../doc/auth/basic-authentication.md) **OR*
 
 **200**: OK - the request has succeeded.
 
-This method returns an [`ApiResponse`](../../doc/api-response.md) instance. The `body` property of this instance returns the response data which is of type [`EntityReference`](../../doc/models/entity-reference.md).
+[`UploadAndroidAppResponse`](../../doc/models/upload-android-app-response.md)
 
 ## Example Usage
 
@@ -151,11 +147,7 @@ This method returns an [`ApiResponse`](../../doc/api-response.md) instance. The 
 company_id = 'companyId0'
 
 result = android_files_company_level_api.post_companies_company_id_android_apps(company_id)
-
-if result.is_success():
-    print(result.body)
-elif result.is_error():
-    print(result.errors)
+print(result)
 ```
 
 ## Errors
@@ -202,7 +194,7 @@ This endpoint requires [BasicAuth](../../doc/auth/basic-authentication.md) **OR*
 
 **200**: OK - the request has succeeded.
 
-This method returns an [`ApiResponse`](../../doc/api-response.md) instance. The `body` property of this instance returns the response data which is of type [`AndroidApp`](../../doc/models/android-app.md).
+[`AndroidApp`](../../doc/models/android-app.md)
 
 ## Example Usage
 
@@ -215,11 +207,7 @@ result = android_files_company_level_api.get_companies_company_id_android_apps_i
     company_id,
     id
 )
-
-if result.is_success():
-    print(result.body)
-elif result.is_error():
-    print(result.errors)
+print(result)
 ```
 
 ## Errors
@@ -265,7 +253,7 @@ This endpoint requires [BasicAuth](../../doc/auth/basic-authentication.md) **OR*
 
 **200**: OK - the request has succeeded.
 
-This method returns an [`ApiResponse`](../../doc/api-response.md) instance. The `body` property of this instance returns the response data which is of type [`ReprocessAndroidAppResponse`](../../doc/models/reprocess-android-app-response.md).
+[`ReprocessAndroidAppResponse`](../../doc/models/reprocess-android-app-response.md)
 
 ## Example Usage
 
@@ -278,11 +266,7 @@ result = android_files_company_level_api.patch_companies_company_id_android_apps
     company_id,
     id
 )
-
-if result.is_success():
-    print(result.body)
-elif result.is_error():
-    print(result.errors)
+print(result)
 ```
 
 ## Errors
@@ -335,7 +319,7 @@ This endpoint requires [BasicAuth](../../doc/auth/basic-authentication.md) **OR*
 
 **200**: OK - the request has succeeded.
 
-This method returns an [`ApiResponse`](../../doc/api-response.md) instance. The `body` property of this instance returns the response data which is of type [`AndroidCertificatesResponse`](../../doc/models/android-certificates-response.md).
+[`AndroidCertificatesResponse`](../../doc/models/android-certificates-response.md)
 
 ## Example Usage
 
@@ -343,11 +327,7 @@ This method returns an [`ApiResponse`](../../doc/api-response.md) instance. The 
 company_id = 'companyId0'
 
 result = android_files_company_level_api.get_companies_company_id_android_certificates(company_id)
-
-if result.is_success():
-    print(result.body)
-elif result.is_error():
-    print(result.errors)
+print(result)
 ```
 
 ## Example Response *(as JSON)*
@@ -413,7 +393,7 @@ This endpoint requires [BasicAuth](../../doc/auth/basic-authentication.md) **OR*
 
 **200**: OK - the request has succeeded.
 
-This method returns an [`ApiResponse`](../../doc/api-response.md) instance. The `body` property of this instance returns the response data which is of type [`EntityReference`](../../doc/models/entity-reference.md).
+[`UploadAndroidCertificateResponse`](../../doc/models/upload-android-certificate-response.md)
 
 ## Example Usage
 
@@ -421,11 +401,7 @@ This method returns an [`ApiResponse`](../../doc/api-response.md) instance. The 
 company_id = 'companyId0'
 
 result = android_files_company_level_api.post_companies_company_id_android_certificates(company_id)
-
-if result.is_success():
-    print(result.body)
-elif result.is_error():
-    print(result.errors)
+print(result)
 ```
 
 ## Errors

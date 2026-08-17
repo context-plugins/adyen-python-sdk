@@ -16,8 +16,6 @@ class EventUrl(object):
             notifications to when using Terminal API.
         event_public_urls (List[Url]): One or more public URLs to send event
             notifications to when using Terminal API.
-        additional_properties (Dict[str, Any]): The additional properties for the
-            model.
 
     """
 
@@ -35,19 +33,13 @@ class EventUrl(object):
     def __init__(
         self,
         event_local_urls=APIHelper.SKIP,
-        event_public_urls=APIHelper.SKIP,
-        additional_properties=None):
+        event_public_urls=APIHelper.SKIP):
         """Initialize a EventUrl instance."""
         # Initialize members of the class
         if event_local_urls is not APIHelper.SKIP:
             self.event_local_urls = event_local_urls
         if event_public_urls is not APIHelper.SKIP:
             self.event_public_urls = event_public_urls
-
-        # Add additional model properties to the instance
-        if additional_properties is None:
-            additional_properties = {}
-        self.additional_properties = additional_properties
 
     @classmethod
     def from_dictionary(cls,
@@ -84,15 +76,9 @@ class EventUrl(object):
         else:
             event_public_urls = APIHelper.SKIP
 
-        additional_properties = APIHelper.get_additional_properties(
-            dictionary={k: v for k, v in dictionary.items()
-                        if k not in cls._names.values()},
-            unboxing_function=lambda value: value)
-
         # Return an object of this model
         return cls(event_local_urls,
-                   event_public_urls,
-                   additional_properties)
+                   event_public_urls)
 
     def __repr__(self):
         """Return a unambiguous string representation."""
@@ -106,12 +92,10 @@ class EventUrl(object):
             if hasattr(self, "event_public_urls")
             else None
         )
-        _additional_properties=self.additional_properties
         return (
             f"{self.__class__.__name__}("
             f"event_local_urls={_event_local_urls!r}, "
             f"event_public_urls={_event_public_urls!r}, "
-            f"additional_properties={_additional_properties!r}, "
             f")"
         )
 
@@ -127,11 +111,9 @@ class EventUrl(object):
             if hasattr(self, "event_public_urls")
             else None
         )
-        _additional_properties=self.additional_properties
         return (
             f"{self.__class__.__name__}("
             f"event_local_urls={_event_local_urls!s}, "
             f"event_public_urls={_event_public_urls!s}, "
-            f"additional_properties={_additional_properties!s}, "
             f")"
         )

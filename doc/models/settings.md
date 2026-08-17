@@ -1,8 +1,6 @@
 
 # Settings
 
-*This model accepts additional fields of type Any.*
-
 ## Structure
 
 `Settings`
@@ -14,22 +12,16 @@
 | `band` | `str` | Optional | The preferred Wi-Fi band, for use if the terminals support multiple bands. Possible values: All, 2.4GHz, 5GHz. |
 | `roaming` | `bool` | Optional | Indicates whether roaming is enabled on the terminals. |
 | `timeout` | `int` | Optional | The connection time-out in seconds. Minimum value: 0. |
-| `additional_properties` | `Dict[str, Any]` | Optional | - |
 
 ## Example
 
 ```python
-import jsonpickle
-
 from adyen.models.settings import Settings
 
 settings = Settings(
     band='band0',
     roaming=False,
-    timeout=124,
-    additional_properties={
-        'exampleAdditionalProperty': jsonpickle.decode('{"key1":"val1","key2":"val2"}')
-    }
+    timeout=124
 )
 ```
 

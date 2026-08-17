@@ -14,8 +14,6 @@ class DonationCampaignsResponse(object):
     Attributes:
         donation_campaigns (List[DonationCampaign]): List of active donation
             campaigns for your merchant account.
-        additional_properties (Dict[str, Any]): The additional properties for the
-            model.
 
     """
 
@@ -30,17 +28,11 @@ class DonationCampaignsResponse(object):
 
     def __init__(
         self,
-        donation_campaigns=APIHelper.SKIP,
-        additional_properties=None):
+        donation_campaigns=APIHelper.SKIP):
         """Initialize a DonationCampaignsResponse instance."""
         # Initialize members of the class
         if donation_campaigns is not APIHelper.SKIP:
             self.donation_campaigns = donation_campaigns
-
-        # Add additional model properties to the instance
-        if additional_properties is None:
-            additional_properties = {}
-        self.additional_properties = additional_properties
 
     @classmethod
     def from_dictionary(cls,
@@ -69,14 +61,8 @@ class DonationCampaignsResponse(object):
         else:
             donation_campaigns = APIHelper.SKIP
 
-        additional_properties = APIHelper.get_additional_properties(
-            dictionary={k: v for k, v in dictionary.items()
-                        if k not in cls._names.values()},
-            unboxing_function=lambda value: value)
-
         # Return an object of this model
-        return cls(donation_campaigns,
-                   additional_properties)
+        return cls(donation_campaigns)
 
     def __repr__(self):
         """Return a unambiguous string representation."""
@@ -85,11 +71,9 @@ class DonationCampaignsResponse(object):
             if hasattr(self, "donation_campaigns")
             else None
         )
-        _additional_properties=self.additional_properties
         return (
             f"{self.__class__.__name__}("
             f"donation_campaigns={_donation_campaigns!r}, "
-            f"additional_properties={_additional_properties!r}, "
             f")"
         )
 
@@ -100,10 +84,8 @@ class DonationCampaignsResponse(object):
             if hasattr(self, "donation_campaigns")
             else None
         )
-        _additional_properties=self.additional_properties
         return (
             f"{self.__class__.__name__}("
             f"donation_campaigns={_donation_campaigns!s}, "
-            f"additional_properties={_additional_properties!s}, "
             f")"
         )

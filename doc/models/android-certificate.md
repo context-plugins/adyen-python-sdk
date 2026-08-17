@@ -1,8 +1,6 @@
 
 # Android Certificate
 
-*This model accepts additional fields of type Any.*
-
 ## Structure
 
 `AndroidCertificate`
@@ -18,13 +16,11 @@
 | `not_after` | `datetime` | Optional | The date when the certificate stops to be valid. |
 | `not_before` | `datetime` | Optional | The date when the certificate starts to be valid. |
 | `status` | `str` | Optional | The status of the certificate. |
-| `additional_properties` | `Dict[str, Any]` | Optional | - |
 
 ## Example
 
 ```python
 import dateutil.parser
-import jsonpickle
 
 from adyen.models.android_certificate import AndroidCertificate
 
@@ -34,10 +30,7 @@ android_certificate = AndroidCertificate(
     extension='extension6',
     name='name0',
     not_after=dateutil.parser.parse('2016-03-13T12:52:32.123Z'),
-    not_before=dateutil.parser.parse('2016-03-13T12:52:32.123Z'),
-    additional_properties={
-        'exampleAdditionalProperty': jsonpickle.decode('{"key1":"val1","key2":"val2"}')
-    }
+    not_before=dateutil.parser.parse('2016-03-13T12:52:32.123Z')
 )
 ```
 

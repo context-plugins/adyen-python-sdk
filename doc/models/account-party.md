@@ -1,8 +1,6 @@
 
 # Account Party
 
-*This model accepts additional fields of type Any.*
-
 ## Structure
 
 `AccountParty`
@@ -11,31 +9,22 @@
 
 | Name | Type | Tags | Description |
 |  --- | --- | --- | --- |
-| `identity` | [`Identity`](../../doc/models/identity.md) | Required | - |
-| `role` | [`PartyRole2`](../../doc/models/party-role-2.md) | Required | - |
-| `additional_properties` | `Dict[str, Any]` | Optional | - |
+| `identity` | [`Identity2`](../../doc/models/identity-2.md) | Required | Contains the identity details of the party. |
+| `role` | [`PartyRole2Enum`](../../doc/models/party-role-2-enum.md) | Required | Specifies a role or capacity of the party in relation to the bank account. |
 
 ## Example
 
 ```python
-import jsonpickle
-
 from adyen.models.account_party import AccountParty
-from adyen.models.identity import Identity
-from adyen.models.party_role_2 import PartyRole2
+from adyen.models.identity_2 import Identity2
+from adyen.models.party_role_2_enum import PartyRole2Enum
 
 account_party = AccountParty(
-    identity=Identity(
+    identity=Identity2(
         full_legal_name='fullLegalName2',
-        name='name4',
-        additional_properties={
-            'exampleAdditionalProperty': jsonpickle.decode('{"key1":"val1","key2":"val2"}')
-        }
+        name='name4'
     ),
-    role=PartyRole2.HOLDER,
-    additional_properties={
-        'exampleAdditionalProperty': jsonpickle.decode('{"key1":"val1","key2":"val2"}')
-    }
+    role=PartyRole2Enum.HOLDER
 )
 ```
 

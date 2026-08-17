@@ -1,8 +1,6 @@
 
 # Schedule Terminal Actions Response
 
-*This model accepts additional fields of type Any.*
-
 ## Structure
 
 `ScheduleTerminalActionsResponse`
@@ -18,7 +16,6 @@
 | `terminals_with_errors` | `Dict[str, Any]` | Optional | The validation errors that occurred in the list of terminals, and for each error the IDs of the terminals that the error applies to. |
 | `total_errors` | `int` | Optional | The number of terminals for which scheduling the action failed. |
 | `total_scheduled` | `int` | Optional | The number of terminals for which the action was successfully scheduled. This doesn't mean the action has happened yet. |
-| `additional_properties` | `Dict[str, Any]` | Optional | - |
 
 ## Example
 
@@ -28,38 +25,26 @@ import jsonpickle
 from adyen.models.force_reboot_details import ForceRebootDetails
 from adyen.models.schedule_terminal_actions_response import ScheduleTerminalActionsResponse
 from adyen.models.terminal_action_schedule_detail import TerminalActionScheduleDetail
-from adyen.models.type_210 import Type210
+from adyen.models.type_210_enum import Type210Enum
 
 schedule_terminal_actions_response = ScheduleTerminalActionsResponse(
     action_details=ForceRebootDetails(
-        mtype=Type210.FORCEREBOOT,
-        additional_properties={
-            'exampleAdditionalProperty': jsonpickle.decode('{"key1":"val1","key2":"val2"}')
-        }
+        mtype=Type210Enum.FORCEREBOOT
     ),
     items=[
         TerminalActionScheduleDetail(
             id='id8',
-            terminal_id='terminalId6',
-            additional_properties={
-                'exampleAdditionalProperty': jsonpickle.decode('{"key1":"val1","key2":"val2"}')
-            }
+            terminal_id='terminalId6'
         ),
         TerminalActionScheduleDetail(
             id='id8',
-            terminal_id='terminalId6',
-            additional_properties={
-                'exampleAdditionalProperty': jsonpickle.decode('{"key1":"val1","key2":"val2"}')
-            }
+            terminal_id='terminalId6'
         )
     ],
     scheduled_at='scheduledAt8',
     store_id='storeId6',
     terminals_with_errors={
         'key0': jsonpickle.decode('{"key1":"val1","key2":"val2"}')
-    },
-    additional_properties={
-        'exampleAdditionalProperty': jsonpickle.decode('{"key1":"val1","key2":"val2"}')
     }
 )
 ```

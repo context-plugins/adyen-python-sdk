@@ -43,8 +43,6 @@ class ReceiptPrinting1(object):
         shopper_refused (bool): Print a shopper receipt when the payment is refused.
         shopper_void (bool): Print a shopper receipt when a previous transaction is
             voided.
-        additional_properties (Dict[str, Any]): The additional properties for the
-            model.
 
     """
 
@@ -104,8 +102,7 @@ class ReceiptPrinting1(object):
         shopper_refund_approved=APIHelper.SKIP,
         shopper_refund_refused=APIHelper.SKIP,
         shopper_refused=APIHelper.SKIP,
-        shopper_void=APIHelper.SKIP,
-        additional_properties=None):
+        shopper_void=APIHelper.SKIP):
         """Initialize a ReceiptPrinting1 instance."""
         # Initialize members of the class
         if merchant_approved is not APIHelper.SKIP:
@@ -140,11 +137,6 @@ class ReceiptPrinting1(object):
             self.shopper_refused = shopper_refused
         if shopper_void is not APIHelper.SKIP:
             self.shopper_void = shopper_void
-
-        # Add additional model properties to the instance
-        if additional_properties is None:
-            additional_properties = {}
-        self.additional_properties = additional_properties
 
     @classmethod
     def from_dictionary(cls,
@@ -229,11 +221,6 @@ class ReceiptPrinting1(object):
             if "shopperVoid" in dictionary.keys()\
                 else APIHelper.SKIP
 
-        additional_properties = APIHelper.get_additional_properties(
-            dictionary={k: v for k, v in dictionary.items()
-                        if k not in cls._names.values()},
-            unboxing_function=lambda value: value)
-
         # Return an object of this model
         return cls(merchant_approved,
                    merchant_cancelled,
@@ -250,8 +237,7 @@ class ReceiptPrinting1(object):
                    shopper_refund_approved,
                    shopper_refund_refused,
                    shopper_refused,
-                   shopper_void,
-                   additional_properties)
+                   shopper_void)
 
     def __repr__(self):
         """Return a unambiguous string representation."""
@@ -335,7 +321,6 @@ class ReceiptPrinting1(object):
             if hasattr(self, "shopper_void")
             else None
         )
-        _additional_properties=self.additional_properties
         return (
             f"{self.__class__.__name__}("
             f"merchant_approved={_merchant_approved!r}, "
@@ -354,7 +339,6 @@ class ReceiptPrinting1(object):
             f"shopper_refund_refused={_shopper_refund_refused!r}, "
             f"shopper_refused={_shopper_refused!r}, "
             f"shopper_void={_shopper_void!r}, "
-            f"additional_properties={_additional_properties!r}, "
             f")"
         )
 
@@ -440,7 +424,6 @@ class ReceiptPrinting1(object):
             if hasattr(self, "shopper_void")
             else None
         )
-        _additional_properties=self.additional_properties
         return (
             f"{self.__class__.__name__}("
             f"merchant_approved={_merchant_approved!s}, "
@@ -459,6 +442,5 @@ class ReceiptPrinting1(object):
             f"shopper_refund_refused={_shopper_refund_refused!s}, "
             f"shopper_refused={_shopper_refused!s}, "
             f"shopper_void={_shopper_void!s}, "
-            f"additional_properties={_additional_properties!s}, "
             f")"
         )

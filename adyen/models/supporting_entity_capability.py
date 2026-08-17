@@ -27,8 +27,6 @@ class SupportingEntityCapability(object):
             **valid**: The verification has been successfully completed.  *
             **rejected**: Adyen has verified the information, but found reasons to
             not allow the capability.
-        additional_properties (Dict[str, Any]): The additional properties for the
-            model.
 
     """
 
@@ -52,8 +50,7 @@ class SupportingEntityCapability(object):
         allowed=APIHelper.SKIP,
         id=APIHelper.SKIP,
         requested=APIHelper.SKIP,
-        verification_status=APIHelper.SKIP,
-        additional_properties=None):
+        verification_status=APIHelper.SKIP):
         """Initialize a SupportingEntityCapability instance."""
         # Initialize members of the class
         if allowed is not APIHelper.SKIP:
@@ -64,11 +61,6 @@ class SupportingEntityCapability(object):
             self.requested = requested
         if verification_status is not APIHelper.SKIP:
             self.verification_status = verification_status
-
-        # Add additional model properties to the instance
-        if additional_properties is None:
-            additional_properties = {}
-        self.additional_properties = additional_properties
 
     @classmethod
     def from_dictionary(cls,
@@ -105,17 +97,11 @@ class SupportingEntityCapability(object):
             if dictionary.get("verificationStatus")\
                 else APIHelper.SKIP
 
-        additional_properties = APIHelper.get_additional_properties(
-            dictionary={k: v for k, v in dictionary.items()
-                        if k not in cls._names.values()},
-            unboxing_function=lambda value: value)
-
         # Return an object of this model
         return cls(allowed,
                    id,
                    requested,
-                   verification_status,
-                   additional_properties)
+                   verification_status)
 
     def __repr__(self):
         """Return a unambiguous string representation."""
@@ -139,14 +125,12 @@ class SupportingEntityCapability(object):
             if hasattr(self, "verification_status")
             else None
         )
-        _additional_properties=self.additional_properties
         return (
             f"{self.__class__.__name__}("
             f"allowed={_allowed!r}, "
             f"id={_id!r}, "
             f"requested={_requested!r}, "
             f"verification_status={_verification_status!r}, "
-            f"additional_properties={_additional_properties!r}, "
             f")"
         )
 
@@ -172,13 +156,11 @@ class SupportingEntityCapability(object):
             if hasattr(self, "verification_status")
             else None
         )
-        _additional_properties=self.additional_properties
         return (
             f"{self.__class__.__name__}("
             f"allowed={_allowed!s}, "
             f"id={_id!s}, "
             f"requested={_requested!s}, "
             f"verification_status={_verification_status!s}, "
-            f"additional_properties={_additional_properties!s}, "
             f")"
         )

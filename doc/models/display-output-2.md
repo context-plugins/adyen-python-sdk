@@ -3,8 +3,6 @@
 
 Information to display and the way to process the display.
 
-*This model accepts additional fields of type Any.*
-
 ## Structure
 
 `DisplayOutput2`
@@ -15,43 +13,38 @@ Information to display and the way to process the display.
 |  --- | --- | --- | --- |
 | `response_required_flag` | `bool` | Optional | Indicates if the message response is required.<br><br>**Default**: `True` |
 | `minimum_display_time` | `int` | Optional | Number of seconds the message has to be displayed.<br><br>**Default**: `0`<br><br>**Constraints**: `>= 0`, `<= 999` |
-| `device` | [`Device11`](../../doc/models/device-11.md) | Required | - |
-| `info_qualify` | [`InfoQualify1`](../../doc/models/info-qualify-1.md) | Required | - |
-| `output_content` | [`OutputContent2`](../../doc/models/output-content-2.md) | Required | - |
+| `device` | [`Device11Enum`](../../doc/models/device-11-enum.md) | Required | Logical device located on a Sale Terminal or a POI Terminal, in terms of class of information to output (display, print, or store), or input (keyboard) for the Cashier or the Customer.<br>Possible values:<br><br>* **CashierDisplay**<br>* **CashierInput**<br>* **CustomerDisplay**<br>* **CustomerInput** |
+| `info_qualify` | [`InfoQualify1Enum`](../../doc/models/info-qualify-1-enum.md) | Required | Qualification of the information to sent to an output logical device, to display or print to the Cashier or the Customer. Allows the manager of the device, Sale or POI Terminal, to send the information to a particular physical device or to present the information accordingly.<br>Possible values:<br><br>* **CustomerAssistance**<br>* **Display**<br>* **Document**<br>* **Error**<br>* **Input**<br>* **POIReplication**<br>* **Receipt**<br>* **Sound**<br>* **Status**<br>* **Voucher** |
+| `output_content` | [`OutputContent1`](../../doc/models/output-content-1.md) | Required | Content to display or print. |
 | `menu_entry` | [`List[MenuEntry]`](../../doc/models/menu-entry.md) | Optional | An entry of the menu to present to the Cashier. It conveys the message text and parameters of the menu entry. This output data could be only provided for an input command, in order to choose an entryof the menu. |
 | `output_signature` | `str` | Optional | Vendor-specific signature of the text message to display or print.<br>If protection has to be provided to the vendor on the text to display or print.<br><br>**Constraints**: *Pattern*: `^.+$` |
-| `additional_properties` | `Dict[str, Any]` | Optional | - |
 
 ## Example
 
 ```python
-import jsonpickle
-
-from adyen.models.character_height_1 import CharacterHeight1
-from adyen.models.character_width_1 import CharacterWidth1
-from adyen.models.device_11 import Device11
+from adyen.models.character_height_1_enum import CharacterHeight1Enum
+from adyen.models.character_width_1_enum import CharacterWidth1Enum
+from adyen.models.device_11_enum import Device11Enum
 from adyen.models.display_output_2 import DisplayOutput2
-from adyen.models.info_qualify_1 import InfoQualify1
+from adyen.models.info_qualify_1_enum import InfoQualify1Enum
 from adyen.models.menu_entry import MenuEntry
-from adyen.models.menu_entry_tag_1 import MenuEntryTag1
-from adyen.models.output_barcode import OutputBarcode
-from adyen.models.output_content_2 import OutputContent2
-from adyen.models.output_format_1 import OutputFormat1
-from adyen.models.output_format_2 import OutputFormat2
+from adyen.models.menu_entry_tag_1_enum import MenuEntryTag1Enum
+from adyen.models.output_barcode_1 import OutputBarcode1
+from adyen.models.output_content_1 import OutputContent1
+from adyen.models.output_format_1_enum import OutputFormat1Enum
+from adyen.models.output_format_2_enum import OutputFormat2Enum
 from adyen.models.output_text import OutputText
-from adyen.models.predefined_content_2 import PredefinedContent2
+from adyen.models.predefined_content import PredefinedContent
+from adyen.models.predefined_content_1 import PredefinedContent1
 
 display_output_2 = DisplayOutput2(
-    device=Device11.CASHIERDISPLAY,
-    info_qualify=InfoQualify1.STATUS,
-    output_content=OutputContent2(
-        output_format=OutputFormat1.XHTML,
-        predefined_content=PredefinedContent2(
+    device=Device11Enum.CASHIERDISPLAY,
+    info_qualify=InfoQualify1Enum.STATUS,
+    output_content=OutputContent1(
+        output_format=OutputFormat1Enum.XHTML,
+        predefined_content=PredefinedContent1(
             reference_id='ReferenceID0',
-            language='Language2',
-            additional_properties={
-                'exampleAdditionalProperty': jsonpickle.decode('{"key1":"val1","key2":"val2"}')
-            }
+            language='Language2'
         ),
         output_text=[
             OutputText(
@@ -59,37 +52,25 @@ display_output_2 = DisplayOutput2(
                 character_set=194,
                 start_row=74,
                 start_column=220,
-                character_width=CharacterWidth1.SINGLEWIDTH,
-                character_height=CharacterHeight1.SINGLEHEIGHT,
-                additional_properties={
-                    'exampleAdditionalProperty': jsonpickle.decode('{"key1":"val1","key2":"val2"}')
-                }
+                character_width=CharacterWidth1Enum.SINGLEWIDTH,
+                character_height=CharacterHeight1Enum.SINGLEHEIGHT
             )
         ],
         output_xhtml='OutputXHTML2',
-        output_barcode=OutputBarcode(
-            barcode_value='BarcodeValue2',
-            additional_properties={
-                'exampleAdditionalProperty': jsonpickle.decode('{"key1":"val1","key2":"val2"}')
-            }
-        ),
-        additional_properties={
-            'exampleAdditionalProperty': jsonpickle.decode('{"key1":"val1","key2":"val2"}')
-        }
+        output_barcode=OutputBarcode1(
+            barcode_value='BarcodeValue2'
+        )
     ),
     response_required_flag=True,
     minimum_display_time=0,
     menu_entry=[
         MenuEntry(
-            output_format=OutputFormat2.XHTML,
-            menu_entry_tag=MenuEntryTag1.SUBMENU,
+            output_format=OutputFormat2Enum.XHTML,
+            menu_entry_tag=MenuEntryTag1Enum.SUBMENU,
             default_selected_flag=False,
-            predefined_content=PredefinedContent2(
+            predefined_content=PredefinedContent(
                 reference_id='ReferenceID0',
-                language='Language2',
-                additional_properties={
-                    'exampleAdditionalProperty': jsonpickle.decode('{"key1":"val1","key2":"val2"}')
-                }
+                language='Language2'
             ),
             output_text=[
                 OutputText(
@@ -97,39 +78,27 @@ display_output_2 = DisplayOutput2(
                     character_set=194,
                     start_row=74,
                     start_column=220,
-                    character_width=CharacterWidth1.SINGLEWIDTH,
-                    character_height=CharacterHeight1.SINGLEHEIGHT,
-                    additional_properties={
-                        'exampleAdditionalProperty': jsonpickle.decode('{"key1":"val1","key2":"val2"}')
-                    }
+                    character_width=CharacterWidth1Enum.SINGLEWIDTH,
+                    character_height=CharacterHeight1Enum.SINGLEHEIGHT
                 ),
                 OutputText(
                     text='Text6',
                     character_set=194,
                     start_row=74,
                     start_column=220,
-                    character_width=CharacterWidth1.SINGLEWIDTH,
-                    character_height=CharacterHeight1.SINGLEHEIGHT,
-                    additional_properties={
-                        'exampleAdditionalProperty': jsonpickle.decode('{"key1":"val1","key2":"val2"}')
-                    }
+                    character_width=CharacterWidth1Enum.SINGLEWIDTH,
+                    character_height=CharacterHeight1Enum.SINGLEHEIGHT
                 )
             ],
-            output_xhtml='OutputXHTML8',
-            additional_properties={
-                'exampleAdditionalProperty': jsonpickle.decode('{"key1":"val1","key2":"val2"}')
-            }
+            output_xhtml='OutputXHTML8'
         ),
         MenuEntry(
-            output_format=OutputFormat2.XHTML,
-            menu_entry_tag=MenuEntryTag1.SUBMENU,
+            output_format=OutputFormat2Enum.XHTML,
+            menu_entry_tag=MenuEntryTag1Enum.SUBMENU,
             default_selected_flag=False,
-            predefined_content=PredefinedContent2(
+            predefined_content=PredefinedContent(
                 reference_id='ReferenceID0',
-                language='Language2',
-                additional_properties={
-                    'exampleAdditionalProperty': jsonpickle.decode('{"key1":"val1","key2":"val2"}')
-                }
+                language='Language2'
             ),
             output_text=[
                 OutputText(
@@ -137,34 +106,22 @@ display_output_2 = DisplayOutput2(
                     character_set=194,
                     start_row=74,
                     start_column=220,
-                    character_width=CharacterWidth1.SINGLEWIDTH,
-                    character_height=CharacterHeight1.SINGLEHEIGHT,
-                    additional_properties={
-                        'exampleAdditionalProperty': jsonpickle.decode('{"key1":"val1","key2":"val2"}')
-                    }
+                    character_width=CharacterWidth1Enum.SINGLEWIDTH,
+                    character_height=CharacterHeight1Enum.SINGLEHEIGHT
                 ),
                 OutputText(
                     text='Text6',
                     character_set=194,
                     start_row=74,
                     start_column=220,
-                    character_width=CharacterWidth1.SINGLEWIDTH,
-                    character_height=CharacterHeight1.SINGLEHEIGHT,
-                    additional_properties={
-                        'exampleAdditionalProperty': jsonpickle.decode('{"key1":"val1","key2":"val2"}')
-                    }
+                    character_width=CharacterWidth1Enum.SINGLEWIDTH,
+                    character_height=CharacterHeight1Enum.SINGLEHEIGHT
                 )
             ],
-            output_xhtml='OutputXHTML8',
-            additional_properties={
-                'exampleAdditionalProperty': jsonpickle.decode('{"key1":"val1","key2":"val2"}')
-            }
+            output_xhtml='OutputXHTML8'
         )
     ],
-    output_signature='OutputSignature4',
-    additional_properties={
-        'exampleAdditionalProperty': jsonpickle.decode('{"key1":"val1","key2":"val2"}')
-    }
+    output_signature='OutputSignature4'
 )
 ```
 

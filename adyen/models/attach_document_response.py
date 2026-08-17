@@ -12,8 +12,6 @@ class AttachDocumentResponse(object):
 
     Attributes:
         attachment_id (str): The unique identifier of the attachment.
-        additional_properties (Dict[str, Any]): The additional properties for the
-            model.
 
     """
 
@@ -28,17 +26,11 @@ class AttachDocumentResponse(object):
 
     def __init__(
         self,
-        attachment_id=APIHelper.SKIP,
-        additional_properties=None):
+        attachment_id=APIHelper.SKIP):
         """Initialize a AttachDocumentResponse instance."""
         # Initialize members of the class
         if attachment_id is not APIHelper.SKIP:
             self.attachment_id = attachment_id
-
-        # Add additional model properties to the instance
-        if additional_properties is None:
-            additional_properties = {}
-        self.additional_properties = additional_properties
 
     @classmethod
     def from_dictionary(cls,
@@ -63,14 +55,8 @@ class AttachDocumentResponse(object):
             if dictionary.get("attachmentId")\
                 else APIHelper.SKIP
 
-        additional_properties = APIHelper.get_additional_properties(
-            dictionary={k: v for k, v in dictionary.items()
-                        if k not in cls._names.values()},
-            unboxing_function=lambda value: value)
-
         # Return an object of this model
-        return cls(attachment_id,
-                   additional_properties)
+        return cls(attachment_id)
 
     def __repr__(self):
         """Return a unambiguous string representation."""
@@ -79,11 +65,9 @@ class AttachDocumentResponse(object):
             if hasattr(self, "attachment_id")
             else None
         )
-        _additional_properties=self.additional_properties
         return (
             f"{self.__class__.__name__}("
             f"attachment_id={_attachment_id!r}, "
-            f"additional_properties={_additional_properties!r}, "
             f")"
         )
 
@@ -94,10 +78,8 @@ class AttachDocumentResponse(object):
             if hasattr(self, "attachment_id")
             else None
         )
-        _additional_properties=self.additional_properties
         return (
             f"{self.__class__.__name__}("
             f"attachment_id={_attachment_id!s}, "
-            f"additional_properties={_additional_properties!s}, "
             f")"
         )

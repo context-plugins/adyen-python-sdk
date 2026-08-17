@@ -20,8 +20,6 @@ class TaxInformation(object):
         mtype (str): The TIN type depending on the country where it was issued. Only
             provide if the country has multiple tax IDs: Singapore, Sweden, the UK,
             or the US. For example, provide **SSN**, **EIN**, or **ITIN** for the US.
-        additional_properties (Dict[str, Any]): The additional properties for the
-            model.
 
     """
 
@@ -45,8 +43,7 @@ class TaxInformation(object):
         country=APIHelper.SKIP,
         number=APIHelper.SKIP,
         number_absent=APIHelper.SKIP,
-        mtype=APIHelper.SKIP,
-        additional_properties=None):
+        mtype=APIHelper.SKIP):
         """Initialize a TaxInformation instance."""
         # Initialize members of the class
         if country is not APIHelper.SKIP:
@@ -57,11 +54,6 @@ class TaxInformation(object):
             self.number_absent = number_absent
         if mtype is not APIHelper.SKIP:
             self.mtype = mtype
-
-        # Add additional model properties to the instance
-        if additional_properties is None:
-            additional_properties = {}
-        self.additional_properties = additional_properties
 
     @classmethod
     def from_dictionary(cls,
@@ -98,17 +90,11 @@ class TaxInformation(object):
             if dictionary.get("type")\
                 else APIHelper.SKIP
 
-        additional_properties = APIHelper.get_additional_properties(
-            dictionary={k: v for k, v in dictionary.items()
-                        if k not in cls._names.values()},
-            unboxing_function=lambda value: value)
-
         # Return an object of this model
         return cls(country,
                    number,
                    number_absent,
-                   mtype,
-                   additional_properties)
+                   mtype)
 
     def __repr__(self):
         """Return a unambiguous string representation."""
@@ -132,14 +118,12 @@ class TaxInformation(object):
             if hasattr(self, "mtype")
             else None
         )
-        _additional_properties=self.additional_properties
         return (
             f"{self.__class__.__name__}("
             f"country={_country!r}, "
             f"number={_number!r}, "
             f"number_absent={_number_absent!r}, "
             f"mtype={_mtype!r}, "
-            f"additional_properties={_additional_properties!r}, "
             f")"
         )
 
@@ -165,13 +149,11 @@ class TaxInformation(object):
             if hasattr(self, "mtype")
             else None
         )
-        _additional_properties=self.additional_properties
         return (
             f"{self.__class__.__name__}("
             f"country={_country!s}, "
             f"number={_number!s}, "
             f"number_absent={_number_absent!s}, "
             f"mtype={_mtype!s}, "
-            f"additional_properties={_additional_properties!s}, "
             f")"
         )

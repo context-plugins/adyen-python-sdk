@@ -26,12 +26,12 @@ from adyen.models.generate_api_key_response import (
 )
 
 
-class ApiKeyMerchantLevelApi(BaseApi):
+class APIKeyMerchantLevelApi(BaseApi):
     """A Controller to access Endpoints in the adyen API."""
 
     def __init__(self, config):
-        """Initialize ApiKeyMerchantLevelApi object."""
-        super(ApiKeyMerchantLevelApi, self).__init__(config)
+        """Initialize APIKeyMerchantLevelApi object."""
+        super(APIKeyMerchantLevelApi, self).__init__(config)
 
     def post_merchants_merchant_id_api_credentials_api_credential_id_generate_api_key(self,
                                                                                       merchant_id,
@@ -52,29 +52,26 @@ class ApiKeyMerchantLevelApi(BaseApi):
             api_credential_id (str): Unique identifier of the API credential.
 
         Returns:
-            ApiResponse: An object with the response value as well as other useful
-                information such as status codes and headers. OK - the request has
+            GenerateApiKeyResponse: Response from the API. OK - the request has
                 succeeded.
 
         Raises:
-            ApiException: When an error occurs while fetching the data from the
+            APIException: When an error occurs while fetching the data from the
                 remote API. This exception includes the HTTP Response code, an error
                 message, and the HTTP body that was received in the request.
 
         """
         return super().new_api_call_builder.request(
-            RequestBuilder().server(Server.DEFAULT)
+            RequestBuilder().server(Server.DEFAULT9)
             .path("/merchants/{merchantId}/apiCredentials/{apiCredentialId}/generateApiKey")
             .http_method(HttpMethodEnum.POST)
             .template_param(Parameter()
                 .key("merchantId")
                 .value(merchant_id)
-                .is_required(True)
                 .should_encode(True))
             .template_param(Parameter()
                 .key("apiCredentialId")
                 .value(api_credential_id)
-                .is_required(True)
                 .should_encode(True))
             .header_param(Parameter()
                 .key("accept")
@@ -84,7 +81,6 @@ class ApiKeyMerchantLevelApi(BaseApi):
             ResponseHandler()
             .deserializer(APIHelper.json_deserialize)
             .deserialize_into(GenerateApiKeyResponse.from_dictionary)
-            .is_api_response(True)
             .local_error("400",
                 "Bad Request - a problem reading or understanding the request.",
                 RestServiceErrorException)

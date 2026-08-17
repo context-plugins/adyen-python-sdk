@@ -11,23 +11,8 @@ from apimatic_core.types.parameter import Parameter
 from adyen.api_helper import APIHelper
 from adyen.apis.base_api import BaseApi
 from adyen.configuration import Server
-from adyen.exceptions.balance_overview_companies_balances_401_error_exception import (
-    BalanceOverviewCompaniesBalances401ErrorException,
-)
-from adyen.exceptions.balance_overview_companies_balances_403_error_exception import (
-    BalanceOverviewCompaniesBalances403ErrorException,
-)
-from adyen.exceptions.balance_overview_companies_balances_422_error_exception import (
-    BalanceOverviewCompaniesBalances422ErrorException,
-)
-from adyen.exceptions.balance_overview_merchants_balances_401_error_exception import (
-    BalanceOverviewMerchantsBalances401ErrorException,
-)
-from adyen.exceptions.balance_overview_merchants_balances_403_error_exception import (
-    BalanceOverviewMerchantsBalances403ErrorException,
-)
-from adyen.exceptions.balance_overview_merchants_balances_422_error_exception import (
-    BalanceOverviewMerchantsBalances422ErrorException,
+from adyen.exceptions.default_error_response_entity_exception import (
+    DefaultErrorResponseEntityException,
 )
 from adyen.http.http_method_enum import HttpMethodEnum
 from adyen.models.company_balances import CompanyBalances
@@ -67,29 +52,25 @@ class BalancesOverviewApi(BaseApi):
             currency (str): The currency for which you want a balances overview.
 
         Returns:
-            ApiResponse: An object with the response value as well as other useful
-                information such as status codes and headers. OK - The request has
-                succeeded.
+            CompanyBalances: Response from the API. OK - The request has succeeded.
 
         Raises:
-            ApiException: When an error occurs while fetching the data from the
+            APIException: When an error occurs while fetching the data from the
                 remote API. This exception includes the HTTP Response code, an error
                 message, and the HTTP body that was received in the request.
 
         """
         return super().new_api_call_builder.request(
-            RequestBuilder().server(Server.DEFAULT)
+            RequestBuilder().server(Server.DEFAULT11)
             .path("/balanceOverview/companies/{companyAccountCode}/balances")
             .http_method(HttpMethodEnum.GET)
             .template_param(Parameter()
                 .key("companyAccountCode")
                 .value(company_account_code)
-                .is_required(True)
                 .should_encode(True))
             .query_param(Parameter()
                 .key("currency")
-                .value(currency)
-                .is_required(True))
+                .value(currency))
             .header_param(Parameter()
                 .key("accept")
                 .value("application/json")),
@@ -97,16 +78,15 @@ class BalancesOverviewApi(BaseApi):
             ResponseHandler()
             .deserializer(APIHelper.json_deserialize)
             .deserialize_into(CompanyBalances.from_dictionary)
-            .is_api_response(True)
             .local_error("401",
                 "Unauthorized - Authentication required.",
-                BalanceOverviewCompaniesBalances401ErrorException)
+                DefaultErrorResponseEntityException)
             .local_error("403",
                 "Forbidden - insufficient permissions to process the request.",
-                BalanceOverviewCompaniesBalances403ErrorException)
+                DefaultErrorResponseEntityException)
             .local_error("422",
                 "Unprocessable Content - A request validation error.",
-                BalanceOverviewCompaniesBalances422ErrorException),
+                DefaultErrorResponseEntityException),
         ).execute()
 
     def get_balance_overview_merchants_merchant_account_code_balances(self,
@@ -135,29 +115,25 @@ class BalancesOverviewApi(BaseApi):
             currency (str): The currency for which you want a balances overview.
 
         Returns:
-            ApiResponse: An object with the response value as well as other useful
-                information such as status codes and headers. OK - The request has
-                succeeded.
+            MerchantBalance: Response from the API. OK - The request has succeeded.
 
         Raises:
-            ApiException: When an error occurs while fetching the data from the
+            APIException: When an error occurs while fetching the data from the
                 remote API. This exception includes the HTTP Response code, an error
                 message, and the HTTP body that was received in the request.
 
         """
         return super().new_api_call_builder.request(
-            RequestBuilder().server(Server.DEFAULT)
+            RequestBuilder().server(Server.DEFAULT11)
             .path("/balanceOverview/merchants/{merchantAccountCode}/balances")
             .http_method(HttpMethodEnum.GET)
             .template_param(Parameter()
                 .key("merchantAccountCode")
                 .value(merchant_account_code)
-                .is_required(True)
                 .should_encode(True))
             .query_param(Parameter()
                 .key("currency")
-                .value(currency)
-                .is_required(True))
+                .value(currency))
             .header_param(Parameter()
                 .key("accept")
                 .value("application/json")),
@@ -165,14 +141,13 @@ class BalancesOverviewApi(BaseApi):
             ResponseHandler()
             .deserializer(APIHelper.json_deserialize)
             .deserialize_into(MerchantBalance.from_dictionary)
-            .is_api_response(True)
             .local_error("401",
                 "Unauthorized - Authentication required.",
-                BalanceOverviewMerchantsBalances401ErrorException)
+                DefaultErrorResponseEntityException)
             .local_error("403",
                 "Forbidden - insufficient permissions to process the request.",
-                BalanceOverviewMerchantsBalances403ErrorException)
+                DefaultErrorResponseEntityException)
             .local_error("422",
                 "Unprocessable Content - A request validation error.",
-                BalanceOverviewMerchantsBalances422ErrorException),
+                DefaultErrorResponseEntityException),
         ).execute()

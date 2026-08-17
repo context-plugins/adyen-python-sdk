@@ -11,12 +11,10 @@ class ReleaseUpdateDetails(object):
     """Implementation of the 'ReleaseUpdateDetails' model.
 
     Attributes:
-        mtype (Type62): The model property of type Type62.
+        mtype (Type61Enum): Type of terminal action: Update Release.
         update_at_first_maintenance_call (bool): Boolean flag that tells if the
             terminal should update at the first next maintenance call. If false,
             terminal will update on its configured reboot time.
-        additional_properties (Dict[str, Any]): The additional properties for the
-            model.
 
     """
 
@@ -33,20 +31,13 @@ class ReleaseUpdateDetails(object):
 
     def __init__(
         self,
-        mtype=APIHelper.SKIP,
-        update_at_first_maintenance_call=APIHelper.SKIP,
-        additional_properties=None):
+        mtype="ReleaseUpdate",
+        update_at_first_maintenance_call=APIHelper.SKIP):
         """Initialize a ReleaseUpdateDetails instance."""
         # Initialize members of the class
-        if mtype is not APIHelper.SKIP:
-            self.mtype = mtype
+        self.mtype = mtype
         if update_at_first_maintenance_call is not APIHelper.SKIP:
             self.update_at_first_maintenance_call = update_at_first_maintenance_call
-
-        # Add additional model properties to the instance
-        if additional_properties is None:
-            additional_properties = {}
-        self.additional_properties = additional_properties
 
     @classmethod
     def from_dictionary(cls,
@@ -69,21 +60,15 @@ class ReleaseUpdateDetails(object):
         mtype =\
             dictionary.get("type")\
             if dictionary.get("type")\
-                else APIHelper.SKIP
+                else "ReleaseUpdate"
         update_at_first_maintenance_call =\
             dictionary.get("updateAtFirstMaintenanceCall")\
             if "updateAtFirstMaintenanceCall" in dictionary.keys()\
                 else APIHelper.SKIP
 
-        additional_properties = APIHelper.get_additional_properties(
-            dictionary={k: v for k, v in dictionary.items()
-                        if k not in cls._names.values()},
-            unboxing_function=lambda value: value)
-
         # Return an object of this model
         return cls(mtype,
-                   update_at_first_maintenance_call,
-                   additional_properties)
+                   update_at_first_maintenance_call)
 
     @classmethod
     def validate(cls, dictionary):
@@ -118,12 +103,10 @@ class ReleaseUpdateDetails(object):
             if hasattr(self, "update_at_first_maintenance_call")
             else None
         )
-        _additional_properties=self.additional_properties
         return (
             f"{self.__class__.__name__}("
             f"mtype={_mtype!r}, "
             f"update_at_first_maintenance_call={_update_at_first_maintenance_call!r}, "
-            f"additional_properties={_additional_properties!r}, "
             f")"
         )
 
@@ -139,11 +122,9 @@ class ReleaseUpdateDetails(object):
             if hasattr(self, "update_at_first_maintenance_call")
             else None
         )
-        _additional_properties=self.additional_properties
         return (
             f"{self.__class__.__name__}("
             f"mtype={_mtype!s}, "
             f"update_at_first_maintenance_call={_update_at_first_maintenance_call!s}, "
-            f"additional_properties={_additional_properties!s}, "
             f")"
         )

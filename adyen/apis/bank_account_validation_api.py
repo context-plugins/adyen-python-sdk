@@ -11,15 +11,11 @@ from apimatic_core.authentication.multiple.single_auth import (
     Single,
 )
 from apimatic_core.request_builder import RequestBuilder
-from apimatic_core.response_handler import ResponseHandler
 from apimatic_core.types.parameter import Parameter
 
 from adyen.api_helper import APIHelper
 from adyen.apis.base_api import BaseApi
 from adyen.configuration import Server
-from adyen.exceptions.rest_service_error_exception import (
-    RestServiceErrorException,
-)
 from adyen.http.http_method_enum import HttpMethodEnum
 
 
@@ -46,18 +42,17 @@ class BankAccountValidationApi(BaseApi):
                 body parameter.
 
         Returns:
-            ApiResponse: An object with the response value as well as other useful
-                information such as status codes and headers. No Content - look at
-                the actual response code for the status of the request.
+            void: Response from the API. No Content - look at the actual response
+                code for the status of the request.
 
         Raises:
-            ApiException: When an error occurs while fetching the data from the
+            APIException: When an error occurs while fetching the data from the
                 remote API. This exception includes the HTTP Response code, an error
                 message, and the HTTP body that was received in the request.
 
         """
         return super().new_api_call_builder.request(
-            RequestBuilder().server(Server.DEFAULT)
+            RequestBuilder().server(Server.DEFAULT13)
             .path("/validateBankAccountIdentification")
             .http_method(HttpMethodEnum.POST)
             .header_param(Parameter()
@@ -67,19 +62,4 @@ class BankAccountValidationApi(BaseApi):
                 .value(body))
             .body_serializer(APIHelper.json_serialize)
             .auth(Or(Single("clientKey"), Single("BasicAuth"), Single("ApiKeyAuth"))),
-        ).response(
-            ResponseHandler()
-            .is_api_response(True)
-            .local_error("401",
-                "Unauthorized - authentication required.",
-                RestServiceErrorException)
-            .local_error("403",
-                "Forbidden - insufficient permissions to process the request.",
-                RestServiceErrorException)
-            .local_error("422",
-                "Unprocessable Entity - a request validation error.",
-                RestServiceErrorException)
-            .local_error("500",
-                "Internal Server Error - the server could not process the request.",
-                RestServiceErrorException),
         ).execute()

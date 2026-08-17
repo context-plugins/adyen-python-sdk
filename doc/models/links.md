@@ -1,8 +1,6 @@
 
 # Links
 
-*This model accepts additional fields of type Any.*
-
 ## Structure
 
 `Links`
@@ -11,34 +9,18 @@
 
 | Name | Type | Tags | Description |
 |  --- | --- | --- | --- |
-| `cancel` | [`Href`](../../doc/models/href.md) | Optional | - |
-| `success` | [`Href`](../../doc/models/href.md) | Optional | - |
-| `additional_properties` | `Dict[str, Any]` | Optional | - |
+| `mself` | [`LinksElement6`](../../doc/models/links-element-6.md) | Required | Link to the resource itself. |
 
 ## Example
 
 ```python
-import jsonpickle
-
-from adyen.models.href import Href
 from adyen.models.links import Links
+from adyen.models.links_element_6 import LinksElement6
 
 links = Links(
-    cancel=Href(
-        href='href4',
-        additional_properties={
-            'exampleAdditionalProperty': jsonpickle.decode('{"key1":"val1","key2":"val2"}')
-        }
-    ),
-    success=Href(
-        href='href2',
-        additional_properties={
-            'exampleAdditionalProperty': jsonpickle.decode('{"key1":"val1","key2":"val2"}')
-        }
-    ),
-    additional_properties={
-        'exampleAdditionalProperty': jsonpickle.decode('{"key1":"val1","key2":"val2"}')
-    }
+    mself=LinksElement6(
+        href='href0'
+    )
 )
 ```
 

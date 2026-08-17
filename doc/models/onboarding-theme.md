@@ -1,8 +1,6 @@
 
 # Onboarding Theme
 
-*This model accepts additional fields of type Any.*
-
 ## Structure
 
 `OnboardingTheme`
@@ -16,13 +14,11 @@
 | `id` | `str` | Required | The unique identifier of the theme. |
 | `properties` | `Dict[str, str]` | Required | The properties of the theme. |
 | `updated_at` | `datetime` | Optional | The date when the theme was last updated. |
-| `additional_properties` | `Dict[str, Any]` | Optional | - |
 
 ## Example
 
 ```python
 import dateutil.parser
-import jsonpickle
 
 from adyen.models.onboarding_theme import OnboardingTheme
 
@@ -35,10 +31,7 @@ onboarding_theme = OnboardingTheme(
         'key2': 'properties2'
     },
     description='description2',
-    updated_at=dateutil.parser.parse('2016-03-13T12:52:32.123Z'),
-    additional_properties={
-        'exampleAdditionalProperty': jsonpickle.decode('{"key1":"val1","key2":"val2"}')
-    }
+    updated_at=dateutil.parser.parse('2016-03-13T12:52:32.123Z')
 )
 ```
 

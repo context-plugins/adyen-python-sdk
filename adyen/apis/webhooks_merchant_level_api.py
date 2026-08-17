@@ -63,24 +63,22 @@ class WebhooksMerchantLevelApi(BaseApi):
                 100. The default is 10 items on a page.
 
         Returns:
-            ApiResponse: An object with the response value as well as other useful
-                information such as status codes and headers. OK - the request has
+            ListWebhooksResponse: Response from the API. OK - the request has
                 succeeded.
 
         Raises:
-            ApiException: When an error occurs while fetching the data from the
+            APIException: When an error occurs while fetching the data from the
                 remote API. This exception includes the HTTP Response code, an error
                 message, and the HTTP body that was received in the request.
 
         """
         return super().new_api_call_builder.request(
-            RequestBuilder().server(Server.DEFAULT)
+            RequestBuilder().server(Server.DEFAULT9)
             .path("/merchants/{merchantId}/webhooks")
             .http_method(HttpMethodEnum.GET)
             .template_param(Parameter()
                 .key("merchantId")
                 .value(merchant_id)
-                .is_required(True)
                 .should_encode(True))
             .query_param(Parameter()
                 .key("pageNumber")
@@ -96,7 +94,6 @@ class WebhooksMerchantLevelApi(BaseApi):
             ResponseHandler()
             .deserializer(APIHelper.json_deserialize)
             .deserialize_into(ListWebhooksResponse.from_dictionary)
-            .is_api_response(True)
             .local_error("400",
                 "Bad Request - a problem reading or understanding the request.",
                 RestServiceErrorException)
@@ -132,24 +129,21 @@ class WebhooksMerchantLevelApi(BaseApi):
             body (CreateMerchantWebhookRequest, optional): The request body parameter.
 
         Returns:
-            ApiResponse: An object with the response value as well as other useful
-                information such as status codes and headers. OK - the request has
-                succeeded.
+            Webhook: Response from the API. OK - the request has succeeded.
 
         Raises:
-            ApiException: When an error occurs while fetching the data from the
+            APIException: When an error occurs while fetching the data from the
                 remote API. This exception includes the HTTP Response code, an error
                 message, and the HTTP body that was received in the request.
 
         """
         return super().new_api_call_builder.request(
-            RequestBuilder().server(Server.DEFAULT)
+            RequestBuilder().server(Server.DEFAULT9)
             .path("/merchants/{merchantId}/webhooks")
             .http_method(HttpMethodEnum.POST)
             .template_param(Parameter()
                 .key("merchantId")
                 .value(merchant_id)
-                .is_required(True)
                 .should_encode(True))
             .header_param(Parameter()
                 .key("Content-Type")
@@ -165,7 +159,6 @@ class WebhooksMerchantLevelApi(BaseApi):
             ResponseHandler()
             .deserializer(APIHelper.json_deserialize)
             .deserialize_into(Webhook.from_dictionary)
-            .is_api_response(True)
             .local_error("400",
                 "Bad Request - a problem reading or understanding the request.",
                 RestServiceErrorException)
@@ -201,29 +194,25 @@ class WebhooksMerchantLevelApi(BaseApi):
             webhook_id (str): Unique identifier of the webhook configuration.
 
         Returns:
-            ApiResponse: An object with the response value as well as other useful
-                information such as status codes and headers. OK - the request has
-                succeeded.
+            Webhook: Response from the API. OK - the request has succeeded.
 
         Raises:
-            ApiException: When an error occurs while fetching the data from the
+            APIException: When an error occurs while fetching the data from the
                 remote API. This exception includes the HTTP Response code, an error
                 message, and the HTTP body that was received in the request.
 
         """
         return super().new_api_call_builder.request(
-            RequestBuilder().server(Server.DEFAULT)
+            RequestBuilder().server(Server.DEFAULT9)
             .path("/merchants/{merchantId}/webhooks/{webhookId}")
             .http_method(HttpMethodEnum.GET)
             .template_param(Parameter()
                 .key("merchantId")
                 .value(merchant_id)
-                .is_required(True)
                 .should_encode(True))
             .template_param(Parameter()
                 .key("webhookId")
                 .value(webhook_id)
-                .is_required(True)
                 .should_encode(True))
             .header_param(Parameter()
                 .key("accept")
@@ -233,7 +222,6 @@ class WebhooksMerchantLevelApi(BaseApi):
             ResponseHandler()
             .deserializer(APIHelper.json_deserialize)
             .deserialize_into(Webhook.from_dictionary)
-            .is_api_response(True)
             .local_error("400",
                 "Bad Request - a problem reading or understanding the request.",
                 RestServiceErrorException)
@@ -268,49 +256,28 @@ class WebhooksMerchantLevelApi(BaseApi):
             webhook_id (str): Unique identifier of the webhook configuration.
 
         Returns:
-            ApiResponse: An object with the response value as well as other useful
-                information such as status codes and headers. No Content - look at
-                the actual response code for the status of the request.
+            void: Response from the API. No Content - look at the actual response
+                code for the status of the request.
 
         Raises:
-            ApiException: When an error occurs while fetching the data from the
+            APIException: When an error occurs while fetching the data from the
                 remote API. This exception includes the HTTP Response code, an error
                 message, and the HTTP body that was received in the request.
 
         """
         return super().new_api_call_builder.request(
-            RequestBuilder().server(Server.DEFAULT)
+            RequestBuilder().server(Server.DEFAULT9)
             .path("/merchants/{merchantId}/webhooks/{webhookId}")
             .http_method(HttpMethodEnum.DELETE)
             .template_param(Parameter()
                 .key("merchantId")
                 .value(merchant_id)
-                .is_required(True)
                 .should_encode(True))
             .template_param(Parameter()
                 .key("webhookId")
                 .value(webhook_id)
-                .is_required(True)
                 .should_encode(True))
             .auth(Or(Single("BasicAuth"), Single("ApiKeyAuth"))),
-        ).response(
-            ResponseHandler()
-            .is_api_response(True)
-            .local_error("400",
-                "Bad Request - a problem reading or understanding the request.",
-                RestServiceErrorException)
-            .local_error("401",
-                "Unauthorized - authentication required.",
-                RestServiceErrorException)
-            .local_error("403",
-                "Forbidden - insufficient permissions to process the request.",
-                RestServiceErrorException)
-            .local_error("422",
-                "Unprocessable Entity - a request validation error.",
-                RestServiceErrorException)
-            .local_error("500",
-                "Internal Server Error - the server could not process the request.",
-                RestServiceErrorException),
         ).execute()
 
     def patch_merchants_merchant_id_webhooks_webhook_id(self,
@@ -335,29 +302,25 @@ class WebhooksMerchantLevelApi(BaseApi):
             body (UpdateMerchantWebhookRequest, optional): The request body parameter.
 
         Returns:
-            ApiResponse: An object with the response value as well as other useful
-                information such as status codes and headers. OK - the request has
-                succeeded.
+            Webhook: Response from the API. OK - the request has succeeded.
 
         Raises:
-            ApiException: When an error occurs while fetching the data from the
+            APIException: When an error occurs while fetching the data from the
                 remote API. This exception includes the HTTP Response code, an error
                 message, and the HTTP body that was received in the request.
 
         """
         return super().new_api_call_builder.request(
-            RequestBuilder().server(Server.DEFAULT)
+            RequestBuilder().server(Server.DEFAULT9)
             .path("/merchants/{merchantId}/webhooks/{webhookId}")
             .http_method(HttpMethodEnum.PATCH)
             .template_param(Parameter()
                 .key("merchantId")
                 .value(merchant_id)
-                .is_required(True)
                 .should_encode(True))
             .template_param(Parameter()
                 .key("webhookId")
                 .value(webhook_id)
-                .is_required(True)
                 .should_encode(True))
             .header_param(Parameter()
                 .key("Content-Type")
@@ -373,7 +336,6 @@ class WebhooksMerchantLevelApi(BaseApi):
             ResponseHandler()
             .deserializer(APIHelper.json_deserialize)
             .deserialize_into(Webhook.from_dictionary)
-            .is_api_response(True)
             .local_error("400",
                 "Bad Request - a problem reading or understanding the request.",
                 RestServiceErrorException)
@@ -416,29 +378,26 @@ class WebhooksMerchantLevelApi(BaseApi):
             webhook_id (str): The request template parameter.
 
         Returns:
-            ApiResponse: An object with the response value as well as other useful
-                information such as status codes and headers. OK - the request has
+            GenerateHmacKeyResponse: Response from the API. OK - the request has
                 succeeded.
 
         Raises:
-            ApiException: When an error occurs while fetching the data from the
+            APIException: When an error occurs while fetching the data from the
                 remote API. This exception includes the HTTP Response code, an error
                 message, and the HTTP body that was received in the request.
 
         """
         return super().new_api_call_builder.request(
-            RequestBuilder().server(Server.DEFAULT)
+            RequestBuilder().server(Server.DEFAULT9)
             .path("/merchants/{merchantId}/webhooks/{webhookId}/generateHmac")
             .http_method(HttpMethodEnum.POST)
             .template_param(Parameter()
                 .key("merchantId")
                 .value(merchant_id)
-                .is_required(True)
                 .should_encode(True))
             .template_param(Parameter()
                 .key("webhookId")
                 .value(webhook_id)
-                .is_required(True)
                 .should_encode(True))
             .header_param(Parameter()
                 .key("accept")
@@ -448,7 +407,6 @@ class WebhooksMerchantLevelApi(BaseApi):
             ResponseHandler()
             .deserializer(APIHelper.json_deserialize)
             .deserialize_into(GenerateHmacKeyResponse.from_dictionary)
-            .is_api_response(True)
             .local_error("400",
                 "Bad Request - a problem reading or understanding the request.",
                 RestServiceErrorException)
@@ -492,29 +450,26 @@ class WebhooksMerchantLevelApi(BaseApi):
             body (TestWebhookRequest, optional): The request body parameter.
 
         Returns:
-            ApiResponse: An object with the response value as well as other useful
-                information such as status codes and headers. OK - the request has
+            TestWebhookResponse: Response from the API. OK - the request has
                 succeeded.
 
         Raises:
-            ApiException: When an error occurs while fetching the data from the
+            APIException: When an error occurs while fetching the data from the
                 remote API. This exception includes the HTTP Response code, an error
                 message, and the HTTP body that was received in the request.
 
         """
         return super().new_api_call_builder.request(
-            RequestBuilder().server(Server.DEFAULT)
+            RequestBuilder().server(Server.DEFAULT9)
             .path("/merchants/{merchantId}/webhooks/{webhookId}/test")
             .http_method(HttpMethodEnum.POST)
             .template_param(Parameter()
                 .key("merchantId")
                 .value(merchant_id)
-                .is_required(True)
                 .should_encode(True))
             .template_param(Parameter()
                 .key("webhookId")
                 .value(webhook_id)
-                .is_required(True)
                 .should_encode(True))
             .header_param(Parameter()
                 .key("Content-Type")
@@ -530,7 +485,6 @@ class WebhooksMerchantLevelApi(BaseApi):
             ResponseHandler()
             .deserializer(APIHelper.json_deserialize)
             .deserialize_into(TestWebhookResponse.from_dictionary)
-            .is_api_response(True)
             .local_error("400",
                 "Bad Request - a problem reading or understanding the request.",
                 RestServiceErrorException)

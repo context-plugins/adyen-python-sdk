@@ -5,8 +5,6 @@ A container for card data.
 
 > Either `bankAccount` or `card` field must be provided in a payment request.
 
-*This model accepts additional fields of type Any.*
-
 ## Structure
 
 `Card3`
@@ -23,13 +21,10 @@ A container for card data.
 | `number` | `str` | Optional | The card number (4-19 characters). Do not use any separators.<br>When this value is returned in a response, only the last 4 digits of the card number are returned.<br><br>**Constraints**: *Minimum Length*: `4`, *Maximum Length*: `19` |
 | `start_month` | `str` | Optional | The month component of the start date (for some UK debit cards only).<br><br>**Constraints**: *Minimum Length*: `1`, *Maximum Length*: `2` |
 | `start_year` | `str` | Optional | The year component of the start date (for some UK debit cards only).<br><br>**Constraints**: *Minimum Length*: `4`, *Maximum Length*: `4` |
-| `additional_properties` | `Dict[str, Any]` | Optional | - |
 
 ## Example
 
 ```python
-import jsonpickle
-
 from adyen.models.card_3 import Card3
 
 card_3 = Card3(
@@ -37,10 +32,7 @@ card_3 = Card3(
     expiry_month='expiryMonth6',
     expiry_year='expiryYear4',
     holder_name='holderName8',
-    issue_number='issueNumber6',
-    additional_properties={
-        'exampleAdditionalProperty': jsonpickle.decode('{"key1":"val1","key2":"val2"}')
-    }
+    issue_number='issueNumber6'
 )
 ```
 

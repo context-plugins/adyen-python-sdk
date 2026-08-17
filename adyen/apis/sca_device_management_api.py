@@ -11,41 +11,8 @@ from apimatic_core.types.parameter import Parameter
 from adyen.api_helper import APIHelper
 from adyen.apis.base_api import BaseApi
 from adyen.configuration import Server
-from adyen.exceptions.sca_devices_400_error_exception import (
-    ScaDevices400ErrorException,
-)
-from adyen.exceptions.sca_devices_401_error_exception import (
-    ScaDevices401ErrorException,
-)
-from adyen.exceptions.sca_devices_403_error_exception import (
-    ScaDevices403ErrorException,
-)
-from adyen.exceptions.sca_devices_404_error_exception import (
-    ScaDevices404ErrorException,
-)
-from adyen.exceptions.sca_devices_422_error_exception import (
-    ScaDevices422ErrorException,
-)
-from adyen.exceptions.sca_devices_500_error_exception import (
-    ScaDevices500ErrorException,
-)
-from adyen.exceptions.sca_devices_sca_associations_400_error_exception import (
-    ScaDevicesScaAssociations400ErrorException,
-)
-from adyen.exceptions.sca_devices_sca_associations_401_error_exception import (
-    ScaDevicesScaAssociations401ErrorException,
-)
-from adyen.exceptions.sca_devices_sca_associations_403_error_exception import (
-    ScaDevicesScaAssociations403ErrorException,
-)
-from adyen.exceptions.sca_devices_sca_associations_404_error_exception import (
-    ScaDevicesScaAssociations404ErrorException,
-)
-from adyen.exceptions.sca_devices_sca_associations_422_error_exception import (
-    ScaDevicesScaAssociations422ErrorException,
-)
-from adyen.exceptions.sca_devices_sca_associations_500_error_exception import (
-    ScaDevicesScaAssociations500ErrorException,
+from adyen.exceptions.default_error_response_entity_exception import (
+    DefaultErrorResponseEntityException,
 )
 from adyen.http.http_method_enum import HttpMethodEnum
 from adyen.models.begin_sca_device_registration_response import (
@@ -59,12 +26,12 @@ from adyen.models.submit_sca_association_response import (
 )
 
 
-class ScaDeviceManagementApi(BaseApi):
+class SCADeviceManagementApi(BaseApi):
     """A Controller to access Endpoints in the adyen API."""
 
     def __init__(self, config):
-        """Initialize ScaDeviceManagementApi object."""
-        super(ScaDeviceManagementApi, self).__init__(config)
+        """Initialize SCADeviceManagementApi object."""
+        super(SCADeviceManagementApi, self).__init__(config)
 
     def post_sca_devices(self,
                          body=None):
@@ -78,19 +45,18 @@ class ScaDeviceManagementApi(BaseApi):
                 parameter.
 
         Returns:
-            ApiResponse: An object with the response value as well as other useful
-                information such as status codes and headers. Created - A device
-                resource is created. The initial step of registration is complete,
-                but the device isn't ready for use.
+            BeginScaDeviceRegistrationResponse: Response from the API. Created - A
+                device resource is created. The initial step of registration is
+                complete, but the device isn't ready for use.
 
         Raises:
-            ApiException: When an error occurs while fetching the data from the
+            APIException: When an error occurs while fetching the data from the
                 remote API. This exception includes the HTTP Response code, an error
                 message, and the HTTP body that was received in the request.
 
         """
         return super().new_api_call_builder.request(
-            RequestBuilder().server(Server.DEFAULT)
+            RequestBuilder().server(Server.DEFAULT13)
             .path("/scaDevices")
             .http_method(HttpMethodEnum.POST)
             .header_param(Parameter()
@@ -106,23 +72,22 @@ class ScaDeviceManagementApi(BaseApi):
             ResponseHandler()
             .deserializer(APIHelper.json_deserialize)
             .deserialize_into(BeginScaDeviceRegistrationResponse.from_dictionary)
-            .is_api_response(True)
             .local_error("400",
                 "Bad Request - The request contains invalid input and fails validatio"
                 "n.",
-                ScaDevices400ErrorException)
+                DefaultErrorResponseEntityException)
             .local_error("401",
                 "Unauthorized - Authentication required.",
-                ScaDevices401ErrorException)
+                DefaultErrorResponseEntityException)
             .local_error("403",
                 "Forbidden - Insufficient permissions to process the request.",
-                ScaDevices403ErrorException)
+                DefaultErrorResponseEntityException)
             .local_error("422",
                 "Unprocessable entity - A request validation error.",
-                ScaDevices422ErrorException)
+                DefaultErrorResponseEntityException)
             .local_error("500",
                 "Internal Server Error - The server could not process the request.",
-                ScaDevices500ErrorException),
+                DefaultErrorResponseEntityException),
         ).execute()
 
     def delete_sca_devices_device_id(self,
@@ -135,47 +100,23 @@ class ScaDeviceManagementApi(BaseApi):
             device_id (str): The unique identifier of the SCA device to delete.
 
         Returns:
-            ApiResponse: An object with the response value as well as other useful
-                information such as status codes and headers. No Content - The device
-                was deleted successfully.
+            void: Response from the API. No Content - The device was deleted
+                successfully.
 
         Raises:
-            ApiException: When an error occurs while fetching the data from the
+            APIException: When an error occurs while fetching the data from the
                 remote API. This exception includes the HTTP Response code, an error
                 message, and the HTTP body that was received in the request.
 
         """
         return super().new_api_call_builder.request(
-            RequestBuilder().server(Server.DEFAULT)
+            RequestBuilder().server(Server.DEFAULT13)
             .path("/scaDevices/{deviceId}")
             .http_method(HttpMethodEnum.DELETE)
             .template_param(Parameter()
                 .key("deviceId")
                 .value(device_id)
-                .is_required(True)
                 .should_encode(True)),
-        ).response(
-            ResponseHandler()
-            .is_api_response(True)
-            .local_error("400",
-                "Bad Request - The request contains invalid input and fails validatio"
-                "n.",
-                ScaDevices400ErrorException)
-            .local_error("401",
-                "Unauthorized - Authentication required.",
-                ScaDevices401ErrorException)
-            .local_error("403",
-                "Forbidden - Insufficient permissions to process the request.",
-                ScaDevices403ErrorException)
-            .local_error("404",
-                "Not Found - Device not found.",
-                ScaDevices404ErrorException)
-            .local_error("422",
-                "Unprocessable entity - A request validation error.",
-                ScaDevices422ErrorException)
-            .local_error("500",
-                "Internal Server Error - The server could not process the request.",
-                ScaDevices500ErrorException),
         ).execute()
 
     def patch_sca_devices_device_id(self,
@@ -193,24 +134,22 @@ class ScaDeviceManagementApi(BaseApi):
                 parameter.
 
         Returns:
-            ApiResponse: An object with the response value as well as other useful
-                information such as status codes and headers. OK - Device
+            FinishScaDeviceRegistrationResponse: Response from the API. OK - Device
                 registration was completed successfully.
 
         Raises:
-            ApiException: When an error occurs while fetching the data from the
+            APIException: When an error occurs while fetching the data from the
                 remote API. This exception includes the HTTP Response code, an error
                 message, and the HTTP body that was received in the request.
 
         """
         return super().new_api_call_builder.request(
-            RequestBuilder().server(Server.DEFAULT)
+            RequestBuilder().server(Server.DEFAULT13)
             .path("/scaDevices/{deviceId}")
             .http_method(HttpMethodEnum.PATCH)
             .template_param(Parameter()
                 .key("deviceId")
                 .value(device_id)
-                .is_required(True)
                 .should_encode(True))
             .header_param(Parameter()
                 .key("Content-Type")
@@ -225,26 +164,25 @@ class ScaDeviceManagementApi(BaseApi):
             ResponseHandler()
             .deserializer(APIHelper.json_deserialize)
             .deserialize_into(FinishScaDeviceRegistrationResponse.from_dictionary)
-            .is_api_response(True)
             .local_error("400",
                 "Bad Request - The request contains invalid input and fails validatio"
                 "n.",
-                ScaDevices400ErrorException)
+                DefaultErrorResponseEntityException)
             .local_error("401",
                 "Unauthorized - Authentication required.",
-                ScaDevices401ErrorException)
+                DefaultErrorResponseEntityException)
             .local_error("403",
                 "Forbidden - Insufficient permissions to process the request.",
-                ScaDevices403ErrorException)
+                DefaultErrorResponseEntityException)
             .local_error("404",
                 "Not Found - Device not found.",
-                ScaDevices404ErrorException)
+                DefaultErrorResponseEntityException)
             .local_error("422",
                 "Unprocessable entity - A request validation error.",
-                ScaDevices422ErrorException)
+                DefaultErrorResponseEntityException)
             .local_error("500",
                 "Internal Server Error - The server could not process the request.",
-                ScaDevices500ErrorException),
+                DefaultErrorResponseEntityException),
         ).execute()
 
     def post_sca_devices_device_id_sca_associations(self,
@@ -263,24 +201,22 @@ class ScaDeviceManagementApi(BaseApi):
             body (SubmitScaAssociationRequest, optional): The request body parameter.
 
         Returns:
-            ApiResponse: An object with the response value as well as other useful
-                information such as status codes and headers. Created - Association
-                created.
+            SubmitScaAssociationResponse: Response from the API. Created -
+                Association created.
 
         Raises:
-            ApiException: When an error occurs while fetching the data from the
+            APIException: When an error occurs while fetching the data from the
                 remote API. This exception includes the HTTP Response code, an error
                 message, and the HTTP body that was received in the request.
 
         """
         return super().new_api_call_builder.request(
-            RequestBuilder().server(Server.DEFAULT)
+            RequestBuilder().server(Server.DEFAULT13)
             .path("/scaDevices/{deviceId}/scaAssociations")
             .http_method(HttpMethodEnum.POST)
             .template_param(Parameter()
                 .key("deviceId")
                 .value(device_id)
-                .is_required(True)
                 .should_encode(True))
             .header_param(Parameter()
                 .key("Content-Type")
@@ -295,24 +231,23 @@ class ScaDeviceManagementApi(BaseApi):
             ResponseHandler()
             .deserializer(APIHelper.json_deserialize)
             .deserialize_into(SubmitScaAssociationResponse.from_dictionary)
-            .is_api_response(True)
             .local_error("400",
                 "Bad Request - The request contains invalid input and fails validatio"
                 "n.",
-                ScaDevicesScaAssociations400ErrorException)
+                DefaultErrorResponseEntityException)
             .local_error("401",
                 "Unauthorized - Authentication required.",
-                ScaDevicesScaAssociations401ErrorException)
+                DefaultErrorResponseEntityException)
             .local_error("403",
                 "Forbidden - Insufficient permissions to process the request.",
-                ScaDevicesScaAssociations403ErrorException)
+                DefaultErrorResponseEntityException)
             .local_error("404",
                 "Not Found - Device not found.",
-                ScaDevicesScaAssociations404ErrorException)
+                DefaultErrorResponseEntityException)
             .local_error("422",
                 "Unprocessable Entity - A request validation error.",
-                ScaDevicesScaAssociations422ErrorException)
+                DefaultErrorResponseEntityException)
             .local_error("500",
                 "Internal Server Error - The server could not process the request.",
-                ScaDevicesScaAssociations500ErrorException),
+                DefaultErrorResponseEntityException),
         ).execute()

@@ -13,8 +13,6 @@ class ConfidenceScore(object):
     Attributes:
         errors (List[str]): The model property of type List[str].
         score (float): The model property of type float.
-        additional_properties (Dict[str, Any]): The additional properties for the
-            model.
 
     """
 
@@ -32,19 +30,13 @@ class ConfidenceScore(object):
     def __init__(
         self,
         errors=APIHelper.SKIP,
-        score=APIHelper.SKIP,
-        additional_properties=None):
+        score=APIHelper.SKIP):
         """Initialize a ConfidenceScore instance."""
         # Initialize members of the class
         if errors is not APIHelper.SKIP:
             self.errors = errors
         if score is not APIHelper.SKIP:
             self.score = score
-
-        # Add additional model properties to the instance
-        if additional_properties is None:
-            additional_properties = {}
-        self.additional_properties = additional_properties
 
     @classmethod
     def from_dictionary(cls,
@@ -73,15 +65,9 @@ class ConfidenceScore(object):
             if dictionary.get("score")\
                 else APIHelper.SKIP
 
-        additional_properties = APIHelper.get_additional_properties(
-            dictionary={k: v for k, v in dictionary.items()
-                        if k not in cls._names.values()},
-            unboxing_function=lambda value: value)
-
         # Return an object of this model
         return cls(errors,
-                   score,
-                   additional_properties)
+                   score)
 
     @classmethod
     def validate(cls, dictionary):
@@ -116,12 +102,10 @@ class ConfidenceScore(object):
             if hasattr(self, "score")
             else None
         )
-        _additional_properties=self.additional_properties
         return (
             f"{self.__class__.__name__}("
             f"errors={_errors!r}, "
             f"score={_score!r}, "
-            f"additional_properties={_additional_properties!r}, "
             f")"
         )
 
@@ -137,11 +121,9 @@ class ConfidenceScore(object):
             if hasattr(self, "score")
             else None
         )
-        _additional_properties=self.additional_properties
         return (
             f"{self.__class__.__name__}("
             f"errors={_errors!s}, "
             f"score={_score!s}, "
-            f"additional_properties={_additional_properties!s}, "
             f")"
         )

@@ -8,8 +8,8 @@ from adyen.api_helper import APIHelper
 from adyen.models.minor_units_monetary_value import (
     MinorUnitsMonetaryValue,
 )
-from adyen.models.supported_card_types import (
-    SupportedCardTypes,
+from adyen.models.supported_card_types_2 import (
+    SupportedCardTypes2,
 )
 
 
@@ -21,10 +21,9 @@ class StoreAndForward(object):
             terminal accepts for a single store-and-forward payment.
         max_payments (int): The maximum number of store-and-forward transactions per
             terminal that you can process while offline.
-        supported_card_types (SupportedCardTypes): The model property of type
-            SupportedCardTypes.
-        additional_properties (Dict[str, Any]): The additional properties for the
-            model.
+        supported_card_types (SupportedCardTypes2): The type of card for which the
+            terminal accepts store-and-forward payments. You can specify multiple
+            card types.
 
     """
 
@@ -45,8 +44,7 @@ class StoreAndForward(object):
         self,
         max_amount=APIHelper.SKIP,
         max_payments=APIHelper.SKIP,
-        supported_card_types=APIHelper.SKIP,
-        additional_properties=None):
+        supported_card_types=APIHelper.SKIP):
         """Initialize a StoreAndForward instance."""
         # Initialize members of the class
         if max_amount is not APIHelper.SKIP:
@@ -55,11 +53,6 @@ class StoreAndForward(object):
             self.max_payments = max_payments
         if supported_card_types is not APIHelper.SKIP:
             self.supported_card_types = supported_card_types
-
-        # Add additional model properties to the instance
-        if additional_properties is None:
-            additional_properties = {}
-        self.additional_properties = additional_properties
 
     @classmethod
     def from_dictionary(cls,
@@ -92,21 +85,15 @@ class StoreAndForward(object):
             if dictionary.get("maxPayments")\
                 else APIHelper.SKIP
         supported_card_types =\
-            SupportedCardTypes.from_dictionary(
+            SupportedCardTypes2.from_dictionary(
                 dictionary.get("supportedCardTypes"))\
                 if "supportedCardTypes" in dictionary.keys()\
                 else APIHelper.SKIP
 
-        additional_properties = APIHelper.get_additional_properties(
-            dictionary={k: v for k, v in dictionary.items()
-                        if k not in cls._names.values()},
-            unboxing_function=lambda value: value)
-
         # Return an object of this model
         return cls(max_amount,
                    max_payments,
-                   supported_card_types,
-                   additional_properties)
+                   supported_card_types)
 
     def __repr__(self):
         """Return a unambiguous string representation."""
@@ -125,13 +112,11 @@ class StoreAndForward(object):
             if hasattr(self, "supported_card_types")
             else None
         )
-        _additional_properties=self.additional_properties
         return (
             f"{self.__class__.__name__}("
             f"max_amount={_max_amount!r}, "
             f"max_payments={_max_payments!r}, "
             f"supported_card_types={_supported_card_types!r}, "
-            f"additional_properties={_additional_properties!r}, "
             f")"
         )
 
@@ -152,12 +137,10 @@ class StoreAndForward(object):
             if hasattr(self, "supported_card_types")
             else None
         )
-        _additional_properties=self.additional_properties
         return (
             f"{self.__class__.__name__}("
             f"max_amount={_max_amount!s}, "
             f"max_payments={_max_payments!s}, "
             f"supported_card_types={_supported_card_types!s}, "
-            f"additional_properties={_additional_properties!s}, "
             f")"
         )

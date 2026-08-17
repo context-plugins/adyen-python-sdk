@@ -10,13 +10,15 @@ from adyen.api_helper import APIHelper
 class Amount16(object):
     """Implementation of the 'Amount16' model.
 
+    The total amount (initial plus surcharge amount).
+
     Attributes:
         currency (str): The three-character [ISO currency
-            code](https://docs.adyen.com/development-resources/currency-codes).
-        value (int): The amount of the transaction, in [minor
-            units](https://docs.adyen.com/development-resources/currency-codes).
-        additional_properties (Dict[str, Any]): The additional properties for the
-            model.
+            code](https://docs.adyen.com/development-resources/currency-codes#currency
+            -codes) of the amount.
+        value (int): The numeric value of the amount, in [minor
+            units](https://docs.adyen.com/development-resources/currency-codes#minor-u
+            nits).
 
     """
 
@@ -29,17 +31,11 @@ class Amount16(object):
     def __init__(
         self,
         currency=None,
-        value=None,
-        additional_properties=None):
+        value=None):
         """Initialize a Amount16 instance."""
         # Initialize members of the class
         self.currency = currency
         self.value = value
-
-        # Add additional model properties to the instance
-        if additional_properties is None:
-            additional_properties = {}
-        self.additional_properties = additional_properties
 
     @classmethod
     def from_dictionary(cls,
@@ -68,15 +64,9 @@ class Amount16(object):
             if dictionary.get("value")\
                 else None
 
-        additional_properties = APIHelper.get_additional_properties(
-            dictionary={k: v for k, v in dictionary.items()
-                        if k not in cls._names.values()},
-            unboxing_function=lambda value: value)
-
         # Return an object of this model
         return cls(currency,
-                   value,
-                   additional_properties)
+                   value)
 
     @classmethod
     def validate(cls, dictionary):
@@ -129,12 +119,10 @@ class Amount16(object):
         """Return a unambiguous string representation."""
         _currency=self.currency
         _value=self.value
-        _additional_properties=self.additional_properties
         return (
             f"{self.__class__.__name__}("
             f"currency={_currency!r}, "
             f"value={_value!r}, "
-            f"additional_properties={_additional_properties!r}, "
             f")"
         )
 
@@ -142,11 +130,9 @@ class Amount16(object):
         """Return a human-readable string representation."""
         _currency=self.currency
         _value=self.value
-        _additional_properties=self.additional_properties
         return (
             f"{self.__class__.__name__}("
             f"currency={_currency!s}, "
             f"value={_value!s}, "
-            f"additional_properties={_additional_properties!s}, "
             f")"
         )

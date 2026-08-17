@@ -1,8 +1,6 @@
 
 # Diners Info
 
-*This model accepts additional fields of type Any.*
-
 ## Structure
 
 `DinersInfo`
@@ -12,35 +10,26 @@
 | Name | Type | Tags | Description |
 |  --- | --- | --- | --- |
 | `mid_number` | `str` | Optional | MID (Merchant ID) number. Required for merchants operating in Japan.<br>Format: 14 numeric characters.<br><br>**Constraints**: *Maximum Length*: `14` |
-| `reuse_mid_number` | `bool` | Required | Indicates whether the JCB Merchant ID is reused from a previously configured JCB payment method.<br>The default value is **false**.<br>For merchants operating in Japan, this field is required and must be set to **true**. |
-| `service_level` | [`ServiceLevel1`](../../doc/models/service-level-1.md) | Optional | - |
-| `transaction_description` | [`TransactionDescriptionInfo`](../../doc/models/transaction-description-info.md) | Optional | - |
-| `additional_properties` | `Dict[str, Any]` | Optional | - |
+| `reuse_mid_number` | `bool` | Required | Indicates whether the JCB Merchant ID is reused from a previously configured JCB payment method.<br>The default value is **false**.<br>For merchants operating in Japan, this field is required and must be set to **true**.<br><br>**Default**: `False` |
+| `service_level` | [`ServiceLevel1Enum`](../../doc/models/service-level-1-enum.md) | Optional | Specifies the service level (settlement type) of this payment method. Required for merchants operating in Japan. Possible values:<br><br>* **noContract**: Adyen holds the contract with JCB.<br>* **gatewayContract**: JCB receives the settlement and handles disputes, then pays out to you or your sub-merchant directly. |
+| `transaction_description` | [`TransactionDescriptionInfo1`](../../doc/models/transaction-description-info-1.md) | Optional | Information regarding the transaction description.<br><br>> You cannot configure the transaction description in the test environment. |
 
 ## Example
 
 ```python
-import jsonpickle
-
 from adyen.models.diners_info import DinersInfo
-from adyen.models.service_level_1 import ServiceLevel1
-from adyen.models.transaction_description_info import TransactionDescriptionInfo
-from adyen.models.type_33 import Type33
+from adyen.models.service_level_1_enum import ServiceLevel1Enum
+from adyen.models.transaction_description_info_1 import TransactionDescriptionInfo1
+from adyen.models.type_8_enum import Type8Enum
 
 diners_info = DinersInfo(
     reuse_mid_number=False,
     mid_number='midNumber6',
-    service_level=ServiceLevel1.NOCONTRACT,
-    transaction_description=TransactionDescriptionInfo(
+    service_level=ServiceLevel1Enum.NOCONTRACT,
+    transaction_description=TransactionDescriptionInfo1(
         doing_business_as_name='doingBusinessAsName0',
-        mtype=Type33.FIXED,
-        additional_properties={
-            'exampleAdditionalProperty': jsonpickle.decode('{"key1":"val1","key2":"val2"}')
-        }
-    ),
-    additional_properties={
-        'exampleAdditionalProperty': jsonpickle.decode('{"key1":"val1","key2":"val2"}')
-    }
+        mtype=Type8Enum.FIXED
+    )
 )
 ```
 

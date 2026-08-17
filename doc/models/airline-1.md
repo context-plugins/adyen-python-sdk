@@ -3,8 +3,6 @@
 
 [Airline enhanced scheme data](https://docs.adyen.com/payment-methods/cards/enhanced-scheme-data/airline/) that may be required for processing the transaction and/or for interchange savings.
 
-*This model accepts additional fields of type Any.*
-
 ## Structure
 
 `Airline1`
@@ -26,13 +24,10 @@
 | `passengers` | [`List[Passenger]`](../../doc/models/passenger.md) | Optional | - |
 | `ticket` | [`Ticket`](../../doc/models/ticket.md) | Optional | - |
 | `travel_agency` | [`TravelAgency`](../../doc/models/travel-agency.md) | Optional | - |
-| `additional_properties` | `Dict[str, Any]` | Optional | - |
 
 ## Example
 
 ```python
-import jsonpickle
-
 from adyen.models.agency import Agency
 from adyen.models.airline_1 import Airline1
 
@@ -40,18 +35,12 @@ airline_1 = Airline1(
     passenger_name='passengerName8',
     agency=Agency(
         invoice_number='invoiceNumber6',
-        plan_name='planName6',
-        additional_properties={
-            'exampleAdditionalProperty': jsonpickle.decode('{"key1":"val1","key2":"val2"}')
-        }
+        plan_name='planName6'
     ),
     boarding_fee=90,
     code='code8',
     computerized_reservation_system='computerizedReservationSystem4',
-    customer_reference_number='customerReferenceNumber2',
-    additional_properties={
-        'exampleAdditionalProperty': jsonpickle.decode('{"key1":"val1","key2":"val2"}')
-    }
+    customer_reference_number='customerReferenceNumber2'
 )
 ```
 

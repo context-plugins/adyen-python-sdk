@@ -16,8 +16,6 @@ class GooglePayResponseInfo1(object):
         merchant_id (str): Google Pay [Merchant ID]
         reuse_merchant_id (bool): Indicates whether the Google Pay Merchant ID is
             used for several merchant accounts.
-        additional_properties (Dict[str, Any]): The additional properties for the
-            model.
 
     """
 
@@ -35,19 +33,13 @@ class GooglePayResponseInfo1(object):
     def __init__(
         self,
         merchant_id=APIHelper.SKIP,
-        reuse_merchant_id=APIHelper.SKIP,
-        additional_properties=None):
+        reuse_merchant_id=APIHelper.SKIP):
         """Initialize a GooglePayResponseInfo1 instance."""
         # Initialize members of the class
         if merchant_id is not APIHelper.SKIP:
             self.merchant_id = merchant_id
         if reuse_merchant_id is not APIHelper.SKIP:
             self.reuse_merchant_id = reuse_merchant_id
-
-        # Add additional model properties to the instance
-        if additional_properties is None:
-            additional_properties = {}
-        self.additional_properties = additional_properties
 
     @classmethod
     def from_dictionary(cls,
@@ -76,15 +68,9 @@ class GooglePayResponseInfo1(object):
             if "reuseMerchantId" in dictionary.keys()\
                 else APIHelper.SKIP
 
-        additional_properties = APIHelper.get_additional_properties(
-            dictionary={k: v for k, v in dictionary.items()
-                        if k not in cls._names.values()},
-            unboxing_function=lambda value: value)
-
         # Return an object of this model
         return cls(merchant_id,
-                   reuse_merchant_id,
-                   additional_properties)
+                   reuse_merchant_id)
 
     def __repr__(self):
         """Return a unambiguous string representation."""
@@ -98,12 +84,10 @@ class GooglePayResponseInfo1(object):
             if hasattr(self, "reuse_merchant_id")
             else None
         )
-        _additional_properties=self.additional_properties
         return (
             f"{self.__class__.__name__}("
             f"merchant_id={_merchant_id!r}, "
             f"reuse_merchant_id={_reuse_merchant_id!r}, "
-            f"additional_properties={_additional_properties!r}, "
             f")"
         )
 
@@ -119,11 +103,9 @@ class GooglePayResponseInfo1(object):
             if hasattr(self, "reuse_merchant_id")
             else None
         )
-        _additional_properties=self.additional_properties
         return (
             f"{self.__class__.__name__}("
             f"merchant_id={_merchant_id!s}, "
             f"reuse_merchant_id={_reuse_merchant_id!s}, "
-            f"additional_properties={_additional_properties!s}, "
             f")"
         )

@@ -31,8 +31,6 @@ class MigrationData2(object):
         migrated_stores (List[MigratedStores]): Contains the mapping of business
             lines and stores associated with the migrated account holder.
         migration_date (datetime): The date when account holder was migrated.
-        additional_properties (Dict[str, Any]): The additional properties for the
-            model.
 
     """
 
@@ -65,8 +63,7 @@ class MigrationData2(object):
         migrated_accounts=APIHelper.SKIP,
         migrated_shareholders=APIHelper.SKIP,
         migrated_stores=APIHelper.SKIP,
-        migration_date=APIHelper.SKIP,
-        additional_properties=None):
+        migration_date=APIHelper.SKIP):
         """Initialize a MigrationData2 instance."""
         # Initialize members of the class
         if account_holder_id is not APIHelper.SKIP:
@@ -86,11 +83,6 @@ class MigrationData2(object):
                  APIHelper.apply_datetime_converter(
                 migration_date, APIHelper.RFC3339DateTime)\
                  if migration_date else None
-
-        # Add additional model properties to the instance
-        if additional_properties is None:
-            additional_properties = {}
-        self.additional_properties = additional_properties
 
     @classmethod
     def from_dictionary(cls,
@@ -150,11 +142,6 @@ class MigrationData2(object):
             dictionary.get("migrationDate")).datetime\
             if dictionary.get("migrationDate") else APIHelper.SKIP
 
-        additional_properties = APIHelper.get_additional_properties(
-            dictionary={k: v for k, v in dictionary.items()
-                        if k not in cls._names.values()},
-            unboxing_function=lambda value: value)
-
         # Return an object of this model
         return cls(account_holder_id,
                    balance_platform,
@@ -162,8 +149,7 @@ class MigrationData2(object):
                    migrated_accounts,
                    migrated_shareholders,
                    migrated_stores,
-                   migration_date,
-                   additional_properties)
+                   migration_date)
 
     def __repr__(self):
         """Return a unambiguous string representation."""
@@ -202,7 +188,6 @@ class MigrationData2(object):
             if hasattr(self, "migration_date")
             else None
         )
-        _additional_properties=self.additional_properties
         return (
             f"{self.__class__.__name__}("
             f"account_holder_id={_account_holder_id!r}, "
@@ -212,7 +197,6 @@ class MigrationData2(object):
             f"migrated_shareholders={_migrated_shareholders!r}, "
             f"migrated_stores={_migrated_stores!r}, "
             f"migration_date={_migration_date!r}, "
-            f"additional_properties={_additional_properties!r}, "
             f")"
         )
 
@@ -253,7 +237,6 @@ class MigrationData2(object):
             if hasattr(self, "migration_date")
             else None
         )
-        _additional_properties=self.additional_properties
         return (
             f"{self.__class__.__name__}("
             f"account_holder_id={_account_holder_id!s}, "
@@ -263,6 +246,5 @@ class MigrationData2(object):
             f"migrated_shareholders={_migrated_shareholders!s}, "
             f"migrated_stores={_migrated_stores!s}, "
             f"migration_date={_migration_date!s}, "
-            f"additional_properties={_additional_properties!s}, "
             f")"
         )

@@ -1,8 +1,6 @@
 
 # Condition
 
-*This model accepts additional fields of type Any.*
-
 ## Structure
 
 `Condition`
@@ -11,27 +9,21 @@
 
 | Name | Type | Tags | Description |
 |  --- | --- | --- | --- |
-| `balance_type` | [`BalanceType`](../../doc/models/balance-type.md) | Required | - |
-| `condition_type` | [`ConditionType`](../../doc/models/condition-type.md) | Required | - |
+| `balance_type` | [`BalanceTypeEnum`](../../doc/models/balance-type-enum.md) | Required | Define the type of balance about which you want to get notified. Possible values:<br><br>* **available**: the balance available for use.<br><br>* **balance**: the sum of transactions that have already been settled.<br><br>* **pending**: the sum of transactions that will be settled in the future.<br><br>* **reserved**: the balance currently held in reserve. |
+| `condition_type` | [`ConditionTypeEnum`](../../doc/models/condition-type-enum.md) | Required | Define when you want to get notified about a balance change. Possible values:<br><br>* **greaterThan**: the balance in the account(s) exceeds the specified `value`.<br><br>* **greaterThanOrEqual**: the balance in the account(s) reaches or exceeds the specified `value`.<br><br>* **lessThan**: the balance in the account(s) drops below the specified `value`.<br><br>* **lessThanOrEqual**: the balance in the account(s) reaches to drops below the specified `value`. |
 | `value` | `int` | Required | The value limit in the specified balance type and currency, in minor units. |
-| `additional_properties` | `Dict[str, Any]` | Optional | - |
 
 ## Example
 
 ```python
-import jsonpickle
-
-from adyen.models.balance_type import BalanceType
+from adyen.models.balance_type_enum import BalanceTypeEnum
 from adyen.models.condition import Condition
-from adyen.models.condition_type import ConditionType
+from adyen.models.condition_type_enum import ConditionTypeEnum
 
 condition = Condition(
-    balance_type=BalanceType.BALANCE,
-    condition_type=ConditionType.LESSTHAN,
-    value=194,
-    additional_properties={
-        'exampleAdditionalProperty': jsonpickle.decode('{"key1":"val1","key2":"val2"}')
-    }
+    balance_type=BalanceTypeEnum.BALANCE,
+    condition_type=ConditionTypeEnum.LESSTHAN,
+    value=194
 )
 ```
 

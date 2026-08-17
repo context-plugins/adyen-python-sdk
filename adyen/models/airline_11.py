@@ -16,8 +16,6 @@ class Airline11(object):
     Attributes:
         legs (List[Leg1]): Details about the flight legs for this ticket.
         ticket_number (str): The ticket's unique identifier
-        additional_properties (Dict[str, Any]): The additional properties for the
-            model.
 
     """
 
@@ -35,19 +33,13 @@ class Airline11(object):
     def __init__(
         self,
         legs=APIHelper.SKIP,
-        ticket_number=APIHelper.SKIP,
-        additional_properties=None):
+        ticket_number=APIHelper.SKIP):
         """Initialize a Airline11 instance."""
         # Initialize members of the class
         if legs is not APIHelper.SKIP:
             self.legs = legs
         if ticket_number is not APIHelper.SKIP:
             self.ticket_number = ticket_number
-
-        # Add additional model properties to the instance
-        if additional_properties is None:
-            additional_properties = {}
-        self.additional_properties = additional_properties
 
     @classmethod
     def from_dictionary(cls,
@@ -80,15 +72,9 @@ class Airline11(object):
             if dictionary.get("ticketNumber")\
                 else APIHelper.SKIP
 
-        additional_properties = APIHelper.get_additional_properties(
-            dictionary={k: v for k, v in dictionary.items()
-                        if k not in cls._names.values()},
-            unboxing_function=lambda value: value)
-
         # Return an object of this model
         return cls(legs,
-                   ticket_number,
-                   additional_properties)
+                   ticket_number)
 
     @classmethod
     def validate(cls, dictionary):
@@ -123,12 +109,10 @@ class Airline11(object):
             if hasattr(self, "ticket_number")
             else None
         )
-        _additional_properties=self.additional_properties
         return (
             f"{self.__class__.__name__}("
             f"legs={_legs!r}, "
             f"ticket_number={_ticket_number!r}, "
-            f"additional_properties={_additional_properties!r}, "
             f")"
         )
 
@@ -144,11 +128,9 @@ class Airline11(object):
             if hasattr(self, "ticket_number")
             else None
         )
-        _additional_properties=self.additional_properties
         return (
             f"{self.__class__.__name__}("
             f"legs={_legs!s}, "
             f"ticket_number={_ticket_number!s}, "
-            f"additional_properties={_additional_properties!s}, "
             f")"
         )

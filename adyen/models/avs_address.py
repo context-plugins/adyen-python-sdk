@@ -14,8 +14,6 @@ class AvsAddress(object):
         street_address (str): The street and house number of the address.  Example: 1
             Infinite Loop, Cupertino.
         zip (str): The zip or post code of the address.  Example: CA 95014
-        additional_properties (Dict[str, Any]): The additional properties for the
-            model.
 
     """
 
@@ -32,18 +30,12 @@ class AvsAddress(object):
     def __init__(
         self,
         street_address=None,
-        zip=APIHelper.SKIP,
-        additional_properties=None):
+        zip=APIHelper.SKIP):
         """Initialize a AvsAddress instance."""
         # Initialize members of the class
         self.street_address = street_address
         if zip is not APIHelper.SKIP:
             self.zip = zip
-
-        # Add additional model properties to the instance
-        if additional_properties is None:
-            additional_properties = {}
-        self.additional_properties = additional_properties
 
     @classmethod
     def from_dictionary(cls,
@@ -72,15 +64,9 @@ class AvsAddress(object):
             if dictionary.get("zip")\
                 else APIHelper.SKIP
 
-        additional_properties = APIHelper.get_additional_properties(
-            dictionary={k: v for k, v in dictionary.items()
-                        if k not in cls._names.values()},
-            unboxing_function=lambda value: value)
-
         # Return an object of this model
         return cls(street_address,
-                   zip,
-                   additional_properties)
+                   zip)
 
     def __repr__(self):
         """Return a unambiguous string representation."""
@@ -90,12 +76,10 @@ class AvsAddress(object):
             if hasattr(self, "zip")
             else None
         )
-        _additional_properties=self.additional_properties
         return (
             f"{self.__class__.__name__}("
             f"street_address={_street_address!r}, "
             f"zip={_zip!r}, "
-            f"additional_properties={_additional_properties!r}, "
             f")"
         )
 
@@ -107,11 +91,9 @@ class AvsAddress(object):
             if hasattr(self, "zip")
             else None
         )
-        _additional_properties=self.additional_properties
         return (
             f"{self.__class__.__name__}("
             f"street_address={_street_address!s}, "
             f"zip={_zip!s}, "
-            f"additional_properties={_additional_properties!s}, "
             f")"
         )

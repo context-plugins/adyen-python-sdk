@@ -41,27 +41,23 @@ def get_mandates(self,
 
 **200**: OK - The request has succeeded
 
-This method returns an [`ApiResponse`](../../doc/api-response.md) instance. The `body` property of this instance returns the response data which is of type [`ListMandatesResponse`](../../doc/models/list-mandates-response.md).
+[`ListMandatesResponse`](../../doc/models/list-mandates-response.md)
 
 ## Example Usage
 
 ```python
 result = direct_debit_mandates_api.get_mandates()
-
-if result.is_success():
-    print(result.body)
-elif result.is_error():
-    print(result.errors)
+print(result)
 ```
 
 ## Errors
 
 | HTTP Status Code | Error Description | Exception Class |
 |  --- | --- | --- |
-| 401 | Unauthorized - authentication required. | [`Mandates401ErrorException`](../../doc/models/mandates-401-error-exception.md) |
-| 403 | Forbidden - insufficient permissions to process the request. | [`Mandates403ErrorException`](../../doc/models/mandates-403-error-exception.md) |
-| 422 | Unprocessable Entity - a request validation error. | [`Mandates422ErrorException`](../../doc/models/mandates-422-error-exception.md) |
-| 500 | Internal Server Error - the server could not process the request. | [`Mandates500ErrorException`](../../doc/models/mandates-500-error-exception.md) |
+| 401 | Unauthorized - authentication required. | [`DefaultErrorResponseEntityException`](../../doc/models/default-error-response-entity-exception.md) |
+| 403 | Forbidden - insufficient permissions to process the request. | [`DefaultErrorResponseEntityException`](../../doc/models/default-error-response-entity-exception.md) |
+| 422 | Unprocessable Entity - a request validation error. | [`DefaultErrorResponseEntityException`](../../doc/models/default-error-response-entity-exception.md) |
+| 500 | Internal Server Error - the server could not process the request. | [`DefaultErrorResponseEntityException`](../../doc/models/default-error-response-entity-exception.md) |
 
 
 # Get-Mandates-Mandate Id
@@ -85,7 +81,7 @@ def get_mandates_mandate_id(self,
 
 **200**: OK - The request has succeeded
 
-This method returns an [`ApiResponse`](../../doc/api-response.md) instance. The `body` property of this instance returns the response data which is of type [`Mandate`](../../doc/models/mandate.md).
+[`Mandate1`](../../doc/models/mandate-1.md)
 
 ## Example Usage
 
@@ -93,22 +89,18 @@ This method returns an [`ApiResponse`](../../doc/api-response.md) instance. The 
 mandate_id = 'mandateId8'
 
 result = direct_debit_mandates_api.get_mandates_mandate_id(mandate_id)
-
-if result.is_success():
-    print(result.body)
-elif result.is_error():
-    print(result.errors)
+print(result)
 ```
 
 ## Errors
 
 | HTTP Status Code | Error Description | Exception Class |
 |  --- | --- | --- |
-| 401 | Unauthorized - authentication required. | [`Mandates401ErrorException`](../../doc/models/mandates-401-error-exception.md) |
-| 403 | Forbidden - insufficient permissions to process the request. | [`Mandates403ErrorException`](../../doc/models/mandates-403-error-exception.md) |
-| 404 | The mandate was not found. | [`Mandates404ErrorException`](../../doc/models/mandates-404-error-exception.md) |
-| 422 | Unprocessable Entity - a request validation error. | [`Mandates422ErrorException`](../../doc/models/mandates-422-error-exception.md) |
-| 500 | Internal Server Error - the server could not process the request. | [`Mandates500ErrorException`](../../doc/models/mandates-500-error-exception.md) |
+| 401 | Unauthorized - authentication required. | [`DefaultErrorResponseEntityException`](../../doc/models/default-error-response-entity-exception.md) |
+| 403 | Forbidden - insufficient permissions to process the request. | [`DefaultErrorResponseEntityException`](../../doc/models/default-error-response-entity-exception.md) |
+| 404 | The mandate was not found. | [`DefaultErrorResponseEntityException`](../../doc/models/default-error-response-entity-exception.md) |
+| 422 | Unprocessable Entity - a request validation error. | [`DefaultErrorResponseEntityException`](../../doc/models/default-error-response-entity-exception.md) |
+| 500 | Internal Server Error - the server could not process the request. | [`DefaultErrorResponseEntityException`](../../doc/models/default-error-response-entity-exception.md) |
 
 
 # Patch-Mandates-Mandate Id
@@ -134,7 +126,7 @@ def patch_mandates_mandate_id(self,
 
 **202**: Accepted - The request has been accepted
 
-This method returns an [`ApiResponse`](../../doc/api-response.md) instance.
+`void`
 
 ## Example Usage
 
@@ -143,26 +135,21 @@ mandate_id = 'mandateId8'
 
 body = MandateUpdate()
 
-result = direct_debit_mandates_api.patch_mandates_mandate_id(
+direct_debit_mandates_api.patch_mandates_mandate_id(
     mandate_id,
     body
 )
-
-if result.is_success():
-    print(result.body)
-elif result.is_error():
-    print(result.errors)
 ```
 
 ## Errors
 
 | HTTP Status Code | Error Description | Exception Class |
 |  --- | --- | --- |
-| 401 | Unauthorized - authentication required. | [`Mandates401ErrorException`](../../doc/models/mandates-401-error-exception.md) |
-| 403 | Forbidden - insufficient permissions to process the request. | [`Mandates403ErrorException`](../../doc/models/mandates-403-error-exception.md) |
-| 404 | The mandate was not found | [`Mandates404ErrorException`](../../doc/models/mandates-404-error-exception.md) |
-| 422 | Unprocessable Entity - a request validation error. | [`Mandates422ErrorException`](../../doc/models/mandates-422-error-exception.md) |
-| 500 | Internal Server Error - the server could not process the request. | [`Mandates500ErrorException`](../../doc/models/mandates-500-error-exception.md) |
+| 401 | Unauthorized - authentication required. | [`DefaultErrorResponseEntityException`](../../doc/models/default-error-response-entity-exception.md) |
+| 403 | Forbidden - insufficient permissions to process the request. | [`DefaultErrorResponseEntityException`](../../doc/models/default-error-response-entity-exception.md) |
+| 404 | The mandate was not found | [`DefaultErrorResponseEntityException`](../../doc/models/default-error-response-entity-exception.md) |
+| 422 | Unprocessable Entity - a request validation error. | [`DefaultErrorResponseEntityException`](../../doc/models/default-error-response-entity-exception.md) |
+| 500 | Internal Server Error - the server could not process the request. | [`DefaultErrorResponseEntityException`](../../doc/models/default-error-response-entity-exception.md) |
 
 
 # Post-Mandates-Mandate Id-Cancel
@@ -186,28 +173,23 @@ def post_mandates_mandate_id_cancel(self,
 
 **202**: Accepted - The request has been accepted
 
-This method returns an [`ApiResponse`](../../doc/api-response.md) instance.
+`void`
 
 ## Example Usage
 
 ```python
 mandate_id = 'mandateId8'
 
-result = direct_debit_mandates_api.post_mandates_mandate_id_cancel(mandate_id)
-
-if result.is_success():
-    print(result.body)
-elif result.is_error():
-    print(result.errors)
+direct_debit_mandates_api.post_mandates_mandate_id_cancel(mandate_id)
 ```
 
 ## Errors
 
 | HTTP Status Code | Error Description | Exception Class |
 |  --- | --- | --- |
-| 401 | Unauthorized - authentication required. | [`MandatesCancel401ErrorException`](../../doc/models/mandates-cancel-401-error-exception.md) |
-| 403 | Forbidden - insufficient permissions to process the request. | [`MandatesCancel403ErrorException`](../../doc/models/mandates-cancel-403-error-exception.md) |
-| 404 | The mandate was not found. | [`MandatesCancel404ErrorException`](../../doc/models/mandates-cancel-404-error-exception.md) |
-| 422 | Unprocessable Entity - a request validation error. | [`MandatesCancel422ErrorException`](../../doc/models/mandates-cancel-422-error-exception.md) |
-| 500 | Internal Server Error - the server could not process the request. | [`MandatesCancel500ErrorException`](../../doc/models/mandates-cancel-500-error-exception.md) |
+| 401 | Unauthorized - authentication required. | [`DefaultErrorResponseEntityException`](../../doc/models/default-error-response-entity-exception.md) |
+| 403 | Forbidden - insufficient permissions to process the request. | [`DefaultErrorResponseEntityException`](../../doc/models/default-error-response-entity-exception.md) |
+| 404 | The mandate was not found. | [`DefaultErrorResponseEntityException`](../../doc/models/default-error-response-entity-exception.md) |
+| 422 | Unprocessable Entity - a request validation error. | [`DefaultErrorResponseEntityException`](../../doc/models/default-error-response-entity-exception.md) |
+| 500 | Internal Server Error - the server could not process the request. | [`DefaultErrorResponseEntityException`](../../doc/models/default-error-response-entity-exception.md) |
 

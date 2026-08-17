@@ -8,7 +8,7 @@ from adyen.api_helper import APIHelper
 
 
 class AmazonPay(object):
-    """Implementation of the 'AmazonPay' model.
+    """Implementation of the 'Amazon Pay' model.
 
     Attributes:
         amazon_pay_token (str): This is the `amazonPayToken` that you obtained from
@@ -22,9 +22,7 @@ class AmazonPay(object):
             drop-in and components integration, where it replaces the amazonPayToken.
         sdk_data (str): Base64-encoded JSON object containing SDK related parameters
             required by the SDK
-        mtype (Type41): The model property of type Type41.
-        additional_properties (Dict[str, Any]): The additional properties for the
-            model.
+        mtype (Type4Enum): **amazonpay**
 
     """
 
@@ -51,8 +49,7 @@ class AmazonPay(object):
         checkout_attempt_id=APIHelper.SKIP,
         checkout_session_id=APIHelper.SKIP,
         sdk_data=APIHelper.SKIP,
-        mtype=APIHelper.SKIP,
-        additional_properties=None):
+        mtype="amazonpay"):
         """Initialize a AmazonPay instance."""
         # Initialize members of the class
         if amazon_pay_token is not APIHelper.SKIP:
@@ -63,13 +60,7 @@ class AmazonPay(object):
             self.checkout_session_id = checkout_session_id
         if sdk_data is not APIHelper.SKIP:
             self.sdk_data = sdk_data
-        if mtype is not APIHelper.SKIP:
-            self.mtype = mtype
-
-        # Add additional model properties to the instance
-        if additional_properties is None:
-            additional_properties = {}
-        self.additional_properties = additional_properties
+        self.mtype = mtype
 
     @classmethod
     def from_dictionary(cls,
@@ -108,20 +99,14 @@ class AmazonPay(object):
         mtype =\
             dictionary.get("type")\
             if dictionary.get("type")\
-                else APIHelper.SKIP
-
-        additional_properties = APIHelper.get_additional_properties(
-            dictionary={k: v for k, v in dictionary.items()
-                        if k not in cls._names.values()},
-            unboxing_function=lambda value: value)
+                else "amazonpay"
 
         # Return an object of this model
         return cls(amazon_pay_token,
                    checkout_attempt_id,
                    checkout_session_id,
                    sdk_data,
-                   mtype,
-                   additional_properties)
+                   mtype)
 
     @classmethod
     def validate(cls, dictionary):
@@ -171,7 +156,6 @@ class AmazonPay(object):
             if hasattr(self, "mtype")
             else None
         )
-        _additional_properties=self.additional_properties
         return (
             f"{self.__class__.__name__}("
             f"amazon_pay_token={_amazon_pay_token!r}, "
@@ -179,7 +163,6 @@ class AmazonPay(object):
             f"checkout_session_id={_checkout_session_id!r}, "
             f"sdk_data={_sdk_data!r}, "
             f"mtype={_mtype!r}, "
-            f"additional_properties={_additional_properties!r}, "
             f")"
         )
 
@@ -210,7 +193,6 @@ class AmazonPay(object):
             if hasattr(self, "mtype")
             else None
         )
-        _additional_properties=self.additional_properties
         return (
             f"{self.__class__.__name__}("
             f"amazon_pay_token={_amazon_pay_token!s}, "
@@ -218,6 +200,5 @@ class AmazonPay(object):
             f"checkout_session_id={_checkout_session_id!s}, "
             f"sdk_data={_sdk_data!s}, "
             f"mtype={_mtype!s}, "
-            f"additional_properties={_additional_properties!s}, "
             f")"
         )

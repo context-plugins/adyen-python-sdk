@@ -3,8 +3,6 @@
 
 The details of the payout schedule to which the account must be updated.
 
-*This model accepts additional fields of type Any.*
-
 ## Structure
 
 `UpdatePayoutScheduleRequest2`
@@ -13,27 +11,21 @@ The details of the payout schedule to which the account must be updated.
 
 | Name | Type | Tags | Description |
 |  --- | --- | --- | --- |
-| `action` | [`Action`](../../doc/models/action.md) | Optional | - |
+| `action` | [`ActionEnum`](../../doc/models/action-enum.md) | Optional | Direction on how to handle any payouts that have already been scheduled.<br><br>Possible values:<br><br>* `CLOSE`: close the existing batch of payouts.<br>* `UPDATE`: reschedule the existing batch to the new schedule.<br>* `NOTHING` (**default**): allow the payout to proceed. |
 | `reason` | `str` | Optional | The reason for the payout schedule update.<br><br>> This field is required when the `schedule` parameter is set to `HOLD`. |
-| `schedule` | [`Schedule1`](../../doc/models/schedule-1.md) | Required | - |
-| `additional_properties` | `Dict[str, Any]` | Optional | - |
+| `schedule` | [`Schedule1Enum`](../../doc/models/schedule-1-enum.md) | Required | The new payout schedule for the account.<br><br>Possible values: `DEFAULT`, `DAILY`, `DAILY_US`, `DAILY_EU`, `DAILY_AU`, `DAILY_SG`, `WEEKLY`, `WEEKLY_ON_TUE_FRI_MIDNIGHT`, `BIWEEKLY_ON_1ST_AND_15TH_AT_MIDNIGHT`, `MONTHLY`, `HOLD`.<br><br>> `HOLD` prevents scheduled payouts, but you can still initiate payouts manually. |
 
 ## Example
 
 ```python
-import jsonpickle
-
-from adyen.models.action import Action
-from adyen.models.schedule_1 import Schedule1
+from adyen.models.action_enum import ActionEnum
+from adyen.models.schedule_1_enum import Schedule1Enum
 from adyen.models.update_payout_schedule_request_2 import UpdatePayoutScheduleRequest2
 
 update_payout_schedule_request_2 = UpdatePayoutScheduleRequest2(
-    schedule=Schedule1.WEEKLY_MON_TO_FRI_US,
-    action=Action.UPDATE,
-    reason='reason8',
-    additional_properties={
-        'exampleAdditionalProperty': jsonpickle.decode('{"key1":"val1","key2":"val2"}')
-    }
+    schedule=Schedule1Enum.WEEKLY_MON_TO_FRI_US,
+    action=ActionEnum.UPDATE,
+    reason='reason8'
 )
 ```
 

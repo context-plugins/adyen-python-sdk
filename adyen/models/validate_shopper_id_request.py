@@ -16,13 +16,10 @@ class ValidateShopperIdRequest(object):
     Attributes:
         merchant_account (str): The merchant account identifier, with which you want
             to process the transaction.
-        payment_method (ShopperIdPaymentMethod1): The model property of type
-            ShopperIdPaymentMethod1.
+        payment_method (ShopperIdPaymentMethod1): paymentMethod
         shopper_email (str): The model property of type str.
         shopper_ip (str): The model property of type str.
         shopper_reference (str): The model property of type str.
-        additional_properties (Dict[str, Any]): The additional properties for the
-            model.
 
     """
 
@@ -47,8 +44,7 @@ class ValidateShopperIdRequest(object):
         payment_method=None,
         shopper_email=APIHelper.SKIP,
         shopper_ip=APIHelper.SKIP,
-        shopper_reference=APIHelper.SKIP,
-        additional_properties=None):
+        shopper_reference=APIHelper.SKIP):
         """Initialize a ValidateShopperIdRequest instance."""
         # Initialize members of the class
         self.merchant_account = merchant_account
@@ -59,11 +55,6 @@ class ValidateShopperIdRequest(object):
             self.shopper_ip = shopper_ip
         if shopper_reference is not APIHelper.SKIP:
             self.shopper_reference = shopper_reference
-
-        # Add additional model properties to the instance
-        if additional_properties is None:
-            additional_properties = {}
-        self.additional_properties = additional_properties
 
     @classmethod
     def from_dictionary(cls,
@@ -104,18 +95,12 @@ class ValidateShopperIdRequest(object):
             if dictionary.get("shopperReference")\
                 else APIHelper.SKIP
 
-        additional_properties = APIHelper.get_additional_properties(
-            dictionary={k: v for k, v in dictionary.items()
-                        if k not in cls._names.values()},
-            unboxing_function=lambda value: value)
-
         # Return an object of this model
         return cls(merchant_account,
                    payment_method,
                    shopper_email,
                    shopper_ip,
-                   shopper_reference,
-                   additional_properties)
+                   shopper_reference)
 
     def __repr__(self):
         """Return a unambiguous string representation."""
@@ -136,7 +121,6 @@ class ValidateShopperIdRequest(object):
             if hasattr(self, "shopper_reference")
             else None
         )
-        _additional_properties=self.additional_properties
         return (
             f"{self.__class__.__name__}("
             f"merchant_account={_merchant_account!r}, "
@@ -144,7 +128,6 @@ class ValidateShopperIdRequest(object):
             f"shopper_email={_shopper_email!r}, "
             f"shopper_ip={_shopper_ip!r}, "
             f"shopper_reference={_shopper_reference!r}, "
-            f"additional_properties={_additional_properties!r}, "
             f")"
         )
 
@@ -167,7 +150,6 @@ class ValidateShopperIdRequest(object):
             if hasattr(self, "shopper_reference")
             else None
         )
-        _additional_properties=self.additional_properties
         return (
             f"{self.__class__.__name__}("
             f"merchant_account={_merchant_account!s}, "
@@ -175,6 +157,5 @@ class ValidateShopperIdRequest(object):
             f"shopper_email={_shopper_email!s}, "
             f"shopper_ip={_shopper_ip!s}, "
             f"shopper_reference={_shopper_reference!s}, "
-            f"additional_properties={_additional_properties!s}, "
             f")"
         )

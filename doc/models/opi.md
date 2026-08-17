@@ -1,8 +1,6 @@
 
 # Opi
 
-*This model accepts additional fields of type Any.*
-
 ## Structure
 
 `Opi`
@@ -14,22 +12,16 @@
 | `enable_pay_at_table` | `bool` | Optional | Indicates if Pay at table is enabled. |
 | `pay_at_table_store_number` | `str` | Optional | The store number to use for Pay at Table. |
 | `pay_at_table_url` | `str` | Optional | The URL and port number used for Pay at Table communication. |
-| `additional_properties` | `Dict[str, Any]` | Optional | - |
 
 ## Example
 
 ```python
-import jsonpickle
-
 from adyen.models.opi import Opi
 
 opi = Opi(
     enable_pay_at_table=False,
     pay_at_table_store_number='payAtTableStoreNumber0',
-    pay_at_table_url='payAtTableURL2',
-    additional_properties={
-        'exampleAdditionalProperty': jsonpickle.decode('{"key1":"val1","key2":"val2"}')
-    }
+    pay_at_table_url='payAtTableURL2'
 )
 ```
 

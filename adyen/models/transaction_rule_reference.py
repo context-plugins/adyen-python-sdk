@@ -17,8 +17,6 @@ class TransactionRuleReference(object):
         reference (str): The reference for the resource.
         score (int): The transaction score determined by the rule. Returned only when
             `outcomeType` is **scoreBased**.
-        additional_properties (Dict[str, Any]): The additional properties for the
-            model.
 
     """
 
@@ -45,8 +43,7 @@ class TransactionRuleReference(object):
         id=APIHelper.SKIP,
         outcome_type=APIHelper.SKIP,
         reference=APIHelper.SKIP,
-        score=APIHelper.SKIP,
-        additional_properties=None):
+        score=APIHelper.SKIP):
         """Initialize a TransactionRuleReference instance."""
         # Initialize members of the class
         if description is not APIHelper.SKIP:
@@ -59,11 +56,6 @@ class TransactionRuleReference(object):
             self.reference = reference
         if score is not APIHelper.SKIP:
             self.score = score
-
-        # Add additional model properties to the instance
-        if additional_properties is None:
-            additional_properties = {}
-        self.additional_properties = additional_properties
 
     @classmethod
     def from_dictionary(cls,
@@ -104,39 +96,12 @@ class TransactionRuleReference(object):
             if dictionary.get("score")\
                 else APIHelper.SKIP
 
-        additional_properties = APIHelper.get_additional_properties(
-            dictionary={k: v for k, v in dictionary.items()
-                        if k not in cls._names.values()},
-            unboxing_function=lambda value: value)
-
         # Return an object of this model
         return cls(description,
                    id,
                    outcome_type,
                    reference,
-                   score,
-                   additional_properties)
-
-    @classmethod
-    def validate(cls, dictionary):
-        """Validate dictionary against class required properties
-
-        Args:
-            dictionary (dictionary): A dictionary representation of the object
-            as obtained from the deserialization of the server's response. The
-            keys MUST match property names in the API description.
-
-        Returns:
-            boolean : if dictionary is valid contains required properties.
-
-        """
-        if isinstance(dictionary, cls):
-            return True
-
-        if not isinstance(dictionary, dict):
-            return False
-
-        return True
+                   score)
 
     def __repr__(self):
         """Return a unambiguous string representation."""
@@ -165,7 +130,6 @@ class TransactionRuleReference(object):
             if hasattr(self, "score")
             else None
         )
-        _additional_properties=self.additional_properties
         return (
             f"{self.__class__.__name__}("
             f"description={_description!r}, "
@@ -173,7 +137,6 @@ class TransactionRuleReference(object):
             f"outcome_type={_outcome_type!r}, "
             f"reference={_reference!r}, "
             f"score={_score!r}, "
-            f"additional_properties={_additional_properties!r}, "
             f")"
         )
 
@@ -204,7 +167,6 @@ class TransactionRuleReference(object):
             if hasattr(self, "score")
             else None
         )
-        _additional_properties=self.additional_properties
         return (
             f"{self.__class__.__name__}("
             f"description={_description!s}, "
@@ -212,6 +174,5 @@ class TransactionRuleReference(object):
             f"outcome_type={_outcome_type!s}, "
             f"reference={_reference!s}, "
             f"score={_score!s}, "
-            f"additional_properties={_additional_properties!s}, "
             f")"
         )

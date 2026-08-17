@@ -18,8 +18,6 @@ class SaleTerminalData1(object):
             Terminal, having the same Sale features. Could be used to group POI for
             reconciliation or other purpose defined by the Sale System. The default
             value is assigned by the Login Request.
-        additional_properties (Dict[str, Any]): The additional properties for the
-            model.
 
     """
 
@@ -34,17 +32,11 @@ class SaleTerminalData1(object):
 
     def __init__(
         self,
-        totals_group_id=APIHelper.SKIP,
-        additional_properties=None):
+        totals_group_id=APIHelper.SKIP):
         """Initialize a SaleTerminalData1 instance."""
         # Initialize members of the class
         if totals_group_id is not APIHelper.SKIP:
             self.totals_group_id = totals_group_id
-
-        # Add additional model properties to the instance
-        if additional_properties is None:
-            additional_properties = {}
-        self.additional_properties = additional_properties
 
     @classmethod
     def from_dictionary(cls,
@@ -69,14 +61,8 @@ class SaleTerminalData1(object):
             if dictionary.get("TotalsGroupID")\
                 else APIHelper.SKIP
 
-        additional_properties = APIHelper.get_additional_properties(
-            dictionary={k: v for k, v in dictionary.items()
-                        if k not in cls._names.values()},
-            unboxing_function=lambda value: value)
-
         # Return an object of this model
-        return cls(totals_group_id,
-                   additional_properties)
+        return cls(totals_group_id)
 
     def __repr__(self):
         """Return a unambiguous string representation."""
@@ -85,11 +71,9 @@ class SaleTerminalData1(object):
             if hasattr(self, "totals_group_id")
             else None
         )
-        _additional_properties=self.additional_properties
         return (
             f"{self.__class__.__name__}("
             f"totals_group_id={_totals_group_id!r}, "
-            f"additional_properties={_additional_properties!r}, "
             f")"
         )
 
@@ -100,10 +84,8 @@ class SaleTerminalData1(object):
             if hasattr(self, "totals_group_id")
             else None
         )
-        _additional_properties=self.additional_properties
         return (
             f"{self.__class__.__name__}("
             f"totals_group_id={_totals_group_id!s}, "
-            f"additional_properties={_additional_properties!s}, "
             f")"
         )

@@ -14,10 +14,8 @@ class BankIdentification(object):
         country (str): Two-character [ISO 3166-1
             alpha-2](https://en.wikipedia.org/wiki/ISO_3166-1_alpha-2) country code.
         identification (str): The bank identification code.
-        identification_type (IdentificationType): The model property of type
-            IdentificationType.
-        additional_properties (Dict[str, Any]): The additional properties for the
-            model.
+        identification_type (IdentificationTypeEnum): The type of the identification.
+            Possible values: **iban**, **routingNumber**, **sortCode**, **bic**.
 
     """
 
@@ -38,8 +36,7 @@ class BankIdentification(object):
         self,
         country=APIHelper.SKIP,
         identification=APIHelper.SKIP,
-        identification_type=APIHelper.SKIP,
-        additional_properties=None):
+        identification_type=APIHelper.SKIP):
         """Initialize a BankIdentification instance."""
         # Initialize members of the class
         if country is not APIHelper.SKIP:
@@ -48,11 +45,6 @@ class BankIdentification(object):
             self.identification = identification
         if identification_type is not APIHelper.SKIP:
             self.identification_type = identification_type
-
-        # Add additional model properties to the instance
-        if additional_properties is None:
-            additional_properties = {}
-        self.additional_properties = additional_properties
 
     @classmethod
     def from_dictionary(cls,
@@ -85,16 +77,10 @@ class BankIdentification(object):
             if dictionary.get("identificationType")\
                 else APIHelper.SKIP
 
-        additional_properties = APIHelper.get_additional_properties(
-            dictionary={k: v for k, v in dictionary.items()
-                        if k not in cls._names.values()},
-            unboxing_function=lambda value: value)
-
         # Return an object of this model
         return cls(country,
                    identification,
-                   identification_type,
-                   additional_properties)
+                   identification_type)
 
     def __repr__(self):
         """Return a unambiguous string representation."""
@@ -113,13 +99,11 @@ class BankIdentification(object):
             if hasattr(self, "identification_type")
             else None
         )
-        _additional_properties=self.additional_properties
         return (
             f"{self.__class__.__name__}("
             f"country={_country!r}, "
             f"identification={_identification!r}, "
             f"identification_type={_identification_type!r}, "
-            f"additional_properties={_additional_properties!r}, "
             f")"
         )
 
@@ -140,12 +124,10 @@ class BankIdentification(object):
             if hasattr(self, "identification_type")
             else None
         )
-        _additional_properties=self.additional_properties
         return (
             f"{self.__class__.__name__}("
             f"country={_country!s}, "
             f"identification={_identification!s}, "
             f"identification_type={_identification_type!s}, "
-            f"additional_properties={_additional_properties!s}, "
             f")"
         )

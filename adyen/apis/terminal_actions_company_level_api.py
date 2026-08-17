@@ -70,24 +70,22 @@ class TerminalActionsCompanyLevelApi(BaseApi):
                 **InstallAndroidCertificate**, **UninstallAndroidCertificate**.
 
         Returns:
-            ApiResponse: An object with the response value as well as other useful
-                information such as status codes and headers. OK - the request has
-                succeeded.
+            ListExternalTerminalActionsResponse: Response from the API. OK - the
+                request has succeeded.
 
         Raises:
-            ApiException: When an error occurs while fetching the data from the
+            APIException: When an error occurs while fetching the data from the
                 remote API. This exception includes the HTTP Response code, an error
                 message, and the HTTP body that was received in the request.
 
         """
         return super().new_api_call_builder.request(
-            RequestBuilder().server(Server.DEFAULT)
+            RequestBuilder().server(Server.DEFAULT9)
             .path("/companies/{companyId}/terminalActions")
             .http_method(HttpMethodEnum.GET)
             .template_param(Parameter()
                 .key("companyId")
                 .value(company_id)
-                .is_required(True)
                 .should_encode(True))
             .query_param(Parameter()
                 .key("pageNumber")
@@ -109,7 +107,6 @@ class TerminalActionsCompanyLevelApi(BaseApi):
             ResponseHandler()
             .deserializer(APIHelper.json_deserialize)
             .deserialize_into(ListExternalTerminalActionsResponse.from_dictionary)
-            .is_api_response(True)
             .local_error("400",
                 "Bad Request - a problem reading or understanding the request.",
                 RestServiceErrorException)
@@ -150,29 +147,26 @@ class TerminalActionsCompanyLevelApi(BaseApi):
             action_id (str): The unique identifier of the terminal action.
 
         Returns:
-            ApiResponse: An object with the response value as well as other useful
-                information such as status codes and headers. OK - the request has
+            ExternalTerminalAction: Response from the API. OK - the request has
                 succeeded.
 
         Raises:
-            ApiException: When an error occurs while fetching the data from the
+            APIException: When an error occurs while fetching the data from the
                 remote API. This exception includes the HTTP Response code, an error
                 message, and the HTTP body that was received in the request.
 
         """
         return super().new_api_call_builder.request(
-            RequestBuilder().server(Server.DEFAULT)
+            RequestBuilder().server(Server.DEFAULT9)
             .path("/companies/{companyId}/terminalActions/{actionId}")
             .http_method(HttpMethodEnum.GET)
             .template_param(Parameter()
                 .key("companyId")
                 .value(company_id)
-                .is_required(True)
                 .should_encode(True))
             .template_param(Parameter()
                 .key("actionId")
                 .value(action_id)
-                .is_required(True)
                 .should_encode(True))
             .header_param(Parameter()
                 .key("accept")
@@ -182,7 +176,6 @@ class TerminalActionsCompanyLevelApi(BaseApi):
             ResponseHandler()
             .deserializer(APIHelper.json_deserialize)
             .deserialize_into(ExternalTerminalAction.from_dictionary)
-            .is_api_response(True)
             .local_error("400",
                 "Bad Request - a problem reading or understanding the request.",
                 RestServiceErrorException)

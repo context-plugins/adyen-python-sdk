@@ -26,8 +26,6 @@ class DonationCampaignNonprofitCause(object):
         nonprofit_name (str): The name of the nonprofit organization.
         terms_and_conditions_url (str): The URL to the terms and conditions of the
             nonprofit organization.
-        additional_properties (Dict[str, Any]): The additional properties for the
-            model.
 
     """
 
@@ -63,8 +61,7 @@ class DonationCampaignNonprofitCause(object):
         goals=APIHelper.SKIP,
         logo_url=APIHelper.SKIP,
         nonprofit_name=APIHelper.SKIP,
-        terms_and_conditions_url=APIHelper.SKIP,
-        additional_properties=None):
+        terms_and_conditions_url=APIHelper.SKIP):
         """Initialize a DonationCampaignNonprofitCause instance."""
         # Initialize members of the class
         if banner_url is not APIHelper.SKIP:
@@ -83,11 +80,6 @@ class DonationCampaignNonprofitCause(object):
             self.nonprofit_name = nonprofit_name
         if terms_and_conditions_url is not APIHelper.SKIP:
             self.terms_and_conditions_url = terms_and_conditions_url
-
-        # Add additional model properties to the instance
-        if additional_properties is None:
-            additional_properties = {}
-        self.additional_properties = additional_properties
 
     @classmethod
     def from_dictionary(cls,
@@ -140,11 +132,6 @@ class DonationCampaignNonprofitCause(object):
             if dictionary.get("termsAndConditionsUrl")\
                 else APIHelper.SKIP
 
-        additional_properties = APIHelper.get_additional_properties(
-            dictionary={k: v for k, v in dictionary.items()
-                        if k not in cls._names.values()},
-            unboxing_function=lambda value: value)
-
         # Return an object of this model
         return cls(banner_url,
                    cause_id,
@@ -153,8 +140,7 @@ class DonationCampaignNonprofitCause(object):
                    goals,
                    logo_url,
                    nonprofit_name,
-                   terms_and_conditions_url,
-                   additional_properties)
+                   terms_and_conditions_url)
 
     def __repr__(self):
         """Return a unambiguous string representation."""
@@ -198,7 +184,6 @@ class DonationCampaignNonprofitCause(object):
             if hasattr(self, "terms_and_conditions_url")
             else None
         )
-        _additional_properties=self.additional_properties
         return (
             f"{self.__class__.__name__}("
             f"banner_url={_banner_url!r}, "
@@ -209,7 +194,6 @@ class DonationCampaignNonprofitCause(object):
             f"logo_url={_logo_url!r}, "
             f"nonprofit_name={_nonprofit_name!r}, "
             f"terms_and_conditions_url={_terms_and_conditions_url!r}, "
-            f"additional_properties={_additional_properties!r}, "
             f")"
         )
 
@@ -255,7 +239,6 @@ class DonationCampaignNonprofitCause(object):
             if hasattr(self, "terms_and_conditions_url")
             else None
         )
-        _additional_properties=self.additional_properties
         return (
             f"{self.__class__.__name__}("
             f"banner_url={_banner_url!s}, "
@@ -266,6 +249,5 @@ class DonationCampaignNonprofitCause(object):
             f"logo_url={_logo_url!s}, "
             f"nonprofit_name={_nonprofit_name!s}, "
             f"terms_and_conditions_url={_terms_and_conditions_url!s}, "
-            f"additional_properties={_additional_properties!s}, "
             f")"
         )

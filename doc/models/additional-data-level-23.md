@@ -1,8 +1,6 @@
 
 # Additional Data Level 23
 
-*This model accepts additional fields of type Any.*
-
 ## Structure
 
 `AdditionalDataLevel23`
@@ -28,13 +26,10 @@
 | `enhanced_scheme_data_order_date` | `str` | Optional | The order date.<br><br>* Format: `ddMMyy`<br>* Encoding: ASCII<br>* Max length: 6 characters |
 | `enhanced_scheme_data_ship_from_postal_code` | `str` | Optional | The postal code of the address where the item is shipped from.<br><br>* Encoding: ASCII<br>* Max length: 10 characters<br>* Must not start with a space or be all spaces.<br>* Must not be all zeros.For the US, it must be in five or nine digits format. For example, 10001 or 10001-0000.<br>* For Canada, it must be in 6 digits format. For example, M4B 1G5. |
 | `enhanced_scheme_data_total_tax_amount` | `str` | Optional | The amount of state or provincial [tax included in the total transaction amount](https://docs.adyen.com/payment-methods/cards/enhanced-scheme-data/l2-l3#requirements-to-send-level-2-3-esd), in [minor units](https://docs.adyen.com/development-resources/currency-codes).<br><br>* For example, 2000 means USD 20.00.<br>* Encoding: Numeric<br>* Max length: 12 characters<br>* For L2 data: must not be all zeroes.<br>* For L3 data: can be zero. |
-| `additional_properties` | `Dict[str, Any]` | Optional | - |
 
 ## Example
 
 ```python
-import jsonpickle
-
 from adyen.models.additional_data_level_23 import AdditionalDataLevel23
 
 additional_data_level_23 = AdditionalDataLevel23(
@@ -42,10 +37,7 @@ additional_data_level_23 = AdditionalDataLevel23(
     enhanced_scheme_data_destination_country_code='enhancedSchemeData.destinationCountryCode2',
     enhanced_scheme_data_destination_postal_code='enhancedSchemeData.destinationPostalCode4',
     enhanced_scheme_data_destination_state_province_code='enhancedSchemeData.destinationStateProvinceCode8',
-    enhanced_scheme_data_duty_amount='enhancedSchemeData.dutyAmount8',
-    additional_properties={
-        'exampleAdditionalProperty': jsonpickle.decode('{"key1":"val1","key2":"val2"}')
-    }
+    enhanced_scheme_data_duty_amount='enhancedSchemeData.dutyAmount8'
 )
 ```
 

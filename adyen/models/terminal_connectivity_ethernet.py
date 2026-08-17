@@ -14,8 +14,6 @@ class TerminalConnectivityEthernet(object):
         ip_address (str): The terminal's ethernet IP address.
         link_negotiation (str): The ethernet link negotiation that the terminal uses.
         mac_address (str): The terminal's ethernet MAC address.
-        additional_properties (Dict[str, Any]): The additional properties for the
-            model.
 
     """
 
@@ -36,8 +34,7 @@ class TerminalConnectivityEthernet(object):
         self,
         ip_address=APIHelper.SKIP,
         link_negotiation=APIHelper.SKIP,
-        mac_address=APIHelper.SKIP,
-        additional_properties=None):
+        mac_address=APIHelper.SKIP):
         """Initialize a TerminalConnectivityEthernet instance."""
         # Initialize members of the class
         if ip_address is not APIHelper.SKIP:
@@ -46,11 +43,6 @@ class TerminalConnectivityEthernet(object):
             self.link_negotiation = link_negotiation
         if mac_address is not APIHelper.SKIP:
             self.mac_address = mac_address
-
-        # Add additional model properties to the instance
-        if additional_properties is None:
-            additional_properties = {}
-        self.additional_properties = additional_properties
 
     @classmethod
     def from_dictionary(cls,
@@ -83,16 +75,10 @@ class TerminalConnectivityEthernet(object):
             if dictionary.get("macAddress")\
                 else APIHelper.SKIP
 
-        additional_properties = APIHelper.get_additional_properties(
-            dictionary={k: v for k, v in dictionary.items()
-                        if k not in cls._names.values()},
-            unboxing_function=lambda value: value)
-
         # Return an object of this model
         return cls(ip_address,
                    link_negotiation,
-                   mac_address,
-                   additional_properties)
+                   mac_address)
 
     def __repr__(self):
         """Return a unambiguous string representation."""
@@ -111,13 +97,11 @@ class TerminalConnectivityEthernet(object):
             if hasattr(self, "mac_address")
             else None
         )
-        _additional_properties=self.additional_properties
         return (
             f"{self.__class__.__name__}("
             f"ip_address={_ip_address!r}, "
             f"link_negotiation={_link_negotiation!r}, "
             f"mac_address={_mac_address!r}, "
-            f"additional_properties={_additional_properties!r}, "
             f")"
         )
 
@@ -138,12 +122,10 @@ class TerminalConnectivityEthernet(object):
             if hasattr(self, "mac_address")
             else None
         )
-        _additional_properties=self.additional_properties
         return (
             f"{self.__class__.__name__}("
             f"ip_address={_ip_address!s}, "
             f"link_negotiation={_link_negotiation!s}, "
             f"mac_address={_mac_address!s}, "
-            f"additional_properties={_additional_properties!s}, "
             f")"
         )

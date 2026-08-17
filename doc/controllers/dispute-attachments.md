@@ -37,7 +37,7 @@ def get_disputes_dispute_id_attachments(self,
 
 **200**: OK - the request has succeeded.
 
-This method returns an [`ApiResponse`](../../doc/api-response.md) instance. The `body` property of this instance returns the response data which is of type [`List[DisputeAttachment]`](../../doc/models/dispute-attachment.md).
+[`List[DisputeAttachment]`](../../doc/models/dispute-attachment.md)
 
 ## Example Usage
 
@@ -45,20 +45,16 @@ This method returns an [`ApiResponse`](../../doc/api-response.md) instance. The 
 dispute_id = 'disputeId4'
 
 result = dispute_attachments_api.get_disputes_dispute_id_attachments(dispute_id)
-
-if result.is_success():
-    print(result.body)
-elif result.is_error():
-    print(result.errors)
+print(result)
 ```
 
 ## Errors
 
 | HTTP Status Code | Error Description | Exception Class |
 |  --- | --- | --- |
-| 401 | Authentication required. | [`DisputesAttachments401ErrorException`](../../doc/models/disputes-attachments-401-error-exception.md) |
-| 403 | Insufficient permissions to process the request. | [`DisputesAttachments403ErrorException`](../../doc/models/disputes-attachments-403-error-exception.md) |
-| 422 | A request validation error. | [`DisputesAttachments422ErrorException`](../../doc/models/disputes-attachments-422-error-exception.md) |
+| 401 | Authentication required. | [`DefaultErrorResponseEntityException`](../../doc/models/default-error-response-entity-exception.md) |
+| 403 | Insufficient permissions to process the request. | [`DefaultErrorResponseEntityException`](../../doc/models/default-error-response-entity-exception.md) |
+| 422 | A request validation error. | [`DefaultErrorResponseEntityException`](../../doc/models/default-error-response-entity-exception.md) |
 
 
 # Post-Disputes-Dispute Id-Attachments
@@ -84,7 +80,7 @@ def post_disputes_dispute_id_attachments(self,
 
 **200**: OK - the request has succeeded.
 
-This method returns an [`ApiResponse`](../../doc/api-response.md) instance. The `body` property of this instance returns the response data which is of type [`AttachDocumentResponse`](../../doc/models/attach-document-response.md).
+[`AttachDocumentResponse`](../../doc/models/attach-document-response.md)
 
 ## Example Usage
 
@@ -92,7 +88,7 @@ This method returns an [`ApiResponse`](../../doc/api-response.md) instance. The 
 dispute_id = 'disputeId4'
 
 body = DisputeAttachment(
-    attachment_type=AttachmentType1.CORRESPONDENCE,
+    attachment_type=AttachmentType1Enum.CORRESPONDENCE,
     content='content0',
     file_name='fileName0'
 )
@@ -101,20 +97,16 @@ result = dispute_attachments_api.post_disputes_dispute_id_attachments(
     dispute_id,
     body
 )
-
-if result.is_success():
-    print(result.body)
-elif result.is_error():
-    print(result.errors)
+print(result)
 ```
 
 ## Errors
 
 | HTTP Status Code | Error Description | Exception Class |
 |  --- | --- | --- |
-| 401 | Authentication required. | [`DisputesAttachments401ErrorException`](../../doc/models/disputes-attachments-401-error-exception.md) |
-| 403 | Insufficient permissions to process the request. | [`DisputesAttachments403ErrorException`](../../doc/models/disputes-attachments-403-error-exception.md) |
-| 422 | A request validation error. | [`DisputesAttachments422ErrorException`](../../doc/models/disputes-attachments-422-error-exception.md) |
+| 401 | Authentication required. | [`DefaultErrorResponseEntityException`](../../doc/models/default-error-response-entity-exception.md) |
+| 403 | Insufficient permissions to process the request. | [`DefaultErrorResponseEntityException`](../../doc/models/default-error-response-entity-exception.md) |
+| 422 | A request validation error. | [`DefaultErrorResponseEntityException`](../../doc/models/default-error-response-entity-exception.md) |
 
 
 # Delete-Disputes-Dispute Id-Attachments-Attachment Id
@@ -140,7 +132,7 @@ def delete_disputes_dispute_id_attachments_attachment_id(self,
 
 **204**: The attachment was successfully removed
 
-This method returns an [`ApiResponse`](../../doc/api-response.md) instance.
+`void`
 
 ## Example Usage
 
@@ -149,24 +141,19 @@ dispute_id = 'disputeId4'
 
 attachment_id = 'attachmentId8'
 
-result = dispute_attachments_api.delete_disputes_dispute_id_attachments_attachment_id(
+dispute_attachments_api.delete_disputes_dispute_id_attachments_attachment_id(
     dispute_id,
     attachment_id
 )
-
-if result.is_success():
-    print(result.body)
-elif result.is_error():
-    print(result.errors)
 ```
 
 ## Errors
 
 | HTTP Status Code | Error Description | Exception Class |
 |  --- | --- | --- |
-| 401 | Authentication required. | [`DisputesAttachments401ErrorException`](../../doc/models/disputes-attachments-401-error-exception.md) |
-| 403 | Insufficient permissions to process the request. | [`DisputesAttachments403ErrorException`](../../doc/models/disputes-attachments-403-error-exception.md) |
-| 422 | A request validation error. | [`DisputesAttachments422ErrorException`](../../doc/models/disputes-attachments-422-error-exception.md) |
+| 401 | Authentication required. | [`DefaultErrorResponseEntityException`](../../doc/models/default-error-response-entity-exception.md) |
+| 403 | Insufficient permissions to process the request. | [`DefaultErrorResponseEntityException`](../../doc/models/default-error-response-entity-exception.md) |
+| 422 | A request validation error. | [`DefaultErrorResponseEntityException`](../../doc/models/default-error-response-entity-exception.md) |
 
 
 # Get-Disputes-Dispute Id-Attachments-Attachment Id
@@ -192,7 +179,7 @@ def get_disputes_dispute_id_attachments_attachment_id(self,
 
 **200**: OK - the request has succeeded.
 
-This method returns an [`ApiResponse`](../../doc/api-response.md) instance. The `body` property of this instance returns the response data which is of type [`DisputeAttachment`](../../doc/models/dispute-attachment.md).
+[`DisputeAttachment`](../../doc/models/dispute-attachment.md)
 
 ## Example Usage
 
@@ -205,18 +192,14 @@ result = dispute_attachments_api.get_disputes_dispute_id_attachments_attachment_
     dispute_id,
     attachment_id
 )
-
-if result.is_success():
-    print(result.body)
-elif result.is_error():
-    print(result.errors)
+print(result)
 ```
 
 ## Errors
 
 | HTTP Status Code | Error Description | Exception Class |
 |  --- | --- | --- |
-| 401 | Authentication required. | [`DisputesAttachments401ErrorException`](../../doc/models/disputes-attachments-401-error-exception.md) |
-| 403 | Insufficient permissions to process the request. | [`DisputesAttachments403ErrorException`](../../doc/models/disputes-attachments-403-error-exception.md) |
-| 422 | A request validation error. | [`DisputesAttachments422ErrorException`](../../doc/models/disputes-attachments-422-error-exception.md) |
+| 401 | Authentication required. | [`DefaultErrorResponseEntityException`](../../doc/models/default-error-response-entity-exception.md) |
+| 403 | Insufficient permissions to process the request. | [`DefaultErrorResponseEntityException`](../../doc/models/default-error-response-entity-exception.md) |
+| 422 | A request validation error. | [`DefaultErrorResponseEntityException`](../../doc/models/default-error-response-entity-exception.md) |
 

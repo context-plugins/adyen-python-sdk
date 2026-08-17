@@ -47,8 +47,6 @@ class PaymentCompletionDetails1(object):
             after the challenge flow. It contains the following parameter:
             `threeDSCompInd`.
         vault_token (str): PayPalv2-generated token for recurring payments.
-        additional_properties (Dict[str, Any]): The additional properties for the
-            model.
 
     """
 
@@ -120,8 +118,7 @@ class PaymentCompletionDetails1(object):
         three_ds_result=APIHelper.SKIP,
         threeds_2_challenge_result=APIHelper.SKIP,
         threeds_2_fingerprint=APIHelper.SKIP,
-        vault_token=APIHelper.SKIP,
-        additional_properties=None):
+        vault_token=APIHelper.SKIP):
         """Initialize a PaymentCompletionDetails1 instance."""
         # Initialize members of the class
         if md is not APIHelper.SKIP:
@@ -164,11 +161,6 @@ class PaymentCompletionDetails1(object):
             self.threeds_2_fingerprint = threeds_2_fingerprint
         if vault_token is not APIHelper.SKIP:
             self.vault_token = vault_token
-
-        # Add additional model properties to the instance
-        if additional_properties is None:
-            additional_properties = {}
-        self.additional_properties = additional_properties
 
     @classmethod
     def from_dictionary(cls,
@@ -269,11 +261,6 @@ class PaymentCompletionDetails1(object):
             if dictionary.get("vaultToken")\
                 else APIHelper.SKIP
 
-        additional_properties = APIHelper.get_additional_properties(
-            dictionary={k: v for k, v in dictionary.items()
-                        if k not in cls._names.values()},
-            unboxing_function=lambda value: value)
-
         # Return an object of this model
         return cls(md,
                    pa_req,
@@ -294,8 +281,7 @@ class PaymentCompletionDetails1(object):
                    three_ds_result,
                    threeds_2_challenge_result,
                    threeds_2_fingerprint,
-                   vault_token,
-                   additional_properties)
+                   vault_token)
 
     def __repr__(self):
         """Return a unambiguous string representation."""
@@ -399,7 +385,6 @@ class PaymentCompletionDetails1(object):
             if hasattr(self, "vault_token")
             else None
         )
-        _additional_properties=self.additional_properties
         return (
             f"{self.__class__.__name__}("
             f"md={_md!r}, "
@@ -422,7 +407,6 @@ class PaymentCompletionDetails1(object):
             f"threeds_2_challenge_result={_threeds_2_challenge_result!r}, "
             f"threeds_2_fingerprint={_threeds_2_fingerprint!r}, "
             f"vault_token={_vault_token!r}, "
-            f"additional_properties={_additional_properties!r}, "
             f")"
         )
 
@@ -528,7 +512,6 @@ class PaymentCompletionDetails1(object):
             if hasattr(self, "vault_token")
             else None
         )
-        _additional_properties=self.additional_properties
         return (
             f"{self.__class__.__name__}("
             f"md={_md!s}, "
@@ -551,6 +534,5 @@ class PaymentCompletionDetails1(object):
             f"threeds_2_challenge_result={_threeds_2_challenge_result!s}, "
             f"threeds_2_fingerprint={_threeds_2_fingerprint!s}, "
             f"vault_token={_vault_token!s}, "
-            f"additional_properties={_additional_properties!s}, "
             f")"
         )

@@ -6,7 +6,7 @@ ap_ikey_companylevel_api = client.ap_ikey_companylevel
 
 ## Class Name
 
-`ApIkeyCompanylevelApi`
+`APIkeyCompanylevelApi`
 
 
 # Post-Companies-Company Id-Api Credentials-Api Credential Id-Generate Api Key
@@ -38,7 +38,7 @@ This endpoint requires [BasicAuth](../../doc/auth/basic-authentication.md) **OR*
 
 **200**: OK - the request has succeeded.
 
-This method returns an [`ApiResponse`](../../doc/api-response.md) instance. The `body` property of this instance returns the response data which is of type [`GenerateApiKeyResponse`](../../doc/models/generate-api-key-response.md).
+[`GenerateApiKeyResponse`](../../doc/models/generate-api-key-response.md)
 
 ## Example Usage
 
@@ -51,11 +51,7 @@ result = api_key_company_level_api.post_companies_company_id_api_credentials_api
     company_id,
     api_credential_id
 )
-
-if result.is_success():
-    print(result.body)
-elif result.is_error():
-    print(result.errors)
+print(result)
 ```
 
 ## Errors

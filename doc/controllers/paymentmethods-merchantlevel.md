@@ -53,7 +53,7 @@ This endpoint requires [BasicAuth](../../doc/auth/basic-authentication.md) **OR*
 
 **200**: OK - the request has succeeded.
 
-This method returns an [`ApiResponse`](../../doc/api-response.md) instance. The `body` property of this instance returns the response data which is of type [`PaymentMethodResponse`](../../doc/models/payment-method-response.md).
+[`PaymentMethodResponse`](../../doc/models/payment-method-response.md)
 
 ## Example Usage
 
@@ -61,11 +61,7 @@ This method returns an [`ApiResponse`](../../doc/api-response.md) instance. The 
 merchant_id = 'merchantId6'
 
 result = payment_methods_merchant_level_api.get_merchants_merchant_id_payment_method_settings(merchant_id)
-
-if result.is_success():
-    print(result.body)
-elif result.is_error():
-    print(result.errors)
+print(result)
 ```
 
 ## Errors
@@ -110,7 +106,7 @@ This endpoint requires [BasicAuth](../../doc/auth/basic-authentication.md) **OR*
 
 **200**: OK - the request has succeeded.
 
-This method returns an [`ApiResponse`](../../doc/api-response.md) instance. The `body` property of this instance returns the response data which is of type [`ManagementPaymentMethod`](../../doc/models/management-payment-method.md).
+[`ManagementPaymentMethod`](../../doc/models/management-payment-method.md)
 
 ## Example Usage
 
@@ -118,7 +114,7 @@ This method returns an [`ApiResponse`](../../doc/api-response.md) instance. The 
 merchant_id = 'merchantId6'
 
 body = PaymentMethodSetupInfo(
-    mtype=Type510.VISA,
+    mtype=Type59Enum.VISA,
     countries=[
         'US'
     ],
@@ -131,11 +127,7 @@ result = payment_methods_merchant_level_api.post_merchants_merchant_id_payment_m
     merchant_id,
     body=body
 )
-
-if result.is_success():
-    print(result.body)
-elif result.is_error():
-    print(result.errors)
+print(result)
 ```
 
 ## Example Response *(as JSON)*
@@ -194,7 +186,7 @@ This endpoint requires [BasicAuth](../../doc/auth/basic-authentication.md) **OR*
 
 **200**: OK - the request has succeeded.
 
-This method returns an [`ApiResponse`](../../doc/api-response.md) instance. The `body` property of this instance returns the response data which is of type [`ManagementPaymentMethod`](../../doc/models/management-payment-method.md).
+[`ManagementPaymentMethod`](../../doc/models/management-payment-method.md)
 
 ## Example Usage
 
@@ -207,11 +199,7 @@ result = payment_methods_merchant_level_api.get_merchants_merchant_id_payment_me
     merchant_id,
     payment_method_id
 )
-
-if result.is_success():
-    print(result.body)
-elif result.is_error():
-    print(result.errors)
+print(result)
 ```
 
 ## Errors
@@ -258,7 +246,7 @@ This endpoint requires [BasicAuth](../../doc/auth/basic-authentication.md) **OR*
 
 **200**: OK - the request has succeeded.
 
-This method returns an [`ApiResponse`](../../doc/api-response.md) instance. The `body` property of this instance returns the response data which is of type [`ManagementPaymentMethod`](../../doc/models/management-payment-method.md).
+[`ManagementPaymentMethod`](../../doc/models/management-payment-method.md)
 
 ## Example Usage
 
@@ -281,11 +269,7 @@ result = payment_methods_merchant_level_api.patch_merchants_merchant_id_payment_
     payment_method_id,
     body=body
 )
-
-if result.is_success():
-    print(result.body)
-elif result.is_error():
-    print(result.errors)
+print(result)
 ```
 
 ## Example Response *(as JSON)*
@@ -354,7 +338,7 @@ This endpoint requires [BasicAuth](../../doc/auth/basic-authentication.md) **OR*
 
 **204**: No Content - look at the actual response code for the status of the request.
 
-This method returns an [`ApiResponse`](../../doc/api-response.md) instance.
+`void`
 
 ## Example Usage
 
@@ -369,16 +353,11 @@ body = ApplePayInfo(
     ]
 )
 
-result = payment_methods_merchant_level_api.post_merchants_merchant_id_payment_method_settings_payment_method_id_add_apple_pay_domains(
+payment_methods_merchant_level_api.post_merchants_merchant_id_payment_method_settings_payment_method_id_add_apple_pay_domains(
     merchant_id,
     payment_method_id,
     body=body
 )
-
-if result.is_success():
-    print(result.body)
-elif result.is_error():
-    print(result.errors)
 ```
 
 ## Errors
@@ -422,7 +401,7 @@ This endpoint requires [BasicAuth](../../doc/auth/basic-authentication.md) **OR*
 
 **200**: OK - the request has succeeded.
 
-This method returns an [`ApiResponse`](../../doc/api-response.md) instance. The `body` property of this instance returns the response data which is of type [`ApplePayResponseInfo`](../../doc/models/apple-pay-response-info.md).
+[`ApplePayResponseInfo`](../../doc/models/apple-pay-response-info.md)
 
 ## Example Usage
 
@@ -435,11 +414,7 @@ result = payment_methods_merchant_level_api.get_merchants_merchant_id_payment_me
     merchant_id,
     payment_method_id
 )
-
-if result.is_success():
-    print(result.body)
-elif result.is_error():
-    print(result.errors)
+print(result)
 ```
 
 ## Errors

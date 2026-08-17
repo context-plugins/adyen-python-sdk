@@ -1,8 +1,6 @@
 
 # Response Additional Data Card
 
-*This model accepts additional fields of type Any.*
-
 ## Structure
 
 `ResponseAdditionalDataCard`
@@ -21,13 +19,10 @@
 | `card_product_id` | `str` | Optional | The Card Product ID represents the type of card following card scheme product definitions and can be returned for Adyen Acquiring service level payments.<br><br>Example values Visa:<br><br>* **A** - Visa Traditional<br>* **B** - Visa Traditional Rewards<br>* **C** - Visa Signature<br>* **D** - Visa Signature Preferred<br>* **F** - Visa Classic<br><br>Example values Mastercard:<br><br>* **MCC** - Mastercard Card<br>* **MCE** - Mastercard Electronic Card<br>* **MCF** - Mastercard Corporate Fleet Card<br>* **MCG** - Gold Mastercard Card<br>* **MCH** - Mastercard Premium Charge<br>* **MCI** - Mastercard Select Debit |
 | `card_summary` | `str` | Optional | The last four digits of a card number.<br><br>> Returned only in case of a card payment. |
 | `issuer_bin` | `str` | Optional | The first eight digits of the card number. Only returned if the card number is 16 digits or more.<br><br>This is the [Bank Identification Number (BIN)](https://docs.adyen.com/get-started-with-adyen/payment-glossary#bank-identification-number-bin) for card numbers with an eight-digit BIN.<br><br>Example: 52123423 |
-| `additional_properties` | `Dict[str, Any]` | Optional | - |
 
 ## Example
 
 ```python
-import jsonpickle
-
 from adyen.models.response_additional_data_card import ResponseAdditionalDataCard
 
 response_additional_data_card = ResponseAdditionalDataCard(
@@ -35,10 +30,7 @@ response_additional_data_card = ResponseAdditionalDataCard(
     card_bin='cardBin6',
     card_holder_name='cardHolderName4',
     card_issuing_bank='cardIssuingBank6',
-    card_issuing_country='cardIssuingCountry8',
-    additional_properties={
-        'exampleAdditionalProperty': jsonpickle.decode('{"key1":"val1","key2":"val2"}')
-    }
+    card_issuing_country='cardIssuingCountry8'
 )
 ```
 

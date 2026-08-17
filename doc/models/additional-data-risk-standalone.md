@@ -1,8 +1,6 @@
 
 # Additional Data Risk Standalone
 
-*This model accepts additional fields of type Any.*
-
 ## Structure
 
 `AdditionalDataRiskStandalone`
@@ -26,13 +24,10 @@
 | `three_d_authenticated` | `str` | Optional | A Boolean value indicating whether 3DS authentication was completed on this payment. Example: true |
 | `three_d_offered` | `str` | Optional | A Boolean value indicating whether 3DS was offered for this payment. Example: true |
 | `token_data_type` | `str` | Optional | Required for PayPal payments only. The only supported value is: **paypal**. |
-| `additional_properties` | `Dict[str, Any]` | Optional | - |
 
 ## Example
 
 ```python
-import jsonpickle
-
 from adyen.models.additional_data_risk_standalone import AdditionalDataRiskStandalone
 
 additional_data_risk_standalone = AdditionalDataRiskStandalone(
@@ -40,10 +35,7 @@ additional_data_risk_standalone = AdditionalDataRiskStandalone(
     pay_pal_email_id='PayPal.EmailId2',
     pay_pal_first_name='PayPal.FirstName6',
     pay_pal_last_name='PayPal.LastName2',
-    pay_pal_payer_id='PayPal.PayerId4',
-    additional_properties={
-        'exampleAdditionalProperty': jsonpickle.decode('{"key1":"val1","key2":"val2"}')
-    }
+    pay_pal_payer_id='PayPal.PayerId4'
 )
 ```
 

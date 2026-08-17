@@ -32,12 +32,12 @@ from adyen.models.list_company_api_credentials_response import (
 )
 
 
-class ApiCredentialsCompanyLevelApi(BaseApi):
+class APICredentialsCompanyLevelApi(BaseApi):
     """A Controller to access Endpoints in the adyen API."""
 
     def __init__(self, config):
-        """Initialize ApiCredentialsCompanyLevelApi object."""
-        super(ApiCredentialsCompanyLevelApi, self).__init__(config)
+        """Initialize APICredentialsCompanyLevelApi object."""
+        super(APICredentialsCompanyLevelApi, self).__init__(config)
 
     def get_companies_company_id_api_credentials(self,
                                                  company_id,
@@ -61,24 +61,22 @@ class ApiCredentialsCompanyLevelApi(BaseApi):
                 100. The default is 10 items on a page.
 
         Returns:
-            ApiResponse: An object with the response value as well as other useful
-                information such as status codes and headers. OK - the request has
-                succeeded.
+            ListCompanyApiCredentialsResponse: Response from the API. OK - the
+                request has succeeded.
 
         Raises:
-            ApiException: When an error occurs while fetching the data from the
+            APIException: When an error occurs while fetching the data from the
                 remote API. This exception includes the HTTP Response code, an error
                 message, and the HTTP body that was received in the request.
 
         """
         return super().new_api_call_builder.request(
-            RequestBuilder().server(Server.DEFAULT)
+            RequestBuilder().server(Server.DEFAULT9)
             .path("/companies/{companyId}/apiCredentials")
             .http_method(HttpMethodEnum.GET)
             .template_param(Parameter()
                 .key("companyId")
                 .value(company_id)
-                .is_required(True)
                 .should_encode(True))
             .query_param(Parameter()
                 .key("pageNumber")
@@ -94,7 +92,6 @@ class ApiCredentialsCompanyLevelApi(BaseApi):
             ResponseHandler()
             .deserializer(APIHelper.json_deserialize)
             .deserialize_into(ListCompanyApiCredentialsResponse.from_dictionary)
-            .is_api_response(True)
             .local_error("400",
                 "Bad Request - a problem reading or understanding the request.",
                 RestServiceErrorException)
@@ -148,24 +145,22 @@ class ApiCredentialsCompanyLevelApi(BaseApi):
                 parameter.
 
         Returns:
-            ApiResponse: An object with the response value as well as other useful
-                information such as status codes and headers. OK - the request has
-                succeeded.
+            CreateCompanyApiCredentialResponse: Response from the API. OK - the
+                request has succeeded.
 
         Raises:
-            ApiException: When an error occurs while fetching the data from the
+            APIException: When an error occurs while fetching the data from the
                 remote API. This exception includes the HTTP Response code, an error
                 message, and the HTTP body that was received in the request.
 
         """
         return super().new_api_call_builder.request(
-            RequestBuilder().server(Server.DEFAULT)
+            RequestBuilder().server(Server.DEFAULT9)
             .path("/companies/{companyId}/apiCredentials")
             .http_method(HttpMethodEnum.POST)
             .template_param(Parameter()
                 .key("companyId")
                 .value(company_id)
-                .is_required(True)
                 .should_encode(True))
             .header_param(Parameter()
                 .key("Content-Type")
@@ -181,7 +176,6 @@ class ApiCredentialsCompanyLevelApi(BaseApi):
             ResponseHandler()
             .deserializer(APIHelper.json_deserialize)
             .deserialize_into(CreateCompanyApiCredentialResponse.from_dictionary)
-            .is_api_response(True)
             .local_error("400",
                 "Bad Request - a problem reading or understanding the request.",
                 RestServiceErrorException)
@@ -218,29 +212,26 @@ class ApiCredentialsCompanyLevelApi(BaseApi):
             api_credential_id (str): Unique identifier of the API credential.
 
         Returns:
-            ApiResponse: An object with the response value as well as other useful
-                information such as status codes and headers. OK - the request has
+            CompanyApiCredential: Response from the API. OK - the request has
                 succeeded.
 
         Raises:
-            ApiException: When an error occurs while fetching the data from the
+            APIException: When an error occurs while fetching the data from the
                 remote API. This exception includes the HTTP Response code, an error
                 message, and the HTTP body that was received in the request.
 
         """
         return super().new_api_call_builder.request(
-            RequestBuilder().server(Server.DEFAULT)
+            RequestBuilder().server(Server.DEFAULT9)
             .path("/companies/{companyId}/apiCredentials/{apiCredentialId}")
             .http_method(HttpMethodEnum.GET)
             .template_param(Parameter()
                 .key("companyId")
                 .value(company_id)
-                .is_required(True)
                 .should_encode(True))
             .template_param(Parameter()
                 .key("apiCredentialId")
                 .value(api_credential_id)
-                .is_required(True)
                 .should_encode(True))
             .header_param(Parameter()
                 .key("accept")
@@ -250,7 +241,6 @@ class ApiCredentialsCompanyLevelApi(BaseApi):
             ResponseHandler()
             .deserializer(APIHelper.json_deserialize)
             .deserialize_into(CompanyApiCredential.from_dictionary)
-            .is_api_response(True)
             .local_error("400",
                 "Bad Request - a problem reading or understanding the request.",
                 RestServiceErrorException)
@@ -291,29 +281,26 @@ class ApiCredentialsCompanyLevelApi(BaseApi):
                 parameter.
 
         Returns:
-            ApiResponse: An object with the response value as well as other useful
-                information such as status codes and headers. OK - the request has
+            CompanyApiCredential: Response from the API. OK - the request has
                 succeeded.
 
         Raises:
-            ApiException: When an error occurs while fetching the data from the
+            APIException: When an error occurs while fetching the data from the
                 remote API. This exception includes the HTTP Response code, an error
                 message, and the HTTP body that was received in the request.
 
         """
         return super().new_api_call_builder.request(
-            RequestBuilder().server(Server.DEFAULT)
+            RequestBuilder().server(Server.DEFAULT9)
             .path("/companies/{companyId}/apiCredentials/{apiCredentialId}")
             .http_method(HttpMethodEnum.PATCH)
             .template_param(Parameter()
                 .key("companyId")
                 .value(company_id)
-                .is_required(True)
                 .should_encode(True))
             .template_param(Parameter()
                 .key("apiCredentialId")
                 .value(api_credential_id)
-                .is_required(True)
                 .should_encode(True))
             .header_param(Parameter()
                 .key("Content-Type")
@@ -329,7 +316,6 @@ class ApiCredentialsCompanyLevelApi(BaseApi):
             ResponseHandler()
             .deserializer(APIHelper.json_deserialize)
             .deserialize_into(CompanyApiCredential.from_dictionary)
-            .is_api_response(True)
             .local_error("400",
                 "Bad Request - a problem reading or understanding the request.",
                 RestServiceErrorException)

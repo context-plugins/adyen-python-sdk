@@ -14,8 +14,6 @@ class MandatePartyIdentification(object):
         full_name (str): The full name of the entity that owns the bank account.
             Supported characters: [a-z] [A-Z] [0-9] , . ; : - — / \ + & ! ? @ ( ) " '
             and space.
-        additional_properties (Dict[str, Any]): The additional properties for the
-            model.
 
     """
 
@@ -30,17 +28,11 @@ class MandatePartyIdentification(object):
 
     def __init__(
         self,
-        full_name=APIHelper.SKIP,
-        additional_properties=None):
+        full_name=APIHelper.SKIP):
         """Initialize a MandatePartyIdentification instance."""
         # Initialize members of the class
         if full_name is not APIHelper.SKIP:
             self.full_name = full_name
-
-        # Add additional model properties to the instance
-        if additional_properties is None:
-            additional_properties = {}
-        self.additional_properties = additional_properties
 
     @classmethod
     def from_dictionary(cls,
@@ -65,14 +57,8 @@ class MandatePartyIdentification(object):
             if dictionary.get("fullName")\
                 else APIHelper.SKIP
 
-        additional_properties = APIHelper.get_additional_properties(
-            dictionary={k: v for k, v in dictionary.items()
-                        if k not in cls._names.values()},
-            unboxing_function=lambda value: value)
-
         # Return an object of this model
-        return cls(full_name,
-                   additional_properties)
+        return cls(full_name)
 
     def __repr__(self):
         """Return a unambiguous string representation."""
@@ -81,11 +67,9 @@ class MandatePartyIdentification(object):
             if hasattr(self, "full_name")
             else None
         )
-        _additional_properties=self.additional_properties
         return (
             f"{self.__class__.__name__}("
             f"full_name={_full_name!r}, "
-            f"additional_properties={_additional_properties!r}, "
             f")"
         )
 
@@ -96,10 +80,8 @@ class MandatePartyIdentification(object):
             if hasattr(self, "full_name")
             else None
         )
-        _additional_properties=self.additional_properties
         return (
             f"{self.__class__.__name__}("
             f"full_name={_full_name!s}, "
-            f"additional_properties={_additional_properties!s}, "
             f")"
         )

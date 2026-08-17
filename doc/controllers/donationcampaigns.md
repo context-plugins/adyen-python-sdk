@@ -47,7 +47,7 @@ This endpoint requires [BasicAuth](../../doc/auth/basic-authentication.md) **OR*
 
 **200**: OK - the request has succeeded.
 
-This method returns an [`ApiResponse`](../../doc/api-response.md) instance. The `body` property of this instance returns the response data which is of type [`DonationCampaign1`](../../doc/models/donation-campaign-1.md).
+[`DonationCampaign1`](../../doc/models/donation-campaign-1.md)
 
 ## Example Usage
 
@@ -55,22 +55,18 @@ This method returns an [`ApiResponse`](../../doc/api-response.md) instance. The 
 company_id = 'companyId0'
 
 result = donation_campaigns_api.post_companies_company_id_campaign_management(company_id)
-
-if result.is_success():
-    print(result.body)
-elif result.is_error():
-    print(result.errors)
+print(result)
 ```
 
 ## Errors
 
 | HTTP Status Code | Error Description | Exception Class |
 |  --- | --- | --- |
-| 400 | Bad Request - a problem reading or understanding the request. | [`CompaniesCampaignManagement400ErrorException`](../../doc/models/companies-campaign-management-400-error-exception.md) |
-| 401 | Unauthorized - authentication required. | [`CompaniesCampaignManagement401ErrorException`](../../doc/models/companies-campaign-management-401-error-exception.md) |
-| 403 | Forbidden - insufficient permissions to process the request. | [`CompaniesCampaignManagement403ErrorException`](../../doc/models/companies-campaign-management-403-error-exception.md) |
-| 422 | Unprocessable Entity - a request validation error. | [`CompaniesCampaignManagement422ErrorException`](../../doc/models/companies-campaign-management-422-error-exception.md) |
-| 500 | Internal Server Error - the server could not process the request. | [`CompaniesCampaignManagement500ErrorException`](../../doc/models/companies-campaign-management-500-error-exception.md) |
+| 400 | Bad Request - a problem reading or understanding the request. | [`DefaultErrorResponseEntityException`](../../doc/models/default-error-response-entity-exception.md) |
+| 401 | Unauthorized - authentication required. | [`DefaultErrorResponseEntityException`](../../doc/models/default-error-response-entity-exception.md) |
+| 403 | Forbidden - insufficient permissions to process the request. | [`DefaultErrorResponseEntityException`](../../doc/models/default-error-response-entity-exception.md) |
+| 422 | Unprocessable Entity - a request validation error. | [`DefaultErrorResponseEntityException`](../../doc/models/default-error-response-entity-exception.md) |
+| 500 | Internal Server Error - the server could not process the request. | [`DefaultErrorResponseEntityException`](../../doc/models/default-error-response-entity-exception.md) |
 
 
 # Get-Companies-Company Id-Campaign Management-Account Holders-Account Holder Id
@@ -109,7 +105,7 @@ This endpoint requires [BasicAuth](../../doc/auth/basic-authentication.md) **OR*
 
 **200**: OK - the request has succeeded.
 
-This method returns an [`ApiResponse`](../../doc/api-response.md) instance. The `body` property of this instance returns the response data which is of type [`ListDonationCampaignsResponse`](../../doc/models/list-donation-campaigns-response.md).
+[`ListDonationCampaignsResponse`](../../doc/models/list-donation-campaigns-response.md)
 
 ## Example Usage
 
@@ -128,22 +124,18 @@ result = donation_campaigns_api.get_companies_company_id_campaign_management_acc
     page_number=page_number,
     page_size=page_size
 )
-
-if result.is_success():
-    print(result.body)
-elif result.is_error():
-    print(result.errors)
+print(result)
 ```
 
 ## Errors
 
 | HTTP Status Code | Error Description | Exception Class |
 |  --- | --- | --- |
-| 400 | Bad Request - a problem reading or understanding the request. | [`CompaniesCampaignManagementAccountHolders400ErrorException`](../../doc/models/companies-campaign-management-account-holders-400-error-exception.md) |
-| 401 | Unauthorized - authentication required. | [`CompaniesCampaignManagementAccountHolders401ErrorException`](../../doc/models/companies-campaign-management-account-holders-401-error-exception.md) |
-| 403 | Forbidden - insufficient permissions to process the request. | [`CompaniesCampaignManagementAccountHolders403ErrorException`](../../doc/models/companies-campaign-management-account-holders-403-error-exception.md) |
-| 422 | Unprocessable Entity - a request validation error. | [`CompaniesCampaignManagementAccountHolders422ErrorException`](../../doc/models/companies-campaign-management-account-holders-422-error-exception.md) |
-| 500 | Internal Server Error - the server could not process the request. | [`CompaniesCampaignManagementAccountHolders500ErrorException`](../../doc/models/companies-campaign-management-account-holders-500-error-exception.md) |
+| 400 | Bad Request - a problem reading or understanding the request. | [`DefaultErrorResponseEntityException`](../../doc/models/default-error-response-entity-exception.md) |
+| 401 | Unauthorized - authentication required. | [`DefaultErrorResponseEntityException`](../../doc/models/default-error-response-entity-exception.md) |
+| 403 | Forbidden - insufficient permissions to process the request. | [`DefaultErrorResponseEntityException`](../../doc/models/default-error-response-entity-exception.md) |
+| 422 | Unprocessable Entity - a request validation error. | [`DefaultErrorResponseEntityException`](../../doc/models/default-error-response-entity-exception.md) |
+| 500 | Internal Server Error - the server could not process the request. | [`DefaultErrorResponseEntityException`](../../doc/models/default-error-response-entity-exception.md) |
 
 
 # Delete-Companies-Company Id-Campaign Management-Donation Campaign Id
@@ -175,7 +167,7 @@ This endpoint requires [BasicAuth](../../doc/auth/basic-authentication.md) **OR*
 
 **204**: No Content - the request has been successfully processed, but there is no additional content.
 
-This method returns an [`ApiResponse`](../../doc/api-response.md) instance.
+`void`
 
 ## Example Usage
 
@@ -184,26 +176,21 @@ company_id = 'companyId0'
 
 donation_campaign_id = 'donationCampaignId0'
 
-result = donation_campaigns_api.delete_companies_company_id_campaign_management_donation_campaign_id(
+donation_campaigns_api.delete_companies_company_id_campaign_management_donation_campaign_id(
     company_id,
     donation_campaign_id
 )
-
-if result.is_success():
-    print(result.body)
-elif result.is_error():
-    print(result.errors)
 ```
 
 ## Errors
 
 | HTTP Status Code | Error Description | Exception Class |
 |  --- | --- | --- |
-| 400 | Bad Request - a problem reading or understanding the request. | [`CompaniesCampaignManagement400ErrorException`](../../doc/models/companies-campaign-management-400-error-exception.md) |
-| 401 | Unauthorized - authentication required. | [`CompaniesCampaignManagement401ErrorException`](../../doc/models/companies-campaign-management-401-error-exception.md) |
-| 403 | Forbidden - insufficient permissions to process the request. | [`CompaniesCampaignManagement403ErrorException`](../../doc/models/companies-campaign-management-403-error-exception.md) |
-| 422 | Unprocessable Entity - a request validation error. | [`CompaniesCampaignManagement422ErrorException`](../../doc/models/companies-campaign-management-422-error-exception.md) |
-| 500 | Internal Server Error - the server could not process the request. | [`CompaniesCampaignManagement500ErrorException`](../../doc/models/companies-campaign-management-500-error-exception.md) |
+| 400 | Bad Request - a problem reading or understanding the request. | [`DefaultErrorResponseEntityException`](../../doc/models/default-error-response-entity-exception.md) |
+| 401 | Unauthorized - authentication required. | [`DefaultErrorResponseEntityException`](../../doc/models/default-error-response-entity-exception.md) |
+| 403 | Forbidden - insufficient permissions to process the request. | [`DefaultErrorResponseEntityException`](../../doc/models/default-error-response-entity-exception.md) |
+| 422 | Unprocessable Entity - a request validation error. | [`DefaultErrorResponseEntityException`](../../doc/models/default-error-response-entity-exception.md) |
+| 500 | Internal Server Error - the server could not process the request. | [`DefaultErrorResponseEntityException`](../../doc/models/default-error-response-entity-exception.md) |
 
 
 # Patch-Companies-Company Id-Campaign Management-Donation Campaign Id
@@ -240,7 +227,7 @@ This endpoint requires [BasicAuth](../../doc/auth/basic-authentication.md) **OR*
 
 **200**: OK - the request has succeeded.
 
-This method returns an [`ApiResponse`](../../doc/api-response.md) instance. The `body` property of this instance returns the response data which is of type [`DonationCampaign1`](../../doc/models/donation-campaign-1.md).
+[`DonationCampaign1`](../../doc/models/donation-campaign-1.md)
 
 ## Example Usage
 
@@ -253,22 +240,18 @@ result = donation_campaigns_api.patch_companies_company_id_campaign_management_d
     company_id,
     donation_campaign_id
 )
-
-if result.is_success():
-    print(result.body)
-elif result.is_error():
-    print(result.errors)
+print(result)
 ```
 
 ## Errors
 
 | HTTP Status Code | Error Description | Exception Class |
 |  --- | --- | --- |
-| 400 | Bad Request - a problem reading or understanding the request. | [`CompaniesCampaignManagement400ErrorException`](../../doc/models/companies-campaign-management-400-error-exception.md) |
-| 401 | Unauthorized - authentication required. | [`CompaniesCampaignManagement401ErrorException`](../../doc/models/companies-campaign-management-401-error-exception.md) |
-| 403 | Forbidden - insufficient permissions to process the request. | [`CompaniesCampaignManagement403ErrorException`](../../doc/models/companies-campaign-management-403-error-exception.md) |
-| 422 | Unprocessable Entity - a request validation error. | [`CompaniesCampaignManagement422ErrorException`](../../doc/models/companies-campaign-management-422-error-exception.md) |
-| 500 | Internal Server Error - the server could not process the request. | [`CompaniesCampaignManagement500ErrorException`](../../doc/models/companies-campaign-management-500-error-exception.md) |
+| 400 | Bad Request - a problem reading or understanding the request. | [`DefaultErrorResponseEntityException`](../../doc/models/default-error-response-entity-exception.md) |
+| 401 | Unauthorized - authentication required. | [`DefaultErrorResponseEntityException`](../../doc/models/default-error-response-entity-exception.md) |
+| 403 | Forbidden - insufficient permissions to process the request. | [`DefaultErrorResponseEntityException`](../../doc/models/default-error-response-entity-exception.md) |
+| 422 | Unprocessable Entity - a request validation error. | [`DefaultErrorResponseEntityException`](../../doc/models/default-error-response-entity-exception.md) |
+| 500 | Internal Server Error - the server could not process the request. | [`DefaultErrorResponseEntityException`](../../doc/models/default-error-response-entity-exception.md) |
 
 
 # Post-Companies-Company Id-Campaign Management-Donation Campaign Id-Status-Status
@@ -297,13 +280,13 @@ This endpoint requires [BasicAuth](../../doc/auth/basic-authentication.md) **OR*
 |  --- | --- | --- | --- |
 | `company_id` | `str` | Template, Required | The unique identifier of the company account. |
 | `donation_campaign_id` | `str` | Template, Required | The unique identifier of the donation campaign to activate or end. |
-| `status` | [`CampaignStatusTransition1`](../../doc/models/campaign-status-transition-1.md) | Template, Required | The desired status change. Possible values: **activate** or **end**. |
+| `status` | [`CampaignStatusTransitionEnum`](../../doc/models/campaign-status-transition-enum.md) | Template, Required | The desired status change. Possible values: **activate** or **end**. |
 
 ## Response Type
 
 **200**: OK - the request has succeeded.
 
-This method returns an [`ApiResponse`](../../doc/api-response.md) instance. The `body` property of this instance returns the response data which is of type [`DonationCampaign1`](../../doc/models/donation-campaign-1.md).
+[`DonationCampaign1`](../../doc/models/donation-campaign-1.md)
 
 ## Example Usage
 
@@ -312,29 +295,25 @@ company_id = 'companyId0'
 
 donation_campaign_id = 'donationCampaignId0'
 
-status = CampaignStatusTransition1.ACTIVATE
+status = CampaignStatusTransitionEnum.ACTIVATE
 
 result = donation_campaigns_api.post_companies_company_id_campaign_management_donation_campaign_id_status_status(
     company_id,
     donation_campaign_id,
     status
 )
-
-if result.is_success():
-    print(result.body)
-elif result.is_error():
-    print(result.errors)
+print(result)
 ```
 
 ## Errors
 
 | HTTP Status Code | Error Description | Exception Class |
 |  --- | --- | --- |
-| 400 | Bad Request - a problem reading or understanding the request. | [`CompaniesCampaignManagementStatusStatus400ErrorException`](../../doc/models/companies-campaign-management-status-status-400-error-exception.md) |
-| 401 | Unauthorized - authentication required. | [`CompaniesCampaignManagementStatusStatus401ErrorException`](../../doc/models/companies-campaign-management-status-status-401-error-exception.md) |
-| 403 | Forbidden - insufficient permissions to process the request. | [`CompaniesCampaignManagementStatusStatus403ErrorException`](../../doc/models/companies-campaign-management-status-status-403-error-exception.md) |
-| 422 | Unprocessable Entity - a request validation error. | [`CompaniesCampaignManagementStatusStatus422ErrorException`](../../doc/models/companies-campaign-management-status-status-422-error-exception.md) |
-| 500 | Internal Server Error - the server could not process the request. | [`CompaniesCampaignManagementStatusStatus500ErrorException`](../../doc/models/companies-campaign-management-status-status-500-error-exception.md) |
+| 400 | Bad Request - a problem reading or understanding the request. | [`DefaultErrorResponseEntityException`](../../doc/models/default-error-response-entity-exception.md) |
+| 401 | Unauthorized - authentication required. | [`DefaultErrorResponseEntityException`](../../doc/models/default-error-response-entity-exception.md) |
+| 403 | Forbidden - insufficient permissions to process the request. | [`DefaultErrorResponseEntityException`](../../doc/models/default-error-response-entity-exception.md) |
+| 422 | Unprocessable Entity - a request validation error. | [`DefaultErrorResponseEntityException`](../../doc/models/default-error-response-entity-exception.md) |
+| 500 | Internal Server Error - the server could not process the request. | [`DefaultErrorResponseEntityException`](../../doc/models/default-error-response-entity-exception.md) |
 
 
 # Post-Companies-Company Id-Nonprofits
@@ -370,7 +349,7 @@ This endpoint requires [BasicAuth](../../doc/auth/basic-authentication.md) **OR*
 
 **200**: OK - the request has succeeded.
 
-This method returns an [`ApiResponse`](../../doc/api-response.md) instance. The `body` property of this instance returns the response data which is of type [`ListNonprofitsResponse`](../../doc/models/list-nonprofits-response.md).
+[`ListNonprofitsResponse`](../../doc/models/list-nonprofits-response.md)
 
 ## Example Usage
 
@@ -383,20 +362,16 @@ result = donation_campaigns_api.post_companies_company_id_nonprofits(
     company_id,
     page_size=page_size
 )
-
-if result.is_success():
-    print(result.body)
-elif result.is_error():
-    print(result.errors)
+print(result)
 ```
 
 ## Errors
 
 | HTTP Status Code | Error Description | Exception Class |
 |  --- | --- | --- |
-| 400 | Bad Request - a problem reading or understanding the request. | [`CompaniesNonprofits400ErrorException`](../../doc/models/companies-nonprofits-400-error-exception.md) |
-| 401 | Unauthorized - authentication required. | [`CompaniesNonprofits401ErrorException`](../../doc/models/companies-nonprofits-401-error-exception.md) |
-| 403 | Forbidden - insufficient permissions to process the request. | [`CompaniesNonprofits403ErrorException`](../../doc/models/companies-nonprofits-403-error-exception.md) |
-| 422 | Unprocessable Entity - a request validation error. | [`CompaniesNonprofits422ErrorException`](../../doc/models/companies-nonprofits-422-error-exception.md) |
-| 500 | Internal Server Error - the server could not process the request. | [`CompaniesNonprofits500ErrorException`](../../doc/models/companies-nonprofits-500-error-exception.md) |
+| 400 | Bad Request - a problem reading or understanding the request. | [`DefaultErrorResponseEntityException`](../../doc/models/default-error-response-entity-exception.md) |
+| 401 | Unauthorized - authentication required. | [`DefaultErrorResponseEntityException`](../../doc/models/default-error-response-entity-exception.md) |
+| 403 | Forbidden - insufficient permissions to process the request. | [`DefaultErrorResponseEntityException`](../../doc/models/default-error-response-entity-exception.md) |
+| 422 | Unprocessable Entity - a request validation error. | [`DefaultErrorResponseEntityException`](../../doc/models/default-error-response-entity-exception.md) |
+| 500 | Internal Server Error - the server could not process the request. | [`DefaultErrorResponseEntityException`](../../doc/models/default-error-response-entity-exception.md) |
 

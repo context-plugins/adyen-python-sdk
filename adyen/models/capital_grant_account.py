@@ -18,8 +18,6 @@ class CapitalGrantAccount(object):
             account used to fund the grant.
         id (str): The identifier of the grant account.
         limits (List[GrantLimit]): The limits of the grant account.
-        additional_properties (Dict[str, Any]): The additional properties for the
-            model.
 
     """
 
@@ -43,8 +41,7 @@ class CapitalGrantAccount(object):
         balances=APIHelper.SKIP,
         funding_balance_account_id=APIHelper.SKIP,
         id=APIHelper.SKIP,
-        limits=APIHelper.SKIP,
-        additional_properties=None):
+        limits=APIHelper.SKIP):
         """Initialize a CapitalGrantAccount instance."""
         # Initialize members of the class
         if balances is not APIHelper.SKIP:
@@ -55,11 +52,6 @@ class CapitalGrantAccount(object):
             self.id = id
         if limits is not APIHelper.SKIP:
             self.limits = limits
-
-        # Add additional model properties to the instance
-        if additional_properties is None:
-            additional_properties = {}
-        self.additional_properties = additional_properties
 
     @classmethod
     def from_dictionary(cls,
@@ -104,17 +96,11 @@ class CapitalGrantAccount(object):
         else:
             limits = APIHelper.SKIP
 
-        additional_properties = APIHelper.get_additional_properties(
-            dictionary={k: v for k, v in dictionary.items()
-                        if k not in cls._names.values()},
-            unboxing_function=lambda value: value)
-
         # Return an object of this model
         return cls(balances,
                    funding_balance_account_id,
                    id,
-                   limits,
-                   additional_properties)
+                   limits)
 
     def __repr__(self):
         """Return a unambiguous string representation."""
@@ -138,14 +124,12 @@ class CapitalGrantAccount(object):
             if hasattr(self, "limits")
             else None
         )
-        _additional_properties=self.additional_properties
         return (
             f"{self.__class__.__name__}("
             f"balances={_balances!r}, "
             f"funding_balance_account_id={_funding_balance_account_id!r}, "
             f"id={_id!r}, "
             f"limits={_limits!r}, "
-            f"additional_properties={_additional_properties!r}, "
             f")"
         )
 
@@ -171,13 +155,11 @@ class CapitalGrantAccount(object):
             if hasattr(self, "limits")
             else None
         )
-        _additional_properties=self.additional_properties
         return (
             f"{self.__class__.__name__}("
             f"balances={_balances!s}, "
             f"funding_balance_account_id={_funding_balance_account_id!s}, "
             f"id={_id!s}, "
             f"limits={_limits!s}, "
-            f"additional_properties={_additional_properties!s}, "
             f")"
         )

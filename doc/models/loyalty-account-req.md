@@ -1,8 +1,6 @@
 
 # Loyalty Account Req
 
-*This model accepts additional fields of type Any.*
-
 ## Structure
 
 `LoyaltyAccountReq`
@@ -11,45 +9,34 @@
 
 | Name | Type | Tags | Description |
 |  --- | --- | --- | --- |
-| `card_acquisition_reference` | [`CardAcquisitionReference`](../../doc/models/card-acquisition-reference.md) | Optional | - |
-| `loyalty_account_id` | [`LoyaltyAccountId3`](../../doc/models/loyalty-account-id-3.md) | Optional | - |
-| `additional_properties` | `Dict[str, Any]` | Optional | - |
+| `card_acquisition_reference` | [`TransactionIDType`](../../doc/models/transaction-id-type.md) | Optional | Identification of a transaction for the Sale System or the POI System. |
+| `loyalty_account_id` | [`LoyaltyAccountID`](../../doc/models/loyalty-account-id.md) | Optional | Identification of a Loyalty account.<br>In the Payment Request message, it allows to identify the loyalty account by the Sale Terminal instead of the POI Terminal (e.g. because the account identification is a bar-code read by the Cashier on a scanner device). |
 
 ## Example
 
 ```python
 import dateutil.parser
-import jsonpickle
 
-from adyen.models.card_acquisition_reference import CardAcquisitionReference
-from adyen.models.entry_mode import EntryMode
-from adyen.models.identification_support_1 import IdentificationSupport1
-from adyen.models.identification_type_11 import IdentificationType11
-from adyen.models.loyalty_account_id_3 import LoyaltyAccountId3
+from adyen.models.entry_mode_enum import EntryModeEnum
+from adyen.models.identification_support_1_enum import IdentificationSupport1Enum
+from adyen.models.identification_type_11_enum import IdentificationType11Enum
+from adyen.models.loyalty_account_id import LoyaltyAccountID
 from adyen.models.loyalty_account_req import LoyaltyAccountReq
+from adyen.models.transaction_id_type import TransactionIDType
 
 loyalty_account_req = LoyaltyAccountReq(
-    card_acquisition_reference=CardAcquisitionReference(
+    card_acquisition_reference=TransactionIDType(
         transaction_id='TransactionID8',
-        time_stamp=dateutil.parser.parse('2016-03-13T12:52:32.123Z'),
-        additional_properties={
-            'exampleAdditionalProperty': jsonpickle.decode('{"key1":"val1","key2":"val2"}')
-        }
+        time_stamp=dateutil.parser.parse('2016-03-13T12:52:32.123Z')
     ),
-    loyalty_account_id=LoyaltyAccountId3(
+    loyalty_account_id=LoyaltyAccountID(
         entry_mode=[
-            EntryMode.FILE
+            EntryModeEnum.FILE
         ],
-        identification_type=IdentificationType11.ISOTRACK2,
+        identification_type=IdentificationType11Enum.ISOTRACK2,
         loyalty_id='LoyaltyID4',
-        identification_support=IdentificationSupport1.HYBRIDCARD,
-        additional_properties={
-            'exampleAdditionalProperty': jsonpickle.decode('{"key1":"val1","key2":"val2"}')
-        }
-    ),
-    additional_properties={
-        'exampleAdditionalProperty': jsonpickle.decode('{"key1":"val1","key2":"val2"}')
-    }
+        identification_support=IdentificationSupport1Enum.HYBRIDCARD
+    )
 )
 ```
 

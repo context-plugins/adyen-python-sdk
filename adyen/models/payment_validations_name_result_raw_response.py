@@ -21,8 +21,6 @@ class PaymentValidationsNameResultRawResponse(object):
             from the scheme. Middle name validation result is only returned for Visa.
         status (str): The raw name validation status value that Adyen received from
             the scheme. Only returned for Visa.
-        additional_properties (Dict[str, Any]): The additional properties for the
-            model.
 
     """
 
@@ -49,8 +47,7 @@ class PaymentValidationsNameResultRawResponse(object):
         full_name=APIHelper.SKIP,
         last_name=APIHelper.SKIP,
         middle_name=APIHelper.SKIP,
-        status=APIHelper.SKIP,
-        additional_properties=None):
+        status=APIHelper.SKIP):
         """Initialize a PaymentValidationsNameResultRawResponse instance."""
         # Initialize members of the class
         if first_name is not APIHelper.SKIP:
@@ -63,11 +60,6 @@ class PaymentValidationsNameResultRawResponse(object):
             self.middle_name = middle_name
         if status is not APIHelper.SKIP:
             self.status = status
-
-        # Add additional model properties to the instance
-        if additional_properties is None:
-            additional_properties = {}
-        self.additional_properties = additional_properties
 
     @classmethod
     def from_dictionary(cls,
@@ -108,39 +100,12 @@ class PaymentValidationsNameResultRawResponse(object):
             if dictionary.get("status")\
                 else APIHelper.SKIP
 
-        additional_properties = APIHelper.get_additional_properties(
-            dictionary={k: v for k, v in dictionary.items()
-                        if k not in cls._names.values()},
-            unboxing_function=lambda value: value)
-
         # Return an object of this model
         return cls(first_name,
                    full_name,
                    last_name,
                    middle_name,
-                   status,
-                   additional_properties)
-
-    @classmethod
-    def validate(cls, dictionary):
-        """Validate dictionary against class required properties
-
-        Args:
-            dictionary (dictionary): A dictionary representation of the object
-            as obtained from the deserialization of the server's response. The
-            keys MUST match property names in the API description.
-
-        Returns:
-            boolean : if dictionary is valid contains required properties.
-
-        """
-        if isinstance(dictionary, cls):
-            return True
-
-        if not isinstance(dictionary, dict):
-            return False
-
-        return True
+                   status)
 
     def __repr__(self):
         """Return a unambiguous string representation."""
@@ -169,7 +134,6 @@ class PaymentValidationsNameResultRawResponse(object):
             if hasattr(self, "status")
             else None
         )
-        _additional_properties=self.additional_properties
         return (
             f"{self.__class__.__name__}("
             f"first_name={_first_name!r}, "
@@ -177,7 +141,6 @@ class PaymentValidationsNameResultRawResponse(object):
             f"last_name={_last_name!r}, "
             f"middle_name={_middle_name!r}, "
             f"status={_status!r}, "
-            f"additional_properties={_additional_properties!r}, "
             f")"
         )
 
@@ -208,7 +171,6 @@ class PaymentValidationsNameResultRawResponse(object):
             if hasattr(self, "status")
             else None
         )
-        _additional_properties=self.additional_properties
         return (
             f"{self.__class__.__name__}("
             f"first_name={_first_name!s}, "
@@ -216,6 +178,5 @@ class PaymentValidationsNameResultRawResponse(object):
             f"last_name={_last_name!s}, "
             f"middle_name={_middle_name!s}, "
             f"status={_status!s}, "
-            f"additional_properties={_additional_properties!s}, "
             f")"
         )

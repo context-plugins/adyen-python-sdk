@@ -10,43 +10,40 @@ from adyen.api_helper import APIHelper
 class Phone1(object):
     """Implementation of the 'Phone1' model.
 
-    The phone number where the one-time password (OTP) is sent.
-    This object must have:
-    * A `type` set to **mobile**.
-    * A `number` with a valid country code.
-    * A `number` with more than 4 digits, excluding the country code.
-    >Make sure to verify that the card user owns the phone number.
+    The mobile phone number provided by the cardholder. The phone number must consist
+    of a country code, followed by the number. If the value you provide does not
+    follow the guidelines, we do not submit it for authentication.
+    > Required for Visa and JCB transactions that require 3D Secure 2 authentication,
+    if you did not include the `shopperEmail`, and did not send the shopper's phone
+    number in `telephoneNumber`.
 
     Attributes:
-        number (str): The full phone number provided as a single string.  For
-            example, **"0031 6 11 22 33 44"**, **"+316/1122-3344"**,    or **"(0031)
-            611223344"**.
-        mtype (Type4): The model property of type Type4.
-        additional_properties (Dict[str, Any]): The additional properties for the
-            model.
+        cc (str): Country code. Length: 1–3 digits.
+        subscriber (str): Subscriber number. Length: 4-15  digits.
 
     """
 
     # Create a mapping from Model property names to API property names
     _names = {
-        "number": "number",
-        "mtype": "type",
+        "cc": "cc",
+        "subscriber": "subscriber",
     }
+
+    _optionals = [
+        "cc",
+        "subscriber",
+    ]
 
     def __init__(
         self,
-        number=None,
-        mtype=None,
-        additional_properties=None):
+        cc=APIHelper.SKIP,
+        subscriber=APIHelper.SKIP):
         """Initialize a Phone1 instance."""
         # Initialize members of the class
-        self.number = number
-        self.mtype = mtype
-
-        # Add additional model properties to the instance
-        if additional_properties is None:
-            additional_properties = {}
-        self.additional_properties = additional_properties
+        if cc is not APIHelper.SKIP:
+            self.cc = cc
+        if subscriber is not APIHelper.SKIP:
+            self.subscriber = subscriber
 
     @classmethod
     def from_dictionary(cls,
@@ -66,47 +63,74 @@ class Phone1(object):
             return None
 
         # Extract variables from the dictionary
-        number =\
-            dictionary.get("number")\
-            if dictionary.get("number")\
-                else None
-        mtype =\
-            dictionary.get("type")\
-            if dictionary.get("type")\
-                else None
-
-        additional_properties = APIHelper.get_additional_properties(
-            dictionary={k: v for k, v in dictionary.items()
-                        if k not in cls._names.values()},
-            unboxing_function=lambda value: value)
+        cc =\
+            dictionary.get("cc")\
+            if dictionary.get("cc")\
+                else APIHelper.SKIP
+        subscriber =\
+            dictionary.get("subscriber")\
+            if dictionary.get("subscriber")\
+                else APIHelper.SKIP
 
         # Return an object of this model
-        return cls(number,
-                   mtype,
-                   additional_properties)
+        return cls(cc,
+                   subscriber)
+
+    @classmethod
+    def validate(cls, dictionary):
+        """Validate dictionary against class required properties
+
+        Args:
+            dictionary (dictionary): A dictionary representation of the object
+            as obtained from the deserialization of the server's response. The
+            keys MUST match property names in the API description.
+
+        Returns:
+            boolean : if dictionary is valid contains required properties.
+
+        """
+        if isinstance(dictionary, cls):
+            return True
+
+        if not isinstance(dictionary, dict):
+            return False
+
+        return True
 
     def __repr__(self):
         """Return a unambiguous string representation."""
-        _number=self.number
-        _mtype=self.mtype
-        _additional_properties=self.additional_properties
+        _cc=(
+            self.cc
+            if hasattr(self, "cc")
+            else None
+        )
+        _subscriber=(
+            self.subscriber
+            if hasattr(self, "subscriber")
+            else None
+        )
         return (
             f"{self.__class__.__name__}("
-            f"number={_number!r}, "
-            f"mtype={_mtype!r}, "
-            f"additional_properties={_additional_properties!r}, "
+            f"cc={_cc!r}, "
+            f"subscriber={_subscriber!r}, "
             f")"
         )
 
     def __str__(self):
         """Return a human-readable string representation."""
-        _number=self.number
-        _mtype=self.mtype
-        _additional_properties=self.additional_properties
+        _cc=(
+            self.cc
+            if hasattr(self, "cc")
+            else None
+        )
+        _subscriber=(
+            self.subscriber
+            if hasattr(self, "subscriber")
+            else None
+        )
         return (
             f"{self.__class__.__name__}("
-            f"number={_number!s}, "
-            f"mtype={_mtype!s}, "
-            f"additional_properties={_additional_properties!s}, "
+            f"cc={_cc!s}, "
+            f"subscriber={_subscriber!s}, "
             f")"
         )

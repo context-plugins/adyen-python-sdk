@@ -18,8 +18,6 @@ class GeneratePciDescriptionResponse(object):
         pci_template_references (List[str]): The array of Adyen-generated unique
             identifiers for the questionnaires. If empty, the user is not required to
             sign questionnaires.
-        additional_properties (Dict[str, Any]): The additional properties for the
-            model.
 
     """
 
@@ -40,8 +38,7 @@ class GeneratePciDescriptionResponse(object):
         self,
         content=APIHelper.SKIP,
         language=APIHelper.SKIP,
-        pci_template_references=APIHelper.SKIP,
-        additional_properties=None):
+        pci_template_references=APIHelper.SKIP):
         """Initialize a GeneratePciDescriptionResponse instance."""
         # Initialize members of the class
         if content is not APIHelper.SKIP:
@@ -50,11 +47,6 @@ class GeneratePciDescriptionResponse(object):
             self.language = language
         if pci_template_references is not APIHelper.SKIP:
             self.pci_template_references = pci_template_references
-
-        # Add additional model properties to the instance
-        if additional_properties is None:
-            additional_properties = {}
-        self.additional_properties = additional_properties
 
     @classmethod
     def from_dictionary(cls,
@@ -87,16 +79,10 @@ class GeneratePciDescriptionResponse(object):
             if dictionary.get("pciTemplateReferences")\
                 else APIHelper.SKIP
 
-        additional_properties = APIHelper.get_additional_properties(
-            dictionary={k: v for k, v in dictionary.items()
-                        if k not in cls._names.values()},
-            unboxing_function=lambda value: value)
-
         # Return an object of this model
         return cls(content,
                    language,
-                   pci_template_references,
-                   additional_properties)
+                   pci_template_references)
 
     def __repr__(self):
         """Return a unambiguous string representation."""
@@ -115,13 +101,11 @@ class GeneratePciDescriptionResponse(object):
             if hasattr(self, "pci_template_references")
             else None
         )
-        _additional_properties=self.additional_properties
         return (
             f"{self.__class__.__name__}("
             f"content={_content!r}, "
             f"language={_language!r}, "
             f"pci_template_references={_pci_template_references!r}, "
-            f"additional_properties={_additional_properties!r}, "
             f")"
         )
 
@@ -142,12 +126,10 @@ class GeneratePciDescriptionResponse(object):
             if hasattr(self, "pci_template_references")
             else None
         )
-        _additional_properties=self.additional_properties
         return (
             f"{self.__class__.__name__}("
             f"content={_content!s}, "
             f"language={_language!s}, "
             f"pci_template_references={_pci_template_references!s}, "
-            f"additional_properties={_additional_properties!s}, "
             f")"
         )

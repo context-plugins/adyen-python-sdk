@@ -1,8 +1,6 @@
 
 # Confirm Payment Response
 
-*This model accepts additional fields of type Any.*
-
 ## Structure
 
 `ConfirmPaymentResponse`
@@ -11,39 +9,25 @@
 
 | Name | Type | Tags | Description |
 |  --- | --- | --- | --- |
-| `links` | [`Links`](../../doc/models/links.md) | Required | - |
-| `additional_properties` | `Dict[str, Any]` | Optional | - |
+| `links` | [`Links11`](../../doc/models/links-11.md) | Required | Contains redirection URLs to guide the user to the appropriate page, after a successful payment or a cancellation. |
 
 ## Example
 
 ```python
-import jsonpickle
-
 from adyen.models.confirm_payment_response import ConfirmPaymentResponse
-from adyen.models.href import Href
-from adyen.models.links import Links
+from adyen.models.href_1 import Href1
+from adyen.models.href_6 import Href6
+from adyen.models.links_11 import Links11
 
 confirm_payment_response = ConfirmPaymentResponse(
-    links=Links(
-        cancel=Href(
-            href='href4',
-            additional_properties={
-                'exampleAdditionalProperty': jsonpickle.decode('{"key1":"val1","key2":"val2"}')
-            }
+    links=Links11(
+        cancel=Href6(
+            href='href4'
         ),
-        success=Href(
-            href='href2',
-            additional_properties={
-                'exampleAdditionalProperty': jsonpickle.decode('{"key1":"val1","key2":"val2"}')
-            }
-        ),
-        additional_properties={
-            'exampleAdditionalProperty': jsonpickle.decode('{"key1":"val1","key2":"val2"}')
-        }
-    ),
-    additional_properties={
-        'exampleAdditionalProperty': jsonpickle.decode('{"key1":"val1","key2":"val2"}')
-    }
+        success=Href1(
+            href='href2'
+        )
+    )
 )
 ```
 

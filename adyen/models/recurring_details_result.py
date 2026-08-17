@@ -21,8 +21,6 @@ class RecurringDetailsResult(object):
             available).
         shopper_reference (str): The reference you use to uniquely identify the
             shopper (e.g. user ID or account ID).
-        additional_properties (Dict[str, Any]): The additional properties for the
-            model.
 
     """
 
@@ -46,8 +44,7 @@ class RecurringDetailsResult(object):
         creation_date=APIHelper.SKIP,
         details=APIHelper.SKIP,
         last_known_shopper_email=APIHelper.SKIP,
-        shopper_reference=APIHelper.SKIP,
-        additional_properties=None):
+        shopper_reference=APIHelper.SKIP):
         """Initialize a RecurringDetailsResult instance."""
         # Initialize members of the class
         if creation_date is not APIHelper.SKIP:
@@ -61,11 +58,6 @@ class RecurringDetailsResult(object):
             self.last_known_shopper_email = last_known_shopper_email
         if shopper_reference is not APIHelper.SKIP:
             self.shopper_reference = shopper_reference
-
-        # Add additional model properties to the instance
-        if additional_properties is None:
-            additional_properties = {}
-        self.additional_properties = additional_properties
 
     @classmethod
     def from_dictionary(cls,
@@ -105,17 +97,11 @@ class RecurringDetailsResult(object):
             if dictionary.get("shopperReference")\
                 else APIHelper.SKIP
 
-        additional_properties = APIHelper.get_additional_properties(
-            dictionary={k: v for k, v in dictionary.items()
-                        if k not in cls._names.values()},
-            unboxing_function=lambda value: value)
-
         # Return an object of this model
         return cls(creation_date,
                    details,
                    last_known_shopper_email,
-                   shopper_reference,
-                   additional_properties)
+                   shopper_reference)
 
     def __repr__(self):
         """Return a unambiguous string representation."""
@@ -139,14 +125,12 @@ class RecurringDetailsResult(object):
             if hasattr(self, "shopper_reference")
             else None
         )
-        _additional_properties=self.additional_properties
         return (
             f"{self.__class__.__name__}("
             f"creation_date={_creation_date!r}, "
             f"details={_details!r}, "
             f"last_known_shopper_email={_last_known_shopper_email!r}, "
             f"shopper_reference={_shopper_reference!r}, "
-            f"additional_properties={_additional_properties!r}, "
             f")"
         )
 
@@ -172,13 +156,11 @@ class RecurringDetailsResult(object):
             if hasattr(self, "shopper_reference")
             else None
         )
-        _additional_properties=self.additional_properties
         return (
             f"{self.__class__.__name__}("
             f"creation_date={_creation_date!s}, "
             f"details={_details!s}, "
             f"last_known_shopper_email={_last_known_shopper_email!s}, "
             f"shopper_reference={_shopper_reference!s}, "
-            f"additional_properties={_additional_properties!s}, "
             f")"
         )

@@ -24,8 +24,6 @@ class TerminalReassignmentTarget2(object):
             terminal is reassigned.
         store_id (str): The unique identifier of the store to which the terminal is
             reassigned.
-        additional_properties (Dict[str, Any]): The additional properties for the
-            model.
 
     """
 
@@ -48,8 +46,7 @@ class TerminalReassignmentTarget2(object):
         inventory=None,
         company_id=APIHelper.SKIP,
         merchant_id=APIHelper.SKIP,
-        store_id=APIHelper.SKIP,
-        additional_properties=None):
+        store_id=APIHelper.SKIP):
         """Initialize a TerminalReassignmentTarget2 instance."""
         # Initialize members of the class
         if company_id is not APIHelper.SKIP:
@@ -59,11 +56,6 @@ class TerminalReassignmentTarget2(object):
             self.merchant_id = merchant_id
         if store_id is not APIHelper.SKIP:
             self.store_id = store_id
-
-        # Add additional model properties to the instance
-        if additional_properties is None:
-            additional_properties = {}
-        self.additional_properties = additional_properties
 
     @classmethod
     def from_dictionary(cls,
@@ -100,17 +92,11 @@ class TerminalReassignmentTarget2(object):
             if dictionary.get("storeId")\
                 else APIHelper.SKIP
 
-        additional_properties = APIHelper.get_additional_properties(
-            dictionary={k: v for k, v in dictionary.items()
-                        if k not in cls._names.values()},
-            unboxing_function=lambda value: value)
-
         # Return an object of this model
         return cls(inventory,
                    company_id,
                    merchant_id,
-                   store_id,
-                   additional_properties)
+                   store_id)
 
     def __repr__(self):
         """Return a unambiguous string representation."""
@@ -130,14 +116,12 @@ class TerminalReassignmentTarget2(object):
             if hasattr(self, "store_id")
             else None
         )
-        _additional_properties=self.additional_properties
         return (
             f"{self.__class__.__name__}("
             f"company_id={_company_id!r}, "
             f"inventory={_inventory!r}, "
             f"merchant_id={_merchant_id!r}, "
             f"store_id={_store_id!r}, "
-            f"additional_properties={_additional_properties!r}, "
             f")"
         )
 
@@ -159,13 +143,11 @@ class TerminalReassignmentTarget2(object):
             if hasattr(self, "store_id")
             else None
         )
-        _additional_properties=self.additional_properties
         return (
             f"{self.__class__.__name__}("
             f"company_id={_company_id!s}, "
             f"inventory={_inventory!s}, "
             f"merchant_id={_merchant_id!s}, "
             f"store_id={_store_id!s}, "
-            f"additional_properties={_additional_properties!s}, "
             f")"
         )

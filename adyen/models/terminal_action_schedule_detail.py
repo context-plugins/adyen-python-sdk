@@ -13,8 +13,6 @@ class TerminalActionScheduleDetail(object):
     Attributes:
         id (str): The ID of the action on the specified terminal.
         terminal_id (str): The unique ID of the terminal that the action applies to.
-        additional_properties (Dict[str, Any]): The additional properties for the
-            model.
 
     """
 
@@ -32,19 +30,13 @@ class TerminalActionScheduleDetail(object):
     def __init__(
         self,
         id=APIHelper.SKIP,
-        terminal_id=APIHelper.SKIP,
-        additional_properties=None):
+        terminal_id=APIHelper.SKIP):
         """Initialize a TerminalActionScheduleDetail instance."""
         # Initialize members of the class
         if id is not APIHelper.SKIP:
             self.id = id
         if terminal_id is not APIHelper.SKIP:
             self.terminal_id = terminal_id
-
-        # Add additional model properties to the instance
-        if additional_properties is None:
-            additional_properties = {}
-        self.additional_properties = additional_properties
 
     @classmethod
     def from_dictionary(cls,
@@ -73,15 +65,9 @@ class TerminalActionScheduleDetail(object):
             if dictionary.get("terminalId")\
                 else APIHelper.SKIP
 
-        additional_properties = APIHelper.get_additional_properties(
-            dictionary={k: v for k, v in dictionary.items()
-                        if k not in cls._names.values()},
-            unboxing_function=lambda value: value)
-
         # Return an object of this model
         return cls(id,
-                   terminal_id,
-                   additional_properties)
+                   terminal_id)
 
     @classmethod
     def validate(cls, dictionary):
@@ -116,12 +102,10 @@ class TerminalActionScheduleDetail(object):
             if hasattr(self, "terminal_id")
             else None
         )
-        _additional_properties=self.additional_properties
         return (
             f"{self.__class__.__name__}("
             f"id={_id!r}, "
             f"terminal_id={_terminal_id!r}, "
-            f"additional_properties={_additional_properties!r}, "
             f")"
         )
 
@@ -137,11 +121,9 @@ class TerminalActionScheduleDetail(object):
             if hasattr(self, "terminal_id")
             else None
         )
-        _additional_properties=self.additional_properties
         return (
             f"{self.__class__.__name__}("
             f"id={_id!s}, "
             f"terminal_id={_terminal_id!s}, "
-            f"additional_properties={_additional_properties!s}, "
             f")"
         )

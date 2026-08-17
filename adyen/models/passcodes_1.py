@@ -21,8 +21,6 @@ class Passcodes1(object):
         screen_lock_pin (str): The passcode to unlock the terminal screen after a
             timeout.
         tx_menu_pin (str): The passcode for the Transactions menu.
-        additional_properties (Dict[str, Any]): The additional properties for the
-            model.
 
     """
 
@@ -46,8 +44,7 @@ class Passcodes1(object):
         admin_menu_pin=APIHelper.SKIP,
         refund_pin=APIHelper.SKIP,
         screen_lock_pin=APIHelper.SKIP,
-        tx_menu_pin=APIHelper.SKIP,
-        additional_properties=None):
+        tx_menu_pin=APIHelper.SKIP):
         """Initialize a Passcodes1 instance."""
         # Initialize members of the class
         if admin_menu_pin is not APIHelper.SKIP:
@@ -58,11 +55,6 @@ class Passcodes1(object):
             self.screen_lock_pin = screen_lock_pin
         if tx_menu_pin is not APIHelper.SKIP:
             self.tx_menu_pin = tx_menu_pin
-
-        # Add additional model properties to the instance
-        if additional_properties is None:
-            additional_properties = {}
-        self.additional_properties = additional_properties
 
     @classmethod
     def from_dictionary(cls,
@@ -99,17 +91,11 @@ class Passcodes1(object):
             if dictionary.get("txMenuPin")\
                 else APIHelper.SKIP
 
-        additional_properties = APIHelper.get_additional_properties(
-            dictionary={k: v for k, v in dictionary.items()
-                        if k not in cls._names.values()},
-            unboxing_function=lambda value: value)
-
         # Return an object of this model
         return cls(admin_menu_pin,
                    refund_pin,
                    screen_lock_pin,
-                   tx_menu_pin,
-                   additional_properties)
+                   tx_menu_pin)
 
     def __repr__(self):
         """Return a unambiguous string representation."""
@@ -133,14 +119,12 @@ class Passcodes1(object):
             if hasattr(self, "tx_menu_pin")
             else None
         )
-        _additional_properties=self.additional_properties
         return (
             f"{self.__class__.__name__}("
             f"admin_menu_pin={_admin_menu_pin!r}, "
             f"refund_pin={_refund_pin!r}, "
             f"screen_lock_pin={_screen_lock_pin!r}, "
             f"tx_menu_pin={_tx_menu_pin!r}, "
-            f"additional_properties={_additional_properties!r}, "
             f")"
         )
 
@@ -166,13 +150,11 @@ class Passcodes1(object):
             if hasattr(self, "tx_menu_pin")
             else None
         )
-        _additional_properties=self.additional_properties
         return (
             f"{self.__class__.__name__}("
             f"admin_menu_pin={_admin_menu_pin!s}, "
             f"refund_pin={_refund_pin!s}, "
             f"screen_lock_pin={_screen_lock_pin!s}, "
             f"tx_menu_pin={_tx_menu_pin!s}, "
-            f"additional_properties={_additional_properties!s}, "
             f")"
         )

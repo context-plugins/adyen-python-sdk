@@ -24,8 +24,6 @@ class ResponseAdditionalDataSepa(object):
             instruction to carry out regular direct debit transactions initiated by
             the creditor. * Final: (FNAL) Last/final collection in a series of direct
             debit instructions.  Example: OOFF
-        additional_properties (Dict[str, Any]): The additional properties for the
-            model.
 
     """
 
@@ -50,8 +48,7 @@ class ResponseAdditionalDataSepa(object):
         sepadirectdebit_date_of_signature=APIHelper.SKIP,
         sepadirectdebit_mandate_id=APIHelper.SKIP,
         sepadirectdebit_sepadirectdebit_due_date=APIHelper.SKIP,
-        sepadirectdebit_sequence_type=APIHelper.SKIP,
-        additional_properties=None):
+        sepadirectdebit_sequence_type=APIHelper.SKIP):
         """Initialize a ResponseAdditionalDataSepa instance."""
         # Initialize members of the class
         if sepadirectdebit_date_of_signature is not APIHelper.SKIP:
@@ -64,11 +61,6 @@ class ResponseAdditionalDataSepa(object):
                  sepadirectdebit_sepadirectdebit_due_date
         if sepadirectdebit_sequence_type is not APIHelper.SKIP:
             self.sepadirectdebit_sequence_type = sepadirectdebit_sequence_type
-
-        # Add additional model properties to the instance
-        if additional_properties is None:
-            additional_properties = {}
-        self.additional_properties = additional_properties
 
     @classmethod
     def from_dictionary(cls,
@@ -105,17 +97,11 @@ class ResponseAdditionalDataSepa(object):
             if dictionary.get("sepadirectdebit.sequenceType")\
                 else APIHelper.SKIP
 
-        additional_properties = APIHelper.get_additional_properties(
-            dictionary={k: v for k, v in dictionary.items()
-                        if k not in cls._names.values()},
-            unboxing_function=lambda value: value)
-
         # Return an object of this model
         return cls(sepadirectdebit_date_of_signature,
                    sepadirectdebit_mandate_id,
                    sepadirectdebit_sepadirectdebit_due_date,
-                   sepadirectdebit_sequence_type,
-                   additional_properties)
+                   sepadirectdebit_sequence_type)
 
     def __repr__(self):
         """Return a unambiguous string representation."""
@@ -139,14 +125,12 @@ class ResponseAdditionalDataSepa(object):
             if hasattr(self, "sepadirectdebit_sequence_type")
             else None
         )
-        _additional_properties=self.additional_properties
         return (
             f"{self.__class__.__name__}("
             f"sepadirectdebit_date_of_signature={_sepadirectdebit_date_of_signature!r}, "
             f"sepadirectdebit_mandate_id={_sepadirectdebit_mandate_id!r}, "
             f"sepadirectdebit_sepadirectdebit_due_date={_sepadirectdebit_sepadirectdebit_due_date!r}, "
             f"sepadirectdebit_sequence_type={_sepadirectdebit_sequence_type!r}, "
-            f"additional_properties={_additional_properties!r}, "
             f")"
         )
 
@@ -172,13 +156,11 @@ class ResponseAdditionalDataSepa(object):
             if hasattr(self, "sepadirectdebit_sequence_type")
             else None
         )
-        _additional_properties=self.additional_properties
         return (
             f"{self.__class__.__name__}("
             f"sepadirectdebit_date_of_signature={_sepadirectdebit_date_of_signature!s}, "
             f"sepadirectdebit_mandate_id={_sepadirectdebit_mandate_id!s}, "
             f"sepadirectdebit_sepadirectdebit_due_date={_sepadirectdebit_sepadirectdebit_due_date!s}, "
             f"sepadirectdebit_sequence_type={_sepadirectdebit_sequence_type!s}, "
-            f"additional_properties={_additional_properties!s}, "
             f")"
         )

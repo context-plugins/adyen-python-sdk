@@ -1,9 +1,7 @@
 
 # Address 13
 
-The address of the store.
-
-*This model accepts additional fields of type Any.*
+The residential address of the individual.
 
 ## Structure
 
@@ -13,30 +11,25 @@ The address of the store.
 
 | Name | Type | Tags | Description |
 |  --- | --- | --- | --- |
-| `city` | `str` | Optional | - |
-| `country_code` | `str` | Optional | - |
-| `postal_code` | `str` | Optional | - |
-| `state_or_province` | `str` | Optional | - |
-| `street_address` | `str` | Optional | - |
-| `street_address_2` | `str` | Optional | - |
-| `additional_properties` | `Dict[str, Any]` | Optional | - |
+| `city` | `str` | Optional | The name of the city. Required if `stateOrProvince` is provided.<br><br>If you specify the city, you must also send `postalCode` and `street`. |
+| `country` | `str` | Required | The two-letter [ISO 3166-1 alpha-2](https://en.wikipedia.org/wiki/ISO_3166-1_alpha-2) country code. |
+| `postal_code` | `str` | Optional | The postal code. Required if `stateOrProvince` and/or `city` is provided.<br><br>When using alphanumeric postal codes, all letters must be uppercase. For example, 1234 AB or SW1A 1AA. |
+| `state_or_province` | `str` | Optional | The two-letter ISO 3166-2 state or province code. For example, **CA** in the US. Required for Australia and New Zealand.<br><br>If you specify the state or province, you must also send `city`, `postalCode`, and `street`. |
+| `street` | `str` | Optional | The name of the street, and the house or building number. Required if `stateOrProvince` and/or `city` is provided. |
+| `street_2` | `str` | Optional | The apartment, unit, or suite number. |
 
 ## Example
 
 ```python
-import jsonpickle
-
 from adyen.models.address_13 import Address13
 
 address_13 = Address13(
+    country='country8',
     city='city6',
-    country_code='countryCode0',
     postal_code='postalCode4',
     state_or_province='stateOrProvince8',
-    street_address='streetAddress6',
-    additional_properties={
-        'exampleAdditionalProperty': jsonpickle.decode('{"key1":"val1","key2":"val2"}')
-    }
+    street='street4',
+    street_2='street20'
 )
 ```
 

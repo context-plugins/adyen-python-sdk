@@ -39,7 +39,10 @@ class CardDonations(object):
             compliant](https://docs.adyen.com/development-resources/pci-dss-compliance
             -guide).
         fastlane_data (str): The encoded fastlane data blob
-        funding_source (FundingSource): The model property of type FundingSource.
+        funding_source (FundingSourceEnum): The funding source that should be used
+            when multiple sources are available. For Brazilian combo cards, by
+            default the funding source is credit. To use debit, set this value to
+            **debit**.
         holder_name (str): The name of the card holder.
         network_payment_reference (str): The transaction identifier from card
             schemes. This is the
@@ -65,9 +68,8 @@ class CardDonations(object):
             returned in the response when you created the token.
         three_ds_2_sdk_version (str): Required for mobile integrations. Version of
             the 3D Secure 2 mobile SDK.
-        mtype (Type141): The model property of type Type141.
-        additional_properties (Dict[str, Any]): The additional properties for the
-            model.
+        mtype (Type14Enum): Default payment method details. Common for scheme payment
+            methods, and for simple payment method details.
 
     """
 
@@ -163,8 +165,7 @@ class CardDonations(object):
         src_token_reference=APIHelper.SKIP,
         stored_payment_method_id=APIHelper.SKIP,
         three_ds_2_sdk_version=APIHelper.SKIP,
-        mtype=APIHelper.SKIP,
-        additional_properties=None):
+        mtype="scheme"):
         """Initialize a CardDonations instance."""
         # Initialize members of the class
         if billing_sequence_number is not APIHelper.SKIP:
@@ -221,13 +222,7 @@ class CardDonations(object):
             self.stored_payment_method_id = stored_payment_method_id
         if three_ds_2_sdk_version is not APIHelper.SKIP:
             self.three_ds_2_sdk_version = three_ds_2_sdk_version
-        if mtype is not APIHelper.SKIP:
-            self.mtype = mtype
-
-        # Add additional model properties to the instance
-        if additional_properties is None:
-            additional_properties = {}
-        self.additional_properties = additional_properties
+        self.mtype = mtype
 
     @classmethod
     def from_dictionary(cls,
@@ -358,12 +353,7 @@ class CardDonations(object):
         mtype =\
             dictionary.get("type")\
             if dictionary.get("type")\
-                else APIHelper.SKIP
-
-        additional_properties = APIHelper.get_additional_properties(
-            dictionary={k: v for k, v in dictionary.items()
-                        if k not in cls._names.values()},
-            unboxing_function=lambda value: value)
+                else "scheme"
 
         # Return an object of this model
         return cls(billing_sequence_number,
@@ -393,8 +383,7 @@ class CardDonations(object):
                    src_token_reference,
                    stored_payment_method_id,
                    three_ds_2_sdk_version,
-                   mtype,
-                   additional_properties)
+                   mtype)
 
     @classmethod
     def validate(cls, dictionary):
@@ -559,7 +548,6 @@ class CardDonations(object):
             if hasattr(self, "mtype")
             else None
         )
-        _additional_properties=self.additional_properties
         return (
             f"{self.__class__.__name__}("
             f"billing_sequence_number={_billing_sequence_number!r}, "
@@ -590,7 +578,6 @@ class CardDonations(object):
             f"stored_payment_method_id={_stored_payment_method_id!r}, "
             f"three_ds_2_sdk_version={_three_ds_2_sdk_version!r}, "
             f"mtype={_mtype!r}, "
-            f"additional_properties={_additional_properties!r}, "
             f")"
         )
 
@@ -736,7 +723,6 @@ class CardDonations(object):
             if hasattr(self, "mtype")
             else None
         )
-        _additional_properties=self.additional_properties
         return (
             f"{self.__class__.__name__}("
             f"billing_sequence_number={_billing_sequence_number!s}, "
@@ -767,6 +753,5 @@ class CardDonations(object):
             f"stored_payment_method_id={_stored_payment_method_id!s}, "
             f"three_ds_2_sdk_version={_three_ds_2_sdk_version!s}, "
             f"mtype={_mtype!s}, "
-            f"additional_properties={_additional_properties!s}, "
             f")"
         )

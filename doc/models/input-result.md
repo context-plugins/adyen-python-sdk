@@ -1,8 +1,6 @@
 
 # Input Result
 
-*This model accepts additional fields of type Any.*
-
 ## Structure
 
 `InputResult`
@@ -11,51 +9,39 @@
 
 | Name | Type | Tags | Description |
 |  --- | --- | --- | --- |
-| `device` | [`Device4`](../../doc/models/device-4.md) | Required | - |
-| `info_qualify` | [`InfoQualify2`](../../doc/models/info-qualify-2.md) | Required | - |
-| `response` | [`Response3`](../../doc/models/response-3.md) | Required | - |
-| `input` | [`Input`](../../doc/models/input.md) | Optional | - |
-| `additional_properties` | `Dict[str, Any]` | Optional | - |
+| `device` | [`Device4Enum`](../../doc/models/device-4-enum.md) | Required | Logical device located on a Sale Terminal or a POI Terminal, in terms of class of information to output (display, print or store), or input (keyboard) for the Cashier or the Customer.<br>Possible values:<br><br>* **CashierDisplay**<br>* **CashierInput**<br>* **CustomerDisplay**<br>* **CustomerInput** |
+| `info_qualify` | [`InfoQualify2Enum`](../../doc/models/info-qualify-2-enum.md) | Required | Qualification of the information to send to an output logical device, to display or print to the Cashier or the Customer.<br>Possible values:<br><br>* **CustomerAssistance**<br>* **Display**<br>* **Document**<br>* **Error**<br>* **Input**<br>* **POIReplication**<br>* **Receipt**<br>* **Sound**<br>* **Status**<br>* **Voucher** |
+| `response` | [`Response1`](../../doc/models/response-1.md) | Required | Result of a message request processing.<br>If Result is Success, `ErrorCondition` is absent or not used in the processing of the message. In the other cases, the `ErrorCondition` has to be present and can refine the processing of the message response. `AdditionalResponse` gives more information about the success or the failure of the message request processing, for logging without real time involvements. |
+| `input` | [`Input2`](../../doc/models/input-2.md) | Optional | Data entered by the user, related to the input command. |
 
 ## Example
 
 ```python
-import jsonpickle
-
-from adyen.models.device_4 import Device4
-from adyen.models.error_condition_1 import ErrorCondition1
-from adyen.models.info_qualify_2 import InfoQualify2
-from adyen.models.input import Input
-from adyen.models.input_command_1 import InputCommand1
+from adyen.models.device_4_enum import Device4Enum
+from adyen.models.error_condition_1_enum import ErrorCondition1Enum
+from adyen.models.info_qualify_2_enum import InfoQualify2Enum
+from adyen.models.input_2 import Input2
+from adyen.models.input_command_1_enum import InputCommand1Enum
 from adyen.models.input_result import InputResult
-from adyen.models.response_3 import Response3
-from adyen.models.result_11 import Result11
+from adyen.models.response_1 import Response1
+from adyen.models.result_11_enum import Result11Enum
 
 input_result = InputResult(
-    device=Device4.CASHIERDISPLAY,
-    info_qualify=InfoQualify2.STATUS,
-    response=Response3(
-        result=Result11.PARTIAL,
-        error_condition=ErrorCondition1.PAYMENTRESTRICTION,
-        additional_response='AdditionalResponse8',
-        additional_properties={
-            'exampleAdditionalProperty': jsonpickle.decode('{"key1":"val1","key2":"val2"}')
-        }
+    device=Device4Enum.CASHIERDISPLAY,
+    info_qualify=InfoQualify2Enum.STATUS,
+    response=Response1(
+        result=Result11Enum.PARTIAL,
+        error_condition=ErrorCondition1Enum.PAYMENTRESTRICTION,
+        additional_response='AdditionalResponse8'
     ),
-    input=Input(
-        input_command=InputCommand1.GETMENUENTRY,
+    input=Input2(
+        input_command=InputCommand1Enum.GETMENUENTRY,
         confirmed_flag=False,
         function_key=134,
         text_input='TextInput4',
         digit_input=152,
-        password='Password0',
-        additional_properties={
-            'exampleAdditionalProperty': jsonpickle.decode('{"key1":"val1","key2":"val2"}')
-        }
-    ),
-    additional_properties={
-        'exampleAdditionalProperty': jsonpickle.decode('{"key1":"val1","key2":"val2"}')
-    }
+        password='Password0'
+    )
 )
 ```
 

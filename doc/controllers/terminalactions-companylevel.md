@@ -51,7 +51,7 @@ This endpoint requires [BasicAuth](../../doc/auth/basic-authentication.md) **OR*
 
 **200**: OK - the request has succeeded.
 
-This method returns an [`ApiResponse`](../../doc/api-response.md) instance. The `body` property of this instance returns the response data which is of type [`ListExternalTerminalActionsResponse`](../../doc/models/list-external-terminal-actions-response.md).
+[`ListExternalTerminalActionsResponse`](../../doc/models/list-external-terminal-actions-response.md)
 
 ## Example Usage
 
@@ -59,11 +59,7 @@ This method returns an [`ApiResponse`](../../doc/api-response.md) instance. The 
 company_id = 'companyId0'
 
 result = terminal_actions_company_level_api.get_companies_company_id_terminal_actions(company_id)
-
-if result.is_success():
-    print(result.body)
-elif result.is_error():
-    print(result.errors)
+print(result)
 ```
 
 ## Example Response *(as JSON)*
@@ -127,7 +123,7 @@ This endpoint requires [BasicAuth](../../doc/auth/basic-authentication.md) **OR*
 
 **200**: OK - the request has succeeded.
 
-This method returns an [`ApiResponse`](../../doc/api-response.md) instance. The `body` property of this instance returns the response data which is of type [`ExternalTerminalAction`](../../doc/models/external-terminal-action.md).
+[`ExternalTerminalAction`](../../doc/models/external-terminal-action.md)
 
 ## Example Usage
 
@@ -140,11 +136,7 @@ result = terminal_actions_company_level_api.get_companies_company_id_terminal_ac
     company_id,
     action_id
 )
-
-if result.is_success():
-    print(result.body)
-elif result.is_error():
-    print(result.errors)
+print(result)
 ```
 
 ## Example Response *(as JSON)*

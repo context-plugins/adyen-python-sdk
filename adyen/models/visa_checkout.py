@@ -8,19 +8,20 @@ from adyen.api_helper import APIHelper
 
 
 class VisaCheckout(object):
-    """Implementation of the 'VisaCheckout' model.
+    """Implementation of the 'Visa Checkout' model.
 
     Attributes:
         checkout_attempt_id (str): The checkout attempt identifier.
-        funding_source (FundingSource): The model property of type FundingSource.
+        funding_source (FundingSourceEnum): The funding source that should be used
+            when multiple sources are available. For Brazilian combo cards, by
+            default the funding source is credit. To use debit, set this value to
+            **debit**.
         sdk_data (str): Base64-encoded JSON object containing SDK related parameters
             required by the SDK
-        mtype (Type55): The model property of type Type55.
+        mtype (Type55Enum): **visacheckout**
         visa_checkout_call_id (str): The Visa Click to Pay Call ID value. When your
             shopper selects a payment and/or a shipping address from Visa Click to
             Pay, you will receive a Visa Click to Pay Call ID.
-        additional_properties (Dict[str, Any]): The additional properties for the
-            model.
 
     """
 
@@ -46,8 +47,7 @@ class VisaCheckout(object):
         checkout_attempt_id=APIHelper.SKIP,
         funding_source=APIHelper.SKIP,
         sdk_data=APIHelper.SKIP,
-        mtype=APIHelper.SKIP,
-        additional_properties=None):
+        mtype="visacheckout"):
         """Initialize a VisaCheckout instance."""
         # Initialize members of the class
         if checkout_attempt_id is not APIHelper.SKIP:
@@ -56,14 +56,8 @@ class VisaCheckout(object):
             self.funding_source = funding_source
         if sdk_data is not APIHelper.SKIP:
             self.sdk_data = sdk_data
-        if mtype is not APIHelper.SKIP:
-            self.mtype = mtype
+        self.mtype = mtype
         self.visa_checkout_call_id = visa_checkout_call_id
-
-        # Add additional model properties to the instance
-        if additional_properties is None:
-            additional_properties = {}
-        self.additional_properties = additional_properties
 
     @classmethod
     def from_dictionary(cls,
@@ -102,20 +96,14 @@ class VisaCheckout(object):
         mtype =\
             dictionary.get("type")\
             if dictionary.get("type")\
-                else APIHelper.SKIP
-
-        additional_properties = APIHelper.get_additional_properties(
-            dictionary={k: v for k, v in dictionary.items()
-                        if k not in cls._names.values()},
-            unboxing_function=lambda value: value)
+                else "visacheckout"
 
         # Return an object of this model
         return cls(visa_checkout_call_id,
                    checkout_attempt_id,
                    funding_source,
                    sdk_data,
-                   mtype,
-                   additional_properties)
+                   mtype)
 
     @classmethod
     def validate(cls, dictionary):
@@ -173,7 +161,6 @@ class VisaCheckout(object):
             else None
         )
         _visa_checkout_call_id=self.visa_checkout_call_id
-        _additional_properties=self.additional_properties
         return (
             f"{self.__class__.__name__}("
             f"checkout_attempt_id={_checkout_attempt_id!r}, "
@@ -181,7 +168,6 @@ class VisaCheckout(object):
             f"sdk_data={_sdk_data!r}, "
             f"mtype={_mtype!r}, "
             f"visa_checkout_call_id={_visa_checkout_call_id!r}, "
-            f"additional_properties={_additional_properties!r}, "
             f")"
         )
 
@@ -208,7 +194,6 @@ class VisaCheckout(object):
             else None
         )
         _visa_checkout_call_id=self.visa_checkout_call_id
-        _additional_properties=self.additional_properties
         return (
             f"{self.__class__.__name__}("
             f"checkout_attempt_id={_checkout_attempt_id!s}, "
@@ -216,6 +201,5 @@ class VisaCheckout(object):
             f"sdk_data={_sdk_data!s}, "
             f"mtype={_mtype!s}, "
             f"visa_checkout_call_id={_visa_checkout_call_id!s}, "
-            f"additional_properties={_additional_properties!s}, "
             f")"
         )

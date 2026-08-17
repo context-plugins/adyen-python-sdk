@@ -25,8 +25,6 @@ class Gratuity(object):
         use_predefined_tip_entries (bool): Indicates whether the terminal shows a
             prompt to enter a tip (**false**), or predefined tipping options to
             choose from (**true**).
-        additional_properties (Dict[str, Any]): The additional properties for the
-            model.
 
     """
 
@@ -50,8 +48,7 @@ class Gratuity(object):
         allow_custom_amount=APIHelper.SKIP,
         currency=APIHelper.SKIP,
         predefined_tip_entries=APIHelper.SKIP,
-        use_predefined_tip_entries=APIHelper.SKIP,
-        additional_properties=None):
+        use_predefined_tip_entries=APIHelper.SKIP):
         """Initialize a Gratuity instance."""
         # Initialize members of the class
         if allow_custom_amount is not APIHelper.SKIP:
@@ -62,11 +59,6 @@ class Gratuity(object):
             self.predefined_tip_entries = predefined_tip_entries
         if use_predefined_tip_entries is not APIHelper.SKIP:
             self.use_predefined_tip_entries = use_predefined_tip_entries
-
-        # Add additional model properties to the instance
-        if additional_properties is None:
-            additional_properties = {}
-        self.additional_properties = additional_properties
 
     @classmethod
     def from_dictionary(cls,
@@ -103,17 +95,11 @@ class Gratuity(object):
             if "usePredefinedTipEntries" in dictionary.keys()\
                 else APIHelper.SKIP
 
-        additional_properties = APIHelper.get_additional_properties(
-            dictionary={k: v for k, v in dictionary.items()
-                        if k not in cls._names.values()},
-            unboxing_function=lambda value: value)
-
         # Return an object of this model
         return cls(allow_custom_amount,
                    currency,
                    predefined_tip_entries,
-                   use_predefined_tip_entries,
-                   additional_properties)
+                   use_predefined_tip_entries)
 
     def __repr__(self):
         """Return a unambiguous string representation."""
@@ -137,14 +123,12 @@ class Gratuity(object):
             if hasattr(self, "use_predefined_tip_entries")
             else None
         )
-        _additional_properties=self.additional_properties
         return (
             f"{self.__class__.__name__}("
             f"allow_custom_amount={_allow_custom_amount!r}, "
             f"currency={_currency!r}, "
             f"predefined_tip_entries={_predefined_tip_entries!r}, "
             f"use_predefined_tip_entries={_use_predefined_tip_entries!r}, "
-            f"additional_properties={_additional_properties!r}, "
             f")"
         )
 
@@ -170,13 +154,11 @@ class Gratuity(object):
             if hasattr(self, "use_predefined_tip_entries")
             else None
         )
-        _additional_properties=self.additional_properties
         return (
             f"{self.__class__.__name__}("
             f"allow_custom_amount={_allow_custom_amount!s}, "
             f"currency={_currency!s}, "
             f"predefined_tip_entries={_predefined_tip_entries!s}, "
             f"use_predefined_tip_entries={_use_predefined_tip_entries!s}, "
-            f"additional_properties={_additional_properties!s}, "
             f")"
         )

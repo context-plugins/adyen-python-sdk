@@ -22,9 +22,8 @@ class CardOrder(object):
         id (str): The unique identifier of the card order.
         lock_date (datetime): The date when the card order processing begins.
         service_center (str): The service center.
-        status (Status6): The model property of type Status6.
-        additional_properties (Dict[str, Any]): The additional properties for the
-            model.
+        status (Status61Enum): The status of the card order.  Possible values:
+            **Open**, **Closed**.
 
     """
 
@@ -60,8 +59,7 @@ class CardOrder(object):
         id=APIHelper.SKIP,
         lock_date=APIHelper.SKIP,
         service_center=APIHelper.SKIP,
-        status=APIHelper.SKIP,
-        additional_properties=None):
+        status=APIHelper.SKIP):
         """Initialize a CardOrder instance."""
         # Initialize members of the class
         if begin_date is not APIHelper.SKIP:
@@ -92,11 +90,6 @@ class CardOrder(object):
             self.service_center = service_center
         if status is not APIHelper.SKIP:
             self.status = status
-
-        # Add additional model properties to the instance
-        if additional_properties is None:
-            additional_properties = {}
-        self.additional_properties = additional_properties
 
     @classmethod
     def from_dictionary(cls,
@@ -145,11 +138,6 @@ class CardOrder(object):
             if dictionary.get("status")\
                 else APIHelper.SKIP
 
-        additional_properties = APIHelper.get_additional_properties(
-            dictionary={k: v for k, v in dictionary.items()
-                        if k not in cls._names.values()},
-            unboxing_function=lambda value: value)
-
         # Return an object of this model
         return cls(begin_date,
                    card_manufacturing_profile_id,
@@ -158,8 +146,7 @@ class CardOrder(object):
                    id,
                    lock_date,
                    service_center,
-                   status,
-                   additional_properties)
+                   status)
 
     def __repr__(self):
         """Return a unambiguous string representation."""
@@ -203,7 +190,6 @@ class CardOrder(object):
             if hasattr(self, "status")
             else None
         )
-        _additional_properties=self.additional_properties
         return (
             f"{self.__class__.__name__}("
             f"begin_date={_begin_date!r}, "
@@ -214,7 +200,6 @@ class CardOrder(object):
             f"lock_date={_lock_date!r}, "
             f"service_center={_service_center!r}, "
             f"status={_status!r}, "
-            f"additional_properties={_additional_properties!r}, "
             f")"
         )
 
@@ -260,7 +245,6 @@ class CardOrder(object):
             if hasattr(self, "status")
             else None
         )
-        _additional_properties=self.additional_properties
         return (
             f"{self.__class__.__name__}("
             f"begin_date={_begin_date!s}, "
@@ -271,6 +255,5 @@ class CardOrder(object):
             f"lock_date={_lock_date!s}, "
             f"service_center={_service_center!s}, "
             f"status={_status!s}, "
-            f"additional_properties={_additional_properties!s}, "
             f")"
         )

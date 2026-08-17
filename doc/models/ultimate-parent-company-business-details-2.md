@@ -3,8 +3,6 @@
 
 Details about the ultimate parent company's business.
 
-*This model accepts additional fields of type Any.*
-
 ## Structure
 
 `UltimateParentCompanyBusinessDetails2`
@@ -18,13 +16,10 @@ Details about the ultimate parent company's business.
 | `stock_exchange` | `str` | Optional | Market Identifier Code (MIC). |
 | `stock_number` | `str` | Optional | International Securities Identification Number (ISIN). |
 | `stock_ticker` | `str` | Optional | Stock Ticker symbol. |
-| `additional_properties` | `Dict[str, Any]` | Optional | - |
 
 ## Example
 
 ```python
-import jsonpickle
-
 from adyen.models.ultimate_parent_company_business_details_2 import UltimateParentCompanyBusinessDetails2
 
 ultimate_parent_company_business_details_2 = UltimateParentCompanyBusinessDetails2(
@@ -32,10 +27,7 @@ ultimate_parent_company_business_details_2 = UltimateParentCompanyBusinessDetail
     registration_number='registrationNumber6',
     stock_exchange='stockExchange4',
     stock_number='stockNumber6',
-    stock_ticker='stockTicker6',
-    additional_properties={
-        'exampleAdditionalProperty': jsonpickle.decode('{"key1":"val1","key2":"val2"}')
-    }
+    stock_ticker='stockTicker6'
 )
 ```
 

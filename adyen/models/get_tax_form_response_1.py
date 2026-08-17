@@ -12,9 +12,8 @@ class GetTaxFormResponse1(object):
 
     Attributes:
         content (str): The content of the tax form in Base64 format.
-        content_type (ContentType): The model property of type ContentType.
-        additional_properties (Dict[str, Any]): The additional properties for the
-            model.
+        content_type (ContentTypeEnum): The content type of the tax form.  Possible
+            values: *  **application/pdf**
 
     """
 
@@ -31,18 +30,12 @@ class GetTaxFormResponse1(object):
     def __init__(
         self,
         content=None,
-        content_type=APIHelper.SKIP,
-        additional_properties=None):
+        content_type=APIHelper.SKIP):
         """Initialize a GetTaxFormResponse1 instance."""
         # Initialize members of the class
         self.content = content
         if content_type is not APIHelper.SKIP:
             self.content_type = content_type
-
-        # Add additional model properties to the instance
-        if additional_properties is None:
-            additional_properties = {}
-        self.additional_properties = additional_properties
 
     @classmethod
     def from_dictionary(cls,
@@ -71,15 +64,9 @@ class GetTaxFormResponse1(object):
             if dictionary.get("contentType")\
                 else APIHelper.SKIP
 
-        additional_properties = APIHelper.get_additional_properties(
-            dictionary={k: v for k, v in dictionary.items()
-                        if k not in cls._names.values()},
-            unboxing_function=lambda value: value)
-
         # Return an object of this model
         return cls(content,
-                   content_type,
-                   additional_properties)
+                   content_type)
 
     def __repr__(self):
         """Return a unambiguous string representation."""
@@ -89,12 +76,10 @@ class GetTaxFormResponse1(object):
             if hasattr(self, "content_type")
             else None
         )
-        _additional_properties=self.additional_properties
         return (
             f"{self.__class__.__name__}("
             f"content={_content!r}, "
             f"content_type={_content_type!r}, "
-            f"additional_properties={_additional_properties!r}, "
             f")"
         )
 
@@ -106,11 +91,9 @@ class GetTaxFormResponse1(object):
             if hasattr(self, "content_type")
             else None
         )
-        _additional_properties=self.additional_properties
         return (
             f"{self.__class__.__name__}("
             f"content={_content!s}, "
             f"content_type={_content_type!s}, "
-            f"additional_properties={_additional_properties!s}, "
             f")"
         )

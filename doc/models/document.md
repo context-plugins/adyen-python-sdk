@@ -1,8 +1,6 @@
 
 # Document
 
-*This model accepts additional fields of type Any.*
-
 ## Structure
 
 `Document`
@@ -11,7 +9,7 @@
 
 | Name | Type | Tags | Description |
 |  --- | --- | --- | --- |
-| `attachment` | [`Attachment`](../../doc/models/attachment.md) | Optional | - |
+| `attachment` | [`Attachment1`](../../doc/models/attachment-1.md) | Optional | Object that contains the document. |
 | `attachments` | [`List[Attachment]`](../../doc/models/attachment.md) | Optional | Array that contains the document. The array supports multiple attachments for uploading different sides or pages of a document. |
 | `creation_date` | `datetime` | Optional, Read-only | The creation date of the document. |
 | `description` | `str` | Required | Your description for the document. |
@@ -22,32 +20,26 @@
 | `issuer_state` | `str` | Optional | The state or province where the document was issued (AU only). |
 | `modification_date` | `datetime` | Optional, Read-only | The modification date of the document. |
 | `number` | `str` | Optional | The number in the document. |
-| `owner` | [`OwnerEntity`](../../doc/models/owner-entity.md) | Optional | - |
-| `mtype` | [`Type81`](../../doc/models/type-81.md) | Required | - |
-| `additional_properties` | `Dict[str, Any]` | Optional | - |
+| `owner` | [`OwnerEntity2`](../../doc/models/owner-entity-2.md) | Optional | Contains information about the resource that owns the document. |
+| `mtype` | [`Type84Enum`](../../doc/models/type-84-enum.md) | Required | Type of document, used when providing an ID number or uploading a document. The possible values depend on the legal entity type.<br><br>* For **organization**, the `type` values can be **proofOfAddress**, **registrationDocument**, **vatDocument**, **proofOfOrganizationTaxInfo**, **proofOfOwnership**, **proofOfIndustry**, **proofOfSignatory**, **proofOfDirector**, or **proofOfFundingOrWealthSource**.<br><br>* For **individual**, the `type` values can be **identityCard**, **driversLicense**, **passport**, **liveSelfie**, **proofOfNationalIdNumber**, **proofOfResidency**, **proofOfIndustry**, **proofOfIndividualTaxId**, **proofOfFundingOrWealthSource** or **proofOfRelationship**.<br><br>* For **soleProprietorship**, the `type` values can be **constitutionalDocument**, **proofOfAddress**, or **proofOfIndustry**.<br><br>* For **trust**, the `type` value is **constitutionalDocument**.<br><br>* For **unincorporatedPartnership**, the `type` value is **constitutionalDocument**.<br><br>* Use **bankStatement** to upload documents for a [transfer instrument](https://docs.adyen.com/api-explorer/#/legalentity/latest/post/transferInstruments__resParam_id). |
 
 ## Example
 
 ```python
-import dateutil.parser
-import jsonpickle
-
 from adyen.models.attachment import Attachment
+from adyen.models.attachment_1 import Attachment1
 from adyen.models.document import Document
-from adyen.models.type_81 import Type81
+from adyen.models.type_84_enum import Type84Enum
 
 document = Document(
     description='description6',
-    mtype=Type81.PASSPORT,
-    attachment=Attachment(
+    mtype=Type84Enum.PASSPORT,
+    attachment=Attachment1(
         content='content2',
         content_type='contentType4',
         filename='filename0',
         page_name='pageName0',
-        page_type='pageType6',
-        additional_properties={
-            'exampleAdditionalProperty': jsonpickle.decode('{"key1":"val1","key2":"val2"}')
-        }
+        page_type='pageType6'
     ),
     attachments=[
         Attachment(
@@ -55,38 +47,25 @@ document = Document(
             content_type='contentType6',
             filename='filename2',
             page_name='pageName2',
-            page_type='pageType8',
-            additional_properties={
-                'exampleAdditionalProperty': jsonpickle.decode('{"key1":"val1","key2":"val2"}')
-            }
+            page_type='pageType8'
         ),
         Attachment(
             content='content4',
             content_type='contentType6',
             filename='filename2',
             page_name='pageName2',
-            page_type='pageType8',
-            additional_properties={
-                'exampleAdditionalProperty': jsonpickle.decode('{"key1":"val1","key2":"val2"}')
-            }
+            page_type='pageType8'
         ),
         Attachment(
             content='content4',
             content_type='contentType6',
             filename='filename2',
             page_name='pageName2',
-            page_type='pageType8',
-            additional_properties={
-                'exampleAdditionalProperty': jsonpickle.decode('{"key1":"val1","key2":"val2"}')
-            }
+            page_type='pageType8'
         )
     ],
-    creation_date=dateutil.parser.parse('2016-03-13T12:52:32.123Z'),
     expiry_date='expiryDate4',
-    file_name='fileName0',
-    additional_properties={
-        'exampleAdditionalProperty': jsonpickle.decode('{"key1":"val1","key2":"val2"}')
-    }
+    file_name='fileName0'
 )
 ```
 

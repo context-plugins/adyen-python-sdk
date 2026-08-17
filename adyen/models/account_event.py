@@ -11,11 +11,11 @@ class AccountEvent(object):
     """Implementation of the 'AccountEvent' model.
 
     Attributes:
-        event (Event): The model property of type Event.
+        event (EventEnum): The event. >Permitted values: `InactivateAccount`,
+            `RefundNotPaidOutTransfers`. For more information, refer to [Verification
+            checks](https://docs.adyen.com/classic-platforms/verification-process).
         execution_date (datetime): The date on which the event will take place.
         reason (str): The reason why this event has been created.
-        additional_properties (Dict[str, Any]): The additional properties for the
-            model.
 
     """
 
@@ -36,8 +36,7 @@ class AccountEvent(object):
         self,
         event=APIHelper.SKIP,
         execution_date=APIHelper.SKIP,
-        reason=APIHelper.SKIP,
-        additional_properties=None):
+        reason=APIHelper.SKIP):
         """Initialize a AccountEvent instance."""
         # Initialize members of the class
         if event is not APIHelper.SKIP:
@@ -49,11 +48,6 @@ class AccountEvent(object):
                  if execution_date else None
         if reason is not APIHelper.SKIP:
             self.reason = reason
-
-        # Add additional model properties to the instance
-        if additional_properties is None:
-            additional_properties = {}
-        self.additional_properties = additional_properties
 
     @classmethod
     def from_dictionary(cls,
@@ -85,16 +79,10 @@ class AccountEvent(object):
             if dictionary.get("reason")\
                 else APIHelper.SKIP
 
-        additional_properties = APIHelper.get_additional_properties(
-            dictionary={k: v for k, v in dictionary.items()
-                        if k not in cls._names.values()},
-            unboxing_function=lambda value: value)
-
         # Return an object of this model
         return cls(event,
                    execution_date,
-                   reason,
-                   additional_properties)
+                   reason)
 
     def __repr__(self):
         """Return a unambiguous string representation."""
@@ -113,13 +101,11 @@ class AccountEvent(object):
             if hasattr(self, "reason")
             else None
         )
-        _additional_properties=self.additional_properties
         return (
             f"{self.__class__.__name__}("
             f"event={_event!r}, "
             f"execution_date={_execution_date!r}, "
             f"reason={_reason!r}, "
-            f"additional_properties={_additional_properties!r}, "
             f")"
         )
 
@@ -140,12 +126,10 @@ class AccountEvent(object):
             if hasattr(self, "reason")
             else None
         )
-        _additional_properties=self.additional_properties
         return (
             f"{self.__class__.__name__}("
             f"event={_event!s}, "
             f"execution_date={_execution_date!s}, "
             f"reason={_reason!s}, "
-            f"additional_properties={_additional_properties!s}, "
             f")"
         )

@@ -19,8 +19,6 @@ class FinancialReport(object):
             YYYY-MM-DD format.
         employee_count (str): The number of employees of the business.
         net_assets (str): The net assets of the business.
-        additional_properties (Dict[str, Any]): The additional properties for the
-            model.
 
     """
 
@@ -50,8 +48,7 @@ class FinancialReport(object):
         currency_of_financial_data=APIHelper.SKIP,
         date_of_financial_data=APIHelper.SKIP,
         employee_count=APIHelper.SKIP,
-        net_assets=APIHelper.SKIP,
-        additional_properties=None):
+        net_assets=APIHelper.SKIP):
         """Initialize a FinancialReport instance."""
         # Initialize members of the class
         if annual_turnover is not APIHelper.SKIP:
@@ -66,11 +63,6 @@ class FinancialReport(object):
             self.employee_count = employee_count
         if net_assets is not APIHelper.SKIP:
             self.net_assets = net_assets
-
-        # Add additional model properties to the instance
-        if additional_properties is None:
-            additional_properties = {}
-        self.additional_properties = additional_properties
 
     @classmethod
     def from_dictionary(cls,
@@ -115,19 +107,13 @@ class FinancialReport(object):
             if dictionary.get("netAssets")\
                 else APIHelper.SKIP
 
-        additional_properties = APIHelper.get_additional_properties(
-            dictionary={k: v for k, v in dictionary.items()
-                        if k not in cls._names.values()},
-            unboxing_function=lambda value: value)
-
         # Return an object of this model
         return cls(annual_turnover,
                    balance_sheet_total,
                    currency_of_financial_data,
                    date_of_financial_data,
                    employee_count,
-                   net_assets,
-                   additional_properties)
+                   net_assets)
 
     def __repr__(self):
         """Return a unambiguous string representation."""
@@ -161,7 +147,6 @@ class FinancialReport(object):
             if hasattr(self, "net_assets")
             else None
         )
-        _additional_properties=self.additional_properties
         return (
             f"{self.__class__.__name__}("
             f"annual_turnover={_annual_turnover!r}, "
@@ -170,7 +155,6 @@ class FinancialReport(object):
             f"date_of_financial_data={_date_of_financial_data!r}, "
             f"employee_count={_employee_count!r}, "
             f"net_assets={_net_assets!r}, "
-            f"additional_properties={_additional_properties!r}, "
             f")"
         )
 
@@ -206,7 +190,6 @@ class FinancialReport(object):
             if hasattr(self, "net_assets")
             else None
         )
-        _additional_properties=self.additional_properties
         return (
             f"{self.__class__.__name__}("
             f"annual_turnover={_annual_turnover!s}, "
@@ -215,6 +198,5 @@ class FinancialReport(object):
             f"date_of_financial_data={_date_of_financial_data!s}, "
             f"employee_count={_employee_count!s}, "
             f"net_assets={_net_assets!s}, "
-            f"additional_properties={_additional_properties!s}, "
             f")"
         )

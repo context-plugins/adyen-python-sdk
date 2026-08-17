@@ -1,8 +1,6 @@
 
 # Business Details
 
-*This model accepts additional fields of type Any.*
-
 ## Structure
 
 `BusinessDetails`
@@ -21,142 +19,101 @@
 | `stock_number` | `str` | Optional | International Securities Identification Number (ISIN). |
 | `stock_ticker` | `str` | Optional | Stock Ticker symbol. |
 | `tax_id` | `str` | Optional | The tax ID of the company. |
-| `additional_properties` | `Dict[str, Any]` | Optional | - |
 
 ## Example
 
 ```python
-import jsonpickle
-
 from adyen.models.business_details import BusinessDetails
-from adyen.models.gender import Gender
+from adyen.models.gender_enum import GenderEnum
 from adyen.models.shareholder_contact import ShareholderContact
 from adyen.models.ultimate_parent_company import UltimateParentCompany
-from adyen.models.ultimate_parent_company_business_details import UltimateParentCompanyBusinessDetails
-from adyen.models.vias_address import ViasAddress
-from adyen.models.vias_name import ViasName
+from adyen.models.ultimate_parent_company_business_details_2 import UltimateParentCompanyBusinessDetails2
+from adyen.models.vias_address_1 import ViasAddress1
+from adyen.models.vias_address_2 import ViasAddress2
+from adyen.models.vias_name_1 import ViasName1
 
 business_details = BusinessDetails(
     doing_business_as='doingBusinessAs6',
     legal_business_name='legalBusinessName8',
     listed_ultimate_parent_company=[
         UltimateParentCompany(
-            address=ViasAddress(
+            address=ViasAddress1(
                 country='country0',
                 city='city6',
                 house_number_or_name='houseNumberOrName4',
                 postal_code='postalCode8',
                 state_or_province='stateOrProvince4',
-                street='street6',
-                additional_properties={
-                    'exampleAdditionalProperty': jsonpickle.decode('{"key1":"val1","key2":"val2"}')
-                }
+                street='street6'
             ),
-            business_details=UltimateParentCompanyBusinessDetails(
+            business_details=UltimateParentCompanyBusinessDetails2(
                 legal_business_name='legalBusinessName8',
                 registration_number='registrationNumber6',
                 stock_exchange='stockExchange4',
                 stock_number='stockNumber6',
-                stock_ticker='stockTicker6',
-                additional_properties={
-                    'exampleAdditionalProperty': jsonpickle.decode('{"key1":"val1","key2":"val2"}')
-                }
+                stock_ticker='stockTicker6'
             ),
-            ultimate_parent_company_code='ultimateParentCompanyCode2',
-            additional_properties={
-                'exampleAdditionalProperty': jsonpickle.decode('{"key1":"val1","key2":"val2"}')
-            }
+            ultimate_parent_company_code='ultimateParentCompanyCode2'
         ),
         UltimateParentCompany(
-            address=ViasAddress(
+            address=ViasAddress1(
                 country='country0',
                 city='city6',
                 house_number_or_name='houseNumberOrName4',
                 postal_code='postalCode8',
                 state_or_province='stateOrProvince4',
-                street='street6',
-                additional_properties={
-                    'exampleAdditionalProperty': jsonpickle.decode('{"key1":"val1","key2":"val2"}')
-                }
+                street='street6'
             ),
-            business_details=UltimateParentCompanyBusinessDetails(
+            business_details=UltimateParentCompanyBusinessDetails2(
                 legal_business_name='legalBusinessName8',
                 registration_number='registrationNumber6',
                 stock_exchange='stockExchange4',
                 stock_number='stockNumber6',
-                stock_ticker='stockTicker6',
-                additional_properties={
-                    'exampleAdditionalProperty': jsonpickle.decode('{"key1":"val1","key2":"val2"}')
-                }
+                stock_ticker='stockTicker6'
             ),
-            ultimate_parent_company_code='ultimateParentCompanyCode2',
-            additional_properties={
-                'exampleAdditionalProperty': jsonpickle.decode('{"key1":"val1","key2":"val2"}')
-            }
+            ultimate_parent_company_code='ultimateParentCompanyCode2'
         )
     ],
     registration_number='registrationNumber4',
     shareholders=[
         ShareholderContact(
-            address=ViasAddress(
+            address=ViasAddress2(
                 country='country0',
                 city='city6',
                 house_number_or_name='houseNumberOrName4',
                 postal_code='postalCode8',
                 state_or_province='stateOrProvince4',
-                street='street6',
-                additional_properties={
-                    'exampleAdditionalProperty': jsonpickle.decode('{"key1":"val1","key2":"val2"}')
-                }
+                street='street6'
             ),
             email='email8',
             full_phone_number='fullPhoneNumber2',
             job_title='jobTitle2',
-            name=ViasName(
+            name=ViasName1(
                 first_name='firstName4',
-                gender=Gender.MALE,
+                gender=GenderEnum.MALE,
                 infix='infix4',
-                last_name='lastName4',
-                additional_properties={
-                    'exampleAdditionalProperty': jsonpickle.decode('{"key1":"val1","key2":"val2"}')
-                }
-            ),
-            additional_properties={
-                'exampleAdditionalProperty': jsonpickle.decode('{"key1":"val1","key2":"val2"}')
-            }
+                last_name='lastName4'
+            )
         ),
         ShareholderContact(
-            address=ViasAddress(
+            address=ViasAddress2(
                 country='country0',
                 city='city6',
                 house_number_or_name='houseNumberOrName4',
                 postal_code='postalCode8',
                 state_or_province='stateOrProvince4',
-                street='street6',
-                additional_properties={
-                    'exampleAdditionalProperty': jsonpickle.decode('{"key1":"val1","key2":"val2"}')
-                }
+                street='street6'
             ),
             email='email8',
             full_phone_number='fullPhoneNumber2',
             job_title='jobTitle2',
-            name=ViasName(
+            name=ViasName1(
                 first_name='firstName4',
-                gender=Gender.MALE,
+                gender=GenderEnum.MALE,
                 infix='infix4',
-                last_name='lastName4',
-                additional_properties={
-                    'exampleAdditionalProperty': jsonpickle.decode('{"key1":"val1","key2":"val2"}')
-                }
-            ),
-            additional_properties={
-                'exampleAdditionalProperty': jsonpickle.decode('{"key1":"val1","key2":"val2"}')
-            }
+                last_name='lastName4'
+            )
         )
-    ],
-    additional_properties={
-        'exampleAdditionalProperty': jsonpickle.decode('{"key1":"val1","key2":"val2"}')
-    }
+    ]
 )
 ```
 

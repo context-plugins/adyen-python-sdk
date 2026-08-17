@@ -19,8 +19,6 @@ class ModifyResponse(object):
         response (str): The response: * In case of success, it is either
             `payout-confirm-received` or `payout-decline-received`. * In case of an
             error, an informational message is returned.
-        additional_properties (Dict[str, Any]): The additional properties for the
-            model.
 
     """
 
@@ -39,19 +37,13 @@ class ModifyResponse(object):
         self,
         psp_reference=None,
         response=None,
-        additional_data=APIHelper.SKIP,
-        additional_properties=None):
+        additional_data=APIHelper.SKIP):
         """Initialize a ModifyResponse instance."""
         # Initialize members of the class
         if additional_data is not APIHelper.SKIP:
             self.additional_data = additional_data
         self.psp_reference = psp_reference
         self.response = response
-
-        # Add additional model properties to the instance
-        if additional_properties is None:
-            additional_properties = {}
-        self.additional_properties = additional_properties
 
     @classmethod
     def from_dictionary(cls,
@@ -84,16 +76,10 @@ class ModifyResponse(object):
             if dictionary.get("additionalData")\
                 else APIHelper.SKIP
 
-        additional_properties = APIHelper.get_additional_properties(
-            dictionary={k: v for k, v in dictionary.items()
-                        if k not in cls._names.values()},
-            unboxing_function=lambda value: value)
-
         # Return an object of this model
         return cls(psp_reference,
                    response,
-                   additional_data,
-                   additional_properties)
+                   additional_data)
 
     def __repr__(self):
         """Return a unambiguous string representation."""
@@ -104,13 +90,11 @@ class ModifyResponse(object):
         )
         _psp_reference=self.psp_reference
         _response=self.response
-        _additional_properties=self.additional_properties
         return (
             f"{self.__class__.__name__}("
             f"additional_data={_additional_data!r}, "
             f"psp_reference={_psp_reference!r}, "
             f"response={_response!r}, "
-            f"additional_properties={_additional_properties!r}, "
             f")"
         )
 
@@ -123,12 +107,10 @@ class ModifyResponse(object):
         )
         _psp_reference=self.psp_reference
         _response=self.response
-        _additional_properties=self.additional_properties
         return (
             f"{self.__class__.__name__}("
             f"additional_data={_additional_data!s}, "
             f"psp_reference={_psp_reference!s}, "
             f"response={_response!s}, "
-            f"additional_properties={_additional_properties!s}, "
             f")"
         )

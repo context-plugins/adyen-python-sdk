@@ -29,8 +29,6 @@ class ShowPages(object):
             shareholders' details must be shown. Defaults to **true**.
         welcome_page (bool): Indicates whether the welcome page must be shown.
             Defaults to **false**.
-        additional_properties (Dict[str, Any]): The additional properties for the
-            model.
 
     """
 
@@ -70,8 +68,7 @@ class ShowPages(object):
         legal_arrangements_details_summary_page=APIHelper.SKIP,
         manual_bank_account_page=APIHelper.SKIP,
         shareholder_details_summary_page=APIHelper.SKIP,
-        welcome_page=APIHelper.SKIP,
-        additional_properties=None):
+        welcome_page=APIHelper.SKIP):
         """Initialize a ShowPages instance."""
         # Initialize members of the class
         if bank_details_summary_page is not APIHelper.SKIP:
@@ -93,11 +90,6 @@ class ShowPages(object):
             self.shareholder_details_summary_page = shareholder_details_summary_page
         if welcome_page is not APIHelper.SKIP:
             self.welcome_page = welcome_page
-
-        # Add additional model properties to the instance
-        if additional_properties is None:
-            additional_properties = {}
-        self.additional_properties = additional_properties
 
     @classmethod
     def from_dictionary(cls,
@@ -154,11 +146,6 @@ class ShowPages(object):
             if "welcomePage" in dictionary.keys()\
                 else APIHelper.SKIP
 
-        additional_properties = APIHelper.get_additional_properties(
-            dictionary={k: v for k, v in dictionary.items()
-                        if k not in cls._names.values()},
-            unboxing_function=lambda value: value)
-
         # Return an object of this model
         return cls(bank_details_summary_page,
                    bank_verification_page,
@@ -168,8 +155,7 @@ class ShowPages(object):
                    legal_arrangements_details_summary_page,
                    manual_bank_account_page,
                    shareholder_details_summary_page,
-                   welcome_page,
-                   additional_properties)
+                   welcome_page)
 
     def __repr__(self):
         """Return a unambiguous string representation."""
@@ -218,7 +204,6 @@ class ShowPages(object):
             if hasattr(self, "welcome_page")
             else None
         )
-        _additional_properties=self.additional_properties
         return (
             f"{self.__class__.__name__}("
             f"bank_details_summary_page={_bank_details_summary_page!r}, "
@@ -230,7 +215,6 @@ class ShowPages(object):
             f"manual_bank_account_page={_manual_bank_account_page!r}, "
             f"shareholder_details_summary_page={_shareholder_details_summary_page!r}, "
             f"welcome_page={_welcome_page!r}, "
-            f"additional_properties={_additional_properties!r}, "
             f")"
         )
 
@@ -281,7 +265,6 @@ class ShowPages(object):
             if hasattr(self, "welcome_page")
             else None
         )
-        _additional_properties=self.additional_properties
         return (
             f"{self.__class__.__name__}("
             f"bank_details_summary_page={_bank_details_summary_page!s}, "
@@ -293,6 +276,5 @@ class ShowPages(object):
             f"manual_bank_account_page={_manual_bank_account_page!s}, "
             f"shareholder_details_summary_page={_shareholder_details_summary_page!s}, "
             f"welcome_page={_welcome_page!s}, "
-            f"additional_properties={_additional_properties!s}, "
             f")"
         )

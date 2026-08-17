@@ -1,8 +1,6 @@
 
 # Perform Verification Request
 
-*This model accepts additional fields of type Any.*
-
 ## Structure
 
 `PerformVerificationRequest`
@@ -12,25 +10,19 @@
 | Name | Type | Tags | Description |
 |  --- | --- | --- | --- |
 | `account_holder_code` | `str` | Required | The code of the account holder to verify. |
-| `account_state_type` | [`AccountStateType`](../../doc/models/account-state-type.md) | Required | - |
+| `account_state_type` | [`AccountStateTypeEnum`](../../doc/models/account-state-type-enum.md) | Required | The state required for the account holder.<br><br>> Permitted values: `Processing`, `Payout`. |
 | `tier` | `int` | Required | The tier required for the account holder. |
-| `additional_properties` | `Dict[str, Any]` | Optional | - |
 
 ## Example
 
 ```python
-import jsonpickle
-
-from adyen.models.account_state_type import AccountStateType
+from adyen.models.account_state_type_enum import AccountStateTypeEnum
 from adyen.models.perform_verification_request import PerformVerificationRequest
 
 perform_verification_request = PerformVerificationRequest(
     account_holder_code='accountHolderCode6',
-    account_state_type=AccountStateType.PAYOUT,
-    tier=12,
-    additional_properties={
-        'exampleAdditionalProperty': jsonpickle.decode('{"key1":"val1","key2":"val2"}')
-    }
+    account_state_type=AccountStateTypeEnum.PAYOUT,
+    tier=12
 )
 ```
 

@@ -17,8 +17,6 @@ class Company(object):
         registry_location (str): Registry location of the company.
         tax_id (str): Tax ID of the company.
         mtype (str): The company type.
-        additional_properties (Dict[str, Any]): The additional properties for the
-            model.
 
     """
 
@@ -48,8 +46,7 @@ class Company(object):
         registration_number=APIHelper.SKIP,
         registry_location=APIHelper.SKIP,
         tax_id=APIHelper.SKIP,
-        mtype=APIHelper.SKIP,
-        additional_properties=None):
+        mtype=APIHelper.SKIP):
         """Initialize a Company instance."""
         # Initialize members of the class
         if homepage is not APIHelper.SKIP:
@@ -64,11 +61,6 @@ class Company(object):
             self.tax_id = tax_id
         if mtype is not APIHelper.SKIP:
             self.mtype = mtype
-
-        # Add additional model properties to the instance
-        if additional_properties is None:
-            additional_properties = {}
-        self.additional_properties = additional_properties
 
     @classmethod
     def from_dictionary(cls,
@@ -113,40 +105,13 @@ class Company(object):
             if dictionary.get("type")\
                 else APIHelper.SKIP
 
-        additional_properties = APIHelper.get_additional_properties(
-            dictionary={k: v for k, v in dictionary.items()
-                        if k not in cls._names.values()},
-            unboxing_function=lambda value: value)
-
         # Return an object of this model
         return cls(homepage,
                    name,
                    registration_number,
                    registry_location,
                    tax_id,
-                   mtype,
-                   additional_properties)
-
-    @classmethod
-    def validate(cls, dictionary):
-        """Validate dictionary against class required properties
-
-        Args:
-            dictionary (dictionary): A dictionary representation of the object
-            as obtained from the deserialization of the server's response. The
-            keys MUST match property names in the API description.
-
-        Returns:
-            boolean : if dictionary is valid contains required properties.
-
-        """
-        if isinstance(dictionary, cls):
-            return True
-
-        if not isinstance(dictionary, dict):
-            return False
-
-        return True
+                   mtype)
 
     def __repr__(self):
         """Return a unambiguous string representation."""
@@ -180,7 +145,6 @@ class Company(object):
             if hasattr(self, "mtype")
             else None
         )
-        _additional_properties=self.additional_properties
         return (
             f"{self.__class__.__name__}("
             f"homepage={_homepage!r}, "
@@ -189,7 +153,6 @@ class Company(object):
             f"registry_location={_registry_location!r}, "
             f"tax_id={_tax_id!r}, "
             f"mtype={_mtype!r}, "
-            f"additional_properties={_additional_properties!r}, "
             f")"
         )
 
@@ -225,7 +188,6 @@ class Company(object):
             if hasattr(self, "mtype")
             else None
         )
-        _additional_properties=self.additional_properties
         return (
             f"{self.__class__.__name__}("
             f"homepage={_homepage!s}, "
@@ -234,6 +196,5 @@ class Company(object):
             f"registry_location={_registry_location!s}, "
             f"tax_id={_tax_id!s}, "
             f"mtype={_mtype!s}, "
-            f"additional_properties={_additional_properties!s}, "
             f")"
         )

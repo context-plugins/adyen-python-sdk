@@ -8,7 +8,7 @@ from adyen.api_helper import APIHelper
 
 
 class StoredPaymentMethod(object):
-    """Implementation of the 'StoredPaymentMethod' model.
+    """Implementation of the 'Stored Payment Method' model.
 
     Attributes:
         cashtag (str): Cash App issued cashtag for recurring payment
@@ -24,9 +24,7 @@ class StoredPaymentMethod(object):
         stored_payment_method_id (str): This is the `recurringDetailReference`
             returned in the response when you created the token.
         subtype (str): The payment method subtype.
-        mtype (Type16): The model property of type Type16.
-        additional_properties (Dict[str, Any]): The additional properties for the
-            model.
+        mtype (Type16Enum): cashapp
 
     """
 
@@ -71,8 +69,7 @@ class StoredPaymentMethod(object):
         sdk_data=APIHelper.SKIP,
         stored_payment_method_id=APIHelper.SKIP,
         subtype=APIHelper.SKIP,
-        mtype=APIHelper.SKIP,
-        additional_properties=None):
+        mtype="cashapp"):
         """Initialize a StoredPaymentMethod instance."""
         # Initialize members of the class
         if cashtag is not APIHelper.SKIP:
@@ -95,13 +92,7 @@ class StoredPaymentMethod(object):
             self.stored_payment_method_id = stored_payment_method_id
         if subtype is not APIHelper.SKIP:
             self.subtype = subtype
-        if mtype is not APIHelper.SKIP:
-            self.mtype = mtype
-
-        # Add additional model properties to the instance
-        if additional_properties is None:
-            additional_properties = {}
-        self.additional_properties = additional_properties
+        self.mtype = mtype
 
     @classmethod
     def from_dictionary(cls,
@@ -164,12 +155,7 @@ class StoredPaymentMethod(object):
         mtype =\
             dictionary.get("type")\
             if dictionary.get("type")\
-                else APIHelper.SKIP
-
-        additional_properties = APIHelper.get_additional_properties(
-            dictionary={k: v for k, v in dictionary.items()
-                        if k not in cls._names.values()},
-            unboxing_function=lambda value: value)
+                else "cashapp"
 
         # Return an object of this model
         return cls(cashtag,
@@ -182,8 +168,7 @@ class StoredPaymentMethod(object):
                    sdk_data,
                    stored_payment_method_id,
                    subtype,
-                   mtype,
-                   additional_properties)
+                   mtype)
 
     @classmethod
     def validate(cls, dictionary):
@@ -263,7 +248,6 @@ class StoredPaymentMethod(object):
             if hasattr(self, "mtype")
             else None
         )
-        _additional_properties=self.additional_properties
         return (
             f"{self.__class__.__name__}("
             f"cashtag={_cashtag!r}, "
@@ -277,7 +261,6 @@ class StoredPaymentMethod(object):
             f"stored_payment_method_id={_stored_payment_method_id!r}, "
             f"subtype={_subtype!r}, "
             f"mtype={_mtype!r}, "
-            f"additional_properties={_additional_properties!r}, "
             f")"
         )
 
@@ -338,7 +321,6 @@ class StoredPaymentMethod(object):
             if hasattr(self, "mtype")
             else None
         )
-        _additional_properties=self.additional_properties
         return (
             f"{self.__class__.__name__}("
             f"cashtag={_cashtag!s}, "
@@ -352,6 +334,5 @@ class StoredPaymentMethod(object):
             f"stored_payment_method_id={_stored_payment_method_id!s}, "
             f"subtype={_subtype!s}, "
             f"mtype={_mtype!s}, "
-            f"additional_properties={_additional_properties!s}, "
             f")"
         )

@@ -56,14 +56,14 @@ This endpoint requires [clientKey](../../doc/auth/custom-query-parameter.md) **O
 | `account_holder_id` | `str` | Query, Optional | The unique identifier of the [account holder](https://docs.adyen.com/api-explorer/#/balanceplatform/latest/get/accountHolders/{id}__queryParam_id).<br><br>Required if you don't provide a `balanceAccountId` or `balancePlatform`.<br><br>If you provide a `balanceAccountId`, the `accountHolderId` must be related to the `balanceAccountId`. |
 | `balance_account_id` | `str` | Query, Optional | The unique identifier of the [balance account](https://docs.adyen.com/api-explorer/#/balanceplatform/latest/get/balanceAccounts/{id}__queryParam_id).<br><br>Required if you don't provide an `accountHolderId` or `balancePlatform`.<br><br>If you provide an `accountHolderId`, the `balanceAccountId` must be related to the `accountHolderId`. |
 | `cursor` | `str` | Query, Optional | The `cursor` returned in the links of the previous response. |
-| `sort_order` | [`SortOrder2`](../../doc/models/sort-order-2.md) | Query, Optional | Determines the sort order of the returned transactions. The sort order is based on the creation date of the transaction.<br><br>Possible values:<br><br>- **asc**: Ascending order, from oldest to most recent.<br><br>- **desc**: Descending order, from most recent to oldest.<br><br>Default value: **asc**. |
+| `sort_order` | [`SortOrderEnum`](../../doc/models/sort-order-enum.md) | Query, Optional | Determines the sort order of the returned transactions. The sort order is based on the creation date of the transaction.<br><br>Possible values:<br><br>- **asc**: Ascending order, from oldest to most recent.<br><br>- **desc**: Descending order, from most recent to oldest.<br><br>Default value: **asc**. |
 | `limit` | `int` | Query, Optional | The number of items returned per page, maximum of 100 items. By default, the response returns 10 items per page. |
 
 ## Response Type
 
 **200**: OK - the request has succeeded.
 
-This method returns an [`ApiResponse`](../../doc/api-response.md) instance. The `body` property of this instance returns the response data which is of type [`TransactionSearchResponse`](../../doc/models/transaction-search-response.md).
+[`TransactionSearchResponse`](../../doc/models/transaction-search-response.md)
 
 ## Example Usage
 
@@ -76,11 +76,7 @@ result = transactions_api.get_transactions(
     created_since,
     created_until
 )
-
-if result.is_success():
-    print(result.body)
-elif result.is_error():
-    print(result.errors)
+print(result)
 ```
 
 ## Example Response *(as JSON)*
@@ -228,7 +224,7 @@ This endpoint requires [clientKey](../../doc/auth/custom-query-parameter.md) **O
 
 **200**: OK - the request has succeeded.
 
-This method returns an [`ApiResponse`](../../doc/api-response.md) instance. The `body` property of this instance returns the response data which is of type [`Transaction1`](../../doc/models/transaction-1.md).
+[`Transaction`](../../doc/models/transaction.md)
 
 ## Example Usage
 
@@ -236,11 +232,7 @@ This method returns an [`ApiResponse`](../../doc/api-response.md) instance. The 
 id = 'id0'
 
 result = transactions_api.get_transactions_id(id)
-
-if result.is_success():
-    print(result.body)
-elif result.is_error():
-    print(result.errors)
+print(result)
 ```
 
 ## Example Response *(as JSON)*

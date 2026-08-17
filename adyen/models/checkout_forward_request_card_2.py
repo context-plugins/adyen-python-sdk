@@ -30,9 +30,8 @@ class CheckoutForwardRequestCard2(object):
             [PCI
             compliant](https://docs.adyen.com/development-resources/pci-dss-compliance
             -guide). Format: Do not use separators.
-        mtype (Type181): The model property of type Type181.
-        additional_properties (Dict[str, Any]): The additional properties for the
-            model.
+        mtype (Type18Enum): Default payment method details. Common for scheme payment
+            methods, and for simple payment method details.
 
     """
 
@@ -74,8 +73,7 @@ class CheckoutForwardRequestCard2(object):
         expiry_year=APIHelper.SKIP,
         holder_name=APIHelper.SKIP,
         number=APIHelper.SKIP,
-        mtype=APIHelper.SKIP,
-        additional_properties=None):
+        mtype="scheme"):
         """Initialize a CheckoutForwardRequestCard2 instance."""
         # Initialize members of the class
         if cvc is not APIHelper.SKIP:
@@ -96,13 +94,7 @@ class CheckoutForwardRequestCard2(object):
             self.holder_name = holder_name
         if number is not APIHelper.SKIP:
             self.number = number
-        if mtype is not APIHelper.SKIP:
-            self.mtype = mtype
-
-        # Add additional model properties to the instance
-        if additional_properties is None:
-            additional_properties = {}
-        self.additional_properties = additional_properties
+        self.mtype = mtype
 
     @classmethod
     def from_dictionary(cls,
@@ -161,12 +153,7 @@ class CheckoutForwardRequestCard2(object):
         mtype =\
             dictionary.get("type")\
             if dictionary.get("type")\
-                else APIHelper.SKIP
-
-        additional_properties = APIHelper.get_additional_properties(
-            dictionary={k: v for k, v in dictionary.items()
-                        if k not in cls._names.values()},
-            unboxing_function=lambda value: value)
+                else "scheme"
 
         # Return an object of this model
         return cls(cvc,
@@ -178,8 +165,7 @@ class CheckoutForwardRequestCard2(object):
                    expiry_year,
                    holder_name,
                    number,
-                   mtype,
-                   additional_properties)
+                   mtype)
 
     def __repr__(self):
         """Return a unambiguous string representation."""
@@ -233,7 +219,6 @@ class CheckoutForwardRequestCard2(object):
             if hasattr(self, "mtype")
             else None
         )
-        _additional_properties=self.additional_properties
         return (
             f"{self.__class__.__name__}("
             f"cvc={_cvc!r}, "
@@ -246,7 +231,6 @@ class CheckoutForwardRequestCard2(object):
             f"holder_name={_holder_name!r}, "
             f"number={_number!r}, "
             f"mtype={_mtype!r}, "
-            f"additional_properties={_additional_properties!r}, "
             f")"
         )
 
@@ -302,7 +286,6 @@ class CheckoutForwardRequestCard2(object):
             if hasattr(self, "mtype")
             else None
         )
-        _additional_properties=self.additional_properties
         return (
             f"{self.__class__.__name__}("
             f"cvc={_cvc!s}, "
@@ -315,6 +298,5 @@ class CheckoutForwardRequestCard2(object):
             f"holder_name={_holder_name!s}, "
             f"number={_number!s}, "
             f"mtype={_mtype!s}, "
-            f"additional_properties={_additional_properties!s}, "
             f")"
         )

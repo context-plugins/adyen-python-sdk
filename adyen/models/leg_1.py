@@ -20,8 +20,6 @@ class Leg1(object):
             leg details
         departure_date (str): The flight departure date.
         flight_number (str): The flight identifier.
-        additional_properties (Dict[str, Any]): The additional properties for the
-            model.
 
     """
 
@@ -51,8 +49,7 @@ class Leg1(object):
         carrier_code=APIHelper.SKIP,
         departure_airport_code=APIHelper.SKIP,
         departure_date=APIHelper.SKIP,
-        flight_number=APIHelper.SKIP,
-        additional_properties=None):
+        flight_number=APIHelper.SKIP):
         """Initialize a Leg1 instance."""
         # Initialize members of the class
         if arrival_airport_code is not APIHelper.SKIP:
@@ -67,11 +64,6 @@ class Leg1(object):
             self.departure_date = departure_date
         if flight_number is not APIHelper.SKIP:
             self.flight_number = flight_number
-
-        # Add additional model properties to the instance
-        if additional_properties is None:
-            additional_properties = {}
-        self.additional_properties = additional_properties
 
     @classmethod
     def from_dictionary(cls,
@@ -116,19 +108,13 @@ class Leg1(object):
             if dictionary.get("flightNumber")\
                 else APIHelper.SKIP
 
-        additional_properties = APIHelper.get_additional_properties(
-            dictionary={k: v for k, v in dictionary.items()
-                        if k not in cls._names.values()},
-            unboxing_function=lambda value: value)
-
         # Return an object of this model
         return cls(arrival_airport_code,
                    basic_fare_code,
                    carrier_code,
                    departure_airport_code,
                    departure_date,
-                   flight_number,
-                   additional_properties)
+                   flight_number)
 
     @classmethod
     def validate(cls, dictionary):
@@ -183,7 +169,6 @@ class Leg1(object):
             if hasattr(self, "flight_number")
             else None
         )
-        _additional_properties=self.additional_properties
         return (
             f"{self.__class__.__name__}("
             f"arrival_airport_code={_arrival_airport_code!r}, "
@@ -192,7 +177,6 @@ class Leg1(object):
             f"departure_airport_code={_departure_airport_code!r}, "
             f"departure_date={_departure_date!r}, "
             f"flight_number={_flight_number!r}, "
-            f"additional_properties={_additional_properties!r}, "
             f")"
         )
 
@@ -228,7 +212,6 @@ class Leg1(object):
             if hasattr(self, "flight_number")
             else None
         )
-        _additional_properties=self.additional_properties
         return (
             f"{self.__class__.__name__}("
             f"arrival_airport_code={_arrival_airport_code!s}, "
@@ -237,6 +220,5 @@ class Leg1(object):
             f"departure_airport_code={_departure_airport_code!s}, "
             f"departure_date={_departure_date!s}, "
             f"flight_number={_flight_number!s}, "
-            f"additional_properties={_additional_properties!s}, "
             f")"
         )

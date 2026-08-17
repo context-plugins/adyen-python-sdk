@@ -1,8 +1,6 @@
 
 # Doku
 
-*This model accepts additional fields of type Any.*
-
 ## Structure
 
 `Doku`
@@ -16,27 +14,21 @@
 | `last_name` | `str` | Required | The shopper's last name. |
 | `sdk_data` | `str` | Optional | Base64-encoded JSON object containing SDK related parameters required by the SDK<br><br>**Constraints**: *Maximum Length*: `50000` |
 | `shopper_email` | `str` | Required | The shopper's email. |
-| `mtype` | [`Type23`](../../doc/models/type-23.md) | Required | - |
-| `additional_properties` | `Dict[str, Any]` | Optional | - |
+| `mtype` | [`Type23Enum`](../../doc/models/type-23-enum.md) | Required | **doku** |
 
 ## Example
 
 ```python
-import jsonpickle
-
 from adyen.models.doku import Doku
-from adyen.models.type_23 import Type23
+from adyen.models.type_23_enum import Type23Enum
 
 doku = Doku(
     first_name='firstName8',
     last_name='lastName0',
     shopper_email='shopperEmail0',
-    mtype=Type23.DOKU_OVO,
+    mtype=Type23Enum.DOKU_OVO,
     checkout_attempt_id='checkoutAttemptId2',
-    sdk_data='sdkData4',
-    additional_properties={
-        'exampleAdditionalProperty': jsonpickle.decode('{"key1":"val1","key2":"val2"}')
-    }
+    sdk_data='sdkData4'
 )
 ```
 

@@ -1,11 +1,9 @@
 
-# No Local Account Identification 1
-
-*This model accepts additional fields of type Any.*
+# NO Local Account Identification 1
 
 ## Structure
 
-`NoLocalAccountIdentification1`
+`NOLocalAccountIdentification1`
 
 ## Inherits From
 
@@ -16,21 +14,15 @@
 | Name | Type | Tags | Description |
 |  --- | --- | --- | --- |
 | `account_number` | `str` | Required | The 11-digit bank account number, without separators or whitespace.<br><br>**Constraints**: *Minimum Length*: `11`, *Maximum Length*: `11` |
-| `additional_properties` | `Dict[str, Any]` | Optional | - |
 
 ## Example
 
 ```python
-import jsonpickle
+from adyen.models.bank_account_identification import NOLocalAccountIdentification1
 
-from adyen.models.bank_account_identification import NoLocalAccountIdentification1
-
-no_local_account_identification_1 = NoLocalAccountIdentification1(
+no_local_account_identification_1 = NOLocalAccountIdentification1(
     account_number='accountNumber4',
-    mtype='noLocal',
-    additional_properties={
-        'exampleAdditionalProperty': jsonpickle.decode('{"key1":"val1","key2":"val2"}')
-    }
+    mtype='noLocal'
 )
 ```
 

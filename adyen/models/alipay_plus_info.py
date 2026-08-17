@@ -13,8 +13,6 @@ class AlipayPlusInfo(object):
     Attributes:
         settlement_currency_code (str): The currency used for settlement. Defaults to
             USD.
-        additional_properties (Dict[str, Any]): The additional properties for the
-            model.
 
     """
 
@@ -29,17 +27,11 @@ class AlipayPlusInfo(object):
 
     def __init__(
         self,
-        settlement_currency_code=APIHelper.SKIP,
-        additional_properties=None):
+        settlement_currency_code=APIHelper.SKIP):
         """Initialize a AlipayPlusInfo instance."""
         # Initialize members of the class
         if settlement_currency_code is not APIHelper.SKIP:
             self.settlement_currency_code = settlement_currency_code
-
-        # Add additional model properties to the instance
-        if additional_properties is None:
-            additional_properties = {}
-        self.additional_properties = additional_properties
 
     @classmethod
     def from_dictionary(cls,
@@ -64,14 +56,8 @@ class AlipayPlusInfo(object):
             if dictionary.get("settlementCurrencyCode")\
                 else APIHelper.SKIP
 
-        additional_properties = APIHelper.get_additional_properties(
-            dictionary={k: v for k, v in dictionary.items()
-                        if k not in cls._names.values()},
-            unboxing_function=lambda value: value)
-
         # Return an object of this model
-        return cls(settlement_currency_code,
-                   additional_properties)
+        return cls(settlement_currency_code)
 
     def __repr__(self):
         """Return a unambiguous string representation."""
@@ -80,11 +66,9 @@ class AlipayPlusInfo(object):
             if hasattr(self, "settlement_currency_code")
             else None
         )
-        _additional_properties=self.additional_properties
         return (
             f"{self.__class__.__name__}("
             f"settlement_currency_code={_settlement_currency_code!r}, "
-            f"additional_properties={_additional_properties!r}, "
             f")"
         )
 
@@ -95,10 +79,8 @@ class AlipayPlusInfo(object):
             if hasattr(self, "settlement_currency_code")
             else None
         )
-        _additional_properties=self.additional_properties
         return (
             f"{self.__class__.__name__}("
             f"settlement_currency_code={_settlement_currency_code!s}, "
-            f"additional_properties={_additional_properties!s}, "
             f")"
         )

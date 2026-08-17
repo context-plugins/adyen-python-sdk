@@ -3,8 +3,6 @@
 
 Contains the raw response(s) returned by the scheme for the name validation.
 
-*This model accepts additional fields of type Any.*
-
 ## Structure
 
 `PaymentValidationsNameResultRawResponse2`
@@ -18,13 +16,10 @@ Contains the raw response(s) returned by the scheme for the name validation.
 | `last_name` | `str` | Optional | The raw last name validation result that Adyen received from the scheme. Last name validation result is only returned for Visa. |
 | `middle_name` | `str` | Optional | The raw middle name validation result that Adyen received from the scheme. Middle name validation result is only returned for Visa. |
 | `status` | `str` | Optional | The raw name validation status value that Adyen received from the scheme. Only returned for Visa. |
-| `additional_properties` | `Dict[str, Any]` | Optional | - |
 
 ## Example
 
 ```python
-import jsonpickle
-
 from adyen.models.payment_validations_name_result_raw_response_2 import PaymentValidationsNameResultRawResponse2
 
 payment_validations_name_result_raw_response_2 = PaymentValidationsNameResultRawResponse2(
@@ -32,10 +27,7 @@ payment_validations_name_result_raw_response_2 = PaymentValidationsNameResultRaw
     full_name='fullName8',
     last_name='lastName2',
     middle_name='middleName6',
-    status='status0',
-    additional_properties={
-        'exampleAdditionalProperty': jsonpickle.decode('{"key1":"val1","key2":"val2"}')
-    }
+    status='status0'
 )
 ```
 

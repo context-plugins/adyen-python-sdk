@@ -1,8 +1,6 @@
 
 # Total Amount Restriction
 
-*This model accepts additional fields of type Any.*
-
 ## Structure
 
 `TotalAmountRestriction`
@@ -12,29 +10,20 @@
 | Name | Type | Tags | Description |
 |  --- | --- | --- | --- |
 | `operation` | `str` | Required | Defines how the condition must be evaluated. |
-| `value` | [`Value7`](../../doc/models/value-7.md) | Optional | - |
-| `additional_properties` | `Dict[str, Any]` | Optional | - |
+| `value` | [`Amount17`](../../doc/models/amount-17.md) | Optional | The amount value and currency. |
 
 ## Example
 
 ```python
-import jsonpickle
-
+from adyen.models.amount_17 import Amount17
 from adyen.models.total_amount_restriction import TotalAmountRestriction
-from adyen.models.value_7 import Value7
 
 total_amount_restriction = TotalAmountRestriction(
     operation='operation0',
-    value=Value7(
+    value=Amount17(
         currency='currency2',
-        value=128,
-        additional_properties={
-            'exampleAdditionalProperty': jsonpickle.decode('{"key1":"val1","key2":"val2"}')
-        }
-    ),
-    additional_properties={
-        'exampleAdditionalProperty': jsonpickle.decode('{"key1":"val1","key2":"val2"}')
-    }
+        value=128
+    )
 )
 ```
 

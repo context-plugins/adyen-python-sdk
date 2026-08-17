@@ -1,8 +1,6 @@
 
 # Name Location
 
-*This model accepts additional fields of type Any.*
-
 ## Structure
 
 `NameLocation`
@@ -17,13 +15,10 @@
 | `name` | `str` | Optional | The name of the merchant's shop or service. |
 | `raw_data` | `str` | Optional | The raw data. |
 | `state` | `str` | Optional | The state where the merchant is located. |
-| `additional_properties` | `Dict[str, Any]` | Optional | - |
 
 ## Example
 
 ```python
-import jsonpickle
-
 from adyen.models.name_location import NameLocation
 
 name_location = NameLocation(
@@ -31,10 +26,7 @@ name_location = NameLocation(
     country='country2',
     country_of_origin='countryOfOrigin4',
     name='name8',
-    raw_data='rawData4',
-    additional_properties={
-        'exampleAdditionalProperty': jsonpickle.decode('{"key1":"val1","key2":"val2"}')
-    }
+    raw_data='rawData4'
 )
 ```
 

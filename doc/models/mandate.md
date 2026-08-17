@@ -1,7 +1,7 @@
 
 # Mandate
 
-*This model accepts additional fields of type Any.*
+The mandate details to initiate recurring transaction.
 
 ## Structure
 
@@ -11,52 +11,33 @@
 
 | Name | Type | Tags | Description |
 |  --- | --- | --- | --- |
-| `balance_account_id` | `str` | Optional | The unique identifier of the balance account linked to the payment instrument. |
-| `counterparty` | [`MandateBankAccount`](../../doc/models/mandate-bank-account.md) | Optional | - |
-| `created_at` | `datetime` | Optional | The date when the mandate was created. |
-| `id` | `str` | Optional | The unique identifier of the mandate. |
-| `payment_instrument_id` | `str` | Optional | The unique identifier of the payment instrument linked to the mandate. |
-| `status` | [`MandateStatus2`](../../doc/models/mandate-status-2.md) | Optional | - |
-| `mtype` | [`MandateType2`](../../doc/models/mandate-type-2.md) | Optional | - |
-| `updated_at` | `datetime` | Optional | The date when the mandate was updated. |
-| `additional_properties` | `Dict[str, Any]` | Optional | - |
+| `amount` | `str` | Required | The billing amount (in minor units) of the recurring transactions. |
+| `amount_rule` | [`AmountRuleEnum`](../../doc/models/amount-rule-enum.md) | Optional | The limitation rule of the billing amount.<br><br>Possible values:<br><br>* **max**: The transaction amount can not exceed the `amount`.<br><br>* **exact**: The transaction amount should be the same as the `amount`. |
+| `billing_attempts_rule` | [`BillingAttemptsRuleEnum`](../../doc/models/billing-attempts-rule-enum.md) | Optional | The rule to specify the period, within which the recurring debit can happen, relative to the mandate recurring date.<br><br>Possible values:<br><br>* **on**: On a specific date.<br><br>* **before**:  Before and on a specific date.<br><br>* **after**: On and after a specific date. |
+| `billing_day` | `str` | Optional | The number of the day, on which the recurring debit can happen. Should be within the same calendar month as the mandate recurring date.<br><br>Possible values: 1-31 based on the `frequency`. |
+| `count` | `str` | Optional | The number of transactions that can be performed within the given frequency. |
+| `ends_at` | `str` | Required | End date of the billing plan, in YYYY-MM-DD format. |
+| `frequency` | [`FrequencyEnum`](../../doc/models/frequency-enum.md) | Required | The frequency with which a shopper should be charged.<br><br>Possible values: **adhoc**, **daily**, **weekly**, **biWeekly**, **monthly**, **quarterly**, **halfYearly**, **yearly**. |
+| `remarks` | `str` | Optional | The message shown by UPI to the shopper on the approval screen. |
+| `starts_at` | `str` | Optional | Start date of the billing plan, in YYYY-MM-DD format. By default, the transaction date. |
 
 ## Example
 
 ```python
-import dateutil.parser
-import jsonpickle
-
+from adyen.models.amount_rule_enum import AmountRuleEnum
+from adyen.models.billing_attempts_rule_enum import BillingAttemptsRuleEnum
+from adyen.models.frequency_enum import FrequencyEnum
 from adyen.models.mandate import Mandate
-from adyen.models.mandate_account_identification_2 import MandateAccountIdentification2
-from adyen.models.mandate_bank_account import MandateBankAccount
-from adyen.models.mandate_party_identification import MandatePartyIdentification
 
 mandate = Mandate(
-    balance_account_id='balanceAccountId2',
-    counterparty=MandateBankAccount(
-        account_holder=MandatePartyIdentification(
-            full_name='fullName0',
-            additional_properties={
-                'exampleAdditionalProperty': jsonpickle.decode('{"key1":"val1","key2":"val2"}')
-            }
-        ),
-        account_identification=MandateAccountIdentification2(
-            mtype='MandateAccountIdentification2',
-            additional_properties={
-                'exampleAdditionalProperty': jsonpickle.decode('{"key1":"val1","key2":"val2"}')
-            }
-        ),
-        additional_properties={
-            'exampleAdditionalProperty': jsonpickle.decode('{"key1":"val1","key2":"val2"}')
-        }
-    ),
-    created_at=dateutil.parser.parse('2016-03-13T12:52:32.123Z'),
-    id='id6',
-    payment_instrument_id='paymentInstrumentId8',
-    additional_properties={
-        'exampleAdditionalProperty': jsonpickle.decode('{"key1":"val1","key2":"val2"}')
-    }
+    amount='amount8',
+    ends_at='endsAt6',
+    frequency=FrequencyEnum.MONTHLY,
+    amount_rule=AmountRuleEnum.MAX,
+    billing_attempts_rule=BillingAttemptsRuleEnum.ON,
+    billing_day='billingDay8',
+    count='count8',
+    remarks='remarks8'
 )
 ```
 

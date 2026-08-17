@@ -13,8 +13,6 @@ class Lodging1(object):
     Attributes:
         check_in_date (str): The check-in date.
         number_of_nights (int): The total number of nights the room is booked for.
-        additional_properties (Dict[str, Any]): The additional properties for the
-            model.
 
     """
 
@@ -32,19 +30,13 @@ class Lodging1(object):
     def __init__(
         self,
         check_in_date=APIHelper.SKIP,
-        number_of_nights=APIHelper.SKIP,
-        additional_properties=None):
+        number_of_nights=APIHelper.SKIP):
         """Initialize a Lodging1 instance."""
         # Initialize members of the class
         if check_in_date is not APIHelper.SKIP:
             self.check_in_date = check_in_date
         if number_of_nights is not APIHelper.SKIP:
             self.number_of_nights = number_of_nights
-
-        # Add additional model properties to the instance
-        if additional_properties is None:
-            additional_properties = {}
-        self.additional_properties = additional_properties
 
     @classmethod
     def from_dictionary(cls,
@@ -73,15 +65,9 @@ class Lodging1(object):
             if dictionary.get("numberOfNights")\
                 else APIHelper.SKIP
 
-        additional_properties = APIHelper.get_additional_properties(
-            dictionary={k: v for k, v in dictionary.items()
-                        if k not in cls._names.values()},
-            unboxing_function=lambda value: value)
-
         # Return an object of this model
         return cls(check_in_date,
-                   number_of_nights,
-                   additional_properties)
+                   number_of_nights)
 
     @classmethod
     def validate(cls, dictionary):
@@ -116,12 +102,10 @@ class Lodging1(object):
             if hasattr(self, "number_of_nights")
             else None
         )
-        _additional_properties=self.additional_properties
         return (
             f"{self.__class__.__name__}("
             f"check_in_date={_check_in_date!r}, "
             f"number_of_nights={_number_of_nights!r}, "
-            f"additional_properties={_additional_properties!r}, "
             f")"
         )
 
@@ -137,11 +121,9 @@ class Lodging1(object):
             if hasattr(self, "number_of_nights")
             else None
         )
-        _additional_properties=self.additional_properties
         return (
             f"{self.__class__.__name__}("
             f"check_in_date={_check_in_date!s}, "
             f"number_of_nights={_number_of_nights!s}, "
-            f"additional_properties={_additional_properties!s}, "
             f")"
         )

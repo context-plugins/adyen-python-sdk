@@ -1,8 +1,6 @@
 
 # Bank Account Model
 
-*This model accepts additional fields of type Any.*
-
 ## Structure
 
 `BankAccountModel`
@@ -11,21 +9,16 @@
 
 | Name | Type | Tags | Description |
 |  --- | --- | --- | --- |
-| `form_factor` | `Any` | Optional | - |
-| `additional_properties` | `Dict[str, Any]` | Optional | - |
+| `form_factor` | [`FormFactorEnum`](../../doc/models/form-factor-enum.md) | Optional | Business accounts with a `formFactor` value of **physical** are business accounts issued under the central bank of that country. The default value is **physical** for NL, US, and UK business accounts.<br><br>Adyen creates a local IBAN for business accounts when the `formFactor` value is set to **virtual**. The local IBANs that are supported are for DE and FR, which reference a physical NL account, with funds being routed through the central bank of NL.<br><br>**Default**: `"physical"` |
 
 ## Example
 
 ```python
-import jsonpickle
-
 from adyen.models.bank_account_model import BankAccountModel
+from adyen.models.form_factor_enum import FormFactorEnum
 
 bank_account_model = BankAccountModel(
-    form_factor=jsonpickle.decode('{"key1":"val1","key2":"val2"}'),
-    additional_properties={
-        'exampleAdditionalProperty': jsonpickle.decode('{"key1":"val1","key2":"val2"}')
-    }
+    form_factor=FormFactorEnum.PHYSICAL
 )
 ```
 

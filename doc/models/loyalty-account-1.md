@@ -3,8 +3,6 @@
 
 Data related to a loyalty account processed in the transaction.
 
-*This model accepts additional fields of type Any.*
-
 ## Structure
 
 `LoyaltyAccount1`
@@ -13,37 +11,28 @@ Data related to a loyalty account processed in the transaction.
 
 | Name | Type | Tags | Description |
 |  --- | --- | --- | --- |
-| `loyalty_account_id` | [`LoyaltyAccountId3`](../../doc/models/loyalty-account-id-3.md) | Required | - |
+| `loyalty_account_id` | [`LoyaltyAccountID2`](../../doc/models/loyalty-account-id-2.md) | Required | Identification of a Loyalty account. |
 | `loyalty_brand` | `str` | Optional | Identification of a Loyalty brand.<br>If a card is analysed.<br><br>**Constraints**: *Pattern*: `^.+$` |
-| `additional_properties` | `Dict[str, Any]` | Optional | - |
 
 ## Example
 
 ```python
-import jsonpickle
-
-from adyen.models.entry_mode import EntryMode
-from adyen.models.identification_support_1 import IdentificationSupport1
-from adyen.models.identification_type_11 import IdentificationType11
+from adyen.models.entry_mode_enum import EntryModeEnum
+from adyen.models.identification_support_1_enum import IdentificationSupport1Enum
+from adyen.models.identification_type_11_enum import IdentificationType11Enum
 from adyen.models.loyalty_account_1 import LoyaltyAccount1
-from adyen.models.loyalty_account_id_3 import LoyaltyAccountId3
+from adyen.models.loyalty_account_id_2 import LoyaltyAccountID2
 
 loyalty_account_1 = LoyaltyAccount1(
-    loyalty_account_id=LoyaltyAccountId3(
+    loyalty_account_id=LoyaltyAccountID2(
         entry_mode=[
-            EntryMode.FILE
+            EntryModeEnum.FILE
         ],
-        identification_type=IdentificationType11.ISOTRACK2,
+        identification_type=IdentificationType11Enum.ISOTRACK2,
         loyalty_id='LoyaltyID4',
-        identification_support=IdentificationSupport1.HYBRIDCARD,
-        additional_properties={
-            'exampleAdditionalProperty': jsonpickle.decode('{"key1":"val1","key2":"val2"}')
-        }
+        identification_support=IdentificationSupport1Enum.HYBRIDCARD
     ),
-    loyalty_brand='LoyaltyBrand0',
-    additional_properties={
-        'exampleAdditionalProperty': jsonpickle.decode('{"key1":"val1","key2":"val2"}')
-    }
+    loyalty_brand='LoyaltyBrand0'
 )
 ```
 

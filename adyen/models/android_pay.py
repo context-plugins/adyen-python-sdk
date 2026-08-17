@@ -8,15 +8,13 @@ from adyen.api_helper import APIHelper
 
 
 class AndroidPay(object):
-    """Implementation of the 'AndroidPay' model.
+    """Implementation of the 'Android Pay' model.
 
     Attributes:
         checkout_attempt_id (str): The checkout attempt identifier.
         sdk_data (str): Base64-encoded JSON object containing SDK related parameters
             required by the SDK
-        mtype (Type61): The model property of type Type61.
-        additional_properties (Dict[str, Any]): The additional properties for the
-            model.
+        mtype (Type6Enum): **androidpay**
 
     """
 
@@ -37,21 +35,14 @@ class AndroidPay(object):
         self,
         checkout_attempt_id=APIHelper.SKIP,
         sdk_data=APIHelper.SKIP,
-        mtype=APIHelper.SKIP,
-        additional_properties=None):
+        mtype="androidpay"):
         """Initialize a AndroidPay instance."""
         # Initialize members of the class
         if checkout_attempt_id is not APIHelper.SKIP:
             self.checkout_attempt_id = checkout_attempt_id
         if sdk_data is not APIHelper.SKIP:
             self.sdk_data = sdk_data
-        if mtype is not APIHelper.SKIP:
-            self.mtype = mtype
-
-        # Add additional model properties to the instance
-        if additional_properties is None:
-            additional_properties = {}
-        self.additional_properties = additional_properties
+        self.mtype = mtype
 
     @classmethod
     def from_dictionary(cls,
@@ -82,18 +73,12 @@ class AndroidPay(object):
         mtype =\
             dictionary.get("type")\
             if dictionary.get("type")\
-                else APIHelper.SKIP
-
-        additional_properties = APIHelper.get_additional_properties(
-            dictionary={k: v for k, v in dictionary.items()
-                        if k not in cls._names.values()},
-            unboxing_function=lambda value: value)
+                else "androidpay"
 
         # Return an object of this model
         return cls(checkout_attempt_id,
                    sdk_data,
-                   mtype,
-                   additional_properties)
+                   mtype)
 
     @classmethod
     def validate(cls, dictionary):
@@ -133,13 +118,11 @@ class AndroidPay(object):
             if hasattr(self, "mtype")
             else None
         )
-        _additional_properties=self.additional_properties
         return (
             f"{self.__class__.__name__}("
             f"checkout_attempt_id={_checkout_attempt_id!r}, "
             f"sdk_data={_sdk_data!r}, "
             f"mtype={_mtype!r}, "
-            f"additional_properties={_additional_properties!r}, "
             f")"
         )
 
@@ -160,12 +143,10 @@ class AndroidPay(object):
             if hasattr(self, "mtype")
             else None
         )
-        _additional_properties=self.additional_properties
         return (
             f"{self.__class__.__name__}("
             f"checkout_attempt_id={_checkout_attempt_id!s}, "
             f"sdk_data={_sdk_data!s}, "
             f"mtype={_mtype!s}, "
-            f"additional_properties={_additional_properties!s}, "
             f")"
         )

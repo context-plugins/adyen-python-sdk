@@ -14,9 +14,8 @@ class CapabilityProblemEntityRecursive(object):
         documents (List[str]): List of document IDs to which the verification errors
             related to the capabilities correspond to.
         id (str): The ID of the entity.
-        mtype (Type3): The model property of type Type3.
-        additional_properties (Dict[str, Any]): The additional properties for the
-            model.
+        mtype (Type33Enum): Type of entity.   Possible values: **LegalEntity**,
+            **BankAccount**, **Document**.
 
     """
 
@@ -37,8 +36,7 @@ class CapabilityProblemEntityRecursive(object):
         self,
         documents=APIHelper.SKIP,
         id=APIHelper.SKIP,
-        mtype=APIHelper.SKIP,
-        additional_properties=None):
+        mtype=APIHelper.SKIP):
         """Initialize a CapabilityProblemEntityRecursive instance."""
         # Initialize members of the class
         if documents is not APIHelper.SKIP:
@@ -47,11 +45,6 @@ class CapabilityProblemEntityRecursive(object):
             self.id = id
         if mtype is not APIHelper.SKIP:
             self.mtype = mtype
-
-        # Add additional model properties to the instance
-        if additional_properties is None:
-            additional_properties = {}
-        self.additional_properties = additional_properties
 
     @classmethod
     def from_dictionary(cls,
@@ -84,16 +77,10 @@ class CapabilityProblemEntityRecursive(object):
             if dictionary.get("type")\
                 else APIHelper.SKIP
 
-        additional_properties = APIHelper.get_additional_properties(
-            dictionary={k: v for k, v in dictionary.items()
-                        if k not in cls._names.values()},
-            unboxing_function=lambda value: value)
-
         # Return an object of this model
         return cls(documents,
                    id,
-                   mtype,
-                   additional_properties)
+                   mtype)
 
     def __repr__(self):
         """Return a unambiguous string representation."""
@@ -112,13 +99,11 @@ class CapabilityProblemEntityRecursive(object):
             if hasattr(self, "mtype")
             else None
         )
-        _additional_properties=self.additional_properties
         return (
             f"{self.__class__.__name__}("
             f"documents={_documents!r}, "
             f"id={_id!r}, "
             f"mtype={_mtype!r}, "
-            f"additional_properties={_additional_properties!r}, "
             f")"
         )
 
@@ -139,12 +124,10 @@ class CapabilityProblemEntityRecursive(object):
             if hasattr(self, "mtype")
             else None
         )
-        _additional_properties=self.additional_properties
         return (
             f"{self.__class__.__name__}("
             f"documents={_documents!s}, "
             f"id={_id!s}, "
             f"mtype={_mtype!s}, "
-            f"additional_properties={_additional_properties!s}, "
             f")"
         )

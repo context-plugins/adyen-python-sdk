@@ -51,7 +51,7 @@ This endpoint requires [BasicAuth](../../doc/auth/basic-authentication.md) **OR*
 
 **200**: OK - the request has succeeded.
 
-This method returns an [`ApiResponse`](../../doc/api-response.md) instance. The `body` property of this instance returns the response data which is of type [`ListWebhooksResponse`](../../doc/models/list-webhooks-response.md).
+[`ListWebhooksResponse`](../../doc/models/list-webhooks-response.md)
 
 ## Example Usage
 
@@ -59,11 +59,7 @@ This method returns an [`ApiResponse`](../../doc/api-response.md) instance. The 
 company_id = 'companyId0'
 
 result = webhooks_company_level_api.get_companies_company_id_webhooks(company_id)
-
-if result.is_success():
-    print(result.body)
-elif result.is_error():
-    print(result.errors)
+print(result)
 ```
 
 ## Example Response *(as JSON)*
@@ -224,7 +220,7 @@ This endpoint requires [BasicAuth](../../doc/auth/basic-authentication.md) **OR*
 
 **200**: OK - the request has succeeded.
 
-This method returns an [`ApiResponse`](../../doc/api-response.md) instance. The `body` property of this instance returns the response data which is of type [`Webhook`](../../doc/models/webhook.md).
+[`Webhook`](../../doc/models/webhook.md)
 
 ## Example Usage
 
@@ -233,8 +229,8 @@ company_id = 'companyId0'
 
 body = CreateCompanyWebhookRequest(
     active=True,
-    communication_format=CommunicationFormat.SOAP,
-    filter_merchant_account_type=FilterMerchantAccountType.INCLUDEACCOUNTS,
+    communication_format=CommunicationFormatEnum.SOAP,
+    filter_merchant_account_type=FilterMerchantAccountTypeEnum.INCLUDEACCOUNTS,
     filter_merchant_accounts=[
         'YOUR_MERCHANT_ACCOUNT'
     ],
@@ -252,11 +248,7 @@ result = webhooks_company_level_api.post_companies_company_id_webhooks(
     company_id,
     body=body
 )
-
-if result.is_success():
-    print(result.body)
-elif result.is_error():
-    print(result.errors)
+print(result)
 ```
 
 ## Example Response *(as JSON)*
@@ -405,7 +397,7 @@ This endpoint requires [BasicAuth](../../doc/auth/basic-authentication.md) **OR*
 
 **200**: OK - the request has succeeded.
 
-This method returns an [`ApiResponse`](../../doc/api-response.md) instance. The `body` property of this instance returns the response data which is of type [`Webhook`](../../doc/models/webhook.md).
+[`Webhook`](../../doc/models/webhook.md)
 
 ## Example Usage
 
@@ -418,11 +410,7 @@ result = webhooks_company_level_api.get_companies_company_id_webhooks_webhook_id
     company_id,
     webhook_id
 )
-
-if result.is_success():
-    print(result.body)
-elif result.is_error():
-    print(result.errors)
+print(result)
 ```
 
 ## Example Response *(as JSON)*
@@ -566,7 +554,7 @@ This endpoint requires [BasicAuth](../../doc/auth/basic-authentication.md) **OR*
 
 **204**: No Content - look at the actual response code for the status of the request.
 
-This method returns an [`ApiResponse`](../../doc/api-response.md) instance.
+`void`
 
 ## Example Usage
 
@@ -575,15 +563,10 @@ company_id = 'companyId0'
 
 webhook_id = 'webhookId6'
 
-result = webhooks_company_level_api.delete_companies_company_id_webhooks_webhook_id(
+webhooks_company_level_api.delete_companies_company_id_webhooks_webhook_id(
     company_id,
     webhook_id
 )
-
-if result.is_success():
-    print(result.body)
-elif result.is_error():
-    print(result.errors)
 ```
 
 ## Errors
@@ -628,7 +611,7 @@ This endpoint requires [BasicAuth](../../doc/auth/basic-authentication.md) **OR*
 
 **200**: OK - the request has succeeded.
 
-This method returns an [`ApiResponse`](../../doc/api-response.md) instance. The `body` property of this instance returns the response data which is of type [`Webhook`](../../doc/models/webhook.md).
+[`Webhook`](../../doc/models/webhook.md)
 
 ## Example Usage
 
@@ -646,11 +629,7 @@ result = webhooks_company_level_api.patch_companies_company_id_webhooks_webhook_
     webhook_id,
     body=body
 )
-
-if result.is_success():
-    print(result.body)
-elif result.is_error():
-    print(result.errors)
+print(result)
 ```
 
 ## Example Response *(as JSON)*
@@ -794,7 +773,7 @@ This endpoint requires [BasicAuth](../../doc/auth/basic-authentication.md) **OR*
 
 **200**: OK - the request has succeeded.
 
-This method returns an [`ApiResponse`](../../doc/api-response.md) instance. The `body` property of this instance returns the response data which is of type [`GenerateHmacKeyResponse`](../../doc/models/generate-hmac-key-response.md).
+[`GenerateHmacKeyResponse`](../../doc/models/generate-hmac-key-response.md)
 
 ## Example Usage
 
@@ -807,11 +786,7 @@ result = webhooks_company_level_api.post_companies_company_id_webhooks_webhook_i
     company_id,
     webhook_id
 )
-
-if result.is_success():
-    print(result.body)
-elif result.is_error():
-    print(result.errors)
+print(result)
 ```
 
 ## Example Response *(as JSON)*
@@ -870,7 +845,7 @@ This endpoint requires [BasicAuth](../../doc/auth/basic-authentication.md) **OR*
 
 **200**: OK - the request has succeeded.
 
-This method returns an [`ApiResponse`](../../doc/api-response.md) instance. The `body` property of this instance returns the response data which is of type [`TestWebhookResponse`](../../doc/models/test-webhook-response.md).
+[`TestWebhookResponse`](../../doc/models/test-webhook-response.md)
 
 ## Example Usage
 
@@ -893,11 +868,7 @@ result = webhooks_company_level_api.post_companies_company_id_webhooks_webhook_i
     webhook_id,
     body=body
 )
-
-if result.is_success():
-    print(result.body)
-elif result.is_error():
-    print(result.errors)
+print(result)
 ```
 
 ## Example Response *(as JSON)*

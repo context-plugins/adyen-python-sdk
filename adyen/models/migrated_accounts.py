@@ -15,8 +15,6 @@ class MigratedAccounts(object):
             account holder in the classic integration.
         balance_account_id (str): The unique identifier of the account of the
             migrated account holder in the balance platform.
-        additional_properties (Dict[str, Any]): The additional properties for the
-            model.
 
     """
 
@@ -34,19 +32,13 @@ class MigratedAccounts(object):
     def __init__(
         self,
         account_code=APIHelper.SKIP,
-        balance_account_id=APIHelper.SKIP,
-        additional_properties=None):
+        balance_account_id=APIHelper.SKIP):
         """Initialize a MigratedAccounts instance."""
         # Initialize members of the class
         if account_code is not APIHelper.SKIP:
             self.account_code = account_code
         if balance_account_id is not APIHelper.SKIP:
             self.balance_account_id = balance_account_id
-
-        # Add additional model properties to the instance
-        if additional_properties is None:
-            additional_properties = {}
-        self.additional_properties = additional_properties
 
     @classmethod
     def from_dictionary(cls,
@@ -75,15 +67,9 @@ class MigratedAccounts(object):
             if dictionary.get("balanceAccountId")\
                 else APIHelper.SKIP
 
-        additional_properties = APIHelper.get_additional_properties(
-            dictionary={k: v for k, v in dictionary.items()
-                        if k not in cls._names.values()},
-            unboxing_function=lambda value: value)
-
         # Return an object of this model
         return cls(account_code,
-                   balance_account_id,
-                   additional_properties)
+                   balance_account_id)
 
     def __repr__(self):
         """Return a unambiguous string representation."""
@@ -97,12 +83,10 @@ class MigratedAccounts(object):
             if hasattr(self, "balance_account_id")
             else None
         )
-        _additional_properties=self.additional_properties
         return (
             f"{self.__class__.__name__}("
             f"account_code={_account_code!r}, "
             f"balance_account_id={_balance_account_id!r}, "
-            f"additional_properties={_additional_properties!r}, "
             f")"
         )
 
@@ -118,11 +102,9 @@ class MigratedAccounts(object):
             if hasattr(self, "balance_account_id")
             else None
         )
-        _additional_properties=self.additional_properties
         return (
             f"{self.__class__.__name__}("
             f"account_code={_account_code!s}, "
             f"balance_account_id={_balance_account_id!s}, "
-            f"additional_properties={_additional_properties!s}, "
             f")"
         )

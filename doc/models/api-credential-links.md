@@ -1,8 +1,6 @@
 
 # Api Credential Links
 
-*This model accepts additional fields of type Any.*
-
 ## Structure
 
 `ApiCredentialLinks`
@@ -11,67 +9,43 @@
 
 | Name | Type | Tags | Description |
 |  --- | --- | --- | --- |
-| `allowed_origins` | [`AllowedOrigins`](../../doc/models/allowed-origins.md) | Optional | - |
-| `company` | [`Company4`](../../doc/models/company-4.md) | Optional | - |
-| `generate_api_key` | [`GenerateApiKey`](../../doc/models/generate-api-key.md) | Optional | - |
-| `generate_client_key` | [`GenerateClientKey`](../../doc/models/generate-client-key.md) | Optional | - |
-| `merchant` | [`Merchant1`](../../doc/models/merchant-1.md) | Optional | - |
-| `mself` | [`Self`](../../doc/models/self.md) | Required | - |
-| `additional_properties` | `Dict[str, Any]` | Optional | - |
+| `allowed_origins` | [`LinksElement1`](../../doc/models/links-element-1.md) | Optional | List of allowed origins. |
+| `company` | [`LinksElement2`](../../doc/models/links-element-2.md) | Optional | Company account that the API credential is linked to. Only present for company-level webhooks. |
+| `generate_api_key` | [`LinksElement3`](../../doc/models/links-element-3.md) | Optional | Generates a new API key. When you generate a new one, the existing key remains valid for 24 hours. |
+| `generate_client_key` | [`LinksElement4`](../../doc/models/links-element-4.md) | Optional | Generates a new client key, used to authenticate client-side requests. When you generate a new one, the existing key remains valid for 24 hours. |
+| `merchant` | [`LinksElement5`](../../doc/models/links-element-5.md) | Optional | The merchant account that the API credential is linked to. Only present for merchant-level API credentials. |
+| `mself` | [`LinksElement6`](../../doc/models/links-element-6.md) | Required | Link to the resource itself. |
 
 ## Example
 
 ```python
-import jsonpickle
-
-from adyen.models.allowed_origins import AllowedOrigins
 from adyen.models.api_credential_links import ApiCredentialLinks
-from adyen.models.company_4 import Company4
-from adyen.models.generate_api_key import GenerateApiKey
-from adyen.models.generate_client_key import GenerateClientKey
-from adyen.models.merchant_1 import Merchant1
-from adyen.models.mself import Self
+from adyen.models.links_element_1 import LinksElement1
+from adyen.models.links_element_2 import LinksElement2
+from adyen.models.links_element_3 import LinksElement3
+from adyen.models.links_element_4 import LinksElement4
+from adyen.models.links_element_5 import LinksElement5
+from adyen.models.links_element_6 import LinksElement6
 
 api_credential_links = ApiCredentialLinks(
-    mself=Self(
-        href='href0',
-        additional_properties={
-            'exampleAdditionalProperty': jsonpickle.decode('{"key1":"val1","key2":"val2"}')
-        }
+    mself=LinksElement6(
+        href='href0'
     ),
-    allowed_origins=AllowedOrigins(
-        href='href6',
-        additional_properties={
-            'exampleAdditionalProperty': jsonpickle.decode('{"key1":"val1","key2":"val2"}')
-        }
+    allowed_origins=LinksElement1(
+        href='href6'
     ),
-    company=Company4(
-        href='href2',
-        additional_properties={
-            'exampleAdditionalProperty': jsonpickle.decode('{"key1":"val1","key2":"val2"}')
-        }
+    company=LinksElement2(
+        href='href2'
     ),
-    generate_api_key=GenerateApiKey(
-        href='href6',
-        additional_properties={
-            'exampleAdditionalProperty': jsonpickle.decode('{"key1":"val1","key2":"val2"}')
-        }
+    generate_api_key=LinksElement3(
+        href='href6'
     ),
-    generate_client_key=GenerateClientKey(
-        href='href4',
-        additional_properties={
-            'exampleAdditionalProperty': jsonpickle.decode('{"key1":"val1","key2":"val2"}')
-        }
+    generate_client_key=LinksElement4(
+        href='href4'
     ),
-    merchant=Merchant1(
-        href='href6',
-        additional_properties={
-            'exampleAdditionalProperty': jsonpickle.decode('{"key1":"val1","key2":"val2"}')
-        }
-    ),
-    additional_properties={
-        'exampleAdditionalProperty': jsonpickle.decode('{"key1":"val1","key2":"val2"}')
-    }
+    merchant=LinksElement5(
+        href='href6'
+    )
 )
 ```
 

@@ -11,12 +11,11 @@ class SoundContent(object):
     """Implementation of the 'SoundContent' model.
 
     Attributes:
-        sound_format (SoundFormat1): The model property of type SoundFormat1.
+        sound_format (SoundFormat1Enum): Possible values: * **MessageRef** *
+            **SoundRef** * **Text**
         language (str): The model property of type str.
         reference_id (str): The model property of type str.
         text (str): The model property of type str.
-        additional_properties (Dict[str, Any]): The additional properties for the
-            model.
 
     """
 
@@ -39,8 +38,7 @@ class SoundContent(object):
         sound_format=None,
         language=APIHelper.SKIP,
         reference_id=APIHelper.SKIP,
-        text=APIHelper.SKIP,
-        additional_properties=None):
+        text=APIHelper.SKIP):
         """Initialize a SoundContent instance."""
         # Initialize members of the class
         self.sound_format = sound_format
@@ -50,11 +48,6 @@ class SoundContent(object):
             self.reference_id = reference_id
         if text is not APIHelper.SKIP:
             self.text = text
-
-        # Add additional model properties to the instance
-        if additional_properties is None:
-            additional_properties = {}
-        self.additional_properties = additional_properties
 
     @classmethod
     def from_dictionary(cls,
@@ -91,17 +84,11 @@ class SoundContent(object):
             if dictionary.get("Text")\
                 else APIHelper.SKIP
 
-        additional_properties = APIHelper.get_additional_properties(
-            dictionary={k: v for k, v in dictionary.items()
-                        if k not in cls._names.values()},
-            unboxing_function=lambda value: value)
-
         # Return an object of this model
         return cls(sound_format,
                    language,
                    reference_id,
-                   text,
-                   additional_properties)
+                   text)
 
     def __repr__(self):
         """Return a unambiguous string representation."""
@@ -121,14 +108,12 @@ class SoundContent(object):
             if hasattr(self, "text")
             else None
         )
-        _additional_properties=self.additional_properties
         return (
             f"{self.__class__.__name__}("
             f"sound_format={_sound_format!r}, "
             f"language={_language!r}, "
             f"reference_id={_reference_id!r}, "
             f"text={_text!r}, "
-            f"additional_properties={_additional_properties!r}, "
             f")"
         )
 
@@ -150,13 +135,11 @@ class SoundContent(object):
             if hasattr(self, "text")
             else None
         )
-        _additional_properties=self.additional_properties
         return (
             f"{self.__class__.__name__}("
             f"sound_format={_sound_format!s}, "
             f"language={_language!s}, "
             f"reference_id={_reference_id!s}, "
             f"text={_text!s}, "
-            f"additional_properties={_additional_properties!s}, "
             f")"
         )

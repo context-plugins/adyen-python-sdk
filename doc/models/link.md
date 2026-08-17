@@ -1,8 +1,6 @@
 
 # Link
 
-*This model accepts additional fields of type Any.*
-
 ## Structure
 
 `Link`
@@ -11,59 +9,34 @@
 
 | Name | Type | Tags | Description |
 |  --- | --- | --- | --- |
-| `first` | [`First`](../../doc/models/first.md) | Optional | - |
-| `last` | [`Last`](../../doc/models/last.md) | Optional | - |
-| `next` | [`Next`](../../doc/models/next.md) | Optional | - |
-| `previous` | [`Previous`](../../doc/models/previous.md) | Optional | - |
-| `mself` | [`Self`](../../doc/models/self.md) | Optional | - |
-| `additional_properties` | `Dict[str, Any]` | Optional | - |
+| `first` | [`LinksElement`](../../doc/models/links-element.md) | Optional | The link to the first page of the list. |
+| `last` | [`LinksElement`](../../doc/models/links-element.md) | Optional | The link to the last page of the list. |
+| `next` | [`LinksElement`](../../doc/models/links-element.md) | Optional | The link to the next page of the list. |
+| `previous` | [`LinksElement`](../../doc/models/links-element.md) | Optional | The link to the previous page of the list. |
+| `mself` | [`LinksElement`](../../doc/models/links-element.md) | Optional | The link to the list page you are currently viewing. |
 
 ## Example
 
 ```python
-import jsonpickle
-
-from adyen.models.first import First
-from adyen.models.last import Last
 from adyen.models.link import Link
-from adyen.models.mself import Self
-from adyen.models.next import Next
-from adyen.models.previous import Previous
+from adyen.models.links_element import LinksElement
 
 link = Link(
-    first=First(
-        href='href2',
-        additional_properties={
-            'exampleAdditionalProperty': jsonpickle.decode('{"key1":"val1","key2":"val2"}')
-        }
+    first=LinksElement(
+        href='href2'
     ),
-    last=Last(
-        href='href2',
-        additional_properties={
-            'exampleAdditionalProperty': jsonpickle.decode('{"key1":"val1","key2":"val2"}')
-        }
+    last=LinksElement(
+        href='href2'
     ),
-    next=Next(
-        href='href4',
-        additional_properties={
-            'exampleAdditionalProperty': jsonpickle.decode('{"key1":"val1","key2":"val2"}')
-        }
+    next=LinksElement(
+        href='href4'
     ),
-    previous=Previous(
-        href='href0',
-        additional_properties={
-            'exampleAdditionalProperty': jsonpickle.decode('{"key1":"val1","key2":"val2"}')
-        }
+    previous=LinksElement(
+        href='href0'
     ),
-    mself=Self(
-        href='href0',
-        additional_properties={
-            'exampleAdditionalProperty': jsonpickle.decode('{"key1":"val1","key2":"val2"}')
-        }
-    ),
-    additional_properties={
-        'exampleAdditionalProperty': jsonpickle.decode('{"key1":"val1","key2":"val2"}')
-    }
+    mself=LinksElement(
+        href='href0'
+    )
 )
 ```
 

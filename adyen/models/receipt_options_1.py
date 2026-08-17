@@ -26,8 +26,6 @@ class ReceiptOptions1(object):
             `${merchantreference}`: the merchant reference of the transaction. -
             `${pspreference}`: the PSP reference of the transaction.   For example,
             **http://www.example.com/order/${pspreference}/${merchantreference}**.
-        additional_properties (Dict[str, Any]): The additional properties for the
-            model.
 
     """
 
@@ -54,8 +52,7 @@ class ReceiptOptions1(object):
         header_line_2=APIHelper.SKIP,
         logo=APIHelper.SKIP,
         prompt_before_printing=APIHelper.SKIP,
-        qr_code_data=APIHelper.SKIP,
-        additional_properties=None):
+        qr_code_data=APIHelper.SKIP):
         """Initialize a ReceiptOptions1 instance."""
         # Initialize members of the class
         if header_line_1 is not APIHelper.SKIP:
@@ -68,11 +65,6 @@ class ReceiptOptions1(object):
             self.prompt_before_printing = prompt_before_printing
         if qr_code_data is not APIHelper.SKIP:
             self.qr_code_data = qr_code_data
-
-        # Add additional model properties to the instance
-        if additional_properties is None:
-            additional_properties = {}
-        self.additional_properties = additional_properties
 
     @classmethod
     def from_dictionary(cls,
@@ -113,18 +105,12 @@ class ReceiptOptions1(object):
             if dictionary.get("qrCodeData")\
                 else APIHelper.SKIP
 
-        additional_properties = APIHelper.get_additional_properties(
-            dictionary={k: v for k, v in dictionary.items()
-                        if k not in cls._names.values()},
-            unboxing_function=lambda value: value)
-
         # Return an object of this model
         return cls(header_line_1,
                    header_line_2,
                    logo,
                    prompt_before_printing,
-                   qr_code_data,
-                   additional_properties)
+                   qr_code_data)
 
     def __repr__(self):
         """Return a unambiguous string representation."""
@@ -153,7 +139,6 @@ class ReceiptOptions1(object):
             if hasattr(self, "qr_code_data")
             else None
         )
-        _additional_properties=self.additional_properties
         return (
             f"{self.__class__.__name__}("
             f"header_line_1={_header_line_1!r}, "
@@ -161,7 +146,6 @@ class ReceiptOptions1(object):
             f"logo={_logo!r}, "
             f"prompt_before_printing={_prompt_before_printing!r}, "
             f"qr_code_data={_qr_code_data!r}, "
-            f"additional_properties={_additional_properties!r}, "
             f")"
         )
 
@@ -192,7 +176,6 @@ class ReceiptOptions1(object):
             if hasattr(self, "qr_code_data")
             else None
         )
-        _additional_properties=self.additional_properties
         return (
             f"{self.__class__.__name__}("
             f"header_line_1={_header_line_1!s}, "
@@ -200,6 +183,5 @@ class ReceiptOptions1(object):
             f"logo={_logo!s}, "
             f"prompt_before_printing={_prompt_before_printing!s}, "
             f"qr_code_data={_qr_code_data!s}, "
-            f"additional_properties={_additional_properties!s}, "
             f")"
         )

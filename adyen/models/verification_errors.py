@@ -15,8 +15,6 @@ class VerificationErrors(object):
 
     Attributes:
         problems (List[CapabilityProblem1]): List of the verification errors.
-        additional_properties (Dict[str, Any]): The additional properties for the
-            model.
 
     """
 
@@ -31,17 +29,11 @@ class VerificationErrors(object):
 
     def __init__(
         self,
-        problems=APIHelper.SKIP,
-        additional_properties=None):
+        problems=APIHelper.SKIP):
         """Initialize a VerificationErrors instance."""
         # Initialize members of the class
         if problems is not APIHelper.SKIP:
             self.problems = problems
-
-        # Add additional model properties to the instance
-        if additional_properties is None:
-            additional_properties = {}
-        self.additional_properties = additional_properties
 
     @classmethod
     def from_dictionary(cls,
@@ -70,14 +62,8 @@ class VerificationErrors(object):
         else:
             problems = APIHelper.SKIP
 
-        additional_properties = APIHelper.get_additional_properties(
-            dictionary={k: v for k, v in dictionary.items()
-                        if k not in cls._names.values()},
-            unboxing_function=lambda value: value)
-
         # Return an object of this model
-        return cls(problems,
-                   additional_properties)
+        return cls(problems)
 
     def __repr__(self):
         """Return a unambiguous string representation."""
@@ -86,11 +72,9 @@ class VerificationErrors(object):
             if hasattr(self, "problems")
             else None
         )
-        _additional_properties=self.additional_properties
         return (
             f"{self.__class__.__name__}("
             f"problems={_problems!r}, "
-            f"additional_properties={_additional_properties!r}, "
             f")"
         )
 
@@ -101,10 +85,8 @@ class VerificationErrors(object):
             if hasattr(self, "problems")
             else None
         )
-        _additional_properties=self.additional_properties
         return (
             f"{self.__class__.__name__}("
             f"problems={_problems!s}, "
-            f"additional_properties={_additional_properties!s}, "
             f")"
         )

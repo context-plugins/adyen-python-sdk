@@ -1,8 +1,6 @@
 
 # List Company Response
 
-*This model accepts additional fields of type Any.*
-
 ## Structure
 
 `ListCompanyResponse`
@@ -11,252 +9,148 @@
 
 | Name | Type | Tags | Description |
 |  --- | --- | --- | --- |
-| `links` | [`PaginationLinks`](../../doc/models/pagination-links.md) | Optional | - |
+| `links` | [`PaginationLinks1`](../../doc/models/pagination-links-1.md) | Optional | Pagination references. |
 | `data` | [`List[Company2]`](../../doc/models/company-2.md) | Optional | The list of companies. |
 | `items_total` | `int` | Required | Total number of items. |
 | `pages_total` | `int` | Required | Total number of pages. |
-| `additional_properties` | `Dict[str, Any]` | Optional | - |
 
 ## Example
 
 ```python
-import jsonpickle
-
 from adyen.models.company_2 import Company2
-from adyen.models.company_links import CompanyLinks
+from adyen.models.company_links_2 import CompanyLinks2
 from adyen.models.data_center import DataCenter
-from adyen.models.first import First
-from adyen.models.href_2 import Href2
-from adyen.models.last import Last
+from adyen.models.links_element import LinksElement
+from adyen.models.links_element_10 import LinksElement10
+from adyen.models.links_element_11 import LinksElement11
+from adyen.models.links_element_12 import LinksElement12
+from adyen.models.links_element_13 import LinksElement13
+from adyen.models.links_element_6 import LinksElement6
+from adyen.models.links_element_9 import LinksElement9
 from adyen.models.list_company_response import ListCompanyResponse
-from adyen.models.mself import Self
-from adyen.models.next import Next
-from adyen.models.pagination_links import PaginationLinks
-from adyen.models.prev import Prev
+from adyen.models.pagination_links_1 import PaginationLinks1
 
 list_company_response = ListCompanyResponse(
     items_total=20,
     pages_total=18,
-    links=PaginationLinks(
-        first=First(
-            href='href2',
-            additional_properties={
-                'exampleAdditionalProperty': jsonpickle.decode('{"key1":"val1","key2":"val2"}')
-            }
+    links=PaginationLinks1(
+        first=LinksElement9(
+            href='href2'
         ),
-        last=Last(
-            href='href2',
-            additional_properties={
-                'exampleAdditionalProperty': jsonpickle.decode('{"key1":"val1","key2":"val2"}')
-            }
+        last=LinksElement10(
+            href='href2'
         ),
-        mself=Self(
-            href='href0',
-            additional_properties={
-                'exampleAdditionalProperty': jsonpickle.decode('{"key1":"val1","key2":"val2"}')
-            }
+        mself=LinksElement13(
+            href='href0'
         ),
-        next=Next(
-            href='href4',
-            additional_properties={
-                'exampleAdditionalProperty': jsonpickle.decode('{"key1":"val1","key2":"val2"}')
-            }
+        next=LinksElement11(
+            href='href4'
         ),
-        prev=Prev(
-            href='href8',
-            additional_properties={
-                'exampleAdditionalProperty': jsonpickle.decode('{"key1":"val1","key2":"val2"}')
-            }
-        ),
-        additional_properties={
-            'exampleAdditionalProperty': jsonpickle.decode('{"key1":"val1","key2":"val2"}')
-        }
+        prev=LinksElement12(
+            href='href8'
+        )
     ),
     data=[
         Company2(
-            links=CompanyLinks(
-                mself=Self(
-                    href='href0',
-                    additional_properties={
-                        'exampleAdditionalProperty': jsonpickle.decode('{"key1":"val1","key2":"val2"}')
-                    }
+            links=CompanyLinks2(
+                mself=LinksElement6(
+                    href='href0'
                 ),
-                api_credentials=Href2(
-                    href='href8',
-                    additional_properties={
-                        'exampleAdditionalProperty': jsonpickle.decode('{"key1":"val1","key2":"val2"}')
-                    }
+                api_credentials=LinksElement(
+                    href='href8'
                 ),
-                users=Href2(
-                    href='href8',
-                    additional_properties={
-                        'exampleAdditionalProperty': jsonpickle.decode('{"key1":"val1","key2":"val2"}')
-                    }
+                users=LinksElement(
+                    href='href8'
                 ),
-                webhooks=Href2(
-                    href='href8',
-                    additional_properties={
-                        'exampleAdditionalProperty': jsonpickle.decode('{"key1":"val1","key2":"val2"}')
-                    }
-                ),
-                additional_properties={
-                    'exampleAdditionalProperty': jsonpickle.decode('{"key1":"val1","key2":"val2"}')
-                }
+                webhooks=LinksElement(
+                    href='href8'
+                )
             ),
             data_centers=[
                 DataCenter(
                     live_prefix='livePrefix4',
-                    name='name6',
-                    additional_properties={
-                        'exampleAdditionalProperty': jsonpickle.decode('{"key1":"val1","key2":"val2"}')
-                    }
+                    name='name6'
                 ),
                 DataCenter(
                     live_prefix='livePrefix4',
-                    name='name6',
-                    additional_properties={
-                        'exampleAdditionalProperty': jsonpickle.decode('{"key1":"val1","key2":"val2"}')
-                    }
+                    name='name6'
                 ),
                 DataCenter(
                     live_prefix='livePrefix4',
-                    name='name6',
-                    additional_properties={
-                        'exampleAdditionalProperty': jsonpickle.decode('{"key1":"val1","key2":"val2"}')
-                    }
+                    name='name6'
                 )
             ],
             description='description0',
             id='id0',
-            name='name0',
-            additional_properties={
-                'exampleAdditionalProperty': jsonpickle.decode('{"key1":"val1","key2":"val2"}')
-            }
+            name='name0'
         ),
         Company2(
-            links=CompanyLinks(
-                mself=Self(
-                    href='href0',
-                    additional_properties={
-                        'exampleAdditionalProperty': jsonpickle.decode('{"key1":"val1","key2":"val2"}')
-                    }
+            links=CompanyLinks2(
+                mself=LinksElement6(
+                    href='href0'
                 ),
-                api_credentials=Href2(
-                    href='href8',
-                    additional_properties={
-                        'exampleAdditionalProperty': jsonpickle.decode('{"key1":"val1","key2":"val2"}')
-                    }
+                api_credentials=LinksElement(
+                    href='href8'
                 ),
-                users=Href2(
-                    href='href8',
-                    additional_properties={
-                        'exampleAdditionalProperty': jsonpickle.decode('{"key1":"val1","key2":"val2"}')
-                    }
+                users=LinksElement(
+                    href='href8'
                 ),
-                webhooks=Href2(
-                    href='href8',
-                    additional_properties={
-                        'exampleAdditionalProperty': jsonpickle.decode('{"key1":"val1","key2":"val2"}')
-                    }
-                ),
-                additional_properties={
-                    'exampleAdditionalProperty': jsonpickle.decode('{"key1":"val1","key2":"val2"}')
-                }
+                webhooks=LinksElement(
+                    href='href8'
+                )
             ),
             data_centers=[
                 DataCenter(
                     live_prefix='livePrefix4',
-                    name='name6',
-                    additional_properties={
-                        'exampleAdditionalProperty': jsonpickle.decode('{"key1":"val1","key2":"val2"}')
-                    }
+                    name='name6'
                 ),
                 DataCenter(
                     live_prefix='livePrefix4',
-                    name='name6',
-                    additional_properties={
-                        'exampleAdditionalProperty': jsonpickle.decode('{"key1":"val1","key2":"val2"}')
-                    }
+                    name='name6'
                 ),
                 DataCenter(
                     live_prefix='livePrefix4',
-                    name='name6',
-                    additional_properties={
-                        'exampleAdditionalProperty': jsonpickle.decode('{"key1":"val1","key2":"val2"}')
-                    }
+                    name='name6'
                 )
             ],
             description='description0',
             id='id0',
-            name='name0',
-            additional_properties={
-                'exampleAdditionalProperty': jsonpickle.decode('{"key1":"val1","key2":"val2"}')
-            }
+            name='name0'
         ),
         Company2(
-            links=CompanyLinks(
-                mself=Self(
-                    href='href0',
-                    additional_properties={
-                        'exampleAdditionalProperty': jsonpickle.decode('{"key1":"val1","key2":"val2"}')
-                    }
+            links=CompanyLinks2(
+                mself=LinksElement6(
+                    href='href0'
                 ),
-                api_credentials=Href2(
-                    href='href8',
-                    additional_properties={
-                        'exampleAdditionalProperty': jsonpickle.decode('{"key1":"val1","key2":"val2"}')
-                    }
+                api_credentials=LinksElement(
+                    href='href8'
                 ),
-                users=Href2(
-                    href='href8',
-                    additional_properties={
-                        'exampleAdditionalProperty': jsonpickle.decode('{"key1":"val1","key2":"val2"}')
-                    }
+                users=LinksElement(
+                    href='href8'
                 ),
-                webhooks=Href2(
-                    href='href8',
-                    additional_properties={
-                        'exampleAdditionalProperty': jsonpickle.decode('{"key1":"val1","key2":"val2"}')
-                    }
-                ),
-                additional_properties={
-                    'exampleAdditionalProperty': jsonpickle.decode('{"key1":"val1","key2":"val2"}')
-                }
+                webhooks=LinksElement(
+                    href='href8'
+                )
             ),
             data_centers=[
                 DataCenter(
                     live_prefix='livePrefix4',
-                    name='name6',
-                    additional_properties={
-                        'exampleAdditionalProperty': jsonpickle.decode('{"key1":"val1","key2":"val2"}')
-                    }
+                    name='name6'
                 ),
                 DataCenter(
                     live_prefix='livePrefix4',
-                    name='name6',
-                    additional_properties={
-                        'exampleAdditionalProperty': jsonpickle.decode('{"key1":"val1","key2":"val2"}')
-                    }
+                    name='name6'
                 ),
                 DataCenter(
                     live_prefix='livePrefix4',
-                    name='name6',
-                    additional_properties={
-                        'exampleAdditionalProperty': jsonpickle.decode('{"key1":"val1","key2":"val2"}')
-                    }
+                    name='name6'
                 )
             ],
             description='description0',
             id='id0',
-            name='name0',
-            additional_properties={
-                'exampleAdditionalProperty': jsonpickle.decode('{"key1":"val1","key2":"val2"}')
-            }
+            name='name0'
         )
-    ],
-    additional_properties={
-        'exampleAdditionalProperty': jsonpickle.decode('{"key1":"val1","key2":"val2"}')
-    }
+    ]
 )
 ```
 

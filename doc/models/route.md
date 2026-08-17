@@ -1,8 +1,6 @@
 
 # Route
 
-*This model accepts additional fields of type Any.*
-
 ## Structure
 
 `Route`
@@ -12,29 +10,20 @@
 | Name | Type | Tags | Description |
 |  --- | --- | --- | --- |
 | `link` | `str` | Required | The redirection link. You can use this link to redirect the user to the open banking flow when the user selects it.<br><br>**Constraints**: *Minimum Length*: `1` |
-| `provider` | [`Provider`](../../doc/models/provider.md) | Required | - |
-| `additional_properties` | `Dict[str, Any]` | Optional | - |
+| `provider` | [`Provider2`](../../doc/models/provider-2.md) | Required | Metadata about the selected provider, including the name and company logo. You can use this information to inform the user about the provider they will be redirected to when they select the link. |
 
 ## Example
 
 ```python
-import jsonpickle
-
-from adyen.models.provider import Provider
+from adyen.models.provider_2 import Provider2
 from adyen.models.route import Route
 
 route = Route(
     link='link2',
-    provider=Provider(
+    provider=Provider2(
         logo_url='logoURL6',
-        name='name8',
-        additional_properties={
-            'exampleAdditionalProperty': jsonpickle.decode('{"key1":"val1","key2":"val2"}')
-        }
-    ),
-    additional_properties={
-        'exampleAdditionalProperty': jsonpickle.decode('{"key1":"val1","key2":"val2"}')
-    }
+        name='name8'
+    )
 )
 ```
 

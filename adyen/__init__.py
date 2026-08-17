@@ -7,7 +7,6 @@ __all__ = [
     "configuration",
     "exceptions",
     "http",
-    "logging",
     "models",
     "utilities",
 ]

@@ -16,8 +16,6 @@ class Url(object):
         password (str): The password for authentication of the notifications.
         url (str): The URL in the format: http(s)://domain.com.
         username (str): The username for authentication of the notifications.
-        additional_properties (Dict[str, Any]): The additional properties for the
-            model.
 
     """
 
@@ -41,8 +39,7 @@ class Url(object):
         encrypted=APIHelper.SKIP,
         password=APIHelper.SKIP,
         url=APIHelper.SKIP,
-        username=APIHelper.SKIP,
-        additional_properties=None):
+        username=APIHelper.SKIP):
         """Initialize a Url instance."""
         # Initialize members of the class
         if encrypted is not APIHelper.SKIP:
@@ -53,11 +50,6 @@ class Url(object):
             self.url = url
         if username is not APIHelper.SKIP:
             self.username = username
-
-        # Add additional model properties to the instance
-        if additional_properties is None:
-            additional_properties = {}
-        self.additional_properties = additional_properties
 
     @classmethod
     def from_dictionary(cls,
@@ -94,17 +86,11 @@ class Url(object):
             if dictionary.get("username")\
                 else APIHelper.SKIP
 
-        additional_properties = APIHelper.get_additional_properties(
-            dictionary={k: v for k, v in dictionary.items()
-                        if k not in cls._names.values()},
-            unboxing_function=lambda value: value)
-
         # Return an object of this model
         return cls(encrypted,
                    password,
                    url,
-                   username,
-                   additional_properties)
+                   username)
 
     def __repr__(self):
         """Return a unambiguous string representation."""
@@ -128,14 +114,12 @@ class Url(object):
             if hasattr(self, "username")
             else None
         )
-        _additional_properties=self.additional_properties
         return (
             f"{self.__class__.__name__}("
             f"encrypted={_encrypted!r}, "
             f"password={_password!r}, "
             f"url={_url!r}, "
             f"username={_username!r}, "
-            f"additional_properties={_additional_properties!r}, "
             f")"
         )
 
@@ -161,13 +145,11 @@ class Url(object):
             if hasattr(self, "username")
             else None
         )
-        _additional_properties=self.additional_properties
         return (
             f"{self.__class__.__name__}("
             f"encrypted={_encrypted!s}, "
             f"password={_password!s}, "
             f"url={_url!s}, "
             f"username={_username!s}, "
-            f"additional_properties={_additional_properties!s}, "
             f")"
         )

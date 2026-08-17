@@ -19,8 +19,6 @@ class PaymentMethodsResponse(object):
             required to generate payment forms.
         stored_payment_methods (List[StoredPaymentMethod3]): List of all stored
             payment methods.
-        additional_properties (Dict[str, Any]): The additional properties for the
-            model.
 
     """
 
@@ -38,19 +36,13 @@ class PaymentMethodsResponse(object):
     def __init__(
         self,
         payment_methods=APIHelper.SKIP,
-        stored_payment_methods=APIHelper.SKIP,
-        additional_properties=None):
+        stored_payment_methods=APIHelper.SKIP):
         """Initialize a PaymentMethodsResponse instance."""
         # Initialize members of the class
         if payment_methods is not APIHelper.SKIP:
             self.payment_methods = payment_methods
         if stored_payment_methods is not APIHelper.SKIP:
             self.stored_payment_methods = stored_payment_methods
-
-        # Add additional model properties to the instance
-        if additional_properties is None:
-            additional_properties = {}
-        self.additional_properties = additional_properties
 
     @classmethod
     def from_dictionary(cls,
@@ -87,15 +79,9 @@ class PaymentMethodsResponse(object):
         else:
             stored_payment_methods = APIHelper.SKIP
 
-        additional_properties = APIHelper.get_additional_properties(
-            dictionary={k: v for k, v in dictionary.items()
-                        if k not in cls._names.values()},
-            unboxing_function=lambda value: value)
-
         # Return an object of this model
         return cls(payment_methods,
-                   stored_payment_methods,
-                   additional_properties)
+                   stored_payment_methods)
 
     def __repr__(self):
         """Return a unambiguous string representation."""
@@ -109,12 +95,10 @@ class PaymentMethodsResponse(object):
             if hasattr(self, "stored_payment_methods")
             else None
         )
-        _additional_properties=self.additional_properties
         return (
             f"{self.__class__.__name__}("
             f"payment_methods={_payment_methods!r}, "
             f"stored_payment_methods={_stored_payment_methods!r}, "
-            f"additional_properties={_additional_properties!r}, "
             f")"
         )
 
@@ -130,11 +114,9 @@ class PaymentMethodsResponse(object):
             if hasattr(self, "stored_payment_methods")
             else None
         )
-        _additional_properties=self.additional_properties
         return (
             f"{self.__class__.__name__}("
             f"payment_methods={_payment_methods!s}, "
             f"stored_payment_methods={_stored_payment_methods!s}, "
-            f"additional_properties={_additional_properties!s}, "
             f")"
         )

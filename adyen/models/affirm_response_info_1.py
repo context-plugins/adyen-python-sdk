@@ -14,8 +14,6 @@ class AffirmResponseInfo1(object):
 
     Attributes:
         public_api_key (str): Affirm public API key
-        additional_properties (Dict[str, Any]): The additional properties for the
-            model.
 
     """
 
@@ -30,17 +28,11 @@ class AffirmResponseInfo1(object):
 
     def __init__(
         self,
-        public_api_key=APIHelper.SKIP,
-        additional_properties=None):
+        public_api_key=APIHelper.SKIP):
         """Initialize a AffirmResponseInfo1 instance."""
         # Initialize members of the class
         if public_api_key is not APIHelper.SKIP:
             self.public_api_key = public_api_key
-
-        # Add additional model properties to the instance
-        if additional_properties is None:
-            additional_properties = {}
-        self.additional_properties = additional_properties
 
     @classmethod
     def from_dictionary(cls,
@@ -65,14 +57,8 @@ class AffirmResponseInfo1(object):
             if dictionary.get("publicApiKey")\
                 else APIHelper.SKIP
 
-        additional_properties = APIHelper.get_additional_properties(
-            dictionary={k: v for k, v in dictionary.items()
-                        if k not in cls._names.values()},
-            unboxing_function=lambda value: value)
-
         # Return an object of this model
-        return cls(public_api_key,
-                   additional_properties)
+        return cls(public_api_key)
 
     def __repr__(self):
         """Return a unambiguous string representation."""
@@ -81,11 +67,9 @@ class AffirmResponseInfo1(object):
             if hasattr(self, "public_api_key")
             else None
         )
-        _additional_properties=self.additional_properties
         return (
             f"{self.__class__.__name__}("
             f"public_api_key={_public_api_key!r}, "
-            f"additional_properties={_additional_properties!r}, "
             f")"
         )
 
@@ -96,10 +80,8 @@ class AffirmResponseInfo1(object):
             if hasattr(self, "public_api_key")
             else None
         )
-        _additional_properties=self.additional_properties
         return (
             f"{self.__class__.__name__}("
             f"public_api_key={_public_api_key!s}, "
-            f"additional_properties={_additional_properties!s}, "
             f")"
         )

@@ -12,8 +12,6 @@ class BinDetail(object):
 
     Attributes:
         issuer_country (str): The country where the card was issued.
-        additional_properties (Dict[str, Any]): The additional properties for the
-            model.
 
     """
 
@@ -28,17 +26,11 @@ class BinDetail(object):
 
     def __init__(
         self,
-        issuer_country=APIHelper.SKIP,
-        additional_properties=None):
+        issuer_country=APIHelper.SKIP):
         """Initialize a BinDetail instance."""
         # Initialize members of the class
         if issuer_country is not APIHelper.SKIP:
             self.issuer_country = issuer_country
-
-        # Add additional model properties to the instance
-        if additional_properties is None:
-            additional_properties = {}
-        self.additional_properties = additional_properties
 
     @classmethod
     def from_dictionary(cls,
@@ -63,14 +55,8 @@ class BinDetail(object):
             if dictionary.get("issuerCountry")\
                 else APIHelper.SKIP
 
-        additional_properties = APIHelper.get_additional_properties(
-            dictionary={k: v for k, v in dictionary.items()
-                        if k not in cls._names.values()},
-            unboxing_function=lambda value: value)
-
         # Return an object of this model
-        return cls(issuer_country,
-                   additional_properties)
+        return cls(issuer_country)
 
     def __repr__(self):
         """Return a unambiguous string representation."""
@@ -79,11 +65,9 @@ class BinDetail(object):
             if hasattr(self, "issuer_country")
             else None
         )
-        _additional_properties=self.additional_properties
         return (
             f"{self.__class__.__name__}("
             f"issuer_country={_issuer_country!r}, "
-            f"additional_properties={_additional_properties!r}, "
             f")"
         )
 
@@ -94,10 +78,8 @@ class BinDetail(object):
             if hasattr(self, "issuer_country")
             else None
         )
-        _additional_properties=self.additional_properties
         return (
             f"{self.__class__.__name__}("
             f"issuer_country={_issuer_country!s}, "
-            f"additional_properties={_additional_properties!s}, "
             f")"
         )

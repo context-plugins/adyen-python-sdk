@@ -24,7 +24,8 @@
 
 ```python
 value = ApplePayDonations(
-    apple_pay_token='applePayToken4'
+    apple_pay_token='applePayToken4',
+    mtype=Type7Enum.APPLEPAY
 )
 ```
 
@@ -35,7 +36,9 @@ value = ApplePayDonations(
 #### Example
 
 ```python
-value = CardDonations()
+value = CardDonations(
+    mtype=Type14Enum.SCHEME
+)
 ```
 
 ## GooglePayDonations
@@ -46,7 +49,8 @@ value = CardDonations()
 
 ```python
 value = GooglePayDonations(
-    google_pay_token='googlePayToken0'
+    google_pay_token='googlePayToken0',
+    mtype=Type24Enum.GOOGLEPAY
 )
 ```
 
@@ -57,7 +61,9 @@ value = GooglePayDonations(
 #### Example
 
 ```python
-value = IdealDonations()
+value = IdealDonations(
+    mtype=Type25Enum.IDEAL
+)
 ```
 
 ## PayWithGoogleDonations
@@ -68,7 +74,8 @@ value = IdealDonations()
 
 ```python
 value = PayWithGoogleDonations(
-    google_pay_token='googlePayToken2'
+    google_pay_token='googlePayToken2',
+    mtype=Type26Enum.PAYWITHGOOGLE
 )
 ```
 
@@ -79,6 +86,8 @@ value = PayWithGoogleDonations(
 #### Example
 
 ```python
-value = StoredPaymentMethod1()
+value = StoredPaymentMethod1(
+    mtype=Type27Enum.SEPADIRECTDEBIT
+)
 ```
 

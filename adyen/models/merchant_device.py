@@ -16,8 +16,6 @@ class MerchantDevice(object):
         os (str): Operating system running on the merchant device.
         os_version (str): Version of the operating system on the merchant device.
         reference (str): Merchant device reference.
-        additional_properties (Dict[str, Any]): The additional properties for the
-            model.
 
     """
 
@@ -38,8 +36,7 @@ class MerchantDevice(object):
         self,
         os=APIHelper.SKIP,
         os_version=APIHelper.SKIP,
-        reference=APIHelper.SKIP,
-        additional_properties=None):
+        reference=APIHelper.SKIP):
         """Initialize a MerchantDevice instance."""
         # Initialize members of the class
         if os is not APIHelper.SKIP:
@@ -48,11 +45,6 @@ class MerchantDevice(object):
             self.os_version = os_version
         if reference is not APIHelper.SKIP:
             self.reference = reference
-
-        # Add additional model properties to the instance
-        if additional_properties is None:
-            additional_properties = {}
-        self.additional_properties = additional_properties
 
     @classmethod
     def from_dictionary(cls,
@@ -85,16 +77,31 @@ class MerchantDevice(object):
             if dictionary.get("reference")\
                 else APIHelper.SKIP
 
-        additional_properties = APIHelper.get_additional_properties(
-            dictionary={k: v for k, v in dictionary.items()
-                        if k not in cls._names.values()},
-            unboxing_function=lambda value: value)
-
         # Return an object of this model
         return cls(os,
                    os_version,
-                   reference,
-                   additional_properties)
+                   reference)
+
+    @classmethod
+    def validate(cls, dictionary):
+        """Validate dictionary against class required properties
+
+        Args:
+            dictionary (dictionary): A dictionary representation of the object
+            as obtained from the deserialization of the server's response. The
+            keys MUST match property names in the API description.
+
+        Returns:
+            boolean : if dictionary is valid contains required properties.
+
+        """
+        if isinstance(dictionary, cls):
+            return True
+
+        if not isinstance(dictionary, dict):
+            return False
+
+        return True
 
     def __repr__(self):
         """Return a unambiguous string representation."""
@@ -113,13 +120,11 @@ class MerchantDevice(object):
             if hasattr(self, "reference")
             else None
         )
-        _additional_properties=self.additional_properties
         return (
             f"{self.__class__.__name__}("
             f"os={_os!r}, "
             f"os_version={_os_version!r}, "
             f"reference={_reference!r}, "
-            f"additional_properties={_additional_properties!r}, "
             f")"
         )
 
@@ -140,12 +145,10 @@ class MerchantDevice(object):
             if hasattr(self, "reference")
             else None
         )
-        _additional_properties=self.additional_properties
         return (
             f"{self.__class__.__name__}("
             f"os={_os!s}, "
             f"os_version={_os_version!s}, "
             f"reference={_reference!s}, "
-            f"additional_properties={_additional_properties!s}, "
             f")"
         )

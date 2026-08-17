@@ -18,8 +18,6 @@ class SplitConfiguration(object):
         rules (List[SplitConfigurationRule]): Array of rules that define the split
             configuration behavior.
         split_configuration_id (str): Unique identifier of the split configuration.
-        additional_properties (Dict[str, Any]): The additional properties for the
-            model.
 
     """
 
@@ -38,19 +36,13 @@ class SplitConfiguration(object):
         self,
         description=None,
         rules=None,
-        split_configuration_id=APIHelper.SKIP,
-        additional_properties=None):
+        split_configuration_id=APIHelper.SKIP):
         """Initialize a SplitConfiguration instance."""
         # Initialize members of the class
         self.description = description
         self.rules = rules
         if split_configuration_id is not APIHelper.SKIP:
             self.split_configuration_id = split_configuration_id
-
-        # Add additional model properties to the instance
-        if additional_properties is None:
-            additional_properties = {}
-        self.additional_properties = additional_properties
 
     @classmethod
     def from_dictionary(cls,
@@ -85,16 +77,10 @@ class SplitConfiguration(object):
             if dictionary.get("splitConfigurationId")\
                 else APIHelper.SKIP
 
-        additional_properties = APIHelper.get_additional_properties(
-            dictionary={k: v for k, v in dictionary.items()
-                        if k not in cls._names.values()},
-            unboxing_function=lambda value: value)
-
         # Return an object of this model
         return cls(description,
                    rules,
-                   split_configuration_id,
-                   additional_properties)
+                   split_configuration_id)
 
     def __repr__(self):
         """Return a unambiguous string representation."""
@@ -105,13 +91,11 @@ class SplitConfiguration(object):
             if hasattr(self, "split_configuration_id")
             else None
         )
-        _additional_properties=self.additional_properties
         return (
             f"{self.__class__.__name__}("
             f"description={_description!r}, "
             f"rules={_rules!r}, "
             f"split_configuration_id={_split_configuration_id!r}, "
-            f"additional_properties={_additional_properties!r}, "
             f")"
         )
 
@@ -124,12 +108,10 @@ class SplitConfiguration(object):
             if hasattr(self, "split_configuration_id")
             else None
         )
-        _additional_properties=self.additional_properties
         return (
             f"{self.__class__.__name__}("
             f"description={_description!s}, "
             f"rules={_rules!s}, "
             f"split_configuration_id={_split_configuration_id!s}, "
-            f"additional_properties={_additional_properties!s}, "
             f")"
         )

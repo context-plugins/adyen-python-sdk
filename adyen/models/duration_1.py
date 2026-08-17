@@ -15,12 +15,12 @@ class Duration1(object):
     **rolling** or **sliding**.
 
     Attributes:
-        unit (Unit): The model property of type Unit.
+        unit (UnitEnum): The unit of time. You can only use **minutes** and **hours**
+            if the `interval.type` is **sliding**.  Possible values: **minutes**,
+            **hours**, **days**, **weeks**, or **months**
         value (int): The length of time by the unit. For example, 5 days.  The
             maximum duration is 90 days or an equivalent in other units. For example,
             3 months.
-        additional_properties (Dict[str, Any]): The additional properties for the
-            model.
 
     """
 
@@ -38,19 +38,13 @@ class Duration1(object):
     def __init__(
         self,
         unit=APIHelper.SKIP,
-        value=APIHelper.SKIP,
-        additional_properties=None):
+        value=APIHelper.SKIP):
         """Initialize a Duration1 instance."""
         # Initialize members of the class
         if unit is not APIHelper.SKIP:
             self.unit = unit
         if value is not APIHelper.SKIP:
             self.value = value
-
-        # Add additional model properties to the instance
-        if additional_properties is None:
-            additional_properties = {}
-        self.additional_properties = additional_properties
 
     @classmethod
     def from_dictionary(cls,
@@ -79,15 +73,9 @@ class Duration1(object):
             if dictionary.get("value")\
                 else APIHelper.SKIP
 
-        additional_properties = APIHelper.get_additional_properties(
-            dictionary={k: v for k, v in dictionary.items()
-                        if k not in cls._names.values()},
-            unboxing_function=lambda value: value)
-
         # Return an object of this model
         return cls(unit,
-                   value,
-                   additional_properties)
+                   value)
 
     def __repr__(self):
         """Return a unambiguous string representation."""
@@ -101,12 +89,10 @@ class Duration1(object):
             if hasattr(self, "value")
             else None
         )
-        _additional_properties=self.additional_properties
         return (
             f"{self.__class__.__name__}("
             f"unit={_unit!r}, "
             f"value={_value!r}, "
-            f"additional_properties={_additional_properties!r}, "
             f")"
         )
 
@@ -122,11 +108,9 @@ class Duration1(object):
             if hasattr(self, "value")
             else None
         )
-        _additional_properties=self.additional_properties
         return (
             f"{self.__class__.__name__}("
             f"unit={_unit!s}, "
             f"value={_value!s}, "
-            f"additional_properties={_additional_properties!s}, "
             f")"
         )

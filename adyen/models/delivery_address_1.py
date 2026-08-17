@@ -10,6 +10,8 @@ from adyen.api_helper import APIHelper
 class DeliveryAddress1(object):
     """Implementation of the 'DeliveryAddress1' model.
 
+    The address where the purchased goods should be delivered.
+
     Attributes:
         city (str): The name of the city. Maximum length: 3000 characters.
         country (str): The two-character ISO-3166-1 alpha-2 country code. For
@@ -27,8 +29,6 @@ class DeliveryAddress1(object):
         street (str): The name of the street. Maximum length: 3000 characters. > The
             house number should not be included in this field; it should be
             separately provided via `houseNumberOrName`.
-        additional_properties (Dict[str, Any]): The additional properties for the
-            model.
 
     """
 
@@ -59,8 +59,7 @@ class DeliveryAddress1(object):
         street=None,
         first_name=APIHelper.SKIP,
         last_name=APIHelper.SKIP,
-        state_or_province=APIHelper.SKIP,
-        additional_properties=None):
+        state_or_province=APIHelper.SKIP):
         """Initialize a DeliveryAddress1 instance."""
         # Initialize members of the class
         self.city = city
@@ -74,11 +73,6 @@ class DeliveryAddress1(object):
         if state_or_province is not APIHelper.SKIP:
             self.state_or_province = state_or_province
         self.street = street
-
-        # Add additional model properties to the instance
-        if additional_properties is None:
-            additional_properties = {}
-        self.additional_properties = additional_properties
 
     @classmethod
     def from_dictionary(cls,
@@ -131,11 +125,6 @@ class DeliveryAddress1(object):
             if dictionary.get("stateOrProvince")\
                 else APIHelper.SKIP
 
-        additional_properties = APIHelper.get_additional_properties(
-            dictionary={k: v for k, v in dictionary.items()
-                        if k not in cls._names.values()},
-            unboxing_function=lambda value: value)
-
         # Return an object of this model
         return cls(city,
                    country,
@@ -144,8 +133,7 @@ class DeliveryAddress1(object):
                    street,
                    first_name,
                    last_name,
-                   state_or_province,
-                   additional_properties)
+                   state_or_province)
 
     @classmethod
     def validate(cls, dictionary):
@@ -258,7 +246,6 @@ class DeliveryAddress1(object):
             else None
         )
         _street=self.street
-        _additional_properties=self.additional_properties
         return (
             f"{self.__class__.__name__}("
             f"city={_city!r}, "
@@ -269,7 +256,6 @@ class DeliveryAddress1(object):
             f"postal_code={_postal_code!r}, "
             f"state_or_province={_state_or_province!r}, "
             f"street={_street!r}, "
-            f"additional_properties={_additional_properties!r}, "
             f")"
         )
 
@@ -295,7 +281,6 @@ class DeliveryAddress1(object):
             else None
         )
         _street=self.street
-        _additional_properties=self.additional_properties
         return (
             f"{self.__class__.__name__}("
             f"city={_city!s}, "
@@ -306,6 +291,5 @@ class DeliveryAddress1(object):
             f"postal_code={_postal_code!s}, "
             f"state_or_province={_state_or_province!s}, "
             f"street={_street!s}, "
-            f"additional_properties={_additional_properties!s}, "
             f")"
         )

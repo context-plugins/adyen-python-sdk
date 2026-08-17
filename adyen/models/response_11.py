@@ -13,13 +13,18 @@ class Response11(object):
     Result of a message request processing.
 
     Attributes:
-        result (Result11): The model property of type Result11.
-        error_condition (ErrorCondition1): The model property of type ErrorCondition1.
+        result (Result11Enum): Result of the processing of the message. Possible
+            values: * **Failure** * **Partial** * **Success**
+        error_condition (ErrorCondition1Enum): Condition that has produced an error
+            on the processing of a message request. Returned if Result is not
+            Success. Possible values: * **Aborted** * **Busy** * **Cancel** *
+            **DeviceOut** * **InProgress** * **InsertedCard** * **InvalidCard** *
+            **LoggedOut** * **MessageFormat** * **NotAllowed** * **NotFound** *
+            **PaymentRestriction** * **Refusal** * **UnavailableDevice** *
+            **UnavailableService** * **UnreachableHost** * **WrongPIN**
         additional_response (str): Additional information related to processing
             status of a message request. If present, the POI logs it for further
             examination.
-        additional_properties (Dict[str, Any]): The additional properties for the
-            model.
 
     """
 
@@ -39,8 +44,7 @@ class Response11(object):
         self,
         result=None,
         error_condition=APIHelper.SKIP,
-        additional_response=APIHelper.SKIP,
-        additional_properties=None):
+        additional_response=APIHelper.SKIP):
         """Initialize a Response11 instance."""
         # Initialize members of the class
         self.result = result
@@ -48,11 +52,6 @@ class Response11(object):
             self.error_condition = error_condition
         if additional_response is not APIHelper.SKIP:
             self.additional_response = additional_response
-
-        # Add additional model properties to the instance
-        if additional_properties is None:
-            additional_properties = {}
-        self.additional_properties = additional_properties
 
     @classmethod
     def from_dictionary(cls,
@@ -85,16 +84,10 @@ class Response11(object):
             if dictionary.get("AdditionalResponse")\
                 else APIHelper.SKIP
 
-        additional_properties = APIHelper.get_additional_properties(
-            dictionary={k: v for k, v in dictionary.items()
-                        if k not in cls._names.values()},
-            unboxing_function=lambda value: value)
-
         # Return an object of this model
         return cls(result,
                    error_condition,
-                   additional_response,
-                   additional_properties)
+                   additional_response)
 
     def __repr__(self):
         """Return a unambiguous string representation."""
@@ -109,13 +102,11 @@ class Response11(object):
             if hasattr(self, "additional_response")
             else None
         )
-        _additional_properties=self.additional_properties
         return (
             f"{self.__class__.__name__}("
             f"result={_result!r}, "
             f"error_condition={_error_condition!r}, "
             f"additional_response={_additional_response!r}, "
-            f"additional_properties={_additional_properties!r}, "
             f")"
         )
 
@@ -132,12 +123,10 @@ class Response11(object):
             if hasattr(self, "additional_response")
             else None
         )
-        _additional_properties=self.additional_properties
         return (
             f"{self.__class__.__name__}("
             f"result={_result!s}, "
             f"error_condition={_error_condition!s}, "
             f"additional_response={_additional_response!s}, "
-            f"additional_properties={_additional_properties!s}, "
             f")"
         )

@@ -14,8 +14,6 @@ class BirthData1(object):
 
     Attributes:
         date_of_birth (str): The individual's date of birth, in YYYY-MM-DD format.
-        additional_properties (Dict[str, Any]): The additional properties for the
-            model.
 
     """
 
@@ -30,17 +28,11 @@ class BirthData1(object):
 
     def __init__(
         self,
-        date_of_birth=APIHelper.SKIP,
-        additional_properties=None):
+        date_of_birth=APIHelper.SKIP):
         """Initialize a BirthData1 instance."""
         # Initialize members of the class
         if date_of_birth is not APIHelper.SKIP:
             self.date_of_birth = date_of_birth
-
-        # Add additional model properties to the instance
-        if additional_properties is None:
-            additional_properties = {}
-        self.additional_properties = additional_properties
 
     @classmethod
     def from_dictionary(cls,
@@ -65,14 +57,8 @@ class BirthData1(object):
             if dictionary.get("dateOfBirth")\
                 else APIHelper.SKIP
 
-        additional_properties = APIHelper.get_additional_properties(
-            dictionary={k: v for k, v in dictionary.items()
-                        if k not in cls._names.values()},
-            unboxing_function=lambda value: value)
-
         # Return an object of this model
-        return cls(date_of_birth,
-                   additional_properties)
+        return cls(date_of_birth)
 
     def __repr__(self):
         """Return a unambiguous string representation."""
@@ -81,11 +67,9 @@ class BirthData1(object):
             if hasattr(self, "date_of_birth")
             else None
         )
-        _additional_properties=self.additional_properties
         return (
             f"{self.__class__.__name__}("
             f"date_of_birth={_date_of_birth!r}, "
-            f"additional_properties={_additional_properties!r}, "
             f")"
         )
 
@@ -96,10 +80,8 @@ class BirthData1(object):
             if hasattr(self, "date_of_birth")
             else None
         )
-        _additional_properties=self.additional_properties
         return (
             f"{self.__class__.__name__}("
             f"date_of_birth={_date_of_birth!s}, "
-            f"additional_properties={_additional_properties!s}, "
             f")"
         )

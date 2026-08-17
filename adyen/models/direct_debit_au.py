@@ -23,9 +23,7 @@ class DirectDebitAu(object):
             required by the SDK
         stored_payment_method_id (str): This is the `recurringDetailReference`
             returned in the response when you created the token.
-        mtype (Type221): The model property of type Type221.
-        additional_properties (Dict[str, Any]): The additional properties for the
-            model.
+        mtype (Type22Enum): **directdebit_AU**
 
     """
 
@@ -60,8 +58,7 @@ class DirectDebitAu(object):
         recurring_detail_reference=APIHelper.SKIP,
         sdk_data=APIHelper.SKIP,
         stored_payment_method_id=APIHelper.SKIP,
-        mtype=APIHelper.SKIP,
-        additional_properties=None):
+        mtype="directdebit_AU"):
         """Initialize a DirectDebitAu instance."""
         # Initialize members of the class
         if bank_account_number is not APIHelper.SKIP:
@@ -77,13 +74,7 @@ class DirectDebitAu(object):
             self.sdk_data = sdk_data
         if stored_payment_method_id is not APIHelper.SKIP:
             self.stored_payment_method_id = stored_payment_method_id
-        if mtype is not APIHelper.SKIP:
-            self.mtype = mtype
-
-        # Add additional model properties to the instance
-        if additional_properties is None:
-            additional_properties = {}
-        self.additional_properties = additional_properties
+        self.mtype = mtype
 
     @classmethod
     def from_dictionary(cls,
@@ -134,12 +125,7 @@ class DirectDebitAu(object):
         mtype =\
             dictionary.get("type")\
             if dictionary.get("type")\
-                else APIHelper.SKIP
-
-        additional_properties = APIHelper.get_additional_properties(
-            dictionary={k: v for k, v in dictionary.items()
-                        if k not in cls._names.values()},
-            unboxing_function=lambda value: value)
+                else "directdebit_AU"
 
         # Return an object of this model
         return cls(holder_name,
@@ -149,8 +135,7 @@ class DirectDebitAu(object):
                    recurring_detail_reference,
                    sdk_data,
                    stored_payment_method_id,
-                   mtype,
-                   additional_properties)
+                   mtype)
 
     @classmethod
     def validate(cls, dictionary):
@@ -223,7 +208,6 @@ class DirectDebitAu(object):
             if hasattr(self, "mtype")
             else None
         )
-        _additional_properties=self.additional_properties
         return (
             f"{self.__class__.__name__}("
             f"bank_account_number={_bank_account_number!r}, "
@@ -234,7 +218,6 @@ class DirectDebitAu(object):
             f"sdk_data={_sdk_data!r}, "
             f"stored_payment_method_id={_stored_payment_method_id!r}, "
             f"mtype={_mtype!r}, "
-            f"additional_properties={_additional_properties!r}, "
             f")"
         )
 
@@ -276,7 +259,6 @@ class DirectDebitAu(object):
             if hasattr(self, "mtype")
             else None
         )
-        _additional_properties=self.additional_properties
         return (
             f"{self.__class__.__name__}("
             f"bank_account_number={_bank_account_number!s}, "
@@ -287,6 +269,5 @@ class DirectDebitAu(object):
             f"sdk_data={_sdk_data!s}, "
             f"stored_payment_method_id={_stored_payment_method_id!s}, "
             f"mtype={_mtype!s}, "
-            f"additional_properties={_additional_properties!s}, "
             f")"
         )

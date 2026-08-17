@@ -1,8 +1,6 @@
 
 # Additional Data Open Invoice
 
-*This model accepts additional fields of type Any.*
-
 ## Structure
 
 `AdditionalDataOpenInvoice`
@@ -29,13 +27,10 @@
 | `openinvoicedata_line_item_nr_shipping_method` | `str` | Optional | Shipping method. |
 | `openinvoicedata_line_item_nr_tracking_number` | `str` | Optional | The tracking number for the shipment. |
 | `openinvoicedata_line_item_nr_tracking_uri` | `str` | Optional | URI where the customer can track their shipment. |
-| `additional_properties` | `Dict[str, Any]` | Optional | - |
 
 ## Example
 
 ```python
-import jsonpickle
-
 from adyen.models.additional_data_open_invoice import AdditionalDataOpenInvoice
 
 additional_data_open_invoice = AdditionalDataOpenInvoice(
@@ -43,10 +38,7 @@ additional_data_open_invoice = AdditionalDataOpenInvoice(
     openinvoicedata_number_of_lines='openinvoicedata.numberOfLines0',
     openinvoicedata_recipient_first_name='openinvoicedata.recipientFirstName4',
     openinvoicedata_recipient_last_name='openinvoicedata.recipientLastName2',
-    openinvoicedata_line_item_nr_currency_code=Liquid error: Value cannot be null. (Parameter 'key'),
-    additional_properties={
-        'exampleAdditionalProperty': jsonpickle.decode('{"key1":"val1","key2":"val2"}')
-    }
+    openinvoicedata_line_item_nr_currency_code=Liquid error: Value cannot be null. (Parameter 'key')
 )
 ```
 

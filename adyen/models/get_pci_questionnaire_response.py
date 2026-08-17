@@ -17,8 +17,6 @@ class GetPciQuestionnaireResponse(object):
         id (str): The unique identifier of the signed questionnaire.
         valid_until (datetime): The expiration date of the questionnaire, in ISO 8601
             extended format. For example, 2022-12-18T10:15:30+01:00
-        additional_properties (Dict[str, Any]): The additional properties for the
-            model.
 
     """
 
@@ -42,8 +40,7 @@ class GetPciQuestionnaireResponse(object):
         content=APIHelper.SKIP,
         created_at=APIHelper.SKIP,
         id=APIHelper.SKIP,
-        valid_until=APIHelper.SKIP,
-        additional_properties=None):
+        valid_until=APIHelper.SKIP):
         """Initialize a GetPciQuestionnaireResponse instance."""
         # Initialize members of the class
         if content is not APIHelper.SKIP:
@@ -60,11 +57,6 @@ class GetPciQuestionnaireResponse(object):
                  APIHelper.apply_datetime_converter(
                 valid_until, APIHelper.RFC3339DateTime)\
                  if valid_until else None
-
-        # Add additional model properties to the instance
-        if additional_properties is None:
-            additional_properties = {}
-        self.additional_properties = additional_properties
 
     @classmethod
     def from_dictionary(cls,
@@ -99,17 +91,11 @@ class GetPciQuestionnaireResponse(object):
             dictionary.get("validUntil")).datetime\
             if dictionary.get("validUntil") else APIHelper.SKIP
 
-        additional_properties = APIHelper.get_additional_properties(
-            dictionary={k: v for k, v in dictionary.items()
-                        if k not in cls._names.values()},
-            unboxing_function=lambda value: value)
-
         # Return an object of this model
         return cls(content,
                    created_at,
                    id,
-                   valid_until,
-                   additional_properties)
+                   valid_until)
 
     def __repr__(self):
         """Return a unambiguous string representation."""
@@ -133,14 +119,12 @@ class GetPciQuestionnaireResponse(object):
             if hasattr(self, "valid_until")
             else None
         )
-        _additional_properties=self.additional_properties
         return (
             f"{self.__class__.__name__}("
             f"content={_content!r}, "
             f"created_at={_created_at!r}, "
             f"id={_id!r}, "
             f"valid_until={_valid_until!r}, "
-            f"additional_properties={_additional_properties!r}, "
             f")"
         )
 
@@ -166,13 +150,11 @@ class GetPciQuestionnaireResponse(object):
             if hasattr(self, "valid_until")
             else None
         )
-        _additional_properties=self.additional_properties
         return (
             f"{self.__class__.__name__}("
             f"content={_content!s}, "
             f"created_at={_created_at!s}, "
             f"id={_id!s}, "
             f"valid_until={_valid_until!s}, "
-            f"additional_properties={_additional_properties!s}, "
             f")"
         )

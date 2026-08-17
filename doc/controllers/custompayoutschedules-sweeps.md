@@ -46,7 +46,7 @@ This endpoint requires [clientKey](../../doc/auth/custom-query-parameter.md) **O
 
 **200**: OK - the request has succeeded.
 
-This method returns an [`ApiResponse`](../../doc/api-response.md) instance. The `body` property of this instance returns the response data which is of type [`BalanceSweepConfigurationsResponse`](../../doc/models/balance-sweep-configurations-response.md).
+[`BalanceSweepConfigurationsResponse`](../../doc/models/balance-sweep-configurations-response.md)
 
 ## Example Usage
 
@@ -54,11 +54,7 @@ This method returns an [`ApiResponse`](../../doc/api-response.md) instance. The 
 balance_account_id = 'balanceAccountId8'
 
 result = custom_payout_schedules_sweeps_api.get_balance_accounts_balance_account_id_sweeps(balance_account_id)
-
-if result.is_success():
-    print(result.body)
-elif result.is_error():
-    print(result.errors)
+print(result)
 ```
 
 ## Example Response *(as JSON)*
@@ -130,7 +126,7 @@ This endpoint requires [clientKey](../../doc/auth/custom-query-parameter.md) **O
 
 **200**: OK - the request has succeeded.
 
-This method returns an [`ApiResponse`](../../doc/api-response.md) instance. The `body` property of this instance returns the response data which is of type [`SweepConfigurationV2`](../../doc/models/sweep-configuration-v2.md).
+[`SweepConfigurationV2`](../../doc/models/sweep-configuration-v2.md)
 
 ## Example Usage
 
@@ -138,30 +134,26 @@ This method returns an [`ApiResponse`](../../doc/api-response.md) instance. The 
 balance_account_id = 'balanceAccountId8'
 
 body = CreateSweepConfigurationV2(
-    counterparty=SweepCounterparty(
+    counterparty=SweepCounterparty1(
         merchant_account='YOUR_MERCHANT_ACCOUNT'
     ),
     currency='EUR',
-    schedule=SweepSchedule(
-        mtype=Type6.BALANCE
+    schedule=SweepSchedule1(
+        mtype=Type62Enum.BALANCE
     ),
-    status=Status51.ACTIVE,
-    trigger_amount=TriggerAmount(
+    status=Status6Enum.ACTIVE,
+    trigger_amount=Amount17(
         currency='EUR',
         value=50000
     ),
-    mtype=Type7.PULL
+    mtype=Type72Enum.PULL
 )
 
 result = custom_payout_schedules_sweeps_api.post_balance_accounts_balance_account_id_sweeps(
     balance_account_id,
     body=body
 )
-
-if result.is_success():
-    print(result.body)
-elif result.is_error():
-    print(result.errors)
+print(result)
 ```
 
 ## Example Response *(as JSON)*
@@ -221,7 +213,7 @@ This endpoint requires [clientKey](../../doc/auth/custom-query-parameter.md) **O
 
 **200**: OK - the request has succeeded.
 
-This method returns an [`ApiResponse`](../../doc/api-response.md) instance. The `body` property of this instance returns the response data which is of type [`SweepConfigurationV2`](../../doc/models/sweep-configuration-v2.md).
+[`SweepConfigurationV2`](../../doc/models/sweep-configuration-v2.md)
 
 ## Example Usage
 
@@ -234,11 +226,7 @@ result = custom_payout_schedules_sweeps_api.get_balance_accounts_balance_account
     balance_account_id,
     sweep_id
 )
-
-if result.is_success():
-    print(result.body)
-elif result.is_error():
-    print(result.errors)
+print(result)
 ```
 
 ## Example Response *(as JSON)*
@@ -302,7 +290,7 @@ This endpoint requires [clientKey](../../doc/auth/custom-query-parameter.md) **O
 
 **204**: No Content - look at the actual response code for the status of the request.
 
-This method returns an [`ApiResponse`](../../doc/api-response.md) instance.
+`void`
 
 ## Example Usage
 
@@ -311,15 +299,10 @@ balance_account_id = 'balanceAccountId8'
 
 sweep_id = 'sweepId4'
 
-result = custom_payout_schedules_sweeps_api.delete_balance_accounts_balance_account_id_sweeps_sweep_id(
+custom_payout_schedules_sweeps_api.delete_balance_accounts_balance_account_id_sweeps_sweep_id(
     balance_account_id,
     sweep_id
 )
-
-if result.is_success():
-    print(result.body)
-elif result.is_error():
-    print(result.errors)
 ```
 
 ## Errors
@@ -360,7 +343,7 @@ This endpoint requires [clientKey](../../doc/auth/custom-query-parameter.md) **O
 
 **200**: OK - the request has succeeded.
 
-This method returns an [`ApiResponse`](../../doc/api-response.md) instance. The `body` property of this instance returns the response data which is of type [`SweepConfigurationV2`](../../doc/models/sweep-configuration-v2.md).
+[`SweepConfigurationV2`](../../doc/models/sweep-configuration-v2.md)
 
 ## Example Usage
 
@@ -370,7 +353,7 @@ balance_account_id = 'balanceAccountId8'
 sweep_id = 'sweepId4'
 
 body = UpdateSweepConfigurationV2(
-    status=Status51.INACTIVE
+    status=Status6Enum.INACTIVE
 )
 
 result = custom_payout_schedules_sweeps_api.patch_balance_accounts_balance_account_id_sweeps_sweep_id(
@@ -378,11 +361,7 @@ result = custom_payout_schedules_sweeps_api.patch_balance_accounts_balance_accou
     sweep_id,
     body=body
 )
-
-if result.is_success():
-    print(result.body)
-elif result.is_error():
-    print(result.errors)
+print(result)
 ```
 
 ## Example Response *(as JSON)*

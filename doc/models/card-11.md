@@ -1,9 +1,7 @@
 
 # Card 11
 
-Contains information about the counterparty card.
-
-*This model accepts additional fields of type Any.*
+Contains information about the card payment instrument. Returned when you create a payment instrument with `type` **card**.
 
 ## Structure
 
@@ -13,55 +11,90 @@ Contains information about the counterparty card.
 
 | Name | Type | Tags | Description |
 |  --- | --- | --- | --- |
-| `card_holder` | [`PartyIdentification`](../../doc/models/party-identification.md) | Required | - |
-| `card_identification` | [`CardIdentification`](../../doc/models/card-identification.md) | Required | - |
-| `additional_properties` | `Dict[str, Any]` | Optional | - |
+| `authentication` | [`Authentication1`](../../doc/models/authentication-1.md) | Optional | Contains the card user's password and mobile phone number. This is required when you issue cards that can be used to make online payments within the EEA and the UK, or can be added to digital wallets. Refer to [3D Secure and digital wallets](https://docs.adyen.com/issuing/3d-secure-and-wallets) for more information. |
+| `bin` | `str` | Optional | The bank identification number (BIN) of the card number. |
+| `brand` | `str` | Required | The brand of the physical or the virtual card.<br>Possible values: **visa**, **mc**. |
+| `brand_variant` | `str` | Required | The brand variant of the physical or the virtual card. For example, **visadebit** or **mcprepaid**.<br><br>> Reach out to your Adyen contact to get the values relevant for your integration. |
+| `cardholder_name` | `str` | Required | The name of the cardholder.<br>Maximum length: 26 characters.<br><br>**Constraints**: *Maximum Length*: `26` |
+| `configuration` | [`CardConfiguration2`](../../doc/models/card-configuration-2.md) | Optional | Contains information about the configuration profile for your cards. The configuration profile consists of settings required when creating a physical or a virtual card. You identify a configuration profile with its `configurationProfileId`.<br><br>When you provide this field in a request, you can override the settings of an existing configuration profile.<br><br>Reach out to your Adyen contact to get the values that you can send in this object. |
+| `cvc` | `str` | Optional | The CVC2 value of the card.<br><br>> The CVC2 is not sent by default. This is only returned in the `POST` response for single-use virtual cards. |
+| `delivery_contact` | [`DeliveryContact1`](../../doc/models/delivery-contact-1.md) | Optional | The delivery contact (name and address) for physical card delivery. |
+| `expiration` | [`Expiry2`](../../doc/models/expiry-2.md) | Optional | The expiration date of the card. |
+| `form_factor` | [`FormFactor1Enum`](../../doc/models/form-factor-1-enum.md) | Required | The form factor of the card.<br>Possible values: **virtual**, **physical**. |
+| `last_four` | `str` | Optional | Last last four digits of the card number. |
+| `number` | `str` | Optional, Read-only | The primary account number (PAN) of the card.<br><br>> The PAN is masked by default and returned only for single-use virtual cards. |
+| `three_d_secure` | `str` | Optional | The 3DS configuration of the physical or the virtual card. Possible values: **fullySupported**, **secureCorporate**.<br><br>> Reach out to your Adyen contact to get the values relevant for your integration. |
+| `usage` | `str` | Optional | Specifies how many times the card can be used. Possible values: **singleUse**, **multiUse**.<br><br>> Reach out to your Adyen contact to determine the value relevant for your integration. |
 
 ## Example
 
 ```python
-import dateutil.parser
-import jsonpickle
-
-from adyen.models.address_8 import Address8
+from adyen.models.authentication_1 import Authentication1
+from adyen.models.bulk_address_1 import BulkAddress1
 from adyen.models.card_11 import Card11
-from adyen.models.card_identification import CardIdentification
-from adyen.models.party_identification import PartyIdentification
+from adyen.models.card_configuration_2 import CardConfiguration2
+from adyen.models.delivery_contact_1 import DeliveryContact1
+from adyen.models.form_factor_1_enum import FormFactor1Enum
+from adyen.models.name import Name
+from adyen.models.phone_11 import Phone11
+from adyen.models.phone_type_enum import PhoneTypeEnum
+from adyen.models.store_location import StoreLocation
+from adyen.models.type_410_enum import Type410Enum
+from adyen.models.vias_phone_number import ViasPhoneNumber
 
 card_11 = Card11(
-    card_holder=PartyIdentification(
-        address=Address8(
+    brand='brand6',
+    brand_variant='brandVariant4',
+    cardholder_name='cardholderName2',
+    form_factor=FormFactor1Enum.UNKNOWN,
+    authentication=Authentication1(
+        email='email8',
+        password='password2',
+        phone=Phone11(
+            number='number8',
+            mtype=Type410Enum.LANDLINE
+        )
+    ),
+    bin='bin2',
+    configuration=CardConfiguration2(
+        configuration_profile_id='configurationProfileId6',
+        activation='activation2',
+        activation_url='activationUrl8',
+        bulk_address=BulkAddress1(
+            country='country0',
+            city='city6',
+            company='company6',
+            email='email0',
+            house_number_or_name='houseNumberOrName4',
+            line_1='line18'
+        ),
+        card_image_id='cardImageId0',
+        carrier='carrier8'
+    ),
+    cvc='cvc6',
+    delivery_contact=DeliveryContact1(
+        address=StoreLocation(
             country='country0',
             city='city6',
             line_1='line18',
             line_2='line20',
-            postal_code='postalCode8',
-            state_or_province='stateOrProvince4',
-            additional_properties={
-                'exampleAdditionalProperty': jsonpickle.decode('{"key1":"val1","key2":"val2"}')
-            }
+            line_3='line38',
+            postal_code='postalCode8'
         ),
-        date_of_birth=dateutil.parser.parse('2016-03-13').date(),
+        name=Name(
+            first_name='firstName4',
+            last_name='lastName4'
+        ),
+        company='company4',
         email='email0',
-        first_name='firstName8',
-        full_name='fullName6',
-        additional_properties={
-            'exampleAdditionalProperty': jsonpickle.decode('{"key1":"val1","key2":"val2"}')
-        }
-    ),
-    card_identification=CardIdentification(
-        expiry_month='expiryMonth2',
-        expiry_year='expiryYear2',
-        issue_number='issueNumber0',
-        number='number6',
-        start_month='startMonth8',
-        additional_properties={
-            'exampleAdditionalProperty': jsonpickle.decode('{"key1":"val1","key2":"val2"}')
-        }
-    ),
-    additional_properties={
-        'exampleAdditionalProperty': jsonpickle.decode('{"key1":"val1","key2":"val2"}')
-    }
+        full_phone_number='fullPhoneNumber0',
+        phone_number=ViasPhoneNumber(
+            phone_country_code='phoneCountryCode8',
+            phone_number='phoneNumber0',
+            phone_type=PhoneTypeEnum.FAX
+        ),
+        web_address='webAddress4'
+    )
 )
 ```
 

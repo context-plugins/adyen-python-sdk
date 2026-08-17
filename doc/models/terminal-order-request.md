@@ -1,8 +1,6 @@
 
 # Terminal Order Request
 
-*This model accepts additional fields of type Any.*
-
 ## Structure
 
 `TerminalOrderRequest`
@@ -17,13 +15,10 @@
 | `order_type` | `str` | Optional | Type of order |
 | `shipping_location_id` | `str` | Optional | The identification of the shipping location to use for the order. |
 | `tax_id` | `str` | Optional | The tax number of the billing entity. |
-| `additional_properties` | `Dict[str, Any]` | Optional | - |
 
 ## Example
 
 ```python
-import jsonpickle
-
 from adyen.models.order_item import OrderItem
 from adyen.models.terminal_order_request import TerminalOrderRequest
 
@@ -35,26 +30,17 @@ terminal_order_request = TerminalOrderRequest(
             id='id8',
             installments=204,
             name='name8',
-            quantity=22,
-            additional_properties={
-                'exampleAdditionalProperty': jsonpickle.decode('{"key1":"val1","key2":"val2"}')
-            }
+            quantity=22
         ),
         OrderItem(
             id='id8',
             installments=204,
             name='name8',
-            quantity=22,
-            additional_properties={
-                'exampleAdditionalProperty': jsonpickle.decode('{"key1":"val1","key2":"val2"}')
-            }
+            quantity=22
         )
     ],
     order_type='orderType8',
-    shipping_location_id='shippingLocationId2',
-    additional_properties={
-        'exampleAdditionalProperty': jsonpickle.decode('{"key1":"val1","key2":"val2"}')
-    }
+    shipping_location_id='shippingLocationId2'
 )
 ```
 

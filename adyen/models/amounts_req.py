@@ -34,8 +34,6 @@ class AmountsReq(object):
         minimum_split_amount (float): Minimum amount of a split, which could be
             requested by a Customer.Allows the Merchant to limit the number of split
             requested by the Customer.
-        additional_properties (Dict[str, Any]): The additional properties for the
-            model.
 
     """
 
@@ -69,8 +67,7 @@ class AmountsReq(object):
         paid_amount=APIHelper.SKIP,
         minimum_amount_to_deliver=APIHelper.SKIP,
         maximum_cash_back_amount=APIHelper.SKIP,
-        minimum_split_amount=APIHelper.SKIP,
-        additional_properties=None):
+        minimum_split_amount=APIHelper.SKIP):
         """Initialize a AmountsReq instance."""
         # Initialize members of the class
         self.currency = currency
@@ -87,11 +84,6 @@ class AmountsReq(object):
             self.maximum_cash_back_amount = maximum_cash_back_amount
         if minimum_split_amount is not APIHelper.SKIP:
             self.minimum_split_amount = minimum_split_amount
-
-        # Add additional model properties to the instance
-        if additional_properties is None:
-            additional_properties = {}
-        self.additional_properties = additional_properties
 
     @classmethod
     def from_dictionary(cls,
@@ -144,11 +136,6 @@ class AmountsReq(object):
             if dictionary.get("MinimumSplitAmount")\
                 else APIHelper.SKIP
 
-        additional_properties = APIHelper.get_additional_properties(
-            dictionary={k: v for k, v in dictionary.items()
-                        if k not in cls._names.values()},
-            unboxing_function=lambda value: value)
-
         # Return an object of this model
         return cls(currency,
                    requested_amount,
@@ -157,8 +144,7 @@ class AmountsReq(object):
                    paid_amount,
                    minimum_amount_to_deliver,
                    maximum_cash_back_amount,
-                   minimum_split_amount,
-                   additional_properties)
+                   minimum_split_amount)
 
     def __repr__(self):
         """Return a unambiguous string representation."""
@@ -194,7 +180,6 @@ class AmountsReq(object):
             if hasattr(self, "minimum_split_amount")
             else None
         )
-        _additional_properties=self.additional_properties
         return (
             f"{self.__class__.__name__}("
             f"currency={_currency!r}, "
@@ -205,7 +190,6 @@ class AmountsReq(object):
             f"minimum_amount_to_deliver={_minimum_amount_to_deliver!r}, "
             f"maximum_cash_back_amount={_maximum_cash_back_amount!r}, "
             f"minimum_split_amount={_minimum_split_amount!r}, "
-            f"additional_properties={_additional_properties!r}, "
             f")"
         )
 
@@ -243,7 +227,6 @@ class AmountsReq(object):
             if hasattr(self, "minimum_split_amount")
             else None
         )
-        _additional_properties=self.additional_properties
         return (
             f"{self.__class__.__name__}("
             f"currency={_currency!s}, "
@@ -254,6 +237,5 @@ class AmountsReq(object):
             f"minimum_amount_to_deliver={_minimum_amount_to_deliver!s}, "
             f"maximum_cash_back_amount={_maximum_cash_back_amount!s}, "
             f"minimum_split_amount={_minimum_split_amount!s}, "
-            f"additional_properties={_additional_properties!s}, "
             f")"
         )

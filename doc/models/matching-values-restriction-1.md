@@ -19,8 +19,6 @@ Supported value inputs:
 - **amount** and **currency**
 - **merchantName**.
 
-*This model accepts additional fields of type Any.*
-
 ## Structure
 
 `MatchingValuesRestriction1`
@@ -30,26 +28,20 @@ Supported value inputs:
 | Name | Type | Tags | Description |
 |  --- | --- | --- | --- |
 | `operation` | `str` | Required | Defines how the condition must be evaluated. |
-| `value` | [`List[Value3]`](../../doc/models/value-3.md) | Optional | - |
-| `additional_properties` | `Dict[str, Any]` | Optional | - |
+| `value` | [`List[Value3Enum]`](../../doc/models/value-3-enum.md) | Optional | - |
 
 ## Example
 
 ```python
-import jsonpickle
-
 from adyen.models.matching_values_restriction_1 import MatchingValuesRestriction1
-from adyen.models.value_3 import Value3
+from adyen.models.value_3_enum import Value3Enum
 
 matching_values_restriction_1 = MatchingValuesRestriction1(
     operation='operation2',
     value=[
-        Value3.AMOUNT,
-        Value3.CURRENCY
-    ],
-    additional_properties={
-        'exampleAdditionalProperty': jsonpickle.decode('{"key1":"val1","key2":"val2"}')
-    }
+        Value3Enum.AMOUNT,
+        Value3Enum.CURRENCY
+    ]
 )
 ```
 

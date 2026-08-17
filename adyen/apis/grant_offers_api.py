@@ -18,11 +18,8 @@ from deprecation import deprecated
 from adyen.api_helper import APIHelper
 from adyen.apis.base_api import BaseApi
 from adyen.configuration import Server
-from adyen.exceptions.grant_offers_404_error_exception import (
-    GrantOffers404ErrorException,
-)
-from adyen.exceptions.grant_offers_422_error_3_exception import (
-    GrantOffers422Error3Exception,
+from adyen.exceptions.default_error_response_entity_exception import (
+    DefaultErrorResponseEntityException,
 )
 from adyen.exceptions.rest_service_error_exception import (
     RestServiceErrorException,
@@ -53,24 +50,21 @@ class GrantOffersApi(BaseApi):
             account_holder_id (str): The unique identifier of the grant account.
 
         Returns:
-            ApiResponse: An object with the response value as well as other useful
-                information such as status codes and headers. OK - the request has
-                succeeded.
+            GrantOffers: Response from the API. OK - the request has succeeded.
 
         Raises:
-            ApiException: When an error occurs while fetching the data from the
+            APIException: When an error occurs while fetching the data from the
                 remote API. This exception includes the HTTP Response code, an error
                 message, and the HTTP body that was received in the request.
 
         """
         return super().new_api_call_builder.request(
-            RequestBuilder().server(Server.DEFAULT)
+            RequestBuilder().server(Server.DEFAULT13)
             .path("/grantOffers")
             .http_method(HttpMethodEnum.GET)
             .query_param(Parameter()
                 .key("accountHolderId")
-                .value(account_holder_id)
-                .is_required(True))
+                .value(account_holder_id))
             .header_param(Parameter()
                 .key("accept")
                 .value("application/json"))
@@ -79,7 +73,6 @@ class GrantOffersApi(BaseApi):
             ResponseHandler()
             .deserializer(APIHelper.json_deserialize)
             .deserialize_into(GrantOffers.from_dictionary)
-            .is_api_response(True)
             .local_error("400",
                 "Bad Request - a problem reading or understanding the request.",
                 RestServiceErrorException)
@@ -108,24 +101,21 @@ class GrantOffersApi(BaseApi):
             grant_offer_id (str): The unique identifier of the grant offer.
 
         Returns:
-            ApiResponse: An object with the response value as well as other useful
-                information such as status codes and headers. OK - the request has
-                succeeded.
+            GrantOffer: Response from the API. OK - the request has succeeded.
 
         Raises:
-            ApiException: When an error occurs while fetching the data from the
+            APIException: When an error occurs while fetching the data from the
                 remote API. This exception includes the HTTP Response code, an error
                 message, and the HTTP body that was received in the request.
 
         """
         return super().new_api_call_builder.request(
-            RequestBuilder().server(Server.DEFAULT)
+            RequestBuilder().server(Server.DEFAULT13)
             .path("/grantOffers/{grantOfferId}")
             .http_method(HttpMethodEnum.GET)
             .template_param(Parameter()
                 .key("grantOfferId")
                 .value(grant_offer_id)
-                .is_required(True)
                 .should_encode(True))
             .header_param(Parameter()
                 .key("accept")
@@ -135,7 +125,6 @@ class GrantOffersApi(BaseApi):
             ResponseHandler()
             .deserializer(APIHelper.json_deserialize)
             .deserialize_into(GrantOffer.from_dictionary)
-            .is_api_response(True)
             .local_error("400",
                 "Bad Request - a problem reading or understanding the request.",
                 RestServiceErrorException)
@@ -153,6 +142,52 @@ class GrantOffersApi(BaseApi):
                 RestServiceErrorException),
         ).execute()
 
+    def get_grant_offers_1(self,
+                           account_holder_id):
+        """Perform a GET request to /grantOffers.
+
+        Returns a list of all [static
+        offers](https://docs.adyen.com/capital/get-grant-offers/static-offers)
+        available for `accountHolderId` specified as a query parameter. This also
+        includes static offers created for financing amounts that the user selected
+        from [dynamic
+        offers](https://docs.adyen.com/capital/get-grant-offers/dynamic-offers/).
+
+        Args:
+            account_holder_id (str): The unique identifier of the account holder for
+                which you want to get the available static offers.
+
+        Returns:
+            GrantOffers: Response from the API. OK - The request has succeeded.
+
+        Raises:
+            APIException: When an error occurs while fetching the data from the
+                remote API. This exception includes the HTTP Response code, an error
+                message, and the HTTP body that was received in the request.
+
+        """
+        return super().new_api_call_builder.request(
+            RequestBuilder().server(Server.DEFAULT15)
+            .path("/grantOffers")
+            .http_method(HttpMethodEnum.GET)
+            .query_param(Parameter()
+                .key("accountHolderId")
+                .value(account_holder_id))
+            .header_param(Parameter()
+                .key("accept")
+                .value("application/json")),
+        ).response(
+            ResponseHandler()
+            .deserializer(APIHelper.json_deserialize)
+            .deserialize_into(GrantOffers.from_dictionary)
+            .local_error("404",
+                "Not Found - The entity was not found.",
+                DefaultErrorResponseEntityException)
+            .local_error("422",
+                "Unprocessable Entity - A request validation error.",
+                DefaultErrorResponseEntityException),
+        ).execute()
+
     def get_grant_offers_id(self,
                             id):
         """Perform a GET request to /grantOffers/{id}.
@@ -163,24 +198,21 @@ class GrantOffersApi(BaseApi):
             id (str): The unique identifier of the static offer.
 
         Returns:
-            ApiResponse: An object with the response value as well as other useful
-                information such as status codes and headers. OK - The request has
-                succeeded.
+            GrantOffer1: Response from the API. OK - The request has succeeded.
 
         Raises:
-            ApiException: When an error occurs while fetching the data from the
+            APIException: When an error occurs while fetching the data from the
                 remote API. This exception includes the HTTP Response code, an error
                 message, and the HTTP body that was received in the request.
 
         """
         return super().new_api_call_builder.request(
-            RequestBuilder().server(Server.DEFAULT)
+            RequestBuilder().server(Server.DEFAULT15)
             .path("/grantOffers/{id}")
             .http_method(HttpMethodEnum.GET)
             .template_param(Parameter()
                 .key("id")
                 .value(id)
-                .is_required(True)
                 .should_encode(True))
             .header_param(Parameter()
                 .key("accept")
@@ -189,11 +221,10 @@ class GrantOffersApi(BaseApi):
             ResponseHandler()
             .deserializer(APIHelper.json_deserialize)
             .deserialize_into(GrantOffer1.from_dictionary)
-            .is_api_response(True)
             .local_error("404",
                 "Not Found - The entity was not found.",
-                GrantOffers404ErrorException)
+                DefaultErrorResponseEntityException)
             .local_error("422",
                 "Unprocessable Entity - A request validation error.",
-                GrantOffers422Error3Exception),
+                DefaultErrorResponseEntityException),
         ).execute()

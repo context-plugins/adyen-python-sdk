@@ -1,8 +1,6 @@
 
 # Test Output
 
-*This model accepts additional fields of type Any.*
-
 ## Structure
 
 `TestOutput`
@@ -17,13 +15,10 @@
 | `response_code` | `str` | Optional | The HTTP response code for your server's response to the test webhook.<br><br>You can use the value of this field together with the the [`output`](https://docs.adyen.com/api-explorer/#/ManagementService/v1/post/merchants/{merchantId}/webhooks/{id}/test__resParam_data-output) field value to troubleshoot failed test webhooks. |
 | `response_time` | `str` | Optional | The time between sending the test webhook and receiving the response from your server. You can use it as an indication of how long your server takes to process a webhook notification. Measured in milliseconds, for example **304 ms**. |
 | `status` | `str` | Required | The status of the test request. Possible values are:<br><br>* **success**, `data.responseCode`: **2xx**.<br>* **failed**, in all other cases.<br><br>You can use the value of the [`output`](https://docs.adyen.com/api-explorer/#/ManagementService/v1/post/merchants/{merchantId}/webhooks/{id}/test__resParam_data-output) field together with the [`responseCode`](https://docs.adyen.com/api-explorer/#/ManagementService/v1/post/merchants/{merchantId}/webhooks/{id}/test__resParam_data-responseCode) value to troubleshoot failed test webhooks. |
-| `additional_properties` | `Dict[str, Any]` | Optional | - |
 
 ## Example
 
 ```python
-import jsonpickle
-
 from adyen.models.test_output import TestOutput
 
 test_output = TestOutput(
@@ -32,10 +27,7 @@ test_output = TestOutput(
     output='output2',
     request_sent='requestSent4',
     response_code='200',
-    response_time='responseTime2',
-    additional_properties={
-        'exampleAdditionalProperty': jsonpickle.decode('{"key1":"val1","key2":"val2"}')
-    }
+    response_time='responseTime2'
 )
 ```
 

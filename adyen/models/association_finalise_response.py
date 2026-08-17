@@ -15,9 +15,7 @@ class AssociationFinaliseResponse(object):
             a resource.
         ids (List[str]): The list of unique identifiers of the resources that you
             associated with the SCA device.
-        mtype (Type123): The type of resource that you associated with the SCA device.
-        additional_properties (Dict[str, Any]): The additional properties for the
-            model.
+        mtype (str): The type of resource that you associated with the SCA device.
 
     """
 
@@ -35,22 +33,15 @@ class AssociationFinaliseResponse(object):
 
     def __init__(
         self,
-        mtype=None,
         device_id=APIHelper.SKIP,
-        ids=APIHelper.SKIP,
-        additional_properties=None):
+        ids=APIHelper.SKIP):
         """Initialize a AssociationFinaliseResponse instance."""
         # Initialize members of the class
         if device_id is not APIHelper.SKIP:
             self.device_id = device_id
         if ids is not APIHelper.SKIP:
             self.ids = ids
-        self.mtype = mtype
-
-        # Add additional model properties to the instance
-        if additional_properties is None:
-            additional_properties = {}
-        self.additional_properties = additional_properties
+        self.mtype = "PAYMENT_INSTRUMENT"
 
     @classmethod
     def from_dictionary(cls,
@@ -70,10 +61,6 @@ class AssociationFinaliseResponse(object):
             return None
 
         # Extract variables from the dictionary
-        mtype =\
-            dictionary.get("type")\
-            if dictionary.get("type")\
-                else None
         device_id =\
             dictionary.get("deviceId")\
             if dictionary.get("deviceId")\
@@ -83,16 +70,9 @@ class AssociationFinaliseResponse(object):
             if dictionary.get("ids")\
                 else APIHelper.SKIP
 
-        additional_properties = APIHelper.get_additional_properties(
-            dictionary={k: v for k, v in dictionary.items()
-                        if k not in cls._names.values()},
-            unboxing_function=lambda value: value)
-
         # Return an object of this model
-        return cls(mtype,
-                   device_id,
-                   ids,
-                   additional_properties)
+        return cls(device_id,
+                   ids)
 
     def __repr__(self):
         """Return a unambiguous string representation."""
@@ -107,13 +87,11 @@ class AssociationFinaliseResponse(object):
             else None
         )
         _mtype=self.mtype
-        _additional_properties=self.additional_properties
         return (
             f"{self.__class__.__name__}("
             f"device_id={_device_id!r}, "
             f"ids={_ids!r}, "
             f"mtype={_mtype!r}, "
-            f"additional_properties={_additional_properties!r}, "
             f")"
         )
 
@@ -130,12 +108,10 @@ class AssociationFinaliseResponse(object):
             else None
         )
         _mtype=self.mtype
-        _additional_properties=self.additional_properties
         return (
             f"{self.__class__.__name__}("
             f"device_id={_device_id!s}, "
             f"ids={_ids!s}, "
             f"mtype={_mtype!s}, "
-            f"additional_properties={_additional_properties!s}, "
             f")"
         )

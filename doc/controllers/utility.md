@@ -43,7 +43,7 @@ This endpoint requires [BasicAuth](../../doc/auth/basic-authentication.md) **OR*
 
 **200**: OK - the request has succeeded.
 
-This method returns an [`ApiResponse`](../../doc/api-response.md) instance. The `body` property of this instance returns the response data which is of type [`ApplePaySessionResponse`](../../doc/models/apple-pay-session-response.md).
+[`ApplePaySessionResponse`](../../doc/models/apple-pay-session-response.md)
 
 ## Example Usage
 
@@ -57,11 +57,7 @@ body = ApplePaySessionRequest(
 result = utility_api.post_apple_pay_sessions(
     body=body
 )
-
-if result.is_success():
-    print(result.body)
-elif result.is_error():
-    print(result.errors)
+print(result)
 ```
 
 ## Example Response *(as JSON)*
@@ -102,7 +98,7 @@ This endpoint requires [BasicAuth](../../doc/auth/basic-authentication.md) **OR*
 
 **200**: OK - the request has succeeded.
 
-This method returns an [`ApiResponse`](../../doc/api-response.md) instance. The `body` property of this instance returns the response data which is of type [`UtilityResponse`](../../doc/models/utility-response.md).
+[`UtilityResponse`](../../doc/models/utility-response.md)
 
 ## Example Usage
 
@@ -118,11 +114,7 @@ body = UtilityRequest(
 result = utility_api.post_origin_keys(
     body=body
 )
-
-if result.is_success():
-    print(result.body)
-elif result.is_error():
-    print(result.errors)
+print(result)
 ```
 
 ## Example Response *(as JSON)*
@@ -141,11 +133,11 @@ elif result.is_error():
 
 | HTTP Status Code | Error Description | Exception Class |
 |  --- | --- | --- |
-| 400 | Bad Request - a problem reading or understanding the request. | [`ServiceError1Exception`](../../doc/models/service-error-1-exception.md) |
-| 401 | Unauthorized - authentication required. | [`ServiceError1Exception`](../../doc/models/service-error-1-exception.md) |
-| 403 | Forbidden - insufficient permissions to process the request. | [`ServiceError1Exception`](../../doc/models/service-error-1-exception.md) |
-| 422 | Unprocessable Entity - a request validation error. | [`ServiceError1Exception`](../../doc/models/service-error-1-exception.md) |
-| 500 | Internal Server Error - the server could not process the request. | [`ServiceError1Exception`](../../doc/models/service-error-1-exception.md) |
+| 400 | Bad Request - a problem reading or understanding the request. | [`ServiceErrorException`](../../doc/models/service-error-exception.md) |
+| 401 | Unauthorized - authentication required. | [`ServiceErrorException`](../../doc/models/service-error-exception.md) |
+| 403 | Forbidden - insufficient permissions to process the request. | [`ServiceErrorException`](../../doc/models/service-error-exception.md) |
+| 422 | Unprocessable Entity - a request validation error. | [`ServiceErrorException`](../../doc/models/service-error-exception.md) |
+| 500 | Internal Server Error - the server could not process the request. | [`ServiceErrorException`](../../doc/models/service-error-exception.md) |
 
 
 # Post-Paypal-Update Order
@@ -173,36 +165,36 @@ This endpoint requires [BasicAuth](../../doc/auth/basic-authentication.md) **OR*
 
 **200**: OK - the request has succeeded.
 
-This method returns an [`ApiResponse`](../../doc/api-response.md) instance. The `body` property of this instance returns the response data which is of type [`PaypalUpdateOrderResponse`](../../doc/models/paypal-update-order-response.md).
+[`PaypalUpdateOrderResponse`](../../doc/models/paypal-update-order-response.md)
 
 ## Example Usage
 
 ```python
 body = PaypalUpdateOrderRequest(
-    amount=Amount16(
+    amount=Amount44(
         currency='EUR',
         value=12000
     ),
     delivery_methods=[
         DeliveryMethod(
-            amount=Amount16(
+            amount=Amount24(
                 currency='EUR',
                 value=1000
             ),
             description='Express Shipping',
             reference='1',
             selected=True,
-            mtype=Type211.SHIPPING
+            mtype=Type21Enum.SHIPPING
         ),
         DeliveryMethod(
-            amount=Amount16(
+            amount=Amount24(
                 currency='EUR',
                 value=500
             ),
             description='Standard Ground',
             reference='2',
             selected=False,
-            mtype=Type211.SHIPPING
+            mtype=Type21Enum.SHIPPING
         )
     ],
     payment_data='po7XZ...',
@@ -212,11 +204,7 @@ body = PaypalUpdateOrderRequest(
 result = utility_api.post_paypal_update_order(
     body=body
 )
-
-if result.is_success():
-    print(result.body)
-elif result.is_error():
-    print(result.errors)
+print(result)
 ```
 
 ## Example Response *(as JSON)*
@@ -232,11 +220,11 @@ elif result.is_error():
 
 | HTTP Status Code | Error Description | Exception Class |
 |  --- | --- | --- |
-| 400 | Bad Request - a problem reading or understanding the request. | [`ServiceError1Exception`](../../doc/models/service-error-1-exception.md) |
-| 401 | Unauthorized - authentication required. | [`ServiceError1Exception`](../../doc/models/service-error-1-exception.md) |
-| 403 | Forbidden - insufficient permissions to process the request. | [`ServiceError1Exception`](../../doc/models/service-error-1-exception.md) |
-| 422 | Unprocessable Entity - a request validation error. | [`ServiceError1Exception`](../../doc/models/service-error-1-exception.md) |
-| 500 | Internal Server Error - the server could not process the request. | [`ServiceError1Exception`](../../doc/models/service-error-1-exception.md) |
+| 400 | Bad Request - a problem reading or understanding the request. | [`ServiceErrorException`](../../doc/models/service-error-exception.md) |
+| 401 | Unauthorized - authentication required. | [`ServiceErrorException`](../../doc/models/service-error-exception.md) |
+| 403 | Forbidden - insufficient permissions to process the request. | [`ServiceErrorException`](../../doc/models/service-error-exception.md) |
+| 422 | Unprocessable Entity - a request validation error. | [`ServiceErrorException`](../../doc/models/service-error-exception.md) |
+| 500 | Internal Server Error - the server could not process the request. | [`ServiceErrorException`](../../doc/models/service-error-exception.md) |
 
 
 # Post-Validate Shopper Id
@@ -260,7 +248,7 @@ def post_validate_shopper_id(self,
 
 **200**: OK - the request has succeeded.
 
-This method returns an [`ApiResponse`](../../doc/api-response.md) instance. The `body` property of this instance returns the response data which is of type [`ValidateShopperIdResponse`](../../doc/models/validate-shopper-id-response.md).
+[`ValidateShopperIdResponse`](../../doc/models/validate-shopper-id-response.md)
 
 ## Example Usage
 
@@ -273,11 +261,7 @@ body = ValidateShopperIdRequest(
 )
 
 result = utility_api.post_validate_shopper_id(body)
-
-if result.is_success():
-    print(result.body)
-elif result.is_error():
-    print(result.errors)
+print(result)
 ```
 
 ## Errors

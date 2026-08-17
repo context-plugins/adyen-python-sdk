@@ -13,8 +13,6 @@ class CalculatePciStatusResponse(object):
     Attributes:
         signing_required (bool): Indicates if the user is required to sign PCI
             questionnaires. If **false**, they do not need to sign any questionnaires.
-        additional_properties (Dict[str, Any]): The additional properties for the
-            model.
 
     """
 
@@ -29,17 +27,11 @@ class CalculatePciStatusResponse(object):
 
     def __init__(
         self,
-        signing_required=APIHelper.SKIP,
-        additional_properties=None):
+        signing_required=APIHelper.SKIP):
         """Initialize a CalculatePciStatusResponse instance."""
         # Initialize members of the class
         if signing_required is not APIHelper.SKIP:
             self.signing_required = signing_required
-
-        # Add additional model properties to the instance
-        if additional_properties is None:
-            additional_properties = {}
-        self.additional_properties = additional_properties
 
     @classmethod
     def from_dictionary(cls,
@@ -64,14 +56,8 @@ class CalculatePciStatusResponse(object):
             if "signingRequired" in dictionary.keys()\
                 else APIHelper.SKIP
 
-        additional_properties = APIHelper.get_additional_properties(
-            dictionary={k: v for k, v in dictionary.items()
-                        if k not in cls._names.values()},
-            unboxing_function=lambda value: value)
-
         # Return an object of this model
-        return cls(signing_required,
-                   additional_properties)
+        return cls(signing_required)
 
     def __repr__(self):
         """Return a unambiguous string representation."""
@@ -80,11 +66,9 @@ class CalculatePciStatusResponse(object):
             if hasattr(self, "signing_required")
             else None
         )
-        _additional_properties=self.additional_properties
         return (
             f"{self.__class__.__name__}("
             f"signing_required={_signing_required!r}, "
-            f"additional_properties={_additional_properties!r}, "
             f")"
         )
 
@@ -95,10 +79,8 @@ class CalculatePciStatusResponse(object):
             if hasattr(self, "signing_required")
             else None
         )
-        _additional_properties=self.additional_properties
         return (
             f"{self.__class__.__name__}("
             f"signing_required={_signing_required!s}, "
-            f"additional_properties={_additional_properties!s}, "
             f")"
         )

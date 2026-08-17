@@ -31,8 +31,6 @@ class ScheduleTerminalActionsRequest(object):
             action to. You can extract the IDs from the [GET
             `/terminals`](https://docs.adyen.com/api-explorer/#/ManagementService/late
             st/get/terminals) response. Maximum length: 100 IDs.
-        additional_properties (Dict[str, Any]): The additional properties for the
-            model.
 
     """
 
@@ -56,8 +54,7 @@ class ScheduleTerminalActionsRequest(object):
         action_details=APIHelper.SKIP,
         scheduled_at=APIHelper.SKIP,
         store_id=APIHelper.SKIP,
-        terminal_ids=APIHelper.SKIP,
-        additional_properties=None):
+        terminal_ids=APIHelper.SKIP):
         """Initialize a ScheduleTerminalActionsRequest instance."""
         # Initialize members of the class
         if action_details is not APIHelper.SKIP:
@@ -68,11 +65,6 @@ class ScheduleTerminalActionsRequest(object):
             self.store_id = store_id
         if terminal_ids is not APIHelper.SKIP:
             self.terminal_ids = terminal_ids
-
-        # Add additional model properties to the instance
-        if additional_properties is None:
-            additional_properties = {}
-        self.additional_properties = additional_properties
 
     @classmethod
     def from_dictionary(cls,
@@ -115,17 +107,11 @@ class ScheduleTerminalActionsRequest(object):
             if dictionary.get("terminalIds")\
                 else APIHelper.SKIP
 
-        additional_properties = APIHelper.get_additional_properties(
-            dictionary={k: v for k, v in dictionary.items()
-                        if k not in cls._names.values()},
-            unboxing_function=lambda value: value)
-
         # Return an object of this model
         return cls(action_details,
                    scheduled_at,
                    store_id,
-                   terminal_ids,
-                   additional_properties)
+                   terminal_ids)
 
     def __repr__(self):
         """Return a unambiguous string representation."""
@@ -149,14 +135,12 @@ class ScheduleTerminalActionsRequest(object):
             if hasattr(self, "terminal_ids")
             else None
         )
-        _additional_properties=self.additional_properties
         return (
             f"{self.__class__.__name__}("
             f"action_details={_action_details!r}, "
             f"scheduled_at={_scheduled_at!r}, "
             f"store_id={_store_id!r}, "
             f"terminal_ids={_terminal_ids!r}, "
-            f"additional_properties={_additional_properties!r}, "
             f")"
         )
 
@@ -182,13 +166,11 @@ class ScheduleTerminalActionsRequest(object):
             if hasattr(self, "terminal_ids")
             else None
         )
-        _additional_properties=self.additional_properties
         return (
             f"{self.__class__.__name__}("
             f"action_details={_action_details!s}, "
             f"scheduled_at={_scheduled_at!s}, "
             f"store_id={_store_id!s}, "
             f"terminal_ids={_terminal_ids!s}, "
-            f"additional_properties={_additional_properties!s}, "
             f")"
         )

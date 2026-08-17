@@ -13,10 +13,12 @@ class PatchableOtherInfo(object):
     Attributes:
         description_of_issue (str): Your description of the issue for raising a
             dispute of `type` **other**.
-        sub_type (SubType11): The model property of type SubType11.
-        what_was_purchased (ProductType1): The model property of type ProductType1.
-        additional_properties (Dict[str, Any]): The additional properties for the
-            model.
+        sub_type (SubType11Enum): The specific category of **other** dispute that you
+            are raising.  Possible values: **atmDispute**,
+            **cancelledGoodsServices**, **cancelledRecurring**, **counterfeit**,
+            **creditNotProcessed**, **notAsDescribed**.
+        what_was_purchased (ProductType11Enum): The type of product that you
+            purchased.  Possible values: **goods**, **services**.
 
     """
 
@@ -37,8 +39,7 @@ class PatchableOtherInfo(object):
         self,
         description_of_issue=APIHelper.SKIP,
         sub_type=APIHelper.SKIP,
-        what_was_purchased=APIHelper.SKIP,
-        additional_properties=None):
+        what_was_purchased=APIHelper.SKIP):
         """Initialize a PatchableOtherInfo instance."""
         # Initialize members of the class
         if description_of_issue is not APIHelper.SKIP:
@@ -47,11 +48,6 @@ class PatchableOtherInfo(object):
             self.sub_type = sub_type
         if what_was_purchased is not APIHelper.SKIP:
             self.what_was_purchased = what_was_purchased
-
-        # Add additional model properties to the instance
-        if additional_properties is None:
-            additional_properties = {}
-        self.additional_properties = additional_properties
 
     @classmethod
     def from_dictionary(cls,
@@ -84,16 +80,10 @@ class PatchableOtherInfo(object):
             if dictionary.get("whatWasPurchased")\
                 else APIHelper.SKIP
 
-        additional_properties = APIHelper.get_additional_properties(
-            dictionary={k: v for k, v in dictionary.items()
-                        if k not in cls._names.values()},
-            unboxing_function=lambda value: value)
-
         # Return an object of this model
         return cls(description_of_issue,
                    sub_type,
-                   what_was_purchased,
-                   additional_properties)
+                   what_was_purchased)
 
     @classmethod
     def validate(cls, dictionary):
@@ -133,13 +123,11 @@ class PatchableOtherInfo(object):
             if hasattr(self, "what_was_purchased")
             else None
         )
-        _additional_properties=self.additional_properties
         return (
             f"{self.__class__.__name__}("
             f"description_of_issue={_description_of_issue!r}, "
             f"sub_type={_sub_type!r}, "
             f"what_was_purchased={_what_was_purchased!r}, "
-            f"additional_properties={_additional_properties!r}, "
             f")"
         )
 
@@ -160,12 +148,10 @@ class PatchableOtherInfo(object):
             if hasattr(self, "what_was_purchased")
             else None
         )
-        _additional_properties=self.additional_properties
         return (
             f"{self.__class__.__name__}("
             f"description_of_issue={_description_of_issue!s}, "
             f"sub_type={_sub_type!s}, "
             f"what_was_purchased={_what_was_purchased!s}, "
-            f"additional_properties={_additional_properties!s}, "
             f")"
         )

@@ -41,7 +41,7 @@ This endpoint requires [BasicAuth](../../doc/auth/basic-authentication.md) **OR*
 
 **200**: OK - the request has succeeded.
 
-This method returns an [`ApiResponse`](../../doc/api-response.md) instance. The `body` property of this instance returns the response data which is of type [`CheckoutForwardResponse`](../../doc/models/checkout-forward-response.md).
+[`CheckoutForwardResponse`](../../doc/models/checkout-forward-response.md)
 
 ## Example Usage
 
@@ -49,9 +49,9 @@ This method returns an [`ApiResponse`](../../doc/api-response.md) instance. The 
 body = CheckoutForwardRequest(
     base_url='http://thirdparty.example.com',
     merchant_account='YOUR_MERCHANT_ACCOUNT',
-    request=CheckoutOutgoingForwardRequest(
+    request=CheckoutOutgoingForwardRequest2(
         body='{"amount":{"value":100,"currency":"USD"},"paymentMethod":{"creditCard":{"holderName":"{{holderName}}","number":"{{number}}","expiryMonth":"{{expiryMonth}}","expiryYear":"{{expiryYear}}"}}}',
-        http_method=HttpMethod.POST,
+        http_method=HttpMethodEnum.POST,
         credentials='YOUR_CREDENTIALS_FOR_THE_THIRD_PARTY',
         headers={
             'Authorization': 'Basic {{credentials}}'
@@ -65,11 +65,7 @@ body = CheckoutForwardRequest(
 result = recurring_api.post_forward(
     body=body
 )
-
-if result.is_success():
-    print(result.body)
-elif result.is_error():
-    print(result.errors)
+print(result)
 ```
 
 ## Example Response *(as JSON)*
@@ -114,17 +110,13 @@ This endpoint requires [BasicAuth](../../doc/auth/basic-authentication.md) **OR*
 
 **200**: OK - the request has succeeded.
 
-This method returns an [`ApiResponse`](../../doc/api-response.md) instance. The `body` property of this instance returns the response data which is of type [`ListStoredPaymentMethodsResponse`](../../doc/models/list-stored-payment-methods-response.md).
+[`ListStoredPaymentMethodsResponse`](../../doc/models/list-stored-payment-methods-response.md)
 
 ## Example Usage
 
 ```python
 result = recurring_api.get_stored_payment_methods()
-
-if result.is_success():
-    print(result.body)
-elif result.is_error():
-    print(result.errors)
+print(result)
 ```
 
 ## Example Response *(as JSON)*
@@ -182,14 +174,14 @@ This endpoint requires [BasicAuth](../../doc/auth/basic-authentication.md) **OR*
 
 **201**: Created - the request has been fulfilled and has resulted in one or more new resources being created.
 
-This method returns an [`ApiResponse`](../../doc/api-response.md) instance. The `body` property of this instance returns the response data which is of type [`StoredPaymentMethodResource`](../../doc/models/stored-payment-method-resource.md).
+[`StoredPaymentMethodResource`](../../doc/models/stored-payment-method-resource.md)
 
 ## Example Usage
 
 ```python
 body = StoredPaymentMethodRequest(
     merchant_account='YOUR_MERCHANT_ACCOUNT',
-    payment_method=PaymentMethodToStore(
+    payment_method=PaymentMethodToStore1(
         encrypted_card_number='test_4111111111111111',
         encrypted_expiry_month='test_03',
         encrypted_expiry_year='test_2030',
@@ -197,7 +189,7 @@ body = StoredPaymentMethodRequest(
         holder_name='John Smith',
         mtype='scheme'
     ),
-    recurring_processing_model=RecurringProcessingModel1.SUBSCRIPTION,
+    recurring_processing_model=RecurringProcessingModel1Enum.SUBSCRIPTION,
     shopper_reference='YOUR_SHOPPER_REFERENCE',
     shopper_email='s.hopper@test.com',
     shopper_ip='192.0.2.1'
@@ -206,11 +198,7 @@ body = StoredPaymentMethodRequest(
 result = recurring_api.post_stored_payment_methods(
     body=body
 )
-
-if result.is_success():
-    print(result.body)
-elif result.is_error():
-    print(result.errors)
+print(result)
 ```
 
 ## Example Response *(as JSON)*
@@ -255,7 +243,7 @@ This endpoint requires [BasicAuth](../../doc/auth/basic-authentication.md) **OR*
 
 **204**: No Content - look at the actual response code for the status of the request.
 
-This method returns an [`ApiResponse`](../../doc/api-response.md) instance.
+`void`
 
 ## Example Usage
 
@@ -266,15 +254,10 @@ shopper_reference = 'shopperReference8'
 
 merchant_account = 'merchantAccount8'
 
-result = recurring_api.delete_stored_payment_methods_stored_payment_method_id(
+recurring_api.delete_stored_payment_methods_stored_payment_method_id(
     stored_payment_method_id,
     shopper_reference,
     merchant_account
 )
-
-if result.is_success():
-    print(result.body)
-elif result.is_error():
-    print(result.errors)
 ```
 

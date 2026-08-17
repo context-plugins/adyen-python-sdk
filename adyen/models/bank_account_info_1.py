@@ -13,14 +13,14 @@ class BankAccountInfo1(object):
     Contains information about the legal entity's bank account.
 
     Attributes:
-        account_identification (AuLocalAccountIdentification |
-            CaLocalAccountIdentification | CzLocalAccountIdentification |
-            DkLocalAccountIdentification | HkLocalAccountIdentification |
-            HuLocalAccountIdentification | IbanAccountIdentification1 |
-            NoLocalAccountIdentification | NzLocalAccountIdentification |
-            NumberAndBicAccountIdentification | PlLocalAccountIdentification |
-            SeLocalAccountIdentification | SgLocalAccountIdentification |
-            UkLocalAccountIdentification | UsLocalAccountIdentification | None):
+        account_identification (AULocalAccountIdentification |
+            CALocalAccountIdentification | CZLocalAccountIdentification |
+            DKLocalAccountIdentification | HKLocalAccountIdentification |
+            HULocalAccountIdentification | IbanAccountIdentification |
+            NOLocalAccountIdentification | NZLocalAccountIdentification |
+            NumberAndBicAccountIdentification | PLLocalAccountIdentification |
+            SELocalAccountIdentification | SGLocalAccountIdentification |
+            UKLocalAccountIdentification | USLocalAccountIdentification | None):
             Identification of the bank account.
         account_type (str): The type of bank account.
         bank_name (str): The name of the banking institution where the bank account
@@ -32,8 +32,6 @@ class BankAccountInfo1(object):
             [instant bank
             verification](https://docs.adyen.com/release-notes/platforms-and-financial
             -products#releaseNote=2023-05-08-hosted-onboarding).
-        additional_properties (Dict[str, Any]): The additional properties for the
-            model.
 
     """
 
@@ -60,8 +58,7 @@ class BankAccountInfo1(object):
         account_type=APIHelper.SKIP,
         bank_name=APIHelper.SKIP,
         country_code=APIHelper.SKIP,
-        trusted_source=APIHelper.SKIP,
-        additional_properties=None):
+        trusted_source=APIHelper.SKIP):
         """Initialize a BankAccountInfo1 instance."""
         # Initialize members of the class
         if account_identification is not APIHelper.SKIP:
@@ -74,11 +71,6 @@ class BankAccountInfo1(object):
             self.country_code = country_code
         if trusted_source is not APIHelper.SKIP:
             self.trusted_source = trusted_source
-
-        # Add additional model properties to the instance
-        if additional_properties is None:
-            additional_properties = {}
-        self.additional_properties = additional_properties
 
     @classmethod
     def from_dictionary(cls,
@@ -125,18 +117,12 @@ class BankAccountInfo1(object):
             if "trustedSource" in dictionary.keys()\
                 else APIHelper.SKIP
 
-        additional_properties = APIHelper.get_additional_properties(
-            dictionary={k: v for k, v in dictionary.items()
-                        if k not in cls._names.values()},
-            unboxing_function=lambda value: value)
-
         # Return an object of this model
         return cls(account_identification,
                    account_type,
                    bank_name,
                    country_code,
-                   trusted_source,
-                   additional_properties)
+                   trusted_source)
 
     def __repr__(self):
         """Return a unambiguous string representation."""
@@ -165,7 +151,6 @@ class BankAccountInfo1(object):
             if hasattr(self, "trusted_source")
             else None
         )
-        _additional_properties=self.additional_properties
         return (
             f"{self.__class__.__name__}("
             f"account_identification={_account_identification!r}, "
@@ -173,7 +158,6 @@ class BankAccountInfo1(object):
             f"bank_name={_bank_name!r}, "
             f"country_code={_country_code!r}, "
             f"trusted_source={_trusted_source!r}, "
-            f"additional_properties={_additional_properties!r}, "
             f")"
         )
 
@@ -204,7 +188,6 @@ class BankAccountInfo1(object):
             if hasattr(self, "trusted_source")
             else None
         )
-        _additional_properties=self.additional_properties
         return (
             f"{self.__class__.__name__}("
             f"account_identification={_account_identification!s}, "
@@ -212,6 +195,5 @@ class BankAccountInfo1(object):
             f"bank_name={_bank_name!s}, "
             f"country_code={_country_code!s}, "
             f"trusted_source={_trusted_source!s}, "
-            f"additional_properties={_additional_properties!s}, "
             f")"
         )

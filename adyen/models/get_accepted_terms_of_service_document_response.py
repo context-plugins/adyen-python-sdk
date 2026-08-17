@@ -16,10 +16,8 @@ class GetAcceptedTermsOfServiceDocumentResponse(object):
         id (str): The unique identifier of the legal entity.
         terms_of_service_acceptance_reference (str): An Adyen-generated reference for
             the accepted Terms of Service.
-        terms_of_service_document_format (TermsOfServiceDocumentFormat): The model
-            property of type TermsOfServiceDocumentFormat.
-        additional_properties (Dict[str, Any]): The additional properties for the
-            model.
+        terms_of_service_document_format (TermsOfServiceDocumentFormatEnum): The
+            format of the Terms of Service document.
 
     """
 
@@ -43,8 +41,7 @@ class GetAcceptedTermsOfServiceDocumentResponse(object):
         document=APIHelper.SKIP,
         id=APIHelper.SKIP,
         terms_of_service_acceptance_reference=APIHelper.SKIP,
-        terms_of_service_document_format=APIHelper.SKIP,
-        additional_properties=None):
+        terms_of_service_document_format=APIHelper.SKIP):
         """Initialize a GetAcceptedTermsOfServiceDocumentResponse instance."""
         # Initialize members of the class
         if document is not APIHelper.SKIP:
@@ -56,11 +53,6 @@ class GetAcceptedTermsOfServiceDocumentResponse(object):
                  terms_of_service_acceptance_reference
         if terms_of_service_document_format is not APIHelper.SKIP:
             self.terms_of_service_document_format = terms_of_service_document_format
-
-        # Add additional model properties to the instance
-        if additional_properties is None:
-            additional_properties = {}
-        self.additional_properties = additional_properties
 
     @classmethod
     def from_dictionary(cls,
@@ -97,17 +89,11 @@ class GetAcceptedTermsOfServiceDocumentResponse(object):
             if dictionary.get("termsOfServiceDocumentFormat")\
                 else APIHelper.SKIP
 
-        additional_properties = APIHelper.get_additional_properties(
-            dictionary={k: v for k, v in dictionary.items()
-                        if k not in cls._names.values()},
-            unboxing_function=lambda value: value)
-
         # Return an object of this model
         return cls(document,
                    id,
                    terms_of_service_acceptance_reference,
-                   terms_of_service_document_format,
-                   additional_properties)
+                   terms_of_service_document_format)
 
     def __repr__(self):
         """Return a unambiguous string representation."""
@@ -131,14 +117,12 @@ class GetAcceptedTermsOfServiceDocumentResponse(object):
             if hasattr(self, "terms_of_service_document_format")
             else None
         )
-        _additional_properties=self.additional_properties
         return (
             f"{self.__class__.__name__}("
             f"document={_document!r}, "
             f"id={_id!r}, "
             f"terms_of_service_acceptance_reference={_terms_of_service_acceptance_reference!r}, "
             f"terms_of_service_document_format={_terms_of_service_document_format!r}, "
-            f"additional_properties={_additional_properties!r}, "
             f")"
         )
 
@@ -164,13 +148,11 @@ class GetAcceptedTermsOfServiceDocumentResponse(object):
             if hasattr(self, "terms_of_service_document_format")
             else None
         )
-        _additional_properties=self.additional_properties
         return (
             f"{self.__class__.__name__}("
             f"document={_document!s}, "
             f"id={_id!s}, "
             f"terms_of_service_acceptance_reference={_terms_of_service_acceptance_reference!s}, "
             f"terms_of_service_document_format={_terms_of_service_document_format!s}, "
-            f"additional_properties={_additional_properties!s}, "
             f")"
         )

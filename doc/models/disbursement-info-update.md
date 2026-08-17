@@ -1,8 +1,6 @@
 
 # Disbursement Info Update
 
-*This model accepts additional fields of type Any.*
-
 ## Structure
 
 `DisbursementInfoUpdate`
@@ -11,28 +9,19 @@
 
 | Name | Type | Tags | Description |
 |  --- | --- | --- | --- |
-| `repayment` | [`DisbursementRepaymentInfoUpdate`](../../doc/models/disbursement-repayment-info-update.md) | Optional | - |
-| `additional_properties` | `Dict[str, Any]` | Optional | - |
+| `repayment` | [`DisbursementRepaymentInfoUpdate2`](../../doc/models/disbursement-repayment-info-update-2.md) | Optional | Contains information about the basis points configured for repaying the disbursement. |
 
 ## Example
 
 ```python
-import jsonpickle
-
 from adyen.models.disbursement_info_update import DisbursementInfoUpdate
-from adyen.models.disbursement_repayment_info_update import DisbursementRepaymentInfoUpdate
+from adyen.models.disbursement_repayment_info_update_2 import DisbursementRepaymentInfoUpdate2
 
 disbursement_info_update = DisbursementInfoUpdate(
-    repayment=DisbursementRepaymentInfoUpdate(
+    repayment=DisbursementRepaymentInfoUpdate2(
         basis_points=18,
-        update_description='updateDescription0',
-        additional_properties={
-            'exampleAdditionalProperty': jsonpickle.decode('{"key1":"val1","key2":"val2"}')
-        }
-    ),
-    additional_properties={
-        'exampleAdditionalProperty': jsonpickle.decode('{"key1":"val1","key2":"val2"}')
-    }
+        update_description='updateDescription0'
+    )
 )
 ```
 

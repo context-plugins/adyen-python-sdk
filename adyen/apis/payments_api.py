@@ -17,38 +17,11 @@ from apimatic_core.types.parameter import Parameter
 from adyen.api_helper import APIHelper
 from adyen.apis.base_api import BaseApi
 from adyen.configuration import Server
-from adyen.exceptions.payments_cancel_400_error_exception import (
-    PaymentsCancel400ErrorException,
+from adyen.exceptions.default_error_response_entity_exception import (
+    DefaultErrorResponseEntityException,
 )
-from adyen.exceptions.payments_cancel_422_error_exception import (
-    PaymentsCancel422ErrorException,
-)
-from adyen.exceptions.payments_cancel_500_error_exception import (
-    PaymentsCancel500ErrorException,
-)
-from adyen.exceptions.payments_confirm_400_error_exception import (
-    PaymentsConfirm400ErrorException,
-)
-from adyen.exceptions.payments_confirm_401_error_exception import (
-    PaymentsConfirm401ErrorException,
-)
-from adyen.exceptions.payments_confirm_422_error_exception import (
-    PaymentsConfirm422ErrorException,
-)
-from adyen.exceptions.payments_confirm_500_error_exception import (
-    PaymentsConfirm500ErrorException,
-)
-from adyen.exceptions.payments_details_400_error_exception import (
-    PaymentsDetails400ErrorException,
-)
-from adyen.exceptions.payments_details_422_error_exception import (
-    PaymentsDetails422ErrorException,
-)
-from adyen.exceptions.payments_details_500_error_exception import (
-    PaymentsDetails500ErrorException,
-)
-from adyen.exceptions.service_error_1_exception import (
-    ServiceError1Exception,
+from adyen.exceptions.service_error_exception import (
+    ServiceErrorException,
 )
 from adyen.http.http_method_enum import HttpMethodEnum
 from adyen.models.authentication_result_response import (
@@ -69,6 +42,9 @@ from adyen.models.create_checkout_session_response import (
 from adyen.models.payment_details_response import (
     PaymentDetailsResponse,
 )
+from adyen.models.payment_details_response_1 import (
+    PaymentDetailsResponse1,
+)
 from adyen.models.payment_methods_response import (
     PaymentMethodsResponse,
 )
@@ -78,7 +54,7 @@ from adyen.models.session_result_response import (
     SessionResultResponse,
 )
 from adyen.models.three_ds_2_result_response import (
-    ThreeDs2ResultResponse,
+    ThreeDS2ResultResponse,
 )
 
 
@@ -88,187 +64,6 @@ class PaymentsApi(BaseApi):
     def __init__(self, config):
         """Initialize PaymentsApi object."""
         super(PaymentsApi, self).__init__(config)
-
-    def post_payments_cancel(self,
-                             body):
-        """Perform a POST request to /payments/cancel.
-
-        Cancels the payment. Returns a URL for user redirection.
-
-        Args:
-            body (CancelPaymentRequest): The request body parameter.
-
-        Returns:
-            ApiResponse: An object with the response value as well as other useful
-                information such as status codes and headers. OK - The request has
-                succeeded.
-
-        Raises:
-            ApiException: When an error occurs while fetching the data from the
-                remote API. This exception includes the HTTP Response code, an error
-                message, and the HTTP body that was received in the request.
-
-        """
-        return super().new_api_call_builder.request(
-            RequestBuilder().server(Server.DEFAULT)
-            .path("/payments/cancel")
-            .http_method(HttpMethodEnum.POST)
-            .header_param(Parameter()
-                .key("Content-Type")
-                .value("application/json"))
-            .body_param(Parameter()
-                .value(body)
-                .is_required(True))
-            .header_param(Parameter()
-                .key("accept")
-                .value("application/json"))
-            .body_serializer(APIHelper.json_serialize),
-        ).response(
-            ResponseHandler()
-            .deserializer(APIHelper.json_deserialize)
-            .deserialize_into(CancelPaymentResponse.from_dictionary)
-            .is_api_response(True)
-            .local_error("400",
-                "Bad Request - The request is malformed or is not the expected format"
-                ".",
-                PaymentsCancel400ErrorException)
-            .local_error("422",
-                "Unprocessable Entity - A request validation error.",
-                PaymentsCancel422ErrorException)
-            .local_error("500",
-                "Internal Service Error - An unrecoverable error occurred while tryin"
-                "g to perform the request.",
-                PaymentsCancel500ErrorException),
-        ).execute()
-
-    def post_payments_confirm(self,
-                              body,
-                              www_authenticate=None):
-        """Perform a POST request to /payments/confirm.
-
-            Confirms the payment using Strong Customer Authentication (SCA).
-            To confirm a payment you must make this request two times:
-            1. Make this request to initiate SCA and receive the WWW-Authenticate
-        header.
-            2. After the user completes the SCA challenge, make this request again,
-        including the updated WWW-Authenticate header.
-            The second response provides a redirection URL that guides the user to a
-        payment success or failure page.
-        For more information, see our
-        [documentation](https://docs.adyen.com/business-accounts/send-funds-ideal-inte
-        gration).
-
-        Args:
-            body (ConfirmPaymentRequest): The request body parameter.
-            www_authenticate (str, optional): Header for authenticating through SCA:
-                Contains information for an SCA challenge for A2A payments.
-
-        Returns:
-            ApiResponse: An object with the response value as well as other useful
-                information such as status codes and headers. OK - The request has
-                succeeded.
-
-        Raises:
-            ApiException: When an error occurs while fetching the data from the
-                remote API. This exception includes the HTTP Response code, an error
-                message, and the HTTP body that was received in the request.
-
-        """
-        return super().new_api_call_builder.request(
-            RequestBuilder().server(Server.DEFAULT)
-            .path("/payments/confirm")
-            .http_method(HttpMethodEnum.POST)
-            .header_param(Parameter()
-                .key("Content-Type")
-                .value("application/json"))
-            .body_param(Parameter()
-                .value(body)
-                .is_required(True))
-            .header_param(Parameter()
-                .key("WWW-Authenticate")
-                .value(www_authenticate))
-            .header_param(Parameter()
-                .key("accept")
-                .value("application/json"))
-            .body_serializer(APIHelper.json_serialize),
-        ).response(
-            ResponseHandler()
-            .deserializer(APIHelper.json_deserialize)
-            .deserialize_into(ConfirmPaymentResponse.from_dictionary)
-            .is_api_response(True)
-            .local_error("400",
-                "Bad Request - The request is malformed or is not the expected format"
-                ".",
-                PaymentsConfirm400ErrorException)
-            .local_error("401",
-                "Unauthorized - The API credential used in the request is invalid or "
-                "does not have the right permissions.",
-                PaymentsConfirm401ErrorException)
-            .local_error("422",
-                "Unprocessable Entity - A request validation error.",
-                PaymentsConfirm422ErrorException)
-            .local_error("500",
-                "Internal Service Error - An unrecoverable error occurred while tryin"
-                "g to perform the request.",
-                PaymentsConfirm500ErrorException),
-        ).execute()
-
-    def post_payments_details(self,
-                              body):
-        """Perform a POST request to /payments/details.
-
-        Returns the details of an open payment, which you must show to the user. Also
-        provides a token required to
-        [confirm](https://docs.adyen.com/api-explorer/a2a-payments/latest/post/payment
-        s/confirm) or
-        [cancel](https://docs.adyen.com/api-explorer/a2a-payments/latest/post/payments
-        /cancel) the payment.
-
-        Args:
-            body (IdealPaymentDetailsRequest): The request body parameter.
-
-        Returns:
-            ApiResponse: An object with the response value as well as other useful
-                information such as status codes and headers. OK - The request has
-                succeeded.
-
-        Raises:
-            ApiException: When an error occurs while fetching the data from the
-                remote API. This exception includes the HTTP Response code, an error
-                message, and the HTTP body that was received in the request.
-
-        """
-        return super().new_api_call_builder.request(
-            RequestBuilder().server(Server.DEFAULT)
-            .path("/payments/details")
-            .http_method(HttpMethodEnum.POST)
-            .header_param(Parameter()
-                .key("Content-Type")
-                .value("application/json"))
-            .body_param(Parameter()
-                .value(body)
-                .is_required(True))
-            .header_param(Parameter()
-                .key("accept")
-                .value("application/json"))
-            .body_serializer(APIHelper.json_serialize),
-        ).response(
-            ResponseHandler()
-            .deserializer(APIHelper.json_deserialize)
-            .deserialize_into(PaymentDetailsResponse.from_dictionary)
-            .is_api_response(True)
-            .local_error("400",
-                "Bad Request - The request is malformed or is not the expected format"
-                ".",
-                PaymentsDetails400ErrorException)
-            .local_error("422",
-                "Unprocessable Entity - A request validation error.",
-                PaymentsDetails422ErrorException)
-            .local_error("500",
-                "Internal Service Error - An unrecoverable error occurred while tryin"
-                "g to perform the request.",
-                PaymentsDetails500ErrorException),
-        ).execute()
 
     def post_card_details(self,
                           idempotency_key=None,
@@ -324,12 +119,11 @@ class PaymentsApi(BaseApi):
             body (CardDetailsRequest, optional): The request body parameter.
 
         Returns:
-            ApiResponse: An object with the response value as well as other useful
-                information such as status codes and headers. OK - the request has
+            CardDetailsResponse: Response from the API. OK - the request has
                 succeeded.
 
         Raises:
-            ApiException: When an error occurs while fetching the data from the
+            APIException: When an error occurs while fetching the data from the
                 remote API. This exception includes the HTTP Response code, an error
                 message, and the HTTP body that was received in the request.
 
@@ -354,8 +148,7 @@ class PaymentsApi(BaseApi):
         ).response(
             ResponseHandler()
             .deserializer(APIHelper.json_deserialize)
-            .deserialize_into(CardDetailsResponse.from_dictionary)
-            .is_api_response(True),
+            .deserialize_into(CardDetailsResponse.from_dictionary),
         ).execute()
 
     def post_payment_methods(self,
@@ -372,12 +165,11 @@ class PaymentsApi(BaseApi):
             body (PaymentMethodsRequest, optional): The request body parameter.
 
         Returns:
-            ApiResponse: An object with the response value as well as other useful
-                information such as status codes and headers. OK - the request has
+            PaymentMethodsResponse: Response from the API. OK - the request has
                 succeeded.
 
         Raises:
-            ApiException: When an error occurs while fetching the data from the
+            APIException: When an error occurs while fetching the data from the
                 remote API. This exception includes the HTTP Response code, an error
                 message, and the HTTP body that was received in the request.
 
@@ -403,22 +195,21 @@ class PaymentsApi(BaseApi):
             ResponseHandler()
             .deserializer(APIHelper.json_deserialize)
             .deserialize_into(PaymentMethodsResponse.from_dictionary)
-            .is_api_response(True)
             .local_error("400",
                 "Bad Request - a problem reading or understanding the request.",
-                ServiceError1Exception)
+                ServiceErrorException)
             .local_error("401",
                 "Unauthorized - authentication required.",
-                ServiceError1Exception)
+                ServiceErrorException)
             .local_error("403",
                 "Forbidden - insufficient permissions to process the request.",
-                ServiceError1Exception)
+                ServiceErrorException)
             .local_error("422",
                 "Unprocessable Entity - a request validation error.",
-                ServiceError1Exception)
+                ServiceErrorException)
             .local_error("500",
                 "Internal Server Error - the server could not process the request.",
-                ServiceError1Exception),
+                ServiceErrorException),
         ).execute()
 
     def post_payments(self,
@@ -444,12 +235,10 @@ class PaymentsApi(BaseApi):
             body (PaymentRequest, optional): The request body parameter.
 
         Returns:
-            ApiResponse: An object with the response value as well as other useful
-                information such as status codes and headers. OK - the request has
-                succeeded.
+            PaymentResponse: Response from the API. OK - the request has succeeded.
 
         Raises:
-            ApiException: When an error occurs while fetching the data from the
+            APIException: When an error occurs while fetching the data from the
                 remote API. This exception includes the HTTP Response code, an error
                 message, and the HTTP body that was received in the request.
 
@@ -475,22 +264,84 @@ class PaymentsApi(BaseApi):
             ResponseHandler()
             .deserializer(APIHelper.json_deserialize)
             .deserialize_into(PaymentResponse.from_dictionary)
-            .is_api_response(True)
             .local_error("400",
                 "Bad Request - a problem reading or understanding the request.",
-                ServiceError1Exception)
+                ServiceErrorException)
             .local_error("401",
                 "Unauthorized - authentication required.",
-                ServiceError1Exception)
+                ServiceErrorException)
             .local_error("403",
                 "Forbidden - insufficient permissions to process the request.",
-                ServiceError1Exception)
+                ServiceErrorException)
             .local_error("422",
                 "Unprocessable Entity - a request validation error.",
-                ServiceError1Exception)
+                ServiceErrorException)
             .local_error("500",
                 "Internal Server Error - the server could not process the request.",
-                ServiceError1Exception),
+                ServiceErrorException),
+        ).execute()
+
+    def post_payments_details(self,
+                              idempotency_key=None,
+                              body=None):
+        """Perform a POST request to /payments/details.
+
+        Submits details for a payment created using `/payments`. This step is only
+        needed when no final state has been reached on the `/payments` request, for
+        example when the shopper was redirected to another page to complete the
+        payment.
+
+        Args:
+            idempotency_key (str, optional): A unique identifier for the message with
+                a maximum of 64 characters (we recommend a UUID).
+            body (PaymentDetailsRequest, optional): The request body parameter.
+
+        Returns:
+            PaymentDetailsResponse: Response from the API. OK - the request has
+                succeeded.
+
+        Raises:
+            APIException: When an error occurs while fetching the data from the
+                remote API. This exception includes the HTTP Response code, an error
+                message, and the HTTP body that was received in the request.
+
+        """
+        return super().new_api_call_builder.request(
+            RequestBuilder().server(Server.DEFAULT)
+            .path("/payments/details")
+            .http_method(HttpMethodEnum.POST)
+            .header_param(Parameter()
+                .key("Content-Type")
+                .value("application/json"))
+            .header_param(Parameter()
+                .key("Idempotency-Key")
+                .value(idempotency_key))
+            .body_param(Parameter()
+                .value(body))
+            .header_param(Parameter()
+                .key("accept")
+                .value("application/json"))
+            .body_serializer(APIHelper.json_serialize)
+            .auth(Or(Single("BasicAuth"), Single("ApiKeyAuth"))),
+        ).response(
+            ResponseHandler()
+            .deserializer(APIHelper.json_deserialize)
+            .deserialize_into(PaymentDetailsResponse.from_dictionary)
+            .local_error("400",
+                "Bad Request - a problem reading or understanding the request.",
+                ServiceErrorException)
+            .local_error("401",
+                "Unauthorized - authentication required.",
+                ServiceErrorException)
+            .local_error("403",
+                "Forbidden - insufficient permissions to process the request.",
+                ServiceErrorException)
+            .local_error("422",
+                "Unprocessable Entity - a request validation error.",
+                ServiceErrorException)
+            .local_error("500",
+                "Internal Server Error - the server could not process the request.",
+                ServiceErrorException),
         ).execute()
 
     def post_sessions(self,
@@ -517,13 +368,12 @@ class PaymentsApi(BaseApi):
             body (CreateCheckoutSessionRequest, optional): The request body parameter.
 
         Returns:
-            ApiResponse: An object with the response value as well as other useful
-                information such as status codes and headers. Created - the request
-                has been fulfilled and has resulted in one or more new resources
-                being created.
+            CreateCheckoutSessionResponse: Response from the API. Created - the
+                request has been fulfilled and has resulted in one or more new
+                resources being created.
 
         Raises:
-            ApiException: When an error occurs while fetching the data from the
+            APIException: When an error occurs while fetching the data from the
                 remote API. This exception includes the HTTP Response code, an error
                 message, and the HTTP body that was received in the request.
 
@@ -548,8 +398,7 @@ class PaymentsApi(BaseApi):
         ).response(
             ResponseHandler()
             .deserializer(APIHelper.json_deserialize)
-            .deserialize_into(CreateCheckoutSessionResponse.from_dictionary)
-            .is_api_response(True),
+            .deserialize_into(CreateCheckoutSessionResponse.from_dictionary),
         ).execute()
 
     def get_sessions_session_id(self,
@@ -566,12 +415,11 @@ class PaymentsApi(BaseApi):
                 Component.
 
         Returns:
-            ApiResponse: An object with the response value as well as other useful
-                information such as status codes and headers. OK - the request has
+            SessionResultResponse: Response from the API. OK - the request has
                 succeeded.
 
         Raises:
-            ApiException: When an error occurs while fetching the data from the
+            APIException: When an error occurs while fetching the data from the
                 remote API. This exception includes the HTTP Response code, an error
                 message, and the HTTP body that was received in the request.
 
@@ -583,12 +431,10 @@ class PaymentsApi(BaseApi):
             .template_param(Parameter()
                 .key("sessionId")
                 .value(session_id)
-                .is_required(True)
                 .should_encode(True))
             .query_param(Parameter()
                 .key("sessionResult")
-                .value(session_result)
-                .is_required(True))
+                .value(session_result))
             .header_param(Parameter()
                 .key("accept")
                 .value("application/json"))
@@ -596,8 +442,7 @@ class PaymentsApi(BaseApi):
         ).response(
             ResponseHandler()
             .deserializer(APIHelper.json_deserialize)
-            .deserialize_into(SessionResultResponse.from_dictionary)
-            .is_api_response(True),
+            .deserialize_into(SessionResultResponse.from_dictionary),
         ).execute()
 
     def post_authorise(self,
@@ -626,18 +471,16 @@ class PaymentsApi(BaseApi):
             body (PaymentRequest1, optional): The request body parameter.
 
         Returns:
-            ApiResponse: An object with the response value as well as other useful
-                information such as status codes and headers. OK - the request has
-                succeeded.
+            PaymentResult: Response from the API. OK - the request has succeeded.
 
         Raises:
-            ApiException: When an error occurs while fetching the data from the
+            APIException: When an error occurs while fetching the data from the
                 remote API. This exception includes the HTTP Response code, an error
                 message, and the HTTP body that was received in the request.
 
         """
         return super().new_api_call_builder.request(
-            RequestBuilder().server(Server.DEFAULT)
+            RequestBuilder().server(Server.DEFAULT1)
             .path("/authorise")
             .http_method(HttpMethodEnum.POST)
             .header_param(Parameter()
@@ -654,22 +497,21 @@ class PaymentsApi(BaseApi):
             ResponseHandler()
             .deserializer(APIHelper.json_deserialize)
             .deserialize_into(PaymentResult.from_dictionary)
-            .is_api_response(True)
             .local_error("400",
                 "Bad Request - a problem reading or understanding the request.",
-                ServiceError1Exception)
+                ServiceErrorException)
             .local_error("401",
                 "Unauthorized - authentication required.",
-                ServiceError1Exception)
+                ServiceErrorException)
             .local_error("403",
                 "Forbidden - insufficient permissions to process the request.",
-                ServiceError1Exception)
+                ServiceErrorException)
             .local_error("422",
                 "Unprocessable Entity - a request validation error.",
-                ServiceError1Exception)
+                ServiceErrorException)
             .local_error("500",
                 "Internal Server Error - the server could not process the request.",
-                ServiceError1Exception),
+                ServiceErrorException),
         ).execute()
 
     def post_authorise_3_d(self,
@@ -694,21 +536,19 @@ class PaymentsApi(BaseApi):
         supported payment methods, use the latest features, and access more benefits.
 
         Args:
-            body (PaymentRequest3D, optional): The request body parameter.
+            body (PaymentRequest3d, optional): The request body parameter.
 
         Returns:
-            ApiResponse: An object with the response value as well as other useful
-                information such as status codes and headers. OK - the request has
-                succeeded.
+            PaymentResult: Response from the API. OK - the request has succeeded.
 
         Raises:
-            ApiException: When an error occurs while fetching the data from the
+            APIException: When an error occurs while fetching the data from the
                 remote API. This exception includes the HTTP Response code, an error
                 message, and the HTTP body that was received in the request.
 
         """
         return super().new_api_call_builder.request(
-            RequestBuilder().server(Server.DEFAULT)
+            RequestBuilder().server(Server.DEFAULT1)
             .path("/authorise3d")
             .http_method(HttpMethodEnum.POST)
             .header_param(Parameter()
@@ -725,22 +565,21 @@ class PaymentsApi(BaseApi):
             ResponseHandler()
             .deserializer(APIHelper.json_deserialize)
             .deserialize_into(PaymentResult.from_dictionary)
-            .is_api_response(True)
             .local_error("400",
                 "Bad Request - a problem reading or understanding the request.",
-                ServiceError1Exception)
+                ServiceErrorException)
             .local_error("401",
                 "Unauthorized - authentication required.",
-                ServiceError1Exception)
+                ServiceErrorException)
             .local_error("403",
                 "Forbidden - insufficient permissions to process the request.",
-                ServiceError1Exception)
+                ServiceErrorException)
             .local_error("422",
                 "Unprocessable Entity - a request validation error.",
-                ServiceError1Exception)
+                ServiceErrorException)
             .local_error("500",
                 "Internal Server Error - the server could not process the request.",
-                ServiceError1Exception),
+                ServiceErrorException),
         ).execute()
 
     def post_authorise_3_ds_2(self,
@@ -765,21 +604,19 @@ class PaymentsApi(BaseApi):
         supported payment methods, use the latest features, and access more benefits.
 
         Args:
-            body (PaymentRequest3Ds2, optional): The request body parameter.
+            body (PaymentRequest3ds2, optional): The request body parameter.
 
         Returns:
-            ApiResponse: An object with the response value as well as other useful
-                information such as status codes and headers. OK - the request has
-                succeeded.
+            PaymentResult: Response from the API. OK - the request has succeeded.
 
         Raises:
-            ApiException: When an error occurs while fetching the data from the
+            APIException: When an error occurs while fetching the data from the
                 remote API. This exception includes the HTTP Response code, an error
                 message, and the HTTP body that was received in the request.
 
         """
         return super().new_api_call_builder.request(
-            RequestBuilder().server(Server.DEFAULT)
+            RequestBuilder().server(Server.DEFAULT1)
             .path("/authorise3ds2")
             .http_method(HttpMethodEnum.POST)
             .header_param(Parameter()
@@ -796,22 +633,21 @@ class PaymentsApi(BaseApi):
             ResponseHandler()
             .deserializer(APIHelper.json_deserialize)
             .deserialize_into(PaymentResult.from_dictionary)
-            .is_api_response(True)
             .local_error("400",
                 "Bad Request - a problem reading or understanding the request.",
-                ServiceError1Exception)
+                ServiceErrorException)
             .local_error("401",
                 "Unauthorized - authentication required.",
-                ServiceError1Exception)
+                ServiceErrorException)
             .local_error("403",
                 "Forbidden - insufficient permissions to process the request.",
-                ServiceError1Exception)
+                ServiceErrorException)
             .local_error("422",
                 "Unprocessable Entity - a request validation error.",
-                ServiceError1Exception)
+                ServiceErrorException)
             .local_error("500",
                 "Internal Server Error - the server could not process the request.",
-                ServiceError1Exception),
+                ServiceErrorException),
         ).execute()
 
     def post_get_authentication_result(self,
@@ -824,18 +660,17 @@ class PaymentsApi(BaseApi):
             body (AuthenticationResultRequest, optional): The request body parameter.
 
         Returns:
-            ApiResponse: An object with the response value as well as other useful
-                information such as status codes and headers. OK - the request has
+            AuthenticationResultResponse: Response from the API. OK - the request has
                 succeeded.
 
         Raises:
-            ApiException: When an error occurs while fetching the data from the
+            APIException: When an error occurs while fetching the data from the
                 remote API. This exception includes the HTTP Response code, an error
                 message, and the HTTP body that was received in the request.
 
         """
         return super().new_api_call_builder.request(
-            RequestBuilder().server(Server.DEFAULT)
+            RequestBuilder().server(Server.DEFAULT1)
             .path("/getAuthenticationResult")
             .http_method(HttpMethodEnum.POST)
             .header_param(Parameter()
@@ -852,22 +687,21 @@ class PaymentsApi(BaseApi):
             ResponseHandler()
             .deserializer(APIHelper.json_deserialize)
             .deserialize_into(AuthenticationResultResponse.from_dictionary)
-            .is_api_response(True)
             .local_error("400",
                 "Bad Request - a problem reading or understanding the request.",
-                ServiceError1Exception)
+                ServiceErrorException)
             .local_error("401",
                 "Unauthorized - authentication required.",
-                ServiceError1Exception)
+                ServiceErrorException)
             .local_error("403",
                 "Forbidden - insufficient permissions to process the request.",
-                ServiceError1Exception)
+                ServiceErrorException)
             .local_error("422",
                 "Unprocessable Entity - a request validation error.",
-                ServiceError1Exception)
+                ServiceErrorException)
             .local_error("500",
                 "Internal Server Error - the server could not process the request.",
-                ServiceError1Exception),
+                ServiceErrorException),
         ).execute()
 
     def post_retrieve_3_ds_2_result(self,
@@ -877,21 +711,20 @@ class PaymentsApi(BaseApi):
         Retrieves the `threeDS2Result` after doing a 3D Secure 2 authentication only.
 
         Args:
-            body (ThreeDs2ResultRequest, optional): The request body parameter.
+            body (ThreeDS2ResultRequest, optional): The request body parameter.
 
         Returns:
-            ApiResponse: An object with the response value as well as other useful
-                information such as status codes and headers. OK - the request has
+            ThreeDS2ResultResponse: Response from the API. OK - the request has
                 succeeded.
 
         Raises:
-            ApiException: When an error occurs while fetching the data from the
+            APIException: When an error occurs while fetching the data from the
                 remote API. This exception includes the HTTP Response code, an error
                 message, and the HTTP body that was received in the request.
 
         """
         return super().new_api_call_builder.request(
-            RequestBuilder().server(Server.DEFAULT)
+            RequestBuilder().server(Server.DEFAULT1)
             .path("/retrieve3ds2Result")
             .http_method(HttpMethodEnum.POST)
             .header_param(Parameter()
@@ -907,21 +740,192 @@ class PaymentsApi(BaseApi):
         ).response(
             ResponseHandler()
             .deserializer(APIHelper.json_deserialize)
-            .deserialize_into(ThreeDs2ResultResponse.from_dictionary)
-            .is_api_response(True)
+            .deserialize_into(ThreeDS2ResultResponse.from_dictionary)
             .local_error("400",
                 "Bad Request - a problem reading or understanding the request.",
-                ServiceError1Exception)
+                ServiceErrorException)
             .local_error("401",
                 "Unauthorized - authentication required.",
-                ServiceError1Exception)
+                ServiceErrorException)
             .local_error("403",
                 "Forbidden - insufficient permissions to process the request.",
-                ServiceError1Exception)
+                ServiceErrorException)
             .local_error("422",
                 "Unprocessable Entity - a request validation error.",
-                ServiceError1Exception)
+                ServiceErrorException)
             .local_error("500",
                 "Internal Server Error - the server could not process the request.",
-                ServiceError1Exception),
+                ServiceErrorException),
+        ).execute()
+
+    def post_payments_cancel(self,
+                             body):
+        """Perform a POST request to /payments/cancel.
+
+        Cancels the payment. Returns a URL for user redirection.
+
+        Args:
+            body (CancelPaymentRequest): The request body parameter.
+
+        Returns:
+            CancelPaymentResponse: Response from the API. OK - The request has
+                succeeded.
+
+        Raises:
+            APIException: When an error occurs while fetching the data from the
+                remote API. This exception includes the HTTP Response code, an error
+                message, and the HTTP body that was received in the request.
+
+        """
+        return super().new_api_call_builder.request(
+            RequestBuilder().server(Server.DEFAULT20)
+            .path("/payments/cancel")
+            .http_method(HttpMethodEnum.POST)
+            .header_param(Parameter()
+                .key("Content-Type")
+                .value("application/json"))
+            .body_param(Parameter()
+                .value(body))
+            .header_param(Parameter()
+                .key("accept")
+                .value("application/json"))
+            .body_serializer(APIHelper.json_serialize),
+        ).response(
+            ResponseHandler()
+            .deserializer(APIHelper.json_deserialize)
+            .deserialize_into(CancelPaymentResponse.from_dictionary)
+            .local_error("400",
+                "Bad Request - The request is malformed or is not the expected format"
+                ".",
+                DefaultErrorResponseEntityException)
+            .local_error("422",
+                "Unprocessable Entity - A request validation error.",
+                DefaultErrorResponseEntityException)
+            .local_error("500",
+                "Internal Service Error - An unrecoverable error occurred while tryin"
+                "g to perform the request.",
+                DefaultErrorResponseEntityException),
+        ).execute()
+
+    def post_payments_confirm(self,
+                              body,
+                              www_authenticate=None):
+        """Perform a POST request to /payments/confirm.
+
+            Confirms the payment using Strong Customer Authentication (SCA).
+            To confirm a payment you must make this request two times:
+            1. Make this request to initiate SCA and receive the WWW-Authenticate
+        header.
+            2. After the user completes the SCA challenge, make this request again,
+        including the updated WWW-Authenticate header.
+            The second response provides a redirection URL that guides the user to a
+        payment success or failure page.
+        For more information, see our
+        [documentation](https://docs.adyen.com/business-accounts/send-funds-ideal-inte
+        gration).
+
+        Args:
+            body (ConfirmPaymentRequest): The request body parameter.
+            www_authenticate (str, optional): Header for authenticating through SCA:
+                Contains information for an SCA challenge for A2A payments.
+
+        Returns:
+            ConfirmPaymentResponse: Response from the API. OK - The request has
+                succeeded.
+
+        Raises:
+            APIException: When an error occurs while fetching the data from the
+                remote API. This exception includes the HTTP Response code, an error
+                message, and the HTTP body that was received in the request.
+
+        """
+        return super().new_api_call_builder.request(
+            RequestBuilder().server(Server.DEFAULT20)
+            .path("/payments/confirm")
+            .http_method(HttpMethodEnum.POST)
+            .header_param(Parameter()
+                .key("Content-Type")
+                .value("application/json"))
+            .body_param(Parameter()
+                .value(body))
+            .header_param(Parameter()
+                .key("WWW-Authenticate")
+                .value(www_authenticate))
+            .header_param(Parameter()
+                .key("accept")
+                .value("application/json"))
+            .body_serializer(APIHelper.json_serialize),
+        ).response(
+            ResponseHandler()
+            .deserializer(APIHelper.json_deserialize)
+            .deserialize_into(ConfirmPaymentResponse.from_dictionary)
+            .local_error("400",
+                "Bad Request - The request is malformed or is not the expected format"
+                ".",
+                DefaultErrorResponseEntityException)
+            .local_error("401",
+                "Unauthorized - The API credential used in the request is invalid or "
+                "does not have the right permissions.",
+                DefaultErrorResponseEntityException)
+            .local_error("422",
+                "Unprocessable Entity - A request validation error.",
+                DefaultErrorResponseEntityException)
+            .local_error("500",
+                "Internal Service Error - An unrecoverable error occurred while tryin"
+                "g to perform the request.",
+                DefaultErrorResponseEntityException),
+        ).execute()
+
+    def post_payments_details_1(self,
+                                body):
+        """Perform a POST request to /payments/details.
+
+        Returns the details of an open payment, which you must show to the user. Also
+        provides a token required to
+        [confirm](https://docs.adyen.com/api-explorer/a2a-payments/latest/post/payment
+        s/confirm) or
+        [cancel](https://docs.adyen.com/api-explorer/a2a-payments/latest/post/payments
+        /cancel) the payment.
+
+        Args:
+            body (IdealPaymentDetailsRequest): The request body parameter.
+
+        Returns:
+            PaymentDetailsResponse1: Response from the API. OK - The request has
+                succeeded.
+
+        Raises:
+            APIException: When an error occurs while fetching the data from the
+                remote API. This exception includes the HTTP Response code, an error
+                message, and the HTTP body that was received in the request.
+
+        """
+        return super().new_api_call_builder.request(
+            RequestBuilder().server(Server.DEFAULT20)
+            .path("/payments/details")
+            .http_method(HttpMethodEnum.POST)
+            .header_param(Parameter()
+                .key("Content-Type")
+                .value("application/json"))
+            .body_param(Parameter()
+                .value(body))
+            .header_param(Parameter()
+                .key("accept")
+                .value("application/json"))
+            .body_serializer(APIHelper.json_serialize),
+        ).response(
+            ResponseHandler()
+            .deserializer(APIHelper.json_deserialize)
+            .deserialize_into(PaymentDetailsResponse1.from_dictionary)
+            .local_error("400",
+                "Bad Request - The request is malformed or is not the expected format"
+                ".",
+                DefaultErrorResponseEntityException)
+            .local_error("422",
+                "Unprocessable Entity - A request validation error.",
+                DefaultErrorResponseEntityException)
+            .local_error("500",
+                "Internal Service Error - An unrecoverable error occurred while tryin"
+                "g to perform the request.",
+                DefaultErrorResponseEntityException),
         ).execute()

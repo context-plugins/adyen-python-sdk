@@ -69,24 +69,22 @@ class TerminalOrdersMerchantLevelApi(BaseApi):
             name (str, optional): The name of the billing entity.
 
         Returns:
-            ApiResponse: An object with the response value as well as other useful
-                information such as status codes and headers. OK - the request has
+            BillingEntitiesResponse: Response from the API. OK - the request has
                 succeeded.
 
         Raises:
-            ApiException: When an error occurs while fetching the data from the
+            APIException: When an error occurs while fetching the data from the
                 remote API. This exception includes the HTTP Response code, an error
                 message, and the HTTP body that was received in the request.
 
         """
         return super().new_api_call_builder.request(
-            RequestBuilder().server(Server.DEFAULT)
+            RequestBuilder().server(Server.DEFAULT9)
             .path("/merchants/{merchantId}/billingEntities")
             .http_method(HttpMethodEnum.GET)
             .template_param(Parameter()
                 .key("merchantId")
                 .value(merchant_id)
-                .is_required(True)
                 .should_encode(True))
             .query_param(Parameter()
                 .key("name")
@@ -99,7 +97,6 @@ class TerminalOrdersMerchantLevelApi(BaseApi):
             ResponseHandler()
             .deserializer(APIHelper.json_deserialize)
             .deserialize_into(BillingEntitiesResponse.from_dictionary)
-            .is_api_response(True)
             .local_error("400",
                 "Bad Request - a problem reading or understanding the request.",
                 RestServiceErrorException)
@@ -144,24 +141,22 @@ class TerminalOrdersMerchantLevelApi(BaseApi):
             limit (int, optional): The number of locations to return.
 
         Returns:
-            ApiResponse: An object with the response value as well as other useful
-                information such as status codes and headers. OK - the request has
+            ShippingLocationsResponse: Response from the API. OK - the request has
                 succeeded.
 
         Raises:
-            ApiException: When an error occurs while fetching the data from the
+            APIException: When an error occurs while fetching the data from the
                 remote API. This exception includes the HTTP Response code, an error
                 message, and the HTTP body that was received in the request.
 
         """
         return super().new_api_call_builder.request(
-            RequestBuilder().server(Server.DEFAULT)
+            RequestBuilder().server(Server.DEFAULT9)
             .path("/merchants/{merchantId}/shippingLocations")
             .http_method(HttpMethodEnum.GET)
             .template_param(Parameter()
                 .key("merchantId")
                 .value(merchant_id)
-                .is_required(True)
                 .should_encode(True))
             .query_param(Parameter()
                 .key("name")
@@ -180,7 +175,6 @@ class TerminalOrdersMerchantLevelApi(BaseApi):
             ResponseHandler()
             .deserializer(APIHelper.json_deserialize)
             .deserialize_into(ShippingLocationsResponse.from_dictionary)
-            .is_api_response(True)
             .local_error("400",
                 "Bad Request - a problem reading or understanding the request.",
                 RestServiceErrorException)
@@ -218,24 +212,21 @@ class TerminalOrdersMerchantLevelApi(BaseApi):
             body (ShippingLocation, optional): The request body parameter.
 
         Returns:
-            ApiResponse: An object with the response value as well as other useful
-                information such as status codes and headers. OK - the request has
-                succeeded.
+            ShippingLocation: Response from the API. OK - the request has succeeded.
 
         Raises:
-            ApiException: When an error occurs while fetching the data from the
+            APIException: When an error occurs while fetching the data from the
                 remote API. This exception includes the HTTP Response code, an error
                 message, and the HTTP body that was received in the request.
 
         """
         return super().new_api_call_builder.request(
-            RequestBuilder().server(Server.DEFAULT)
+            RequestBuilder().server(Server.DEFAULT9)
             .path("/merchants/{merchantId}/shippingLocations")
             .http_method(HttpMethodEnum.POST)
             .template_param(Parameter()
                 .key("merchantId")
                 .value(merchant_id)
-                .is_required(True)
                 .should_encode(True))
             .header_param(Parameter()
                 .key("Content-Type")
@@ -251,7 +242,6 @@ class TerminalOrdersMerchantLevelApi(BaseApi):
             ResponseHandler()
             .deserializer(APIHelper.json_deserialize)
             .deserialize_into(ShippingLocation.from_dictionary)
-            .is_api_response(True)
             .local_error("400",
                 "Bad Request - a problem reading or understanding the request.",
                 RestServiceErrorException)
@@ -290,24 +280,22 @@ class TerminalOrdersMerchantLevelApi(BaseApi):
             merchant_id (str): The unique identifier of the merchant account.
 
         Returns:
-            ApiResponse: An object with the response value as well as other useful
-                information such as status codes and headers. OK - the request has
+            TerminalModelsResponse: Response from the API. OK - the request has
                 succeeded.
 
         Raises:
-            ApiException: When an error occurs while fetching the data from the
+            APIException: When an error occurs while fetching the data from the
                 remote API. This exception includes the HTTP Response code, an error
                 message, and the HTTP body that was received in the request.
 
         """
         return super().new_api_call_builder.request(
-            RequestBuilder().server(Server.DEFAULT)
+            RequestBuilder().server(Server.DEFAULT9)
             .path("/merchants/{merchantId}/terminalModels")
             .http_method(HttpMethodEnum.GET)
             .template_param(Parameter()
                 .key("merchantId")
                 .value(merchant_id)
-                .is_required(True)
                 .should_encode(True))
             .header_param(Parameter()
                 .key("accept")
@@ -317,7 +305,6 @@ class TerminalOrdersMerchantLevelApi(BaseApi):
             ResponseHandler()
             .deserializer(APIHelper.json_deserialize)
             .deserialize_into(TerminalModelsResponse.from_dictionary)
-            .is_api_response(True)
             .local_error("400",
                 "Bad Request - a problem reading or understanding the request.",
                 RestServiceErrorException)
@@ -363,24 +350,22 @@ class TerminalOrdersMerchantLevelApi(BaseApi):
             limit (int, optional): The number of orders to return.
 
         Returns:
-            ApiResponse: An object with the response value as well as other useful
-                information such as status codes and headers. OK - the request has
+            TerminalOrdersResponse: Response from the API. OK - the request has
                 succeeded.
 
         Raises:
-            ApiException: When an error occurs while fetching the data from the
+            APIException: When an error occurs while fetching the data from the
                 remote API. This exception includes the HTTP Response code, an error
                 message, and the HTTP body that was received in the request.
 
         """
         return super().new_api_call_builder.request(
-            RequestBuilder().server(Server.DEFAULT)
+            RequestBuilder().server(Server.DEFAULT9)
             .path("/merchants/{merchantId}/terminalOrders")
             .http_method(HttpMethodEnum.GET)
             .template_param(Parameter()
                 .key("merchantId")
                 .value(merchant_id)
-                .is_required(True)
                 .should_encode(True))
             .query_param(Parameter()
                 .key("customerOrderReference")
@@ -402,7 +387,6 @@ class TerminalOrdersMerchantLevelApi(BaseApi):
             ResponseHandler()
             .deserializer(APIHelper.json_deserialize)
             .deserialize_into(TerminalOrdersResponse.from_dictionary)
-            .is_api_response(True)
             .local_error("400",
                 "Bad Request - a problem reading or understanding the request.",
                 RestServiceErrorException)
@@ -444,24 +428,21 @@ class TerminalOrdersMerchantLevelApi(BaseApi):
             body (TerminalOrderRequest, optional): The request body parameter.
 
         Returns:
-            ApiResponse: An object with the response value as well as other useful
-                information such as status codes and headers. OK - the request has
-                succeeded.
+            TerminalOrder: Response from the API. OK - the request has succeeded.
 
         Raises:
-            ApiException: When an error occurs while fetching the data from the
+            APIException: When an error occurs while fetching the data from the
                 remote API. This exception includes the HTTP Response code, an error
                 message, and the HTTP body that was received in the request.
 
         """
         return super().new_api_call_builder.request(
-            RequestBuilder().server(Server.DEFAULT)
+            RequestBuilder().server(Server.DEFAULT9)
             .path("/merchants/{merchantId}/terminalOrders")
             .http_method(HttpMethodEnum.POST)
             .template_param(Parameter()
                 .key("merchantId")
                 .value(merchant_id)
-                .is_required(True)
                 .should_encode(True))
             .header_param(Parameter()
                 .key("Content-Type")
@@ -477,7 +458,6 @@ class TerminalOrdersMerchantLevelApi(BaseApi):
             ResponseHandler()
             .deserializer(APIHelper.json_deserialize)
             .deserialize_into(TerminalOrder.from_dictionary)
-            .is_api_response(True)
             .local_error("400",
                 "Bad Request - a problem reading or understanding the request.",
                 RestServiceErrorException)
@@ -516,29 +496,25 @@ class TerminalOrdersMerchantLevelApi(BaseApi):
             order_id (str): The unique identifier of the order.
 
         Returns:
-            ApiResponse: An object with the response value as well as other useful
-                information such as status codes and headers. OK - the request has
-                succeeded.
+            TerminalOrder: Response from the API. OK - the request has succeeded.
 
         Raises:
-            ApiException: When an error occurs while fetching the data from the
+            APIException: When an error occurs while fetching the data from the
                 remote API. This exception includes the HTTP Response code, an error
                 message, and the HTTP body that was received in the request.
 
         """
         return super().new_api_call_builder.request(
-            RequestBuilder().server(Server.DEFAULT)
+            RequestBuilder().server(Server.DEFAULT9)
             .path("/merchants/{merchantId}/terminalOrders/{orderId}")
             .http_method(HttpMethodEnum.GET)
             .template_param(Parameter()
                 .key("merchantId")
                 .value(merchant_id)
-                .is_required(True)
                 .should_encode(True))
             .template_param(Parameter()
                 .key("orderId")
                 .value(order_id)
-                .is_required(True)
                 .should_encode(True))
             .header_param(Parameter()
                 .key("accept")
@@ -548,7 +524,6 @@ class TerminalOrdersMerchantLevelApi(BaseApi):
             ResponseHandler()
             .deserializer(APIHelper.json_deserialize)
             .deserialize_into(TerminalOrder.from_dictionary)
-            .is_api_response(True)
             .local_error("400",
                 "Bad Request - a problem reading or understanding the request.",
                 RestServiceErrorException)
@@ -594,29 +569,25 @@ class TerminalOrdersMerchantLevelApi(BaseApi):
             body (TerminalOrderRequest, optional): The request body parameter.
 
         Returns:
-            ApiResponse: An object with the response value as well as other useful
-                information such as status codes and headers. OK - the request has
-                succeeded.
+            TerminalOrder: Response from the API. OK - the request has succeeded.
 
         Raises:
-            ApiException: When an error occurs while fetching the data from the
+            APIException: When an error occurs while fetching the data from the
                 remote API. This exception includes the HTTP Response code, an error
                 message, and the HTTP body that was received in the request.
 
         """
         return super().new_api_call_builder.request(
-            RequestBuilder().server(Server.DEFAULT)
+            RequestBuilder().server(Server.DEFAULT9)
             .path("/merchants/{merchantId}/terminalOrders/{orderId}")
             .http_method(HttpMethodEnum.PATCH)
             .template_param(Parameter()
                 .key("merchantId")
                 .value(merchant_id)
-                .is_required(True)
                 .should_encode(True))
             .template_param(Parameter()
                 .key("orderId")
                 .value(order_id)
-                .is_required(True)
                 .should_encode(True))
             .header_param(Parameter()
                 .key("Content-Type")
@@ -632,7 +603,6 @@ class TerminalOrdersMerchantLevelApi(BaseApi):
             ResponseHandler()
             .deserializer(APIHelper.json_deserialize)
             .deserialize_into(TerminalOrder.from_dictionary)
-            .is_api_response(True)
             .local_error("400",
                 "Bad Request - a problem reading or understanding the request.",
                 RestServiceErrorException)
@@ -673,29 +643,25 @@ class TerminalOrdersMerchantLevelApi(BaseApi):
             order_id (str): The unique identifier of the order.
 
         Returns:
-            ApiResponse: An object with the response value as well as other useful
-                information such as status codes and headers. OK - the request has
-                succeeded.
+            TerminalOrder: Response from the API. OK - the request has succeeded.
 
         Raises:
-            ApiException: When an error occurs while fetching the data from the
+            APIException: When an error occurs while fetching the data from the
                 remote API. This exception includes the HTTP Response code, an error
                 message, and the HTTP body that was received in the request.
 
         """
         return super().new_api_call_builder.request(
-            RequestBuilder().server(Server.DEFAULT)
+            RequestBuilder().server(Server.DEFAULT9)
             .path("/merchants/{merchantId}/terminalOrders/{orderId}/cancel")
             .http_method(HttpMethodEnum.POST)
             .template_param(Parameter()
                 .key("merchantId")
                 .value(merchant_id)
-                .is_required(True)
                 .should_encode(True))
             .template_param(Parameter()
                 .key("orderId")
                 .value(order_id)
-                .is_required(True)
                 .should_encode(True))
             .header_param(Parameter()
                 .key("accept")
@@ -705,7 +671,6 @@ class TerminalOrdersMerchantLevelApi(BaseApi):
             ResponseHandler()
             .deserializer(APIHelper.json_deserialize)
             .deserialize_into(TerminalOrder.from_dictionary)
-            .is_api_response(True)
             .local_error("400",
                 "Bad Request - a problem reading or understanding the request.",
                 RestServiceErrorException)
@@ -756,29 +721,26 @@ class TerminalOrdersMerchantLevelApi(BaseApi):
             limit (int, optional): The number of products to return.
 
         Returns:
-            ApiResponse: An object with the response value as well as other useful
-                information such as status codes and headers. OK - the request has
+            TerminalProductsResponse: Response from the API. OK - the request has
                 succeeded.
 
         Raises:
-            ApiException: When an error occurs while fetching the data from the
+            APIException: When an error occurs while fetching the data from the
                 remote API. This exception includes the HTTP Response code, an error
                 message, and the HTTP body that was received in the request.
 
         """
         return super().new_api_call_builder.request(
-            RequestBuilder().server(Server.DEFAULT)
+            RequestBuilder().server(Server.DEFAULT9)
             .path("/merchants/{merchantId}/terminalProducts")
             .http_method(HttpMethodEnum.GET)
             .template_param(Parameter()
                 .key("merchantId")
                 .value(merchant_id)
-                .is_required(True)
                 .should_encode(True))
             .query_param(Parameter()
                 .key("country")
-                .value(country)
-                .is_required(True))
+                .value(country))
             .query_param(Parameter()
                 .key("terminalModelId")
                 .value(terminal_model_id))
@@ -796,7 +758,6 @@ class TerminalOrdersMerchantLevelApi(BaseApi):
             ResponseHandler()
             .deserializer(APIHelper.json_deserialize)
             .deserialize_into(TerminalProductsResponse.from_dictionary)
-            .is_api_response(True)
             .local_error("400",
                 "Bad Request - a problem reading or understanding the request.",
                 RestServiceErrorException)

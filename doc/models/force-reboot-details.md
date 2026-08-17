@@ -1,8 +1,6 @@
 
 # Force Reboot Details
 
-*This model accepts additional fields of type Any.*
-
 ## Structure
 
 `ForceRebootDetails`
@@ -11,22 +9,16 @@
 
 | Name | Type | Tags | Description |
 |  --- | --- | --- | --- |
-| `mtype` | [`Type210`](../../doc/models/type-210.md) | Optional | - |
-| `additional_properties` | `Dict[str, Any]` | Optional | - |
+| `mtype` | [`Type210Enum`](../../doc/models/type-210-enum.md) | Optional | The type of terminal action. The value **ForceReboot** triggers an immediate reboot of the specified terminal(s).<br><br>**Default**: `"ForceReboot"` |
 
 ## Example
 
 ```python
-import jsonpickle
-
 from adyen.models.force_reboot_details import ForceRebootDetails
-from adyen.models.type_210 import Type210
+from adyen.models.type_210_enum import Type210Enum
 
 force_reboot_details = ForceRebootDetails(
-    mtype=Type210.FORCEREBOOT,
-    additional_properties={
-        'exampleAdditionalProperty': jsonpickle.decode('{"key1":"val1","key2":"val2"}')
-    }
+    mtype=Type210Enum.FORCEREBOOT
 )
 ```
 

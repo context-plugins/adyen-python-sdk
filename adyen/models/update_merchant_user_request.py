@@ -21,14 +21,12 @@ class UpdateMerchantUserRequest(object):
         login_method (str): The requested login method for the user. To use SSO, you
             must already have SSO configured with Adyen before creating the user.
             Possible values: **Email** or **SSO**
-        name (Name22): The model property of type Name22.
+        name (Name22): The user's full name.
         roles (List[str]): The list of
             [roles](https://docs.adyen.com/account/user-roles) for this user.
         time_zone_code (str): The [tz database
             name](https://en.wikipedia.org/wiki/List_of_tz_database_time_zones) of
             the time zone of the user. For example, **Europe/Amsterdam**.
-        additional_properties (Dict[str, Any]): The additional properties for the
-            model.
 
     """
 
@@ -61,8 +59,7 @@ class UpdateMerchantUserRequest(object):
         login_method=APIHelper.SKIP,
         name=APIHelper.SKIP,
         roles=APIHelper.SKIP,
-        time_zone_code=APIHelper.SKIP,
-        additional_properties=None):
+        time_zone_code=APIHelper.SKIP):
         """Initialize a UpdateMerchantUserRequest instance."""
         # Initialize members of the class
         if account_groups is not APIHelper.SKIP:
@@ -79,11 +76,6 @@ class UpdateMerchantUserRequest(object):
             self.roles = roles
         if time_zone_code is not APIHelper.SKIP:
             self.time_zone_code = time_zone_code
-
-        # Add additional model properties to the instance
-        if additional_properties is None:
-            additional_properties = {}
-        self.additional_properties = additional_properties
 
     @classmethod
     def from_dictionary(cls,
@@ -133,11 +125,6 @@ class UpdateMerchantUserRequest(object):
             if dictionary.get("timeZoneCode")\
                 else APIHelper.SKIP
 
-        additional_properties = APIHelper.get_additional_properties(
-            dictionary={k: v for k, v in dictionary.items()
-                        if k not in cls._names.values()},
-            unboxing_function=lambda value: value)
-
         # Return an object of this model
         return cls(account_groups,
                    active,
@@ -145,8 +132,7 @@ class UpdateMerchantUserRequest(object):
                    login_method,
                    name,
                    roles,
-                   time_zone_code,
-                   additional_properties)
+                   time_zone_code)
 
     def __repr__(self):
         """Return a unambiguous string representation."""
@@ -185,7 +171,6 @@ class UpdateMerchantUserRequest(object):
             if hasattr(self, "time_zone_code")
             else None
         )
-        _additional_properties=self.additional_properties
         return (
             f"{self.__class__.__name__}("
             f"account_groups={_account_groups!r}, "
@@ -195,7 +180,6 @@ class UpdateMerchantUserRequest(object):
             f"name={_name!r}, "
             f"roles={_roles!r}, "
             f"time_zone_code={_time_zone_code!r}, "
-            f"additional_properties={_additional_properties!r}, "
             f")"
         )
 
@@ -236,7 +220,6 @@ class UpdateMerchantUserRequest(object):
             if hasattr(self, "time_zone_code")
             else None
         )
-        _additional_properties=self.additional_properties
         return (
             f"{self.__class__.__name__}("
             f"account_groups={_account_groups!s}, "
@@ -246,6 +229,5 @@ class UpdateMerchantUserRequest(object):
             f"name={_name!s}, "
             f"roles={_roles!s}, "
             f"time_zone_code={_time_zone_code!s}, "
-            f"additional_properties={_additional_properties!s}, "
             f")"
         )

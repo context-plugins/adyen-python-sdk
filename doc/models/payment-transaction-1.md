@@ -3,8 +3,6 @@
 
 Data related to the payment and loyalty transaction.
 
-*This model accepts additional fields of type Any.*
-
 ## Structure
 
 `PaymentTransaction1`
@@ -13,54 +11,43 @@ Data related to the payment and loyalty transaction.
 
 | Name | Type | Tags | Description |
 |  --- | --- | --- | --- |
-| `amounts_req` | [`AmountsReq1`](../../doc/models/amounts-req-1.md) | Required | - |
-| `original_poi_transaction` | [`OriginalPoiTransaction3`](../../doc/models/original-poi-transaction-3.md) | Optional | - |
-| `transaction_conditions` | [`TransactionConditions1`](../../doc/models/transaction-conditions-1.md) | Optional | - |
-| `additional_properties` | `Dict[str, Any]` | Optional | - |
+| `amounts_req` | [`AmountsReq`](../../doc/models/amounts-req.md) | Required | Various amounts related to the payment request from the Sale System. |
+| `original_poi_transaction` | [`OriginalPOITransaction`](../../doc/models/original-poi-transaction.md) | Optional | Identification of a previous POI transaction.<br>In the Payment Request message, it allows using the card of a previous CardAcquisition or Payment request. |
+| `transaction_conditions` | [`TransactionConditions`](../../doc/models/transaction-conditions.md) | Optional | Conditions on which the transaction must be processed. |
 
 ## Example
 
 ```python
 import dateutil.parser
-import jsonpickle
 
-from adyen.models.amounts_req_1 import AmountsReq1
-from adyen.models.loyalty_handling_1 import LoyaltyHandling1
-from adyen.models.original_poi_transaction_3 import OriginalPoiTransaction3
+from adyen.models.amounts_req import AmountsReq
+from adyen.models.loyalty_handling_1_enum import LoyaltyHandling1Enum
+from adyen.models.original_poi_transaction import OriginalPOITransaction
 from adyen.models.payment_transaction_1 import PaymentTransaction1
-from adyen.models.poi_transaction_id import PoiTransactionId
-from adyen.models.transaction_conditions_1 import TransactionConditions1
+from adyen.models.transaction_conditions import TransactionConditions
+from adyen.models.transaction_id_type_4 import TransactionIDType4
 
 payment_transaction_1 = PaymentTransaction1(
-    amounts_req=AmountsReq1(
+    amounts_req=AmountsReq(
         currency='Currency4',
         requested_amount=38.52,
         cash_back_amount=77.72,
         tip_amount=40.18,
         paid_amount=239.98,
         minimum_amount_to_deliver=73.38,
-        maximum_cash_back_amount=36.82,
-        additional_properties={
-            'exampleAdditionalProperty': jsonpickle.decode('{"key1":"val1","key2":"val2"}')
-        }
+        maximum_cash_back_amount=36.82
     ),
-    original_poi_transaction=OriginalPoiTransaction3(
+    original_poi_transaction=OriginalPOITransaction(
         sale_id='SaleID6',
         poiid='POIID0',
-        poi_transaction_id=PoiTransactionId(
+        poi_transaction_id=TransactionIDType4(
             transaction_id='TransactionID2',
-            time_stamp=dateutil.parser.parse('2016-03-13T12:52:32.123Z'),
-            additional_properties={
-                'exampleAdditionalProperty': jsonpickle.decode('{"key1":"val1","key2":"val2"}')
-            }
+            time_stamp=dateutil.parser.parse('2016-03-13T12:52:32.123Z')
         ),
         reuse_card_data_flag=False,
-        approval_code='ApprovalCode0',
-        additional_properties={
-            'exampleAdditionalProperty': jsonpickle.decode('{"key1":"val1","key2":"val2"}')
-        }
+        approval_code='ApprovalCode0'
     ),
-    transaction_conditions=TransactionConditions1(
+    transaction_conditions=TransactionConditions(
         allowed_payment_brand=[
             'AllowedPaymentBrand0',
             'AllowedPaymentBrand1',
@@ -76,14 +63,8 @@ payment_transaction_1 = PaymentTransaction1(
             'AllowedLoyaltyBrand8',
             'AllowedLoyaltyBrand9'
         ],
-        loyalty_handling=LoyaltyHandling1.FORBIDDEN,
-        additional_properties={
-            'exampleAdditionalProperty': jsonpickle.decode('{"key1":"val1","key2":"val2"}')
-        }
-    ),
-    additional_properties={
-        'exampleAdditionalProperty': jsonpickle.decode('{"key1":"val1","key2":"val2"}')
-    }
+        loyalty_handling=LoyaltyHandling1Enum.FORBIDDEN
+    )
 )
 ```
 

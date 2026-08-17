@@ -60,8 +60,8 @@ This endpoint requires [clientKey](../../doc/auth/custom-query-parameter.md) **O
 | `balance_account_id` | `str` | Query, Optional | The unique identifier of the [balance account](https://docs.adyen.com/api-explorer/#/balanceplatform/latest/get/balanceAccounts/{id}__queryParam_id).<br><br>Required if you don't provide an `accountHolderId` or `balancePlatform`.<br><br>If you provide an `accountHolderId`, the `balanceAccountId` must be related to the `accountHolderId`. |
 | `payment_instrument_id` | `str` | Query, Optional | The unique identifier of the [payment instrument](https://docs.adyen.com/api-explorer/balanceplatform/latest/get/paymentInstruments/_id_).<br><br>To use this parameter, you must also provide a `balanceAccountId`, `accountHolderId`, or `balancePlatform`.<br><br>The `paymentInstrumentId` must be related to the `balanceAccountId` or `accountHolderId` that you provide. |
 | `reference` | `str` | Query, Optional | The reference you provided in the POST [/transfers](https://docs.adyen.com/api-explorer/transfers/latest/post/transfers) request |
-| `category` | [`Category2`](../../doc/models/category-2.md) | Query, Optional | The category of the transfer.<br><br>Possible values:<br><br>- **bank**: A transfer involving a [transfer instrument](https://docs.adyen.com/api-explorer/legalentity/latest/post/transferInstruments#responses-200-id) or a bank account.<br><br>- **card**: A transfer involving a third-party card.<br><br>- **internal**: A transfer between [balance accounts](https://docs.adyen.com/api-explorer/balanceplatform/latest/post/balanceAccounts#responses-200-id) within your platform.<br><br>- **issuedCard**: A transfer initiated by an Adyen-issued card.<br><br>- **platformPayment**: Funds movements related to payments that are acquired for your users.<br><br>- **topUp**: An incoming transfer initiated by your user to top up their balance account. |
-| `sort_order` | [`SortOrder1`](../../doc/models/sort-order-1.md) | Query, Optional | Determines the sort order of the returned transfers. The sort order is based on the creation date of the transfers.<br><br>Possible values:<br><br>- **asc**: Ascending order, from oldest to most recent.<br><br>- **desc**: Descending order, from most recent to oldest.<br><br>Default value: **asc**. |
+| `category` | [`Category2Enum`](../../doc/models/category-2-enum.md) | Query, Optional | The category of the transfer.<br><br>Possible values:<br><br>- **bank**: A transfer involving a [transfer instrument](https://docs.adyen.com/api-explorer/legalentity/latest/post/transferInstruments#responses-200-id) or a bank account.<br><br>- **card**: A transfer involving a third-party card.<br><br>- **internal**: A transfer between [balance accounts](https://docs.adyen.com/api-explorer/balanceplatform/latest/post/balanceAccounts#responses-200-id) within your platform.<br><br>- **issuedCard**: A transfer initiated by an Adyen-issued card.<br><br>- **platformPayment**: Funds movements related to payments that are acquired for your users.<br><br>- **topUp**: An incoming transfer initiated by your user to top up their balance account. |
+| `sort_order` | [`SortOrderEnum`](../../doc/models/sort-order-enum.md) | Query, Optional | Determines the sort order of the returned transfers. The sort order is based on the creation date of the transfers.<br><br>Possible values:<br><br>- **asc**: Ascending order, from oldest to most recent.<br><br>- **desc**: Descending order, from most recent to oldest.<br><br>Default value: **asc**. |
 | `cursor` | `str` | Query, Optional | The `cursor` returned in the links of the previous response. |
 | `limit` | `int` | Query, Optional | The number of items returned per page, maximum of 100 items. By default, the response returns 10 items per page. |
 
@@ -69,7 +69,7 @@ This endpoint requires [clientKey](../../doc/auth/custom-query-parameter.md) **O
 
 **200**: OK - the request has succeeded.
 
-This method returns an [`ApiResponse`](../../doc/api-response.md) instance. The `body` property of this instance returns the response data which is of type [`FindTransfersResponse`](../../doc/models/find-transfers-response.md).
+[`FindTransfersResponse`](../../doc/models/find-transfers-response.md)
 
 ## Example Usage
 
@@ -82,11 +82,7 @@ result = transfers_api.get_transfers(
     created_since,
     created_until
 )
-
-if result.is_success():
-    print(result.body)
-elif result.is_error():
-    print(result.errors)
+print(result)
 ```
 
 ## Example Response *(as JSON)*
@@ -324,21 +320,21 @@ This endpoint requires [clientKey](../../doc/auth/custom-query-parameter.md) **O
 
 **200**: OK - The request has been accepted for processing, but has not been completed.
 
-This method returns an [`ApiResponse`](../../doc/api-response.md) instance. The `body` property of this instance returns the response data which is of type [`Transfer`](../../doc/models/transfer.md).
+[`Transfer`](../../doc/models/transfer.md)
 
 ## Example Usage
 
 ```python
 body = TransferInfo(
-    amount=Amount5(
+    amount=Amount17(
         currency='EUR',
         value=110000
     ),
-    category=Category3.BANK,
-    counterparty=CounterpartyInfoV3(
-        bank_account=BankAccountV3(
-            account_holder=PartyIdentification(
-                address=Address8(
+    category=Category3Enum.BANK,
+    counterparty=CounterpartyInfoV31(
+        bank_account=BankAccountV31(
+            account_holder=PartyIdentification3(
+                address=Address12(
                     country='US',
                     city='San Francisco',
                     line_1='274',
@@ -350,14 +346,13 @@ body = TransferInfo(
             ),
             account_identification=NumberAndBicAccountIdentification(
                 account_number='123456789',
-                bic='BOFAUS3NXXX',
-                mtype=Type244.NUMBERANDBIC
+                bic='BOFAUS3NXXX'
             )
         )
     ),
     balance_account_id='BAB8B2C3D4E5F6G7H8D9J6GD4',
     description='Your description for the transfer',
-    priority=Priority.CROSSBORDER,
+    priority=Priority1Enum.CROSSBORDER,
     reference='Your internal reference for the transfer',
     reference_for_beneficiary='Your-reference-sent-to-the-beneficiary'
 )
@@ -365,18 +360,14 @@ body = TransferInfo(
 result = transfers_api.post_transfers(
     body=body
 )
-
-if result.is_success():
-    print(result.body)
-elif result.is_error():
-    print(result.errors)
+print(result)
 ```
 
 ## Errors
 
 | HTTP Status Code | Error Description | Exception Class |
 |  --- | --- | --- |
-| 401 | Unauthorized - authentication required. | [`ServiceErrorException`](../../doc/models/service-error-exception.md) |
+| 401 | Unauthorized - authentication required. | [`ServiceErrorError1Exception`](../../doc/models/service-error-error-1-exception.md) |
 | 403 | Forbidden - insufficient permissions to process the request. | [`TransferServiceRestServiceErrorException`](../../doc/models/transfer-service-rest-service-error-exception.md) |
 | 422 | Unprocessable Entity - a request validation error. | [`TransferServiceRestServiceErrorException`](../../doc/models/transfer-service-rest-service-error-exception.md) |
 | 500 | Internal Server Error - the server could not process the request. | [`TransferServiceRestServiceErrorException`](../../doc/models/transfer-service-rest-service-error-exception.md) |
@@ -416,7 +407,7 @@ This endpoint requires [clientKey](../../doc/auth/custom-query-parameter.md) **O
 
 **200**: No Content - look at the actual response code for the status of the request.
 
-This method returns an [`ApiResponse`](../../doc/api-response.md) instance. The `body` property of this instance returns the response data which is of type `Any`.
+`Any`
 
 ## Example Usage
 
@@ -431,11 +422,7 @@ body = ApproveTransfersRequest(
 result = transfers_api.post_transfers_approve(
     body=body
 )
-
-if result.is_success():
-    print(result.body)
-elif result.is_error():
-    print(result.errors)
+print(result)
 ```
 
 ## Example Response
@@ -448,7 +435,7 @@ elif result.is_error():
 
 | HTTP Status Code | Error Description | Exception Class |
 |  --- | --- | --- |
-| 401 | Unauthorized - authentication required. | [`ServiceErrorException`](../../doc/models/service-error-exception.md) |
+| 401 | Unauthorized - authentication required. | [`ServiceErrorError1Exception`](../../doc/models/service-error-error-1-exception.md) |
 | 403 | Forbidden - insufficient permissions to process the request. | [`TransferServiceRestServiceErrorException`](../../doc/models/transfer-service-rest-service-error-exception.md) |
 | 422 | Unprocessable Entity - a request validation error. | [`TransferServiceRestServiceErrorException`](../../doc/models/transfer-service-rest-service-error-exception.md) |
 | 500 | Internal Server Error - the server could not process the request. | [`TransferServiceRestServiceErrorException`](../../doc/models/transfer-service-rest-service-error-exception.md) |
@@ -486,7 +473,7 @@ This endpoint requires [clientKey](../../doc/auth/custom-query-parameter.md) **O
 
 **200**: No Content - look at the actual response code for the status of the request.
 
-This method returns an [`ApiResponse`](../../doc/api-response.md) instance. The `body` property of this instance returns the response data which is of type `Any`.
+`Any`
 
 ## Example Usage
 
@@ -501,11 +488,7 @@ body = CancelTransfersRequest(
 result = transfers_api.post_transfers_cancel(
     body=body
 )
-
-if result.is_success():
-    print(result.body)
-elif result.is_error():
-    print(result.errors)
+print(result)
 ```
 
 ## Example Response
@@ -547,7 +530,7 @@ This endpoint requires [clientKey](../../doc/auth/custom-query-parameter.md) **O
 
 **200**: OK - the request has succeeded.
 
-This method returns an [`ApiResponse`](../../doc/api-response.md) instance. The `body` property of this instance returns the response data which is of type [`TransferData`](../../doc/models/transfer-data.md).
+[`TransferData`](../../doc/models/transfer-data.md)
 
 ## Example Usage
 
@@ -555,11 +538,7 @@ This method returns an [`ApiResponse`](../../doc/api-response.md) instance. The 
 id = 'id0'
 
 result = transfers_api.get_transfers_id(id)
-
-if result.is_success():
-    print(result.body)
-elif result.is_error():
-    print(result.errors)
+print(result)
 ```
 
 ## Example Response *(as JSON)*
@@ -688,7 +667,7 @@ This endpoint requires [clientKey](../../doc/auth/custom-query-parameter.md) **O
 
 **200**: OK - the request has succeeded.
 
-This method returns an [`ApiResponse`](../../doc/api-response.md) instance. The `body` property of this instance returns the response data which is of type [`ReturnTransferResponse`](../../doc/models/return-transfer-response.md).
+[`ReturnTransferResponse`](../../doc/models/return-transfer-response.md)
 
 ## Example Usage
 
@@ -696,7 +675,7 @@ This method returns an [`ApiResponse`](../../doc/api-response.md) instance. The 
 transfer_id = 'transferId8'
 
 body = ReturnTransferRequest(
-    amount=Amount5(
+    amount=Amount17(
         currency='EUR',
         value=189
     ),
@@ -707,11 +686,7 @@ result = transfers_api.post_transfers_transfer_id_returns(
     transfer_id,
     body=body
 )
-
-if result.is_success():
-    print(result.body)
-elif result.is_error():
-    print(result.errors)
+print(result)
 ```
 
 ## Example Response *(as JSON)*

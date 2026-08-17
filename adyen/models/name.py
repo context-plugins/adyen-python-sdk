@@ -10,13 +10,19 @@ from adyen.api_helper import APIHelper
 class Name(object):
     """Implementation of the 'Name' model.
 
-    The name of the person funding the money.
+    Name of the person., The shopper's full name., the name of the person, The name
+    of the shopper., The shopper's full name., The shopper's name.
+    When the `entityType` is `Company`, the `shopperName.lastName` must contain the
+    company name., The shopper's name.
+    In case the `entityType` is `Company`, the `shopperName.lastName` must contain
+    the company name.
+    > This field is required to update the existing `shopperName` associated with a
+    recurring contract., Name of the person., The user's full name.
+    Allowed length: 1—80 characters., The user's full name., The name of the contact.
 
     Attributes:
         first_name (str): The first name.
         last_name (str): The last name.
-        additional_properties (Dict[str, Any]): The additional properties for the
-            model.
 
     """
 
@@ -29,17 +35,11 @@ class Name(object):
     def __init__(
         self,
         first_name=None,
-        last_name=None,
-        additional_properties=None):
+        last_name=None):
         """Initialize a Name instance."""
         # Initialize members of the class
         self.first_name = first_name
         self.last_name = last_name
-
-        # Add additional model properties to the instance
-        if additional_properties is None:
-            additional_properties = {}
-        self.additional_properties = additional_properties
 
     @classmethod
     def from_dictionary(cls,
@@ -68,26 +68,65 @@ class Name(object):
             if dictionary.get("lastName")\
                 else None
 
-        additional_properties = APIHelper.get_additional_properties(
-            dictionary={k: v for k, v in dictionary.items()
-                        if k not in cls._names.values()},
-            unboxing_function=lambda value: value)
-
         # Return an object of this model
         return cls(first_name,
-                   last_name,
-                   additional_properties)
+                   last_name)
+
+    @classmethod
+    def validate(cls, dictionary):
+        """Validate dictionary against class required properties
+
+        Args:
+            dictionary (dictionary): A dictionary representation of the object
+            as obtained from the deserialization of the server's response. The
+            keys MUST match property names in the API description.
+
+        Returns:
+            boolean : if dictionary is valid contains required properties.
+
+        """
+        if isinstance(dictionary, cls):
+            return APIHelper.is_valid_type(
+                    value=dictionary.first_name,
+                    type_callable=lambda value:
+                        isinstance(
+                        value,
+                        str,
+                )) \
+                and APIHelper.is_valid_type(
+                    value=dictionary.last_name,
+                    type_callable=lambda value:
+                        isinstance(
+                        value,
+                        str,
+                ))
+
+        if not isinstance(dictionary, dict):
+            return False
+
+        return APIHelper.is_valid_type(
+                value=dictionary.get("firstName"),
+                type_callable=lambda value:
+                    isinstance(
+                    value,
+                    str,
+            )) \
+            and APIHelper.is_valid_type(
+                value=dictionary.get("lastName"),
+                type_callable=lambda value:
+                    isinstance(
+                    value,
+                    str,
+            ))
 
     def __repr__(self):
         """Return a unambiguous string representation."""
         _first_name=self.first_name
         _last_name=self.last_name
-        _additional_properties=self.additional_properties
         return (
             f"{self.__class__.__name__}("
             f"first_name={_first_name!r}, "
             f"last_name={_last_name!r}, "
-            f"additional_properties={_additional_properties!r}, "
             f")"
         )
 
@@ -95,11 +134,9 @@ class Name(object):
         """Return a human-readable string representation."""
         _first_name=self.first_name
         _last_name=self.last_name
-        _additional_properties=self.additional_properties
         return (
             f"{self.__class__.__name__}("
             f"first_name={_first_name!s}, "
             f"last_name={_last_name!s}, "
-            f"additional_properties={_additional_properties!s}, "
             f")"
         )

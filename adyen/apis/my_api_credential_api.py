@@ -31,12 +31,12 @@ from adyen.models.generate_client_key_response import (
 from adyen.models.me_api_credential import MeApiCredential
 
 
-class MyApiCredentialApi(BaseApi):
+class MyAPICredentialApi(BaseApi):
     """A Controller to access Endpoints in the adyen API."""
 
     def __init__(self, config):
-        """Initialize MyApiCredentialApi object."""
-        super(MyApiCredentialApi, self).__init__(config)
+        """Initialize MyAPICredentialApi object."""
+        super(MyAPICredentialApi, self).__init__(config)
 
     def get_me(self):
         """Perform a GET request to /me.
@@ -47,18 +47,16 @@ class MyApiCredentialApi(BaseApi):
         You can make this request with any of the Management API roles.
 
         Returns:
-            ApiResponse: An object with the response value as well as other useful
-                information such as status codes and headers. OK - the request has
-                succeeded.
+            MeApiCredential: Response from the API. OK - the request has succeeded.
 
         Raises:
-            ApiException: When an error occurs while fetching the data from the
+            APIException: When an error occurs while fetching the data from the
                 remote API. This exception includes the HTTP Response code, an error
                 message, and the HTTP body that was received in the request.
 
         """
         return super().new_api_call_builder.request(
-            RequestBuilder().server(Server.DEFAULT)
+            RequestBuilder().server(Server.DEFAULT9)
             .path("/me")
             .http_method(HttpMethodEnum.GET)
             .header_param(Parameter()
@@ -69,7 +67,6 @@ class MyApiCredentialApi(BaseApi):
             ResponseHandler()
             .deserializer(APIHelper.json_deserialize)
             .deserialize_into(MeApiCredential.from_dictionary)
-            .is_api_response(True)
             .local_error("400",
                 "Bad Request - a problem reading or understanding the request.",
                 RestServiceErrorException)
@@ -98,18 +95,17 @@ class MyApiCredentialApi(BaseApi):
         You can make this request with any of the Management API roles.
 
         Returns:
-            ApiResponse: An object with the response value as well as other useful
-                information such as status codes and headers. OK - the request has
+            AllowedOriginsResponse: Response from the API. OK - the request has
                 succeeded.
 
         Raises:
-            ApiException: When an error occurs while fetching the data from the
+            APIException: When an error occurs while fetching the data from the
                 remote API. This exception includes the HTTP Response code, an error
                 message, and the HTTP body that was received in the request.
 
         """
         return super().new_api_call_builder.request(
-            RequestBuilder().server(Server.DEFAULT)
+            RequestBuilder().server(Server.DEFAULT9)
             .path("/me/allowedOrigins")
             .http_method(HttpMethodEnum.GET)
             .header_param(Parameter()
@@ -120,7 +116,6 @@ class MyApiCredentialApi(BaseApi):
             ResponseHandler()
             .deserializer(APIHelper.json_deserialize)
             .deserialize_into(AllowedOriginsResponse.from_dictionary)
-            .is_api_response(True)
             .local_error("400",
                 "Bad Request - a problem reading or understanding the request.",
                 RestServiceErrorException)
@@ -153,18 +148,16 @@ class MyApiCredentialApi(BaseApi):
             body (CreateAllowedOriginRequest, optional): The request body parameter.
 
         Returns:
-            ApiResponse: An object with the response value as well as other useful
-                information such as status codes and headers. OK - the request has
-                succeeded.
+            AllowedOrigin: Response from the API. OK - the request has succeeded.
 
         Raises:
-            ApiException: When an error occurs while fetching the data from the
+            APIException: When an error occurs while fetching the data from the
                 remote API. This exception includes the HTTP Response code, an error
                 message, and the HTTP body that was received in the request.
 
         """
         return super().new_api_call_builder.request(
-            RequestBuilder().server(Server.DEFAULT)
+            RequestBuilder().server(Server.DEFAULT9)
             .path("/me/allowedOrigins")
             .http_method(HttpMethodEnum.POST)
             .header_param(Parameter()
@@ -181,7 +174,6 @@ class MyApiCredentialApi(BaseApi):
             ResponseHandler()
             .deserializer(APIHelper.json_deserialize)
             .deserialize_into(AllowedOrigin.from_dictionary)
-            .is_api_response(True)
             .local_error("400",
                 "Bad Request - a problem reading or understanding the request.",
                 RestServiceErrorException)
@@ -214,24 +206,21 @@ class MyApiCredentialApi(BaseApi):
             origin_id (str): Unique identifier of the allowed origin.
 
         Returns:
-            ApiResponse: An object with the response value as well as other useful
-                information such as status codes and headers. OK - the request has
-                succeeded.
+            AllowedOrigin: Response from the API. OK - the request has succeeded.
 
         Raises:
-            ApiException: When an error occurs while fetching the data from the
+            APIException: When an error occurs while fetching the data from the
                 remote API. This exception includes the HTTP Response code, an error
                 message, and the HTTP body that was received in the request.
 
         """
         return super().new_api_call_builder.request(
-            RequestBuilder().server(Server.DEFAULT)
+            RequestBuilder().server(Server.DEFAULT9)
             .path("/me/allowedOrigins/{originId}")
             .http_method(HttpMethodEnum.GET)
             .template_param(Parameter()
                 .key("originId")
                 .value(origin_id)
-                .is_required(True)
                 .should_encode(True))
             .header_param(Parameter()
                 .key("accept")
@@ -241,7 +230,6 @@ class MyApiCredentialApi(BaseApi):
             ResponseHandler()
             .deserializer(APIHelper.json_deserialize)
             .deserialize_into(AllowedOrigin.from_dictionary)
-            .is_api_response(True)
             .local_error("400",
                 "Bad Request - a problem reading or understanding the request.",
                 RestServiceErrorException)
@@ -274,44 +262,24 @@ class MyApiCredentialApi(BaseApi):
             origin_id (str): Unique identifier of the allowed origin.
 
         Returns:
-            ApiResponse: An object with the response value as well as other useful
-                information such as status codes and headers. No Content - look at
-                the actual response code for the status of the request.
+            void: Response from the API. No Content - look at the actual response
+                code for the status of the request.
 
         Raises:
-            ApiException: When an error occurs while fetching the data from the
+            APIException: When an error occurs while fetching the data from the
                 remote API. This exception includes the HTTP Response code, an error
                 message, and the HTTP body that was received in the request.
 
         """
         return super().new_api_call_builder.request(
-            RequestBuilder().server(Server.DEFAULT)
+            RequestBuilder().server(Server.DEFAULT9)
             .path("/me/allowedOrigins/{originId}")
             .http_method(HttpMethodEnum.DELETE)
             .template_param(Parameter()
                 .key("originId")
                 .value(origin_id)
-                .is_required(True)
                 .should_encode(True))
             .auth(Or(Single("BasicAuth"), Single("ApiKeyAuth"))),
-        ).response(
-            ResponseHandler()
-            .is_api_response(True)
-            .local_error("400",
-                "Bad Request - a problem reading or understanding the request.",
-                RestServiceErrorException)
-            .local_error("401",
-                "Unauthorized - authentication required.",
-                RestServiceErrorException)
-            .local_error("403",
-                "Forbidden - insufficient permissions to process the request.",
-                RestServiceErrorException)
-            .local_error("422",
-                "Unprocessable Entity - a request validation error.",
-                RestServiceErrorException)
-            .local_error("500",
-                "Internal Server Error - the server could not process the request.",
-                RestServiceErrorException),
         ).execute()
 
     def post_me_generate_client_key(self):
@@ -328,18 +296,17 @@ class MyApiCredentialApi(BaseApi):
         * Management API—API credentials read and write
 
         Returns:
-            ApiResponse: An object with the response value as well as other useful
-                information such as status codes and headers. OK - the request has
+            GenerateClientKeyResponse: Response from the API. OK - the request has
                 succeeded.
 
         Raises:
-            ApiException: When an error occurs while fetching the data from the
+            APIException: When an error occurs while fetching the data from the
                 remote API. This exception includes the HTTP Response code, an error
                 message, and the HTTP body that was received in the request.
 
         """
         return super().new_api_call_builder.request(
-            RequestBuilder().server(Server.DEFAULT)
+            RequestBuilder().server(Server.DEFAULT9)
             .path("/me/generateClientKey")
             .http_method(HttpMethodEnum.POST)
             .header_param(Parameter()
@@ -350,7 +317,6 @@ class MyApiCredentialApi(BaseApi):
             ResponseHandler()
             .deserializer(APIHelper.json_deserialize)
             .deserialize_into(GenerateClientKeyResponse.from_dictionary)
-            .is_api_response(True)
             .local_error("400",
                 "Bad Request - a problem reading or understanding the request.",
                 RestServiceErrorException)

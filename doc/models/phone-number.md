@@ -1,8 +1,6 @@
 
 # Phone Number
 
-*This model accepts additional fields of type Any.*
-
 ## Structure
 
 `PhoneNumber`
@@ -14,22 +12,15 @@
 | `number` | `str` | Required | The full phone number, including the country code. For example, **+3112345678**. |
 | `phone_country_code` | `str` | Optional, Read-only | The two-letter [ISO 3166-1 alpha-2](https://en.wikipedia.org/wiki/ISO_3166-1_alpha-2) country code prefix of the phone number. For example, **US** or **NL**.<br><br>The value of the `phoneCountryCode` is determined by the country code digit(s) of `phone.number` |
 | `mtype` | `str` | Optional | The type of phone number.<br>Possible values: **mobile**, **landline**, **sip**, **fax.** |
-| `additional_properties` | `Dict[str, Any]` | Optional | - |
 
 ## Example
 
 ```python
-import jsonpickle
-
 from adyen.models.phone_number import PhoneNumber
 
 phone_number = PhoneNumber(
     number='number0',
-    phone_country_code='phoneCountryCode0',
-    mtype='type8',
-    additional_properties={
-        'exampleAdditionalProperty': jsonpickle.decode('{"key1":"val1","key2":"val2"}')
-    }
+    mtype='type8'
 )
 ```
 

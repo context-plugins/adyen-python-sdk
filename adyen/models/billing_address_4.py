@@ -28,8 +28,6 @@ class BillingAddress4(object):
         street (str): The name of the street. Maximum length: 3000 characters. > The
             house number should not be included in this field; it should be
             separately provided via `houseNumberOrName`.
-        additional_properties (Dict[str, Any]): The additional properties for the
-            model.
 
     """
 
@@ -54,8 +52,7 @@ class BillingAddress4(object):
         house_number_or_name=None,
         postal_code=None,
         street=None,
-        state_or_province=APIHelper.SKIP,
-        additional_properties=None):
+        state_or_province=APIHelper.SKIP):
         """Initialize a BillingAddress4 instance."""
         # Initialize members of the class
         self.city = city
@@ -65,11 +62,6 @@ class BillingAddress4(object):
         if state_or_province is not APIHelper.SKIP:
             self.state_or_province = state_or_province
         self.street = street
-
-        # Add additional model properties to the instance
-        if additional_properties is None:
-            additional_properties = {}
-        self.additional_properties = additional_properties
 
     @classmethod
     def from_dictionary(cls,
@@ -114,19 +106,102 @@ class BillingAddress4(object):
             if dictionary.get("stateOrProvince")\
                 else APIHelper.SKIP
 
-        additional_properties = APIHelper.get_additional_properties(
-            dictionary={k: v for k, v in dictionary.items()
-                        if k not in cls._names.values()},
-            unboxing_function=lambda value: value)
-
         # Return an object of this model
         return cls(city,
                    country,
                    house_number_or_name,
                    postal_code,
                    street,
-                   state_or_province,
-                   additional_properties)
+                   state_or_province)
+
+    @classmethod
+    def validate(cls, dictionary):
+        """Validate dictionary against class required properties
+
+        Args:
+            dictionary (dictionary): A dictionary representation of the object
+            as obtained from the deserialization of the server's response. The
+            keys MUST match property names in the API description.
+
+        Returns:
+            boolean : if dictionary is valid contains required properties.
+
+        """
+        if isinstance(dictionary, cls):
+            return APIHelper.is_valid_type(
+                    value=dictionary.city,
+                    type_callable=lambda value:
+                        isinstance(
+                        value,
+                        str,
+                )) \
+                and APIHelper.is_valid_type(
+                    value=dictionary.country,
+                    type_callable=lambda value:
+                        isinstance(
+                        value,
+                        str,
+                )) \
+                and APIHelper.is_valid_type(
+                    value=dictionary.house_number_or_name,
+                    type_callable=lambda value:
+                        isinstance(
+                        value,
+                        str,
+                )) \
+                and APIHelper.is_valid_type(
+                    value=dictionary.postal_code,
+                    type_callable=lambda value:
+                        isinstance(
+                        value,
+                        str,
+                )) \
+                and APIHelper.is_valid_type(
+                    value=dictionary.street,
+                    type_callable=lambda value:
+                        isinstance(
+                        value,
+                        str,
+                ))
+
+        if not isinstance(dictionary, dict):
+            return False
+
+        return APIHelper.is_valid_type(
+                value=dictionary.get("city"),
+                type_callable=lambda value:
+                    isinstance(
+                    value,
+                    str,
+            )) \
+            and APIHelper.is_valid_type(
+                value=dictionary.get("country"),
+                type_callable=lambda value:
+                    isinstance(
+                    value,
+                    str,
+            )) \
+            and APIHelper.is_valid_type(
+                value=dictionary.get("houseNumberOrName"),
+                type_callable=lambda value:
+                    isinstance(
+                    value,
+                    str,
+            )) \
+            and APIHelper.is_valid_type(
+                value=dictionary.get("postalCode"),
+                type_callable=lambda value:
+                    isinstance(
+                    value,
+                    str,
+            )) \
+            and APIHelper.is_valid_type(
+                value=dictionary.get("street"),
+                type_callable=lambda value:
+                    isinstance(
+                    value,
+                    str,
+            ))
 
     def __repr__(self):
         """Return a unambiguous string representation."""
@@ -140,7 +215,6 @@ class BillingAddress4(object):
             else None
         )
         _street=self.street
-        _additional_properties=self.additional_properties
         return (
             f"{self.__class__.__name__}("
             f"city={_city!r}, "
@@ -149,7 +223,6 @@ class BillingAddress4(object):
             f"postal_code={_postal_code!r}, "
             f"state_or_province={_state_or_province!r}, "
             f"street={_street!r}, "
-            f"additional_properties={_additional_properties!r}, "
             f")"
         )
 
@@ -165,7 +238,6 @@ class BillingAddress4(object):
             else None
         )
         _street=self.street
-        _additional_properties=self.additional_properties
         return (
             f"{self.__class__.__name__}("
             f"city={_city!s}, "
@@ -174,6 +246,5 @@ class BillingAddress4(object):
             f"postal_code={_postal_code!s}, "
             f"state_or_province={_state_or_province!s}, "
             f"street={_street!s}, "
-            f"additional_properties={_additional_properties!s}, "
             f")"
         )

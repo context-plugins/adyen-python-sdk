@@ -1,13 +1,11 @@
 
-# Three Ds 2 Response Data 1
+# Three DS 2 Response Data 1
 
 Response of the 3D Secure 2 authentication.
 
-*This model accepts additional fields of type Any.*
-
 ## Structure
 
-`ThreeDs2ResponseData1`
+`ThreeDS2ResponseData1`
 
 ## Fields
 
@@ -32,24 +30,18 @@ Response of the 3D Secure 2 authentication.
 | `three_ds_server_trans_id` | `str` | Optional | - |
 | `trans_status` | `str` | Optional | - |
 | `trans_status_reason` | `str` | Optional | - |
-| `additional_properties` | `Dict[str, Any]` | Optional | - |
 
 ## Example
 
 ```python
-import jsonpickle
+from adyen.models.three_ds_2_response_data_1 import ThreeDS2ResponseData1
 
-from adyen.models.three_ds_2_response_data_1 import ThreeDs2ResponseData1
-
-three_ds_2_response_data_1 = ThreeDs2ResponseData1(
+three_ds_2_response_data_1 = ThreeDS2ResponseData1(
     acs_challenge_mandated='acsChallengeMandated4',
     acs_operator_id='acsOperatorID6',
     acs_reference_number='acsReferenceNumber6',
     acs_signed_content='acsSignedContent0',
-    acs_trans_id='acsTransID6',
-    additional_properties={
-        'exampleAdditionalProperty': jsonpickle.decode('{"key1":"val1","key2":"val2"}')
-    }
+    acs_trans_id='acsTransID6'
 )
 ```
 

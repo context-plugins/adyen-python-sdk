@@ -23,8 +23,6 @@ class RiskData4(object):
         profile_reference (str): The risk profile to assign to this payment. When
             left empty, the merchant-level account's default risk profile will be
             applied.
-        additional_properties (Dict[str, Any]): The additional properties for the
-            model.
 
     """
 
@@ -48,8 +46,7 @@ class RiskData4(object):
         client_data=APIHelper.SKIP,
         custom_fields=APIHelper.SKIP,
         fraud_offset=APIHelper.SKIP,
-        profile_reference=APIHelper.SKIP,
-        additional_properties=None):
+        profile_reference=APIHelper.SKIP):
         """Initialize a RiskData4 instance."""
         # Initialize members of the class
         if client_data is not APIHelper.SKIP:
@@ -60,11 +57,6 @@ class RiskData4(object):
             self.fraud_offset = fraud_offset
         if profile_reference is not APIHelper.SKIP:
             self.profile_reference = profile_reference
-
-        # Add additional model properties to the instance
-        if additional_properties is None:
-            additional_properties = {}
-        self.additional_properties = additional_properties
 
     @classmethod
     def from_dictionary(cls,
@@ -101,17 +93,32 @@ class RiskData4(object):
             if dictionary.get("profileReference")\
                 else APIHelper.SKIP
 
-        additional_properties = APIHelper.get_additional_properties(
-            dictionary={k: v for k, v in dictionary.items()
-                        if k not in cls._names.values()},
-            unboxing_function=lambda value: value)
-
         # Return an object of this model
         return cls(client_data,
                    custom_fields,
                    fraud_offset,
-                   profile_reference,
-                   additional_properties)
+                   profile_reference)
+
+    @classmethod
+    def validate(cls, dictionary):
+        """Validate dictionary against class required properties
+
+        Args:
+            dictionary (dictionary): A dictionary representation of the object
+            as obtained from the deserialization of the server's response. The
+            keys MUST match property names in the API description.
+
+        Returns:
+            boolean : if dictionary is valid contains required properties.
+
+        """
+        if isinstance(dictionary, cls):
+            return True
+
+        if not isinstance(dictionary, dict):
+            return False
+
+        return True
 
     def __repr__(self):
         """Return a unambiguous string representation."""
@@ -135,14 +142,12 @@ class RiskData4(object):
             if hasattr(self, "profile_reference")
             else None
         )
-        _additional_properties=self.additional_properties
         return (
             f"{self.__class__.__name__}("
             f"client_data={_client_data!r}, "
             f"custom_fields={_custom_fields!r}, "
             f"fraud_offset={_fraud_offset!r}, "
             f"profile_reference={_profile_reference!r}, "
-            f"additional_properties={_additional_properties!r}, "
             f")"
         )
 
@@ -168,13 +173,11 @@ class RiskData4(object):
             if hasattr(self, "profile_reference")
             else None
         )
-        _additional_properties=self.additional_properties
         return (
             f"{self.__class__.__name__}("
             f"client_data={_client_data!s}, "
             f"custom_fields={_custom_fields!s}, "
             f"fraud_offset={_fraud_offset!s}, "
             f"profile_reference={_profile_reference!s}, "
-            f"additional_properties={_additional_properties!s}, "
             f")"
         )

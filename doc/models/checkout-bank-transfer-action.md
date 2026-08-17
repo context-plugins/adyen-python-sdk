@@ -1,8 +1,6 @@
 
 # Checkout Bank Transfer Action
 
-*This model accepts additional fields of type Any.*
-
 ## Structure
 
 `CheckoutBankTransferAction`
@@ -23,29 +21,21 @@
 | `routing_number` | `str` | Optional | The routing number of the bank transfer. |
 | `shopper_email` | `str` | Optional | The e-mail of the shopper, included if an e-mail was sent to the shopper. |
 | `sort_code` | `str` | Optional | The sort code of the bank transfer. |
-| `total_amount` | [`TotalAmount2`](../../doc/models/total-amount-2.md) | Optional | - |
-| `mtype` | [`Type503`](../../doc/models/type-503.md) | Required | The type of the action. |
+| `total_amount` | [`Amount10`](../../doc/models/amount-10.md) | Optional | The amount of the bank transfer. |
+| `mtype` | `str` | Required, Constant | The type of the action.<br><br>**Value**: `"bankTransfer"` |
 | `url` | `str` | Optional | Specifies the URL to redirect to. |
-| `additional_properties` | `Dict[str, Any]` | Optional | - |
 
 ## Example
 
 ```python
-import jsonpickle
-
 from adyen.models.checkout_bank_transfer_action import CheckoutBankTransferAction
-from adyen.models.type_503 import Type503
 
 checkout_bank_transfer_action = CheckoutBankTransferAction(
-    mtype=Type503.BANKTRANSFER,
     account_number='accountNumber8',
     bank_code='bankCode0',
     beneficiary='beneficiary8',
     bic='bic2',
-    branch_code='branchCode8',
-    additional_properties={
-        'exampleAdditionalProperty': jsonpickle.decode('{"key1":"val1","key2":"val2"}')
-    }
+    branch_code='branchCode8'
 )
 ```
 

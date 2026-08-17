@@ -16,8 +16,6 @@ class GetStoresUnderAccountRequest(object):
             are associated with the company account.
         merchant_account (str): The merchant account. With this parameter, the
             response only includes the stores of the specified merchant account.
-        additional_properties (Dict[str, Any]): The additional properties for the
-            model.
 
     """
 
@@ -34,18 +32,12 @@ class GetStoresUnderAccountRequest(object):
     def __init__(
         self,
         company_account=None,
-        merchant_account=APIHelper.SKIP,
-        additional_properties=None):
+        merchant_account=APIHelper.SKIP):
         """Initialize a GetStoresUnderAccountRequest instance."""
         # Initialize members of the class
         self.company_account = company_account
         if merchant_account is not APIHelper.SKIP:
             self.merchant_account = merchant_account
-
-        # Add additional model properties to the instance
-        if additional_properties is None:
-            additional_properties = {}
-        self.additional_properties = additional_properties
 
     @classmethod
     def from_dictionary(cls,
@@ -74,15 +66,9 @@ class GetStoresUnderAccountRequest(object):
             if dictionary.get("merchantAccount")\
                 else APIHelper.SKIP
 
-        additional_properties = APIHelper.get_additional_properties(
-            dictionary={k: v for k, v in dictionary.items()
-                        if k not in cls._names.values()},
-            unboxing_function=lambda value: value)
-
         # Return an object of this model
         return cls(company_account,
-                   merchant_account,
-                   additional_properties)
+                   merchant_account)
 
     def __repr__(self):
         """Return a unambiguous string representation."""
@@ -92,12 +78,10 @@ class GetStoresUnderAccountRequest(object):
             if hasattr(self, "merchant_account")
             else None
         )
-        _additional_properties=self.additional_properties
         return (
             f"{self.__class__.__name__}("
             f"company_account={_company_account!r}, "
             f"merchant_account={_merchant_account!r}, "
-            f"additional_properties={_additional_properties!r}, "
             f")"
         )
 
@@ -109,11 +93,9 @@ class GetStoresUnderAccountRequest(object):
             if hasattr(self, "merchant_account")
             else None
         )
-        _additional_properties=self.additional_properties
         return (
             f"{self.__class__.__name__}("
             f"company_account={_company_account!s}, "
             f"merchant_account={_merchant_account!s}, "
-            f"additional_properties={_additional_properties!s}, "
             f")"
         )

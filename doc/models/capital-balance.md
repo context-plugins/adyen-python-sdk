@@ -1,9 +1,7 @@
 
 # Capital Balance
 
-Contains information about the balances of the disbursement.
-
-*This model accepts additional fields of type Any.*
+An object containing the details of the existing grant., Contains information about the balances of the disbursement., Contains information about the balances of the grant.
 
 ## Structure
 
@@ -17,23 +15,17 @@ Contains information about the balances of the disbursement.
 | `fee` | `int` | Required | Fee amount. |
 | `principal` | `int` | Required | Principal amount. |
 | `total` | `int` | Required | Total amount. A sum of principal amount and fee amount. |
-| `additional_properties` | `Dict[str, Any]` | Optional | - |
 
 ## Example
 
 ```python
-import jsonpickle
-
 from adyen.models.capital_balance import CapitalBalance
 
 capital_balance = CapitalBalance(
     currency='currency0',
     fee=236,
     principal=18,
-    total=198,
-    additional_properties={
-        'exampleAdditionalProperty': jsonpickle.decode('{"key1":"val1","key2":"val2"}')
-    }
+    total=198
 )
 ```
 

@@ -13,14 +13,14 @@ class AssociationListing(object):
     Attributes:
         created_at (datetime): The date and time when the association was created.
         entity_id (str): The unique identifier of the entity.
-        entity_type (ScaEntityType2): The model property of type ScaEntityType2.
+        entity_type (ScaEntityType2Enum): The type of the entity.   Possible values:
+            **accountHolder**, **legalEntity** or **paymentInstrument**.
         sca_device_id (str): The unique identifier of the SCA device.
         sca_device_name (str): The human-readable name for the SCA device that was
             registered.
-        sca_device_type (ScaDeviceType3): The model property of type ScaDeviceType3.
-        status (AssociationStatus1): The model property of type AssociationStatus1.
-        additional_properties (Dict[str, Any]): The additional properties for the
-            model.
+        sca_device_type (ScaDeviceType3Enum): The type of the device.
+        status (AssociationStatus1Enum): The status of the association.   Possible
+            values: **active** or **pendingApproval**.
 
     """
 
@@ -47,8 +47,7 @@ class AssociationListing(object):
         sca_device_id=None,
         sca_device_type=None,
         status=None,
-        sca_device_name=APIHelper.SKIP,
-        additional_properties=None):
+        sca_device_name=APIHelper.SKIP):
         """Initialize a AssociationListing instance."""
         # Initialize members of the class
         self.created_at =\
@@ -62,11 +61,6 @@ class AssociationListing(object):
             self.sca_device_name = sca_device_name
         self.sca_device_type = sca_device_type
         self.status = status
-
-        # Add additional model properties to the instance
-        if additional_properties is None:
-            additional_properties = {}
-        self.additional_properties = additional_properties
 
     @classmethod
     def from_dictionary(cls,
@@ -114,11 +108,6 @@ class AssociationListing(object):
             if dictionary.get("scaDeviceName")\
                 else APIHelper.SKIP
 
-        additional_properties = APIHelper.get_additional_properties(
-            dictionary={k: v for k, v in dictionary.items()
-                        if k not in cls._names.values()},
-            unboxing_function=lambda value: value)
-
         # Return an object of this model
         return cls(created_at,
                    entity_id,
@@ -126,8 +115,7 @@ class AssociationListing(object):
                    sca_device_id,
                    sca_device_type,
                    status,
-                   sca_device_name,
-                   additional_properties)
+                   sca_device_name)
 
     def __repr__(self):
         """Return a unambiguous string representation."""
@@ -142,7 +130,6 @@ class AssociationListing(object):
         )
         _sca_device_type=self.sca_device_type
         _status=self.status
-        _additional_properties=self.additional_properties
         return (
             f"{self.__class__.__name__}("
             f"created_at={_created_at!r}, "
@@ -152,7 +139,6 @@ class AssociationListing(object):
             f"sca_device_name={_sca_device_name!r}, "
             f"sca_device_type={_sca_device_type!r}, "
             f"status={_status!r}, "
-            f"additional_properties={_additional_properties!r}, "
             f")"
         )
 
@@ -169,7 +155,6 @@ class AssociationListing(object):
         )
         _sca_device_type=self.sca_device_type
         _status=self.status
-        _additional_properties=self.additional_properties
         return (
             f"{self.__class__.__name__}("
             f"created_at={_created_at!s}, "
@@ -179,6 +164,5 @@ class AssociationListing(object):
             f"sca_device_name={_sca_device_name!s}, "
             f"sca_device_type={_sca_device_type!s}, "
             f"status={_status!s}, "
-            f"additional_properties={_additional_properties!s}, "
             f")"
         )

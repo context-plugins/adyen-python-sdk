@@ -1,8 +1,6 @@
 
 # Pay by Bank Plaid Response Info
 
-*This model accepts additional fields of type Any.*
-
 ## Structure
 
 `PayByBankPlaidResponseInfo`
@@ -12,30 +10,21 @@
 | Name | Type | Tags | Description |
 |  --- | --- | --- | --- |
 | `logo` | `str` | Optional | Merchant logo |
-| `transaction_description` | [`TransactionDescriptionInfo`](../../doc/models/transaction-description-info.md) | Optional | - |
-| `additional_properties` | `Dict[str, Any]` | Optional | - |
+| `transaction_description` | [`TransactionDescriptionResponseInfo1`](../../doc/models/transaction-description-response-info-1.md) | Optional | Information regarding the transaction description. |
 
 ## Example
 
 ```python
-import jsonpickle
-
 from adyen.models.pay_by_bank_plaid_response_info import PayByBankPlaidResponseInfo
-from adyen.models.transaction_description_info import TransactionDescriptionInfo
-from adyen.models.type_33 import Type33
+from adyen.models.transaction_description_response_info_1 import TransactionDescriptionResponseInfo1
+from adyen.models.type_8_enum import Type8Enum
 
 pay_by_bank_plaid_response_info = PayByBankPlaidResponseInfo(
     logo='logo2',
-    transaction_description=TransactionDescriptionInfo(
+    transaction_description=TransactionDescriptionResponseInfo1(
         doing_business_as_name='doingBusinessAsName0',
-        mtype=Type33.FIXED,
-        additional_properties={
-            'exampleAdditionalProperty': jsonpickle.decode('{"key1":"val1","key2":"val2"}')
-        }
-    ),
-    additional_properties={
-        'exampleAdditionalProperty': jsonpickle.decode('{"key1":"val1","key2":"val2"}')
-    }
+        mtype=Type8Enum.FIXED
+    )
 )
 ```
 

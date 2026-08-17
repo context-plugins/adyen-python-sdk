@@ -3,8 +3,6 @@
 
 The details of the sub-merchant that you want to process transactions for.Required if you are a registered payment facilitator. Do not include this parameter if you are not a payment facilitator.
 
-*This model accepts additional fields of type Any.*
-
 ## Structure
 
 `SubMerchantData21`
@@ -25,13 +23,10 @@ The details of the sub-merchant that you want to process transactions for.Requir
 | `state` | `str` | Optional | The state code of the sub-merchant's address, if applicable for the country or region. |
 | `street` | `str` | Optional | The street name and house number of the sub-merchant's address. |
 | `tax_id` | `str` | Optional | The tax ID of the sub-merchant. Required only in Brazil and for Cartes Bancaires in France.<br>For Brazil, this is the 11-digit CPF or 14-digit CNPJ.<br>For France, this is the SIRET, with a maximum of 14 digits. |
-| `additional_properties` | `Dict[str, Any]` | Optional | - |
 
 ## Example
 
 ```python
-import jsonpickle
-
 from adyen.models.sub_merchant_data_21 import SubMerchantData21
 
 sub_merchant_data_21 = SubMerchantData21(
@@ -43,10 +38,7 @@ sub_merchant_data_21 = SubMerchantData21(
     country='country4',
     email='email6',
     phone_number='phoneNumber0',
-    postal_code='postalCode2',
-    additional_properties={
-        'exampleAdditionalProperty': jsonpickle.decode('{"key1":"val1","key2":"val2"}')
-    }
+    postal_code='postalCode2'
 )
 ```
 

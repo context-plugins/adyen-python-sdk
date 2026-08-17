@@ -21,8 +21,6 @@ class DirectDebitInformation1(object):
         mandate_id (str): Your unique identifier for the direct debit mandate.
         sequence_type (str): Identifies the direct debit transfer's type. Possible
             values: **OneOff**, **First**, **Recurring**, **Final**.
-        additional_properties (Dict[str, Any]): The additional properties for the
-            model.
 
     """
 
@@ -46,8 +44,7 @@ class DirectDebitInformation1(object):
         date_of_signature=APIHelper.SKIP,
         due_date=APIHelper.SKIP,
         mandate_id=APIHelper.SKIP,
-        sequence_type=APIHelper.SKIP,
-        additional_properties=None):
+        sequence_type=APIHelper.SKIP):
         """Initialize a DirectDebitInformation1 instance."""
         # Initialize members of the class
         if date_of_signature is not APIHelper.SKIP:
@@ -64,11 +61,6 @@ class DirectDebitInformation1(object):
             self.mandate_id = mandate_id
         if sequence_type is not APIHelper.SKIP:
             self.sequence_type = sequence_type
-
-        # Add additional model properties to the instance
-        if additional_properties is None:
-            additional_properties = {}
-        self.additional_properties = additional_properties
 
     @classmethod
     def from_dictionary(cls,
@@ -103,17 +95,32 @@ class DirectDebitInformation1(object):
             if dictionary.get("sequenceType")\
                 else APIHelper.SKIP
 
-        additional_properties = APIHelper.get_additional_properties(
-            dictionary={k: v for k, v in dictionary.items()
-                        if k not in cls._names.values()},
-            unboxing_function=lambda value: value)
-
         # Return an object of this model
         return cls(date_of_signature,
                    due_date,
                    mandate_id,
-                   sequence_type,
-                   additional_properties)
+                   sequence_type)
+
+    @classmethod
+    def validate(cls, dictionary):
+        """Validate dictionary against class required properties
+
+        Args:
+            dictionary (dictionary): A dictionary representation of the object
+            as obtained from the deserialization of the server's response. The
+            keys MUST match property names in the API description.
+
+        Returns:
+            boolean : if dictionary is valid contains required properties.
+
+        """
+        if isinstance(dictionary, cls):
+            return True
+
+        if not isinstance(dictionary, dict):
+            return False
+
+        return True
 
     def __repr__(self):
         """Return a unambiguous string representation."""
@@ -137,14 +144,12 @@ class DirectDebitInformation1(object):
             if hasattr(self, "sequence_type")
             else None
         )
-        _additional_properties=self.additional_properties
         return (
             f"{self.__class__.__name__}("
             f"date_of_signature={_date_of_signature!r}, "
             f"due_date={_due_date!r}, "
             f"mandate_id={_mandate_id!r}, "
             f"sequence_type={_sequence_type!r}, "
-            f"additional_properties={_additional_properties!r}, "
             f")"
         )
 
@@ -170,13 +175,11 @@ class DirectDebitInformation1(object):
             if hasattr(self, "sequence_type")
             else None
         )
-        _additional_properties=self.additional_properties
         return (
             f"{self.__class__.__name__}("
             f"date_of_signature={_date_of_signature!s}, "
             f"due_date={_due_date!s}, "
             f"mandate_id={_mandate_id!s}, "
             f"sequence_type={_sequence_type!s}, "
-            f"additional_properties={_additional_properties!s}, "
             f")"
         )

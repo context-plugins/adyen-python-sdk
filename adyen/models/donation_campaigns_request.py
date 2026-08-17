@@ -26,8 +26,6 @@ class DonationCampaignsRequest(object):
             integration](https://docs.adyen.com/classic-platforms/processing-payments/
             route-payment-to-store/#route-a-payment-to-a-store)) for the ecommerce or
             point-of-sale store that is processing the payment.
-        additional_properties (Dict[str, Any]): The additional properties for the
-            model.
 
     """
 
@@ -49,8 +47,7 @@ class DonationCampaignsRequest(object):
         currency=None,
         merchant_account=None,
         locale=APIHelper.SKIP,
-        store=APIHelper.SKIP,
-        additional_properties=None):
+        store=APIHelper.SKIP):
         """Initialize a DonationCampaignsRequest instance."""
         # Initialize members of the class
         self.currency = currency
@@ -59,11 +56,6 @@ class DonationCampaignsRequest(object):
         self.merchant_account = merchant_account
         if store is not APIHelper.SKIP:
             self.store = store
-
-        # Add additional model properties to the instance
-        if additional_properties is None:
-            additional_properties = {}
-        self.additional_properties = additional_properties
 
     @classmethod
     def from_dictionary(cls,
@@ -100,17 +92,11 @@ class DonationCampaignsRequest(object):
             if dictionary.get("store")\
                 else APIHelper.SKIP
 
-        additional_properties = APIHelper.get_additional_properties(
-            dictionary={k: v for k, v in dictionary.items()
-                        if k not in cls._names.values()},
-            unboxing_function=lambda value: value)
-
         # Return an object of this model
         return cls(currency,
                    merchant_account,
                    locale,
-                   store,
-                   additional_properties)
+                   store)
 
     def __repr__(self):
         """Return a unambiguous string representation."""
@@ -126,14 +112,12 @@ class DonationCampaignsRequest(object):
             if hasattr(self, "store")
             else None
         )
-        _additional_properties=self.additional_properties
         return (
             f"{self.__class__.__name__}("
             f"currency={_currency!r}, "
             f"locale={_locale!r}, "
             f"merchant_account={_merchant_account!r}, "
             f"store={_store!r}, "
-            f"additional_properties={_additional_properties!r}, "
             f")"
         )
 
@@ -151,13 +135,11 @@ class DonationCampaignsRequest(object):
             if hasattr(self, "store")
             else None
         )
-        _additional_properties=self.additional_properties
         return (
             f"{self.__class__.__name__}("
             f"currency={_currency!s}, "
             f"locale={_locale!s}, "
             f"merchant_account={_merchant_account!s}, "
             f"store={_store!s}, "
-            f"additional_properties={_additional_properties!s}, "
             f")"
         )

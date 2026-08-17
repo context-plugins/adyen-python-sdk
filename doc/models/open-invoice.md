@@ -1,8 +1,6 @@
 
 # Open Invoice
 
-*This model accepts additional fields of type Any.*
-
 ## Structure
 
 `OpenInvoice`
@@ -18,15 +16,13 @@
 | `recurring_detail_reference` | `str` | Optional | This is the `recurringDetailReference` returned in the response when you created the token. |
 | `sdk_data` | `str` | Optional | Base64-encoded JSON object containing SDK related parameters required by the SDK<br><br>**Constraints**: *Maximum Length*: `50000` |
 | `stored_payment_method_id` | `str` | Optional | This is the `recurringDetailReference` returned in the response when you created the token.<br><br>**Constraints**: *Maximum Length*: `64` |
-| `mtype` | [`Type39`](../../doc/models/type-39.md) | Optional | - |
-| `additional_properties` | `Dict[str, Any]` | Optional | - |
+| `mtype` | [`Type39Enum`](../../doc/models/type-39-enum.md) | Optional | **openinvoice**<br><br>**Default**: `"openinvoice"` |
 
 ## Example
 
 ```python
-import jsonpickle
-
 from adyen.models.open_invoice import OpenInvoice
+from adyen.models.type_39_enum import Type39Enum
 
 open_invoice = OpenInvoice(
     billing_address='billingAddress4',
@@ -34,9 +30,7 @@ open_invoice = OpenInvoice(
     delivery_address='deliveryAddress2',
     personal_details='personalDetails4',
     recurring_detail_reference='recurringDetailReference6',
-    additional_properties={
-        'exampleAdditionalProperty': jsonpickle.decode('{"key1":"val1","key2":"val2"}')
-    }
+    mtype=Type39Enum.OPENINVOICE
 )
 ```
 

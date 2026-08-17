@@ -14,13 +14,14 @@ class TestNotificationConfigurationResponse(object):
 
     Attributes:
         error_messages (List[str]): Any error messages encountered.
-        event_types (List[EventType1]): The event types that were tested. >Permitted
-            values: `ACCOUNT_HOLDER_CREATED`, `ACCOUNT_CREATED`, `ACCOUNT_UPDATED`,
-            `ACCOUNT_HOLDER_UPDATED`, `ACCOUNT_HOLDER_STATUS_CHANGE`,
-            `ACCOUNT_HOLDER_STORE_STATUS_CHANGE` `ACCOUNT_HOLDER_VERIFICATION`,
-            `ACCOUNT_HOLDER_LIMIT_REACHED`, `ACCOUNT_HOLDER_PAYOUT`,
-            `PAYMENT_FAILURE`, `SCHEDULED_REFUNDS`, `REPORT_AVAILABLE`,
-            `TRANSFER_FUNDS`, `BENEFICIARY_SETUP`, `COMPENSATE_NEGATIVE_BALANCE`.
+        event_types (List[EventType1Enum]): The event types that were tested.
+            >Permitted values: `ACCOUNT_HOLDER_CREATED`, `ACCOUNT_CREATED`,
+            `ACCOUNT_UPDATED`, `ACCOUNT_HOLDER_UPDATED`,
+            `ACCOUNT_HOLDER_STATUS_CHANGE`, `ACCOUNT_HOLDER_STORE_STATUS_CHANGE`
+            `ACCOUNT_HOLDER_VERIFICATION`, `ACCOUNT_HOLDER_LIMIT_REACHED`,
+            `ACCOUNT_HOLDER_PAYOUT`, `PAYMENT_FAILURE`, `SCHEDULED_REFUNDS`,
+            `REPORT_AVAILABLE`, `TRANSFER_FUNDS`, `BENEFICIARY_SETUP`,
+            `COMPENSATE_NEGATIVE_BALANCE`.
         exchange_messages (List[ExchangeMessage]): The notification message and
             related response messages.
         invalid_fields (List[ErrorFieldType]): Contains field validation errors that
@@ -30,8 +31,6 @@ class TestNotificationConfigurationResponse(object):
         psp_reference (str): The reference of a request. Can be used to uniquely
             identify the request.
         result_code (str): The result code.
-        additional_properties (Dict[str, Any]): The additional properties for the
-            model.
 
     """
 
@@ -66,8 +65,7 @@ class TestNotificationConfigurationResponse(object):
         invalid_fields=APIHelper.SKIP,
         ok_messages=APIHelper.SKIP,
         psp_reference=APIHelper.SKIP,
-        result_code=APIHelper.SKIP,
-        additional_properties=None):
+        result_code=APIHelper.SKIP):
         """Initialize a TestNotificationConfigurationResponse instance."""
         # Initialize members of the class
         if error_messages is not APIHelper.SKIP:
@@ -85,11 +83,6 @@ class TestNotificationConfigurationResponse(object):
             self.psp_reference = psp_reference
         if result_code is not APIHelper.SKIP:
             self.result_code = result_code
-
-        # Add additional model properties to the instance
-        if additional_properties is None:
-            additional_properties = {}
-        self.additional_properties = additional_properties
 
     @classmethod
     def from_dictionary(cls,
@@ -150,11 +143,6 @@ class TestNotificationConfigurationResponse(object):
             if dictionary.get("resultCode")\
                 else APIHelper.SKIP
 
-        additional_properties = APIHelper.get_additional_properties(
-            dictionary={k: v for k, v in dictionary.items()
-                        if k not in cls._names.values()},
-            unboxing_function=lambda value: value)
-
         # Return an object of this model
         return cls(notification_id,
                    error_messages,
@@ -163,8 +151,7 @@ class TestNotificationConfigurationResponse(object):
                    invalid_fields,
                    ok_messages,
                    psp_reference,
-                   result_code,
-                   additional_properties)
+                   result_code)
 
     def __repr__(self):
         """Return a unambiguous string representation."""
@@ -204,7 +191,6 @@ class TestNotificationConfigurationResponse(object):
             if hasattr(self, "result_code")
             else None
         )
-        _additional_properties=self.additional_properties
         return (
             f"{self.__class__.__name__}("
             f"error_messages={_error_messages!r}, "
@@ -215,7 +201,6 @@ class TestNotificationConfigurationResponse(object):
             f"ok_messages={_ok_messages!r}, "
             f"psp_reference={_psp_reference!r}, "
             f"result_code={_result_code!r}, "
-            f"additional_properties={_additional_properties!r}, "
             f")"
         )
 
@@ -257,7 +242,6 @@ class TestNotificationConfigurationResponse(object):
             if hasattr(self, "result_code")
             else None
         )
-        _additional_properties=self.additional_properties
         return (
             f"{self.__class__.__name__}("
             f"error_messages={_error_messages!s}, "
@@ -268,6 +252,5 @@ class TestNotificationConfigurationResponse(object):
             f"ok_messages={_ok_messages!s}, "
             f"psp_reference={_psp_reference!s}, "
             f"result_code={_result_code!s}, "
-            f"additional_properties={_additional_properties!s}, "
             f")"
         )

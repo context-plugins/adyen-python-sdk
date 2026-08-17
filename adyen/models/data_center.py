@@ -19,8 +19,6 @@ class DataCenter(object):
             European data center. Possible values are:  * **default**: the European
             data center. This value is always returned in the test environment.  *
             **AU** * **EU** * **US**
-        additional_properties (Dict[str, Any]): The additional properties for the
-            model.
 
     """
 
@@ -38,19 +36,13 @@ class DataCenter(object):
     def __init__(
         self,
         live_prefix=APIHelper.SKIP,
-        name=APIHelper.SKIP,
-        additional_properties=None):
+        name=APIHelper.SKIP):
         """Initialize a DataCenter instance."""
         # Initialize members of the class
         if live_prefix is not APIHelper.SKIP:
             self.live_prefix = live_prefix
         if name is not APIHelper.SKIP:
             self.name = name
-
-        # Add additional model properties to the instance
-        if additional_properties is None:
-            additional_properties = {}
-        self.additional_properties = additional_properties
 
     @classmethod
     def from_dictionary(cls,
@@ -79,15 +71,9 @@ class DataCenter(object):
             if dictionary.get("name")\
                 else APIHelper.SKIP
 
-        additional_properties = APIHelper.get_additional_properties(
-            dictionary={k: v for k, v in dictionary.items()
-                        if k not in cls._names.values()},
-            unboxing_function=lambda value: value)
-
         # Return an object of this model
         return cls(live_prefix,
-                   name,
-                   additional_properties)
+                   name)
 
     def __repr__(self):
         """Return a unambiguous string representation."""
@@ -101,12 +87,10 @@ class DataCenter(object):
             if hasattr(self, "name")
             else None
         )
-        _additional_properties=self.additional_properties
         return (
             f"{self.__class__.__name__}("
             f"live_prefix={_live_prefix!r}, "
             f"name={_name!r}, "
-            f"additional_properties={_additional_properties!r}, "
             f")"
         )
 
@@ -122,11 +106,9 @@ class DataCenter(object):
             if hasattr(self, "name")
             else None
         )
-        _additional_properties=self.additional_properties
         return (
             f"{self.__class__.__name__}("
             f"live_prefix={_live_prefix!s}, "
             f"name={_name!s}, "
-            f"additional_properties={_additional_properties!s}, "
             f")"
         )

@@ -38,8 +38,6 @@ class StoredPaymentMethod3(object):
         supported_shopper_interactions (List[str]): The supported shopper
             interactions for this stored payment method.
         mtype (str): The type of payment method.
-        additional_properties (Dict[str, Any]): The additional properties for the
-            model.
 
     """
 
@@ -108,8 +106,7 @@ class StoredPaymentMethod3(object):
         shopper_email=APIHelper.SKIP,
         supported_recurring_processing_models=APIHelper.SKIP,
         supported_shopper_interactions=APIHelper.SKIP,
-        mtype=APIHelper.SKIP,
-        additional_properties=None):
+        mtype=APIHelper.SKIP):
         """Initialize a StoredPaymentMethod3 instance."""
         # Initialize members of the class
         if bank_account_number is not APIHelper.SKIP:
@@ -151,11 +148,6 @@ class StoredPaymentMethod3(object):
             self.supported_shopper_interactions = supported_shopper_interactions
         if mtype is not APIHelper.SKIP:
             self.mtype = mtype
-
-        # Add additional model properties to the instance
-        if additional_properties is None:
-            additional_properties = {}
-        self.additional_properties = additional_properties
 
     @classmethod
     def from_dictionary(cls,
@@ -252,11 +244,6 @@ class StoredPaymentMethod3(object):
             if dictionary.get("type")\
                 else APIHelper.SKIP
 
-        additional_properties = APIHelper.get_additional_properties(
-            dictionary={k: v for k, v in dictionary.items()
-                        if k not in cls._names.values()},
-            unboxing_function=lambda value: value)
-
         # Return an object of this model
         return cls(bank_account_number,
                    bank_location_id,
@@ -276,8 +263,7 @@ class StoredPaymentMethod3(object):
                    shopper_email,
                    supported_recurring_processing_models,
                    supported_shopper_interactions,
-                   mtype,
-                   additional_properties)
+                   mtype)
 
     def __repr__(self):
         """Return a unambiguous string representation."""
@@ -376,7 +362,6 @@ class StoredPaymentMethod3(object):
             if hasattr(self, "mtype")
             else None
         )
-        _additional_properties=self.additional_properties
         return (
             f"{self.__class__.__name__}("
             f"bank_account_number={_bank_account_number!r}, "
@@ -398,7 +383,6 @@ class StoredPaymentMethod3(object):
             f"supported_recurring_processing_models={_supported_recurring_processing_models!r}, "
             f"supported_shopper_interactions={_supported_shopper_interactions!r}, "
             f"mtype={_mtype!r}, "
-            f"additional_properties={_additional_properties!r}, "
             f")"
         )
 
@@ -499,7 +483,6 @@ class StoredPaymentMethod3(object):
             if hasattr(self, "mtype")
             else None
         )
-        _additional_properties=self.additional_properties
         return (
             f"{self.__class__.__name__}("
             f"bank_account_number={_bank_account_number!s}, "
@@ -521,6 +504,5 @@ class StoredPaymentMethod3(object):
             f"supported_recurring_processing_models={_supported_recurring_processing_models!s}, "
             f"supported_shopper_interactions={_supported_shopper_interactions!s}, "
             f"mtype={_mtype!s}, "
-            f"additional_properties={_additional_properties!s}, "
             f")"
         )

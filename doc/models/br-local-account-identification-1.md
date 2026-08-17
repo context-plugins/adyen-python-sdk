@@ -1,11 +1,9 @@
 
-# Br Local Account Identification 1
-
-*This model accepts additional fields of type Any.*
+# BR Local Account Identification 1
 
 ## Structure
 
-`BrLocalAccountIdentification1`
+`BRLocalAccountIdentification1`
 
 ## Inherits From
 
@@ -19,24 +17,18 @@
 | `bank_code` | `str` | Required | The 3-digit bank code, with leading zeros.<br><br>**Constraints**: *Minimum Length*: `3`, *Maximum Length*: `3` |
 | `branch_number` | `str` | Required | The bank account branch number, without separators or whitespace.<br><br>**Constraints**: *Minimum Length*: `1`, *Maximum Length*: `4` |
 | `ispb` | `str` | Optional | The 8-digit ISPB, with leading zeros.<br><br>**Constraints**: *Minimum Length*: `8`, *Maximum Length*: `8` |
-| `additional_properties` | `Dict[str, Any]` | Optional | - |
 
 ## Example
 
 ```python
-import jsonpickle
+from adyen.models.bank_account_identification import BRLocalAccountIdentification1
 
-from adyen.models.bank_account_identification import BrLocalAccountIdentification1
-
-br_local_account_identification_1 = BrLocalAccountIdentification1(
+br_local_account_identification_1 = BRLocalAccountIdentification1(
     account_number='accountNumber2',
     bank_code='bankCode0',
     branch_number='branchNumber0',
     ispb='ispb4',
-    mtype='brLocal',
-    additional_properties={
-        'exampleAdditionalProperty': jsonpickle.decode('{"key1":"val1","key2":"val2"}')
-    }
+    mtype='brLocal'
 )
 ```
 

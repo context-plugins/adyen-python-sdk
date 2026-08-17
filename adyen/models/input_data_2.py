@@ -17,9 +17,22 @@ class InputData2(object):
     `NotifyCardInputFlag`.
 
     Attributes:
-        device (Device2): The model property of type Device2.
-        info_qualify (InfoQualify2): The model property of type InfoQualify2.
-        input_command (InputCommand1): The model property of type InputCommand1.
+        device (Device2Enum): Logical device located on a Sale Terminal or a POI
+            Terminal, regarding the class of information to output (display, print or
+            store), or input (keyboard) for the Cashier or the Customer. Possible
+            values: * **CashierDisplay** * **CashierInput** * **CustomerDisplay** *
+            **CustomerInput**
+        info_qualify (InfoQualify2Enum): Qualification of the information to send to
+            an output logical device, to display or print to the Cashier or the
+            Customer. Possible values: * **CustomerAssistance** * **Display** *
+            **Document** * **Error** * **Input** * **POIReplication** * **Receipt** *
+            **Sound** * **Status** * **Voucher**
+        input_command (InputCommand1Enum): Type of requested input. Can be:
+            **GetConfirmation**, **TextString**, **DigitString**, **DecimalString**
+            or **GetMenuEntry**. Possible values: * **DecimalString** *
+            **DigitString** * **GetAnyKey** * **GetConfirmation** *
+            **GetFunctionKey** * **GetMenuEntry** * **Password** * **SiteManager** *
+            **TextString**
         notify_card_input_flag (bool): Request Notification of the card entered in
             the POI card reader.
         max_input_time (int): Maximum input time in seconds. Limits the time to
@@ -68,8 +81,6 @@ class InputData2(object):
             function key (respectively Home function key) may be used to go back to
             the immediate upper level of the menu. If it has the value False, it
             indicates that the current menu level has no parent menu.
-        additional_properties (Dict[str, Any]): The additional properties for the
-            model.
 
     """
 
@@ -141,8 +152,7 @@ class InputData2(object):
         disable_cancel_flag=False,
         disable_correct_flag=False,
         disable_valid_flag=False,
-        menu_back_flag=False,
-        additional_properties=None):
+        menu_back_flag=False):
         """Initialize a InputData2 instance."""
         # Initialize members of the class
         self.device = device
@@ -173,11 +183,6 @@ class InputData2(object):
         self.disable_correct_flag = disable_correct_flag
         self.disable_valid_flag = disable_valid_flag
         self.menu_back_flag = menu_back_flag
-
-        # Add additional model properties to the instance
-        if additional_properties is None:
-            additional_properties = {}
-        self.additional_properties = additional_properties
 
     @classmethod
     def from_dictionary(cls,
@@ -282,11 +287,6 @@ class InputData2(object):
             if dictionary.get("MenuBackFlag")\
                 else False
 
-        additional_properties = APIHelper.get_additional_properties(
-            dictionary={k: v for k, v in dictionary.items()
-                        if k not in cls._names.values()},
-            unboxing_function=lambda value: value)
-
         # Return an object of this model
         return cls(device,
                    info_qualify,
@@ -308,8 +308,7 @@ class InputData2(object):
                    disable_cancel_flag,
                    disable_correct_flag,
                    disable_valid_flag,
-                   menu_back_flag,
-                   additional_properties)
+                   menu_back_flag)
 
     def __repr__(self):
         """Return a unambiguous string representation."""
@@ -406,7 +405,6 @@ class InputData2(object):
             if hasattr(self, "menu_back_flag")
             else None
         )
-        _additional_properties=self.additional_properties
         return (
             f"{self.__class__.__name__}("
             f"device={_device!r}, "
@@ -430,7 +428,6 @@ class InputData2(object):
             f"disable_correct_flag={_disable_correct_flag!r}, "
             f"disable_valid_flag={_disable_valid_flag!r}, "
             f"menu_back_flag={_menu_back_flag!r}, "
-            f"additional_properties={_additional_properties!r}, "
             f")"
         )
 
@@ -529,7 +526,6 @@ class InputData2(object):
             if hasattr(self, "menu_back_flag")
             else None
         )
-        _additional_properties=self.additional_properties
         return (
             f"{self.__class__.__name__}("
             f"device={_device!s}, "
@@ -553,6 +549,5 @@ class InputData2(object):
             f"disable_correct_flag={_disable_correct_flag!s}, "
             f"disable_valid_flag={_disable_valid_flag!s}, "
             f"menu_back_flag={_menu_back_flag!s}, "
-            f"additional_properties={_additional_properties!s}, "
             f")"
         )

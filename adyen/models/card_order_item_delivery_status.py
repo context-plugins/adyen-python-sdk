@@ -12,10 +12,8 @@ class CardOrderItemDeliveryStatus(object):
 
     Attributes:
         error_message (str): An error message.
-        status (Status7): The model property of type Status7.
+        status (Status71Enum): The status of the PIN delivery.
         tracking_number (str): The tracking number of the PIN delivery.
-        additional_properties (Dict[str, Any]): The additional properties for the
-            model.
 
     """
 
@@ -36,8 +34,7 @@ class CardOrderItemDeliveryStatus(object):
         self,
         error_message=APIHelper.SKIP,
         status=APIHelper.SKIP,
-        tracking_number=APIHelper.SKIP,
-        additional_properties=None):
+        tracking_number=APIHelper.SKIP):
         """Initialize a CardOrderItemDeliveryStatus instance."""
         # Initialize members of the class
         if error_message is not APIHelper.SKIP:
@@ -46,11 +43,6 @@ class CardOrderItemDeliveryStatus(object):
             self.status = status
         if tracking_number is not APIHelper.SKIP:
             self.tracking_number = tracking_number
-
-        # Add additional model properties to the instance
-        if additional_properties is None:
-            additional_properties = {}
-        self.additional_properties = additional_properties
 
     @classmethod
     def from_dictionary(cls,
@@ -83,16 +75,10 @@ class CardOrderItemDeliveryStatus(object):
             if dictionary.get("trackingNumber")\
                 else APIHelper.SKIP
 
-        additional_properties = APIHelper.get_additional_properties(
-            dictionary={k: v for k, v in dictionary.items()
-                        if k not in cls._names.values()},
-            unboxing_function=lambda value: value)
-
         # Return an object of this model
         return cls(error_message,
                    status,
-                   tracking_number,
-                   additional_properties)
+                   tracking_number)
 
     def __repr__(self):
         """Return a unambiguous string representation."""
@@ -111,13 +97,11 @@ class CardOrderItemDeliveryStatus(object):
             if hasattr(self, "tracking_number")
             else None
         )
-        _additional_properties=self.additional_properties
         return (
             f"{self.__class__.__name__}("
             f"error_message={_error_message!r}, "
             f"status={_status!r}, "
             f"tracking_number={_tracking_number!r}, "
-            f"additional_properties={_additional_properties!r}, "
             f")"
         )
 
@@ -138,12 +122,10 @@ class CardOrderItemDeliveryStatus(object):
             if hasattr(self, "tracking_number")
             else None
         )
-        _additional_properties=self.additional_properties
         return (
             f"{self.__class__.__name__}("
             f"error_message={_error_message!s}, "
             f"status={_status!s}, "
             f"tracking_number={_tracking_number!s}, "
-            f"additional_properties={_additional_properties!s}, "
             f")"
         )

@@ -11,38 +11,8 @@ from apimatic_core.types.parameter import Parameter
 from adyen.api_helper import APIHelper
 from adyen.apis.base_api import BaseApi
 from adyen.configuration import Server
-from adyen.exceptions.account_verification_reports_400_error_exception import (
-    AccountVerificationReports400ErrorException,
-)
-from adyen.exceptions.account_verification_reports_401_error_exception import (
-    AccountVerificationReports401ErrorException,
-)
-from adyen.exceptions.account_verification_reports_404_error_exception import (
-    AccountVerificationReports404ErrorException,
-)
-from adyen.exceptions.account_verification_reports_422_error_exception import (
-    AccountVerificationReports422ErrorException,
-)
-from adyen.exceptions.account_verification_reports_429_error_exception import (
-    AccountVerificationReports429ErrorException,
-)
-from adyen.exceptions.account_verification_reports_500_error_exception import (
-    AccountVerificationReports500ErrorException,
-)
-from adyen.exceptions.account_verification_routes_400_error_exception import (
-    AccountVerificationRoutes400ErrorException,
-)
-from adyen.exceptions.account_verification_routes_401_error_exception import (
-    AccountVerificationRoutes401ErrorException,
-)
-from adyen.exceptions.account_verification_routes_422_error_exception import (
-    AccountVerificationRoutes422ErrorException,
-)
-from adyen.exceptions.account_verification_routes_429_error_exception import (
-    AccountVerificationRoutes429ErrorException,
-)
-from adyen.exceptions.account_verification_routes_500_error_exception import (
-    AccountVerificationRoutes500ErrorException,
+from adyen.exceptions.default_error_response_entity_exception import (
+    DefaultErrorResponseEntityException,
 )
 from adyen.http.http_method_enum import HttpMethodEnum
 from adyen.models.account_verification_report_response import (
@@ -74,24 +44,22 @@ class AccountVerificationApi(BaseApi):
                 callback.
 
         Returns:
-            ApiResponse: An object with the response value as well as other useful
-                information such as status codes and headers. OK - The request has
-                succeeded.
+            AccountVerificationReportResponse: Response from the API. OK - The
+                request has succeeded.
 
         Raises:
-            ApiException: When an error occurs while fetching the data from the
+            APIException: When an error occurs while fetching the data from the
                 remote API. This exception includes the HTTP Response code, an error
                 message, and the HTTP body that was received in the request.
 
         """
         return super().new_api_call_builder.request(
-            RequestBuilder().server(Server.DEFAULT)
+            RequestBuilder().server(Server.DEFAULT21)
             .path("/accountVerification/reports/{code}")
             .http_method(HttpMethodEnum.GET)
             .template_param(Parameter()
                 .key("code")
                 .value(code)
-                .is_required(True)
                 .should_encode(True))
             .header_param(Parameter()
                 .key("accept")
@@ -100,28 +68,27 @@ class AccountVerificationApi(BaseApi):
             ResponseHandler()
             .deserializer(APIHelper.json_deserialize)
             .deserialize_into(AccountVerificationReportResponse.from_dictionary)
-            .is_api_response(True)
             .local_error("400",
                 "Bad Request - The request is malformed or is not in the expected for"
                 "mat.",
-                AccountVerificationReports400ErrorException)
+                DefaultErrorResponseEntityException)
             .local_error("401",
                 "Unauthorized - The API credential used in the request is invalid or "
                 "does not have the right permissions.",
-                AccountVerificationReports401ErrorException)
+                DefaultErrorResponseEntityException)
             .local_error("404",
                 "Not Found - The entity was not found.",
-                AccountVerificationReports404ErrorException)
+                DefaultErrorResponseEntityException)
             .local_error("422",
                 "Unprocessable Entity - A request validation error.",
-                AccountVerificationReports422ErrorException)
+                DefaultErrorResponseEntityException)
             .local_error("429",
                 "Too Many Requests - Request rate limit exceeded.",
-                AccountVerificationReports429ErrorException)
+                DefaultErrorResponseEntityException)
             .local_error("500",
                 "Internal Service Error - An unrecoverable error occurred while tryin"
                 "g to perform the request.",
-                AccountVerificationReports500ErrorException),
+                DefaultErrorResponseEntityException),
         ).execute()
 
     def post_account_verification_routes(self,
@@ -136,26 +103,24 @@ class AccountVerificationApi(BaseApi):
             body (AccountVerificationRoutesRequest): The request body parameter.
 
         Returns:
-            ApiResponse: An object with the response value as well as other useful
-                information such as status codes and headers. OK - The request has
-                succeeded.
+            AccountVerificationRoutesResponse: Response from the API. OK - The
+                request has succeeded.
 
         Raises:
-            ApiException: When an error occurs while fetching the data from the
+            APIException: When an error occurs while fetching the data from the
                 remote API. This exception includes the HTTP Response code, an error
                 message, and the HTTP body that was received in the request.
 
         """
         return super().new_api_call_builder.request(
-            RequestBuilder().server(Server.DEFAULT)
+            RequestBuilder().server(Server.DEFAULT21)
             .path("/accountVerification/routes")
             .http_method(HttpMethodEnum.POST)
             .header_param(Parameter()
                 .key("Content-Type")
                 .value("application/json"))
             .body_param(Parameter()
-                .value(body)
-                .is_required(True))
+                .value(body))
             .header_param(Parameter()
                 .key("accept")
                 .value("application/json"))
@@ -164,23 +129,22 @@ class AccountVerificationApi(BaseApi):
             ResponseHandler()
             .deserializer(APIHelper.json_deserialize)
             .deserialize_into(AccountVerificationRoutesResponse.from_dictionary)
-            .is_api_response(True)
             .local_error("400",
                 "Bad Request - The request is malformed or is not in the expected for"
                 "mat.",
-                AccountVerificationRoutes400ErrorException)
+                DefaultErrorResponseEntityException)
             .local_error("401",
                 "Unauthorized - The API credential used in the request is invalid or "
                 "does not have the right permissions.",
-                AccountVerificationRoutes401ErrorException)
+                DefaultErrorResponseEntityException)
             .local_error("422",
                 "Unprocessable Entity - A request validation error.",
-                AccountVerificationRoutes422ErrorException)
+                DefaultErrorResponseEntityException)
             .local_error("429",
                 "Too Many Requests - Request rate limit exceeded.",
-                AccountVerificationRoutes429ErrorException)
+                DefaultErrorResponseEntityException)
             .local_error("500",
                 "Internal Service Error - An unrecoverable error occurred while tryin"
                 "g to perform the request.",
-                AccountVerificationRoutes500ErrorException),
+                DefaultErrorResponseEntityException),
         ).execute()

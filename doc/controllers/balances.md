@@ -40,7 +40,7 @@ def get_balance_platforms_balance_platform_id_webhooks_webhook_id_settings(self,
 
 **200**: OK - the request has succeeded.
 
-This method returns an [`ApiResponse`](../../doc/api-response.md) instance. The `body` property of this instance returns the response data which is of type [`WebhookSettings`](../../doc/models/webhook-settings.md).
+[`WebhookSettings`](../../doc/models/webhook-settings.md)
 
 ## Example Usage
 
@@ -53,11 +53,7 @@ result = balances_api.get_balance_platforms_balance_platform_id_webhooks_webhook
     balance_platform_id,
     webhook_id
 )
-
-if result.is_success():
-    print(result.body)
-elif result.is_error():
-    print(result.errors)
+print(result)
 ```
 
 ## Example Response *(as JSON)*
@@ -107,12 +103,12 @@ elif result.is_error():
 
 | HTTP Status Code | Error Description | Exception Class |
 |  --- | --- | --- |
-| 400 | Bad Request - a problem reading or understanding the request. | [`BalancePlatformsWebhooksSettings400ErrorException`](../../doc/models/balance-platforms-webhooks-settings-400-error-exception.md) |
-| 401 | Unauthorized - authentication required. | [`BalancePlatformsWebhooksSettings401ErrorException`](../../doc/models/balance-platforms-webhooks-settings-401-error-exception.md) |
-| 403 | Forbidden - insufficient permissions to process the request. | [`BalancePlatformsWebhooksSettings403ErrorException`](../../doc/models/balance-platforms-webhooks-settings-403-error-exception.md) |
-| 404 | Not Found - the payment was not found | [`BalancePlatformsWebhooksSettings404ErrorException`](../../doc/models/balance-platforms-webhooks-settings-404-error-exception.md) |
-| 422 | Unprocessable Entity - a request validation error. | [`BalancePlatformsWebhooksSettings422ErrorException`](../../doc/models/balance-platforms-webhooks-settings-422-error-exception.md) |
-| 500 | Internal Server Error - the server could not process the request. | [`BalancePlatformsWebhooksSettings500ErrorException`](../../doc/models/balance-platforms-webhooks-settings-500-error-exception.md) |
+| 400 | Bad Request - a problem reading or understanding the request. | [`DefaultErrorResponseEntityException`](../../doc/models/default-error-response-entity-exception.md) |
+| 401 | Unauthorized - authentication required. | [`DefaultErrorResponseEntityException`](../../doc/models/default-error-response-entity-exception.md) |
+| 403 | Forbidden - insufficient permissions to process the request. | [`DefaultErrorResponseEntityException`](../../doc/models/default-error-response-entity-exception.md) |
+| 404 | Not Found - the payment was not found | [`DefaultErrorResponseEntityException`](../../doc/models/default-error-response-entity-exception.md) |
+| 422 | Unprocessable Entity - a request validation error. | [`DefaultErrorResponseEntityException`](../../doc/models/default-error-response-entity-exception.md) |
+| 500 | Internal Server Error - the server could not process the request. | [`DefaultErrorResponseEntityException`](../../doc/models/default-error-response-entity-exception.md) |
 
 
 # Post-Balance Platforms-Balance Platform Id-Webhooks-Webhook Id-Settings
@@ -148,7 +144,7 @@ def post_balance_platforms_balance_platform_id_webhooks_webhook_id_settings(self
 
 **200**: OK - the request has succeeded.
 
-This method returns an [`ApiResponse`](../../doc/api-response.md) instance. The `body` property of this instance returns the response data which is of type [`WebhookSetting`](../../doc/models/webhook-setting.md).
+[`WebhookSetting`](../../doc/models/webhook-setting.md)
 
 ## Example Usage
 
@@ -159,16 +155,15 @@ webhook_id = 'webhookId6'
 
 body = BalanceWebhookSettingInfo(
     currency='USD',
-    status=Status19.ACTIVE,
-    target=Target(
+    status=Status6Enum.ACTIVE,
+    target=Target1(
         id='BA00000000000000000LIABLE',
-        mtype=Type18.BALANCEACCOUNT
+        mtype=Type181Enum.BALANCEACCOUNT
     ),
-    mtype=Type20.BALANCE,
     conditions=[
         Condition(
-            balance_type=BalanceType.AVAILABLE,
-            condition_type=ConditionType.LESSTHAN,
+            balance_type=BalanceTypeEnum.AVAILABLE,
+            condition_type=ConditionTypeEnum.LESSTHAN,
             value=500000
         )
     ]
@@ -179,11 +174,7 @@ result = balances_api.post_balance_platforms_balance_platform_id_webhooks_webhoo
     webhook_id,
     body
 )
-
-if result.is_success():
-    print(result.body)
-elif result.is_error():
-    print(result.errors)
+print(result)
 ```
 
 ## Example Response *(as JSON)*
@@ -212,12 +203,12 @@ elif result.is_error():
 
 | HTTP Status Code | Error Description | Exception Class |
 |  --- | --- | --- |
-| 400 | Bad Request - a problem reading or understanding the request. | [`BalancePlatformsWebhooksSettings400ErrorException`](../../doc/models/balance-platforms-webhooks-settings-400-error-exception.md) |
-| 401 | Unauthorized - authentication required. | [`BalancePlatformsWebhooksSettings401ErrorException`](../../doc/models/balance-platforms-webhooks-settings-401-error-exception.md) |
-| 403 | Forbidden - insufficient permissions to process the request. | [`BalancePlatformsWebhooksSettings403ErrorException`](../../doc/models/balance-platforms-webhooks-settings-403-error-exception.md) |
-| 404 | Not Found - the payment was not found | [`BalancePlatformsWebhooksSettings404ErrorException`](../../doc/models/balance-platforms-webhooks-settings-404-error-exception.md) |
-| 422 | Unprocessable Entity - a request validation error. | [`BalancePlatformsWebhooksSettings422ErrorException`](../../doc/models/balance-platforms-webhooks-settings-422-error-exception.md) |
-| 500 | Internal Server Error - the server could not process the request. | [`BalancePlatformsWebhooksSettings500ErrorException`](../../doc/models/balance-platforms-webhooks-settings-500-error-exception.md) |
+| 400 | Bad Request - a problem reading or understanding the request. | [`DefaultErrorResponseEntityException`](../../doc/models/default-error-response-entity-exception.md) |
+| 401 | Unauthorized - authentication required. | [`DefaultErrorResponseEntityException`](../../doc/models/default-error-response-entity-exception.md) |
+| 403 | Forbidden - insufficient permissions to process the request. | [`DefaultErrorResponseEntityException`](../../doc/models/default-error-response-entity-exception.md) |
+| 404 | Not Found - the payment was not found | [`DefaultErrorResponseEntityException`](../../doc/models/default-error-response-entity-exception.md) |
+| 422 | Unprocessable Entity - a request validation error. | [`DefaultErrorResponseEntityException`](../../doc/models/default-error-response-entity-exception.md) |
+| 500 | Internal Server Error - the server could not process the request. | [`DefaultErrorResponseEntityException`](../../doc/models/default-error-response-entity-exception.md) |
 
 
 # Get-Balance Platforms-Balance Platform Id-Webhooks-Webhook Id-Settings-Setting Id
@@ -245,7 +236,7 @@ def get_balance_platforms_balance_platform_id_webhooks_webhook_id_settings_setti
 
 **200**: OK - the request has succeeded.
 
-This method returns an [`ApiResponse`](../../doc/api-response.md) instance. The `body` property of this instance returns the response data which is of type [`WebhookSetting`](../../doc/models/webhook-setting.md).
+[`WebhookSetting`](../../doc/models/webhook-setting.md)
 
 ## Example Usage
 
@@ -261,11 +252,7 @@ result = balances_api.get_balance_platforms_balance_platform_id_webhooks_webhook
     webhook_id,
     setting_id
 )
-
-if result.is_success():
-    print(result.body)
-elif result.is_error():
-    print(result.errors)
+print(result)
 ```
 
 ## Example Response *(as JSON)*
@@ -294,12 +281,12 @@ elif result.is_error():
 
 | HTTP Status Code | Error Description | Exception Class |
 |  --- | --- | --- |
-| 400 | Bad Request - a problem reading or understanding the request. | [`BalancePlatformsWebhooksSettingsSettingId400ErrorException`](../../doc/models/balance-platforms-webhooks-settings-setting-id-400-error-exception.md) |
-| 401 | Unauthorized - authentication required. | [`BalancePlatformsWebhooksSettingsSettingId401ErrorException`](../../doc/models/balance-platforms-webhooks-settings-setting-id-401-error-exception.md) |
-| 403 | Forbidden - insufficient permissions to process the request. | [`BalancePlatformsWebhooksSettingsSettingId403ErrorException`](../../doc/models/balance-platforms-webhooks-settings-setting-id-403-error-exception.md) |
-| 404 | Not Found - the payment was not found | [`BalancePlatformsWebhooksSettingsSettingId404ErrorException`](../../doc/models/balance-platforms-webhooks-settings-setting-id-404-error-exception.md) |
-| 422 | Unprocessable Entity - a request validation error. | [`BalancePlatformsWebhooksSettingsSettingId422ErrorException`](../../doc/models/balance-platforms-webhooks-settings-setting-id-422-error-exception.md) |
-| 500 | Internal Server Error - the server could not process the request. | [`BalancePlatformsWebhooksSettingsSettingId500ErrorException`](../../doc/models/balance-platforms-webhooks-settings-setting-id-500-error-exception.md) |
+| 400 | Bad Request - a problem reading or understanding the request. | [`DefaultErrorResponseEntityException`](../../doc/models/default-error-response-entity-exception.md) |
+| 401 | Unauthorized - authentication required. | [`DefaultErrorResponseEntityException`](../../doc/models/default-error-response-entity-exception.md) |
+| 403 | Forbidden - insufficient permissions to process the request. | [`DefaultErrorResponseEntityException`](../../doc/models/default-error-response-entity-exception.md) |
+| 404 | Not Found - the payment was not found | [`DefaultErrorResponseEntityException`](../../doc/models/default-error-response-entity-exception.md) |
+| 422 | Unprocessable Entity - a request validation error. | [`DefaultErrorResponseEntityException`](../../doc/models/default-error-response-entity-exception.md) |
+| 500 | Internal Server Error - the server could not process the request. | [`DefaultErrorResponseEntityException`](../../doc/models/default-error-response-entity-exception.md) |
 
 
 # Delete-Balance Platforms-Balance Platform Id-Webhooks-Webhook Id-Settings-Setting Id
@@ -327,7 +314,7 @@ def delete_balance_platforms_balance_platform_id_webhooks_webhook_id_settings_se
 
 **204**: No Content - the request has been successfully processed, but there is no additional content.
 
-This method returns an [`ApiResponse`](../../doc/api-response.md) instance. The `body` property of this instance returns the response data which is of type `Any`.
+`Any`
 
 ## Example Usage
 
@@ -343,23 +330,19 @@ result = balances_api.delete_balance_platforms_balance_platform_id_webhooks_webh
     webhook_id,
     setting_id
 )
-
-if result.is_success():
-    print(result.body)
-elif result.is_error():
-    print(result.errors)
+print(result)
 ```
 
 ## Errors
 
 | HTTP Status Code | Error Description | Exception Class |
 |  --- | --- | --- |
-| 400 | Bad Request - a problem reading or understanding the request. | [`BalancePlatformsWebhooksSettingsSettingId400ErrorException`](../../doc/models/balance-platforms-webhooks-settings-setting-id-400-error-exception.md) |
-| 401 | Unauthorized - authentication required. | [`BalancePlatformsWebhooksSettingsSettingId401ErrorException`](../../doc/models/balance-platforms-webhooks-settings-setting-id-401-error-exception.md) |
-| 403 | Forbidden - insufficient permissions to process the request. | [`BalancePlatformsWebhooksSettingsSettingId403ErrorException`](../../doc/models/balance-platforms-webhooks-settings-setting-id-403-error-exception.md) |
-| 404 | Not Found - the payment was not found | [`BalancePlatformsWebhooksSettingsSettingId404ErrorException`](../../doc/models/balance-platforms-webhooks-settings-setting-id-404-error-exception.md) |
-| 422 | Unprocessable Entity - a request validation error. | [`BalancePlatformsWebhooksSettingsSettingId422ErrorException`](../../doc/models/balance-platforms-webhooks-settings-setting-id-422-error-exception.md) |
-| 500 | Internal Server Error - the server could not process the request. | [`BalancePlatformsWebhooksSettingsSettingId500ErrorException`](../../doc/models/balance-platforms-webhooks-settings-setting-id-500-error-exception.md) |
+| 400 | Bad Request - a problem reading or understanding the request. | [`DefaultErrorResponseEntityException`](../../doc/models/default-error-response-entity-exception.md) |
+| 401 | Unauthorized - authentication required. | [`DefaultErrorResponseEntityException`](../../doc/models/default-error-response-entity-exception.md) |
+| 403 | Forbidden - insufficient permissions to process the request. | [`DefaultErrorResponseEntityException`](../../doc/models/default-error-response-entity-exception.md) |
+| 404 | Not Found - the payment was not found | [`DefaultErrorResponseEntityException`](../../doc/models/default-error-response-entity-exception.md) |
+| 422 | Unprocessable Entity - a request validation error. | [`DefaultErrorResponseEntityException`](../../doc/models/default-error-response-entity-exception.md) |
+| 500 | Internal Server Error - the server could not process the request. | [`DefaultErrorResponseEntityException`](../../doc/models/default-error-response-entity-exception.md) |
 
 
 # Patch-Balance Platforms-Balance Platform Id-Webhooks-Webhook Id-Settings-Setting Id
@@ -389,7 +372,7 @@ def patch_balance_platforms_balance_platform_id_webhooks_webhook_id_settings_set
 
 **200**: OK - the request has succeeded.
 
-This method returns an [`ApiResponse`](../../doc/api-response.md) instance. The `body` property of this instance returns the response data which is of type [`WebhookSetting`](../../doc/models/webhook-setting.md).
+[`WebhookSetting`](../../doc/models/webhook-setting.md)
 
 ## Example Usage
 
@@ -401,8 +384,8 @@ webhook_id = 'webhookId6'
 setting_id = 'settingId0'
 
 body = BalanceWebhookSettingInfoUpdate(
-    status=Status19.INACTIVE,
-    mtype=Type20.BALANCE
+    status=Status6Enum.INACTIVE,
+    mtype=Type201Enum.BALANCE
 )
 
 result = balances_api.patch_balance_platforms_balance_platform_id_webhooks_webhook_id_settings_setting_id(
@@ -411,11 +394,7 @@ result = balances_api.patch_balance_platforms_balance_platform_id_webhooks_webho
     setting_id,
     body
 )
-
-if result.is_success():
-    print(result.body)
-elif result.is_error():
-    print(result.errors)
+print(result)
 ```
 
 ## Example Response *(as JSON)*
@@ -449,10 +428,10 @@ elif result.is_error():
 
 | HTTP Status Code | Error Description | Exception Class |
 |  --- | --- | --- |
-| 400 | Bad Request - a problem reading or understanding the request. | [`BalancePlatformsWebhooksSettingsSettingId400ErrorException`](../../doc/models/balance-platforms-webhooks-settings-setting-id-400-error-exception.md) |
-| 401 | Unauthorized - authentication required. | [`BalancePlatformsWebhooksSettingsSettingId401ErrorException`](../../doc/models/balance-platforms-webhooks-settings-setting-id-401-error-exception.md) |
-| 403 | Forbidden - insufficient permissions to process the request. | [`BalancePlatformsWebhooksSettingsSettingId403ErrorException`](../../doc/models/balance-platforms-webhooks-settings-setting-id-403-error-exception.md) |
-| 404 | Not Found - the payment was not found | [`BalancePlatformsWebhooksSettingsSettingId404ErrorException`](../../doc/models/balance-platforms-webhooks-settings-setting-id-404-error-exception.md) |
-| 422 | Unprocessable Entity - a request validation error. | [`BalancePlatformsWebhooksSettingsSettingId422ErrorException`](../../doc/models/balance-platforms-webhooks-settings-setting-id-422-error-exception.md) |
-| 500 | Internal Server Error - the server could not process the request. | [`BalancePlatformsWebhooksSettingsSettingId500ErrorException`](../../doc/models/balance-platforms-webhooks-settings-setting-id-500-error-exception.md) |
+| 400 | Bad Request - a problem reading or understanding the request. | [`DefaultErrorResponseEntityException`](../../doc/models/default-error-response-entity-exception.md) |
+| 401 | Unauthorized - authentication required. | [`DefaultErrorResponseEntityException`](../../doc/models/default-error-response-entity-exception.md) |
+| 403 | Forbidden - insufficient permissions to process the request. | [`DefaultErrorResponseEntityException`](../../doc/models/default-error-response-entity-exception.md) |
+| 404 | Not Found - the payment was not found | [`DefaultErrorResponseEntityException`](../../doc/models/default-error-response-entity-exception.md) |
+| 422 | Unprocessable Entity - a request validation error. | [`DefaultErrorResponseEntityException`](../../doc/models/default-error-response-entity-exception.md) |
+| 500 | Internal Server Error - the server could not process the request. | [`DefaultErrorResponseEntityException`](../../doc/models/default-error-response-entity-exception.md) |
 

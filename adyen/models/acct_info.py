@@ -14,40 +14,59 @@ class AcctInfo(object):
     Requestor.
 
     Attributes:
-        ch_acc_age_ind (ChAccAgeInd): The model property of type ChAccAgeInd.
+        ch_acc_age_ind (ChAccAgeIndEnum): Length of time that the cardholder has had
+            the account with the 3DS Requestor.  Allowed values: * **01** — No
+            account * **02** — Created during this transaction * **03** — Less than
+            30 days * **04** — 30–60 days * **05** — More than 60 days
         ch_acc_change (str): Date that the cardholder’s account with the 3DS
             Requestor was last changed, including Billing or Shipping address, new
             payment account, or new user(s) added.  Format: **YYYYMMDD**
-        ch_acc_change_ind (ChAccChangeInd): The model property of type ChAccChangeInd.
+        ch_acc_change_ind (ChAccChangeIndEnum): Length of time since the cardholder’s
+            account information with the 3DS Requestor was last changed, including
+            Billing or Shipping address, new payment account, or new user(s) added.
+            Allowed values: * **01** — Changed during this transaction * **02** —
+            Less than 30 days * **03** — 30–60 days * **04** — More than 60 days
         ch_acc_pw_change (str): Date that cardholder’s account with the 3DS Requestor
             had a password change or account reset.  Format: **YYYYMMDD**
-        ch_acc_pw_change_ind (ChAccPwChangeInd): The model property of type
-            ChAccPwChangeInd.
+        ch_acc_pw_change_ind (ChAccPwChangeIndEnum): Indicates the length of time
+            since the cardholder’s account with the 3DS Requestor had a password
+            change or account reset.  Allowed values: * **01** — No change * **02** —
+            Changed during this transaction * **03** — Less than 30 days * **04** —
+            30–60 days * **05** — More than 60 days
         ch_acc_string (str): Date that the cardholder opened the account with the 3DS
             Requestor.  Format: **YYYYMMDD**
         nb_purchase_account (str): Number of purchases with this cardholder account
             during the previous six months. Max length: 4 characters.
         payment_acc_age (str): String that the payment account was enrolled in the
             cardholder’s account with the 3DS Requestor.  Format: **YYYYMMDD**
-        payment_acc_ind (PaymentAccInd): The model property of type PaymentAccInd.
+        payment_acc_ind (PaymentAccIndEnum): Indicates the length of time that the
+            payment account was enrolled in the cardholder’s account with the 3DS
+            Requestor.  Allowed values: * **01** — No account (guest checkout) *
+            **02** — During this transaction * **03** — Less than 30 days * **04** —
+            30–60 days * **05** — More than 60 days
         provision_attempts_day (str): Number of Add Card attempts in the last 24
             hours. Max length: 3 characters.
         ship_address_usage (str): String when the shipping address used for this
             transaction was first used with the 3DS Requestor.  Format: **YYYYMMDD**
-        ship_address_usage_ind (ShipAddressUsageInd): The model property of type
-            ShipAddressUsageInd.
-        ship_name_indicator (ShipNameIndicator): The model property of type
-            ShipNameIndicator.
-        suspicious_acc_activity (SuspiciousAccActivity): The model property of type
-            SuspiciousAccActivity.
+        ship_address_usage_ind (ShipAddressUsageIndEnum): Indicates when the shipping
+            address used for this transaction was first used with the 3DS Requestor.
+            Allowed values: * **01** — This transaction * **02** — Less than 30 days
+            * **03** — 30–60 days * **04** — More than 60 days
+        ship_name_indicator (ShipNameIndicatorEnum): Indicates if the Cardholder Name
+            on the account is identical to the shipping Name used for this
+            transaction.  Allowed values: * **01** — Account Name identical to
+            shipping Name * **02** — Account Name different to shipping Name
+        suspicious_acc_activity (SuspiciousAccActivityEnum): Indicates whether the
+            3DS Requestor has experienced suspicious activity (including previous
+            fraud) on the cardholder account.  Allowed values: * **01** — No
+            suspicious activity has been observed * **02** — Suspicious activity has
+            been observed
         txn_activity_day (str): Number of transactions (successful and abandoned) for
             this cardholder account with the 3DS Requestor across all payment
             accounts in the previous 24 hours. Max length: 3 characters.
         txn_activity_year (str): Number of transactions (successful and abandoned)
             for this cardholder account with the 3DS Requestor across all payment
             accounts in the previous year. Max length: 3 characters.
-        additional_properties (Dict[str, Any]): The additional properties for the
-            model.
 
     """
 
@@ -107,8 +126,7 @@ class AcctInfo(object):
         ship_name_indicator=APIHelper.SKIP,
         suspicious_acc_activity=APIHelper.SKIP,
         txn_activity_day=APIHelper.SKIP,
-        txn_activity_year=APIHelper.SKIP,
-        additional_properties=None):
+        txn_activity_year=APIHelper.SKIP):
         """Initialize a AcctInfo instance."""
         # Initialize members of the class
         if ch_acc_age_ind is not APIHelper.SKIP:
@@ -143,11 +161,6 @@ class AcctInfo(object):
             self.txn_activity_day = txn_activity_day
         if txn_activity_year is not APIHelper.SKIP:
             self.txn_activity_year = txn_activity_year
-
-        # Add additional model properties to the instance
-        if additional_properties is None:
-            additional_properties = {}
-        self.additional_properties = additional_properties
 
     @classmethod
     def from_dictionary(cls,
@@ -232,11 +245,6 @@ class AcctInfo(object):
             if dictionary.get("txnActivityYear")\
                 else APIHelper.SKIP
 
-        additional_properties = APIHelper.get_additional_properties(
-            dictionary={k: v for k, v in dictionary.items()
-                        if k not in cls._names.values()},
-            unboxing_function=lambda value: value)
-
         # Return an object of this model
         return cls(ch_acc_age_ind,
                    ch_acc_change,
@@ -253,8 +261,28 @@ class AcctInfo(object):
                    ship_name_indicator,
                    suspicious_acc_activity,
                    txn_activity_day,
-                   txn_activity_year,
-                   additional_properties)
+                   txn_activity_year)
+
+    @classmethod
+    def validate(cls, dictionary):
+        """Validate dictionary against class required properties
+
+        Args:
+            dictionary (dictionary): A dictionary representation of the object
+            as obtained from the deserialization of the server's response. The
+            keys MUST match property names in the API description.
+
+        Returns:
+            boolean : if dictionary is valid contains required properties.
+
+        """
+        if isinstance(dictionary, cls):
+            return True
+
+        if not isinstance(dictionary, dict):
+            return False
+
+        return True
 
     def __repr__(self):
         """Return a unambiguous string representation."""
@@ -338,7 +366,6 @@ class AcctInfo(object):
             if hasattr(self, "txn_activity_year")
             else None
         )
-        _additional_properties=self.additional_properties
         return (
             f"{self.__class__.__name__}("
             f"ch_acc_age_ind={_ch_acc_age_ind!r}, "
@@ -357,7 +384,6 @@ class AcctInfo(object):
             f"suspicious_acc_activity={_suspicious_acc_activity!r}, "
             f"txn_activity_day={_txn_activity_day!r}, "
             f"txn_activity_year={_txn_activity_year!r}, "
-            f"additional_properties={_additional_properties!r}, "
             f")"
         )
 
@@ -443,7 +469,6 @@ class AcctInfo(object):
             if hasattr(self, "txn_activity_year")
             else None
         )
-        _additional_properties=self.additional_properties
         return (
             f"{self.__class__.__name__}("
             f"ch_acc_age_ind={_ch_acc_age_ind!s}, "
@@ -462,6 +487,5 @@ class AcctInfo(object):
             f"suspicious_acc_activity={_suspicious_acc_activity!s}, "
             f"txn_activity_day={_txn_activity_day!s}, "
             f"txn_activity_year={_txn_activity_year!s}, "
-            f"additional_properties={_additional_properties!s}, "
             f")"
         )

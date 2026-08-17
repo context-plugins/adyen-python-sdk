@@ -13,8 +13,6 @@ class CancelTransfersRequest(object):
     Attributes:
         transfer_ids (List[str]): Contains the unique identifiers of the transfers
             that you want to cancel.
-        additional_properties (Dict[str, Any]): The additional properties for the
-            model.
 
     """
 
@@ -29,17 +27,11 @@ class CancelTransfersRequest(object):
 
     def __init__(
         self,
-        transfer_ids=APIHelper.SKIP,
-        additional_properties=None):
+        transfer_ids=APIHelper.SKIP):
         """Initialize a CancelTransfersRequest instance."""
         # Initialize members of the class
         if transfer_ids is not APIHelper.SKIP:
             self.transfer_ids = transfer_ids
-
-        # Add additional model properties to the instance
-        if additional_properties is None:
-            additional_properties = {}
-        self.additional_properties = additional_properties
 
     @classmethod
     def from_dictionary(cls,
@@ -64,14 +56,8 @@ class CancelTransfersRequest(object):
             if dictionary.get("transferIds")\
                 else APIHelper.SKIP
 
-        additional_properties = APIHelper.get_additional_properties(
-            dictionary={k: v for k, v in dictionary.items()
-                        if k not in cls._names.values()},
-            unboxing_function=lambda value: value)
-
         # Return an object of this model
-        return cls(transfer_ids,
-                   additional_properties)
+        return cls(transfer_ids)
 
     def __repr__(self):
         """Return a unambiguous string representation."""
@@ -80,11 +66,9 @@ class CancelTransfersRequest(object):
             if hasattr(self, "transfer_ids")
             else None
         )
-        _additional_properties=self.additional_properties
         return (
             f"{self.__class__.__name__}("
             f"transfer_ids={_transfer_ids!r}, "
-            f"additional_properties={_additional_properties!r}, "
             f")"
         )
 
@@ -95,10 +79,8 @@ class CancelTransfersRequest(object):
             if hasattr(self, "transfer_ids")
             else None
         )
-        _additional_properties=self.additional_properties
         return (
             f"{self.__class__.__name__}("
             f"transfer_ids={_transfer_ids!s}, "
-            f"additional_properties={_additional_properties!s}, "
             f")"
         )

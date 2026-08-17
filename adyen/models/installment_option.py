@@ -13,15 +13,13 @@ class InstallmentOption(object):
     Attributes:
         max_value (int): The maximum number of installments offered for this payment
             method.
-        plans (List[Plan1]): Defines the type of installment plan. If not set,
+        plans (List[Plan1Enum]): Defines the type of installment plan. If not set,
             defaults to **regular**.  Possible values: * **regular** * **revolving**
         preselected_value (int): Preselected number of installments offered for this
             payment method.
         values (List[int]): An array of the number of installments that the shopper
             can choose from. For example, **[2,3,5]**. This cannot be specified
             simultaneously with `maxValue`.
-        additional_properties (Dict[str, Any]): The additional properties for the
-            model.
 
     """
 
@@ -45,8 +43,7 @@ class InstallmentOption(object):
         max_value=APIHelper.SKIP,
         plans=APIHelper.SKIP,
         preselected_value=APIHelper.SKIP,
-        values=APIHelper.SKIP,
-        additional_properties=None):
+        values=APIHelper.SKIP):
         """Initialize a InstallmentOption instance."""
         # Initialize members of the class
         if max_value is not APIHelper.SKIP:
@@ -57,11 +54,6 @@ class InstallmentOption(object):
             self.preselected_value = preselected_value
         if values is not APIHelper.SKIP:
             self.values = values
-
-        # Add additional model properties to the instance
-        if additional_properties is None:
-            additional_properties = {}
-        self.additional_properties = additional_properties
 
     @classmethod
     def from_dictionary(cls,
@@ -98,17 +90,11 @@ class InstallmentOption(object):
             if dictionary.get("values")\
                 else APIHelper.SKIP
 
-        additional_properties = APIHelper.get_additional_properties(
-            dictionary={k: v for k, v in dictionary.items()
-                        if k not in cls._names.values()},
-            unboxing_function=lambda value: value)
-
         # Return an object of this model
         return cls(max_value,
                    plans,
                    preselected_value,
-                   values,
-                   additional_properties)
+                   values)
 
     def __repr__(self):
         """Return a unambiguous string representation."""
@@ -132,14 +118,12 @@ class InstallmentOption(object):
             if hasattr(self, "values")
             else None
         )
-        _additional_properties=self.additional_properties
         return (
             f"{self.__class__.__name__}("
             f"max_value={_max_value!r}, "
             f"plans={_plans!r}, "
             f"preselected_value={_preselected_value!r}, "
             f"values={_values!r}, "
-            f"additional_properties={_additional_properties!r}, "
             f")"
         )
 
@@ -165,13 +149,11 @@ class InstallmentOption(object):
             if hasattr(self, "values")
             else None
         )
-        _additional_properties=self.additional_properties
         return (
             f"{self.__class__.__name__}("
             f"max_value={_max_value!s}, "
             f"plans={_plans!s}, "
             f"preselected_value={_preselected_value!s}, "
             f"values={_values!s}, "
-            f"additional_properties={_additional_properties!s}, "
             f")"
         )

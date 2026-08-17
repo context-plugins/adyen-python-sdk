@@ -29,8 +29,6 @@ class Passenger(object):
         traveller_type (str): The IATA passenger type code (PTC). * Encoding: ASCII *
             minLength: 3 characters * maxLength: 6 characters * **additionalData
             key:** `airline.passenger[N].traveller_type`
-        additional_properties (Dict[str, Any]): The additional properties for the
-            model.
 
     """
 
@@ -57,8 +55,7 @@ class Passenger(object):
         first_name=APIHelper.SKIP,
         last_name=APIHelper.SKIP,
         phone_number=APIHelper.SKIP,
-        traveller_type=APIHelper.SKIP,
-        additional_properties=None):
+        traveller_type=APIHelper.SKIP):
         """Initialize a Passenger instance."""
         # Initialize members of the class
         if date_of_birth is not APIHelper.SKIP:
@@ -71,11 +68,6 @@ class Passenger(object):
             self.phone_number = phone_number
         if traveller_type is not APIHelper.SKIP:
             self.traveller_type = traveller_type
-
-        # Add additional model properties to the instance
-        if additional_properties is None:
-            additional_properties = {}
-        self.additional_properties = additional_properties
 
     @classmethod
     def from_dictionary(cls,
@@ -115,18 +107,12 @@ class Passenger(object):
             if dictionary.get("travellerType")\
                 else APIHelper.SKIP
 
-        additional_properties = APIHelper.get_additional_properties(
-            dictionary={k: v for k, v in dictionary.items()
-                        if k not in cls._names.values()},
-            unboxing_function=lambda value: value)
-
         # Return an object of this model
         return cls(date_of_birth,
                    first_name,
                    last_name,
                    phone_number,
-                   traveller_type,
-                   additional_properties)
+                   traveller_type)
 
     @classmethod
     def validate(cls, dictionary):
@@ -176,7 +162,6 @@ class Passenger(object):
             if hasattr(self, "traveller_type")
             else None
         )
-        _additional_properties=self.additional_properties
         return (
             f"{self.__class__.__name__}("
             f"date_of_birth={_date_of_birth!r}, "
@@ -184,7 +169,6 @@ class Passenger(object):
             f"last_name={_last_name!r}, "
             f"phone_number={_phone_number!r}, "
             f"traveller_type={_traveller_type!r}, "
-            f"additional_properties={_additional_properties!r}, "
             f")"
         )
 
@@ -215,7 +199,6 @@ class Passenger(object):
             if hasattr(self, "traveller_type")
             else None
         )
-        _additional_properties=self.additional_properties
         return (
             f"{self.__class__.__name__}("
             f"date_of_birth={_date_of_birth!s}, "
@@ -223,6 +206,5 @@ class Passenger(object):
             f"last_name={_last_name!s}, "
             f"phone_number={_phone_number!s}, "
             f"traveller_type={_traveller_type!s}, "
-            f"additional_properties={_additional_properties!s}, "
             f")"
         )

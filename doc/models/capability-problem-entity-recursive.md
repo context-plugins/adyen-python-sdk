@@ -1,8 +1,6 @@
 
 # Capability Problem Entity Recursive
 
-*This model accepts additional fields of type Any.*
-
 ## Structure
 
 `CapabilityProblemEntityRecursive`
@@ -13,26 +11,20 @@
 |  --- | --- | --- | --- |
 | `documents` | `List[str]` | Optional | List of document IDs to which the verification errors related to the capabilities correspond to. |
 | `id` | `str` | Optional | The ID of the entity. |
-| `mtype` | [`Type3`](../../doc/models/type-3.md) | Optional | - |
-| `additional_properties` | `Dict[str, Any]` | Optional | - |
+| `mtype` | [`Type33Enum`](../../doc/models/type-33-enum.md) | Optional | Type of entity.<br><br>Possible values: **LegalEntity**, **BankAccount**, **Document**. |
 
 ## Example
 
 ```python
-import jsonpickle
-
 from adyen.models.capability_problem_entity_recursive import CapabilityProblemEntityRecursive
-from adyen.models.type_3 import Type3
+from adyen.models.type_33_enum import Type33Enum
 
 capability_problem_entity_recursive = CapabilityProblemEntityRecursive(
     documents=[
         'documents3'
     ],
     id='id4',
-    mtype=Type3.BANKACCOUNT,
-    additional_properties={
-        'exampleAdditionalProperty': jsonpickle.decode('{"key1":"val1","key2":"val2"}')
-    }
+    mtype=Type33Enum.BANKACCOUNT
 )
 ```
 

@@ -16,8 +16,6 @@ class CashAppUpdateInfo1(object):
         logo_url (str): The URL of the logo image shown in Cash App checkout next to
             payments.
         merchant_name (str): The merchant display name shown in Cash App checkout.
-        additional_properties (Dict[str, Any]): The additional properties for the
-            model.
 
     """
 
@@ -35,19 +33,13 @@ class CashAppUpdateInfo1(object):
     def __init__(
         self,
         logo_url=APIHelper.SKIP,
-        merchant_name=APIHelper.SKIP,
-        additional_properties=None):
+        merchant_name=APIHelper.SKIP):
         """Initialize a CashAppUpdateInfo1 instance."""
         # Initialize members of the class
         if logo_url is not APIHelper.SKIP:
             self.logo_url = logo_url
         if merchant_name is not APIHelper.SKIP:
             self.merchant_name = merchant_name
-
-        # Add additional model properties to the instance
-        if additional_properties is None:
-            additional_properties = {}
-        self.additional_properties = additional_properties
 
     @classmethod
     def from_dictionary(cls,
@@ -76,15 +68,9 @@ class CashAppUpdateInfo1(object):
             if dictionary.get("merchantName")\
                 else APIHelper.SKIP
 
-        additional_properties = APIHelper.get_additional_properties(
-            dictionary={k: v for k, v in dictionary.items()
-                        if k not in cls._names.values()},
-            unboxing_function=lambda value: value)
-
         # Return an object of this model
         return cls(logo_url,
-                   merchant_name,
-                   additional_properties)
+                   merchant_name)
 
     def __repr__(self):
         """Return a unambiguous string representation."""
@@ -98,12 +84,10 @@ class CashAppUpdateInfo1(object):
             if hasattr(self, "merchant_name")
             else None
         )
-        _additional_properties=self.additional_properties
         return (
             f"{self.__class__.__name__}("
             f"logo_url={_logo_url!r}, "
             f"merchant_name={_merchant_name!r}, "
-            f"additional_properties={_additional_properties!r}, "
             f")"
         )
 
@@ -119,11 +103,9 @@ class CashAppUpdateInfo1(object):
             if hasattr(self, "merchant_name")
             else None
         )
-        _additional_properties=self.additional_properties
         return (
             f"{self.__class__.__name__}("
             f"logo_url={_logo_url!s}, "
             f"merchant_name={_merchant_name!s}, "
-            f"additional_properties={_additional_properties!s}, "
             f")"
         )

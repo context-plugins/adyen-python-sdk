@@ -1,8 +1,6 @@
 
 # Balance Account Configurations
 
-*This model accepts additional fields of type Any.*
-
 ## Structure
 
 `BalanceAccountConfigurations`
@@ -12,23 +10,17 @@
 | Name | Type | Tags | Description |
 |  --- | --- | --- | --- |
 | `balance_account_payout_schedules` | [`List[BalanceAccountConfiguration]`](../../doc/models/balance-account-configuration.md) | Required | Contains a list of the Balance Account payout schedules. |
-| `link` | [`Link`](../../doc/models/link.md) | Required | - |
-| `additional_properties` | `Dict[str, Any]` | Optional | - |
+| `link` | [`Link2`](../../doc/models/link-2.md) | Required | Contains links to the next and previous page whenever applicable. |
 
 ## Example
 
 ```python
 import dateutil.parser
-import jsonpickle
 
 from adyen.models.balance_account_configuration import BalanceAccountConfiguration
 from adyen.models.balance_account_configurations import BalanceAccountConfigurations
-from adyen.models.first import First
-from adyen.models.last import Last
-from adyen.models.link import Link
-from adyen.models.mself import Self
-from adyen.models.next import Next
-from adyen.models.previous import Previous
+from adyen.models.link_2 import Link2
+from adyen.models.links_element import LinksElement
 
 balance_account_configurations = BalanceAccountConfigurations(
     balance_account_payout_schedules=[
@@ -41,50 +33,26 @@ balance_account_configurations = BalanceAccountConfigurations(
             description='description2',
             enabled=False,
             frequency='frequency6',
-            frequency_value=138,
-            additional_properties={
-                'exampleAdditionalProperty': jsonpickle.decode('{"key1":"val1","key2":"val2"}')
-            }
+            frequency_value=138
         )
     ],
-    link=Link(
-        first=First(
-            href='href2',
-            additional_properties={
-                'exampleAdditionalProperty': jsonpickle.decode('{"key1":"val1","key2":"val2"}')
-            }
+    link=Link2(
+        first=LinksElement(
+            href='href2'
         ),
-        last=Last(
-            href='href2',
-            additional_properties={
-                'exampleAdditionalProperty': jsonpickle.decode('{"key1":"val1","key2":"val2"}')
-            }
+        last=LinksElement(
+            href='href2'
         ),
-        next=Next(
-            href='href4',
-            additional_properties={
-                'exampleAdditionalProperty': jsonpickle.decode('{"key1":"val1","key2":"val2"}')
-            }
+        next=LinksElement(
+            href='href4'
         ),
-        previous=Previous(
-            href='href0',
-            additional_properties={
-                'exampleAdditionalProperty': jsonpickle.decode('{"key1":"val1","key2":"val2"}')
-            }
+        previous=LinksElement(
+            href='href0'
         ),
-        mself=Self(
-            href='href0',
-            additional_properties={
-                'exampleAdditionalProperty': jsonpickle.decode('{"key1":"val1","key2":"val2"}')
-            }
-        ),
-        additional_properties={
-            'exampleAdditionalProperty': jsonpickle.decode('{"key1":"val1","key2":"val2"}')
-        }
-    ),
-    additional_properties={
-        'exampleAdditionalProperty': jsonpickle.decode('{"key1":"val1","key2":"val2"}')
-    }
+        mself=LinksElement(
+            href='href0'
+        )
+    )
 )
 ```
 

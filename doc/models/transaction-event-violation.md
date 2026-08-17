@@ -1,8 +1,6 @@
 
 # Transaction Event Violation
 
-*This model accepts additional fields of type Any.*
-
 ## Structure
 
 `TransactionEventViolation`
@@ -12,41 +10,29 @@
 | Name | Type | Tags | Description |
 |  --- | --- | --- | --- |
 | `reason` | `str` | Optional | An explanation about why the transaction rule failed. |
-| `transaction_rule` | [`TransactionRuleReference`](../../doc/models/transaction-rule-reference.md) | Optional | - |
-| `transaction_rule_source` | [`TransactionRuleSource`](../../doc/models/transaction-rule-source.md) | Optional | - |
-| `additional_properties` | `Dict[str, Any]` | Optional | - |
+| `transaction_rule` | [`TransactionRuleReference2`](../../doc/models/transaction-rule-reference-2.md) | Optional | Contains information about the transaction rule. |
+| `transaction_rule_source` | [`TransactionRuleSource2`](../../doc/models/transaction-rule-source-2.md) | Optional | Contains information about the resource to which the transaction rule applies. |
 
 ## Example
 
 ```python
-import jsonpickle
-
 from adyen.models.transaction_event_violation import TransactionEventViolation
-from adyen.models.transaction_rule_reference import TransactionRuleReference
-from adyen.models.transaction_rule_source import TransactionRuleSource
+from adyen.models.transaction_rule_reference_2 import TransactionRuleReference2
+from adyen.models.transaction_rule_source_2 import TransactionRuleSource2
 
 transaction_event_violation = TransactionEventViolation(
     reason='reason6',
-    transaction_rule=TransactionRuleReference(
+    transaction_rule=TransactionRuleReference2(
         description='description2',
         id='id2',
         outcome_type='outcomeType8',
         reference='reference2',
-        score=68,
-        additional_properties={
-            'exampleAdditionalProperty': jsonpickle.decode('{"key1":"val1","key2":"val2"}')
-        }
+        score=68
     ),
-    transaction_rule_source=TransactionRuleSource(
+    transaction_rule_source=TransactionRuleSource2(
         id='id4',
-        mtype='type4',
-        additional_properties={
-            'exampleAdditionalProperty': jsonpickle.decode('{"key1":"val1","key2":"val2"}')
-        }
-    ),
-    additional_properties={
-        'exampleAdditionalProperty': jsonpickle.decode('{"key1":"val1","key2":"val2"}')
-    }
+        mtype='type4'
+    )
 )
 ```
 

@@ -1,8 +1,6 @@
 
 # Paypal Update Order Response
 
-*This model accepts additional fields of type Any.*
-
 ## Structure
 
 `PaypalUpdateOrderResponse`
@@ -12,23 +10,17 @@
 | Name | Type | Tags | Description |
 |  --- | --- | --- | --- |
 | `payment_data` | `str` | Required | The updated paymentData. |
-| `status` | [`Status42`](../../doc/models/status-42.md) | Required | - |
-| `additional_properties` | `Dict[str, Any]` | Optional | - |
+| `status` | [`Status4Enum`](../../doc/models/status-4-enum.md) | Required | The status of the request. This indicates whether the order was successfully updated with PayPal. |
 
 ## Example
 
 ```python
-import jsonpickle
-
 from adyen.models.paypal_update_order_response import PaypalUpdateOrderResponse
-from adyen.models.status_42 import Status42
+from adyen.models.status_4_enum import Status4Enum
 
 paypal_update_order_response = PaypalUpdateOrderResponse(
     payment_data='paymentData2',
-    status=Status42.ERROR,
-    additional_properties={
-        'exampleAdditionalProperty': jsonpickle.decode('{"key1":"val1","key2":"val2"}')
-    }
+    status=Status4Enum.ERROR
 )
 ```
 

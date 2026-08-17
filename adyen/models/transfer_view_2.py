@@ -21,8 +21,6 @@ class TransferView2(object):
             [`reference`](https://docs.adyen.com/api-explorer/#/transfers/latest/post/
             transfers__reqParam_reference) from the `/transfers` request. If you
             haven't provided any, Adyen generates a unique reference.
-        additional_properties (Dict[str, Any]): The additional properties for the
-            model.
 
     """
 
@@ -42,8 +40,7 @@ class TransferView2(object):
         self,
         reference=None,
         category_data=APIHelper.SKIP,
-        id=APIHelper.SKIP,
-        additional_properties=None):
+        id=APIHelper.SKIP):
         """Initialize a TransferView2 instance."""
         # Initialize members of the class
         if category_data is not APIHelper.SKIP:
@@ -51,11 +48,6 @@ class TransferView2(object):
         if id is not APIHelper.SKIP:
             self.id = id
         self.reference = reference
-
-        # Add additional model properties to the instance
-        if additional_properties is None:
-            additional_properties = {}
-        self.additional_properties = additional_properties
 
     @classmethod
     def from_dictionary(cls,
@@ -94,16 +86,10 @@ class TransferView2(object):
             if dictionary.get("id")\
                 else APIHelper.SKIP
 
-        additional_properties = APIHelper.get_additional_properties(
-            dictionary={k: v for k, v in dictionary.items()
-                        if k not in cls._names.values()},
-            unboxing_function=lambda value: value)
-
         # Return an object of this model
         return cls(reference,
                    category_data,
-                   id,
-                   additional_properties)
+                   id)
 
     def __repr__(self):
         """Return a unambiguous string representation."""
@@ -118,13 +104,11 @@ class TransferView2(object):
             else None
         )
         _reference=self.reference
-        _additional_properties=self.additional_properties
         return (
             f"{self.__class__.__name__}("
             f"category_data={_category_data!r}, "
             f"id={_id!r}, "
             f"reference={_reference!r}, "
-            f"additional_properties={_additional_properties!r}, "
             f")"
         )
 
@@ -141,12 +125,10 @@ class TransferView2(object):
             else None
         )
         _reference=self.reference
-        _additional_properties=self.additional_properties
         return (
             f"{self.__class__.__name__}("
             f"category_data={_category_data!s}, "
             f"id={_id!s}, "
             f"reference={_reference!s}, "
-            f"additional_properties={_additional_properties!s}, "
             f")"
         )

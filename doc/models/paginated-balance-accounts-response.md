@@ -1,8 +1,6 @@
 
 # Paginated Balance Accounts Response
 
-*This model accepts additional fields of type Any.*
-
 ## Structure
 
 `PaginatedBalanceAccountsResponse`
@@ -14,17 +12,15 @@
 | `balance_accounts` | [`List[BalanceAccountBase]`](../../doc/models/balance-account-base.md) | Required | List of balance accounts. |
 | `has_next` | `bool` | Required | Indicates whether there are more items on the next page. |
 | `has_previous` | `bool` | Required | Indicates whether there are more items on the previous page. |
-| `additional_properties` | `Dict[str, Any]` | Optional | - |
 
 ## Example
 
 ```python
 import dateutil.parser
-import jsonpickle
 
 from adyen.models.balance_account_base import BalanceAccountBase
 from adyen.models.paginated_balance_accounts_response import PaginatedBalanceAccountsResponse
-from adyen.models.platform_payment_configuration import PlatformPaymentConfiguration
+from adyen.models.platform_payment_configuration_1 import PlatformPaymentConfiguration1
 
 paginated_balance_accounts_response = PaginatedBalanceAccountsResponse(
     balance_accounts=[
@@ -38,24 +34,14 @@ paginated_balance_accounts_response = PaginatedBalanceAccountsResponse(
                 'key1': 'metadata6',
                 'key2': 'metadata7'
             },
-            migrated_account_code='migratedAccountCode2',
-            platform_payment_configuration=PlatformPaymentConfiguration(
+            platform_payment_configuration=PlatformPaymentConfiguration1(
                 sales_day_closing_time=dateutil.parser.parse('2016-03-13T12:52:32.123Z'),
-                settlement_delay_days=80,
-                additional_properties={
-                    'exampleAdditionalProperty': jsonpickle.decode('{"key1":"val1","key2":"val2"}')
-                }
-            ),
-            additional_properties={
-                'exampleAdditionalProperty': jsonpickle.decode('{"key1":"val1","key2":"val2"}')
-            }
+                settlement_delay_days=80
+            )
         )
     ],
     has_next=False,
-    has_previous=False,
-    additional_properties={
-        'exampleAdditionalProperty': jsonpickle.decode('{"key1":"val1","key2":"val2"}')
-    }
+    has_previous=False
 )
 ```
 

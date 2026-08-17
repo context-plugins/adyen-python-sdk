@@ -1,8 +1,6 @@
 
 # Assign Terminals Request
 
-*This model accepts additional fields of type Any.*
-
 ## Structure
 
 `AssignTerminalsRequest`
@@ -16,13 +14,10 @@
 | `merchant_inventory` | `bool` | Optional | Boolean that indicates if you are assigning the terminals to the merchant inventory. Do not use when assigning terminals to a store. Required when assigning the terminal to a merchant account.<br><br>- Set this to **true** to assign the terminals to the merchant inventory. This also means that the terminals cannot be boarded.<br><br>- Set this to **false** to assign the terminals to the merchant account as in-store terminals. This makes the terminals ready to be boarded and to process payments through the specified merchant account. |
 | `store` | `str` | Optional | The store code of the store that you want to assign the terminals to. |
 | `terminals` | `List[str]` | Required | Array containing a list of terminal IDs that you want to assign or reassign to the merchant account or store, or that you want to return to the company inventory.<br><br>For example, `["V400m-324689776","P400Plus-329127412"]`. |
-| `additional_properties` | `Dict[str, Any]` | Optional | - |
 
 ## Example
 
 ```python
-import jsonpickle
-
 from adyen.models.assign_terminals_request import AssignTerminalsRequest
 
 assign_terminals_request = AssignTerminalsRequest(
@@ -32,10 +27,7 @@ assign_terminals_request = AssignTerminalsRequest(
     ],
     merchant_account='merchantAccount2',
     merchant_inventory=False,
-    store='store0',
-    additional_properties={
-        'exampleAdditionalProperty': jsonpickle.decode('{"key1":"val1","key2":"val2"}')
-    }
+    store='store0'
 )
 ```
 

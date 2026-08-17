@@ -1,8 +1,6 @@
 
 # Company Balances
 
-*This model accepts additional fields of type Any.*
-
 ## Structure
 
 `CompanyBalances`
@@ -12,57 +10,36 @@
 | Name | Type | Tags | Description |
 |  --- | --- | --- | --- |
 | `merchant_balances_overview` | [`List[MerchantBalance]`](../../doc/models/merchant-balance.md) | Optional | - |
-| `additional_properties` | `Dict[str, Any]` | Optional | - |
 
 ## Example
 
 ```python
-import jsonpickle
-
-from adyen.models.amount_3 import Amount3
+from adyen.models.amount_17 import Amount17
 from adyen.models.company_balances import CompanyBalances
 from adyen.models.merchant_balance import MerchantBalance
 
 company_balances = CompanyBalances(
     merchant_balances_overview=[
         MerchantBalance(
-            available_fund=Amount3(
+            available_fund=Amount17(
                 currency='currency4',
-                value=152,
-                additional_properties={
-                    'exampleAdditionalProperty': jsonpickle.decode('{"key1":"val1","key2":"val2"}')
-                }
+                value=152
             ),
-            deposit=Amount3(
+            deposit=Amount17(
                 currency='currency4',
-                value=62,
-                additional_properties={
-                    'exampleAdditionalProperty': jsonpickle.decode('{"key1":"val1","key2":"val2"}')
-                }
+                value=62
             ),
             merchant_account='merchantAccount4',
-            next_payout=Amount3(
+            next_payout=Amount17(
                 currency='currency4',
-                value=240,
-                additional_properties={
-                    'exampleAdditionalProperty': jsonpickle.decode('{"key1":"val1","key2":"val2"}')
-                }
+                value=240
             ),
-            pending_balance=Amount3(
+            pending_balance=Amount17(
                 currency='currency2',
-                value=254,
-                additional_properties={
-                    'exampleAdditionalProperty': jsonpickle.decode('{"key1":"val1","key2":"val2"}')
-                }
-            ),
-            additional_properties={
-                'exampleAdditionalProperty': jsonpickle.decode('{"key1":"val1","key2":"val2"}')
-            }
+                value=254
+            )
         )
-    ],
-    additional_properties={
-        'exampleAdditionalProperty': jsonpickle.decode('{"key1":"val1","key2":"val2"}')
-    }
+    ]
 )
 ```
 

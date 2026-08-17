@@ -17,8 +17,6 @@ class Unreferenced(object):
             [set an unreferenced refund limit and a refund
             delay](https://docs.adyen.com/point-of-sale/basic-tapi-integration/refund-
             payment/unreferenced/#risk-with-unreferenced-refunds) to reduce this risk.
-        additional_properties (Dict[str, Any]): The additional properties for the
-            model.
 
     """
 
@@ -33,17 +31,11 @@ class Unreferenced(object):
 
     def __init__(
         self,
-        enable_unreferenced_refunds=APIHelper.SKIP,
-        additional_properties=None):
+        enable_unreferenced_refunds=APIHelper.SKIP):
         """Initialize a Unreferenced instance."""
         # Initialize members of the class
         if enable_unreferenced_refunds is not APIHelper.SKIP:
             self.enable_unreferenced_refunds = enable_unreferenced_refunds
-
-        # Add additional model properties to the instance
-        if additional_properties is None:
-            additional_properties = {}
-        self.additional_properties = additional_properties
 
     @classmethod
     def from_dictionary(cls,
@@ -68,14 +60,8 @@ class Unreferenced(object):
             if "enableUnreferencedRefunds" in dictionary.keys()\
                 else APIHelper.SKIP
 
-        additional_properties = APIHelper.get_additional_properties(
-            dictionary={k: v for k, v in dictionary.items()
-                        if k not in cls._names.values()},
-            unboxing_function=lambda value: value)
-
         # Return an object of this model
-        return cls(enable_unreferenced_refunds,
-                   additional_properties)
+        return cls(enable_unreferenced_refunds)
 
     def __repr__(self):
         """Return a unambiguous string representation."""
@@ -84,11 +70,9 @@ class Unreferenced(object):
             if hasattr(self, "enable_unreferenced_refunds")
             else None
         )
-        _additional_properties=self.additional_properties
         return (
             f"{self.__class__.__name__}("
             f"enable_unreferenced_refunds={_enable_unreferenced_refunds!r}, "
-            f"additional_properties={_additional_properties!r}, "
             f")"
         )
 
@@ -99,10 +83,8 @@ class Unreferenced(object):
             if hasattr(self, "enable_unreferenced_refunds")
             else None
         )
-        _additional_properties=self.additional_properties
         return (
             f"{self.__class__.__name__}("
             f"enable_unreferenced_refunds={_enable_unreferenced_refunds!s}, "
-            f"additional_properties={_additional_properties!s}, "
             f")"
         )

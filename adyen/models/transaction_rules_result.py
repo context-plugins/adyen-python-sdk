@@ -20,8 +20,6 @@ class TransactionRulesResult(object):
         score (int): The score of the Risk analysis.
         triggered_transaction_rules (List[TransactionEventViolation]): Array
             containing all the transaction rules that the transaction triggered.
-        additional_properties (Dict[str, Any]): The additional properties for the
-            model.
 
     """
 
@@ -45,8 +43,7 @@ class TransactionRulesResult(object):
         advice=APIHelper.SKIP,
         all_hard_block_rules_passed=APIHelper.SKIP,
         score=APIHelper.SKIP,
-        triggered_transaction_rules=APIHelper.SKIP,
-        additional_properties=None):
+        triggered_transaction_rules=APIHelper.SKIP):
         """Initialize a TransactionRulesResult instance."""
         # Initialize members of the class
         if advice is not APIHelper.SKIP:
@@ -57,11 +54,6 @@ class TransactionRulesResult(object):
             self.score = score
         if triggered_transaction_rules is not APIHelper.SKIP:
             self.triggered_transaction_rules = triggered_transaction_rules
-
-        # Add additional model properties to the instance
-        if additional_properties is None:
-            additional_properties = {}
-        self.additional_properties = additional_properties
 
     @classmethod
     def from_dictionary(cls,
@@ -102,38 +94,11 @@ class TransactionRulesResult(object):
         else:
             triggered_transaction_rules = APIHelper.SKIP
 
-        additional_properties = APIHelper.get_additional_properties(
-            dictionary={k: v for k, v in dictionary.items()
-                        if k not in cls._names.values()},
-            unboxing_function=lambda value: value)
-
         # Return an object of this model
         return cls(advice,
                    all_hard_block_rules_passed,
                    score,
-                   triggered_transaction_rules,
-                   additional_properties)
-
-    @classmethod
-    def validate(cls, dictionary):
-        """Validate dictionary against class required properties
-
-        Args:
-            dictionary (dictionary): A dictionary representation of the object
-            as obtained from the deserialization of the server's response. The
-            keys MUST match property names in the API description.
-
-        Returns:
-            boolean : if dictionary is valid contains required properties.
-
-        """
-        if isinstance(dictionary, cls):
-            return True
-
-        if not isinstance(dictionary, dict):
-            return False
-
-        return True
+                   triggered_transaction_rules)
 
     def __repr__(self):
         """Return a unambiguous string representation."""
@@ -157,14 +122,12 @@ class TransactionRulesResult(object):
             if hasattr(self, "triggered_transaction_rules")
             else None
         )
-        _additional_properties=self.additional_properties
         return (
             f"{self.__class__.__name__}("
             f"advice={_advice!r}, "
             f"all_hard_block_rules_passed={_all_hard_block_rules_passed!r}, "
             f"score={_score!r}, "
             f"triggered_transaction_rules={_triggered_transaction_rules!r}, "
-            f"additional_properties={_additional_properties!r}, "
             f")"
         )
 
@@ -190,13 +153,11 @@ class TransactionRulesResult(object):
             if hasattr(self, "triggered_transaction_rules")
             else None
         )
-        _additional_properties=self.additional_properties
         return (
             f"{self.__class__.__name__}("
             f"advice={_advice!s}, "
             f"all_hard_block_rules_passed={_all_hard_block_rules_passed!s}, "
             f"score={_score!s}, "
             f"triggered_transaction_rules={_triggered_transaction_rules!s}, "
-            f"additional_properties={_additional_properties!s}, "
             f")"
         )

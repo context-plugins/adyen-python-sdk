@@ -3,8 +3,6 @@
 
 The details of the bank account to where a payout was made.
 
-*This model accepts additional fields of type Any.*
-
 ## Structure
 
 `BankAccountDetail`
@@ -39,13 +37,10 @@ The details of the bank account to where a payout was made.
 | `primary_account` | `bool` | Optional | If set to true, the bank account is a primary account. |
 | `tax_id` | `str` | Optional | The tax ID number.<br><br>> Refer to [Required information](https://docs.adyen.com/classic-platforms/verification-process/required-information) for details on field requirements. |
 | `url_for_verification` | `str` | Optional | The URL to be used for bank account verification.<br>This may be generated on bank account creation.<br><br>> Refer to [Required information](https://docs.adyen.com/classic-platforms/verification-process/required-information) for details on field requirements. |
-| `additional_properties` | `Dict[str, Any]` | Optional | - |
 
 ## Example
 
 ```python
-import jsonpickle
-
 from adyen.models.bank_account_detail import BankAccountDetail
 
 bank_account_detail = BankAccountDetail(
@@ -53,10 +48,7 @@ bank_account_detail = BankAccountDetail(
     account_type='accountType4',
     bank_account_name='bankAccountName4',
     bank_account_reference='bankAccountReference4',
-    bank_account_uuid='bankAccountUUID0',
-    additional_properties={
-        'exampleAdditionalProperty': jsonpickle.decode('{"key1":"val1","key2":"val2"}')
-    }
+    bank_account_uuid='bankAccountUUID0'
 )
 ```
 

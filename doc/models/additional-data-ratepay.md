@@ -1,8 +1,6 @@
 
 # Additional Data Ratepay
 
-*This model accepts additional fields of type Any.*
-
 ## Structure
 
 `AdditionalDataRatepay`
@@ -19,13 +17,10 @@
 | `ratepaydata_due_date` | `str` | Optional | Date by which the customer must settle the payment. |
 | `ratepaydata_invoice_date` | `str` | Optional | Invoice date, defined by the merchant. If not included, the invoice date is set to the delivery date. |
 | `ratepaydata_invoice_id` | `str` | Optional | Identification name or number for the invoice, defined by the merchant. |
-| `additional_properties` | `Dict[str, Any]` | Optional | - |
 
 ## Example
 
 ```python
-import jsonpickle
-
 from adyen.models.additional_data_ratepay import AdditionalDataRatepay
 
 additional_data_ratepay = AdditionalDataRatepay(
@@ -33,10 +28,7 @@ additional_data_ratepay = AdditionalDataRatepay(
     ratepay_interest_rate='ratepay.interestRate0',
     ratepay_last_installment_amount='ratepay.lastInstallmentAmount2',
     ratepay_payment_firstday='ratepay.paymentFirstday6',
-    ratepaydata_delivery_date='ratepaydata.deliveryDate6',
-    additional_properties={
-        'exampleAdditionalProperty': jsonpickle.decode('{"key1":"val1","key2":"val2"}')
-    }
+    ratepaydata_delivery_date='ratepaydata.deliveryDate6'
 )
 ```
 

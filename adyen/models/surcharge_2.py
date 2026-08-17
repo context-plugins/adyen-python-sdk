@@ -28,8 +28,6 @@ class Surcharge2(object):
             guide](https://docs.adyen.com/development-resources/surcharge-compliance/)
             to learn about how to comply with regulatory requirements when applying
             surcharge.
-        additional_properties (Dict[str, Any]): The additional properties for the
-            model.
 
     """
 
@@ -40,16 +38,10 @@ class Surcharge2(object):
 
     def __init__(
         self,
-        value=None,
-        additional_properties=None):
+        value=None):
         """Initialize a Surcharge2 instance."""
         # Initialize members of the class
         self.value = value
-
-        # Add additional model properties to the instance
-        if additional_properties is None:
-            additional_properties = {}
-        self.additional_properties = additional_properties
 
     @classmethod
     def from_dictionary(cls,
@@ -74,33 +66,56 @@ class Surcharge2(object):
             if dictionary.get("value")\
                 else None
 
-        additional_properties = APIHelper.get_additional_properties(
-            dictionary={k: v for k, v in dictionary.items()
-                        if k not in cls._names.values()},
-            unboxing_function=lambda value: value)
-
         # Return an object of this model
-        return cls(value,
-                   additional_properties)
+        return cls(value)
+
+    @classmethod
+    def validate(cls, dictionary):
+        """Validate dictionary against class required properties
+
+        Args:
+            dictionary (dictionary): A dictionary representation of the object
+            as obtained from the deserialization of the server's response. The
+            keys MUST match property names in the API description.
+
+        Returns:
+            boolean : if dictionary is valid contains required properties.
+
+        """
+        if isinstance(dictionary, cls):
+            return APIHelper.is_valid_type(
+                    value=dictionary.value,
+                    type_callable=lambda value:
+                        isinstance(
+                        value,
+                        int,
+                ))
+
+        if not isinstance(dictionary, dict):
+            return False
+
+        return APIHelper.is_valid_type(
+                value=dictionary.get("value"),
+                type_callable=lambda value:
+                    isinstance(
+                    value,
+                    int,
+            ))
 
     def __repr__(self):
         """Return a unambiguous string representation."""
         _value=self.value
-        _additional_properties=self.additional_properties
         return (
             f"{self.__class__.__name__}("
             f"value={_value!r}, "
-            f"additional_properties={_additional_properties!r}, "
             f")"
         )
 
     def __str__(self):
         """Return a human-readable string representation."""
         _value=self.value
-        _additional_properties=self.additional_properties
         return (
             f"{self.__class__.__name__}("
             f"value={_value!s}, "
-            f"additional_properties={_additional_properties!s}, "
             f")"
         )

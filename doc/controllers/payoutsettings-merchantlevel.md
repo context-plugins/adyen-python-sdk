@@ -46,7 +46,7 @@ This endpoint requires [BasicAuth](../../doc/auth/basic-authentication.md) **OR*
 
 **200**: OK - the request has succeeded.
 
-This method returns an [`ApiResponse`](../../doc/api-response.md) instance. The `body` property of this instance returns the response data which is of type [`PayoutSettingsResponse`](../../doc/models/payout-settings-response.md).
+[`PayoutSettingsResponse`](../../doc/models/payout-settings-response.md)
 
 ## Example Usage
 
@@ -54,11 +54,7 @@ This method returns an [`ApiResponse`](../../doc/api-response.md) instance. The 
 merchant_id = 'merchantId6'
 
 result = payout_settings_merchant_level_api.get_merchants_merchant_id_payout_settings(merchant_id)
-
-if result.is_success():
-    print(result.body)
-elif result.is_error():
-    print(result.errors)
+print(result)
 ```
 
 ## Errors
@@ -105,7 +101,7 @@ This endpoint requires [BasicAuth](../../doc/auth/basic-authentication.md) **OR*
 
 **200**: OK - the request has succeeded.
 
-This method returns an [`ApiResponse`](../../doc/api-response.md) instance. The `body` property of this instance returns the response data which is of type [`PayoutSettings`](../../doc/models/payout-settings.md).
+[`PayoutSettings`](../../doc/models/payout-settings.md)
 
 ## Example Usage
 
@@ -113,11 +109,7 @@ This method returns an [`ApiResponse`](../../doc/api-response.md) instance. The 
 merchant_id = 'merchantId6'
 
 result = payout_settings_merchant_level_api.post_merchants_merchant_id_payout_settings(merchant_id)
-
-if result.is_success():
-    print(result.body)
-elif result.is_error():
-    print(result.errors)
+print(result)
 ```
 
 ## Errors
@@ -162,7 +154,7 @@ This endpoint requires [BasicAuth](../../doc/auth/basic-authentication.md) **OR*
 
 **200**: OK - the request has succeeded.
 
-This method returns an [`ApiResponse`](../../doc/api-response.md) instance. The `body` property of this instance returns the response data which is of type [`PayoutSettings`](../../doc/models/payout-settings.md).
+[`PayoutSettings`](../../doc/models/payout-settings.md)
 
 ## Example Usage
 
@@ -175,11 +167,7 @@ result = payout_settings_merchant_level_api.get_merchants_merchant_id_payout_set
     merchant_id,
     payout_settings_id
 )
-
-if result.is_success():
-    print(result.body)
-elif result.is_error():
-    print(result.errors)
+print(result)
 ```
 
 ## Errors
@@ -224,7 +212,7 @@ This endpoint requires [BasicAuth](../../doc/auth/basic-authentication.md) **OR*
 
 **204**: No Content - look at the actual response code for the status of the request.
 
-This method returns an [`ApiResponse`](../../doc/api-response.md) instance.
+`void`
 
 ## Example Usage
 
@@ -233,15 +221,10 @@ merchant_id = 'merchantId6'
 
 payout_settings_id = 'payoutSettingsId6'
 
-result = payout_settings_merchant_level_api.delete_merchants_merchant_id_payout_settings_payout_settings_id(
+payout_settings_merchant_level_api.delete_merchants_merchant_id_payout_settings_payout_settings_id(
     merchant_id,
     payout_settings_id
 )
-
-if result.is_success():
-    print(result.body)
-elif result.is_error():
-    print(result.errors)
 ```
 
 ## Errors
@@ -288,7 +271,7 @@ This endpoint requires [BasicAuth](../../doc/auth/basic-authentication.md) **OR*
 
 **200**: OK - the request has succeeded.
 
-This method returns an [`ApiResponse`](../../doc/api-response.md) instance. The `body` property of this instance returns the response data which is of type [`PayoutSettings`](../../doc/models/payout-settings.md).
+[`PayoutSettings`](../../doc/models/payout-settings.md)
 
 ## Example Usage
 
@@ -301,11 +284,7 @@ result = payout_settings_merchant_level_api.patch_merchants_merchant_id_payout_s
     merchant_id,
     payout_settings_id
 )
-
-if result.is_success():
-    print(result.body)
-elif result.is_error():
-    print(result.errors)
+print(result)
 ```
 
 ## Errors

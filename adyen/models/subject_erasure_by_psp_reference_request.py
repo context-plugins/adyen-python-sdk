@@ -18,8 +18,6 @@ class SubjectErasureByPspReferenceRequest(object):
         merchant_account (str): Your merchant account
         psp_reference (str): The PSP reference of the payment. We will delete all
             shopper-related data for this payment.
-        additional_properties (Dict[str, Any]): The additional properties for the
-            model.
 
     """
 
@@ -40,8 +38,7 @@ class SubjectErasureByPspReferenceRequest(object):
         self,
         force_erasure=APIHelper.SKIP,
         merchant_account=APIHelper.SKIP,
-        psp_reference=APIHelper.SKIP,
-        additional_properties=None):
+        psp_reference=APIHelper.SKIP):
         """Initialize a SubjectErasureByPspReferenceRequest instance."""
         # Initialize members of the class
         if force_erasure is not APIHelper.SKIP:
@@ -50,11 +47,6 @@ class SubjectErasureByPspReferenceRequest(object):
             self.merchant_account = merchant_account
         if psp_reference is not APIHelper.SKIP:
             self.psp_reference = psp_reference
-
-        # Add additional model properties to the instance
-        if additional_properties is None:
-            additional_properties = {}
-        self.additional_properties = additional_properties
 
     @classmethod
     def from_dictionary(cls,
@@ -87,16 +79,10 @@ class SubjectErasureByPspReferenceRequest(object):
             if dictionary.get("pspReference")\
                 else APIHelper.SKIP
 
-        additional_properties = APIHelper.get_additional_properties(
-            dictionary={k: v for k, v in dictionary.items()
-                        if k not in cls._names.values()},
-            unboxing_function=lambda value: value)
-
         # Return an object of this model
         return cls(force_erasure,
                    merchant_account,
-                   psp_reference,
-                   additional_properties)
+                   psp_reference)
 
     def __repr__(self):
         """Return a unambiguous string representation."""
@@ -115,13 +101,11 @@ class SubjectErasureByPspReferenceRequest(object):
             if hasattr(self, "psp_reference")
             else None
         )
-        _additional_properties=self.additional_properties
         return (
             f"{self.__class__.__name__}("
             f"force_erasure={_force_erasure!r}, "
             f"merchant_account={_merchant_account!r}, "
             f"psp_reference={_psp_reference!r}, "
-            f"additional_properties={_additional_properties!r}, "
             f")"
         )
 
@@ -142,12 +126,10 @@ class SubjectErasureByPspReferenceRequest(object):
             if hasattr(self, "psp_reference")
             else None
         )
-        _additional_properties=self.additional_properties
         return (
             f"{self.__class__.__name__}("
             f"force_erasure={_force_erasure!s}, "
             f"merchant_account={_merchant_account!s}, "
             f"psp_reference={_psp_reference!s}, "
-            f"additional_properties={_additional_properties!s}, "
             f")"
         )

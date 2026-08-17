@@ -3,32 +3,21 @@
 
 ## Data Type
 
-`PatchableAmountDto | Any | None`
+`PatchableAmountDTO`
 
 ## Cases
 
 | Type |
 |  --- |
-| [`PatchableAmountDto`](../../../doc/models/patchable-amount-dto.md) |
-| `Any` |
+| [`PatchableAmountDTO`](../../../doc/models/patchable-amount-dto.md) |
 
-## PatchableAmountDto
-
-### Initialization Code
-
-#### Example
-
-```python
-value = PatchableAmountDto()
-```
-
-## Any
+## PatchableAmountDTO
 
 ### Initialization Code
 
 #### Example
 
 ```python
-value = jsonpickle.decode('{"key1":"val1","key2":"val2"}')
+value = PatchableAmountDTO()
 ```
 

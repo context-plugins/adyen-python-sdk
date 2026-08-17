@@ -1,8 +1,6 @@
 
 # Top Up Amount
 
-*This model accepts additional fields of type Any.*
-
 ## Structure
 
 `TopUpAmount`
@@ -11,37 +9,24 @@
 
 | Name | Type | Tags | Description |
 |  --- | --- | --- | --- |
-| `fixed` | [`Fixed`](../../doc/models/fixed.md) | Optional | - |
-| `target` | [`Target5`](../../doc/models/target-5.md) | Optional | - |
-| `additional_properties` | `Dict[str, Any]` | Optional | - |
+| `fixed` | [`Amount17`](../../doc/models/amount-17.md) | Optional | The fixed amount with which you want to top up the balance account. |
+| `target` | [`Amount17`](../../doc/models/amount-17.md) | Optional | The target balance for the balance account that the top-up must achieve. |
 
 ## Example
 
 ```python
-import jsonpickle
-
-from adyen.models.fixed import Fixed
-from adyen.models.target_5 import Target5
+from adyen.models.amount_17 import Amount17
 from adyen.models.top_up_amount import TopUpAmount
 
 top_up_amount = TopUpAmount(
-    fixed=Fixed(
+    fixed=Amount17(
         currency='currency0',
-        value=164,
-        additional_properties={
-            'exampleAdditionalProperty': jsonpickle.decode('{"key1":"val1","key2":"val2"}')
-        }
+        value=164
     ),
-    target=Target5(
+    target=Amount17(
         currency='currency2',
-        value=188,
-        additional_properties={
-            'exampleAdditionalProperty': jsonpickle.decode('{"key1":"val1","key2":"val2"}')
-        }
-    ),
-    additional_properties={
-        'exampleAdditionalProperty': jsonpickle.decode('{"key1":"val1","key2":"val2"}')
-    }
+        value=188
+    )
 )
 ```
 

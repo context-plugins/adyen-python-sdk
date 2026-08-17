@@ -21,8 +21,6 @@ class TerminalOrderRequest(object):
         shipping_location_id (str): The identification of the shipping location to
             use for the order.
         tax_id (str): The tax number of the billing entity.
-        additional_properties (Dict[str, Any]): The additional properties for the
-            model.
 
     """
 
@@ -52,8 +50,7 @@ class TerminalOrderRequest(object):
         items=APIHelper.SKIP,
         order_type=APIHelper.SKIP,
         shipping_location_id=APIHelper.SKIP,
-        tax_id=APIHelper.SKIP,
-        additional_properties=None):
+        tax_id=APIHelper.SKIP):
         """Initialize a TerminalOrderRequest instance."""
         # Initialize members of the class
         if billing_entity_id is not APIHelper.SKIP:
@@ -68,11 +65,6 @@ class TerminalOrderRequest(object):
             self.shipping_location_id = shipping_location_id
         if tax_id is not APIHelper.SKIP:
             self.tax_id = tax_id
-
-        # Add additional model properties to the instance
-        if additional_properties is None:
-            additional_properties = {}
-        self.additional_properties = additional_properties
 
     @classmethod
     def from_dictionary(cls,
@@ -121,19 +113,13 @@ class TerminalOrderRequest(object):
             if dictionary.get("taxId")\
                 else APIHelper.SKIP
 
-        additional_properties = APIHelper.get_additional_properties(
-            dictionary={k: v for k, v in dictionary.items()
-                        if k not in cls._names.values()},
-            unboxing_function=lambda value: value)
-
         # Return an object of this model
         return cls(billing_entity_id,
                    customer_order_reference,
                    items,
                    order_type,
                    shipping_location_id,
-                   tax_id,
-                   additional_properties)
+                   tax_id)
 
     def __repr__(self):
         """Return a unambiguous string representation."""
@@ -167,7 +153,6 @@ class TerminalOrderRequest(object):
             if hasattr(self, "tax_id")
             else None
         )
-        _additional_properties=self.additional_properties
         return (
             f"{self.__class__.__name__}("
             f"billing_entity_id={_billing_entity_id!r}, "
@@ -176,7 +161,6 @@ class TerminalOrderRequest(object):
             f"order_type={_order_type!r}, "
             f"shipping_location_id={_shipping_location_id!r}, "
             f"tax_id={_tax_id!r}, "
-            f"additional_properties={_additional_properties!r}, "
             f")"
         )
 
@@ -212,7 +196,6 @@ class TerminalOrderRequest(object):
             if hasattr(self, "tax_id")
             else None
         )
-        _additional_properties=self.additional_properties
         return (
             f"{self.__class__.__name__}("
             f"billing_entity_id={_billing_entity_id!s}, "
@@ -221,6 +204,5 @@ class TerminalOrderRequest(object):
             f"order_type={_order_type!s}, "
             f"shipping_location_id={_shipping_location_id!s}, "
             f"tax_id={_tax_id!s}, "
-            f"additional_properties={_additional_properties!s}, "
             f")"
         )

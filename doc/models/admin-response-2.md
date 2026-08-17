@@ -3,8 +3,6 @@
 
 Content of the Admin Response message.
 
-*This model accepts additional fields of type Any.*
-
 ## Structure
 
 `AdminResponse2`
@@ -13,31 +11,22 @@ Content of the Admin Response message.
 
 | Name | Type | Tags | Description |
 |  --- | --- | --- | --- |
-| `response` | [`Response3`](../../doc/models/response-3.md) | Required | - |
-| `additional_properties` | `Dict[str, Any]` | Optional | - |
+| `response` | [`Response11`](../../doc/models/response-11.md) | Required | Result of a message request processing. |
 
 ## Example
 
 ```python
-import jsonpickle
-
 from adyen.models.admin_response_2 import AdminResponse2
-from adyen.models.error_condition_1 import ErrorCondition1
-from adyen.models.response_3 import Response3
-from adyen.models.result_11 import Result11
+from adyen.models.error_condition_1_enum import ErrorCondition1Enum
+from adyen.models.response_11 import Response11
+from adyen.models.result_11_enum import Result11Enum
 
 admin_response_2 = AdminResponse2(
-    response=Response3(
-        result=Result11.PARTIAL,
-        error_condition=ErrorCondition1.PAYMENTRESTRICTION,
-        additional_response='AdditionalResponse8',
-        additional_properties={
-            'exampleAdditionalProperty': jsonpickle.decode('{"key1":"val1","key2":"val2"}')
-        }
-    ),
-    additional_properties={
-        'exampleAdditionalProperty': jsonpickle.decode('{"key1":"val1","key2":"val2"}')
-    }
+    response=Response11(
+        result=Result11Enum.PARTIAL,
+        error_condition=ErrorCondition1Enum.PAYMENTRESTRICTION,
+        additional_response='AdditionalResponse8'
+    )
 )
 ```
 

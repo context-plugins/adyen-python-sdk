@@ -23,8 +23,6 @@ class AdditionalDataRatepay(object):
             included, the invoice date is set to the delivery date.
         ratepaydata_invoice_id (str): Identification name or number for the invoice,
             defined by the merchant.
-        additional_properties (Dict[str, Any]): The additional properties for the
-            model.
 
     """
 
@@ -60,8 +58,7 @@ class AdditionalDataRatepay(object):
         ratepaydata_delivery_date=APIHelper.SKIP,
         ratepaydata_due_date=APIHelper.SKIP,
         ratepaydata_invoice_date=APIHelper.SKIP,
-        ratepaydata_invoice_id=APIHelper.SKIP,
-        additional_properties=None):
+        ratepaydata_invoice_id=APIHelper.SKIP):
         """Initialize a AdditionalDataRatepay instance."""
         # Initialize members of the class
         if ratepay_installment_amount is not APIHelper.SKIP:
@@ -80,11 +77,6 @@ class AdditionalDataRatepay(object):
             self.ratepaydata_invoice_date = ratepaydata_invoice_date
         if ratepaydata_invoice_id is not APIHelper.SKIP:
             self.ratepaydata_invoice_id = ratepaydata_invoice_id
-
-        # Add additional model properties to the instance
-        if additional_properties is None:
-            additional_properties = {}
-        self.additional_properties = additional_properties
 
     @classmethod
     def from_dictionary(cls,
@@ -137,11 +129,6 @@ class AdditionalDataRatepay(object):
             if dictionary.get("ratepaydata.invoiceId")\
                 else APIHelper.SKIP
 
-        additional_properties = APIHelper.get_additional_properties(
-            dictionary={k: v for k, v in dictionary.items()
-                        if k not in cls._names.values()},
-            unboxing_function=lambda value: value)
-
         # Return an object of this model
         return cls(ratepay_installment_amount,
                    ratepay_interest_rate,
@@ -150,8 +137,7 @@ class AdditionalDataRatepay(object):
                    ratepaydata_delivery_date,
                    ratepaydata_due_date,
                    ratepaydata_invoice_date,
-                   ratepaydata_invoice_id,
-                   additional_properties)
+                   ratepaydata_invoice_id)
 
     def __repr__(self):
         """Return a unambiguous string representation."""
@@ -195,7 +181,6 @@ class AdditionalDataRatepay(object):
             if hasattr(self, "ratepaydata_invoice_id")
             else None
         )
-        _additional_properties=self.additional_properties
         return (
             f"{self.__class__.__name__}("
             f"ratepay_installment_amount={_ratepay_installment_amount!r}, "
@@ -206,7 +191,6 @@ class AdditionalDataRatepay(object):
             f"ratepaydata_due_date={_ratepaydata_due_date!r}, "
             f"ratepaydata_invoice_date={_ratepaydata_invoice_date!r}, "
             f"ratepaydata_invoice_id={_ratepaydata_invoice_id!r}, "
-            f"additional_properties={_additional_properties!r}, "
             f")"
         )
 
@@ -252,7 +236,6 @@ class AdditionalDataRatepay(object):
             if hasattr(self, "ratepaydata_invoice_id")
             else None
         )
-        _additional_properties=self.additional_properties
         return (
             f"{self.__class__.__name__}("
             f"ratepay_installment_amount={_ratepay_installment_amount!s}, "
@@ -263,6 +246,5 @@ class AdditionalDataRatepay(object):
             f"ratepaydata_due_date={_ratepaydata_due_date!s}, "
             f"ratepaydata_invoice_date={_ratepaydata_invoice_date!s}, "
             f"ratepaydata_invoice_id={_ratepaydata_invoice_id!s}, "
-            f"additional_properties={_additional_properties!s}, "
             f")"
         )

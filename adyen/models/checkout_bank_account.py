@@ -11,7 +11,7 @@ class CheckoutBankAccount(object):
     """Implementation of the 'CheckoutBankAccount' model.
 
     Attributes:
-        account_type (AccountType11): The model property of type AccountType11.
+        account_type (AccountType1Enum): The type of the bank account.
         bank_account_number (str): The bank account number (without separators).
         bank_city (str): The bank city.
         bank_location_id (str): The location id of the bank. The field value is `nil`
@@ -37,8 +37,6 @@ class CheckoutBankAccount(object):
             don't match the required format, the response returns the error message:
             203 'Invalid bank account holder name'.
         tax_id (str): The bank account holder's tax ID.
-        additional_properties (Dict[str, Any]): The additional properties for the
-            model.
 
     """
 
@@ -80,8 +78,7 @@ class CheckoutBankAccount(object):
         country_code=APIHelper.SKIP,
         iban=APIHelper.SKIP,
         owner_name=APIHelper.SKIP,
-        tax_id=APIHelper.SKIP,
-        additional_properties=None):
+        tax_id=APIHelper.SKIP):
         """Initialize a CheckoutBankAccount instance."""
         # Initialize members of the class
         if account_type is not APIHelper.SKIP:
@@ -104,11 +101,6 @@ class CheckoutBankAccount(object):
             self.owner_name = owner_name
         if tax_id is not APIHelper.SKIP:
             self.tax_id = tax_id
-
-        # Add additional model properties to the instance
-        if additional_properties is None:
-            additional_properties = {}
-        self.additional_properties = additional_properties
 
     @classmethod
     def from_dictionary(cls,
@@ -169,11 +161,6 @@ class CheckoutBankAccount(object):
             if dictionary.get("taxId")\
                 else APIHelper.SKIP
 
-        additional_properties = APIHelper.get_additional_properties(
-            dictionary={k: v for k, v in dictionary.items()
-                        if k not in cls._names.values()},
-            unboxing_function=lambda value: value)
-
         # Return an object of this model
         return cls(account_type,
                    bank_account_number,
@@ -184,29 +171,7 @@ class CheckoutBankAccount(object):
                    country_code,
                    iban,
                    owner_name,
-                   tax_id,
-                   additional_properties)
-
-    @classmethod
-    def validate(cls, dictionary):
-        """Validate dictionary against class required properties
-
-        Args:
-            dictionary (dictionary): A dictionary representation of the object
-            as obtained from the deserialization of the server's response. The
-            keys MUST match property names in the API description.
-
-        Returns:
-            boolean : if dictionary is valid contains required properties.
-
-        """
-        if isinstance(dictionary, cls):
-            return True
-
-        if not isinstance(dictionary, dict):
-            return False
-
-        return True
+                   tax_id)
 
     def __repr__(self):
         """Return a unambiguous string representation."""
@@ -260,7 +225,6 @@ class CheckoutBankAccount(object):
             if hasattr(self, "tax_id")
             else None
         )
-        _additional_properties=self.additional_properties
         return (
             f"{self.__class__.__name__}("
             f"account_type={_account_type!r}, "
@@ -273,7 +237,6 @@ class CheckoutBankAccount(object):
             f"iban={_iban!r}, "
             f"owner_name={_owner_name!r}, "
             f"tax_id={_tax_id!r}, "
-            f"additional_properties={_additional_properties!r}, "
             f")"
         )
 
@@ -329,7 +292,6 @@ class CheckoutBankAccount(object):
             if hasattr(self, "tax_id")
             else None
         )
-        _additional_properties=self.additional_properties
         return (
             f"{self.__class__.__name__}("
             f"account_type={_account_type!s}, "
@@ -342,6 +304,5 @@ class CheckoutBankAccount(object):
             f"iban={_iban!s}, "
             f"owner_name={_owner_name!s}, "
             f"tax_id={_tax_id!s}, "
-            f"additional_properties={_additional_properties!s}, "
             f")"
         )

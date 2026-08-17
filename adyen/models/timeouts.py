@@ -13,8 +13,6 @@ class Timeouts(object):
     Attributes:
         from_active_to_sleep (int): Indicates the number of seconds of inactivity
             after which the terminal display goes into sleep mode.
-        additional_properties (Dict[str, Any]): The additional properties for the
-            model.
 
     """
 
@@ -29,17 +27,11 @@ class Timeouts(object):
 
     def __init__(
         self,
-        from_active_to_sleep=APIHelper.SKIP,
-        additional_properties=None):
+        from_active_to_sleep=APIHelper.SKIP):
         """Initialize a Timeouts instance."""
         # Initialize members of the class
         if from_active_to_sleep is not APIHelper.SKIP:
             self.from_active_to_sleep = from_active_to_sleep
-
-        # Add additional model properties to the instance
-        if additional_properties is None:
-            additional_properties = {}
-        self.additional_properties = additional_properties
 
     @classmethod
     def from_dictionary(cls,
@@ -64,14 +56,8 @@ class Timeouts(object):
             if dictionary.get("fromActiveToSleep")\
                 else APIHelper.SKIP
 
-        additional_properties = APIHelper.get_additional_properties(
-            dictionary={k: v for k, v in dictionary.items()
-                        if k not in cls._names.values()},
-            unboxing_function=lambda value: value)
-
         # Return an object of this model
-        return cls(from_active_to_sleep,
-                   additional_properties)
+        return cls(from_active_to_sleep)
 
     def __repr__(self):
         """Return a unambiguous string representation."""
@@ -80,11 +66,9 @@ class Timeouts(object):
             if hasattr(self, "from_active_to_sleep")
             else None
         )
-        _additional_properties=self.additional_properties
         return (
             f"{self.__class__.__name__}("
             f"from_active_to_sleep={_from_active_to_sleep!r}, "
-            f"additional_properties={_additional_properties!r}, "
             f")"
         )
 
@@ -95,10 +79,8 @@ class Timeouts(object):
             if hasattr(self, "from_active_to_sleep")
             else None
         )
-        _additional_properties=self.additional_properties
         return (
             f"{self.__class__.__name__}("
             f"from_active_to_sleep={_from_active_to_sleep!s}, "
-            f"additional_properties={_additional_properties!s}, "
             f")"
         )

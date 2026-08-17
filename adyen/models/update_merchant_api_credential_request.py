@@ -21,8 +21,6 @@ class UpdateMerchantApiCredentialRequest(object):
             -1) for the API credential. Only roles assigned to
             'ws@Company.<CompanyName>' can be assigned to other API credentials.
         subject_dn (str): The subject DN of the certificate issued by Adyen.
-        additional_properties (Dict[str, Any]): The additional properties for the
-            model.
 
     """
 
@@ -49,8 +47,7 @@ class UpdateMerchantApiCredentialRequest(object):
         allowed_origins=APIHelper.SKIP,
         description=APIHelper.SKIP,
         roles=APIHelper.SKIP,
-        subject_dn=APIHelper.SKIP,
-        additional_properties=None):
+        subject_dn=APIHelper.SKIP):
         """Initialize a UpdateMerchantApiCredentialRequest instance."""
         # Initialize members of the class
         if active is not APIHelper.SKIP:
@@ -63,11 +60,6 @@ class UpdateMerchantApiCredentialRequest(object):
             self.roles = roles
         if subject_dn is not APIHelper.SKIP:
             self.subject_dn = subject_dn
-
-        # Add additional model properties to the instance
-        if additional_properties is None:
-            additional_properties = {}
-        self.additional_properties = additional_properties
 
     @classmethod
     def from_dictionary(cls,
@@ -108,18 +100,12 @@ class UpdateMerchantApiCredentialRequest(object):
             if dictionary.get("subjectDN")\
                 else APIHelper.SKIP
 
-        additional_properties = APIHelper.get_additional_properties(
-            dictionary={k: v for k, v in dictionary.items()
-                        if k not in cls._names.values()},
-            unboxing_function=lambda value: value)
-
         # Return an object of this model
         return cls(active,
                    allowed_origins,
                    description,
                    roles,
-                   subject_dn,
-                   additional_properties)
+                   subject_dn)
 
     def __repr__(self):
         """Return a unambiguous string representation."""
@@ -148,7 +134,6 @@ class UpdateMerchantApiCredentialRequest(object):
             if hasattr(self, "subject_dn")
             else None
         )
-        _additional_properties=self.additional_properties
         return (
             f"{self.__class__.__name__}("
             f"active={_active!r}, "
@@ -156,7 +141,6 @@ class UpdateMerchantApiCredentialRequest(object):
             f"description={_description!r}, "
             f"roles={_roles!r}, "
             f"subject_dn={_subject_dn!r}, "
-            f"additional_properties={_additional_properties!r}, "
             f")"
         )
 
@@ -187,7 +171,6 @@ class UpdateMerchantApiCredentialRequest(object):
             if hasattr(self, "subject_dn")
             else None
         )
-        _additional_properties=self.additional_properties
         return (
             f"{self.__class__.__name__}("
             f"active={_active!s}, "
@@ -195,6 +178,5 @@ class UpdateMerchantApiCredentialRequest(object):
             f"description={_description!s}, "
             f"roles={_roles!s}, "
             f"subject_dn={_subject_dn!s}, "
-            f"additional_properties={_additional_properties!s}, "
             f")"
         )

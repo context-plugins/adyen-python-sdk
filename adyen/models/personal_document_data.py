@@ -19,9 +19,10 @@ class PersonalDocumentData(object):
             example, **NL**.
         issuer_state (str): The state where the document was issued (if applicable).
         number (str): The number in the document.
-        mtype (Type): The model property of type Type.
-        additional_properties (Dict[str, Any]): The additional properties for the
-            model.
+        mtype (Type15Enum): The type of the document. Possible values: **ID**,
+            **DRIVINGLICENSE**, **PASSPORT**, **SOCIALSECURITY**, **VISA**.  To
+            delete an existing entry for a document `type`, send only the `type`
+            field in your request.
 
     """
 
@@ -47,8 +48,7 @@ class PersonalDocumentData(object):
         expiration_date=APIHelper.SKIP,
         issuer_country=APIHelper.SKIP,
         issuer_state=APIHelper.SKIP,
-        number=APIHelper.SKIP,
-        additional_properties=None):
+        number=APIHelper.SKIP):
         """Initialize a PersonalDocumentData instance."""
         # Initialize members of the class
         if expiration_date is not APIHelper.SKIP:
@@ -60,11 +60,6 @@ class PersonalDocumentData(object):
         if number is not APIHelper.SKIP:
             self.number = number
         self.mtype = mtype
-
-        # Add additional model properties to the instance
-        if additional_properties is None:
-            additional_properties = {}
-        self.additional_properties = additional_properties
 
     @classmethod
     def from_dictionary(cls,
@@ -105,18 +100,12 @@ class PersonalDocumentData(object):
             if dictionary.get("number")\
                 else APIHelper.SKIP
 
-        additional_properties = APIHelper.get_additional_properties(
-            dictionary={k: v for k, v in dictionary.items()
-                        if k not in cls._names.values()},
-            unboxing_function=lambda value: value)
-
         # Return an object of this model
         return cls(mtype,
                    expiration_date,
                    issuer_country,
                    issuer_state,
-                   number,
-                   additional_properties)
+                   number)
 
     def __repr__(self):
         """Return a unambiguous string representation."""
@@ -141,7 +130,6 @@ class PersonalDocumentData(object):
             else None
         )
         _mtype=self.mtype
-        _additional_properties=self.additional_properties
         return (
             f"{self.__class__.__name__}("
             f"expiration_date={_expiration_date!r}, "
@@ -149,7 +137,6 @@ class PersonalDocumentData(object):
             f"issuer_state={_issuer_state!r}, "
             f"number={_number!r}, "
             f"mtype={_mtype!r}, "
-            f"additional_properties={_additional_properties!r}, "
             f")"
         )
 
@@ -176,7 +163,6 @@ class PersonalDocumentData(object):
             else None
         )
         _mtype=self.mtype
-        _additional_properties=self.additional_properties
         return (
             f"{self.__class__.__name__}("
             f"expiration_date={_expiration_date!s}, "
@@ -184,6 +170,5 @@ class PersonalDocumentData(object):
             f"issuer_state={_issuer_state!s}, "
             f"number={_number!s}, "
             f"mtype={_mtype!s}, "
-            f"additional_properties={_additional_properties!s}, "
             f")"
         )

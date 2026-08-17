@@ -1,8 +1,6 @@
 
 # External Terminal Action
 
-*This model accepts additional fields of type Any.*
-
 ## Structure
 
 `ExternalTerminalAction`
@@ -19,13 +17,11 @@
 | `scheduled_at` | `datetime` | Optional | The date and time when the action was scheduled to happen. |
 | `status` | `str` | Optional | The status of the terminal action: **pending**, **successful**, **failed**, **cancelled**, or **tryLater**. |
 | `terminal_id` | `str` | Optional | The unique ID of the terminal that the action applies to. |
-| `additional_properties` | `Dict[str, Any]` | Optional | - |
 
 ## Example
 
 ```python
 import dateutil.parser
-import jsonpickle
 
 from adyen.models.external_terminal_action import ExternalTerminalAction
 
@@ -34,10 +30,7 @@ external_terminal_action = ExternalTerminalAction(
     config='config8',
     confirmed_at=dateutil.parser.parse('2016-03-13T12:52:32.123Z'),
     id='id2',
-    result='result4',
-    additional_properties={
-        'exampleAdditionalProperty': jsonpickle.decode('{"key1":"val1","key2":"val2"}')
-    }
+    result='result4'
 )
 ```
 

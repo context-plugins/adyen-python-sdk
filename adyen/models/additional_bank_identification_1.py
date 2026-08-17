@@ -15,10 +15,17 @@ class AdditionalBankIdentification1(object):
 
     Attributes:
         code (str): The value of the additional bank identification.
-        mtype (AdditionalBankIdentificationType): The model property of type
-            AdditionalBankIdentificationType.
-        additional_properties (Dict[str, Any]): The additional properties for the
-            model.
+        mtype (Type510Enum): The type of additional bank identification, depending on
+            the country.  Possible values:   * **auBsbCode**: The 6-digit [Australian
+            Bank State Branch (BSB)
+            code](https://en.wikipedia.org/wiki/Bank_state_branch), without
+            separators or spaces.  * **caRoutingNumber**: The 9-digit [Canadian
+            routing number](https://en.wikipedia.org/wiki/Routing_number_(Canada)),
+            in EFT format, without separators or spaces.  * **gbSortCode**: The
+            6-digit [UK sort code](https://en.wikipedia.org/wiki/Sort_code), without
+            separators or spaces  * **usRoutingNumber**: The 9-digit [routing
+            number](https://en.wikipedia.org/wiki/ABA_routing_transit_number),
+            without separators or spaces.
 
     """
 
@@ -36,19 +43,13 @@ class AdditionalBankIdentification1(object):
     def __init__(
         self,
         code=APIHelper.SKIP,
-        mtype=APIHelper.SKIP,
-        additional_properties=None):
+        mtype=APIHelper.SKIP):
         """Initialize a AdditionalBankIdentification1 instance."""
         # Initialize members of the class
         if code is not APIHelper.SKIP:
             self.code = code
         if mtype is not APIHelper.SKIP:
             self.mtype = mtype
-
-        # Add additional model properties to the instance
-        if additional_properties is None:
-            additional_properties = {}
-        self.additional_properties = additional_properties
 
     @classmethod
     def from_dictionary(cls,
@@ -77,15 +78,9 @@ class AdditionalBankIdentification1(object):
             if dictionary.get("type")\
                 else APIHelper.SKIP
 
-        additional_properties = APIHelper.get_additional_properties(
-            dictionary={k: v for k, v in dictionary.items()
-                        if k not in cls._names.values()},
-            unboxing_function=lambda value: value)
-
         # Return an object of this model
         return cls(code,
-                   mtype,
-                   additional_properties)
+                   mtype)
 
     @classmethod
     def validate(cls, dictionary):
@@ -120,12 +115,10 @@ class AdditionalBankIdentification1(object):
             if hasattr(self, "mtype")
             else None
         )
-        _additional_properties=self.additional_properties
         return (
             f"{self.__class__.__name__}("
             f"code={_code!r}, "
             f"mtype={_mtype!r}, "
-            f"additional_properties={_additional_properties!r}, "
             f")"
         )
 
@@ -141,11 +134,9 @@ class AdditionalBankIdentification1(object):
             if hasattr(self, "mtype")
             else None
         )
-        _additional_properties=self.additional_properties
         return (
             f"{self.__class__.__name__}("
             f"code={_code!s}, "
             f"mtype={_mtype!s}, "
-            f"additional_properties={_additional_properties!s}, "
             f")"
         )

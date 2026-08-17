@@ -16,8 +16,6 @@ class PaymentInstrument2(object):
         reference (str): The reference for the resource.
         token_type (str): The type of wallet that the network token is associated
             with.
-        additional_properties (Dict[str, Any]): The additional properties for the
-            model.
 
     """
 
@@ -41,8 +39,7 @@ class PaymentInstrument2(object):
         description=APIHelper.SKIP,
         id=APIHelper.SKIP,
         reference=APIHelper.SKIP,
-        token_type=APIHelper.SKIP,
-        additional_properties=None):
+        token_type=APIHelper.SKIP):
         """Initialize a PaymentInstrument2 instance."""
         # Initialize members of the class
         if description is not APIHelper.SKIP:
@@ -53,11 +50,6 @@ class PaymentInstrument2(object):
             self.reference = reference
         if token_type is not APIHelper.SKIP:
             self.token_type = token_type
-
-        # Add additional model properties to the instance
-        if additional_properties is None:
-            additional_properties = {}
-        self.additional_properties = additional_properties
 
     @classmethod
     def from_dictionary(cls,
@@ -94,38 +86,11 @@ class PaymentInstrument2(object):
             if dictionary.get("tokenType")\
                 else APIHelper.SKIP
 
-        additional_properties = APIHelper.get_additional_properties(
-            dictionary={k: v for k, v in dictionary.items()
-                        if k not in cls._names.values()},
-            unboxing_function=lambda value: value)
-
         # Return an object of this model
         return cls(description,
                    id,
                    reference,
-                   token_type,
-                   additional_properties)
-
-    @classmethod
-    def validate(cls, dictionary):
-        """Validate dictionary against class required properties
-
-        Args:
-            dictionary (dictionary): A dictionary representation of the object
-            as obtained from the deserialization of the server's response. The
-            keys MUST match property names in the API description.
-
-        Returns:
-            boolean : if dictionary is valid contains required properties.
-
-        """
-        if isinstance(dictionary, cls):
-            return True
-
-        if not isinstance(dictionary, dict):
-            return False
-
-        return True
+                   token_type)
 
     def __repr__(self):
         """Return a unambiguous string representation."""
@@ -149,14 +114,12 @@ class PaymentInstrument2(object):
             if hasattr(self, "token_type")
             else None
         )
-        _additional_properties=self.additional_properties
         return (
             f"{self.__class__.__name__}("
             f"description={_description!r}, "
             f"id={_id!r}, "
             f"reference={_reference!r}, "
             f"token_type={_token_type!r}, "
-            f"additional_properties={_additional_properties!r}, "
             f")"
         )
 
@@ -182,13 +145,11 @@ class PaymentInstrument2(object):
             if hasattr(self, "token_type")
             else None
         )
-        _additional_properties=self.additional_properties
         return (
             f"{self.__class__.__name__}("
             f"description={_description!s}, "
             f"id={_id!s}, "
             f"reference={_reference!s}, "
             f"token_type={_token_type!s}, "
-            f"additional_properties={_additional_properties!s}, "
             f")"
         )

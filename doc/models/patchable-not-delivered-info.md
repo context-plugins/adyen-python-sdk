@@ -1,8 +1,6 @@
 
 # Patchable Not Delivered Info
 
-*This model accepts additional fields of type Any.*
-
 ## Structure
 
 `PatchableNotDeliveredInfo`
@@ -20,15 +18,13 @@
 | `is_merchant_bankrupt` | `bool` | Optional | Indicates if the transaction was processed by a bankrupt merchant.<br><br>Possible values: **true**, **false**. |
 | `is_non_fiat_or_nft` | `bool` | Optional | Indicates if the transaction is non-fiat or non-fungible token (NFT) related.<br><br>Possible values: **true**, **false**. |
 | `last_expected_date` | `date` | Optional | The date the undelivered goods or services were expected to be delivered in YYYY-MM-DD format. |
-| `what_was_not_delivered` | [`ProductType2`](../../doc/models/product-type-2.md) | Optional | - |
-| `who_cancelled` | [CancellingEntity](../../doc/models/cancelling-entity.md) \| Any \| None | Optional | This is a container for one-of cases. |
-| `additional_properties` | `Dict[str, Any]` | Optional | - |
+| `what_was_not_delivered` | [`ProductType21Enum`](../../doc/models/product-type-21-enum.md) | Optional | The type of product that you expected to receive.<br><br>Possible values: **goods**, **services**. |
+| `who_cancelled` | [CancellingEntity](../../doc/models/cancelling-entity-enum.md) \| None | Optional | This is a container for one-of cases. |
 
 ## Example
 
 ```python
 import dateutil.parser
-import jsonpickle
 
 from adyen.models.patchable_not_delivered_info import PatchableNotDeliveredInfo
 
@@ -37,10 +33,7 @@ patchable_not_delivered_info = PatchableNotDeliveredInfo(
     date_of_cancellation=dateutil.parser.parse('2016-03-13').date(),
     delivered_to_wrong_location=False,
     description_of_issue='descriptionOfIssue0',
-    did_cardholder_return=False,
-    additional_properties={
-        'exampleAdditionalProperty': jsonpickle.decode('{"key1":"val1","key2":"val2"}')
-    }
+    did_cardholder_return=False
 )
 ```
 

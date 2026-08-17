@@ -6,7 +6,7 @@ manage_sc_adevices_api = client.manage_sc_adevices
 
 ## Class Name
 
-`ManageScAdevicesApi`
+`ManageSCAdevicesApi`
 
 ## Methods
 
@@ -45,7 +45,7 @@ This endpoint requires [clientKey](../../doc/auth/custom-query-parameter.md) **O
 
 **200**: OK - the request has succeeded.
 
-This method returns an [`ApiResponse`](../../doc/api-response.md) instance. The `body` property of this instance returns the response data which is of type [`SearchRegisteredDevicesResponse`](../../doc/models/search-registered-devices-response.md).
+[`SearchRegisteredDevicesResponse`](../../doc/models/search-registered-devices-response.md)
 
 ## Example Usage
 
@@ -53,11 +53,7 @@ This method returns an [`ApiResponse`](../../doc/api-response.md) instance. The 
 payment_instrument_id = 'paymentInstrumentId2'
 
 result = manage_sca_devices_api.get_registered_devices(payment_instrument_id)
-
-if result.is_success():
-    print(result.body)
-elif result.is_error():
-    print(result.errors)
+print(result)
 ```
 
 ## Errors
@@ -90,23 +86,19 @@ This endpoint requires [clientKey](../../doc/auth/custom-query-parameter.md) **O
 
 | Parameter | Type | Tags | Description |
 |  --- | --- | --- | --- |
-| `body` | [`RegisterScaRequest`](../../doc/models/register-sca-request.md) | Body, Optional | - |
+| `body` | [`RegisterSCARequest`](../../doc/models/register-sca-request.md) | Body, Optional | - |
 
 ## Response Type
 
 **200**: OK - the request has succeeded.
 
-This method returns an [`ApiResponse`](../../doc/api-response.md) instance. The `body` property of this instance returns the response data which is of type [`RegisterScaResponse`](../../doc/models/register-sca-response.md).
+[`RegisterSCAResponse`](../../doc/models/register-sca-response.md)
 
 ## Example Usage
 
 ```python
 result = manage_sca_devices_api.post_registered_devices()
-
-if result.is_success():
-    print(result.body)
-elif result.is_error():
-    print(result.errors)
+print(result)
 ```
 
 ## Errors
@@ -145,19 +137,26 @@ This endpoint requires [clientKey](../../doc/auth/custom-query-parameter.md) **O
 
 **200**: OK - the request has succeeded.
 
-This method returns an [`ApiResponse`](../../doc/api-response.md) instance. The `body` property of this instance returns the response data which is of type [`AssociationInitiateResponse`](../../doc/models/association-initiate-response.md).
+[`AssociationInitiateResponse`](../../doc/models/association-initiate-response.md)
 
 ## Example Usage
 
 ```python
 device_id = 'deviceId0'
 
-result = manage_sca_devices_api.post_registered_devices_device_id_associations(device_id)
+body = AssociationInitiateRequest(
+    ids=[
+        'ids7',
+        'ids8',
+        'ids9'
+    ]
+)
 
-if result.is_success():
-    print(result.body)
-elif result.is_error():
-    print(result.errors)
+result = manage_sca_devices_api.post_registered_devices_device_id_associations(
+    device_id,
+    body=body
+)
+print(result)
 ```
 
 ## Errors
@@ -198,19 +197,29 @@ This endpoint requires [clientKey](../../doc/auth/custom-query-parameter.md) **O
 
 **200**: OK - the request has succeeded.
 
-This method returns an [`ApiResponse`](../../doc/api-response.md) instance. The `body` property of this instance returns the response data which is of type [`AssociationFinaliseResponse`](../../doc/models/association-finalise-response.md).
+[`AssociationFinaliseResponse`](../../doc/models/association-finalise-response.md)
 
 ## Example Usage
 
 ```python
 device_id = 'deviceId0'
 
-result = manage_sca_devices_api.patch_registered_devices_device_id_associations(device_id)
+body = AssociationFinaliseRequest(
+    ids=[
+        'ids7',
+        'ids8',
+        'ids9'
+    ],
+    strong_customer_authentication=AssociationDelegatedAuthenticationData1(
+        sdk_output='sdkOutput4'
+    )
+)
 
-if result.is_success():
-    print(result.body)
-elif result.is_error():
-    print(result.errors)
+result = manage_sca_devices_api.patch_registered_devices_device_id_associations(
+    device_id,
+    body=body
+)
+print(result)
 ```
 
 ## Errors
@@ -249,7 +258,7 @@ This endpoint requires [clientKey](../../doc/auth/custom-query-parameter.md) **O
 
 **204**: No Content - look at the actual response code for the status of the request.
 
-This method returns an [`ApiResponse`](../../doc/api-response.md) instance.
+`void`
 
 ## Example Usage
 
@@ -258,15 +267,10 @@ id = 'id0'
 
 payment_instrument_id = 'paymentInstrumentId2'
 
-result = manage_sca_devices_api.delete_registered_devices_id(
+manage_sca_devices_api.delete_registered_devices_id(
     id,
     payment_instrument_id
 )
-
-if result.is_success():
-    print(result.body)
-elif result.is_error():
-    print(result.errors)
 ```
 
 ## Errors
@@ -299,13 +303,13 @@ This endpoint requires [clientKey](../../doc/auth/custom-query-parameter.md) **O
 | Parameter | Type | Tags | Description |
 |  --- | --- | --- | --- |
 | `id` | `str` | Template, Required | The unique identifier of the SCA device. You obtain this `id` in the response of a POST&nbsp;[/registeredDevices](https://docs.adyen.com/api-explorer/balanceplatform/2/post/registeredDevices#responses-200-id) request. |
-| `body` | [`RegisterScaRequest`](../../doc/models/register-sca-request.md) | Body, Optional | - |
+| `body` | [`RegisterSCARequest`](../../doc/models/register-sca-request.md) | Body, Optional | - |
 
 ## Response Type
 
 **200**: OK - the request has succeeded.
 
-This method returns an [`ApiResponse`](../../doc/api-response.md) instance. The `body` property of this instance returns the response data which is of type [`RegisterScaFinalResponse`](../../doc/models/register-sca-final-response.md).
+[`RegisterSCAFinalResponse`](../../doc/models/register-sca-final-response.md)
 
 ## Example Usage
 
@@ -313,11 +317,7 @@ This method returns an [`ApiResponse`](../../doc/api-response.md) instance. The 
 id = 'id0'
 
 result = manage_sca_devices_api.patch_registered_devices_id(id)
-
-if result.is_success():
-    print(result.body)
-elif result.is_error():
-    print(result.errors)
+print(result)
 ```
 
 ## Errors

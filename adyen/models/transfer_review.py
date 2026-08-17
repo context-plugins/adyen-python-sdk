@@ -14,9 +14,9 @@ class TransferReview(object):
         number_of_approvals_required (int): Shows the number of
             [approvals](https://docs.adyen.com/api-explorer/transfers/latest/post/tran
             sfers/approve) required to process the transfer.
-        sca_on_approval (ScaOnApproval): The model property of type ScaOnApproval.
-        additional_properties (Dict[str, Any]): The additional properties for the
-            model.
+        sca_on_approval (ScaOnApprovalEnum): Shows the status of the Strong Customer
+            Authentication (SCA) process.  Possible values: **required**,
+            **notApplicable**.
 
     """
 
@@ -34,19 +34,13 @@ class TransferReview(object):
     def __init__(
         self,
         number_of_approvals_required=APIHelper.SKIP,
-        sca_on_approval=APIHelper.SKIP,
-        additional_properties=None):
+        sca_on_approval=APIHelper.SKIP):
         """Initialize a TransferReview instance."""
         # Initialize members of the class
         if number_of_approvals_required is not APIHelper.SKIP:
             self.number_of_approvals_required = number_of_approvals_required
         if sca_on_approval is not APIHelper.SKIP:
             self.sca_on_approval = sca_on_approval
-
-        # Add additional model properties to the instance
-        if additional_properties is None:
-            additional_properties = {}
-        self.additional_properties = additional_properties
 
     @classmethod
     def from_dictionary(cls,
@@ -75,36 +69,9 @@ class TransferReview(object):
             if dictionary.get("scaOnApproval")\
                 else APIHelper.SKIP
 
-        additional_properties = APIHelper.get_additional_properties(
-            dictionary={k: v for k, v in dictionary.items()
-                        if k not in cls._names.values()},
-            unboxing_function=lambda value: value)
-
         # Return an object of this model
         return cls(number_of_approvals_required,
-                   sca_on_approval,
-                   additional_properties)
-
-    @classmethod
-    def validate(cls, dictionary):
-        """Validate dictionary against class required properties
-
-        Args:
-            dictionary (dictionary): A dictionary representation of the object
-            as obtained from the deserialization of the server's response. The
-            keys MUST match property names in the API description.
-
-        Returns:
-            boolean : if dictionary is valid contains required properties.
-
-        """
-        if isinstance(dictionary, cls):
-            return True
-
-        if not isinstance(dictionary, dict):
-            return False
-
-        return True
+                   sca_on_approval)
 
     def __repr__(self):
         """Return a unambiguous string representation."""
@@ -118,12 +85,10 @@ class TransferReview(object):
             if hasattr(self, "sca_on_approval")
             else None
         )
-        _additional_properties=self.additional_properties
         return (
             f"{self.__class__.__name__}("
             f"number_of_approvals_required={_number_of_approvals_required!r}, "
             f"sca_on_approval={_sca_on_approval!r}, "
-            f"additional_properties={_additional_properties!r}, "
             f")"
         )
 
@@ -139,11 +104,9 @@ class TransferReview(object):
             if hasattr(self, "sca_on_approval")
             else None
         )
-        _additional_properties=self.additional_properties
         return (
             f"{self.__class__.__name__}("
             f"number_of_approvals_required={_number_of_approvals_required!s}, "
             f"sca_on_approval={_sca_on_approval!s}, "
-            f"additional_properties={_additional_properties!s}, "
             f")"
         )

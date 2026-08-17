@@ -18,7 +18,13 @@ class EventNotification(object):
     Attributes:
         time_stamp (datetime): Date and time of a transaction for the Sale System,
             the POI System or the Acquirer.
-        event_to_notify (EventToNotify1): The model property of type EventToNotify1.
+        event_to_notify (EventToNotify1Enum): Event the POI notifies to the Sale
+            System. Possible values: * **Abort** * **BeginMaintenance** *
+            **CardInserted** * **CardRemoved** * **Completed** * **CustomerLanguage**
+            * **EndMaintenance** * **Initialised** * **KeyPressed** * **OutOfOrder**
+            * **Reject** * **SaleAdmin** * **SaleWakeUp** * **ScanBarcodeResult** *
+            **SecurityAlarm** * **Shutdown** * **StopAssistance** *
+            **UseAnotherCardForPreauth**
         event_details (str): Information about the event the POI notifies to the Sale
             System. If present, the Sale logs it for further examination.
         rejected_message (str): Message request rejected by the receiver. Mandatory
@@ -27,8 +33,6 @@ class EventNotification(object):
             maintenance call or action.
         display_output (List[DisplayOutput]): Information to display and the way to
             process the display. To display an event message.
-        additional_properties (Dict[str, Any]): The additional properties for the
-            model.
 
     """
 
@@ -56,8 +60,7 @@ class EventNotification(object):
         event_details=APIHelper.SKIP,
         rejected_message=APIHelper.SKIP,
         maintenance_required_flag=False,
-        display_output=APIHelper.SKIP,
-        additional_properties=None):
+        display_output=APIHelper.SKIP):
         """Initialize a EventNotification instance."""
         # Initialize members of the class
         self.time_stamp =\
@@ -72,11 +75,6 @@ class EventNotification(object):
         self.maintenance_required_flag = maintenance_required_flag
         if display_output is not APIHelper.SKIP:
             self.display_output = display_output
-
-        # Add additional model properties to the instance
-        if additional_properties is None:
-            additional_properties = {}
-        self.additional_properties = additional_properties
 
     @classmethod
     def from_dictionary(cls,
@@ -124,19 +122,13 @@ class EventNotification(object):
         else:
             display_output = APIHelper.SKIP
 
-        additional_properties = APIHelper.get_additional_properties(
-            dictionary={k: v for k, v in dictionary.items()
-                        if k not in cls._names.values()},
-            unboxing_function=lambda value: value)
-
         # Return an object of this model
         return cls(time_stamp,
                    event_to_notify,
                    event_details,
                    rejected_message,
                    maintenance_required_flag,
-                   display_output,
-                   additional_properties)
+                   display_output)
 
     def __repr__(self):
         """Return a unambiguous string representation."""
@@ -162,7 +154,6 @@ class EventNotification(object):
             if hasattr(self, "display_output")
             else None
         )
-        _additional_properties=self.additional_properties
         return (
             f"{self.__class__.__name__}("
             f"time_stamp={_time_stamp!r}, "
@@ -171,7 +162,6 @@ class EventNotification(object):
             f"rejected_message={_rejected_message!r}, "
             f"maintenance_required_flag={_maintenance_required_flag!r}, "
             f"display_output={_display_output!r}, "
-            f"additional_properties={_additional_properties!r}, "
             f")"
         )
 
@@ -199,7 +189,6 @@ class EventNotification(object):
             if hasattr(self, "display_output")
             else None
         )
-        _additional_properties=self.additional_properties
         return (
             f"{self.__class__.__name__}("
             f"time_stamp={_time_stamp!s}, "
@@ -208,6 +197,5 @@ class EventNotification(object):
             f"rejected_message={_rejected_message!s}, "
             f"maintenance_required_flag={_maintenance_required_flag!s}, "
             f"display_output={_display_output!s}, "
-            f"additional_properties={_additional_properties!s}, "
             f")"
         )

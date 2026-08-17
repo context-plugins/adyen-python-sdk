@@ -18,8 +18,8 @@ from deprecation import deprecated
 from adyen.api_helper import APIHelper
 from adyen.apis.base_api import BaseApi
 from adyen.configuration import Server
-from adyen.exceptions.service_error_1_exception import (
-    ServiceError1Exception,
+from adyen.exceptions.service_error_error_1_exception import (
+    ServiceErrorError1Exception,
 )
 from adyen.exceptions.service_error_exception import (
     ServiceErrorException,
@@ -36,6 +36,9 @@ from adyen.models.account_holder_transaction_list_response import (
 )
 from adyen.models.assign_terminals_response import (
     AssignTerminalsResponse,
+)
+from adyen.models.certificate_loading_response import (
+    CertificateLoadingResponse,
 )
 from adyen.models.cost_estimate_response import (
     CostEstimateResponse,
@@ -124,7 +127,7 @@ from adyen.models.test_notification_configuration_response import (
     TestNotificationConfigurationResponse,
 )
 from adyen.models.three_ds_availability_response import (
-    ThreeDsAvailabilityResponse,
+    ThreeDSAvailabilityResponse,
 )
 from adyen.models.transfer_funds_response import (
     TransferFundsResponse,
@@ -138,6 +141,350 @@ class GeneralApi(BaseApi):
         """Initialize GeneralApi object."""
         super(GeneralApi, self).__init__(config)
 
+    @deprecated()
+    def post_create_permit(self,
+                           body=None):
+        """Perform a POST request to /createPermit.
+
+        Create permits for a recurring contract, including support for defining
+        restrictions.
+
+        Args:
+            body (CreatePermitRequest, optional): The request body parameter.
+
+        Returns:
+            CreatePermitResult: Response from the API. OK - the request has succeeded.
+
+        Raises:
+            APIException: When an error occurs while fetching the data from the
+                remote API. This exception includes the HTTP Response code, an error
+                message, and the HTTP body that was received in the request.
+
+        """
+        return super().new_api_call_builder.request(
+            RequestBuilder().server(Server.DEFAULT2)
+            .path("/createPermit")
+            .http_method(HttpMethodEnum.POST)
+            .header_param(Parameter()
+                .key("Content-Type")
+                .value("application/json"))
+            .body_param(Parameter()
+                .value(body))
+            .header_param(Parameter()
+                .key("accept")
+                .value("application/json"))
+            .body_serializer(APIHelper.json_serialize)
+            .auth(Or(Single("BasicAuth"), Single("ApiKeyAuth"))),
+        ).response(
+            ResponseHandler()
+            .deserializer(APIHelper.json_deserialize)
+            .deserialize_into(CreatePermitResult.from_dictionary)
+            .local_error("400",
+                "Bad Request - a problem reading or understanding the request.",
+                ServiceErrorException)
+            .local_error("401",
+                "Unauthorized - authentication required.",
+                ServiceErrorException)
+            .local_error("403",
+                "Forbidden - insufficient permissions to process the request.",
+                ServiceErrorException)
+            .local_error("422",
+                "Unprocessable Entity - a request validation error.",
+                ServiceErrorException)
+            .local_error("500",
+                "Internal Server Error - the server could not process the request.",
+                ServiceErrorException),
+        ).execute()
+
+    def post_disable(self,
+                     body=None):
+        """Perform a POST request to /disable.
+
+        Disables stored payment details to stop charging a shopper with this
+        particular recurring detail ID.
+        For more information, refer to [Disable stored
+        details](https://docs.adyen.com/online-payments/classic-integrations/classic-a
+        pi-integration/tokenization/disable-stored-details).
+
+        Args:
+            body (DisableRequest, optional): The request body parameter.
+
+        Returns:
+            DisableResult: Response from the API. OK - the request has succeeded.
+
+        Raises:
+            APIException: When an error occurs while fetching the data from the
+                remote API. This exception includes the HTTP Response code, an error
+                message, and the HTTP body that was received in the request.
+
+        """
+        return super().new_api_call_builder.request(
+            RequestBuilder().server(Server.DEFAULT2)
+            .path("/disable")
+            .http_method(HttpMethodEnum.POST)
+            .header_param(Parameter()
+                .key("Content-Type")
+                .value("application/json"))
+            .body_param(Parameter()
+                .value(body))
+            .header_param(Parameter()
+                .key("accept")
+                .value("application/json"))
+            .body_serializer(APIHelper.json_serialize)
+            .auth(Or(Single("BasicAuth"), Single("ApiKeyAuth"))),
+        ).response(
+            ResponseHandler()
+            .deserializer(APIHelper.json_deserialize)
+            .deserialize_into(DisableResult.from_dictionary)
+            .local_error("400",
+                "Bad Request - a problem reading or understanding the request.",
+                ServiceErrorException)
+            .local_error("401",
+                "Unauthorized - authentication required.",
+                ServiceErrorException)
+            .local_error("403",
+                "Forbidden - insufficient permissions to process the request.",
+                ServiceErrorException)
+            .local_error("422",
+                "Unprocessable Entity - a request validation error.",
+                ServiceErrorException)
+            .local_error("500",
+                "Internal Server Error - the server could not process the request.",
+                ServiceErrorException),
+        ).execute()
+
+    @deprecated()
+    def post_disable_permit(self,
+                            body=None):
+        """Perform a POST request to /disablePermit.
+
+        Disable a permit that was previously linked to a recurringDetailReference.
+
+        Args:
+            body (DisablePermitRequest, optional): The request body parameter.
+
+        Returns:
+            DisablePermitResult: Response from the API. OK - the request has
+                succeeded.
+
+        Raises:
+            APIException: When an error occurs while fetching the data from the
+                remote API. This exception includes the HTTP Response code, an error
+                message, and the HTTP body that was received in the request.
+
+        """
+        return super().new_api_call_builder.request(
+            RequestBuilder().server(Server.DEFAULT2)
+            .path("/disablePermit")
+            .http_method(HttpMethodEnum.POST)
+            .header_param(Parameter()
+                .key("Content-Type")
+                .value("application/json"))
+            .body_param(Parameter()
+                .value(body))
+            .header_param(Parameter()
+                .key("accept")
+                .value("application/json"))
+            .body_serializer(APIHelper.json_serialize)
+            .auth(Or(Single("BasicAuth"), Single("ApiKeyAuth"))),
+        ).response(
+            ResponseHandler()
+            .deserializer(APIHelper.json_deserialize)
+            .deserialize_into(DisablePermitResult.from_dictionary)
+            .local_error("400",
+                "Bad Request - a problem reading or understanding the request.",
+                ServiceErrorException)
+            .local_error("401",
+                "Unauthorized - authentication required.",
+                ServiceErrorException)
+            .local_error("403",
+                "Forbidden - insufficient permissions to process the request.",
+                ServiceErrorException)
+            .local_error("422",
+                "Unprocessable Entity - a request validation error.",
+                ServiceErrorException)
+            .local_error("500",
+                "Internal Server Error - the server could not process the request.",
+                ServiceErrorException),
+        ).execute()
+
+    def post_list_recurring_details(self,
+                                    body=None):
+        """Perform a POST request to /listRecurringDetails.
+
+        Lists the stored payment details for a shopper, if there are any available.
+        The recurring detail ID can be used with a regular authorisation request to
+        charge the shopper. A summary of the payment detail is returned for
+        presentation to the shopper.
+        For more information, refer to [Retrieve stored
+        details](https://docs.adyen.com/classic-integration/recurring-payments/retriev
+        e-stored-details/).
+
+        Args:
+            body (RecurringDetailsRequest, optional): The request body parameter.
+
+        Returns:
+            RecurringDetailsResult: Response from the API. OK - the request has
+                succeeded.
+
+        Raises:
+            APIException: When an error occurs while fetching the data from the
+                remote API. This exception includes the HTTP Response code, an error
+                message, and the HTTP body that was received in the request.
+
+        """
+        return super().new_api_call_builder.request(
+            RequestBuilder().server(Server.DEFAULT2)
+            .path("/listRecurringDetails")
+            .http_method(HttpMethodEnum.POST)
+            .header_param(Parameter()
+                .key("Content-Type")
+                .value("application/json"))
+            .body_param(Parameter()
+                .value(body))
+            .header_param(Parameter()
+                .key("accept")
+                .value("application/json"))
+            .body_serializer(APIHelper.json_serialize)
+            .auth(Or(Single("BasicAuth"), Single("ApiKeyAuth"))),
+        ).response(
+            ResponseHandler()
+            .deserializer(APIHelper.json_deserialize)
+            .deserialize_into(RecurringDetailsResult.from_dictionary)
+            .local_error("400",
+                "Bad Request - a problem reading or understanding the request.",
+                ServiceErrorException)
+            .local_error("401",
+                "Unauthorized - authentication required.",
+                ServiceErrorException)
+            .local_error("403",
+                "Forbidden - insufficient permissions to process the request.",
+                ServiceErrorException)
+            .local_error("422",
+                "Unprocessable Entity - a request validation error.",
+                ServiceErrorException)
+            .local_error("500",
+                "Internal Server Error - the server could not process the request.",
+                ServiceErrorException),
+        ).execute()
+
+    def post_notify_shopper(self,
+                            body=None):
+        """Perform a POST request to /notifyShopper.
+
+        Sends a request to the issuer so they can inform the shopper about the
+        upcoming recurring payment. This endpoint is used only for local acquiring in
+        India. For more information, refer to [Recurring card payments in
+        India](https://docs.adyen.com/payment-methods/cards/cards-recurring-india).
+
+        Args:
+            body (NotifyShopperRequest, optional): The request body parameter.
+
+        Returns:
+            NotifyShopperResult: Response from the API. OK - the request has
+                succeeded.
+
+        Raises:
+            APIException: When an error occurs while fetching the data from the
+                remote API. This exception includes the HTTP Response code, an error
+                message, and the HTTP body that was received in the request.
+
+        """
+        return super().new_api_call_builder.request(
+            RequestBuilder().server(Server.DEFAULT2)
+            .path("/notifyShopper")
+            .http_method(HttpMethodEnum.POST)
+            .header_param(Parameter()
+                .key("Content-Type")
+                .value("application/json"))
+            .body_param(Parameter()
+                .value(body))
+            .header_param(Parameter()
+                .key("accept")
+                .value("application/json"))
+            .body_serializer(APIHelper.json_serialize)
+            .auth(Or(Single("BasicAuth"), Single("ApiKeyAuth"))),
+        ).response(
+            ResponseHandler()
+            .deserializer(APIHelper.json_deserialize)
+            .deserialize_into(NotifyShopperResult.from_dictionary)
+            .local_error("400",
+                "Bad Request - a problem reading or understanding the request.",
+                ServiceErrorException)
+            .local_error("401",
+                "Unauthorized - authentication required.",
+                ServiceErrorException)
+            .local_error("403",
+                "Forbidden - insufficient permissions to process the request.",
+                ServiceErrorException)
+            .local_error("422",
+                "Unprocessable Entity - a request validation error.",
+                ServiceErrorException)
+            .local_error("500",
+                "Internal Server Error - the server could not process the request.",
+                ServiceErrorException),
+        ).execute()
+
+    def post_schedule_account_updater(self,
+                                      body=None):
+        """Perform a POST request to /scheduleAccountUpdater.
+
+        When making the API call, you can submit either the credit card information,
+        or the recurring detail reference and the shopper reference:
+        * If the card information is provided, all the sub-fields for `card` are
+        mandatory.
+        * If the recurring detail reference is provided, the fields for
+        `shopperReference` and `selectedRecurringDetailReference` are mandatory.
+
+        Args:
+            body (ScheduleAccountUpdaterRequest, optional): The request body
+                parameter.
+
+        Returns:
+            ScheduleAccountUpdaterResult: Response from the API. OK - the request has
+                succeeded.
+
+        Raises:
+            APIException: When an error occurs while fetching the data from the
+                remote API. This exception includes the HTTP Response code, an error
+                message, and the HTTP body that was received in the request.
+
+        """
+        return super().new_api_call_builder.request(
+            RequestBuilder().server(Server.DEFAULT2)
+            .path("/scheduleAccountUpdater")
+            .http_method(HttpMethodEnum.POST)
+            .header_param(Parameter()
+                .key("Content-Type")
+                .value("application/json"))
+            .body_param(Parameter()
+                .value(body))
+            .header_param(Parameter()
+                .key("accept")
+                .value("application/json"))
+            .body_serializer(APIHelper.json_serialize)
+            .auth(Or(Single("BasicAuth"), Single("ApiKeyAuth"))),
+        ).response(
+            ResponseHandler()
+            .deserializer(APIHelper.json_deserialize)
+            .deserialize_into(ScheduleAccountUpdaterResult.from_dictionary)
+            .local_error("400",
+                "Bad Request - a problem reading or understanding the request.",
+                ServiceErrorException)
+            .local_error("401",
+                "Unauthorized - authentication required.",
+                ServiceErrorException)
+            .local_error("403",
+                "Forbidden - insufficient permissions to process the request.",
+                ServiceErrorException)
+            .local_error("422",
+                "Unprocessable Entity - a request validation error.",
+                ServiceErrorException)
+            .local_error("500",
+                "Internal Server Error - the server could not process the request.",
+                ServiceErrorException),
+        ).execute()
+
     def post_get_3_ds_availability(self,
                                    body=None):
         """Perform a POST request to /get3dsAvailability.
@@ -148,21 +495,20 @@ class GeneralApi(BaseApi):
         2](https://docs.adyen.com/online-payments/3d-secure/native-3ds2).
 
         Args:
-            body (ThreeDsAvailabilityRequest, optional): The request body parameter.
+            body (ThreeDSAvailabilityRequest, optional): The request body parameter.
 
         Returns:
-            ApiResponse: An object with the response value as well as other useful
-                information such as status codes and headers. OK - the request has
+            ThreeDSAvailabilityResponse: Response from the API. OK - the request has
                 succeeded.
 
         Raises:
-            ApiException: When an error occurs while fetching the data from the
+            APIException: When an error occurs while fetching the data from the
                 remote API. This exception includes the HTTP Response code, an error
                 message, and the HTTP body that was received in the request.
 
         """
         return super().new_api_call_builder.request(
-            RequestBuilder().server(Server.DEFAULT)
+            RequestBuilder().server(Server.DEFAULT4)
             .path("/get3dsAvailability")
             .http_method(HttpMethodEnum.POST)
             .header_param(Parameter()
@@ -178,23 +524,22 @@ class GeneralApi(BaseApi):
         ).response(
             ResponseHandler()
             .deserializer(APIHelper.json_deserialize)
-            .deserialize_into(ThreeDsAvailabilityResponse.from_dictionary)
-            .is_api_response(True)
+            .deserialize_into(ThreeDSAvailabilityResponse.from_dictionary)
             .local_error("400",
                 "Bad Request - a problem reading or understanding the request.",
-                ServiceError1Exception)
+                ServiceErrorException)
             .local_error("401",
                 "Unauthorized - authentication required.",
-                ServiceError1Exception)
+                ServiceErrorException)
             .local_error("403",
                 "Forbidden - insufficient permissions to process the request.",
-                ServiceError1Exception)
+                ServiceErrorException)
             .local_error("422",
                 "Unprocessable Entity - a request validation error.",
-                ServiceError1Exception)
+                ServiceErrorException)
             .local_error("500",
                 "Internal Server Error - the server could not process the request.",
-                ServiceError1Exception),
+                ServiceErrorException),
         ).execute()
 
     def post_get_cost_estimate(self,
@@ -219,18 +564,17 @@ class GeneralApi(BaseApi):
             body (CostEstimateRequest, optional): The request body parameter.
 
         Returns:
-            ApiResponse: An object with the response value as well as other useful
-                information such as status codes and headers. OK - the request has
+            CostEstimateResponse: Response from the API. OK - the request has
                 succeeded.
 
         Raises:
-            ApiException: When an error occurs while fetching the data from the
+            APIException: When an error occurs while fetching the data from the
                 remote API. This exception includes the HTTP Response code, an error
                 message, and the HTTP body that was received in the request.
 
         """
         return super().new_api_call_builder.request(
-            RequestBuilder().server(Server.DEFAULT)
+            RequestBuilder().server(Server.DEFAULT4)
             .path("/getCostEstimate")
             .http_method(HttpMethodEnum.POST)
             .header_param(Parameter()
@@ -247,22 +591,331 @@ class GeneralApi(BaseApi):
             ResponseHandler()
             .deserializer(APIHelper.json_deserialize)
             .deserialize_into(CostEstimateResponse.from_dictionary)
-            .is_api_response(True)
             .local_error("400",
                 "Bad Request - a problem reading or understanding the request.",
-                ServiceError1Exception)
+                ServiceErrorException)
             .local_error("401",
                 "Unauthorized - authentication required.",
-                ServiceError1Exception)
+                ServiceErrorException)
             .local_error("403",
                 "Forbidden - insufficient permissions to process the request.",
-                ServiceError1Exception)
+                ServiceErrorException)
             .local_error("422",
                 "Unprocessable Entity - a request validation error.",
-                ServiceError1Exception)
+                ServiceErrorException)
             .local_error("500",
                 "Internal Server Error - the server could not process the request.",
-                ServiceError1Exception),
+                ServiceErrorException),
+        ).execute()
+
+    def post_change_status(self,
+                           body=None):
+        """Perform a POST request to /changeStatus.
+
+        Changes the status of the provided payment method to the specified status.
+
+        Args:
+            body (StoredValueStatusChangeRequest, optional): The request body
+                parameter.
+
+        Returns:
+            StoredValueStatusChangeResponse: Response from the API. OK - the request
+                has succeeded.
+
+        Raises:
+            APIException: When an error occurs while fetching the data from the
+                remote API. This exception includes the HTTP Response code, an error
+                message, and the HTTP body that was received in the request.
+
+        """
+        return super().new_api_call_builder.request(
+            RequestBuilder().server(Server.DEFAULT5)
+            .path("/changeStatus")
+            .http_method(HttpMethodEnum.POST)
+            .header_param(Parameter()
+                .key("Content-Type")
+                .value("application/json"))
+            .body_param(Parameter()
+                .value(body))
+            .header_param(Parameter()
+                .key("accept")
+                .value("application/json"))
+            .body_serializer(APIHelper.json_serialize)
+            .auth(Or(Single("BasicAuth"), Single("ApiKeyAuth"))),
+        ).response(
+            ResponseHandler()
+            .deserializer(APIHelper.json_deserialize)
+            .deserialize_into(StoredValueStatusChangeResponse.from_dictionary)
+            .local_error("400",
+                "Bad Request - a problem reading or understanding the request.",
+                ServiceErrorException)
+            .local_error("401",
+                "Unauthorized - authentication required.",
+                ServiceErrorException)
+            .local_error("403",
+                "Forbidden - insufficient permissions to process the request.",
+                ServiceErrorException)
+            .local_error("500",
+                "Internal Server Error - the server could not process the request.",
+                ServiceErrorException),
+        ).execute()
+
+    def post_check_balance(self,
+                           body=None):
+        """Perform a POST request to /checkBalance.
+
+        Checks the balance of the provided payment method.
+
+        Args:
+            body (StoredValueBalanceCheckRequest, optional): The request body
+                parameter.
+
+        Returns:
+            StoredValueBalanceCheckResponse: Response from the API. OK - the request
+                has succeeded.
+
+        Raises:
+            APIException: When an error occurs while fetching the data from the
+                remote API. This exception includes the HTTP Response code, an error
+                message, and the HTTP body that was received in the request.
+
+        """
+        return super().new_api_call_builder.request(
+            RequestBuilder().server(Server.DEFAULT5)
+            .path("/checkBalance")
+            .http_method(HttpMethodEnum.POST)
+            .header_param(Parameter()
+                .key("Content-Type")
+                .value("application/json"))
+            .body_param(Parameter()
+                .value(body))
+            .header_param(Parameter()
+                .key("accept")
+                .value("application/json"))
+            .body_serializer(APIHelper.json_serialize)
+            .auth(Or(Single("BasicAuth"), Single("ApiKeyAuth"))),
+        ).response(
+            ResponseHandler()
+            .deserializer(APIHelper.json_deserialize)
+            .deserialize_into(StoredValueBalanceCheckResponse.from_dictionary)
+            .local_error("400",
+                "Bad Request - a problem reading or understanding the request.",
+                ServiceErrorException)
+            .local_error("401",
+                "Unauthorized - authentication required.",
+                ServiceErrorException)
+            .local_error("403",
+                "Forbidden - insufficient permissions to process the request.",
+                ServiceErrorException)
+            .local_error("500",
+                "Internal Server Error - the server could not process the request.",
+                ServiceErrorException),
+        ).execute()
+
+    def post_issue(self,
+                   body=None):
+        """Perform a POST request to /issue.
+
+        Issues a new card of the given payment method.
+
+        Args:
+            body (StoredValueIssueRequest, optional): The request body parameter.
+
+        Returns:
+            StoredValueIssueResponse: Response from the API. OK - the request has
+                succeeded.
+
+        Raises:
+            APIException: When an error occurs while fetching the data from the
+                remote API. This exception includes the HTTP Response code, an error
+                message, and the HTTP body that was received in the request.
+
+        """
+        return super().new_api_call_builder.request(
+            RequestBuilder().server(Server.DEFAULT5)
+            .path("/issue")
+            .http_method(HttpMethodEnum.POST)
+            .header_param(Parameter()
+                .key("Content-Type")
+                .value("application/json"))
+            .body_param(Parameter()
+                .value(body))
+            .header_param(Parameter()
+                .key("accept")
+                .value("application/json"))
+            .body_serializer(APIHelper.json_serialize)
+            .auth(Or(Single("BasicAuth"), Single("ApiKeyAuth"))),
+        ).response(
+            ResponseHandler()
+            .deserializer(APIHelper.json_deserialize)
+            .deserialize_into(StoredValueIssueResponse.from_dictionary)
+            .local_error("400",
+                "Bad Request - a problem reading or understanding the request.",
+                ServiceErrorException)
+            .local_error("401",
+                "Unauthorized - authentication required.",
+                ServiceErrorException)
+            .local_error("403",
+                "Forbidden - insufficient permissions to process the request.",
+                ServiceErrorException)
+            .local_error("500",
+                "Internal Server Error - the server could not process the request.",
+                ServiceErrorException),
+        ).execute()
+
+    def post_load(self,
+                  body=None):
+        """Perform a POST request to /load.
+
+        Loads the payment method with the specified funds.
+
+        Args:
+            body (StoredValueLoadRequest, optional): The request body parameter.
+
+        Returns:
+            StoredValueLoadResponse: Response from the API. OK - the request has
+                succeeded.
+
+        Raises:
+            APIException: When an error occurs while fetching the data from the
+                remote API. This exception includes the HTTP Response code, an error
+                message, and the HTTP body that was received in the request.
+
+        """
+        return super().new_api_call_builder.request(
+            RequestBuilder().server(Server.DEFAULT5)
+            .path("/load")
+            .http_method(HttpMethodEnum.POST)
+            .header_param(Parameter()
+                .key("Content-Type")
+                .value("application/json"))
+            .body_param(Parameter()
+                .value(body))
+            .header_param(Parameter()
+                .key("accept")
+                .value("application/json"))
+            .body_serializer(APIHelper.json_serialize)
+            .auth(Or(Single("BasicAuth"), Single("ApiKeyAuth"))),
+        ).response(
+            ResponseHandler()
+            .deserializer(APIHelper.json_deserialize)
+            .deserialize_into(StoredValueLoadResponse.from_dictionary)
+            .local_error("400",
+                "Bad Request - a problem reading or understanding the request.",
+                ServiceErrorException)
+            .local_error("401",
+                "Unauthorized - authentication required.",
+                ServiceErrorException)
+            .local_error("403",
+                "Forbidden - insufficient permissions to process the request.",
+                ServiceErrorException)
+            .local_error("500",
+                "Internal Server Error - the server could not process the request.",
+                ServiceErrorException),
+        ).execute()
+
+    def post_merge_balance(self,
+                           body=None):
+        """Perform a POST request to /mergeBalance.
+
+        Increases the balance of the paymentmethod by the full amount left on the
+        source paymentmethod
+
+        Args:
+            body (StoredValueBalanceMergeRequest, optional): The request body
+                parameter.
+
+        Returns:
+            StoredValueBalanceMergeResponse: Response from the API. OK - the request
+                has succeeded.
+
+        Raises:
+            APIException: When an error occurs while fetching the data from the
+                remote API. This exception includes the HTTP Response code, an error
+                message, and the HTTP body that was received in the request.
+
+        """
+        return super().new_api_call_builder.request(
+            RequestBuilder().server(Server.DEFAULT5)
+            .path("/mergeBalance")
+            .http_method(HttpMethodEnum.POST)
+            .header_param(Parameter()
+                .key("Content-Type")
+                .value("application/json"))
+            .body_param(Parameter()
+                .value(body))
+            .header_param(Parameter()
+                .key("accept")
+                .value("application/json"))
+            .body_serializer(APIHelper.json_serialize)
+            .auth(Or(Single("BasicAuth"), Single("ApiKeyAuth"))),
+        ).response(
+            ResponseHandler()
+            .deserializer(APIHelper.json_deserialize)
+            .deserialize_into(StoredValueBalanceMergeResponse.from_dictionary)
+            .local_error("400",
+                "Bad Request - a problem reading or understanding the request.",
+                ServiceErrorException)
+            .local_error("401",
+                "Unauthorized - authentication required.",
+                ServiceErrorException)
+            .local_error("403",
+                "Forbidden - insufficient permissions to process the request.",
+                ServiceErrorException)
+            .local_error("500",
+                "Internal Server Error - the server could not process the request.",
+                ServiceErrorException),
+        ).execute()
+
+    def post_void_transaction(self,
+                              body=None):
+        """Perform a POST request to /voidTransaction.
+
+        Voids the referenced stored value transaction.
+
+        Args:
+            body (StoredValueVoidRequest, optional): The request body parameter.
+
+        Returns:
+            StoredValueVoidResponse: Response from the API. OK - the request has
+                succeeded.
+
+        Raises:
+            APIException: When an error occurs while fetching the data from the
+                remote API. This exception includes the HTTP Response code, an error
+                message, and the HTTP body that was received in the request.
+
+        """
+        return super().new_api_call_builder.request(
+            RequestBuilder().server(Server.DEFAULT5)
+            .path("/voidTransaction")
+            .http_method(HttpMethodEnum.POST)
+            .header_param(Parameter()
+                .key("Content-Type")
+                .value("application/json"))
+            .body_param(Parameter()
+                .value(body))
+            .header_param(Parameter()
+                .key("accept")
+                .value("application/json"))
+            .body_serializer(APIHelper.json_serialize)
+            .auth(Or(Single("BasicAuth"), Single("ApiKeyAuth"))),
+        ).response(
+            ResponseHandler()
+            .deserializer(APIHelper.json_deserialize)
+            .deserialize_into(StoredValueVoidResponse.from_dictionary)
+            .local_error("400",
+                "Bad Request - a problem reading or understanding the request.",
+                ServiceErrorException)
+            .local_error("401",
+                "Unauthorized - authentication required.",
+                ServiceErrorException)
+            .local_error("403",
+                "Forbidden - insufficient permissions to process the request.",
+                ServiceErrorException)
+            .local_error("500",
+                "Internal Server Error - the server could not process the request.",
+                ServiceErrorException),
         ).execute()
 
     def post_request_subject_erasure(self,
@@ -276,18 +929,17 @@ class GeneralApi(BaseApi):
                 parameter.
 
         Returns:
-            ApiResponse: An object with the response value as well as other useful
-                information such as status codes and headers. OK - the request has
+            SubjectErasureResponse: Response from the API. OK - the request has
                 succeeded.
 
         Raises:
-            ApiException: When an error occurs while fetching the data from the
+            APIException: When an error occurs while fetching the data from the
                 remote API. This exception includes the HTTP Response code, an error
                 message, and the HTTP body that was received in the request.
 
         """
         return super().new_api_call_builder.request(
-            RequestBuilder().server(Server.DEFAULT)
+            RequestBuilder().server(Server.DEFAULT6)
             .path("/requestSubjectErasure")
             .http_method(HttpMethodEnum.POST)
             .header_param(Parameter()
@@ -304,271 +956,45 @@ class GeneralApi(BaseApi):
             ResponseHandler()
             .deserializer(APIHelper.json_deserialize)
             .deserialize_into(SubjectErasureResponse.from_dictionary)
-            .is_api_response(True)
             .local_error("400",
                 "Bad Request - a problem reading or understanding the request.",
-                ServiceErrorException)
+                ServiceErrorError1Exception)
             .local_error("401",
                 "Unauthorized - authentication required.",
-                ServiceErrorException)
+                ServiceErrorError1Exception)
             .local_error("403",
                 "Forbidden - insufficient permissions to process the request.",
-                ServiceErrorException)
+                ServiceErrorError1Exception)
             .local_error("422",
                 "Unprocessable Entity - a request validation error.",
-                ServiceErrorException)
+                ServiceErrorError1Exception)
             .local_error("500",
                 "Internal Server Error - the server could not process the request.",
-                ServiceErrorException),
+                ServiceErrorError1Exception),
         ).execute()
 
-    def post_accept_dispute(self,
-                            body=None):
-        """Perform a POST request to /acceptDispute.
-
-        Accepts a specific dispute.
-
-        Args:
-            body (AcceptDisputeRequest, optional): The request body parameter.
-
-        Returns:
-            ApiResponse: An object with the response value as well as other useful
-                information such as status codes and headers. OK - the request has
-                succeeded.
-
-        Raises:
-            ApiException: When an error occurs while fetching the data from the
-                remote API. This exception includes the HTTP Response code, an error
-                message, and the HTTP body that was received in the request.
-
-        """
-        return super().new_api_call_builder.request(
-            RequestBuilder().server(Server.DEFAULT)
-            .path("/acceptDispute")
-            .http_method(HttpMethodEnum.POST)
-            .header_param(Parameter()
-                .key("Content-Type")
-                .value("application/json"))
-            .body_param(Parameter()
-                .value(body))
-            .header_param(Parameter()
-                .key("accept")
-                .value("application/json"))
-            .body_serializer(APIHelper.json_serialize)
-            .auth(Or(Single("BasicAuth"), Single("ApiKeyAuth"))),
-        ).response(
-            ResponseHandler()
-            .deserializer(APIHelper.json_deserialize)
-            .deserialize_into(AcceptDisputeResponse.from_dictionary)
-            .is_api_response(True)
-            .local_error("400",
-                "Bad Request - a problem reading or understanding the request.",
-                ServiceErrorException)
-            .local_error("401",
-                "Unauthorized - authentication required.",
-                ServiceErrorException)
-            .local_error("403",
-                "Forbidden - insufficient permissions to process the request.",
-                ServiceErrorException)
-            .local_error("422",
-                "Unprocessable Entity - a request validation error.",
-                ServiceErrorException)
-            .local_error("500",
-                "Internal Server Error - the server could not process the request.",
-                ServiceErrorException),
-        ).execute()
-
-    def post_defend_dispute(self,
-                            body=None):
-        """Perform a POST request to /defendDispute.
-
-        Defends a specific dispute.
-
-        Args:
-            body (DefendDisputeRequest, optional): The request body parameter.
-
-        Returns:
-            ApiResponse: An object with the response value as well as other useful
-                information such as status codes and headers. OK - the request has
-                succeeded.
-
-        Raises:
-            ApiException: When an error occurs while fetching the data from the
-                remote API. This exception includes the HTTP Response code, an error
-                message, and the HTTP body that was received in the request.
-
-        """
-        return super().new_api_call_builder.request(
-            RequestBuilder().server(Server.DEFAULT)
-            .path("/defendDispute")
-            .http_method(HttpMethodEnum.POST)
-            .header_param(Parameter()
-                .key("Content-Type")
-                .value("application/json"))
-            .body_param(Parameter()
-                .value(body))
-            .header_param(Parameter()
-                .key("accept")
-                .value("application/json"))
-            .body_serializer(APIHelper.json_serialize)
-            .auth(Or(Single("BasicAuth"), Single("ApiKeyAuth"))),
-        ).response(
-            ResponseHandler()
-            .deserializer(APIHelper.json_deserialize)
-            .deserialize_into(DefendDisputeResponse.from_dictionary)
-            .is_api_response(True)
-            .local_error("400",
-                "Bad Request - a problem reading or understanding the request.",
-                ServiceErrorException)
-            .local_error("401",
-                "Unauthorized - authentication required.",
-                ServiceErrorException)
-            .local_error("403",
-                "Forbidden - insufficient permissions to process the request.",
-                ServiceErrorException)
-            .local_error("422",
-                "Unprocessable Entity - a request validation error.",
-                ServiceErrorException)
-            .local_error("500",
-                "Internal Server Error - the server could not process the request.",
-                ServiceErrorException),
-        ).execute()
-
-    def post_delete_dispute_defense_document(self,
-                                             body=None):
-        """Perform a POST request to /deleteDisputeDefenseDocument.
-
-        Deletes a specific dispute defense document that was supplied earlier.
-
-        Args:
-            body (DeleteDefenseDocumentRequest, optional): The request body parameter.
-
-        Returns:
-            ApiResponse: An object with the response value as well as other useful
-                information such as status codes and headers. OK - the request has
-                succeeded.
-
-        Raises:
-            ApiException: When an error occurs while fetching the data from the
-                remote API. This exception includes the HTTP Response code, an error
-                message, and the HTTP body that was received in the request.
-
-        """
-        return super().new_api_call_builder.request(
-            RequestBuilder().server(Server.DEFAULT)
-            .path("/deleteDisputeDefenseDocument")
-            .http_method(HttpMethodEnum.POST)
-            .header_param(Parameter()
-                .key("Content-Type")
-                .value("application/json"))
-            .body_param(Parameter()
-                .value(body))
-            .header_param(Parameter()
-                .key("accept")
-                .value("application/json"))
-            .body_serializer(APIHelper.json_serialize)
-            .auth(Or(Single("BasicAuth"), Single("ApiKeyAuth"))),
-        ).response(
-            ResponseHandler()
-            .deserializer(APIHelper.json_deserialize)
-            .deserialize_into(DeleteDefenseDocumentResponse.from_dictionary)
-            .is_api_response(True)
-            .local_error("400",
-                "Bad Request - a problem reading or understanding the request.",
-                ServiceErrorException)
-            .local_error("401",
-                "Unauthorized - authentication required.",
-                ServiceErrorException)
-            .local_error("403",
-                "Forbidden - insufficient permissions to process the request.",
-                ServiceErrorException)
-            .local_error("422",
-                "Unprocessable Entity - a request validation error.",
-                ServiceErrorException)
-            .local_error("500",
-                "Internal Server Error - the server could not process the request.",
-                ServiceErrorException),
-        ).execute()
-
-    def post_retrieve_applicable_defense_reasons(self,
-                                                 body=None):
-        """Perform a POST request to /retrieveApplicableDefenseReasons.
-
-        Returns a list of all applicable defense reasons to defend a specific dispute.
-
-        Args:
-            body (AcceptDisputeRequest, optional): The request body parameter.
-
-        Returns:
-            ApiResponse: An object with the response value as well as other useful
-                information such as status codes and headers. OK - the request has
-                succeeded.
-
-        Raises:
-            ApiException: When an error occurs while fetching the data from the
-                remote API. This exception includes the HTTP Response code, an error
-                message, and the HTTP body that was received in the request.
-
-        """
-        return super().new_api_call_builder.request(
-            RequestBuilder().server(Server.DEFAULT)
-            .path("/retrieveApplicableDefenseReasons")
-            .http_method(HttpMethodEnum.POST)
-            .header_param(Parameter()
-                .key("Content-Type")
-                .value("application/json"))
-            .body_param(Parameter()
-                .value(body))
-            .header_param(Parameter()
-                .key("accept")
-                .value("application/json"))
-            .body_serializer(APIHelper.json_serialize)
-            .auth(Or(Single("BasicAuth"), Single("ApiKeyAuth"))),
-        ).response(
-            ResponseHandler()
-            .deserializer(APIHelper.json_deserialize)
-            .deserialize_into(DefenseReasonsResponse.from_dictionary)
-            .is_api_response(True)
-            .local_error("400",
-                "Bad Request - a problem reading or understanding the request.",
-                ServiceErrorException)
-            .local_error("401",
-                "Unauthorized - authentication required.",
-                ServiceErrorException)
-            .local_error("403",
-                "Forbidden - insufficient permissions to process the request.",
-                ServiceErrorException)
-            .local_error("422",
-                "Unprocessable Entity - a request validation error.",
-                ServiceErrorException)
-            .local_error("500",
-                "Internal Server Error - the server could not process the request.",
-                ServiceErrorException),
-        ).execute()
-
-    def post_supply_defense_document(self,
+    def post_create_test_card_ranges(self,
                                      body=None):
-        """Perform a POST request to /supplyDefenseDocument.
+        """Perform a POST request to /createTestCardRanges.
 
-        Supplies a specific dispute defense document.
+        Creates one or more test card ranges.
 
         Args:
-            body (SupplyDefenseDocumentRequest, optional): The request body parameter.
+            body (CreateTestCardRangesRequest, optional): The request body parameter.
 
         Returns:
-            ApiResponse: An object with the response value as well as other useful
-                information such as status codes and headers. OK - the request has
+            CreateTestCardRangesResult: Response from the API. OK - the request has
                 succeeded.
 
         Raises:
-            ApiException: When an error occurs while fetching the data from the
+            APIException: When an error occurs while fetching the data from the
                 remote API. This exception includes the HTTP Response code, an error
                 message, and the HTTP body that was received in the request.
 
         """
         return super().new_api_call_builder.request(
-            RequestBuilder().server(Server.DEFAULT)
-            .path("/supplyDefenseDocument")
+            RequestBuilder().server(Server.DEFAULT8)
+            .path("/createTestCardRanges")
             .http_method(HttpMethodEnum.POST)
             .header_param(Parameter()
                 .key("Content-Type")
@@ -583,501 +1009,22 @@ class GeneralApi(BaseApi):
         ).response(
             ResponseHandler()
             .deserializer(APIHelper.json_deserialize)
-            .deserialize_into(SupplyDefenseDocumentResponse.from_dictionary)
-            .is_api_response(True)
+            .deserialize_into(CreateTestCardRangesResult.from_dictionary)
             .local_error("400",
                 "Bad Request - a problem reading or understanding the request.",
-                ServiceErrorException)
+                ServiceErrorError1Exception)
             .local_error("401",
                 "Unauthorized - authentication required.",
-                ServiceErrorException)
+                ServiceErrorError1Exception)
             .local_error("403",
                 "Forbidden - insufficient permissions to process the request.",
-                ServiceErrorException)
+                ServiceErrorError1Exception)
             .local_error("422",
                 "Unprocessable Entity - a request validation error.",
-                ServiceErrorException)
+                ServiceErrorError1Exception)
             .local_error("500",
                 "Internal Server Error - the server could not process the request.",
-                ServiceErrorException),
-        ).execute()
-
-    def post_account_holder_balance(self,
-                                    body=None):
-        """Perform a POST request to /accountHolderBalance.
-
-        Returns the account balances of an account holder. An account's balances are
-        organized according by currencies. This mean that an account may have
-        multiple balances: one for each currency.
-
-        Args:
-            body (CloseAccountHolderRequest, optional): The request body parameter.
-
-        Returns:
-            ApiResponse: An object with the response value as well as other useful
-                information such as status codes and headers. OK - the request has
-                succeeded.
-
-        Raises:
-            ApiException: When an error occurs while fetching the data from the
-                remote API. This exception includes the HTTP Response code, an error
-                message, and the HTTP body that was received in the request.
-
-        """
-        return super().new_api_call_builder.request(
-            RequestBuilder().server(Server.DEFAULT)
-            .path("/accountHolderBalance")
-            .http_method(HttpMethodEnum.POST)
-            .header_param(Parameter()
-                .key("Content-Type")
-                .value("application/json"))
-            .body_param(Parameter()
-                .value(body))
-            .header_param(Parameter()
-                .key("accept")
-                .value("application/json"))
-            .body_serializer(APIHelper.json_serialize)
-            .auth(Or(Single("BasicAuth"), Single("ApiKeyAuth"))),
-        ).response(
-            ResponseHandler()
-            .deserializer(APIHelper.json_deserialize)
-            .deserialize_into(AccountHolderBalanceResponse.from_dictionary)
-            .is_api_response(True)
-            .local_error("400",
-                "Bad Request - a problem reading or understanding the request.",
-                ServiceErrorException)
-            .local_error("401",
-                "Unauthorized - authentication required.",
-                ServiceErrorException)
-            .local_error("403",
-                "Forbidden - insufficient permissions to process the request.",
-                ServiceErrorException)
-            .local_error("422",
-                "Unprocessable Entity - a request validation error.",
-                ServiceErrorException)
-            .local_error("500",
-                "Internal Server Error - the server could not process the request.",
-                ServiceErrorException),
-        ).execute()
-
-    def post_account_holder_transaction_list(self,
-                                             body=None):
-        """Perform a POST request to /accountHolderTransactionList.
-
-        Returns a list of transactions for an account holder's accounts. You can
-        specify the accounts and transaction statuses to be included on the list. The
-        call returns a maximum of 50 transactions for each account. To retrieve all
-        transactions, you must make another call with the 'page' value incremented.
-        Transactions are listed in chronological order, with the most recent
-        transaction first.
-
-        Args:
-            body (AccountHolderTransactionListRequest, optional): The request body
-                parameter.
-
-        Returns:
-            ApiResponse: An object with the response value as well as other useful
-                information such as status codes and headers. OK - the request has
-                succeeded.
-
-        Raises:
-            ApiException: When an error occurs while fetching the data from the
-                remote API. This exception includes the HTTP Response code, an error
-                message, and the HTTP body that was received in the request.
-
-        """
-        return super().new_api_call_builder.request(
-            RequestBuilder().server(Server.DEFAULT)
-            .path("/accountHolderTransactionList")
-            .http_method(HttpMethodEnum.POST)
-            .header_param(Parameter()
-                .key("Content-Type")
-                .value("application/json"))
-            .body_param(Parameter()
-                .value(body))
-            .header_param(Parameter()
-                .key("accept")
-                .value("application/json"))
-            .body_serializer(APIHelper.json_serialize)
-            .auth(Or(Single("BasicAuth"), Single("ApiKeyAuth"))),
-        ).response(
-            ResponseHandler()
-            .deserializer(APIHelper.json_deserialize)
-            .deserialize_into(AccountHolderTransactionListResponse.from_dictionary)
-            .is_api_response(True)
-            .local_error("400",
-                "Bad Request - a problem reading or understanding the request.",
-                ServiceErrorException)
-            .local_error("401",
-                "Unauthorized - authentication required.",
-                ServiceErrorException)
-            .local_error("403",
-                "Forbidden - insufficient permissions to process the request.",
-                ServiceErrorException)
-            .local_error("422",
-                "Unprocessable Entity - a request validation error.",
-                ServiceErrorException)
-            .local_error("500",
-                "Internal Server Error - the server could not process the request.",
-                ServiceErrorException),
-        ).execute()
-
-    def post_debit_account_holder(self,
-                                  body=None):
-        """Perform a POST request to /debitAccountHolder.
-
-        Sends a direct debit request to an account holder's bank account. If the
-        direct debit is successful, the funds are settled in the accounts specified
-        in the split instructions. Adyen sends the result of the direct debit in a
-        [`DIRECT_DEBIT_INITIATED`](https://docs.adyen.com/api-explorer/#/NotificationS
-        ervice/latest/post/DIRECT_DEBIT_INITIATED) notification webhook.
-         To learn more about direct debits, see [Top up
-        accounts](https://docs.adyen.com/classic-platforms/top-up-accounts).
-
-        Args:
-            body (DebitAccountHolderRequest, optional): The request body parameter.
-
-        Returns:
-            ApiResponse: An object with the response value as well as other useful
-                information such as status codes and headers. OK - the request has
-                succeeded.
-
-        Raises:
-            ApiException: When an error occurs while fetching the data from the
-                remote API. This exception includes the HTTP Response code, an error
-                message, and the HTTP body that was received in the request.
-
-        """
-        return super().new_api_call_builder.request(
-            RequestBuilder().server(Server.DEFAULT)
-            .path("/debitAccountHolder")
-            .http_method(HttpMethodEnum.POST)
-            .header_param(Parameter()
-                .key("Content-Type")
-                .value("application/json"))
-            .body_param(Parameter()
-                .value(body))
-            .header_param(Parameter()
-                .key("accept")
-                .value("application/json"))
-            .body_serializer(APIHelper.json_serialize)
-            .auth(Or(Single("BasicAuth"), Single("ApiKeyAuth"))),
-        ).response(
-            ResponseHandler()
-            .deserializer(APIHelper.json_deserialize)
-            .deserialize_into(DebitAccountHolderResponse.from_dictionary)
-            .is_api_response(True)
-            .local_error("400",
-                "Bad Request - a problem reading or understanding the request.",
-                ServiceErrorException)
-            .local_error("401",
-                "Unauthorized - authentication required.",
-                ServiceErrorException)
-            .local_error("403",
-                "Forbidden - insufficient permissions to process the request.",
-                ServiceErrorException)
-            .local_error("422",
-                "Unprocessable Entity - a request validation error.",
-                ServiceErrorException)
-            .local_error("500",
-                "Internal Server Error - the server could not process the request.",
-                ServiceErrorException),
-        ).execute()
-
-    def post_payout_account_holder(self,
-                                   body=None):
-        """Perform a POST request to /payoutAccountHolder.
-
-        Pays out a specified amount from an account to the bank account of account
-        holder.
-
-        Args:
-            body (PayoutAccountHolderRequest, optional): The request body parameter.
-
-        Returns:
-            ApiResponse: An object with the response value as well as other useful
-                information such as status codes and headers. OK - the request has
-                succeeded.
-
-        Raises:
-            ApiException: When an error occurs while fetching the data from the
-                remote API. This exception includes the HTTP Response code, an error
-                message, and the HTTP body that was received in the request.
-
-        """
-        return super().new_api_call_builder.request(
-            RequestBuilder().server(Server.DEFAULT)
-            .path("/payoutAccountHolder")
-            .http_method(HttpMethodEnum.POST)
-            .header_param(Parameter()
-                .key("Content-Type")
-                .value("application/json"))
-            .body_param(Parameter()
-                .value(body))
-            .header_param(Parameter()
-                .key("accept")
-                .value("application/json"))
-            .body_serializer(APIHelper.json_serialize)
-            .auth(Or(Single("BasicAuth"), Single("ApiKeyAuth"))),
-        ).response(
-            ResponseHandler()
-            .deserializer(APIHelper.json_deserialize)
-            .deserialize_into(PayoutAccountHolderResponse.from_dictionary)
-            .is_api_response(True)
-            .local_error("400",
-                "Bad Request - a problem reading or understanding the request.",
-                ServiceErrorException)
-            .local_error("401",
-                "Unauthorized - authentication required.",
-                ServiceErrorException)
-            .local_error("403",
-                "Forbidden - insufficient permissions to process the request.",
-                ServiceErrorException)
-            .local_error("422",
-                "Unprocessable Entity - a request validation error.",
-                ServiceErrorException)
-            .local_error("500",
-                "Internal Server Error - the server could not process the request.",
-                ServiceErrorException),
-        ).execute()
-
-    def post_refund_funds_transfer(self,
-                                   body=None):
-        """Perform a POST request to /refundFundsTransfer.
-
-        Refunds funds transferred from one account to another. Both accounts must be
-        in the same platform, but can have different account holders.
-
-        Args:
-            body (RefundFundsTransferRequest, optional): The request body parameter.
-
-        Returns:
-            ApiResponse: An object with the response value as well as other useful
-                information such as status codes and headers. OK - the request has
-                succeeded.
-
-        Raises:
-            ApiException: When an error occurs while fetching the data from the
-                remote API. This exception includes the HTTP Response code, an error
-                message, and the HTTP body that was received in the request.
-
-        """
-        return super().new_api_call_builder.request(
-            RequestBuilder().server(Server.DEFAULT)
-            .path("/refundFundsTransfer")
-            .http_method(HttpMethodEnum.POST)
-            .header_param(Parameter()
-                .key("Content-Type")
-                .value("application/json"))
-            .body_param(Parameter()
-                .value(body))
-            .header_param(Parameter()
-                .key("accept")
-                .value("application/json"))
-            .body_serializer(APIHelper.json_serialize)
-            .auth(Or(Single("BasicAuth"), Single("ApiKeyAuth"))),
-        ).response(
-            ResponseHandler()
-            .deserializer(APIHelper.json_deserialize)
-            .deserialize_into(RefundFundsTransferResponse.from_dictionary)
-            .is_api_response(True)
-            .local_error("400",
-                "Bad Request - a problem reading or understanding the request.",
-                ServiceErrorException)
-            .local_error("401",
-                "Unauthorized - authentication required.",
-                ServiceErrorException)
-            .local_error("403",
-                "Forbidden - insufficient permissions to process the request.",
-                ServiceErrorException)
-            .local_error("422",
-                "Unprocessable Entity - a request validation error.",
-                ServiceErrorException)
-            .local_error("500",
-                "Internal Server Error - the server could not process the request.",
-                ServiceErrorException),
-        ).execute()
-
-    def post_refund_not_paid_out_transfers(self,
-                                           body=None):
-        """Perform a POST request to /refundNotPaidOutTransfers.
-
-        Refunds all the transactions of an account that have taken place since the
-        most recent payout. This request is on a account basis (as opposed to a
-        payment basis), so only the portion of the payment that was made to the
-        specified account is refunded. The commissions, fees, and payments to other
-        accounts remain in the accounts to which they were sent as designated by the
-        original payment's split details.
-
-        Args:
-            body (RefundNotPaidOutTransfersRequest, optional): The request body
-                parameter.
-
-        Returns:
-            ApiResponse: An object with the response value as well as other useful
-                information such as status codes and headers. OK - the request has
-                succeeded.
-
-        Raises:
-            ApiException: When an error occurs while fetching the data from the
-                remote API. This exception includes the HTTP Response code, an error
-                message, and the HTTP body that was received in the request.
-
-        """
-        return super().new_api_call_builder.request(
-            RequestBuilder().server(Server.DEFAULT)
-            .path("/refundNotPaidOutTransfers")
-            .http_method(HttpMethodEnum.POST)
-            .header_param(Parameter()
-                .key("Content-Type")
-                .value("application/json"))
-            .body_param(Parameter()
-                .value(body))
-            .header_param(Parameter()
-                .key("accept")
-                .value("application/json"))
-            .body_serializer(APIHelper.json_serialize)
-            .auth(Or(Single("BasicAuth"), Single("ApiKeyAuth"))),
-        ).response(
-            ResponseHandler()
-            .deserializer(APIHelper.json_deserialize)
-            .deserialize_into(GenericResponse.from_dictionary)
-            .is_api_response(True)
-            .local_error("400",
-                "Bad Request - a problem reading or understanding the request.",
-                ServiceErrorException)
-            .local_error("401",
-                "Unauthorized - authentication required.",
-                ServiceErrorException)
-            .local_error("403",
-                "Forbidden - insufficient permissions to process the request.",
-                ServiceErrorException)
-            .local_error("422",
-                "Unprocessable Entity - a request validation error.",
-                ServiceErrorException)
-            .local_error("500",
-                "Internal Server Error - the server could not process the request.",
-                ServiceErrorException),
-        ).execute()
-
-    def post_setup_beneficiary(self,
-                               body=None):
-        """Perform a POST request to /setupBeneficiary.
-
-        Defines a benefactor and a beneficiary relationship between two accounts. At
-        the time of benefactor/beneficiary setup, the funds in the benefactor account
-        are transferred to the beneficiary account, and any further payments to the
-        benefactor account are automatically sent to the beneficiary account. A
-        series of benefactor/beneficiaries may not exceed four beneficiaries and may
-        not have a cycle in it.
-
-        Args:
-            body (SetupBeneficiaryRequest, optional): The request body parameter.
-
-        Returns:
-            ApiResponse: An object with the response value as well as other useful
-                information such as status codes and headers. OK - the request has
-                succeeded.
-
-        Raises:
-            ApiException: When an error occurs while fetching the data from the
-                remote API. This exception includes the HTTP Response code, an error
-                message, and the HTTP body that was received in the request.
-
-        """
-        return super().new_api_call_builder.request(
-            RequestBuilder().server(Server.DEFAULT)
-            .path("/setupBeneficiary")
-            .http_method(HttpMethodEnum.POST)
-            .header_param(Parameter()
-                .key("Content-Type")
-                .value("application/json"))
-            .body_param(Parameter()
-                .value(body))
-            .header_param(Parameter()
-                .key("accept")
-                .value("application/json"))
-            .body_serializer(APIHelper.json_serialize)
-            .auth(Or(Single("BasicAuth"), Single("ApiKeyAuth"))),
-        ).response(
-            ResponseHandler()
-            .deserializer(APIHelper.json_deserialize)
-            .deserialize_into(GenericResponse.from_dictionary)
-            .is_api_response(True)
-            .local_error("400",
-                "Bad Request - a problem reading or understanding the request.",
-                ServiceErrorException)
-            .local_error("401",
-                "Unauthorized - authentication required.",
-                ServiceErrorException)
-            .local_error("403",
-                "Forbidden - insufficient permissions to process the request.",
-                ServiceErrorException)
-            .local_error("422",
-                "Unprocessable Entity - a request validation error.",
-                ServiceErrorException)
-            .local_error("500",
-                "Internal Server Error - the server could not process the request.",
-                ServiceErrorException),
-        ).execute()
-
-    def post_transfer_funds(self,
-                            body=None):
-        """Perform a POST request to /transferFunds.
-
-        Transfers funds from one account to another account. Both accounts must be in
-        the same platform, but can have different account holders. The transfer must
-        include a transfer code, which should be determined by the platform, in
-        compliance with local regulations.
-
-        Args:
-            body (TransferFundsRequest, optional): The request body parameter.
-
-        Returns:
-            ApiResponse: An object with the response value as well as other useful
-                information such as status codes and headers. OK - the request has
-                succeeded.
-
-        Raises:
-            ApiException: When an error occurs while fetching the data from the
-                remote API. This exception includes the HTTP Response code, an error
-                message, and the HTTP body that was received in the request.
-
-        """
-        return super().new_api_call_builder.request(
-            RequestBuilder().server(Server.DEFAULT)
-            .path("/transferFunds")
-            .http_method(HttpMethodEnum.POST)
-            .header_param(Parameter()
-                .key("Content-Type")
-                .value("application/json"))
-            .body_param(Parameter()
-                .value(body))
-            .header_param(Parameter()
-                .key("accept")
-                .value("application/json"))
-            .body_serializer(APIHelper.json_serialize)
-            .auth(Or(Single("BasicAuth"), Single("ApiKeyAuth"))),
-        ).response(
-            ResponseHandler()
-            .deserializer(APIHelper.json_deserialize)
-            .deserialize_into(TransferFundsResponse.from_dictionary)
-            .is_api_response(True)
-            .local_error("400",
-                "Bad Request - a problem reading or understanding the request.",
-                ServiceErrorException)
-            .local_error("401",
-                "Unauthorized - authentication required.",
-                ServiceErrorException)
-            .local_error("403",
-                "Forbidden - insufficient permissions to process the request.",
-                ServiceErrorException)
-            .local_error("422",
-                "Unprocessable Entity - a request validation error.",
-                ServiceErrorException)
-            .local_error("500",
-                "Internal Server Error - the server could not process the request.",
-                ServiceErrorException),
+                ServiceErrorError1Exception),
         ).execute()
 
     def post_create_notification_configuration(self,
@@ -1098,18 +1045,17 @@ class GeneralApi(BaseApi):
                 parameter.
 
         Returns:
-            ApiResponse: An object with the response value as well as other useful
-                information such as status codes and headers. OK - the request has
-                succeeded.
+            GetNotificationConfigurationResponse: Response from the API. OK - the
+                request has succeeded.
 
         Raises:
-            ApiException: When an error occurs while fetching the data from the
+            APIException: When an error occurs while fetching the data from the
                 remote API. This exception includes the HTTP Response code, an error
                 message, and the HTTP body that was received in the request.
 
         """
         return super().new_api_call_builder.request(
-            RequestBuilder().server(Server.DEFAULT)
+            RequestBuilder().server(Server.DEFAULT12)
             .path("/createNotificationConfiguration")
             .http_method(HttpMethodEnum.POST)
             .header_param(Parameter()
@@ -1126,22 +1072,21 @@ class GeneralApi(BaseApi):
             ResponseHandler()
             .deserializer(APIHelper.json_deserialize)
             .deserialize_into(GetNotificationConfigurationResponse.from_dictionary)
-            .is_api_response(True)
             .local_error("400",
                 "Bad Request - a problem reading or understanding the request.",
-                ServiceErrorException)
+                ServiceErrorError1Exception)
             .local_error("401",
                 "Unauthorized - authentication required.",
-                ServiceErrorException)
+                ServiceErrorError1Exception)
             .local_error("403",
                 "Forbidden - insufficient permissions to process the request.",
-                ServiceErrorException)
+                ServiceErrorError1Exception)
             .local_error("422",
                 "Unprocessable Entity - a request validation error.",
-                ServiceErrorException)
+                ServiceErrorError1Exception)
             .local_error("500",
                 "Internal Server Error - the server could not process the request.",
-                ServiceErrorException),
+                ServiceErrorError1Exception),
         ).execute()
 
     def post_delete_notification_configurations(self,
@@ -1157,18 +1102,16 @@ class GeneralApi(BaseApi):
                 parameter.
 
         Returns:
-            ApiResponse: An object with the response value as well as other useful
-                information such as status codes and headers. OK - the request has
-                succeeded.
+            GenericResponse: Response from the API. OK - the request has succeeded.
 
         Raises:
-            ApiException: When an error occurs while fetching the data from the
+            APIException: When an error occurs while fetching the data from the
                 remote API. This exception includes the HTTP Response code, an error
                 message, and the HTTP body that was received in the request.
 
         """
         return super().new_api_call_builder.request(
-            RequestBuilder().server(Server.DEFAULT)
+            RequestBuilder().server(Server.DEFAULT12)
             .path("/deleteNotificationConfigurations")
             .http_method(HttpMethodEnum.POST)
             .header_param(Parameter()
@@ -1185,22 +1128,21 @@ class GeneralApi(BaseApi):
             ResponseHandler()
             .deserializer(APIHelper.json_deserialize)
             .deserialize_into(GenericResponse.from_dictionary)
-            .is_api_response(True)
             .local_error("400",
                 "Bad Request - a problem reading or understanding the request.",
-                ServiceErrorException)
+                ServiceErrorError1Exception)
             .local_error("401",
                 "Unauthorized - authentication required.",
-                ServiceErrorException)
+                ServiceErrorError1Exception)
             .local_error("403",
                 "Forbidden - insufficient permissions to process the request.",
-                ServiceErrorException)
+                ServiceErrorError1Exception)
             .local_error("422",
                 "Unprocessable Entity - a request validation error.",
-                ServiceErrorException)
+                ServiceErrorError1Exception)
             .local_error("500",
                 "Internal Server Error - the server could not process the request.",
-                ServiceErrorException),
+                ServiceErrorError1Exception),
         ).execute()
 
     def post_get_notification_configuration(self,
@@ -1214,18 +1156,17 @@ class GeneralApi(BaseApi):
                 parameter.
 
         Returns:
-            ApiResponse: An object with the response value as well as other useful
-                information such as status codes and headers. OK - the request has
-                succeeded.
+            GetNotificationConfigurationResponse: Response from the API. OK - the
+                request has succeeded.
 
         Raises:
-            ApiException: When an error occurs while fetching the data from the
+            APIException: When an error occurs while fetching the data from the
                 remote API. This exception includes the HTTP Response code, an error
                 message, and the HTTP body that was received in the request.
 
         """
         return super().new_api_call_builder.request(
-            RequestBuilder().server(Server.DEFAULT)
+            RequestBuilder().server(Server.DEFAULT12)
             .path("/getNotificationConfiguration")
             .http_method(HttpMethodEnum.POST)
             .header_param(Parameter()
@@ -1242,22 +1183,21 @@ class GeneralApi(BaseApi):
             ResponseHandler()
             .deserializer(APIHelper.json_deserialize)
             .deserialize_into(GetNotificationConfigurationResponse.from_dictionary)
-            .is_api_response(True)
             .local_error("400",
                 "Bad Request - a problem reading or understanding the request.",
-                ServiceErrorException)
+                ServiceErrorError1Exception)
             .local_error("401",
                 "Unauthorized - authentication required.",
-                ServiceErrorException)
+                ServiceErrorError1Exception)
             .local_error("403",
                 "Forbidden - insufficient permissions to process the request.",
-                ServiceErrorException)
+                ServiceErrorError1Exception)
             .local_error("422",
                 "Unprocessable Entity - a request validation error.",
-                ServiceErrorException)
+                ServiceErrorError1Exception)
             .local_error("500",
                 "Internal Server Error - the server could not process the request.",
-                ServiceErrorException),
+                ServiceErrorError1Exception),
         ).execute()
 
     def post_get_notification_configuration_list(self,
@@ -1271,18 +1211,17 @@ class GeneralApi(BaseApi):
             body (Any, optional): The request body parameter.
 
         Returns:
-            ApiResponse: An object with the response value as well as other useful
-                information such as status codes and headers. OK - the request has
-                succeeded.
+            GetNotificationConfigurationListResponse: Response from the API. OK - the
+                request has succeeded.
 
         Raises:
-            ApiException: When an error occurs while fetching the data from the
+            APIException: When an error occurs while fetching the data from the
                 remote API. This exception includes the HTTP Response code, an error
                 message, and the HTTP body that was received in the request.
 
         """
         return super().new_api_call_builder.request(
-            RequestBuilder().server(Server.DEFAULT)
+            RequestBuilder().server(Server.DEFAULT12)
             .path("/getNotificationConfigurationList")
             .http_method(HttpMethodEnum.POST)
             .header_param(Parameter()
@@ -1299,22 +1238,21 @@ class GeneralApi(BaseApi):
             ResponseHandler()
             .deserializer(APIHelper.json_deserialize)
             .deserialize_into(GetNotificationConfigurationListResponse.from_dictionary)
-            .is_api_response(True)
             .local_error("400",
                 "Bad Request - a problem reading or understanding the request.",
-                ServiceErrorException)
+                ServiceErrorError1Exception)
             .local_error("401",
                 "Unauthorized - authentication required.",
-                ServiceErrorException)
+                ServiceErrorError1Exception)
             .local_error("403",
                 "Forbidden - insufficient permissions to process the request.",
-                ServiceErrorException)
+                ServiceErrorError1Exception)
             .local_error("422",
                 "Unprocessable Entity - a request validation error.",
-                ServiceErrorException)
+                ServiceErrorError1Exception)
             .local_error("500",
                 "Internal Server Error - the server could not process the request.",
-                ServiceErrorException),
+                ServiceErrorError1Exception),
         ).execute()
 
     def post_test_notification_configuration(self,
@@ -1330,18 +1268,17 @@ class GeneralApi(BaseApi):
                 parameter.
 
         Returns:
-            ApiResponse: An object with the response value as well as other useful
-                information such as status codes and headers. OK - the request has
-                succeeded.
+            TestNotificationConfigurationResponse: Response from the API. OK - the
+                request has succeeded.
 
         Raises:
-            ApiException: When an error occurs while fetching the data from the
+            APIException: When an error occurs while fetching the data from the
                 remote API. This exception includes the HTTP Response code, an error
                 message, and the HTTP body that was received in the request.
 
         """
         return super().new_api_call_builder.request(
-            RequestBuilder().server(Server.DEFAULT)
+            RequestBuilder().server(Server.DEFAULT12)
             .path("/testNotificationConfiguration")
             .http_method(HttpMethodEnum.POST)
             .header_param(Parameter()
@@ -1358,22 +1295,21 @@ class GeneralApi(BaseApi):
             ResponseHandler()
             .deserializer(APIHelper.json_deserialize)
             .deserialize_into(TestNotificationConfigurationResponse.from_dictionary)
-            .is_api_response(True)
             .local_error("400",
                 "Bad Request - a problem reading or understanding the request.",
-                ServiceErrorException)
+                ServiceErrorError1Exception)
             .local_error("401",
                 "Unauthorized - authentication required.",
-                ServiceErrorException)
+                ServiceErrorError1Exception)
             .local_error("403",
                 "Forbidden - insufficient permissions to process the request.",
-                ServiceErrorException)
+                ServiceErrorError1Exception)
             .local_error("422",
                 "Unprocessable Entity - a request validation error.",
-                ServiceErrorException)
+                ServiceErrorError1Exception)
             .local_error("500",
                 "Internal Server Error - the server could not process the request.",
-                ServiceErrorException),
+                ServiceErrorError1Exception),
         ).execute()
 
     def post_update_notification_configuration(self,
@@ -1389,18 +1325,17 @@ class GeneralApi(BaseApi):
                 parameter.
 
         Returns:
-            ApiResponse: An object with the response value as well as other useful
-                information such as status codes and headers. OK - the request has
-                succeeded.
+            GetNotificationConfigurationResponse: Response from the API. OK - the
+                request has succeeded.
 
         Raises:
-            ApiException: When an error occurs while fetching the data from the
+            APIException: When an error occurs while fetching the data from the
                 remote API. This exception includes the HTTP Response code, an error
                 message, and the HTTP body that was received in the request.
 
         """
         return super().new_api_call_builder.request(
-            RequestBuilder().server(Server.DEFAULT)
+            RequestBuilder().server(Server.DEFAULT12)
             .path("/updateNotificationConfiguration")
             .http_method(HttpMethodEnum.POST)
             .header_param(Parameter()
@@ -1417,228 +1352,47 @@ class GeneralApi(BaseApi):
             ResponseHandler()
             .deserializer(APIHelper.json_deserialize)
             .deserialize_into(GetNotificationConfigurationResponse.from_dictionary)
-            .is_api_response(True)
             .local_error("400",
                 "Bad Request - a problem reading or understanding the request.",
-                ServiceErrorException)
+                ServiceErrorError1Exception)
             .local_error("401",
                 "Unauthorized - authentication required.",
-                ServiceErrorException)
+                ServiceErrorError1Exception)
             .local_error("403",
                 "Forbidden - insufficient permissions to process the request.",
-                ServiceErrorException)
+                ServiceErrorError1Exception)
             .local_error("422",
                 "Unprocessable Entity - a request validation error.",
-                ServiceErrorException)
+                ServiceErrorError1Exception)
             .local_error("500",
                 "Internal Server Error - the server could not process the request.",
-                ServiceErrorException),
+                ServiceErrorError1Exception),
         ).execute()
 
-    @deprecated()
-    def post_create_permit(self,
-                           body=None):
-        """Perform a POST request to /createPermit.
-
-        Create permits for a recurring contract, including support for defining
-        restrictions.
-
-        Args:
-            body (CreatePermitRequest, optional): The request body parameter.
-
-        Returns:
-            ApiResponse: An object with the response value as well as other useful
-                information such as status codes and headers. OK - the request has
-                succeeded.
-
-        Raises:
-            ApiException: When an error occurs while fetching the data from the
-                remote API. This exception includes the HTTP Response code, an error
-                message, and the HTTP body that was received in the request.
-
-        """
-        return super().new_api_call_builder.request(
-            RequestBuilder().server(Server.DEFAULT)
-            .path("/createPermit")
-            .http_method(HttpMethodEnum.POST)
-            .header_param(Parameter()
-                .key("Content-Type")
-                .value("application/json"))
-            .body_param(Parameter()
-                .value(body))
-            .header_param(Parameter()
-                .key("accept")
-                .value("application/json"))
-            .body_serializer(APIHelper.json_serialize)
-            .auth(Or(Single("BasicAuth"), Single("ApiKeyAuth"))),
-        ).response(
-            ResponseHandler()
-            .deserializer(APIHelper.json_deserialize)
-            .deserialize_into(CreatePermitResult.from_dictionary)
-            .is_api_response(True)
-            .local_error("400",
-                "Bad Request - a problem reading or understanding the request.",
-                ServiceError1Exception)
-            .local_error("401",
-                "Unauthorized - authentication required.",
-                ServiceError1Exception)
-            .local_error("403",
-                "Forbidden - insufficient permissions to process the request.",
-                ServiceError1Exception)
-            .local_error("422",
-                "Unprocessable Entity - a request validation error.",
-                ServiceError1Exception)
-            .local_error("500",
-                "Internal Server Error - the server could not process the request.",
-                ServiceError1Exception),
-        ).execute()
-
-    def post_disable(self,
-                     body=None):
-        """Perform a POST request to /disable.
-
-        Disables stored payment details to stop charging a shopper with this
-        particular recurring detail ID.
-        For more information, refer to [Disable stored
-        details](https://docs.adyen.com/online-payments/classic-integrations/classic-a
-        pi-integration/tokenization/disable-stored-details).
-
-        Args:
-            body (DisableRequest, optional): The request body parameter.
-
-        Returns:
-            ApiResponse: An object with the response value as well as other useful
-                information such as status codes and headers. OK - the request has
-                succeeded.
-
-        Raises:
-            ApiException: When an error occurs while fetching the data from the
-                remote API. This exception includes the HTTP Response code, an error
-                message, and the HTTP body that was received in the request.
-
-        """
-        return super().new_api_call_builder.request(
-            RequestBuilder().server(Server.DEFAULT)
-            .path("/disable")
-            .http_method(HttpMethodEnum.POST)
-            .header_param(Parameter()
-                .key("Content-Type")
-                .value("application/json"))
-            .body_param(Parameter()
-                .value(body))
-            .header_param(Parameter()
-                .key("accept")
-                .value("application/json"))
-            .body_serializer(APIHelper.json_serialize)
-            .auth(Or(Single("BasicAuth"), Single("ApiKeyAuth"))),
-        ).response(
-            ResponseHandler()
-            .deserializer(APIHelper.json_deserialize)
-            .deserialize_into(DisableResult.from_dictionary)
-            .is_api_response(True)
-            .local_error("400",
-                "Bad Request - a problem reading or understanding the request.",
-                ServiceError1Exception)
-            .local_error("401",
-                "Unauthorized - authentication required.",
-                ServiceError1Exception)
-            .local_error("403",
-                "Forbidden - insufficient permissions to process the request.",
-                ServiceError1Exception)
-            .local_error("422",
-                "Unprocessable Entity - a request validation error.",
-                ServiceError1Exception)
-            .local_error("500",
-                "Internal Server Error - the server could not process the request.",
-                ServiceError1Exception),
-        ).execute()
-
-    @deprecated()
-    def post_disable_permit(self,
-                            body=None):
-        """Perform a POST request to /disablePermit.
-
-        Disable a permit that was previously linked to a recurringDetailReference.
-
-        Args:
-            body (DisablePermitRequest, optional): The request body parameter.
-
-        Returns:
-            ApiResponse: An object with the response value as well as other useful
-                information such as status codes and headers. OK - the request has
-                succeeded.
-
-        Raises:
-            ApiException: When an error occurs while fetching the data from the
-                remote API. This exception includes the HTTP Response code, an error
-                message, and the HTTP body that was received in the request.
-
-        """
-        return super().new_api_call_builder.request(
-            RequestBuilder().server(Server.DEFAULT)
-            .path("/disablePermit")
-            .http_method(HttpMethodEnum.POST)
-            .header_param(Parameter()
-                .key("Content-Type")
-                .value("application/json"))
-            .body_param(Parameter()
-                .value(body))
-            .header_param(Parameter()
-                .key("accept")
-                .value("application/json"))
-            .body_serializer(APIHelper.json_serialize)
-            .auth(Or(Single("BasicAuth"), Single("ApiKeyAuth"))),
-        ).response(
-            ResponseHandler()
-            .deserializer(APIHelper.json_deserialize)
-            .deserialize_into(DisablePermitResult.from_dictionary)
-            .is_api_response(True)
-            .local_error("400",
-                "Bad Request - a problem reading or understanding the request.",
-                ServiceError1Exception)
-            .local_error("401",
-                "Unauthorized - authentication required.",
-                ServiceError1Exception)
-            .local_error("403",
-                "Forbidden - insufficient permissions to process the request.",
-                ServiceError1Exception)
-            .local_error("422",
-                "Unprocessable Entity - a request validation error.",
-                ServiceError1Exception)
-            .local_error("500",
-                "Internal Server Error - the server could not process the request.",
-                ServiceError1Exception),
-        ).execute()
-
-    def post_list_recurring_details(self,
+    def post_account_holder_balance(self,
                                     body=None):
-        """Perform a POST request to /listRecurringDetails.
+        """Perform a POST request to /accountHolderBalance.
 
-        Lists the stored payment details for a shopper, if there are any available.
-        The recurring detail ID can be used with a regular authorisation request to
-        charge the shopper. A summary of the payment detail is returned for
-        presentation to the shopper.
-        For more information, refer to [Retrieve stored
-        details](https://docs.adyen.com/classic-integration/recurring-payments/retriev
-        e-stored-details/).
+        Returns the account balances of an account holder. An account's balances are
+        organized according by currencies. This mean that an account may have
+        multiple balances: one for each currency.
 
         Args:
-            body (RecurringDetailsRequest, optional): The request body parameter.
+            body (CloseAccountHolderRequest, optional): The request body parameter.
 
         Returns:
-            ApiResponse: An object with the response value as well as other useful
-                information such as status codes and headers. OK - the request has
+            AccountHolderBalanceResponse: Response from the API. OK - the request has
                 succeeded.
 
         Raises:
-            ApiException: When an error occurs while fetching the data from the
+            APIException: When an error occurs while fetching the data from the
                 remote API. This exception includes the HTTP Response code, an error
                 message, and the HTTP body that was received in the request.
 
         """
         return super().new_api_call_builder.request(
-            RequestBuilder().server(Server.DEFAULT)
-            .path("/listRecurringDetails")
+            RequestBuilder().server(Server.DEFAULT16)
+            .path("/accountHolderBalance")
             .http_method(HttpMethodEnum.POST)
             .header_param(Parameter()
                 .key("Content-Type")
@@ -1653,51 +1407,396 @@ class GeneralApi(BaseApi):
         ).response(
             ResponseHandler()
             .deserializer(APIHelper.json_deserialize)
-            .deserialize_into(RecurringDetailsResult.from_dictionary)
-            .is_api_response(True)
+            .deserialize_into(AccountHolderBalanceResponse.from_dictionary)
             .local_error("400",
                 "Bad Request - a problem reading or understanding the request.",
-                ServiceError1Exception)
+                ServiceErrorError1Exception)
             .local_error("401",
                 "Unauthorized - authentication required.",
-                ServiceError1Exception)
+                ServiceErrorError1Exception)
             .local_error("403",
                 "Forbidden - insufficient permissions to process the request.",
-                ServiceError1Exception)
+                ServiceErrorError1Exception)
             .local_error("422",
                 "Unprocessable Entity - a request validation error.",
-                ServiceError1Exception)
+                ServiceErrorError1Exception)
             .local_error("500",
                 "Internal Server Error - the server could not process the request.",
-                ServiceError1Exception),
+                ServiceErrorError1Exception),
         ).execute()
 
-    def post_notify_shopper(self,
+    def post_account_holder_transaction_list(self,
+                                             body=None):
+        """Perform a POST request to /accountHolderTransactionList.
+
+        Returns a list of transactions for an account holder's accounts. You can
+        specify the accounts and transaction statuses to be included on the list. The
+        call returns a maximum of 50 transactions for each account. To retrieve all
+        transactions, you must make another call with the 'page' value incremented.
+        Transactions are listed in chronological order, with the most recent
+        transaction first.
+
+        Args:
+            body (AccountHolderTransactionListRequest, optional): The request body
+                parameter.
+
+        Returns:
+            AccountHolderTransactionListResponse: Response from the API. OK - the
+                request has succeeded.
+
+        Raises:
+            APIException: When an error occurs while fetching the data from the
+                remote API. This exception includes the HTTP Response code, an error
+                message, and the HTTP body that was received in the request.
+
+        """
+        return super().new_api_call_builder.request(
+            RequestBuilder().server(Server.DEFAULT16)
+            .path("/accountHolderTransactionList")
+            .http_method(HttpMethodEnum.POST)
+            .header_param(Parameter()
+                .key("Content-Type")
+                .value("application/json"))
+            .body_param(Parameter()
+                .value(body))
+            .header_param(Parameter()
+                .key("accept")
+                .value("application/json"))
+            .body_serializer(APIHelper.json_serialize)
+            .auth(Or(Single("BasicAuth"), Single("ApiKeyAuth"))),
+        ).response(
+            ResponseHandler()
+            .deserializer(APIHelper.json_deserialize)
+            .deserialize_into(AccountHolderTransactionListResponse.from_dictionary)
+            .local_error("400",
+                "Bad Request - a problem reading or understanding the request.",
+                ServiceErrorError1Exception)
+            .local_error("401",
+                "Unauthorized - authentication required.",
+                ServiceErrorError1Exception)
+            .local_error("403",
+                "Forbidden - insufficient permissions to process the request.",
+                ServiceErrorError1Exception)
+            .local_error("422",
+                "Unprocessable Entity - a request validation error.",
+                ServiceErrorError1Exception)
+            .local_error("500",
+                "Internal Server Error - the server could not process the request.",
+                ServiceErrorError1Exception),
+        ).execute()
+
+    def post_debit_account_holder(self,
+                                  body=None):
+        """Perform a POST request to /debitAccountHolder.
+
+        Sends a direct debit request to an account holder's bank account. If the
+        direct debit is successful, the funds are settled in the accounts specified
+        in the split instructions. Adyen sends the result of the direct debit in a
+        [`DIRECT_DEBIT_INITIATED`](https://docs.adyen.com/api-explorer/#/NotificationS
+        ervice/latest/post/DIRECT_DEBIT_INITIATED) notification webhook.
+         To learn more about direct debits, see [Top up
+        accounts](https://docs.adyen.com/classic-platforms/top-up-accounts).
+
+        Args:
+            body (DebitAccountHolderRequest, optional): The request body parameter.
+
+        Returns:
+            DebitAccountHolderResponse: Response from the API. OK - the request has
+                succeeded.
+
+        Raises:
+            APIException: When an error occurs while fetching the data from the
+                remote API. This exception includes the HTTP Response code, an error
+                message, and the HTTP body that was received in the request.
+
+        """
+        return super().new_api_call_builder.request(
+            RequestBuilder().server(Server.DEFAULT16)
+            .path("/debitAccountHolder")
+            .http_method(HttpMethodEnum.POST)
+            .header_param(Parameter()
+                .key("Content-Type")
+                .value("application/json"))
+            .body_param(Parameter()
+                .value(body))
+            .header_param(Parameter()
+                .key("accept")
+                .value("application/json"))
+            .body_serializer(APIHelper.json_serialize)
+            .auth(Or(Single("BasicAuth"), Single("ApiKeyAuth"))),
+        ).response(
+            ResponseHandler()
+            .deserializer(APIHelper.json_deserialize)
+            .deserialize_into(DebitAccountHolderResponse.from_dictionary)
+            .local_error("400",
+                "Bad Request - a problem reading or understanding the request.",
+                ServiceErrorError1Exception)
+            .local_error("401",
+                "Unauthorized - authentication required.",
+                ServiceErrorError1Exception)
+            .local_error("403",
+                "Forbidden - insufficient permissions to process the request.",
+                ServiceErrorError1Exception)
+            .local_error("422",
+                "Unprocessable Entity - a request validation error.",
+                ServiceErrorError1Exception)
+            .local_error("500",
+                "Internal Server Error - the server could not process the request.",
+                ServiceErrorError1Exception),
+        ).execute()
+
+    def post_payout_account_holder(self,
+                                   body=None):
+        """Perform a POST request to /payoutAccountHolder.
+
+        Pays out a specified amount from an account to the bank account of account
+        holder.
+
+        Args:
+            body (PayoutAccountHolderRequest, optional): The request body parameter.
+
+        Returns:
+            PayoutAccountHolderResponse: Response from the API. OK - the request has
+                succeeded.
+
+        Raises:
+            APIException: When an error occurs while fetching the data from the
+                remote API. This exception includes the HTTP Response code, an error
+                message, and the HTTP body that was received in the request.
+
+        """
+        return super().new_api_call_builder.request(
+            RequestBuilder().server(Server.DEFAULT16)
+            .path("/payoutAccountHolder")
+            .http_method(HttpMethodEnum.POST)
+            .header_param(Parameter()
+                .key("Content-Type")
+                .value("application/json"))
+            .body_param(Parameter()
+                .value(body))
+            .header_param(Parameter()
+                .key("accept")
+                .value("application/json"))
+            .body_serializer(APIHelper.json_serialize)
+            .auth(Or(Single("BasicAuth"), Single("ApiKeyAuth"))),
+        ).response(
+            ResponseHandler()
+            .deserializer(APIHelper.json_deserialize)
+            .deserialize_into(PayoutAccountHolderResponse.from_dictionary)
+            .local_error("400",
+                "Bad Request - a problem reading or understanding the request.",
+                ServiceErrorError1Exception)
+            .local_error("401",
+                "Unauthorized - authentication required.",
+                ServiceErrorError1Exception)
+            .local_error("403",
+                "Forbidden - insufficient permissions to process the request.",
+                ServiceErrorError1Exception)
+            .local_error("422",
+                "Unprocessable Entity - a request validation error.",
+                ServiceErrorError1Exception)
+            .local_error("500",
+                "Internal Server Error - the server could not process the request.",
+                ServiceErrorError1Exception),
+        ).execute()
+
+    def post_refund_funds_transfer(self,
+                                   body=None):
+        """Perform a POST request to /refundFundsTransfer.
+
+        Refunds funds transferred from one account to another. Both accounts must be
+        in the same platform, but can have different account holders.
+
+        Args:
+            body (RefundFundsTransferRequest, optional): The request body parameter.
+
+        Returns:
+            RefundFundsTransferResponse: Response from the API. OK - the request has
+                succeeded.
+
+        Raises:
+            APIException: When an error occurs while fetching the data from the
+                remote API. This exception includes the HTTP Response code, an error
+                message, and the HTTP body that was received in the request.
+
+        """
+        return super().new_api_call_builder.request(
+            RequestBuilder().server(Server.DEFAULT16)
+            .path("/refundFundsTransfer")
+            .http_method(HttpMethodEnum.POST)
+            .header_param(Parameter()
+                .key("Content-Type")
+                .value("application/json"))
+            .body_param(Parameter()
+                .value(body))
+            .header_param(Parameter()
+                .key("accept")
+                .value("application/json"))
+            .body_serializer(APIHelper.json_serialize)
+            .auth(Or(Single("BasicAuth"), Single("ApiKeyAuth"))),
+        ).response(
+            ResponseHandler()
+            .deserializer(APIHelper.json_deserialize)
+            .deserialize_into(RefundFundsTransferResponse.from_dictionary)
+            .local_error("400",
+                "Bad Request - a problem reading or understanding the request.",
+                ServiceErrorError1Exception)
+            .local_error("401",
+                "Unauthorized - authentication required.",
+                ServiceErrorError1Exception)
+            .local_error("403",
+                "Forbidden - insufficient permissions to process the request.",
+                ServiceErrorError1Exception)
+            .local_error("422",
+                "Unprocessable Entity - a request validation error.",
+                ServiceErrorError1Exception)
+            .local_error("500",
+                "Internal Server Error - the server could not process the request.",
+                ServiceErrorError1Exception),
+        ).execute()
+
+    def post_refund_not_paid_out_transfers(self,
+                                           body=None):
+        """Perform a POST request to /refundNotPaidOutTransfers.
+
+        Refunds all the transactions of an account that have taken place since the
+        most recent payout. This request is on a account basis (as opposed to a
+        payment basis), so only the portion of the payment that was made to the
+        specified account is refunded. The commissions, fees, and payments to other
+        accounts remain in the accounts to which they were sent as designated by the
+        original payment's split details.
+
+        Args:
+            body (RefundNotPaidOutTransfersRequest, optional): The request body
+                parameter.
+
+        Returns:
+            GenericResponse: Response from the API. OK - the request has succeeded.
+
+        Raises:
+            APIException: When an error occurs while fetching the data from the
+                remote API. This exception includes the HTTP Response code, an error
+                message, and the HTTP body that was received in the request.
+
+        """
+        return super().new_api_call_builder.request(
+            RequestBuilder().server(Server.DEFAULT16)
+            .path("/refundNotPaidOutTransfers")
+            .http_method(HttpMethodEnum.POST)
+            .header_param(Parameter()
+                .key("Content-Type")
+                .value("application/json"))
+            .body_param(Parameter()
+                .value(body))
+            .header_param(Parameter()
+                .key("accept")
+                .value("application/json"))
+            .body_serializer(APIHelper.json_serialize)
+            .auth(Or(Single("BasicAuth"), Single("ApiKeyAuth"))),
+        ).response(
+            ResponseHandler()
+            .deserializer(APIHelper.json_deserialize)
+            .deserialize_into(GenericResponse.from_dictionary)
+            .local_error("400",
+                "Bad Request - a problem reading or understanding the request.",
+                ServiceErrorError1Exception)
+            .local_error("401",
+                "Unauthorized - authentication required.",
+                ServiceErrorError1Exception)
+            .local_error("403",
+                "Forbidden - insufficient permissions to process the request.",
+                ServiceErrorError1Exception)
+            .local_error("422",
+                "Unprocessable Entity - a request validation error.",
+                ServiceErrorError1Exception)
+            .local_error("500",
+                "Internal Server Error - the server could not process the request.",
+                ServiceErrorError1Exception),
+        ).execute()
+
+    def post_setup_beneficiary(self,
+                               body=None):
+        """Perform a POST request to /setupBeneficiary.
+
+        Defines a benefactor and a beneficiary relationship between two accounts. At
+        the time of benefactor/beneficiary setup, the funds in the benefactor account
+        are transferred to the beneficiary account, and any further payments to the
+        benefactor account are automatically sent to the beneficiary account. A
+        series of benefactor/beneficiaries may not exceed four beneficiaries and may
+        not have a cycle in it.
+
+        Args:
+            body (SetupBeneficiaryRequest, optional): The request body parameter.
+
+        Returns:
+            GenericResponse: Response from the API. OK - the request has succeeded.
+
+        Raises:
+            APIException: When an error occurs while fetching the data from the
+                remote API. This exception includes the HTTP Response code, an error
+                message, and the HTTP body that was received in the request.
+
+        """
+        return super().new_api_call_builder.request(
+            RequestBuilder().server(Server.DEFAULT16)
+            .path("/setupBeneficiary")
+            .http_method(HttpMethodEnum.POST)
+            .header_param(Parameter()
+                .key("Content-Type")
+                .value("application/json"))
+            .body_param(Parameter()
+                .value(body))
+            .header_param(Parameter()
+                .key("accept")
+                .value("application/json"))
+            .body_serializer(APIHelper.json_serialize)
+            .auth(Or(Single("BasicAuth"), Single("ApiKeyAuth"))),
+        ).response(
+            ResponseHandler()
+            .deserializer(APIHelper.json_deserialize)
+            .deserialize_into(GenericResponse.from_dictionary)
+            .local_error("400",
+                "Bad Request - a problem reading or understanding the request.",
+                ServiceErrorError1Exception)
+            .local_error("401",
+                "Unauthorized - authentication required.",
+                ServiceErrorError1Exception)
+            .local_error("403",
+                "Forbidden - insufficient permissions to process the request.",
+                ServiceErrorError1Exception)
+            .local_error("422",
+                "Unprocessable Entity - a request validation error.",
+                ServiceErrorError1Exception)
+            .local_error("500",
+                "Internal Server Error - the server could not process the request.",
+                ServiceErrorError1Exception),
+        ).execute()
+
+    def post_transfer_funds(self,
                             body=None):
-        """Perform a POST request to /notifyShopper.
+        """Perform a POST request to /transferFunds.
 
-        Sends a request to the issuer so they can inform the shopper about the
-        upcoming recurring payment. This endpoint is used only for local acquiring in
-        India. For more information, refer to [Recurring card payments in
-        India](https://docs.adyen.com/payment-methods/cards/cards-recurring-india).
+        Transfers funds from one account to another account. Both accounts must be in
+        the same platform, but can have different account holders. The transfer must
+        include a transfer code, which should be determined by the platform, in
+        compliance with local regulations.
 
         Args:
-            body (NotifyShopperRequest, optional): The request body parameter.
+            body (TransferFundsRequest, optional): The request body parameter.
 
         Returns:
-            ApiResponse: An object with the response value as well as other useful
-                information such as status codes and headers. OK - the request has
+            TransferFundsResponse: Response from the API. OK - the request has
                 succeeded.
 
         Raises:
-            ApiException: When an error occurs while fetching the data from the
+            APIException: When an error occurs while fetching the data from the
                 remote API. This exception includes the HTTP Response code, an error
                 message, and the HTTP body that was received in the request.
 
         """
         return super().new_api_call_builder.request(
-            RequestBuilder().server(Server.DEFAULT)
-            .path("/notifyShopper")
+            RequestBuilder().server(Server.DEFAULT16)
+            .path("/transferFunds")
             .http_method(HttpMethodEnum.POST)
             .header_param(Parameter()
                 .key("Content-Type")
@@ -1712,54 +1811,46 @@ class GeneralApi(BaseApi):
         ).response(
             ResponseHandler()
             .deserializer(APIHelper.json_deserialize)
-            .deserialize_into(NotifyShopperResult.from_dictionary)
-            .is_api_response(True)
+            .deserialize_into(TransferFundsResponse.from_dictionary)
             .local_error("400",
                 "Bad Request - a problem reading or understanding the request.",
-                ServiceError1Exception)
+                ServiceErrorError1Exception)
             .local_error("401",
                 "Unauthorized - authentication required.",
-                ServiceError1Exception)
+                ServiceErrorError1Exception)
             .local_error("403",
                 "Forbidden - insufficient permissions to process the request.",
-                ServiceError1Exception)
+                ServiceErrorError1Exception)
             .local_error("422",
                 "Unprocessable Entity - a request validation error.",
-                ServiceError1Exception)
+                ServiceErrorError1Exception)
             .local_error("500",
                 "Internal Server Error - the server could not process the request.",
-                ServiceError1Exception),
+                ServiceErrorError1Exception),
         ).execute()
 
-    def post_schedule_account_updater(self,
-                                      body=None):
-        """Perform a POST request to /scheduleAccountUpdater.
+    def post_accept_dispute(self,
+                            body=None):
+        """Perform a POST request to /acceptDispute.
 
-        When making the API call, you can submit either the credit card information,
-        or the recurring detail reference and the shopper reference:
-        * If the card information is provided, all the sub-fields for `card` are
-        mandatory.
-        * If the recurring detail reference is provided, the fields for
-        `shopperReference` and `selectedRecurringDetailReference` are mandatory.
+        Accepts a specific dispute.
 
         Args:
-            body (ScheduleAccountUpdaterRequest, optional): The request body
-                parameter.
+            body (AcceptDisputeRequest, optional): The request body parameter.
 
         Returns:
-            ApiResponse: An object with the response value as well as other useful
-                information such as status codes and headers. OK - the request has
+            AcceptDisputeResponse: Response from the API. OK - the request has
                 succeeded.
 
         Raises:
-            ApiException: When an error occurs while fetching the data from the
+            APIException: When an error occurs while fetching the data from the
                 remote API. This exception includes the HTTP Response code, an error
                 message, and the HTTP body that was received in the request.
 
         """
         return super().new_api_call_builder.request(
-            RequestBuilder().server(Server.DEFAULT)
-            .path("/scheduleAccountUpdater")
+            RequestBuilder().server(Server.DEFAULT22)
+            .path("/acceptDispute")
             .http_method(HttpMethodEnum.POST)
             .header_param(Parameter()
                 .key("Content-Type")
@@ -1774,49 +1865,46 @@ class GeneralApi(BaseApi):
         ).response(
             ResponseHandler()
             .deserializer(APIHelper.json_deserialize)
-            .deserialize_into(ScheduleAccountUpdaterResult.from_dictionary)
-            .is_api_response(True)
+            .deserialize_into(AcceptDisputeResponse.from_dictionary)
             .local_error("400",
                 "Bad Request - a problem reading or understanding the request.",
-                ServiceError1Exception)
+                ServiceErrorError1Exception)
             .local_error("401",
                 "Unauthorized - authentication required.",
-                ServiceError1Exception)
+                ServiceErrorError1Exception)
             .local_error("403",
                 "Forbidden - insufficient permissions to process the request.",
-                ServiceError1Exception)
+                ServiceErrorError1Exception)
             .local_error("422",
                 "Unprocessable Entity - a request validation error.",
-                ServiceError1Exception)
+                ServiceErrorError1Exception)
             .local_error("500",
                 "Internal Server Error - the server could not process the request.",
-                ServiceError1Exception),
+                ServiceErrorError1Exception),
         ).execute()
 
-    def post_change_status(self,
-                           body=None):
-        """Perform a POST request to /changeStatus.
+    def post_defend_dispute(self,
+                            body=None):
+        """Perform a POST request to /defendDispute.
 
-        Changes the status of the provided payment method to the specified status.
+        Defends a specific dispute.
 
         Args:
-            body (StoredValueStatusChangeRequest, optional): The request body
-                parameter.
+            body (DefendDisputeRequest, optional): The request body parameter.
 
         Returns:
-            ApiResponse: An object with the response value as well as other useful
-                information such as status codes and headers. OK - the request has
+            DefendDisputeResponse: Response from the API. OK - the request has
                 succeeded.
 
         Raises:
-            ApiException: When an error occurs while fetching the data from the
+            APIException: When an error occurs while fetching the data from the
                 remote API. This exception includes the HTTP Response code, an error
                 message, and the HTTP body that was received in the request.
 
         """
         return super().new_api_call_builder.request(
-            RequestBuilder().server(Server.DEFAULT)
-            .path("/changeStatus")
+            RequestBuilder().server(Server.DEFAULT22)
+            .path("/defendDispute")
             .http_method(HttpMethodEnum.POST)
             .header_param(Parameter()
                 .key("Content-Type")
@@ -1831,46 +1919,46 @@ class GeneralApi(BaseApi):
         ).response(
             ResponseHandler()
             .deserializer(APIHelper.json_deserialize)
-            .deserialize_into(StoredValueStatusChangeResponse.from_dictionary)
-            .is_api_response(True)
+            .deserialize_into(DefendDisputeResponse.from_dictionary)
             .local_error("400",
                 "Bad Request - a problem reading or understanding the request.",
-                ServiceError1Exception)
+                ServiceErrorError1Exception)
             .local_error("401",
                 "Unauthorized - authentication required.",
-                ServiceError1Exception)
+                ServiceErrorError1Exception)
             .local_error("403",
                 "Forbidden - insufficient permissions to process the request.",
-                ServiceError1Exception)
+                ServiceErrorError1Exception)
+            .local_error("422",
+                "Unprocessable Entity - a request validation error.",
+                ServiceErrorError1Exception)
             .local_error("500",
                 "Internal Server Error - the server could not process the request.",
-                ServiceError1Exception),
+                ServiceErrorError1Exception),
         ).execute()
 
-    def post_check_balance(self,
-                           body=None):
-        """Perform a POST request to /checkBalance.
+    def post_delete_dispute_defense_document(self,
+                                             body=None):
+        """Perform a POST request to /deleteDisputeDefenseDocument.
 
-        Checks the balance of the provided payment method.
+        Deletes a specific dispute defense document that was supplied earlier.
 
         Args:
-            body (StoredValueBalanceCheckRequest, optional): The request body
-                parameter.
+            body (DeleteDefenseDocumentRequest, optional): The request body parameter.
 
         Returns:
-            ApiResponse: An object with the response value as well as other useful
-                information such as status codes and headers. OK - the request has
-                succeeded.
+            DeleteDefenseDocumentResponse: Response from the API. OK - the request
+                has succeeded.
 
         Raises:
-            ApiException: When an error occurs while fetching the data from the
+            APIException: When an error occurs while fetching the data from the
                 remote API. This exception includes the HTTP Response code, an error
                 message, and the HTTP body that was received in the request.
 
         """
         return super().new_api_call_builder.request(
-            RequestBuilder().server(Server.DEFAULT)
-            .path("/checkBalance")
+            RequestBuilder().server(Server.DEFAULT22)
+            .path("/deleteDisputeDefenseDocument")
             .http_method(HttpMethodEnum.POST)
             .header_param(Parameter()
                 .key("Content-Type")
@@ -1885,45 +1973,46 @@ class GeneralApi(BaseApi):
         ).response(
             ResponseHandler()
             .deserializer(APIHelper.json_deserialize)
-            .deserialize_into(StoredValueBalanceCheckResponse.from_dictionary)
-            .is_api_response(True)
+            .deserialize_into(DeleteDefenseDocumentResponse.from_dictionary)
             .local_error("400",
                 "Bad Request - a problem reading or understanding the request.",
-                ServiceError1Exception)
+                ServiceErrorError1Exception)
             .local_error("401",
                 "Unauthorized - authentication required.",
-                ServiceError1Exception)
+                ServiceErrorError1Exception)
             .local_error("403",
                 "Forbidden - insufficient permissions to process the request.",
-                ServiceError1Exception)
+                ServiceErrorError1Exception)
+            .local_error("422",
+                "Unprocessable Entity - a request validation error.",
+                ServiceErrorError1Exception)
             .local_error("500",
                 "Internal Server Error - the server could not process the request.",
-                ServiceError1Exception),
+                ServiceErrorError1Exception),
         ).execute()
 
-    def post_issue(self,
-                   body=None):
-        """Perform a POST request to /issue.
+    def post_retrieve_applicable_defense_reasons(self,
+                                                 body=None):
+        """Perform a POST request to /retrieveApplicableDefenseReasons.
 
-        Issues a new card of the given payment method.
+        Returns a list of all applicable defense reasons to defend a specific dispute.
 
         Args:
-            body (StoredValueIssueRequest, optional): The request body parameter.
+            body (DefenseReasonsRequest, optional): The request body parameter.
 
         Returns:
-            ApiResponse: An object with the response value as well as other useful
-                information such as status codes and headers. OK - the request has
+            DefenseReasonsResponse: Response from the API. OK - the request has
                 succeeded.
 
         Raises:
-            ApiException: When an error occurs while fetching the data from the
+            APIException: When an error occurs while fetching the data from the
                 remote API. This exception includes the HTTP Response code, an error
                 message, and the HTTP body that was received in the request.
 
         """
         return super().new_api_call_builder.request(
-            RequestBuilder().server(Server.DEFAULT)
-            .path("/issue")
+            RequestBuilder().server(Server.DEFAULT22)
+            .path("/retrieveApplicableDefenseReasons")
             .http_method(HttpMethodEnum.POST)
             .header_param(Parameter()
                 .key("Content-Type")
@@ -1938,206 +2027,46 @@ class GeneralApi(BaseApi):
         ).response(
             ResponseHandler()
             .deserializer(APIHelper.json_deserialize)
-            .deserialize_into(StoredValueIssueResponse.from_dictionary)
-            .is_api_response(True)
+            .deserialize_into(DefenseReasonsResponse.from_dictionary)
             .local_error("400",
                 "Bad Request - a problem reading or understanding the request.",
-                ServiceError1Exception)
+                ServiceErrorError1Exception)
             .local_error("401",
                 "Unauthorized - authentication required.",
-                ServiceError1Exception)
+                ServiceErrorError1Exception)
             .local_error("403",
                 "Forbidden - insufficient permissions to process the request.",
-                ServiceError1Exception)
+                ServiceErrorError1Exception)
+            .local_error("422",
+                "Unprocessable Entity - a request validation error.",
+                ServiceErrorError1Exception)
             .local_error("500",
                 "Internal Server Error - the server could not process the request.",
-                ServiceError1Exception),
+                ServiceErrorError1Exception),
         ).execute()
 
-    def post_load(self,
-                  body=None):
-        """Perform a POST request to /load.
-
-        Loads the payment method with the specified funds.
-
-        Args:
-            body (StoredValueLoadRequest, optional): The request body parameter.
-
-        Returns:
-            ApiResponse: An object with the response value as well as other useful
-                information such as status codes and headers. OK - the request has
-                succeeded.
-
-        Raises:
-            ApiException: When an error occurs while fetching the data from the
-                remote API. This exception includes the HTTP Response code, an error
-                message, and the HTTP body that was received in the request.
-
-        """
-        return super().new_api_call_builder.request(
-            RequestBuilder().server(Server.DEFAULT)
-            .path("/load")
-            .http_method(HttpMethodEnum.POST)
-            .header_param(Parameter()
-                .key("Content-Type")
-                .value("application/json"))
-            .body_param(Parameter()
-                .value(body))
-            .header_param(Parameter()
-                .key("accept")
-                .value("application/json"))
-            .body_serializer(APIHelper.json_serialize)
-            .auth(Or(Single("BasicAuth"), Single("ApiKeyAuth"))),
-        ).response(
-            ResponseHandler()
-            .deserializer(APIHelper.json_deserialize)
-            .deserialize_into(StoredValueLoadResponse.from_dictionary)
-            .is_api_response(True)
-            .local_error("400",
-                "Bad Request - a problem reading or understanding the request.",
-                ServiceError1Exception)
-            .local_error("401",
-                "Unauthorized - authentication required.",
-                ServiceError1Exception)
-            .local_error("403",
-                "Forbidden - insufficient permissions to process the request.",
-                ServiceError1Exception)
-            .local_error("500",
-                "Internal Server Error - the server could not process the request.",
-                ServiceError1Exception),
-        ).execute()
-
-    def post_merge_balance(self,
-                           body=None):
-        """Perform a POST request to /mergeBalance.
-
-        Increases the balance of the paymentmethod by the full amount left on the
-        source paymentmethod
-
-        Args:
-            body (StoredValueBalanceMergeRequest, optional): The request body
-                parameter.
-
-        Returns:
-            ApiResponse: An object with the response value as well as other useful
-                information such as status codes and headers. OK - the request has
-                succeeded.
-
-        Raises:
-            ApiException: When an error occurs while fetching the data from the
-                remote API. This exception includes the HTTP Response code, an error
-                message, and the HTTP body that was received in the request.
-
-        """
-        return super().new_api_call_builder.request(
-            RequestBuilder().server(Server.DEFAULT)
-            .path("/mergeBalance")
-            .http_method(HttpMethodEnum.POST)
-            .header_param(Parameter()
-                .key("Content-Type")
-                .value("application/json"))
-            .body_param(Parameter()
-                .value(body))
-            .header_param(Parameter()
-                .key("accept")
-                .value("application/json"))
-            .body_serializer(APIHelper.json_serialize)
-            .auth(Or(Single("BasicAuth"), Single("ApiKeyAuth"))),
-        ).response(
-            ResponseHandler()
-            .deserializer(APIHelper.json_deserialize)
-            .deserialize_into(StoredValueBalanceMergeResponse.from_dictionary)
-            .is_api_response(True)
-            .local_error("400",
-                "Bad Request - a problem reading or understanding the request.",
-                ServiceError1Exception)
-            .local_error("401",
-                "Unauthorized - authentication required.",
-                ServiceError1Exception)
-            .local_error("403",
-                "Forbidden - insufficient permissions to process the request.",
-                ServiceError1Exception)
-            .local_error("500",
-                "Internal Server Error - the server could not process the request.",
-                ServiceError1Exception),
-        ).execute()
-
-    def post_void_transaction(self,
-                              body=None):
-        """Perform a POST request to /voidTransaction.
-
-        Voids the referenced stored value transaction.
-
-        Args:
-            body (StoredValueVoidRequest, optional): The request body parameter.
-
-        Returns:
-            ApiResponse: An object with the response value as well as other useful
-                information such as status codes and headers. OK - the request has
-                succeeded.
-
-        Raises:
-            ApiException: When an error occurs while fetching the data from the
-                remote API. This exception includes the HTTP Response code, an error
-                message, and the HTTP body that was received in the request.
-
-        """
-        return super().new_api_call_builder.request(
-            RequestBuilder().server(Server.DEFAULT)
-            .path("/voidTransaction")
-            .http_method(HttpMethodEnum.POST)
-            .header_param(Parameter()
-                .key("Content-Type")
-                .value("application/json"))
-            .body_param(Parameter()
-                .value(body))
-            .header_param(Parameter()
-                .key("accept")
-                .value("application/json"))
-            .body_serializer(APIHelper.json_serialize)
-            .auth(Or(Single("BasicAuth"), Single("ApiKeyAuth"))),
-        ).response(
-            ResponseHandler()
-            .deserializer(APIHelper.json_deserialize)
-            .deserialize_into(StoredValueVoidResponse.from_dictionary)
-            .is_api_response(True)
-            .local_error("400",
-                "Bad Request - a problem reading or understanding the request.",
-                ServiceError1Exception)
-            .local_error("401",
-                "Unauthorized - authentication required.",
-                ServiceError1Exception)
-            .local_error("403",
-                "Forbidden - insufficient permissions to process the request.",
-                ServiceError1Exception)
-            .local_error("500",
-                "Internal Server Error - the server could not process the request.",
-                ServiceError1Exception),
-        ).execute()
-
-    def post_create_test_card_ranges(self,
+    def post_supply_defense_document(self,
                                      body=None):
-        """Perform a POST request to /createTestCardRanges.
+        """Perform a POST request to /supplyDefenseDocument.
 
-        Creates one or more test card ranges.
+        Supplies a specific dispute defense document.
 
         Args:
-            body (CreateTestCardRangesRequest, optional): The request body parameter.
+            body (SupplyDefenseDocumentRequest, optional): The request body parameter.
 
         Returns:
-            ApiResponse: An object with the response value as well as other useful
-                information such as status codes and headers. OK - the request has
-                succeeded.
+            SupplyDefenseDocumentResponse: Response from the API. OK - the request
+                has succeeded.
 
         Raises:
-            ApiException: When an error occurs while fetching the data from the
+            APIException: When an error occurs while fetching the data from the
                 remote API. This exception includes the HTTP Response code, an error
                 message, and the HTTP body that was received in the request.
 
         """
         return super().new_api_call_builder.request(
-            RequestBuilder().server(Server.DEFAULT)
-            .path("/createTestCardRanges")
+            RequestBuilder().server(Server.DEFAULT22)
+            .path("/supplyDefenseDocument")
             .http_method(HttpMethodEnum.POST)
             .header_param(Parameter()
                 .key("Content-Type")
@@ -2152,23 +2081,69 @@ class GeneralApi(BaseApi):
         ).response(
             ResponseHandler()
             .deserializer(APIHelper.json_deserialize)
-            .deserialize_into(CreateTestCardRangesResult.from_dictionary)
-            .is_api_response(True)
+            .deserialize_into(SupplyDefenseDocumentResponse.from_dictionary)
             .local_error("400",
                 "Bad Request - a problem reading or understanding the request.",
-                ServiceErrorException)
+                ServiceErrorError1Exception)
             .local_error("401",
                 "Unauthorized - authentication required.",
-                ServiceErrorException)
+                ServiceErrorError1Exception)
             .local_error("403",
                 "Forbidden - insufficient permissions to process the request.",
-                ServiceErrorException)
+                ServiceErrorError1Exception)
             .local_error("422",
                 "Unprocessable Entity - a request validation error.",
-                ServiceErrorException)
+                ServiceErrorError1Exception)
             .local_error("500",
                 "Internal Server Error - the server could not process the request.",
-                ServiceErrorException),
+                ServiceErrorError1Exception),
+        ).execute()
+
+    @deprecated()
+    def post_sessions(self,
+                      body=None):
+        """Perform a POST request to /sessions.
+
+        Establishes a secure communications session between the POS Mobile SDK and
+        the Adyen payments platform, through mutual authentication.
+        The request sends a setup token that identifies the SDK and the device. The
+        response returns a session token that the SDK can use to authenticate
+        responses received from the Adyen payments platform.
+        >This request applies to **mobile in-person** transactions. You cannot use
+        this request to create online payments sessions.
+
+        Args:
+            body (CreateSessionRequest, optional): The request body parameter.
+
+        Returns:
+            CertificateLoadingResponse: Response from the API. Created - the request
+                has been fulfilled and has resulted in one or more new resources
+                being created.
+
+        Raises:
+            APIException: When an error occurs while fetching the data from the
+                remote API. This exception includes the HTTP Response code, an error
+                message, and the HTTP body that was received in the request.
+
+        """
+        return super().new_api_call_builder.request(
+            RequestBuilder().server(Server.DEFAULT27)
+            .path("/sessions")
+            .http_method(HttpMethodEnum.POST)
+            .header_param(Parameter()
+                .key("Content-Type")
+                .value("application/json"))
+            .body_param(Parameter()
+                .value(body))
+            .header_param(Parameter()
+                .key("accept")
+                .value("application/json"))
+            .body_serializer(APIHelper.json_serialize)
+            .auth(Or(Single("BasicAuth"), Single("ApiKeyAuth"))),
+        ).response(
+            ResponseHandler()
+            .deserializer(APIHelper.json_deserialize)
+            .deserialize_into(CertificateLoadingResponse.from_dictionary),
         ).execute()
 
     @deprecated()
@@ -2188,18 +2163,17 @@ class GeneralApi(BaseApi):
             body (AssignTerminalsRequest, optional): The request body parameter.
 
         Returns:
-            ApiResponse: An object with the response value as well as other useful
-                information such as status codes and headers. OK - the request has
+            AssignTerminalsResponse: Response from the API. OK - the request has
                 succeeded.
 
         Raises:
-            ApiException: When an error occurs while fetching the data from the
+            APIException: When an error occurs while fetching the data from the
                 remote API. This exception includes the HTTP Response code, an error
                 message, and the HTTP body that was received in the request.
 
         """
         return super().new_api_call_builder.request(
-            RequestBuilder().server(Server.DEFAULT)
+            RequestBuilder().server(Server.DEFAULT28)
             .path("/assignTerminals")
             .http_method(HttpMethodEnum.POST)
             .header_param(Parameter()
@@ -2216,22 +2190,21 @@ class GeneralApi(BaseApi):
             ResponseHandler()
             .deserializer(APIHelper.json_deserialize)
             .deserialize_into(AssignTerminalsResponse.from_dictionary)
-            .is_api_response(True)
             .local_error("400",
                 "Bad Request - a problem reading or understanding the request.",
-                ServiceErrorException)
+                ServiceErrorError1Exception)
             .local_error("401",
                 "Unauthorized - authentication required.",
-                ServiceErrorException)
+                ServiceErrorError1Exception)
             .local_error("403",
                 "Forbidden - insufficient permissions to process the request.",
-                ServiceErrorException)
+                ServiceErrorError1Exception)
             .local_error("422",
                 "Unprocessable Entity - a request validation error.",
-                ServiceErrorException)
+                ServiceErrorError1Exception)
             .local_error("500",
                 "Internal Server Error - the server could not process the request.",
-                ServiceErrorException),
+                ServiceErrorError1Exception),
         ).execute()
 
     @deprecated()
@@ -2250,18 +2223,17 @@ class GeneralApi(BaseApi):
             body (FindTerminalRequest, optional): The request body parameter.
 
         Returns:
-            ApiResponse: An object with the response value as well as other useful
-                information such as status codes and headers. OK - the request has
+            FindTerminalResponse: Response from the API. OK - the request has
                 succeeded.
 
         Raises:
-            ApiException: When an error occurs while fetching the data from the
+            APIException: When an error occurs while fetching the data from the
                 remote API. This exception includes the HTTP Response code, an error
                 message, and the HTTP body that was received in the request.
 
         """
         return super().new_api_call_builder.request(
-            RequestBuilder().server(Server.DEFAULT)
+            RequestBuilder().server(Server.DEFAULT28)
             .path("/findTerminal")
             .http_method(HttpMethodEnum.POST)
             .header_param(Parameter()
@@ -2278,22 +2250,21 @@ class GeneralApi(BaseApi):
             ResponseHandler()
             .deserializer(APIHelper.json_deserialize)
             .deserialize_into(FindTerminalResponse.from_dictionary)
-            .is_api_response(True)
             .local_error("400",
                 "Bad Request - a problem reading or understanding the request.",
-                ServiceErrorException)
+                ServiceErrorError1Exception)
             .local_error("401",
                 "Unauthorized - authentication required.",
-                ServiceErrorException)
+                ServiceErrorError1Exception)
             .local_error("403",
                 "Forbidden - insufficient permissions to process the request.",
-                ServiceErrorException)
+                ServiceErrorError1Exception)
             .local_error("422",
                 "Unprocessable Entity - a request validation error.",
-                ServiceErrorException)
+                ServiceErrorError1Exception)
             .local_error("500",
                 "Internal Server Error - the server could not process the request.",
-                ServiceErrorException),
+                ServiceErrorError1Exception),
         ).execute()
 
     @deprecated()
@@ -2312,18 +2283,17 @@ class GeneralApi(BaseApi):
             body (GetStoresUnderAccountRequest, optional): The request body parameter.
 
         Returns:
-            ApiResponse: An object with the response value as well as other useful
-                information such as status codes and headers. OK - the request has
-                succeeded.
+            GetStoresUnderAccountResponse: Response from the API. OK - the request
+                has succeeded.
 
         Raises:
-            ApiException: When an error occurs while fetching the data from the
+            APIException: When an error occurs while fetching the data from the
                 remote API. This exception includes the HTTP Response code, an error
                 message, and the HTTP body that was received in the request.
 
         """
         return super().new_api_call_builder.request(
-            RequestBuilder().server(Server.DEFAULT)
+            RequestBuilder().server(Server.DEFAULT28)
             .path("/getStoresUnderAccount")
             .http_method(HttpMethodEnum.POST)
             .header_param(Parameter()
@@ -2340,22 +2310,21 @@ class GeneralApi(BaseApi):
             ResponseHandler()
             .deserializer(APIHelper.json_deserialize)
             .deserialize_into(GetStoresUnderAccountResponse.from_dictionary)
-            .is_api_response(True)
             .local_error("400",
                 "Bad Request - a problem reading or understanding the request.",
-                ServiceErrorException)
+                ServiceErrorError1Exception)
             .local_error("401",
                 "Unauthorized - authentication required.",
-                ServiceErrorException)
+                ServiceErrorError1Exception)
             .local_error("403",
                 "Forbidden - insufficient permissions to process the request.",
-                ServiceErrorException)
+                ServiceErrorError1Exception)
             .local_error("422",
                 "Unprocessable Entity - a request validation error.",
-                ServiceErrorException)
+                ServiceErrorError1Exception)
             .local_error("500",
                 "Internal Server Error - the server could not process the request.",
-                ServiceErrorException),
+                ServiceErrorError1Exception),
         ).execute()
 
     @deprecated()
@@ -2372,21 +2341,20 @@ class GeneralApi(BaseApi):
         API](https://docs.adyen.com/api-explorer/Management/latest/overview).
 
         Args:
-            body (FindTerminalRequest, optional): The request body parameter.
+            body (GetTerminalDetailsRequest, optional): The request body parameter.
 
         Returns:
-            ApiResponse: An object with the response value as well as other useful
-                information such as status codes and headers. OK - the request has
+            GetTerminalDetailsResponse: Response from the API. OK - the request has
                 succeeded.
 
         Raises:
-            ApiException: When an error occurs while fetching the data from the
+            APIException: When an error occurs while fetching the data from the
                 remote API. This exception includes the HTTP Response code, an error
                 message, and the HTTP body that was received in the request.
 
         """
         return super().new_api_call_builder.request(
-            RequestBuilder().server(Server.DEFAULT)
+            RequestBuilder().server(Server.DEFAULT28)
             .path("/getTerminalDetails")
             .http_method(HttpMethodEnum.POST)
             .header_param(Parameter()
@@ -2403,22 +2371,21 @@ class GeneralApi(BaseApi):
             ResponseHandler()
             .deserializer(APIHelper.json_deserialize)
             .deserialize_into(GetTerminalDetailsResponse.from_dictionary)
-            .is_api_response(True)
             .local_error("400",
                 "Bad Request - a problem reading or understanding the request.",
-                ServiceErrorException)
+                ServiceErrorError1Exception)
             .local_error("401",
                 "Unauthorized - authentication required.",
-                ServiceErrorException)
+                ServiceErrorError1Exception)
             .local_error("403",
                 "Forbidden - insufficient permissions to process the request.",
-                ServiceErrorException)
+                ServiceErrorError1Exception)
             .local_error("422",
                 "Unprocessable Entity - a request validation error.",
-                ServiceErrorException)
+                ServiceErrorError1Exception)
             .local_error("500",
                 "Internal Server Error - the server could not process the request.",
-                ServiceErrorException),
+                ServiceErrorError1Exception),
         ).execute()
 
     @deprecated()
@@ -2439,18 +2406,17 @@ class GeneralApi(BaseApi):
                 parameter.
 
         Returns:
-            ApiResponse: An object with the response value as well as other useful
-                information such as status codes and headers. OK - the request has
-                succeeded.
+            GetTerminalsUnderAccountResponse: Response from the API. OK - the request
+                has succeeded.
 
         Raises:
-            ApiException: When an error occurs while fetching the data from the
+            APIException: When an error occurs while fetching the data from the
                 remote API. This exception includes the HTTP Response code, an error
                 message, and the HTTP body that was received in the request.
 
         """
         return super().new_api_call_builder.request(
-            RequestBuilder().server(Server.DEFAULT)
+            RequestBuilder().server(Server.DEFAULT28)
             .path("/getTerminalsUnderAccount")
             .http_method(HttpMethodEnum.POST)
             .header_param(Parameter()
@@ -2467,20 +2433,19 @@ class GeneralApi(BaseApi):
             ResponseHandler()
             .deserializer(APIHelper.json_deserialize)
             .deserialize_into(GetTerminalsUnderAccountResponse.from_dictionary)
-            .is_api_response(True)
             .local_error("400",
                 "Bad Request - a problem reading or understanding the request.",
-                ServiceErrorException)
+                ServiceErrorError1Exception)
             .local_error("401",
                 "Unauthorized - authentication required.",
-                ServiceErrorException)
+                ServiceErrorError1Exception)
             .local_error("403",
                 "Forbidden - insufficient permissions to process the request.",
-                ServiceErrorException)
+                ServiceErrorError1Exception)
             .local_error("422",
                 "Unprocessable Entity - a request validation error.",
-                ServiceErrorException)
+                ServiceErrorError1Exception)
             .local_error("500",
                 "Internal Server Error - the server could not process the request.",
-                ServiceErrorException),
+                ServiceErrorError1Exception),
         ).execute()

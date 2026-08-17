@@ -12,9 +12,11 @@ class PayoutScheduleResponse(object):
 
     Attributes:
         next_scheduled_payout (datetime): The date of the next scheduled payout.
-        schedule (PayoutSchedule): The model property of type PayoutSchedule.
-        additional_properties (Dict[str, Any]): The additional properties for the
-            model.
+        schedule (ScheduleEnum): The payout schedule for the account.  Possible
+            values: `DEFAULT`, `DAILY`, `DAILY_US`, `DAILY_EU`, `DAILY_AU`,
+            `DAILY_SG`, `WEEKLY`, `WEEKLY_ON_TUE_FRI_MIDNIGHT`,
+            `BIWEEKLY_ON_1ST_AND_15TH_AT_MIDNIGHT`, `MONTHLY`, `HOLD`. > `HOLD`
+            prevents scheduled payouts, but you can still initiate payouts manually.
 
     """
 
@@ -32,8 +34,7 @@ class PayoutScheduleResponse(object):
     def __init__(
         self,
         next_scheduled_payout=APIHelper.SKIP,
-        schedule=APIHelper.SKIP,
-        additional_properties=None):
+        schedule=APIHelper.SKIP):
         """Initialize a PayoutScheduleResponse instance."""
         # Initialize members of the class
         if next_scheduled_payout is not APIHelper.SKIP:
@@ -43,11 +44,6 @@ class PayoutScheduleResponse(object):
                  if next_scheduled_payout else None
         if schedule is not APIHelper.SKIP:
             self.schedule = schedule
-
-        # Add additional model properties to the instance
-        if additional_properties is None:
-            additional_properties = {}
-        self.additional_properties = additional_properties
 
     @classmethod
     def from_dictionary(cls,
@@ -75,15 +71,9 @@ class PayoutScheduleResponse(object):
             if dictionary.get("schedule")\
                 else APIHelper.SKIP
 
-        additional_properties = APIHelper.get_additional_properties(
-            dictionary={k: v for k, v in dictionary.items()
-                        if k not in cls._names.values()},
-            unboxing_function=lambda value: value)
-
         # Return an object of this model
         return cls(next_scheduled_payout,
-                   schedule,
-                   additional_properties)
+                   schedule)
 
     def __repr__(self):
         """Return a unambiguous string representation."""
@@ -97,12 +87,10 @@ class PayoutScheduleResponse(object):
             if hasattr(self, "schedule")
             else None
         )
-        _additional_properties=self.additional_properties
         return (
             f"{self.__class__.__name__}("
             f"next_scheduled_payout={_next_scheduled_payout!r}, "
             f"schedule={_schedule!r}, "
-            f"additional_properties={_additional_properties!r}, "
             f")"
         )
 
@@ -118,11 +106,9 @@ class PayoutScheduleResponse(object):
             if hasattr(self, "schedule")
             else None
         )
-        _additional_properties=self.additional_properties
         return (
             f"{self.__class__.__name__}("
             f"next_scheduled_payout={_next_scheduled_payout!s}, "
             f"schedule={_schedule!s}, "
-            f"additional_properties={_additional_properties!s}, "
             f")"
         )

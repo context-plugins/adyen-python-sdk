@@ -15,9 +15,15 @@ class TokenMandate(object):
             number.
         amount (str): The billing amount (in minor units) of the recurring
             transactions.
-        amount_rule (AmountRule): The model property of type AmountRule.
-        billing_attempts_rule (BillingAttemptsRule): The model property of type
-            BillingAttemptsRule.
+        amount_rule (AmountRuleEnum): The limitation rule of the billing amount.
+            Possible values:  * **max**: The transaction amount can not exceed the
+            `amount`.   * **exact**: The transaction amount should be the same as the
+            `amount`.
+        billing_attempts_rule (BillingAttemptsRuleEnum): The rule to specify the
+            period, within which the recurring debit can happen, relative to the
+            mandate recurring date.  Possible values:   * **on**: On a specific date.
+            * **before**:  Before and on a specific date.   * **after**: On and after
+            a specific date.
         billing_day (str): The number of the day, on which the recurring debit can
             happen. Should be within the same calendar month as the mandate recurring
             date.  Possible values: 1-31 based on the `frequency`.
@@ -26,7 +32,9 @@ class TokenMandate(object):
         currency (str): The three-character [ISO currency
             code](https://docs.adyen.com/development-resources/currency-codes).
         ends_at (str): End date of the billing plan, in YYYY-MM-DD format.
-        frequency (Frequency1): The model property of type Frequency1.
+        frequency (FrequencyEnum): The frequency with which a shopper should be
+            charged.  Possible values: **adhoc**, **daily**, **weekly**,
+            **biWeekly**, **monthly**, **quarterly**, **halfYearly**, **yearly**.
         mandate_id (str): The unique identifier of the mandate.
         masked_account_id (str): The masked account number associated with the
             mandate.
@@ -42,14 +50,13 @@ class TokenMandate(object):
             text about the subscription to let your shoppers recognize your recurring
             payments. Maximum length: 35 characters.
         remarks (str): Additional remarks or notes about the mandate.
-        retry_policy (RetryPolicy): The model property of type RetryPolicy.
+        retry_policy (RetryPolicyEnum): When set to true, you can retry for failed
+            recurring payments. The default value is true.
         starts_at (str): Start date of the billing plan, in YYYY-MM-DD format. By
             default, the transaction date.
         status (str): The status of the mandate. Examples : active, revoked,
             completed, expired
         tx_variant (str): The transaction variant used for this mandate.
-        additional_properties (Dict[str, Any]): The additional properties for the
-            model.
 
     """
 
@@ -113,8 +120,7 @@ class TokenMandate(object):
         recurring_statement=APIHelper.SKIP,
         remarks=APIHelper.SKIP,
         retry_policy=APIHelper.SKIP,
-        starts_at=APIHelper.SKIP,
-        additional_properties=None):
+        starts_at=APIHelper.SKIP):
         """Initialize a TokenMandate instance."""
         # Initialize members of the class
         if account_id_type is not APIHelper.SKIP:
@@ -149,11 +155,6 @@ class TokenMandate(object):
             self.starts_at = starts_at
         self.status = status
         self.tx_variant = tx_variant
-
-        # Add additional model properties to the instance
-        if additional_properties is None:
-            additional_properties = {}
-        self.additional_properties = additional_properties
 
     @classmethod
     def from_dictionary(cls,
@@ -254,11 +255,6 @@ class TokenMandate(object):
             if dictionary.get("startsAt")\
                 else APIHelper.SKIP
 
-        additional_properties = APIHelper.get_additional_properties(
-            dictionary={k: v for k, v in dictionary.items()
-                        if k not in cls._names.values()},
-            unboxing_function=lambda value: value)
-
         # Return an object of this model
         return cls(amount,
                    currency,
@@ -279,8 +275,7 @@ class TokenMandate(object):
                    recurring_statement,
                    remarks,
                    retry_policy,
-                   starts_at,
-                   additional_properties)
+                   starts_at)
 
     def __repr__(self):
         """Return a unambiguous string representation."""
@@ -352,7 +347,6 @@ class TokenMandate(object):
         )
         _status=self.status
         _tx_variant=self.tx_variant
-        _additional_properties=self.additional_properties
         return (
             f"{self.__class__.__name__}("
             f"account_id_type={_account_id_type!r}, "
@@ -375,7 +369,6 @@ class TokenMandate(object):
             f"starts_at={_starts_at!r}, "
             f"status={_status!r}, "
             f"tx_variant={_tx_variant!r}, "
-            f"additional_properties={_additional_properties!r}, "
             f")"
         )
 
@@ -449,7 +442,6 @@ class TokenMandate(object):
         )
         _status=self.status
         _tx_variant=self.tx_variant
-        _additional_properties=self.additional_properties
         return (
             f"{self.__class__.__name__}("
             f"account_id_type={_account_id_type!s}, "
@@ -472,6 +464,5 @@ class TokenMandate(object):
             f"starts_at={_starts_at!s}, "
             f"status={_status!s}, "
             f"tx_variant={_tx_variant!s}, "
-            f"additional_properties={_additional_properties!s}, "
             f")"
         )

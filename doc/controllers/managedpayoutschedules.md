@@ -47,7 +47,7 @@ def get_balance_accounts_balance_account_id_payout_schedules(self,
 
 **200**: OK - The request has succeeded.
 
-This method returns an [`ApiResponse`](../../doc/api-response.md) instance. The `body` property of this instance returns the response data which is of type [`BalanceAccountConfigurations`](../../doc/models/balance-account-configurations.md).
+[`BalanceAccountConfigurations`](../../doc/models/balance-account-configurations.md)
 
 ## Example Usage
 
@@ -60,11 +60,7 @@ result = managed_payout_schedules_api.get_balance_accounts_balance_account_id_pa
     balance_account_id,
     limit=limit
 )
-
-if result.is_success():
-    print(result.body)
-elif result.is_error():
-    print(result.errors)
+print(result)
 ```
 
 ## Example Response *(as JSON)*
@@ -102,11 +98,11 @@ elif result.is_error():
 
 | HTTP Status Code | Error Description | Exception Class |
 |  --- | --- | --- |
-| 401 | Unauthorized - authentication required. | [`BalanceAccountsPayoutSchedules401ErrorException`](../../doc/models/balance-accounts-payout-schedules-401-error-exception.md) |
-| 403 | Forbidden - insufficient permissions to process the request. | [`BalanceAccountsPayoutSchedules403ErrorException`](../../doc/models/balance-accounts-payout-schedules-403-error-exception.md) |
-| 404 | Not Found - the resource was not found | [`BalanceAccountsPayoutSchedules404ErrorException`](../../doc/models/balance-accounts-payout-schedules-404-error-exception.md) |
-| 422 | Unprocessable Entity - a request validation error. | [`BalanceAccountsPayoutSchedules422ErrorException`](../../doc/models/balance-accounts-payout-schedules-422-error-exception.md) |
-| 500 | Internal Server Error - the server could not process the request. | [`BalanceAccountsPayoutSchedules500ErrorException`](../../doc/models/balance-accounts-payout-schedules-500-error-exception.md) |
+| 401 | Unauthorized - authentication required. | [`DefaultErrorResponseEntityException`](../../doc/models/default-error-response-entity-exception.md) |
+| 403 | Forbidden - insufficient permissions to process the request. | [`DefaultErrorResponseEntityException`](../../doc/models/default-error-response-entity-exception.md) |
+| 404 | Not Found - the resource was not found | [`DefaultErrorResponseEntityException`](../../doc/models/default-error-response-entity-exception.md) |
+| 422 | Unprocessable Entity - a request validation error. | [`DefaultErrorResponseEntityException`](../../doc/models/default-error-response-entity-exception.md) |
+| 500 | Internal Server Error - the server could not process the request. | [`DefaultErrorResponseEntityException`](../../doc/models/default-error-response-entity-exception.md) |
 
 
 # Post-Balance Accounts-Balance Account Id-Payout Schedules
@@ -132,7 +128,7 @@ def post_balance_accounts_balance_account_id_payout_schedules(self,
 
 **200**: OK - The request has succeeded.
 
-This method returns an [`ApiResponse`](../../doc/api-response.md) instance. The `body` property of this instance returns the response data which is of type [`BalanceAccountConfiguration`](../../doc/models/balance-account-configuration.md).
+[`BalanceAccountConfiguration`](../../doc/models/balance-account-configuration.md)
 
 ## Example Usage
 
@@ -141,7 +137,7 @@ balance_account_id = 'balanceAccountId8'
 
 body = BalanceAccountConfigurationRequest(
     balance_platform_payout_schedule_id='PSPC00000000000000000000000001',
-    frequency=Frequency.MONTHLY,
+    frequency=Frequency1Enum.MONTHLY,
     transfer_instrument_id='SE00000000000000000000001',
     currency='EUR',
     description='Scheduled payout to merchant bank account',
@@ -158,11 +154,7 @@ result = managed_payout_schedules_api.post_balance_accounts_balance_account_id_p
     balance_account_id,
     body
 )
-
-if result.is_success():
-    print(result.body)
-elif result.is_error():
-    print(result.errors)
+print(result)
 ```
 
 ## Example Response *(as JSON)*
@@ -191,11 +183,11 @@ elif result.is_error():
 
 | HTTP Status Code | Error Description | Exception Class |
 |  --- | --- | --- |
-| 401 | Unauthorized - authentication required. | [`BalanceAccountsPayoutSchedules401ErrorException`](../../doc/models/balance-accounts-payout-schedules-401-error-exception.md) |
-| 403 | Forbidden - insufficient permissions to process the request. | [`BalanceAccountsPayoutSchedules403ErrorException`](../../doc/models/balance-accounts-payout-schedules-403-error-exception.md) |
-| 404 | Not Found - the resource was not found | [`BalanceAccountsPayoutSchedules404ErrorException`](../../doc/models/balance-accounts-payout-schedules-404-error-exception.md) |
-| 422 | Unprocessable Entity - a request validation error. | [`BalanceAccountsPayoutSchedules422ErrorException`](../../doc/models/balance-accounts-payout-schedules-422-error-exception.md) |
-| 500 | Internal Server Error - the server could not process the request. | [`BalanceAccountsPayoutSchedules500ErrorException`](../../doc/models/balance-accounts-payout-schedules-500-error-exception.md) |
+| 401 | Unauthorized - authentication required. | [`DefaultErrorResponseEntityException`](../../doc/models/default-error-response-entity-exception.md) |
+| 403 | Forbidden - insufficient permissions to process the request. | [`DefaultErrorResponseEntityException`](../../doc/models/default-error-response-entity-exception.md) |
+| 404 | Not Found - the resource was not found | [`DefaultErrorResponseEntityException`](../../doc/models/default-error-response-entity-exception.md) |
+| 422 | Unprocessable Entity - a request validation error. | [`DefaultErrorResponseEntityException`](../../doc/models/default-error-response-entity-exception.md) |
+| 500 | Internal Server Error - the server could not process the request. | [`DefaultErrorResponseEntityException`](../../doc/models/default-error-response-entity-exception.md) |
 
 
 # Get-Balance Accounts-Balance Account Id-Payout Schedules-Id
@@ -221,7 +213,7 @@ def get_balance_accounts_balance_account_id_payout_schedules_id(self,
 
 **200**: OK - The request has succeeded.
 
-This method returns an [`ApiResponse`](../../doc/api-response.md) instance. The `body` property of this instance returns the response data which is of type [`BalanceAccountConfiguration`](../../doc/models/balance-account-configuration.md).
+[`BalanceAccountConfiguration`](../../doc/models/balance-account-configuration.md)
 
 ## Example Usage
 
@@ -234,11 +226,7 @@ result = managed_payout_schedules_api.get_balance_accounts_balance_account_id_pa
     balance_account_id,
     id
 )
-
-if result.is_success():
-    print(result.body)
-elif result.is_error():
-    print(result.errors)
+print(result)
 ```
 
 ## Example Response *(as JSON)*
@@ -267,11 +255,11 @@ elif result.is_error():
 
 | HTTP Status Code | Error Description | Exception Class |
 |  --- | --- | --- |
-| 401 | Unauthorized - authentication required. | [`BalanceAccountsPayoutSchedules401ErrorException`](../../doc/models/balance-accounts-payout-schedules-401-error-exception.md) |
-| 403 | Forbidden - insufficient permissions to process the request. | [`BalanceAccountsPayoutSchedules403ErrorException`](../../doc/models/balance-accounts-payout-schedules-403-error-exception.md) |
-| 404 | Not Found - the resource was not found | [`BalanceAccountsPayoutSchedules404ErrorException`](../../doc/models/balance-accounts-payout-schedules-404-error-exception.md) |
-| 422 | Unprocessable Entity - a request validation error. | [`BalanceAccountsPayoutSchedules422ErrorException`](../../doc/models/balance-accounts-payout-schedules-422-error-exception.md) |
-| 500 | Internal Server Error - the server could not process the request. | [`BalanceAccountsPayoutSchedules500ErrorException`](../../doc/models/balance-accounts-payout-schedules-500-error-exception.md) |
+| 401 | Unauthorized - authentication required. | [`DefaultErrorResponseEntityException`](../../doc/models/default-error-response-entity-exception.md) |
+| 403 | Forbidden - insufficient permissions to process the request. | [`DefaultErrorResponseEntityException`](../../doc/models/default-error-response-entity-exception.md) |
+| 404 | Not Found - the resource was not found | [`DefaultErrorResponseEntityException`](../../doc/models/default-error-response-entity-exception.md) |
+| 422 | Unprocessable Entity - a request validation error. | [`DefaultErrorResponseEntityException`](../../doc/models/default-error-response-entity-exception.md) |
+| 500 | Internal Server Error - the server could not process the request. | [`DefaultErrorResponseEntityException`](../../doc/models/default-error-response-entity-exception.md) |
 
 
 # Delete-Balance Accounts-Balance Account Id-Payout Schedules-Id
@@ -297,7 +285,7 @@ def delete_balance_accounts_balance_account_id_payout_schedules_id(self,
 
 **204**: OK - The request has succeeded.
 
-This method returns an [`ApiResponse`](../../doc/api-response.md) instance.
+`void`
 
 ## Example Usage
 
@@ -306,26 +294,21 @@ balance_account_id = 'balanceAccountId8'
 
 id = 'id0'
 
-result = managed_payout_schedules_api.delete_balance_accounts_balance_account_id_payout_schedules_id(
+managed_payout_schedules_api.delete_balance_accounts_balance_account_id_payout_schedules_id(
     balance_account_id,
     id
 )
-
-if result.is_success():
-    print(result.body)
-elif result.is_error():
-    print(result.errors)
 ```
 
 ## Errors
 
 | HTTP Status Code | Error Description | Exception Class |
 |  --- | --- | --- |
-| 401 | Unauthorized - authentication required. | [`BalanceAccountsPayoutSchedules401ErrorException`](../../doc/models/balance-accounts-payout-schedules-401-error-exception.md) |
-| 403 | Forbidden - insufficient permissions to process the request. | [`BalanceAccountsPayoutSchedules403ErrorException`](../../doc/models/balance-accounts-payout-schedules-403-error-exception.md) |
-| 404 | Not Found - the resource was not found | [`BalanceAccountsPayoutSchedules404ErrorException`](../../doc/models/balance-accounts-payout-schedules-404-error-exception.md) |
-| 422 | Unprocessable Entity - a request validation error. | [`BalanceAccountsPayoutSchedules422ErrorException`](../../doc/models/balance-accounts-payout-schedules-422-error-exception.md) |
-| 500 | Internal Server Error - the server could not process the request. | [`BalanceAccountsPayoutSchedules500ErrorException`](../../doc/models/balance-accounts-payout-schedules-500-error-exception.md) |
+| 401 | Unauthorized - authentication required. | [`DefaultErrorResponseEntityException`](../../doc/models/default-error-response-entity-exception.md) |
+| 403 | Forbidden - insufficient permissions to process the request. | [`DefaultErrorResponseEntityException`](../../doc/models/default-error-response-entity-exception.md) |
+| 404 | Not Found - the resource was not found | [`DefaultErrorResponseEntityException`](../../doc/models/default-error-response-entity-exception.md) |
+| 422 | Unprocessable Entity - a request validation error. | [`DefaultErrorResponseEntityException`](../../doc/models/default-error-response-entity-exception.md) |
+| 500 | Internal Server Error - the server could not process the request. | [`DefaultErrorResponseEntityException`](../../doc/models/default-error-response-entity-exception.md) |
 
 
 # Patch-Balance Accounts-Balance Account Id-Payout Schedules-Id
@@ -353,7 +336,7 @@ def patch_balance_accounts_balance_account_id_payout_schedules_id(self,
 
 **200**: OK - The request has succeeded.
 
-This method returns an [`ApiResponse`](../../doc/api-response.md) instance. The `body` property of this instance returns the response data which is of type [`BalanceAccountConfiguration`](../../doc/models/balance-account-configuration.md).
+[`BalanceAccountConfiguration`](../../doc/models/balance-account-configuration.md)
 
 ## Example Usage
 
@@ -373,11 +356,7 @@ result = managed_payout_schedules_api.patch_balance_accounts_balance_account_id_
     id,
     body
 )
-
-if result.is_success():
-    print(result.body)
-elif result.is_error():
-    print(result.errors)
+print(result)
 ```
 
 ## Example Response *(as JSON)*
@@ -407,11 +386,11 @@ elif result.is_error():
 
 | HTTP Status Code | Error Description | Exception Class |
 |  --- | --- | --- |
-| 401 | Unauthorized - authentication required. | [`BalanceAccountsPayoutSchedules401ErrorException`](../../doc/models/balance-accounts-payout-schedules-401-error-exception.md) |
-| 403 | Forbidden - insufficient permissions to process the request. | [`BalanceAccountsPayoutSchedules403ErrorException`](../../doc/models/balance-accounts-payout-schedules-403-error-exception.md) |
-| 404 | Not Found - the resource was not found | [`BalanceAccountsPayoutSchedules404ErrorException`](../../doc/models/balance-accounts-payout-schedules-404-error-exception.md) |
-| 422 | Unprocessable Entity - a request validation error. | [`BalanceAccountsPayoutSchedules422ErrorException`](../../doc/models/balance-accounts-payout-schedules-422-error-exception.md) |
-| 500 | Internal Server Error - the server could not process the request. | [`BalanceAccountsPayoutSchedules500ErrorException`](../../doc/models/balance-accounts-payout-schedules-500-error-exception.md) |
+| 401 | Unauthorized - authentication required. | [`DefaultErrorResponseEntityException`](../../doc/models/default-error-response-entity-exception.md) |
+| 403 | Forbidden - insufficient permissions to process the request. | [`DefaultErrorResponseEntityException`](../../doc/models/default-error-response-entity-exception.md) |
+| 404 | Not Found - the resource was not found | [`DefaultErrorResponseEntityException`](../../doc/models/default-error-response-entity-exception.md) |
+| 422 | Unprocessable Entity - a request validation error. | [`DefaultErrorResponseEntityException`](../../doc/models/default-error-response-entity-exception.md) |
+| 500 | Internal Server Error - the server could not process the request. | [`DefaultErrorResponseEntityException`](../../doc/models/default-error-response-entity-exception.md) |
 
 
 # Get-Balance Accounts-Balance Account Id-Payout Schedules-Id-Executions
@@ -436,14 +415,14 @@ def get_balance_accounts_balance_account_id_payout_schedules_id_executions(self,
 | `balance_account_id` | `str` | Template, Required | The unique identifier of the balance account. |
 | `id` | `str` | Template, Required | The unique identifier of the payout schedule on the balance account. |
 | `offset` | `int` | Query, Required | The page number to be returned.<br><br>Default: **1**<br><br>**Constraints**: `>= 1`, `<= 100` |
-| `results` | [`List[ExecutionResult]`](../../doc/models/execution-result.md) | Query, Optional | Contains a list of payout statuses. If included, the response returns only executed payouts that currently have one of the specified statuses.<br><br>Possible statuses:<br><br>- **succeeded**: The payout was sent successfully.<br>- **failed**: The payout was not sent due to an error.<br>- **skipped**: The payout was not triggered as expected. |
+| `results` | [`List[ExecutionResultEnum]`](../../doc/models/execution-result-enum.md) | Query, Optional | Contains a list of payout statuses. If included, the response returns only executed payouts that currently have one of the specified statuses.<br><br>Possible statuses:<br><br>- **succeeded**: The payout was sent successfully.<br>- **failed**: The payout was not sent due to an error.<br>- **skipped**: The payout was not triggered as expected. |
 | `limit` | `int` | Query, Optional | The number of items returned per page.<br><br>Default: **10**<br><br>**Constraints**: `>= 10` |
 
 ## Response Type
 
 **200**: OK - The request has succeeded.
 
-This method returns an [`ApiResponse`](../../doc/api-response.md) instance. The `body` property of this instance returns the response data which is of type [`PayoutScheduleExecutions`](../../doc/models/payout-schedule-executions.md).
+[`PayoutScheduleExecutions`](../../doc/models/payout-schedule-executions.md)
 
 ## Example Usage
 
@@ -459,11 +438,7 @@ result = managed_payout_schedules_api.get_balance_accounts_balance_account_id_pa
     id,
     offset
 )
-
-if result.is_success():
-    print(result.body)
-elif result.is_error():
-    print(result.errors)
+print(result)
 ```
 
 ## Example Response *(as JSON)*
@@ -496,11 +471,11 @@ elif result.is_error():
 
 | HTTP Status Code | Error Description | Exception Class |
 |  --- | --- | --- |
-| 401 | Unauthorized - authentication required. | [`BalanceAccountsPayoutSchedulesExecutions401ErrorException`](../../doc/models/balance-accounts-payout-schedules-executions-401-error-exception.md) |
-| 403 | Forbidden - insufficient permissions to process the request. | [`BalanceAccountsPayoutSchedulesExecutions403ErrorException`](../../doc/models/balance-accounts-payout-schedules-executions-403-error-exception.md) |
-| 404 | Not Found - the resource was not found | [`BalanceAccountsPayoutSchedulesExecutions404ErrorException`](../../doc/models/balance-accounts-payout-schedules-executions-404-error-exception.md) |
-| 422 | Unprocessable Entity - a request validation error. | [`BalanceAccountsPayoutSchedulesExecutions422ErrorException`](../../doc/models/balance-accounts-payout-schedules-executions-422-error-exception.md) |
-| 500 | Internal Server Error - the server could not process the request. | [`BalanceAccountsPayoutSchedulesExecutions500ErrorException`](../../doc/models/balance-accounts-payout-schedules-executions-500-error-exception.md) |
+| 401 | Unauthorized - authentication required. | [`DefaultErrorResponseEntityException`](../../doc/models/default-error-response-entity-exception.md) |
+| 403 | Forbidden - insufficient permissions to process the request. | [`DefaultErrorResponseEntityException`](../../doc/models/default-error-response-entity-exception.md) |
+| 404 | Not Found - the resource was not found | [`DefaultErrorResponseEntityException`](../../doc/models/default-error-response-entity-exception.md) |
+| 422 | Unprocessable Entity - a request validation error. | [`DefaultErrorResponseEntityException`](../../doc/models/default-error-response-entity-exception.md) |
+| 500 | Internal Server Error - the server could not process the request. | [`DefaultErrorResponseEntityException`](../../doc/models/default-error-response-entity-exception.md) |
 
 
 # Get-Balance Platforms-Balance Platform Id-Payout Schedules
@@ -528,7 +503,7 @@ def get_balance_platforms_balance_platform_id_payout_schedules(self,
 
 **200**: OK - The request has succeeded.
 
-This method returns an [`ApiResponse`](../../doc/api-response.md) instance. The `body` property of this instance returns the response data which is of type [`BalancePlatformConfigurations`](../../doc/models/balance-platform-configurations.md).
+[`BalancePlatformConfigurations`](../../doc/models/balance-platform-configurations.md)
 
 ## Example Usage
 
@@ -536,22 +511,18 @@ This method returns an [`ApiResponse`](../../doc/api-response.md) instance. The 
 balance_platform_id = 'balancePlatformId8'
 
 result = managed_payout_schedules_api.get_balance_platforms_balance_platform_id_payout_schedules(balance_platform_id)
-
-if result.is_success():
-    print(result.body)
-elif result.is_error():
-    print(result.errors)
+print(result)
 ```
 
 ## Errors
 
 | HTTP Status Code | Error Description | Exception Class |
 |  --- | --- | --- |
-| 401 | Unauthorized - authentication required. | [`BalancePlatformsPayoutSchedules401ErrorException`](../../doc/models/balance-platforms-payout-schedules-401-error-exception.md) |
-| 403 | Forbidden - insufficient permissions to process the request. | [`BalancePlatformsPayoutSchedules403ErrorException`](../../doc/models/balance-platforms-payout-schedules-403-error-exception.md) |
-| 404 | Not Found - the resource was not found | [`BalancePlatformsPayoutSchedules404ErrorException`](../../doc/models/balance-platforms-payout-schedules-404-error-exception.md) |
-| 422 | Unprocessable Entity - a request validation error. | [`BalancePlatformsPayoutSchedules422ErrorException`](../../doc/models/balance-platforms-payout-schedules-422-error-exception.md) |
-| 500 | Internal Server Error - the server could not process the request. | [`BalancePlatformsPayoutSchedules500ErrorException`](../../doc/models/balance-platforms-payout-schedules-500-error-exception.md) |
+| 401 | Unauthorized - authentication required. | [`DefaultErrorResponseEntityException`](../../doc/models/default-error-response-entity-exception.md) |
+| 403 | Forbidden - insufficient permissions to process the request. | [`DefaultErrorResponseEntityException`](../../doc/models/default-error-response-entity-exception.md) |
+| 404 | Not Found - the resource was not found | [`DefaultErrorResponseEntityException`](../../doc/models/default-error-response-entity-exception.md) |
+| 422 | Unprocessable Entity - a request validation error. | [`DefaultErrorResponseEntityException`](../../doc/models/default-error-response-entity-exception.md) |
+| 500 | Internal Server Error - the server could not process the request. | [`DefaultErrorResponseEntityException`](../../doc/models/default-error-response-entity-exception.md) |
 
 
 # Get-Balance Platforms-Balance Platform Id-Payout Schedules-Id
@@ -577,7 +548,7 @@ def get_balance_platforms_balance_platform_id_payout_schedules_id(self,
 
 **200**: OK - The request has succeeded.
 
-This method returns an [`ApiResponse`](../../doc/api-response.md) instance. The `body` property of this instance returns the response data which is of type [`BalancePlatformConfiguration`](../../doc/models/balance-platform-configuration.md).
+[`BalancePlatformConfiguration`](../../doc/models/balance-platform-configuration.md)
 
 ## Example Usage
 
@@ -590,20 +561,16 @@ result = managed_payout_schedules_api.get_balance_platforms_balance_platform_id_
     balance_platform_id,
     id
 )
-
-if result.is_success():
-    print(result.body)
-elif result.is_error():
-    print(result.errors)
+print(result)
 ```
 
 ## Errors
 
 | HTTP Status Code | Error Description | Exception Class |
 |  --- | --- | --- |
-| 401 | Unauthorized - authentication required. | [`BalancePlatformsPayoutSchedules401ErrorException`](../../doc/models/balance-platforms-payout-schedules-401-error-exception.md) |
-| 403 | Forbidden - insufficient permissions to process the request. | [`BalancePlatformsPayoutSchedules403ErrorException`](../../doc/models/balance-platforms-payout-schedules-403-error-exception.md) |
-| 404 | Not Found - the resource was not found | [`BalancePlatformsPayoutSchedules404ErrorException`](../../doc/models/balance-platforms-payout-schedules-404-error-exception.md) |
-| 422 | Unprocessable Entity - a request validation error. | [`BalancePlatformsPayoutSchedules422ErrorException`](../../doc/models/balance-platforms-payout-schedules-422-error-exception.md) |
-| 500 | Internal Server Error - the server could not process the request. | [`BalancePlatformsPayoutSchedules500ErrorException`](../../doc/models/balance-platforms-payout-schedules-500-error-exception.md) |
+| 401 | Unauthorized - authentication required. | [`DefaultErrorResponseEntityException`](../../doc/models/default-error-response-entity-exception.md) |
+| 403 | Forbidden - insufficient permissions to process the request. | [`DefaultErrorResponseEntityException`](../../doc/models/default-error-response-entity-exception.md) |
+| 404 | Not Found - the resource was not found | [`DefaultErrorResponseEntityException`](../../doc/models/default-error-response-entity-exception.md) |
+| 422 | Unprocessable Entity - a request validation error. | [`DefaultErrorResponseEntityException`](../../doc/models/default-error-response-entity-exception.md) |
+| 500 | Internal Server Error - the server could not process the request. | [`DefaultErrorResponseEntityException`](../../doc/models/default-error-response-entity-exception.md) |
 

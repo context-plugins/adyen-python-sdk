@@ -31,8 +31,6 @@ class BulkAddress1(object):
         state_or_province (str): The two-letter ISO 3166-2 state or province code.
             Maximum length: 2 characters for addresses in the US.
         street (str): The streetname of the house.
-        additional_properties (Dict[str, Any]): The additional properties for the
-            model.
 
     """
 
@@ -82,8 +80,7 @@ class BulkAddress1(object):
         name=APIHelper.SKIP,
         postal_code=APIHelper.SKIP,
         state_or_province=APIHelper.SKIP,
-        street=APIHelper.SKIP,
-        additional_properties=None):
+        street=APIHelper.SKIP):
         """Initialize a BulkAddress1 instance."""
         # Initialize members of the class
         if city is not APIHelper.SKIP:
@@ -111,11 +108,6 @@ class BulkAddress1(object):
             self.state_or_province = state_or_province
         if street is not APIHelper.SKIP:
             self.street = street
-
-        # Add additional model properties to the instance
-        if additional_properties is None:
-            additional_properties = {}
-        self.additional_properties = additional_properties
 
     @classmethod
     def from_dictionary(cls,
@@ -188,11 +180,6 @@ class BulkAddress1(object):
             if dictionary.get("street")\
                 else APIHelper.SKIP
 
-        additional_properties = APIHelper.get_additional_properties(
-            dictionary={k: v for k, v in dictionary.items()
-                        if k not in cls._names.values()},
-            unboxing_function=lambda value: value)
-
         # Return an object of this model
         return cls(country,
                    city,
@@ -206,8 +193,40 @@ class BulkAddress1(object):
                    name,
                    postal_code,
                    state_or_province,
-                   street,
-                   additional_properties)
+                   street)
+
+    @classmethod
+    def validate(cls, dictionary):
+        """Validate dictionary against class required properties
+
+        Args:
+            dictionary (dictionary): A dictionary representation of the object
+            as obtained from the deserialization of the server's response. The
+            keys MUST match property names in the API description.
+
+        Returns:
+            boolean : if dictionary is valid contains required properties.
+
+        """
+        if isinstance(dictionary, cls):
+            return APIHelper.is_valid_type(
+                    value=dictionary.country,
+                    type_callable=lambda value:
+                        isinstance(
+                        value,
+                        str,
+                ))
+
+        if not isinstance(dictionary, dict):
+            return False
+
+        return APIHelper.is_valid_type(
+                value=dictionary.get("country"),
+                type_callable=lambda value:
+                    isinstance(
+                    value,
+                    str,
+            ))
 
     def __repr__(self):
         """Return a unambiguous string representation."""
@@ -272,7 +291,6 @@ class BulkAddress1(object):
             if hasattr(self, "street")
             else None
         )
-        _additional_properties=self.additional_properties
         return (
             f"{self.__class__.__name__}("
             f"city={_city!r}, "
@@ -288,7 +306,6 @@ class BulkAddress1(object):
             f"postal_code={_postal_code!r}, "
             f"state_or_province={_state_or_province!r}, "
             f"street={_street!r}, "
-            f"additional_properties={_additional_properties!r}, "
             f")"
         )
 
@@ -355,7 +372,6 @@ class BulkAddress1(object):
             if hasattr(self, "street")
             else None
         )
-        _additional_properties=self.additional_properties
         return (
             f"{self.__class__.__name__}("
             f"city={_city!s}, "
@@ -371,6 +387,5 @@ class BulkAddress1(object):
             f"postal_code={_postal_code!s}, "
             f"state_or_province={_state_or_province!s}, "
             f"street={_street!s}, "
-            f"additional_properties={_additional_properties!s}, "
             f")"
         )

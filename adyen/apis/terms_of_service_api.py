@@ -17,8 +17,8 @@ from apimatic_core.types.parameter import Parameter
 from adyen.api_helper import APIHelper
 from adyen.apis.base_api import BaseApi
 from adyen.configuration import Server
-from adyen.exceptions.service_error_exception import (
-    ServiceErrorException,
+from adyen.exceptions.service_error_error_1_exception import (
+    ServiceErrorError1Exception,
 )
 from adyen.http.http_method_enum import HttpMethodEnum
 from adyen.models.accept_terms_of_service_response import (
@@ -69,29 +69,26 @@ class TermsOfServiceApi(BaseApi):
                 of Service document. Possible values: **JSON**, **PDF**, or **TXT**
 
         Returns:
-            ApiResponse: An object with the response value as well as other useful
-                information such as status codes and headers. OK - the request has
-                succeeded.
+            GetAcceptedTermsOfServiceDocumentResponse: Response from the API. OK -
+                the request has succeeded.
 
         Raises:
-            ApiException: When an error occurs while fetching the data from the
+            APIException: When an error occurs while fetching the data from the
                 remote API. This exception includes the HTTP Response code, an error
                 message, and the HTTP body that was received in the request.
 
         """
         return super().new_api_call_builder.request(
-            RequestBuilder().server(Server.DEFAULT)
+            RequestBuilder().server(Server.DEFAULT18)
             .path("/legalEntities/{id}/acceptedTermsOfServiceDocument/{termsofserviceacceptancereference}")
             .http_method(HttpMethodEnum.GET)
             .template_param(Parameter()
                 .key("id")
                 .value(id)
-                .is_required(True)
                 .should_encode(True))
             .template_param(Parameter()
                 .key("termsofserviceacceptancereference")
                 .value(termsofserviceacceptancereference)
-                .is_required(True)
                 .should_encode(True))
             .query_param(Parameter()
                 .key("termsOfServiceDocumentFormat")
@@ -104,22 +101,21 @@ class TermsOfServiceApi(BaseApi):
             ResponseHandler()
             .deserializer(APIHelper.json_deserialize)
             .deserialize_into(GetAcceptedTermsOfServiceDocumentResponse.from_dictionary)
-            .is_api_response(True)
             .local_error("400",
                 "Bad Request - a problem reading or understanding the request.",
-                ServiceErrorException)
+                ServiceErrorError1Exception)
             .local_error("401",
                 "Unauthorized - authentication required.",
-                ServiceErrorException)
+                ServiceErrorError1Exception)
             .local_error("403",
                 "Forbidden - insufficient permissions to process the request.",
-                ServiceErrorException)
+                ServiceErrorError1Exception)
             .local_error("422",
                 "Unprocessable Entity - a request validation error.",
-                ServiceErrorException)
+                ServiceErrorError1Exception)
             .local_error("500",
                 "Internal Server Error - the server could not process the request.",
-                ServiceErrorException),
+                ServiceErrorError1Exception),
         ).execute()
 
     def post_legal_entities_id_terms_of_service(self,
@@ -141,24 +137,22 @@ class TermsOfServiceApi(BaseApi):
                 parameter.
 
         Returns:
-            ApiResponse: An object with the response value as well as other useful
-                information such as status codes and headers. OK - the request has
-                succeeded.
+            GetTermsOfServiceDocumentResponse: Response from the API. OK - the
+                request has succeeded.
 
         Raises:
-            ApiException: When an error occurs while fetching the data from the
+            APIException: When an error occurs while fetching the data from the
                 remote API. This exception includes the HTTP Response code, an error
                 message, and the HTTP body that was received in the request.
 
         """
         return super().new_api_call_builder.request(
-            RequestBuilder().server(Server.DEFAULT)
+            RequestBuilder().server(Server.DEFAULT18)
             .path("/legalEntities/{id}/termsOfService")
             .http_method(HttpMethodEnum.POST)
             .template_param(Parameter()
                 .key("id")
                 .value(id)
-                .is_required(True)
                 .should_encode(True))
             .header_param(Parameter()
                 .key("Content-Type")
@@ -174,22 +168,21 @@ class TermsOfServiceApi(BaseApi):
             ResponseHandler()
             .deserializer(APIHelper.json_deserialize)
             .deserialize_into(GetTermsOfServiceDocumentResponse.from_dictionary)
-            .is_api_response(True)
             .local_error("400",
                 "Bad Request - a problem reading or understanding the request.",
-                ServiceErrorException)
+                ServiceErrorError1Exception)
             .local_error("401",
                 "Unauthorized - authentication required.",
-                ServiceErrorException)
+                ServiceErrorError1Exception)
             .local_error("403",
                 "Forbidden - insufficient permissions to process the request.",
-                ServiceErrorException)
+                ServiceErrorError1Exception)
             .local_error("422",
                 "Unprocessable Entity - a request validation error.",
-                ServiceErrorException)
+                ServiceErrorError1Exception)
             .local_error("500",
                 "Internal Server Error - the server could not process the request.",
-                ServiceErrorException),
+                ServiceErrorError1Exception),
         ).execute()
 
     def patch_legal_entities_id_terms_of_service_termsofservicedocumentid(self,
@@ -215,29 +208,26 @@ class TermsOfServiceApi(BaseApi):
             body (AcceptTermsOfServiceRequest, optional): The request body parameter.
 
         Returns:
-            ApiResponse: An object with the response value as well as other useful
-                information such as status codes and headers. OK - the request has
+            AcceptTermsOfServiceResponse: Response from the API. OK - the request has
                 succeeded.
 
         Raises:
-            ApiException: When an error occurs while fetching the data from the
+            APIException: When an error occurs while fetching the data from the
                 remote API. This exception includes the HTTP Response code, an error
                 message, and the HTTP body that was received in the request.
 
         """
         return super().new_api_call_builder.request(
-            RequestBuilder().server(Server.DEFAULT)
+            RequestBuilder().server(Server.DEFAULT18)
             .path("/legalEntities/{id}/termsOfService/{termsofservicedocumentid}")
             .http_method(HttpMethodEnum.PATCH)
             .template_param(Parameter()
                 .key("id")
                 .value(id)
-                .is_required(True)
                 .should_encode(True))
             .template_param(Parameter()
                 .key("termsofservicedocumentid")
                 .value(termsofservicedocumentid)
-                .is_required(True)
                 .should_encode(True))
             .header_param(Parameter()
                 .key("Content-Type")
@@ -253,22 +243,21 @@ class TermsOfServiceApi(BaseApi):
             ResponseHandler()
             .deserializer(APIHelper.json_deserialize)
             .deserialize_into(AcceptTermsOfServiceResponse.from_dictionary)
-            .is_api_response(True)
             .local_error("400",
                 "Bad Request - a problem reading or understanding the request.",
-                ServiceErrorException)
+                ServiceErrorError1Exception)
             .local_error("401",
                 "Unauthorized - authentication required.",
-                ServiceErrorException)
+                ServiceErrorError1Exception)
             .local_error("403",
                 "Forbidden - insufficient permissions to process the request.",
-                ServiceErrorException)
+                ServiceErrorError1Exception)
             .local_error("422",
                 "Unprocessable Entity - a request validation error.",
-                ServiceErrorException)
+                ServiceErrorError1Exception)
             .local_error("500",
                 "Internal Server Error - the server could not process the request.",
-                ServiceErrorException),
+                ServiceErrorError1Exception),
         ).execute()
 
     def get_legal_entities_id_terms_of_service_acceptance_infos(self,
@@ -288,24 +277,22 @@ class TermsOfServiceApi(BaseApi):
                 For organizations, this is the ID of the organization.
 
         Returns:
-            ApiResponse: An object with the response value as well as other useful
-                information such as status codes and headers. OK - the request has
-                succeeded.
+            GetTermsOfServiceAcceptanceInfosResponse: Response from the API. OK - the
+                request has succeeded.
 
         Raises:
-            ApiException: When an error occurs while fetching the data from the
+            APIException: When an error occurs while fetching the data from the
                 remote API. This exception includes the HTTP Response code, an error
                 message, and the HTTP body that was received in the request.
 
         """
         return super().new_api_call_builder.request(
-            RequestBuilder().server(Server.DEFAULT)
+            RequestBuilder().server(Server.DEFAULT18)
             .path("/legalEntities/{id}/termsOfServiceAcceptanceInfos")
             .http_method(HttpMethodEnum.GET)
             .template_param(Parameter()
                 .key("id")
                 .value(id)
-                .is_required(True)
                 .should_encode(True))
             .header_param(Parameter()
                 .key("accept")
@@ -315,22 +302,21 @@ class TermsOfServiceApi(BaseApi):
             ResponseHandler()
             .deserializer(APIHelper.json_deserialize)
             .deserialize_into(GetTermsOfServiceAcceptanceInfosResponse.from_dictionary)
-            .is_api_response(True)
             .local_error("400",
                 "Bad Request - a problem reading or understanding the request.",
-                ServiceErrorException)
+                ServiceErrorError1Exception)
             .local_error("401",
                 "Unauthorized - authentication required.",
-                ServiceErrorException)
+                ServiceErrorError1Exception)
             .local_error("403",
                 "Forbidden - insufficient permissions to process the request.",
-                ServiceErrorException)
+                ServiceErrorError1Exception)
             .local_error("422",
                 "Unprocessable Entity - a request validation error.",
-                ServiceErrorException)
+                ServiceErrorError1Exception)
             .local_error("500",
                 "Internal Server Error - the server could not process the request.",
-                ServiceErrorException),
+                ServiceErrorError1Exception),
         ).execute()
 
     def get_legal_entities_id_terms_of_service_status(self,
@@ -350,24 +336,22 @@ class TermsOfServiceApi(BaseApi):
                 For organizations, this is the ID of the organization.
 
         Returns:
-            ApiResponse: An object with the response value as well as other useful
-                information such as status codes and headers. OK - the request has
-                succeeded.
+            CalculateTermsOfServiceStatusResponse: Response from the API. OK - the
+                request has succeeded.
 
         Raises:
-            ApiException: When an error occurs while fetching the data from the
+            APIException: When an error occurs while fetching the data from the
                 remote API. This exception includes the HTTP Response code, an error
                 message, and the HTTP body that was received in the request.
 
         """
         return super().new_api_call_builder.request(
-            RequestBuilder().server(Server.DEFAULT)
+            RequestBuilder().server(Server.DEFAULT18)
             .path("/legalEntities/{id}/termsOfServiceStatus")
             .http_method(HttpMethodEnum.GET)
             .template_param(Parameter()
                 .key("id")
                 .value(id)
-                .is_required(True)
                 .should_encode(True))
             .header_param(Parameter()
                 .key("accept")
@@ -377,20 +361,19 @@ class TermsOfServiceApi(BaseApi):
             ResponseHandler()
             .deserializer(APIHelper.json_deserialize)
             .deserialize_into(CalculateTermsOfServiceStatusResponse.from_dictionary)
-            .is_api_response(True)
             .local_error("400",
                 "Bad Request - a problem reading or understanding the request.",
-                ServiceErrorException)
+                ServiceErrorError1Exception)
             .local_error("401",
                 "Unauthorized - authentication required.",
-                ServiceErrorException)
+                ServiceErrorError1Exception)
             .local_error("403",
                 "Forbidden - insufficient permissions to process the request.",
-                ServiceErrorException)
+                ServiceErrorError1Exception)
             .local_error("422",
                 "Unprocessable Entity - a request validation error.",
-                ServiceErrorException)
+                ServiceErrorError1Exception)
             .local_error("500",
                 "Internal Server Error - the server could not process the request.",
-                ServiceErrorException),
+                ServiceErrorError1Exception),
         ).execute()

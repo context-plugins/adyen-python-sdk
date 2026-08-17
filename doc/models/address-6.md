@@ -1,8 +1,6 @@
 
 # Address 6
 
-*This model accepts additional fields of type Any.*
-
 ## Structure
 
 `Address6`
@@ -11,31 +9,25 @@
 
 | Name | Type | Tags | Description |
 |  --- | --- | --- | --- |
-| `city` | `str` | Optional | The name of the city. |
-| `company_name` | `str` | Optional | The name of the company. |
-| `country` | `str` | Optional | The two-letter country code, in [ISO 3166-1 alpha-2](https://en.wikipedia.org/wiki/ISO_3166-1_alpha-2) format. |
-| `postal_code` | `str` | Optional | The postal code. |
-| `state_or_province` | `str` | Optional | The state or province as defined in [ISO 3166-2](https://www.iso.org/standard/72483.html). For example, **ON** for Ontario, Canada.<br><br>Applicable for the following countries:<br><br>- Australia<br>- Brazil<br>- Canada<br>- India<br>- Mexico<br>- New Zealand<br>- United States |
-| `street_address` | `str` | Optional | The name of the street, and the house or building number. |
-| `street_address_2` | `str` | Optional | Additional address details, if any. |
-| `additional_properties` | `Dict[str, Any]` | Optional | - |
+| `city` | `str` | Optional | The name of the city.<br><br>Supported characters: **[a-z] [A-Z] [0-9] . - — / # , ’ ° ( ) : ; [ ] & \ \|** and Space.<br><br>> Required when the `category` is **card**.<br><br>**Constraints**: *Minimum Length*: `3` |
+| `country` | `str` | Required | The two-character ISO 3166-1 alpha-2 country code. For example, **US**, **NL**, or **GB**. |
+| `line_1` | `str` | Optional | The first line of the street address.<br><br>Supported characters: **[a-z] [A-Z] [0-9] . - — / # , ’ ° ( ) : ; [ ] & \ \|** and Space.<br><br>> Required when the `category` is **card**. |
+| `line_2` | `str` | Optional | The second line of the street address.<br><br>Supported characters: **[a-z] [A-Z] [0-9] . - — / # , ’ ° ( ) : ; [ ] & \ \|** and Space.<br><br>> Required when the `category` is **card**. |
+| `postal_code` | `str` | Optional | The postal code.<br>Maximum length:<br><br>* 5 digits for an address in the US.<br>* 10 characters for an address in all other countries.<br><br>Supported characters: **[a-z] [A-Z] [0-9]** and Space.<br><br>> Required for addresses in the US.<br><br>**Constraints**: *Minimum Length*: `3` |
+| `state_or_province` | `str` | Optional | The two-letter ISO 3166-2 state or province code. For example, **CA** in the US or **ON** in Canada.<br><br>> Required for the US and Canada. |
 
 ## Example
 
 ```python
-import jsonpickle
-
 from adyen.models.address_6 import Address6
 
 address_6 = Address6(
-    city='city6',
-    company_name='companyName6',
     country='country8',
+    city='city6',
+    line_1='line16',
+    line_2='line28',
     postal_code='postalCode4',
-    state_or_province='stateOrProvince2',
-    additional_properties={
-        'exampleAdditionalProperty': jsonpickle.decode('{"key1":"val1","key2":"val2"}')
-    }
+    state_or_province='stateOrProvince2'
 )
 ```
 

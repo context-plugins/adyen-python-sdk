@@ -12,8 +12,6 @@ class SplitDcc(object):
 
     Attributes:
         account_holder_percentage (int): The model property of type int.
-        additional_properties (Dict[str, Any]): The additional properties for the
-            model.
 
     """
 
@@ -28,17 +26,11 @@ class SplitDcc(object):
 
     def __init__(
         self,
-        account_holder_percentage=APIHelper.SKIP,
-        additional_properties=None):
+        account_holder_percentage=APIHelper.SKIP):
         """Initialize a SplitDcc instance."""
         # Initialize members of the class
         if account_holder_percentage is not APIHelper.SKIP:
             self.account_holder_percentage = account_holder_percentage
-
-        # Add additional model properties to the instance
-        if additional_properties is None:
-            additional_properties = {}
-        self.additional_properties = additional_properties
 
     @classmethod
     def from_dictionary(cls,
@@ -63,14 +55,8 @@ class SplitDcc(object):
             if dictionary.get("accountHolderPercentage")\
                 else APIHelper.SKIP
 
-        additional_properties = APIHelper.get_additional_properties(
-            dictionary={k: v for k, v in dictionary.items()
-                        if k not in cls._names.values()},
-            unboxing_function=lambda value: value)
-
         # Return an object of this model
-        return cls(account_holder_percentage,
-                   additional_properties)
+        return cls(account_holder_percentage)
 
     def __repr__(self):
         """Return a unambiguous string representation."""
@@ -79,11 +65,9 @@ class SplitDcc(object):
             if hasattr(self, "account_holder_percentage")
             else None
         )
-        _additional_properties=self.additional_properties
         return (
             f"{self.__class__.__name__}("
             f"account_holder_percentage={_account_holder_percentage!r}, "
-            f"additional_properties={_additional_properties!r}, "
             f")"
         )
 
@@ -94,10 +78,8 @@ class SplitDcc(object):
             if hasattr(self, "account_holder_percentage")
             else None
         )
-        _additional_properties=self.additional_properties
         return (
             f"{self.__class__.__name__}("
             f"account_holder_percentage={_account_holder_percentage!s}, "
-            f"additional_properties={_additional_properties!s}, "
             f")"
         )

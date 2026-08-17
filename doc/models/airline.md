@@ -1,8 +1,6 @@
 
 # Airline
 
-*This model accepts additional fields of type Any.*
-
 ## Structure
 
 `Airline`
@@ -24,13 +22,10 @@
 | `passengers` | [`List[Passenger]`](../../doc/models/passenger.md) | Optional | - |
 | `ticket` | [`Ticket`](../../doc/models/ticket.md) | Optional | - |
 | `travel_agency` | [`TravelAgency`](../../doc/models/travel-agency.md) | Optional | - |
-| `additional_properties` | `Dict[str, Any]` | Optional | - |
 
 ## Example
 
 ```python
-import jsonpickle
-
 from adyen.models.agency import Agency
 from adyen.models.airline import Airline
 
@@ -38,18 +33,12 @@ airline = Airline(
     passenger_name='passengerName0',
     agency=Agency(
         invoice_number='invoiceNumber6',
-        plan_name='planName6',
-        additional_properties={
-            'exampleAdditionalProperty': jsonpickle.decode('{"key1":"val1","key2":"val2"}')
-        }
+        plan_name='planName6'
     ),
     boarding_fee=160,
     code='code0',
     computerized_reservation_system='computerizedReservationSystem4',
-    customer_reference_number='customerReferenceNumber6',
-    additional_properties={
-        'exampleAdditionalProperty': jsonpickle.decode('{"key1":"val1","key2":"val2"}')
-    }
+    customer_reference_number='customerReferenceNumber6'
 )
 ```
 

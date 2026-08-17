@@ -17,8 +17,6 @@ class ModifyRequest(object):
             to process the transaction.
         original_reference (str): The PSP reference received in the
             `/submitThirdParty` response.
-        additional_properties (Dict[str, Any]): The additional properties for the
-            model.
 
     """
 
@@ -37,19 +35,13 @@ class ModifyRequest(object):
         self,
         merchant_account=None,
         original_reference=None,
-        additional_data=APIHelper.SKIP,
-        additional_properties=None):
+        additional_data=APIHelper.SKIP):
         """Initialize a ModifyRequest instance."""
         # Initialize members of the class
         if additional_data is not APIHelper.SKIP:
             self.additional_data = additional_data
         self.merchant_account = merchant_account
         self.original_reference = original_reference
-
-        # Add additional model properties to the instance
-        if additional_properties is None:
-            additional_properties = {}
-        self.additional_properties = additional_properties
 
     @classmethod
     def from_dictionary(cls,
@@ -82,16 +74,10 @@ class ModifyRequest(object):
             if dictionary.get("additionalData")\
                 else APIHelper.SKIP
 
-        additional_properties = APIHelper.get_additional_properties(
-            dictionary={k: v for k, v in dictionary.items()
-                        if k not in cls._names.values()},
-            unboxing_function=lambda value: value)
-
         # Return an object of this model
         return cls(merchant_account,
                    original_reference,
-                   additional_data,
-                   additional_properties)
+                   additional_data)
 
     def __repr__(self):
         """Return a unambiguous string representation."""
@@ -102,13 +88,11 @@ class ModifyRequest(object):
         )
         _merchant_account=self.merchant_account
         _original_reference=self.original_reference
-        _additional_properties=self.additional_properties
         return (
             f"{self.__class__.__name__}("
             f"additional_data={_additional_data!r}, "
             f"merchant_account={_merchant_account!r}, "
             f"original_reference={_original_reference!r}, "
-            f"additional_properties={_additional_properties!r}, "
             f")"
         )
 
@@ -121,12 +105,10 @@ class ModifyRequest(object):
         )
         _merchant_account=self.merchant_account
         _original_reference=self.original_reference
-        _additional_properties=self.additional_properties
         return (
             f"{self.__class__.__name__}("
             f"additional_data={_additional_data!s}, "
             f"merchant_account={_merchant_account!s}, "
             f"original_reference={_original_reference!s}, "
-            f"additional_properties={_additional_properties!s}, "
             f")"
         )

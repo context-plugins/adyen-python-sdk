@@ -3,8 +3,6 @@
 
 Information about your application. For more details, see [Building Adyen solutions](https://docs.adyen.com/development-resources/building-adyen-solutions).
 
-*This model accepts additional fields of type Any.*
-
 ## Structure
 
 `ApplicationInfo`
@@ -13,67 +11,46 @@ Information about your application. For more details, see [Building Adyen soluti
 
 | Name | Type | Tags | Description |
 |  --- | --- | --- | --- |
-| `adyen_library` | [`AdyenLibrary`](../../doc/models/adyen-library.md) | Optional | - |
-| `adyen_payment_source` | [`AdyenPaymentSource`](../../doc/models/adyen-payment-source.md) | Optional | - |
-| `external_platform` | [`ExternalPlatform2`](../../doc/models/external-platform-2.md) | Optional | - |
-| `merchant_application` | [`MerchantApplication`](../../doc/models/merchant-application.md) | Optional | - |
-| `merchant_device` | [`MerchantDevice2`](../../doc/models/merchant-device-2.md) | Optional | - |
-| `shopper_interaction_device` | [`ShopperInteractionDevice2`](../../doc/models/shopper-interaction-device-2.md) | Optional | - |
-| `additional_properties` | `Dict[str, Any]` | Optional | - |
+| `adyen_library` | [`CommonField4`](../../doc/models/common-field-4.md) | Optional | Adyen-developed software, such as libraries and plugins, used to interact with the Adyen API. For example, Magento plugin, Java API library, etc. |
+| `adyen_payment_source` | [`CommonField1`](../../doc/models/common-field-1.md) | Optional | Adyen-developed software to get payment details. For example, Checkout SDK, Secured Fields SDK, etc. |
+| `external_platform` | [`ExternalPlatform`](../../doc/models/external-platform.md) | Optional | Third-party developed platform used to initiate payment requests. For example, Magento, Zuora, etc. |
+| `merchant_application` | [`CommonField2`](../../doc/models/common-field-2.md) | Optional | Merchant developed software, such as cashier application, used to interact with the Adyen API. |
+| `merchant_device` | [`MerchantDevice`](../../doc/models/merchant-device.md) | Optional | Merchant device information. |
+| `shopper_interaction_device` | [`ShopperInteractionDevice`](../../doc/models/shopper-interaction-device.md) | Optional | Shopper interaction device, such as terminal, mobile device or web browser, to initiate payment requests. |
 
 ## Example
 
 ```python
-import jsonpickle
-
-from adyen.models.adyen_library import AdyenLibrary
-from adyen.models.adyen_payment_source import AdyenPaymentSource
 from adyen.models.application_info import ApplicationInfo
-from adyen.models.external_platform_2 import ExternalPlatform2
-from adyen.models.merchant_application import MerchantApplication
-from adyen.models.merchant_device_2 import MerchantDevice2
+from adyen.models.common_field_1 import CommonField1
+from adyen.models.common_field_2 import CommonField2
+from adyen.models.common_field_4 import CommonField4
+from adyen.models.external_platform import ExternalPlatform
+from adyen.models.merchant_device import MerchantDevice
 
 application_info = ApplicationInfo(
-    adyen_library=AdyenLibrary(
+    adyen_library=CommonField4(
         name='name8',
-        version='version4',
-        additional_properties={
-            'exampleAdditionalProperty': jsonpickle.decode('{"key1":"val1","key2":"val2"}')
-        }
+        version='version4'
     ),
-    adyen_payment_source=AdyenPaymentSource(
+    adyen_payment_source=CommonField1(
         name='name2',
-        version='version8',
-        additional_properties={
-            'exampleAdditionalProperty': jsonpickle.decode('{"key1":"val1","key2":"val2"}')
-        }
+        version='version8'
     ),
-    external_platform=ExternalPlatform2(
+    external_platform=ExternalPlatform(
         integrator='integrator0',
         name='name4',
-        version='version0',
-        additional_properties={
-            'exampleAdditionalProperty': jsonpickle.decode('{"key1":"val1","key2":"val2"}')
-        }
+        version='version0'
     ),
-    merchant_application=MerchantApplication(
+    merchant_application=CommonField2(
         name='name2',
-        version='version8',
-        additional_properties={
-            'exampleAdditionalProperty': jsonpickle.decode('{"key1":"val1","key2":"val2"}')
-        }
+        version='version8'
     ),
-    merchant_device=MerchantDevice2(
+    merchant_device=MerchantDevice(
         os='os4',
         os_version='osVersion6',
-        reference='reference8',
-        additional_properties={
-            'exampleAdditionalProperty': jsonpickle.decode('{"key1":"val1","key2":"val2"}')
-        }
-    ),
-    additional_properties={
-        'exampleAdditionalProperty': jsonpickle.decode('{"key1":"val1","key2":"val2"}')
-    }
+        reference='reference8'
+    )
 )
 ```
 

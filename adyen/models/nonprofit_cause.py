@@ -18,8 +18,6 @@ class NonprofitCause(object):
         locales (List[str]): The locales that the cause supports, in [IETF BCP
             47](https://en.wikipedia.org/wiki/IETF_language_tag) format.
         name (str): The name of the cause.
-        additional_properties (Dict[str, Any]): The additional properties for the
-            model.
 
     """
 
@@ -42,8 +40,7 @@ class NonprofitCause(object):
         description=None,
         locales=None,
         name=None,
-        id=APIHelper.SKIP,
-        additional_properties=None):
+        id=APIHelper.SKIP):
         """Initialize a NonprofitCause instance."""
         # Initialize members of the class
         self.banner_url = banner_url
@@ -52,11 +49,6 @@ class NonprofitCause(object):
             self.id = id
         self.locales = locales
         self.name = name
-
-        # Add additional model properties to the instance
-        if additional_properties is None:
-            additional_properties = {}
-        self.additional_properties = additional_properties
 
     @classmethod
     def from_dictionary(cls,
@@ -97,18 +89,12 @@ class NonprofitCause(object):
             if dictionary.get("id")\
                 else APIHelper.SKIP
 
-        additional_properties = APIHelper.get_additional_properties(
-            dictionary={k: v for k, v in dictionary.items()
-                        if k not in cls._names.values()},
-            unboxing_function=lambda value: value)
-
         # Return an object of this model
         return cls(banner_url,
                    description,
                    locales,
                    name,
-                   id,
-                   additional_properties)
+                   id)
 
     def __repr__(self):
         """Return a unambiguous string representation."""
@@ -121,7 +107,6 @@ class NonprofitCause(object):
         )
         _locales=self.locales
         _name=self.name
-        _additional_properties=self.additional_properties
         return (
             f"{self.__class__.__name__}("
             f"banner_url={_banner_url!r}, "
@@ -129,7 +114,6 @@ class NonprofitCause(object):
             f"id={_id!r}, "
             f"locales={_locales!r}, "
             f"name={_name!r}, "
-            f"additional_properties={_additional_properties!r}, "
             f")"
         )
 
@@ -144,7 +128,6 @@ class NonprofitCause(object):
         )
         _locales=self.locales
         _name=self.name
-        _additional_properties=self.additional_properties
         return (
             f"{self.__class__.__name__}("
             f"banner_url={_banner_url!s}, "
@@ -152,6 +135,5 @@ class NonprofitCause(object):
             f"id={_id!s}, "
             f"locales={_locales!s}, "
             f"name={_name!s}, "
-            f"additional_properties={_additional_properties!s}, "
             f")"
         )

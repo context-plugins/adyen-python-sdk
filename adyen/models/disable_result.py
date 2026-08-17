@@ -14,8 +14,6 @@ class DisableResult(object):
         response (str): Depending on whether a specific recurring detail was in the
             request, result is either [detail-successfully-disabled] or
             [all-details-successfully-disabled].
-        additional_properties (Dict[str, Any]): The additional properties for the
-            model.
 
     """
 
@@ -30,17 +28,11 @@ class DisableResult(object):
 
     def __init__(
         self,
-        response=APIHelper.SKIP,
-        additional_properties=None):
+        response=APIHelper.SKIP):
         """Initialize a DisableResult instance."""
         # Initialize members of the class
         if response is not APIHelper.SKIP:
             self.response = response
-
-        # Add additional model properties to the instance
-        if additional_properties is None:
-            additional_properties = {}
-        self.additional_properties = additional_properties
 
     @classmethod
     def from_dictionary(cls,
@@ -65,14 +57,8 @@ class DisableResult(object):
             if dictionary.get("response")\
                 else APIHelper.SKIP
 
-        additional_properties = APIHelper.get_additional_properties(
-            dictionary={k: v for k, v in dictionary.items()
-                        if k not in cls._names.values()},
-            unboxing_function=lambda value: value)
-
         # Return an object of this model
-        return cls(response,
-                   additional_properties)
+        return cls(response)
 
     def __repr__(self):
         """Return a unambiguous string representation."""
@@ -81,11 +67,9 @@ class DisableResult(object):
             if hasattr(self, "response")
             else None
         )
-        _additional_properties=self.additional_properties
         return (
             f"{self.__class__.__name__}("
             f"response={_response!r}, "
-            f"additional_properties={_additional_properties!r}, "
             f")"
         )
 
@@ -96,10 +80,8 @@ class DisableResult(object):
             if hasattr(self, "response")
             else None
         )
-        _additional_properties=self.additional_properties
         return (
             f"{self.__class__.__name__}("
             f"response={_response!s}, "
-            f"additional_properties={_additional_properties!s}, "
             f")"
         )

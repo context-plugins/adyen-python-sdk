@@ -17,8 +17,6 @@ class Contact(object):
         last_name (str): The individual's last name.
         phone_number (str): The individual's phone number, specified as 10-14 digits
             with an optional `+` prefix.
-        additional_properties (Dict[str, Any]): The additional properties for the
-            model.
 
     """
 
@@ -45,8 +43,7 @@ class Contact(object):
         first_name=APIHelper.SKIP,
         infix=APIHelper.SKIP,
         last_name=APIHelper.SKIP,
-        phone_number=APIHelper.SKIP,
-        additional_properties=None):
+        phone_number=APIHelper.SKIP):
         """Initialize a Contact instance."""
         # Initialize members of the class
         if email is not APIHelper.SKIP:
@@ -59,11 +56,6 @@ class Contact(object):
             self.last_name = last_name
         if phone_number is not APIHelper.SKIP:
             self.phone_number = phone_number
-
-        # Add additional model properties to the instance
-        if additional_properties is None:
-            additional_properties = {}
-        self.additional_properties = additional_properties
 
     @classmethod
     def from_dictionary(cls,
@@ -104,18 +96,12 @@ class Contact(object):
             if dictionary.get("phoneNumber")\
                 else APIHelper.SKIP
 
-        additional_properties = APIHelper.get_additional_properties(
-            dictionary={k: v for k, v in dictionary.items()
-                        if k not in cls._names.values()},
-            unboxing_function=lambda value: value)
-
         # Return an object of this model
         return cls(email,
                    first_name,
                    infix,
                    last_name,
-                   phone_number,
-                   additional_properties)
+                   phone_number)
 
     def __repr__(self):
         """Return a unambiguous string representation."""
@@ -144,7 +130,6 @@ class Contact(object):
             if hasattr(self, "phone_number")
             else None
         )
-        _additional_properties=self.additional_properties
         return (
             f"{self.__class__.__name__}("
             f"email={_email!r}, "
@@ -152,7 +137,6 @@ class Contact(object):
             f"infix={_infix!r}, "
             f"last_name={_last_name!r}, "
             f"phone_number={_phone_number!r}, "
-            f"additional_properties={_additional_properties!r}, "
             f")"
         )
 
@@ -183,7 +167,6 @@ class Contact(object):
             if hasattr(self, "phone_number")
             else None
         )
-        _additional_properties=self.additional_properties
         return (
             f"{self.__class__.__name__}("
             f"email={_email!s}, "
@@ -191,6 +174,5 @@ class Contact(object):
             f"infix={_infix!s}, "
             f"last_name={_last_name!s}, "
             f"phone_number={_phone_number!s}, "
-            f"additional_properties={_additional_properties!s}, "
             f")"
         )

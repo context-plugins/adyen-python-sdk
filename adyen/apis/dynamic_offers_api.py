@@ -11,14 +11,8 @@ from apimatic_core.types.parameter import Parameter
 from adyen.api_helper import APIHelper
 from adyen.apis.base_api import BaseApi
 from adyen.configuration import Server
-from adyen.exceptions.dynamic_offers_422_error_exception import (
-    DynamicOffers422ErrorException,
-)
-from adyen.exceptions.dynamic_offers_calculate_422_error_exception import (
-    DynamicOffersCalculate422ErrorException,
-)
-from adyen.exceptions.dynamic_offers_grant_offer_422_error_exception import (
-    DynamicOffersGrantOffer422ErrorException,
+from adyen.exceptions.default_error_response_entity_exception import (
+    DefaultErrorResponseEntityException,
 )
 from adyen.http.http_method_enum import HttpMethodEnum
 from adyen.models.calculated_grant_offer import (
@@ -49,29 +43,27 @@ class DynamicOffersApi(BaseApi):
         Args:
             account_holder_id (str): The unique identifier of the account holder that
                 the dynamic offer is for.
-            financing_type (FinancingType1, optional): The type of financing that the
-                offer is for. If the value is not specified, returns all available
-                types.  Possible values: **businessFinancing**
+            financing_type (FinancingTypeEnum, optional): The type of financing that
+                the offer is for. If the value is not specified, returns all
+                available types.  Possible values: **businessFinancing**
 
         Returns:
-            ApiResponse: An object with the response value as well as other useful
-                information such as status codes and headers. OK - The request has
+            GetDynamicOffersResponse: Response from the API. OK - The request has
                 succeeded.
 
         Raises:
-            ApiException: When an error occurs while fetching the data from the
+            APIException: When an error occurs while fetching the data from the
                 remote API. This exception includes the HTTP Response code, an error
                 message, and the HTTP body that was received in the request.
 
         """
         return super().new_api_call_builder.request(
-            RequestBuilder().server(Server.DEFAULT)
+            RequestBuilder().server(Server.DEFAULT15)
             .path("/dynamicOffers")
             .http_method(HttpMethodEnum.GET)
             .query_param(Parameter()
                 .key("accountHolderId")
-                .value(account_holder_id)
-                .is_required(True))
+                .value(account_holder_id))
             .query_param(Parameter()
                 .key("financingType")
                 .value(financing_type))
@@ -82,10 +74,9 @@ class DynamicOffersApi(BaseApi):
             ResponseHandler()
             .deserializer(APIHelper.json_deserialize)
             .deserialize_into(GetDynamicOffersResponse.from_dictionary)
-            .is_api_response(True)
             .local_error("422",
                 "Unprocessable Entity - A request validation error.",
-                DynamicOffers422ErrorException),
+                DefaultErrorResponseEntityException),
         ).execute()
 
     def post_dynamic_offers_id_calculate(self,
@@ -108,24 +99,22 @@ class DynamicOffersApi(BaseApi):
             body (CalculateGrantOfferRequest, optional): The request body parameter.
 
         Returns:
-            ApiResponse: An object with the response value as well as other useful
-                information such as status codes and headers. OK - The request has
+            CalculatedGrantOffer: Response from the API. OK - The request has
                 succeeded.
 
         Raises:
-            ApiException: When an error occurs while fetching the data from the
+            APIException: When an error occurs while fetching the data from the
                 remote API. This exception includes the HTTP Response code, an error
                 message, and the HTTP body that was received in the request.
 
         """
         return super().new_api_call_builder.request(
-            RequestBuilder().server(Server.DEFAULT)
+            RequestBuilder().server(Server.DEFAULT15)
             .path("/dynamicOffers/{id}/calculate")
             .http_method(HttpMethodEnum.POST)
             .template_param(Parameter()
                 .key("id")
                 .value(id)
-                .is_required(True)
                 .should_encode(True))
             .header_param(Parameter()
                 .key("Content-Type")
@@ -140,10 +129,9 @@ class DynamicOffersApi(BaseApi):
             ResponseHandler()
             .deserializer(APIHelper.json_deserialize)
             .deserialize_into(CalculatedGrantOffer.from_dictionary)
-            .is_api_response(True)
             .local_error("422",
                 "Unprocessable Entity - A request validation error.",
-                DynamicOffersCalculate422ErrorException),
+                DefaultErrorResponseEntityException),
         ).execute()
 
     def post_dynamic_offers_id_grant_offer(self,
@@ -164,24 +152,21 @@ class DynamicOffersApi(BaseApi):
             body (CreateGrantOfferRequest, optional): The request body parameter.
 
         Returns:
-            ApiResponse: An object with the response value as well as other useful
-                information such as status codes and headers. OK - The request has
-                succeeded.
+            GrantOffer1: Response from the API. OK - The request has succeeded.
 
         Raises:
-            ApiException: When an error occurs while fetching the data from the
+            APIException: When an error occurs while fetching the data from the
                 remote API. This exception includes the HTTP Response code, an error
                 message, and the HTTP body that was received in the request.
 
         """
         return super().new_api_call_builder.request(
-            RequestBuilder().server(Server.DEFAULT)
+            RequestBuilder().server(Server.DEFAULT15)
             .path("/dynamicOffers/{id}/grantOffer")
             .http_method(HttpMethodEnum.POST)
             .template_param(Parameter()
                 .key("id")
                 .value(id)
-                .is_required(True)
                 .should_encode(True))
             .header_param(Parameter()
                 .key("Content-Type")
@@ -196,8 +181,7 @@ class DynamicOffersApi(BaseApi):
             ResponseHandler()
             .deserializer(APIHelper.json_deserialize)
             .deserialize_into(GrantOffer1.from_dictionary)
-            .is_api_response(True)
             .local_error("422",
                 "Unprocessable Entity - A request validation error.",
-                DynamicOffersGrantOffer422ErrorException),
+                DefaultErrorResponseEntityException),
         ).execute()

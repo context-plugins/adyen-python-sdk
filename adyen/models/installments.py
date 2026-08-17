@@ -19,14 +19,16 @@ class Installments(object):
             transaction is Buy now Pay later. Used for [card installments in
             Mexico](https://docs.adyen.com/payment-methods/cards/credit-card-installme
             nts/#getting-paid-mexico)
-        plan (Plan): The model property of type Plan.
+        plan (PlanEnum): The installment plan, used for [card installments in
+            Japan](https://docs.adyen.com/payment-methods/cards/credit-card-installmen
+            ts#make-a-payment-japan). and
+            [Mexico](https://docs.adyen.com/payment-methods/cards/credit-card-installm
+            ents/#getting-paid-mexico). By default, this is set to **regular**.
         value (int): Defines the number of installments. Usually, the maximum allowed
             number of installments is capped. For example, it may not be possible to
             split a payment in more than 24 installments. The acquirer sets this
             upper limit, so its value may vary. This value can be zero for
             Installments processed in Mexico.
-        additional_properties (Dict[str, Any]): The additional properties for the
-            model.
 
     """
 
@@ -46,8 +48,7 @@ class Installments(object):
         self,
         value=None,
         extra=APIHelper.SKIP,
-        plan=APIHelper.SKIP,
-        additional_properties=None):
+        plan=APIHelper.SKIP):
         """Initialize a Installments instance."""
         # Initialize members of the class
         if extra is not APIHelper.SKIP:
@@ -55,11 +56,6 @@ class Installments(object):
         if plan is not APIHelper.SKIP:
             self.plan = plan
         self.value = value
-
-        # Add additional model properties to the instance
-        if additional_properties is None:
-            additional_properties = {}
-        self.additional_properties = additional_properties
 
     @classmethod
     def from_dictionary(cls,
@@ -92,16 +88,43 @@ class Installments(object):
             if dictionary.get("plan")\
                 else APIHelper.SKIP
 
-        additional_properties = APIHelper.get_additional_properties(
-            dictionary={k: v for k, v in dictionary.items()
-                        if k not in cls._names.values()},
-            unboxing_function=lambda value: value)
-
         # Return an object of this model
         return cls(value,
                    extra,
-                   plan,
-                   additional_properties)
+                   plan)
+
+    @classmethod
+    def validate(cls, dictionary):
+        """Validate dictionary against class required properties
+
+        Args:
+            dictionary (dictionary): A dictionary representation of the object
+            as obtained from the deserialization of the server's response. The
+            keys MUST match property names in the API description.
+
+        Returns:
+            boolean : if dictionary is valid contains required properties.
+
+        """
+        if isinstance(dictionary, cls):
+            return APIHelper.is_valid_type(
+                    value=dictionary.value,
+                    type_callable=lambda value:
+                        isinstance(
+                        value,
+                        int,
+                ))
+
+        if not isinstance(dictionary, dict):
+            return False
+
+        return APIHelper.is_valid_type(
+                value=dictionary.get("value"),
+                type_callable=lambda value:
+                    isinstance(
+                    value,
+                    int,
+            ))
 
     def __repr__(self):
         """Return a unambiguous string representation."""
@@ -116,13 +139,11 @@ class Installments(object):
             else None
         )
         _value=self.value
-        _additional_properties=self.additional_properties
         return (
             f"{self.__class__.__name__}("
             f"extra={_extra!r}, "
             f"plan={_plan!r}, "
             f"value={_value!r}, "
-            f"additional_properties={_additional_properties!r}, "
             f")"
         )
 
@@ -139,12 +160,10 @@ class Installments(object):
             else None
         )
         _value=self.value
-        _additional_properties=self.additional_properties
         return (
             f"{self.__class__.__name__}("
             f"extra={_extra!s}, "
             f"plan={_plan!s}, "
             f"value={_value!s}, "
-            f"additional_properties={_additional_properties!s}, "
             f")"
         )

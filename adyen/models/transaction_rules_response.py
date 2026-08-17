@@ -13,8 +13,6 @@ class TransactionRulesResponse(object):
 
     Attributes:
         transaction_rules (List[TransactionRule]): List of transaction rules.
-        additional_properties (Dict[str, Any]): The additional properties for the
-            model.
 
     """
 
@@ -29,17 +27,11 @@ class TransactionRulesResponse(object):
 
     def __init__(
         self,
-        transaction_rules=APIHelper.SKIP,
-        additional_properties=None):
+        transaction_rules=APIHelper.SKIP):
         """Initialize a TransactionRulesResponse instance."""
         # Initialize members of the class
         if transaction_rules is not APIHelper.SKIP:
             self.transaction_rules = transaction_rules
-
-        # Add additional model properties to the instance
-        if additional_properties is None:
-            additional_properties = {}
-        self.additional_properties = additional_properties
 
     @classmethod
     def from_dictionary(cls,
@@ -68,14 +60,8 @@ class TransactionRulesResponse(object):
         else:
             transaction_rules = APIHelper.SKIP
 
-        additional_properties = APIHelper.get_additional_properties(
-            dictionary={k: v for k, v in dictionary.items()
-                        if k not in cls._names.values()},
-            unboxing_function=lambda value: value)
-
         # Return an object of this model
-        return cls(transaction_rules,
-                   additional_properties)
+        return cls(transaction_rules)
 
     def __repr__(self):
         """Return a unambiguous string representation."""
@@ -84,11 +70,9 @@ class TransactionRulesResponse(object):
             if hasattr(self, "transaction_rules")
             else None
         )
-        _additional_properties=self.additional_properties
         return (
             f"{self.__class__.__name__}("
             f"transaction_rules={_transaction_rules!r}, "
-            f"additional_properties={_additional_properties!r}, "
             f")"
         )
 
@@ -99,10 +83,8 @@ class TransactionRulesResponse(object):
             if hasattr(self, "transaction_rules")
             else None
         )
-        _additional_properties=self.additional_properties
         return (
             f"{self.__class__.__name__}("
             f"transaction_rules={_transaction_rules!s}, "
-            f"additional_properties={_additional_properties!s}, "
             f")"
         )

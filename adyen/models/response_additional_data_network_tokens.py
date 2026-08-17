@@ -16,8 +16,6 @@ class ResponseAdditionalDataNetworkTokens(object):
         network_token_bin (str): The Bank Identification Number of a tokenized card,
             which is the first six digits of a card number.
         network_token_token_summary (str): The last four digits of a network token.
-        additional_properties (Dict[str, Any]): The additional properties for the
-            model.
 
     """
 
@@ -38,8 +36,7 @@ class ResponseAdditionalDataNetworkTokens(object):
         self,
         network_token_available=APIHelper.SKIP,
         network_token_bin=APIHelper.SKIP,
-        network_token_token_summary=APIHelper.SKIP,
-        additional_properties=None):
+        network_token_token_summary=APIHelper.SKIP):
         """Initialize a ResponseAdditionalDataNetworkTokens instance."""
         # Initialize members of the class
         if network_token_available is not APIHelper.SKIP:
@@ -48,11 +45,6 @@ class ResponseAdditionalDataNetworkTokens(object):
             self.network_token_bin = network_token_bin
         if network_token_token_summary is not APIHelper.SKIP:
             self.network_token_token_summary = network_token_token_summary
-
-        # Add additional model properties to the instance
-        if additional_properties is None:
-            additional_properties = {}
-        self.additional_properties = additional_properties
 
     @classmethod
     def from_dictionary(cls,
@@ -85,16 +77,10 @@ class ResponseAdditionalDataNetworkTokens(object):
             if dictionary.get("networkToken.tokenSummary")\
                 else APIHelper.SKIP
 
-        additional_properties = APIHelper.get_additional_properties(
-            dictionary={k: v for k, v in dictionary.items()
-                        if k not in cls._names.values()},
-            unboxing_function=lambda value: value)
-
         # Return an object of this model
         return cls(network_token_available,
                    network_token_bin,
-                   network_token_token_summary,
-                   additional_properties)
+                   network_token_token_summary)
 
     def __repr__(self):
         """Return a unambiguous string representation."""
@@ -113,13 +99,11 @@ class ResponseAdditionalDataNetworkTokens(object):
             if hasattr(self, "network_token_token_summary")
             else None
         )
-        _additional_properties=self.additional_properties
         return (
             f"{self.__class__.__name__}("
             f"network_token_available={_network_token_available!r}, "
             f"network_token_bin={_network_token_bin!r}, "
             f"network_token_token_summary={_network_token_token_summary!r}, "
-            f"additional_properties={_additional_properties!r}, "
             f")"
         )
 
@@ -140,12 +124,10 @@ class ResponseAdditionalDataNetworkTokens(object):
             if hasattr(self, "network_token_token_summary")
             else None
         )
-        _additional_properties=self.additional_properties
         return (
             f"{self.__class__.__name__}("
             f"network_token_available={_network_token_available!s}, "
             f"network_token_bin={_network_token_bin!s}, "
             f"network_token_token_summary={_network_token_token_summary!s}, "
-            f"additional_properties={_additional_properties!s}, "
             f")"
         )

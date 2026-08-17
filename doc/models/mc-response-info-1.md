@@ -1,41 +1,30 @@
 
-# Mc Response Info 1
+# MC Response Info 1
 
 **mc** details
 
-*This model accepts additional fields of type Any.*
-
 ## Structure
 
-`McResponseInfo1`
+`MCResponseInfo1`
 
 ## Fields
 
 | Name | Type | Tags | Description |
 |  --- | --- | --- | --- |
-| `transaction_description` | [`TransactionDescriptionInfo`](../../doc/models/transaction-description-info.md) | Optional | - |
-| `additional_properties` | `Dict[str, Any]` | Optional | - |
+| `transaction_description` | [`TransactionDescriptionResponseInfo1`](../../doc/models/transaction-description-response-info-1.md) | Optional | Information regarding the transaction description. |
 
 ## Example
 
 ```python
-import jsonpickle
+from adyen.models.mc_response_info_1 import MCResponseInfo1
+from adyen.models.transaction_description_response_info_1 import TransactionDescriptionResponseInfo1
+from adyen.models.type_8_enum import Type8Enum
 
-from adyen.models.mc_response_info_1 import McResponseInfo1
-from adyen.models.transaction_description_info import TransactionDescriptionInfo
-from adyen.models.type_33 import Type33
-
-mc_response_info_1 = McResponseInfo1(
-    transaction_description=TransactionDescriptionInfo(
+mc_response_info_1 = MCResponseInfo1(
+    transaction_description=TransactionDescriptionResponseInfo1(
         doing_business_as_name='doingBusinessAsName0',
-        mtype=Type33.FIXED,
-        additional_properties={
-            'exampleAdditionalProperty': jsonpickle.decode('{"key1":"val1","key2":"val2"}')
-        }
-    ),
-    additional_properties={
-        'exampleAdditionalProperty': jsonpickle.decode('{"key1":"val1","key2":"val2"}')
-    }
+        mtype=Type8Enum.FIXED
+    )
 )
 ```
 

@@ -16,8 +16,6 @@ class Dcc(object):
             terms of
             use](https://help.adyen.com/en_US/knowledge/in-person-payments/terminal-fe
             atures/dynamic-currency-conversion-dcc-rules-regulations).
-        additional_properties (Dict[str, Any]): The additional properties for the
-            model.
 
     """
 
@@ -32,17 +30,11 @@ class Dcc(object):
 
     def __init__(
         self,
-        enable_dcc=APIHelper.SKIP,
-        additional_properties=None):
+        enable_dcc=APIHelper.SKIP):
         """Initialize a Dcc instance."""
         # Initialize members of the class
         if enable_dcc is not APIHelper.SKIP:
             self.enable_dcc = enable_dcc
-
-        # Add additional model properties to the instance
-        if additional_properties is None:
-            additional_properties = {}
-        self.additional_properties = additional_properties
 
     @classmethod
     def from_dictionary(cls,
@@ -67,14 +59,8 @@ class Dcc(object):
             if "enableDcc" in dictionary.keys()\
                 else APIHelper.SKIP
 
-        additional_properties = APIHelper.get_additional_properties(
-            dictionary={k: v for k, v in dictionary.items()
-                        if k not in cls._names.values()},
-            unboxing_function=lambda value: value)
-
         # Return an object of this model
-        return cls(enable_dcc,
-                   additional_properties)
+        return cls(enable_dcc)
 
     def __repr__(self):
         """Return a unambiguous string representation."""
@@ -83,11 +69,9 @@ class Dcc(object):
             if hasattr(self, "enable_dcc")
             else None
         )
-        _additional_properties=self.additional_properties
         return (
             f"{self.__class__.__name__}("
             f"enable_dcc={_enable_dcc!r}, "
-            f"additional_properties={_additional_properties!r}, "
             f")"
         )
 
@@ -98,10 +82,8 @@ class Dcc(object):
             if hasattr(self, "enable_dcc")
             else None
         )
-        _additional_properties=self.additional_properties
         return (
             f"{self.__class__.__name__}("
             f"enable_dcc={_enable_dcc!s}, "
-            f"additional_properties={_additional_properties!s}, "
             f")"
         )

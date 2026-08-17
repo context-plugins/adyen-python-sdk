@@ -1,11 +1,9 @@
 
-# Checkout Sdk Action
-
-*This model accepts additional fields of type Any.*
+# Checkout SDK Action
 
 ## Structure
 
-`CheckoutSdkAction`
+`CheckoutSDKAction`
 
 ## Fields
 
@@ -14,20 +12,17 @@
 | `payment_data` | `str` | Optional | Encoded payment data. |
 | `payment_method_type` | `str` | Optional | Specifies the payment method. |
 | `sdk_data` | `Dict[str, str]` | Optional | The data to pass to the SDK. |
-| `mtype` | [`Type19`](../../doc/models/type-19.md) | Required | - |
+| `mtype` | [`Type19Enum`](../../doc/models/type-19-enum.md) | Required | The type of the action. |
 | `url` | `str` | Optional | Specifies the URL to redirect to. |
-| `additional_properties` | `Dict[str, Any]` | Optional | - |
 
 ## Example
 
 ```python
-import jsonpickle
+from adyen.models.checkout_sdk_action import CheckoutSDKAction
+from adyen.models.type_19_enum import Type19Enum
 
-from adyen.models.checkout_sdk_action import CheckoutSdkAction
-from adyen.models.type_19 import Type19
-
-checkout_sdk_action = CheckoutSdkAction(
-    mtype=Type19.SDK,
+checkout_sdk_action = CheckoutSDKAction(
+    mtype=Type19Enum.SDK,
     payment_data='paymentData2',
     payment_method_type='paymentMethodType2',
     sdk_data={
@@ -35,10 +30,7 @@ checkout_sdk_action = CheckoutSdkAction(
         'key1': 'sdkData6',
         'key2': 'sdkData7'
     },
-    url='url4',
-    additional_properties={
-        'exampleAdditionalProperty': jsonpickle.decode('{"key1":"val1","key2":"val2"}')
-    }
+    url='url4'
 )
 ```
 

@@ -32,20 +32,18 @@ This endpoint requires [clientKey](../../doc/auth/custom-query-parameter.md) **O
 
 **200**: OK - the request has succeeded.
 
-This method returns an [`ApiResponse`](../../doc/api-response.md) instance. The `body` property of this instance returns the response data which is of type [`TransferRouteResponse`](../../doc/models/transfer-route-response.md).
+[`TransferRouteResponse`](../../doc/models/transfer-route-response.md)
 
 ## Example Usage
 
 ```python
 body = TransferRouteRequest(
     balance_platform='YOUR_BALANCE_PLATFORM',
-    category=Category35.BANK,
     currency='USD',
-    counterparty=Counterparty2(
-        bank_account=BankAccount(
-            account_identification=IbanAccountIdentification1(
-                iban='NL91ABNA0417164300',
-                mtype=Type203.IBAN
+    counterparty=Counterparty1(
+        bank_account=BankAccount11(
+            account_identification=IbanAccountIdentification(
+                iban='NL91ABNA0417164300'
             )
         )
     )
@@ -54,11 +52,7 @@ body = TransferRouteRequest(
 result = transfer_routes_api.post_transfer_routes_calculate(
     body=body
 )
-
-if result.is_success():
-    print(result.body)
-elif result.is_error():
-    print(result.errors)
+print(result)
 ```
 
 ## Example Response *(as JSON)*

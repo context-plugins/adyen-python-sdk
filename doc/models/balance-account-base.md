@@ -1,8 +1,6 @@
 
 # Balance Account Base
 
-*This model accepts additional fields of type Any.*
-
 ## Structure
 
 `BalanceAccountBase`
@@ -17,20 +15,18 @@
 | `id` | `str` | Required | The unique identifier of the balance account. |
 | `metadata` | `Dict[str, str]` | Optional | A set of key and value pairs for general use.<br>The keys do not have specific names and may be used for storing miscellaneous data as desired.<br><br>> Note that during an update of metadata, the omission of existing key-value pairs will result in the deletion of those key-value pairs. |
 | `migrated_account_code` | `str` | Optional, Read-only | The unique identifier of the account of the migrated account holder in the classic integration. |
-| `platform_payment_configuration` | [`PlatformPaymentConfiguration`](../../doc/models/platform-payment-configuration.md) | Optional | - |
+| `platform_payment_configuration` | [`PlatformPaymentConfiguration1`](../../doc/models/platform-payment-configuration-1.md) | Optional | Contains key-value pairs to configure the sales day closing time and settlement delay for a balance account. |
 | `reference` | `str` | Optional | Your reference for the balance account, maximum 150 characters.<br><br>**Constraints**: *Maximum Length*: `150` |
-| `status` | [`Status21`](../../doc/models/status-21.md) | Optional | - |
+| `status` | [`Status23Enum`](../../doc/models/status-23-enum.md) | Optional | The status of the balance account, set to **active** by default. |
 | `time_zone` | `str` | Optional | The time zone of the balance account. For example, **Europe/Amsterdam**.<br>Defaults to the time zone of the account holder if no time zone is set. For possible values, see the [list of time zone codes](https://en.wikipedia.org/wiki/List_of_tz_database_time_zones). |
-| `additional_properties` | `Dict[str, Any]` | Optional | - |
 
 ## Example
 
 ```python
 import dateutil.parser
-import jsonpickle
 
 from adyen.models.balance_account_base import BalanceAccountBase
-from adyen.models.platform_payment_configuration import PlatformPaymentConfiguration
+from adyen.models.platform_payment_configuration_1 import PlatformPaymentConfiguration1
 
 balance_account_base = BalanceAccountBase(
     account_holder_id='accountHolderId4',
@@ -41,17 +37,10 @@ balance_account_base = BalanceAccountBase(
         'key0': 'metadata9',
         'key1': 'metadata8'
     },
-    migrated_account_code='migratedAccountCode6',
-    platform_payment_configuration=PlatformPaymentConfiguration(
+    platform_payment_configuration=PlatformPaymentConfiguration1(
         sales_day_closing_time=dateutil.parser.parse('2016-03-13T12:52:32.123Z'),
-        settlement_delay_days=80,
-        additional_properties={
-            'exampleAdditionalProperty': jsonpickle.decode('{"key1":"val1","key2":"val2"}')
-        }
-    ),
-    additional_properties={
-        'exampleAdditionalProperty': jsonpickle.decode('{"key1":"val1","key2":"val2"}')
-    }
+        settlement_delay_days=80
+    )
 )
 ```
 

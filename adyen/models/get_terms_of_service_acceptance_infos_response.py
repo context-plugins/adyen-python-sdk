@@ -16,8 +16,6 @@ class GetTermsOfServiceAcceptanceInfosResponse(object):
     Attributes:
         data (List[TermsOfServiceAcceptanceInfo]): The Terms of Service acceptance
             information.
-        additional_properties (Dict[str, Any]): The additional properties for the
-            model.
 
     """
 
@@ -32,17 +30,11 @@ class GetTermsOfServiceAcceptanceInfosResponse(object):
 
     def __init__(
         self,
-        data=APIHelper.SKIP,
-        additional_properties=None):
+        data=APIHelper.SKIP):
         """Initialize a GetTermsOfServiceAcceptanceInfosResponse instance."""
         # Initialize members of the class
         if data is not APIHelper.SKIP:
             self.data = data
-
-        # Add additional model properties to the instance
-        if additional_properties is None:
-            additional_properties = {}
-        self.additional_properties = additional_properties
 
     @classmethod
     def from_dictionary(cls,
@@ -71,14 +63,8 @@ class GetTermsOfServiceAcceptanceInfosResponse(object):
         else:
             data = APIHelper.SKIP
 
-        additional_properties = APIHelper.get_additional_properties(
-            dictionary={k: v for k, v in dictionary.items()
-                        if k not in cls._names.values()},
-            unboxing_function=lambda value: value)
-
         # Return an object of this model
-        return cls(data,
-                   additional_properties)
+        return cls(data)
 
     def __repr__(self):
         """Return a unambiguous string representation."""
@@ -87,11 +73,9 @@ class GetTermsOfServiceAcceptanceInfosResponse(object):
             if hasattr(self, "data")
             else None
         )
-        _additional_properties=self.additional_properties
         return (
             f"{self.__class__.__name__}("
             f"data={_data!r}, "
-            f"additional_properties={_additional_properties!r}, "
             f")"
         )
 
@@ -102,10 +86,8 @@ class GetTermsOfServiceAcceptanceInfosResponse(object):
             if hasattr(self, "data")
             else None
         )
-        _additional_properties=self.additional_properties
         return (
             f"{self.__class__.__name__}("
             f"data={_data!s}, "
-            f"additional_properties={_additional_properties!s}, "
             f")"
         )

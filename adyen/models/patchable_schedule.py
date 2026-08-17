@@ -11,9 +11,13 @@ class PatchableSchedule(object):
     """Implementation of the 'PatchableSchedule' model.
 
     Attributes:
-        mtype (ScheduleType1): The model property of type ScheduleType1.
-        additional_properties (Dict[str, Any]): The additional properties for the
-            model.
+        mtype (ScheduleType1Enum): The type of schedule at which the top up is
+            executed. * **weekdays**: pull in funds Monday-Friday at 07:00 AM in the
+            local timezone of the balance account.  * **weekly**: pull in funds every
+            Monday at 07:00 AM in the local timezone of the balance account.  *
+            **monthly**: pull in funds every first of the month at 07:00 AM in the
+            local timezone of the balance account. * **null** (default): continuous
+            monitoring.
 
     """
 
@@ -28,17 +32,11 @@ class PatchableSchedule(object):
 
     def __init__(
         self,
-        mtype=APIHelper.SKIP,
-        additional_properties=None):
+        mtype=APIHelper.SKIP):
         """Initialize a PatchableSchedule instance."""
         # Initialize members of the class
         if mtype is not APIHelper.SKIP:
             self.mtype = mtype
-
-        # Add additional model properties to the instance
-        if additional_properties is None:
-            additional_properties = {}
-        self.additional_properties = additional_properties
 
     @classmethod
     def from_dictionary(cls,
@@ -63,14 +61,8 @@ class PatchableSchedule(object):
             if dictionary.get("type")\
                 else APIHelper.SKIP
 
-        additional_properties = APIHelper.get_additional_properties(
-            dictionary={k: v for k, v in dictionary.items()
-                        if k not in cls._names.values()},
-            unboxing_function=lambda value: value)
-
         # Return an object of this model
-        return cls(mtype,
-                   additional_properties)
+        return cls(mtype)
 
     @classmethod
     def validate(cls, dictionary):
@@ -100,11 +92,9 @@ class PatchableSchedule(object):
             if hasattr(self, "mtype")
             else None
         )
-        _additional_properties=self.additional_properties
         return (
             f"{self.__class__.__name__}("
             f"mtype={_mtype!r}, "
-            f"additional_properties={_additional_properties!r}, "
             f")"
         )
 
@@ -115,10 +105,8 @@ class PatchableSchedule(object):
             if hasattr(self, "mtype")
             else None
         )
-        _additional_properties=self.additional_properties
         return (
             f"{self.__class__.__name__}("
             f"mtype={_mtype!s}, "
-            f"additional_properties={_additional_properties!s}, "
             f")"
         )

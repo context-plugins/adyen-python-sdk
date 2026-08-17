@@ -14,12 +14,12 @@ class PayAtTable1(object):
     features.
 
     Attributes:
-        authentication_method (AuthenticationMethod): The model property of type
-            AuthenticationMethod.
+        authentication_method (AuthenticationMethodEnum): Allowed authentication
+            methods: Magswipe, Manual Entry.
         enable_pay_at_table (bool): Enable Pay at table.
-        payment_instrument (Any): The model property of type Any.
-        additional_properties (Dict[str, Any]): The additional properties for the
-            model.
+        payment_instrument (PaymentInstrumentEnum): Sets the allowed payment
+            instrument for Pay at table transactions.  Can be: **cash** or **card**.
+            If not set, the terminal presents both options.
 
     """
 
@@ -36,12 +36,15 @@ class PayAtTable1(object):
         "payment_instrument",
     ]
 
+    _nullables = [
+        "payment_instrument",
+    ]
+
     def __init__(
         self,
         authentication_method=APIHelper.SKIP,
         enable_pay_at_table=APIHelper.SKIP,
-        payment_instrument=APIHelper.SKIP,
-        additional_properties=None):
+        payment_instrument=APIHelper.SKIP):
         """Initialize a PayAtTable1 instance."""
         # Initialize members of the class
         if authentication_method is not APIHelper.SKIP:
@@ -50,11 +53,6 @@ class PayAtTable1(object):
             self.enable_pay_at_table = enable_pay_at_table
         if payment_instrument is not APIHelper.SKIP:
             self.payment_instrument = payment_instrument
-
-        # Add additional model properties to the instance
-        if additional_properties is None:
-            additional_properties = {}
-        self.additional_properties = additional_properties
 
     @classmethod
     def from_dictionary(cls,
@@ -84,19 +82,13 @@ class PayAtTable1(object):
                 else APIHelper.SKIP
         payment_instrument =\
             dictionary.get("paymentInstrument")\
-            if dictionary.get("paymentInstrument")\
+            if "paymentInstrument" in dictionary.keys()\
                 else APIHelper.SKIP
-
-        additional_properties = APIHelper.get_additional_properties(
-            dictionary={k: v for k, v in dictionary.items()
-                        if k not in cls._names.values()},
-            unboxing_function=lambda value: value)
 
         # Return an object of this model
         return cls(authentication_method,
                    enable_pay_at_table,
-                   payment_instrument,
-                   additional_properties)
+                   payment_instrument)
 
     def __repr__(self):
         """Return a unambiguous string representation."""
@@ -115,13 +107,11 @@ class PayAtTable1(object):
             if hasattr(self, "payment_instrument")
             else None
         )
-        _additional_properties=self.additional_properties
         return (
             f"{self.__class__.__name__}("
             f"authentication_method={_authentication_method!r}, "
             f"enable_pay_at_table={_enable_pay_at_table!r}, "
             f"payment_instrument={_payment_instrument!r}, "
-            f"additional_properties={_additional_properties!r}, "
             f")"
         )
 
@@ -142,12 +132,10 @@ class PayAtTable1(object):
             if hasattr(self, "payment_instrument")
             else None
         )
-        _additional_properties=self.additional_properties
         return (
             f"{self.__class__.__name__}("
             f"authentication_method={_authentication_method!s}, "
             f"enable_pay_at_table={_enable_pay_at_table!s}, "
             f"payment_instrument={_payment_instrument!s}, "
-            f"additional_properties={_additional_properties!s}, "
             f")"
         )

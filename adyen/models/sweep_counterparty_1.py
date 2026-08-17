@@ -37,8 +37,6 @@ class SweepCounterparty1(object):
             request from the source transfer instrument. Contact Adyen Support to
             enable this feature.> If you are updating the counterparty from a balance
             account to a transfer instrument, set `balanceAccountId` to **null**.
-        additional_properties (Dict[str, Any]): The additional properties for the
-            model.
 
     """
 
@@ -59,8 +57,7 @@ class SweepCounterparty1(object):
         self,
         balance_account_id=APIHelper.SKIP,
         merchant_account=APIHelper.SKIP,
-        transfer_instrument_id=APIHelper.SKIP,
-        additional_properties=None):
+        transfer_instrument_id=APIHelper.SKIP):
         """Initialize a SweepCounterparty1 instance."""
         # Initialize members of the class
         if balance_account_id is not APIHelper.SKIP:
@@ -69,11 +66,6 @@ class SweepCounterparty1(object):
             self.merchant_account = merchant_account
         if transfer_instrument_id is not APIHelper.SKIP:
             self.transfer_instrument_id = transfer_instrument_id
-
-        # Add additional model properties to the instance
-        if additional_properties is None:
-            additional_properties = {}
-        self.additional_properties = additional_properties
 
     @classmethod
     def from_dictionary(cls,
@@ -106,16 +98,10 @@ class SweepCounterparty1(object):
             if dictionary.get("transferInstrumentId")\
                 else APIHelper.SKIP
 
-        additional_properties = APIHelper.get_additional_properties(
-            dictionary={k: v for k, v in dictionary.items()
-                        if k not in cls._names.values()},
-            unboxing_function=lambda value: value)
-
         # Return an object of this model
         return cls(balance_account_id,
                    merchant_account,
-                   transfer_instrument_id,
-                   additional_properties)
+                   transfer_instrument_id)
 
     def __repr__(self):
         """Return a unambiguous string representation."""
@@ -134,13 +120,11 @@ class SweepCounterparty1(object):
             if hasattr(self, "transfer_instrument_id")
             else None
         )
-        _additional_properties=self.additional_properties
         return (
             f"{self.__class__.__name__}("
             f"balance_account_id={_balance_account_id!r}, "
             f"merchant_account={_merchant_account!r}, "
             f"transfer_instrument_id={_transfer_instrument_id!r}, "
-            f"additional_properties={_additional_properties!r}, "
             f")"
         )
 
@@ -161,12 +145,10 @@ class SweepCounterparty1(object):
             if hasattr(self, "transfer_instrument_id")
             else None
         )
-        _additional_properties=self.additional_properties
         return (
             f"{self.__class__.__name__}("
             f"balance_account_id={_balance_account_id!s}, "
             f"merchant_account={_merchant_account!s}, "
             f"transfer_instrument_id={_transfer_instrument_id!s}, "
-            f"additional_properties={_additional_properties!s}, "
             f")"
         )

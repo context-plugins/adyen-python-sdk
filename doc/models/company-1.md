@@ -3,8 +3,6 @@
 
 Information regarding the company.
 
-*This model accepts additional fields of type Any.*
-
 ## Structure
 
 `Company1`
@@ -19,13 +17,10 @@ Information regarding the company.
 | `registry_location` | `str` | Optional | Registry location of the company. |
 | `tax_id` | `str` | Optional | Tax ID of the company. |
 | `mtype` | `str` | Optional | The company type. |
-| `additional_properties` | `Dict[str, Any]` | Optional | - |
 
 ## Example
 
 ```python
-import jsonpickle
-
 from adyen.models.company_1 import Company1
 
 company_1 = Company1(
@@ -33,10 +28,7 @@ company_1 = Company1(
     name='name6',
     registration_number='registrationNumber6',
     registry_location='registryLocation8',
-    tax_id='taxId8',
-    additional_properties={
-        'exampleAdditionalProperty': jsonpickle.decode('{"key1":"val1","key2":"val2"}')
-    }
+    tax_id='taxId8'
 )
 ```
 

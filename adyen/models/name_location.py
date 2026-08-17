@@ -20,8 +20,6 @@ class NameLocation(object):
         name (str): The name of the merchant's shop or service.
         raw_data (str): The raw data.
         state (str): The state where the merchant is located.
-        additional_properties (Dict[str, Any]): The additional properties for the
-            model.
 
     """
 
@@ -51,8 +49,7 @@ class NameLocation(object):
         country_of_origin=APIHelper.SKIP,
         name=APIHelper.SKIP,
         raw_data=APIHelper.SKIP,
-        state=APIHelper.SKIP,
-        additional_properties=None):
+        state=APIHelper.SKIP):
         """Initialize a NameLocation instance."""
         # Initialize members of the class
         if city is not APIHelper.SKIP:
@@ -67,11 +64,6 @@ class NameLocation(object):
             self.raw_data = raw_data
         if state is not APIHelper.SKIP:
             self.state = state
-
-        # Add additional model properties to the instance
-        if additional_properties is None:
-            additional_properties = {}
-        self.additional_properties = additional_properties
 
     @classmethod
     def from_dictionary(cls,
@@ -116,40 +108,13 @@ class NameLocation(object):
             if dictionary.get("state")\
                 else APIHelper.SKIP
 
-        additional_properties = APIHelper.get_additional_properties(
-            dictionary={k: v for k, v in dictionary.items()
-                        if k not in cls._names.values()},
-            unboxing_function=lambda value: value)
-
         # Return an object of this model
         return cls(city,
                    country,
                    country_of_origin,
                    name,
                    raw_data,
-                   state,
-                   additional_properties)
-
-    @classmethod
-    def validate(cls, dictionary):
-        """Validate dictionary against class required properties
-
-        Args:
-            dictionary (dictionary): A dictionary representation of the object
-            as obtained from the deserialization of the server's response. The
-            keys MUST match property names in the API description.
-
-        Returns:
-            boolean : if dictionary is valid contains required properties.
-
-        """
-        if isinstance(dictionary, cls):
-            return True
-
-        if not isinstance(dictionary, dict):
-            return False
-
-        return True
+                   state)
 
     def __repr__(self):
         """Return a unambiguous string representation."""
@@ -183,7 +148,6 @@ class NameLocation(object):
             if hasattr(self, "state")
             else None
         )
-        _additional_properties=self.additional_properties
         return (
             f"{self.__class__.__name__}("
             f"city={_city!r}, "
@@ -192,7 +156,6 @@ class NameLocation(object):
             f"name={_name!r}, "
             f"raw_data={_raw_data!r}, "
             f"state={_state!r}, "
-            f"additional_properties={_additional_properties!r}, "
             f")"
         )
 
@@ -228,7 +191,6 @@ class NameLocation(object):
             if hasattr(self, "state")
             else None
         )
-        _additional_properties=self.additional_properties
         return (
             f"{self.__class__.__name__}("
             f"city={_city!s}, "
@@ -237,6 +199,5 @@ class NameLocation(object):
             f"name={_name!s}, "
             f"raw_data={_raw_data!s}, "
             f"state={_state!s}, "
-            f"additional_properties={_additional_properties!s}, "
             f")"
         )

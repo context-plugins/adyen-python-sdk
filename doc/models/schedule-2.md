@@ -1,8 +1,6 @@
 
 # Schedule 2
 
-*This model accepts additional fields of type Any.*
-
 ## Structure
 
 `Schedule2`
@@ -11,22 +9,16 @@
 
 | Name | Type | Tags | Description |
 |  --- | --- | --- | --- |
-| `mtype` | [`ScheduleType1`](../../doc/models/schedule-type-1.md) | Required | - |
-| `additional_properties` | `Dict[str, Any]` | Optional | - |
+| `mtype` | [`ScheduleType1Enum`](../../doc/models/schedule-type-1-enum.md) | Required | The type of schedule at which the top up is executed.<br><br>* **weekdays**: pull in funds Monday-Friday at 07:00 AM in the local timezone of the balance account.<br><br>* **weekly**: pull in funds every Monday at 07:00 AM in the local timezone of the balance account.<br><br>* **monthly**: pull in funds every first of the month at 07:00 AM in the local timezone of the balance account.<br><br>* **null** (default): continuous monitoring. |
 
 ## Example
 
 ```python
-import jsonpickle
-
 from adyen.models.schedule_2 import Schedule2
-from adyen.models.schedule_type_1 import ScheduleType1
+from adyen.models.schedule_type_1_enum import ScheduleType1Enum
 
 schedule_2 = Schedule2(
-    mtype=ScheduleType1.WEEKDAYS,
-    additional_properties={
-        'exampleAdditionalProperty': jsonpickle.decode('{"key1":"val1","key2":"val2"}')
-    }
+    mtype=ScheduleType1Enum.WEEKDAYS
 )
 ```
 

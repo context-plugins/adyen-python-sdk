@@ -48,8 +48,6 @@ class LineItem(object):
         tracking_number (str): Tracking number for the delivery of the item.
         tracking_uri (str): Tracking URI for the delivery of the item.
         upc (str): Universal Product Code.
-        additional_properties (Dict[str, Any]): The additional properties for the
-            model.
 
     """
 
@@ -136,8 +134,7 @@ class LineItem(object):
         tax_percentage=APIHelper.SKIP,
         tracking_number=APIHelper.SKIP,
         tracking_uri=APIHelper.SKIP,
-        upc=APIHelper.SKIP,
-        additional_properties=None):
+        upc=APIHelper.SKIP):
         """Initialize a LineItem instance."""
         # Initialize members of the class
         if amount_excluding_tax is not APIHelper.SKIP:
@@ -190,11 +187,6 @@ class LineItem(object):
             self.tracking_uri = tracking_uri
         if upc is not APIHelper.SKIP:
             self.upc = upc
-
-        # Add additional model properties to the instance
-        if additional_properties is None:
-            additional_properties = {}
-        self.additional_properties = additional_properties
 
     @classmethod
     def from_dictionary(cls,
@@ -315,11 +307,6 @@ class LineItem(object):
             if dictionary.get("upc")\
                 else APIHelper.SKIP
 
-        additional_properties = APIHelper.get_additional_properties(
-            dictionary={k: v for k, v in dictionary.items()
-                        if k not in cls._names.values()},
-            unboxing_function=lambda value: value)
-
         # Return an object of this model
         return cls(amount_excluding_tax,
                    amount_including_tax,
@@ -345,8 +332,7 @@ class LineItem(object):
                    tax_percentage,
                    tracking_number,
                    tracking_uri,
-                   upc,
-                   additional_properties)
+                   upc)
 
     @classmethod
     def validate(cls, dictionary):
@@ -496,7 +482,6 @@ class LineItem(object):
             if hasattr(self, "upc")
             else None
         )
-        _additional_properties=self.additional_properties
         return (
             f"{self.__class__.__name__}("
             f"amount_excluding_tax={_amount_excluding_tax!r}, "
@@ -524,7 +509,6 @@ class LineItem(object):
             f"tracking_number={_tracking_number!r}, "
             f"tracking_uri={_tracking_uri!r}, "
             f"upc={_upc!r}, "
-            f"additional_properties={_additional_properties!r}, "
             f")"
         )
 
@@ -655,7 +639,6 @@ class LineItem(object):
             if hasattr(self, "upc")
             else None
         )
-        _additional_properties=self.additional_properties
         return (
             f"{self.__class__.__name__}("
             f"amount_excluding_tax={_amount_excluding_tax!s}, "
@@ -683,6 +666,5 @@ class LineItem(object):
             f"tracking_number={_tracking_number!s}, "
             f"tracking_uri={_tracking_uri!s}, "
             f"upc={_upc!s}, "
-            f"additional_properties={_additional_properties!s}, "
             f")"
         )

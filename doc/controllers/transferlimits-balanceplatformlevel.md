@@ -35,15 +35,15 @@ def get_balance_platforms_id_transfer_limits(self,
 | Parameter | Type | Tags | Description |
 |  --- | --- | --- | --- |
 | `id` | `str` | Template, Required | The unique identifier of the balance platform. |
-| `scope` | [`Scope`](../../doc/models/scope.md) | Query, Optional | The scope to which the transfer limit applies. Possible values:<br><br>* **perTransaction**: you set a maximum amount for each transfer made from the balance account or balance platform.<br>* **perDay**: you set a maximum total amount for all transfers made from the balance account or balance platform in a day. |
-| `transfer_type` | [`TransferType`](../../doc/models/transfer-type.md) | Query, Optional | The type of transfer to which the limit applies. Possible values:<br><br>* **instant**: the limit applies to transfers with an **instant** priority.<br>* **all**: the limit applies to all transfers, regardless of priority. |
-| `status` | [`LimitStatus`](../../doc/models/limit-status.md) | Query, Optional | The status of the transfer limit. Possible values:<br><br>* **active**: the limit is currently active.<br>* **inactive**: the limit is currently inactive.<br>* **pendingSCA**: the limit is pending until your user performs SCA.<br>* **scheduled**: the limit is scheduled to become active at a future date. |
+| `scope` | [`ScopeEnum`](../../doc/models/scope-enum.md) | Query, Optional | The scope to which the transfer limit applies. Possible values:<br><br>* **perTransaction**: you set a maximum amount for each transfer made from the balance account or balance platform.<br>* **perDay**: you set a maximum total amount for all transfers made from the balance account or balance platform in a day. |
+| `transfer_type` | [`TransferTypeEnum`](../../doc/models/transfer-type-enum.md) | Query, Optional | The type of transfer to which the limit applies. Possible values:<br><br>* **instant**: the limit applies to transfers with an **instant** priority.<br>* **all**: the limit applies to all transfers, regardless of priority. |
+| `status` | [`LimitStatusEnum`](../../doc/models/limit-status-enum.md) | Query, Optional | The status of the transfer limit. Possible values:<br><br>* **active**: the limit is currently active.<br>* **inactive**: the limit is currently inactive.<br>* **pendingSCA**: the limit is pending until your user performs SCA.<br>* **scheduled**: the limit is scheduled to become active at a future date. |
 
 ## Response Type
 
 **200**: OK - The request has succeeded.
 
-This method returns an [`ApiResponse`](../../doc/api-response.md) instance. The `body` property of this instance returns the response data which is of type [`TransferLimitListResponse`](../../doc/models/transfer-limit-list-response.md).
+[`TransferLimitListResponse`](../../doc/models/transfer-limit-list-response.md)
 
 ## Example Usage
 
@@ -51,11 +51,7 @@ This method returns an [`ApiResponse`](../../doc/api-response.md) instance. The 
 id = 'id0'
 
 result = transfer_limits_balance_platform_level_api.get_balance_platforms_id_transfer_limits(id)
-
-if result.is_success():
-    print(result.body)
-elif result.is_error():
-    print(result.errors)
+print(result)
 ```
 
 ## Example Response *(as JSON)*
@@ -105,8 +101,8 @@ elif result.is_error():
 
 | HTTP Status Code | Error Description | Exception Class |
 |  --- | --- | --- |
-| 404 | Not found - One of the transfer limits could not be found. | [`BalancePlatformsTransferLimits404ErrorException`](../../doc/models/balance-platforms-transfer-limits-404-error-exception.md) |
-| 422 | Unprocessable Content - A request validation error. | [`BalancePlatformsTransferLimits422ErrorException`](../../doc/models/balance-platforms-transfer-limits-422-error-exception.md) |
+| 404 | Not found - One of the transfer limits could not be found. | [`DefaultErrorResponseEntityException`](../../doc/models/default-error-response-entity-exception.md) |
+| 422 | Unprocessable Content - A request validation error. | [`DefaultErrorResponseEntityException`](../../doc/models/default-error-response-entity-exception.md) |
 
 
 # Post-Balance Platforms-Id-Transfer Limits
@@ -132,7 +128,7 @@ def post_balance_platforms_id_transfer_limits(self,
 
 **200**: OK - The request has succeeded.
 
-This method returns an [`ApiResponse`](../../doc/api-response.md) instance. The `body` property of this instance returns the response data which is of type [`BalancePlatformsTransferLimitsResponse1`](../../doc/models/balance-platforms-transfer-limits-response-1.md).
+[`TransferLimit`](../../doc/models/transfer-limit.md)
 
 ## Example Usage
 
@@ -140,15 +136,15 @@ This method returns an [`ApiResponse`](../../doc/api-response.md) instance. The 
 id = 'id0'
 
 body = CreateTransferLimitRequest(
-    amount=Amount5(
+    amount=Amount17(
         currency='EUR',
         value=10000
     ),
-    scope=Scope.PERTRANSACTION,
-    transfer_type=TransferType.ALL,
+    scope=ScopeEnum.PERTRANSACTION,
+    transfer_type=TransferTypeEnum.ALL,
     ends_at=dateutil.parser.parse('2026-08-14T00:00:00+01:00'),
     reference='Your reference for the transfer limit',
-    sca_information=CreateScaInformation(
+    sca_information=CreateScaInformation1(
         sca_on_approval=True
     ),
     starts_at=dateutil.parser.parse('2025-08-15T06:36:20+01:00')
@@ -158,11 +154,7 @@ result = transfer_limits_balance_platform_level_api.post_balance_platforms_id_tr
     id,
     body
 )
-
-if result.is_success():
-    print(result.body)
-elif result.is_error():
-    print(result.errors)
+print(result)
 ```
 
 ## Example Response *(as JSON)*
@@ -190,8 +182,8 @@ elif result.is_error():
 
 | HTTP Status Code | Error Description | Exception Class |
 |  --- | --- | --- |
-| 404 | Not found - One of the transfer limits could not be found. | [`BalancePlatformsTransferLimits404ErrorException`](../../doc/models/balance-platforms-transfer-limits-404-error-exception.md) |
-| 422 | Unprocessable Content - A request validation error. | [`BalancePlatformsTransferLimits422ErrorException`](../../doc/models/balance-platforms-transfer-limits-422-error-exception.md) |
+| 404 | Not found - One of the transfer limits could not be found. | [`DefaultErrorResponseEntityException`](../../doc/models/default-error-response-entity-exception.md) |
+| 422 | Unprocessable Content - A request validation error. | [`DefaultErrorResponseEntityException`](../../doc/models/default-error-response-entity-exception.md) |
 
 
 # Get-Balance Platforms-Id-Transfer Limits-Transfer Limit Id
@@ -217,7 +209,7 @@ def get_balance_platforms_id_transfer_limits_transfer_limit_id(self,
 
 **200**: OK - The request has succeeded.
 
-This method returns an [`ApiResponse`](../../doc/api-response.md) instance. The `body` property of this instance returns the response data which is of type [`BalancePlatformsTransferLimitsResponse1`](../../doc/models/balance-platforms-transfer-limits-response-1.md).
+[`TransferLimit`](../../doc/models/transfer-limit.md)
 
 ## Example Usage
 
@@ -230,11 +222,7 @@ result = transfer_limits_balance_platform_level_api.get_balance_platforms_id_tra
     id,
     transfer_limit_id
 )
-
-if result.is_success():
-    print(result.body)
-elif result.is_error():
-    print(result.errors)
+print(result)
 ```
 
 ## Example Response *(as JSON)*
@@ -263,8 +251,8 @@ elif result.is_error():
 
 | HTTP Status Code | Error Description | Exception Class |
 |  --- | --- | --- |
-| 404 | Not found - One of the transfer limits could not be found. | [`BalancePlatformsTransferLimits404ErrorException`](../../doc/models/balance-platforms-transfer-limits-404-error-exception.md) |
-| 422 | Unprocessable Content - A request validation error. | [`BalancePlatformsTransferLimits422ErrorException`](../../doc/models/balance-platforms-transfer-limits-422-error-exception.md) |
+| 404 | Not found - One of the transfer limits could not be found. | [`DefaultErrorResponseEntityException`](../../doc/models/default-error-response-entity-exception.md) |
+| 422 | Unprocessable Content - A request validation error. | [`DefaultErrorResponseEntityException`](../../doc/models/default-error-response-entity-exception.md) |
 
 
 # Delete-Balance Platforms-Id-Transfer Limits-Transfer Limit Id
@@ -290,7 +278,7 @@ def delete_balance_platforms_id_transfer_limits_transfer_limit_id(self,
 
 **204**: No Content - The request has succeeded.
 
-This method returns an [`ApiResponse`](../../doc/api-response.md) instance.
+`void`
 
 ## Example Usage
 
@@ -299,21 +287,16 @@ id = 'id0'
 
 transfer_limit_id = 'transferLimitId6'
 
-result = transfer_limits_balance_platform_level_api.delete_balance_platforms_id_transfer_limits_transfer_limit_id(
+transfer_limits_balance_platform_level_api.delete_balance_platforms_id_transfer_limits_transfer_limit_id(
     id,
     transfer_limit_id
 )
-
-if result.is_success():
-    print(result.body)
-elif result.is_error():
-    print(result.errors)
 ```
 
 ## Errors
 
 | HTTP Status Code | Error Description | Exception Class |
 |  --- | --- | --- |
-| 404 | Not found - One of the transfer limits could not be found. | [`BalancePlatformsTransferLimits404ErrorException`](../../doc/models/balance-platforms-transfer-limits-404-error-exception.md) |
-| 422 | Unprocessable Content - A request validation error. | [`BalancePlatformsTransferLimits422ErrorException`](../../doc/models/balance-platforms-transfer-limits-422-error-exception.md) |
+| 404 | Not found - One of the transfer limits could not be found. | [`DefaultErrorResponseEntityException`](../../doc/models/default-error-response-entity-exception.md) |
+| 422 | Unprocessable Content - A request validation error. | [`DefaultErrorResponseEntityException`](../../doc/models/default-error-response-entity-exception.md) |
 

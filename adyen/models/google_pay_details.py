@@ -12,7 +12,10 @@ class GooglePayDetails(object):
 
     Attributes:
         checkout_attempt_id (str): The checkout attempt identifier.
-        funding_source (FundingSource): The model property of type FundingSource.
+        funding_source (FundingSourceEnum): The funding source that should be used
+            when multiple sources are available. For Brazilian combo cards, by
+            default the funding source is credit. To use debit, set this value to
+            **debit**.
         google_pay_card_network (str): The selected payment card network.
         google_pay_token (str): The `token` that you obtained from the [Google Pay
             API](https://developers.google.com/pay/api/web/reference/response-objects#
@@ -25,9 +28,7 @@ class GooglePayDetails(object):
             returned in the response when you created the token.
         three_ds_2_sdk_version (str): Required for mobile integrations. Version of
             the 3D Secure 2 mobile SDK.
-        mtype (Type24): The model property of type Type24.
-        additional_properties (Dict[str, Any]): The additional properties for the
-            model.
+        mtype (Type24Enum): **googlepay**, **paywithgoogle**
 
     """
 
@@ -65,8 +66,7 @@ class GooglePayDetails(object):
         sdk_data=APIHelper.SKIP,
         stored_payment_method_id=APIHelper.SKIP,
         three_ds_2_sdk_version=APIHelper.SKIP,
-        mtype=APIHelper.SKIP,
-        additional_properties=None):
+        mtype="googlepay"):
         """Initialize a GooglePayDetails instance."""
         # Initialize members of the class
         if checkout_attempt_id is not APIHelper.SKIP:
@@ -84,13 +84,7 @@ class GooglePayDetails(object):
             self.stored_payment_method_id = stored_payment_method_id
         if three_ds_2_sdk_version is not APIHelper.SKIP:
             self.three_ds_2_sdk_version = three_ds_2_sdk_version
-        if mtype is not APIHelper.SKIP:
-            self.mtype = mtype
-
-        # Add additional model properties to the instance
-        if additional_properties is None:
-            additional_properties = {}
-        self.additional_properties = additional_properties
+        self.mtype = mtype
 
     @classmethod
     def from_dictionary(cls,
@@ -145,12 +139,7 @@ class GooglePayDetails(object):
         mtype =\
             dictionary.get("type")\
             if dictionary.get("type")\
-                else APIHelper.SKIP
-
-        additional_properties = APIHelper.get_additional_properties(
-            dictionary={k: v for k, v in dictionary.items()
-                        if k not in cls._names.values()},
-            unboxing_function=lambda value: value)
+                else "googlepay"
 
         # Return an object of this model
         return cls(google_pay_token,
@@ -161,8 +150,7 @@ class GooglePayDetails(object):
                    sdk_data,
                    stored_payment_method_id,
                    three_ds_2_sdk_version,
-                   mtype,
-                   additional_properties)
+                   mtype)
 
     @classmethod
     def validate(cls, dictionary):
@@ -240,7 +228,6 @@ class GooglePayDetails(object):
             if hasattr(self, "mtype")
             else None
         )
-        _additional_properties=self.additional_properties
         return (
             f"{self.__class__.__name__}("
             f"checkout_attempt_id={_checkout_attempt_id!r}, "
@@ -252,7 +239,6 @@ class GooglePayDetails(object):
             f"stored_payment_method_id={_stored_payment_method_id!r}, "
             f"three_ds_2_sdk_version={_three_ds_2_sdk_version!r}, "
             f"mtype={_mtype!r}, "
-            f"additional_properties={_additional_properties!r}, "
             f")"
         )
 
@@ -299,7 +285,6 @@ class GooglePayDetails(object):
             if hasattr(self, "mtype")
             else None
         )
-        _additional_properties=self.additional_properties
         return (
             f"{self.__class__.__name__}("
             f"checkout_attempt_id={_checkout_attempt_id!s}, "
@@ -311,6 +296,5 @@ class GooglePayDetails(object):
             f"stored_payment_method_id={_stored_payment_method_id!s}, "
             f"three_ds_2_sdk_version={_three_ds_2_sdk_version!s}, "
             f"mtype={_mtype!s}, "
-            f"additional_properties={_additional_properties!s}, "
             f")"
         )

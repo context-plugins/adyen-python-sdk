@@ -39,8 +39,6 @@ class TemporaryServices(object):
         start_date (date): The billing period start date. * Format [ISO
             8601](https://www.w3.org/TR/NOTE-datetime): yyyy-MM-dd * **additionalData
             key:** `enhancedSchemeData.tempStartDate`
-        additional_properties (Dict[str, Any]): The additional properties for the
-            model.
 
     """
 
@@ -73,8 +71,7 @@ class TemporaryServices(object):
         hours_worked=APIHelper.SKIP,
         job_description=APIHelper.SKIP,
         service_requestor=APIHelper.SKIP,
-        start_date=APIHelper.SKIP,
-        additional_properties=None):
+        start_date=APIHelper.SKIP):
         """Initialize a TemporaryServices instance."""
         # Initialize members of the class
         if employee_name is not APIHelper.SKIP:
@@ -91,11 +88,6 @@ class TemporaryServices(object):
             self.service_requestor = service_requestor
         if start_date is not APIHelper.SKIP:
             self.start_date = start_date
-
-        # Add additional model properties to the instance
-        if additional_properties is None:
-            additional_properties = {}
-        self.additional_properties = additional_properties
 
     @classmethod
     def from_dictionary(cls,
@@ -142,11 +134,6 @@ class TemporaryServices(object):
             dictionary.get("startDate")).date()\
             if dictionary.get("startDate") else APIHelper.SKIP
 
-        additional_properties = APIHelper.get_additional_properties(
-            dictionary={k: v for k, v in dictionary.items()
-                        if k not in cls._names.values()},
-            unboxing_function=lambda value: value)
-
         # Return an object of this model
         return cls(employee_name,
                    end_date,
@@ -154,29 +141,7 @@ class TemporaryServices(object):
                    hours_worked,
                    job_description,
                    service_requestor,
-                   start_date,
-                   additional_properties)
-
-    @classmethod
-    def validate(cls, dictionary):
-        """Validate dictionary against class required properties
-
-        Args:
-            dictionary (dictionary): A dictionary representation of the object
-            as obtained from the deserialization of the server's response. The
-            keys MUST match property names in the API description.
-
-        Returns:
-            boolean : if dictionary is valid contains required properties.
-
-        """
-        if isinstance(dictionary, cls):
-            return True
-
-        if not isinstance(dictionary, dict):
-            return False
-
-        return True
+                   start_date)
 
     def __repr__(self):
         """Return a unambiguous string representation."""
@@ -215,7 +180,6 @@ class TemporaryServices(object):
             if hasattr(self, "start_date")
             else None
         )
-        _additional_properties=self.additional_properties
         return (
             f"{self.__class__.__name__}("
             f"employee_name={_employee_name!r}, "
@@ -225,7 +189,6 @@ class TemporaryServices(object):
             f"job_description={_job_description!r}, "
             f"service_requestor={_service_requestor!r}, "
             f"start_date={_start_date!r}, "
-            f"additional_properties={_additional_properties!r}, "
             f")"
         )
 
@@ -266,7 +229,6 @@ class TemporaryServices(object):
             if hasattr(self, "start_date")
             else None
         )
-        _additional_properties=self.additional_properties
         return (
             f"{self.__class__.__name__}("
             f"employee_name={_employee_name!s}, "
@@ -276,6 +238,5 @@ class TemporaryServices(object):
             f"job_description={_job_description!s}, "
             f"service_requestor={_service_requestor!s}, "
             f"start_date={_start_date!s}, "
-            f"additional_properties={_additional_properties!s}, "
             f")"
         )

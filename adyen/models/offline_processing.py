@@ -14,8 +14,6 @@ class OfflineProcessing(object):
         chip_floor_limit (int): The maximum offline transaction amount for chip
             cards, in the processing currency and specified in [minor
             units](https://docs.adyen.com/development-resources/currency-codes).
-        additional_properties (Dict[str, Any]): The additional properties for the
-            model.
 
     """
 
@@ -30,17 +28,11 @@ class OfflineProcessing(object):
 
     def __init__(
         self,
-        chip_floor_limit=APIHelper.SKIP,
-        additional_properties=None):
+        chip_floor_limit=APIHelper.SKIP):
         """Initialize a OfflineProcessing instance."""
         # Initialize members of the class
         if chip_floor_limit is not APIHelper.SKIP:
             self.chip_floor_limit = chip_floor_limit
-
-        # Add additional model properties to the instance
-        if additional_properties is None:
-            additional_properties = {}
-        self.additional_properties = additional_properties
 
     @classmethod
     def from_dictionary(cls,
@@ -65,14 +57,8 @@ class OfflineProcessing(object):
             if dictionary.get("chipFloorLimit")\
                 else APIHelper.SKIP
 
-        additional_properties = APIHelper.get_additional_properties(
-            dictionary={k: v for k, v in dictionary.items()
-                        if k not in cls._names.values()},
-            unboxing_function=lambda value: value)
-
         # Return an object of this model
-        return cls(chip_floor_limit,
-                   additional_properties)
+        return cls(chip_floor_limit)
 
     def __repr__(self):
         """Return a unambiguous string representation."""
@@ -81,11 +67,9 @@ class OfflineProcessing(object):
             if hasattr(self, "chip_floor_limit")
             else None
         )
-        _additional_properties=self.additional_properties
         return (
             f"{self.__class__.__name__}("
             f"chip_floor_limit={_chip_floor_limit!r}, "
-            f"additional_properties={_additional_properties!r}, "
             f")"
         )
 
@@ -96,10 +80,8 @@ class OfflineProcessing(object):
             if hasattr(self, "chip_floor_limit")
             else None
         )
-        _additional_properties=self.additional_properties
         return (
             f"{self.__class__.__name__}("
             f"chip_floor_limit={_chip_floor_limit!s}, "
-            f"additional_properties={_additional_properties!s}, "
             f")"
         )

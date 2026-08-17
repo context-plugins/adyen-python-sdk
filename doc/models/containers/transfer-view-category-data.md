@@ -21,7 +21,9 @@
 #### Example
 
 ```python
-value = BankCategoryData()
+value = BankCategoryData(
+    mtype=Type310Enum.BANK
+)
 ```
 
 ## InternalCategoryData
@@ -31,7 +33,9 @@ value = BankCategoryData()
 #### Example
 
 ```python
-value = InternalCategoryData()
+value = InternalCategoryData(
+    mtype=Type411Enum.INTERNAL
+)
 ```
 
 ## IssuedCard
@@ -41,7 +45,9 @@ value = InternalCategoryData()
 #### Example
 
 ```python
-value = IssuedCard()
+value = IssuedCard(
+    mtype=Type511Enum.ISSUEDCARD
+)
 ```
 
 ## PlatformPayment
@@ -51,6 +57,8 @@ value = IssuedCard()
 #### Example
 
 ```python
-value = PlatformPayment()
+value = PlatformPayment(
+    mtype=Type63Enum.PLATFORMPAYMENT
+)
 ```
 

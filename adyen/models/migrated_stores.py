@@ -20,8 +20,6 @@ class MigratedStores(object):
         store_reference (str): Your reference for the store in the classic
             integration. The [Customer Area](https://ca-test.adyen.com/) uses this
             value for the store description.
-        additional_properties (Dict[str, Any]): The additional properties for the
-            model.
 
     """
 
@@ -45,8 +43,7 @@ class MigratedStores(object):
         business_line_id=APIHelper.SKIP,
         store_code=APIHelper.SKIP,
         store_id=APIHelper.SKIP,
-        store_reference=APIHelper.SKIP,
-        additional_properties=None):
+        store_reference=APIHelper.SKIP):
         """Initialize a MigratedStores instance."""
         # Initialize members of the class
         if business_line_id is not APIHelper.SKIP:
@@ -57,11 +54,6 @@ class MigratedStores(object):
             self.store_id = store_id
         if store_reference is not APIHelper.SKIP:
             self.store_reference = store_reference
-
-        # Add additional model properties to the instance
-        if additional_properties is None:
-            additional_properties = {}
-        self.additional_properties = additional_properties
 
     @classmethod
     def from_dictionary(cls,
@@ -98,17 +90,11 @@ class MigratedStores(object):
             if dictionary.get("storeReference")\
                 else APIHelper.SKIP
 
-        additional_properties = APIHelper.get_additional_properties(
-            dictionary={k: v for k, v in dictionary.items()
-                        if k not in cls._names.values()},
-            unboxing_function=lambda value: value)
-
         # Return an object of this model
         return cls(business_line_id,
                    store_code,
                    store_id,
-                   store_reference,
-                   additional_properties)
+                   store_reference)
 
     def __repr__(self):
         """Return a unambiguous string representation."""
@@ -132,14 +118,12 @@ class MigratedStores(object):
             if hasattr(self, "store_reference")
             else None
         )
-        _additional_properties=self.additional_properties
         return (
             f"{self.__class__.__name__}("
             f"business_line_id={_business_line_id!r}, "
             f"store_code={_store_code!r}, "
             f"store_id={_store_id!r}, "
             f"store_reference={_store_reference!r}, "
-            f"additional_properties={_additional_properties!r}, "
             f")"
         )
 
@@ -165,13 +149,11 @@ class MigratedStores(object):
             if hasattr(self, "store_reference")
             else None
         )
-        _additional_properties=self.additional_properties
         return (
             f"{self.__class__.__name__}("
             f"business_line_id={_business_line_id!s}, "
             f"store_code={_store_code!s}, "
             f"store_id={_store_id!s}, "
             f"store_reference={_store_reference!s}, "
-            f"additional_properties={_additional_properties!s}, "
             f")"
         )

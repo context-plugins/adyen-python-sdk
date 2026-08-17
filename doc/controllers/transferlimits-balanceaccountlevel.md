@@ -37,15 +37,15 @@ def get_balance_accounts_id_transfer_limits(self,
 | Parameter | Type | Tags | Description |
 |  --- | --- | --- | --- |
 | `id` | `str` | Template, Required | The unique identifier of the balance account. |
-| `scope` | [`Scope`](../../doc/models/scope.md) | Query, Optional | The scope to which the transfer limit applies. Possible values:<br><br>* **perTransaction**: you set a maximum amount for each transfer made from the balance account or balance platform.<br>* **perDay**: you set a maximum total amount for all transfers made from the balance account or balance platform in a day. |
-| `transfer_type` | [`TransferType`](../../doc/models/transfer-type.md) | Query, Optional | The type of transfer to which the limit applies. Possible values:<br><br>* **instant**: the limit applies to transfers with an **instant** priority.<br>* **all**: the limit applies to all transfers, regardless of priority. |
-| `status` | [`LimitStatus`](../../doc/models/limit-status.md) | Query, Optional | The status of the transfer limit. Possible values:<br><br>* **active**: the limit is currently active.<br>* **inactive**: the limit is currently inactive.<br>* **pendingSCA**: the limit is pending until your user performs SCA.<br>* **scheduled**: the limit is scheduled to become active at a future date. |
+| `scope` | [`ScopeEnum`](../../doc/models/scope-enum.md) | Query, Optional | The scope to which the transfer limit applies. Possible values:<br><br>* **perTransaction**: you set a maximum amount for each transfer made from the balance account or balance platform.<br>* **perDay**: you set a maximum total amount for all transfers made from the balance account or balance platform in a day. |
+| `transfer_type` | [`TransferTypeEnum`](../../doc/models/transfer-type-enum.md) | Query, Optional | The type of transfer to which the limit applies. Possible values:<br><br>* **instant**: the limit applies to transfers with an **instant** priority.<br>* **all**: the limit applies to all transfers, regardless of priority. |
+| `status` | [`LimitStatusEnum`](../../doc/models/limit-status-enum.md) | Query, Optional | The status of the transfer limit. Possible values:<br><br>* **active**: the limit is currently active.<br>* **inactive**: the limit is currently inactive.<br>* **pendingSCA**: the limit is pending until your user performs SCA.<br>* **scheduled**: the limit is scheduled to become active at a future date. |
 
 ## Response Type
 
 **200**: OK - The request has succeeded.
 
-This method returns an [`ApiResponse`](../../doc/api-response.md) instance. The `body` property of this instance returns the response data which is of type [`TransferLimitListResponse`](../../doc/models/transfer-limit-list-response.md).
+[`TransferLimitListResponse`](../../doc/models/transfer-limit-list-response.md)
 
 ## Example Usage
 
@@ -53,11 +53,7 @@ This method returns an [`ApiResponse`](../../doc/api-response.md) instance. The 
 id = 'id0'
 
 result = transfer_limits_balance_account_level_api.get_balance_accounts_id_transfer_limits(id)
-
-if result.is_success():
-    print(result.body)
-elif result.is_error():
-    print(result.errors)
+print(result)
 ```
 
 ## Example Response *(as JSON)*
@@ -107,8 +103,8 @@ elif result.is_error():
 
 | HTTP Status Code | Error Description | Exception Class |
 |  --- | --- | --- |
-| 404 | Not found - One of the transfer limits could not be found. | [`BalanceAccountsTransferLimits404ErrorException`](../../doc/models/balance-accounts-transfer-limits-404-error-exception.md) |
-| 422 | Unprocessable Content - A request validation error. | [`BalanceAccountsTransferLimits422ErrorException`](../../doc/models/balance-accounts-transfer-limits-422-error-exception.md) |
+| 404 | Not found - One of the transfer limits could not be found. | [`DefaultErrorResponseEntityException`](../../doc/models/default-error-response-entity-exception.md) |
+| 422 | Unprocessable Content - A request validation error. | [`DefaultErrorResponseEntityException`](../../doc/models/default-error-response-entity-exception.md) |
 
 
 # Post-Balance Accounts-Id-Transfer Limits
@@ -136,7 +132,7 @@ def post_balance_accounts_id_transfer_limits(self,
 
 **200**: OK - The request has succeeded.
 
-This method returns an [`ApiResponse`](../../doc/api-response.md) instance. The `body` property of this instance returns the response data which is of type [`BalanceAccountsTransferLimitsResponse1`](../../doc/models/balance-accounts-transfer-limits-response-1.md).
+[`TransferLimit`](../../doc/models/transfer-limit.md)
 
 ## Example Usage
 
@@ -144,15 +140,15 @@ This method returns an [`ApiResponse`](../../doc/api-response.md) instance. The 
 id = 'id0'
 
 body = CreateTransferLimitRequest(
-    amount=Amount5(
+    amount=Amount17(
         currency='EUR',
         value=10000
     ),
-    scope=Scope.PERTRANSACTION,
-    transfer_type=TransferType.ALL,
+    scope=ScopeEnum.PERTRANSACTION,
+    transfer_type=TransferTypeEnum.ALL,
     ends_at=dateutil.parser.parse('2026-08-14T00:00:00+01:00'),
     reference='Your reference for the transfer limit',
-    sca_information=CreateScaInformation(
+    sca_information=CreateScaInformation1(
         sca_on_approval=True
     ),
     starts_at=dateutil.parser.parse('2025-08-15T06:36:20+01:00')
@@ -162,11 +158,7 @@ result = transfer_limits_balance_account_level_api.post_balance_accounts_id_tran
     id,
     body
 )
-
-if result.is_success():
-    print(result.body)
-elif result.is_error():
-    print(result.errors)
+print(result)
 ```
 
 ## Example Response *(as JSON)*
@@ -194,9 +186,9 @@ elif result.is_error():
 
 | HTTP Status Code | Error Description | Exception Class |
 |  --- | --- | --- |
-| 400 | Bad Request - The input is invalid, or no registered device for SCA was found. | [`BalanceAccountsTransferLimits400ErrorException`](../../doc/models/balance-accounts-transfer-limits-400-error-exception.md) |
-| 401 | Unauthorized - Authentication required via Strong Customer Authentication (SCA). The client must resolve the provided challenge. | [`BalanceAccountsTransferLimits401ErrorException`](../../doc/models/balance-accounts-transfer-limits-401-error-exception.md) |
-| 422 | Unprocessable Content - A request validation error. | [`BalanceAccountsTransferLimits422ErrorException`](../../doc/models/balance-accounts-transfer-limits-422-error-exception.md) |
+| 400 | Bad Request - The input is invalid, or no registered device for SCA was found. | [`DefaultErrorResponseEntityException`](../../doc/models/default-error-response-entity-exception.md) |
+| 401 | Unauthorized - Authentication required via Strong Customer Authentication (SCA). The client must resolve the provided challenge. | [`DefaultErrorResponseEntityException`](../../doc/models/default-error-response-entity-exception.md) |
+| 422 | Unprocessable Content - A request validation error. | [`DefaultErrorResponseEntityException`](../../doc/models/default-error-response-entity-exception.md) |
 
 
 # Post-Balance Accounts-Id-Transfer Limits-Approve
@@ -224,7 +216,7 @@ def post_balance_accounts_id_transfer_limits_approve(self,
 
 **204**: No Content - The request has succeeded.
 
-This method returns an [`ApiResponse`](../../doc/api-response.md) instance.
+`void`
 
 ## Example Usage
 
@@ -238,24 +230,19 @@ body = ApproveTransferLimitRequest(
     ]
 )
 
-result = transfer_limits_balance_account_level_api.post_balance_accounts_id_transfer_limits_approve(
+transfer_limits_balance_account_level_api.post_balance_accounts_id_transfer_limits_approve(
     id,
     body
 )
-
-if result.is_success():
-    print(result.body)
-elif result.is_error():
-    print(result.errors)
 ```
 
 ## Errors
 
 | HTTP Status Code | Error Description | Exception Class |
 |  --- | --- | --- |
-| 401 | Unauthorized - Authentication required via Strong Customer Authentication (SCA). The client must resolve the provided challenge. | [`BalanceAccountsTransferLimitsApprove401ErrorException`](../../doc/models/balance-accounts-transfer-limits-approve-401-error-exception.md) |
-| 404 | Not found - One of the transfer limits could not be found. | [`BalanceAccountsTransferLimitsApprove404ErrorException`](../../doc/models/balance-accounts-transfer-limits-approve-404-error-exception.md) |
-| 422 | Unprocessable Content - A request validation error. | [`BalanceAccountsTransferLimitsApprove422ErrorException`](../../doc/models/balance-accounts-transfer-limits-approve-422-error-exception.md) |
+| 401 | Unauthorized - Authentication required via Strong Customer Authentication (SCA). The client must resolve the provided challenge. | [`DefaultErrorResponseEntityException`](../../doc/models/default-error-response-entity-exception.md) |
+| 404 | Not found - One of the transfer limits could not be found. | [`DefaultErrorResponseEntityException`](../../doc/models/default-error-response-entity-exception.md) |
+| 422 | Unprocessable Content - A request validation error. | [`DefaultErrorResponseEntityException`](../../doc/models/default-error-response-entity-exception.md) |
 
 
 # Get-Balance Accounts-Id-Transfer Limits-Current
@@ -276,14 +263,14 @@ def get_balance_accounts_id_transfer_limits_current(self,
 | Parameter | Type | Tags | Description |
 |  --- | --- | --- | --- |
 | `id` | `str` | Template, Required | The unique identifier of the balance account. |
-| `scope` | [`Scope`](../../doc/models/scope.md) | Query, Optional | The scope to which the transfer limit applies. Possible values:<br><br>* **perTransaction**: you set a maximum amount for each transfer made from the balance account or balance platform.<br>* **perDay**: you set a maximum total amount for all transfers made from the balance account or balance platform in a day. |
-| `transfer_type` | [`TransferType`](../../doc/models/transfer-type.md) | Query, Optional | The type of transfer to which the limit applies. Possible values:<br><br>* **instant**: the limit applies to transfers with an **instant** priority.<br>* **all**: the limit applies to all transfers, regardless of priority. |
+| `scope` | [`ScopeEnum`](../../doc/models/scope-enum.md) | Query, Optional | The scope to which the transfer limit applies. Possible values:<br><br>* **perTransaction**: you set a maximum amount for each transfer made from the balance account or balance platform.<br>* **perDay**: you set a maximum total amount for all transfers made from the balance account or balance platform in a day. |
+| `transfer_type` | [`TransferTypeEnum`](../../doc/models/transfer-type-enum.md) | Query, Optional | The type of transfer to which the limit applies. Possible values:<br><br>* **instant**: the limit applies to transfers with an **instant** priority.<br>* **all**: the limit applies to all transfers, regardless of priority. |
 
 ## Response Type
 
 **200**: OK - The request has succeeded.
 
-This method returns an [`ApiResponse`](../../doc/api-response.md) instance. The `body` property of this instance returns the response data which is of type [`TransferLimitListResponse`](../../doc/models/transfer-limit-list-response.md).
+[`TransferLimitListResponse`](../../doc/models/transfer-limit-list-response.md)
 
 ## Example Usage
 
@@ -291,11 +278,7 @@ This method returns an [`ApiResponse`](../../doc/api-response.md) instance. The 
 id = 'id0'
 
 result = transfer_limits_balance_account_level_api.get_balance_accounts_id_transfer_limits_current(id)
-
-if result.is_success():
-    print(result.body)
-elif result.is_error():
-    print(result.errors)
+print(result)
 ```
 
 ## Example Response *(as JSON)*
@@ -328,8 +311,8 @@ elif result.is_error():
 
 | HTTP Status Code | Error Description | Exception Class |
 |  --- | --- | --- |
-| 404 | Not found - One of the transfer limits could not be found. | [`BalanceAccountsTransferLimitsCurrent404ErrorException`](../../doc/models/balance-accounts-transfer-limits-current-404-error-exception.md) |
-| 422 | Unprocessable Content - A request validation error. | [`BalanceAccountsTransferLimitsCurrent422ErrorException`](../../doc/models/balance-accounts-transfer-limits-current-422-error-exception.md) |
+| 404 | Not found - One of the transfer limits could not be found. | [`DefaultErrorResponseEntityException`](../../doc/models/default-error-response-entity-exception.md) |
+| 422 | Unprocessable Content - A request validation error. | [`DefaultErrorResponseEntityException`](../../doc/models/default-error-response-entity-exception.md) |
 
 
 # Get-Balance Accounts-Id-Transfer Limits-Transfer Limit Id
@@ -355,7 +338,7 @@ def get_balance_accounts_id_transfer_limits_transfer_limit_id(self,
 
 **200**: OK - The request has succeeded.
 
-This method returns an [`ApiResponse`](../../doc/api-response.md) instance. The `body` property of this instance returns the response data which is of type [`BalanceAccountsTransferLimitsResponse1`](../../doc/models/balance-accounts-transfer-limits-response-1.md).
+[`TransferLimit`](../../doc/models/transfer-limit.md)
 
 ## Example Usage
 
@@ -368,11 +351,7 @@ result = transfer_limits_balance_account_level_api.get_balance_accounts_id_trans
     id,
     transfer_limit_id
 )
-
-if result.is_success():
-    print(result.body)
-elif result.is_error():
-    print(result.errors)
+print(result)
 ```
 
 ## Example Response *(as JSON)*
@@ -401,8 +380,8 @@ elif result.is_error():
 
 | HTTP Status Code | Error Description | Exception Class |
 |  --- | --- | --- |
-| 404 | Not found - One of the transfer limits could not be found. | [`BalanceAccountsTransferLimits404ErrorException`](../../doc/models/balance-accounts-transfer-limits-404-error-exception.md) |
-| 422 | Unprocessable Content - A request validation error. | [`BalanceAccountsTransferLimits422ErrorException`](../../doc/models/balance-accounts-transfer-limits-422-error-exception.md) |
+| 404 | Not found - One of the transfer limits could not be found. | [`DefaultErrorResponseEntityException`](../../doc/models/default-error-response-entity-exception.md) |
+| 422 | Unprocessable Content - A request validation error. | [`DefaultErrorResponseEntityException`](../../doc/models/default-error-response-entity-exception.md) |
 
 
 # Delete-Balance Accounts-Id-Transfer Limits-Transfer Limit Id
@@ -428,7 +407,7 @@ def delete_balance_accounts_id_transfer_limits_transfer_limit_id(self,
 
 **204**: No Content - The request has succeeded.
 
-This method returns an [`ApiResponse`](../../doc/api-response.md) instance.
+`void`
 
 ## Example Usage
 
@@ -437,21 +416,16 @@ id = 'id0'
 
 transfer_limit_id = 'transferLimitId6'
 
-result = transfer_limits_balance_account_level_api.delete_balance_accounts_id_transfer_limits_transfer_limit_id(
+transfer_limits_balance_account_level_api.delete_balance_accounts_id_transfer_limits_transfer_limit_id(
     id,
     transfer_limit_id
 )
-
-if result.is_success():
-    print(result.body)
-elif result.is_error():
-    print(result.errors)
 ```
 
 ## Errors
 
 | HTTP Status Code | Error Description | Exception Class |
 |  --- | --- | --- |
-| 404 | Not found - One of the transfer limits could not be found. | [`BalanceAccountsTransferLimits404ErrorException`](../../doc/models/balance-accounts-transfer-limits-404-error-exception.md) |
-| 422 | Unprocessable Content - A request validation error. | [`BalanceAccountsTransferLimits422ErrorException`](../../doc/models/balance-accounts-transfer-limits-422-error-exception.md) |
+| 404 | Not found - One of the transfer limits could not be found. | [`DefaultErrorResponseEntityException`](../../doc/models/default-error-response-entity-exception.md) |
+| 422 | Unprocessable Content - A request validation error. | [`DefaultErrorResponseEntityException`](../../doc/models/default-error-response-entity-exception.md) |
 

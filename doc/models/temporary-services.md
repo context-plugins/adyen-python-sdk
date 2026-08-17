@@ -1,8 +1,6 @@
 
 # Temporary Services
 
-*This model accepts additional fields of type Any.*
-
 ## Structure
 
 `TemporaryServices`
@@ -18,13 +16,11 @@
 | `job_description` | `str` | Optional | The job description of the person working in a temporary capacity.<br><br>* Format: ASCII<br>* Must not start with a space or be all spaces.<br>* Must not be all zeros.<br>* **additionalData key:** `enhancedSchemeData.jobDescription` |
 | `service_requestor` | `str` | Optional | The name of the person requesting the temporary services.<br><br>* Format: ASCII<br>* Must not start with a space or be all spaces.<br>* Must not be all zeros.<br>* **additionalData key:** `enhancedSchemeData.requestName` |
 | `start_date` | `date` | Optional | The billing period start date.<br><br>* Format [ISO 8601](https://www.w3.org/TR/NOTE-datetime): yyyy-MM-dd<br>* **additionalData key:** `enhancedSchemeData.tempStartDate` |
-| `additional_properties` | `Dict[str, Any]` | Optional | - |
 
 ## Example
 
 ```python
 import dateutil.parser
-import jsonpickle
 
 from adyen.models.temporary_services import TemporaryServices
 
@@ -33,10 +29,7 @@ temporary_services = TemporaryServices(
     end_date=dateutil.parser.parse('2016-03-13').date(),
     hour_rate=184,
     hours_worked=124,
-    job_description='jobDescription2',
-    additional_properties={
-        'exampleAdditionalProperty': jsonpickle.decode('{"key1":"val1","key2":"val2"}')
-    }
+    job_description='jobDescription2'
 )
 ```
 

@@ -1,8 +1,6 @@
 
 # Geolocation
 
-*This model accepts additional fields of type Any.*
-
 ## Structure
 
 `Geolocation`
@@ -12,37 +10,25 @@
 | Name | Type | Tags | Description |
 |  --- | --- | --- | --- |
 | `geographic_coordinates` | [`GeographicCoordinates`](../../doc/models/geographic-coordinates.md) | Optional | - |
-| `utm_coordinates` | [`UtmCoordinates`](../../doc/models/utm-coordinates.md) | Optional | - |
-| `additional_properties` | `Dict[str, Any]` | Optional | - |
+| `utm_coordinates` | [`UTMCoordinates`](../../doc/models/utm-coordinates.md) | Optional | - |
 
 ## Example
 
 ```python
-import jsonpickle
-
 from adyen.models.geographic_coordinates import GeographicCoordinates
 from adyen.models.geolocation import Geolocation
-from adyen.models.utm_coordinates import UtmCoordinates
+from adyen.models.utm_coordinates import UTMCoordinates
 
 geolocation = Geolocation(
     geographic_coordinates=GeographicCoordinates(
         latitude='Latitude4',
-        longitude='Longitude2',
-        additional_properties={
-            'exampleAdditionalProperty': jsonpickle.decode('{"key1":"val1","key2":"val2"}')
-        }
+        longitude='Longitude2'
     ),
-    utm_coordinates=UtmCoordinates(
+    utm_coordinates=UTMCoordinates(
         utm_zone='UTMZone6',
         utm_eastward='UTMEastward0',
-        utm_northward='UTMNorthward0',
-        additional_properties={
-            'exampleAdditionalProperty': jsonpickle.decode('{"key1":"val1","key2":"val2"}')
-        }
-    ),
-    additional_properties={
-        'exampleAdditionalProperty': jsonpickle.decode('{"key1":"val1","key2":"val2"}')
-    }
+        utm_northward='UTMNorthward0'
+    )
 )
 ```
 

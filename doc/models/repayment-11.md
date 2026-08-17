@@ -3,8 +3,6 @@
 
 Contains information about the repayment configuration of the grant.
 
-*This model accepts additional fields of type Any.*
-
 ## Structure
 
 `Repayment11`
@@ -14,44 +12,29 @@ Contains information about the repayment configuration of the grant.
 | Name | Type | Tags | Description |
 |  --- | --- | --- | --- |
 | `basis_points` | `int` | Required | The percentage of your user's incoming net volume that is deducted for repaying the grant. The percentage expressed in [basis points](https://www.investopedia.com/terms/b/basispoint.asp). |
-| `term` | [`Term`](../../doc/models/term.md) | Optional | - |
-| `threshold` | [`ThresholdRepayment`](../../doc/models/threshold-repayment.md) | Optional | - |
-| `additional_properties` | `Dict[str, Any]` | Optional | - |
+| `term` | [`RepaymentTerm`](../../doc/models/repayment-term.md) | Optional | Contains information about the time period in which your user must repay the total amount of the grant. |
+| `threshold` | [`ThresholdRepayment21`](../../doc/models/threshold-repayment-21.md) | Optional | Contains the minimum threshold amount that your user must repay every 30-day period. |
 
 ## Example
 
 ```python
-import jsonpickle
-
-from adyen.models.amount_5 import Amount5
+from adyen.models.amount_17 import Amount17
 from adyen.models.repayment_11 import Repayment11
-from adyen.models.term import Term
-from adyen.models.threshold_repayment import ThresholdRepayment
+from adyen.models.repayment_term import RepaymentTerm
+from adyen.models.threshold_repayment_21 import ThresholdRepayment21
 
 repayment_11 = Repayment11(
     basis_points=94,
-    term=Term(
+    term=RepaymentTerm(
         estimated_days=248,
-        maximum_days=24,
-        additional_properties={
-            'exampleAdditionalProperty': jsonpickle.decode('{"key1":"val1","key2":"val2"}')
-        }
+        maximum_days=24
     ),
-    threshold=ThresholdRepayment(
-        amount=Amount5(
+    threshold=ThresholdRepayment21(
+        amount=Amount17(
             currency='currency2',
-            value=110,
-            additional_properties={
-                'exampleAdditionalProperty': jsonpickle.decode('{"key1":"val1","key2":"val2"}')
-            }
-        ),
-        additional_properties={
-            'exampleAdditionalProperty': jsonpickle.decode('{"key1":"val1","key2":"val2"}')
-        }
-    ),
-    additional_properties={
-        'exampleAdditionalProperty': jsonpickle.decode('{"key1":"val1","key2":"val2"}')
-    }
+            value=110
+        )
+    )
 )
 ```
 

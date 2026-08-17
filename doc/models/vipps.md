@@ -1,8 +1,6 @@
 
 # Vipps
 
-*This model accepts additional fields of type Any.*
-
 ## Structure
 
 `Vipps`
@@ -16,15 +14,12 @@
 | `sdk_data` | `str` | Optional | Base64-encoded JSON object containing SDK related parameters required by the SDK<br><br>**Constraints**: *Maximum Length*: `50000` |
 | `stored_payment_method_id` | `str` | Optional | This is the `recurringDetailReference` returned in the response when you created the token.<br><br>**Constraints**: *Maximum Length*: `64` |
 | `telephone_number` | `str` | Required | - |
-| `mtype` | [`Type54`](../../doc/models/type-54.md) | Optional | - |
-| `additional_properties` | `Dict[str, Any]` | Optional | - |
+| `mtype` | [`Type54Enum`](../../doc/models/type-54-enum.md) | Optional | **vipps**<br><br>**Default**: `"vipps"` |
 
 ## Example
 
 ```python
-import jsonpickle
-
-from adyen.models.type_54 import Type54
+from adyen.models.type_54_enum import Type54Enum
 from adyen.models.vipps import Vipps
 
 vipps = Vipps(
@@ -33,10 +28,7 @@ vipps = Vipps(
     recurring_detail_reference='recurringDetailReference6',
     sdk_data='sdkData4',
     stored_payment_method_id='storedPaymentMethodId0',
-    mtype=Type54.VIPPS,
-    additional_properties={
-        'exampleAdditionalProperty': jsonpickle.decode('{"key1":"val1","key2":"val2"}')
-    }
+    mtype=Type54Enum.VIPPS
 )
 ```
 

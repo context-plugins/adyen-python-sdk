@@ -20,8 +20,6 @@ class TransferRequestReview(object):
             post/transfers/approve) request.  Only applies to transfers made with an
             Adyen [business
             account](https://docs.adyen.com/platforms/business-accounts).
-        additional_properties (Dict[str, Any]): The additional properties for the
-            model.
 
     """
 
@@ -39,19 +37,13 @@ class TransferRequestReview(object):
     def __init__(
         self,
         number_of_approvals_required=APIHelper.SKIP,
-        sca_on_approval=APIHelper.SKIP,
-        additional_properties=None):
+        sca_on_approval=APIHelper.SKIP):
         """Initialize a TransferRequestReview instance."""
         # Initialize members of the class
         if number_of_approvals_required is not APIHelper.SKIP:
             self.number_of_approvals_required = number_of_approvals_required
         if sca_on_approval is not APIHelper.SKIP:
             self.sca_on_approval = sca_on_approval
-
-        # Add additional model properties to the instance
-        if additional_properties is None:
-            additional_properties = {}
-        self.additional_properties = additional_properties
 
     @classmethod
     def from_dictionary(cls,
@@ -80,15 +72,9 @@ class TransferRequestReview(object):
             if "scaOnApproval" in dictionary.keys()\
                 else APIHelper.SKIP
 
-        additional_properties = APIHelper.get_additional_properties(
-            dictionary={k: v for k, v in dictionary.items()
-                        if k not in cls._names.values()},
-            unboxing_function=lambda value: value)
-
         # Return an object of this model
         return cls(number_of_approvals_required,
-                   sca_on_approval,
-                   additional_properties)
+                   sca_on_approval)
 
     def __repr__(self):
         """Return a unambiguous string representation."""
@@ -102,12 +88,10 @@ class TransferRequestReview(object):
             if hasattr(self, "sca_on_approval")
             else None
         )
-        _additional_properties=self.additional_properties
         return (
             f"{self.__class__.__name__}("
             f"number_of_approvals_required={_number_of_approvals_required!r}, "
             f"sca_on_approval={_sca_on_approval!r}, "
-            f"additional_properties={_additional_properties!r}, "
             f")"
         )
 
@@ -123,11 +107,9 @@ class TransferRequestReview(object):
             if hasattr(self, "sca_on_approval")
             else None
         )
-        _additional_properties=self.additional_properties
         return (
             f"{self.__class__.__name__}("
             f"number_of_approvals_required={_number_of_approvals_required!s}, "
             f"sca_on_approval={_sca_on_approval!s}, "
-            f"additional_properties={_additional_properties!s}, "
             f")"
         )

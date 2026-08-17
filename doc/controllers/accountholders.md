@@ -51,7 +51,7 @@ This endpoint requires [BasicAuth](../../doc/auth/basic-authentication.md) **OR*
 
 **200**: OK - the request has succeeded.
 
-This method returns an [`ApiResponse`](../../doc/api-response.md) instance. The `body` property of this instance returns the response data which is of type [`CloseAccountHolderResponse`](../../doc/models/close-account-holder-response.md).
+[`CloseAccountHolderResponse`](../../doc/models/close-account-holder-response.md)
 
 ## Example Usage
 
@@ -63,22 +63,18 @@ body = CloseAccountHolderRequest(
 result = account_holders_api.post_close_account_holder(
     body=body
 )
-
-if result.is_success():
-    print(result.body)
-elif result.is_error():
-    print(result.errors)
+print(result)
 ```
 
 ## Errors
 
 | HTTP Status Code | Error Description | Exception Class |
 |  --- | --- | --- |
-| 400 | Bad Request - a problem reading or understanding the request. | [`ServiceErrorException`](../../doc/models/service-error-exception.md) |
-| 401 | Unauthorized - authentication required. | [`ServiceErrorException`](../../doc/models/service-error-exception.md) |
-| 403 | Forbidden - insufficient permissions to process the request. | [`ServiceErrorException`](../../doc/models/service-error-exception.md) |
-| 422 | Unprocessable Entity - a request validation error. | [`ServiceErrorException`](../../doc/models/service-error-exception.md) |
-| 500 | Internal Server Error - the server could not process the request. | [`ServiceErrorException`](../../doc/models/service-error-exception.md) |
+| 400 | Bad Request - a problem reading or understanding the request. | [`ServiceErrorError1Exception`](../../doc/models/service-error-error-1-exception.md) |
+| 401 | Unauthorized - authentication required. | [`ServiceErrorError1Exception`](../../doc/models/service-error-error-1-exception.md) |
+| 403 | Forbidden - insufficient permissions to process the request. | [`ServiceErrorError1Exception`](../../doc/models/service-error-error-1-exception.md) |
+| 422 | Unprocessable Entity - a request validation error. | [`ServiceErrorError1Exception`](../../doc/models/service-error-error-1-exception.md) |
+| 500 | Internal Server Error - the server could not process the request. | [`ServiceErrorError1Exception`](../../doc/models/service-error-error-1-exception.md) |
 
 
 # Post-Close Stores
@@ -104,28 +100,24 @@ This endpoint requires [BasicAuth](../../doc/auth/basic-authentication.md) **OR*
 
 **200**: OK - the request has succeeded.
 
-This method returns an [`ApiResponse`](../../doc/api-response.md) instance. The `body` property of this instance returns the response data which is of type [`GenericResponse`](../../doc/models/generic-response.md).
+[`GenericResponse`](../../doc/models/generic-response.md)
 
 ## Example Usage
 
 ```python
 result = account_holders_api.post_close_stores()
-
-if result.is_success():
-    print(result.body)
-elif result.is_error():
-    print(result.errors)
+print(result)
 ```
 
 ## Errors
 
 | HTTP Status Code | Error Description | Exception Class |
 |  --- | --- | --- |
-| 400 | Bad Request - a problem reading or understanding the request. | [`ServiceErrorException`](../../doc/models/service-error-exception.md) |
-| 401 | Unauthorized - authentication required. | [`ServiceErrorException`](../../doc/models/service-error-exception.md) |
-| 403 | Forbidden - insufficient permissions to process the request. | [`ServiceErrorException`](../../doc/models/service-error-exception.md) |
-| 422 | Unprocessable Entity - a request validation error. | [`ServiceErrorException`](../../doc/models/service-error-exception.md) |
-| 500 | Internal Server Error - the server could not process the request. | [`ServiceErrorException`](../../doc/models/service-error-exception.md) |
+| 400 | Bad Request - a problem reading or understanding the request. | [`ServiceErrorError1Exception`](../../doc/models/service-error-error-1-exception.md) |
+| 401 | Unauthorized - authentication required. | [`ServiceErrorError1Exception`](../../doc/models/service-error-error-1-exception.md) |
+| 403 | Forbidden - insufficient permissions to process the request. | [`ServiceErrorError1Exception`](../../doc/models/service-error-error-1-exception.md) |
+| 422 | Unprocessable Entity - a request validation error. | [`ServiceErrorError1Exception`](../../doc/models/service-error-error-1-exception.md) |
+| 500 | Internal Server Error - the server could not process the request. | [`ServiceErrorError1Exception`](../../doc/models/service-error-error-1-exception.md) |
 
 
 # Post-Create Account Holder
@@ -151,48 +143,44 @@ This endpoint requires [BasicAuth](../../doc/auth/basic-authentication.md) **OR*
 
 **200**: OK - the request has succeeded.
 
-This method returns an [`ApiResponse`](../../doc/api-response.md) instance. The `body` property of this instance returns the response data which is of type [`CreateAccountHolderResponse`](../../doc/models/create-account-holder-response.md).
+[`CreateAccountHolderResponse`](../../doc/models/create-account-holder-response.md)
 
 ## Example Usage
 
 ```python
 body = CreateAccountHolderRequest(
     account_holder_code='YOUR_UNIQUE_ACCOUNT_HOLDER_CODE',
-    account_holder_details=AccountHolderDetails(
-        address=ViasAddress(
+    account_holder_details=AccountHolderDetails1(
+        address=ViasAddress9(
             country='US'
         ),
-        business_details=BusinessDetails(
+        business_details=BusinessDetails3(
             doing_business_as='Real Good Restaurant',
             legal_business_name='Real Good Restaurant Inc.',
             shareholders=[
                 ShareholderContact(
-                    address=ViasAddress(
+                    address=ViasAddress2(
                         country='NL'
                     ),
                     email='testshareholder@email.com',
-                    name=ViasName(
+                    name=ViasName1(
                         first_name='John',
                         last_name='Carpenter'
                     ),
-                    shareholder_type=ShareholderType.CONTROLLER
+                    shareholder_type=ShareholderTypeEnum.CONTROLLER
                 )
             ]
         ),
         email='test@email.com',
         web_address='https://www.your-website.com'
     ),
-    legal_entity=LegalEntity.BUSINESS
+    legal_entity=LegalEntityEnum.BUSINESS
 )
 
 result = account_holders_api.post_create_account_holder(
     body=body
 )
-
-if result.is_success():
-    print(result.body)
-elif result.is_error():
-    print(result.errors)
+print(result)
 ```
 
 ## Example Response *(as JSON)*
@@ -264,11 +252,11 @@ elif result.is_error():
 
 | HTTP Status Code | Error Description | Exception Class |
 |  --- | --- | --- |
-| 400 | Bad Request - a problem reading or understanding the request. | [`ServiceErrorException`](../../doc/models/service-error-exception.md) |
-| 401 | Unauthorized - authentication required. | [`ServiceErrorException`](../../doc/models/service-error-exception.md) |
-| 403 | Forbidden - insufficient permissions to process the request. | [`ServiceErrorException`](../../doc/models/service-error-exception.md) |
-| 422 | Unprocessable Entity - a request validation error. | [`ServiceErrorException`](../../doc/models/service-error-exception.md) |
-| 500 | Internal Server Error - the server could not process the request. | [`ServiceErrorException`](../../doc/models/service-error-exception.md) |
+| 400 | Bad Request - a problem reading or understanding the request. | [`ServiceErrorError1Exception`](../../doc/models/service-error-error-1-exception.md) |
+| 401 | Unauthorized - authentication required. | [`ServiceErrorError1Exception`](../../doc/models/service-error-error-1-exception.md) |
+| 403 | Forbidden - insufficient permissions to process the request. | [`ServiceErrorError1Exception`](../../doc/models/service-error-error-1-exception.md) |
+| 422 | Unprocessable Entity - a request validation error. | [`ServiceErrorError1Exception`](../../doc/models/service-error-error-1-exception.md) |
+| 500 | Internal Server Error - the server could not process the request. | [`ServiceErrorError1Exception`](../../doc/models/service-error-error-1-exception.md) |
 
 
 # Post-Get Account Holder
@@ -294,7 +282,7 @@ This endpoint requires [BasicAuth](../../doc/auth/basic-authentication.md) **OR*
 
 **200**: OK - the request has succeeded.
 
-This method returns an [`ApiResponse`](../../doc/api-response.md) instance. The `body` property of this instance returns the response data which is of type [`GetAccountHolderResponse`](../../doc/models/get-account-holder-response.md).
+[`GetAccountHolderResponse`](../../doc/models/get-account-holder-response.md)
 
 ## Example Usage
 
@@ -306,22 +294,18 @@ body = GetAccountHolderRequest(
 result = account_holders_api.post_get_account_holder(
     body=body
 )
-
-if result.is_success():
-    print(result.body)
-elif result.is_error():
-    print(result.errors)
+print(result)
 ```
 
 ## Errors
 
 | HTTP Status Code | Error Description | Exception Class |
 |  --- | --- | --- |
-| 400 | Bad Request - a problem reading or understanding the request. | [`ServiceErrorException`](../../doc/models/service-error-exception.md) |
-| 401 | Unauthorized - authentication required. | [`ServiceErrorException`](../../doc/models/service-error-exception.md) |
-| 403 | Forbidden - insufficient permissions to process the request. | [`ServiceErrorException`](../../doc/models/service-error-exception.md) |
-| 422 | Unprocessable Entity - a request validation error. | [`ServiceErrorException`](../../doc/models/service-error-exception.md) |
-| 500 | Internal Server Error - the server could not process the request. | [`ServiceErrorException`](../../doc/models/service-error-exception.md) |
+| 400 | Bad Request - a problem reading or understanding the request. | [`ServiceErrorError1Exception`](../../doc/models/service-error-error-1-exception.md) |
+| 401 | Unauthorized - authentication required. | [`ServiceErrorError1Exception`](../../doc/models/service-error-error-1-exception.md) |
+| 403 | Forbidden - insufficient permissions to process the request. | [`ServiceErrorError1Exception`](../../doc/models/service-error-error-1-exception.md) |
+| 422 | Unprocessable Entity - a request validation error. | [`ServiceErrorError1Exception`](../../doc/models/service-error-error-1-exception.md) |
+| 500 | Internal Server Error - the server could not process the request. | [`ServiceErrorError1Exception`](../../doc/models/service-error-error-1-exception.md) |
 
 
 # Post-Get Tax Form
@@ -347,7 +331,7 @@ This endpoint requires [BasicAuth](../../doc/auth/basic-authentication.md) **OR*
 
 **200**: OK - the request has succeeded.
 
-This method returns an [`ApiResponse`](../../doc/api-response.md) instance. The `body` property of this instance returns the response data which is of type [`GetTaxFormResponse`](../../doc/models/get-tax-form-response.md).
+[`GetTaxFormResponse`](../../doc/models/get-tax-form-response.md)
 
 ## Example Usage
 
@@ -361,22 +345,18 @@ body = GetTaxFormRequest(
 result = account_holders_api.post_get_tax_form(
     body=body
 )
-
-if result.is_success():
-    print(result.body)
-elif result.is_error():
-    print(result.errors)
+print(result)
 ```
 
 ## Errors
 
 | HTTP Status Code | Error Description | Exception Class |
 |  --- | --- | --- |
-| 400 | Bad Request - a problem reading or understanding the request. | [`ServiceErrorException`](../../doc/models/service-error-exception.md) |
-| 401 | Unauthorized - authentication required. | [`ServiceErrorException`](../../doc/models/service-error-exception.md) |
-| 403 | Forbidden - insufficient permissions to process the request. | [`ServiceErrorException`](../../doc/models/service-error-exception.md) |
-| 422 | Unprocessable Entity - a request validation error. | [`ServiceErrorException`](../../doc/models/service-error-exception.md) |
-| 500 | Internal Server Error - the server could not process the request. | [`ServiceErrorException`](../../doc/models/service-error-exception.md) |
+| 400 | Bad Request - a problem reading or understanding the request. | [`ServiceErrorError1Exception`](../../doc/models/service-error-error-1-exception.md) |
+| 401 | Unauthorized - authentication required. | [`ServiceErrorError1Exception`](../../doc/models/service-error-error-1-exception.md) |
+| 403 | Forbidden - insufficient permissions to process the request. | [`ServiceErrorError1Exception`](../../doc/models/service-error-error-1-exception.md) |
+| 422 | Unprocessable Entity - a request validation error. | [`ServiceErrorError1Exception`](../../doc/models/service-error-error-1-exception.md) |
+| 500 | Internal Server Error - the server could not process the request. | [`ServiceErrorError1Exception`](../../doc/models/service-error-error-1-exception.md) |
 
 
 # Post-Suspend Account Holder
@@ -402,7 +382,7 @@ This endpoint requires [BasicAuth](../../doc/auth/basic-authentication.md) **OR*
 
 **200**: OK - the request has succeeded.
 
-This method returns an [`ApiResponse`](../../doc/api-response.md) instance. The `body` property of this instance returns the response data which is of type [`SuspendAccountHolderResponse`](../../doc/models/suspend-account-holder-response.md).
+[`SuspendAccountHolderResponse`](../../doc/models/suspend-account-holder-response.md)
 
 ## Example Usage
 
@@ -414,22 +394,18 @@ body = SuspendAccountHolderRequest(
 result = account_holders_api.post_suspend_account_holder(
     body=body
 )
-
-if result.is_success():
-    print(result.body)
-elif result.is_error():
-    print(result.errors)
+print(result)
 ```
 
 ## Errors
 
 | HTTP Status Code | Error Description | Exception Class |
 |  --- | --- | --- |
-| 400 | Bad Request - a problem reading or understanding the request. | [`ServiceErrorException`](../../doc/models/service-error-exception.md) |
-| 401 | Unauthorized - authentication required. | [`ServiceErrorException`](../../doc/models/service-error-exception.md) |
-| 403 | Forbidden - insufficient permissions to process the request. | [`ServiceErrorException`](../../doc/models/service-error-exception.md) |
-| 422 | Unprocessable Entity - a request validation error. | [`ServiceErrorException`](../../doc/models/service-error-exception.md) |
-| 500 | Internal Server Error - the server could not process the request. | [`ServiceErrorException`](../../doc/models/service-error-exception.md) |
+| 400 | Bad Request - a problem reading or understanding the request. | [`ServiceErrorError1Exception`](../../doc/models/service-error-error-1-exception.md) |
+| 401 | Unauthorized - authentication required. | [`ServiceErrorError1Exception`](../../doc/models/service-error-error-1-exception.md) |
+| 403 | Forbidden - insufficient permissions to process the request. | [`ServiceErrorError1Exception`](../../doc/models/service-error-error-1-exception.md) |
+| 422 | Unprocessable Entity - a request validation error. | [`ServiceErrorError1Exception`](../../doc/models/service-error-error-1-exception.md) |
+| 500 | Internal Server Error - the server could not process the request. | [`ServiceErrorError1Exception`](../../doc/models/service-error-error-1-exception.md) |
 
 
 # Post-Un Suspend Account Holder
@@ -458,7 +434,7 @@ This endpoint requires [BasicAuth](../../doc/auth/basic-authentication.md) **OR*
 
 **200**: OK - the request has succeeded.
 
-This method returns an [`ApiResponse`](../../doc/api-response.md) instance. The `body` property of this instance returns the response data which is of type [`UnSuspendAccountHolderResponse`](../../doc/models/un-suspend-account-holder-response.md).
+[`UnSuspendAccountHolderResponse`](../../doc/models/un-suspend-account-holder-response.md)
 
 ## Example Usage
 
@@ -470,22 +446,18 @@ body = UnSuspendAccountHolderRequest(
 result = account_holders_api.post_un_suspend_account_holder(
     body=body
 )
-
-if result.is_success():
-    print(result.body)
-elif result.is_error():
-    print(result.errors)
+print(result)
 ```
 
 ## Errors
 
 | HTTP Status Code | Error Description | Exception Class |
 |  --- | --- | --- |
-| 400 | Bad Request - a problem reading or understanding the request. | [`ServiceErrorException`](../../doc/models/service-error-exception.md) |
-| 401 | Unauthorized - authentication required. | [`ServiceErrorException`](../../doc/models/service-error-exception.md) |
-| 403 | Forbidden - insufficient permissions to process the request. | [`ServiceErrorException`](../../doc/models/service-error-exception.md) |
-| 422 | Unprocessable Entity - a request validation error. | [`ServiceErrorException`](../../doc/models/service-error-exception.md) |
-| 500 | Internal Server Error - the server could not process the request. | [`ServiceErrorException`](../../doc/models/service-error-exception.md) |
+| 400 | Bad Request - a problem reading or understanding the request. | [`ServiceErrorError1Exception`](../../doc/models/service-error-error-1-exception.md) |
+| 401 | Unauthorized - authentication required. | [`ServiceErrorError1Exception`](../../doc/models/service-error-error-1-exception.md) |
+| 403 | Forbidden - insufficient permissions to process the request. | [`ServiceErrorError1Exception`](../../doc/models/service-error-error-1-exception.md) |
+| 422 | Unprocessable Entity - a request validation error. | [`ServiceErrorError1Exception`](../../doc/models/service-error-error-1-exception.md) |
+| 500 | Internal Server Error - the server could not process the request. | [`ServiceErrorError1Exception`](../../doc/models/service-error-error-1-exception.md) |
 
 
 # Post-Update Account Holder
@@ -529,15 +501,15 @@ This endpoint requires [BasicAuth](../../doc/auth/basic-authentication.md) **OR*
 
 **200**: OK - the request has succeeded.
 
-This method returns an [`ApiResponse`](../../doc/api-response.md) instance. The `body` property of this instance returns the response data which is of type [`UpdateAccountHolderResponse`](../../doc/models/update-account-holder-response.md).
+[`UpdateAccountHolderResponse`](../../doc/models/update-account-holder-response.md)
 
 ## Example Usage
 
 ```python
 body = UpdateAccountHolderRequest(
     account_holder_code='YOUR_UNIQUE_ACCOUNT_HOLDER_CODE',
-    account_holder_details=AccountHolderDetails(
-        address=ViasAddress(
+    account_holder_details=AccountHolderDetails4(
+        address=ViasAddress9(
             country='US',
             city='NY',
             house_number_or_name='100',
@@ -555,102 +527,18 @@ body = UpdateAccountHolderRequest(
 result = account_holders_api.post_update_account_holder(
     body=body
 )
-
-if result.is_success():
-    print(result.body)
-elif result.is_error():
-    print(result.errors)
-```
-
-## Example Response *(as JSON)*
-
-```json
-{
-  "invalidFields": [],
-  "pspReference": "ALPHANUMERIC_UNIQUE_RESPONSE_REFERENCE",
-  "accountHolderCode": "YOUR_UNIQUE_ACCOUNT_HOLDER_CODE",
-  "accountHolderDetails": {
-    "address": {
-      "country": "US"
-    },
-    "bankAccountDetails": [
-      {
-        "accountNumber": "######6852",
-        "bankAccountUUID": "BANK_ACCOUNT_UUID",
-        "branchCode": "053101273",
-        "countryCode": "US",
-        "currencyCode": "USD",
-        "ownerCity": "Springfield",
-        "ownerCountryCode": "US",
-        "ownerHouseNumberOrName": "100",
-        "ownerName": "Tim Green",
-        "ownerPostalCode": "02894",
-        "ownerState": "AZ",
-        "ownerStreet": "Main Street",
-        "primaryAccount": false
-      }
-    ],
-    "businessDetails": {
-      "doingBusinessAs": "Real Good Restaurant",
-      "legalBusinessName": "Real Good Restaurant Inc.",
-      "shareholders": [
-        {
-          "address": {
-            "country": "NL"
-          },
-          "email": "testshareholder@email.com",
-          "name": {
-            "firstName": "John",
-            "lastName": "Carpenter"
-          },
-          "shareholderCode": "SHAREHOLDER_CODE",
-          "shareholderType": "Controller"
-        }
-      ]
-    },
-    "email": "tim@green.com",
-    "merchantCategoryCode": "MCC_DEFAULT_VALUE",
-    "payoutMethods": [],
-    "webAddress": "https://www.your-website.com"
-  },
-  "accountHolderStatus": {
-    "status": "Active",
-    "processingState": {
-      "disabled": false,
-      "processedFrom": {
-        "currency": "USD",
-        "value": 0
-      },
-      "processedTo": {
-        "currency": "USD",
-        "value": 0
-      },
-      "tierNumber": 0
-    },
-    "payoutState": {
-      "allowPayout": true,
-      "payoutLimit": {
-        "currency": "USD",
-        "value": 0
-      },
-      "disabled": false,
-      "tierNumber": 0
-    }
-  },
-  "legalEntity": "Business",
-  "verification": {}
-}
+print(result)
 ```
 
 ## Errors
 
 | HTTP Status Code | Error Description | Exception Class |
 |  --- | --- | --- |
-| 400 | Bad Request - a problem reading or understanding the request. | [`ServiceErrorException`](../../doc/models/service-error-exception.md) |
-| 401 | Unauthorized - authentication required. | [`ServiceErrorException`](../../doc/models/service-error-exception.md) |
-| 403 | Forbidden - insufficient permissions to process the request. | [`ServiceErrorException`](../../doc/models/service-error-exception.md) |
-| 422 | Unprocessable Entity - a request validation error. | [`ServiceErrorException`](../../doc/models/service-error-exception.md) |
-| 500 | Internal Server Error - the server could not process the request. | [`ServiceErrorException`](../../doc/models/service-error-exception.md) |
+| 400 | Bad Request - a problem reading or understanding the request. | [`ServiceErrorError1Exception`](../../doc/models/service-error-error-1-exception.md) |
+| 401 | Unauthorized - authentication required. | [`ServiceErrorError1Exception`](../../doc/models/service-error-error-1-exception.md) |
+| 403 | Forbidden - insufficient permissions to process the request. | [`ServiceErrorError1Exception`](../../doc/models/service-error-error-1-exception.md) |
+| 422 | Unprocessable Entity - a request validation error. | [`ServiceErrorError1Exception`](../../doc/models/service-error-error-1-exception.md) |
+| 500 | Internal Server Error - the server could not process the request. | [`ServiceErrorError1Exception`](../../doc/models/service-error-error-1-exception.md) |
 
 
 # Post-Update Account Holder State
@@ -676,7 +564,7 @@ This endpoint requires [BasicAuth](../../doc/auth/basic-authentication.md) **OR*
 
 **200**: OK - the request has succeeded.
 
-This method returns an [`ApiResponse`](../../doc/api-response.md) instance. The `body` property of this instance returns the response data which is of type [`GetAccountHolderStatusResponse`](../../doc/models/get-account-holder-status-response.md).
+[`GetAccountHolderStatusResponse`](../../doc/models/get-account-holder-status-response.md)
 
 ## Example Usage
 
@@ -684,29 +572,25 @@ This method returns an [`ApiResponse`](../../doc/api-response.md) instance. The 
 body = UpdateAccountHolderStateRequest(
     account_holder_code='CODE_OF_ACCOUNT_HOLDER',
     disable=True,
-    state_type=StateType.PAYOUT,
+    state_type=StateTypeEnum.PAYOUT,
     reason='test reason payout'
 )
 
 result = account_holders_api.post_update_account_holder_state(
     body=body
 )
-
-if result.is_success():
-    print(result.body)
-elif result.is_error():
-    print(result.errors)
+print(result)
 ```
 
 ## Errors
 
 | HTTP Status Code | Error Description | Exception Class |
 |  --- | --- | --- |
-| 400 | Bad Request - a problem reading or understanding the request. | [`ServiceErrorException`](../../doc/models/service-error-exception.md) |
-| 401 | Unauthorized - authentication required. | [`ServiceErrorException`](../../doc/models/service-error-exception.md) |
-| 403 | Forbidden - insufficient permissions to process the request. | [`ServiceErrorException`](../../doc/models/service-error-exception.md) |
-| 422 | Unprocessable Entity - a request validation error. | [`ServiceErrorException`](../../doc/models/service-error-exception.md) |
-| 500 | Internal Server Error - the server could not process the request. | [`ServiceErrorException`](../../doc/models/service-error-exception.md) |
+| 400 | Bad Request - a problem reading or understanding the request. | [`ServiceErrorError1Exception`](../../doc/models/service-error-error-1-exception.md) |
+| 401 | Unauthorized - authentication required. | [`ServiceErrorError1Exception`](../../doc/models/service-error-error-1-exception.md) |
+| 403 | Forbidden - insufficient permissions to process the request. | [`ServiceErrorError1Exception`](../../doc/models/service-error-error-1-exception.md) |
+| 422 | Unprocessable Entity - a request validation error. | [`ServiceErrorError1Exception`](../../doc/models/service-error-error-1-exception.md) |
+| 500 | Internal Server Error - the server could not process the request. | [`ServiceErrorError1Exception`](../../doc/models/service-error-error-1-exception.md) |
 
 
 # Post-Account Holders
@@ -732,7 +616,7 @@ This endpoint requires [clientKey](../../doc/auth/custom-query-parameter.md) **O
 
 **200**: OK - the request has succeeded.
 
-This method returns an [`ApiResponse`](../../doc/api-response.md) instance. The `body` property of this instance returns the response data which is of type [`AccountHolder2`](../../doc/models/account-holder-2.md).
+[`AccountHolder`](../../doc/models/account-holder.md)
 
 ## Example Usage
 
@@ -746,11 +630,7 @@ body = AccountHolderInfo(
 result = account_holders_api.post_account_holders(
     body=body
 )
-
-if result.is_success():
-    print(result.body)
-elif result.is_error():
-    print(result.errors)
+print(result)
 ```
 
 ## Example Response *(as JSON)*
@@ -833,7 +713,7 @@ This endpoint requires [clientKey](../../doc/auth/custom-query-parameter.md) **O
 
 **200**: OK - the request has succeeded.
 
-This method returns an [`ApiResponse`](../../doc/api-response.md) instance. The `body` property of this instance returns the response data which is of type [`AccountHolder2`](../../doc/models/account-holder-2.md).
+[`AccountHolder`](../../doc/models/account-holder.md)
 
 ## Example Usage
 
@@ -841,11 +721,7 @@ This method returns an [`ApiResponse`](../../doc/api-response.md) instance. The 
 id = 'id0'
 
 result = account_holders_api.get_account_holders_id(id)
-
-if result.is_success():
-    print(result.body)
-elif result.is_error():
-    print(result.errors)
+print(result)
 ```
 
 ## Example Response *(as JSON)*
@@ -932,7 +808,7 @@ This endpoint requires [clientKey](../../doc/auth/custom-query-parameter.md) **O
 
 **200**: OK - the request has succeeded.
 
-This method returns an [`ApiResponse`](../../doc/api-response.md) instance. The `body` property of this instance returns the response data which is of type [`AccountHolder2`](../../doc/models/account-holder-2.md).
+[`AccountHolder`](../../doc/models/account-holder.md)
 
 ## Example Usage
 
@@ -953,11 +829,7 @@ result = account_holders_api.patch_account_holders_id(
     id,
     body=body
 )
-
-if result.is_success():
-    print(result.body)
-elif result.is_error():
-    print(result.errors)
+print(result)
 ```
 
 ## Example Response *(as JSON)*
@@ -1021,7 +893,7 @@ This endpoint requires [clientKey](../../doc/auth/custom-query-parameter.md) **O
 
 **200**: OK - the request has succeeded.
 
-This method returns an [`ApiResponse`](../../doc/api-response.md) instance. The `body` property of this instance returns the response data which is of type [`PaginatedBalanceAccountsResponse`](../../doc/models/paginated-balance-accounts-response.md).
+[`PaginatedBalanceAccountsResponse`](../../doc/models/paginated-balance-accounts-response.md)
 
 ## Example Usage
 
@@ -1029,11 +901,7 @@ This method returns an [`ApiResponse`](../../doc/api-response.md) instance. The 
 id = 'id0'
 
 result = account_holders_api.get_account_holders_id_balance_accounts(id)
-
-if result.is_success():
-    print(result.body)
-elif result.is_error():
-    print(result.errors)
+print(result)
 ```
 
 ## Example Response *(as JSON)*
@@ -1106,7 +974,7 @@ This endpoint requires [clientKey](../../doc/auth/custom-query-parameter.md) **O
 | Parameter | Type | Tags | Description |
 |  --- | --- | --- | --- |
 | `id` | `str` | Template, Required | The unique identifier of the account holder. |
-| `form_type` | [`FormType1`](../../doc/models/form-type-1.md) | Query, Required | The type of tax form you want to retrieve. Accepted values are **US1099k** and **US1099nec**. |
+| `form_type` | [`FormTypeEnum`](../../doc/models/form-type-enum.md) | Query, Required | The type of tax form you want to retrieve. Accepted values are **US1099k** and **US1099nec**. |
 | `year` | `int` | Query, Required | The tax year in **YYYY** format for the tax form you want to retrieve. |
 | `legal_entity_id` | `str` | Query, Optional | The legal entity reference whose tax form you want to retrieve. |
 
@@ -1114,14 +982,14 @@ This endpoint requires [clientKey](../../doc/auth/custom-query-parameter.md) **O
 
 **200**: OK - the request has succeeded.
 
-This method returns an [`ApiResponse`](../../doc/api-response.md) instance. The `body` property of this instance returns the response data which is of type [`GetTaxFormResponse1`](../../doc/models/get-tax-form-response-1.md).
+[`GetTaxFormResponse1`](../../doc/models/get-tax-form-response-1.md)
 
 ## Example Usage
 
 ```python
 id = 'id0'
 
-form_type = FormType1.US1099K
+form_type = FormTypeEnum.US1099K
 
 year = 248
 
@@ -1130,11 +998,7 @@ result = account_holders_api.get_account_holders_id_tax_forms(
     form_type,
     year
 )
-
-if result.is_success():
-    print(result.body)
-elif result.is_error():
-    print(result.errors)
+print(result)
 ```
 
 ## Example Response *(as JSON)*
@@ -1181,7 +1045,7 @@ This endpoint requires [clientKey](../../doc/auth/custom-query-parameter.md) **O
 
 **200**: OK - the request has succeeded.
 
-This method returns an [`ApiResponse`](../../doc/api-response.md) instance. The `body` property of this instance returns the response data which is of type [`TransactionRulesResponse`](../../doc/models/transaction-rules-response.md).
+[`TransactionRulesResponse`](../../doc/models/transaction-rules-response.md)
 
 ## Example Usage
 
@@ -1189,11 +1053,7 @@ This method returns an [`ApiResponse`](../../doc/api-response.md) instance. The 
 id = 'id0'
 
 result = account_holders_api.get_account_holders_id_transaction_rules(id)
-
-if result.is_success():
-    print(result.body)
-elif result.is_error():
-    print(result.errors)
+print(result)
 ```
 
 ## Errors
@@ -1230,7 +1090,7 @@ def get_account_holders_id_tax_form_summary(self,
 
 **200**: OK - the request has succeeded.
 
-This method returns an [`ApiResponse`](../../doc/api-response.md) instance. The `body` property of this instance returns the response data which is of type [`TaxFormSummaryResponse`](../../doc/models/tax-form-summary-response.md).
+[`TaxFormSummaryResponse`](../../doc/models/tax-form-summary-response.md)
 
 ## Example Usage
 
@@ -1243,11 +1103,7 @@ result = account_holders_api.get_account_holders_id_tax_form_summary(
     id,
     form_type
 )
-
-if result.is_success():
-    print(result.body)
-elif result.is_error():
-    print(result.errors)
+print(result)
 ```
 
 ## Example Response *(as JSON)*

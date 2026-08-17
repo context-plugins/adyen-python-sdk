@@ -23,8 +23,6 @@ class ViasPersonalData(object):
             two-character country code,  in [ISO 3166-1
             alpha-2](https://en.wikipedia.org/wiki/ISO_3166-1_alpha-2) format. For
             example, **NL**.
-        additional_properties (Dict[str, Any]): The additional properties for the
-            model.
 
     """
 
@@ -45,8 +43,7 @@ class ViasPersonalData(object):
         self,
         date_of_birth=APIHelper.SKIP,
         document_data=APIHelper.SKIP,
-        nationality=APIHelper.SKIP,
-        additional_properties=None):
+        nationality=APIHelper.SKIP):
         """Initialize a ViasPersonalData instance."""
         # Initialize members of the class
         if date_of_birth is not APIHelper.SKIP:
@@ -55,11 +52,6 @@ class ViasPersonalData(object):
             self.document_data = document_data
         if nationality is not APIHelper.SKIP:
             self.nationality = nationality
-
-        # Add additional model properties to the instance
-        if additional_properties is None:
-            additional_properties = {}
-        self.additional_properties = additional_properties
 
     @classmethod
     def from_dictionary(cls,
@@ -96,16 +88,10 @@ class ViasPersonalData(object):
             if dictionary.get("nationality")\
                 else APIHelper.SKIP
 
-        additional_properties = APIHelper.get_additional_properties(
-            dictionary={k: v for k, v in dictionary.items()
-                        if k not in cls._names.values()},
-            unboxing_function=lambda value: value)
-
         # Return an object of this model
         return cls(date_of_birth,
                    document_data,
-                   nationality,
-                   additional_properties)
+                   nationality)
 
     def __repr__(self):
         """Return a unambiguous string representation."""
@@ -124,13 +110,11 @@ class ViasPersonalData(object):
             if hasattr(self, "nationality")
             else None
         )
-        _additional_properties=self.additional_properties
         return (
             f"{self.__class__.__name__}("
             f"date_of_birth={_date_of_birth!r}, "
             f"document_data={_document_data!r}, "
             f"nationality={_nationality!r}, "
-            f"additional_properties={_additional_properties!r}, "
             f")"
         )
 
@@ -151,12 +135,10 @@ class ViasPersonalData(object):
             if hasattr(self, "nationality")
             else None
         )
-        _additional_properties=self.additional_properties
         return (
             f"{self.__class__.__name__}("
             f"date_of_birth={_date_of_birth!s}, "
             f"document_data={_document_data!s}, "
             f"nationality={_nationality!s}, "
-            f"additional_properties={_additional_properties!s}, "
             f")"
         )

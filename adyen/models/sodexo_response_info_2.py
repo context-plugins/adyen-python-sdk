@@ -14,8 +14,6 @@ class SodexoResponseInfo2(object):
 
     Attributes:
         merchant_contact_phone (str): Sodexo merchantContactPhone
-        additional_properties (Dict[str, Any]): The additional properties for the
-            model.
 
     """
 
@@ -30,17 +28,11 @@ class SodexoResponseInfo2(object):
 
     def __init__(
         self,
-        merchant_contact_phone=APIHelper.SKIP,
-        additional_properties=None):
+        merchant_contact_phone=APIHelper.SKIP):
         """Initialize a SodexoResponseInfo2 instance."""
         # Initialize members of the class
         if merchant_contact_phone is not APIHelper.SKIP:
             self.merchant_contact_phone = merchant_contact_phone
-
-        # Add additional model properties to the instance
-        if additional_properties is None:
-            additional_properties = {}
-        self.additional_properties = additional_properties
 
     @classmethod
     def from_dictionary(cls,
@@ -65,14 +57,8 @@ class SodexoResponseInfo2(object):
             if dictionary.get("merchantContactPhone")\
                 else APIHelper.SKIP
 
-        additional_properties = APIHelper.get_additional_properties(
-            dictionary={k: v for k, v in dictionary.items()
-                        if k not in cls._names.values()},
-            unboxing_function=lambda value: value)
-
         # Return an object of this model
-        return cls(merchant_contact_phone,
-                   additional_properties)
+        return cls(merchant_contact_phone)
 
     def __repr__(self):
         """Return a unambiguous string representation."""
@@ -81,11 +67,9 @@ class SodexoResponseInfo2(object):
             if hasattr(self, "merchant_contact_phone")
             else None
         )
-        _additional_properties=self.additional_properties
         return (
             f"{self.__class__.__name__}("
             f"merchant_contact_phone={_merchant_contact_phone!r}, "
-            f"additional_properties={_additional_properties!r}, "
             f")"
         )
 
@@ -96,10 +80,8 @@ class SodexoResponseInfo2(object):
             if hasattr(self, "merchant_contact_phone")
             else None
         )
-        _additional_properties=self.additional_properties
         return (
             f"{self.__class__.__name__}("
             f"merchant_contact_phone={_merchant_contact_phone!s}, "
-            f"additional_properties={_additional_properties!s}, "
             f")"
         )

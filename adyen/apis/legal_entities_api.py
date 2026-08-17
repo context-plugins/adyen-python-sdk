@@ -17,8 +17,8 @@ from apimatic_core.types.parameter import Parameter
 from adyen.api_helper import APIHelper
 from adyen.apis.base_api import BaseApi
 from adyen.configuration import Server
-from adyen.exceptions.service_error_exception import (
-    ServiceErrorException,
+from adyen.exceptions.service_error_error_1_exception import (
+    ServiceErrorError1Exception,
 )
 from adyen.http.http_method_enum import HttpMethodEnum
 from adyen.models.business_lines import BusinessLines
@@ -61,18 +61,16 @@ class LegalEntitiesApi(BaseApi):
             body (LegalEntityInfoRequiredType, optional): The request body parameter.
 
         Returns:
-            ApiResponse: An object with the response value as well as other useful
-                information such as status codes and headers. OK - the request has
-                succeeded.
+            LegalEntity3: Response from the API. OK - the request has succeeded.
 
         Raises:
-            ApiException: When an error occurs while fetching the data from the
+            APIException: When an error occurs while fetching the data from the
                 remote API. This exception includes the HTTP Response code, an error
                 message, and the HTTP body that was received in the request.
 
         """
         return super().new_api_call_builder.request(
-            RequestBuilder().server(Server.DEFAULT)
+            RequestBuilder().server(Server.DEFAULT18)
             .path("/legalEntities")
             .http_method(HttpMethodEnum.POST)
             .header_param(Parameter()
@@ -92,22 +90,21 @@ class LegalEntitiesApi(BaseApi):
             ResponseHandler()
             .deserializer(APIHelper.json_deserialize)
             .deserialize_into(LegalEntity3.from_dictionary)
-            .is_api_response(True)
             .local_error("400",
                 "Bad Request - a problem reading or understanding the request.",
-                ServiceErrorException)
+                ServiceErrorError1Exception)
             .local_error("401",
                 "Unauthorized - authentication required.",
-                ServiceErrorException)
+                ServiceErrorError1Exception)
             .local_error("403",
                 "Forbidden - insufficient permissions to process the request.",
-                ServiceErrorException)
+                ServiceErrorError1Exception)
             .local_error("422",
                 "Unprocessable Entity - a request validation error.",
-                ServiceErrorException)
+                ServiceErrorError1Exception)
             .local_error("500",
                 "Internal Server Error - the server could not process the request.",
-                ServiceErrorException),
+                ServiceErrorError1Exception),
         ).execute()
 
     def get_legal_entities_id(self,
@@ -124,24 +121,21 @@ class LegalEntitiesApi(BaseApi):
             id (str): The unique identifier of the legal entity.
 
         Returns:
-            ApiResponse: An object with the response value as well as other useful
-                information such as status codes and headers. OK - the request has
-                succeeded.
+            LegalEntity3: Response from the API. OK - the request has succeeded.
 
         Raises:
-            ApiException: When an error occurs while fetching the data from the
+            APIException: When an error occurs while fetching the data from the
                 remote API. This exception includes the HTTP Response code, an error
                 message, and the HTTP body that was received in the request.
 
         """
         return super().new_api_call_builder.request(
-            RequestBuilder().server(Server.DEFAULT)
+            RequestBuilder().server(Server.DEFAULT18)
             .path("/legalEntities/{id}")
             .http_method(HttpMethodEnum.GET)
             .template_param(Parameter()
                 .key("id")
                 .value(id)
-                .is_required(True)
                 .should_encode(True))
             .header_param(Parameter()
                 .key("accept")
@@ -151,22 +145,21 @@ class LegalEntitiesApi(BaseApi):
             ResponseHandler()
             .deserializer(APIHelper.json_deserialize)
             .deserialize_into(LegalEntity3.from_dictionary)
-            .is_api_response(True)
             .local_error("400",
                 "Bad Request - a problem reading or understanding the request.",
-                ServiceErrorException)
+                ServiceErrorError1Exception)
             .local_error("401",
                 "Unauthorized - authentication required.",
-                ServiceErrorException)
+                ServiceErrorError1Exception)
             .local_error("403",
                 "Forbidden - insufficient permissions to process the request.",
-                ServiceErrorException)
+                ServiceErrorError1Exception)
             .local_error("422",
                 "Unprocessable Entity - a request validation error.",
-                ServiceErrorException)
+                ServiceErrorError1Exception)
             .local_error("500",
                 "Internal Server Error - the server could not process the request.",
-                ServiceErrorException),
+                ServiceErrorError1Exception),
         ).execute()
 
     def patch_legal_entities_id(self,
@@ -196,24 +189,21 @@ class LegalEntitiesApi(BaseApi):
             body (LegalEntityInfo, optional): The request body parameter.
 
         Returns:
-            ApiResponse: An object with the response value as well as other useful
-                information such as status codes and headers. OK - the request has
-                succeeded.
+            LegalEntity3: Response from the API. OK - the request has succeeded.
 
         Raises:
-            ApiException: When an error occurs while fetching the data from the
+            APIException: When an error occurs while fetching the data from the
                 remote API. This exception includes the HTTP Response code, an error
                 message, and the HTTP body that was received in the request.
 
         """
         return super().new_api_call_builder.request(
-            RequestBuilder().server(Server.DEFAULT)
+            RequestBuilder().server(Server.DEFAULT18)
             .path("/legalEntities/{id}")
             .http_method(HttpMethodEnum.PATCH)
             .template_param(Parameter()
                 .key("id")
                 .value(id)
-                .is_required(True)
                 .should_encode(True))
             .header_param(Parameter()
                 .key("Content-Type")
@@ -232,22 +222,21 @@ class LegalEntitiesApi(BaseApi):
             ResponseHandler()
             .deserializer(APIHelper.json_deserialize)
             .deserialize_into(LegalEntity3.from_dictionary)
-            .is_api_response(True)
             .local_error("400",
                 "Bad Request - a problem reading or understanding the request.",
-                ServiceErrorException)
+                ServiceErrorError1Exception)
             .local_error("401",
                 "Unauthorized - authentication required.",
-                ServiceErrorException)
+                ServiceErrorError1Exception)
             .local_error("403",
                 "Forbidden - insufficient permissions to process the request.",
-                ServiceErrorException)
+                ServiceErrorError1Exception)
             .local_error("422",
                 "Unprocessable Entity - a request validation error.",
-                ServiceErrorException)
+                ServiceErrorError1Exception)
             .local_error("500",
                 "Internal Server Error - the server could not process the request.",
-                ServiceErrorException),
+                ServiceErrorError1Exception),
         ).execute()
 
     def get_legal_entities_id_business_lines(self,
@@ -264,24 +253,21 @@ class LegalEntitiesApi(BaseApi):
             id (str): The unique identifier of the legal entity.
 
         Returns:
-            ApiResponse: An object with the response value as well as other useful
-                information such as status codes and headers. OK - the request has
-                succeeded.
+            BusinessLines: Response from the API. OK - the request has succeeded.
 
         Raises:
-            ApiException: When an error occurs while fetching the data from the
+            APIException: When an error occurs while fetching the data from the
                 remote API. This exception includes the HTTP Response code, an error
                 message, and the HTTP body that was received in the request.
 
         """
         return super().new_api_call_builder.request(
-            RequestBuilder().server(Server.DEFAULT)
+            RequestBuilder().server(Server.DEFAULT18)
             .path("/legalEntities/{id}/businessLines")
             .http_method(HttpMethodEnum.GET)
             .template_param(Parameter()
                 .key("id")
                 .value(id)
-                .is_required(True)
                 .should_encode(True))
             .header_param(Parameter()
                 .key("accept")
@@ -291,22 +277,21 @@ class LegalEntitiesApi(BaseApi):
             ResponseHandler()
             .deserializer(APIHelper.json_deserialize)
             .deserialize_into(BusinessLines.from_dictionary)
-            .is_api_response(True)
             .local_error("400",
                 "Bad Request - a problem reading or understanding the request.",
-                ServiceErrorException)
+                ServiceErrorError1Exception)
             .local_error("401",
                 "Unauthorized - authentication required.",
-                ServiceErrorException)
+                ServiceErrorError1Exception)
             .local_error("403",
                 "Forbidden - insufficient permissions to process the request.",
-                ServiceErrorException)
+                ServiceErrorError1Exception)
             .local_error("422",
                 "Unprocessable Entity - a request validation error.",
-                ServiceErrorException)
+                ServiceErrorError1Exception)
             .local_error("500",
                 "Internal Server Error - the server could not process the request.",
-                ServiceErrorException),
+                ServiceErrorError1Exception),
         ).execute()
 
     def post_legal_entities_id_check_verification_errors(self,
@@ -325,24 +310,21 @@ class LegalEntitiesApi(BaseApi):
             id (str): The unique identifier of the legal entity.
 
         Returns:
-            ApiResponse: An object with the response value as well as other useful
-                information such as status codes and headers. OK - the request has
-                succeeded.
+            VerificationErrors: Response from the API. OK - the request has succeeded.
 
         Raises:
-            ApiException: When an error occurs while fetching the data from the
+            APIException: When an error occurs while fetching the data from the
                 remote API. This exception includes the HTTP Response code, an error
                 message, and the HTTP body that was received in the request.
 
         """
         return super().new_api_call_builder.request(
-            RequestBuilder().server(Server.DEFAULT)
+            RequestBuilder().server(Server.DEFAULT18)
             .path("/legalEntities/{id}/checkVerificationErrors")
             .http_method(HttpMethodEnum.POST)
             .template_param(Parameter()
                 .key("id")
                 .value(id)
-                .is_required(True)
                 .should_encode(True))
             .header_param(Parameter()
                 .key("accept")
@@ -352,22 +334,21 @@ class LegalEntitiesApi(BaseApi):
             ResponseHandler()
             .deserializer(APIHelper.json_deserialize)
             .deserialize_into(VerificationErrors.from_dictionary)
-            .is_api_response(True)
             .local_error("400",
                 "Bad Request - a problem reading or understanding the request.",
-                ServiceErrorException)
+                ServiceErrorError1Exception)
             .local_error("401",
                 "Unauthorized - authentication required.",
-                ServiceErrorException)
+                ServiceErrorError1Exception)
             .local_error("403",
                 "Forbidden - insufficient permissions to process the request.",
-                ServiceErrorException)
+                ServiceErrorError1Exception)
             .local_error("422",
                 "Unprocessable Entity - a request validation error.",
-                ServiceErrorException)
+                ServiceErrorError1Exception)
             .local_error("500",
                 "Internal Server Error - the server could not process the request.",
-                ServiceErrorException),
+                ServiceErrorError1Exception),
         ).execute()
 
     def post_legal_entities_id_confirm_data_review(self,
@@ -387,24 +368,22 @@ class LegalEntitiesApi(BaseApi):
             id (str): The unique identifier of the legal entity.
 
         Returns:
-            ApiResponse: An object with the response value as well as other useful
-                information such as status codes and headers. OK - the request has
-                succeeded.
+            DataReviewConfirmationResponse: Response from the API. OK - the request
+                has succeeded.
 
         Raises:
-            ApiException: When an error occurs while fetching the data from the
+            APIException: When an error occurs while fetching the data from the
                 remote API. This exception includes the HTTP Response code, an error
                 message, and the HTTP body that was received in the request.
 
         """
         return super().new_api_call_builder.request(
-            RequestBuilder().server(Server.DEFAULT)
+            RequestBuilder().server(Server.DEFAULT18)
             .path("/legalEntities/{id}/confirmDataReview")
             .http_method(HttpMethodEnum.POST)
             .template_param(Parameter()
                 .key("id")
                 .value(id)
-                .is_required(True)
                 .should_encode(True))
             .header_param(Parameter()
                 .key("accept")
@@ -414,22 +393,21 @@ class LegalEntitiesApi(BaseApi):
             ResponseHandler()
             .deserializer(APIHelper.json_deserialize)
             .deserialize_into(DataReviewConfirmationResponse.from_dictionary)
-            .is_api_response(True)
             .local_error("400",
                 "Bad Request - a problem reading or understanding the request.",
-                ServiceErrorException)
+                ServiceErrorError1Exception)
             .local_error("401",
                 "Unauthorized - authentication required.",
-                ServiceErrorException)
+                ServiceErrorError1Exception)
             .local_error("403",
                 "Forbidden - insufficient permissions to process the request.",
-                ServiceErrorException)
+                ServiceErrorError1Exception)
             .local_error("422",
                 "Unprocessable Entity - a request validation error.",
-                ServiceErrorException)
+                ServiceErrorError1Exception)
             .local_error("500",
                 "Internal Server Error - the server could not process the request.",
-                ServiceErrorException),
+                ServiceErrorError1Exception),
         ).execute()
 
     def post_legal_entities_id_request_periodic_review(self,
@@ -443,31 +421,27 @@ class LegalEntitiesApi(BaseApi):
             id (str): The unique identifier of the legal entity.
 
         Returns:
-            ApiResponse: An object with the response value as well as other useful
-                information such as status codes and headers. No Content - the
-                request has been successfully processed, but there is no additional
-                content.
+            Any: Response from the API. No Content - the request has been
+                successfully processed, but there is no additional content.
 
         Raises:
-            ApiException: When an error occurs while fetching the data from the
+            APIException: When an error occurs while fetching the data from the
                 remote API. This exception includes the HTTP Response code, an error
                 message, and the HTTP body that was received in the request.
 
         """
         return super().new_api_call_builder.request(
-            RequestBuilder().server(Server.DEFAULT)
+            RequestBuilder().server(Server.DEFAULT18)
             .path("/legalEntities/{id}/requestPeriodicReview")
             .http_method(HttpMethodEnum.POST)
             .template_param(Parameter()
                 .key("id")
                 .value(id)
-                .is_required(True)
                 .should_encode(True))
             .header_param(Parameter()
                 .key("accept")
                 .value("application/json")),
         ).response(
             ResponseHandler()
-            .deserializer(APIHelper.json_deserialize)
-            .is_api_response(True),
+            .deserializer(APIHelper.dynamic_deserialize),
         ).execute()

@@ -17,8 +17,6 @@ class Commission1(object):
     Attributes:
         fixed_amount (int): A fixed commission fee, in minor units.
         variable_percentage (int): A variable commission fee, in basis points.
-        additional_properties (Dict[str, Any]): The additional properties for the
-            model.
 
     """
 
@@ -36,19 +34,13 @@ class Commission1(object):
     def __init__(
         self,
         fixed_amount=APIHelper.SKIP,
-        variable_percentage=APIHelper.SKIP,
-        additional_properties=None):
+        variable_percentage=APIHelper.SKIP):
         """Initialize a Commission1 instance."""
         # Initialize members of the class
         if fixed_amount is not APIHelper.SKIP:
             self.fixed_amount = fixed_amount
         if variable_percentage is not APIHelper.SKIP:
             self.variable_percentage = variable_percentage
-
-        # Add additional model properties to the instance
-        if additional_properties is None:
-            additional_properties = {}
-        self.additional_properties = additional_properties
 
     @classmethod
     def from_dictionary(cls,
@@ -77,15 +69,9 @@ class Commission1(object):
             if dictionary.get("variablePercentage")\
                 else APIHelper.SKIP
 
-        additional_properties = APIHelper.get_additional_properties(
-            dictionary={k: v for k, v in dictionary.items()
-                        if k not in cls._names.values()},
-            unboxing_function=lambda value: value)
-
         # Return an object of this model
         return cls(fixed_amount,
-                   variable_percentage,
-                   additional_properties)
+                   variable_percentage)
 
     def __repr__(self):
         """Return a unambiguous string representation."""
@@ -99,12 +85,10 @@ class Commission1(object):
             if hasattr(self, "variable_percentage")
             else None
         )
-        _additional_properties=self.additional_properties
         return (
             f"{self.__class__.__name__}("
             f"fixed_amount={_fixed_amount!r}, "
             f"variable_percentage={_variable_percentage!r}, "
-            f"additional_properties={_additional_properties!r}, "
             f")"
         )
 
@@ -120,11 +104,9 @@ class Commission1(object):
             if hasattr(self, "variable_percentage")
             else None
         )
-        _additional_properties=self.additional_properties
         return (
             f"{self.__class__.__name__}("
             f"fixed_amount={_fixed_amount!s}, "
             f"variable_percentage={_variable_percentage!s}, "
-            f"additional_properties={_additional_properties!s}, "
             f")"
         )

@@ -48,18 +48,17 @@ class TransferRoutesApi(BaseApi):
             body (TransferRouteRequest, optional): The request body parameter.
 
         Returns:
-            ApiResponse: An object with the response value as well as other useful
-                information such as status codes and headers. OK - the request has
+            TransferRouteResponse: Response from the API. OK - the request has
                 succeeded.
 
         Raises:
-            ApiException: When an error occurs while fetching the data from the
+            APIException: When an error occurs while fetching the data from the
                 remote API. This exception includes the HTTP Response code, an error
                 message, and the HTTP body that was received in the request.
 
         """
         return super().new_api_call_builder.request(
-            RequestBuilder().server(Server.DEFAULT)
+            RequestBuilder().server(Server.DEFAULT13)
             .path("/transferRoutes/calculate")
             .http_method(HttpMethodEnum.POST)
             .header_param(Parameter()
@@ -76,7 +75,6 @@ class TransferRoutesApi(BaseApi):
             ResponseHandler()
             .deserializer(APIHelper.json_deserialize)
             .deserialize_into(TransferRouteResponse.from_dictionary)
-            .is_api_response(True)
             .local_error("401",
                 "Unauthorized - authentication required.",
                 RestServiceErrorException)

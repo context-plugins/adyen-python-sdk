@@ -25,9 +25,12 @@ class SweepSchedule1(object):
             following non-standard characters are supported: **&ast;**, **L**, **#**,
             **W** and **/**. See [crontab guru](https://crontab.guru/) for more
             examples.  Required when `type` is **cron**.
-        mtype (Type6): The model property of type Type6.
-        additional_properties (Dict[str, Any]): The additional properties for the
-            model.
+        mtype (Type62Enum): The schedule type.  Possible values:  * **cron**: push
+            out funds based on a `cronExpression`.  * **daily**: push out funds daily
+            at 07:00 AM CET.  * **weekly**: push out funds every Monday at 07:00 AM
+            CET.  * **monthly**: push out funds every first of the month at 07:00 AM
+            CET.  * **balance**: execute the sweep instantly if the `triggerAmount`
+            is reached.
 
     """
 
@@ -44,18 +47,12 @@ class SweepSchedule1(object):
     def __init__(
         self,
         mtype=None,
-        cron_expression=APIHelper.SKIP,
-        additional_properties=None):
+        cron_expression=APIHelper.SKIP):
         """Initialize a SweepSchedule1 instance."""
         # Initialize members of the class
         if cron_expression is not APIHelper.SKIP:
             self.cron_expression = cron_expression
         self.mtype = mtype
-
-        # Add additional model properties to the instance
-        if additional_properties is None:
-            additional_properties = {}
-        self.additional_properties = additional_properties
 
     @classmethod
     def from_dictionary(cls,
@@ -84,15 +81,9 @@ class SweepSchedule1(object):
             if dictionary.get("cronExpression")\
                 else APIHelper.SKIP
 
-        additional_properties = APIHelper.get_additional_properties(
-            dictionary={k: v for k, v in dictionary.items()
-                        if k not in cls._names.values()},
-            unboxing_function=lambda value: value)
-
         # Return an object of this model
         return cls(mtype,
-                   cron_expression,
-                   additional_properties)
+                   cron_expression)
 
     def __repr__(self):
         """Return a unambiguous string representation."""
@@ -102,12 +93,10 @@ class SweepSchedule1(object):
             else None
         )
         _mtype=self.mtype
-        _additional_properties=self.additional_properties
         return (
             f"{self.__class__.__name__}("
             f"cron_expression={_cron_expression!r}, "
             f"mtype={_mtype!r}, "
-            f"additional_properties={_additional_properties!r}, "
             f")"
         )
 
@@ -119,11 +108,9 @@ class SweepSchedule1(object):
             else None
         )
         _mtype=self.mtype
-        _additional_properties=self.additional_properties
         return (
             f"{self.__class__.__name__}("
             f"cron_expression={_cron_expression!s}, "
             f"mtype={_mtype!s}, "
-            f"additional_properties={_additional_properties!s}, "
             f")"
         )

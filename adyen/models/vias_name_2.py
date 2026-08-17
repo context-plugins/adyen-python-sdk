@@ -17,12 +17,11 @@ class ViasName2(object):
 
     Attributes:
         first_name (str): The first name.
-        gender (Gender): The model property of type Gender.
+        gender (GenderEnum): The gender. >The following values are permitted: `MALE`,
+            `FEMALE`, `UNKNOWN`.
         infix (str): The name's infix, if applicable. >A maximum length of twenty
             (20) characters is imposed.
         last_name (str): The last name.
-        additional_properties (Dict[str, Any]): The additional properties for the
-            model.
 
     """
 
@@ -46,8 +45,7 @@ class ViasName2(object):
         first_name=APIHelper.SKIP,
         gender=APIHelper.SKIP,
         infix=APIHelper.SKIP,
-        last_name=APIHelper.SKIP,
-        additional_properties=None):
+        last_name=APIHelper.SKIP):
         """Initialize a ViasName2 instance."""
         # Initialize members of the class
         if first_name is not APIHelper.SKIP:
@@ -58,11 +56,6 @@ class ViasName2(object):
             self.infix = infix
         if last_name is not APIHelper.SKIP:
             self.last_name = last_name
-
-        # Add additional model properties to the instance
-        if additional_properties is None:
-            additional_properties = {}
-        self.additional_properties = additional_properties
 
     @classmethod
     def from_dictionary(cls,
@@ -99,17 +92,11 @@ class ViasName2(object):
             if dictionary.get("lastName")\
                 else APIHelper.SKIP
 
-        additional_properties = APIHelper.get_additional_properties(
-            dictionary={k: v for k, v in dictionary.items()
-                        if k not in cls._names.values()},
-            unboxing_function=lambda value: value)
-
         # Return an object of this model
         return cls(first_name,
                    gender,
                    infix,
-                   last_name,
-                   additional_properties)
+                   last_name)
 
     def __repr__(self):
         """Return a unambiguous string representation."""
@@ -133,14 +120,12 @@ class ViasName2(object):
             if hasattr(self, "last_name")
             else None
         )
-        _additional_properties=self.additional_properties
         return (
             f"{self.__class__.__name__}("
             f"first_name={_first_name!r}, "
             f"gender={_gender!r}, "
             f"infix={_infix!r}, "
             f"last_name={_last_name!r}, "
-            f"additional_properties={_additional_properties!r}, "
             f")"
         )
 
@@ -166,13 +151,11 @@ class ViasName2(object):
             if hasattr(self, "last_name")
             else None
         )
-        _additional_properties=self.additional_properties
         return (
             f"{self.__class__.__name__}("
             f"first_name={_first_name!s}, "
             f"gender={_gender!s}, "
             f"infix={_infix!s}, "
             f"last_name={_last_name!s}, "
-            f"additional_properties={_additional_properties!s}, "
             f")"
         )

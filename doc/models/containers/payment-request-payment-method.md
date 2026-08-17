@@ -3,24 +3,24 @@
 
 ## Data Type
 
-`AchDirectDebit | Affirm | Afterpay | Alma | AmazonPay | Ancv | AndroidPay | ApplePayDetails | AuPay | BacsDirectDebit | BillDesk | Blik | CardDetails | StoredPaymentMethod | Cellulant | DBarai | DirectDebitAu | Doku | Dragonpay | EBankingFinland | Voucher | EftDirectDebit | DetailsoftokensthatarenotstoredwithAdyen | Fastlane | StoredPaymentMethod2 | GooglePayDetails | IdealDetails | Klarna | KlarnaNetwork | Masterpass | MbWay | MobilePay | MolPay | OpenInvoice | PayByBankAisDirectDebit | PayByBank | PayPal | PayPay | PayTo | PayU | PayWithGoogleDetails | PaymentDetails2 | StoredPaymentMethod4 | StoredPaymentMethod5 | PseLatam | RakutenPay | Ratepay | Riverty | SamsungPay | SepaDirectDebit | StoredPaymentMethod6 | Twint | UpiCollect | UpiIntent | Upiqr | Vipps | VisaCheckout | WeChatPay | WeChatPayMiniProgram | Zip`
+`ACHDirectDebit | Affirm | Afterpay | Alma | AmazonPay | ANCV | AndroidPay | ApplePayDetails | AuPay | BACSDirectDebit | BillDesk | BLIK | CardDetails | StoredPaymentMethod | Cellulant | DBarai | DirectDebitAu | Doku | Dragonpay | EBankingFinland | Voucher | EFTDirectDebit | DetailsOfTokensThatAreNotStoredWithAdyen | Fastlane | StoredPaymentMethod2 | GooglePayDetails | IdealDetails | Klarna | KlarnaNetwork | Masterpass | MBWay | MobilePay | MOLPay | OpenInvoice | PayByBankAISDirectDebit | PayByBank | PayPal | PayPay | PayTo | PayU | PayWithGoogleDetails | PaymentDetails | StoredPaymentMethod4 | StoredPaymentMethod5 | PSELatam | RakutenPay | Ratepay | Riverty | SamsungPay | SEPADirectDebit | StoredPaymentMethod6 | Twint | UPICollect | UPIIntent | UPIQR | Vipps | VisaCheckout | WeChatPay | WeChatPayMiniProgram | Zip`
 
 ## Cases
 
 | Type |
 |  --- |
-| [`AchDirectDebit`](../../../doc/models/ach-direct-debit.md) |
+| [`ACHDirectDebit`](../../../doc/models/ach-direct-debit.md) |
 | [`Affirm`](../../../doc/models/affirm.md) |
 | [`Afterpay`](../../../doc/models/afterpay.md) |
 | [`Alma`](../../../doc/models/alma.md) |
 | [`AmazonPay`](../../../doc/models/amazon-pay.md) |
-| [`Ancv`](../../../doc/models/ancv.md) |
+| [`ANCV`](../../../doc/models/ancv.md) |
 | [`AndroidPay`](../../../doc/models/android-pay.md) |
 | [`ApplePayDetails`](../../../doc/models/apple-pay-details.md) |
 | [`AuPay`](../../../doc/models/au-pay.md) |
-| [`BacsDirectDebit`](../../../doc/models/bacs-direct-debit.md) |
+| [`BACSDirectDebit`](../../../doc/models/bacs-direct-debit.md) |
 | [`BillDesk`](../../../doc/models/bill-desk.md) |
-| [`Blik`](../../../doc/models/blik.md) |
+| [`BLIK`](../../../doc/models/blik.md) |
 | [`CardDetails`](../../../doc/models/card-details.md) |
 | [`StoredPaymentMethod`](../../../doc/models/stored-payment-method.md) |
 | [`Cellulant`](../../../doc/models/cellulant.md) |
@@ -30,8 +30,8 @@
 | [`Dragonpay`](../../../doc/models/dragonpay.md) |
 | [`EBankingFinland`](../../../doc/models/e-banking-finland.md) |
 | [`Voucher`](../../../doc/models/voucher.md) |
-| [`EftDirectDebit`](../../../doc/models/eft-direct-debit.md) |
-| [`DetailsoftokensthatarenotstoredwithAdyen`](../../../doc/models/detailsoftokensthatarenotstoredwith-adyen.md) |
+| [`EFTDirectDebit`](../../../doc/models/eft-direct-debit.md) |
+| [`DetailsOfTokensThatAreNotStoredWithAdyen`](../../../doc/models/details-of-tokens-that-are-not-stored-with-adyen.md) |
 | [`Fastlane`](../../../doc/models/fastlane.md) |
 | [`StoredPaymentMethod2`](../../../doc/models/stored-payment-method-2.md) |
 | [`GooglePayDetails`](../../../doc/models/google-pay-details.md) |
@@ -39,45 +39,47 @@
 | [`Klarna`](../../../doc/models/klarna.md) |
 | [`KlarnaNetwork`](../../../doc/models/klarna-network.md) |
 | [`Masterpass`](../../../doc/models/masterpass.md) |
-| [`MbWay`](../../../doc/models/mb-way.md) |
+| [`MBWay`](../../../doc/models/mb-way.md) |
 | [`MobilePay`](../../../doc/models/mobile-pay.md) |
-| [`MolPay`](../../../doc/models/mol-pay.md) |
+| [`MOLPay`](../../../doc/models/mol-pay.md) |
 | [`OpenInvoice`](../../../doc/models/open-invoice.md) |
-| [`PayByBankAisDirectDebit`](../../../doc/models/pay-by-bank-ais-direct-debit.md) |
+| [`PayByBankAISDirectDebit`](../../../doc/models/pay-by-bank-ais-direct-debit.md) |
 | [`PayByBank`](../../../doc/models/pay-by-bank.md) |
 | [`PayPal`](../../../doc/models/pay-pal.md) |
 | [`PayPay`](../../../doc/models/pay-pay.md) |
 | [`PayTo`](../../../doc/models/pay-to.md) |
 | [`PayU`](../../../doc/models/pay-u.md) |
 | [`PayWithGoogleDetails`](../../../doc/models/pay-with-google-details.md) |
-| [`PaymentDetails2`](../../../doc/models/payment-details-2.md) |
+| [`PaymentDetails`](../../../doc/models/payment-details.md) |
 | [`StoredPaymentMethod4`](../../../doc/models/stored-payment-method-4.md) |
 | [`StoredPaymentMethod5`](../../../doc/models/stored-payment-method-5.md) |
-| [`PseLatam`](../../../doc/models/pse-latam.md) |
+| [`PSELatam`](../../../doc/models/pse-latam.md) |
 | [`RakutenPay`](../../../doc/models/rakuten-pay.md) |
 | [`Ratepay`](../../../doc/models/ratepay.md) |
 | [`Riverty`](../../../doc/models/riverty.md) |
 | [`SamsungPay`](../../../doc/models/samsung-pay.md) |
-| [`SepaDirectDebit`](../../../doc/models/sepa-direct-debit.md) |
+| [`SEPADirectDebit`](../../../doc/models/sepa-direct-debit.md) |
 | [`StoredPaymentMethod6`](../../../doc/models/stored-payment-method-6.md) |
 | [`Twint`](../../../doc/models/twint.md) |
-| [`UpiCollect`](../../../doc/models/upi-collect.md) |
-| [`UpiIntent`](../../../doc/models/upi-intent.md) |
-| [`Upiqr`](../../../doc/models/upiqr.md) |
+| [`UPICollect`](../../../doc/models/upi-collect.md) |
+| [`UPIIntent`](../../../doc/models/upi-intent.md) |
+| [`UPIQR`](../../../doc/models/upiqr.md) |
 | [`Vipps`](../../../doc/models/vipps.md) |
 | [`VisaCheckout`](../../../doc/models/visa-checkout.md) |
 | [`WeChatPay`](../../../doc/models/we-chat-pay.md) |
 | [`WeChatPayMiniProgram`](../../../doc/models/we-chat-pay-mini-program.md) |
 | [`Zip`](../../../doc/models/zip.md) |
 
-## AchDirectDebit
+## ACHDirectDebit
 
 ### Initialization Code
 
 #### Example
 
 ```python
-value = AchDirectDebit()
+value = ACHDirectDebit(
+    mtype=TypeEnum.ACH
+)
 ```
 
 ## Affirm
@@ -87,7 +89,9 @@ value = AchDirectDebit()
 #### Example
 
 ```python
-value = Affirm()
+value = Affirm(
+    mtype=Type1Enum.AFFIRM
+)
 ```
 
 ## Afterpay
@@ -98,7 +102,7 @@ value = Affirm()
 
 ```python
 value = Afterpay(
-    mtype=Type22.AFTERPAY_B2B
+    mtype=Type2Enum.AFTERPAY_DEFAULT
 )
 ```
 
@@ -119,17 +123,19 @@ value = Alma()
 #### Example
 
 ```python
-value = AmazonPay()
+value = AmazonPay(
+    mtype=Type4Enum.AMAZONPAY
+)
 ```
 
-## Ancv
+## ANCV
 
 ### Initialization Code
 
 #### Example
 
 ```python
-value = Ancv()
+value = ANCV()
 ```
 
 ## AndroidPay
@@ -139,7 +145,9 @@ value = Ancv()
 #### Example
 
 ```python
-value = AndroidPay()
+value = AndroidPay(
+    mtype=Type6Enum.ANDROIDPAY
+)
 ```
 
 ## ApplePayDetails
@@ -150,7 +158,8 @@ value = AndroidPay()
 
 ```python
 value = ApplePayDetails(
-    apple_pay_token='applePayToken0'
+    apple_pay_token='applePayToken0',
+    mtype=Type7Enum.APPLEPAY
 )
 ```
 
@@ -161,17 +170,21 @@ value = ApplePayDetails(
 #### Example
 
 ```python
-value = AuPay()
+value = AuPay(
+    mtype=Type9Enum.AUPAY
+)
 ```
 
-## BacsDirectDebit
+## BACSDirectDebit
 
 ### Initialization Code
 
 #### Example
 
 ```python
-value = BacsDirectDebit()
+value = BACSDirectDebit(
+    mtype=Type10Enum.DIRECTDEBIT_GB
+)
 ```
 
 ## BillDesk
@@ -183,18 +196,18 @@ value = BacsDirectDebit()
 ```python
 value = BillDesk(
     issuer='issuer0',
-    mtype=Type121.BILLDESK_ONLINE
+    mtype=Type12Enum.BILLDESK_ONLINE
 )
 ```
 
-## Blik
+## BLIK
 
 ### Initialization Code
 
 #### Example
 
 ```python
-value = Blik()
+value = BLIK()
 ```
 
 ## CardDetails
@@ -204,7 +217,9 @@ value = Blik()
 #### Example
 
 ```python
-value = CardDetails()
+value = CardDetails(
+    mtype=Type14Enum.SCHEME
+)
 ```
 
 ## StoredPaymentMethod
@@ -214,7 +229,9 @@ value = CardDetails()
 #### Example
 
 ```python
-value = StoredPaymentMethod()
+value = StoredPaymentMethod(
+    mtype=Type16Enum.CASHAPP
+)
 ```
 
 ## Cellulant
@@ -224,7 +241,9 @@ value = StoredPaymentMethod()
 #### Example
 
 ```python
-value = Cellulant()
+value = Cellulant(
+    mtype=Type17Enum.CELLULANT
+)
 ```
 
 ## DBarai
@@ -234,7 +253,9 @@ value = Cellulant()
 #### Example
 
 ```python
-value = DBarai()
+value = DBarai(
+    mtype=Type20Enum.DBARAI
+)
 ```
 
 ## DirectDebitAu
@@ -245,7 +266,8 @@ value = DBarai()
 
 ```python
 value = DirectDebitAu(
-    holder_name='holderName0'
+    holder_name='holderName0',
+    mtype=Type22Enum.DIRECTDEBIT_AU
 )
 ```
 
@@ -260,7 +282,7 @@ value = Doku(
     first_name='firstName6',
     last_name='lastName2',
     shopper_email='shopperEmail8',
-    mtype=Type23.DOKU_BNI_VA
+    mtype=Type23Enum.DOKU_BNI_VA
 )
 ```
 
@@ -273,7 +295,7 @@ value = Doku(
 ```python
 value = Dragonpay(
     issuer='issuer2',
-    mtype=Type28.DRAGONPAY_OTC_NON_BANKING
+    mtype=Type28Enum.DRAGONPAY_OTC_NON_BANKING
 )
 ```
 
@@ -284,9 +306,7 @@ value = Dragonpay(
 #### Example
 
 ```python
-value = EBankingFinland(
-    mtype=Type60.EBANKING_FI
-)
+value = EBankingFinland()
 ```
 
 ## Voucher
@@ -301,31 +321,31 @@ value = Voucher(
     last_name='lastName2',
     shopper_email='shopperEmail2',
     telephone_number='telephoneNumber0',
-    mtype=Type29.ECONTEXT_STORES
+    mtype=Type29Enum.ECONTEXT_STORES
 )
 ```
 
-## EftDirectDebit
+## EFTDirectDebit
 
 ### Initialization Code
 
 #### Example
 
 ```python
-value = EftDirectDebit()
+value = EFTDirectDebit(
+    mtype=Type30Enum.EFT_DIRECTDEBIT_CA
+)
 ```
 
-## DetailsoftokensthatarenotstoredwithAdyen
+## DetailsOfTokensThatAreNotStoredWithAdyen
 
 ### Initialization Code
 
 #### Example
 
 ```python
-value = DetailsoftokensthatarenotstoredwithAdyen(
-    stored_payment_method_id='storedPaymentMethodId2',
-    subtype=Subtype3.HILTON,
-    mtype=Type67.EXTERNALTOKEN
+value = DetailsOfTokensThatAreNotStoredWithAdyen(
+    stored_payment_method_id='storedPaymentMethodId8'
 )
 ```
 
@@ -337,8 +357,7 @@ value = DetailsoftokensthatarenotstoredwithAdyen(
 
 ```python
 value = Fastlane(
-    fastlane_data='fastlaneData2',
-    mtype=Type68.FASTLANE
+    fastlane_data='fastlaneData2'
 )
 ```
 
@@ -350,8 +369,8 @@ value = Fastlane(
 
 ```python
 value = StoredPaymentMethod2(
-    issuer='issuer2',
-    mtype=Type311.ONLINEBANKING_CZ
+    issuer='issuer4',
+    mtype=Type31Enum.EPS
 )
 ```
 
@@ -363,7 +382,8 @@ value = StoredPaymentMethod2(
 
 ```python
 value = GooglePayDetails(
-    google_pay_token='googlePayToken8'
+    google_pay_token='googlePayToken8',
+    mtype=Type24Enum.GOOGLEPAY
 )
 ```
 
@@ -374,7 +394,9 @@ value = GooglePayDetails(
 #### Example
 
 ```python
-value = IdealDetails()
+value = IdealDetails(
+    mtype=Type25Enum.IDEAL
+)
 ```
 
 ## Klarna
@@ -385,7 +407,7 @@ value = IdealDetails()
 
 ```python
 value = Klarna(
-    mtype=Type34.KLARNA_B2B
+    mtype=Type34Enum.KLARNA
 )
 ```
 
@@ -396,9 +418,7 @@ value = Klarna(
 #### Example
 
 ```python
-value = KlarnaNetwork(
-    mtype=Type69.KLARNA_NETWORK
-)
+value = KlarnaNetwork()
 ```
 
 ## Masterpass
@@ -409,20 +429,22 @@ value = KlarnaNetwork(
 
 ```python
 value = Masterpass(
-    masterpass_transaction_id='masterpassTransactionId0'
+    masterpass_transaction_id='masterpassTransactionId0',
+    mtype=Type35Enum.MASTERPASS
 )
 ```
 
-## MbWay
+## MBWay
 
 ### Initialization Code
 
 #### Example
 
 ```python
-value = MbWay(
+value = MBWay(
     shopper_email='shopperEmail4',
-    telephone_number='telephoneNumber4'
+    telephone_number='telephoneNumber4',
+    mtype=Type36Enum.MBWAY
 )
 ```
 
@@ -433,19 +455,21 @@ value = MbWay(
 #### Example
 
 ```python
-value = MobilePay()
+value = MobilePay(
+    mtype=Type37Enum.MOBILEPAY
+)
 ```
 
-## MolPay
+## MOLPay
 
 ### Initialization Code
 
 #### Example
 
 ```python
-value = MolPay(
+value = MOLPay(
     issuer='issuer0',
-    mtype=Type38.MOLPAY_EBANKING_FPX_MY
+    mtype=Type38Enum.MOLPAY_EBANKING_FPX_MY
 )
 ```
 
@@ -456,19 +480,19 @@ value = MolPay(
 #### Example
 
 ```python
-value = OpenInvoice()
+value = OpenInvoice(
+    mtype=Type39Enum.OPENINVOICE
+)
 ```
 
-## PayByBankAisDirectDebit
+## PayByBankAISDirectDebit
 
 ### Initialization Code
 
 #### Example
 
 ```python
-value = PayByBankAisDirectDebit(
-    mtype=Type70.PAYBYBANK_AIS_DD
-)
+value = PayByBankAISDirectDebit()
 ```
 
 ## PayByBank
@@ -478,9 +502,7 @@ value = PayByBankAisDirectDebit(
 #### Example
 
 ```python
-value = PayByBank(
-    mtype=Type75.PAYBYBANK
-)
+value = PayByBank()
 ```
 
 ## PayPal
@@ -490,9 +512,7 @@ value = PayByBank(
 #### Example
 
 ```python
-value = PayPal(
-    mtype=Type76.PAYPAL
-)
+value = PayPal()
 ```
 
 ## PayPay
@@ -502,7 +522,9 @@ value = PayPal(
 #### Example
 
 ```python
-value = PayPay()
+value = PayPay(
+    mtype=Type40Enum.PAYPAY
+)
 ```
 
 ## PayTo
@@ -512,7 +534,9 @@ value = PayPay()
 #### Example
 
 ```python
-value = PayTo()
+value = PayTo(
+    mtype=Type41Enum.PAYTO
+)
 ```
 
 ## PayU
@@ -522,9 +546,7 @@ value = PayTo()
 #### Example
 
 ```python
-value = PayU(
-    mtype=Type77.PAYU_IN_UPI
-)
+value = PayU()
 ```
 
 ## PayWithGoogleDetails
@@ -535,18 +557,19 @@ value = PayU(
 
 ```python
 value = PayWithGoogleDetails(
-    google_pay_token='googlePayToken0'
+    google_pay_token='googlePayToken0',
+    mtype=Type26Enum.PAYWITHGOOGLE
 )
 ```
 
-## PaymentDetails2
+## PaymentDetails
 
 ### Initialization Code
 
 #### Example
 
 ```python
-value = PaymentDetails2()
+value = PaymentDetails()
 ```
 
 ## StoredPaymentMethod4
@@ -566,21 +589,23 @@ value = StoredPaymentMethod4()
 #### Example
 
 ```python
-value = StoredPaymentMethod5()
+value = StoredPaymentMethod5(
+    mtype=Type45Enum.PAYBYBANK_PIX
+)
 ```
 
-## PseLatam
+## PSELatam
 
 ### Initialization Code
 
 #### Example
 
 ```python
-value = PseLatam(
-    bank='bank2',
-    client_type='clientType8',
-    identification='identification8',
-    identification_type='identificationType6'
+value = PSELatam(
+    bank='bank4',
+    client_type='clientType4',
+    identification='identification4',
+    identification_type='identificationType8'
 )
 ```
 
@@ -591,7 +616,9 @@ value = PseLatam(
 #### Example
 
 ```python
-value = RakutenPay()
+value = RakutenPay(
+    mtype=Type47Enum.RAKUTENPAY
+)
 ```
 
 ## Ratepay
@@ -602,7 +629,7 @@ value = RakutenPay()
 
 ```python
 value = Ratepay(
-    mtype=Type48.RATEPAY
+    mtype=Type48Enum.RATEPAY
 )
 ```
 
@@ -614,7 +641,7 @@ value = Ratepay(
 
 ```python
 value = Riverty(
-    mtype=Type49.RIVERTY_INSTALLMENTS
+    mtype=Type49Enum.RIVERTY
 )
 ```
 
@@ -626,20 +653,22 @@ value = Riverty(
 
 ```python
 value = SamsungPay(
-    samsung_pay_token='samsungPayToken8'
+    samsung_pay_token='samsungPayToken6',
+    mtype=Type50Enum.SAMSUNGPAY
 )
 ```
 
-## SepaDirectDebit
+## SEPADirectDebit
 
 ### Initialization Code
 
 #### Example
 
 ```python
-value = SepaDirectDebit(
-    iban='iban8',
-    owner_name='ownerName8'
+value = SEPADirectDebit(
+    iban='iban4',
+    owner_name='ownerName4',
+    mtype=Type51Enum.SEPADIRECTDEBIT
 )
 ```
 
@@ -663,40 +692,34 @@ value = StoredPaymentMethod6()
 value = Twint()
 ```
 
-## UpiCollect
+## UPICollect
 
 ### Initialization Code
 
 #### Example
 
 ```python
-value = UpiCollect(
-    mtype=Type78.UPI_COLLECT
-)
+value = UPICollect()
 ```
 
-## UpiIntent
+## UPIIntent
 
 ### Initialization Code
 
 #### Example
 
 ```python
-value = UpiIntent(
-    mtype=Type79.UPI_INTENT
-)
+value = UPIIntent()
 ```
 
-## Upiqr
+## UPIQR
 
 ### Initialization Code
 
 #### Example
 
 ```python
-value = Upiqr(
-    mtype=Type80.UPI_QR
-)
+value = UPIQR()
 ```
 
 ## Vipps
@@ -707,7 +730,8 @@ value = Upiqr(
 
 ```python
 value = Vipps(
-    telephone_number='telephoneNumber0'
+    telephone_number='telephoneNumber0',
+    mtype=Type54Enum.VIPPS
 )
 ```
 
@@ -719,7 +743,8 @@ value = Vipps(
 
 ```python
 value = VisaCheckout(
-    visa_checkout_call_id='visaCheckoutCallId6'
+    visa_checkout_call_id='visaCheckoutCallId0',
+    mtype=Type55Enum.VISACHECKOUT
 )
 ```
 
@@ -730,7 +755,9 @@ value = VisaCheckout(
 #### Example
 
 ```python
-value = WeChatPay()
+value = WeChatPay(
+    mtype=Type56Enum.WECHATPAY
+)
 ```
 
 ## WeChatPayMiniProgram
@@ -740,7 +767,9 @@ value = WeChatPay()
 #### Example
 
 ```python
-value = WeChatPayMiniProgram()
+value = WeChatPayMiniProgram(
+    mtype=Type57Enum.WECHATPAYMINIPROGRAM
+)
 ```
 
 ## Zip
@@ -750,6 +779,8 @@ value = WeChatPayMiniProgram()
 #### Example
 
 ```python
-value = Zip()
+value = Zip(
+    mtype=Type58Enum.ZIP
+)
 ```
 

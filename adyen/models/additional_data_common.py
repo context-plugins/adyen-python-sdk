@@ -55,7 +55,14 @@ class AdditionalDataCommon(object):
             pass a custom routing flag in a payment request's additional data to
             target a specific acquirer.  To enable this functionality, contact
             [Support](https://www.adyen.help/hc/en-us/requests/new).
-        industry_usage (IndustryUsage): The model property of type IndustryUsage.
+        industry_usage (IndustryUsageEnum): In case of [asynchronous authorisation
+            adjustment](https://docs.adyen.com/online-payments/adjust-authorisation#ad
+            just-authorisation), this field denotes why the additional payment is
+            made.  Possible values:   * **NoShow**: An incremental charge is carried
+            out because of a no-show for a guaranteed reservation.   *
+            **DelayedCharge**: An incremental charge is carried out to process an
+            additional payment after the original services have been rendered and the
+            respective payment has been processed.
         manual_capture (str): Set to **true** to require [manual
             capture](https://docs.adyen.com/online-payments/capture) for the
             transaction.
@@ -134,8 +141,6 @@ class AdditionalDataCommon(object):
             you are sending `shopperInteraction` **ContAuth** and
             `recurringProcessingModel` **Subscription** or **UnscheduledCardOnFile**
             to ensure that the transaction is classified as MIT.
-        additional_properties (Dict[str, Any]): The additional properties for the
-            model.
 
     """
 
@@ -213,8 +218,7 @@ class AdditionalDataCommon(object):
         sub_merchant_state=APIHelper.SKIP,
         sub_merchant_street=APIHelper.SKIP,
         sub_merchant_tax_id=APIHelper.SKIP,
-        transaction_link_id=APIHelper.SKIP,
-        additional_properties=None):
+        transaction_link_id=APIHelper.SKIP):
         """Initialize a AdditionalDataCommon instance."""
         # Initialize members of the class
         if requested_test_acquirer_response_code is not APIHelper.SKIP:
@@ -263,11 +267,6 @@ class AdditionalDataCommon(object):
             self.sub_merchant_tax_id = sub_merchant_tax_id
         if transaction_link_id is not APIHelper.SKIP:
             self.transaction_link_id = transaction_link_id
-
-        # Add additional model properties to the instance
-        if additional_properties is None:
-            additional_properties = {}
-        self.additional_properties = additional_properties
 
     @classmethod
     def from_dictionary(cls,
@@ -376,11 +375,6 @@ class AdditionalDataCommon(object):
             if dictionary.get("transactionLinkId")\
                 else APIHelper.SKIP
 
-        additional_properties = APIHelper.get_additional_properties(
-            dictionary={k: v for k, v in dictionary.items()
-                        if k not in cls._names.values()},
-            unboxing_function=lambda value: value)
-
         # Return an object of this model
         return cls(requested_test_acquirer_response_code,
                    requested_test_error_response_code,
@@ -403,8 +397,7 @@ class AdditionalDataCommon(object):
                    sub_merchant_state,
                    sub_merchant_street,
                    sub_merchant_tax_id,
-                   transaction_link_id,
-                   additional_properties)
+                   transaction_link_id)
 
     def __repr__(self):
         """Return a unambiguous string representation."""
@@ -518,7 +511,6 @@ class AdditionalDataCommon(object):
             if hasattr(self, "transaction_link_id")
             else None
         )
-        _additional_properties=self.additional_properties
         return (
             f"{self.__class__.__name__}("
             f"requested_test_acquirer_response_code={_requested_test_acquirer_response_code!r}, "
@@ -543,7 +535,6 @@ class AdditionalDataCommon(object):
             f"sub_merchant_street={_sub_merchant_street!r}, "
             f"sub_merchant_tax_id={_sub_merchant_tax_id!r}, "
             f"transaction_link_id={_transaction_link_id!r}, "
-            f"additional_properties={_additional_properties!r}, "
             f")"
         )
 
@@ -659,7 +650,6 @@ class AdditionalDataCommon(object):
             if hasattr(self, "transaction_link_id")
             else None
         )
-        _additional_properties=self.additional_properties
         return (
             f"{self.__class__.__name__}("
             f"requested_test_acquirer_response_code={_requested_test_acquirer_response_code!s}, "
@@ -684,6 +674,5 @@ class AdditionalDataCommon(object):
             f"sub_merchant_street={_sub_merchant_street!s}, "
             f"sub_merchant_tax_id={_sub_merchant_tax_id!s}, "
             f"transaction_link_id={_transaction_link_id!s}, "
-            f"additional_properties={_additional_properties!s}, "
             f")"
         )

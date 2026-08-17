@@ -37,9 +37,19 @@ class LegalEntityAssociation(object):
             settlor associated with a trust. Only applicable to trusts in Australia.
             For example, **professionalServiceProvider**, **deceased**, or
             **contributionBelowThreshold**.
-        mtype (Type142): The model property of type Type142.
-        additional_properties (Dict[str, Any]): The additional properties for the
-            model.
+        mtype (Type142Enum): Defines the relationship of the legal entity to the
+            current legal entity.  Possible value for individuals:
+            **legalRepresentative**.  Possible values for organizations:
+            **director**, **signatory**, **trustOwnership**, **uboThroughOwnership**,
+            **uboThroughControl**, **ultimateParentCompany**, or
+            **immediateParentCompany**.  Possible values for sole proprietorships:
+            **soleProprietorship**.  Possible value for trusts: **trust**.  Possible
+            values for trust members: **definedBeneficiary**, **protector**,
+            **secondaryTrustee**, **settlor**, **uboThroughControl**, or
+            **uboThroughOwnership**.  Possible value for unincorporated partnership:
+            **unincorporatedPartnership**.  Possible values for unincorporated
+            partnership members: **secondaryPartner**, **uboThroughControl**,
+            **uboThroughOwnership**
 
     """
 
@@ -76,8 +86,7 @@ class LegalEntityAssociation(object):
         name=APIHelper.SKIP,
         nominee=APIHelper.SKIP,
         relationship=APIHelper.SKIP,
-        settlor_exemption_reason=APIHelper.SKIP,
-        additional_properties=None):
+        settlor_exemption_reason=APIHelper.SKIP):
         """Initialize a LegalEntityAssociation instance."""
         # Initialize members of the class
         if associator_id is not APIHelper.SKIP:
@@ -96,11 +105,6 @@ class LegalEntityAssociation(object):
         if settlor_exemption_reason is not APIHelper.SKIP:
             self.settlor_exemption_reason = settlor_exemption_reason
         self.mtype = mtype
-
-        # Add additional model properties to the instance
-        if additional_properties is None:
-            additional_properties = {}
-        self.additional_properties = additional_properties
 
     @classmethod
     def from_dictionary(cls,
@@ -157,11 +161,6 @@ class LegalEntityAssociation(object):
             if dictionary.get("settlorExemptionReason")\
                 else APIHelper.SKIP
 
-        additional_properties = APIHelper.get_additional_properties(
-            dictionary={k: v for k, v in dictionary.items()
-                        if k not in cls._names.values()},
-            unboxing_function=lambda value: value)
-
         # Return an object of this model
         return cls(legal_entity_id,
                    mtype,
@@ -171,8 +170,7 @@ class LegalEntityAssociation(object):
                    name,
                    nominee,
                    relationship,
-                   settlor_exemption_reason,
-                   additional_properties)
+                   settlor_exemption_reason)
 
     def __repr__(self):
         """Return a unambiguous string representation."""
@@ -213,7 +211,6 @@ class LegalEntityAssociation(object):
             else None
         )
         _mtype=self.mtype
-        _additional_properties=self.additional_properties
         return (
             f"{self.__class__.__name__}("
             f"associator_id={_associator_id!r}, "
@@ -225,7 +222,6 @@ class LegalEntityAssociation(object):
             f"relationship={_relationship!r}, "
             f"settlor_exemption_reason={_settlor_exemption_reason!r}, "
             f"mtype={_mtype!r}, "
-            f"additional_properties={_additional_properties!r}, "
             f")"
         )
 
@@ -268,7 +264,6 @@ class LegalEntityAssociation(object):
             else None
         )
         _mtype=self.mtype
-        _additional_properties=self.additional_properties
         return (
             f"{self.__class__.__name__}("
             f"associator_id={_associator_id!s}, "
@@ -280,6 +275,5 @@ class LegalEntityAssociation(object):
             f"relationship={_relationship!s}, "
             f"settlor_exemption_reason={_settlor_exemption_reason!s}, "
             f"mtype={_mtype!s}, "
-            f"additional_properties={_additional_properties!s}, "
             f")"
         )

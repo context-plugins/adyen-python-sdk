@@ -14,15 +14,15 @@ class PlatformChargebackLogic4(object):
     Adyen Platforms.
 
     Attributes:
-        behavior (Behavior): The model property of type Behavior.
+        behavior (BehaviorEnum): The method of handling the chargeback.  Possible
+            values: **deductFromLiableAccount**, **deductFromOneBalanceAccount**,
+            **deductAccordingToSplitRatio**.
         cost_allocation_account (str): The unique identifier of the balance account
             to which the chargeback fees are booked. By default, the chargeback fees
             are booked to your liable balance account.
         target_account (str): The unique identifier of the balance account against
             which the disputed amount is booked.  Required if `behavior` is
             **deductFromOneBalanceAccount**.
-        additional_properties (Dict[str, Any]): The additional properties for the
-            model.
 
     """
 
@@ -43,8 +43,7 @@ class PlatformChargebackLogic4(object):
         self,
         behavior=APIHelper.SKIP,
         cost_allocation_account=APIHelper.SKIP,
-        target_account=APIHelper.SKIP,
-        additional_properties=None):
+        target_account=APIHelper.SKIP):
         """Initialize a PlatformChargebackLogic4 instance."""
         # Initialize members of the class
         if behavior is not APIHelper.SKIP:
@@ -53,11 +52,6 @@ class PlatformChargebackLogic4(object):
             self.cost_allocation_account = cost_allocation_account
         if target_account is not APIHelper.SKIP:
             self.target_account = target_account
-
-        # Add additional model properties to the instance
-        if additional_properties is None:
-            additional_properties = {}
-        self.additional_properties = additional_properties
 
     @classmethod
     def from_dictionary(cls,
@@ -90,16 +84,10 @@ class PlatformChargebackLogic4(object):
             if dictionary.get("targetAccount")\
                 else APIHelper.SKIP
 
-        additional_properties = APIHelper.get_additional_properties(
-            dictionary={k: v for k, v in dictionary.items()
-                        if k not in cls._names.values()},
-            unboxing_function=lambda value: value)
-
         # Return an object of this model
         return cls(behavior,
                    cost_allocation_account,
-                   target_account,
-                   additional_properties)
+                   target_account)
 
     def __repr__(self):
         """Return a unambiguous string representation."""
@@ -118,13 +106,11 @@ class PlatformChargebackLogic4(object):
             if hasattr(self, "target_account")
             else None
         )
-        _additional_properties=self.additional_properties
         return (
             f"{self.__class__.__name__}("
             f"behavior={_behavior!r}, "
             f"cost_allocation_account={_cost_allocation_account!r}, "
             f"target_account={_target_account!r}, "
-            f"additional_properties={_additional_properties!r}, "
             f")"
         )
 
@@ -145,12 +131,10 @@ class PlatformChargebackLogic4(object):
             if hasattr(self, "target_account")
             else None
         )
-        _additional_properties=self.additional_properties
         return (
             f"{self.__class__.__name__}("
             f"behavior={_behavior!s}, "
             f"cost_allocation_account={_cost_allocation_account!s}, "
             f"target_account={_target_account!s}, "
-            f"additional_properties={_additional_properties!s}, "
             f")"
         )

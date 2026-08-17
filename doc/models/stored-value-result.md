@@ -4,8 +4,6 @@
 For each stored value card loaded or reloaded, in the StoredValue response message.
 Result of loading/reloading a stored value card.
 
-*This model accepts additional fields of type Any.*
-
 ## Structure
 
 `StoredValueResult`
@@ -14,58 +12,46 @@ Result of loading/reloading a stored value card.
 
 | Name | Type | Tags | Description |
 |  --- | --- | --- | --- |
-| `stored_value_transaction_type` | [`StoredValueTransactionType2`](../../doc/models/stored-value-transaction-type-2.md) | Required | - |
+| `stored_value_transaction_type` | [`StoredValueTransactionType2Enum`](../../doc/models/stored-value-transaction-type-2-enum.md) | Required | Identification of operation to proceed on the stored value account or the stored value card.<br>Copy.<br>Possible values:<br><br>* **Activate**<br>* **Duplicate**<br>* **Load**<br>* **Reserve**<br>* **Reverse**<br>* **Unload** |
 | `product_code` | `int` | Optional | Product code of item purchased with the transaction.<br>Copy.<br><br>**Constraints**: `>= 1`, `<= 20` |
 | `ean_upc` | `int` | Optional | Standard product code of item purchased with the transaction.<br>Copy. |
 | `item_amount` | `float` | Optional | Total amount of the item line.<br><br>**Constraints**: `>= 0`, `<= 99999999.999999` |
 | `currency` | `str` | Optional | Currency of a monetary amount.<br>Copy.<br><br>**Constraints**: *Pattern*: `^[A-Z]{3,3}$` |
-| `stored_value_account_status` | [`StoredValueAccountStatus`](../../doc/models/stored-value-account-status.md) | Optional | - |
-| `host_transaction_id` | [`HostTransactionId`](../../doc/models/host-transaction-id.md) | Optional | - |
-| `additional_properties` | `Dict[str, Any]` | Optional | - |
+| `stored_value_account_status` | [`StoredValueAccountStatus1`](../../doc/models/stored-value-account-status-1.md) | Optional | Data related to the result of the stored value card transaction. |
+| `host_transaction_id` | [`TransactionIDType7`](../../doc/models/transaction-id-type-7.md) | Optional | Identification of the transaction by the host in charge of the stored value transaction.<br>If provided by the Host. |
 
 ## Example
 
 ```python
-import jsonpickle
-
-from adyen.models.entry_mode import EntryMode
-from adyen.models.identification_type_11 import IdentificationType11
-from adyen.models.stored_value_account_id_2 import StoredValueAccountId2
-from adyen.models.stored_value_account_status import StoredValueAccountStatus
-from adyen.models.stored_value_account_type_1 import StoredValueAccountType1
+from adyen.models.entry_mode_enum import EntryModeEnum
+from adyen.models.identification_type_11_enum import IdentificationType11Enum
+from adyen.models.stored_value_account_id import StoredValueAccountID
+from adyen.models.stored_value_account_status_1 import StoredValueAccountStatus1
+from adyen.models.stored_value_account_type_1_enum import StoredValueAccountType1Enum
 from adyen.models.stored_value_result import StoredValueResult
-from adyen.models.stored_value_transaction_type_2 import StoredValueTransactionType2
+from adyen.models.stored_value_transaction_type_2_enum import StoredValueTransactionType2Enum
 
 stored_value_result = StoredValueResult(
-    stored_value_transaction_type=StoredValueTransactionType2.REVERSE,
+    stored_value_transaction_type=StoredValueTransactionType2Enum.REVERSE,
     product_code=20,
     ean_upc=214,
     item_amount=81.44,
     currency='Currency8',
-    stored_value_account_status=StoredValueAccountStatus(
-        stored_value_account_id=StoredValueAccountId2(
-            stored_value_account_type=StoredValueAccountType1.PHONECARD,
+    stored_value_account_status=StoredValueAccountStatus1(
+        stored_value_account_id=StoredValueAccountID(
+            stored_value_account_type=StoredValueAccountType1Enum.PHONECARD,
             entry_mode=[
-                EntryMode.MAGSTRIPE,
-                EntryMode.SCANNED
+                EntryModeEnum.MAGSTRIPE,
+                EntryModeEnum.SCANNED
             ],
-            identification_type=IdentificationType11.PHONENUMBER,
+            identification_type=IdentificationType11Enum.PHONENUMBER,
             stored_value_id='StoredValueID8',
             stored_value_provider='StoredValueProvider4',
             owner_name='OwnerName0',
-            expiry_date=4,
-            additional_properties={
-                'exampleAdditionalProperty': jsonpickle.decode('{"key1":"val1","key2":"val2"}')
-            }
+            expiry_date=4
         ),
-        current_balance=45.56,
-        additional_properties={
-            'exampleAdditionalProperty': jsonpickle.decode('{"key1":"val1","key2":"val2"}')
-        }
-    ),
-    additional_properties={
-        'exampleAdditionalProperty': jsonpickle.decode('{"key1":"val1","key2":"val2"}')
-    }
+        current_balance=45.56
+    )
 )
 ```
 

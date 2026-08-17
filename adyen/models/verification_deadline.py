@@ -11,14 +11,12 @@ class VerificationDeadline(object):
     """Implementation of the 'VerificationDeadline' model.
 
     Attributes:
-        capabilities (List[Capability]): The names of the capabilities to be
+        capabilities (List[CapabilityEnum]): The names of the capabilities to be
             disallowed.
         entity_ids (List[str]): The unique identifiers of the bank account(s) that
             the deadline applies to
         expires_at (datetime): The date that verification is due by before
             capabilities are disallowed.
-        additional_properties (Dict[str, Any]): The additional properties for the
-            model.
 
     """
 
@@ -37,8 +35,7 @@ class VerificationDeadline(object):
         self,
         capabilities=None,
         expires_at=None,
-        entity_ids=APIHelper.SKIP,
-        additional_properties=None):
+        entity_ids=APIHelper.SKIP):
         """Initialize a VerificationDeadline instance."""
         # Initialize members of the class
         self.capabilities = capabilities
@@ -48,11 +45,6 @@ class VerificationDeadline(object):
              APIHelper.apply_datetime_converter(
             expires_at, APIHelper.RFC3339DateTime)\
              if expires_at else None
-
-        # Add additional model properties to the instance
-        if additional_properties is None:
-            additional_properties = {}
-        self.additional_properties = additional_properties
 
     @classmethod
     def from_dictionary(cls,
@@ -84,16 +76,10 @@ class VerificationDeadline(object):
             if dictionary.get("entityIds")\
                 else APIHelper.SKIP
 
-        additional_properties = APIHelper.get_additional_properties(
-            dictionary={k: v for k, v in dictionary.items()
-                        if k not in cls._names.values()},
-            unboxing_function=lambda value: value)
-
         # Return an object of this model
         return cls(capabilities,
                    expires_at,
-                   entity_ids,
-                   additional_properties)
+                   entity_ids)
 
     def __repr__(self):
         """Return a unambiguous string representation."""
@@ -104,13 +90,11 @@ class VerificationDeadline(object):
             else None
         )
         _expires_at=self.expires_at
-        _additional_properties=self.additional_properties
         return (
             f"{self.__class__.__name__}("
             f"capabilities={_capabilities!r}, "
             f"entity_ids={_entity_ids!r}, "
             f"expires_at={_expires_at!r}, "
-            f"additional_properties={_additional_properties!r}, "
             f")"
         )
 
@@ -123,12 +107,10 @@ class VerificationDeadline(object):
             else None
         )
         _expires_at=self.expires_at
-        _additional_properties=self.additional_properties
         return (
             f"{self.__class__.__name__}("
             f"capabilities={_capabilities!s}, "
             f"entity_ids={_entity_ids!s}, "
             f"expires_at={_expires_at!s}, "
-            f"additional_properties={_additional_properties!s}, "
             f")"
         )

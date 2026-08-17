@@ -16,8 +16,15 @@ class MessageReference(object):
     message request to abort or request the status.
 
     Attributes:
-        message_category (MessageCategory2): The model property of type
-            MessageCategory2.
+        message_category (MessageCategory2Enum): Category of message.
+            CardAcquisition, Display, Input, Loyalty, Payment, Print, CardReaderInit,
+            CardReaderPowerOff. Possible values: * **Abort** * **Admin** *
+            **BalanceInquiry** * **Batch** * **CardAcquisition** * **CardReaderInit**
+            * **CardReaderPowerOff** * **Diagnosis** * **Display** *
+            **EnableService** * **Event** * **GetTotals** * **Input** *
+            **InputUpdate** * **Login** * **Logout** * **Loyalty** * **None** *
+            **PIN** * **Payment** * **Print** * **Reconciliation** * **Reversal** *
+            **Sound** * **StoredValue** * **TransactionStatus** * **Transmit**
         service_id (str): Identification of a message pair, which processes a
             transaction.
         device_id (str): Identification of a device message pair.
@@ -25,8 +32,6 @@ class MessageReference(object):
             Sale to POI protocol. default MessageHeader.SaleID.
         poiid (str): Identification of a POI System or a POI Terminal for the Sale to
             POI protocol. Default `MessageHeader.POIID`.
-        additional_properties (Dict[str, Any]): The additional properties for the
-            model.
 
     """
 
@@ -53,8 +58,7 @@ class MessageReference(object):
         service_id=APIHelper.SKIP,
         device_id=APIHelper.SKIP,
         sale_id=APIHelper.SKIP,
-        poiid=APIHelper.SKIP,
-        additional_properties=None):
+        poiid=APIHelper.SKIP):
         """Initialize a MessageReference instance."""
         # Initialize members of the class
         if message_category is not APIHelper.SKIP:
@@ -67,11 +71,6 @@ class MessageReference(object):
             self.sale_id = sale_id
         if poiid is not APIHelper.SKIP:
             self.poiid = poiid
-
-        # Add additional model properties to the instance
-        if additional_properties is None:
-            additional_properties = {}
-        self.additional_properties = additional_properties
 
     @classmethod
     def from_dictionary(cls,
@@ -112,18 +111,12 @@ class MessageReference(object):
             if dictionary.get("POIID")\
                 else APIHelper.SKIP
 
-        additional_properties = APIHelper.get_additional_properties(
-            dictionary={k: v for k, v in dictionary.items()
-                        if k not in cls._names.values()},
-            unboxing_function=lambda value: value)
-
         # Return an object of this model
         return cls(message_category,
                    service_id,
                    device_id,
                    sale_id,
-                   poiid,
-                   additional_properties)
+                   poiid)
 
     def __repr__(self):
         """Return a unambiguous string representation."""
@@ -152,7 +145,6 @@ class MessageReference(object):
             if hasattr(self, "poiid")
             else None
         )
-        _additional_properties=self.additional_properties
         return (
             f"{self.__class__.__name__}("
             f"message_category={_message_category!r}, "
@@ -160,7 +152,6 @@ class MessageReference(object):
             f"device_id={_device_id!r}, "
             f"sale_id={_sale_id!r}, "
             f"poiid={_poiid!r}, "
-            f"additional_properties={_additional_properties!r}, "
             f")"
         )
 
@@ -191,7 +182,6 @@ class MessageReference(object):
             if hasattr(self, "poiid")
             else None
         )
-        _additional_properties=self.additional_properties
         return (
             f"{self.__class__.__name__}("
             f"message_category={_message_category!s}, "
@@ -199,6 +189,5 @@ class MessageReference(object):
             f"device_id={_device_id!s}, "
             f"sale_id={_sale_id!s}, "
             f"poiid={_poiid!s}, "
-            f"additional_properties={_additional_properties!s}, "
             f")"
         )

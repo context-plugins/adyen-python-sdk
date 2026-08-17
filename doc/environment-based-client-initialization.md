@@ -30,11 +30,9 @@ Values provided through arguments take precedence over those defined in environm
 ## Example `.env` File
 
 ```python
-MERCHANT_ACCOUNT=merchantAccountDefaultValue
-DEVICE_ID=deviceIdDefaultValue
-ENVIRONMENT=production
+ENVIRONMENT=test
 
-API_KEY_AUTH_X_API_KEY=ExampleXApiKey
+API_KEY_AUTH_X_API_KEY=ExampleXAPIKey
 BASIC_AUTH_USERNAME=ExampleUsername
 BASIC_AUTH_PASSWORD=ExamplePassword
 CLIENT_KEY_CLIENT_KEY=ExampleClientKey
@@ -44,25 +42,6 @@ MAX_RETRIES=3
 BACKOFF_FACTOR=2
 RETRY_STATUSES=408,413
 RETRY_METHODS=GET,PUT,DELETE
-
-# Logging Configuration
-LOG_LEVEL=DEBUG
-MASK_SENSITIVE_HEADERS=true
-
-# Request Logging Configuration
-REQUEST_LOG_BODY=true
-REQUEST_LOG_HEADERS=true
-REQUEST_INCLUDE_QUERY_IN_PATH=true
-REQUEST_HEADERS_TO_INCLUDE=Content-Type,X-Request-ID
-REQUEST_HEADERS_TO_EXCLUDE=Authorization
-REQUEST_HEADERS_TO_UNMASK=X-Request-ID
-
-# Response Logging Configuration
-RESPONSE_LOG_BODY=true
-RESPONSE_LOG_HEADERS=true
-RESPONSE_HEADERS_TO_INCLUDE=Content-Type,X-Correlation-ID,Date,Server
-RESPONSE_HEADERS_TO_EXCLUDE=Set-Cookie,Authorization,X-API-Key
-RESPONSE_HEADERS_TO_UNMASK=X-Correlation-ID
 
 # Proxy Configuration
 PROXY_ADDRESS=http://localhost:3000

@@ -17,8 +17,8 @@ from apimatic_core.types.parameter import Parameter
 from adyen.api_helper import APIHelper
 from adyen.apis.base_api import BaseApi
 from adyen.configuration import Server
-from adyen.exceptions.service_error_exception import (
-    ServiceErrorException,
+from adyen.exceptions.service_error_error_1_exception import (
+    ServiceErrorError1Exception,
 )
 from adyen.http.http_method_enum import HttpMethodEnum
 from adyen.models.business_line import BusinessLine
@@ -52,18 +52,16 @@ class BusinessLinesApi(BaseApi):
             body (BusinessLineInfo, optional): The request body parameter.
 
         Returns:
-            ApiResponse: An object with the response value as well as other useful
-                information such as status codes and headers. OK - the request has
-                succeeded.
+            BusinessLine: Response from the API. OK - the request has succeeded.
 
         Raises:
-            ApiException: When an error occurs while fetching the data from the
+            APIException: When an error occurs while fetching the data from the
                 remote API. This exception includes the HTTP Response code, an error
                 message, and the HTTP body that was received in the request.
 
         """
         return super().new_api_call_builder.request(
-            RequestBuilder().server(Server.DEFAULT)
+            RequestBuilder().server(Server.DEFAULT18)
             .path("/businessLines")
             .http_method(HttpMethodEnum.POST)
             .header_param(Parameter()
@@ -80,22 +78,21 @@ class BusinessLinesApi(BaseApi):
             ResponseHandler()
             .deserializer(APIHelper.json_deserialize)
             .deserialize_into(BusinessLine.from_dictionary)
-            .is_api_response(True)
             .local_error("400",
                 "Bad Request - a problem reading or understanding the request.",
-                ServiceErrorException)
+                ServiceErrorError1Exception)
             .local_error("401",
                 "Unauthorized - authentication required.",
-                ServiceErrorException)
+                ServiceErrorError1Exception)
             .local_error("403",
                 "Forbidden - insufficient permissions to process the request.",
-                ServiceErrorException)
+                ServiceErrorError1Exception)
             .local_error("422",
                 "Unprocessable Entity - a request validation error.",
-                ServiceErrorException)
+                ServiceErrorError1Exception)
             .local_error("500",
                 "Internal Server Error - the server could not process the request.",
-                ServiceErrorException),
+                ServiceErrorError1Exception),
         ).execute()
 
     def get_business_lines_id(self,
@@ -112,24 +109,21 @@ class BusinessLinesApi(BaseApi):
             id (str): The unique identifier of the business line.
 
         Returns:
-            ApiResponse: An object with the response value as well as other useful
-                information such as status codes and headers. OK - the request has
-                succeeded.
+            BusinessLine: Response from the API. OK - the request has succeeded.
 
         Raises:
-            ApiException: When an error occurs while fetching the data from the
+            APIException: When an error occurs while fetching the data from the
                 remote API. This exception includes the HTTP Response code, an error
                 message, and the HTTP body that was received in the request.
 
         """
         return super().new_api_call_builder.request(
-            RequestBuilder().server(Server.DEFAULT)
+            RequestBuilder().server(Server.DEFAULT18)
             .path("/businessLines/{id}")
             .http_method(HttpMethodEnum.GET)
             .template_param(Parameter()
                 .key("id")
                 .value(id)
-                .is_required(True)
                 .should_encode(True))
             .header_param(Parameter()
                 .key("accept")
@@ -139,22 +133,21 @@ class BusinessLinesApi(BaseApi):
             ResponseHandler()
             .deserializer(APIHelper.json_deserialize)
             .deserialize_into(BusinessLine.from_dictionary)
-            .is_api_response(True)
             .local_error("400",
                 "Bad Request - a problem reading or understanding the request.",
-                ServiceErrorException)
+                ServiceErrorError1Exception)
             .local_error("401",
                 "Unauthorized - authentication required.",
-                ServiceErrorException)
+                ServiceErrorError1Exception)
             .local_error("403",
                 "Forbidden - insufficient permissions to process the request.",
-                ServiceErrorException)
+                ServiceErrorError1Exception)
             .local_error("422",
                 "Unprocessable Entity - a request validation error.",
-                ServiceErrorException)
+                ServiceErrorError1Exception)
             .local_error("500",
                 "Internal Server Error - the server could not process the request.",
-                ServiceErrorException),
+                ServiceErrorError1Exception),
         ).execute()
 
     def delete_business_lines_id(self,
@@ -178,44 +171,24 @@ class BusinessLinesApi(BaseApi):
             id (str): The unique identifier of the business line to be deleted.
 
         Returns:
-            ApiResponse: An object with the response value as well as other useful
-                information such as status codes and headers. No Content - look at
-                the actual response code for the status of the request.
+            void: Response from the API. No Content - look at the actual response
+                code for the status of the request.
 
         Raises:
-            ApiException: When an error occurs while fetching the data from the
+            APIException: When an error occurs while fetching the data from the
                 remote API. This exception includes the HTTP Response code, an error
                 message, and the HTTP body that was received in the request.
 
         """
         return super().new_api_call_builder.request(
-            RequestBuilder().server(Server.DEFAULT)
+            RequestBuilder().server(Server.DEFAULT18)
             .path("/businessLines/{id}")
             .http_method(HttpMethodEnum.DELETE)
             .template_param(Parameter()
                 .key("id")
                 .value(id)
-                .is_required(True)
                 .should_encode(True))
             .auth(Or(Single("BasicAuth"), Single("ApiKeyAuth"))),
-        ).response(
-            ResponseHandler()
-            .is_api_response(True)
-            .local_error("400",
-                "Bad Request - a problem reading or understanding the request.",
-                ServiceErrorException)
-            .local_error("401",
-                "Unauthorized - authentication required.",
-                ServiceErrorException)
-            .local_error("403",
-                "Forbidden - insufficient permissions to process the request.",
-                ServiceErrorException)
-            .local_error("422",
-                "Unprocessable Entity - a request validation error.",
-                ServiceErrorException)
-            .local_error("500",
-                "Internal Server Error - the server could not process the request.",
-                ServiceErrorException),
         ).execute()
 
     def patch_business_lines_id(self,
@@ -234,24 +207,21 @@ class BusinessLinesApi(BaseApi):
             body (BusinessLineInfoUpdate, optional): The request body parameter.
 
         Returns:
-            ApiResponse: An object with the response value as well as other useful
-                information such as status codes and headers. OK - the request has
-                succeeded.
+            BusinessLine: Response from the API. OK - the request has succeeded.
 
         Raises:
-            ApiException: When an error occurs while fetching the data from the
+            APIException: When an error occurs while fetching the data from the
                 remote API. This exception includes the HTTP Response code, an error
                 message, and the HTTP body that was received in the request.
 
         """
         return super().new_api_call_builder.request(
-            RequestBuilder().server(Server.DEFAULT)
+            RequestBuilder().server(Server.DEFAULT18)
             .path("/businessLines/{id}")
             .http_method(HttpMethodEnum.PATCH)
             .template_param(Parameter()
                 .key("id")
                 .value(id)
-                .is_required(True)
                 .should_encode(True))
             .header_param(Parameter()
                 .key("Content-Type")
@@ -267,20 +237,19 @@ class BusinessLinesApi(BaseApi):
             ResponseHandler()
             .deserializer(APIHelper.json_deserialize)
             .deserialize_into(BusinessLine.from_dictionary)
-            .is_api_response(True)
             .local_error("400",
                 "Bad Request - a problem reading or understanding the request.",
-                ServiceErrorException)
+                ServiceErrorError1Exception)
             .local_error("401",
                 "Unauthorized - authentication required.",
-                ServiceErrorException)
+                ServiceErrorError1Exception)
             .local_error("403",
                 "Forbidden - insufficient permissions to process the request.",
-                ServiceErrorException)
+                ServiceErrorError1Exception)
             .local_error("422",
                 "Unprocessable Entity - a request validation error.",
-                ServiceErrorException)
+                ServiceErrorError1Exception)
             .local_error("500",
                 "Internal Server Error - the server could not process the request.",
-                ServiceErrorException),
+                ServiceErrorError1Exception),
         ).execute()

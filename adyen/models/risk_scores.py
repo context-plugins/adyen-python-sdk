@@ -16,8 +16,6 @@ class RiskScores(object):
             risk).
         visa (int): Transaction risk score provided by Visa. Values provided by Visa
             range between 01 (lowest risk) to 99 (highest risk).
-        additional_properties (Dict[str, Any]): The additional properties for the
-            model.
 
     """
 
@@ -35,19 +33,13 @@ class RiskScores(object):
     def __init__(
         self,
         mastercard=APIHelper.SKIP,
-        visa=APIHelper.SKIP,
-        additional_properties=None):
+        visa=APIHelper.SKIP):
         """Initialize a RiskScores instance."""
         # Initialize members of the class
         if mastercard is not APIHelper.SKIP:
             self.mastercard = mastercard
         if visa is not APIHelper.SKIP:
             self.visa = visa
-
-        # Add additional model properties to the instance
-        if additional_properties is None:
-            additional_properties = {}
-        self.additional_properties = additional_properties
 
     @classmethod
     def from_dictionary(cls,
@@ -76,15 +68,9 @@ class RiskScores(object):
             if dictionary.get("visa")\
                 else APIHelper.SKIP
 
-        additional_properties = APIHelper.get_additional_properties(
-            dictionary={k: v for k, v in dictionary.items()
-                        if k not in cls._names.values()},
-            unboxing_function=lambda value: value)
-
         # Return an object of this model
         return cls(mastercard,
-                   visa,
-                   additional_properties)
+                   visa)
 
     def __repr__(self):
         """Return a unambiguous string representation."""
@@ -98,12 +84,10 @@ class RiskScores(object):
             if hasattr(self, "visa")
             else None
         )
-        _additional_properties=self.additional_properties
         return (
             f"{self.__class__.__name__}("
             f"mastercard={_mastercard!r}, "
             f"visa={_visa!r}, "
-            f"additional_properties={_additional_properties!r}, "
             f")"
         )
 
@@ -119,11 +103,9 @@ class RiskScores(object):
             if hasattr(self, "visa")
             else None
         )
-        _additional_properties=self.additional_properties
         return (
             f"{self.__class__.__name__}("
             f"mastercard={_mastercard!s}, "
             f"visa={_visa!s}, "
-            f"additional_properties={_additional_properties!s}, "
             f")"
         )

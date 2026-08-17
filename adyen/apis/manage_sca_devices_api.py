@@ -28,22 +28,22 @@ from adyen.models.association_initiate_response import (
     AssociationInitiateResponse,
 )
 from adyen.models.register_sca_final_response import (
-    RegisterScaFinalResponse,
+    RegisterSCAFinalResponse,
 )
 from adyen.models.register_sca_response import (
-    RegisterScaResponse,
+    RegisterSCAResponse,
 )
 from adyen.models.search_registered_devices_response import (
     SearchRegisteredDevicesResponse,
 )
 
 
-class ManageScaDevicesApi(BaseApi):
+class ManageSCADevicesApi(BaseApi):
     """A Controller to access Endpoints in the adyen API."""
 
     def __init__(self, config):
-        """Initialize ManageScaDevicesApi object."""
-        super(ManageScaDevicesApi, self).__init__(config)
+        """Initialize ManageSCADevicesApi object."""
+        super(ManageSCADevicesApi, self).__init__(config)
 
     def get_registered_devices(self,
                                payment_instrument_id,
@@ -64,24 +64,22 @@ class ManageScaDevicesApi(BaseApi):
                 Default: 20. Maximum: 100.
 
         Returns:
-            ApiResponse: An object with the response value as well as other useful
-                information such as status codes and headers. OK - the request has
-                succeeded.
+            SearchRegisteredDevicesResponse: Response from the API. OK - the request
+                has succeeded.
 
         Raises:
-            ApiException: When an error occurs while fetching the data from the
+            APIException: When an error occurs while fetching the data from the
                 remote API. This exception includes the HTTP Response code, an error
                 message, and the HTTP body that was received in the request.
 
         """
         return super().new_api_call_builder.request(
-            RequestBuilder().server(Server.DEFAULT)
+            RequestBuilder().server(Server.DEFAULT13)
             .path("/registeredDevices")
             .http_method(HttpMethodEnum.GET)
             .query_param(Parameter()
                 .key("paymentInstrumentId")
-                .value(payment_instrument_id)
-                .is_required(True))
+                .value(payment_instrument_id))
             .query_param(Parameter()
                 .key("pageNumber")
                 .value(page_number))
@@ -96,7 +94,6 @@ class ManageScaDevicesApi(BaseApi):
             ResponseHandler()
             .deserializer(APIHelper.json_deserialize)
             .deserialize_into(SearchRegisteredDevicesResponse.from_dictionary)
-            .is_api_response(True)
             .local_error("400",
                 "Bad Request - a problem reading or understanding the request.",
                 RestServiceErrorException)
@@ -127,21 +124,20 @@ class ManageScaDevicesApi(BaseApi):
         For a successful request, the device must be eligible for SCA.
 
         Args:
-            body (RegisterScaRequest, optional): The request body parameter.
+            body (RegisterSCARequest, optional): The request body parameter.
 
         Returns:
-            ApiResponse: An object with the response value as well as other useful
-                information such as status codes and headers. OK - the request has
+            RegisterSCAResponse: Response from the API. OK - the request has
                 succeeded.
 
         Raises:
-            ApiException: When an error occurs while fetching the data from the
+            APIException: When an error occurs while fetching the data from the
                 remote API. This exception includes the HTTP Response code, an error
                 message, and the HTTP body that was received in the request.
 
         """
         return super().new_api_call_builder.request(
-            RequestBuilder().server(Server.DEFAULT)
+            RequestBuilder().server(Server.DEFAULT13)
             .path("/registeredDevices")
             .http_method(HttpMethodEnum.POST)
             .header_param(Parameter()
@@ -157,8 +153,7 @@ class ManageScaDevicesApi(BaseApi):
         ).response(
             ResponseHandler()
             .deserializer(APIHelper.json_deserialize)
-            .deserialize_into(RegisterScaResponse.from_dictionary)
-            .is_api_response(True)
+            .deserialize_into(RegisterSCAResponse.from_dictionary)
             .local_error("400",
                 "Bad Request - a problem reading or understanding the request.",
                 RestServiceErrorException)
@@ -196,24 +191,22 @@ class ManageScaDevicesApi(BaseApi):
             body (AssociationInitiateRequest, optional): The request body parameter.
 
         Returns:
-            ApiResponse: An object with the response value as well as other useful
-                information such as status codes and headers. OK - the request has
+            AssociationInitiateResponse: Response from the API. OK - the request has
                 succeeded.
 
         Raises:
-            ApiException: When an error occurs while fetching the data from the
+            APIException: When an error occurs while fetching the data from the
                 remote API. This exception includes the HTTP Response code, an error
                 message, and the HTTP body that was received in the request.
 
         """
         return super().new_api_call_builder.request(
-            RequestBuilder().server(Server.DEFAULT)
+            RequestBuilder().server(Server.DEFAULT13)
             .path("/registeredDevices/{deviceId}/associations")
             .http_method(HttpMethodEnum.POST)
             .template_param(Parameter()
                 .key("deviceId")
                 .value(device_id)
-                .is_required(True)
                 .should_encode(True))
             .header_param(Parameter()
                 .key("Content-Type")
@@ -229,7 +222,6 @@ class ManageScaDevicesApi(BaseApi):
             ResponseHandler()
             .deserializer(APIHelper.json_deserialize)
             .deserialize_into(AssociationInitiateResponse.from_dictionary)
-            .is_api_response(True)
             .local_error("400",
                 "Bad Request - a problem reading or understanding the request.",
                 RestServiceErrorException)
@@ -269,24 +261,22 @@ class ManageScaDevicesApi(BaseApi):
             body (AssociationFinaliseRequest, optional): The request body parameter.
 
         Returns:
-            ApiResponse: An object with the response value as well as other useful
-                information such as status codes and headers. OK - the request has
+            AssociationFinaliseResponse: Response from the API. OK - the request has
                 succeeded.
 
         Raises:
-            ApiException: When an error occurs while fetching the data from the
+            APIException: When an error occurs while fetching the data from the
                 remote API. This exception includes the HTTP Response code, an error
                 message, and the HTTP body that was received in the request.
 
         """
         return super().new_api_call_builder.request(
-            RequestBuilder().server(Server.DEFAULT)
+            RequestBuilder().server(Server.DEFAULT13)
             .path("/registeredDevices/{deviceId}/associations")
             .http_method(HttpMethodEnum.PATCH)
             .template_param(Parameter()
                 .key("deviceId")
                 .value(device_id)
-                .is_required(True)
                 .should_encode(True))
             .header_param(Parameter()
                 .key("Content-Type")
@@ -302,7 +292,6 @@ class ManageScaDevicesApi(BaseApi):
             ResponseHandler()
             .deserializer(APIHelper.json_deserialize)
             .deserialize_into(AssociationFinaliseResponse.from_dictionary)
-            .is_api_response(True)
             .local_error("400",
                 "Bad Request - a problem reading or understanding the request.",
                 RestServiceErrorException)
@@ -334,48 +323,27 @@ class ManageScaDevicesApi(BaseApi):
                 instrument linked to the SCA device.
 
         Returns:
-            ApiResponse: An object with the response value as well as other useful
-                information such as status codes and headers. No Content - look at
-                the actual response code for the status of the request.
+            void: Response from the API. No Content - look at the actual response
+                code for the status of the request.
 
         Raises:
-            ApiException: When an error occurs while fetching the data from the
+            APIException: When an error occurs while fetching the data from the
                 remote API. This exception includes the HTTP Response code, an error
                 message, and the HTTP body that was received in the request.
 
         """
         return super().new_api_call_builder.request(
-            RequestBuilder().server(Server.DEFAULT)
+            RequestBuilder().server(Server.DEFAULT13)
             .path("/registeredDevices/{id}")
             .http_method(HttpMethodEnum.DELETE)
             .template_param(Parameter()
                 .key("id")
                 .value(id)
-                .is_required(True)
                 .should_encode(True))
             .query_param(Parameter()
                 .key("paymentInstrumentId")
-                .value(payment_instrument_id)
-                .is_required(True))
+                .value(payment_instrument_id))
             .auth(Or(Single("clientKey"), Single("BasicAuth"), Single("ApiKeyAuth"))),
-        ).response(
-            ResponseHandler()
-            .is_api_response(True)
-            .local_error("400",
-                "Bad Request - a problem reading or understanding the request.",
-                RestServiceErrorException)
-            .local_error("401",
-                "Unauthorized - authentication required.",
-                RestServiceErrorException)
-            .local_error("403",
-                "Forbidden - insufficient permissions to process the request.",
-                RestServiceErrorException)
-            .local_error("422",
-                "Unprocessable Entity - a request validation error.",
-                RestServiceErrorException)
-            .local_error("500",
-                "Internal Server Error - the server could not process the request.",
-                RestServiceErrorException),
         ).execute()
 
     def patch_registered_devices_id(self,
@@ -393,27 +361,25 @@ class ManageScaDevicesApi(BaseApi):
                 in the response of a
                 POST&nbsp;[/registeredDevices](https://docs.adyen.com/api-explorer/bal
                 anceplatform/2/post/registeredDevices#responses-200-id) request.
-            body (RegisterScaRequest, optional): The request body parameter.
+            body (RegisterSCARequest, optional): The request body parameter.
 
         Returns:
-            ApiResponse: An object with the response value as well as other useful
-                information such as status codes and headers. OK - the request has
+            RegisterSCAFinalResponse: Response from the API. OK - the request has
                 succeeded.
 
         Raises:
-            ApiException: When an error occurs while fetching the data from the
+            APIException: When an error occurs while fetching the data from the
                 remote API. This exception includes the HTTP Response code, an error
                 message, and the HTTP body that was received in the request.
 
         """
         return super().new_api_call_builder.request(
-            RequestBuilder().server(Server.DEFAULT)
+            RequestBuilder().server(Server.DEFAULT13)
             .path("/registeredDevices/{id}")
             .http_method(HttpMethodEnum.PATCH)
             .template_param(Parameter()
                 .key("id")
                 .value(id)
-                .is_required(True)
                 .should_encode(True))
             .header_param(Parameter()
                 .key("Content-Type")
@@ -428,8 +394,7 @@ class ManageScaDevicesApi(BaseApi):
         ).response(
             ResponseHandler()
             .deserializer(APIHelper.json_deserialize)
-            .deserialize_into(RegisterScaFinalResponse.from_dictionary)
-            .is_api_response(True)
+            .deserialize_into(RegisterSCAFinalResponse.from_dictionary)
             .local_error("400",
                 "Bad Request - a problem reading or understanding the request.",
                 RestServiceErrorException)

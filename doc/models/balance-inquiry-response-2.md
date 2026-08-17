@@ -3,8 +3,6 @@
 
 Content of the Balance Inquiry Response message.
 
-*This model accepts additional fields of type Any.*
-
 ## Structure
 
 `BalanceInquiryResponse2`
@@ -13,173 +11,129 @@ Content of the Balance Inquiry Response message.
 
 | Name | Type | Tags | Description |
 |  --- | --- | --- | --- |
-| `response` | [`Response3`](../../doc/models/response-3.md) | Required | - |
-| `payment_account_status` | [`PaymentAccountStatus`](../../doc/models/payment-account-status.md) | Optional | - |
+| `response` | [`Response11`](../../doc/models/response-11.md) | Required | Result of a message request processing. |
+| `payment_account_status` | [`PaymentAccountStatus2`](../../doc/models/payment-account-status-2.md) | Optional | Data related to the result of a Balance Inquiry request.<br>If BalanceInquiryRequest. PaymentAccount present. |
 | `payment_receipt` | [`List[PaymentReceipt]`](../../doc/models/payment-receipt.md) | Optional | - |
-| `additional_properties` | `Dict[str, Any]` | Optional | - |
 
 ## Example
 
 ```python
 import dateutil.parser
-import jsonpickle
 
-from adyen.models.acquirer_transaction_id import AcquirerTransactionId
 from adyen.models.balance_inquiry_response_2 import BalanceInquiryResponse2
-from adyen.models.card_data_2 import CardData2
-from adyen.models.character_height_1 import CharacterHeight1
-from adyen.models.character_width_1 import CharacterWidth1
-from adyen.models.check_data_2 import CheckData2
-from adyen.models.document_qualifier_1 import DocumentQualifier1
-from adyen.models.entry_mode import EntryMode
-from adyen.models.error_condition_1 import ErrorCondition1
+from adyen.models.card_data_1 import CardData1
+from adyen.models.character_height_1_enum import CharacterHeight1Enum
+from adyen.models.character_width_1_enum import CharacterWidth1Enum
+from adyen.models.check_data_1 import CheckData1
+from adyen.models.document_qualifier_1_enum import DocumentQualifier1Enum
+from adyen.models.entry_mode_enum import EntryModeEnum
+from adyen.models.error_condition_1_enum import ErrorCondition1Enum
 from adyen.models.geographic_coordinates import GeographicCoordinates
-from adyen.models.geolocation import Geolocation
-from adyen.models.identification_type_11 import IdentificationType11
-from adyen.models.mobile_data_2 import MobileData2
-from adyen.models.output_barcode import OutputBarcode
-from adyen.models.output_content_2 import OutputContent2
-from adyen.models.output_format_1 import OutputFormat1
+from adyen.models.geolocation_1 import Geolocation1
+from adyen.models.identification_type_11_enum import IdentificationType11Enum
+from adyen.models.mobile_data_1 import MobileData1
+from adyen.models.output_barcode_1 import OutputBarcode1
+from adyen.models.output_content_1 import OutputContent1
+from adyen.models.output_format_1_enum import OutputFormat1Enum
 from adyen.models.output_text import OutputText
-from adyen.models.payment_account_status import PaymentAccountStatus
-from adyen.models.payment_acquirer_data_1 import PaymentAcquirerData1
-from adyen.models.payment_instrument_data_2 import PaymentInstrumentData2
-from adyen.models.payment_instrument_type_11 import PaymentInstrumentType11
+from adyen.models.payment_account_status_2 import PaymentAccountStatus2
+from adyen.models.payment_acquirer_data import PaymentAcquirerData
+from adyen.models.payment_instrument_data import PaymentInstrumentData
+from adyen.models.payment_instrument_type_11_enum import PaymentInstrumentType11Enum
 from adyen.models.payment_receipt import PaymentReceipt
-from adyen.models.predefined_content_2 import PredefinedContent2
-from adyen.models.response_3 import Response3
-from adyen.models.result_11 import Result11
-from adyen.models.stored_value_account_id_2 import StoredValueAccountId2
-from adyen.models.stored_value_account_type_1 import StoredValueAccountType1
-from adyen.models.track_data_2 import TrackData2
-from adyen.models.track_format_1 import TrackFormat1
-from adyen.models.utm_coordinates import UtmCoordinates
+from adyen.models.predefined_content_1 import PredefinedContent1
+from adyen.models.response_11 import Response11
+from adyen.models.result_11_enum import Result11Enum
+from adyen.models.stored_value_account_id import StoredValueAccountID
+from adyen.models.stored_value_account_type_1_enum import StoredValueAccountType1Enum
+from adyen.models.track_data_1 import TrackData1
+from adyen.models.track_format_1_enum import TrackFormat1Enum
+from adyen.models.transaction_id_type_6 import TransactionIDType6
+from adyen.models.utm_coordinates import UTMCoordinates
 
 balance_inquiry_response_2 = BalanceInquiryResponse2(
-    response=Response3(
-        result=Result11.PARTIAL,
-        error_condition=ErrorCondition1.PAYMENTRESTRICTION,
-        additional_response='AdditionalResponse8',
-        additional_properties={
-            'exampleAdditionalProperty': jsonpickle.decode('{"key1":"val1","key2":"val2"}')
-        }
+    response=Response11(
+        result=Result11Enum.PARTIAL,
+        error_condition=ErrorCondition1Enum.PAYMENTRESTRICTION,
+        additional_response='AdditionalResponse8'
     ),
-    payment_account_status=PaymentAccountStatus(
-        payment_instrument_data=PaymentInstrumentData2(
-            payment_instrument_type=PaymentInstrumentType11.CASH,
+    payment_account_status=PaymentAccountStatus2(
+        payment_instrument_data=PaymentInstrumentData(
+            payment_instrument_type=PaymentInstrumentType11Enum.CASH,
             protected_card_data='ProtectedCardData8',
-            card_data=CardData2(
+            card_data=CardData1(
                 payment_brand='PaymentBrand0',
                 masked_pan='MaskedPan0',
                 payment_account_ref='PaymentAccountRef8',
                 entry_mode=[
-                    EntryMode.MANUAL,
-                    EntryMode.KEYED
+                    EntryModeEnum.MANUAL,
+                    EntryModeEnum.KEYED
                 ],
-                card_country_code=3,
-                additional_properties={
-                    'exampleAdditionalProperty': jsonpickle.decode('{"key1":"val1","key2":"val2"}')
-                }
+                card_country_code=3
             ),
-            check_data=CheckData2(
+            check_data=CheckData1(
                 bank_id='BankID0',
                 account_number='AccountNumber6',
                 check_number='CheckNumber2',
-                track_data=TrackData2(
+                track_data=TrackData1(
                     track_value='TrackValue6',
                     track_numb=3,
-                    track_format=TrackFormat1.JISII,
-                    additional_properties={
-                        'exampleAdditionalProperty': jsonpickle.decode('{"key1":"val1","key2":"val2"}')
-                    }
+                    track_format=TrackFormat1Enum.JISII
                 ),
-                check_card_number='CheckCardNumber6',
-                additional_properties={
-                    'exampleAdditionalProperty': jsonpickle.decode('{"key1":"val1","key2":"val2"}')
-                }
+                check_card_number='CheckCardNumber6'
             ),
-            mobile_data=MobileData2(
+            mobile_data=MobileData1(
                 mobile_country_code=3,
                 mobile_network_code=3,
                 masked_msisdn=22,
-                geolocation=Geolocation(
+                geolocation=Geolocation1(
                     geographic_coordinates=GeographicCoordinates(
                         latitude='Latitude4',
-                        longitude='Longitude2',
-                        additional_properties={
-                            'exampleAdditionalProperty': jsonpickle.decode('{"key1":"val1","key2":"val2"}')
-                        }
+                        longitude='Longitude2'
                     ),
-                    utm_coordinates=UtmCoordinates(
+                    utm_coordinates=UTMCoordinates(
                         utm_zone='UTMZone6',
                         utm_eastward='UTMEastward0',
-                        utm_northward='UTMNorthward0',
-                        additional_properties={
-                            'exampleAdditionalProperty': jsonpickle.decode('{"key1":"val1","key2":"val2"}')
-                        }
-                    ),
-                    additional_properties={
-                        'exampleAdditionalProperty': jsonpickle.decode('{"key1":"val1","key2":"val2"}')
-                    }
+                        utm_northward='UTMNorthward0'
+                    )
                 ),
-                protected_mobile_data='ProtectedMobileData0',
-                additional_properties={
-                    'exampleAdditionalProperty': jsonpickle.decode('{"key1":"val1","key2":"val2"}')
-                }
+                protected_mobile_data='ProtectedMobileData0'
             ),
-            stored_value_account_id=StoredValueAccountId2(
-                stored_value_account_type=StoredValueAccountType1.PHONECARD,
+            stored_value_account_id=StoredValueAccountID(
+                stored_value_account_type=StoredValueAccountType1Enum.PHONECARD,
                 entry_mode=[
-                    EntryMode.MAGSTRIPE,
-                    EntryMode.SCANNED
+                    EntryModeEnum.MAGSTRIPE,
+                    EntryModeEnum.SCANNED
                 ],
-                identification_type=IdentificationType11.PHONENUMBER,
+                identification_type=IdentificationType11Enum.PHONENUMBER,
                 stored_value_id='StoredValueID8',
                 stored_value_provider='StoredValueProvider4',
                 owner_name='OwnerName0',
-                expiry_date=4,
-                additional_properties={
-                    'exampleAdditionalProperty': jsonpickle.decode('{"key1":"val1","key2":"val2"}')
-                }
-            ),
-            additional_properties={
-                'exampleAdditionalProperty': jsonpickle.decode('{"key1":"val1","key2":"val2"}')
-            }
+                expiry_date=4
+            )
         ),
         current_balance=83.4,
         currency='Currency4',
-        payment_acquirer_data=PaymentAcquirerData1(
+        payment_acquirer_data=PaymentAcquirerData(
             merchant_id='MerchantID6',
             acquirer_poiid='AcquirerPOIID4',
             acquirer_id=238,
-            acquirer_transaction_id=AcquirerTransactionId(
+            acquirer_transaction_id=TransactionIDType6(
                 transaction_id='TransactionID2',
-                time_stamp=dateutil.parser.parse('2016-03-13T12:52:32.123Z'),
-                additional_properties={
-                    'exampleAdditionalProperty': jsonpickle.decode('{"key1":"val1","key2":"val2"}')
-                }
+                time_stamp=dateutil.parser.parse('2016-03-13T12:52:32.123Z')
             ),
             approval_code='ApprovalCode8',
-            host_reconciliation_id='HostReconciliationID8',
-            additional_properties={
-                'exampleAdditionalProperty': jsonpickle.decode('{"key1":"val1","key2":"val2"}')
-            }
-        ),
-        additional_properties={
-            'exampleAdditionalProperty': jsonpickle.decode('{"key1":"val1","key2":"val2"}')
-        }
+            host_reconciliation_id='HostReconciliationID8'
+        )
     ),
     payment_receipt=[
         PaymentReceipt(
-            document_qualifier=DocumentQualifier1.CUSTOMERRECEIPT,
-            output_content=OutputContent2(
-                output_format=OutputFormat1.XHTML,
-                predefined_content=PredefinedContent2(
+            document_qualifier=DocumentQualifier1Enum.CUSTOMERRECEIPT,
+            output_content=OutputContent1(
+                output_format=OutputFormat1Enum.XHTML,
+                predefined_content=PredefinedContent1(
                     reference_id='ReferenceID0',
-                    language='Language2',
-                    additional_properties={
-                        'exampleAdditionalProperty': jsonpickle.decode('{"key1":"val1","key2":"val2"}')
-                    }
+                    language='Language2'
                 ),
                 output_text=[
                     OutputText(
@@ -187,40 +141,25 @@ balance_inquiry_response_2 = BalanceInquiryResponse2(
                         character_set=194,
                         start_row=74,
                         start_column=220,
-                        character_width=CharacterWidth1.SINGLEWIDTH,
-                        character_height=CharacterHeight1.SINGLEHEIGHT,
-                        additional_properties={
-                            'exampleAdditionalProperty': jsonpickle.decode('{"key1":"val1","key2":"val2"}')
-                        }
+                        character_width=CharacterWidth1Enum.SINGLEWIDTH,
+                        character_height=CharacterHeight1Enum.SINGLEHEIGHT
                     )
                 ],
                 output_xhtml='OutputXHTML2',
-                output_barcode=OutputBarcode(
-                    barcode_value='BarcodeValue2',
-                    additional_properties={
-                        'exampleAdditionalProperty': jsonpickle.decode('{"key1":"val1","key2":"val2"}')
-                    }
-                ),
-                additional_properties={
-                    'exampleAdditionalProperty': jsonpickle.decode('{"key1":"val1","key2":"val2"}')
-                }
+                output_barcode=OutputBarcode1(
+                    barcode_value='BarcodeValue2'
+                )
             ),
             integrated_print_flag=False,
-            required_signature_flag=False,
-            additional_properties={
-                'exampleAdditionalProperty': jsonpickle.decode('{"key1":"val1","key2":"val2"}')
-            }
+            required_signature_flag=False
         ),
         PaymentReceipt(
-            document_qualifier=DocumentQualifier1.CUSTOMERRECEIPT,
-            output_content=OutputContent2(
-                output_format=OutputFormat1.XHTML,
-                predefined_content=PredefinedContent2(
+            document_qualifier=DocumentQualifier1Enum.CUSTOMERRECEIPT,
+            output_content=OutputContent1(
+                output_format=OutputFormat1Enum.XHTML,
+                predefined_content=PredefinedContent1(
                     reference_id='ReferenceID0',
-                    language='Language2',
-                    additional_properties={
-                        'exampleAdditionalProperty': jsonpickle.decode('{"key1":"val1","key2":"val2"}')
-                    }
+                    language='Language2'
                 ),
                 output_text=[
                     OutputText(
@@ -228,40 +167,25 @@ balance_inquiry_response_2 = BalanceInquiryResponse2(
                         character_set=194,
                         start_row=74,
                         start_column=220,
-                        character_width=CharacterWidth1.SINGLEWIDTH,
-                        character_height=CharacterHeight1.SINGLEHEIGHT,
-                        additional_properties={
-                            'exampleAdditionalProperty': jsonpickle.decode('{"key1":"val1","key2":"val2"}')
-                        }
+                        character_width=CharacterWidth1Enum.SINGLEWIDTH,
+                        character_height=CharacterHeight1Enum.SINGLEHEIGHT
                     )
                 ],
                 output_xhtml='OutputXHTML2',
-                output_barcode=OutputBarcode(
-                    barcode_value='BarcodeValue2',
-                    additional_properties={
-                        'exampleAdditionalProperty': jsonpickle.decode('{"key1":"val1","key2":"val2"}')
-                    }
-                ),
-                additional_properties={
-                    'exampleAdditionalProperty': jsonpickle.decode('{"key1":"val1","key2":"val2"}')
-                }
+                output_barcode=OutputBarcode1(
+                    barcode_value='BarcodeValue2'
+                )
             ),
             integrated_print_flag=False,
-            required_signature_flag=False,
-            additional_properties={
-                'exampleAdditionalProperty': jsonpickle.decode('{"key1":"val1","key2":"val2"}')
-            }
+            required_signature_flag=False
         ),
         PaymentReceipt(
-            document_qualifier=DocumentQualifier1.CUSTOMERRECEIPT,
-            output_content=OutputContent2(
-                output_format=OutputFormat1.XHTML,
-                predefined_content=PredefinedContent2(
+            document_qualifier=DocumentQualifier1Enum.CUSTOMERRECEIPT,
+            output_content=OutputContent1(
+                output_format=OutputFormat1Enum.XHTML,
+                predefined_content=PredefinedContent1(
                     reference_id='ReferenceID0',
-                    language='Language2',
-                    additional_properties={
-                        'exampleAdditionalProperty': jsonpickle.decode('{"key1":"val1","key2":"val2"}')
-                    }
+                    language='Language2'
                 ),
                 output_text=[
                     OutputText(
@@ -269,34 +193,19 @@ balance_inquiry_response_2 = BalanceInquiryResponse2(
                         character_set=194,
                         start_row=74,
                         start_column=220,
-                        character_width=CharacterWidth1.SINGLEWIDTH,
-                        character_height=CharacterHeight1.SINGLEHEIGHT,
-                        additional_properties={
-                            'exampleAdditionalProperty': jsonpickle.decode('{"key1":"val1","key2":"val2"}')
-                        }
+                        character_width=CharacterWidth1Enum.SINGLEWIDTH,
+                        character_height=CharacterHeight1Enum.SINGLEHEIGHT
                     )
                 ],
                 output_xhtml='OutputXHTML2',
-                output_barcode=OutputBarcode(
-                    barcode_value='BarcodeValue2',
-                    additional_properties={
-                        'exampleAdditionalProperty': jsonpickle.decode('{"key1":"val1","key2":"val2"}')
-                    }
-                ),
-                additional_properties={
-                    'exampleAdditionalProperty': jsonpickle.decode('{"key1":"val1","key2":"val2"}')
-                }
+                output_barcode=OutputBarcode1(
+                    barcode_value='BarcodeValue2'
+                )
             ),
             integrated_print_flag=False,
-            required_signature_flag=False,
-            additional_properties={
-                'exampleAdditionalProperty': jsonpickle.decode('{"key1":"val1","key2":"val2"}')
-            }
+            required_signature_flag=False
         )
-    ],
-    additional_properties={
-        'exampleAdditionalProperty': jsonpickle.decode('{"key1":"val1","key2":"val2"}')
-    }
+    ]
 )
 ```
 

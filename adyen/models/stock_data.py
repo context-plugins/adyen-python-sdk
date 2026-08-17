@@ -17,8 +17,6 @@ class StockData(object):
         stock_number (str): The 12-digit International Securities Identification
             Number (ISIN) of the company, without dashes (-).
         ticker_symbol (str): The stock ticker symbol.
-        additional_properties (Dict[str, Any]): The additional properties for the
-            model.
 
     """
 
@@ -39,8 +37,7 @@ class StockData(object):
         self,
         market_identifier=APIHelper.SKIP,
         stock_number=APIHelper.SKIP,
-        ticker_symbol=APIHelper.SKIP,
-        additional_properties=None):
+        ticker_symbol=APIHelper.SKIP):
         """Initialize a StockData instance."""
         # Initialize members of the class
         if market_identifier is not APIHelper.SKIP:
@@ -49,11 +46,6 @@ class StockData(object):
             self.stock_number = stock_number
         if ticker_symbol is not APIHelper.SKIP:
             self.ticker_symbol = ticker_symbol
-
-        # Add additional model properties to the instance
-        if additional_properties is None:
-            additional_properties = {}
-        self.additional_properties = additional_properties
 
     @classmethod
     def from_dictionary(cls,
@@ -86,16 +78,10 @@ class StockData(object):
             if dictionary.get("tickerSymbol")\
                 else APIHelper.SKIP
 
-        additional_properties = APIHelper.get_additional_properties(
-            dictionary={k: v for k, v in dictionary.items()
-                        if k not in cls._names.values()},
-            unboxing_function=lambda value: value)
-
         # Return an object of this model
         return cls(market_identifier,
                    stock_number,
-                   ticker_symbol,
-                   additional_properties)
+                   ticker_symbol)
 
     def __repr__(self):
         """Return a unambiguous string representation."""
@@ -114,13 +100,11 @@ class StockData(object):
             if hasattr(self, "ticker_symbol")
             else None
         )
-        _additional_properties=self.additional_properties
         return (
             f"{self.__class__.__name__}("
             f"market_identifier={_market_identifier!r}, "
             f"stock_number={_stock_number!r}, "
             f"ticker_symbol={_ticker_symbol!r}, "
-            f"additional_properties={_additional_properties!r}, "
             f")"
         )
 
@@ -141,12 +125,10 @@ class StockData(object):
             if hasattr(self, "ticker_symbol")
             else None
         )
-        _additional_properties=self.additional_properties
         return (
             f"{self.__class__.__name__}("
             f"market_identifier={_market_identifier!s}, "
             f"stock_number={_stock_number!s}, "
             f"ticker_symbol={_ticker_symbol!s}, "
-            f"additional_properties={_additional_properties!s}, "
             f")"
         )

@@ -11,7 +11,7 @@ class GeneratePciDescriptionRequest(object):
     """Implementation of the 'GeneratePciDescriptionRequest' model.
 
     Attributes:
-        additional_sales_channels (List[AdditionalSalesChannel]): An array of
+        additional_sales_channels (List[AdditionalSalesChannelEnum]): An array of
             additional sales channels to generate PCI questionnaires. Include the
             relevant sales channels if you need your user to sign PCI questionnaires.
             Not required if you [create stores](https://docs.adyen.com/platforms) and
@@ -21,8 +21,6 @@ class GeneratePciDescriptionRequest(object):
         language (str): Sets the language of the PCI questionnaire. Its value is a
             two-character [ISO 639-1](https://en.wikipedia.org/wiki/ISO_639-1)
             language code, for example, **en**.
-        additional_properties (Dict[str, Any]): The additional properties for the
-            model.
 
     """
 
@@ -40,19 +38,13 @@ class GeneratePciDescriptionRequest(object):
     def __init__(
         self,
         additional_sales_channels=APIHelper.SKIP,
-        language=APIHelper.SKIP,
-        additional_properties=None):
+        language=APIHelper.SKIP):
         """Initialize a GeneratePciDescriptionRequest instance."""
         # Initialize members of the class
         if additional_sales_channels is not APIHelper.SKIP:
             self.additional_sales_channels = additional_sales_channels
         if language is not APIHelper.SKIP:
             self.language = language
-
-        # Add additional model properties to the instance
-        if additional_properties is None:
-            additional_properties = {}
-        self.additional_properties = additional_properties
 
     @classmethod
     def from_dictionary(cls,
@@ -81,15 +73,9 @@ class GeneratePciDescriptionRequest(object):
             if dictionary.get("language")\
                 else APIHelper.SKIP
 
-        additional_properties = APIHelper.get_additional_properties(
-            dictionary={k: v for k, v in dictionary.items()
-                        if k not in cls._names.values()},
-            unboxing_function=lambda value: value)
-
         # Return an object of this model
         return cls(additional_sales_channels,
-                   language,
-                   additional_properties)
+                   language)
 
     def __repr__(self):
         """Return a unambiguous string representation."""
@@ -103,12 +89,10 @@ class GeneratePciDescriptionRequest(object):
             if hasattr(self, "language")
             else None
         )
-        _additional_properties=self.additional_properties
         return (
             f"{self.__class__.__name__}("
             f"additional_sales_channels={_additional_sales_channels!r}, "
             f"language={_language!r}, "
-            f"additional_properties={_additional_properties!r}, "
             f")"
         )
 
@@ -124,11 +108,9 @@ class GeneratePciDescriptionRequest(object):
             if hasattr(self, "language")
             else None
         )
-        _additional_properties=self.additional_properties
         return (
             f"{self.__class__.__name__}("
             f"additional_sales_channels={_additional_sales_channels!s}, "
             f"language={_language!s}, "
-            f"additional_properties={_additional_properties!s}, "
             f")"
         )

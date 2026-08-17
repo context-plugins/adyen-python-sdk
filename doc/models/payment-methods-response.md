@@ -1,8 +1,6 @@
 
 # Payment Methods Response
 
-*This model accepts additional fields of type Any.*
-
 ## Structure
 
 `PaymentMethodsResponse`
@@ -13,17 +11,14 @@
 |  --- | --- | --- | --- |
 | `payment_methods` | [`List[PaymentMethod]`](../../doc/models/payment-method.md) | Optional | Detailed list of payment methods required to generate payment forms. |
 | `stored_payment_methods` | [`List[StoredPaymentMethod3]`](../../doc/models/stored-payment-method-3.md) | Optional | List of all stored payment methods. |
-| `additional_properties` | `Dict[str, Any]` | Optional | - |
 
 ## Example
 
 ```python
-import jsonpickle
-
-from adyen.models.app_identifier_info import AppIdentifierInfo
-from adyen.models.funding_source import FundingSource
+from adyen.models.app_identifier_info_1 import AppIdentifierInfo1
+from adyen.models.funding_source_9_enum import FundingSource9Enum
 from adyen.models.payment_method import PaymentMethod
-from adyen.models.payment_method_upi_apps import PaymentMethodUpiApps
+from adyen.models.payment_method_upi_apps import PaymentMethodUPIApps
 from adyen.models.payment_methods_response import PaymentMethodsResponse
 from adyen.models.stored_payment_method_3 import StoredPaymentMethod3
 
@@ -31,33 +26,21 @@ payment_methods_response = PaymentMethodsResponse(
     payment_methods=[
         PaymentMethod(
             apps=[
-                PaymentMethodUpiApps(
+                PaymentMethodUPIApps(
                     id='id6',
                     name='name6',
-                    app_identifier_info=AppIdentifierInfo(
+                    app_identifier_info=AppIdentifierInfo1(
                         android_package_id='androidPackageId8',
-                        ios_scheme='iosScheme8',
-                        additional_properties={
-                            'exampleAdditionalProperty': jsonpickle.decode('{"key1":"val1","key2":"val2"}')
-                        }
-                    ),
-                    additional_properties={
-                        'exampleAdditionalProperty': jsonpickle.decode('{"key1":"val1","key2":"val2"}')
-                    }
+                        ios_scheme='iosScheme8'
+                    )
                 ),
-                PaymentMethodUpiApps(
+                PaymentMethodUPIApps(
                     id='id6',
                     name='name6',
-                    app_identifier_info=AppIdentifierInfo(
+                    app_identifier_info=AppIdentifierInfo1(
                         android_package_id='androidPackageId8',
-                        ios_scheme='iosScheme8',
-                        additional_properties={
-                            'exampleAdditionalProperty': jsonpickle.decode('{"key1":"val1","key2":"val2"}')
-                        }
-                    ),
-                    additional_properties={
-                        'exampleAdditionalProperty': jsonpickle.decode('{"key1":"val1","key2":"val2"}')
-                    }
+                        ios_scheme='iosScheme8'
+                    )
                 )
             ],
             brand='brand6',
@@ -69,40 +52,25 @@ payment_methods_response = PaymentMethodsResponse(
                 'key1': 'configuration1',
                 'key2': 'configuration0'
             },
-            funding_source=FundingSource.DEBIT,
-            additional_properties={
-                'exampleAdditionalProperty': jsonpickle.decode('{"key1":"val1","key2":"val2"}')
-            }
+            funding_source=FundingSource9Enum.DEBIT
         ),
         PaymentMethod(
             apps=[
-                PaymentMethodUpiApps(
+                PaymentMethodUPIApps(
                     id='id6',
                     name='name6',
-                    app_identifier_info=AppIdentifierInfo(
+                    app_identifier_info=AppIdentifierInfo1(
                         android_package_id='androidPackageId8',
-                        ios_scheme='iosScheme8',
-                        additional_properties={
-                            'exampleAdditionalProperty': jsonpickle.decode('{"key1":"val1","key2":"val2"}')
-                        }
-                    ),
-                    additional_properties={
-                        'exampleAdditionalProperty': jsonpickle.decode('{"key1":"val1","key2":"val2"}')
-                    }
+                        ios_scheme='iosScheme8'
+                    )
                 ),
-                PaymentMethodUpiApps(
+                PaymentMethodUPIApps(
                     id='id6',
                     name='name6',
-                    app_identifier_info=AppIdentifierInfo(
+                    app_identifier_info=AppIdentifierInfo1(
                         android_package_id='androidPackageId8',
-                        ios_scheme='iosScheme8',
-                        additional_properties={
-                            'exampleAdditionalProperty': jsonpickle.decode('{"key1":"val1","key2":"val2"}')
-                        }
-                    ),
-                    additional_properties={
-                        'exampleAdditionalProperty': jsonpickle.decode('{"key1":"val1","key2":"val2"}')
-                    }
+                        ios_scheme='iosScheme8'
+                    )
                 )
             ],
             brand='brand6',
@@ -114,40 +82,25 @@ payment_methods_response = PaymentMethodsResponse(
                 'key1': 'configuration1',
                 'key2': 'configuration0'
             },
-            funding_source=FundingSource.DEBIT,
-            additional_properties={
-                'exampleAdditionalProperty': jsonpickle.decode('{"key1":"val1","key2":"val2"}')
-            }
+            funding_source=FundingSource9Enum.DEBIT
         ),
         PaymentMethod(
             apps=[
-                PaymentMethodUpiApps(
+                PaymentMethodUPIApps(
                     id='id6',
                     name='name6',
-                    app_identifier_info=AppIdentifierInfo(
+                    app_identifier_info=AppIdentifierInfo1(
                         android_package_id='androidPackageId8',
-                        ios_scheme='iosScheme8',
-                        additional_properties={
-                            'exampleAdditionalProperty': jsonpickle.decode('{"key1":"val1","key2":"val2"}')
-                        }
-                    ),
-                    additional_properties={
-                        'exampleAdditionalProperty': jsonpickle.decode('{"key1":"val1","key2":"val2"}')
-                    }
+                        ios_scheme='iosScheme8'
+                    )
                 ),
-                PaymentMethodUpiApps(
+                PaymentMethodUPIApps(
                     id='id6',
                     name='name6',
-                    app_identifier_info=AppIdentifierInfo(
+                    app_identifier_info=AppIdentifierInfo1(
                         android_package_id='androidPackageId8',
-                        ios_scheme='iosScheme8',
-                        additional_properties={
-                            'exampleAdditionalProperty': jsonpickle.decode('{"key1":"val1","key2":"val2"}')
-                        }
-                    ),
-                    additional_properties={
-                        'exampleAdditionalProperty': jsonpickle.decode('{"key1":"val1","key2":"val2"}')
-                    }
+                        ios_scheme='iosScheme8'
+                    )
                 )
             ],
             brand='brand6',
@@ -159,10 +112,7 @@ payment_methods_response = PaymentMethodsResponse(
                 'key1': 'configuration1',
                 'key2': 'configuration0'
             },
-            funding_source=FundingSource.DEBIT,
-            additional_properties={
-                'exampleAdditionalProperty': jsonpickle.decode('{"key1":"val1","key2":"val2"}')
-            }
+            funding_source=FundingSource9Enum.DEBIT
         )
     ],
     stored_payment_methods=[
@@ -171,15 +121,9 @@ payment_methods_response = PaymentMethodsResponse(
             bank_location_id='bankLocationId6',
             brand='brand6',
             cashtag='cashtag0',
-            expiry_month='expiryMonth6',
-            additional_properties={
-                'exampleAdditionalProperty': jsonpickle.decode('{"key1":"val1","key2":"val2"}')
-            }
+            expiry_month='expiryMonth6'
         )
-    ],
-    additional_properties={
-        'exampleAdditionalProperty': jsonpickle.decode('{"key1":"val1","key2":"val2"}')
-    }
+    ]
 )
 ```
 

@@ -1,8 +1,6 @@
 
 # Additional Bank Identification Requirement
 
-*This model accepts additional fields of type Any.*
-
 ## Structure
 
 `AdditionalBankIdentificationRequirement`
@@ -11,27 +9,19 @@
 
 | Name | Type | Tags | Description |
 |  --- | --- | --- | --- |
-| `additional_bank_identification_type` | [`AdditionalBankIdentificationType`](../../doc/models/additional-bank-identification-type.md) | Optional | - |
+| `additional_bank_identification_type` | [`AdditionalBankIdentificationTypeEnum`](../../doc/models/additional-bank-identification-type-enum.md) | Optional | The type of additional bank identification, depending on the country.<br><br>Possible values:<br><br>* **auBsbCode**: The 6-digit [Australian Bank State Branch (BSB) code](https://en.wikipedia.org/wiki/Bank_state_branch), without separators or spaces.<br>* **caRoutingNumber**: The 9-digit [Canadian routing number](https://en.wikipedia.org/wiki/Routing_number_(Canada)), in EFT format, without separators or spaces.<br>* **gbSortCode**: The 6-digit [UK sort code](https://en.wikipedia.org/wiki/Sort_code), without separators or spaces<br>* **usRoutingNumber**: The 9-digit [routing number](https://en.wikipedia.org/wiki/ABA_routing_transit_number), without separators or spaces. |
 | `description` | `str` | Optional | The description of the additional bank identification requirement. |
-| `mtype` | [`Type610`](../../doc/models/type-610.md) | Required | **additionalBankIdentificationRequirement** |
-| `additional_properties` | `Dict[str, Any]` | Optional | - |
+| `mtype` | `str` | Required, Constant | **additionalBankIdentificationRequirement**<br><br>**Value**: `"additionalBankIdentificationRequirement"` |
 
 ## Example
 
 ```python
-import jsonpickle
-
 from adyen.models.additional_bank_identification_requirement import AdditionalBankIdentificationRequirement
-from adyen.models.additional_bank_identification_type import AdditionalBankIdentificationType
-from adyen.models.type_610 import Type610
+from adyen.models.additional_bank_identification_type_enum import AdditionalBankIdentificationTypeEnum
 
 additional_bank_identification_requirement = AdditionalBankIdentificationRequirement(
-    mtype=Type610.ADDITIONALBANKIDENTIFICATIONREQUIREMENT,
-    additional_bank_identification_type=AdditionalBankIdentificationType.AUBSBCODE,
-    description='description2',
-    additional_properties={
-        'exampleAdditionalProperty': jsonpickle.decode('{"key1":"val1","key2":"val2"}')
-    }
+    additional_bank_identification_type=AdditionalBankIdentificationTypeEnum.AUBSBCODE,
+    description='description2'
 )
 ```
 

@@ -1,8 +1,6 @@
 
 # Google Pay Info
 
-*This model accepts additional fields of type Any.*
-
 ## Structure
 
 `GooglePayInfo`
@@ -13,21 +11,15 @@
 |  --- | --- | --- | --- |
 | `merchant_id` | `str` | Required | Google Pay [Merchant ID](https://support.google.com/paymentscenter/answer/7163092?hl=en). Character length and limitations: 16 alphanumeric characters or 20 numeric characters.<br><br>**Constraints**: *Minimum Length*: `16`, *Maximum Length*: `20` |
 | `reuse_merchant_id` | `bool` | Optional | Indicates whether the Google Pay Merchant ID is used for several merchant accounts. Default value: **false**. |
-| `additional_properties` | `Dict[str, Any]` | Optional | - |
 
 ## Example
 
 ```python
-import jsonpickle
-
 from adyen.models.google_pay_info import GooglePayInfo
 
 google_pay_info = GooglePayInfo(
     merchant_id='merchantId4',
-    reuse_merchant_id=False,
-    additional_properties={
-        'exampleAdditionalProperty': jsonpickle.decode('{"key1":"val1","key2":"val2"}')
-    }
+    reuse_merchant_id=False
 )
 ```
 

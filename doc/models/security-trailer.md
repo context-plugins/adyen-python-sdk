@@ -4,8 +4,6 @@
 It contains information related to the security of the message.
 SecurityTrailer as used by Adyen.
 
-*This model accepts additional fields of type Any.*
-
 ## Structure
 
 `SecurityTrailer`
@@ -19,13 +17,10 @@ SecurityTrailer as used by Adyen.
 | `key_version` | `int` | Required | - |
 | `nonce` | `str` | Required | **Constraints**: *Pattern*: `^.+$` |
 | `hmac` | `str` | Required | **Constraints**: *Pattern*: `^.+$` |
-| `additional_properties` | `Dict[str, Any]` | Optional | - |
 
 ## Example
 
 ```python
-import jsonpickle
-
 from adyen.models.security_trailer import SecurityTrailer
 
 security_trailer = SecurityTrailer(
@@ -33,10 +28,7 @@ security_trailer = SecurityTrailer(
     key_identifier='KeyIdentifier2',
     key_version=36,
     nonce='Nonce6',
-    hmac='Hmac6',
-    additional_properties={
-        'exampleAdditionalProperty': jsonpickle.decode('{"key1":"val1","key2":"val2"}')
-    }
+    hmac='Hmac6'
 )
 ```
 

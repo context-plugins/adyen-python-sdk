@@ -55,7 +55,7 @@ This endpoint requires [BasicAuth](../../doc/auth/basic-authentication.md) **OR*
 
 **200**: OK - the request has succeeded.
 
-This method returns an [`ApiResponse`](../../doc/api-response.md) instance. The `body` property of this instance returns the response data which is of type [`BillingEntitiesResponse`](../../doc/models/billing-entities-response.md).
+[`BillingEntitiesResponse`](../../doc/models/billing-entities-response.md)
 
 ## Example Usage
 
@@ -63,11 +63,7 @@ This method returns an [`ApiResponse`](../../doc/api-response.md) instance. The 
 merchant_id = 'merchantId6'
 
 result = terminal_orders_merchant_level_api.get_merchants_merchant_id_billing_entities(merchant_id)
-
-if result.is_success():
-    print(result.body)
-elif result.is_error():
-    print(result.errors)
+print(result)
 ```
 
 ## Example Response *(as JSON)*
@@ -139,7 +135,7 @@ This endpoint requires [BasicAuth](../../doc/auth/basic-authentication.md) **OR*
 
 **200**: OK - the request has succeeded.
 
-This method returns an [`ApiResponse`](../../doc/api-response.md) instance. The `body` property of this instance returns the response data which is of type [`ShippingLocationsResponse`](../../doc/models/shipping-locations-response.md).
+[`ShippingLocationsResponse`](../../doc/models/shipping-locations-response.md)
 
 ## Example Usage
 
@@ -147,11 +143,7 @@ This method returns an [`ApiResponse`](../../doc/api-response.md) instance. The 
 merchant_id = 'merchantId6'
 
 result = terminal_orders_merchant_level_api.get_merchants_merchant_id_shipping_locations(merchant_id)
-
-if result.is_success():
-    print(result.body)
-elif result.is_error():
-    print(result.errors)
+print(result)
 ```
 
 ## Example Response *(as JSON)*
@@ -222,7 +214,7 @@ This endpoint requires [BasicAuth](../../doc/auth/basic-authentication.md) **OR*
 
 **200**: OK - the request has succeeded.
 
-This method returns an [`ApiResponse`](../../doc/api-response.md) instance. The `body` property of this instance returns the response data which is of type [`ShippingLocation`](../../doc/models/shipping-location.md).
+[`ShippingLocation`](../../doc/models/shipping-location.md)
 
 ## Example Usage
 
@@ -230,7 +222,7 @@ This method returns an [`ApiResponse`](../../doc/api-response.md) instance. The 
 merchant_id = 'merchantId6'
 
 body = ShippingLocation(
-    address=Address6(
+    address=Address21(
         city='Barcelona',
         company_name='YOUR_COMPANY',
         country='ES',
@@ -238,7 +230,7 @@ body = ShippingLocation(
         state_or_province='',
         street_address='El quinto pino 42'
     ),
-    contact=Contact(
+    contact=Contact1(
         email='Rita.Perengano@company.com',
         first_name='Rita',
         last_name='Perengano',
@@ -251,11 +243,7 @@ result = terminal_orders_merchant_level_api.post_merchants_merchant_id_shipping_
     merchant_id,
     body=body
 )
-
-if result.is_success():
-    print(result.body)
-elif result.is_error():
-    print(result.errors)
+print(result)
 ```
 
 ## Example Response *(as JSON)*
@@ -321,7 +309,7 @@ This endpoint requires [BasicAuth](../../doc/auth/basic-authentication.md) **OR*
 
 **200**: OK - the request has succeeded.
 
-This method returns an [`ApiResponse`](../../doc/api-response.md) instance. The `body` property of this instance returns the response data which is of type [`TerminalModelsResponse`](../../doc/models/terminal-models-response.md).
+[`TerminalModelsResponse`](../../doc/models/terminal-models-response.md)
 
 ## Example Usage
 
@@ -329,11 +317,7 @@ This method returns an [`ApiResponse`](../../doc/api-response.md) instance. The 
 merchant_id = 'merchantId6'
 
 result = terminal_orders_merchant_level_api.get_merchants_merchant_id_terminal_models(merchant_id)
-
-if result.is_success():
-    print(result.body)
-elif result.is_error():
-    print(result.errors)
+print(result)
 ```
 
 ## Example Response *(as JSON)*
@@ -546,7 +530,7 @@ This endpoint requires [BasicAuth](../../doc/auth/basic-authentication.md) **OR*
 
 **200**: OK - the request has succeeded.
 
-This method returns an [`ApiResponse`](../../doc/api-response.md) instance. The `body` property of this instance returns the response data which is of type [`TerminalOrdersResponse`](../../doc/models/terminal-orders-response.md).
+[`TerminalOrdersResponse`](../../doc/models/terminal-orders-response.md)
 
 ## Example Usage
 
@@ -554,11 +538,7 @@ This method returns an [`ApiResponse`](../../doc/api-response.md) instance. The 
 merchant_id = 'merchantId6'
 
 result = terminal_orders_merchant_level_api.get_merchants_merchant_id_terminal_orders(merchant_id)
-
-if result.is_success():
-    print(result.body)
-elif result.is_error():
-    print(result.errors)
+print(result)
 ```
 
 ## Example Response *(as JSON)*
@@ -703,7 +683,7 @@ This endpoint requires [BasicAuth](../../doc/auth/basic-authentication.md) **OR*
 
 **200**: OK - the request has succeeded.
 
-This method returns an [`ApiResponse`](../../doc/api-response.md) instance. The `body` property of this instance returns the response data which is of type [`TerminalOrder`](../../doc/models/terminal-order.md).
+[`TerminalOrder`](../../doc/models/terminal-order.md)
 
 ## Example Usage
 
@@ -732,11 +712,7 @@ result = terminal_orders_merchant_level_api.post_merchants_merchant_id_terminal_
     merchant_id,
     body=body
 )
-
-if result.is_success():
-    print(result.body)
-elif result.is_error():
-    print(result.errors)
+print(result)
 ```
 
 ## Example Response *(as JSON)*
@@ -834,7 +810,7 @@ This endpoint requires [BasicAuth](../../doc/auth/basic-authentication.md) **OR*
 
 **200**: OK - the request has succeeded.
 
-This method returns an [`ApiResponse`](../../doc/api-response.md) instance. The `body` property of this instance returns the response data which is of type [`TerminalOrder`](../../doc/models/terminal-order.md).
+[`TerminalOrder`](../../doc/models/terminal-order.md)
 
 ## Example Usage
 
@@ -847,11 +823,7 @@ result = terminal_orders_merchant_level_api.get_merchants_merchant_id_terminal_o
     merchant_id,
     order_id
 )
-
-if result.is_success():
-    print(result.body)
-elif result.is_error():
-    print(result.errors)
+print(result)
 ```
 
 ## Example Response *(as JSON)*
@@ -955,7 +927,7 @@ This endpoint requires [BasicAuth](../../doc/auth/basic-authentication.md) **OR*
 
 **200**: OK - the request has succeeded.
 
-This method returns an [`ApiResponse`](../../doc/api-response.md) instance. The `body` property of this instance returns the response data which is of type [`TerminalOrder`](../../doc/models/terminal-order.md).
+[`TerminalOrder`](../../doc/models/terminal-order.md)
 
 ## Example Usage
 
@@ -989,11 +961,7 @@ result = terminal_orders_merchant_level_api.patch_merchants_merchant_id_terminal
     order_id,
     body=body
 )
-
-if result.is_success():
-    print(result.body)
-elif result.is_error():
-    print(result.errors)
+print(result)
 ```
 
 ## Example Response *(as JSON)*
@@ -1098,7 +1066,7 @@ This endpoint requires [BasicAuth](../../doc/auth/basic-authentication.md) **OR*
 
 **200**: OK - the request has succeeded.
 
-This method returns an [`ApiResponse`](../../doc/api-response.md) instance. The `body` property of this instance returns the response data which is of type [`TerminalOrder`](../../doc/models/terminal-order.md).
+[`TerminalOrder`](../../doc/models/terminal-order.md)
 
 ## Example Usage
 
@@ -1111,11 +1079,7 @@ result = terminal_orders_merchant_level_api.post_merchants_merchant_id_terminal_
     merchant_id,
     order_id
 )
-
-if result.is_success():
-    print(result.body)
-elif result.is_error():
-    print(result.errors)
+print(result)
 ```
 
 ## Example Response *(as JSON)*
@@ -1219,7 +1183,7 @@ This endpoint requires [BasicAuth](../../doc/auth/basic-authentication.md) **OR*
 
 **200**: OK - the request has succeeded.
 
-This method returns an [`ApiResponse`](../../doc/api-response.md) instance. The `body` property of this instance returns the response data which is of type [`TerminalProductsResponse`](../../doc/models/terminal-products-response.md).
+[`TerminalProductsResponse`](../../doc/models/terminal-products-response.md)
 
 ## Example Usage
 
@@ -1232,11 +1196,7 @@ result = terminal_orders_merchant_level_api.get_merchants_merchant_id_terminal_p
     merchant_id,
     country
 )
-
-if result.is_success():
-    print(result.body)
-elif result.is_error():
-    print(result.errors)
+print(result)
 ```
 
 ## Example Response *(as JSON)*
@@ -1249,7 +1209,7 @@ elif result.is_error():
       "name": "Receipt Roll",
       "price": {
         "currency": "EUR",
-        "value": 0
+        "value": 0.0
       }
     },
     {
@@ -1257,7 +1217,7 @@ elif result.is_error():
       "name": "Adyen Test Card",
       "price": {
         "currency": "EUR",
-        "value": 0
+        "value": 0.0
       }
     },
     {
@@ -1265,7 +1225,7 @@ elif result.is_error():
       "name": "Battery - V400m",
       "price": {
         "currency": "EUR",
-        "value": 0
+        "value": 0.0
       }
     },
     {
@@ -1273,7 +1233,7 @@ elif result.is_error():
       "name": "Bluetooth Charging Base - V400m",
       "price": {
         "currency": "EUR",
-        "value": 0
+        "value": 0.0
       }
     },
     {
@@ -1281,7 +1241,7 @@ elif result.is_error():
       "name": "Power Supply EU - V400m",
       "price": {
         "currency": "EUR",
-        "value": 0
+        "value": 0.0
       }
     },
     {
@@ -1290,7 +1250,7 @@ elif result.is_error():
       "description": "Includes an EU Power Supply, SIM Card and battery",
       "price": {
         "currency": "EUR",
-        "value": 0
+        "value": 0.0
       },
       "itemsIncluded": [
         "Receipt Roll",

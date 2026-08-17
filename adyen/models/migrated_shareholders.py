@@ -15,8 +15,6 @@ class MigratedShareholders(object):
             shareholder in the balance platform.
         shareholder_code (str): The unique identifier of the account of the migrated
             shareholder in the classic integration.
-        additional_properties (Dict[str, Any]): The additional properties for the
-            model.
 
     """
 
@@ -34,19 +32,13 @@ class MigratedShareholders(object):
     def __init__(
         self,
         legal_entity_code=APIHelper.SKIP,
-        shareholder_code=APIHelper.SKIP,
-        additional_properties=None):
+        shareholder_code=APIHelper.SKIP):
         """Initialize a MigratedShareholders instance."""
         # Initialize members of the class
         if legal_entity_code is not APIHelper.SKIP:
             self.legal_entity_code = legal_entity_code
         if shareholder_code is not APIHelper.SKIP:
             self.shareholder_code = shareholder_code
-
-        # Add additional model properties to the instance
-        if additional_properties is None:
-            additional_properties = {}
-        self.additional_properties = additional_properties
 
     @classmethod
     def from_dictionary(cls,
@@ -75,15 +67,9 @@ class MigratedShareholders(object):
             if dictionary.get("shareholderCode")\
                 else APIHelper.SKIP
 
-        additional_properties = APIHelper.get_additional_properties(
-            dictionary={k: v for k, v in dictionary.items()
-                        if k not in cls._names.values()},
-            unboxing_function=lambda value: value)
-
         # Return an object of this model
         return cls(legal_entity_code,
-                   shareholder_code,
-                   additional_properties)
+                   shareholder_code)
 
     def __repr__(self):
         """Return a unambiguous string representation."""
@@ -97,12 +83,10 @@ class MigratedShareholders(object):
             if hasattr(self, "shareholder_code")
             else None
         )
-        _additional_properties=self.additional_properties
         return (
             f"{self.__class__.__name__}("
             f"legal_entity_code={_legal_entity_code!r}, "
             f"shareholder_code={_shareholder_code!r}, "
-            f"additional_properties={_additional_properties!r}, "
             f")"
         )
 
@@ -118,11 +102,9 @@ class MigratedShareholders(object):
             if hasattr(self, "shareholder_code")
             else None
         )
-        _additional_properties=self.additional_properties
         return (
             f"{self.__class__.__name__}("
             f"legal_entity_code={_legal_entity_code!s}, "
             f"shareholder_code={_shareholder_code!s}, "
-            f"additional_properties={_additional_properties!s}, "
             f")"
         )

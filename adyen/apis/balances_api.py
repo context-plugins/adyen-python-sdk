@@ -11,41 +11,8 @@ from apimatic_core.types.parameter import Parameter
 from adyen.api_helper import APIHelper
 from adyen.apis.base_api import BaseApi
 from adyen.configuration import Server
-from adyen.exceptions.balance_platforms_webhooks_settings_400_error_exception import (
-    BalancePlatformsWebhooksSettings400ErrorException,
-)
-from adyen.exceptions.balance_platforms_webhooks_settings_401_error_exception import (
-    BalancePlatformsWebhooksSettings401ErrorException,
-)
-from adyen.exceptions.balance_platforms_webhooks_settings_403_error_exception import (
-    BalancePlatformsWebhooksSettings403ErrorException,
-)
-from adyen.exceptions.balance_platforms_webhooks_settings_404_error_exception import (
-    BalancePlatformsWebhooksSettings404ErrorException,
-)
-from adyen.exceptions.balance_platforms_webhooks_settings_422_error_exception import (
-    BalancePlatformsWebhooksSettings422ErrorException,
-)
-from adyen.exceptions.balance_platforms_webhooks_settings_500_error_exception import (
-    BalancePlatformsWebhooksSettings500ErrorException,
-)
-from adyen.exceptions.balance_platforms_webhooks_settings_setting_id_400_error_exception import (  # noqa: E501
-    BalancePlatformsWebhooksSettingsSettingId400ErrorException,
-)
-from adyen.exceptions.balance_platforms_webhooks_settings_setting_id_401_error_exception import (  # noqa: E501
-    BalancePlatformsWebhooksSettingsSettingId401ErrorException,
-)
-from adyen.exceptions.balance_platforms_webhooks_settings_setting_id_403_error_exception import (  # noqa: E501
-    BalancePlatformsWebhooksSettingsSettingId403ErrorException,
-)
-from adyen.exceptions.balance_platforms_webhooks_settings_setting_id_404_error_exception import (  # noqa: E501
-    BalancePlatformsWebhooksSettingsSettingId404ErrorException,
-)
-from adyen.exceptions.balance_platforms_webhooks_settings_setting_id_422_error_exception import (  # noqa: E501
-    BalancePlatformsWebhooksSettingsSettingId422ErrorException,
-)
-from adyen.exceptions.balance_platforms_webhooks_settings_setting_id_500_error_exception import (  # noqa: E501
-    BalancePlatformsWebhooksSettingsSettingId500ErrorException,
+from adyen.exceptions.default_error_response_entity_exception import (
+    DefaultErrorResponseEntityException,
 )
 from adyen.http.http_method_enum import HttpMethodEnum
 from adyen.models.webhook_setting import WebhookSetting
@@ -74,29 +41,25 @@ class BalancesApi(BaseApi):
             webhook_id (str): The unique identifier of the balance webhook.
 
         Returns:
-            ApiResponse: An object with the response value as well as other useful
-                information such as status codes and headers. OK - the request has
-                succeeded.
+            WebhookSettings: Response from the API. OK - the request has succeeded.
 
         Raises:
-            ApiException: When an error occurs while fetching the data from the
+            APIException: When an error occurs while fetching the data from the
                 remote API. This exception includes the HTTP Response code, an error
                 message, and the HTTP body that was received in the request.
 
         """
         return super().new_api_call_builder.request(
-            RequestBuilder().server(Server.DEFAULT)
+            RequestBuilder().server(Server.DEFAULT13)
             .path("/balancePlatforms/{balancePlatformId}/webhooks/{webhookId}/settings")
             .http_method(HttpMethodEnum.GET)
             .template_param(Parameter()
                 .key("balancePlatformId")
                 .value(balance_platform_id)
-                .is_required(True)
                 .should_encode(True))
             .template_param(Parameter()
                 .key("webhookId")
                 .value(webhook_id)
-                .is_required(True)
                 .should_encode(True))
             .header_param(Parameter()
                 .key("accept")
@@ -105,25 +68,24 @@ class BalancesApi(BaseApi):
             ResponseHandler()
             .deserializer(APIHelper.json_deserialize)
             .deserialize_into(WebhookSettings.from_dictionary)
-            .is_api_response(True)
             .local_error("400",
                 "Bad Request - a problem reading or understanding the request.",
-                BalancePlatformsWebhooksSettings400ErrorException)
+                DefaultErrorResponseEntityException)
             .local_error("401",
                 "Unauthorized - authentication required.",
-                BalancePlatformsWebhooksSettings401ErrorException)
+                DefaultErrorResponseEntityException)
             .local_error("403",
                 "Forbidden - insufficient permissions to process the request.",
-                BalancePlatformsWebhooksSettings403ErrorException)
+                DefaultErrorResponseEntityException)
             .local_error("404",
                 "Not Found - the payment was not found",
-                BalancePlatformsWebhooksSettings404ErrorException)
+                DefaultErrorResponseEntityException)
             .local_error("422",
                 "Unprocessable Entity - a request validation error.",
-                BalancePlatformsWebhooksSettings422ErrorException)
+                DefaultErrorResponseEntityException)
             .local_error("500",
                 "Internal Server Error - the server could not process the request.",
-                BalancePlatformsWebhooksSettings500ErrorException),
+                DefaultErrorResponseEntityException),
         ).execute()
 
     def post_balance_platforms_balance_platform_id_webhooks_webhook_id_settings(self,
@@ -154,36 +116,31 @@ class BalancesApi(BaseApi):
             body (BalanceWebhookSettingInfo): The request body parameter.
 
         Returns:
-            ApiResponse: An object with the response value as well as other useful
-                information such as status codes and headers. OK - the request has
-                succeeded.
+            WebhookSetting: Response from the API. OK - the request has succeeded.
 
         Raises:
-            ApiException: When an error occurs while fetching the data from the
+            APIException: When an error occurs while fetching the data from the
                 remote API. This exception includes the HTTP Response code, an error
                 message, and the HTTP body that was received in the request.
 
         """
         return super().new_api_call_builder.request(
-            RequestBuilder().server(Server.DEFAULT)
+            RequestBuilder().server(Server.DEFAULT13)
             .path("/balancePlatforms/{balancePlatformId}/webhooks/{webhookId}/settings")
             .http_method(HttpMethodEnum.POST)
             .template_param(Parameter()
                 .key("balancePlatformId")
                 .value(balance_platform_id)
-                .is_required(True)
                 .should_encode(True))
             .template_param(Parameter()
                 .key("webhookId")
                 .value(webhook_id)
-                .is_required(True)
                 .should_encode(True))
             .header_param(Parameter()
                 .key("Content-Type")
                 .value("application/json"))
             .body_param(Parameter()
-                .value(body)
-                .is_required(True))
+                .value(body))
             .header_param(Parameter()
                 .key("accept")
                 .value("application/json"))
@@ -192,25 +149,24 @@ class BalancesApi(BaseApi):
             ResponseHandler()
             .deserializer(APIHelper.json_deserialize)
             .deserialize_into(WebhookSetting.from_dictionary)
-            .is_api_response(True)
             .local_error("400",
                 "Bad Request - a problem reading or understanding the request.",
-                BalancePlatformsWebhooksSettings400ErrorException)
+                DefaultErrorResponseEntityException)
             .local_error("401",
                 "Unauthorized - authentication required.",
-                BalancePlatformsWebhooksSettings401ErrorException)
+                DefaultErrorResponseEntityException)
             .local_error("403",
                 "Forbidden - insufficient permissions to process the request.",
-                BalancePlatformsWebhooksSettings403ErrorException)
+                DefaultErrorResponseEntityException)
             .local_error("404",
                 "Not Found - the payment was not found",
-                BalancePlatformsWebhooksSettings404ErrorException)
+                DefaultErrorResponseEntityException)
             .local_error("422",
                 "Unprocessable Entity - a request validation error.",
-                BalancePlatformsWebhooksSettings422ErrorException)
+                DefaultErrorResponseEntityException)
             .local_error("500",
                 "Internal Server Error - the server could not process the request.",
-                BalancePlatformsWebhooksSettings500ErrorException),
+                DefaultErrorResponseEntityException),
         ).execute()
 
     def get_balance_platforms_balance_platform_id_webhooks_webhook_id_settings_setting_id(self,
@@ -232,34 +188,29 @@ class BalancesApi(BaseApi):
             setting_id (str): The unique identifier of the balance webhook setting.
 
         Returns:
-            ApiResponse: An object with the response value as well as other useful
-                information such as status codes and headers. OK - the request has
-                succeeded.
+            WebhookSetting: Response from the API. OK - the request has succeeded.
 
         Raises:
-            ApiException: When an error occurs while fetching the data from the
+            APIException: When an error occurs while fetching the data from the
                 remote API. This exception includes the HTTP Response code, an error
                 message, and the HTTP body that was received in the request.
 
         """
         return super().new_api_call_builder.request(
-            RequestBuilder().server(Server.DEFAULT)
+            RequestBuilder().server(Server.DEFAULT13)
             .path("/balancePlatforms/{balancePlatformId}/webhooks/{webhookId}/settings/{settingId}")
             .http_method(HttpMethodEnum.GET)
             .template_param(Parameter()
                 .key("balancePlatformId")
                 .value(balance_platform_id)
-                .is_required(True)
                 .should_encode(True))
             .template_param(Parameter()
                 .key("webhookId")
                 .value(webhook_id)
-                .is_required(True)
                 .should_encode(True))
             .template_param(Parameter()
                 .key("settingId")
                 .value(setting_id)
-                .is_required(True)
                 .should_encode(True))
             .header_param(Parameter()
                 .key("accept")
@@ -268,25 +219,24 @@ class BalancesApi(BaseApi):
             ResponseHandler()
             .deserializer(APIHelper.json_deserialize)
             .deserialize_into(WebhookSetting.from_dictionary)
-            .is_api_response(True)
             .local_error("400",
                 "Bad Request - a problem reading or understanding the request.",
-                BalancePlatformsWebhooksSettingsSettingId400ErrorException)
+                DefaultErrorResponseEntityException)
             .local_error("401",
                 "Unauthorized - authentication required.",
-                BalancePlatformsWebhooksSettingsSettingId401ErrorException)
+                DefaultErrorResponseEntityException)
             .local_error("403",
                 "Forbidden - insufficient permissions to process the request.",
-                BalancePlatformsWebhooksSettingsSettingId403ErrorException)
+                DefaultErrorResponseEntityException)
             .local_error("404",
                 "Not Found - the payment was not found",
-                BalancePlatformsWebhooksSettingsSettingId404ErrorException)
+                DefaultErrorResponseEntityException)
             .local_error("422",
                 "Unprocessable Entity - a request validation error.",
-                BalancePlatformsWebhooksSettingsSettingId422ErrorException)
+                DefaultErrorResponseEntityException)
             .local_error("500",
                 "Internal Server Error - the server could not process the request.",
-                BalancePlatformsWebhooksSettingsSettingId500ErrorException),
+                DefaultErrorResponseEntityException),
         ).execute()
 
     def delete_balance_platforms_balance_platform_id_webhooks_webhook_id_settings_setting_id(self,
@@ -308,61 +258,55 @@ class BalancesApi(BaseApi):
             setting_id (str): The unique identifier of the balance webhook setting.
 
         Returns:
-            ApiResponse: An object with the response value as well as other useful
-                information such as status codes and headers. No Content - the
-                request has been successfully processed, but there is no additional
-                content.
+            Any: Response from the API. No Content - the request has been
+                successfully processed, but there is no additional content.
 
         Raises:
-            ApiException: When an error occurs while fetching the data from the
+            APIException: When an error occurs while fetching the data from the
                 remote API. This exception includes the HTTP Response code, an error
                 message, and the HTTP body that was received in the request.
 
         """
         return super().new_api_call_builder.request(
-            RequestBuilder().server(Server.DEFAULT)
+            RequestBuilder().server(Server.DEFAULT13)
             .path("/balancePlatforms/{balancePlatformId}/webhooks/{webhookId}/settings/{settingId}")
             .http_method(HttpMethodEnum.DELETE)
             .template_param(Parameter()
                 .key("balancePlatformId")
                 .value(balance_platform_id)
-                .is_required(True)
                 .should_encode(True))
             .template_param(Parameter()
                 .key("webhookId")
                 .value(webhook_id)
-                .is_required(True)
                 .should_encode(True))
             .template_param(Parameter()
                 .key("settingId")
                 .value(setting_id)
-                .is_required(True)
                 .should_encode(True))
             .header_param(Parameter()
                 .key("accept")
                 .value("application/json")),
         ).response(
             ResponseHandler()
-            .deserializer(APIHelper.json_deserialize)
-            .is_api_response(True)
+            .deserializer(APIHelper.dynamic_deserialize)
             .local_error("400",
                 "Bad Request - a problem reading or understanding the request.",
-                BalancePlatformsWebhooksSettingsSettingId400ErrorException)
+                DefaultErrorResponseEntityException)
             .local_error("401",
                 "Unauthorized - authentication required.",
-                BalancePlatformsWebhooksSettingsSettingId401ErrorException)
+                DefaultErrorResponseEntityException)
             .local_error("403",
                 "Forbidden - insufficient permissions to process the request.",
-                BalancePlatformsWebhooksSettingsSettingId403ErrorException)
+                DefaultErrorResponseEntityException)
             .local_error("404",
                 "Not Found - the payment was not found",
-                BalancePlatformsWebhooksSettingsSettingId404ErrorException)
+                DefaultErrorResponseEntityException)
             .local_error("422",
                 "Unprocessable Entity - a request validation error.",
-                BalancePlatformsWebhooksSettingsSettingId422ErrorException)
+                DefaultErrorResponseEntityException)
             .local_error("500",
                 "Internal Server Error - the server could not process the request.",
-                BalancePlatformsWebhooksSettingsSettingId500ErrorException),
+                DefaultErrorResponseEntityException),
         ).execute()
 
     def patch_balance_platforms_balance_platform_id_webhooks_webhook_id_settings_setting_id(self,
@@ -386,41 +330,35 @@ class BalancesApi(BaseApi):
             body (BalanceWebhookSettingInfoUpdate): The request body parameter.
 
         Returns:
-            ApiResponse: An object with the response value as well as other useful
-                information such as status codes and headers. OK - the request has
-                succeeded.
+            WebhookSetting: Response from the API. OK - the request has succeeded.
 
         Raises:
-            ApiException: When an error occurs while fetching the data from the
+            APIException: When an error occurs while fetching the data from the
                 remote API. This exception includes the HTTP Response code, an error
                 message, and the HTTP body that was received in the request.
 
         """
         return super().new_api_call_builder.request(
-            RequestBuilder().server(Server.DEFAULT)
+            RequestBuilder().server(Server.DEFAULT13)
             .path("/balancePlatforms/{balancePlatformId}/webhooks/{webhookId}/settings/{settingId}")
             .http_method(HttpMethodEnum.PATCH)
             .template_param(Parameter()
                 .key("balancePlatformId")
                 .value(balance_platform_id)
-                .is_required(True)
                 .should_encode(True))
             .template_param(Parameter()
                 .key("webhookId")
                 .value(webhook_id)
-                .is_required(True)
                 .should_encode(True))
             .template_param(Parameter()
                 .key("settingId")
                 .value(setting_id)
-                .is_required(True)
                 .should_encode(True))
             .header_param(Parameter()
                 .key("Content-Type")
                 .value("application/json"))
             .body_param(Parameter()
-                .value(body)
-                .is_required(True))
+                .value(body))
             .header_param(Parameter()
                 .key("accept")
                 .value("application/json"))
@@ -429,23 +367,22 @@ class BalancesApi(BaseApi):
             ResponseHandler()
             .deserializer(APIHelper.json_deserialize)
             .deserialize_into(WebhookSetting.from_dictionary)
-            .is_api_response(True)
             .local_error("400",
                 "Bad Request - a problem reading or understanding the request.",
-                BalancePlatformsWebhooksSettingsSettingId400ErrorException)
+                DefaultErrorResponseEntityException)
             .local_error("401",
                 "Unauthorized - authentication required.",
-                BalancePlatformsWebhooksSettingsSettingId401ErrorException)
+                DefaultErrorResponseEntityException)
             .local_error("403",
                 "Forbidden - insufficient permissions to process the request.",
-                BalancePlatformsWebhooksSettingsSettingId403ErrorException)
+                DefaultErrorResponseEntityException)
             .local_error("404",
                 "Not Found - the payment was not found",
-                BalancePlatformsWebhooksSettingsSettingId404ErrorException)
+                DefaultErrorResponseEntityException)
             .local_error("422",
                 "Unprocessable Entity - a request validation error.",
-                BalancePlatformsWebhooksSettingsSettingId422ErrorException)
+                DefaultErrorResponseEntityException)
             .local_error("500",
                 "Internal Server Error - the server could not process the request.",
-                BalancePlatformsWebhooksSettingsSettingId500ErrorException),
+                DefaultErrorResponseEntityException),
         ).execute()

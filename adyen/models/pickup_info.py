@@ -27,8 +27,6 @@ class PickupInfo(object):
             maxLength: 3 characters * Must not start with a space or be all spaces. *
             Must not be all zeros. * **additionalData key:**
             `carRental.locationStateProvince`
-        additional_properties (Dict[str, Any]): The additional properties for the
-            model.
 
     """
 
@@ -52,8 +50,7 @@ class PickupInfo(object):
         city=APIHelper.SKIP,
         country_code=APIHelper.SKIP,
         date=APIHelper.SKIP,
-        state_or_province=APIHelper.SKIP,
-        additional_properties=None):
+        state_or_province=APIHelper.SKIP):
         """Initialize a PickupInfo instance."""
         # Initialize members of the class
         if city is not APIHelper.SKIP:
@@ -64,11 +61,6 @@ class PickupInfo(object):
             self.date = date
         if state_or_province is not APIHelper.SKIP:
             self.state_or_province = state_or_province
-
-        # Add additional model properties to the instance
-        if additional_properties is None:
-            additional_properties = {}
-        self.additional_properties = additional_properties
 
     @classmethod
     def from_dictionary(cls,
@@ -104,17 +96,11 @@ class PickupInfo(object):
             if dictionary.get("stateOrProvince")\
                 else APIHelper.SKIP
 
-        additional_properties = APIHelper.get_additional_properties(
-            dictionary={k: v for k, v in dictionary.items()
-                        if k not in cls._names.values()},
-            unboxing_function=lambda value: value)
-
         # Return an object of this model
         return cls(city,
                    country_code,
                    date,
-                   state_or_province,
-                   additional_properties)
+                   state_or_province)
 
     @classmethod
     def validate(cls, dictionary):
@@ -159,14 +145,12 @@ class PickupInfo(object):
             if hasattr(self, "state_or_province")
             else None
         )
-        _additional_properties=self.additional_properties
         return (
             f"{self.__class__.__name__}("
             f"city={_city!r}, "
             f"country_code={_country_code!r}, "
             f"date={_date!r}, "
             f"state_or_province={_state_or_province!r}, "
-            f"additional_properties={_additional_properties!r}, "
             f")"
         )
 
@@ -192,13 +176,11 @@ class PickupInfo(object):
             if hasattr(self, "state_or_province")
             else None
         )
-        _additional_properties=self.additional_properties
         return (
             f"{self.__class__.__name__}("
             f"city={_city!s}, "
             f"country_code={_country_code!s}, "
             f"date={_date!s}, "
             f"state_or_province={_state_or_province!s}, "
-            f"additional_properties={_additional_properties!s}, "
             f")"
         )

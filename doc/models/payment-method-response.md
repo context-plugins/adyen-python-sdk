@@ -1,8 +1,6 @@
 
 # Payment Method Response
 
-*This model accepts additional fields of type Any.*
-
 ## Structure
 
 `PaymentMethodResponse`
@@ -11,198 +9,120 @@
 
 | Name | Type | Tags | Description |
 |  --- | --- | --- | --- |
-| `links` | [`PaginationLinks`](../../doc/models/pagination-links.md) | Optional | - |
+| `links` | [`PaginationLinks1`](../../doc/models/pagination-links-1.md) | Optional | Pagination references. |
 | `data` | [`List[ManagementPaymentMethod]`](../../doc/models/management-payment-method.md) | Optional | The list of supported payment methods and their details. |
 | `items_total` | `int` | Required | Total number of items. |
 | `pages_total` | `int` | Required | Total number of pages. |
-| `types_with_errors` | [`List[TypesWithError]`](../../doc/models/types-with-error.md) | Optional | The payment method types that were not successfully requested and their corresponding errors. |
-| `additional_properties` | `Dict[str, Any]` | Optional | - |
+| `types_with_errors` | [`List[TypesWithErrorEnum]`](../../doc/models/types-with-error-enum.md) | Optional | The payment method types that were not successfully requested and their corresponding errors. |
 
 ## Example
 
 ```python
-import jsonpickle
-
-from adyen.models.accel_response_info import AccelResponseInfo
-from adyen.models.affirm_response_info import AffirmResponseInfo
-from adyen.models.afterpay_touch_response_info import AfterpayTouchResponseInfo
-from adyen.models.alipay_plus_response_info import AlipayPlusResponseInfo
-from adyen.models.first import First
-from adyen.models.last import Last
+from adyen.models.accel_response_info_1 import AccelResponseInfo1
+from adyen.models.affirm_response_info_1 import AffirmResponseInfo1
+from adyen.models.afterpay_touch_response_info_1 import AfterpayTouchResponseInfo1
+from adyen.models.alipay_plus_response_info_1 import AlipayPlusResponseInfo1
+from adyen.models.links_element_10 import LinksElement10
+from adyen.models.links_element_11 import LinksElement11
+from adyen.models.links_element_12 import LinksElement12
+from adyen.models.links_element_13 import LinksElement13
+from adyen.models.links_element_9 import LinksElement9
 from adyen.models.management_payment_method import ManagementPaymentMethod
-from adyen.models.mself import Self
-from adyen.models.next import Next
-from adyen.models.pagination_links import PaginationLinks
+from adyen.models.pagination_links_1 import PaginationLinks1
 from adyen.models.payment_method_response import PaymentMethodResponse
-from adyen.models.prev import Prev
-from adyen.models.processing_type import ProcessingType
-from adyen.models.transaction_description_info import TransactionDescriptionInfo
-from adyen.models.type_33 import Type33
-from adyen.models.types_with_error import TypesWithError
+from adyen.models.processing_type_enum import ProcessingTypeEnum
+from adyen.models.transaction_description_response_info_1 import TransactionDescriptionResponseInfo1
+from adyen.models.type_8_enum import Type8Enum
+from adyen.models.types_with_error_enum import TypesWithErrorEnum
 
 payment_method_response = PaymentMethodResponse(
     items_total=108,
     pages_total=70,
-    links=PaginationLinks(
-        first=First(
-            href='href2',
-            additional_properties={
-                'exampleAdditionalProperty': jsonpickle.decode('{"key1":"val1","key2":"val2"}')
-            }
+    links=PaginationLinks1(
+        first=LinksElement9(
+            href='href2'
         ),
-        last=Last(
-            href='href2',
-            additional_properties={
-                'exampleAdditionalProperty': jsonpickle.decode('{"key1":"val1","key2":"val2"}')
-            }
+        last=LinksElement10(
+            href='href2'
         ),
-        mself=Self(
-            href='href0',
-            additional_properties={
-                'exampleAdditionalProperty': jsonpickle.decode('{"key1":"val1","key2":"val2"}')
-            }
+        mself=LinksElement13(
+            href='href0'
         ),
-        next=Next(
-            href='href4',
-            additional_properties={
-                'exampleAdditionalProperty': jsonpickle.decode('{"key1":"val1","key2":"val2"}')
-            }
+        next=LinksElement11(
+            href='href4'
         ),
-        prev=Prev(
-            href='href8',
-            additional_properties={
-                'exampleAdditionalProperty': jsonpickle.decode('{"key1":"val1","key2":"val2"}')
-            }
-        ),
-        additional_properties={
-            'exampleAdditionalProperty': jsonpickle.decode('{"key1":"val1","key2":"val2"}')
-        }
+        prev=LinksElement12(
+            href='href8'
+        )
     ),
     data=[
         ManagementPaymentMethod(
             id='id0',
-            accel=AccelResponseInfo(
-                processing_type=ProcessingType.BILLPAY,
-                transaction_description=TransactionDescriptionInfo(
+            accel=AccelResponseInfo1(
+                processing_type=ProcessingTypeEnum.BILLPAY,
+                transaction_description=TransactionDescriptionResponseInfo1(
                     doing_business_as_name='doingBusinessAsName0',
-                    mtype=Type33.FIXED,
-                    additional_properties={
-                        'exampleAdditionalProperty': jsonpickle.decode('{"key1":"val1","key2":"val2"}')
-                    }
-                ),
-                additional_properties={
-                    'exampleAdditionalProperty': jsonpickle.decode('{"key1":"val1","key2":"val2"}')
-                }
+                    mtype=Type8Enum.FIXED
+                )
             ),
-            affirm=AffirmResponseInfo(
-                public_api_key='publicApiKey4',
-                additional_properties={
-                    'exampleAdditionalProperty': jsonpickle.decode('{"key1":"val1","key2":"val2"}')
-                }
+            affirm=AffirmResponseInfo1(
+                public_api_key='publicApiKey4'
             ),
-            afterpay_touch=AfterpayTouchResponseInfo(
+            afterpay_touch=AfterpayTouchResponseInfo1(
                 support_email='supportEmail8',
-                support_url='supportUrl4',
-                additional_properties={
-                    'exampleAdditionalProperty': jsonpickle.decode('{"key1":"val1","key2":"val2"}')
-                }
+                support_url='supportUrl4'
             ),
-            alipay_plus=AlipayPlusResponseInfo(
-                settlement_currency_code='settlementCurrencyCode0',
-                additional_properties={
-                    'exampleAdditionalProperty': jsonpickle.decode('{"key1":"val1","key2":"val2"}')
-                }
+            alipay_plus=AlipayPlusResponseInfo1(
+                settlement_currency_code='settlementCurrencyCode0'
             ),
-            allowed=False,
-            additional_properties={
-                'exampleAdditionalProperty': jsonpickle.decode('{"key1":"val1","key2":"val2"}')
-            }
+            allowed=False
         ),
         ManagementPaymentMethod(
             id='id0',
-            accel=AccelResponseInfo(
-                processing_type=ProcessingType.BILLPAY,
-                transaction_description=TransactionDescriptionInfo(
+            accel=AccelResponseInfo1(
+                processing_type=ProcessingTypeEnum.BILLPAY,
+                transaction_description=TransactionDescriptionResponseInfo1(
                     doing_business_as_name='doingBusinessAsName0',
-                    mtype=Type33.FIXED,
-                    additional_properties={
-                        'exampleAdditionalProperty': jsonpickle.decode('{"key1":"val1","key2":"val2"}')
-                    }
-                ),
-                additional_properties={
-                    'exampleAdditionalProperty': jsonpickle.decode('{"key1":"val1","key2":"val2"}')
-                }
+                    mtype=Type8Enum.FIXED
+                )
             ),
-            affirm=AffirmResponseInfo(
-                public_api_key='publicApiKey4',
-                additional_properties={
-                    'exampleAdditionalProperty': jsonpickle.decode('{"key1":"val1","key2":"val2"}')
-                }
+            affirm=AffirmResponseInfo1(
+                public_api_key='publicApiKey4'
             ),
-            afterpay_touch=AfterpayTouchResponseInfo(
+            afterpay_touch=AfterpayTouchResponseInfo1(
                 support_email='supportEmail8',
-                support_url='supportUrl4',
-                additional_properties={
-                    'exampleAdditionalProperty': jsonpickle.decode('{"key1":"val1","key2":"val2"}')
-                }
+                support_url='supportUrl4'
             ),
-            alipay_plus=AlipayPlusResponseInfo(
-                settlement_currency_code='settlementCurrencyCode0',
-                additional_properties={
-                    'exampleAdditionalProperty': jsonpickle.decode('{"key1":"val1","key2":"val2"}')
-                }
+            alipay_plus=AlipayPlusResponseInfo1(
+                settlement_currency_code='settlementCurrencyCode0'
             ),
-            allowed=False,
-            additional_properties={
-                'exampleAdditionalProperty': jsonpickle.decode('{"key1":"val1","key2":"val2"}')
-            }
+            allowed=False
         ),
         ManagementPaymentMethod(
             id='id0',
-            accel=AccelResponseInfo(
-                processing_type=ProcessingType.BILLPAY,
-                transaction_description=TransactionDescriptionInfo(
+            accel=AccelResponseInfo1(
+                processing_type=ProcessingTypeEnum.BILLPAY,
+                transaction_description=TransactionDescriptionResponseInfo1(
                     doing_business_as_name='doingBusinessAsName0',
-                    mtype=Type33.FIXED,
-                    additional_properties={
-                        'exampleAdditionalProperty': jsonpickle.decode('{"key1":"val1","key2":"val2"}')
-                    }
-                ),
-                additional_properties={
-                    'exampleAdditionalProperty': jsonpickle.decode('{"key1":"val1","key2":"val2"}')
-                }
+                    mtype=Type8Enum.FIXED
+                )
             ),
-            affirm=AffirmResponseInfo(
-                public_api_key='publicApiKey4',
-                additional_properties={
-                    'exampleAdditionalProperty': jsonpickle.decode('{"key1":"val1","key2":"val2"}')
-                }
+            affirm=AffirmResponseInfo1(
+                public_api_key='publicApiKey4'
             ),
-            afterpay_touch=AfterpayTouchResponseInfo(
+            afterpay_touch=AfterpayTouchResponseInfo1(
                 support_email='supportEmail8',
-                support_url='supportUrl4',
-                additional_properties={
-                    'exampleAdditionalProperty': jsonpickle.decode('{"key1":"val1","key2":"val2"}')
-                }
+                support_url='supportUrl4'
             ),
-            alipay_plus=AlipayPlusResponseInfo(
-                settlement_currency_code='settlementCurrencyCode0',
-                additional_properties={
-                    'exampleAdditionalProperty': jsonpickle.decode('{"key1":"val1","key2":"val2"}')
-                }
+            alipay_plus=AlipayPlusResponseInfo1(
+                settlement_currency_code='settlementCurrencyCode0'
             ),
-            allowed=False,
-            additional_properties={
-                'exampleAdditionalProperty': jsonpickle.decode('{"key1":"val1","key2":"val2"}')
-            }
+            allowed=False
         )
     ],
     types_with_errors=[
-        TypesWithError.ABRAPETITE_DEBIT
-    ],
-    additional_properties={
-        'exampleAdditionalProperty': jsonpickle.decode('{"key1":"val1","key2":"val2"}')
-    }
+        TypesWithErrorEnum.ABRAPETITE_DEBIT
+    ]
 )
 ```
 

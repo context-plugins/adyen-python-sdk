@@ -19,8 +19,6 @@ class PaymentInstrumentGroupInfo(object):
         properties (Dict[str, str]): Properties of the payment instrument group.
         reference (str): Your reference for the payment instrument group.
         tx_variant (str): The tx variant of the payment instrument group.
-        additional_properties (Dict[str, Any]): The additional properties for the
-            model.
 
     """
 
@@ -45,8 +43,7 @@ class PaymentInstrumentGroupInfo(object):
         tx_variant=None,
         description=APIHelper.SKIP,
         properties=APIHelper.SKIP,
-        reference=APIHelper.SKIP,
-        additional_properties=None):
+        reference=APIHelper.SKIP):
         """Initialize a PaymentInstrumentGroupInfo instance."""
         # Initialize members of the class
         self.balance_platform = balance_platform
@@ -57,11 +54,6 @@ class PaymentInstrumentGroupInfo(object):
         if reference is not APIHelper.SKIP:
             self.reference = reference
         self.tx_variant = tx_variant
-
-        # Add additional model properties to the instance
-        if additional_properties is None:
-            additional_properties = {}
-        self.additional_properties = additional_properties
 
     @classmethod
     def from_dictionary(cls,
@@ -102,18 +94,12 @@ class PaymentInstrumentGroupInfo(object):
             if dictionary.get("reference")\
                 else APIHelper.SKIP
 
-        additional_properties = APIHelper.get_additional_properties(
-            dictionary={k: v for k, v in dictionary.items()
-                        if k not in cls._names.values()},
-            unboxing_function=lambda value: value)
-
         # Return an object of this model
         return cls(balance_platform,
                    tx_variant,
                    description,
                    properties,
-                   reference,
-                   additional_properties)
+                   reference)
 
     def __repr__(self):
         """Return a unambiguous string representation."""
@@ -134,7 +120,6 @@ class PaymentInstrumentGroupInfo(object):
             else None
         )
         _tx_variant=self.tx_variant
-        _additional_properties=self.additional_properties
         return (
             f"{self.__class__.__name__}("
             f"balance_platform={_balance_platform!r}, "
@@ -142,7 +127,6 @@ class PaymentInstrumentGroupInfo(object):
             f"properties={_properties!r}, "
             f"reference={_reference!r}, "
             f"tx_variant={_tx_variant!r}, "
-            f"additional_properties={_additional_properties!r}, "
             f")"
         )
 
@@ -165,7 +149,6 @@ class PaymentInstrumentGroupInfo(object):
             else None
         )
         _tx_variant=self.tx_variant
-        _additional_properties=self.additional_properties
         return (
             f"{self.__class__.__name__}("
             f"balance_platform={_balance_platform!s}, "
@@ -173,6 +156,5 @@ class PaymentInstrumentGroupInfo(object):
             f"properties={_properties!s}, "
             f"reference={_reference!s}, "
             f"tx_variant={_tx_variant!s}, "
-            f"additional_properties={_additional_properties!s}, "
             f")"
         )

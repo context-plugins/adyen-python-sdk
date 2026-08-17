@@ -3,8 +3,6 @@
 
 Contains information about the merchant.
 
-*This model accepts additional fields of type Any.*
-
 ## Structure
 
 `TransferNotificationMerchantData2`
@@ -21,13 +19,10 @@ Contains information about the merchant.
 | `merchant_id` | `str` | Optional | The unique identifier of the merchant. |
 | `name` | `str` | Optional | The name of the merchant's shop or service. |
 | `postal_code` | `str` | Optional | The postal code of the merchant. |
-| `additional_properties` | `Dict[str, Any]` | Optional | - |
 
 ## Example
 
 ```python
-import jsonpickle
-
 from adyen.models.transfer_notification_merchant_data_2 import TransferNotificationMerchantData2
 
 transfer_notification_merchant_data_2 = TransferNotificationMerchantData2(
@@ -35,10 +30,7 @@ transfer_notification_merchant_data_2 = TransferNotificationMerchantData2(
     city='city4',
     country='country8',
     country_code='countryCode0',
-    mcc='mcc4',
-    additional_properties={
-        'exampleAdditionalProperty': jsonpickle.decode('{"key1":"val1","key2":"val2"}')
-    }
+    mcc='mcc4'
 )
 ```
 

@@ -3,8 +3,6 @@
 
 Support information for the legal entity. Required if you have a platform setup.
 
-*This model accepts additional fields of type Any.*
-
 ## Structure
 
 `Support1`
@@ -14,30 +12,20 @@ Support information for the legal entity. Required if you have a platform setup.
 | Name | Type | Tags | Description |
 |  --- | --- | --- | --- |
 | `email` | `str` | Optional | The support email address of the legal entity. Required if you have a platform setup. |
-| `phone` | [`PhoneNumber`](../../doc/models/phone-number.md) | Optional | - |
-| `additional_properties` | `Dict[str, Any]` | Optional | - |
+| `phone` | [`PhoneNumber1`](../../doc/models/phone-number-1.md) | Optional | The support phone number of the legal entity. Required if you have a platform setup. |
 
 ## Example
 
 ```python
-import jsonpickle
-
-from adyen.models.phone_number import PhoneNumber
+from adyen.models.phone_number_1 import PhoneNumber1
 from adyen.models.support_1 import Support1
 
 support_1 = Support1(
     email='email4',
-    phone=PhoneNumber(
+    phone=PhoneNumber1(
         number='number8',
-        phone_country_code='phoneCountryCode8',
-        mtype='type0',
-        additional_properties={
-            'exampleAdditionalProperty': jsonpickle.decode('{"key1":"val1","key2":"val2"}')
-        }
-    ),
-    additional_properties={
-        'exampleAdditionalProperty': jsonpickle.decode('{"key1":"val1","key2":"val2"}')
-    }
+        mtype='type0'
+    )
 )
 ```
 

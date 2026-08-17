@@ -11,17 +11,15 @@ class BankAccountIdentificationValidationRequest(object):
     """Implementation of the 'BankAccountIdentificationValidationRequest' model.
 
     Attributes:
-        account_identification (AuLocalAccountIdentification |
-            BrLocalAccountIdentification | CaLocalAccountIdentification |
-            CzLocalAccountIdentification | DkLocalAccountIdentification |
-            HkLocalAccountIdentification | HuLocalAccountIdentification |
-            IbanAccountIdentification1 | NoLocalAccountIdentification |
-            NzLocalAccountIdentification | NumberAndBicAccountIdentification |
-            PlLocalAccountIdentification | SeLocalAccountIdentification |
-            SgLocalAccountIdentification | UkLocalAccountIdentification |
-            UsLocalAccountIdentification): Bank account identification.
-        additional_properties (Dict[str, Any]): The additional properties for the
-            model.
+        account_identification (AULocalAccountIdentification |
+            BRLocalAccountIdentification | CALocalAccountIdentification |
+            CZLocalAccountIdentification | DKLocalAccountIdentification |
+            HKLocalAccountIdentification | HULocalAccountIdentification |
+            IbanAccountIdentification | NOLocalAccountIdentification |
+            NZLocalAccountIdentification | NumberAndBicAccountIdentification |
+            PLLocalAccountIdentification | SELocalAccountIdentification |
+            SGLocalAccountIdentification | UKLocalAccountIdentification |
+            USLocalAccountIdentification): Bank account identification.
 
     """
 
@@ -32,16 +30,10 @@ class BankAccountIdentificationValidationRequest(object):
 
     def __init__(
         self,
-        account_identification=None,
-        additional_properties=None):
+        account_identification=None):
         """Initialize a BankAccountIdentificationValidationRequest instance."""
         # Initialize members of the class
         self.account_identification = account_identification
-
-        # Add additional model properties to the instance
-        if additional_properties is None:
-            additional_properties = {}
-        self.additional_properties = additional_properties
 
     @classmethod
     def from_dictionary(cls,
@@ -72,14 +64,8 @@ class BankAccountIdentificationValidationRequest(object):
             if dictionary.get("accountIdentification") is not None\
             else None
 
-        additional_properties = APIHelper.get_additional_properties(
-            dictionary={k: v for k, v in dictionary.items()
-                        if k not in cls._names.values()},
-            unboxing_function=lambda value: value)
-
         # Return an object of this model
-        return cls(account_identification,
-                   additional_properties)
+        return cls(account_identification)
 
     @classmethod
     def validate(cls, dictionary):
@@ -111,21 +97,17 @@ class BankAccountIdentificationValidationRequest(object):
     def __repr__(self):
         """Return a unambiguous string representation."""
         _account_identification=self.account_identification
-        _additional_properties=self.additional_properties
         return (
             f"{self.__class__.__name__}("
             f"account_identification={_account_identification!r}, "
-            f"additional_properties={_additional_properties!r}, "
             f")"
         )
 
     def __str__(self):
         """Return a human-readable string representation."""
         _account_identification=self.account_identification
-        _additional_properties=self.additional_properties
         return (
             f"{self.__class__.__name__}("
             f"account_identification={_account_identification!s}, "
-            f"additional_properties={_additional_properties!s}, "
             f")"
         )

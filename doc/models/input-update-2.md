@@ -3,8 +3,6 @@
 
 Content of the Input Update message.
 
-*This model accepts additional fields of type Any.*
-
 ## Structure
 
 `InputUpdate2`
@@ -13,53 +11,45 @@ Content of the Input Update message.
 
 | Name | Type | Tags | Description |
 |  --- | --- | --- | --- |
-| `message_reference` | [`MessageReference1`](../../doc/models/message-reference-1.md) | Required | - |
-| `output_content` | [`OutputContent2`](../../doc/models/output-content-2.md) | Required | - |
+| `message_reference` | [`MessageReference`](../../doc/models/message-reference.md) | Required | Identification of a previous POI transaction.<br>To abort a transaction in progress or to request the status of a transaction from which no response has been received. It identifies the message header of the message request to abort or request the status. |
+| `output_content` | [`OutputContent`](../../doc/models/output-content.md) | Required | Content to display or print.<br>This is a sequence of elements if they have different formats. |
 | `menu_entry` | [`List[MenuEntry]`](../../doc/models/menu-entry.md) | Optional | - |
 | `output_signature` | `str` | Optional | **Constraints**: *Pattern*: `^.+$` |
 | `min_length` | `int` | Optional | - |
 | `max_length` | `int` | Optional | - |
 | `max_decimal_length` | `int` | Optional | - |
-| `additional_properties` | `Dict[str, Any]` | Optional | - |
 
 ## Example
 
 ```python
-import jsonpickle
-
-from adyen.models.character_height_1 import CharacterHeight1
-from adyen.models.character_width_1 import CharacterWidth1
+from adyen.models.character_height_1_enum import CharacterHeight1Enum
+from adyen.models.character_width_1_enum import CharacterWidth1Enum
 from adyen.models.input_update_2 import InputUpdate2
 from adyen.models.menu_entry import MenuEntry
-from adyen.models.menu_entry_tag_1 import MenuEntryTag1
-from adyen.models.message_category_2 import MessageCategory2
-from adyen.models.message_reference_1 import MessageReference1
-from adyen.models.output_barcode import OutputBarcode
-from adyen.models.output_content_2 import OutputContent2
-from adyen.models.output_format_1 import OutputFormat1
-from adyen.models.output_format_2 import OutputFormat2
+from adyen.models.menu_entry_tag_1_enum import MenuEntryTag1Enum
+from adyen.models.message_category_2_enum import MessageCategory2Enum
+from adyen.models.message_reference import MessageReference
+from adyen.models.output_barcode_1 import OutputBarcode1
+from adyen.models.output_content import OutputContent
+from adyen.models.output_format_1_enum import OutputFormat1Enum
+from adyen.models.output_format_2_enum import OutputFormat2Enum
 from adyen.models.output_text import OutputText
-from adyen.models.predefined_content_2 import PredefinedContent2
+from adyen.models.predefined_content import PredefinedContent
+from adyen.models.predefined_content_1 import PredefinedContent1
 
 input_update_2 = InputUpdate2(
-    message_reference=MessageReference1(
-        message_category=MessageCategory2.PAYMENT,
+    message_reference=MessageReference(
+        message_category=MessageCategory2Enum.PAYMENT,
         service_id='ServiceID0',
         device_id='DeviceID2',
         sale_id='SaleID8',
-        poiid='POIID2',
-        additional_properties={
-            'exampleAdditionalProperty': jsonpickle.decode('{"key1":"val1","key2":"val2"}')
-        }
+        poiid='POIID2'
     ),
-    output_content=OutputContent2(
-        output_format=OutputFormat1.XHTML,
-        predefined_content=PredefinedContent2(
+    output_content=OutputContent(
+        output_format=OutputFormat1Enum.XHTML,
+        predefined_content=PredefinedContent1(
             reference_id='ReferenceID0',
-            language='Language2',
-            additional_properties={
-                'exampleAdditionalProperty': jsonpickle.decode('{"key1":"val1","key2":"val2"}')
-            }
+            language='Language2'
         ),
         output_text=[
             OutputText(
@@ -67,35 +57,23 @@ input_update_2 = InputUpdate2(
                 character_set=194,
                 start_row=74,
                 start_column=220,
-                character_width=CharacterWidth1.SINGLEWIDTH,
-                character_height=CharacterHeight1.SINGLEHEIGHT,
-                additional_properties={
-                    'exampleAdditionalProperty': jsonpickle.decode('{"key1":"val1","key2":"val2"}')
-                }
+                character_width=CharacterWidth1Enum.SINGLEWIDTH,
+                character_height=CharacterHeight1Enum.SINGLEHEIGHT
             )
         ],
         output_xhtml='OutputXHTML2',
-        output_barcode=OutputBarcode(
-            barcode_value='BarcodeValue2',
-            additional_properties={
-                'exampleAdditionalProperty': jsonpickle.decode('{"key1":"val1","key2":"val2"}')
-            }
-        ),
-        additional_properties={
-            'exampleAdditionalProperty': jsonpickle.decode('{"key1":"val1","key2":"val2"}')
-        }
+        output_barcode=OutputBarcode1(
+            barcode_value='BarcodeValue2'
+        )
     ),
     menu_entry=[
         MenuEntry(
-            output_format=OutputFormat2.XHTML,
-            menu_entry_tag=MenuEntryTag1.SUBMENU,
+            output_format=OutputFormat2Enum.XHTML,
+            menu_entry_tag=MenuEntryTag1Enum.SUBMENU,
             default_selected_flag=False,
-            predefined_content=PredefinedContent2(
+            predefined_content=PredefinedContent(
                 reference_id='ReferenceID0',
-                language='Language2',
-                additional_properties={
-                    'exampleAdditionalProperty': jsonpickle.decode('{"key1":"val1","key2":"val2"}')
-                }
+                language='Language2'
             ),
             output_text=[
                 OutputText(
@@ -103,37 +81,25 @@ input_update_2 = InputUpdate2(
                     character_set=194,
                     start_row=74,
                     start_column=220,
-                    character_width=CharacterWidth1.SINGLEWIDTH,
-                    character_height=CharacterHeight1.SINGLEHEIGHT,
-                    additional_properties={
-                        'exampleAdditionalProperty': jsonpickle.decode('{"key1":"val1","key2":"val2"}')
-                    }
+                    character_width=CharacterWidth1Enum.SINGLEWIDTH,
+                    character_height=CharacterHeight1Enum.SINGLEHEIGHT
                 ),
                 OutputText(
                     text='Text6',
                     character_set=194,
                     start_row=74,
                     start_column=220,
-                    character_width=CharacterWidth1.SINGLEWIDTH,
-                    character_height=CharacterHeight1.SINGLEHEIGHT,
-                    additional_properties={
-                        'exampleAdditionalProperty': jsonpickle.decode('{"key1":"val1","key2":"val2"}')
-                    }
+                    character_width=CharacterWidth1Enum.SINGLEWIDTH,
+                    character_height=CharacterHeight1Enum.SINGLEHEIGHT
                 )
             ],
-            output_xhtml='OutputXHTML8',
-            additional_properties={
-                'exampleAdditionalProperty': jsonpickle.decode('{"key1":"val1","key2":"val2"}')
-            }
+            output_xhtml='OutputXHTML8'
         )
     ],
     output_signature='OutputSignature2',
     min_length=132,
     max_length=100,
-    max_decimal_length=164,
-    additional_properties={
-        'exampleAdditionalProperty': jsonpickle.decode('{"key1":"val1","key2":"val2"}')
-    }
+    max_decimal_length=164
 )
 ```
 

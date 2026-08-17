@@ -17,8 +17,8 @@ from apimatic_core.types.parameter import Parameter
 from adyen.api_helper import APIHelper
 from adyen.apis.base_api import BaseApi
 from adyen.configuration import Server
-from adyen.exceptions.service_error_1_exception import (
-    ServiceError1Exception,
+from adyen.exceptions.service_error_exception import (
+    ServiceErrorException,
 )
 from adyen.http.http_method_enum import HttpMethodEnum
 from adyen.models.payout_response import PayoutResponse
@@ -59,18 +59,16 @@ class InstantPayoutsApi(BaseApi):
             body (PayoutRequest, optional): The request body parameter.
 
         Returns:
-            ApiResponse: An object with the response value as well as other useful
-                information such as status codes and headers. OK - the request has
-                succeeded.
+            PayoutResponse: Response from the API. OK - the request has succeeded.
 
         Raises:
-            ApiException: When an error occurs while fetching the data from the
+            APIException: When an error occurs while fetching the data from the
                 remote API. This exception includes the HTTP Response code, an error
                 message, and the HTTP body that was received in the request.
 
         """
         return super().new_api_call_builder.request(
-            RequestBuilder().server(Server.DEFAULT)
+            RequestBuilder().server(Server.DEFAULT3)
             .path("/payout")
             .http_method(HttpMethodEnum.POST)
             .header_param(Parameter()
@@ -87,20 +85,19 @@ class InstantPayoutsApi(BaseApi):
             ResponseHandler()
             .deserializer(APIHelper.json_deserialize)
             .deserialize_into(PayoutResponse.from_dictionary)
-            .is_api_response(True)
             .local_error("400",
                 "Bad Request - a problem reading or understanding the request.",
-                ServiceError1Exception)
+                ServiceErrorException)
             .local_error("401",
                 "Unauthorized - authentication required.",
-                ServiceError1Exception)
+                ServiceErrorException)
             .local_error("403",
                 "Forbidden - insufficient permissions to process the request.",
-                ServiceError1Exception)
+                ServiceErrorException)
             .local_error("422",
                 "Unprocessable Entity - a request validation error.",
-                ServiceError1Exception)
+                ServiceErrorException)
             .local_error("500",
                 "Internal Server Error - the server could not process the request.",
-                ServiceError1Exception),
+                ServiceErrorException),
         ).execute()

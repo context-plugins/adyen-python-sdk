@@ -1,8 +1,6 @@
 
 # Merchant Balance
 
-*This model accepts additional fields of type Any.*
-
 ## Structure
 
 `MerchantBalance`
@@ -11,55 +9,37 @@
 
 | Name | Type | Tags | Description |
 |  --- | --- | --- | --- |
-| `available_fund` | [`Amount3`](../../doc/models/amount-3.md) | Optional | The amount that must be pushed out or pulled in. You can configure either `sweepAmount` or `targetAmount`, not both. |
-| `deposit` | [`Amount3`](../../doc/models/amount-3.md) | Optional | The amount that must be pushed out or pulled in. You can configure either `sweepAmount` or `targetAmount`, not both. |
+| `available_fund` | [`Amount17`](../../doc/models/amount-17.md) | Optional | - |
+| `deposit` | [`Amount17`](../../doc/models/amount-17.md) | Optional | - |
 | `merchant_account` | `str` | Optional | - |
-| `next_payout` | [`Amount3`](../../doc/models/amount-3.md) | Optional | The amount that must be pushed out or pulled in. You can configure either `sweepAmount` or `targetAmount`, not both. |
-| `pending_balance` | [`Amount3`](../../doc/models/amount-3.md) | Optional | The amount that must be pushed out or pulled in. You can configure either `sweepAmount` or `targetAmount`, not both. |
-| `reserve` | [`Amount3`](../../doc/models/amount-3.md) | Optional | The amount that must be pushed out or pulled in. You can configure either `sweepAmount` or `targetAmount`, not both. |
-| `additional_properties` | `Dict[str, Any]` | Optional | - |
+| `next_payout` | [`Amount17`](../../doc/models/amount-17.md) | Optional | - |
+| `pending_balance` | [`Amount17`](../../doc/models/amount-17.md) | Optional | - |
+| `reserve` | [`Amount17`](../../doc/models/amount-17.md) | Optional | - |
 
 ## Example
 
 ```python
-import jsonpickle
-
-from adyen.models.amount_3 import Amount3
+from adyen.models.amount_17 import Amount17
 from adyen.models.merchant_balance import MerchantBalance
 
 merchant_balance = MerchantBalance(
-    available_fund=Amount3(
+    available_fund=Amount17(
         currency='currency4',
-        value=152,
-        additional_properties={
-            'exampleAdditionalProperty': jsonpickle.decode('{"key1":"val1","key2":"val2"}')
-        }
+        value=152
     ),
-    deposit=Amount3(
+    deposit=Amount17(
         currency='currency4',
-        value=62,
-        additional_properties={
-            'exampleAdditionalProperty': jsonpickle.decode('{"key1":"val1","key2":"val2"}')
-        }
+        value=62
     ),
     merchant_account='merchantAccount4',
-    next_payout=Amount3(
+    next_payout=Amount17(
         currency='currency4',
-        value=240,
-        additional_properties={
-            'exampleAdditionalProperty': jsonpickle.decode('{"key1":"val1","key2":"val2"}')
-        }
+        value=240
     ),
-    pending_balance=Amount3(
+    pending_balance=Amount17(
         currency='currency2',
-        value=254,
-        additional_properties={
-            'exampleAdditionalProperty': jsonpickle.decode('{"key1":"val1","key2":"val2"}')
-        }
-    ),
-    additional_properties={
-        'exampleAdditionalProperty': jsonpickle.decode('{"key1":"val1","key2":"val2"}')
-    }
+        value=254
+    )
 )
 ```
 

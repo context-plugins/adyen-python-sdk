@@ -11,8 +11,11 @@ from adyen.models.account_supporting_entity_capability import (
 from adyen.models.capability_problem import (
     CapabilityProblem,
 )
-from adyen.models.capability_settings import (
-    CapabilitySettings,
+from adyen.models.capability_settings_1 import (
+    CapabilitySettings1,
+)
+from adyen.models.capability_settings_3 import (
+    CapabilitySettings3,
 )
 
 
@@ -23,9 +26,11 @@ class AccountHolderCapability(object):
         allowed (bool): Indicates whether the capability is allowed. Adyen sets this
             to **true** if the verification is successful and the account holder is
             permitted to use the capability.
-        allowed_level (AllowedLevel): The model property of type AllowedLevel.
-        allowed_settings (CapabilitySettings): The model property of type
-            CapabilitySettings.
+        allowed_level (AllowedLevelEnum): The capability level that is allowed for
+            the account holder.  Possible values: **notApplicable**, **low**,
+            **medium**, **high**.
+        allowed_settings (CapabilitySettings3): A JSON object containing the settings
+            that are allowed for the account holder.
         enabled (bool): Indicates whether the capability is enabled. If **false**,
             the capability is temporarily disabled for the account holder.
         problems (List[CapabilityProblem]): Contains verification errors and the
@@ -33,15 +38,22 @@ class AccountHolderCapability(object):
         requested (bool): Indicates whether the capability is requested. To check
             whether the account holder is permitted to use the capability, refer to
             the `allowed` field.
-        requested_level (RequestedLevel): The model property of type RequestedLevel.
-        requested_settings (CapabilitySettings): The model property of type
-            CapabilitySettings.
+        requested_level (RequestedLevelEnum): The requested level of the capability.
+            Some capabilities, such as those used in [card
+            issuing](https://docs.adyen.com/issuing/add-capabilities#capability-levels
+            ), have different levels. Levels increase the capability, but also
+            require additional checks and increased monitoring.  Possible values:
+            **notApplicable**, **low**, **medium**, **high**.
+        requested_settings (CapabilitySettings1): A JSON object containing the
+            settings that were requested for the account holder.
         transfer_instruments (List[AccountSupportingEntityCapability]): Contains the
             status of the transfer instruments associated with this capability.
-        verification_status (VerificationStatus1): The model property of type
-            VerificationStatus1.
-        additional_properties (Dict[str, Any]): The additional properties for the
-            model.
+        verification_status (VerificationStatusEnum): The status of the verification
+            checks for the capability.  Possible values:  * **pending**: Adyen is
+            running the verification.  * **invalid**: The verification failed. Check
+            if the `errors` array contains more information.  * **valid**: The
+            verification has been successfully completed.  * **rejected**: Adyen has
+            verified the information, but found reasons to not allow the capability.
 
     """
 
@@ -83,8 +95,7 @@ class AccountHolderCapability(object):
         requested_level=APIHelper.SKIP,
         requested_settings=APIHelper.SKIP,
         transfer_instruments=APIHelper.SKIP,
-        verification_status=APIHelper.SKIP,
-        additional_properties=None):
+        verification_status=APIHelper.SKIP):
         """Initialize a AccountHolderCapability instance."""
         # Initialize members of the class
         if allowed is not APIHelper.SKIP:
@@ -107,11 +118,6 @@ class AccountHolderCapability(object):
             self.transfer_instruments = transfer_instruments
         if verification_status is not APIHelper.SKIP:
             self.verification_status = verification_status
-
-        # Add additional model properties to the instance
-        if additional_properties is None:
-            additional_properties = {}
-        self.additional_properties = additional_properties
 
     @classmethod
     def from_dictionary(cls,
@@ -140,7 +146,7 @@ class AccountHolderCapability(object):
             if dictionary.get("allowedLevel")\
                 else APIHelper.SKIP
         allowed_settings =\
-            CapabilitySettings.from_dictionary(
+            CapabilitySettings3.from_dictionary(
                 dictionary.get("allowedSettings"))\
                 if "allowedSettings" in dictionary.keys()\
                 else APIHelper.SKIP
@@ -165,7 +171,7 @@ class AccountHolderCapability(object):
             if dictionary.get("requestedLevel")\
                 else APIHelper.SKIP
         requested_settings =\
-            CapabilitySettings.from_dictionary(
+            CapabilitySettings1.from_dictionary(
                 dictionary.get("requestedSettings"))\
                 if "requestedSettings" in dictionary.keys()\
                 else APIHelper.SKIP
@@ -182,11 +188,6 @@ class AccountHolderCapability(object):
             if dictionary.get("verificationStatus")\
                 else APIHelper.SKIP
 
-        additional_properties = APIHelper.get_additional_properties(
-            dictionary={k: v for k, v in dictionary.items()
-                        if k not in cls._names.values()},
-            unboxing_function=lambda value: value)
-
         # Return an object of this model
         return cls(allowed,
                    allowed_level,
@@ -197,8 +198,7 @@ class AccountHolderCapability(object):
                    requested_level,
                    requested_settings,
                    transfer_instruments,
-                   verification_status,
-                   additional_properties)
+                   verification_status)
 
     def __repr__(self):
         """Return a unambiguous string representation."""
@@ -252,7 +252,6 @@ class AccountHolderCapability(object):
             if hasattr(self, "verification_status")
             else None
         )
-        _additional_properties=self.additional_properties
         return (
             f"{self.__class__.__name__}("
             f"allowed={_allowed!r}, "
@@ -265,7 +264,6 @@ class AccountHolderCapability(object):
             f"requested_settings={_requested_settings!r}, "
             f"transfer_instruments={_transfer_instruments!r}, "
             f"verification_status={_verification_status!r}, "
-            f"additional_properties={_additional_properties!r}, "
             f")"
         )
 
@@ -321,7 +319,6 @@ class AccountHolderCapability(object):
             if hasattr(self, "verification_status")
             else None
         )
-        _additional_properties=self.additional_properties
         return (
             f"{self.__class__.__name__}("
             f"allowed={_allowed!s}, "
@@ -334,6 +331,5 @@ class AccountHolderCapability(object):
             f"requested_settings={_requested_settings!s}, "
             f"transfer_instruments={_transfer_instruments!s}, "
             f"verification_status={_verification_status!s}, "
-            f"additional_properties={_additional_properties!s}, "
             f")"
         )

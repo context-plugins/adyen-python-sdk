@@ -44,7 +44,7 @@ def post_merchants_merchant_id_generate_payments_app_boarding_token(self,
 
 **200**: OK - the request has succeeded.
 
-This method returns an [`ApiResponse`](../../doc/api-response.md) instance. The `body` property of this instance returns the response data which is of type [`BoardingTokenResponse`](../../doc/models/boarding-token-response.md).
+[`BoardingTokenResponse`](../../doc/models/boarding-token-response.md)
 
 ## Example Usage
 
@@ -59,22 +59,18 @@ result = payments_app_api.post_merchants_merchant_id_generate_payments_app_board
     merchant_id,
     body
 )
-
-if result.is_success():
-    print(result.body)
-elif result.is_error():
-    print(result.errors)
+print(result)
 ```
 
 ## Errors
 
 | HTTP Status Code | Error Description | Exception Class |
 |  --- | --- | --- |
-| 400 | Bad Request - a problem reading or understanding the request. | [`MerchantsGeneratePaymentsAppBoardingToken400ErrorException`](../../doc/models/merchants-generate-payments-app-boarding-token-400-error-exception.md) |
-| 401 | Unauthorized - authentication required. | [`MerchantsGeneratePaymentsAppBoardingToken401ErrorException`](../../doc/models/merchants-generate-payments-app-boarding-token-401-error-exception.md) |
-| 403 | Forbidden - insufficient permissions to process the request. | [`MerchantsGeneratePaymentsAppBoardingToken403ErrorException`](../../doc/models/merchants-generate-payments-app-boarding-token-403-error-exception.md) |
-| 422 | Unprocessable Entity - a request validation error. | [`MerchantsGeneratePaymentsAppBoardingToken422ErrorException`](../../doc/models/merchants-generate-payments-app-boarding-token-422-error-exception.md) |
-| 500 | Internal Server Error - the server could not process the request. | [`MerchantsGeneratePaymentsAppBoardingToken500ErrorException`](../../doc/models/merchants-generate-payments-app-boarding-token-500-error-exception.md) |
+| 400 | Bad Request - a problem reading or understanding the request. | [`DefaultErrorResponseEntityException`](../../doc/models/default-error-response-entity-exception.md) |
+| 401 | Unauthorized - authentication required. | [`DefaultErrorResponseEntityException`](../../doc/models/default-error-response-entity-exception.md) |
+| 403 | Forbidden - insufficient permissions to process the request. | [`DefaultErrorResponseEntityException`](../../doc/models/default-error-response-entity-exception.md) |
+| 422 | Unprocessable Entity - a request validation error. | [`DefaultErrorResponseEntityException`](../../doc/models/default-error-response-entity-exception.md) |
+| 500 | Internal Server Error - the server could not process the request. | [`DefaultErrorResponseEntityException`](../../doc/models/default-error-response-entity-exception.md) |
 
 
 # Post-Merchants-Merchant Id-Stores-Store Id-Generate Payments App Boarding Token
@@ -106,7 +102,7 @@ def post_merchants_merchant_id_stores_store_id_generate_payments_app_boarding_to
 
 **200**: OK - the request has succeeded.
 
-This method returns an [`ApiResponse`](../../doc/api-response.md) instance. The `body` property of this instance returns the response data which is of type [`BoardingTokenResponse`](../../doc/models/boarding-token-response.md).
+[`BoardingTokenResponse`](../../doc/models/boarding-token-response.md)
 
 ## Example Usage
 
@@ -124,22 +120,18 @@ result = payments_app_api.post_merchants_merchant_id_stores_store_id_generate_pa
     store_id,
     body
 )
-
-if result.is_success():
-    print(result.body)
-elif result.is_error():
-    print(result.errors)
+print(result)
 ```
 
 ## Errors
 
 | HTTP Status Code | Error Description | Exception Class |
 |  --- | --- | --- |
-| 400 | Bad Request - a problem reading or understanding the request. | [`MerchantsStoresGeneratePaymentsAppBoardingToken400ErrorException`](../../doc/models/merchants-stores-generate-payments-app-boarding-token-400-error-exception.md) |
-| 401 | Unauthorized - authentication required. | [`MerchantsStoresGeneratePaymentsAppBoardingToken401ErrorException`](../../doc/models/merchants-stores-generate-payments-app-boarding-token-401-error-exception.md) |
-| 403 | Forbidden - insufficient permissions to process the request. | [`MerchantsStoresGeneratePaymentsAppBoardingToken403ErrorException`](../../doc/models/merchants-stores-generate-payments-app-boarding-token-403-error-exception.md) |
-| 422 | Unprocessable Entity - a request validation error. | [`MerchantsStoresGeneratePaymentsAppBoardingToken422ErrorException`](../../doc/models/merchants-stores-generate-payments-app-boarding-token-422-error-exception.md) |
-| 500 | Internal Server Error - the server could not process the request. | [`MerchantsStoresGeneratePaymentsAppBoardingToken500ErrorException`](../../doc/models/merchants-stores-generate-payments-app-boarding-token-500-error-exception.md) |
+| 400 | Bad Request - a problem reading or understanding the request. | [`DefaultErrorResponseEntityException`](../../doc/models/default-error-response-entity-exception.md) |
+| 401 | Unauthorized - authentication required. | [`DefaultErrorResponseEntityException`](../../doc/models/default-error-response-entity-exception.md) |
+| 403 | Forbidden - insufficient permissions to process the request. | [`DefaultErrorResponseEntityException`](../../doc/models/default-error-response-entity-exception.md) |
+| 422 | Unprocessable Entity - a request validation error. | [`DefaultErrorResponseEntityException`](../../doc/models/default-error-response-entity-exception.md) |
+| 500 | Internal Server Error - the server could not process the request. | [`DefaultErrorResponseEntityException`](../../doc/models/default-error-response-entity-exception.md) |
 
 
 # Get-Merchants-Merchant Id-Payments Apps
@@ -173,7 +165,7 @@ def get_merchants_merchant_id_payments_apps(self,
 
 **200**: OK - the request has succeeded.
 
-This method returns an [`ApiResponse`](../../doc/api-response.md) instance. The `body` property of this instance returns the response data which is of type [`PaymentsAppResponse`](../../doc/models/payments-app-response.md).
+[`PaymentsAppResponse`](../../doc/models/payments-app-response.md)
 
 ## Example Usage
 
@@ -189,22 +181,18 @@ result = payments_app_api.get_merchants_merchant_id_payments_apps(
     limit=limit,
     offset=offset
 )
-
-if result.is_success():
-    print(result.body)
-elif result.is_error():
-    print(result.errors)
+print(result)
 ```
 
 ## Errors
 
 | HTTP Status Code | Error Description | Exception Class |
 |  --- | --- | --- |
-| 400 | Bad Request - a problem reading or understanding the request. | [`MerchantsPaymentsApps400ErrorException`](../../doc/models/merchants-payments-apps-400-error-exception.md) |
-| 401 | Unauthorized - authentication required. | [`MerchantsPaymentsApps401ErrorException`](../../doc/models/merchants-payments-apps-401-error-exception.md) |
-| 403 | Forbidden - insufficient permissions to process the request. | [`MerchantsPaymentsApps403ErrorException`](../../doc/models/merchants-payments-apps-403-error-exception.md) |
-| 422 | Unprocessable Entity - a request validation error. | [`MerchantsPaymentsApps422ErrorException`](../../doc/models/merchants-payments-apps-422-error-exception.md) |
-| 500 | Internal Server Error - the server could not process the request. | [`MerchantsPaymentsApps500ErrorException`](../../doc/models/merchants-payments-apps-500-error-exception.md) |
+| 400 | Bad Request - a problem reading or understanding the request. | [`DefaultErrorResponseEntityException`](../../doc/models/default-error-response-entity-exception.md) |
+| 401 | Unauthorized - authentication required. | [`DefaultErrorResponseEntityException`](../../doc/models/default-error-response-entity-exception.md) |
+| 403 | Forbidden - insufficient permissions to process the request. | [`DefaultErrorResponseEntityException`](../../doc/models/default-error-response-entity-exception.md) |
+| 422 | Unprocessable Entity - a request validation error. | [`DefaultErrorResponseEntityException`](../../doc/models/default-error-response-entity-exception.md) |
+| 500 | Internal Server Error - the server could not process the request. | [`DefaultErrorResponseEntityException`](../../doc/models/default-error-response-entity-exception.md) |
 
 
 # Get-Merchants-Merchant Id-Stores-Store Id-Payments Apps
@@ -240,7 +228,7 @@ def get_merchants_merchant_id_stores_store_id_payments_apps(self,
 
 **200**: OK - the request has succeeded.
 
-This method returns an [`ApiResponse`](../../doc/api-response.md) instance. The `body` property of this instance returns the response data which is of type [`PaymentsAppResponse`](../../doc/models/payments-app-response.md).
+[`PaymentsAppResponse`](../../doc/models/payments-app-response.md)
 
 ## Example Usage
 
@@ -259,22 +247,18 @@ result = payments_app_api.get_merchants_merchant_id_stores_store_id_payments_app
     limit=limit,
     offset=offset
 )
-
-if result.is_success():
-    print(result.body)
-elif result.is_error():
-    print(result.errors)
+print(result)
 ```
 
 ## Errors
 
 | HTTP Status Code | Error Description | Exception Class |
 |  --- | --- | --- |
-| 400 | Bad Request - a problem reading or understanding the request. | [`MerchantsStoresPaymentsApps400ErrorException`](../../doc/models/merchants-stores-payments-apps-400-error-exception.md) |
-| 401 | Unauthorized - authentication required. | [`MerchantsStoresPaymentsApps401ErrorException`](../../doc/models/merchants-stores-payments-apps-401-error-exception.md) |
-| 403 | Forbidden - insufficient permissions to process the request. | [`MerchantsStoresPaymentsApps403ErrorException`](../../doc/models/merchants-stores-payments-apps-403-error-exception.md) |
-| 422 | Unprocessable Entity - a request validation error. | [`MerchantsStoresPaymentsApps422ErrorException`](../../doc/models/merchants-stores-payments-apps-422-error-exception.md) |
-| 500 | Internal Server Error - the server could not process the request. | [`MerchantsStoresPaymentsApps500ErrorException`](../../doc/models/merchants-stores-payments-apps-500-error-exception.md) |
+| 400 | Bad Request - a problem reading or understanding the request. | [`DefaultErrorResponseEntityException`](../../doc/models/default-error-response-entity-exception.md) |
+| 401 | Unauthorized - authentication required. | [`DefaultErrorResponseEntityException`](../../doc/models/default-error-response-entity-exception.md) |
+| 403 | Forbidden - insufficient permissions to process the request. | [`DefaultErrorResponseEntityException`](../../doc/models/default-error-response-entity-exception.md) |
+| 422 | Unprocessable Entity - a request validation error. | [`DefaultErrorResponseEntityException`](../../doc/models/default-error-response-entity-exception.md) |
+| 500 | Internal Server Error - the server could not process the request. | [`DefaultErrorResponseEntityException`](../../doc/models/default-error-response-entity-exception.md) |
 
 
 # Post-Merchants-Merchant Id-Payments Apps-Installation Id-Revoke
@@ -304,7 +288,7 @@ def post_merchants_merchant_id_payments_apps_installation_id_revoke(self,
 
 **200**: OK - the request has succeeded.
 
-This method returns an [`ApiResponse`](../../doc/api-response.md) instance. The `body` property of this instance returns the response data which is of type `Any`.
+`Any`
 
 ## Example Usage
 
@@ -317,18 +301,14 @@ result = payments_app_api.post_merchants_merchant_id_payments_apps_installation_
     merchant_id,
     installation_id
 )
-
-if result.is_success():
-    print(result.body)
-elif result.is_error():
-    print(result.errors)
+print(result)
 ```
 
 ## Errors
 
 | HTTP Status Code | Error Description | Exception Class |
 |  --- | --- | --- |
-| 400 | Bad Request - a problem reading or understanding the request. | [`MerchantsPaymentsAppsRevoke400ErrorException`](../../doc/models/merchants-payments-apps-revoke-400-error-exception.md) |
-| 401 | Unauthorized - authentication required. | [`MerchantsPaymentsAppsRevoke401ErrorException`](../../doc/models/merchants-payments-apps-revoke-401-error-exception.md) |
-| 500 | Internal Server Error - the server could not process the request. | [`MerchantsPaymentsAppsRevoke500ErrorException`](../../doc/models/merchants-payments-apps-revoke-500-error-exception.md) |
+| 400 | Bad Request - a problem reading or understanding the request. | [`DefaultErrorResponseEntityException`](../../doc/models/default-error-response-entity-exception.md) |
+| 401 | Unauthorized - authentication required. | [`DefaultErrorResponseEntityException`](../../doc/models/default-error-response-entity-exception.md) |
+| 500 | Internal Server Error - the server could not process the request. | [`DefaultErrorResponseEntityException`](../../doc/models/default-error-response-entity-exception.md) |
 

@@ -3,7 +3,7 @@
 
 ## Data Type
 
-`AdditionalBankIdentificationRequirement | AddressRequirement | AmountMinMaxRequirement | AmountNonZeroDecimalsRequirement | BankAccountIdentificationTypeRequirement | IbanAccountIdentificationRequirement | PaymentInstrumentRequirement | UsInstantPayoutAddressRequirement | UsInternationalAchAddressRequirement | UsInternationalAchPriorityRequirement`
+`AdditionalBankIdentificationRequirement | AddressRequirement | AmountMinMaxRequirement | AmountNonZeroDecimalsRequirement | BankAccountIdentificationTypeRequirement | IbanAccountIdentificationRequirement | PaymentInstrumentRequirement | USInstantPayoutAddressRequirement | USInternationalAchAddressRequirement | USInternationalAchPriorityRequirement`
 
 ## Cases
 
@@ -16,9 +16,9 @@
 | [`BankAccountIdentificationTypeRequirement`](../../../doc/models/bank-account-identification-type-requirement.md) |
 | [`IbanAccountIdentificationRequirement`](../../../doc/models/iban-account-identification-requirement.md) |
 | [`PaymentInstrumentRequirement`](../../../doc/models/payment-instrument-requirement.md) |
-| [`UsInstantPayoutAddressRequirement`](../../../doc/models/us-instant-payout-address-requirement.md) |
-| [`UsInternationalAchAddressRequirement`](../../../doc/models/us-international-ach-address-requirement.md) |
-| [`UsInternationalAchPriorityRequirement`](../../../doc/models/us-international-ach-priority-requirement.md) |
+| [`USInstantPayoutAddressRequirement`](../../../doc/models/us-instant-payout-address-requirement.md) |
+| [`USInternationalAchAddressRequirement`](../../../doc/models/us-international-ach-address-requirement.md) |
+| [`USInternationalAchPriorityRequirement`](../../../doc/models/us-international-ach-priority-requirement.md) |
 
 ## AdditionalBankIdentificationRequirement
 
@@ -27,9 +27,7 @@
 #### Example
 
 ```python
-value = AdditionalBankIdentificationRequirement(
-    mtype=Type610.ADDITIONALBANKIDENTIFICATIONREQUIREMENT
-)
+value = AdditionalBankIdentificationRequirement()
 ```
 
 ## AddressRequirement
@@ -39,9 +37,7 @@ value = AdditionalBankIdentificationRequirement(
 #### Example
 
 ```python
-value = AddressRequirement(
-    mtype=Type710.ADDRESSREQUIREMENT
-)
+value = AddressRequirement()
 ```
 
 ## AmountMinMaxRequirement
@@ -51,9 +47,7 @@ value = AddressRequirement(
 #### Example
 
 ```python
-value = AmountMinMaxRequirement(
-    mtype=Type810.AMOUNTMINMAXREQUIREMENT
-)
+value = AmountMinMaxRequirement()
 ```
 
 ## AmountNonZeroDecimalsRequirement
@@ -63,9 +57,7 @@ value = AmountMinMaxRequirement(
 #### Example
 
 ```python
-value = AmountNonZeroDecimalsRequirement(
-    mtype=Type94.AMOUNTNONZERODECIMALSREQUIREMENT
-)
+value = AmountNonZeroDecimalsRequirement()
 ```
 
 ## BankAccountIdentificationTypeRequirement
@@ -75,9 +67,7 @@ value = AmountNonZeroDecimalsRequirement(
 #### Example
 
 ```python
-value = BankAccountIdentificationTypeRequirement(
-    mtype=Type293.BANKACCOUNTIDENTIFICATIONTYPEREQUIREMENT
-)
+value = BankAccountIdentificationTypeRequirement()
 ```
 
 ## IbanAccountIdentificationRequirement
@@ -87,9 +77,7 @@ value = BankAccountIdentificationTypeRequirement(
 #### Example
 
 ```python
-value = IbanAccountIdentificationRequirement(
-    mtype=Type303.IBANACCOUNTIDENTIFICATIONREQUIREMENT
-)
+value = IbanAccountIdentificationRequirement()
 ```
 
 ## PaymentInstrumentRequirement
@@ -99,44 +87,36 @@ value = IbanAccountIdentificationRequirement(
 #### Example
 
 ```python
-value = PaymentInstrumentRequirement(
-    mtype=Type363.PAYMENTINSTRUMENTREQUIREMENT
-)
+value = PaymentInstrumentRequirement()
 ```
 
-## UsInstantPayoutAddressRequirement
+## USInstantPayoutAddressRequirement
 
 ### Initialization Code
 
 #### Example
 
 ```python
-value = UsInstantPayoutAddressRequirement(
-    mtype=Type373.USINSTANTPAYOUTADDRESSREQUIREMENT
-)
+value = USInstantPayoutAddressRequirement()
 ```
 
-## UsInternationalAchAddressRequirement
+## USInternationalAchAddressRequirement
 
 ### Initialization Code
 
 #### Example
 
 ```python
-value = UsInternationalAchAddressRequirement(
-    mtype=Type383.USINTERNATIONALACHADDRESSREQUIREMENT
-)
+value = USInternationalAchAddressRequirement()
 ```
 
-## UsInternationalAchPriorityRequirement
+## USInternationalAchPriorityRequirement
 
 ### Initialization Code
 
 #### Example
 
 ```python
-value = UsInternationalAchPriorityRequirement(
-    mtype=Type393.USINTERNATIONALACHPRIORITYREQUIREMENT
-)
+value = USInternationalAchPriorityRequirement()
 ```
 

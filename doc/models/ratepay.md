@@ -1,8 +1,6 @@
 
 # Ratepay
 
-*This model accepts additional fields of type Any.*
-
 ## Structure
 
 `Ratepay`
@@ -18,27 +16,21 @@
 | `recurring_detail_reference` | `str` | Optional | This is the `recurringDetailReference` returned in the response when you created the token. |
 | `sdk_data` | `str` | Optional | Base64-encoded JSON object containing SDK related parameters required by the SDK<br><br>**Constraints**: *Maximum Length*: `50000` |
 | `stored_payment_method_id` | `str` | Optional | This is the `recurringDetailReference` returned in the response when you created the token.<br><br>**Constraints**: *Maximum Length*: `64` |
-| `mtype` | [`Type48`](../../doc/models/type-48.md) | Required | - |
-| `additional_properties` | `Dict[str, Any]` | Optional | - |
+| `mtype` | [`Type48Enum`](../../doc/models/type-48-enum.md) | Required | **ratepay**<br><br>**Default**: `"ratepay"` |
 
 ## Example
 
 ```python
-import jsonpickle
-
 from adyen.models.ratepay import Ratepay
-from adyen.models.type_48 import Type48
+from adyen.models.type_48_enum import Type48Enum
 
 ratepay = Ratepay(
-    mtype=Type48.RATEPAY,
+    mtype=Type48Enum.RATEPAY,
     billing_address='billingAddress0',
     checkout_attempt_id='checkoutAttemptId8',
     delivery_address='deliveryAddress8',
     personal_details='personalDetails0',
-    recurring_detail_reference='recurringDetailReference2',
-    additional_properties={
-        'exampleAdditionalProperty': jsonpickle.decode('{"key1":"val1","key2":"val2"}')
-    }
+    recurring_detail_reference='recurringDetailReference2'
 )
 ```
 

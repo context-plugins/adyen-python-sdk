@@ -1,8 +1,6 @@
 
 # Balance Platform Configuration
 
-*This model accepts additional fields of type Any.*
-
 ## Structure
 
 `BalancePlatformConfiguration`
@@ -29,42 +27,34 @@
 | `retained_amount` | `int` | Optional | The amount of funds that must remain available in a balance account after an execution of the payout schedule. If the funds in the balance account are less than the retained amount, the execution is not initiated.<br><br>Default value: **0** |
 | `updated_at` | `datetime` | Optional | The date when the payout schedule was updated. |
 | `user_settlement_delay` | `int` | Required | The default [settlement delay](https://docs.adyen.com/platforms/settle-funds/#settlement-delay) for this payout schedule. |
-| `user_settlement_time` | [`LocalTime`](../../doc/models/local-time.md) | Required | - |
+| `user_settlement_time` | [`LocalTime2`](../../doc/models/local-time-2.md) | Required | The time when the payout funds are settled in your user's transfer instrument. |
 | `user_settlement_time_zone` | `str` | Required | The timezone of the `userSettlementTime`. |
-| `additional_properties` | `Dict[str, Any]` | Optional | - |
 
 ## Example
 
 ```python
 import dateutil.parser
-import jsonpickle
 
 from adyen.models.balance_platform_configuration import BalancePlatformConfiguration
-from adyen.models.local_time import LocalTime
+from adyen.models.local_time_2 import LocalTime2
 
 balance_platform_configuration = BalancePlatformConfiguration(
     balance_platform_id='balancePlatformId2',
     created_at=dateutil.parser.parse('2016-03-13T12:52:32.123Z'),
     payout_schedule_description='payoutScheduleDescription4',
     user_settlement_delay=102,
-    user_settlement_time=LocalTime(
+    user_settlement_time=LocalTime2(
         hour=136,
         minute=138,
         nano=162,
-        second=200,
-        additional_properties={
-            'exampleAdditionalProperty': jsonpickle.decode('{"key1":"val1","key2":"val2"}')
-        }
+        second=200
     ),
     user_settlement_time_zone='userSettlementTimeZone6',
     automatic_application=False,
     country_code='countryCode0',
     currency='currency4',
     default_description='defaultDescription8',
-    default_frequency='defaultFrequency8',
-    additional_properties={
-        'exampleAdditionalProperty': jsonpickle.decode('{"key1":"val1","key2":"val2"}')
-    }
+    default_frequency='defaultFrequency8'
 )
 ```
 

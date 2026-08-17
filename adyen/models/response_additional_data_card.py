@@ -46,8 +46,6 @@ class ResponseAdditionalDataCard(object):
             (BIN)](https://docs.adyen.com/get-started-with-adyen/payment-glossary#bank
             -identification-number-bin) for card numbers with an eight-digit BIN.
             Example: 52123423
-        additional_properties (Dict[str, Any]): The additional properties for the
-            model.
 
     """
 
@@ -89,8 +87,7 @@ class ResponseAdditionalDataCard(object):
         card_payment_method=APIHelper.SKIP,
         card_product_id=APIHelper.SKIP,
         card_summary=APIHelper.SKIP,
-        issuer_bin=APIHelper.SKIP,
-        additional_properties=None):
+        issuer_bin=APIHelper.SKIP):
         """Initialize a ResponseAdditionalDataCard instance."""
         # Initialize members of the class
         if card_alt_id is not APIHelper.SKIP:
@@ -113,11 +110,6 @@ class ResponseAdditionalDataCard(object):
             self.card_summary = card_summary
         if issuer_bin is not APIHelper.SKIP:
             self.issuer_bin = issuer_bin
-
-        # Add additional model properties to the instance
-        if additional_properties is None:
-            additional_properties = {}
-        self.additional_properties = additional_properties
 
     @classmethod
     def from_dictionary(cls,
@@ -178,11 +170,6 @@ class ResponseAdditionalDataCard(object):
             if dictionary.get("issuerBin")\
                 else APIHelper.SKIP
 
-        additional_properties = APIHelper.get_additional_properties(
-            dictionary={k: v for k, v in dictionary.items()
-                        if k not in cls._names.values()},
-            unboxing_function=lambda value: value)
-
         # Return an object of this model
         return cls(card_alt_id,
                    card_bin,
@@ -193,8 +180,7 @@ class ResponseAdditionalDataCard(object):
                    card_payment_method,
                    card_product_id,
                    card_summary,
-                   issuer_bin,
-                   additional_properties)
+                   issuer_bin)
 
     def __repr__(self):
         """Return a unambiguous string representation."""
@@ -248,7 +234,6 @@ class ResponseAdditionalDataCard(object):
             if hasattr(self, "issuer_bin")
             else None
         )
-        _additional_properties=self.additional_properties
         return (
             f"{self.__class__.__name__}("
             f"card_alt_id={_card_alt_id!r}, "
@@ -261,7 +246,6 @@ class ResponseAdditionalDataCard(object):
             f"card_product_id={_card_product_id!r}, "
             f"card_summary={_card_summary!r}, "
             f"issuer_bin={_issuer_bin!r}, "
-            f"additional_properties={_additional_properties!r}, "
             f")"
         )
 
@@ -317,7 +301,6 @@ class ResponseAdditionalDataCard(object):
             if hasattr(self, "issuer_bin")
             else None
         )
-        _additional_properties=self.additional_properties
         return (
             f"{self.__class__.__name__}("
             f"card_alt_id={_card_alt_id!s}, "
@@ -330,6 +313,5 @@ class ResponseAdditionalDataCard(object):
             f"card_product_id={_card_product_id!s}, "
             f"card_summary={_card_summary!s}, "
             f"issuer_bin={_issuer_bin!s}, "
-            f"additional_properties={_additional_properties!s}, "
             f")"
         )

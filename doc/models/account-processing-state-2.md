@@ -3,8 +3,6 @@
 
 The processing state of the account holder.
 
-*This model accepts additional fields of type Any.*
-
 ## Structure
 
 `AccountProcessingState2`
@@ -15,41 +13,28 @@ The processing state of the account holder.
 |  --- | --- | --- | --- |
 | `disable_reason` | `str` | Optional | The reason why processing has been disabled. |
 | `disabled` | `bool` | Optional | Indicates whether the processing of payments is allowed. |
-| `processed_from` | [`ProcessedFrom`](../../doc/models/processed-from.md) | Optional | - |
-| `processed_to` | [`ProcessedTo`](../../doc/models/processed-to.md) | Optional | - |
+| `processed_from` | [`Amount`](../../doc/models/amount.md) | Optional | The lower bound of the processing tier (i.e., an account holder must have processed at least this amount of money in order to be placed into this tier). |
+| `processed_to` | [`Amount`](../../doc/models/amount.md) | Optional | The upper bound of the processing tier (i.e., an account holder must have processed less than this amount of money in order to be placed into this tier). |
 | `tier_number` | `int` | Optional | The processing tier that the account holder occupies. |
-| `additional_properties` | `Dict[str, Any]` | Optional | - |
 
 ## Example
 
 ```python
-import jsonpickle
-
 from adyen.models.account_processing_state_2 import AccountProcessingState2
-from adyen.models.processed_from import ProcessedFrom
-from adyen.models.processed_to import ProcessedTo
+from adyen.models.amount import Amount
 
 account_processing_state_2 = AccountProcessingState2(
     disable_reason='disableReason4',
     disabled=False,
-    processed_from=ProcessedFrom(
+    processed_from=Amount(
         currency='currency4',
-        value=148,
-        additional_properties={
-            'exampleAdditionalProperty': jsonpickle.decode('{"key1":"val1","key2":"val2"}')
-        }
+        value=148
     ),
-    processed_to=ProcessedTo(
+    processed_to=Amount(
         currency='currency2',
-        value=54,
-        additional_properties={
-            'exampleAdditionalProperty': jsonpickle.decode('{"key1":"val1","key2":"val2"}')
-        }
+        value=54
     ),
-    tier_number=88,
-    additional_properties={
-        'exampleAdditionalProperty': jsonpickle.decode('{"key1":"val1","key2":"val2"}')
-    }
+    tier_number=88
 )
 ```
 

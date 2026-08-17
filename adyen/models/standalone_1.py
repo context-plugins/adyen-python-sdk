@@ -20,8 +20,6 @@ class Standalone1(object):
         enable_gratuities (bool): Indicates whether the tipping options specified in
             `gratuities` are enabled on the standalone terminal.
         enable_standalone (bool): Enable standalone mode.
-        additional_properties (Dict[str, Any]): The additional properties for the
-            model.
 
     """
 
@@ -42,8 +40,7 @@ class Standalone1(object):
         self,
         currency_code=APIHelper.SKIP,
         enable_gratuities=APIHelper.SKIP,
-        enable_standalone=APIHelper.SKIP,
-        additional_properties=None):
+        enable_standalone=APIHelper.SKIP):
         """Initialize a Standalone1 instance."""
         # Initialize members of the class
         if currency_code is not APIHelper.SKIP:
@@ -52,11 +49,6 @@ class Standalone1(object):
             self.enable_gratuities = enable_gratuities
         if enable_standalone is not APIHelper.SKIP:
             self.enable_standalone = enable_standalone
-
-        # Add additional model properties to the instance
-        if additional_properties is None:
-            additional_properties = {}
-        self.additional_properties = additional_properties
 
     @classmethod
     def from_dictionary(cls,
@@ -89,16 +81,10 @@ class Standalone1(object):
             if "enableStandalone" in dictionary.keys()\
                 else APIHelper.SKIP
 
-        additional_properties = APIHelper.get_additional_properties(
-            dictionary={k: v for k, v in dictionary.items()
-                        if k not in cls._names.values()},
-            unboxing_function=lambda value: value)
-
         # Return an object of this model
         return cls(currency_code,
                    enable_gratuities,
-                   enable_standalone,
-                   additional_properties)
+                   enable_standalone)
 
     def __repr__(self):
         """Return a unambiguous string representation."""
@@ -117,13 +103,11 @@ class Standalone1(object):
             if hasattr(self, "enable_standalone")
             else None
         )
-        _additional_properties=self.additional_properties
         return (
             f"{self.__class__.__name__}("
             f"currency_code={_currency_code!r}, "
             f"enable_gratuities={_enable_gratuities!r}, "
             f"enable_standalone={_enable_standalone!r}, "
-            f"additional_properties={_additional_properties!r}, "
             f")"
         )
 
@@ -144,12 +128,10 @@ class Standalone1(object):
             if hasattr(self, "enable_standalone")
             else None
         )
-        _additional_properties=self.additional_properties
         return (
             f"{self.__class__.__name__}("
             f"currency_code={_currency_code!s}, "
             f"enable_gratuities={_enable_gratuities!s}, "
             f"enable_standalone={_enable_standalone!s}, "
-            f"additional_properties={_additional_properties!s}, "
             f")"
         )

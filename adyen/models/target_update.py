@@ -14,9 +14,12 @@ class TargetUpdate(object):
         id (str): The unique identifier of the `target.type`. This can be the ID of
             your:  * balance platform * account holder * account holder's balance
             account
-        mtype (Type18): The model property of type Type18.
-        additional_properties (Dict[str, Any]): The additional properties for the
-            model.
+        mtype (Type181Enum): The resource for which you want to receive
+            notifications. Possible values:  * **balancePlatform**: receive
+            notifications about balance changes in your entire balance platform.  *
+            **accountHolder**: receive notifications about balance changes of a
+            specific user.  * **balanceAccount**: receive notifications about balance
+            changes in a specific balance account.
 
     """
 
@@ -34,19 +37,13 @@ class TargetUpdate(object):
     def __init__(
         self,
         id=APIHelper.SKIP,
-        mtype=APIHelper.SKIP,
-        additional_properties=None):
+        mtype=APIHelper.SKIP):
         """Initialize a TargetUpdate instance."""
         # Initialize members of the class
         if id is not APIHelper.SKIP:
             self.id = id
         if mtype is not APIHelper.SKIP:
             self.mtype = mtype
-
-        # Add additional model properties to the instance
-        if additional_properties is None:
-            additional_properties = {}
-        self.additional_properties = additional_properties
 
     @classmethod
     def from_dictionary(cls,
@@ -75,15 +72,9 @@ class TargetUpdate(object):
             if dictionary.get("type")\
                 else APIHelper.SKIP
 
-        additional_properties = APIHelper.get_additional_properties(
-            dictionary={k: v for k, v in dictionary.items()
-                        if k not in cls._names.values()},
-            unboxing_function=lambda value: value)
-
         # Return an object of this model
         return cls(id,
-                   mtype,
-                   additional_properties)
+                   mtype)
 
     def __repr__(self):
         """Return a unambiguous string representation."""
@@ -97,12 +88,10 @@ class TargetUpdate(object):
             if hasattr(self, "mtype")
             else None
         )
-        _additional_properties=self.additional_properties
         return (
             f"{self.__class__.__name__}("
             f"id={_id!r}, "
             f"mtype={_mtype!r}, "
-            f"additional_properties={_additional_properties!r}, "
             f")"
         )
 
@@ -118,11 +107,9 @@ class TargetUpdate(object):
             if hasattr(self, "mtype")
             else None
         )
-        _additional_properties=self.additional_properties
         return (
             f"{self.__class__.__name__}("
             f"id={_id!s}, "
             f"mtype={_mtype!s}, "
-            f"additional_properties={_additional_properties!s}, "
             f")"
         )

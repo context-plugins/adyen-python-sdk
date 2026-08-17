@@ -14,11 +14,9 @@ class ValuelinkResponseInfo2(object):
 
     Attributes:
         authorisation_mid (str): Authorisation Mid
-        pin_support (PinSupport): The model property of type PinSupport.
+        pin_support (PinSupportEnum): PIN Support. For ecommerce, PIN is required.
         submitter_id (str): Submitter ID
         terminal_id (str): Terminal ID
-        additional_properties (Dict[str, Any]): The additional properties for the
-            model.
 
     """
 
@@ -42,8 +40,7 @@ class ValuelinkResponseInfo2(object):
         authorisation_mid=APIHelper.SKIP,
         pin_support=APIHelper.SKIP,
         submitter_id=APIHelper.SKIP,
-        terminal_id=APIHelper.SKIP,
-        additional_properties=None):
+        terminal_id=APIHelper.SKIP):
         """Initialize a ValuelinkResponseInfo2 instance."""
         # Initialize members of the class
         if authorisation_mid is not APIHelper.SKIP:
@@ -54,11 +51,6 @@ class ValuelinkResponseInfo2(object):
             self.submitter_id = submitter_id
         if terminal_id is not APIHelper.SKIP:
             self.terminal_id = terminal_id
-
-        # Add additional model properties to the instance
-        if additional_properties is None:
-            additional_properties = {}
-        self.additional_properties = additional_properties
 
     @classmethod
     def from_dictionary(cls,
@@ -95,17 +87,11 @@ class ValuelinkResponseInfo2(object):
             if dictionary.get("terminalId")\
                 else APIHelper.SKIP
 
-        additional_properties = APIHelper.get_additional_properties(
-            dictionary={k: v for k, v in dictionary.items()
-                        if k not in cls._names.values()},
-            unboxing_function=lambda value: value)
-
         # Return an object of this model
         return cls(authorisation_mid,
                    pin_support,
                    submitter_id,
-                   terminal_id,
-                   additional_properties)
+                   terminal_id)
 
     def __repr__(self):
         """Return a unambiguous string representation."""
@@ -129,14 +115,12 @@ class ValuelinkResponseInfo2(object):
             if hasattr(self, "terminal_id")
             else None
         )
-        _additional_properties=self.additional_properties
         return (
             f"{self.__class__.__name__}("
             f"authorisation_mid={_authorisation_mid!r}, "
             f"pin_support={_pin_support!r}, "
             f"submitter_id={_submitter_id!r}, "
             f"terminal_id={_terminal_id!r}, "
-            f"additional_properties={_additional_properties!r}, "
             f")"
         )
 
@@ -162,13 +146,11 @@ class ValuelinkResponseInfo2(object):
             if hasattr(self, "terminal_id")
             else None
         )
-        _additional_properties=self.additional_properties
         return (
             f"{self.__class__.__name__}("
             f"authorisation_mid={_authorisation_mid!s}, "
             f"pin_support={_pin_support!s}, "
             f"submitter_id={_submitter_id!s}, "
             f"terminal_id={_terminal_id!s}, "
-            f"additional_properties={_additional_properties!s}, "
             f")"
         )

@@ -8,38 +8,38 @@ import dateutil.parser
 
 from adyen.api_helper import APIHelper
 from adyen.models.account_info import AccountInfo
-from adyen.models.additional_amount import AdditionalAmount
-from adyen.models.amount_16 import Amount16
-from adyen.models.application_info_1 import (
-    ApplicationInfo1,
+from adyen.models.amount_1 import Amount1
+from adyen.models.amount_18 import Amount18
+from adyen.models.application_info import ApplicationInfo
+from adyen.models.authentication_data_1 import (
+    AuthenticationData1,
 )
-from adyen.models.authentication_data import (
-    AuthenticationData,
-)
-from adyen.models.billing_address import BillingAddress
+from adyen.models.billing_address_1 import BillingAddress1
 from adyen.models.checkout_session_installment_option import (
     CheckoutSessionInstallmentOption,
 )
-from adyen.models.checkout_session_three_ds_2_request_data import (
-    CheckoutSessionThreeDs2RequestData,
+from adyen.models.checkout_session_three_ds_2_request_data_1 import (
+    CheckoutSessionThreeDS2RequestData1,
 )
-from adyen.models.company import Company
+from adyen.models.company_1 import Company1
 from adyen.models.delivery_address_1 import (
     DeliveryAddress1,
 )
-from adyen.models.fund_origin import FundOrigin
-from adyen.models.fund_recipient import FundRecipient
+from adyen.models.fund_origin_1 import FundOrigin1
+from adyen.models.fund_recipient_1 import FundRecipient1
 from adyen.models.line_item import LineItem
-from adyen.models.mandate_1 import Mandate1
-from adyen.models.mpi_data import MpiData
-from adyen.models.platform_chargeback_logic_1 import (
-    PlatformChargebackLogic1,
+from adyen.models.mandate import Mandate
+from adyen.models.platform_chargeback_logic import (
+    PlatformChargebackLogic,
 )
-from adyen.models.risk_data import RiskData
-from adyen.models.shopper_name import ShopperName
+from adyen.models.risk_data_1 import RiskData1
+from adyen.models.shopper_name_1 import ShopperName1
 from adyen.models.split import Split
-from adyen.models.third_party_token_redundancy_info import (
-    ThirdPartyTokenRedundancyInfo,
+from adyen.models.third_party_token_redundancy_info_1 import (
+    ThirdPartyTokenRedundancyInfo1,
+)
+from adyen.models.three_d_secure_data import (
+    ThreeDSecureData,
 )
 
 
@@ -47,9 +47,15 @@ class CreateCheckoutSessionRequest(object):
     """Implementation of the 'CreateCheckoutSessionRequest' model.
 
     Attributes:
-        account_info (AccountInfo): The model property of type AccountInfo.
-        additional_amount (AdditionalAmount): The model property of type
-            AdditionalAmount.
+        account_info (AccountInfo): Shopper account information for 3D Secure 2. >
+            For 3D Secure 2 transactions, we recommend that you include this object
+            to increase the chances of achieving a frictionless flow.
+        additional_amount (Amount1): If you want a [BIN or card
+            verification](https://docs.adyen.com/payment-methods/cards/bin-data-and-ca
+            rd-verification) request to use a non-zero value, assign this value to
+            `additionalAmount` (while the amount must be still set to 0 to trigger
+            BIN or card verification). Required to be in the same currency as the
+            `amount`.
         additional_data (Dict[str, str]): This field contains additional data, which
             may be required for a particular payment request.  The `additionalData`
             object consists of entries, each of which includes the key and value.
@@ -57,28 +63,34 @@ class CreateCheckoutSessionRequest(object):
             to the shopper. To refer to payment methods, use their [payment method
             type](https://docs.adyen.com/payment-methods/payment-method-types).
             Example: `"allowedPaymentMethods":["ideal","applepay"]`
-        amount (Amount16): The model property of type Amount16.
-        application_info (ApplicationInfo1): The model property of type
-            ApplicationInfo1.
-        authentication_data (AuthenticationData): The model property of type
-            AuthenticationData.
-        billing_address (BillingAddress): The model property of type BillingAddress.
+        amount (Amount18): The amount of the payment.
+        application_info (ApplicationInfo): Information about your application. For
+            more details, see [Building Adyen
+            solutions](https://docs.adyen.com/development-resources/building-adyen-sol
+            utions).
+        authentication_data (AuthenticationData1): Configuration data for 3DS
+            payments.
+        billing_address (BillingAddress1): The address where to send the invoice.
         blocked_payment_methods (List[str]): List of payment methods to be hidden
             from the shopper. To refer to payment methods, use their [payment method
             type](https://docs.adyen.com/payment-methods/payment-method-types).
             Example: `"blockedPaymentMethods":["ideal","applepay"]`
         capture_delay_hours (int): The delay between the authorisation and scheduled
             auto-capture, specified in hours.
-        channel (Channel): The model property of type Channel.
-        company (Company): The model property of type Company.
+        channel (ChannelEnum): The platform where a payment transaction takes place.
+            This field is optional for filtering out payment methods that are only
+            available on specific platforms. If this value is not set, then we will
+            try to infer it from the `sdkVersion` or `token`.  Possible values: *
+            **iOS** * **Android** * **Web**
+        company (Company1): Information regarding the company.
         country_code (str): The shopper's two-letter country code.
         date_of_birth (date): The shopper's date of birth.  Format
             [ISO-8601](https://www.w3.org/TR/NOTE-datetime): YYYY-MM-DD
         deliver_at (datetime): The date and time when the purchased goods should be
             delivered.  [ISO 8601](https://www.w3.org/TR/NOTE-datetime) format:
             YYYY-MM-DDThh:mm:ss+TZD, for example, **2020-12-18T10:15:30+01:00**.
-        delivery_address (DeliveryAddress1): The model property of type
-            DeliveryAddress1.
+        delivery_address (DeliveryAddress1): The address where the purchased goods
+            should be delivered.
         enable_one_click (bool): When true and `shopperReference` is provided, the
             shopper will be asked if the payment details should be stored for future
             [one-click
@@ -96,8 +108,8 @@ class CreateCheckoutSessionRequest(object):
             When not specified, the expiry date is set to 1 hour after session
             creation. You cannot set the session expiry to more than 24 hours after
             session creation.
-        fund_origin (FundOrigin): The model property of type FundOrigin.
-        fund_recipient (FundRecipient): The model property of type FundRecipient.
+        fund_origin (FundOrigin1): The person or entity funding the money.
+        fund_recipient (FundRecipient1): the person or entity receiving the money
         installment_options (Dict[str, CheckoutSessionInstallmentOption]): A set of
             key-value pairs that specifies the installment options available per
             payment method. The key must be a payment method name in lowercase. For
@@ -108,7 +120,7 @@ class CreateCheckoutSessionRequest(object):
             purchased items, to be included on the invoice sent to the shopper. >
             This field is required for 3x 4x Oney, Affirm, Afterpay, Clearpay,
             Klarna, Ratepay, and Riverty.
-        mandate (Mandate1): The model property of type Mandate1.
+        mandate (Mandate): The mandate details to initiate recurring transaction.
         mcc (str): The [merchant category
             code](https://en.wikipedia.org/wiki/Merchant_category_code) (MCC) is a
             four-digit number, which relates to a particular market segment. This
@@ -129,16 +141,30 @@ class CreateCheckoutSessionRequest(object):
             includes a key and a value. Limits: * Maximum 20 key-value pairs per
             request. * Maximum 20 characters per key. * Maximum 80 characters per
             value.
-        mode (Mode): The model property of type Mode.
-        mpi_data (MpiData): The model property of type MpiData.
-        platform_chargeback_logic (PlatformChargebackLogic1): The model property of
-            type PlatformChargebackLogic1.
+        mode (ModeEnum): Indicates the type of front end integration. Possible
+            values: * **embedded** (default): Drop-in or Components integration *
+            **hosted**: Hosted Checkout integration
+        mpi_data (ThreeDSecureData): Authentication data produced by an MPI
+            (Mastercard SecureCode, Visa Secure, or Cartes Bancaires).
+        platform_chargeback_logic (PlatformChargebackLogic): Defines how to book
+            chargebacks when using [Adyen for
+            Platforms](https://docs.adyen.com/adyen-for-platforms-model).
         recurring_expiry (str): Date after which no further authorisations shall be
             performed. Only for 3D Secure 2.
         recurring_frequency (str): Minimum number of days between authorisations.
             Only for 3D Secure 2.
-        recurring_processing_model (RecurringProcessingModel1): The model property of
-            type RecurringProcessingModel1.
+        recurring_processing_model (RecurringProcessingModel1Enum): Defines a
+            recurring payment type. Required when creating a token to store payment
+            details. Allowed values: * `Subscription` – A transaction for a fixed or
+            variable amount, which follows a fixed schedule. * `CardOnFile` – With a
+            card-on-file (CoF) transaction, card details are stored to enable
+            one-click or omnichannel journeys, or simply to streamline the checkout
+            process. Any subscription not following a fixed schedule is also
+            considered a card-on-file transaction. * `UnscheduledCardOnFile` – An
+            unscheduled card-on-file (UCoF) transaction is a transaction that occurs
+            on a non-fixed schedule and/or have variable amounts. For example,
+            automatic top-ups when a cardholder's balance drops below a certain
+            amount.
         redirect_from_issuer_method (str): Specifies the redirect method (GET or
             POST) when redirecting back from the issuer.
         redirect_to_issuer_method (str): Specifies the redirect method (GET or POST)
@@ -161,7 +187,7 @@ class CreateCheckoutSessionRequest(object):
             non-ASCII characters, like spaces or special letters, URL encode the
             value. > The URL must not include personally identifiable information
             (PII), for example name or email address.
-        risk_data (RiskData): The model property of type RiskData.
+        risk_data (RiskData1): Any risk-related settings to apply to the payment.
         shopper_conversion_id (str): Use this if you made a `/paymentMethods` request
             to get the payment methods for the shopper's checkout session.  A unique
             ID to [connect the shopper to a single checkout
@@ -179,8 +205,20 @@ class CreateCheckoutSessionRequest(object):
             mandatory for some merchants depending on your business model. For more
             information, [contact
             Support](https://www.adyen.help/hc/en-us/requests/new).
-        shopper_interaction (ShopperInteraction1): The model property of type
-            ShopperInteraction1.
+        shopper_interaction (ShopperInteractionEnum): Specifies the sales channel,
+            through which the shopper gives their card details, and whether the
+            shopper is a returning customer. For the web service API, Adyen assumes
+            Ecommerce shopper interaction by default.  This field has the following
+            possible values: * `Ecommerce` - Online transactions where the cardholder
+            is present (online). For better authorisation rates, we recommend sending
+            the card security code (CSC) along with the request. * `ContAuth` - Card
+            on file and/or subscription transactions, where the cardholder is known
+            to the merchant (returning customer). If the shopper is present (online),
+            you can supply also the CSC to improve authorisation (one-click payment).
+            * `Moto` - Mail-order and telephone-order transactions where the shopper
+            is in contact with the merchant via email or telephone. * `POS` -
+            Point-of-sale transactions where the shopper is physically present to
+            make a payment using a secure payment terminal.
         shopper_locale (str): The language for the payment. The value combines the
             two-letter [ISO
             639-1](https://en.wikipedia.org/wiki/List_of_ISO_639_language_codes)
@@ -189,7 +227,9 @@ class CreateCheckoutSessionRequest(object):
             country code. For example, **nl-NL**.  When using Drop-in/Components, the
             specified language appears if your front-end global configuration does
             not set the `locale`.
-        shopper_name (ShopperName): The model property of type ShopperName.
+        shopper_name (ShopperName1): The shopper's full name. This object is required
+            for some payment methods such as AfterPay, Klarna, or if you're enrolled
+            in the PayPal Seller Protection program.
         shopper_reference (str): Your reference to uniquely identify this shopper,
             for example user ID or account ID. The value is case-sensitive and must
             be at least three characters. > Your reference must not include
@@ -223,14 +263,23 @@ class CreateCheckoutSessionRequest(object):
             integration](https://docs.adyen.com/classic-platforms/processing-payments/
             route-payment-to-store/#route-a-payment-to-a-store)) for the ecommerce or
             point-of-sale store that is processing the payment.
-        store_filtration_mode (StoreFiltrationMode): The model property of type
-            StoreFiltrationMode.
+        store_filtration_mode (StoreFiltrationModeEnum): Specifies how payment
+            methods should be filtered based on the 'store' parameter:   -
+            'exclusive': Only payment methods belonging to the specified 'store' are
+            returned.   - 'inclusive': Payment methods from the 'store' and those not
+            associated with any other store are returned.
         store_payment_method (bool): When true and `shopperReference` is provided,
             the payment details will be stored for future [recurring
             payments](https://docs.adyen.com/online-payments/tokenization/#recurring-p
             ayment-types).
-        store_payment_method_mode (StorePaymentMethodMode): The model property of
-            type StorePaymentMethodMode.
+        store_payment_method_mode (StorePaymentMethodModeEnum): Indicates if the
+            details of the payment method will be stored for the shopper. Possible
+            values: * **disabled** – No details will be stored (default). *
+            **askForConsent** – If the `shopperReference` is provided, the
+            Drop-in/Component shows a checkbox where the shopper can select to store
+            their payment details for card payments. * **enabled** – If the
+            `shopperReference` is provided, the details will be stored without asking
+            the shopper for consent.
         telephone_number (str): The shopper's telephone number.  The phone number
             must include a plus sign (+) and a country code (1-3 digits), followed by
             the number (4-15 digits). If the value you provide does not follow the
@@ -241,10 +290,15 @@ class CreateCheckoutSessionRequest(object):
             Checkout](https://docs.adyen.com/online-payments/build-your-integration/?p
             latform=Web&integration=Hosted+Checkout). The value can be any of the
             **Theme ID** values from your Customer Area.
-        third_party_token_redundancy_info (ThirdPartyTokenRedundancyInfo): The model
-            property of type ThirdPartyTokenRedundancyInfo.
-        three_ds_2_request_data (CheckoutSessionThreeDs2RequestData): The model
-            property of type CheckoutSessionThreeDs2RequestData.
+        third_party_token_redundancy_info (ThirdPartyTokenRedundancyInfo1):
+            Configuration for creating redundant payment tokens with third-party
+            token vaults using the Adyen Forward API. This feature requires Forward
+            API webhook integration and pre-configured templates in your Adyen
+            account. Contact your Adyen account manager for setup and availability.
+        three_ds_2_request_data (CheckoutSessionThreeDS2RequestData1): Request fields
+            for 3D Secure 2. To check if any of the following fields are required for
+            your integration, refer to [Online
+            payments](https://docs.adyen.com/online-payments).
         three_ds_authentication_only (bool): Required to trigger the
             [authentication-only
             flow](https://docs.adyen.com/online-payments/3d-secure/authentication-only
@@ -253,8 +307,6 @@ class CreateCheckoutSessionRequest(object):
             authorization.Default: **false**.
         trusted_shopper (bool): Set to true if the payment should be routed to a
             trusted MID.
-        additional_properties (Dict[str, Any]): The additional properties for the
-            model.
 
     """
 
@@ -420,7 +472,7 @@ class CreateCheckoutSessionRequest(object):
         mcc=APIHelper.SKIP,
         merchant_order_reference=APIHelper.SKIP,
         metadata=APIHelper.SKIP,
-        mode=APIHelper.SKIP,
+        mode="embedded",
         mpi_data=APIHelper.SKIP,
         platform_chargeback_logic=APIHelper.SKIP,
         recurring_expiry=APIHelper.SKIP,
@@ -451,8 +503,7 @@ class CreateCheckoutSessionRequest(object):
         third_party_token_redundancy_info=APIHelper.SKIP,
         three_ds_2_request_data=APIHelper.SKIP,
         three_ds_authentication_only=False,
-        trusted_shopper=APIHelper.SKIP,
-        additional_properties=None):
+        trusted_shopper=APIHelper.SKIP):
         """Initialize a CreateCheckoutSessionRequest instance."""
         # Initialize members of the class
         if account_info is not APIHelper.SKIP:
@@ -517,8 +568,7 @@ class CreateCheckoutSessionRequest(object):
             self.merchant_order_reference = merchant_order_reference
         if metadata is not APIHelper.SKIP:
             self.metadata = metadata
-        if mode is not APIHelper.SKIP:
-            self.mode = mode
+        self.mode = mode
         if mpi_data is not APIHelper.SKIP:
             self.mpi_data = mpi_data
         if platform_chargeback_logic is not APIHelper.SKIP:
@@ -584,11 +634,6 @@ class CreateCheckoutSessionRequest(object):
         if trusted_shopper is not APIHelper.SKIP:
             self.trusted_shopper = trusted_shopper
 
-        # Add additional model properties to the instance
-        if additional_properties is None:
-            additional_properties = {}
-        self.additional_properties = additional_properties
-
     @classmethod
     def from_dictionary(cls,
                         dictionary):
@@ -608,7 +653,7 @@ class CreateCheckoutSessionRequest(object):
 
         # Extract variables from the dictionary
         amount =\
-            Amount16.from_dictionary(
+            Amount18.from_dictionary(
                 dictionary.get("amount"))\
                 if dictionary.get("amount") else None
         merchant_account =\
@@ -629,7 +674,7 @@ class CreateCheckoutSessionRequest(object):
                 if "accountInfo" in dictionary.keys()\
                 else APIHelper.SKIP
         additional_amount =\
-            AdditionalAmount.from_dictionary(
+            Amount1.from_dictionary(
                 dictionary.get("additionalAmount"))\
                 if "additionalAmount" in dictionary.keys()\
                 else APIHelper.SKIP
@@ -642,17 +687,17 @@ class CreateCheckoutSessionRequest(object):
             if dictionary.get("allowedPaymentMethods")\
                 else APIHelper.SKIP
         application_info =\
-            ApplicationInfo1.from_dictionary(
+            ApplicationInfo.from_dictionary(
                 dictionary.get("applicationInfo"))\
                 if "applicationInfo" in dictionary.keys()\
                 else APIHelper.SKIP
         authentication_data =\
-            AuthenticationData.from_dictionary(
+            AuthenticationData1.from_dictionary(
                 dictionary.get("authenticationData"))\
                 if "authenticationData" in dictionary.keys()\
                 else APIHelper.SKIP
         billing_address =\
-            BillingAddress.from_dictionary(
+            BillingAddress1.from_dictionary(
                 dictionary.get("billingAddress"))\
                 if "billingAddress" in dictionary.keys()\
                 else APIHelper.SKIP
@@ -669,7 +714,7 @@ class CreateCheckoutSessionRequest(object):
             if dictionary.get("channel")\
                 else APIHelper.SKIP
         company =\
-            Company.from_dictionary(
+            Company1.from_dictionary(
                 dictionary.get("company"))\
                 if "company" in dictionary.keys()\
                 else APIHelper.SKIP
@@ -704,12 +749,12 @@ class CreateCheckoutSessionRequest(object):
             dictionary.get("expiresAt")).datetime\
             if dictionary.get("expiresAt") else APIHelper.SKIP
         fund_origin =\
-            FundOrigin.from_dictionary(
+            FundOrigin1.from_dictionary(
                 dictionary.get("fundOrigin"))\
                 if "fundOrigin" in dictionary.keys()\
                 else APIHelper.SKIP
         fund_recipient =\
-            FundRecipient.from_dictionary(
+            FundRecipient1.from_dictionary(
                 dictionary.get("fundRecipient"))\
                 if "fundRecipient" in dictionary.keys()\
                 else APIHelper.SKIP
@@ -727,7 +772,7 @@ class CreateCheckoutSessionRequest(object):
         else:
             line_items = APIHelper.SKIP
         mandate =\
-            Mandate1.from_dictionary(
+            Mandate.from_dictionary(
                 dictionary.get("mandate"))\
                 if "mandate" in dictionary.keys()\
                 else APIHelper.SKIP
@@ -746,14 +791,14 @@ class CreateCheckoutSessionRequest(object):
         mode =\
             dictionary.get("mode")\
             if dictionary.get("mode")\
-                else APIHelper.SKIP
+                else "embedded"
         mpi_data =\
-            MpiData.from_dictionary(
+            ThreeDSecureData.from_dictionary(
                 dictionary.get("mpiData"))\
                 if "mpiData" in dictionary.keys()\
                 else APIHelper.SKIP
         platform_chargeback_logic =\
-            PlatformChargebackLogic1.from_dictionary(
+            PlatformChargebackLogic.from_dictionary(
                 dictionary.get("platformChargebackLogic"))\
                 if "platformChargebackLogic" in dictionary.keys()\
                 else APIHelper.SKIP
@@ -778,7 +823,7 @@ class CreateCheckoutSessionRequest(object):
             if dictionary.get("redirectToIssuerMethod")\
                 else APIHelper.SKIP
         risk_data =\
-            RiskData.from_dictionary(
+            RiskData1.from_dictionary(
                 dictionary.get("riskData"))\
                 if "riskData" in dictionary.keys()\
                 else APIHelper.SKIP
@@ -803,7 +848,7 @@ class CreateCheckoutSessionRequest(object):
             if dictionary.get("shopperLocale")\
                 else APIHelper.SKIP
         shopper_name =\
-            ShopperName.from_dictionary(
+            ShopperName1.from_dictionary(
                 dictionary.get("shopperName"))\
                 if "shopperName" in dictionary.keys()\
                 else APIHelper.SKIP
@@ -864,12 +909,12 @@ class CreateCheckoutSessionRequest(object):
             if dictionary.get("themeId")\
                 else APIHelper.SKIP
         third_party_token_redundancy_info =\
-            ThirdPartyTokenRedundancyInfo.from_dictionary(
+            ThirdPartyTokenRedundancyInfo1.from_dictionary(
                 dictionary.get("thirdPartyTokenRedundancyInfo"))\
                 if "thirdPartyTokenRedundancyInfo" in dictionary.keys()\
                 else APIHelper.SKIP
         three_ds_2_request_data =\
-            CheckoutSessionThreeDs2RequestData.from_dictionary(
+            CheckoutSessionThreeDS2RequestData1.from_dictionary(
                 dictionary.get("threeDS2RequestData"))\
                 if "threeDS2RequestData" in dictionary.keys()\
                 else APIHelper.SKIP
@@ -881,11 +926,6 @@ class CreateCheckoutSessionRequest(object):
             dictionary.get("trustedShopper")\
             if "trustedShopper" in dictionary.keys()\
                 else APIHelper.SKIP
-
-        additional_properties = APIHelper.get_additional_properties(
-            dictionary={k: v for k, v in dictionary.items()
-                        if k not in cls._names.values()},
-            unboxing_function=lambda value: value)
 
         # Return an object of this model
         return cls(amount,
@@ -950,8 +990,7 @@ class CreateCheckoutSessionRequest(object):
                    third_party_token_redundancy_info,
                    three_ds_2_request_data,
                    three_ds_authentication_only,
-                   trusted_shopper,
-                   additional_properties)
+                   trusted_shopper)
 
     def __repr__(self):
         """Return a unambiguous string representation."""
@@ -1254,7 +1293,6 @@ class CreateCheckoutSessionRequest(object):
             if hasattr(self, "trusted_shopper")
             else None
         )
-        _additional_properties=self.additional_properties
         return (
             f"{self.__class__.__name__}("
             f"account_info={_account_info!r}, "
@@ -1320,7 +1358,6 @@ class CreateCheckoutSessionRequest(object):
             f"three_ds_2_request_data={_three_ds_2_request_data!r}, "
             f"three_ds_authentication_only={_three_ds_authentication_only!r}, "
             f"trusted_shopper={_trusted_shopper!r}, "
-            f"additional_properties={_additional_properties!r}, "
             f")"
         )
 
@@ -1625,7 +1662,6 @@ class CreateCheckoutSessionRequest(object):
             if hasattr(self, "trusted_shopper")
             else None
         )
-        _additional_properties=self.additional_properties
         return (
             f"{self.__class__.__name__}("
             f"account_info={_account_info!s}, "
@@ -1691,6 +1727,5 @@ class CreateCheckoutSessionRequest(object):
             f"three_ds_2_request_data={_three_ds_2_request_data!s}, "
             f"three_ds_authentication_only={_three_ds_authentication_only!s}, "
             f"trusted_shopper={_trusted_shopper!s}, "
-            f"additional_properties={_additional_properties!s}, "
             f")"
         )

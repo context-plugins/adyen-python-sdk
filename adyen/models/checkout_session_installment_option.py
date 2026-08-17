@@ -11,7 +11,7 @@ class CheckoutSessionInstallmentOption(object):
     """Implementation of the 'CheckoutSessionInstallmentOption' model.
 
     Attributes:
-        plans (List[Plan1]): Defines the type of installment plan. If not set,
+        plans (List[Plan1Enum]): Defines the type of installment plan. If not set,
             defaults to **regular**.  Possible values: * **regular** * **revolving**
             * **bonus** * **with_interest** * **buynow_paylater** *
             **nointerest_bonus** * **interest_bonus** * **refund_prctg** *
@@ -21,8 +21,6 @@ class CheckoutSessionInstallmentOption(object):
         values (List[int]): An array of the number of installments that the shopper
             can choose from. For example, **[2,3,5]**. This cannot be specified
             simultaneously with `maxValue`.
-        additional_properties (Dict[str, Any]): The additional properties for the
-            model.
 
     """
 
@@ -43,8 +41,7 @@ class CheckoutSessionInstallmentOption(object):
         self,
         plans=APIHelper.SKIP,
         preselected_value=APIHelper.SKIP,
-        values=APIHelper.SKIP,
-        additional_properties=None):
+        values=APIHelper.SKIP):
         """Initialize a CheckoutSessionInstallmentOption instance."""
         # Initialize members of the class
         if plans is not APIHelper.SKIP:
@@ -53,11 +50,6 @@ class CheckoutSessionInstallmentOption(object):
             self.preselected_value = preselected_value
         if values is not APIHelper.SKIP:
             self.values = values
-
-        # Add additional model properties to the instance
-        if additional_properties is None:
-            additional_properties = {}
-        self.additional_properties = additional_properties
 
     @classmethod
     def from_dictionary(cls,
@@ -90,16 +82,10 @@ class CheckoutSessionInstallmentOption(object):
             if dictionary.get("values")\
                 else APIHelper.SKIP
 
-        additional_properties = APIHelper.get_additional_properties(
-            dictionary={k: v for k, v in dictionary.items()
-                        if k not in cls._names.values()},
-            unboxing_function=lambda value: value)
-
         # Return an object of this model
         return cls(plans,
                    preselected_value,
-                   values,
-                   additional_properties)
+                   values)
 
     def __repr__(self):
         """Return a unambiguous string representation."""
@@ -118,13 +104,11 @@ class CheckoutSessionInstallmentOption(object):
             if hasattr(self, "values")
             else None
         )
-        _additional_properties=self.additional_properties
         return (
             f"{self.__class__.__name__}("
             f"plans={_plans!r}, "
             f"preselected_value={_preselected_value!r}, "
             f"values={_values!r}, "
-            f"additional_properties={_additional_properties!r}, "
             f")"
         )
 
@@ -145,12 +129,10 @@ class CheckoutSessionInstallmentOption(object):
             if hasattr(self, "values")
             else None
         )
-        _additional_properties=self.additional_properties
         return (
             f"{self.__class__.__name__}("
             f"plans={_plans!s}, "
             f"preselected_value={_preselected_value!s}, "
             f"values={_values!s}, "
-            f"additional_properties={_additional_properties!s}, "
             f")"
         )

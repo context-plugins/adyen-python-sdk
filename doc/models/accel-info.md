@@ -1,8 +1,6 @@
 
 # Accel Info
 
-*This model accepts additional fields of type Any.*
-
 ## Structure
 
 `AccelInfo`
@@ -11,32 +9,23 @@
 
 | Name | Type | Tags | Description |
 |  --- | --- | --- | --- |
-| `processing_type` | [`ProcessingType`](../../doc/models/processing-type.md) | Required | - |
-| `transaction_description` | [`TransactionDescriptionInfo`](../../doc/models/transaction-description-info.md) | Optional | - |
-| `additional_properties` | `Dict[str, Any]` | Optional | - |
+| `processing_type` | [`ProcessingTypeEnum`](../../doc/models/processing-type-enum.md) | Required | The type of transactions processed over this payment method.<br>Allowed values:<br><br>- **pos** for in-person payments.<br>- **billpay** for subscription payments, both the initial payment and the later recurring payments. These transactions have `recurringProcessingModel` **Subscription**.<br>- **ecom** for all other card not present transactions. This includes non-recurring transactions and transactions with `recurringProcessingModel` **CardOnFile** or **UnscheduledCardOnFile**. |
+| `transaction_description` | [`TransactionDescriptionInfo1`](../../doc/models/transaction-description-info-1.md) | Optional | Information regarding the transaction description.<br><br>> You cannot configure the transaction description in the test environment. |
 
 ## Example
 
 ```python
-import jsonpickle
-
 from adyen.models.accel_info import AccelInfo
-from adyen.models.processing_type import ProcessingType
-from adyen.models.transaction_description_info import TransactionDescriptionInfo
-from adyen.models.type_33 import Type33
+from adyen.models.processing_type_enum import ProcessingTypeEnum
+from adyen.models.transaction_description_info_1 import TransactionDescriptionInfo1
+from adyen.models.type_8_enum import Type8Enum
 
 accel_info = AccelInfo(
-    processing_type=ProcessingType.ECOM,
-    transaction_description=TransactionDescriptionInfo(
+    processing_type=ProcessingTypeEnum.ECOM,
+    transaction_description=TransactionDescriptionInfo1(
         doing_business_as_name='doingBusinessAsName0',
-        mtype=Type33.FIXED,
-        additional_properties={
-            'exampleAdditionalProperty': jsonpickle.decode('{"key1":"val1","key2":"val2"}')
-        }
-    ),
-    additional_properties={
-        'exampleAdditionalProperty': jsonpickle.decode('{"key1":"val1","key2":"val2"}')
-    }
+        mtype=Type8Enum.FIXED
+    )
 )
 ```
 

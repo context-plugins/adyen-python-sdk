@@ -1,11 +1,9 @@
 
-# Sepa Direct Debit
-
-*This model accepts additional fields of type Any.*
+# SEPA Direct Debit
 
 ## Structure
 
-`SepaDirectDebit`
+`SEPADirectDebit`
 
 ## Fields
 
@@ -19,17 +17,15 @@
 | `sdk_data` | `str` | Optional | Base64-encoded JSON object containing SDK related parameters required by the SDK<br><br>**Constraints**: *Maximum Length*: `50000` |
 | `stored_payment_method_id` | `str` | Optional | This is the `recurringDetailReference` returned in the response when you created the token.<br><br>**Constraints**: *Maximum Length*: `64` |
 | `transfer_instrument_id` | `str` | Optional | The unique identifier of your user's verified transfer instrument, which you can use to top up their balance accounts. |
-| `mtype` | [`Type511`](../../doc/models/type-511.md) | Optional | - |
-| `additional_properties` | `Dict[str, Any]` | Optional | - |
+| `mtype` | [`Type51Enum`](../../doc/models/type-51-enum.md) | Optional | **sepadirectdebit**<br><br>**Default**: `"sepadirectdebit"` |
 
 ## Example
 
 ```python
-import jsonpickle
+from adyen.models.sepa_direct_debit import SEPADirectDebit
+from adyen.models.type_51_enum import Type51Enum
 
-from adyen.models.sepa_direct_debit import SepaDirectDebit
-
-sepa_direct_debit = SepaDirectDebit(
+sepa_direct_debit = SEPADirectDebit(
     iban='iban6',
     owner_name='ownerName6',
     checkout_attempt_id='checkoutAttemptId8',
@@ -37,9 +33,7 @@ sepa_direct_debit = SepaDirectDebit(
     recurring_detail_reference='recurringDetailReference2',
     sdk_data='sdkData8',
     stored_payment_method_id='storedPaymentMethodId6',
-    additional_properties={
-        'exampleAdditionalProperty': jsonpickle.decode('{"key1":"val1","key2":"val2"}')
-    }
+    mtype=Type51Enum.SEPADIRECTDEBIT
 )
 ```
 

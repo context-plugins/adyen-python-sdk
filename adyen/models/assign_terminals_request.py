@@ -30,8 +30,6 @@ class AssignTerminalsRequest(object):
             to assign or reassign to the merchant account or store, or that you want
             to return to the company inventory.  For example,
             `["V400m-324689776","P400Plus-329127412"]`.
-        additional_properties (Dict[str, Any]): The additional properties for the
-            model.
 
     """
 
@@ -56,8 +54,7 @@ class AssignTerminalsRequest(object):
         terminals=None,
         merchant_account=APIHelper.SKIP,
         merchant_inventory=APIHelper.SKIP,
-        store=APIHelper.SKIP,
-        additional_properties=None):
+        store=APIHelper.SKIP):
         """Initialize a AssignTerminalsRequest instance."""
         # Initialize members of the class
         self.company_account = company_account
@@ -68,11 +65,6 @@ class AssignTerminalsRequest(object):
         if store is not APIHelper.SKIP:
             self.store = store
         self.terminals = terminals
-
-        # Add additional model properties to the instance
-        if additional_properties is None:
-            additional_properties = {}
-        self.additional_properties = additional_properties
 
     @classmethod
     def from_dictionary(cls,
@@ -113,18 +105,12 @@ class AssignTerminalsRequest(object):
             if dictionary.get("store")\
                 else APIHelper.SKIP
 
-        additional_properties = APIHelper.get_additional_properties(
-            dictionary={k: v for k, v in dictionary.items()
-                        if k not in cls._names.values()},
-            unboxing_function=lambda value: value)
-
         # Return an object of this model
         return cls(company_account,
                    terminals,
                    merchant_account,
                    merchant_inventory,
-                   store,
-                   additional_properties)
+                   store)
 
     def __repr__(self):
         """Return a unambiguous string representation."""
@@ -145,7 +131,6 @@ class AssignTerminalsRequest(object):
             else None
         )
         _terminals=self.terminals
-        _additional_properties=self.additional_properties
         return (
             f"{self.__class__.__name__}("
             f"company_account={_company_account!r}, "
@@ -153,7 +138,6 @@ class AssignTerminalsRequest(object):
             f"merchant_inventory={_merchant_inventory!r}, "
             f"store={_store!r}, "
             f"terminals={_terminals!r}, "
-            f"additional_properties={_additional_properties!r}, "
             f")"
         )
 
@@ -176,7 +160,6 @@ class AssignTerminalsRequest(object):
             else None
         )
         _terminals=self.terminals
-        _additional_properties=self.additional_properties
         return (
             f"{self.__class__.__name__}("
             f"company_account={_company_account!s}, "
@@ -184,6 +167,5 @@ class AssignTerminalsRequest(object):
             f"merchant_inventory={_merchant_inventory!s}, "
             f"store={_store!s}, "
             f"terminals={_terminals!s}, "
-            f"additional_properties={_additional_properties!s}, "
             f")"
         )

@@ -19,8 +19,6 @@ class Payment1(object):
             you meet the compliance requirements.
         hide_minor_units_in_currencies (List[str]): Hides the minor units for the
             listed [ISO currency codes](https://en.wikipedia.org/wiki/ISO_4217).
-        additional_properties (Dict[str, Any]): The additional properties for the
-            model.
 
     """
 
@@ -38,19 +36,13 @@ class Payment1(object):
     def __init__(
         self,
         contactless_currency=APIHelper.SKIP,
-        hide_minor_units_in_currencies=APIHelper.SKIP,
-        additional_properties=None):
+        hide_minor_units_in_currencies=APIHelper.SKIP):
         """Initialize a Payment1 instance."""
         # Initialize members of the class
         if contactless_currency is not APIHelper.SKIP:
             self.contactless_currency = contactless_currency
         if hide_minor_units_in_currencies is not APIHelper.SKIP:
             self.hide_minor_units_in_currencies = hide_minor_units_in_currencies
-
-        # Add additional model properties to the instance
-        if additional_properties is None:
-            additional_properties = {}
-        self.additional_properties = additional_properties
 
     @classmethod
     def from_dictionary(cls,
@@ -79,15 +71,9 @@ class Payment1(object):
             if dictionary.get("hideMinorUnitsInCurrencies")\
                 else APIHelper.SKIP
 
-        additional_properties = APIHelper.get_additional_properties(
-            dictionary={k: v for k, v in dictionary.items()
-                        if k not in cls._names.values()},
-            unboxing_function=lambda value: value)
-
         # Return an object of this model
         return cls(contactless_currency,
-                   hide_minor_units_in_currencies,
-                   additional_properties)
+                   hide_minor_units_in_currencies)
 
     def __repr__(self):
         """Return a unambiguous string representation."""
@@ -101,12 +87,10 @@ class Payment1(object):
             if hasattr(self, "hide_minor_units_in_currencies")
             else None
         )
-        _additional_properties=self.additional_properties
         return (
             f"{self.__class__.__name__}("
             f"contactless_currency={_contactless_currency!r}, "
             f"hide_minor_units_in_currencies={_hide_minor_units_in_currencies!r}, "
-            f"additional_properties={_additional_properties!r}, "
             f")"
         )
 
@@ -122,11 +106,9 @@ class Payment1(object):
             if hasattr(self, "hide_minor_units_in_currencies")
             else None
         )
-        _additional_properties=self.additional_properties
         return (
             f"{self.__class__.__name__}("
             f"contactless_currency={_contactless_currency!s}, "
             f"hide_minor_units_in_currencies={_hide_minor_units_in_currencies!s}, "
-            f"additional_properties={_additional_properties!s}, "
             f")"
         )

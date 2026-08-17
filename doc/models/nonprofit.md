@@ -1,8 +1,6 @@
 
 # Nonprofit
 
-*This model accepts additional fields of type Any.*
-
 ## Structure
 
 `Nonprofit`
@@ -21,13 +19,10 @@
 | `regions` | `List[str]` | Required | The regions where the nonprofit operates, in [ISO 3166-1 alpha-2](https://en.wikipedia.org/wiki/ISO_3166-1_alpha-2) format.<br><br>**Constraints**: *Minimum Items*: `1` |
 | `terms_and_conditions_url` | `str` | Required | The URL to the terms and conditions of the nonprofit. |
 | `website` | `str` | Required | The URL to the website of the nonprofit. |
-| `additional_properties` | `Dict[str, Any]` | Optional | - |
 
 ## Example
 
 ```python
-import jsonpickle
-
 from adyen.models.nonprofit import Nonprofit
 from adyen.models.nonprofit_cause import NonprofitCause
 
@@ -41,10 +36,7 @@ nonprofit = Nonprofit(
                 'locales7'
             ],
             name='name6',
-            id='id6',
-            additional_properties={
-                'exampleAdditionalProperty': jsonpickle.decode('{"key1":"val1","key2":"val2"}')
-            }
+            id='id6'
         )
     ],
     description='description8',
@@ -65,10 +57,7 @@ nonprofit = Nonprofit(
     ],
     terms_and_conditions_url='termsAndConditionsUrl0',
     website='website2',
-    id='id2',
-    additional_properties={
-        'exampleAdditionalProperty': jsonpickle.decode('{"key1":"val1","key2":"val2"}')
-    }
+    id='id2'
 )
 ```
 

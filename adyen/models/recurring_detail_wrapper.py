@@ -14,8 +14,6 @@ class RecurringDetailWrapper(object):
     Attributes:
         recurring_detail (RecurringDetail): The model property of type
             RecurringDetail.
-        additional_properties (Dict[str, Any]): The additional properties for the
-            model.
 
     """
 
@@ -30,17 +28,11 @@ class RecurringDetailWrapper(object):
 
     def __init__(
         self,
-        recurring_detail=APIHelper.SKIP,
-        additional_properties=None):
+        recurring_detail=APIHelper.SKIP):
         """Initialize a RecurringDetailWrapper instance."""
         # Initialize members of the class
         if recurring_detail is not APIHelper.SKIP:
             self.recurring_detail = recurring_detail
-
-        # Add additional model properties to the instance
-        if additional_properties is None:
-            additional_properties = {}
-        self.additional_properties = additional_properties
 
     @classmethod
     def from_dictionary(cls,
@@ -66,14 +58,8 @@ class RecurringDetailWrapper(object):
                 if "RecurringDetail" in dictionary.keys()\
                 else APIHelper.SKIP
 
-        additional_properties = APIHelper.get_additional_properties(
-            dictionary={k: v for k, v in dictionary.items()
-                        if k not in cls._names.values()},
-            unboxing_function=lambda value: value)
-
         # Return an object of this model
-        return cls(recurring_detail,
-                   additional_properties)
+        return cls(recurring_detail)
 
     def __repr__(self):
         """Return a unambiguous string representation."""
@@ -82,11 +68,9 @@ class RecurringDetailWrapper(object):
             if hasattr(self, "recurring_detail")
             else None
         )
-        _additional_properties=self.additional_properties
         return (
             f"{self.__class__.__name__}("
             f"recurring_detail={_recurring_detail!r}, "
-            f"additional_properties={_additional_properties!r}, "
             f")"
         )
 
@@ -97,10 +81,8 @@ class RecurringDetailWrapper(object):
             if hasattr(self, "recurring_detail")
             else None
         )
-        _additional_properties=self.additional_properties
         return (
             f"{self.__class__.__name__}("
             f"recurring_detail={_recurring_detail!s}, "
-            f"additional_properties={_additional_properties!s}, "
             f")"
         )

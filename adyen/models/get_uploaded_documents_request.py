@@ -17,8 +17,6 @@ class GetUploadedDocumentsRequest(object):
             the documents.
         shareholder_code (str): The code of the Shareholder for which to retrieve the
             documents.
-        additional_properties (Dict[str, Any]): The additional properties for the
-            model.
 
     """
 
@@ -38,8 +36,7 @@ class GetUploadedDocumentsRequest(object):
         self,
         account_holder_code=None,
         bank_account_uuid=APIHelper.SKIP,
-        shareholder_code=APIHelper.SKIP,
-        additional_properties=None):
+        shareholder_code=APIHelper.SKIP):
         """Initialize a GetUploadedDocumentsRequest instance."""
         # Initialize members of the class
         self.account_holder_code = account_holder_code
@@ -47,11 +44,6 @@ class GetUploadedDocumentsRequest(object):
             self.bank_account_uuid = bank_account_uuid
         if shareholder_code is not APIHelper.SKIP:
             self.shareholder_code = shareholder_code
-
-        # Add additional model properties to the instance
-        if additional_properties is None:
-            additional_properties = {}
-        self.additional_properties = additional_properties
 
     @classmethod
     def from_dictionary(cls,
@@ -84,16 +76,10 @@ class GetUploadedDocumentsRequest(object):
             if dictionary.get("shareholderCode")\
                 else APIHelper.SKIP
 
-        additional_properties = APIHelper.get_additional_properties(
-            dictionary={k: v for k, v in dictionary.items()
-                        if k not in cls._names.values()},
-            unboxing_function=lambda value: value)
-
         # Return an object of this model
         return cls(account_holder_code,
                    bank_account_uuid,
-                   shareholder_code,
-                   additional_properties)
+                   shareholder_code)
 
     def __repr__(self):
         """Return a unambiguous string representation."""
@@ -108,13 +94,11 @@ class GetUploadedDocumentsRequest(object):
             if hasattr(self, "shareholder_code")
             else None
         )
-        _additional_properties=self.additional_properties
         return (
             f"{self.__class__.__name__}("
             f"account_holder_code={_account_holder_code!r}, "
             f"bank_account_uuid={_bank_account_uuid!r}, "
             f"shareholder_code={_shareholder_code!r}, "
-            f"additional_properties={_additional_properties!r}, "
             f")"
         )
 
@@ -131,12 +115,10 @@ class GetUploadedDocumentsRequest(object):
             if hasattr(self, "shareholder_code")
             else None
         )
-        _additional_properties=self.additional_properties
         return (
             f"{self.__class__.__name__}("
             f"account_holder_code={_account_holder_code!s}, "
             f"bank_account_uuid={_bank_account_uuid!s}, "
             f"shareholder_code={_shareholder_code!s}, "
-            f"additional_properties={_additional_properties!s}, "
             f")"
         )

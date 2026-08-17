@@ -11,27 +11,23 @@ class PatchableDisputeRequest(object):
     """Implementation of the 'PatchableDisputeRequest' model.
 
     Attributes:
-        duplicate_info (PatchableDuplicateInfo | Any | None): Additional information
-            for raising a dispute of `type` **duplicate**. Required for disputes of
+        duplicate_info (PatchableDuplicateInfo | None): Additional information for
+            raising a dispute of `type` **duplicate**. Required for disputes of
             `type` **duplicate**.
-        fraud_info (PatchableFraudInfo | Any | None): Additional information for
-            raising a dispute of `type` **fraud**. Required for disputes of `type`
-            **fraud**.
-        not_delivered_info (PatchableNotDeliveredInfo | Any | None): Additional
-            information for raising a dispute of `type` **notDelivered**. Required
-            for disputes of `type` **notDelivered**.
-        other_info (PatchableOtherInfo | Any | None): Additional information for
-            raising a dispute of `type` **other**. Required for disputes of `type`
-            **other**.  **Note:** The **other** dispute `type` is currently in beta
-            testing. Do not create or submit any disputes for this dispute `type` at
-            this time.
-        status (DisputeStatus | Any | None): The current status of the dispute.  When
+        fraud_info (PatchableFraudInfo | None): Additional information for raising a
+            dispute of `type` **fraud**. Required for disputes of `type` **fraud**.
+        not_delivered_info (PatchableNotDeliveredInfo | None): Additional information
+            for raising a dispute of `type` **notDelivered**. Required for disputes
+            of `type` **notDelivered**.
+        other_info (PatchableOtherInfo | None): Additional information for raising a
+            dispute of `type` **other**. Required for disputes of `type` **other**.
+            **Note:** The **other** dispute `type` is currently in beta testing. Do
+            not create or submit any disputes for this dispute `type` at this time.
+        status (DisputeStatusEnum | None): The current status of the dispute.  When
             you create a dispute, you can only set the `status` to **draft**. When
             you update a dispute, you can set the `status` to **submitted** or
             **closed**.  Possible values: **draft**, **submitted**, **closed**,
             **won**, **chargeback**, **secondPresentment**.
-        additional_properties (Dict[str, Any]): The additional properties for the
-            model.
 
     """
 
@@ -52,14 +48,21 @@ class PatchableDisputeRequest(object):
         "status",
     ]
 
+    _nullables = [
+        "duplicate_info",
+        "fraud_info",
+        "not_delivered_info",
+        "other_info",
+        "status",
+    ]
+
     def __init__(
         self,
         duplicate_info=APIHelper.SKIP,
         fraud_info=APIHelper.SKIP,
         not_delivered_info=APIHelper.SKIP,
         other_info=APIHelper.SKIP,
-        status=APIHelper.SKIP,
-        additional_properties=None):
+        status=APIHelper.SKIP):
         """Initialize a PatchableDisputeRequest instance."""
         # Initialize members of the class
         if duplicate_info is not APIHelper.SKIP:
@@ -72,11 +75,6 @@ class PatchableDisputeRequest(object):
             self.other_info = other_info
         if status is not APIHelper.SKIP:
             self.status = status
-
-        # Add additional model properties to the instance
-        if additional_properties is None:
-            additional_properties = {}
-        self.additional_properties = additional_properties
 
     @classmethod
     def from_dictionary(cls,
@@ -100,49 +98,58 @@ class PatchableDisputeRequest(object):
             return None
 
         # Extract variables from the dictionary
-        duplicate_info = APIHelper.deserialize_union_type(
+        if "duplicateInfo" in dictionary.keys():
+            duplicate_info = APIHelper.deserialize_union_type(
             UnionTypeLookUp.get("PatchableDisputeRequestDuplicateInfo"),
             dictionary.get("duplicateInfo"),
             False)\
             if dictionary.get("duplicateInfo") is not None\
-            else APIHelper.SKIP
-        fraud_info = APIHelper.deserialize_union_type(
+            else None
+        else:
+            duplicate_info = APIHelper.SKIP
+        if "fraudInfo" in dictionary.keys():
+            fraud_info = APIHelper.deserialize_union_type(
             UnionTypeLookUp.get("PatchableDisputeRequestFraudInfo"),
             dictionary.get("fraudInfo"),
             False)\
             if dictionary.get("fraudInfo") is not None\
-            else APIHelper.SKIP
-        not_delivered_info = APIHelper.deserialize_union_type(
+            else None
+        else:
+            fraud_info = APIHelper.SKIP
+        if "notDeliveredInfo" in dictionary.keys():
+            not_delivered_info = APIHelper.deserialize_union_type(
             UnionTypeLookUp.get("PatchableDisputeRequestNotDeliveredInfo"),
             dictionary.get("notDeliveredInfo"),
             False)\
             if dictionary.get("notDeliveredInfo") is not None\
-            else APIHelper.SKIP
-        other_info = APIHelper.deserialize_union_type(
+            else None
+        else:
+            not_delivered_info = APIHelper.SKIP
+        if "otherInfo" in dictionary.keys():
+            other_info = APIHelper.deserialize_union_type(
             UnionTypeLookUp.get("PatchableDisputeRequestOtherInfo"),
             dictionary.get("otherInfo"),
             False)\
             if dictionary.get("otherInfo") is not None\
-            else APIHelper.SKIP
-        status = APIHelper.deserialize_union_type(
+            else None
+        else:
+            other_info = APIHelper.SKIP
+        if "status" in dictionary.keys():
+            status = APIHelper.deserialize_union_type(
             UnionTypeLookUp.get("PatchableDisputeRequestStatus"),
             dictionary.get("status"),
             False)\
             if dictionary.get("status") is not None\
-            else APIHelper.SKIP
-
-        additional_properties = APIHelper.get_additional_properties(
-            dictionary={k: v for k, v in dictionary.items()
-                        if k not in cls._names.values()},
-            unboxing_function=lambda value: value)
+            else None
+        else:
+            status = APIHelper.SKIP
 
         # Return an object of this model
         return cls(duplicate_info,
                    fraud_info,
                    not_delivered_info,
                    other_info,
-                   status,
-                   additional_properties)
+                   status)
 
     def __repr__(self):
         """Return a unambiguous string representation."""
@@ -171,7 +178,6 @@ class PatchableDisputeRequest(object):
             if hasattr(self, "status")
             else None
         )
-        _additional_properties=self.additional_properties
         return (
             f"{self.__class__.__name__}("
             f"duplicate_info={_duplicate_info!r}, "
@@ -179,7 +185,6 @@ class PatchableDisputeRequest(object):
             f"not_delivered_info={_not_delivered_info!r}, "
             f"other_info={_other_info!r}, "
             f"status={_status!r}, "
-            f"additional_properties={_additional_properties!r}, "
             f")"
         )
 
@@ -210,7 +215,6 @@ class PatchableDisputeRequest(object):
             if hasattr(self, "status")
             else None
         )
-        _additional_properties=self.additional_properties
         return (
             f"{self.__class__.__name__}("
             f"duplicate_info={_duplicate_info!s}, "
@@ -218,6 +222,5 @@ class PatchableDisputeRequest(object):
             f"not_delivered_info={_not_delivered_info!s}, "
             f"other_info={_other_info!s}, "
             f"status={_status!s}, "
-            f"additional_properties={_additional_properties!s}, "
             f")"
         )

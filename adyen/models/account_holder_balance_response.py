@@ -8,7 +8,7 @@ from adyen.api_helper import APIHelper
 from adyen.models.account_detail_balance import (
     AccountDetailBalance,
 )
-from adyen.models.detail_balance import DetailBalance
+from adyen.models.detail_balance_1 import DetailBalance1
 from adyen.models.error_field_type import ErrorFieldType
 
 
@@ -23,9 +23,7 @@ class AccountHolderBalanceResponse(object):
         psp_reference (str): The reference of a request. Can be used to uniquely
             identify the request.
         result_code (str): The result code.
-        total_balance (DetailBalance): The model property of type DetailBalance.
-        additional_properties (Dict[str, Any]): The additional properties for the
-            model.
+        total_balance (DetailBalance1): The total balance of the account holder.
 
     """
 
@@ -52,8 +50,7 @@ class AccountHolderBalanceResponse(object):
         invalid_fields=APIHelper.SKIP,
         psp_reference=APIHelper.SKIP,
         result_code=APIHelper.SKIP,
-        total_balance=APIHelper.SKIP,
-        additional_properties=None):
+        total_balance=APIHelper.SKIP):
         """Initialize a AccountHolderBalanceResponse instance."""
         # Initialize members of the class
         if balance_per_account is not APIHelper.SKIP:
@@ -66,11 +63,6 @@ class AccountHolderBalanceResponse(object):
             self.result_code = result_code
         if total_balance is not APIHelper.SKIP:
             self.total_balance = total_balance
-
-        # Add additional model properties to the instance
-        if additional_properties is None:
-            additional_properties = {}
-        self.additional_properties = additional_properties
 
     @classmethod
     def from_dictionary(cls,
@@ -115,23 +107,17 @@ class AccountHolderBalanceResponse(object):
             if dictionary.get("resultCode")\
                 else APIHelper.SKIP
         total_balance =\
-            DetailBalance.from_dictionary(
+            DetailBalance1.from_dictionary(
                 dictionary.get("totalBalance"))\
                 if "totalBalance" in dictionary.keys()\
                 else APIHelper.SKIP
-
-        additional_properties = APIHelper.get_additional_properties(
-            dictionary={k: v for k, v in dictionary.items()
-                        if k not in cls._names.values()},
-            unboxing_function=lambda value: value)
 
         # Return an object of this model
         return cls(balance_per_account,
                    invalid_fields,
                    psp_reference,
                    result_code,
-                   total_balance,
-                   additional_properties)
+                   total_balance)
 
     def __repr__(self):
         """Return a unambiguous string representation."""
@@ -160,7 +146,6 @@ class AccountHolderBalanceResponse(object):
             if hasattr(self, "total_balance")
             else None
         )
-        _additional_properties=self.additional_properties
         return (
             f"{self.__class__.__name__}("
             f"balance_per_account={_balance_per_account!r}, "
@@ -168,7 +153,6 @@ class AccountHolderBalanceResponse(object):
             f"psp_reference={_psp_reference!r}, "
             f"result_code={_result_code!r}, "
             f"total_balance={_total_balance!r}, "
-            f"additional_properties={_additional_properties!r}, "
             f")"
         )
 
@@ -199,7 +183,6 @@ class AccountHolderBalanceResponse(object):
             if hasattr(self, "total_balance")
             else None
         )
-        _additional_properties=self.additional_properties
         return (
             f"{self.__class__.__name__}("
             f"balance_per_account={_balance_per_account!s}, "
@@ -207,6 +190,5 @@ class AccountHolderBalanceResponse(object):
             f"psp_reference={_psp_reference!s}, "
             f"result_code={_result_code!s}, "
             f"total_balance={_total_balance!s}, "
-            f"additional_properties={_additional_properties!s}, "
             f")"
         )

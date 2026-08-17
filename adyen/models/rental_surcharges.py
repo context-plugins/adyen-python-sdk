@@ -24,8 +24,6 @@ class RentalSurcharges(object):
             units](https://docs.adyen.com/development-resources/currency-codes). *
             For example, 2000 means USD 20.00. * Encoding: Numeric * Max value:
             10000000000 * **additionalData key:** `carRental.oneWayDropOffCharges`
-        additional_properties (Dict[str, Any]): The additional properties for the
-            model.
 
     """
 
@@ -46,8 +44,7 @@ class RentalSurcharges(object):
         self,
         fuel=APIHelper.SKIP,
         insurance=APIHelper.SKIP,
-        one_way_drop_off=APIHelper.SKIP,
-        additional_properties=None):
+        one_way_drop_off=APIHelper.SKIP):
         """Initialize a RentalSurcharges instance."""
         # Initialize members of the class
         if fuel is not APIHelper.SKIP:
@@ -56,11 +53,6 @@ class RentalSurcharges(object):
             self.insurance = insurance
         if one_way_drop_off is not APIHelper.SKIP:
             self.one_way_drop_off = one_way_drop_off
-
-        # Add additional model properties to the instance
-        if additional_properties is None:
-            additional_properties = {}
-        self.additional_properties = additional_properties
 
     @classmethod
     def from_dictionary(cls,
@@ -93,16 +85,10 @@ class RentalSurcharges(object):
             if dictionary.get("oneWayDropOff")\
                 else APIHelper.SKIP
 
-        additional_properties = APIHelper.get_additional_properties(
-            dictionary={k: v for k, v in dictionary.items()
-                        if k not in cls._names.values()},
-            unboxing_function=lambda value: value)
-
         # Return an object of this model
         return cls(fuel,
                    insurance,
-                   one_way_drop_off,
-                   additional_properties)
+                   one_way_drop_off)
 
     @classmethod
     def validate(cls, dictionary):
@@ -142,13 +128,11 @@ class RentalSurcharges(object):
             if hasattr(self, "one_way_drop_off")
             else None
         )
-        _additional_properties=self.additional_properties
         return (
             f"{self.__class__.__name__}("
             f"fuel={_fuel!r}, "
             f"insurance={_insurance!r}, "
             f"one_way_drop_off={_one_way_drop_off!r}, "
-            f"additional_properties={_additional_properties!r}, "
             f")"
         )
 
@@ -169,12 +153,10 @@ class RentalSurcharges(object):
             if hasattr(self, "one_way_drop_off")
             else None
         )
-        _additional_properties=self.additional_properties
         return (
             f"{self.__class__.__name__}("
             f"fuel={_fuel!s}, "
             f"insurance={_insurance!s}, "
             f"one_way_drop_off={_one_way_drop_off!s}, "
-            f"additional_properties={_additional_properties!s}, "
             f")"
         )

@@ -30,8 +30,6 @@ class CollectInformation(object):
         shareholder_details (bool): Indicates whether [shareholder
             details](https://docs.adyen.com/classic-platforms/verification-process/acc
             epted-data-format/#individuals) must be collected. Defaults to **true**.
-        additional_properties (Dict[str, Any]): The additional properties for the
-            model.
 
     """
 
@@ -61,8 +59,7 @@ class CollectInformation(object):
         individual_details=APIHelper.SKIP,
         legal_arrangement_details=APIHelper.SKIP,
         pci_questionnaire=APIHelper.SKIP,
-        shareholder_details=APIHelper.SKIP,
-        additional_properties=None):
+        shareholder_details=APIHelper.SKIP):
         """Initialize a CollectInformation instance."""
         # Initialize members of the class
         if bank_details is not APIHelper.SKIP:
@@ -77,11 +74,6 @@ class CollectInformation(object):
             self.pci_questionnaire = pci_questionnaire
         if shareholder_details is not APIHelper.SKIP:
             self.shareholder_details = shareholder_details
-
-        # Add additional model properties to the instance
-        if additional_properties is None:
-            additional_properties = {}
-        self.additional_properties = additional_properties
 
     @classmethod
     def from_dictionary(cls,
@@ -126,19 +118,13 @@ class CollectInformation(object):
             if "shareholderDetails" in dictionary.keys()\
                 else APIHelper.SKIP
 
-        additional_properties = APIHelper.get_additional_properties(
-            dictionary={k: v for k, v in dictionary.items()
-                        if k not in cls._names.values()},
-            unboxing_function=lambda value: value)
-
         # Return an object of this model
         return cls(bank_details,
                    business_details,
                    individual_details,
                    legal_arrangement_details,
                    pci_questionnaire,
-                   shareholder_details,
-                   additional_properties)
+                   shareholder_details)
 
     def __repr__(self):
         """Return a unambiguous string representation."""
@@ -172,7 +158,6 @@ class CollectInformation(object):
             if hasattr(self, "shareholder_details")
             else None
         )
-        _additional_properties=self.additional_properties
         return (
             f"{self.__class__.__name__}("
             f"bank_details={_bank_details!r}, "
@@ -181,7 +166,6 @@ class CollectInformation(object):
             f"legal_arrangement_details={_legal_arrangement_details!r}, "
             f"pci_questionnaire={_pci_questionnaire!r}, "
             f"shareholder_details={_shareholder_details!r}, "
-            f"additional_properties={_additional_properties!r}, "
             f")"
         )
 
@@ -217,7 +201,6 @@ class CollectInformation(object):
             if hasattr(self, "shareholder_details")
             else None
         )
-        _additional_properties=self.additional_properties
         return (
             f"{self.__class__.__name__}("
             f"bank_details={_bank_details!s}, "
@@ -226,6 +209,5 @@ class CollectInformation(object):
             f"legal_arrangement_details={_legal_arrangement_details!s}, "
             f"pci_questionnaire={_pci_questionnaire!s}, "
             f"shareholder_details={_shareholder_details!s}, "
-            f"additional_properties={_additional_properties!s}, "
             f")"
         )

@@ -16,8 +16,6 @@ class Localization1(object):
         language (str): Language of the terminal.
         secondary_language (str): Secondary language of the terminal.
         timezone (str): The time zone of the terminal.
-        additional_properties (Dict[str, Any]): The additional properties for the
-            model.
 
     """
 
@@ -38,8 +36,7 @@ class Localization1(object):
         self,
         language=APIHelper.SKIP,
         secondary_language=APIHelper.SKIP,
-        timezone=APIHelper.SKIP,
-        additional_properties=None):
+        timezone=APIHelper.SKIP):
         """Initialize a Localization1 instance."""
         # Initialize members of the class
         if language is not APIHelper.SKIP:
@@ -48,11 +45,6 @@ class Localization1(object):
             self.secondary_language = secondary_language
         if timezone is not APIHelper.SKIP:
             self.timezone = timezone
-
-        # Add additional model properties to the instance
-        if additional_properties is None:
-            additional_properties = {}
-        self.additional_properties = additional_properties
 
     @classmethod
     def from_dictionary(cls,
@@ -85,16 +77,10 @@ class Localization1(object):
             if dictionary.get("timezone")\
                 else APIHelper.SKIP
 
-        additional_properties = APIHelper.get_additional_properties(
-            dictionary={k: v for k, v in dictionary.items()
-                        if k not in cls._names.values()},
-            unboxing_function=lambda value: value)
-
         # Return an object of this model
         return cls(language,
                    secondary_language,
-                   timezone,
-                   additional_properties)
+                   timezone)
 
     def __repr__(self):
         """Return a unambiguous string representation."""
@@ -113,13 +99,11 @@ class Localization1(object):
             if hasattr(self, "timezone")
             else None
         )
-        _additional_properties=self.additional_properties
         return (
             f"{self.__class__.__name__}("
             f"language={_language!r}, "
             f"secondary_language={_secondary_language!r}, "
             f"timezone={_timezone!r}, "
-            f"additional_properties={_additional_properties!r}, "
             f")"
         )
 
@@ -140,12 +124,10 @@ class Localization1(object):
             if hasattr(self, "timezone")
             else None
         )
-        _additional_properties=self.additional_properties
         return (
             f"{self.__class__.__name__}("
             f"language={_language!s}, "
             f"secondary_language={_secondary_language!s}, "
             f"timezone={_timezone!s}, "
-            f"additional_properties={_additional_properties!s}, "
             f")"
         )

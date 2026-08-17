@@ -11,20 +11,8 @@ from apimatic_core.types.parameter import Parameter
 from adyen.api_helper import APIHelper
 from adyen.apis.base_api import BaseApi
 from adyen.configuration import Server
-from adyen.exceptions.payment_instruments_authorised_card_users_400_error_exception import (  # noqa: E501
-    PaymentInstrumentsAuthorisedCardUsers400ErrorException,
-)
-from adyen.exceptions.payment_instruments_authorised_card_users_401_error_exception import (  # noqa: E501
-    PaymentInstrumentsAuthorisedCardUsers401ErrorException,
-)
-from adyen.exceptions.payment_instruments_authorised_card_users_403_error_exception import (  # noqa: E501
-    PaymentInstrumentsAuthorisedCardUsers403ErrorException,
-)
-from adyen.exceptions.payment_instruments_authorised_card_users_404_error_exception import (  # noqa: E501
-    PaymentInstrumentsAuthorisedCardUsers404ErrorException,
-)
-from adyen.exceptions.payment_instruments_authorised_card_users_422_error_exception import (  # noqa: E501
-    PaymentInstrumentsAuthorisedCardUsers422ErrorException,
+from adyen.exceptions.default_error_response_entity_exception import (
+    DefaultErrorResponseEntityException,
 )
 from adyen.http.http_method_enum import HttpMethodEnum
 from adyen.models.authorised_card_users import (
@@ -50,23 +38,21 @@ class AuthorizedCardUsersApi(BaseApi):
             payment_instrument_id (str): The request template parameter.
 
         Returns:
-            ApiResponse: An object with the response value as well as other useful
-                information such as status codes and headers. Successful operation
+            AuthorisedCardUsers: Response from the API. Successful operation
 
         Raises:
-            ApiException: When an error occurs while fetching the data from the
+            APIException: When an error occurs while fetching the data from the
                 remote API. This exception includes the HTTP Response code, an error
                 message, and the HTTP body that was received in the request.
 
         """
         return super().new_api_call_builder.request(
-            RequestBuilder().server(Server.DEFAULT)
+            RequestBuilder().server(Server.DEFAULT13)
             .path("/paymentInstruments/{paymentInstrumentId}/authorisedCardUsers")
             .http_method(HttpMethodEnum.GET)
             .template_param(Parameter()
                 .key("paymentInstrumentId")
                 .value(payment_instrument_id)
-                .is_required(True)
                 .should_encode(True))
             .header_param(Parameter()
                 .key("accept")
@@ -75,19 +61,12 @@ class AuthorizedCardUsersApi(BaseApi):
             ResponseHandler()
             .deserializer(APIHelper.json_deserialize)
             .deserialize_into(AuthorisedCardUsers.from_dictionary)
-            .is_api_response(True)
-            .local_error("401",
-                "Unauthorized",
-                PaymentInstrumentsAuthorisedCardUsers401ErrorException)
-            .local_error("403",
-                "Forbidden",
-                PaymentInstrumentsAuthorisedCardUsers403ErrorException)
-            .local_error("404",
-                "Not Found",
-                PaymentInstrumentsAuthorisedCardUsers404ErrorException)
+            .local_error("401", "Unauthorized", DefaultErrorResponseEntityException)
+            .local_error("403", "Forbidden", DefaultErrorResponseEntityException)
+            .local_error("404", "Not Found", DefaultErrorResponseEntityException)
             .local_error("422",
                 "Unprocessable Entity - a request validation error.",
-                PaymentInstrumentsAuthorisedCardUsers422ErrorException),
+                DefaultErrorResponseEntityException),
         ).execute()
 
     def post_payment_instruments_payment_instrument_id_authorised_card_users(self,
@@ -104,46 +83,28 @@ class AuthorizedCardUsersApi(BaseApi):
             body (AuthorisedCardUsers): The request body parameter.
 
         Returns:
-            ApiResponse: An object with the response value as well as other useful
-                information such as status codes and headers. Successful operation
+            void: Response from the API. Successful operation
 
         Raises:
-            ApiException: When an error occurs while fetching the data from the
+            APIException: When an error occurs while fetching the data from the
                 remote API. This exception includes the HTTP Response code, an error
                 message, and the HTTP body that was received in the request.
 
         """
         return super().new_api_call_builder.request(
-            RequestBuilder().server(Server.DEFAULT)
+            RequestBuilder().server(Server.DEFAULT13)
             .path("/paymentInstruments/{paymentInstrumentId}/authorisedCardUsers")
             .http_method(HttpMethodEnum.POST)
             .template_param(Parameter()
                 .key("paymentInstrumentId")
                 .value(payment_instrument_id)
-                .is_required(True)
                 .should_encode(True))
             .header_param(Parameter()
                 .key("Content-Type")
                 .value("application/json"))
             .body_param(Parameter()
-                .value(body)
-                .is_required(True))
+                .value(body))
             .body_serializer(APIHelper.json_serialize),
-        ).response(
-            ResponseHandler()
-            .is_api_response(True)
-            .local_error("400",
-                "Bad request",
-                PaymentInstrumentsAuthorisedCardUsers400ErrorException)
-            .local_error("401",
-                "Unauthorized",
-                PaymentInstrumentsAuthorisedCardUsers401ErrorException)
-            .local_error("403",
-                "Forbidden",
-                PaymentInstrumentsAuthorisedCardUsers403ErrorException)
-            .local_error("422",
-                "Unprocessable Entity - a request validation error.",
-                PaymentInstrumentsAuthorisedCardUsers422ErrorException),
         ).execute()
 
     def delete_payment_instruments_payment_instrument_id_authorised_card_users(self,
@@ -157,33 +118,22 @@ class AuthorizedCardUsersApi(BaseApi):
             payment_instrument_id (str): The request template parameter.
 
         Returns:
-            ApiResponse: An object with the response value as well as other useful
-                information such as status codes and headers. Successful operation
+            void: Response from the API. Successful operation
 
         Raises:
-            ApiException: When an error occurs while fetching the data from the
+            APIException: When an error occurs while fetching the data from the
                 remote API. This exception includes the HTTP Response code, an error
                 message, and the HTTP body that was received in the request.
 
         """
         return super().new_api_call_builder.request(
-            RequestBuilder().server(Server.DEFAULT)
+            RequestBuilder().server(Server.DEFAULT13)
             .path("/paymentInstruments/{paymentInstrumentId}/authorisedCardUsers")
             .http_method(HttpMethodEnum.DELETE)
             .template_param(Parameter()
                 .key("paymentInstrumentId")
                 .value(payment_instrument_id)
-                .is_required(True)
                 .should_encode(True)),
-        ).response(
-            ResponseHandler()
-            .is_api_response(True)
-            .local_error("401",
-                "Unauthorized",
-                PaymentInstrumentsAuthorisedCardUsers401ErrorException)
-            .local_error("403",
-                "Forbidden",
-                PaymentInstrumentsAuthorisedCardUsers403ErrorException),
         ).execute()
 
     def patch_payment_instruments_payment_instrument_id_authorised_card_users(self,
@@ -200,44 +150,26 @@ class AuthorizedCardUsersApi(BaseApi):
             body (AuthorisedCardUsers): The request body parameter.
 
         Returns:
-            ApiResponse: An object with the response value as well as other useful
-                information such as status codes and headers. Successful operation
+            void: Response from the API. Successful operation
 
         Raises:
-            ApiException: When an error occurs while fetching the data from the
+            APIException: When an error occurs while fetching the data from the
                 remote API. This exception includes the HTTP Response code, an error
                 message, and the HTTP body that was received in the request.
 
         """
         return super().new_api_call_builder.request(
-            RequestBuilder().server(Server.DEFAULT)
+            RequestBuilder().server(Server.DEFAULT13)
             .path("/paymentInstruments/{paymentInstrumentId}/authorisedCardUsers")
             .http_method(HttpMethodEnum.PATCH)
             .template_param(Parameter()
                 .key("paymentInstrumentId")
                 .value(payment_instrument_id)
-                .is_required(True)
                 .should_encode(True))
             .header_param(Parameter()
                 .key("Content-Type")
                 .value("application/json"))
             .body_param(Parameter()
-                .value(body)
-                .is_required(True))
+                .value(body))
             .body_serializer(APIHelper.json_serialize),
-        ).response(
-            ResponseHandler()
-            .is_api_response(True)
-            .local_error("400",
-                "Bad request",
-                PaymentInstrumentsAuthorisedCardUsers400ErrorException)
-            .local_error("401",
-                "Unauthorized",
-                PaymentInstrumentsAuthorisedCardUsers401ErrorException)
-            .local_error("403",
-                "Forbidden",
-                PaymentInstrumentsAuthorisedCardUsers403ErrorException)
-            .local_error("422",
-                "Unprocessable Entity - a request validation error.",
-                PaymentInstrumentsAuthorisedCardUsers422ErrorException),
         ).execute()

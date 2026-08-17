@@ -11,14 +11,8 @@ from apimatic_core.types.parameter import Parameter
 from adyen.api_helper import APIHelper
 from adyen.apis.base_api import BaseApi
 from adyen.configuration import Server
-from adyen.exceptions.disputes_401_error_exception import (
-    Disputes401ErrorException,
-)
-from adyen.exceptions.disputes_403_error_exception import (
-    Disputes403ErrorException,
-)
-from adyen.exceptions.disputes_422_error_exception import (
-    Disputes422ErrorException,
+from adyen.exceptions.default_error_response_entity_exception import (
+    DefaultErrorResponseEntityException,
 )
 from adyen.http.http_method_enum import HttpMethodEnum
 from adyen.models.dispute_response import DisputeResponse
@@ -65,18 +59,17 @@ class RaiseDisputesApi(BaseApi):
                 500 items. By default, the response returns 100 items per page.
 
         Returns:
-            ApiResponse: An object with the response value as well as other useful
-                information such as status codes and headers. OK - the request has
+            List[DisputeResponse]: Response from the API. OK - the request has
                 succeeded.
 
         Raises:
-            ApiException: When an error occurs while fetching the data from the
+            APIException: When an error occurs while fetching the data from the
                 remote API. This exception includes the HTTP Response code, an error
                 message, and the HTTP body that was received in the request.
 
         """
         return super().new_api_call_builder.request(
-            RequestBuilder().server(Server.DEFAULT)
+            RequestBuilder().server(Server.DEFAULT23)
             .path("/disputes")
             .http_method(HttpMethodEnum.GET)
             .query_param(Parameter()
@@ -104,14 +97,15 @@ class RaiseDisputesApi(BaseApi):
             ResponseHandler()
             .deserializer(APIHelper.json_deserialize)
             .deserialize_into(DisputeResponse.from_dictionary)
-            .is_api_response(True)
-            .local_error("401", "Authentication required.", Disputes401ErrorException)
+            .local_error("401",
+                "Authentication required.",
+                DefaultErrorResponseEntityException)
             .local_error("403",
                 "Insufficient permissions to process the request.",
-                Disputes403ErrorException)
+                DefaultErrorResponseEntityException)
             .local_error("422",
                 "A request validation error.",
-                Disputes422ErrorException),
+                DefaultErrorResponseEntityException),
         ).execute()
 
     def post_disputes(self,
@@ -129,26 +123,23 @@ class RaiseDisputesApi(BaseApi):
             body (DisputeRequest): The request body parameter.
 
         Returns:
-            ApiResponse: An object with the response value as well as other useful
-                information such as status codes and headers. OK - the request has
-                succeeded.
+            DisputeResponse: Response from the API. OK - the request has succeeded.
 
         Raises:
-            ApiException: When an error occurs while fetching the data from the
+            APIException: When an error occurs while fetching the data from the
                 remote API. This exception includes the HTTP Response code, an error
                 message, and the HTTP body that was received in the request.
 
         """
         return super().new_api_call_builder.request(
-            RequestBuilder().server(Server.DEFAULT)
+            RequestBuilder().server(Server.DEFAULT23)
             .path("/disputes")
             .http_method(HttpMethodEnum.POST)
             .header_param(Parameter()
                 .key("Content-Type")
                 .value("application/json"))
             .body_param(Parameter()
-                .value(body)
-                .is_required(True))
+                .value(body))
             .header_param(Parameter()
                 .key("accept")
                 .value("application/json"))
@@ -157,14 +148,15 @@ class RaiseDisputesApi(BaseApi):
             ResponseHandler()
             .deserializer(APIHelper.json_deserialize)
             .deserialize_into(DisputeResponse.from_dictionary)
-            .is_api_response(True)
-            .local_error("401", "Authentication required.", Disputes401ErrorException)
+            .local_error("401",
+                "Authentication required.",
+                DefaultErrorResponseEntityException)
             .local_error("403",
                 "Insufficient permissions to process the request.",
-                Disputes403ErrorException)
+                DefaultErrorResponseEntityException)
             .local_error("422",
                 "A request validation error.",
-                Disputes422ErrorException),
+                DefaultErrorResponseEntityException),
         ).execute()
 
     def get_disputes_id(self,
@@ -177,24 +169,21 @@ class RaiseDisputesApi(BaseApi):
             id (str): The unique identifier of the raised dispute.
 
         Returns:
-            ApiResponse: An object with the response value as well as other useful
-                information such as status codes and headers. OK - the request has
-                succeeded.
+            DisputeResponse: Response from the API. OK - the request has succeeded.
 
         Raises:
-            ApiException: When an error occurs while fetching the data from the
+            APIException: When an error occurs while fetching the data from the
                 remote API. This exception includes the HTTP Response code, an error
                 message, and the HTTP body that was received in the request.
 
         """
         return super().new_api_call_builder.request(
-            RequestBuilder().server(Server.DEFAULT)
+            RequestBuilder().server(Server.DEFAULT23)
             .path("/disputes/{id}")
             .http_method(HttpMethodEnum.GET)
             .template_param(Parameter()
                 .key("id")
                 .value(id)
-                .is_required(True)
                 .should_encode(True))
             .header_param(Parameter()
                 .key("accept")
@@ -203,14 +192,15 @@ class RaiseDisputesApi(BaseApi):
             ResponseHandler()
             .deserializer(APIHelper.json_deserialize)
             .deserialize_into(DisputeResponse.from_dictionary)
-            .is_api_response(True)
-            .local_error("401", "Authentication required.", Disputes401ErrorException)
+            .local_error("401",
+                "Authentication required.",
+                DefaultErrorResponseEntityException)
             .local_error("403",
                 "Insufficient permissions to process the request.",
-                Disputes403ErrorException)
+                DefaultErrorResponseEntityException)
             .local_error("422",
                 "A request validation error.",
-                Disputes422ErrorException),
+                DefaultErrorResponseEntityException),
         ).execute()
 
     def patch_disputes_id(self,
@@ -234,24 +224,21 @@ class RaiseDisputesApi(BaseApi):
             body (PatchableDisputeRequest, optional): The request body parameter.
 
         Returns:
-            ApiResponse: An object with the response value as well as other useful
-                information such as status codes and headers. OK - the request has
-                succeeded.
+            DisputeResponse: Response from the API. OK - the request has succeeded.
 
         Raises:
-            ApiException: When an error occurs while fetching the data from the
+            APIException: When an error occurs while fetching the data from the
                 remote API. This exception includes the HTTP Response code, an error
                 message, and the HTTP body that was received in the request.
 
         """
         return super().new_api_call_builder.request(
-            RequestBuilder().server(Server.DEFAULT)
+            RequestBuilder().server(Server.DEFAULT23)
             .path("/disputes/{id}")
             .http_method(HttpMethodEnum.PATCH)
             .template_param(Parameter()
                 .key("id")
                 .value(id)
-                .is_required(True)
                 .should_encode(True))
             .header_param(Parameter()
                 .key("Content-Type")
@@ -266,12 +253,13 @@ class RaiseDisputesApi(BaseApi):
             ResponseHandler()
             .deserializer(APIHelper.json_deserialize)
             .deserialize_into(DisputeResponse.from_dictionary)
-            .is_api_response(True)
-            .local_error("401", "Authentication required.", Disputes401ErrorException)
+            .local_error("401",
+                "Authentication required.",
+                DefaultErrorResponseEntityException)
             .local_error("403",
                 "Insufficient permissions to process the request.",
-                Disputes403ErrorException)
+                DefaultErrorResponseEntityException)
             .local_error("422",
                 "A request validation error.",
-                Disputes422ErrorException),
+                DefaultErrorResponseEntityException),
         ).execute()

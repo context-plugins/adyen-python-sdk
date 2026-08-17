@@ -10,12 +10,10 @@ payments_api = client.payments
 
 ## Methods
 
-* [Post-Payments-Cancel](../../doc/controllers/payments.md#post-payments-cancel)
-* [Post-Payments-Confirm](../../doc/controllers/payments.md#post-payments-confirm)
-* [Post-Payments-Details](../../doc/controllers/payments.md#post-payments-details)
 * [Post-Card Details](../../doc/controllers/payments.md#post-card-details)
 * [Post-Payment Methods](../../doc/controllers/payments.md#post-payment-methods)
 * [Post-Payments](../../doc/controllers/payments.md#post-payments)
+* [Post-Payments-Details](../../doc/controllers/payments.md#post-payments-details)
 * [Post-Sessions](../../doc/controllers/payments.md#post-sessions)
 * [Get-Sessions-Session Id](../../doc/controllers/payments.md#get-sessions-session-id)
 * [Post-Authorise](../../doc/controllers/payments.md#post-authorise)
@@ -23,211 +21,9 @@ payments_api = client.payments
 * [Post-Authorise 3 Ds 2](../../doc/controllers/payments.md#post-authorise-3-ds-2)
 * [Post-Get Authentication Result](../../doc/controllers/payments.md#post-get-authentication-result)
 * [Post-Retrieve 3 Ds 2 Result](../../doc/controllers/payments.md#post-retrieve-3-ds-2-result)
-
-
-# Post-Payments-Cancel
-
-Cancels the payment. Returns a URL for user redirection.
-
-:information_source: **Note** This endpoint does not require authentication.
-
-```python
-def post_payments_cancel(self,
-                        body)
-```
-
-## Parameters
-
-| Parameter | Type | Tags | Description |
-|  --- | --- | --- | --- |
-| `body` | [`CancelPaymentRequest`](../../doc/models/cancel-payment-request.md) | Body, Required | - |
-
-## Response Type
-
-**200**: OK - The request has succeeded.
-
-This method returns an [`ApiResponse`](../../doc/api-response.md) instance. The `body` property of this instance returns the response data which is of type [`CancelPaymentResponse`](../../doc/models/cancel-payment-response.md).
-
-## Example Usage
-
-```python
-body = CancelPaymentRequest(
-    token='TOKEN_PLACEHOLDER'
-)
-
-result = payments_api.post_payments_cancel(body)
-
-if result.is_success():
-    print(result.body)
-elif result.is_error():
-    print(result.errors)
-```
-
-## Example Response *(as JSON)*
-
-```json
-{
-  "links": {
-    "cancel": {
-      "href": "https://cancelUrl.com"
-    }
-  }
-}
-```
-
-## Errors
-
-| HTTP Status Code | Error Description | Exception Class |
-|  --- | --- | --- |
-| 400 | Bad Request - The request is malformed or is not the expected format. | [`PaymentsCancel400ErrorException`](../../doc/models/payments-cancel-400-error-exception.md) |
-| 422 | Unprocessable Entity - A request validation error. | [`PaymentsCancel422ErrorException`](../../doc/models/payments-cancel-422-error-exception.md) |
-| 500 | Internal Service Error - An unrecoverable error occurred while trying to perform the request. | [`PaymentsCancel500ErrorException`](../../doc/models/payments-cancel-500-error-exception.md) |
-
-
-# Post-Payments-Confirm
-
-Confirms the payment using Strong Customer Authentication (SCA).
-
-    To confirm a payment you must make this request two times:
-    
-    1. Make this request to initiate SCA and receive the WWW-Authenticate header.
-    2. After the user completes the SCA challenge, make this request again, including the updated WWW-Authenticate header.
-    
-    The second response provides a redirection URL that guides the user to a payment success or failure page.
-
-For more information, see our [documentation](https://docs.adyen.com/business-accounts/send-funds-ideal-integration).
-
-:information_source: **Note** This endpoint does not require authentication.
-
-```python
-def post_payments_confirm(self,
-                         body,
-                         www_authenticate=None)
-```
-
-## Parameters
-
-| Parameter | Type | Tags | Description |
-|  --- | --- | --- | --- |
-| `body` | [`ConfirmPaymentRequest`](../../doc/models/confirm-payment-request.md) | Body, Required | - |
-| `www_authenticate` | `str` | Header, Optional | Header for authenticating through SCA: Contains information for an SCA challenge for A2A payments. |
-
-## Response Type
-
-**200**: OK - The request has succeeded.
-
-This method returns an [`ApiResponse`](../../doc/api-response.md) instance. The `body` property of this instance returns the response data which is of type [`ConfirmPaymentResponse`](../../doc/models/confirm-payment-response.md).
-
-## Example Usage
-
-```python
-body = ConfirmPaymentRequest(
-    balance_account_id='BA00000000000000000000000',
-    token='TOKEN_PLACEHOLDER'
-)
-
-result = payments_api.post_payments_confirm(body)
-
-if result.is_success():
-    print(result.body)
-elif result.is_error():
-    print(result.errors)
-```
-
-## Example Response *(as JSON)*
-
-```json
-{
-  "links": {
-    "success": {
-      "href": "https://successUrl.com"
-    }
-  }
-}
-```
-
-## Errors
-
-| HTTP Status Code | Error Description | Exception Class |
-|  --- | --- | --- |
-| 400 | Bad Request - The request is malformed or is not the expected format. | [`PaymentsConfirm400ErrorException`](../../doc/models/payments-confirm-400-error-exception.md) |
-| 401 | Unauthorized - The API credential used in the request is invalid or does not have the right permissions. | [`PaymentsConfirm401ErrorException`](../../doc/models/payments-confirm-401-error-exception.md) |
-| 422 | Unprocessable Entity - A request validation error. | [`PaymentsConfirm422ErrorException`](../../doc/models/payments-confirm-422-error-exception.md) |
-| 500 | Internal Service Error - An unrecoverable error occurred while trying to perform the request. | [`PaymentsConfirm500ErrorException`](../../doc/models/payments-confirm-500-error-exception.md) |
-
-
-# Post-Payments-Details
-
-Returns the details of an open payment, which you must show to the user. Also provides a token required to [confirm](https://docs.adyen.com/api-explorer/a2a-payments/latest/post/payments/confirm) or [cancel](https://docs.adyen.com/api-explorer/a2a-payments/latest/post/payments/cancel) the payment.
-
-:information_source: **Note** This endpoint does not require authentication.
-
-```python
-def post_payments_details(self,
-                         body)
-```
-
-## Parameters
-
-| Parameter | Type | Tags | Description |
-|  --- | --- | --- | --- |
-| `body` | [`IdealPaymentDetailsRequest`](../../doc/models/ideal-payment-details-request.md) | Body, Required | - |
-
-## Response Type
-
-**200**: OK - The request has succeeded.
-
-This method returns an [`ApiResponse`](../../doc/api-response.md) instance. The `body` property of this instance returns the response data which is of type [`PaymentDetailsResponse`](../../doc/models/payment-details-response.md).
-
-## Example Usage
-
-```python
-body = IdealPaymentDetailsRequest(
-    payload='https://ext.tx.ideal.nl/2/AXE4R72TLPRCRN6Y4FDZX7MZHJQ?sig=BGBCQEIIA2F3CF7KR2SVLSJEDUJABL62V7TI4Y2LJPJIJBZEP6HXCHXPQCLTAEIB2FNUD3COVRNIT27TT7NFKYD5UJCUY4NMPS4NUCTKA6KIBHSRXWI',
-    source=PaymentSource2.REDIRECT,
-    method='ideal'
-)
-
-result = payments_api.post_payments_details(body)
-
-if result.is_success():
-    print(result.body)
-elif result.is_error():
-    print(result.errors)
-```
-
-## Example Response *(as JSON)*
-
-```json
-{
-  "details": {
-    "amount": {
-      "currency": "EUR",
-      "value": 200
-    },
-    "counterparty": {
-      "accountHolder": {
-        "fullName": "Test company"
-      },
-      "accountIdentification": {
-        "iban": "NL29ADYX0000000000",
-        "type": "iban"
-      }
-    },
-    "description": "MyStoreDemo-Donation-1754056596388",
-    "expiresAt": "2025-08-01T14:16:42.887Z"
-  },
-  "token": "TOKEN_PLACEHOLDER"
-}
-```
-
-## Errors
-
-| HTTP Status Code | Error Description | Exception Class |
-|  --- | --- | --- |
-| 400 | Bad Request - The request is malformed or is not the expected format. | [`PaymentsDetails400ErrorException`](../../doc/models/payments-details-400-error-exception.md) |
-| 422 | Unprocessable Entity - A request validation error. | [`PaymentsDetails422ErrorException`](../../doc/models/payments-details-422-error-exception.md) |
-| 500 | Internal Service Error - An unrecoverable error occurred while trying to perform the request. | [`PaymentsDetails500ErrorException`](../../doc/models/payments-details-500-error-exception.md) |
+* [Post-Payments-Cancel](../../doc/controllers/payments.md#post-payments-cancel)
+* [Post-Payments-Confirm](../../doc/controllers/payments.md#post-payments-confirm)
+* [Post-Payments-Details 1](../../doc/controllers/payments.md#post-payments-details-1)
 
 
 # Post-Card Details
@@ -280,7 +76,7 @@ This endpoint requires [BasicAuth](../../doc/auth/basic-authentication.md) **OR*
 
 **200**: OK - the request has succeeded.
 
-This method returns an [`ApiResponse`](../../doc/api-response.md) instance. The `body` property of this instance returns the response data which is of type [`CardDetailsResponse`](../../doc/models/card-details-response.md).
+[`CardDetailsResponse`](../../doc/models/card-details-response.md)
 
 ## Example Usage
 
@@ -293,11 +89,7 @@ body = CardDetailsRequest(
 result = payments_api.post_card_details(
     body=body
 )
-
-if result.is_success():
-    print(result.body)
-elif result.is_error():
-    print(result.errors)
+print(result)
 ```
 
 ## Example Response *(as JSON)*
@@ -346,7 +138,7 @@ This endpoint requires [BasicAuth](../../doc/auth/basic-authentication.md) **OR*
 
 **200**: OK - the request has succeeded.
 
-This method returns an [`ApiResponse`](../../doc/api-response.md) instance. The `body` property of this instance returns the response data which is of type [`PaymentMethodsResponse`](../../doc/models/payment-methods-response.md).
+[`PaymentMethodsResponse`](../../doc/models/payment-methods-response.md)
 
 ## Example Usage
 
@@ -358,11 +150,7 @@ body = PaymentMethodsRequest(
 result = payments_api.post_payment_methods(
     body=body
 )
-
-if result.is_success():
-    print(result.body)
-elif result.is_error():
-    print(result.errors)
+print(result)
 ```
 
 ## Example Response *(as JSON)*
@@ -1426,11 +1214,11 @@ elif result.is_error():
 
 | HTTP Status Code | Error Description | Exception Class |
 |  --- | --- | --- |
-| 400 | Bad Request - a problem reading or understanding the request. | [`ServiceError1Exception`](../../doc/models/service-error-1-exception.md) |
-| 401 | Unauthorized - authentication required. | [`ServiceError1Exception`](../../doc/models/service-error-1-exception.md) |
-| 403 | Forbidden - insufficient permissions to process the request. | [`ServiceError1Exception`](../../doc/models/service-error-1-exception.md) |
-| 422 | Unprocessable Entity - a request validation error. | [`ServiceError1Exception`](../../doc/models/service-error-1-exception.md) |
-| 500 | Internal Server Error - the server could not process the request. | [`ServiceError1Exception`](../../doc/models/service-error-1-exception.md) |
+| 400 | Bad Request - a problem reading or understanding the request. | [`ServiceErrorException`](../../doc/models/service-error-exception.md) |
+| 401 | Unauthorized - authentication required. | [`ServiceErrorException`](../../doc/models/service-error-exception.md) |
+| 403 | Forbidden - insufficient permissions to process the request. | [`ServiceErrorException`](../../doc/models/service-error-exception.md) |
+| 422 | Unprocessable Entity - a request validation error. | [`ServiceErrorException`](../../doc/models/service-error-exception.md) |
+| 500 | Internal Server Error - the server could not process the request. | [`ServiceErrorException`](../../doc/models/service-error-exception.md) |
 
 
 # Post-Payments
@@ -1462,20 +1250,20 @@ This endpoint requires [BasicAuth](../../doc/auth/basic-authentication.md) **OR*
 
 **200**: OK - the request has succeeded.
 
-This method returns an [`ApiResponse`](../../doc/api-response.md) instance. The `body` property of this instance returns the response data which is of type [`PaymentResponse`](../../doc/models/payment-response.md).
+[`PaymentResponse`](../../doc/models/payment-response.md)
 
 ## Example Usage
 
 ```python
 body = PaymentRequest(
-    amount=Amount16(
+    amount=Amount2(
         currency='USD',
         value=1000
     ),
     merchant_account='YOUR_MERCHANT_ACCOUNT',
     payment_method=ApplePayDetails(
         apple_pay_token='VNRWtuNlNEWkRCSm1xWndjMDFFbktkQU...',
-        mtype=Type71.APPLEPAY
+        mtype=Type7Enum.APPLEPAY
     ),
     reference='Your order number',
     return_url='https://your-company.example.com/...'
@@ -1484,11 +1272,7 @@ body = PaymentRequest(
 result = payments_api.post_payments(
     body=body
 )
-
-if result.is_success():
-    print(result.body)
-elif result.is_error():
-    print(result.errors)
+print(result)
 ```
 
 ## Example Response *(as JSON)*
@@ -1511,11 +1295,73 @@ elif result.is_error():
 
 | HTTP Status Code | Error Description | Exception Class |
 |  --- | --- | --- |
-| 400 | Bad Request - a problem reading or understanding the request. | [`ServiceError1Exception`](../../doc/models/service-error-1-exception.md) |
-| 401 | Unauthorized - authentication required. | [`ServiceError1Exception`](../../doc/models/service-error-1-exception.md) |
-| 403 | Forbidden - insufficient permissions to process the request. | [`ServiceError1Exception`](../../doc/models/service-error-1-exception.md) |
-| 422 | Unprocessable Entity - a request validation error. | [`ServiceError1Exception`](../../doc/models/service-error-1-exception.md) |
-| 500 | Internal Server Error - the server could not process the request. | [`ServiceError1Exception`](../../doc/models/service-error-1-exception.md) |
+| 400 | Bad Request - a problem reading or understanding the request. | [`ServiceErrorException`](../../doc/models/service-error-exception.md) |
+| 401 | Unauthorized - authentication required. | [`ServiceErrorException`](../../doc/models/service-error-exception.md) |
+| 403 | Forbidden - insufficient permissions to process the request. | [`ServiceErrorException`](../../doc/models/service-error-exception.md) |
+| 422 | Unprocessable Entity - a request validation error. | [`ServiceErrorException`](../../doc/models/service-error-exception.md) |
+| 500 | Internal Server Error - the server could not process the request. | [`ServiceErrorException`](../../doc/models/service-error-exception.md) |
+
+
+# Post-Payments-Details
+
+Submits details for a payment created using `/payments`. This step is only needed when no final state has been reached on the `/payments` request, for example when the shopper was redirected to another page to complete the payment.
+
+```python
+def post_payments_details(self,
+                         idempotency_key=None,
+                         body=None)
+```
+
+## Authentication
+
+This endpoint requires [BasicAuth](../../doc/auth/basic-authentication.md) **OR** [ApiKeyAuth](../../doc/auth/custom-header-signature.md)
+
+## Parameters
+
+| Parameter | Type | Tags | Description |
+|  --- | --- | --- | --- |
+| `idempotency_key` | `str` | Header, Optional | A unique identifier for the message with a maximum of 64 characters (we recommend a UUID). |
+| `body` | [`PaymentDetailsRequest`](../../doc/models/payment-details-request.md) | Body, Optional | - |
+
+## Response Type
+
+**200**: OK - the request has succeeded.
+
+[`PaymentDetailsResponse`](../../doc/models/payment-details-response.md)
+
+## Example Usage
+
+```python
+body = PaymentDetailsRequest(
+    details=PaymentCompletionDetails1(
+        redirect_result='X6XtfGC3!Y...'
+    )
+)
+
+result = payments_api.post_payments_details(
+    body=body
+)
+print(result)
+```
+
+## Example Response *(as JSON)*
+
+```json
+{
+  "resultCode": "Authorised",
+  "pspReference": "V4HZ4RBFJGXXGN82"
+}
+```
+
+## Errors
+
+| HTTP Status Code | Error Description | Exception Class |
+|  --- | --- | --- |
+| 400 | Bad Request - a problem reading or understanding the request. | [`ServiceErrorException`](../../doc/models/service-error-exception.md) |
+| 401 | Unauthorized - authentication required. | [`ServiceErrorException`](../../doc/models/service-error-exception.md) |
+| 403 | Forbidden - insufficient permissions to process the request. | [`ServiceErrorException`](../../doc/models/service-error-exception.md) |
+| 422 | Unprocessable Entity - a request validation error. | [`ServiceErrorException`](../../doc/models/service-error-exception.md) |
+| 500 | Internal Server Error - the server could not process the request. | [`ServiceErrorException`](../../doc/models/service-error-exception.md) |
 
 
 # Post-Sessions
@@ -1547,13 +1393,13 @@ This endpoint requires [BasicAuth](../../doc/auth/basic-authentication.md) **OR*
 
 **201**: Created - the request has been fulfilled and has resulted in one or more new resources being created.
 
-This method returns an [`ApiResponse`](../../doc/api-response.md) instance. The `body` property of this instance returns the response data which is of type [`CreateCheckoutSessionResponse`](../../doc/models/create-checkout-session-response.md).
+[`CreateCheckoutSessionResponse`](../../doc/models/create-checkout-session-response.md)
 
 ## Example Usage
 
 ```python
 body = CreateCheckoutSessionRequest(
-    amount=Amount16(
+    amount=Amount18(
         currency='EUR',
         value=100
     ),
@@ -1566,11 +1412,7 @@ body = CreateCheckoutSessionRequest(
 result = payments_api.post_sessions(
     body=body
 )
-
-if result.is_success():
-    print(result.body)
-elif result.is_error():
-    print(result.errors)
+print(result)
 ```
 
 ## Example Response *(as JSON)*
@@ -1617,7 +1459,7 @@ This endpoint requires [BasicAuth](../../doc/auth/basic-authentication.md) **OR*
 
 **200**: OK - the request has succeeded.
 
-This method returns an [`ApiResponse`](../../doc/api-response.md) instance. The `body` property of this instance returns the response data which is of type [`SessionResultResponse`](../../doc/models/session-result-response.md).
+[`SessionResultResponse`](../../doc/models/session-result-response.md)
 
 ## Example Usage
 
@@ -1630,11 +1472,7 @@ result = payments_api.get_sessions_session_id(
     session_id,
     session_result
 )
-
-if result.is_success():
-    print(result.body)
-elif result.is_error():
-    print(result.errors)
+print(result)
 ```
 
 ## Example Response *(as JSON)*
@@ -1677,22 +1515,22 @@ This endpoint requires [BasicAuth](../../doc/auth/basic-authentication.md) **OR*
 
 **200**: OK - the request has succeeded.
 
-This method returns an [`ApiResponse`](../../doc/api-response.md) instance. The `body` property of this instance returns the response data which is of type [`PaymentResult`](../../doc/models/payment-result.md).
+[`PaymentResult`](../../doc/models/payment-result.md)
 
 ## Example Usage
 
 ```python
 body = PaymentRequest1(
-    amount=Amount16(
+    amount=Amount(
         currency='USD',
         value=1500
     ),
     merchant_account='YOUR_MERCHANT_ACCOUNT',
     reference='YOUR_REFERENCE_NUMBER',
-    account_info=AccountInfo2(
+    account_info=AccountInfo(
         account_creation_date=dateutil.parser.parse('2019-01-17T13:42:40+01:00')
     ),
-    billing_address=BillingAddress7(
+    billing_address=Address(
         city='New York',
         country='US',
         house_number_or_name='37C',
@@ -1700,7 +1538,7 @@ body = PaymentRequest1(
         street='Redwood Block',
         state_or_province='NY'
     ),
-    browser_info=BrowserInfo2(
+    browser_info=BrowserInfo(
         accept_header='text/html,application/xhtml+xml,application/xml;q=0.9,image/webp,image/apng,*/*;q=0.8',
         color_depth=24,
         java_enabled=False,
@@ -1710,7 +1548,7 @@ body = PaymentRequest1(
         time_zone_offset=0,
         user_agent='Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/70.0.3538.110 Safari/537.36'
     ),
-    card=Card6(
+    card=Card3(
         cvc='737',
         expiry_month='03',
         expiry_year='2030',
@@ -1719,7 +1557,7 @@ body = PaymentRequest1(
     ),
     shopper_email='s.hopper@test.com',
     shopper_ip='192.0.2.1',
-    three_ds_2_request_data=ThreeDs2RequestData1(
+    three_ds_2_request_data=ThreeDS2RequestData11(
         device_channel='browser',
         notification_url='https://www.example.com/YOUR_3DS_NOTIFICATION_URL'
     )
@@ -1728,22 +1566,18 @@ body = PaymentRequest1(
 result = payments_api.post_authorise(
     body=body
 )
-
-if result.is_success():
-    print(result.body)
-elif result.is_error():
-    print(result.errors)
+print(result)
 ```
 
 ## Errors
 
 | HTTP Status Code | Error Description | Exception Class |
 |  --- | --- | --- |
-| 400 | Bad Request - a problem reading or understanding the request. | [`ServiceError1Exception`](../../doc/models/service-error-1-exception.md) |
-| 401 | Unauthorized - authentication required. | [`ServiceError1Exception`](../../doc/models/service-error-1-exception.md) |
-| 403 | Forbidden - insufficient permissions to process the request. | [`ServiceError1Exception`](../../doc/models/service-error-1-exception.md) |
-| 422 | Unprocessable Entity - a request validation error. | [`ServiceError1Exception`](../../doc/models/service-error-1-exception.md) |
-| 500 | Internal Server Error - the server could not process the request. | [`ServiceError1Exception`](../../doc/models/service-error-1-exception.md) |
+| 400 | Bad Request - a problem reading or understanding the request. | [`ServiceErrorException`](../../doc/models/service-error-exception.md) |
+| 401 | Unauthorized - authentication required. | [`ServiceErrorException`](../../doc/models/service-error-exception.md) |
+| 403 | Forbidden - insufficient permissions to process the request. | [`ServiceErrorException`](../../doc/models/service-error-exception.md) |
+| 422 | Unprocessable Entity - a request validation error. | [`ServiceErrorException`](../../doc/models/service-error-exception.md) |
+| 500 | Internal Server Error - the server could not process the request. | [`ServiceErrorException`](../../doc/models/service-error-exception.md) |
 
 
 # Post-Authorise 3 D
@@ -1770,18 +1604,18 @@ This endpoint requires [BasicAuth](../../doc/auth/basic-authentication.md) **OR*
 
 | Parameter | Type | Tags | Description |
 |  --- | --- | --- | --- |
-| `body` | [`PaymentRequest3D`](../../doc/models/payment-request-3-d.md) | Body, Optional | - |
+| `body` | [`PaymentRequest3d`](../../doc/models/payment-request-3-d.md) | Body, Optional | - |
 
 ## Response Type
 
 **200**: OK - the request has succeeded.
 
-This method returns an [`ApiResponse`](../../doc/api-response.md) instance. The `body` property of this instance returns the response data which is of type [`PaymentResult`](../../doc/models/payment-result.md).
+[`PaymentResult`](../../doc/models/payment-result.md)
 
 ## Example Usage
 
 ```python
-body = PaymentRequest3D(
+body = PaymentRequest3d(
     md='31h..........vOXek7w',
     merchant_account='YOUR_MERCHANT_ACCOUNT',
     pa_response='eNqtmF........wGVA4Ch',
@@ -1791,22 +1625,18 @@ body = PaymentRequest3D(
 result = payments_api.post_authorise_3_d(
     body=body
 )
-
-if result.is_success():
-    print(result.body)
-elif result.is_error():
-    print(result.errors)
+print(result)
 ```
 
 ## Errors
 
 | HTTP Status Code | Error Description | Exception Class |
 |  --- | --- | --- |
-| 400 | Bad Request - a problem reading or understanding the request. | [`ServiceError1Exception`](../../doc/models/service-error-1-exception.md) |
-| 401 | Unauthorized - authentication required. | [`ServiceError1Exception`](../../doc/models/service-error-1-exception.md) |
-| 403 | Forbidden - insufficient permissions to process the request. | [`ServiceError1Exception`](../../doc/models/service-error-1-exception.md) |
-| 422 | Unprocessable Entity - a request validation error. | [`ServiceError1Exception`](../../doc/models/service-error-1-exception.md) |
-| 500 | Internal Server Error - the server could not process the request. | [`ServiceError1Exception`](../../doc/models/service-error-1-exception.md) |
+| 400 | Bad Request - a problem reading or understanding the request. | [`ServiceErrorException`](../../doc/models/service-error-exception.md) |
+| 401 | Unauthorized - authentication required. | [`ServiceErrorException`](../../doc/models/service-error-exception.md) |
+| 403 | Forbidden - insufficient permissions to process the request. | [`ServiceErrorException`](../../doc/models/service-error-exception.md) |
+| 422 | Unprocessable Entity - a request validation error. | [`ServiceErrorException`](../../doc/models/service-error-exception.md) |
+| 500 | Internal Server Error - the server could not process the request. | [`ServiceErrorException`](../../doc/models/service-error-exception.md) |
 
 
 # Post-Authorise 3 Ds 2
@@ -1833,25 +1663,25 @@ This endpoint requires [BasicAuth](../../doc/auth/basic-authentication.md) **OR*
 
 | Parameter | Type | Tags | Description |
 |  --- | --- | --- | --- |
-| `body` | [`PaymentRequest3Ds2`](../../doc/models/payment-request-3-ds-2.md) | Body, Optional | - |
+| `body` | [`PaymentRequest3ds2`](../../doc/models/payment-request-3-ds-2.md) | Body, Optional | - |
 
 ## Response Type
 
 **200**: OK - the request has succeeded.
 
-This method returns an [`ApiResponse`](../../doc/api-response.md) instance. The `body` property of this instance returns the response data which is of type [`PaymentResult`](../../doc/models/payment-result.md).
+[`PaymentResult`](../../doc/models/payment-result.md)
 
 ## Example Usage
 
 ```python
-body = PaymentRequest3Ds2(
-    amount=Amount16(
+body = PaymentRequest3ds2(
+    amount=Amount(
         currency='EUR',
         value=1000
     ),
     merchant_account='YOUR_MERCHANT_ACCOUNT',
     reference='YOUR_ORDER_NUMBER',
-    three_ds_2_request_data=ThreeDs2RequestData1(
+    three_ds_2_request_data=ThreeDS2RequestData11(
         device_channel='app',
         three_ds_comp_ind='Y'
     ),
@@ -1861,22 +1691,18 @@ body = PaymentRequest3Ds2(
 result = payments_api.post_authorise_3_ds_2(
     body=body
 )
-
-if result.is_success():
-    print(result.body)
-elif result.is_error():
-    print(result.errors)
+print(result)
 ```
 
 ## Errors
 
 | HTTP Status Code | Error Description | Exception Class |
 |  --- | --- | --- |
-| 400 | Bad Request - a problem reading or understanding the request. | [`ServiceError1Exception`](../../doc/models/service-error-1-exception.md) |
-| 401 | Unauthorized - authentication required. | [`ServiceError1Exception`](../../doc/models/service-error-1-exception.md) |
-| 403 | Forbidden - insufficient permissions to process the request. | [`ServiceError1Exception`](../../doc/models/service-error-1-exception.md) |
-| 422 | Unprocessable Entity - a request validation error. | [`ServiceError1Exception`](../../doc/models/service-error-1-exception.md) |
-| 500 | Internal Server Error - the server could not process the request. | [`ServiceError1Exception`](../../doc/models/service-error-1-exception.md) |
+| 400 | Bad Request - a problem reading or understanding the request. | [`ServiceErrorException`](../../doc/models/service-error-exception.md) |
+| 401 | Unauthorized - authentication required. | [`ServiceErrorException`](../../doc/models/service-error-exception.md) |
+| 403 | Forbidden - insufficient permissions to process the request. | [`ServiceErrorException`](../../doc/models/service-error-exception.md) |
+| 422 | Unprocessable Entity - a request validation error. | [`ServiceErrorException`](../../doc/models/service-error-exception.md) |
+| 500 | Internal Server Error - the server could not process the request. | [`ServiceErrorException`](../../doc/models/service-error-exception.md) |
 
 
 # Post-Get Authentication Result
@@ -1902,7 +1728,7 @@ This endpoint requires [BasicAuth](../../doc/auth/basic-authentication.md) **OR*
 
 **200**: OK - the request has succeeded.
 
-This method returns an [`ApiResponse`](../../doc/api-response.md) instance. The `body` property of this instance returns the response data which is of type [`AuthenticationResultResponse`](../../doc/models/authentication-result-response.md).
+[`AuthenticationResultResponse`](../../doc/models/authentication-result-response.md)
 
 ## Example Usage
 
@@ -1915,22 +1741,18 @@ body = AuthenticationResultRequest(
 result = payments_api.post_get_authentication_result(
     body=body
 )
-
-if result.is_success():
-    print(result.body)
-elif result.is_error():
-    print(result.errors)
+print(result)
 ```
 
 ## Errors
 
 | HTTP Status Code | Error Description | Exception Class |
 |  --- | --- | --- |
-| 400 | Bad Request - a problem reading or understanding the request. | [`ServiceError1Exception`](../../doc/models/service-error-1-exception.md) |
-| 401 | Unauthorized - authentication required. | [`ServiceError1Exception`](../../doc/models/service-error-1-exception.md) |
-| 403 | Forbidden - insufficient permissions to process the request. | [`ServiceError1Exception`](../../doc/models/service-error-1-exception.md) |
-| 422 | Unprocessable Entity - a request validation error. | [`ServiceError1Exception`](../../doc/models/service-error-1-exception.md) |
-| 500 | Internal Server Error - the server could not process the request. | [`ServiceError1Exception`](../../doc/models/service-error-1-exception.md) |
+| 400 | Bad Request - a problem reading or understanding the request. | [`ServiceErrorException`](../../doc/models/service-error-exception.md) |
+| 401 | Unauthorized - authentication required. | [`ServiceErrorException`](../../doc/models/service-error-exception.md) |
+| 403 | Forbidden - insufficient permissions to process the request. | [`ServiceErrorException`](../../doc/models/service-error-exception.md) |
+| 422 | Unprocessable Entity - a request validation error. | [`ServiceErrorException`](../../doc/models/service-error-exception.md) |
+| 500 | Internal Server Error - the server could not process the request. | [`ServiceErrorException`](../../doc/models/service-error-exception.md) |
 
 
 # Post-Retrieve 3 Ds 2 Result
@@ -1950,18 +1772,18 @@ This endpoint requires [BasicAuth](../../doc/auth/basic-authentication.md) **OR*
 
 | Parameter | Type | Tags | Description |
 |  --- | --- | --- | --- |
-| `body` | [`ThreeDs2ResultRequest`](../../doc/models/three-ds-2-result-request.md) | Body, Optional | - |
+| `body` | [`ThreeDS2ResultRequest`](../../doc/models/three-ds-2-result-request.md) | Body, Optional | - |
 
 ## Response Type
 
 **200**: OK - the request has succeeded.
 
-This method returns an [`ApiResponse`](../../doc/api-response.md) instance. The `body` property of this instance returns the response data which is of type [`ThreeDs2ResultResponse`](../../doc/models/three-ds-2-result-response.md).
+[`ThreeDS2ResultResponse`](../../doc/models/three-ds-2-result-response.md)
 
 ## Example Usage
 
 ```python
-body = ThreeDs2ResultRequest(
+body = ThreeDS2ResultRequest(
     merchant_account='YOUR_MERCHANT_ACCOUNT',
     psp_reference='9935272408535455'
 )
@@ -1969,20 +1791,209 @@ body = ThreeDs2ResultRequest(
 result = payments_api.post_retrieve_3_ds_2_result(
     body=body
 )
-
-if result.is_success():
-    print(result.body)
-elif result.is_error():
-    print(result.errors)
+print(result)
 ```
 
 ## Errors
 
 | HTTP Status Code | Error Description | Exception Class |
 |  --- | --- | --- |
-| 400 | Bad Request - a problem reading or understanding the request. | [`ServiceError1Exception`](../../doc/models/service-error-1-exception.md) |
-| 401 | Unauthorized - authentication required. | [`ServiceError1Exception`](../../doc/models/service-error-1-exception.md) |
-| 403 | Forbidden - insufficient permissions to process the request. | [`ServiceError1Exception`](../../doc/models/service-error-1-exception.md) |
-| 422 | Unprocessable Entity - a request validation error. | [`ServiceError1Exception`](../../doc/models/service-error-1-exception.md) |
-| 500 | Internal Server Error - the server could not process the request. | [`ServiceError1Exception`](../../doc/models/service-error-1-exception.md) |
+| 400 | Bad Request - a problem reading or understanding the request. | [`ServiceErrorException`](../../doc/models/service-error-exception.md) |
+| 401 | Unauthorized - authentication required. | [`ServiceErrorException`](../../doc/models/service-error-exception.md) |
+| 403 | Forbidden - insufficient permissions to process the request. | [`ServiceErrorException`](../../doc/models/service-error-exception.md) |
+| 422 | Unprocessable Entity - a request validation error. | [`ServiceErrorException`](../../doc/models/service-error-exception.md) |
+| 500 | Internal Server Error - the server could not process the request. | [`ServiceErrorException`](../../doc/models/service-error-exception.md) |
+
+
+# Post-Payments-Cancel
+
+Cancels the payment. Returns a URL for user redirection.
+
+:information_source: **Note** This endpoint does not require authentication.
+
+```python
+def post_payments_cancel(self,
+                        body)
+```
+
+## Parameters
+
+| Parameter | Type | Tags | Description |
+|  --- | --- | --- | --- |
+| `body` | [`CancelPaymentRequest`](../../doc/models/cancel-payment-request.md) | Body, Required | - |
+
+## Response Type
+
+**200**: OK - The request has succeeded.
+
+[`CancelPaymentResponse`](../../doc/models/cancel-payment-response.md)
+
+## Example Usage
+
+```python
+body = CancelPaymentRequest(
+    token='TOKEN_PLACEHOLDER'
+)
+
+result = payments_api.post_payments_cancel(body)
+print(result)
+```
+
+## Example Response *(as JSON)*
+
+```json
+{
+  "links": {
+    "cancel": {
+      "href": "https://cancelUrl.com"
+    }
+  }
+}
+```
+
+## Errors
+
+| HTTP Status Code | Error Description | Exception Class |
+|  --- | --- | --- |
+| 400 | Bad Request - The request is malformed or is not the expected format. | [`DefaultErrorResponseEntityException`](../../doc/models/default-error-response-entity-exception.md) |
+| 422 | Unprocessable Entity - A request validation error. | [`DefaultErrorResponseEntityException`](../../doc/models/default-error-response-entity-exception.md) |
+| 500 | Internal Service Error - An unrecoverable error occurred while trying to perform the request. | [`DefaultErrorResponseEntityException`](../../doc/models/default-error-response-entity-exception.md) |
+
+
+# Post-Payments-Confirm
+
+Confirms the payment using Strong Customer Authentication (SCA).
+
+    To confirm a payment you must make this request two times:
+    
+    1. Make this request to initiate SCA and receive the WWW-Authenticate header.
+    2. After the user completes the SCA challenge, make this request again, including the updated WWW-Authenticate header.
+    
+    The second response provides a redirection URL that guides the user to a payment success or failure page.
+
+For more information, see our [documentation](https://docs.adyen.com/business-accounts/send-funds-ideal-integration).
+
+:information_source: **Note** This endpoint does not require authentication.
+
+```python
+def post_payments_confirm(self,
+                         body,
+                         www_authenticate=None)
+```
+
+## Parameters
+
+| Parameter | Type | Tags | Description |
+|  --- | --- | --- | --- |
+| `body` | [`ConfirmPaymentRequest`](../../doc/models/confirm-payment-request.md) | Body, Required | - |
+| `www_authenticate` | `str` | Header, Optional | Header for authenticating through SCA: Contains information for an SCA challenge for A2A payments. |
+
+## Response Type
+
+**200**: OK - The request has succeeded.
+
+[`ConfirmPaymentResponse`](../../doc/models/confirm-payment-response.md)
+
+## Example Usage
+
+```python
+body = ConfirmPaymentRequest(
+    balance_account_id='BA00000000000000000000000',
+    token='TOKEN_PLACEHOLDER'
+)
+
+result = payments_api.post_payments_confirm(body)
+print(result)
+```
+
+## Example Response *(as JSON)*
+
+```json
+{
+  "links": {
+    "success": {
+      "href": "https://successUrl.com"
+    }
+  }
+}
+```
+
+## Errors
+
+| HTTP Status Code | Error Description | Exception Class |
+|  --- | --- | --- |
+| 400 | Bad Request - The request is malformed or is not the expected format. | [`DefaultErrorResponseEntityException`](../../doc/models/default-error-response-entity-exception.md) |
+| 401 | Unauthorized - The API credential used in the request is invalid or does not have the right permissions. | [`DefaultErrorResponseEntityException`](../../doc/models/default-error-response-entity-exception.md) |
+| 422 | Unprocessable Entity - A request validation error. | [`DefaultErrorResponseEntityException`](../../doc/models/default-error-response-entity-exception.md) |
+| 500 | Internal Service Error - An unrecoverable error occurred while trying to perform the request. | [`DefaultErrorResponseEntityException`](../../doc/models/default-error-response-entity-exception.md) |
+
+
+# Post-Payments-Details 1
+
+Returns the details of an open payment, which you must show to the user. Also provides a token required to [confirm](https://docs.adyen.com/api-explorer/a2a-payments/latest/post/payments/confirm) or [cancel](https://docs.adyen.com/api-explorer/a2a-payments/latest/post/payments/cancel) the payment.
+
+:information_source: **Note** This endpoint does not require authentication.
+
+```python
+def post_payments_details_1(self,
+                           body)
+```
+
+## Parameters
+
+| Parameter | Type | Tags | Description |
+|  --- | --- | --- | --- |
+| `body` | [`IdealPaymentDetailsRequest`](../../doc/models/ideal-payment-details-request.md) | Body, Required | - |
+
+## Response Type
+
+**200**: OK - The request has succeeded.
+
+[`PaymentDetailsResponse1`](../../doc/models/payment-details-response-1.md)
+
+## Example Usage
+
+```python
+body = IdealPaymentDetailsRequest(
+    payload='https://ext.tx.ideal.nl/2/AXE4R72TLPRCRN6Y4FDZX7MZHJQ?sig=BGBCQEIIA2F3CF7KR2SVLSJEDUJABL62V7TI4Y2LJPJIJBZEP6HXCHXPQCLTAEIB2FNUD3COVRNIT27TT7NFKYD5UJCUY4NMPS4NUCTKA6KIBHSRXWI',
+    source=PaymentSource2Enum.REDIRECT,
+    method='ideal'
+)
+
+result = payments_api.post_payments_details_1(body)
+print(result)
+```
+
+## Example Response *(as JSON)*
+
+```json
+{
+  "details": {
+    "amount": {
+      "currency": "EUR",
+      "value": 200
+    },
+    "counterparty": {
+      "accountHolder": {
+        "fullName": "Test company"
+      },
+      "accountIdentification": {
+        "iban": "NL29ADYX0000000000",
+        "type": "iban"
+      }
+    },
+    "description": "MyStoreDemo-Donation-1754056596388",
+    "expiresAt": "2025-08-01T14:16:42.887Z"
+  },
+  "token": "TOKEN_PLACEHOLDER"
+}
+```
+
+## Errors
+
+| HTTP Status Code | Error Description | Exception Class |
+|  --- | --- | --- |
+| 400 | Bad Request - The request is malformed or is not the expected format. | [`DefaultErrorResponseEntityException`](../../doc/models/default-error-response-entity-exception.md) |
+| 422 | Unprocessable Entity - A request validation error. | [`DefaultErrorResponseEntityException`](../../doc/models/default-error-response-entity-exception.md) |
+| 500 | Internal Service Error - An unrecoverable error occurred while trying to perform the request. | [`DefaultErrorResponseEntityException`](../../doc/models/default-error-response-entity-exception.md) |
 

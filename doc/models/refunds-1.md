@@ -3,8 +3,6 @@
 
 Settings for refunds.
 
-*This model accepts additional fields of type Any.*
-
 ## Structure
 
 `Refunds1`
@@ -13,35 +11,23 @@ Settings for refunds.
 
 | Name | Type | Tags | Description |
 |  --- | --- | --- | --- |
-| `referenced` | [`Referenced`](../../doc/models/referenced.md) | Optional | - |
-| `unreferenced` | [`Unreferenced`](../../doc/models/unreferenced.md) | Optional | - |
-| `additional_properties` | `Dict[str, Any]` | Optional | - |
+| `referenced` | [`Referenced1`](../../doc/models/referenced-1.md) | Optional | Settings for referenced refunds. |
+| `unreferenced` | [`Unreferenced2`](../../doc/models/unreferenced-2.md) | Optional | Settings for unreferenced refunds. |
 
 ## Example
 
 ```python
-import jsonpickle
-
-from adyen.models.referenced import Referenced
+from adyen.models.referenced_1 import Referenced1
 from adyen.models.refunds_1 import Refunds1
-from adyen.models.unreferenced import Unreferenced
+from adyen.models.unreferenced_2 import Unreferenced2
 
 refunds_1 = Refunds1(
-    referenced=Referenced(
-        enable_standalone_refunds=False,
-        additional_properties={
-            'exampleAdditionalProperty': jsonpickle.decode('{"key1":"val1","key2":"val2"}')
-        }
+    referenced=Referenced1(
+        enable_standalone_refunds=False
     ),
-    unreferenced=Unreferenced(
-        enable_unreferenced_refunds=False,
-        additional_properties={
-            'exampleAdditionalProperty': jsonpickle.decode('{"key1":"val1","key2":"val2"}')
-        }
-    ),
-    additional_properties={
-        'exampleAdditionalProperty': jsonpickle.decode('{"key1":"val1","key2":"val2"}')
-    }
+    unreferenced=Unreferenced2(
+        enable_unreferenced_refunds=False
+    )
 )
 ```
 

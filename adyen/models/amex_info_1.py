@@ -22,9 +22,12 @@ class AmexInfo1(object):
             from a previously setup Amex payment method.  This is only applicable for
             `gatewayContract` and `paymentDesignatorContract` service levels.  The
             default value is **false**.
-        service_level (ServiceLevel): The model property of type ServiceLevel.
-        additional_properties (Dict[str, Any]): The additional properties for the
-            model.
+        service_level (ServiceLevelEnum): Specifies the service level (settlement
+            type) of this payment method. Possible values: * **noContract**: Adyen
+            holds the contract with American Express. * **gatewayContract**: American
+            Express receives the settlement and handles disputes, then pays out to
+            you or your sub-merchant directly. * **paymentDesignatorContract**: Adyen
+            receives the settlement, and handles disputes and payouts.
 
     """
 
@@ -44,19 +47,13 @@ class AmexInfo1(object):
         self,
         service_level=None,
         mid_number=APIHelper.SKIP,
-        reuse_mid_number=False,
-        additional_properties=None):
+        reuse_mid_number=False):
         """Initialize a AmexInfo1 instance."""
         # Initialize members of the class
         if mid_number is not APIHelper.SKIP:
             self.mid_number = mid_number
         self.reuse_mid_number = reuse_mid_number
         self.service_level = service_level
-
-        # Add additional model properties to the instance
-        if additional_properties is None:
-            additional_properties = {}
-        self.additional_properties = additional_properties
 
     @classmethod
     def from_dictionary(cls,
@@ -89,16 +86,10 @@ class AmexInfo1(object):
             if dictionary.get("reuseMidNumber")\
                 else False
 
-        additional_properties = APIHelper.get_additional_properties(
-            dictionary={k: v for k, v in dictionary.items()
-                        if k not in cls._names.values()},
-            unboxing_function=lambda value: value)
-
         # Return an object of this model
         return cls(service_level,
                    mid_number,
-                   reuse_mid_number,
-                   additional_properties)
+                   reuse_mid_number)
 
     def __repr__(self):
         """Return a unambiguous string representation."""
@@ -113,13 +104,11 @@ class AmexInfo1(object):
             else None
         )
         _service_level=self.service_level
-        _additional_properties=self.additional_properties
         return (
             f"{self.__class__.__name__}("
             f"mid_number={_mid_number!r}, "
             f"reuse_mid_number={_reuse_mid_number!r}, "
             f"service_level={_service_level!r}, "
-            f"additional_properties={_additional_properties!r}, "
             f")"
         )
 
@@ -136,12 +125,10 @@ class AmexInfo1(object):
             else None
         )
         _service_level=self.service_level
-        _additional_properties=self.additional_properties
         return (
             f"{self.__class__.__name__}("
             f"mid_number={_mid_number!s}, "
             f"reuse_mid_number={_reuse_mid_number!s}, "
             f"service_level={_service_level!s}, "
-            f"additional_properties={_additional_properties!s}, "
             f")"
         )

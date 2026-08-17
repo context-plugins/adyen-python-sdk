@@ -11,64 +11,62 @@ class Address7(object):
     """Implementation of the 'Address7' model.
 
     Attributes:
-        city (str): The model property of type str.
-        country_code (str): The model property of type str.
-        postal_code (str): The model property of type str.
-        state_or_province (str): The model property of type str.
-        street_address (str): The model property of type str.
-        street_address_2 (str): The model property of type str.
-        additional_properties (Dict[str, Any]): The additional properties for the
-            model.
+        city (str): The name of the city. Required if `stateOrProvince` is provided.
+            If you specify the city, you must also send `postalCode` and `street`.
+        country (str): The two-letter [ISO 3166-1
+            alpha-2](https://en.wikipedia.org/wiki/ISO_3166-1_alpha-2) country code.
+        postal_code (str): The postal code. Required if `stateOrProvince` and/or
+            `city` is provided.  When using alphanumeric postal codes, all letters
+            must be uppercase. For example, 1234 AB or SW1A 1AA.
+        state_or_province (str): The two-letter ISO 3166-2 state or province code.
+            For example, **CA** in the US. Required for Australia and New Zealand.
+            If you specify the state or province, you must also send `city`,
+            `postalCode`, and `street`.
+        street (str): The name of the street, and the house or building number.
+            Required if `stateOrProvince` and/or `city` is provided.
+        street_2 (str): The apartment, unit, or suite number.
 
     """
 
     # Create a mapping from Model property names to API property names
     _names = {
+        "country": "country",
         "city": "city",
-        "country_code": "countryCode",
         "postal_code": "postalCode",
         "state_or_province": "stateOrProvince",
-        "street_address": "streetAddress",
-        "street_address_2": "streetAddress2",
+        "street": "street",
+        "street_2": "street2",
     }
 
     _optionals = [
         "city",
-        "country_code",
         "postal_code",
         "state_or_province",
-        "street_address",
-        "street_address_2",
+        "street",
+        "street_2",
     ]
 
     def __init__(
         self,
+        country=None,
         city=APIHelper.SKIP,
-        country_code=APIHelper.SKIP,
         postal_code=APIHelper.SKIP,
         state_or_province=APIHelper.SKIP,
-        street_address=APIHelper.SKIP,
-        street_address_2=APIHelper.SKIP,
-        additional_properties=None):
+        street=APIHelper.SKIP,
+        street_2=APIHelper.SKIP):
         """Initialize a Address7 instance."""
         # Initialize members of the class
         if city is not APIHelper.SKIP:
             self.city = city
-        if country_code is not APIHelper.SKIP:
-            self.country_code = country_code
+        self.country = country
         if postal_code is not APIHelper.SKIP:
             self.postal_code = postal_code
         if state_or_province is not APIHelper.SKIP:
             self.state_or_province = state_or_province
-        if street_address is not APIHelper.SKIP:
-            self.street_address = street_address
-        if street_address_2 is not APIHelper.SKIP:
-            self.street_address_2 = street_address_2
-
-        # Add additional model properties to the instance
-        if additional_properties is None:
-            additional_properties = {}
-        self.additional_properties = additional_properties
+        if street is not APIHelper.SKIP:
+            self.street = street
+        if street_2 is not APIHelper.SKIP:
+            self.street_2 = street_2
 
     @classmethod
     def from_dictionary(cls,
@@ -88,13 +86,13 @@ class Address7(object):
             return None
 
         # Extract variables from the dictionary
+        country =\
+            dictionary.get("country")\
+            if dictionary.get("country")\
+                else None
         city =\
             dictionary.get("city")\
             if dictionary.get("city")\
-                else APIHelper.SKIP
-        country_code =\
-            dictionary.get("countryCode")\
-            if dictionary.get("countryCode")\
                 else APIHelper.SKIP
         postal_code =\
             dictionary.get("postalCode")\
@@ -104,28 +102,22 @@ class Address7(object):
             dictionary.get("stateOrProvince")\
             if dictionary.get("stateOrProvince")\
                 else APIHelper.SKIP
-        street_address =\
-            dictionary.get("streetAddress")\
-            if dictionary.get("streetAddress")\
+        street =\
+            dictionary.get("street")\
+            if dictionary.get("street")\
                 else APIHelper.SKIP
-        street_address_2 =\
-            dictionary.get("streetAddress2")\
-            if dictionary.get("streetAddress2")\
+        street_2 =\
+            dictionary.get("street2")\
+            if dictionary.get("street2")\
                 else APIHelper.SKIP
-
-        additional_properties = APIHelper.get_additional_properties(
-            dictionary={k: v for k, v in dictionary.items()
-                        if k not in cls._names.values()},
-            unboxing_function=lambda value: value)
 
         # Return an object of this model
-        return cls(city,
-                   country_code,
+        return cls(country,
+                   city,
                    postal_code,
                    state_or_province,
-                   street_address,
-                   street_address_2,
-                   additional_properties)
+                   street,
+                   street_2)
 
     def __repr__(self):
         """Return a unambiguous string representation."""
@@ -134,11 +126,7 @@ class Address7(object):
             if hasattr(self, "city")
             else None
         )
-        _country_code=(
-            self.country_code
-            if hasattr(self, "country_code")
-            else None
-        )
+        _country=self.country
         _postal_code=(
             self.postal_code
             if hasattr(self, "postal_code")
@@ -149,26 +137,24 @@ class Address7(object):
             if hasattr(self, "state_or_province")
             else None
         )
-        _street_address=(
-            self.street_address
-            if hasattr(self, "street_address")
+        _street=(
+            self.street
+            if hasattr(self, "street")
             else None
         )
-        _street_address_2=(
-            self.street_address_2
-            if hasattr(self, "street_address_2")
+        _street_2=(
+            self.street_2
+            if hasattr(self, "street_2")
             else None
         )
-        _additional_properties=self.additional_properties
         return (
             f"{self.__class__.__name__}("
             f"city={_city!r}, "
-            f"country_code={_country_code!r}, "
+            f"country={_country!r}, "
             f"postal_code={_postal_code!r}, "
             f"state_or_province={_state_or_province!r}, "
-            f"street_address={_street_address!r}, "
-            f"street_address_2={_street_address_2!r}, "
-            f"additional_properties={_additional_properties!r}, "
+            f"street={_street!r}, "
+            f"street_2={_street_2!r}, "
             f")"
         )
 
@@ -179,11 +165,7 @@ class Address7(object):
             if hasattr(self, "city")
             else None
         )
-        _country_code=(
-            self.country_code
-            if hasattr(self, "country_code")
-            else None
-        )
+        _country=self.country
         _postal_code=(
             self.postal_code
             if hasattr(self, "postal_code")
@@ -194,25 +176,23 @@ class Address7(object):
             if hasattr(self, "state_or_province")
             else None
         )
-        _street_address=(
-            self.street_address
-            if hasattr(self, "street_address")
+        _street=(
+            self.street
+            if hasattr(self, "street")
             else None
         )
-        _street_address_2=(
-            self.street_address_2
-            if hasattr(self, "street_address_2")
+        _street_2=(
+            self.street_2
+            if hasattr(self, "street_2")
             else None
         )
-        _additional_properties=self.additional_properties
         return (
             f"{self.__class__.__name__}("
             f"city={_city!s}, "
-            f"country_code={_country_code!s}, "
+            f"country={_country!s}, "
             f"postal_code={_postal_code!s}, "
             f"state_or_province={_state_or_province!s}, "
-            f"street_address={_street_address!s}, "
-            f"street_address_2={_street_address_2!s}, "
-            f"additional_properties={_additional_properties!s}, "
+            f"street={_street!s}, "
+            f"street_2={_street_2!s}, "
             f")"
         )

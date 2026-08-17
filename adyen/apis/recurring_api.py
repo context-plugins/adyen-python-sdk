@@ -55,12 +55,11 @@ class RecurringApi(BaseApi):
             body (CheckoutForwardRequest, optional): The request body parameter.
 
         Returns:
-            ApiResponse: An object with the response value as well as other useful
-                information such as status codes and headers. OK - the request has
+            CheckoutForwardResponse: Response from the API. OK - the request has
                 succeeded.
 
         Raises:
-            ApiException: When an error occurs while fetching the data from the
+            APIException: When an error occurs while fetching the data from the
                 remote API. This exception includes the HTTP Response code, an error
                 message, and the HTTP body that was received in the request.
 
@@ -85,8 +84,7 @@ class RecurringApi(BaseApi):
         ).response(
             ResponseHandler()
             .deserializer(APIHelper.json_deserialize)
-            .deserialize_into(CheckoutForwardResponse.from_dictionary)
-            .is_api_response(True),
+            .deserialize_into(CheckoutForwardResponse.from_dictionary),
         ).execute()
 
     def get_stored_payment_methods(self,
@@ -107,12 +105,11 @@ class RecurringApi(BaseApi):
             merchant_account (str, optional): Your merchant account.
 
         Returns:
-            ApiResponse: An object with the response value as well as other useful
-                information such as status codes and headers. OK - the request has
-                succeeded.
+            ListStoredPaymentMethodsResponse: Response from the API. OK - the request
+                has succeeded.
 
         Raises:
-            ApiException: When an error occurs while fetching the data from the
+            APIException: When an error occurs while fetching the data from the
                 remote API. This exception includes the HTTP Response code, an error
                 message, and the HTTP body that was received in the request.
 
@@ -134,8 +131,7 @@ class RecurringApi(BaseApi):
         ).response(
             ResponseHandler()
             .deserializer(APIHelper.json_deserialize)
-            .deserialize_into(ListStoredPaymentMethodsResponse.from_dictionary)
-            .is_api_response(True),
+            .deserialize_into(ListStoredPaymentMethodsResponse.from_dictionary),
         ).execute()
 
     def post_stored_payment_methods(self,
@@ -152,13 +148,12 @@ class RecurringApi(BaseApi):
             body (StoredPaymentMethodRequest, optional): The request body parameter.
 
         Returns:
-            ApiResponse: An object with the response value as well as other useful
-                information such as status codes and headers. Created - the request
+            StoredPaymentMethodResource: Response from the API. Created - the request
                 has been fulfilled and has resulted in one or more new resources
                 being created.
 
         Raises:
-            ApiException: When an error occurs while fetching the data from the
+            APIException: When an error occurs while fetching the data from the
                 remote API. This exception includes the HTTP Response code, an error
                 message, and the HTTP body that was received in the request.
 
@@ -183,8 +178,7 @@ class RecurringApi(BaseApi):
         ).response(
             ResponseHandler()
             .deserializer(APIHelper.json_deserialize)
-            .deserialize_into(StoredPaymentMethodResource.from_dictionary)
-            .is_api_response(True),
+            .deserialize_into(StoredPaymentMethodResource.from_dictionary),
         ).execute()
 
     def delete_stored_payment_methods_stored_payment_method_id(self,
@@ -206,12 +200,11 @@ class RecurringApi(BaseApi):
             merchant_account (str): Your merchant account.
 
         Returns:
-            ApiResponse: An object with the response value as well as other useful
-                information such as status codes and headers. No Content - look at
-                the actual response code for the status of the request.
+            void: Response from the API. No Content - look at the actual response
+                code for the status of the request.
 
         Raises:
-            ApiException: When an error occurs while fetching the data from the
+            APIException: When an error occurs while fetching the data from the
                 remote API. This exception includes the HTTP Response code, an error
                 message, and the HTTP body that was received in the request.
 
@@ -223,18 +216,12 @@ class RecurringApi(BaseApi):
             .template_param(Parameter()
                 .key("storedPaymentMethodId")
                 .value(stored_payment_method_id)
-                .is_required(True)
                 .should_encode(True))
             .query_param(Parameter()
                 .key("shopperReference")
-                .value(shopper_reference)
-                .is_required(True))
+                .value(shopper_reference))
             .query_param(Parameter()
                 .key("merchantAccount")
-                .value(merchant_account)
-                .is_required(True))
+                .value(merchant_account))
             .auth(Or(Single("BasicAuth"), Single("ApiKeyAuth"))),
-        ).response(
-            ResponseHandler()
-            .is_api_response(True),
         ).execute()

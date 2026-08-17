@@ -29,8 +29,6 @@ class BulkAddress(object):
         state_or_province (str): The two-letter ISO 3166-2 state or province code.
             Maximum length: 2 characters for addresses in the US.
         street (str): The streetname of the house.
-        additional_properties (Dict[str, Any]): The additional properties for the
-            model.
 
     """
 
@@ -80,8 +78,7 @@ class BulkAddress(object):
         name=APIHelper.SKIP,
         postal_code=APIHelper.SKIP,
         state_or_province=APIHelper.SKIP,
-        street=APIHelper.SKIP,
-        additional_properties=None):
+        street=APIHelper.SKIP):
         """Initialize a BulkAddress instance."""
         # Initialize members of the class
         if city is not APIHelper.SKIP:
@@ -109,11 +106,6 @@ class BulkAddress(object):
             self.state_or_province = state_or_province
         if street is not APIHelper.SKIP:
             self.street = street
-
-        # Add additional model properties to the instance
-        if additional_properties is None:
-            additional_properties = {}
-        self.additional_properties = additional_properties
 
     @classmethod
     def from_dictionary(cls,
@@ -186,11 +178,6 @@ class BulkAddress(object):
             if dictionary.get("street")\
                 else APIHelper.SKIP
 
-        additional_properties = APIHelper.get_additional_properties(
-            dictionary={k: v for k, v in dictionary.items()
-                        if k not in cls._names.values()},
-            unboxing_function=lambda value: value)
-
         # Return an object of this model
         return cls(country,
                    city,
@@ -204,8 +191,7 @@ class BulkAddress(object):
                    name,
                    postal_code,
                    state_or_province,
-                   street,
-                   additional_properties)
+                   street)
 
     def __repr__(self):
         """Return a unambiguous string representation."""
@@ -270,7 +256,6 @@ class BulkAddress(object):
             if hasattr(self, "street")
             else None
         )
-        _additional_properties=self.additional_properties
         return (
             f"{self.__class__.__name__}("
             f"city={_city!r}, "
@@ -286,7 +271,6 @@ class BulkAddress(object):
             f"postal_code={_postal_code!r}, "
             f"state_or_province={_state_or_province!r}, "
             f"street={_street!r}, "
-            f"additional_properties={_additional_properties!r}, "
             f")"
         )
 
@@ -353,7 +337,6 @@ class BulkAddress(object):
             if hasattr(self, "street")
             else None
         )
-        _additional_properties=self.additional_properties
         return (
             f"{self.__class__.__name__}("
             f"city={_city!s}, "
@@ -369,6 +352,5 @@ class BulkAddress(object):
             f"postal_code={_postal_code!s}, "
             f"state_or_province={_state_or_province!s}, "
             f"street={_street!s}, "
-            f"additional_properties={_additional_properties!s}, "
             f")"
         )

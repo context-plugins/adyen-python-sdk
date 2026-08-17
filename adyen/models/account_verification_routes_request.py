@@ -11,8 +11,10 @@ class AccountVerificationRoutesRequest(object):
     """Implementation of the 'AccountVerificationRoutesRequest' model.
 
     Attributes:
-        country (AccountVerificationCountry2): The model property of type
-            AccountVerificationCountry2.
+        country (AccountVerificationCountry2Enum): The location where the third-party
+            individual's bank account is registered. Adyen uses this information to
+            determine an available open banking provider, and to configure the open
+            banking flow for that respective location.
         locale (str): The language to use in the open banking flow UI, specified by a
             combination of a two-letter [ISO
             639-1](https://en.wikipedia.org/wiki/List_of_ISO_639_language_codes)
@@ -27,8 +29,6 @@ class AccountVerificationRoutesRequest(object):
             the callback against Cross-Site Request Forgery (CSRF) attacks. This
             value  must be composed of characters that can be successfully
             URL-encoded.
-        additional_properties (Dict[str, Any]): The additional properties for the
-            model.
 
     """
 
@@ -50,8 +50,7 @@ class AccountVerificationRoutesRequest(object):
         country=None,
         redirect_url=None,
         locale=APIHelper.SKIP,
-        state=APIHelper.SKIP,
-        additional_properties=None):
+        state=APIHelper.SKIP):
         """Initialize a AccountVerificationRoutesRequest instance."""
         # Initialize members of the class
         self.country = country
@@ -60,11 +59,6 @@ class AccountVerificationRoutesRequest(object):
         self.redirect_url = redirect_url
         if state is not APIHelper.SKIP:
             self.state = state
-
-        # Add additional model properties to the instance
-        if additional_properties is None:
-            additional_properties = {}
-        self.additional_properties = additional_properties
 
     @classmethod
     def from_dictionary(cls,
@@ -101,17 +95,11 @@ class AccountVerificationRoutesRequest(object):
             if dictionary.get("state")\
                 else APIHelper.SKIP
 
-        additional_properties = APIHelper.get_additional_properties(
-            dictionary={k: v for k, v in dictionary.items()
-                        if k not in cls._names.values()},
-            unboxing_function=lambda value: value)
-
         # Return an object of this model
         return cls(country,
                    redirect_url,
                    locale,
-                   state,
-                   additional_properties)
+                   state)
 
     def __repr__(self):
         """Return a unambiguous string representation."""
@@ -127,14 +115,12 @@ class AccountVerificationRoutesRequest(object):
             if hasattr(self, "state")
             else None
         )
-        _additional_properties=self.additional_properties
         return (
             f"{self.__class__.__name__}("
             f"country={_country!r}, "
             f"locale={_locale!r}, "
             f"redirect_url={_redirect_url!r}, "
             f"state={_state!r}, "
-            f"additional_properties={_additional_properties!r}, "
             f")"
         )
 
@@ -152,13 +138,11 @@ class AccountVerificationRoutesRequest(object):
             if hasattr(self, "state")
             else None
         )
-        _additional_properties=self.additional_properties
         return (
             f"{self.__class__.__name__}("
             f"country={_country!s}, "
             f"locale={_locale!s}, "
             f"redirect_url={_redirect_url!s}, "
             f"state={_state!s}, "
-            f"additional_properties={_additional_properties!s}, "
             f")"
         )

@@ -1,8 +1,6 @@
 
 # Document Page
 
-*This model accepts additional fields of type Any.*
-
 ## Structure
 
 `DocumentPage`
@@ -13,24 +11,18 @@
 |  --- | --- | --- | --- |
 | `page_name` | `str` | Optional | - |
 | `page_number` | `int` | Optional | - |
-| `mtype` | [`Type92`](../../doc/models/type-92.md) | Optional | - |
-| `additional_properties` | `Dict[str, Any]` | Optional | - |
+| `mtype` | [`Type91Enum`](../../doc/models/type-91-enum.md) | Optional | - |
 
 ## Example
 
 ```python
-import jsonpickle
-
 from adyen.models.document_page import DocumentPage
-from adyen.models.type_92 import Type92
+from adyen.models.type_91_enum import Type91Enum
 
 document_page = DocumentPage(
     page_name='pageName2',
     page_number=84,
-    mtype=Type92.BACK,
-    additional_properties={
-        'exampleAdditionalProperty': jsonpickle.decode('{"key1":"val1","key2":"val2"}')
-    }
+    mtype=Type91Enum.BACK
 )
 ```
 

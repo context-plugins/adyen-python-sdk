@@ -13,13 +13,11 @@ class DonationCampaignUpdate(object):
     Attributes:
         account_holder_ids (List[str]): The unique identifiers of the account holders
             associated with the donation campaign.
-        in_person (InPersonDonationSettingsUpdate | Any | None): The settings for
-            in-person donations collected as part of the campaign.
-        name (str): The name of the donation campaign.
-        online (OnlineDonationSettingsUpdate | Any | None): The settings for online
+        in_person (InPersonDonationSettingsUpdate | None): The settings for in-person
             donations collected as part of the campaign.
-        additional_properties (Dict[str, Any]): The additional properties for the
-            model.
+        name (str): The name of the donation campaign.
+        online (OnlineDonationSettingsUpdate | None): The settings for online
+            donations collected as part of the campaign.
 
     """
 
@@ -40,6 +38,8 @@ class DonationCampaignUpdate(object):
 
     _nullables = [
         "account_holder_ids",
+        "in_person",
+        "online",
     ]
 
     def __init__(
@@ -47,8 +47,7 @@ class DonationCampaignUpdate(object):
         account_holder_ids=APIHelper.SKIP,
         in_person=APIHelper.SKIP,
         name=APIHelper.SKIP,
-        online=APIHelper.SKIP,
-        additional_properties=None):
+        online=APIHelper.SKIP):
         """Initialize a DonationCampaignUpdate instance."""
         # Initialize members of the class
         if account_holder_ids is not APIHelper.SKIP:
@@ -59,11 +58,6 @@ class DonationCampaignUpdate(object):
             self.name = name
         if online is not APIHelper.SKIP:
             self.online = online
-
-        # Add additional model properties to the instance
-        if additional_properties is None:
-            additional_properties = {}
-        self.additional_properties = additional_properties
 
     @classmethod
     def from_dictionary(cls,
@@ -91,34 +85,34 @@ class DonationCampaignUpdate(object):
             dictionary.get("accountHolderIds")\
             if "accountHolderIds" in dictionary.keys()\
                 else APIHelper.SKIP
-        in_person = APIHelper.deserialize_union_type(
+        if "inPerson" in dictionary.keys():
+            in_person = APIHelper.deserialize_union_type(
             UnionTypeLookUp.get("DonationCampaignUpdateInPerson"),
             dictionary.get("inPerson"),
             False)\
             if dictionary.get("inPerson") is not None\
-            else APIHelper.SKIP
+            else None
+        else:
+            in_person = APIHelper.SKIP
         name =\
             dictionary.get("name")\
             if dictionary.get("name")\
                 else APIHelper.SKIP
-        online = APIHelper.deserialize_union_type(
+        if "online" in dictionary.keys():
+            online = APIHelper.deserialize_union_type(
             UnionTypeLookUp.get("DonationCampaignUpdateOnline"),
             dictionary.get("online"),
             False)\
             if dictionary.get("online") is not None\
-            else APIHelper.SKIP
-
-        additional_properties = APIHelper.get_additional_properties(
-            dictionary={k: v for k, v in dictionary.items()
-                        if k not in cls._names.values()},
-            unboxing_function=lambda value: value)
+            else None
+        else:
+            online = APIHelper.SKIP
 
         # Return an object of this model
         return cls(account_holder_ids,
                    in_person,
                    name,
-                   online,
-                   additional_properties)
+                   online)
 
     def __repr__(self):
         """Return a unambiguous string representation."""
@@ -142,14 +136,12 @@ class DonationCampaignUpdate(object):
             if hasattr(self, "online")
             else None
         )
-        _additional_properties=self.additional_properties
         return (
             f"{self.__class__.__name__}("
             f"account_holder_ids={_account_holder_ids!r}, "
             f"in_person={_in_person!r}, "
             f"name={_name!r}, "
             f"online={_online!r}, "
-            f"additional_properties={_additional_properties!r}, "
             f")"
         )
 
@@ -175,13 +167,11 @@ class DonationCampaignUpdate(object):
             if hasattr(self, "online")
             else None
         )
-        _additional_properties=self.additional_properties
         return (
             f"{self.__class__.__name__}("
             f"account_holder_ids={_account_holder_ids!s}, "
             f"in_person={_in_person!s}, "
             f"name={_name!s}, "
             f"online={_online!s}, "
-            f"additional_properties={_additional_properties!s}, "
             f")"
         )

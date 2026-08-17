@@ -20,8 +20,6 @@ class Surcharge1(object):
             shopper on the present card screen before they tap.
         exclude_gratuity_from_surcharge (bool): Exclude the tip amount from the
             surcharge calculation.
-        additional_properties (Dict[str, Any]): The additional properties for the
-            model.
 
     """
 
@@ -45,8 +43,7 @@ class Surcharge1(object):
         ask_confirmation=APIHelper.SKIP,
         configurations=APIHelper.SKIP,
         disclosure_on_present_card=APIHelper.SKIP,
-        exclude_gratuity_from_surcharge=APIHelper.SKIP,
-        additional_properties=None):
+        exclude_gratuity_from_surcharge=APIHelper.SKIP):
         """Initialize a Surcharge1 instance."""
         # Initialize members of the class
         if ask_confirmation is not APIHelper.SKIP:
@@ -57,11 +54,6 @@ class Surcharge1(object):
             self.disclosure_on_present_card = disclosure_on_present_card
         if exclude_gratuity_from_surcharge is not APIHelper.SKIP:
             self.exclude_gratuity_from_surcharge = exclude_gratuity_from_surcharge
-
-        # Add additional model properties to the instance
-        if additional_properties is None:
-            additional_properties = {}
-        self.additional_properties = additional_properties
 
     @classmethod
     def from_dictionary(cls,
@@ -102,17 +94,11 @@ class Surcharge1(object):
             if "excludeGratuityFromSurcharge" in dictionary.keys()\
                 else APIHelper.SKIP
 
-        additional_properties = APIHelper.get_additional_properties(
-            dictionary={k: v for k, v in dictionary.items()
-                        if k not in cls._names.values()},
-            unboxing_function=lambda value: value)
-
         # Return an object of this model
         return cls(ask_confirmation,
                    configurations,
                    disclosure_on_present_card,
-                   exclude_gratuity_from_surcharge,
-                   additional_properties)
+                   exclude_gratuity_from_surcharge)
 
     def __repr__(self):
         """Return a unambiguous string representation."""
@@ -136,14 +122,12 @@ class Surcharge1(object):
             if hasattr(self, "exclude_gratuity_from_surcharge")
             else None
         )
-        _additional_properties=self.additional_properties
         return (
             f"{self.__class__.__name__}("
             f"ask_confirmation={_ask_confirmation!r}, "
             f"configurations={_configurations!r}, "
             f"disclosure_on_present_card={_disclosure_on_present_card!r}, "
             f"exclude_gratuity_from_surcharge={_exclude_gratuity_from_surcharge!r}, "
-            f"additional_properties={_additional_properties!r}, "
             f")"
         )
 
@@ -169,13 +153,11 @@ class Surcharge1(object):
             if hasattr(self, "exclude_gratuity_from_surcharge")
             else None
         )
-        _additional_properties=self.additional_properties
         return (
             f"{self.__class__.__name__}("
             f"ask_confirmation={_ask_confirmation!s}, "
             f"configurations={_configurations!s}, "
             f"disclosure_on_present_card={_disclosure_on_present_card!s}, "
             f"exclude_gratuity_from_surcharge={_exclude_gratuity_from_surcharge!s}, "
-            f"additional_properties={_additional_properties!s}, "
             f")"
         )

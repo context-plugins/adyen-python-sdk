@@ -3,8 +3,6 @@
 
 Content of the Input Response message.
 
-*This model accepts additional fields of type Any.*
-
 ## Structure
 
 `InputResponse2`
@@ -13,73 +11,53 @@ Content of the Input Response message.
 
 | Name | Type | Tags | Description |
 |  --- | --- | --- | --- |
-| `output_result` | [`OutputResult2`](../../doc/models/output-result-2.md) | Optional | - |
-| `input_result` | [`InputResult`](../../doc/models/input-result.md) | Required | - |
-| `additional_properties` | `Dict[str, Any]` | Optional | - |
+| `output_result` | [`OutputResult1`](../../doc/models/output-result-1.md) | Optional | Information related to the result the output (display, print, input).<br>If DisplayOutput present in the request. |
+| `input_result` | [`InputResult2`](../../doc/models/input-result-2.md) | Required | Contains the result and the content of the input. |
 
 ## Example
 
 ```python
-import jsonpickle
-
-from adyen.models.device_3 import Device3
-from adyen.models.device_4 import Device4
-from adyen.models.error_condition_1 import ErrorCondition1
-from adyen.models.info_qualify_2 import InfoQualify2
-from adyen.models.info_qualify_3 import InfoQualify3
-from adyen.models.input import Input
-from adyen.models.input_command_1 import InputCommand1
+from adyen.models.device_3_enum import Device3Enum
+from adyen.models.device_4_enum import Device4Enum
+from adyen.models.error_condition_1_enum import ErrorCondition1Enum
+from adyen.models.info_qualify_2_enum import InfoQualify2Enum
+from adyen.models.info_qualify_3_enum import InfoQualify3Enum
+from adyen.models.input_2 import Input2
+from adyen.models.input_command_1_enum import InputCommand1Enum
 from adyen.models.input_response_2 import InputResponse2
-from adyen.models.input_result import InputResult
-from adyen.models.output_result_2 import OutputResult2
-from adyen.models.response_3 import Response3
-from adyen.models.result_11 import Result11
+from adyen.models.input_result_2 import InputResult2
+from adyen.models.output_result_1 import OutputResult1
+from adyen.models.response_1 import Response1
+from adyen.models.response_11 import Response11
+from adyen.models.result_11_enum import Result11Enum
 
 input_response_2 = InputResponse2(
-    input_result=InputResult(
-        device=Device4.CASHIERDISPLAY,
-        info_qualify=InfoQualify2.INPUT,
-        response=Response3(
-            result=Result11.PARTIAL,
-            error_condition=ErrorCondition1.PAYMENTRESTRICTION,
-            additional_response='AdditionalResponse8',
-            additional_properties={
-                'exampleAdditionalProperty': jsonpickle.decode('{"key1":"val1","key2":"val2"}')
-            }
+    input_result=InputResult2(
+        device=Device4Enum.CASHIERDISPLAY,
+        info_qualify=InfoQualify2Enum.INPUT,
+        response=Response1(
+            result=Result11Enum.PARTIAL,
+            error_condition=ErrorCondition1Enum.PAYMENTRESTRICTION,
+            additional_response='AdditionalResponse8'
         ),
-        input=Input(
-            input_command=InputCommand1.GETMENUENTRY,
+        input=Input2(
+            input_command=InputCommand1Enum.GETMENUENTRY,
             confirmed_flag=False,
             function_key=134,
             text_input='TextInput4',
             digit_input=152,
-            password='Password0',
-            additional_properties={
-                'exampleAdditionalProperty': jsonpickle.decode('{"key1":"val1","key2":"val2"}')
-            }
-        ),
-        additional_properties={
-            'exampleAdditionalProperty': jsonpickle.decode('{"key1":"val1","key2":"val2"}')
-        }
+            password='Password0'
+        )
     ),
-    output_result=OutputResult2(
-        device=Device3.CASHIERINPUT,
-        info_qualify=InfoQualify3.DOCUMENT,
-        response=Response3(
-            result=Result11.PARTIAL,
-            error_condition=ErrorCondition1.PAYMENTRESTRICTION,
-            additional_response='AdditionalResponse8',
-            additional_properties={
-                'exampleAdditionalProperty': jsonpickle.decode('{"key1":"val1","key2":"val2"}')
-            }
-        ),
-        additional_properties={
-            'exampleAdditionalProperty': jsonpickle.decode('{"key1":"val1","key2":"val2"}')
-        }
-    ),
-    additional_properties={
-        'exampleAdditionalProperty': jsonpickle.decode('{"key1":"val1","key2":"val2"}')
-    }
+    output_result=OutputResult1(
+        device=Device3Enum.CASHIERINPUT,
+        info_qualify=InfoQualify3Enum.DOCUMENT,
+        response=Response11(
+            result=Result11Enum.PARTIAL,
+            error_condition=ErrorCondition1Enum.PAYMENTRESTRICTION,
+            additional_response='AdditionalResponse8'
+        )
+    )
 )
 ```
 

@@ -27,14 +27,21 @@ class PayoutSettings(object):
             payouts are disabled until the specified date. On the specified date,
             `enabled` changes to **true** and this field is reset to **null**.
         id (str): The unique identifier of the payout setting.
-        priority (Priority1): The model property of type Priority1.
+        priority (PriorityEnum): Determines how long it takes for the funds to reach
+            the bank account. Adyen pays out based on the [payout
+            frequency](https://docs.adyen.com/account/getting-paid#payout-frequency).
+            Depending on the currencies and banks involved in transferring the money,
+            it may take up to three days for the payout funds to arrive in the bank
+            account.   Possible values: * **first**: same day. * **urgent**: the next
+            day. * **normal**: between 1 and 3 days.
         transfer_instrument_id (str): The unique identifier of the [transfer
             instrument](https://docs.adyen.com/api-explorer/#/legalentity/latest/post/
             transferInstruments) that contains the details of the bank account.
-        verification_status (VerificationStatus): The model property of type
-            VerificationStatus.
-        additional_properties (Dict[str, Any]): The additional properties for the
-            model.
+        verification_status (VerificationStatus1Enum): The status of the verification
+            process for the bank account.  Possible values: * **valid**: the
+            verification was successful. * **pending**: the verification is in
+            progress. * **invalid**: the information provided is not complete. *
+            **rejected**:  there are reasons to refuse working with this entity.
 
     """
 
@@ -65,8 +72,7 @@ class PayoutSettings(object):
         enabled=APIHelper.SKIP,
         enabled_from_date=APIHelper.SKIP,
         priority=APIHelper.SKIP,
-        verification_status=APIHelper.SKIP,
-        additional_properties=None):
+        verification_status=APIHelper.SKIP):
         """Initialize a PayoutSettings instance."""
         # Initialize members of the class
         if allowed is not APIHelper.SKIP:
@@ -81,11 +87,6 @@ class PayoutSettings(object):
         self.transfer_instrument_id = transfer_instrument_id
         if verification_status is not APIHelper.SKIP:
             self.verification_status = verification_status
-
-        # Add additional model properties to the instance
-        if additional_properties is None:
-            additional_properties = {}
-        self.additional_properties = additional_properties
 
     @classmethod
     def from_dictionary(cls,
@@ -134,11 +135,6 @@ class PayoutSettings(object):
             if dictionary.get("verificationStatus")\
                 else APIHelper.SKIP
 
-        additional_properties = APIHelper.get_additional_properties(
-            dictionary={k: v for k, v in dictionary.items()
-                        if k not in cls._names.values()},
-            unboxing_function=lambda value: value)
-
         # Return an object of this model
         return cls(id,
                    transfer_instrument_id,
@@ -146,8 +142,7 @@ class PayoutSettings(object):
                    enabled,
                    enabled_from_date,
                    priority,
-                   verification_status,
-                   additional_properties)
+                   verification_status)
 
     def __repr__(self):
         """Return a unambiguous string representation."""
@@ -178,7 +173,6 @@ class PayoutSettings(object):
             if hasattr(self, "verification_status")
             else None
         )
-        _additional_properties=self.additional_properties
         return (
             f"{self.__class__.__name__}("
             f"allowed={_allowed!r}, "
@@ -188,7 +182,6 @@ class PayoutSettings(object):
             f"priority={_priority!r}, "
             f"transfer_instrument_id={_transfer_instrument_id!r}, "
             f"verification_status={_verification_status!r}, "
-            f"additional_properties={_additional_properties!r}, "
             f")"
         )
 
@@ -221,7 +214,6 @@ class PayoutSettings(object):
             if hasattr(self, "verification_status")
             else None
         )
-        _additional_properties=self.additional_properties
         return (
             f"{self.__class__.__name__}("
             f"allowed={_allowed!s}, "
@@ -231,6 +223,5 @@ class PayoutSettings(object):
             f"priority={_priority!s}, "
             f"transfer_instrument_id={_transfer_instrument_id!s}, "
             f"verification_status={_verification_status!s}, "
-            f"additional_properties={_additional_properties!s}, "
             f")"
         )

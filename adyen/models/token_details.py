@@ -13,8 +13,6 @@ class TokenDetails(object):
     Attributes:
         token_data (Dict[str, str]): The model property of type Dict[str, str].
         token_data_type (str): The model property of type str.
-        additional_properties (Dict[str, Any]): The additional properties for the
-            model.
 
     """
 
@@ -32,19 +30,13 @@ class TokenDetails(object):
     def __init__(
         self,
         token_data=APIHelper.SKIP,
-        token_data_type=APIHelper.SKIP,
-        additional_properties=None):
+        token_data_type=APIHelper.SKIP):
         """Initialize a TokenDetails instance."""
         # Initialize members of the class
         if token_data is not APIHelper.SKIP:
             self.token_data = token_data
         if token_data_type is not APIHelper.SKIP:
             self.token_data_type = token_data_type
-
-        # Add additional model properties to the instance
-        if additional_properties is None:
-            additional_properties = {}
-        self.additional_properties = additional_properties
 
     @classmethod
     def from_dictionary(cls,
@@ -73,15 +65,9 @@ class TokenDetails(object):
             if dictionary.get("tokenDataType")\
                 else APIHelper.SKIP
 
-        additional_properties = APIHelper.get_additional_properties(
-            dictionary={k: v for k, v in dictionary.items()
-                        if k not in cls._names.values()},
-            unboxing_function=lambda value: value)
-
         # Return an object of this model
         return cls(token_data,
-                   token_data_type,
-                   additional_properties)
+                   token_data_type)
 
     def __repr__(self):
         """Return a unambiguous string representation."""
@@ -95,12 +81,10 @@ class TokenDetails(object):
             if hasattr(self, "token_data_type")
             else None
         )
-        _additional_properties=self.additional_properties
         return (
             f"{self.__class__.__name__}("
             f"token_data={_token_data!r}, "
             f"token_data_type={_token_data_type!r}, "
-            f"additional_properties={_additional_properties!r}, "
             f")"
         )
 
@@ -116,11 +100,9 @@ class TokenDetails(object):
             if hasattr(self, "token_data_type")
             else None
         )
-        _additional_properties=self.additional_properties
         return (
             f"{self.__class__.__name__}("
             f"token_data={_token_data!s}, "
             f"token_data_type={_token_data_type!s}, "
-            f"additional_properties={_additional_properties!s}, "
             f")"
         )

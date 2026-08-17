@@ -19,8 +19,6 @@ class MerchantAccount(object):
             of this merchant account.
         merchant_account (str): The merchant account.
         stores (List[Store1]): Array of stores under this merchant account.
-        additional_properties (Dict[str, Any]): The additional properties for the
-            model.
 
     """
 
@@ -43,8 +41,7 @@ class MerchantAccount(object):
         merchant_account=None,
         in_store_terminals=APIHelper.SKIP,
         inventory_terminals=APIHelper.SKIP,
-        stores=APIHelper.SKIP,
-        additional_properties=None):
+        stores=APIHelper.SKIP):
         """Initialize a MerchantAccount instance."""
         # Initialize members of the class
         if in_store_terminals is not APIHelper.SKIP:
@@ -54,11 +51,6 @@ class MerchantAccount(object):
         self.merchant_account = merchant_account
         if stores is not APIHelper.SKIP:
             self.stores = stores
-
-        # Add additional model properties to the instance
-        if additional_properties is None:
-            additional_properties = {}
-        self.additional_properties = additional_properties
 
     @classmethod
     def from_dictionary(cls,
@@ -99,17 +91,11 @@ class MerchantAccount(object):
         else:
             stores = APIHelper.SKIP
 
-        additional_properties = APIHelper.get_additional_properties(
-            dictionary={k: v for k, v in dictionary.items()
-                        if k not in cls._names.values()},
-            unboxing_function=lambda value: value)
-
         # Return an object of this model
         return cls(merchant_account,
                    in_store_terminals,
                    inventory_terminals,
-                   stores,
-                   additional_properties)
+                   stores)
 
     def __repr__(self):
         """Return a unambiguous string representation."""
@@ -129,14 +115,12 @@ class MerchantAccount(object):
             if hasattr(self, "stores")
             else None
         )
-        _additional_properties=self.additional_properties
         return (
             f"{self.__class__.__name__}("
             f"in_store_terminals={_in_store_terminals!r}, "
             f"inventory_terminals={_inventory_terminals!r}, "
             f"merchant_account={_merchant_account!r}, "
             f"stores={_stores!r}, "
-            f"additional_properties={_additional_properties!r}, "
             f")"
         )
 
@@ -158,13 +142,11 @@ class MerchantAccount(object):
             if hasattr(self, "stores")
             else None
         )
-        _additional_properties=self.additional_properties
         return (
             f"{self.__class__.__name__}("
             f"in_store_terminals={_in_store_terminals!s}, "
             f"inventory_terminals={_inventory_terminals!s}, "
             f"merchant_account={_merchant_account!s}, "
             f"stores={_stores!s}, "
-            f"additional_properties={_additional_properties!s}, "
             f")"
         )

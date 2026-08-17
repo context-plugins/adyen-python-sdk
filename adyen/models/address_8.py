@@ -11,74 +11,56 @@ class Address8(object):
     """Implementation of the 'Address8' model.
 
     Attributes:
-        city (str): The name of the city.  Supported characters: **[a-z] [A-Z] [0-9]
-            . - — / # , ’ ° ( ) : ; [ ] & \ |** and Space.  > Required when the
-            `category` is **card**.
-        country (str): The two-character ISO 3166-1 alpha-2 country code. For
-            example, **US**, **NL**, or **GB**.
-        line_1 (str): The first line of the street address.  Supported characters:
-            **[a-z] [A-Z] [0-9] . - — / # , ’ ° ( ) : ; [ ] & \ |** and Space.  >
-            Required when the `category` is **card**.
-        line_2 (str): The second line of the street address.  Supported characters:
-            **[a-z] [A-Z] [0-9] . - — / # , ’ ° ( ) : ; [ ] & \ |** and Space.  >
-            Required when the `category` is **card**.
-        postal_code (str): The postal code. Maximum length: * 5 digits for an address
-            in the US. * 10 characters for an address in all other countries.
-            Supported characters: **[a-z] [A-Z] [0-9]** and Space.  > Required for
-            addresses in the US.
-        state_or_province (str): The two-letter ISO 3166-2 state or province code.
-            For example, **CA** in the US or **ON** in Canada.     > Required for the
-            US and Canada.
-        additional_properties (Dict[str, Any]): The additional properties for the
-            model.
+        city (str): The model property of type str.
+        country_code (str): The model property of type str.
+        postal_code (str): The model property of type str.
+        state_or_province (str): The model property of type str.
+        street_address (str): The model property of type str.
+        street_address_2 (str): The model property of type str.
 
     """
 
     # Create a mapping from Model property names to API property names
     _names = {
-        "country": "country",
         "city": "city",
-        "line_1": "line1",
-        "line_2": "line2",
+        "country_code": "countryCode",
         "postal_code": "postalCode",
         "state_or_province": "stateOrProvince",
+        "street_address": "streetAddress",
+        "street_address_2": "streetAddress2",
     }
 
     _optionals = [
         "city",
-        "line_1",
-        "line_2",
+        "country_code",
         "postal_code",
         "state_or_province",
+        "street_address",
+        "street_address_2",
     ]
 
     def __init__(
         self,
-        country=None,
         city=APIHelper.SKIP,
-        line_1=APIHelper.SKIP,
-        line_2=APIHelper.SKIP,
+        country_code=APIHelper.SKIP,
         postal_code=APIHelper.SKIP,
         state_or_province=APIHelper.SKIP,
-        additional_properties=None):
+        street_address=APIHelper.SKIP,
+        street_address_2=APIHelper.SKIP):
         """Initialize a Address8 instance."""
         # Initialize members of the class
         if city is not APIHelper.SKIP:
             self.city = city
-        self.country = country
-        if line_1 is not APIHelper.SKIP:
-            self.line_1 = line_1
-        if line_2 is not APIHelper.SKIP:
-            self.line_2 = line_2
+        if country_code is not APIHelper.SKIP:
+            self.country_code = country_code
         if postal_code is not APIHelper.SKIP:
             self.postal_code = postal_code
         if state_or_province is not APIHelper.SKIP:
             self.state_or_province = state_or_province
-
-        # Add additional model properties to the instance
-        if additional_properties is None:
-            additional_properties = {}
-        self.additional_properties = additional_properties
+        if street_address is not APIHelper.SKIP:
+            self.street_address = street_address
+        if street_address_2 is not APIHelper.SKIP:
+            self.street_address_2 = street_address_2
 
     @classmethod
     def from_dictionary(cls,
@@ -98,21 +80,13 @@ class Address8(object):
             return None
 
         # Extract variables from the dictionary
-        country =\
-            dictionary.get("country")\
-            if dictionary.get("country")\
-                else None
         city =\
             dictionary.get("city")\
             if dictionary.get("city")\
                 else APIHelper.SKIP
-        line_1 =\
-            dictionary.get("line1")\
-            if dictionary.get("line1")\
-                else APIHelper.SKIP
-        line_2 =\
-            dictionary.get("line2")\
-            if dictionary.get("line2")\
+        country_code =\
+            dictionary.get("countryCode")\
+            if dictionary.get("countryCode")\
                 else APIHelper.SKIP
         postal_code =\
             dictionary.get("postalCode")\
@@ -122,53 +96,22 @@ class Address8(object):
             dictionary.get("stateOrProvince")\
             if dictionary.get("stateOrProvince")\
                 else APIHelper.SKIP
-
-        additional_properties = APIHelper.get_additional_properties(
-            dictionary={k: v for k, v in dictionary.items()
-                        if k not in cls._names.values()},
-            unboxing_function=lambda value: value)
+        street_address =\
+            dictionary.get("streetAddress")\
+            if dictionary.get("streetAddress")\
+                else APIHelper.SKIP
+        street_address_2 =\
+            dictionary.get("streetAddress2")\
+            if dictionary.get("streetAddress2")\
+                else APIHelper.SKIP
 
         # Return an object of this model
-        return cls(country,
-                   city,
-                   line_1,
-                   line_2,
+        return cls(city,
+                   country_code,
                    postal_code,
                    state_or_province,
-                   additional_properties)
-
-    @classmethod
-    def validate(cls, dictionary):
-        """Validate dictionary against class required properties
-
-        Args:
-            dictionary (dictionary): A dictionary representation of the object
-            as obtained from the deserialization of the server's response. The
-            keys MUST match property names in the API description.
-
-        Returns:
-            boolean : if dictionary is valid contains required properties.
-
-        """
-        if isinstance(dictionary, cls):
-            return APIHelper.is_valid_type(
-                    value=dictionary.country,
-                    type_callable=lambda value:
-                        isinstance(
-                        value,
-                        str,
-                ))
-
-        if not isinstance(dictionary, dict):
-            return False
-
-        return APIHelper.is_valid_type(
-                value=dictionary.get("country"),
-                type_callable=lambda value:
-                    isinstance(
-                    value,
-                    str,
-            ))
+                   street_address,
+                   street_address_2)
 
     def __repr__(self):
         """Return a unambiguous string representation."""
@@ -177,15 +120,9 @@ class Address8(object):
             if hasattr(self, "city")
             else None
         )
-        _country=self.country
-        _line_1=(
-            self.line_1
-            if hasattr(self, "line_1")
-            else None
-        )
-        _line_2=(
-            self.line_2
-            if hasattr(self, "line_2")
+        _country_code=(
+            self.country_code
+            if hasattr(self, "country_code")
             else None
         )
         _postal_code=(
@@ -198,16 +135,24 @@ class Address8(object):
             if hasattr(self, "state_or_province")
             else None
         )
-        _additional_properties=self.additional_properties
+        _street_address=(
+            self.street_address
+            if hasattr(self, "street_address")
+            else None
+        )
+        _street_address_2=(
+            self.street_address_2
+            if hasattr(self, "street_address_2")
+            else None
+        )
         return (
             f"{self.__class__.__name__}("
             f"city={_city!r}, "
-            f"country={_country!r}, "
-            f"line_1={_line_1!r}, "
-            f"line_2={_line_2!r}, "
+            f"country_code={_country_code!r}, "
             f"postal_code={_postal_code!r}, "
             f"state_or_province={_state_or_province!r}, "
-            f"additional_properties={_additional_properties!r}, "
+            f"street_address={_street_address!r}, "
+            f"street_address_2={_street_address_2!r}, "
             f")"
         )
 
@@ -218,15 +163,9 @@ class Address8(object):
             if hasattr(self, "city")
             else None
         )
-        _country=self.country
-        _line_1=(
-            self.line_1
-            if hasattr(self, "line_1")
-            else None
-        )
-        _line_2=(
-            self.line_2
-            if hasattr(self, "line_2")
+        _country_code=(
+            self.country_code
+            if hasattr(self, "country_code")
             else None
         )
         _postal_code=(
@@ -239,15 +178,23 @@ class Address8(object):
             if hasattr(self, "state_or_province")
             else None
         )
-        _additional_properties=self.additional_properties
+        _street_address=(
+            self.street_address
+            if hasattr(self, "street_address")
+            else None
+        )
+        _street_address_2=(
+            self.street_address_2
+            if hasattr(self, "street_address_2")
+            else None
+        )
         return (
             f"{self.__class__.__name__}("
             f"city={_city!s}, "
-            f"country={_country!s}, "
-            f"line_1={_line_1!s}, "
-            f"line_2={_line_2!s}, "
+            f"country_code={_country_code!s}, "
             f"postal_code={_postal_code!s}, "
             f"state_or_province={_state_or_province!s}, "
-            f"additional_properties={_additional_properties!s}, "
+            f"street_address={_street_address!s}, "
+            f"street_address_2={_street_address_2!s}, "
             f")"
         )

@@ -12,8 +12,6 @@ class ShopperIdPaymentMethod(object):
 
     Attributes:
         mtype (str): The model property of type str.
-        additional_properties (Dict[str, Any]): The additional properties for the
-            model.
 
     """
 
@@ -28,16 +26,10 @@ class ShopperIdPaymentMethod(object):
 
     def __init__(
         self,
-        mtype="ShopperIdPaymentMethod",
-        additional_properties=None):
+        mtype="ShopperIdPaymentMethod"):
         """Initialize a ShopperIdPaymentMethod instance."""
         # Initialize members of the class
         self.mtype = mtype
-
-        # Add additional model properties to the instance
-        if additional_properties is None:
-            additional_properties = {}
-        self.additional_properties = additional_properties
 
     @classmethod
     def from_dictionary(cls,
@@ -58,7 +50,7 @@ class ShopperIdPaymentMethod(object):
 
         discriminators = {
             "payTo": PayToPaymentMethod.from_dictionary,
-            "upi_collect": UpiPaymentMethod.from_dictionary,
+            "upi_collect": UPIPaymentMethod.from_dictionary,
         }
         unboxer = discriminators.get(dictionary.get("type"))
 
@@ -73,14 +65,8 @@ class ShopperIdPaymentMethod(object):
             if dictionary.get("type")\
                 else "ShopperIdPaymentMethod"
 
-        additional_properties = APIHelper.get_additional_properties(
-            dictionary={k: v for k, v in dictionary.items()
-                        if k not in cls._names.values()},
-            unboxing_function=lambda value: value)
-
         # Return an object of this model
-        return cls(mtype,
-                   additional_properties)
+        return cls(mtype)
 
     def __repr__(self):
         """Return a unambiguous string representation."""
@@ -89,11 +75,9 @@ class ShopperIdPaymentMethod(object):
             if hasattr(self, "mtype")
             else None
         )
-        _additional_properties=self.additional_properties
         return (
             f"{self.__class__.__name__}("
             f"mtype={_mtype!r}, "
-            f"additional_properties={_additional_properties!r}, "
             f")"
         )
 
@@ -104,11 +88,9 @@ class ShopperIdPaymentMethod(object):
             if hasattr(self, "mtype")
             else None
         )
-        _additional_properties=self.additional_properties
         return (
             f"{self.__class__.__name__}("
             f"mtype={_mtype!s}, "
-            f"additional_properties={_additional_properties!s}, "
             f")"
         )
 
@@ -118,8 +100,6 @@ class PayToPaymentMethod(ShopperIdPaymentMethod):
 
     Attributes:
         shopper_reference (str): The model property of type str.
-        additional_properties (Dict[str, Any]): The additional properties for the
-            model.
 
     """
 
@@ -137,8 +117,7 @@ class PayToPaymentMethod(ShopperIdPaymentMethod):
     def __init__(
         self,
         shopper_reference=APIHelper.SKIP,
-        mtype="payTo",
-        additional_properties=None):
+        mtype="payTo"):
         """Initialize a PayToPaymentMethod instance."""
         # Initialize members of the class
         if shopper_reference is not APIHelper.SKIP:
@@ -146,8 +125,7 @@ class PayToPaymentMethod(ShopperIdPaymentMethod):
 
         # Call the constructor for the base class
         super(PayToPaymentMethod, self).__init__(
-            mtype,
-            additional_properties)
+            mtype)
 
     @classmethod
     def from_dictionary(cls,
@@ -176,15 +154,9 @@ class PayToPaymentMethod(ShopperIdPaymentMethod):
             if dictionary.get("type")\
                 else "payTo"
 
-        additional_properties = APIHelper.get_additional_properties(
-            dictionary={k: v for k, v in dictionary.items()
-                        if k not in cls._names.values()},
-            unboxing_function=lambda value: value)
-
         # Return an object of this model
         return cls(shopper_reference,
-                   mtype,
-                   additional_properties)
+                   mtype)
 
     def __repr__(self):
         """Return a unambiguous string representation."""
@@ -218,14 +190,12 @@ class PayToPaymentMethod(ShopperIdPaymentMethod):
             f")"
         )
 
-class UpiPaymentMethod(ShopperIdPaymentMethod):
+class UPIPaymentMethod(ShopperIdPaymentMethod):
     """Implementation of the 'UPIPaymentMethod' model.
     NOTE: This class inherits from 'ShopperIdPaymentMethod'.
 
     Attributes:
         virtual_payment_address (str): The model property of type str.
-        additional_properties (Dict[str, Any]): The additional properties for the
-            model.
 
     """
 
@@ -243,17 +213,15 @@ class UpiPaymentMethod(ShopperIdPaymentMethod):
     def __init__(
         self,
         virtual_payment_address=APIHelper.SKIP,
-        mtype="upi_collect",
-        additional_properties=None):
-        """Initialize a UpiPaymentMethod instance."""
+        mtype="upi_collect"):
+        """Initialize a UPIPaymentMethod instance."""
         # Initialize members of the class
         if virtual_payment_address is not APIHelper.SKIP:
             self.virtual_payment_address = virtual_payment_address
 
         # Call the constructor for the base class
-        super(UpiPaymentMethod, self).__init__(
-            mtype,
-            additional_properties)
+        super(UPIPaymentMethod, self).__init__(
+            mtype)
 
     @classmethod
     def from_dictionary(cls,
@@ -282,15 +250,9 @@ class UpiPaymentMethod(ShopperIdPaymentMethod):
             if dictionary.get("type")\
                 else "upi_collect"
 
-        additional_properties = APIHelper.get_additional_properties(
-            dictionary={k: v for k, v in dictionary.items()
-                        if k not in cls._names.values()},
-            unboxing_function=lambda value: value)
-
         # Return an object of this model
         return cls(virtual_payment_address,
-                   mtype,
-                   additional_properties)
+                   mtype)
 
     def __repr__(self):
         """Return a unambiguous string representation."""

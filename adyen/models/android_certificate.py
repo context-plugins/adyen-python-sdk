@@ -20,8 +20,6 @@ class AndroidCertificate(object):
         not_after (datetime): The date when the certificate stops to be valid.
         not_before (datetime): The date when the certificate starts to be valid.
         status (str): The status of the certificate.
-        additional_properties (Dict[str, Any]): The additional properties for the
-            model.
 
     """
 
@@ -53,8 +51,7 @@ class AndroidCertificate(object):
         name=APIHelper.SKIP,
         not_after=APIHelper.SKIP,
         not_before=APIHelper.SKIP,
-        status=APIHelper.SKIP,
-        additional_properties=None):
+        status=APIHelper.SKIP):
         """Initialize a AndroidCertificate instance."""
         # Initialize members of the class
         if description is not APIHelper.SKIP:
@@ -76,11 +73,6 @@ class AndroidCertificate(object):
                  if not_before else None
         if status is not APIHelper.SKIP:
             self.status = status
-
-        # Add additional model properties to the instance
-        if additional_properties is None:
-            additional_properties = {}
-        self.additional_properties = additional_properties
 
     @classmethod
     def from_dictionary(cls,
@@ -127,11 +119,6 @@ class AndroidCertificate(object):
             if dictionary.get("status")\
                 else APIHelper.SKIP
 
-        additional_properties = APIHelper.get_additional_properties(
-            dictionary={k: v for k, v in dictionary.items()
-                        if k not in cls._names.values()},
-            unboxing_function=lambda value: value)
-
         # Return an object of this model
         return cls(id,
                    description,
@@ -139,8 +126,7 @@ class AndroidCertificate(object):
                    name,
                    not_after,
                    not_before,
-                   status,
-                   additional_properties)
+                   status)
 
     def __repr__(self):
         """Return a unambiguous string representation."""
@@ -175,7 +161,6 @@ class AndroidCertificate(object):
             if hasattr(self, "status")
             else None
         )
-        _additional_properties=self.additional_properties
         return (
             f"{self.__class__.__name__}("
             f"description={_description!r}, "
@@ -185,7 +170,6 @@ class AndroidCertificate(object):
             f"not_after={_not_after!r}, "
             f"not_before={_not_before!r}, "
             f"status={_status!r}, "
-            f"additional_properties={_additional_properties!r}, "
             f")"
         )
 
@@ -222,7 +206,6 @@ class AndroidCertificate(object):
             if hasattr(self, "status")
             else None
         )
-        _additional_properties=self.additional_properties
         return (
             f"{self.__class__.__name__}("
             f"description={_description!s}, "
@@ -232,6 +215,5 @@ class AndroidCertificate(object):
             f"not_after={_not_after!s}, "
             f"not_before={_not_before!s}, "
             f"status={_status!s}, "
-            f"additional_properties={_additional_properties!s}, "
             f")"
         )

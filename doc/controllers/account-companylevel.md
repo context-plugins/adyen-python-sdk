@@ -44,17 +44,13 @@ This endpoint requires [BasicAuth](../../doc/auth/basic-authentication.md) **OR*
 
 **200**: OK - the request has succeeded.
 
-This method returns an [`ApiResponse`](../../doc/api-response.md) instance. The `body` property of this instance returns the response data which is of type [`ListCompanyResponse`](../../doc/models/list-company-response.md).
+[`ListCompanyResponse`](../../doc/models/list-company-response.md)
 
 ## Example Usage
 
 ```python
 result = account_company_level_api.get_companies()
-
-if result.is_success():
-    print(result.body)
-elif result.is_error():
-    print(result.errors)
+print(result)
 ```
 
 ## Example Response *(as JSON)*
@@ -142,7 +138,7 @@ This endpoint requires [BasicAuth](../../doc/auth/basic-authentication.md) **OR*
 
 **200**: OK - the request has succeeded.
 
-This method returns an [`ApiResponse`](../../doc/api-response.md) instance. The `body` property of this instance returns the response data which is of type [`Company2`](../../doc/models/company-2.md).
+[`Company2`](../../doc/models/company-2.md)
 
 ## Example Usage
 
@@ -150,11 +146,7 @@ This method returns an [`ApiResponse`](../../doc/api-response.md) instance. The 
 company_id = 'companyId0'
 
 result = account_company_level_api.get_companies_company_id(company_id)
-
-if result.is_success():
-    print(result.body)
-elif result.is_error():
-    print(result.errors)
+print(result)
 ```
 
 ## Example Response *(as JSON)*
@@ -229,7 +221,7 @@ This endpoint requires [BasicAuth](../../doc/auth/basic-authentication.md) **OR*
 
 **200**: OK - the request has succeeded.
 
-This method returns an [`ApiResponse`](../../doc/api-response.md) instance. The `body` property of this instance returns the response data which is of type [`ListMerchantResponse`](../../doc/models/list-merchant-response.md).
+[`ListMerchantResponse`](../../doc/models/list-merchant-response.md)
 
 ## Example Usage
 
@@ -237,11 +229,7 @@ This method returns an [`ApiResponse`](../../doc/api-response.md) instance. The 
 company_id = 'companyId0'
 
 result = account_company_level_api.get_companies_company_id_merchants(company_id)
-
-if result.is_success():
-    print(result.body)
-elif result.is_error():
-    print(result.errors)
+print(result)
 ```
 
 ## Example Response *(as JSON)*

@@ -11,74 +11,8 @@ from apimatic_core.types.parameter import Parameter
 from adyen.api_helper import APIHelper
 from adyen.apis.base_api import BaseApi
 from adyen.configuration import Server
-from adyen.exceptions.merchants_generate_payments_app_boarding_token_400_error_exception import (  # noqa: E501
-    MerchantsGeneratePaymentsAppBoardingToken400ErrorException,
-)
-from adyen.exceptions.merchants_generate_payments_app_boarding_token_401_error_exception import (  # noqa: E501
-    MerchantsGeneratePaymentsAppBoardingToken401ErrorException,
-)
-from adyen.exceptions.merchants_generate_payments_app_boarding_token_403_error_exception import (  # noqa: E501
-    MerchantsGeneratePaymentsAppBoardingToken403ErrorException,
-)
-from adyen.exceptions.merchants_generate_payments_app_boarding_token_422_error_exception import (  # noqa: E501
-    MerchantsGeneratePaymentsAppBoardingToken422ErrorException,
-)
-from adyen.exceptions.merchants_generate_payments_app_boarding_token_500_error_exception import (  # noqa: E501
-    MerchantsGeneratePaymentsAppBoardingToken500ErrorException,
-)
-from adyen.exceptions.merchants_payments_apps_400_error_exception import (
-    MerchantsPaymentsApps400ErrorException,
-)
-from adyen.exceptions.merchants_payments_apps_401_error_exception import (
-    MerchantsPaymentsApps401ErrorException,
-)
-from adyen.exceptions.merchants_payments_apps_403_error_exception import (
-    MerchantsPaymentsApps403ErrorException,
-)
-from adyen.exceptions.merchants_payments_apps_422_error_exception import (
-    MerchantsPaymentsApps422ErrorException,
-)
-from adyen.exceptions.merchants_payments_apps_500_error_exception import (
-    MerchantsPaymentsApps500ErrorException,
-)
-from adyen.exceptions.merchants_payments_apps_revoke_400_error_exception import (
-    MerchantsPaymentsAppsRevoke400ErrorException,
-)
-from adyen.exceptions.merchants_payments_apps_revoke_401_error_exception import (
-    MerchantsPaymentsAppsRevoke401ErrorException,
-)
-from adyen.exceptions.merchants_payments_apps_revoke_500_error_exception import (
-    MerchantsPaymentsAppsRevoke500ErrorException,
-)
-from adyen.exceptions.merchants_stores_generate_payments_app_boarding_token_400_error_exception import (  # noqa: E501
-    MerchantsStoresGeneratePaymentsAppBoardingToken400ErrorException,
-)
-from adyen.exceptions.merchants_stores_generate_payments_app_boarding_token_401_error_exception import (  # noqa: E501
-    MerchantsStoresGeneratePaymentsAppBoardingToken401ErrorException,
-)
-from adyen.exceptions.merchants_stores_generate_payments_app_boarding_token_403_error_exception import (  # noqa: E501
-    MerchantsStoresGeneratePaymentsAppBoardingToken403ErrorException,
-)
-from adyen.exceptions.merchants_stores_generate_payments_app_boarding_token_422_error_exception import (  # noqa: E501
-    MerchantsStoresGeneratePaymentsAppBoardingToken422ErrorException,
-)
-from adyen.exceptions.merchants_stores_generate_payments_app_boarding_token_500_error_exception import (  # noqa: E501
-    MerchantsStoresGeneratePaymentsAppBoardingToken500ErrorException,
-)
-from adyen.exceptions.merchants_stores_payments_apps_400_error_exception import (
-    MerchantsStoresPaymentsApps400ErrorException,
-)
-from adyen.exceptions.merchants_stores_payments_apps_401_error_exception import (
-    MerchantsStoresPaymentsApps401ErrorException,
-)
-from adyen.exceptions.merchants_stores_payments_apps_403_error_exception import (
-    MerchantsStoresPaymentsApps403ErrorException,
-)
-from adyen.exceptions.merchants_stores_payments_apps_422_error_exception import (
-    MerchantsStoresPaymentsApps422ErrorException,
-)
-from adyen.exceptions.merchants_stores_payments_apps_500_error_exception import (
-    MerchantsStoresPaymentsApps500ErrorException,
+from adyen.exceptions.default_error_response_entity_exception import (
+    DefaultErrorResponseEntityException,
 )
 from adyen.http.http_method_enum import HttpMethodEnum
 from adyen.models.boarding_token_response import (
@@ -116,31 +50,28 @@ class PaymentsAppApi(BaseApi):
             body (BoardingTokenRequest): The request body parameter.
 
         Returns:
-            ApiResponse: An object with the response value as well as other useful
-                information such as status codes and headers. OK - the request has
+            BoardingTokenResponse: Response from the API. OK - the request has
                 succeeded.
 
         Raises:
-            ApiException: When an error occurs while fetching the data from the
+            APIException: When an error occurs while fetching the data from the
                 remote API. This exception includes the HTTP Response code, an error
                 message, and the HTTP body that was received in the request.
 
         """
         return super().new_api_call_builder.request(
-            RequestBuilder().server(Server.DEFAULT)
+            RequestBuilder().server(Server.DEFAULT26)
             .path("/merchants/{merchantId}/generatePaymentsAppBoardingToken")
             .http_method(HttpMethodEnum.POST)
             .template_param(Parameter()
                 .key("merchantId")
                 .value(merchant_id)
-                .is_required(True)
                 .should_encode(True))
             .header_param(Parameter()
                 .key("Content-Type")
                 .value("application/json"))
             .body_param(Parameter()
-                .value(body)
-                .is_required(True))
+                .value(body))
             .header_param(Parameter()
                 .key("accept")
                 .value("application/json"))
@@ -149,22 +80,21 @@ class PaymentsAppApi(BaseApi):
             ResponseHandler()
             .deserializer(APIHelper.json_deserialize)
             .deserialize_into(BoardingTokenResponse.from_dictionary)
-            .is_api_response(True)
             .local_error("400",
                 "Bad Request - a problem reading or understanding the request.",
-                MerchantsGeneratePaymentsAppBoardingToken400ErrorException)
+                DefaultErrorResponseEntityException)
             .local_error("401",
                 "Unauthorized - authentication required.",
-                MerchantsGeneratePaymentsAppBoardingToken401ErrorException)
+                DefaultErrorResponseEntityException)
             .local_error("403",
                 "Forbidden - insufficient permissions to process the request.",
-                MerchantsGeneratePaymentsAppBoardingToken403ErrorException)
+                DefaultErrorResponseEntityException)
             .local_error("422",
                 "Unprocessable Entity - a request validation error.",
-                MerchantsGeneratePaymentsAppBoardingToken422ErrorException)
+                DefaultErrorResponseEntityException)
             .local_error("500",
                 "Internal Server Error - the server could not process the request.",
-                MerchantsGeneratePaymentsAppBoardingToken500ErrorException),
+                DefaultErrorResponseEntityException),
         ).execute()
 
     def post_merchants_merchant_id_stores_store_id_generate_payments_app_boarding_token(self,
@@ -189,36 +119,32 @@ class PaymentsAppApi(BaseApi):
             body (BoardingTokenRequest): The request body parameter.
 
         Returns:
-            ApiResponse: An object with the response value as well as other useful
-                information such as status codes and headers. OK - the request has
+            BoardingTokenResponse: Response from the API. OK - the request has
                 succeeded.
 
         Raises:
-            ApiException: When an error occurs while fetching the data from the
+            APIException: When an error occurs while fetching the data from the
                 remote API. This exception includes the HTTP Response code, an error
                 message, and the HTTP body that was received in the request.
 
         """
         return super().new_api_call_builder.request(
-            RequestBuilder().server(Server.DEFAULT)
+            RequestBuilder().server(Server.DEFAULT26)
             .path("/merchants/{merchantId}/stores/{storeId}/generatePaymentsAppBoardingToken")
             .http_method(HttpMethodEnum.POST)
             .template_param(Parameter()
                 .key("merchantId")
                 .value(merchant_id)
-                .is_required(True)
                 .should_encode(True))
             .template_param(Parameter()
                 .key("storeId")
                 .value(store_id)
-                .is_required(True)
                 .should_encode(True))
             .header_param(Parameter()
                 .key("Content-Type")
                 .value("application/json"))
             .body_param(Parameter()
-                .value(body)
-                .is_required(True))
+                .value(body))
             .header_param(Parameter()
                 .key("accept")
                 .value("application/json"))
@@ -227,22 +153,21 @@ class PaymentsAppApi(BaseApi):
             ResponseHandler()
             .deserializer(APIHelper.json_deserialize)
             .deserialize_into(BoardingTokenResponse.from_dictionary)
-            .is_api_response(True)
             .local_error("400",
                 "Bad Request - a problem reading or understanding the request.",
-                MerchantsStoresGeneratePaymentsAppBoardingToken400ErrorException)
+                DefaultErrorResponseEntityException)
             .local_error("401",
                 "Unauthorized - authentication required.",
-                MerchantsStoresGeneratePaymentsAppBoardingToken401ErrorException)
+                DefaultErrorResponseEntityException)
             .local_error("403",
                 "Forbidden - insufficient permissions to process the request.",
-                MerchantsStoresGeneratePaymentsAppBoardingToken403ErrorException)
+                DefaultErrorResponseEntityException)
             .local_error("422",
                 "Unprocessable Entity - a request validation error.",
-                MerchantsStoresGeneratePaymentsAppBoardingToken422ErrorException)
+                DefaultErrorResponseEntityException)
             .local_error("500",
                 "Internal Server Error - the server could not process the request.",
-                MerchantsStoresGeneratePaymentsAppBoardingToken500ErrorException),
+                DefaultErrorResponseEntityException),
         ).execute()
 
     def get_merchants_merchant_id_payments_apps(self,
@@ -269,24 +194,22 @@ class PaymentsAppApi(BaseApi):
             offset (int, optional): The number of items to skip.
 
         Returns:
-            ApiResponse: An object with the response value as well as other useful
-                information such as status codes and headers. OK - the request has
+            PaymentsAppResponse: Response from the API. OK - the request has
                 succeeded.
 
         Raises:
-            ApiException: When an error occurs while fetching the data from the
+            APIException: When an error occurs while fetching the data from the
                 remote API. This exception includes the HTTP Response code, an error
                 message, and the HTTP body that was received in the request.
 
         """
         return super().new_api_call_builder.request(
-            RequestBuilder().server(Server.DEFAULT)
+            RequestBuilder().server(Server.DEFAULT26)
             .path("/merchants/{merchantId}/paymentsApps")
             .http_method(HttpMethodEnum.GET)
             .template_param(Parameter()
                 .key("merchantId")
                 .value(merchant_id)
-                .is_required(True)
                 .should_encode(True))
             .query_param(Parameter()
                 .key("statuses")
@@ -304,22 +227,21 @@ class PaymentsAppApi(BaseApi):
             ResponseHandler()
             .deserializer(APIHelper.json_deserialize)
             .deserialize_into(PaymentsAppResponse.from_dictionary)
-            .is_api_response(True)
             .local_error("400",
                 "Bad Request - a problem reading or understanding the request.",
-                MerchantsPaymentsApps400ErrorException)
+                DefaultErrorResponseEntityException)
             .local_error("401",
                 "Unauthorized - authentication required.",
-                MerchantsPaymentsApps401ErrorException)
+                DefaultErrorResponseEntityException)
             .local_error("403",
                 "Forbidden - insufficient permissions to process the request.",
-                MerchantsPaymentsApps403ErrorException)
+                DefaultErrorResponseEntityException)
             .local_error("422",
                 "Unprocessable Entity - a request validation error.",
-                MerchantsPaymentsApps422ErrorException)
+                DefaultErrorResponseEntityException)
             .local_error("500",
                 "Internal Server Error - the server could not process the request.",
-                MerchantsPaymentsApps500ErrorException),
+                DefaultErrorResponseEntityException),
         ).execute()
 
     def get_merchants_merchant_id_stores_store_id_payments_apps(self,
@@ -349,29 +271,26 @@ class PaymentsAppApi(BaseApi):
             offset (int, optional): The number of items to skip.
 
         Returns:
-            ApiResponse: An object with the response value as well as other useful
-                information such as status codes and headers. OK - the request has
+            PaymentsAppResponse: Response from the API. OK - the request has
                 succeeded.
 
         Raises:
-            ApiException: When an error occurs while fetching the data from the
+            APIException: When an error occurs while fetching the data from the
                 remote API. This exception includes the HTTP Response code, an error
                 message, and the HTTP body that was received in the request.
 
         """
         return super().new_api_call_builder.request(
-            RequestBuilder().server(Server.DEFAULT)
+            RequestBuilder().server(Server.DEFAULT26)
             .path("/merchants/{merchantId}/stores/{storeId}/paymentsApps")
             .http_method(HttpMethodEnum.GET)
             .template_param(Parameter()
                 .key("merchantId")
                 .value(merchant_id)
-                .is_required(True)
                 .should_encode(True))
             .template_param(Parameter()
                 .key("storeId")
                 .value(store_id)
-                .is_required(True)
                 .should_encode(True))
             .query_param(Parameter()
                 .key("statuses")
@@ -389,22 +308,21 @@ class PaymentsAppApi(BaseApi):
             ResponseHandler()
             .deserializer(APIHelper.json_deserialize)
             .deserialize_into(PaymentsAppResponse.from_dictionary)
-            .is_api_response(True)
             .local_error("400",
                 "Bad Request - a problem reading or understanding the request.",
-                MerchantsStoresPaymentsApps400ErrorException)
+                DefaultErrorResponseEntityException)
             .local_error("401",
                 "Unauthorized - authentication required.",
-                MerchantsStoresPaymentsApps401ErrorException)
+                DefaultErrorResponseEntityException)
             .local_error("403",
                 "Forbidden - insufficient permissions to process the request.",
-                MerchantsStoresPaymentsApps403ErrorException)
+                DefaultErrorResponseEntityException)
             .local_error("422",
                 "Unprocessable Entity - a request validation error.",
-                MerchantsStoresPaymentsApps422ErrorException)
+                DefaultErrorResponseEntityException)
             .local_error("500",
                 "Internal Server Error - the server could not process the request.",
-                MerchantsStoresPaymentsApps500ErrorException),
+                DefaultErrorResponseEntityException),
         ).execute()
 
     def post_merchants_merchant_id_payments_apps_installation_id_revoke(self,
@@ -428,44 +346,39 @@ class PaymentsAppApi(BaseApi):
                 on a device.
 
         Returns:
-            ApiResponse: An object with the response value as well as other useful
-                information such as status codes and headers. OK - the request has
-                succeeded.
+            Any: Response from the API. OK - the request has succeeded.
 
         Raises:
-            ApiException: When an error occurs while fetching the data from the
+            APIException: When an error occurs while fetching the data from the
                 remote API. This exception includes the HTTP Response code, an error
                 message, and the HTTP body that was received in the request.
 
         """
         return super().new_api_call_builder.request(
-            RequestBuilder().server(Server.DEFAULT)
+            RequestBuilder().server(Server.DEFAULT26)
             .path("/merchants/{merchantId}/paymentsApps/{installationId}/revoke")
             .http_method(HttpMethodEnum.POST)
             .template_param(Parameter()
                 .key("merchantId")
                 .value(merchant_id)
-                .is_required(True)
                 .should_encode(True))
             .template_param(Parameter()
                 .key("installationId")
                 .value(installation_id)
-                .is_required(True)
                 .should_encode(True))
             .header_param(Parameter()
                 .key("accept")
                 .value("application/json")),
         ).response(
             ResponseHandler()
-            .deserializer(APIHelper.json_deserialize)
-            .is_api_response(True)
+            .deserializer(APIHelper.dynamic_deserialize)
             .local_error("400",
                 "Bad Request - a problem reading or understanding the request.",
-                MerchantsPaymentsAppsRevoke400ErrorException)
+                DefaultErrorResponseEntityException)
             .local_error("401",
                 "Unauthorized - authentication required.",
-                MerchantsPaymentsAppsRevoke401ErrorException)
+                DefaultErrorResponseEntityException)
             .local_error("500",
                 "Internal Server Error - the server could not process the request.",
-                MerchantsPaymentsAppsRevoke500ErrorException),
+                DefaultErrorResponseEntityException),
         ).execute()

@@ -113,8 +113,6 @@ class BankAccountDetail(object):
             This may be generated on bank account creation.  >Refer to [Required
             information](https://docs.adyen.com/classic-platforms/verification-process
             /required-information) for details on field requirements.
-        additional_properties (Dict[str, Any]): The additional properties for the
-            model.
 
     """
 
@@ -204,8 +202,7 @@ class BankAccountDetail(object):
         owner_street=APIHelper.SKIP,
         primary_account=APIHelper.SKIP,
         tax_id=APIHelper.SKIP,
-        url_for_verification=APIHelper.SKIP,
-        additional_properties=None):
+        url_for_verification=APIHelper.SKIP):
         """Initialize a BankAccountDetail instance."""
         # Initialize members of the class
         if account_number is not APIHelper.SKIP:
@@ -260,11 +257,6 @@ class BankAccountDetail(object):
             self.tax_id = tax_id
         if url_for_verification is not APIHelper.SKIP:
             self.url_for_verification = url_for_verification
-
-        # Add additional model properties to the instance
-        if additional_properties is None:
-            additional_properties = {}
-        self.additional_properties = additional_properties
 
     @classmethod
     def from_dictionary(cls,
@@ -389,11 +381,6 @@ class BankAccountDetail(object):
             if dictionary.get("urlForVerification")\
                 else APIHelper.SKIP
 
-        additional_properties = APIHelper.get_additional_properties(
-            dictionary={k: v for k, v in dictionary.items()
-                        if k not in cls._names.values()},
-            unboxing_function=lambda value: value)
-
         # Return an object of this model
         return cls(account_number,
                    account_type,
@@ -420,8 +407,7 @@ class BankAccountDetail(object):
                    owner_street,
                    primary_account,
                    tax_id,
-                   url_for_verification,
-                   additional_properties)
+                   url_for_verification)
 
     def __repr__(self):
         """Return a unambiguous string representation."""
@@ -555,7 +541,6 @@ class BankAccountDetail(object):
             if hasattr(self, "url_for_verification")
             else None
         )
-        _additional_properties=self.additional_properties
         return (
             f"{self.__class__.__name__}("
             f"account_number={_account_number!r}, "
@@ -584,7 +569,6 @@ class BankAccountDetail(object):
             f"primary_account={_primary_account!r}, "
             f"tax_id={_tax_id!r}, "
             f"url_for_verification={_url_for_verification!r}, "
-            f"additional_properties={_additional_properties!r}, "
             f")"
         )
 
@@ -720,7 +704,6 @@ class BankAccountDetail(object):
             if hasattr(self, "url_for_verification")
             else None
         )
-        _additional_properties=self.additional_properties
         return (
             f"{self.__class__.__name__}("
             f"account_number={_account_number!s}, "
@@ -749,6 +732,5 @@ class BankAccountDetail(object):
             f"primary_account={_primary_account!s}, "
             f"tax_id={_tax_id!s}, "
             f"url_for_verification={_url_for_verification!s}, "
-            f"additional_properties={_additional_properties!s}, "
             f")"
         )

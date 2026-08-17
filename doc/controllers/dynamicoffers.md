@@ -32,13 +32,13 @@ def get_dynamic_offers(self,
 | Parameter | Type | Tags | Description |
 |  --- | --- | --- | --- |
 | `account_holder_id` | `str` | Query, Required | The unique identifier of the account holder that the dynamic offer is for.<br><br>**Constraints**: *Minimum Length*: `1` |
-| `financing_type` | [`FinancingType1`](../../doc/models/financing-type-1.md) | Query, Optional | The type of financing that the offer is for. If the value is not specified, returns all available types.<br><br>Possible values: **businessFinancing** |
+| `financing_type` | [`FinancingTypeEnum`](../../doc/models/financing-type-enum.md) | Query, Optional | The type of financing that the offer is for. If the value is not specified, returns all available types.<br><br>Possible values: **businessFinancing** |
 
 ## Response Type
 
 **200**: OK - The request has succeeded.
 
-This method returns an [`ApiResponse`](../../doc/api-response.md) instance. The `body` property of this instance returns the response data which is of type [`GetDynamicOffersResponse`](../../doc/models/get-dynamic-offers-response.md).
+[`GetDynamicOffersResponse`](../../doc/models/get-dynamic-offers-response.md)
 
 ## Example Usage
 
@@ -46,18 +46,14 @@ This method returns an [`ApiResponse`](../../doc/api-response.md) instance. The 
 account_holder_id = 'accountHolderId8'
 
 result = dynamic_offers_api.get_dynamic_offers(account_holder_id)
-
-if result.is_success():
-    print(result.body)
-elif result.is_error():
-    print(result.errors)
+print(result)
 ```
 
 ## Errors
 
 | HTTP Status Code | Error Description | Exception Class |
 |  --- | --- | --- |
-| 422 | Unprocessable Entity - A request validation error. | [`DynamicOffers422ErrorException`](../../doc/models/dynamic-offers-422-error-exception.md) |
+| 422 | Unprocessable Entity - A request validation error. | [`DefaultErrorResponseEntityException`](../../doc/models/default-error-response-entity-exception.md) |
 
 
 # Post-Dynamic Offers-Id-Calculate
@@ -89,7 +85,7 @@ def post_dynamic_offers_id_calculate(self,
 
 **200**: OK - The request has succeeded.
 
-This method returns an [`ApiResponse`](../../doc/api-response.md) instance. The `body` property of this instance returns the response data which is of type [`CalculatedGrantOffer`](../../doc/models/calculated-grant-offer.md).
+[`CalculatedGrantOffer`](../../doc/models/calculated-grant-offer.md)
 
 ## Example Usage
 
@@ -97,18 +93,14 @@ This method returns an [`ApiResponse`](../../doc/api-response.md) instance. The 
 id = 'id0'
 
 result = dynamic_offers_api.post_dynamic_offers_id_calculate(id)
-
-if result.is_success():
-    print(result.body)
-elif result.is_error():
-    print(result.errors)
+print(result)
 ```
 
 ## Errors
 
 | HTTP Status Code | Error Description | Exception Class |
 |  --- | --- | --- |
-| 422 | Unprocessable Entity - A request validation error. | [`DynamicOffersCalculate422ErrorException`](../../doc/models/dynamic-offers-calculate-422-error-exception.md) |
+| 422 | Unprocessable Entity - A request validation error. | [`DefaultErrorResponseEntityException`](../../doc/models/default-error-response-entity-exception.md) |
 
 
 # Post-Dynamic Offers-Id-Grant Offer
@@ -140,7 +132,7 @@ def post_dynamic_offers_id_grant_offer(self,
 
 **200**: OK - The request has succeeded.
 
-This method returns an [`ApiResponse`](../../doc/api-response.md) instance. The `body` property of this instance returns the response data which is of type [`GrantOffer1`](../../doc/models/grant-offer-1.md).
+[`GrantOffer1`](../../doc/models/grant-offer-1.md)
 
 ## Example Usage
 
@@ -148,16 +140,12 @@ This method returns an [`ApiResponse`](../../doc/api-response.md) instance. The 
 id = 'id0'
 
 result = dynamic_offers_api.post_dynamic_offers_id_grant_offer(id)
-
-if result.is_success():
-    print(result.body)
-elif result.is_error():
-    print(result.errors)
+print(result)
 ```
 
 ## Errors
 
 | HTTP Status Code | Error Description | Exception Class |
 |  --- | --- | --- |
-| 422 | Unprocessable Entity - A request validation error. | [`DynamicOffersGrantOffer422ErrorException`](../../doc/models/dynamic-offers-grant-offer-422-error-exception.md) |
+| 422 | Unprocessable Entity - A request validation error. | [`DefaultErrorResponseEntityException`](../../doc/models/default-error-response-entity-exception.md) |
 

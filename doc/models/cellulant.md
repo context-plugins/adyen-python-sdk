@@ -1,8 +1,6 @@
 
 # Cellulant
 
-*This model accepts additional fields of type Any.*
-
 ## Structure
 
 `Cellulant`
@@ -14,25 +12,19 @@
 | `checkout_attempt_id` | `str` | Optional | The checkout attempt identifier. |
 | `issuer` | `str` | Optional | The Cellulant issuer. |
 | `sdk_data` | `str` | Optional | Base64-encoded JSON object containing SDK related parameters required by the SDK<br><br>**Constraints**: *Maximum Length*: `50000` |
-| `mtype` | [`Type17`](../../doc/models/type-17.md) | Optional | - |
-| `additional_properties` | `Dict[str, Any]` | Optional | - |
+| `mtype` | [`Type17Enum`](../../doc/models/type-17-enum.md) | Optional | **Cellulant**<br><br>**Default**: `"cellulant"` |
 
 ## Example
 
 ```python
-import jsonpickle
-
 from adyen.models.cellulant import Cellulant
-from adyen.models.type_17 import Type17
+from adyen.models.type_17_enum import Type17Enum
 
 cellulant = Cellulant(
     checkout_attempt_id='checkoutAttemptId6',
     issuer='issuer0',
     sdk_data='sdkData0',
-    mtype=Type17.CELLULANT,
-    additional_properties={
-        'exampleAdditionalProperty': jsonpickle.decode('{"key1":"val1","key2":"val2"}')
-    }
+    mtype=Type17Enum.CELLULANT
 )
 ```
 

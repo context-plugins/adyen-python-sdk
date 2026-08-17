@@ -3,14 +3,13 @@
 
 ## Data Type
 
-`DonationAmountUpdate | Any | None`
+`DonationAmountUpdate`
 
 ## Cases
 
 | Type |
 |  --- |
 | [`DonationAmountUpdate`](../../../doc/models/donation-amount-update.md) |
-| `Any` |
 
 ## DonationAmountUpdate
 
@@ -20,15 +19,5 @@
 
 ```python
 value = DonationAmountUpdate()
-```
-
-## Any
-
-### Initialization Code
-
-#### Example
-
-```python
-value = jsonpickle.decode('{"key1":"val1","key2":"val2"}')
 ```
 

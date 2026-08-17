@@ -1,8 +1,6 @@
 
 # Checkout Forward Request Card
 
-*This model accepts additional fields of type Any.*
-
 ## Structure
 
 `CheckoutForwardRequestCard`
@@ -20,15 +18,13 @@
 | `expiry_year` | `str` | Optional | The card expiry year. |
 | `holder_name` | `str` | Optional | The name of the cardholder. |
 | `number` | `str` | Optional | The card number. Only collect raw card data if you are fully [PCI compliant](https://docs.adyen.com/development-resources/pci-dss-compliance-guide).<br>Format: Do not use separators. |
-| `mtype` | [`Type181`](../../doc/models/type-181.md) | Optional | - |
-| `additional_properties` | `Dict[str, Any]` | Optional | - |
+| `mtype` | [`Type18Enum`](../../doc/models/type-18-enum.md) | Optional | Default payment method details. Common for scheme payment methods, and for simple payment method details.<br><br>**Default**: `"scheme"` |
 
 ## Example
 
 ```python
-import jsonpickle
-
 from adyen.models.checkout_forward_request_card import CheckoutForwardRequestCard
+from adyen.models.type_18_enum import Type18Enum
 
 checkout_forward_request_card = CheckoutForwardRequestCard(
     cvc='cvc4',
@@ -36,9 +32,7 @@ checkout_forward_request_card = CheckoutForwardRequestCard(
     encrypted_expiry_month='encryptedExpiryMonth4',
     encrypted_expiry_year='encryptedExpiryYear0',
     encrypted_security_code='encryptedSecurityCode6',
-    additional_properties={
-        'exampleAdditionalProperty': jsonpickle.decode('{"key1":"val1","key2":"val2"}')
-    }
+    mtype=Type18Enum.SCHEME
 )
 ```
 

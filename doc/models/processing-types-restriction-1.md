@@ -5,8 +5,6 @@ List of processing types and the operation.
 
 Supported operations: **anyMatch**, **noneMatch**.
 
-*This model accepts additional fields of type Any.*
-
 ## Structure
 
 `ProcessingTypesRestriction1`
@@ -16,26 +14,20 @@ Supported operations: **anyMatch**, **noneMatch**.
 | Name | Type | Tags | Description |
 |  --- | --- | --- | --- |
 | `operation` | `str` | Required | Defines how the condition must be evaluated. |
-| `value` | [`List[Value4]`](../../doc/models/value-4.md) | Optional | List of processing types.<br><br>Possible values: **atmWithdraw**, **balanceInquiry**, **ecommerce**, **moto**, **pos**, **recurring**, **token**. |
-| `additional_properties` | `Dict[str, Any]` | Optional | - |
+| `value` | [`List[Value4Enum]`](../../doc/models/value-4-enum.md) | Optional | List of processing types.<br><br>Possible values: **atmWithdraw**, **balanceInquiry**, **ecommerce**, **moto**, **pos**, **recurring**, **token**. |
 
 ## Example
 
 ```python
-import jsonpickle
-
 from adyen.models.processing_types_restriction_1 import ProcessingTypesRestriction1
-from adyen.models.value_4 import Value4
+from adyen.models.value_4_enum import Value4Enum
 
 processing_types_restriction_1 = ProcessingTypesRestriction1(
     operation='operation2',
     value=[
-        Value4.TOKEN,
-        Value4.UNKNOWN
-    ],
-    additional_properties={
-        'exampleAdditionalProperty': jsonpickle.decode('{"key1":"val1","key2":"val2"}')
-    }
+        Value4Enum.TOKEN,
+        Value4Enum.UNKNOWN
+    ]
 )
 ```
 

@@ -23,8 +23,6 @@ class ExternalTerminalAction(object):
         status (str): The status of the terminal action: **pending**, **successful**,
             **failed**, **cancelled**, or **tryLater**.
         terminal_id (str): The unique ID of the terminal that the action applies to.
-        additional_properties (Dict[str, Any]): The additional properties for the
-            model.
 
     """
 
@@ -60,8 +58,7 @@ class ExternalTerminalAction(object):
         result=APIHelper.SKIP,
         scheduled_at=APIHelper.SKIP,
         status=APIHelper.SKIP,
-        terminal_id=APIHelper.SKIP,
-        additional_properties=None):
+        terminal_id=APIHelper.SKIP):
         """Initialize a ExternalTerminalAction instance."""
         # Initialize members of the class
         if action_type is not APIHelper.SKIP:
@@ -86,11 +83,6 @@ class ExternalTerminalAction(object):
             self.status = status
         if terminal_id is not APIHelper.SKIP:
             self.terminal_id = terminal_id
-
-        # Add additional model properties to the instance
-        if additional_properties is None:
-            additional_properties = {}
-        self.additional_properties = additional_properties
 
     @classmethod
     def from_dictionary(cls,
@@ -141,11 +133,6 @@ class ExternalTerminalAction(object):
             if dictionary.get("terminalId")\
                 else APIHelper.SKIP
 
-        additional_properties = APIHelper.get_additional_properties(
-            dictionary={k: v for k, v in dictionary.items()
-                        if k not in cls._names.values()},
-            unboxing_function=lambda value: value)
-
         # Return an object of this model
         return cls(action_type,
                    config,
@@ -154,8 +141,7 @@ class ExternalTerminalAction(object):
                    result,
                    scheduled_at,
                    status,
-                   terminal_id,
-                   additional_properties)
+                   terminal_id)
 
     def __repr__(self):
         """Return a unambiguous string representation."""
@@ -199,7 +185,6 @@ class ExternalTerminalAction(object):
             if hasattr(self, "terminal_id")
             else None
         )
-        _additional_properties=self.additional_properties
         return (
             f"{self.__class__.__name__}("
             f"action_type={_action_type!r}, "
@@ -210,7 +195,6 @@ class ExternalTerminalAction(object):
             f"scheduled_at={_scheduled_at!r}, "
             f"status={_status!r}, "
             f"terminal_id={_terminal_id!r}, "
-            f"additional_properties={_additional_properties!r}, "
             f")"
         )
 
@@ -256,7 +240,6 @@ class ExternalTerminalAction(object):
             if hasattr(self, "terminal_id")
             else None
         )
-        _additional_properties=self.additional_properties
         return (
             f"{self.__class__.__name__}("
             f"action_type={_action_type!s}, "
@@ -267,6 +250,5 @@ class ExternalTerminalAction(object):
             f"scheduled_at={_scheduled_at!s}, "
             f"status={_status!s}, "
             f"terminal_id={_terminal_id!s}, "
-            f"additional_properties={_additional_properties!s}, "
             f")"
         )

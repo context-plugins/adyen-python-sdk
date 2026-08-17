@@ -1,11 +1,9 @@
 
-# Three Ds 2 Response Data
-
-*This model accepts additional fields of type Any.*
+# Three DS 2 Response Data
 
 ## Structure
 
-`ThreeDs2ResponseData`
+`ThreeDS2ResponseData`
 
 ## Fields
 
@@ -30,24 +28,18 @@
 | `three_ds_server_trans_id` | `str` | Optional | - |
 | `trans_status` | `str` | Optional | - |
 | `trans_status_reason` | `str` | Optional | - |
-| `additional_properties` | `Dict[str, Any]` | Optional | - |
 
 ## Example
 
 ```python
-import jsonpickle
+from adyen.models.three_ds_2_response_data import ThreeDS2ResponseData
 
-from adyen.models.three_ds_2_response_data import ThreeDs2ResponseData
-
-three_ds_2_response_data = ThreeDs2ResponseData(
+three_ds_2_response_data = ThreeDS2ResponseData(
     acs_challenge_mandated='acsChallengeMandated4',
     acs_operator_id='acsOperatorID6',
     acs_reference_number='acsReferenceNumber6',
     acs_signed_content='acsSignedContent0',
-    acs_trans_id='acsTransID4',
-    additional_properties={
-        'exampleAdditionalProperty': jsonpickle.decode('{"key1":"val1","key2":"val2"}')
-    }
+    acs_trans_id='acsTransID4'
 )
 ```
 

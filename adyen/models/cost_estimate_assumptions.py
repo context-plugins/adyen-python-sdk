@@ -16,8 +16,6 @@ class CostEstimateAssumptions(object):
         assume_level_3_data (bool): If true, the transaction is expected to have
             valid Level 3 data.
         installments (int): If not zero, the number of installments.
-        additional_properties (Dict[str, Any]): The additional properties for the
-            model.
 
     """
 
@@ -38,8 +36,7 @@ class CostEstimateAssumptions(object):
         self,
         assume_3_d_secure_authenticated=APIHelper.SKIP,
         assume_level_3_data=APIHelper.SKIP,
-        installments=APIHelper.SKIP,
-        additional_properties=None):
+        installments=APIHelper.SKIP):
         """Initialize a CostEstimateAssumptions instance."""
         # Initialize members of the class
         if assume_3_d_secure_authenticated is not APIHelper.SKIP:
@@ -48,11 +45,6 @@ class CostEstimateAssumptions(object):
             self.assume_level_3_data = assume_level_3_data
         if installments is not APIHelper.SKIP:
             self.installments = installments
-
-        # Add additional model properties to the instance
-        if additional_properties is None:
-            additional_properties = {}
-        self.additional_properties = additional_properties
 
     @classmethod
     def from_dictionary(cls,
@@ -85,16 +77,10 @@ class CostEstimateAssumptions(object):
             if dictionary.get("installments")\
                 else APIHelper.SKIP
 
-        additional_properties = APIHelper.get_additional_properties(
-            dictionary={k: v for k, v in dictionary.items()
-                        if k not in cls._names.values()},
-            unboxing_function=lambda value: value)
-
         # Return an object of this model
         return cls(assume_3_d_secure_authenticated,
                    assume_level_3_data,
-                   installments,
-                   additional_properties)
+                   installments)
 
     def __repr__(self):
         """Return a unambiguous string representation."""
@@ -113,13 +99,11 @@ class CostEstimateAssumptions(object):
             if hasattr(self, "installments")
             else None
         )
-        _additional_properties=self.additional_properties
         return (
             f"{self.__class__.__name__}("
             f"assume_3_d_secure_authenticated={_assume_3_d_secure_authenticated!r}, "
             f"assume_level_3_data={_assume_level_3_data!r}, "
             f"installments={_installments!r}, "
-            f"additional_properties={_additional_properties!r}, "
             f")"
         )
 
@@ -140,12 +124,10 @@ class CostEstimateAssumptions(object):
             if hasattr(self, "installments")
             else None
         )
-        _additional_properties=self.additional_properties
         return (
             f"{self.__class__.__name__}("
             f"assume_3_d_secure_authenticated={_assume_3_d_secure_authenticated!s}, "
             f"assume_level_3_data={_assume_level_3_data!s}, "
             f"installments={_installments!s}, "
-            f"additional_properties={_additional_properties!s}, "
             f")"
         )

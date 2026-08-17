@@ -1,8 +1,6 @@
 
 # Pay To
 
-*This model accepts additional fields of type Any.*
-
 ## Structure
 
 `PayTo`
@@ -16,15 +14,13 @@
 | `sdk_data` | `str` | Optional | Base64-encoded JSON object containing SDK related parameters required by the SDK<br><br>**Constraints**: *Maximum Length*: `50000` |
 | `shopper_account_identifier` | `str` | Optional | The shopper's banking details or payId reference, used to complete payment. |
 | `stored_payment_method_id` | `str` | Optional | This is the `recurringDetailReference` returned in the response when you created the token.<br><br>**Constraints**: *Maximum Length*: `64` |
-| `mtype` | [`Type411`](../../doc/models/type-411.md) | Optional | - |
-| `additional_properties` | `Dict[str, Any]` | Optional | - |
+| `mtype` | [`Type41Enum`](../../doc/models/type-41-enum.md) | Optional | **payto**<br><br>**Default**: `"payto"` |
 
 ## Example
 
 ```python
-import jsonpickle
-
 from adyen.models.pay_to import PayTo
+from adyen.models.type_41_enum import Type41Enum
 
 pay_to = PayTo(
     checkout_attempt_id='checkoutAttemptId2',
@@ -32,9 +28,7 @@ pay_to = PayTo(
     sdk_data='sdkData4',
     shopper_account_identifier='shopperAccountIdentifier6',
     stored_payment_method_id='storedPaymentMethodId0',
-    additional_properties={
-        'exampleAdditionalProperty': jsonpickle.decode('{"key1":"val1","key2":"val2"}')
-    }
+    mtype=Type41Enum.PAYTO
 )
 ```
 

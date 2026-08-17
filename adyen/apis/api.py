@@ -18,55 +18,51 @@ from adyen.api_helper import APIHelper
 from adyen.apis.base_api import BaseApi
 from adyen.configuration import Server
 from adyen.http.http_method_enum import HttpMethodEnum
-from adyen.models.admin_response_1 import AdminResponse1
-from adyen.models.balanceinquiry_response_1 import (
-    BalanceinquiryResponse1,
+from adyen.models.admin_response import AdminResponse
+from adyen.models.balance_inquiry_response import (
+    BalanceInquiryResponse,
 )
-from adyen.models.cardacquisition_response_4 import (
-    CardacquisitionResponse4,
+from adyen.models.card_acquisition_response import (
+    CardAcquisitionResponse,
 )
-from adyen.models.cardreaderapdu_response_4 import (
-    CardreaderapduResponse4,
+from adyen.models.card_reader_apdu_response import (
+    CardReaderAPDUResponse,
 )
-from adyen.models.diagnosis_response_1 import (
-    DiagnosisResponse1,
+from adyen.models.diagnosis_response import (
+    DiagnosisResponse,
 )
-from adyen.models.display_response_1 import (
-    DisplayResponse1,
+from adyen.models.display_response import DisplayResponse
+from adyen.models.enable_service_response import (
+    EnableServiceResponse,
 )
-from adyen.models.enableservice_response_1 import (
-    EnableserviceResponse1,
+from adyen.models.get_totals_response import (
+    GetTotalsResponse,
 )
-from adyen.models.gettotals_response_1 import (
-    GettotalsResponse1,
+from adyen.models.input_response import InputResponse
+from adyen.models.login_response import LoginResponse
+from adyen.models.logout_response import LogoutResponse
+from adyen.models.payment_response_4 import (
+    PaymentResponse4,
 )
-from adyen.models.input_response_1 import InputResponse1
-from adyen.models.login_response_1 import LoginResponse1
-from adyen.models.logout_response_1 import LogoutResponse1
-from adyen.models.payment_response_6 import (
-    PaymentResponse6,
+from adyen.models.print_response import PrintResponse
+from adyen.models.reconciliation_response import (
+    ReconciliationResponse,
 )
-from adyen.models.print_response_1 import PrintResponse1
-from adyen.models.reconciliation_response_1 import (
-    ReconciliationResponse1,
+from adyen.models.reversal_response import ReversalResponse
+from adyen.models.stored_value_response import (
+    StoredValueResponse,
 )
-from adyen.models.reversal_response_4 import (
-    ReversalResponse4,
-)
-from adyen.models.storedvalue_response_4 import (
-    StoredvalueResponse4,
-)
-from adyen.models.transactionstatus_response_1 import (
-    TransactionstatusResponse1,
+from adyen.models.transaction_status_response import (
+    TransactionStatusResponse,
 )
 
 
-class Api(BaseApi):
+class API(BaseApi):
     """A Controller to access Endpoints in the adyen API."""
 
     def __init__(self, config):
-        """Initialize Api object."""
-        super(Api, self).__init__(config)
+        """Initialize API object."""
+        super(API, self).__init__(config)
 
     def login_request(self,
                       body=None):
@@ -80,20 +76,18 @@ class Api(BaseApi):
             body (LoginRequest, optional): The request body parameter.
 
         Returns:
-            ApiResponse: An object with the response value as well as other useful
-                information such as status codes and headers. It conveys Information
-                related to the Login to process.
-Content of the Login Response
-                message.
+            LoginResponse: Response from the API. It conveys Information related to
+                the Login to process.
+Content of the Login Response message.
 
         Raises:
-            ApiException: When an error occurs while fetching the data from the
+            APIException: When an error occurs while fetching the data from the
                 remote API. This exception includes the HTTP Response code, an error
                 message, and the HTTP body that was received in the request.
 
         """
         return super().new_api_call_builder.request(
-            RequestBuilder().server(Server.DEFAULT)
+            RequestBuilder().server(Server.DEFAULT24)
             .path("/login")
             .http_method(HttpMethodEnum.POST)
             .header_param(Parameter()
@@ -109,8 +103,7 @@ Content of the Login Response
         ).response(
             ResponseHandler()
             .deserializer(APIHelper.json_deserialize)
-            .deserialize_into(LoginResponse1.from_dictionary)
-            .is_api_response(True),
+            .deserialize_into(LoginResponse.from_dictionary),
         ).execute()
 
     def logout_request(self,
@@ -124,19 +117,18 @@ Content of the Login Response
             body (LogoutRequest, optional): The request body parameter.
 
         Returns:
-            ApiResponse: An object with the response value as well as other useful
-                information such as status codes and headers. It conveys the result
-                of the Logout.
+            LogoutResponse: Response from the API. It conveys the result of the
+                Logout.
 Content of the Logout Response message.
 
         Raises:
-            ApiException: When an error occurs while fetching the data from the
+            APIException: When an error occurs while fetching the data from the
                 remote API. This exception includes the HTTP Response code, an error
                 message, and the HTTP body that was received in the request.
 
         """
         return super().new_api_call_builder.request(
-            RequestBuilder().server(Server.DEFAULT)
+            RequestBuilder().server(Server.DEFAULT24)
             .path("/logout")
             .http_method(HttpMethodEnum.POST)
             .header_param(Parameter()
@@ -152,8 +144,7 @@ Content of the Logout Response message.
         ).response(
             ResponseHandler()
             .deserializer(APIHelper.json_deserialize)
-            .deserialize_into(LogoutResponse1.from_dictionary)
-            .is_api_response(True),
+            .deserialize_into(LogoutResponse.from_dictionary),
         ).execute()
 
     def enable_service_request(self,
@@ -169,20 +160,19 @@ Content of the Logout Response message.
             body (EnableServiceRequest, optional): The request body parameter.
 
         Returns:
-            ApiResponse: An object with the response value as well as other useful
-                information such as status codes and headers. It conveys the result
-                of the Enable Service processing.
-Content of the Enable Service
-                Response message.
+            EnableServiceResponse: Response from the API. It conveys the result of
+                the Enable Service processing.
+Content of the Enable Service Response
+                message.
 
         Raises:
-            ApiException: When an error occurs while fetching the data from the
+            APIException: When an error occurs while fetching the data from the
                 remote API. This exception includes the HTTP Response code, an error
                 message, and the HTTP body that was received in the request.
 
         """
         return super().new_api_call_builder.request(
-            RequestBuilder().server(Server.DEFAULT)
+            RequestBuilder().server(Server.DEFAULT24)
             .path("/enableservice")
             .http_method(HttpMethodEnum.POST)
             .header_param(Parameter()
@@ -198,8 +188,7 @@ Content of the Enable Service
         ).response(
             ResponseHandler()
             .deserializer(APIHelper.json_deserialize)
-            .deserialize_into(EnableserviceResponse1.from_dictionary)
-            .is_api_response(True),
+            .deserialize_into(EnableServiceResponse.from_dictionary),
         ).execute()
 
     def admin_request(self,
@@ -213,19 +202,18 @@ Content of the Enable Service
             body (AdminRequest, optional): The request body parameter.
 
         Returns:
-            ApiResponse: An object with the response value as well as other useful
-                information such as status codes and headers. It conveys the result
-                of the Custom Admin.
+            AdminResponse: Response from the API. It conveys the result of the Custom
+                Admin.
 Content of the Custom Admin Response message.
 
         Raises:
-            ApiException: When an error occurs while fetching the data from the
+            APIException: When an error occurs while fetching the data from the
                 remote API. This exception includes the HTTP Response code, an error
                 message, and the HTTP body that was received in the request.
 
         """
         return super().new_api_call_builder.request(
-            RequestBuilder().server(Server.DEFAULT)
+            RequestBuilder().server(Server.DEFAULT24)
             .path("/admin")
             .http_method(HttpMethodEnum.POST)
             .header_param(Parameter()
@@ -241,8 +229,7 @@ Content of the Custom Admin Response message.
         ).response(
             ResponseHandler()
             .deserializer(APIHelper.json_deserialize)
-            .deserialize_into(AdminResponse1.from_dictionary)
-            .is_api_response(True),
+            .deserialize_into(AdminResponse.from_dictionary),
         ).execute()
 
     def payment_request(self,
@@ -257,20 +244,19 @@ Content of the Custom Admin Response message.
             body (PaymentRequest2, optional): The request body parameter.
 
         Returns:
-            ApiResponse: An object with the response value as well as other useful
-                information such as status codes and headers. It conveys Information
-                related to the Payment transaction processed by the POI
-                System.
-Content of the Payment Response message.
+            PaymentResponse4: Response from the API. It conveys Information related
+                to the Payment transaction processed by the POI System.
+Content of
+                the Payment Response message.
 
         Raises:
-            ApiException: When an error occurs while fetching the data from the
+            APIException: When an error occurs while fetching the data from the
                 remote API. This exception includes the HTTP Response code, an error
                 message, and the HTTP body that was received in the request.
 
         """
         return super().new_api_call_builder.request(
-            RequestBuilder().server(Server.DEFAULT)
+            RequestBuilder().server(Server.DEFAULT24)
             .path("/payment")
             .http_method(HttpMethodEnum.POST)
             .header_param(Parameter()
@@ -286,8 +272,7 @@ Content of the Payment Response message.
         ).response(
             ResponseHandler()
             .deserializer(APIHelper.json_deserialize)
-            .deserialize_into(PaymentResponse6.from_dictionary)
-            .is_api_response(True),
+            .deserialize_into(PaymentResponse4.from_dictionary),
         ).execute()
 
     def card_acquisition_request(self,
@@ -303,21 +288,20 @@ Content of the Payment Response message.
             body (CardAcquisitionRequest, optional): The request body parameter.
 
         Returns:
-            ApiResponse: An object with the response value as well as other useful
-                information such as status codes and headers. It conveys Information
+            CardAcquisitionResponse: Response from the API. It conveys Information
                 related to the payment and loyalty cards read and processed by the
                 POI System and entered by the Customer.
 Content of the Card
                 Acquisition Response message.
 
         Raises:
-            ApiException: When an error occurs while fetching the data from the
+            APIException: When an error occurs while fetching the data from the
                 remote API. This exception includes the HTTP Response code, an error
                 message, and the HTTP body that was received in the request.
 
         """
         return super().new_api_call_builder.request(
-            RequestBuilder().server(Server.DEFAULT)
+            RequestBuilder().server(Server.DEFAULT24)
             .path("/cardacquisition")
             .http_method(HttpMethodEnum.POST)
             .header_param(Parameter()
@@ -333,8 +317,7 @@ Content of the Card
         ).response(
             ResponseHandler()
             .deserializer(APIHelper.json_deserialize)
-            .deserialize_into(CardacquisitionResponse4.from_dictionary)
-            .is_api_response(True),
+            .deserialize_into(CardAcquisitionResponse.from_dictionary),
         ).execute()
 
     def stored_value_request(self,
@@ -348,20 +331,19 @@ Content of the Card
             body (StoredValueRequest, optional): The request body parameter.
 
         Returns:
-            ApiResponse: An object with the response value as well as other useful
-                information such as status codes and headers. It conveys Information
+            StoredValueResponse: Response from the API. It conveys Information
                 related to the Stored Value transaction processed by the POI
                 System.
 Content of the Stored Value Response message.
 
         Raises:
-            ApiException: When an error occurs while fetching the data from the
+            APIException: When an error occurs while fetching the data from the
                 remote API. This exception includes the HTTP Response code, an error
                 message, and the HTTP body that was received in the request.
 
         """
         return super().new_api_call_builder.request(
-            RequestBuilder().server(Server.DEFAULT)
+            RequestBuilder().server(Server.DEFAULT24)
             .path("/storedvalue")
             .http_method(HttpMethodEnum.POST)
             .header_param(Parameter()
@@ -377,8 +359,7 @@ Content of the Stored Value Response message.
         ).response(
             ResponseHandler()
             .deserializer(APIHelper.json_deserialize)
-            .deserialize_into(StoredvalueResponse4.from_dictionary)
-            .is_api_response(True),
+            .deserialize_into(StoredValueResponse.from_dictionary),
         ).execute()
 
     def reversal_request(self,
@@ -393,20 +374,19 @@ Content of the Stored Value Response message.
             body (ReversalRequest, optional): The request body parameter.
 
         Returns:
-            ApiResponse: An object with the response value as well as other useful
-                information such as status codes and headers. It conveys Information
-                related to the reversal processed by the POI System.
-Content of the
-                Reversal Response message.
+            ReversalResponse: Response from the API. It conveys Information related
+                to the reversal processed by the POI System.
+Content of the Reversal
+                Response message.
 
         Raises:
-            ApiException: When an error occurs while fetching the data from the
+            APIException: When an error occurs while fetching the data from the
                 remote API. This exception includes the HTTP Response code, an error
                 message, and the HTTP body that was received in the request.
 
         """
         return super().new_api_call_builder.request(
-            RequestBuilder().server(Server.DEFAULT)
+            RequestBuilder().server(Server.DEFAULT24)
             .path("/reversal")
             .http_method(HttpMethodEnum.POST)
             .header_param(Parameter()
@@ -422,8 +402,7 @@ Content of the
         ).response(
             ResponseHandler()
             .deserializer(APIHelper.json_deserialize)
-            .deserialize_into(ReversalResponse4.from_dictionary)
-            .is_api_response(True),
+            .deserialize_into(ReversalResponse.from_dictionary),
         ).execute()
 
     def reconciliation_request(self,
@@ -438,20 +417,19 @@ Content of the
             body (ReconciliationRequest, optional): The request body parameter.
 
         Returns:
-            ApiResponse: An object with the response value as well as other useful
-                information such as status codes and headers. It conveys Information
+            ReconciliationResponse: Response from the API. It conveys Information
                 related to the Reconciliation transaction processed by the POI
                 System.
 Content of the Reconciliation Response message.
 
         Raises:
-            ApiException: When an error occurs while fetching the data from the
+            APIException: When an error occurs while fetching the data from the
                 remote API. This exception includes the HTTP Response code, an error
                 message, and the HTTP body that was received in the request.
 
         """
         return super().new_api_call_builder.request(
-            RequestBuilder().server(Server.DEFAULT)
+            RequestBuilder().server(Server.DEFAULT24)
             .path("/reconciliation")
             .http_method(HttpMethodEnum.POST)
             .header_param(Parameter()
@@ -467,8 +445,7 @@ Content of the Reconciliation Response message.
         ).response(
             ResponseHandler()
             .deserializer(APIHelper.json_deserialize)
-            .deserialize_into(ReconciliationResponse1.from_dictionary)
-            .is_api_response(True),
+            .deserialize_into(ReconciliationResponse.from_dictionary),
         ).execute()
 
     def get_totals_request(self,
@@ -483,20 +460,19 @@ Content of the Reconciliation Response message.
             body (GetTotalsRequest, optional): The request body parameter.
 
         Returns:
-            ApiResponse: An object with the response value as well as other useful
-                information such as status codes and headers. Content of the
-                Reconciliation Response message.
-It conveys Information related to
-                the Reconciliation transaction processed by the POI System.
+            GetTotalsResponse: Response from the API. Content of the Reconciliation
+                Response message.
+It conveys Information related to the
+                Reconciliation transaction processed by the POI System.
 
         Raises:
-            ApiException: When an error occurs while fetching the data from the
+            APIException: When an error occurs while fetching the data from the
                 remote API. This exception includes the HTTP Response code, an error
                 message, and the HTTP body that was received in the request.
 
         """
         return super().new_api_call_builder.request(
-            RequestBuilder().server(Server.DEFAULT)
+            RequestBuilder().server(Server.DEFAULT24)
             .path("/gettotals")
             .http_method(HttpMethodEnum.POST)
             .header_param(Parameter()
@@ -512,8 +488,7 @@ It conveys Information related to
         ).response(
             ResponseHandler()
             .deserializer(APIHelper.json_deserialize)
-            .deserialize_into(GettotalsResponse1.from_dictionary)
-            .is_api_response(True),
+            .deserialize_into(GetTotalsResponse.from_dictionary),
         ).execute()
 
     def balance_inquiry_request(self,
@@ -528,21 +503,20 @@ It conveys Information related to
             body (BalanceInquiryRequest, optional): The request body parameter.
 
         Returns:
-            ApiResponse: An object with the response value as well as other useful
-                information such as status codes and headers. Content of the Balance
+            BalanceInquiryResponse: Response from the API. Content of the Balance
                 Inquiry Response message.
 It conveys the balance and the
                 identification of the associated payment, loyalty or stored value
                 account.
 
         Raises:
-            ApiException: When an error occurs while fetching the data from the
+            APIException: When an error occurs while fetching the data from the
                 remote API. This exception includes the HTTP Response code, an error
                 message, and the HTTP body that was received in the request.
 
         """
         return super().new_api_call_builder.request(
-            RequestBuilder().server(Server.DEFAULT)
+            RequestBuilder().server(Server.DEFAULT24)
             .path("/balanceinquiry")
             .http_method(HttpMethodEnum.POST)
             .header_param(Parameter()
@@ -558,8 +532,7 @@ It conveys the balance and the
         ).response(
             ResponseHandler()
             .deserializer(APIHelper.json_deserialize)
-            .deserialize_into(BalanceinquiryResponse1.from_dictionary)
-            .is_api_response(True),
+            .deserialize_into(BalanceInquiryResponse.from_dictionary),
         ).execute()
 
     def transaction_status_request(self,
@@ -574,21 +547,20 @@ It conveys the balance and the
             body (TransactionStatusRequest, optional): The request body parameter.
 
         Returns:
-            ApiResponse: An object with the response value as well as other useful
-                information such as status codes and headers. Content of the
+            TransactionStatusResponse: Response from the API. Content of the
                 TransactionStatus Response message.
 It conveys Information related to
                 the status of the last or current Payment, Loyalty or Reversal
                 transaction.
 
         Raises:
-            ApiException: When an error occurs while fetching the data from the
+            APIException: When an error occurs while fetching the data from the
                 remote API. This exception includes the HTTP Response code, an error
                 message, and the HTTP body that was received in the request.
 
         """
         return super().new_api_call_builder.request(
-            RequestBuilder().server(Server.DEFAULT)
+            RequestBuilder().server(Server.DEFAULT24)
             .path("/transactionstatus")
             .http_method(HttpMethodEnum.POST)
             .header_param(Parameter()
@@ -604,8 +576,7 @@ It conveys Information related to
         ).response(
             ResponseHandler()
             .deserializer(APIHelper.json_deserialize)
-            .deserialize_into(TransactionstatusResponse1.from_dictionary)
-            .is_api_response(True),
+            .deserialize_into(TransactionStatusResponse.from_dictionary),
         ).execute()
 
     def abort_request(self,
@@ -621,19 +592,17 @@ It conveys Information related to
             body (AbortRequest, optional): The request body parameter.
 
         Returns:
-            ApiResponse: An object with the response value as well as other useful
-                information such as status codes and headers. A successful
-                `AbortRequest` returns a response with a **200 OK** HTTP status code
-                and no body.
+            Any: Response from the API. A successful `AbortRequest` returns a
+                response with a **200 OK** HTTP status code and no body.
 
         Raises:
-            ApiException: When an error occurs while fetching the data from the
+            APIException: When an error occurs while fetching the data from the
                 remote API. This exception includes the HTTP Response code, an error
                 message, and the HTTP body that was received in the request.
 
         """
         return super().new_api_call_builder.request(
-            RequestBuilder().server(Server.DEFAULT)
+            RequestBuilder().server(Server.DEFAULT24)
             .path("/abort")
             .http_method(HttpMethodEnum.POST)
             .header_param(Parameter()
@@ -648,8 +617,7 @@ It conveys Information related to
             .auth(Or(Single("BasicAuth"), Single("ApiKeyAuth"))),
         ).response(
             ResponseHandler()
-            .deserializer(APIHelper.json_deserialize)
-            .is_api_response(True),
+            .deserializer(APIHelper.json_deserialize),
         ).execute()
 
     def diagnosis_request(self,
@@ -664,20 +632,19 @@ It conveys Information related to
             body (DiagnosisRequest, optional): The request body parameter.
 
         Returns:
-            ApiResponse: An object with the response value as well as other useful
-                information such as status codes and headers. It conveys the result
-                of the requested diagnosis and a possible message to display on a
-                logical device.
+            DiagnosisResponse: Response from the API. It conveys the result of the
+                requested diagnosis and a possible message to display on a logical
+                device.
 Content of the Diagnosis Response message.
 
         Raises:
-            ApiException: When an error occurs while fetching the data from the
+            APIException: When an error occurs while fetching the data from the
                 remote API. This exception includes the HTTP Response code, an error
                 message, and the HTTP body that was received in the request.
 
         """
         return super().new_api_call_builder.request(
-            RequestBuilder().server(Server.DEFAULT)
+            RequestBuilder().server(Server.DEFAULT24)
             .path("/diagnosis")
             .http_method(HttpMethodEnum.POST)
             .header_param(Parameter()
@@ -693,8 +660,7 @@ Content of the Diagnosis Response message.
         ).response(
             ResponseHandler()
             .deserializer(APIHelper.json_deserialize)
-            .deserialize_into(DiagnosisResponse1.from_dictionary)
-            .is_api_response(True),
+            .deserialize_into(DiagnosisResponse.from_dictionary),
         ).execute()
 
     def display_request(self,
@@ -710,20 +676,19 @@ Content of the Diagnosis Response message.
             body (DisplayRequest, optional): The request body parameter.
 
         Returns:
-            ApiResponse: An object with the response value as well as other useful
-                information such as status codes and headers. It conveys the result
-                of the display, parallel to the message request, except if response
-                not required and absent.
+            DisplayResponse: Response from the API. It conveys the result of the
+                display, parallel to the message request, except if response not
+                required and absent.
 Content of the Display Response message.
 
         Raises:
-            ApiException: When an error occurs while fetching the data from the
+            APIException: When an error occurs while fetching the data from the
                 remote API. This exception includes the HTTP Response code, an error
                 message, and the HTTP body that was received in the request.
 
         """
         return super().new_api_call_builder.request(
-            RequestBuilder().server(Server.DEFAULT)
+            RequestBuilder().server(Server.DEFAULT24)
             .path("/display")
             .http_method(HttpMethodEnum.POST)
             .header_param(Parameter()
@@ -739,8 +704,7 @@ Content of the Display Response message.
         ).response(
             ResponseHandler()
             .deserializer(APIHelper.json_deserialize)
-            .deserialize_into(DisplayResponse1.from_dictionary)
-            .is_api_response(True),
+            .deserialize_into(DisplayResponse.from_dictionary),
         ).execute()
 
     def input_request(self,
@@ -755,21 +719,20 @@ Content of the Display Response message.
             body (InputRequest, optional): The request body parameter.
 
         Returns:
-            ApiResponse: An object with the response value as well as other useful
-                information such as status codes and headers. It conveys the result
-                of the input or the result of the outputs, parallel to the message
-                request, except if response not required and absent.
-Content of the
-                Input Response message.
+            InputResponse: Response from the API. It conveys the result of the input
+                or the result of the outputs, parallel to the message request, except
+                if response not required and absent.
+Content of the Input Response
+                message.
 
         Raises:
-            ApiException: When an error occurs while fetching the data from the
+            APIException: When an error occurs while fetching the data from the
                 remote API. This exception includes the HTTP Response code, an error
                 message, and the HTTP body that was received in the request.
 
         """
         return super().new_api_call_builder.request(
-            RequestBuilder().server(Server.DEFAULT)
+            RequestBuilder().server(Server.DEFAULT24)
             .path("/input")
             .http_method(HttpMethodEnum.POST)
             .header_param(Parameter()
@@ -785,8 +748,7 @@ Content of the
         ).response(
             ResponseHandler()
             .deserializer(APIHelper.json_deserialize)
-            .deserialize_into(InputResponse1.from_dictionary)
-            .is_api_response(True),
+            .deserialize_into(InputResponse.from_dictionary),
         ).execute()
 
     def print_request(self,
@@ -800,20 +762,19 @@ Content of the
             body (PrintRequest, optional): The request body parameter.
 
         Returns:
-            ApiResponse: An object with the response value as well as other useful
-                information such as status codes and headers. It conveys the result
-                of the print, parallel to the message request, except if response not
-                required and absent.
+            PrintResponse: Response from the API. It conveys the result of the print,
+                parallel to the message request, except if response not required and
+                absent.
 Content of the Print Response message.
 
         Raises:
-            ApiException: When an error occurs while fetching the data from the
+            APIException: When an error occurs while fetching the data from the
                 remote API. This exception includes the HTTP Response code, an error
                 message, and the HTTP body that was received in the request.
 
         """
         return super().new_api_call_builder.request(
-            RequestBuilder().server(Server.DEFAULT)
+            RequestBuilder().server(Server.DEFAULT24)
             .path("/print")
             .http_method(HttpMethodEnum.POST)
             .header_param(Parameter()
@@ -829,8 +790,7 @@ Content of the Print Response message.
         ).response(
             ResponseHandler()
             .deserializer(APIHelper.json_deserialize)
-            .deserialize_into(PrintResponse1.from_dictionary)
-            .is_api_response(True),
+            .deserialize_into(PrintResponse.from_dictionary),
         ).execute()
 
     def card_reader_apdu_request(self,
@@ -843,24 +803,23 @@ Content of the Print Response message.
         Content of the Card Reader APDU Request message.
 
         Args:
-            body (CardReaderApduRequest, optional): The request body parameter.
+            body (CardReaderAPDURequest, optional): The request body parameter.
 
         Returns:
-            ApiResponse: An object with the response value as well as other useful
-                information such as status codes and headers. Content of the Card
-                Reader APDU Response message.
+            CardReaderAPDUResponse: Response from the API. Content of the Card Reader
+                APDU Response message.
 It contains the result of the requested
                 service, APDU response sent by the chip of the card in response to
                 the APDU request.
 
         Raises:
-            ApiException: When an error occurs while fetching the data from the
+            APIException: When an error occurs while fetching the data from the
                 remote API. This exception includes the HTTP Response code, an error
                 message, and the HTTP body that was received in the request.
 
         """
         return super().new_api_call_builder.request(
-            RequestBuilder().server(Server.DEFAULT)
+            RequestBuilder().server(Server.DEFAULT24)
             .path("/cardreaderapdu")
             .http_method(HttpMethodEnum.POST)
             .header_param(Parameter()
@@ -876,6 +835,5 @@ It contains the result of the requested
         ).response(
             ResponseHandler()
             .deserializer(APIHelper.json_deserialize)
-            .deserialize_into(CardreaderapduResponse4.from_dictionary)
-            .is_api_response(True),
+            .deserialize_into(CardReaderAPDUResponse.from_dictionary),
         ).execute()

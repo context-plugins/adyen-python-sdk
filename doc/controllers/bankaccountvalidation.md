@@ -32,26 +32,20 @@ This endpoint requires [clientKey](../../doc/auth/custom-query-parameter.md) **O
 
 **200**: No Content - look at the actual response code for the status of the request.
 
-This method returns an [`ApiResponse`](../../doc/api-response.md) instance.
+`void`
 
 ## Example Usage
 
 ```python
 body = BankAccountIdentificationValidationRequest(
-    account_identification=IbanAccountIdentification1(
-        iban='1001001234',
-        mtype=Type203.IBAN
+    account_identification=IbanAccountIdentification(
+        iban='1001001234'
     )
 )
 
-result = bank_account_validation_api.post_validate_bank_account_identification(
+bank_account_validation_api.post_validate_bank_account_identification(
     body=body
 )
-
-if result.is_success():
-    print(result.body)
-elif result.is_error():
-    print(result.errors)
 ```
 
 ## Errors

@@ -23,6 +23,7 @@ from adyen.exceptions.rest_service_error_exception import (
 )
 from adyen.http.http_method_enum import HttpMethodEnum
 from adyen.models.capital_grant import CapitalGrant
+from adyen.models.capital_grants import CapitalGrants
 
 
 class CapitalApi(BaseApi):
@@ -31,6 +32,124 @@ class CapitalApi(BaseApi):
     def __init__(self, config):
         """Initialize CapitalApi object."""
         super(CapitalApi, self).__init__(config)
+
+    @deprecated()
+    def get_grants(self,
+                   counterparty_account_holder_id=None):
+        """Perform a GET request to /grants.
+
+        Returns a list of grants with status and outstanding balances.
+
+        Args:
+            counterparty_account_holder_id (str, optional): The counterparty account
+                holder id.
+
+        Returns:
+            CapitalGrants: Response from the API. OK - the request has succeeded.
+
+        Raises:
+            APIException: When an error occurs while fetching the data from the
+                remote API. This exception includes the HTTP Response code, an error
+                message, and the HTTP body that was received in the request.
+
+        """
+        return super().new_api_call_builder.request(
+            RequestBuilder().server(Server.DEFAULT14)
+            .path("/grants")
+            .http_method(HttpMethodEnum.GET)
+            .query_param(Parameter()
+                .key("counterpartyAccountHolderId")
+                .value(counterparty_account_holder_id))
+            .header_param(Parameter()
+                .key("accept")
+                .value("application/json"))
+            .auth(Or(Single("clientKey"), Single("BasicAuth"), Single("ApiKeyAuth"))),
+        ).response(
+            ResponseHandler()
+            .deserializer(APIHelper.json_deserialize)
+            .deserialize_into(CapitalGrants.from_dictionary)
+            .local_error("400",
+                "Bad Request - a problem reading or understanding the request.",
+                RestServiceErrorException)
+            .local_error("401",
+                "Unauthorized - authentication required.",
+                RestServiceErrorException)
+            .local_error("403",
+                "Forbidden - insufficient permissions to process the request.",
+                RestServiceErrorException)
+            .local_error("404",
+                "Not Found - the payment was not found",
+                RestServiceErrorException)
+            .local_error("422",
+                "Unprocessable Entity - a request validation error.",
+                RestServiceErrorException)
+            .local_error("500",
+                "Internal Server Error - the server could not process the request.",
+                RestServiceErrorException),
+        ).execute()
+
+    @deprecated()
+    def post_grants(self,
+                    idempotency_key=None,
+                    body=None):
+        """Perform a POST request to /grants.
+
+        Requests the payout of the selected grant offer.
+
+        Args:
+            idempotency_key (str, optional): A unique identifier for the message with
+                a maximum of 64 characters (we recommend a UUID).
+            body (CapitalGrantInfo, optional): The request body parameter.
+
+        Returns:
+            CapitalGrant: Response from the API. OK - the request has succeeded.
+
+        Raises:
+            APIException: When an error occurs while fetching the data from the
+                remote API. This exception includes the HTTP Response code, an error
+                message, and the HTTP body that was received in the request.
+
+        """
+        return super().new_api_call_builder.request(
+            RequestBuilder().server(Server.DEFAULT14)
+            .path("/grants")
+            .http_method(HttpMethodEnum.POST)
+            .header_param(Parameter()
+                .key("Content-Type")
+                .value("application/json"))
+            .header_param(Parameter()
+                .key("Idempotency-Key")
+                .value(idempotency_key))
+            .body_param(Parameter()
+                .value(body))
+            .header_param(Parameter()
+                .key("accept")
+                .value("application/json"))
+            .body_serializer(APIHelper.json_serialize)
+            .auth(Or(Single("clientKey"), Single("BasicAuth"), Single("ApiKeyAuth"))),
+        ).response(
+            ResponseHandler()
+            .deserializer(APIHelper.json_deserialize)
+            .deserialize_into(CapitalGrant.from_dictionary)
+            .local_error("400",
+                "Bad Request - a problem reading or understanding the request.",
+                RestServiceErrorException)
+            .local_error("401",
+                "Unauthorized - authentication required.",
+                RestServiceErrorException)
+            .local_error("403",
+                "Forbidden - insufficient permissions to process the request.",
+                RestServiceErrorException)
+            .local_error("404",
+                "Not Found - the payment was not found",
+                RestServiceErrorException)
+            .local_error("422",
+                "Unprocessable Entity - a request validation error.",
+                RestServiceErrorException)
+            .local_error("500",
+                "Internal Server Error - the server could not process the request.",
+                RestServiceErrorException),
+        ).execute()
 
     @deprecated()
     def get_grants_id(self,
@@ -43,24 +162,21 @@ class CapitalApi(BaseApi):
             id (str): The unique identifier of the grant.
 
         Returns:
-            ApiResponse: An object with the response value as well as other useful
-                information such as status codes and headers. OK - the request has
-                succeeded.
+            CapitalGrant: Response from the API. OK - the request has succeeded.
 
         Raises:
-            ApiException: When an error occurs while fetching the data from the
+            APIException: When an error occurs while fetching the data from the
                 remote API. This exception includes the HTTP Response code, an error
                 message, and the HTTP body that was received in the request.
 
         """
         return super().new_api_call_builder.request(
-            RequestBuilder().server(Server.DEFAULT)
+            RequestBuilder().server(Server.DEFAULT14)
             .path("/grants/{id}")
             .http_method(HttpMethodEnum.GET)
             .template_param(Parameter()
                 .key("id")
                 .value(id)
-                .is_required(True)
                 .should_encode(True))
             .header_param(Parameter()
                 .key("accept")
@@ -70,7 +186,6 @@ class CapitalApi(BaseApi):
             ResponseHandler()
             .deserializer(APIHelper.json_deserialize)
             .deserialize_into(CapitalGrant.from_dictionary)
-            .is_api_response(True)
             .local_error("400",
                 "Bad Request - a problem reading or understanding the request.",
                 RestServiceErrorException)

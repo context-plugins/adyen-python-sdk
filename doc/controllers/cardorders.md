@@ -57,17 +57,13 @@ This endpoint requires [clientKey](../../doc/auth/custom-query-parameter.md) **O
 
 **200**: OK - the request has succeeded.
 
-This method returns an [`ApiResponse`](../../doc/api-response.md) instance. The `body` property of this instance returns the response data which is of type [`PaginatedGetCardOrderResponse`](../../doc/models/paginated-get-card-order-response.md).
+[`PaginatedGetCardOrderResponse`](../../doc/models/paginated-get-card-order-response.md)
 
 ## Example Usage
 
 ```python
 result = card_orders_api.get_cardorders()
-
-if result.is_success():
-    print(result.body)
-elif result.is_error():
-    print(result.errors)
+print(result)
 ```
 
 ## Example Response *(as JSON)*
@@ -127,7 +123,7 @@ This endpoint requires [clientKey](../../doc/auth/custom-query-parameter.md) **O
 
 **200**: OK - the request has succeeded.
 
-This method returns an [`ApiResponse`](../../doc/api-response.md) instance. The `body` property of this instance returns the response data which is of type [`PaginatedGetCardOrderItemResponse`](../../doc/models/paginated-get-card-order-item-response.md).
+[`PaginatedGetCardOrderItemResponse`](../../doc/models/paginated-get-card-order-item-response.md)
 
 ## Example Usage
 
@@ -135,11 +131,7 @@ This method returns an [`ApiResponse`](../../doc/api-response.md) instance. The 
 id = 'id0'
 
 result = card_orders_api.get_cardorders_id_items(id)
-
-if result.is_success():
-    print(result.body)
-elif result.is_error():
-    print(result.errors)
+print(result)
 ```
 
 ## Example Response *(as JSON)*

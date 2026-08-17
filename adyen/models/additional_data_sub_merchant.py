@@ -60,8 +60,6 @@ class AdditionalDataSubMerchant(object):
             performed by registered payment facilitators. The tax ID of the
             sub-merchant. * Format: Numeric * Fixed length: 11 digits for the CPF or
             14 digits for the CNPJ
-        additional_properties (Dict[str, Any]): The additional properties for the
-            model.
 
     """
 
@@ -120,8 +118,7 @@ class AdditionalDataSubMerchant(object):
         sub_merchant_sub_seller_sub_seller_nr_postal_code=APIHelper.SKIP,
         sub_merchant_sub_seller_sub_seller_nr_state=APIHelper.SKIP,
         sub_merchant_sub_seller_sub_seller_nr_street=APIHelper.SKIP,
-        sub_merchant_sub_seller_sub_seller_nr_tax_id=APIHelper.SKIP,
-        additional_properties=None):
+        sub_merchant_sub_seller_sub_seller_nr_tax_id=APIHelper.SKIP):
         """Initialize a AdditionalDataSubMerchant instance."""
         # Initialize members of the class
         if sub_merchant_number_of_sub_sellers is not APIHelper.SKIP:
@@ -160,11 +157,6 @@ class AdditionalDataSubMerchant(object):
         if sub_merchant_sub_seller_sub_seller_nr_tax_id is not APIHelper.SKIP:
             self.sub_merchant_sub_seller_sub_seller_nr_tax_id =\
                  sub_merchant_sub_seller_sub_seller_nr_tax_id
-
-        # Add additional model properties to the instance
-        if additional_properties is None:
-            additional_properties = {}
-        self.additional_properties = additional_properties
 
     @classmethod
     def from_dictionary(cls,
@@ -233,11 +225,6 @@ class AdditionalDataSubMerchant(object):
             if dictionary.get("subMerchant.subSeller[subSellerNr].taxId")\
                 else APIHelper.SKIP
 
-        additional_properties = APIHelper.get_additional_properties(
-            dictionary={k: v for k, v in dictionary.items()
-                        if k not in cls._names.values()},
-            unboxing_function=lambda value: value)
-
         # Return an object of this model
         return cls(sub_merchant_number_of_sub_sellers,
                    sub_merchant_sub_seller_sub_seller_nr_city,
@@ -250,8 +237,7 @@ class AdditionalDataSubMerchant(object):
                    sub_merchant_sub_seller_sub_seller_nr_postal_code,
                    sub_merchant_sub_seller_sub_seller_nr_state,
                    sub_merchant_sub_seller_sub_seller_nr_street,
-                   sub_merchant_sub_seller_sub_seller_nr_tax_id,
-                   additional_properties)
+                   sub_merchant_sub_seller_sub_seller_nr_tax_id)
 
     def __repr__(self):
         """Return a unambiguous string representation."""
@@ -315,7 +301,6 @@ class AdditionalDataSubMerchant(object):
             if hasattr(self, "sub_merchant_sub_seller_sub_seller_nr_tax_id")
             else None
         )
-        _additional_properties=self.additional_properties
         return (
             f"{self.__class__.__name__}("
             f"sub_merchant_number_of_sub_sellers={_sub_merchant_number_of_sub_sellers!r}, "
@@ -330,7 +315,6 @@ class AdditionalDataSubMerchant(object):
             f"sub_merchant_sub_seller_sub_seller_nr_state={_sub_merchant_sub_seller_sub_seller_nr_state!r}, "
             f"sub_merchant_sub_seller_sub_seller_nr_street={_sub_merchant_sub_seller_sub_seller_nr_street!r}, "
             f"sub_merchant_sub_seller_sub_seller_nr_tax_id={_sub_merchant_sub_seller_sub_seller_nr_tax_id!r}, "
-            f"additional_properties={_additional_properties!r}, "
             f")"
         )
 
@@ -396,7 +380,6 @@ class AdditionalDataSubMerchant(object):
             if hasattr(self, "sub_merchant_sub_seller_sub_seller_nr_tax_id")
             else None
         )
-        _additional_properties=self.additional_properties
         return (
             f"{self.__class__.__name__}("
             f"sub_merchant_number_of_sub_sellers={_sub_merchant_number_of_sub_sellers!s}, "
@@ -411,6 +394,5 @@ class AdditionalDataSubMerchant(object):
             f"sub_merchant_sub_seller_sub_seller_nr_state={_sub_merchant_sub_seller_sub_seller_nr_state!s}, "
             f"sub_merchant_sub_seller_sub_seller_nr_street={_sub_merchant_sub_seller_sub_seller_nr_street!s}, "
             f"sub_merchant_sub_seller_sub_seller_nr_tax_id={_sub_merchant_sub_seller_sub_seller_nr_tax_id!s}, "
-            f"additional_properties={_additional_properties!s}, "
             f")"
         )

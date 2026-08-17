@@ -1,8 +1,6 @@
 
 # Get Terminal Details Response
 
-*This model accepts additional fields of type Any.*
-
 ## Structure
 
 `GetTerminalDetailsResponse`
@@ -31,18 +29,15 @@
 | `serial_number` | `str` | Optional | The serial number of the terminal. |
 | `sim_status` | `str` | Optional | On a terminal that supports 3G or 4G connectivity, indicates the status of the SIM card in the terminal: ACTIVE or INVENTORY. |
 | `store` | `str` | Optional | The store code of the store that the terminal is assigned to. |
-| `store_details` | [`Store1`](../../doc/models/store-1.md) | Optional | - |
+| `store_details` | [`Store11`](../../doc/models/store-11.md) | Optional | The store that the terminal is assigned to. |
 | `terminal` | `str` | Required | The unique terminal ID. |
-| `terminal_status` | [`TerminalStatus`](../../doc/models/terminal-status.md) | Optional | - |
+| `terminal_status` | [`TerminalStatusEnum`](../../doc/models/terminal-status-enum.md) | Optional | The status of the terminal:<br><br>- `OnlineToday`, `OnlineLast1Day`, `OnlineLast2Days` etcetera to `OnlineLast7Days`: Indicates when in the past week the terminal was last online.<br><br>- `SwitchedOff`: Indicates it was more than a week ago that the terminal was last online.<br><br>- `ReAssignToInventoryPending`, `ReAssignToStorePending`, `ReAssignToMerchantInventoryPending`: Indicates the terminal is scheduled to be reassigned. |
 | `wifi_ip` | `str` | Optional | The terminal's IP address in your Wi-Fi network. |
 | `wifi_mac` | `str` | Optional | The terminal's MAC address in your Wi-Fi network. |
-| `additional_properties` | `Dict[str, Any]` | Optional | - |
 
 ## Example
 
 ```python
-import jsonpickle
-
 from adyen.models.get_terminal_details_response import GetTerminalDetailsResponse
 
 get_terminal_details_response = GetTerminalDetailsResponse(
@@ -52,10 +47,7 @@ get_terminal_details_response = GetTerminalDetailsResponse(
     bluetooth_mac='bluetoothMac4',
     country='country8',
     device_model='deviceModel2',
-    dhcp_enabled=False,
-    additional_properties={
-        'exampleAdditionalProperty': jsonpickle.decode('{"key1":"val1","key2":"val2"}')
-    }
+    dhcp_enabled=False
 )
 ```
 

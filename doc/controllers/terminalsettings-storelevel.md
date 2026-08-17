@@ -56,7 +56,7 @@ This endpoint requires [BasicAuth](../../doc/auth/basic-authentication.md) **OR*
 
 **200**: OK - the request has succeeded.
 
-This method returns an [`ApiResponse`](../../doc/api-response.md) instance. The `body` property of this instance returns the response data which is of type [`Logo`](../../doc/models/logo.md).
+[`Logo`](../../doc/models/logo.md)
 
 ## Example Usage
 
@@ -72,11 +72,7 @@ result = terminal_settings_store_level_api.get_merchants_merchant_id_stores_refe
     reference,
     model
 )
-
-if result.is_success():
-    print(result.body)
-elif result.is_error():
-    print(result.errors)
+print(result)
 ```
 
 ## Example Response *(as JSON)*
@@ -137,7 +133,7 @@ This endpoint requires [BasicAuth](../../doc/auth/basic-authentication.md) **OR*
 
 **200**: OK - the request has succeeded.
 
-This method returns an [`ApiResponse`](../../doc/api-response.md) instance. The `body` property of this instance returns the response data which is of type [`Logo`](../../doc/models/logo.md).
+[`Logo`](../../doc/models/logo.md)
 
 ## Example Usage
 
@@ -158,11 +154,7 @@ result = terminal_settings_store_level_api.patch_merchants_merchant_id_stores_re
     model,
     body=body
 )
-
-if result.is_success():
-    print(result.body)
-elif result.is_error():
-    print(result.errors)
+print(result)
 ```
 
 ## Example Response *(as JSON)*
@@ -220,7 +212,7 @@ This endpoint requires [BasicAuth](../../doc/auth/basic-authentication.md) **OR*
 
 **200**: OK - the request has succeeded.
 
-This method returns an [`ApiResponse`](../../doc/api-response.md) instance. The `body` property of this instance returns the response data which is of type [`TerminalSettings`](../../doc/models/terminal-settings.md).
+[`TerminalSettings`](../../doc/models/terminal-settings.md)
 
 ## Example Usage
 
@@ -233,11 +225,7 @@ result = terminal_settings_store_level_api.get_merchants_merchant_id_stores_refe
     merchant_id,
     reference
 )
-
-if result.is_success():
-    print(result.body)
-elif result.is_error():
-    print(result.errors)
+print(result)
 ```
 
 ## Example Response *(as JSON)*
@@ -387,7 +375,7 @@ This endpoint requires [BasicAuth](../../doc/auth/basic-authentication.md) **OR*
 
 **200**: OK - the request has succeeded.
 
-This method returns an [`ApiResponse`](../../doc/api-response.md) instance. The `body` property of this instance returns the response data which is of type [`TerminalSettings`](../../doc/models/terminal-settings.md).
+[`TerminalSettings`](../../doc/models/terminal-settings.md)
 
 ## Example Usage
 
@@ -397,7 +385,7 @@ merchant_id = 'merchantId6'
 reference = 'reference4'
 
 body = TerminalSettings(
-    wifi_profiles=WifiProfiles(
+    wifi_profiles=WifiProfiles2(
         profiles=[
             Profile(
                 auth_type='wpa-eap',
@@ -408,12 +396,12 @@ body = TerminalSettings(
                 channel=0,
                 default_profile=True,
                 eap='peap',
-                eap_ca_cert=File(
+                eap_ca_cert=File1(
                     data='MD1rKS05M2JqRVFNQ...RTtLH1tLWo=',
                     name='eap-peap-ca.pem'
                 ),
                 eap_identity='admin',
-                eap_intermediate_cert=File(
+                eap_intermediate_cert=File4(
                     data='PD3tUS1CRDdJTiGDR...EFoLS0tLQg=',
                     name='eap-peap-client.pem'
                 ),
@@ -432,7 +420,7 @@ body = TerminalSettings(
                 psk='WIFI_PASSWORD'
             )
         ],
-        settings=Settings(
+        settings=Settings1(
             band='2.4GHz',
             roaming=True,
             timeout=5
@@ -445,11 +433,7 @@ result = terminal_settings_store_level_api.patch_merchants_merchant_id_stores_re
     reference,
     body=body
 )
-
-if result.is_success():
-    print(result.body)
-elif result.is_error():
-    print(result.errors)
+print(result)
 ```
 
 ## Example Response *(as JSON)*
@@ -615,7 +599,7 @@ This endpoint requires [BasicAuth](../../doc/auth/basic-authentication.md) **OR*
 
 **200**: OK - the request has succeeded.
 
-This method returns an [`ApiResponse`](../../doc/api-response.md) instance. The `body` property of this instance returns the response data which is of type [`Logo`](../../doc/models/logo.md).
+[`Logo`](../../doc/models/logo.md)
 
 ## Example Usage
 
@@ -628,11 +612,7 @@ result = terminal_settings_store_level_api.get_stores_store_id_terminal_logos(
     store_id,
     model
 )
-
-if result.is_success():
-    print(result.body)
-elif result.is_error():
-    print(result.errors)
+print(result)
 ```
 
 ## Example Response *(as JSON)*
@@ -691,7 +671,7 @@ This endpoint requires [BasicAuth](../../doc/auth/basic-authentication.md) **OR*
 
 **200**: OK - the request has succeeded.
 
-This method returns an [`ApiResponse`](../../doc/api-response.md) instance. The `body` property of this instance returns the response data which is of type [`Logo`](../../doc/models/logo.md).
+[`Logo`](../../doc/models/logo.md)
 
 ## Example Usage
 
@@ -709,11 +689,7 @@ result = terminal_settings_store_level_api.patch_stores_store_id_terminal_logos(
     model,
     body=body
 )
-
-if result.is_success():
-    print(result.body)
-elif result.is_error():
-    print(result.errors)
+print(result)
 ```
 
 ## Example Response *(as JSON)*
@@ -769,7 +745,7 @@ This endpoint requires [BasicAuth](../../doc/auth/basic-authentication.md) **OR*
 
 **200**: OK - the request has succeeded.
 
-This method returns an [`ApiResponse`](../../doc/api-response.md) instance. The `body` property of this instance returns the response data which is of type [`TerminalSettings`](../../doc/models/terminal-settings.md).
+[`TerminalSettings`](../../doc/models/terminal-settings.md)
 
 ## Example Usage
 
@@ -777,11 +753,7 @@ This method returns an [`ApiResponse`](../../doc/api-response.md) instance. The 
 store_id = 'storeId6'
 
 result = terminal_settings_store_level_api.get_stores_store_id_terminal_settings(store_id)
-
-if result.is_success():
-    print(result.body)
-elif result.is_error():
-    print(result.errors)
+print(result)
 ```
 
 ## Example Response *(as JSON)*
@@ -955,7 +927,7 @@ This endpoint requires [BasicAuth](../../doc/auth/basic-authentication.md) **OR*
 
 **200**: OK - the request has succeeded.
 
-This method returns an [`ApiResponse`](../../doc/api-response.md) instance. The `body` property of this instance returns the response data which is of type [`TerminalSettings`](../../doc/models/terminal-settings.md).
+[`TerminalSettings`](../../doc/models/terminal-settings.md)
 
 ## Example Usage
 
@@ -963,7 +935,7 @@ This method returns an [`ApiResponse`](../../doc/api-response.md) instance. The 
 store_id = 'storeId6'
 
 body = TerminalSettings(
-    wifi_profiles=WifiProfiles(
+    wifi_profiles=WifiProfiles2(
         profiles=[
             Profile(
                 auth_type='wpa-eap',
@@ -974,12 +946,12 @@ body = TerminalSettings(
                 channel=0,
                 default_profile=True,
                 eap='peap',
-                eap_ca_cert=File(
+                eap_ca_cert=File1(
                     data='MD1rKS05M2JqRVFNQ...RTtLH1tLWo=',
                     name='eap-peap-ca.pem'
                 ),
                 eap_identity='admin',
-                eap_intermediate_cert=File(
+                eap_intermediate_cert=File4(
                     data='PD3tUS1CRDdJTiGDR...EFoLS0tLQg=',
                     name='eap-peap-client.pem'
                 ),
@@ -1000,7 +972,7 @@ body = TerminalSettings(
                 psk='WIFI_PASSWORD'
             )
         ],
-        settings=Settings(
+        settings=Settings1(
             band='2.4GHz',
             roaming=True,
             timeout=5
@@ -1012,11 +984,7 @@ result = terminal_settings_store_level_api.patch_stores_store_id_terminal_settin
     store_id,
     body=body
 )
-
-if result.is_success():
-    print(result.body)
-elif result.is_error():
-    print(result.errors)
+print(result)
 ```
 
 ## Example Response *(as JSON)*

@@ -17,8 +17,6 @@ class GivexResponseInfo1(object):
         password (str): The password provided by the acquirer.
         payment_flow (str): The sales channel used for the payment.
         username (str): The username provided by the acquirer.
-        additional_properties (Dict[str, Any]): The additional properties for the
-            model.
 
     """
 
@@ -42,8 +40,7 @@ class GivexResponseInfo1(object):
         currency_code=APIHelper.SKIP,
         password=APIHelper.SKIP,
         payment_flow=APIHelper.SKIP,
-        username=APIHelper.SKIP,
-        additional_properties=None):
+        username=APIHelper.SKIP):
         """Initialize a GivexResponseInfo1 instance."""
         # Initialize members of the class
         if currency_code is not APIHelper.SKIP:
@@ -54,11 +51,6 @@ class GivexResponseInfo1(object):
             self.payment_flow = payment_flow
         if username is not APIHelper.SKIP:
             self.username = username
-
-        # Add additional model properties to the instance
-        if additional_properties is None:
-            additional_properties = {}
-        self.additional_properties = additional_properties
 
     @classmethod
     def from_dictionary(cls,
@@ -95,17 +87,11 @@ class GivexResponseInfo1(object):
             if dictionary.get("username")\
                 else APIHelper.SKIP
 
-        additional_properties = APIHelper.get_additional_properties(
-            dictionary={k: v for k, v in dictionary.items()
-                        if k not in cls._names.values()},
-            unboxing_function=lambda value: value)
-
         # Return an object of this model
         return cls(currency_code,
                    password,
                    payment_flow,
-                   username,
-                   additional_properties)
+                   username)
 
     def __repr__(self):
         """Return a unambiguous string representation."""
@@ -129,14 +115,12 @@ class GivexResponseInfo1(object):
             if hasattr(self, "username")
             else None
         )
-        _additional_properties=self.additional_properties
         return (
             f"{self.__class__.__name__}("
             f"currency_code={_currency_code!r}, "
             f"password={_password!r}, "
             f"payment_flow={_payment_flow!r}, "
             f"username={_username!r}, "
-            f"additional_properties={_additional_properties!r}, "
             f")"
         )
 
@@ -162,13 +146,11 @@ class GivexResponseInfo1(object):
             if hasattr(self, "username")
             else None
         )
-        _additional_properties=self.additional_properties
         return (
             f"{self.__class__.__name__}("
             f"currency_code={_currency_code!s}, "
             f"password={_password!s}, "
             f"payment_flow={_payment_flow!s}, "
             f"username={_username!s}, "
-            f"additional_properties={_additional_properties!s}, "
             f")"
         )

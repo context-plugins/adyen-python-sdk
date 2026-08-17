@@ -14,16 +14,17 @@ class ApplePayDonations(object):
         apple_pay_token (str): The stringified and base64 encoded `paymentData` you
             retrieved from the Apple framework.
         checkout_attempt_id (str): The checkout attempt identifier.
-        funding_source (FundingSource): The model property of type FundingSource.
+        funding_source (FundingSourceEnum): The funding source that should be used
+            when multiple sources are available. For Brazilian combo cards, by
+            default the funding source is credit. To use debit, set this value to
+            **debit**.
         recurring_detail_reference (str): This is the `recurringDetailReference`
             returned in the response when you created the token.
         sdk_data (str): Base64-encoded JSON object containing SDK related parameters
             required by the SDK
         stored_payment_method_id (str): This is the `recurringDetailReference`
             returned in the response when you created the token.
-        mtype (Type71): The model property of type Type71.
-        additional_properties (Dict[str, Any]): The additional properties for the
-            model.
+        mtype (Type7Enum): **applepay**
 
     """
 
@@ -55,8 +56,7 @@ class ApplePayDonations(object):
         recurring_detail_reference=APIHelper.SKIP,
         sdk_data=APIHelper.SKIP,
         stored_payment_method_id=APIHelper.SKIP,
-        mtype=APIHelper.SKIP,
-        additional_properties=None):
+        mtype="applepay"):
         """Initialize a ApplePayDonations instance."""
         # Initialize members of the class
         self.apple_pay_token = apple_pay_token
@@ -70,13 +70,7 @@ class ApplePayDonations(object):
             self.sdk_data = sdk_data
         if stored_payment_method_id is not APIHelper.SKIP:
             self.stored_payment_method_id = stored_payment_method_id
-        if mtype is not APIHelper.SKIP:
-            self.mtype = mtype
-
-        # Add additional model properties to the instance
-        if additional_properties is None:
-            additional_properties = {}
-        self.additional_properties = additional_properties
+        self.mtype = mtype
 
     @classmethod
     def from_dictionary(cls,
@@ -123,12 +117,7 @@ class ApplePayDonations(object):
         mtype =\
             dictionary.get("type")\
             if dictionary.get("type")\
-                else APIHelper.SKIP
-
-        additional_properties = APIHelper.get_additional_properties(
-            dictionary={k: v for k, v in dictionary.items()
-                        if k not in cls._names.values()},
-            unboxing_function=lambda value: value)
+                else "applepay"
 
         # Return an object of this model
         return cls(apple_pay_token,
@@ -137,8 +126,7 @@ class ApplePayDonations(object):
                    recurring_detail_reference,
                    sdk_data,
                    stored_payment_method_id,
-                   mtype,
-                   additional_properties)
+                   mtype)
 
     @classmethod
     def validate(cls, dictionary):
@@ -206,7 +194,6 @@ class ApplePayDonations(object):
             if hasattr(self, "mtype")
             else None
         )
-        _additional_properties=self.additional_properties
         return (
             f"{self.__class__.__name__}("
             f"apple_pay_token={_apple_pay_token!r}, "
@@ -216,7 +203,6 @@ class ApplePayDonations(object):
             f"sdk_data={_sdk_data!r}, "
             f"stored_payment_method_id={_stored_payment_method_id!r}, "
             f"mtype={_mtype!r}, "
-            f"additional_properties={_additional_properties!r}, "
             f")"
         )
 
@@ -253,7 +239,6 @@ class ApplePayDonations(object):
             if hasattr(self, "mtype")
             else None
         )
-        _additional_properties=self.additional_properties
         return (
             f"{self.__class__.__name__}("
             f"apple_pay_token={_apple_pay_token!s}, "
@@ -263,6 +248,5 @@ class ApplePayDonations(object):
             f"sdk_data={_sdk_data!s}, "
             f"stored_payment_method_id={_stored_payment_method_id!s}, "
             f"mtype={_mtype!s}, "
-            f"additional_properties={_additional_properties!s}, "
             f")"
         )

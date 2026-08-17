@@ -1,39 +1,28 @@
 
-# Maestro Usa Response Info
-
-*This model accepts additional fields of type Any.*
+# Maestro USA Response Info
 
 ## Structure
 
-`MaestroUsaResponseInfo`
+`MaestroUSAResponseInfo`
 
 ## Fields
 
 | Name | Type | Tags | Description |
 |  --- | --- | --- | --- |
-| `transaction_description` | [`TransactionDescriptionInfo`](../../doc/models/transaction-description-info.md) | Optional | - |
-| `additional_properties` | `Dict[str, Any]` | Optional | - |
+| `transaction_description` | [`TransactionDescriptionResponseInfo1`](../../doc/models/transaction-description-response-info-1.md) | Optional | Information regarding the transaction description. |
 
 ## Example
 
 ```python
-import jsonpickle
+from adyen.models.maestro_usa_response_info import MaestroUSAResponseInfo
+from adyen.models.transaction_description_response_info_1 import TransactionDescriptionResponseInfo1
+from adyen.models.type_8_enum import Type8Enum
 
-from adyen.models.maestro_usa_response_info import MaestroUsaResponseInfo
-from adyen.models.transaction_description_info import TransactionDescriptionInfo
-from adyen.models.type_33 import Type33
-
-maestro_usa_response_info = MaestroUsaResponseInfo(
-    transaction_description=TransactionDescriptionInfo(
+maestro_usa_response_info = MaestroUSAResponseInfo(
+    transaction_description=TransactionDescriptionResponseInfo1(
         doing_business_as_name='doingBusinessAsName0',
-        mtype=Type33.FIXED,
-        additional_properties={
-            'exampleAdditionalProperty': jsonpickle.decode('{"key1":"val1","key2":"val2"}')
-        }
-    ),
-    additional_properties={
-        'exampleAdditionalProperty': jsonpickle.decode('{"key1":"val1","key2":"val2"}')
-    }
+        mtype=Type8Enum.FIXED
+    )
 )
 ```
 

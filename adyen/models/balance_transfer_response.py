@@ -14,8 +14,6 @@ class BalanceTransferResponse(object):
         created_at (datetime): The date when the balance transfer was performed.
         psp_reference (str): Adyen's 16-character string reference associated with
             the balance transfer.
-        additional_properties (Dict[str, Any]): The additional properties for the
-            model.
 
     """
 
@@ -28,8 +26,7 @@ class BalanceTransferResponse(object):
     def __init__(
         self,
         created_at=None,
-        psp_reference=None,
-        additional_properties=None):
+        psp_reference=None):
         """Initialize a BalanceTransferResponse instance."""
         # Initialize members of the class
         self.created_at =\
@@ -37,11 +34,6 @@ class BalanceTransferResponse(object):
             created_at, APIHelper.RFC3339DateTime)\
              if created_at else None
         self.psp_reference = psp_reference
-
-        # Add additional model properties to the instance
-        if additional_properties is None:
-            additional_properties = {}
-        self.additional_properties = additional_properties
 
     @classmethod
     def from_dictionary(cls,
@@ -69,26 +61,18 @@ class BalanceTransferResponse(object):
             if dictionary.get("pspReference")\
                 else None
 
-        additional_properties = APIHelper.get_additional_properties(
-            dictionary={k: v for k, v in dictionary.items()
-                        if k not in cls._names.values()},
-            unboxing_function=lambda value: value)
-
         # Return an object of this model
         return cls(created_at,
-                   psp_reference,
-                   additional_properties)
+                   psp_reference)
 
     def __repr__(self):
         """Return a unambiguous string representation."""
         _created_at=self.created_at
         _psp_reference=self.psp_reference
-        _additional_properties=self.additional_properties
         return (
             f"{self.__class__.__name__}("
             f"created_at={_created_at!r}, "
             f"psp_reference={_psp_reference!r}, "
-            f"additional_properties={_additional_properties!r}, "
             f")"
         )
 
@@ -96,11 +80,9 @@ class BalanceTransferResponse(object):
         """Return a human-readable string representation."""
         _created_at=self.created_at
         _psp_reference=self.psp_reference
-        _additional_properties=self.additional_properties
         return (
             f"{self.__class__.__name__}("
             f"created_at={_created_at!s}, "
             f"psp_reference={_psp_reference!s}, "
-            f"additional_properties={_additional_properties!s}, "
             f")"
         )

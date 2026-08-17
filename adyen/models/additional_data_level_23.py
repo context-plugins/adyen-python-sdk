@@ -98,8 +98,6 @@ class AdditionalDataLevel23(object):
             For example, 2000 means USD 20.00. * Encoding: Numeric  * Max length: 12
             characters  * For L2 data: must not be all zeroes.  * For L3 data: can be
             zero.
-        additional_properties (Dict[str, Any]): The additional properties for the
-            model.
 
     """
 
@@ -175,8 +173,7 @@ class AdditionalDataLevel23(object):
         enhanced_scheme_data_item_detail_line_item_nr_unit_price=APIHelper.SKIP,
         enhanced_scheme_data_order_date=APIHelper.SKIP,
         enhanced_scheme_data_ship_from_postal_code=APIHelper.SKIP,
-        enhanced_scheme_data_total_tax_amount=APIHelper.SKIP,
-        additional_properties=None):
+        enhanced_scheme_data_total_tax_amount=APIHelper.SKIP):
         """Initialize a AdditionalDataLevel23 instance."""
         # Initialize members of the class
         if enhanced_scheme_data_customer_reference is not APIHelper.SKIP:
@@ -228,11 +225,6 @@ class AdditionalDataLevel23(object):
         if enhanced_scheme_data_total_tax_amount is not APIHelper.SKIP:
             self.enhanced_scheme_data_total_tax_amount =\
                  enhanced_scheme_data_total_tax_amount
-
-        # Add additional model properties to the instance
-        if additional_properties is None:
-            additional_properties = {}
-        self.additional_properties = additional_properties
 
     @classmethod
     def from_dictionary(cls,
@@ -321,11 +313,6 @@ class AdditionalDataLevel23(object):
             if dictionary.get("enhancedSchemeData.totalTaxAmount")\
                 else APIHelper.SKIP
 
-        additional_properties = APIHelper.get_additional_properties(
-            dictionary={k: v for k, v in dictionary.items()
-                        if k not in cls._names.values()},
-            unboxing_function=lambda value: value)
-
         # Return an object of this model
         return cls(enhanced_scheme_data_customer_reference,
                    enhanced_scheme_data_destination_country_code,
@@ -343,8 +330,7 @@ class AdditionalDataLevel23(object):
                    enhanced_scheme_data_item_detail_line_item_nr_unit_price,
                    enhanced_scheme_data_order_date,
                    enhanced_scheme_data_ship_from_postal_code,
-                   enhanced_scheme_data_total_tax_amount,
-                   additional_properties)
+                   enhanced_scheme_data_total_tax_amount)
 
     def __repr__(self):
         """Return a unambiguous string representation."""
@@ -433,7 +419,6 @@ class AdditionalDataLevel23(object):
             if hasattr(self, "enhanced_scheme_data_total_tax_amount")
             else None
         )
-        _additional_properties=self.additional_properties
         return (
             f"{self.__class__.__name__}("
             f"enhanced_scheme_data_customer_reference={_enhanced_scheme_data_customer_reference!r}, "
@@ -453,7 +438,6 @@ class AdditionalDataLevel23(object):
             f"enhanced_scheme_data_order_date={_enhanced_scheme_data_order_date!r}, "
             f"enhanced_scheme_data_ship_from_postal_code={_enhanced_scheme_data_ship_from_postal_code!r}, "
             f"enhanced_scheme_data_total_tax_amount={_enhanced_scheme_data_total_tax_amount!r}, "
-            f"additional_properties={_additional_properties!r}, "
             f")"
         )
 
@@ -544,7 +528,6 @@ class AdditionalDataLevel23(object):
             if hasattr(self, "enhanced_scheme_data_total_tax_amount")
             else None
         )
-        _additional_properties=self.additional_properties
         return (
             f"{self.__class__.__name__}("
             f"enhanced_scheme_data_customer_reference={_enhanced_scheme_data_customer_reference!s}, "
@@ -564,6 +547,5 @@ class AdditionalDataLevel23(object):
             f"enhanced_scheme_data_order_date={_enhanced_scheme_data_order_date!s}, "
             f"enhanced_scheme_data_ship_from_postal_code={_enhanced_scheme_data_ship_from_postal_code!s}, "
             f"enhanced_scheme_data_total_tax_amount={_enhanced_scheme_data_total_tax_amount!s}, "
-            f"additional_properties={_additional_properties!s}, "
             f")"
         )

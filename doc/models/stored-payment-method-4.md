@@ -1,8 +1,6 @@
 
 # Stored Payment Method 4
 
-*This model accepts additional fields of type Any.*
-
 ## Structure
 
 `StoredPaymentMethod4`
@@ -16,16 +14,13 @@
 | `recurring_detail_reference` | `str` | Optional | This is the `recurringDetailReference` returned in the response when you created the token. |
 | `sdk_data` | `str` | Optional | Base64-encoded JSON object containing SDK related parameters required by the SDK<br><br>**Constraints**: *Maximum Length*: `50000` |
 | `stored_payment_method_id` | `str` | Optional | This is the `recurringDetailReference` returned in the response when you created the token.<br><br>**Constraints**: *Maximum Length*: `64` |
-| `mtype` | [`Type44`](../../doc/models/type-44.md) | Optional | - |
-| `additional_properties` | `Dict[str, Any]` | Optional | - |
+| `mtype` | [`Type44Enum`](../../doc/models/type-44-enum.md) | Optional | The payment method type. |
 
 ## Example
 
 ```python
-import jsonpickle
-
-from adyen.models.frequency_2 import Frequency2
-from adyen.models.min_amount import MinAmount
+from adyen.models.amount_42 import Amount42
+from adyen.models.frequency_2_enum import Frequency2Enum
 from adyen.models.pix_recurring import PixRecurring
 from adyen.models.stored_payment_method_4 import StoredPaymentMethod4
 
@@ -35,24 +30,15 @@ stored_payment_method_4 = StoredPaymentMethod4(
         billing_date='billingDate0',
         business_day_only=False,
         ends_at='endsAt8',
-        frequency=Frequency2.YEARLY,
-        min_amount=MinAmount(
+        frequency=Frequency2Enum.YEARLY,
+        min_amount=Amount42(
             currency='currency6',
-            value=156,
-            additional_properties={
-                'exampleAdditionalProperty': jsonpickle.decode('{"key1":"val1","key2":"val2"}')
-            }
-        ),
-        additional_properties={
-            'exampleAdditionalProperty': jsonpickle.decode('{"key1":"val1","key2":"val2"}')
-        }
+            value=156
+        )
     ),
     recurring_detail_reference='recurringDetailReference4',
     sdk_data='sdkData6',
-    stored_payment_method_id='storedPaymentMethodId8',
-    additional_properties={
-        'exampleAdditionalProperty': jsonpickle.decode('{"key1":"val1","key2":"val2"}')
-    }
+    stored_payment_method_id='storedPaymentMethodId8'
 )
 ```
 

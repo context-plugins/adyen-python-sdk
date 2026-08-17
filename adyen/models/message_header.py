@@ -15,10 +15,18 @@ class MessageHeader(object):
 
     Attributes:
         protocol_version (str): If MessageCategory is Login or Diagnosis.
-        message_class (MessageClass1): The model property of type MessageClass1.
-        message_category (MessageCategory1): The model property of type
-            MessageCategory1.
-        message_type (MessageType1): The model property of type MessageType1.
+        message_class (MessageClass1Enum): Class of the message. Possible values: *
+            **Device** * **Event** * **Service**
+        message_category (MessageCategory1Enum): Category of message. Possible
+            values: * **Abort** * **Admin** * **BalanceInquiry** * **Batch** *
+            **CardAcquisition** * **CardReaderInit** * **CardReaderPowerOff** *
+            **Diagnosis** * **Display** * **EnableService** * **Event** *
+            **GetTotals** * **Input** * **InputUpdate** * **Login** * **Logout** *
+            **Loyalty** * **None** * **PIN** * **Payment** * **Print** *
+            **Reconciliation** * **Reversal** * **Sound** * **StoredValue** *
+            **TransactionStatus** * **Transmit**
+        message_type (MessageType1Enum): Type of message of the Sale to POI protocol.
+            Possible values: * **Notification** * **Request** * **Response**
         service_id (str): Identification of a message pair, which processes a
             transaction. Required if Service or Event MessageClass message or if
             Device MessageClass and request from POI or response from Sale.
@@ -28,8 +36,6 @@ class MessageHeader(object):
             Sale to POI protocol.
         poiid (str): Identification of a POI System or a POI Terminal for the Sale to
             POI protocol.
-        additional_properties (Dict[str, Any]): The additional properties for the
-            model.
 
     """
 
@@ -60,8 +66,7 @@ class MessageHeader(object):
         poiid=None,
         protocol_version=APIHelper.SKIP,
         service_id=APIHelper.SKIP,
-        device_id=APIHelper.SKIP,
-        additional_properties=None):
+        device_id=APIHelper.SKIP):
         """Initialize a MessageHeader instance."""
         # Initialize members of the class
         if protocol_version is not APIHelper.SKIP:
@@ -75,11 +80,6 @@ class MessageHeader(object):
             self.device_id = device_id
         self.sale_id = sale_id
         self.poiid = poiid
-
-        # Add additional model properties to the instance
-        if additional_properties is None:
-            additional_properties = {}
-        self.additional_properties = additional_properties
 
     @classmethod
     def from_dictionary(cls,
@@ -132,11 +132,6 @@ class MessageHeader(object):
             if dictionary.get("DeviceID")\
                 else APIHelper.SKIP
 
-        additional_properties = APIHelper.get_additional_properties(
-            dictionary={k: v for k, v in dictionary.items()
-                        if k not in cls._names.values()},
-            unboxing_function=lambda value: value)
-
         # Return an object of this model
         return cls(message_class,
                    message_category,
@@ -145,8 +140,7 @@ class MessageHeader(object):
                    poiid,
                    protocol_version,
                    service_id,
-                   device_id,
-                   additional_properties)
+                   device_id)
 
     def __repr__(self):
         """Return a unambiguous string representation."""
@@ -170,7 +164,6 @@ class MessageHeader(object):
         )
         _sale_id=self.sale_id
         _poiid=self.poiid
-        _additional_properties=self.additional_properties
         return (
             f"{self.__class__.__name__}("
             f"protocol_version={_protocol_version!r}, "
@@ -181,7 +174,6 @@ class MessageHeader(object):
             f"device_id={_device_id!r}, "
             f"sale_id={_sale_id!r}, "
             f"poiid={_poiid!r}, "
-            f"additional_properties={_additional_properties!r}, "
             f")"
         )
 
@@ -207,7 +199,6 @@ class MessageHeader(object):
         )
         _sale_id=self.sale_id
         _poiid=self.poiid
-        _additional_properties=self.additional_properties
         return (
             f"{self.__class__.__name__}("
             f"protocol_version={_protocol_version!s}, "
@@ -218,6 +209,5 @@ class MessageHeader(object):
             f"device_id={_device_id!s}, "
             f"sale_id={_sale_id!s}, "
             f"poiid={_poiid!s}, "
-            f"additional_properties={_additional_properties!s}, "
             f")"
         )

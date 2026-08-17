@@ -39,8 +39,6 @@ class Card3(object):
             cards only).
         start_year (str): The year component of the start date (for some UK debit
             cards only).
-        additional_properties (Dict[str, Any]): The additional properties for the
-            model.
 
     """
 
@@ -76,8 +74,7 @@ class Card3(object):
         issue_number=APIHelper.SKIP,
         number=APIHelper.SKIP,
         start_month=APIHelper.SKIP,
-        start_year=APIHelper.SKIP,
-        additional_properties=None):
+        start_year=APIHelper.SKIP):
         """Initialize a Card3 instance."""
         # Initialize members of the class
         if cvc is not APIHelper.SKIP:
@@ -96,11 +93,6 @@ class Card3(object):
             self.start_month = start_month
         if start_year is not APIHelper.SKIP:
             self.start_year = start_year
-
-        # Add additional model properties to the instance
-        if additional_properties is None:
-            additional_properties = {}
-        self.additional_properties = additional_properties
 
     @classmethod
     def from_dictionary(cls,
@@ -153,11 +145,6 @@ class Card3(object):
             if dictionary.get("startYear")\
                 else APIHelper.SKIP
 
-        additional_properties = APIHelper.get_additional_properties(
-            dictionary={k: v for k, v in dictionary.items()
-                        if k not in cls._names.values()},
-            unboxing_function=lambda value: value)
-
         # Return an object of this model
         return cls(cvc,
                    expiry_month,
@@ -166,8 +153,7 @@ class Card3(object):
                    issue_number,
                    number,
                    start_month,
-                   start_year,
-                   additional_properties)
+                   start_year)
 
     def __repr__(self):
         """Return a unambiguous string representation."""
@@ -211,7 +197,6 @@ class Card3(object):
             if hasattr(self, "start_year")
             else None
         )
-        _additional_properties=self.additional_properties
         return (
             f"{self.__class__.__name__}("
             f"cvc={_cvc!r}, "
@@ -222,7 +207,6 @@ class Card3(object):
             f"number={_number!r}, "
             f"start_month={_start_month!r}, "
             f"start_year={_start_year!r}, "
-            f"additional_properties={_additional_properties!r}, "
             f")"
         )
 
@@ -268,7 +252,6 @@ class Card3(object):
             if hasattr(self, "start_year")
             else None
         )
-        _additional_properties=self.additional_properties
         return (
             f"{self.__class__.__name__}("
             f"cvc={_cvc!s}, "
@@ -279,6 +262,5 @@ class Card3(object):
             f"number={_number!s}, "
             f"start_month={_start_month!s}, "
             f"start_year={_start_year!s}, "
-            f"additional_properties={_additional_properties!s}, "
             f")"
         )

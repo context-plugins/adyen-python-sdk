@@ -1,7 +1,7 @@
 
 # Amount 5
 
-*This model accepts additional fields of type Any.*
+The interbank amount.
 
 ## Structure
 
@@ -11,23 +11,17 @@
 
 | Name | Type | Tags | Description |
 |  --- | --- | --- | --- |
-| `currency` | `str` | Required | The three-character [ISO currency code](https://docs.adyen.com/development-resources/currency-codes#currency-codes) of the amount. |
+| `currency` | `str` | Required | The three-character [ISO currency code](https://docs.adyen.com/development-resources/currency-codes#currency-codes) of the amount.<br><br>**Constraints**: *Minimum Length*: `3`, *Maximum Length*: `3` |
 | `value` | `int` | Required | The numeric value of the amount, in [minor units](https://docs.adyen.com/development-resources/currency-codes#minor-units). |
-| `additional_properties` | `Dict[str, Any]` | Optional | - |
 
 ## Example
 
 ```python
-import jsonpickle
-
 from adyen.models.amount_5 import Amount5
 
 amount_5 = Amount5(
     currency='currency4',
-    value=180,
-    additional_properties={
-        'exampleAdditionalProperty': jsonpickle.decode('{"key1":"val1","key2":"val2"}')
-    }
+    value=180
 )
 ```
 

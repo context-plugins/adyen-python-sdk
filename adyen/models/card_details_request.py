@@ -29,8 +29,6 @@ class CardDetailsRequest(object):
             latest/post/paymentMethods) response.   If not included, our API uses the
             ones configured for your merchant account and, if provided, the country
             code.
-        additional_properties (Dict[str, Any]): The additional properties for the
-            model.
 
     """
 
@@ -56,8 +54,7 @@ class CardDetailsRequest(object):
         card_number=APIHelper.SKIP,
         country_code=APIHelper.SKIP,
         encrypted_card_number=APIHelper.SKIP,
-        supported_brands=APIHelper.SKIP,
-        additional_properties=None):
+        supported_brands=APIHelper.SKIP):
         """Initialize a CardDetailsRequest instance."""
         # Initialize members of the class
         if card_number is not APIHelper.SKIP:
@@ -69,11 +66,6 @@ class CardDetailsRequest(object):
         self.merchant_account = merchant_account
         if supported_brands is not APIHelper.SKIP:
             self.supported_brands = supported_brands
-
-        # Add additional model properties to the instance
-        if additional_properties is None:
-            additional_properties = {}
-        self.additional_properties = additional_properties
 
     @classmethod
     def from_dictionary(cls,
@@ -114,18 +106,12 @@ class CardDetailsRequest(object):
             if dictionary.get("supportedBrands")\
                 else APIHelper.SKIP
 
-        additional_properties = APIHelper.get_additional_properties(
-            dictionary={k: v for k, v in dictionary.items()
-                        if k not in cls._names.values()},
-            unboxing_function=lambda value: value)
-
         # Return an object of this model
         return cls(merchant_account,
                    card_number,
                    country_code,
                    encrypted_card_number,
-                   supported_brands,
-                   additional_properties)
+                   supported_brands)
 
     def __repr__(self):
         """Return a unambiguous string representation."""
@@ -150,7 +136,6 @@ class CardDetailsRequest(object):
             if hasattr(self, "supported_brands")
             else None
         )
-        _additional_properties=self.additional_properties
         return (
             f"{self.__class__.__name__}("
             f"card_number={_card_number!r}, "
@@ -158,7 +143,6 @@ class CardDetailsRequest(object):
             f"encrypted_card_number={_encrypted_card_number!r}, "
             f"merchant_account={_merchant_account!r}, "
             f"supported_brands={_supported_brands!r}, "
-            f"additional_properties={_additional_properties!r}, "
             f")"
         )
 
@@ -185,7 +169,6 @@ class CardDetailsRequest(object):
             if hasattr(self, "supported_brands")
             else None
         )
-        _additional_properties=self.additional_properties
         return (
             f"{self.__class__.__name__}("
             f"card_number={_card_number!s}, "
@@ -193,6 +176,5 @@ class CardDetailsRequest(object):
             f"encrypted_card_number={_encrypted_card_number!s}, "
             f"merchant_account={_merchant_account!s}, "
             f"supported_brands={_supported_brands!s}, "
-            f"additional_properties={_additional_properties!s}, "
             f")"
         )

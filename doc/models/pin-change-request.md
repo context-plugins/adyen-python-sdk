@@ -1,8 +1,6 @@
 
 # Pin Change Request
 
-*This model accepts additional fields of type Any.*
-
 ## Structure
 
 `PinChangeRequest`
@@ -15,23 +13,17 @@
 | `encrypted_pin_block` | `str` | Required | The encrypted [PIN block](https://www.pcisecuritystandards.org/glossary/pin-block). |
 | `payment_instrument_id` | `str` | Required | The unique identifier of the payment instrument, which is the card for which you are managing the PIN. |
 | `token` | `str` | Required | The 16-digit token that you used to generate the `encryptedPinBlock`. |
-| `additional_properties` | `Dict[str, Any]` | Optional | - |
 
 ## Example
 
 ```python
-import jsonpickle
-
 from adyen.models.pin_change_request import PinChangeRequest
 
 pin_change_request = PinChangeRequest(
     encrypted_key='encryptedKey6',
     encrypted_pin_block='encryptedPinBlock8',
     payment_instrument_id='paymentInstrumentId0',
-    token='token8',
-    additional_properties={
-        'exampleAdditionalProperty': jsonpickle.decode('{"key1":"val1","key2":"val2"}')
-    }
+    token='token8'
 )
 ```
 

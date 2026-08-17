@@ -15,8 +15,6 @@ class OnboardingThemes(object):
         next (str): The next page. Only present if there is a next page.
         previous (str): The previous page. Only present if there is a previous page.
         themes (List[OnboardingTheme]): List of onboarding themes.
-        additional_properties (Dict[str, Any]): The additional properties for the
-            model.
 
     """
 
@@ -36,8 +34,7 @@ class OnboardingThemes(object):
         self,
         themes=None,
         next=APIHelper.SKIP,
-        previous=APIHelper.SKIP,
-        additional_properties=None):
+        previous=APIHelper.SKIP):
         """Initialize a OnboardingThemes instance."""
         # Initialize members of the class
         if next is not APIHelper.SKIP:
@@ -45,11 +42,6 @@ class OnboardingThemes(object):
         if previous is not APIHelper.SKIP:
             self.previous = previous
         self.themes = themes
-
-        # Add additional model properties to the instance
-        if additional_properties is None:
-            additional_properties = {}
-        self.additional_properties = additional_properties
 
     @classmethod
     def from_dictionary(cls,
@@ -84,16 +76,10 @@ class OnboardingThemes(object):
             if dictionary.get("previous")\
                 else APIHelper.SKIP
 
-        additional_properties = APIHelper.get_additional_properties(
-            dictionary={k: v for k, v in dictionary.items()
-                        if k not in cls._names.values()},
-            unboxing_function=lambda value: value)
-
         # Return an object of this model
         return cls(themes,
                    next,
-                   previous,
-                   additional_properties)
+                   previous)
 
     def __repr__(self):
         """Return a unambiguous string representation."""
@@ -108,13 +94,11 @@ class OnboardingThemes(object):
             else None
         )
         _themes=self.themes
-        _additional_properties=self.additional_properties
         return (
             f"{self.__class__.__name__}("
             f"next={_next!r}, "
             f"previous={_previous!r}, "
             f"themes={_themes!r}, "
-            f"additional_properties={_additional_properties!r}, "
             f")"
         )
 
@@ -131,12 +115,10 @@ class OnboardingThemes(object):
             else None
         )
         _themes=self.themes
-        _additional_properties=self.additional_properties
         return (
             f"{self.__class__.__name__}("
             f"next={_next!s}, "
             f"previous={_previous!s}, "
             f"themes={_themes!s}, "
-            f"additional_properties={_additional_properties!s}, "
             f")"
         )

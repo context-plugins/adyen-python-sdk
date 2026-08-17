@@ -14,11 +14,9 @@ class FieldType(object):
 
     Attributes:
         field (str): The full name of the property.
-        field_name (FieldName): The model property of type FieldName.
+        field_name (FieldNameEnum): The type of the field.
         shareholder_code (str): The code of the shareholder that the field belongs
             to. If empty, the field belongs to an account holder.
-        additional_properties (Dict[str, Any]): The additional properties for the
-            model.
 
     """
 
@@ -39,8 +37,7 @@ class FieldType(object):
         self,
         field=APIHelper.SKIP,
         field_name=APIHelper.SKIP,
-        shareholder_code=APIHelper.SKIP,
-        additional_properties=None):
+        shareholder_code=APIHelper.SKIP):
         """Initialize a FieldType instance."""
         # Initialize members of the class
         if field is not APIHelper.SKIP:
@@ -49,11 +46,6 @@ class FieldType(object):
             self.field_name = field_name
         if shareholder_code is not APIHelper.SKIP:
             self.shareholder_code = shareholder_code
-
-        # Add additional model properties to the instance
-        if additional_properties is None:
-            additional_properties = {}
-        self.additional_properties = additional_properties
 
     @classmethod
     def from_dictionary(cls,
@@ -86,16 +78,10 @@ class FieldType(object):
             if dictionary.get("shareholderCode")\
                 else APIHelper.SKIP
 
-        additional_properties = APIHelper.get_additional_properties(
-            dictionary={k: v for k, v in dictionary.items()
-                        if k not in cls._names.values()},
-            unboxing_function=lambda value: value)
-
         # Return an object of this model
         return cls(field,
                    field_name,
-                   shareholder_code,
-                   additional_properties)
+                   shareholder_code)
 
     def __repr__(self):
         """Return a unambiguous string representation."""
@@ -114,13 +100,11 @@ class FieldType(object):
             if hasattr(self, "shareholder_code")
             else None
         )
-        _additional_properties=self.additional_properties
         return (
             f"{self.__class__.__name__}("
             f"field={_field!r}, "
             f"field_name={_field_name!r}, "
             f"shareholder_code={_shareholder_code!r}, "
-            f"additional_properties={_additional_properties!r}, "
             f")"
         )
 
@@ -141,12 +125,10 @@ class FieldType(object):
             if hasattr(self, "shareholder_code")
             else None
         )
-        _additional_properties=self.additional_properties
         return (
             f"{self.__class__.__name__}("
             f"field={_field!s}, "
             f"field_name={_field_name!s}, "
             f"shareholder_code={_shareholder_code!s}, "
-            f"additional_properties={_additional_properties!s}, "
             f")"
         )

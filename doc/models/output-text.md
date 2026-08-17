@@ -4,8 +4,6 @@
 Content of text message to display or print.
 It conveys information related to the content of the text message and its format. All the data elements related to the format of the text to display or print are parameters valid for the whole text content.
 
-*This model accepts additional fields of type Any.*
-
 ## Structure
 
 `OutputText`
@@ -18,20 +16,17 @@ It conveys information related to the content of the text message and its format
 | `character_set` | `int` | Optional | Character height of the text string to display or print. Absence of this data element means the characters have normal height. |
 | `start_row` | `int` | Optional | Row where the text string has to be displayed or printed.<br><br>**Constraints**: `>= 1`, `<= 500` |
 | `start_column` | `int` | Optional | Column where the text string has to be displayed or printed.<br><br>**Constraints**: `>= 1`, `<= 500` |
-| `character_width` | [`CharacterWidth1`](../../doc/models/character-width-1.md) | Optional | - |
-| `character_height` | [`CharacterHeight1`](../../doc/models/character-height-1.md) | Optional | - |
-| `character_style` | [`CharacterStyle1`](../../doc/models/character-style-1.md) | Optional | - |
-| `alignment` | [`Alignment1`](../../doc/models/alignment-1.md) | Optional | - |
+| `character_width` | [`CharacterWidth1Enum`](../../doc/models/character-width-1-enum.md) | Optional | Character width of the text string to display or print. Absence of this data element means the characters have normal width.<br>Possible values:<br><br>* **DoubleWidth**<br>* **SingleWidth** |
+| `character_height` | [`CharacterHeight1Enum`](../../doc/models/character-height-1-enum.md) | Optional | Character height of the text string to display or print. Absence of this data element means the characters have normal height.<br>Possible values:<br><br>* **DoubleHeight**<br>* **HalfHeight**<br>* **SingleHeight** |
+| `character_style` | [`CharacterStyle1Enum`](../../doc/models/character-style-1-enum.md) | Optional | Typographic style of the sequence of characters to display or print. Absence of this data element means the characters have normal style.<br>Possible values:<br><br>* **Bold**<br>* **Italic**<br>* **Normal**<br>* **Underline** |
+| `alignment` | [`Alignment1Enum`](../../doc/models/alignment-1-enum.md) | Optional | Alignment of the text string on the display line or print line. Absence of this data element means the characters have normal alignment.<br>Possible values:<br><br>* **Centred**<br>* **Justified**<br>* **Left**<br>* **Right** |
 | `end_of_line_flag` | `bool` | Optional | Indicates if the text is at the end of a line. Allows the display or the print of a new line and a carry-over return characters after the formatted text.<br><br>**Default**: `True` |
-| `additional_properties` | `Dict[str, Any]` | Optional | - |
 
 ## Example
 
 ```python
-import jsonpickle
-
-from adyen.models.character_height_1 import CharacterHeight1
-from adyen.models.character_width_1 import CharacterWidth1
+from adyen.models.character_height_1_enum import CharacterHeight1Enum
+from adyen.models.character_width_1_enum import CharacterWidth1Enum
 from adyen.models.output_text import OutputText
 
 output_text = OutputText(
@@ -39,12 +34,9 @@ output_text = OutputText(
     character_set=102,
     start_row=166,
     start_column=128,
-    character_width=CharacterWidth1.SINGLEWIDTH,
-    character_height=CharacterHeight1.DOUBLEHEIGHT,
-    end_of_line_flag=True,
-    additional_properties={
-        'exampleAdditionalProperty': jsonpickle.decode('{"key1":"val1","key2":"val2"}')
-    }
+    character_width=CharacterWidth1Enum.SINGLEWIDTH,
+    character_height=CharacterHeight1Enum.DOUBLEHEIGHT,
+    end_of_line_flag=True
 )
 ```
 

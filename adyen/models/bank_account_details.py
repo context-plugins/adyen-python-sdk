@@ -32,8 +32,6 @@ class BankAccountDetails(object):
         sort_code (str): The [sort code](https://en.wikipedia.org/wiki/Sort_code),
             without separators or whitespace.
         mtype (str): **iban** or **usLocal** or **ukLocal**
-        additional_properties (Dict[str, Any]): The additional properties for the
-            model.
 
     """
 
@@ -61,15 +59,14 @@ class BankAccountDetails(object):
 
     def __init__(
         self,
-        mtype=None,
+        mtype="iban",
         account_number=APIHelper.SKIP,
         account_type="checking",
         branch_number=APIHelper.SKIP,
         form_factor="physical",
         iban=APIHelper.SKIP,
         routing_number=APIHelper.SKIP,
-        sort_code=APIHelper.SKIP,
-        additional_properties=None):
+        sort_code=APIHelper.SKIP):
         """Initialize a BankAccountDetails instance."""
         # Initialize members of the class
         if account_number is not APIHelper.SKIP:
@@ -85,11 +82,6 @@ class BankAccountDetails(object):
         if sort_code is not APIHelper.SKIP:
             self.sort_code = sort_code
         self.mtype = mtype
-
-        # Add additional model properties to the instance
-        if additional_properties is None:
-            additional_properties = {}
-        self.additional_properties = additional_properties
 
     @classmethod
     def from_dictionary(cls,
@@ -112,7 +104,7 @@ class BankAccountDetails(object):
         mtype =\
             dictionary.get("type")\
             if dictionary.get("type")\
-                else None
+                else "iban"
         account_number =\
             dictionary.get("accountNumber")\
             if dictionary.get("accountNumber")\
@@ -142,11 +134,6 @@ class BankAccountDetails(object):
             if dictionary.get("sortCode")\
                 else APIHelper.SKIP
 
-        additional_properties = APIHelper.get_additional_properties(
-            dictionary={k: v for k, v in dictionary.items()
-                        if k not in cls._names.values()},
-            unboxing_function=lambda value: value)
-
         # Return an object of this model
         return cls(mtype,
                    account_number,
@@ -155,8 +142,7 @@ class BankAccountDetails(object):
                    form_factor,
                    iban,
                    routing_number,
-                   sort_code,
-                   additional_properties)
+                   sort_code)
 
     def __repr__(self):
         """Return a unambiguous string representation."""
@@ -196,7 +182,6 @@ class BankAccountDetails(object):
             else None
         )
         _mtype=self.mtype
-        _additional_properties=self.additional_properties
         return (
             f"{self.__class__.__name__}("
             f"account_number={_account_number!r}, "
@@ -207,7 +192,6 @@ class BankAccountDetails(object):
             f"routing_number={_routing_number!r}, "
             f"sort_code={_sort_code!r}, "
             f"mtype={_mtype!r}, "
-            f"additional_properties={_additional_properties!r}, "
             f")"
         )
 
@@ -249,7 +233,6 @@ class BankAccountDetails(object):
             else None
         )
         _mtype=self.mtype
-        _additional_properties=self.additional_properties
         return (
             f"{self.__class__.__name__}("
             f"account_number={_account_number!s}, "
@@ -260,6 +243,5 @@ class BankAccountDetails(object):
             f"routing_number={_routing_number!s}, "
             f"sort_code={_sort_code!s}, "
             f"mtype={_mtype!s}, "
-            f"additional_properties={_additional_properties!s}, "
             f")"
         )

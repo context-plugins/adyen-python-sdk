@@ -1,8 +1,6 @@
 
 # Identification Data
 
-*This model accepts additional fields of type Any.*
-
 ## Structure
 
 `IdentificationData`
@@ -17,27 +15,21 @@
 | `issuer_state` | `str` | Optional | The state or province where the document was issued (AU only). |
 | `national_id_exempt` | `bool` | Optional | Applies only to individuals in the US. Set to **true** if the individual does not have an SSN. To verify their identity, Adyen will require them to upload an ID document. |
 | `number` | `str` | Optional | The number in the document. |
-| `mtype` | [`Type132`](../../doc/models/type-132.md) | Required | - |
-| `additional_properties` | `Dict[str, Any]` | Optional | - |
+| `mtype` | [`Type132Enum`](../../doc/models/type-132-enum.md) | Required | Type of identity data. For individuals, the following types are supported. See our [onboarding guide](https://docs.adyen.com/platforms/onboard-users/onboarding-steps/?onboarding_type=custom) for other supported countries.<br><br>- Australia: **driversLicense**, **passport**<br><br>- Hong Kong: **driversLicense**, **nationalIdNumber**, **passport**<br><br>- New Zealand: **driversLicense**, **passport**<br><br>- Singapore: **driversLicense**, **nationalIdNumber**, **passport**<br><br>- All other supported countries: **nationalIdNumber** |
 
 ## Example
 
 ```python
-import jsonpickle
-
 from adyen.models.identification_data import IdentificationData
-from adyen.models.type_132 import Type132
+from adyen.models.type_132_enum import Type132Enum
 
 identification_data = IdentificationData(
-    mtype=Type132.NATIONALIDNUMBER,
+    mtype=Type132Enum.NATIONALIDNUMBER,
     card_number='cardNumber6',
     expiry_date='expiryDate8',
     issuer_country='issuerCountry6',
     issuer_state='issuerState6',
-    national_id_exempt=False,
-    additional_properties={
-        'exampleAdditionalProperty': jsonpickle.decode('{"key1":"val1","key2":"val2"}')
-    }
+    national_id_exempt=False
 )
 ```
 

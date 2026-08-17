@@ -13,8 +13,6 @@ class TerminalInstructions(object):
     Attributes:
         adyen_app_restart (bool): Indicates whether the Adyen app on the payment
             terminal restarts automatically when the configuration is updated.
-        additional_properties (Dict[str, Any]): The additional properties for the
-            model.
 
     """
 
@@ -29,17 +27,11 @@ class TerminalInstructions(object):
 
     def __init__(
         self,
-        adyen_app_restart=APIHelper.SKIP,
-        additional_properties=None):
+        adyen_app_restart=APIHelper.SKIP):
         """Initialize a TerminalInstructions instance."""
         # Initialize members of the class
         if adyen_app_restart is not APIHelper.SKIP:
             self.adyen_app_restart = adyen_app_restart
-
-        # Add additional model properties to the instance
-        if additional_properties is None:
-            additional_properties = {}
-        self.additional_properties = additional_properties
 
     @classmethod
     def from_dictionary(cls,
@@ -64,14 +56,8 @@ class TerminalInstructions(object):
             if "adyenAppRestart" in dictionary.keys()\
                 else APIHelper.SKIP
 
-        additional_properties = APIHelper.get_additional_properties(
-            dictionary={k: v for k, v in dictionary.items()
-                        if k not in cls._names.values()},
-            unboxing_function=lambda value: value)
-
         # Return an object of this model
-        return cls(adyen_app_restart,
-                   additional_properties)
+        return cls(adyen_app_restart)
 
     def __repr__(self):
         """Return a unambiguous string representation."""
@@ -80,11 +66,9 @@ class TerminalInstructions(object):
             if hasattr(self, "adyen_app_restart")
             else None
         )
-        _additional_properties=self.additional_properties
         return (
             f"{self.__class__.__name__}("
             f"adyen_app_restart={_adyen_app_restart!r}, "
-            f"additional_properties={_additional_properties!r}, "
             f")"
         )
 
@@ -95,10 +79,8 @@ class TerminalInstructions(object):
             if hasattr(self, "adyen_app_restart")
             else None
         )
-        _additional_properties=self.additional_properties
         return (
             f"{self.__class__.__name__}("
             f"adyen_app_restart={_adyen_app_restart!s}, "
-            f"additional_properties={_additional_properties!s}, "
             f")"
         )

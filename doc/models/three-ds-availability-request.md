@@ -1,11 +1,9 @@
 
-# Three Ds Availability Request
-
-*This model accepts additional fields of type Any.*
+# Three DS Availability Request
 
 ## Structure
 
-`ThreeDsAvailabilityRequest`
+`ThreeDSAvailabilityRequest`
 
 ## Fields
 
@@ -17,16 +15,13 @@
 | `merchant_account` | `str` | Required | The merchant account identifier. |
 | `recurring_detail_reference` | `str` | Optional | A recurring detail reference corresponding to a card. |
 | `shopper_reference` | `str` | Optional | The shopper's reference to uniquely identify this shopper (e.g. user ID or account ID). |
-| `additional_properties` | `Dict[str, Any]` | Optional | - |
 
 ## Example
 
 ```python
-import jsonpickle
+from adyen.models.three_ds_availability_request import ThreeDSAvailabilityRequest
 
-from adyen.models.three_ds_availability_request import ThreeDsAvailabilityRequest
-
-three_ds_availability_request = ThreeDsAvailabilityRequest(
+three_ds_availability_request = ThreeDSAvailabilityRequest(
     merchant_account='merchantAccount8',
     additional_data={
         'key0': 'additionalData6'
@@ -37,10 +32,7 @@ three_ds_availability_request = ThreeDsAvailabilityRequest(
     ],
     card_number='cardNumber2',
     recurring_detail_reference='recurringDetailReference6',
-    shopper_reference='shopperReference4',
-    additional_properties={
-        'exampleAdditionalProperty': jsonpickle.decode('{"key1":"val1","key2":"val2"}')
-    }
+    shopper_reference='shopperReference4'
 )
 ```
 

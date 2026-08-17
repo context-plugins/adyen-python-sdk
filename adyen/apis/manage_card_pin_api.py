@@ -32,12 +32,12 @@ from adyen.models.reveal_pin_response import (
 )
 
 
-class ManageCardPinApi(BaseApi):
+class ManageCardPINApi(BaseApi):
     """A Controller to access Endpoints in the adyen API."""
 
     def __init__(self, config):
-        """Initialize ManageCardPinApi object."""
-        super(ManageCardPinApi, self).__init__(config)
+        """Initialize ManageCardPINApi object."""
+        super(ManageCardPINApi, self).__init__(config)
 
     def post_pins_change(self,
                          body=None):
@@ -51,18 +51,16 @@ class ManageCardPinApi(BaseApi):
             body (PinChangeRequest, optional): The request body parameter.
 
         Returns:
-            ApiResponse: An object with the response value as well as other useful
-                information such as status codes and headers. OK - the request has
-                succeeded.
+            PinChangeResponse: Response from the API. OK - the request has succeeded.
 
         Raises:
-            ApiException: When an error occurs while fetching the data from the
+            APIException: When an error occurs while fetching the data from the
                 remote API. This exception includes the HTTP Response code, an error
                 message, and the HTTP body that was received in the request.
 
         """
         return super().new_api_call_builder.request(
-            RequestBuilder().server(Server.DEFAULT)
+            RequestBuilder().server(Server.DEFAULT13)
             .path("/pins/change")
             .http_method(HttpMethodEnum.POST)
             .header_param(Parameter()
@@ -79,7 +77,6 @@ class ManageCardPinApi(BaseApi):
             ResponseHandler()
             .deserializer(APIHelper.json_deserialize)
             .deserialize_into(PinChangeResponse.from_dictionary)
-            .is_api_response(True)
             .local_error("401",
                 "Unauthorized - authentication required.",
                 RestServiceErrorException)
@@ -104,22 +101,19 @@ class ManageCardPinApi(BaseApi):
         * Bank Issuing PIN Reveal Webservice role
 
         Args:
-            body (PaymentInstrumentRevealRequest, optional): The request body
-                parameter.
+            body (RevealPinRequest, optional): The request body parameter.
 
         Returns:
-            ApiResponse: An object with the response value as well as other useful
-                information such as status codes and headers. OK - the request has
-                succeeded.
+            RevealPinResponse: Response from the API. OK - the request has succeeded.
 
         Raises:
-            ApiException: When an error occurs while fetching the data from the
+            APIException: When an error occurs while fetching the data from the
                 remote API. This exception includes the HTTP Response code, an error
                 message, and the HTTP body that was received in the request.
 
         """
         return super().new_api_call_builder.request(
-            RequestBuilder().server(Server.DEFAULT)
+            RequestBuilder().server(Server.DEFAULT13)
             .path("/pins/reveal")
             .http_method(HttpMethodEnum.POST)
             .header_param(Parameter()
@@ -136,7 +130,6 @@ class ManageCardPinApi(BaseApi):
             ResponseHandler()
             .deserializer(APIHelper.json_deserialize)
             .deserialize_into(RevealPinResponse.from_dictionary)
-            .is_api_response(True)
             .local_error("401",
                 "Unauthorized - authentication required.",
                 RestServiceErrorException)
@@ -175,18 +168,16 @@ class ManageCardPinApi(BaseApi):
                 values: **jwk**, **pem**.  Default value: **pem**.
 
         Returns:
-            ApiResponse: An object with the response value as well as other useful
-                information such as status codes and headers. OK - the request has
-                succeeded.
+            PublicKeyResponse: Response from the API. OK - the request has succeeded.
 
         Raises:
-            ApiException: When an error occurs while fetching the data from the
+            APIException: When an error occurs while fetching the data from the
                 remote API. This exception includes the HTTP Response code, an error
                 message, and the HTTP body that was received in the request.
 
         """
         return super().new_api_call_builder.request(
-            RequestBuilder().server(Server.DEFAULT)
+            RequestBuilder().server(Server.DEFAULT13)
             .path("/publicKey")
             .http_method(HttpMethodEnum.GET)
             .query_param(Parameter()
@@ -203,7 +194,6 @@ class ManageCardPinApi(BaseApi):
             ResponseHandler()
             .deserializer(APIHelper.json_deserialize)
             .deserialize_into(PublicKeyResponse.from_dictionary)
-            .is_api_response(True)
             .local_error("401",
                 "Unauthorized - authentication required.",
                 RestServiceErrorException)

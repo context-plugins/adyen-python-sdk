@@ -13,10 +13,21 @@ class ScaInformation1(object):
     Information for the Strong Customer Authentication (SCA)
 
     Attributes:
-        exemption (ScaExemption): The model property of type ScaExemption.
-        status (ScaStatus): The model property of type ScaStatus.
-        additional_properties (Dict[str, Any]): The additional properties for the
-            model.
+        exemption (ScaExemptionEnum): The type of exemption for Strong Customer
+            Authentication (SCA). Possible values: * **lowerLimit**: the newly
+            created limit is lower than the existing limit. * **notRegulated**: the
+            limit is created in a country, region, or industry where it is not
+            mandated by law to use SCA. * **setByPlatform**: you set a limit for one
+            of your user's balance accounts, or for your balance platform. *
+            **initialLimit**: there are no existing transfer limits set on the
+            balance account or balance platform. * **alreadyPerformed**: you are
+            confident about your user's identity and do not need to verify this using
+            SCA.
+        status (ScaStatusEnum): The status of Strong Customer Authentication (SCA).
+            Possible values: * **notPerformed**: the requester was unable to
+            successfully authenticate the request using SCA, or has an SCA exemption.
+            * **pending**: the request is pending SCA authentication. *
+            **performed**: the request is successfully authenticated using SCA.
 
     """
 
@@ -33,18 +44,12 @@ class ScaInformation1(object):
     def __init__(
         self,
         status=None,
-        exemption=APIHelper.SKIP,
-        additional_properties=None):
+        exemption=APIHelper.SKIP):
         """Initialize a ScaInformation1 instance."""
         # Initialize members of the class
         if exemption is not APIHelper.SKIP:
             self.exemption = exemption
         self.status = status
-
-        # Add additional model properties to the instance
-        if additional_properties is None:
-            additional_properties = {}
-        self.additional_properties = additional_properties
 
     @classmethod
     def from_dictionary(cls,
@@ -73,15 +78,9 @@ class ScaInformation1(object):
             if dictionary.get("exemption")\
                 else APIHelper.SKIP
 
-        additional_properties = APIHelper.get_additional_properties(
-            dictionary={k: v for k, v in dictionary.items()
-                        if k not in cls._names.values()},
-            unboxing_function=lambda value: value)
-
         # Return an object of this model
         return cls(status,
-                   exemption,
-                   additional_properties)
+                   exemption)
 
     def __repr__(self):
         """Return a unambiguous string representation."""
@@ -91,12 +90,10 @@ class ScaInformation1(object):
             else None
         )
         _status=self.status
-        _additional_properties=self.additional_properties
         return (
             f"{self.__class__.__name__}("
             f"exemption={_exemption!r}, "
             f"status={_status!r}, "
-            f"additional_properties={_additional_properties!r}, "
             f")"
         )
 
@@ -108,11 +105,9 @@ class ScaInformation1(object):
             else None
         )
         _status=self.status
-        _additional_properties=self.additional_properties
         return (
             f"{self.__class__.__name__}("
             f"exemption={_exemption!s}, "
             f"status={_status!s}, "
-            f"additional_properties={_additional_properties!s}, "
             f")"
         )

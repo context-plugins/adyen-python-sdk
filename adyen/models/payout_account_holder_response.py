@@ -18,12 +18,11 @@ class PayoutAccountHolderResponse(object):
             would prevent requests from being processed.
         merchant_reference (str): The value supplied by the executing user when
             initiating the transfer; may be used to link multiple transactions.
-        payout_speed (PayoutSpeed): The model property of type PayoutSpeed.
+        payout_speed (PayoutSpeedEnum): Speed with which payouts for this account are
+            processed. Permitted values: `STANDARD`, `SAME_DAY`.
         psp_reference (str): The reference of a request. Can be used to uniquely
             identify the request.
         result_code (str): The result code.
-        additional_properties (Dict[str, Any]): The additional properties for the
-            model.
 
     """
 
@@ -51,10 +50,9 @@ class PayoutAccountHolderResponse(object):
         bank_account_uuid=APIHelper.SKIP,
         invalid_fields=APIHelper.SKIP,
         merchant_reference=APIHelper.SKIP,
-        payout_speed=APIHelper.SKIP,
+        payout_speed="STANDARD",
         psp_reference=APIHelper.SKIP,
-        result_code=APIHelper.SKIP,
-        additional_properties=None):
+        result_code=APIHelper.SKIP):
         """Initialize a PayoutAccountHolderResponse instance."""
         # Initialize members of the class
         if bank_account_uuid is not APIHelper.SKIP:
@@ -63,17 +61,11 @@ class PayoutAccountHolderResponse(object):
             self.invalid_fields = invalid_fields
         if merchant_reference is not APIHelper.SKIP:
             self.merchant_reference = merchant_reference
-        if payout_speed is not APIHelper.SKIP:
-            self.payout_speed = payout_speed
+        self.payout_speed = payout_speed
         if psp_reference is not APIHelper.SKIP:
             self.psp_reference = psp_reference
         if result_code is not APIHelper.SKIP:
             self.result_code = result_code
-
-        # Add additional model properties to the instance
-        if additional_properties is None:
-            additional_properties = {}
-        self.additional_properties = additional_properties
 
     @classmethod
     def from_dictionary(cls,
@@ -112,7 +104,7 @@ class PayoutAccountHolderResponse(object):
         payout_speed =\
             dictionary.get("payoutSpeed")\
             if dictionary.get("payoutSpeed")\
-                else APIHelper.SKIP
+                else "STANDARD"
         psp_reference =\
             dictionary.get("pspReference")\
             if dictionary.get("pspReference")\
@@ -122,19 +114,13 @@ class PayoutAccountHolderResponse(object):
             if dictionary.get("resultCode")\
                 else APIHelper.SKIP
 
-        additional_properties = APIHelper.get_additional_properties(
-            dictionary={k: v for k, v in dictionary.items()
-                        if k not in cls._names.values()},
-            unboxing_function=lambda value: value)
-
         # Return an object of this model
         return cls(bank_account_uuid,
                    invalid_fields,
                    merchant_reference,
                    payout_speed,
                    psp_reference,
-                   result_code,
-                   additional_properties)
+                   result_code)
 
     def __repr__(self):
         """Return a unambiguous string representation."""
@@ -168,7 +154,6 @@ class PayoutAccountHolderResponse(object):
             if hasattr(self, "result_code")
             else None
         )
-        _additional_properties=self.additional_properties
         return (
             f"{self.__class__.__name__}("
             f"bank_account_uuid={_bank_account_uuid!r}, "
@@ -177,7 +162,6 @@ class PayoutAccountHolderResponse(object):
             f"payout_speed={_payout_speed!r}, "
             f"psp_reference={_psp_reference!r}, "
             f"result_code={_result_code!r}, "
-            f"additional_properties={_additional_properties!r}, "
             f")"
         )
 
@@ -213,7 +197,6 @@ class PayoutAccountHolderResponse(object):
             if hasattr(self, "result_code")
             else None
         )
-        _additional_properties=self.additional_properties
         return (
             f"{self.__class__.__name__}("
             f"bank_account_uuid={_bank_account_uuid!s}, "
@@ -222,6 +205,5 @@ class PayoutAccountHolderResponse(object):
             f"payout_speed={_payout_speed!s}, "
             f"psp_reference={_psp_reference!s}, "
             f"result_code={_result_code!s}, "
-            f"additional_properties={_additional_properties!s}, "
             f")"
         )

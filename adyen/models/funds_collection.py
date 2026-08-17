@@ -14,12 +14,11 @@ class FundsCollection(object):
     """Implementation of the 'FundsCollection' model.
 
     Attributes:
-        account_identification (BankAccountIdentification1): The model property of
-            type BankAccountIdentification1.
-        funds_collection_type (FundsCollectionType2): The model property of type
-            FundsCollectionType2.
-        additional_properties (Dict[str, Any]): The additional properties for the
-            model.
+        account_identification (BankAccountIdentification1): Contains the
+            identification information of the account to which you can transfer funds
+            related to repayments.
+        funds_collection_type (FundsCollectionType2Enum): The type of funds
+            collection.  Possible values: **UnscheduledRepayment**, **Revocation**.
 
     """
 
@@ -37,19 +36,13 @@ class FundsCollection(object):
     def __init__(
         self,
         account_identification=APIHelper.SKIP,
-        funds_collection_type=APIHelper.SKIP,
-        additional_properties=None):
+        funds_collection_type=APIHelper.SKIP):
         """Initialize a FundsCollection instance."""
         # Initialize members of the class
         if account_identification is not APIHelper.SKIP:
             self.account_identification = account_identification
         if funds_collection_type is not APIHelper.SKIP:
             self.funds_collection_type = funds_collection_type
-
-        # Add additional model properties to the instance
-        if additional_properties is None:
-            additional_properties = {}
-        self.additional_properties = additional_properties
 
     @classmethod
     def from_dictionary(cls,
@@ -79,15 +72,9 @@ class FundsCollection(object):
             if dictionary.get("fundsCollectionType")\
                 else APIHelper.SKIP
 
-        additional_properties = APIHelper.get_additional_properties(
-            dictionary={k: v for k, v in dictionary.items()
-                        if k not in cls._names.values()},
-            unboxing_function=lambda value: value)
-
         # Return an object of this model
         return cls(account_identification,
-                   funds_collection_type,
-                   additional_properties)
+                   funds_collection_type)
 
     def __repr__(self):
         """Return a unambiguous string representation."""
@@ -101,12 +88,10 @@ class FundsCollection(object):
             if hasattr(self, "funds_collection_type")
             else None
         )
-        _additional_properties=self.additional_properties
         return (
             f"{self.__class__.__name__}("
             f"account_identification={_account_identification!r}, "
             f"funds_collection_type={_funds_collection_type!r}, "
-            f"additional_properties={_additional_properties!r}, "
             f")"
         )
 
@@ -122,11 +107,9 @@ class FundsCollection(object):
             if hasattr(self, "funds_collection_type")
             else None
         )
-        _additional_properties=self.additional_properties
         return (
             f"{self.__class__.__name__}("
             f"account_identification={_account_identification!s}, "
             f"funds_collection_type={_funds_collection_type!s}, "
-            f"additional_properties={_additional_properties!s}, "
             f")"
         )

@@ -15,8 +15,6 @@ class VippsResponseInfo(object):
         subscription_cancel_url (str): Vipps subscription cancel url (required in
             case of [recurring
             payments](https://docs.adyen.com/online-payments/tokenization))
-        additional_properties (Dict[str, Any]): The additional properties for the
-            model.
 
     """
 
@@ -34,19 +32,13 @@ class VippsResponseInfo(object):
     def __init__(
         self,
         logo=APIHelper.SKIP,
-        subscription_cancel_url=APIHelper.SKIP,
-        additional_properties=None):
+        subscription_cancel_url=APIHelper.SKIP):
         """Initialize a VippsResponseInfo instance."""
         # Initialize members of the class
         if logo is not APIHelper.SKIP:
             self.logo = logo
         if subscription_cancel_url is not APIHelper.SKIP:
             self.subscription_cancel_url = subscription_cancel_url
-
-        # Add additional model properties to the instance
-        if additional_properties is None:
-            additional_properties = {}
-        self.additional_properties = additional_properties
 
     @classmethod
     def from_dictionary(cls,
@@ -75,15 +67,9 @@ class VippsResponseInfo(object):
             if dictionary.get("subscriptionCancelUrl")\
                 else APIHelper.SKIP
 
-        additional_properties = APIHelper.get_additional_properties(
-            dictionary={k: v for k, v in dictionary.items()
-                        if k not in cls._names.values()},
-            unboxing_function=lambda value: value)
-
         # Return an object of this model
         return cls(logo,
-                   subscription_cancel_url,
-                   additional_properties)
+                   subscription_cancel_url)
 
     def __repr__(self):
         """Return a unambiguous string representation."""
@@ -97,12 +83,10 @@ class VippsResponseInfo(object):
             if hasattr(self, "subscription_cancel_url")
             else None
         )
-        _additional_properties=self.additional_properties
         return (
             f"{self.__class__.__name__}("
             f"logo={_logo!r}, "
             f"subscription_cancel_url={_subscription_cancel_url!r}, "
-            f"additional_properties={_additional_properties!r}, "
             f")"
         )
 
@@ -118,11 +102,9 @@ class VippsResponseInfo(object):
             if hasattr(self, "subscription_cancel_url")
             else None
         )
-        _additional_properties=self.additional_properties
         return (
             f"{self.__class__.__name__}("
             f"logo={_logo!s}, "
             f"subscription_cancel_url={_subscription_cancel_url!s}, "
-            f"additional_properties={_additional_properties!s}, "
             f")"
         )

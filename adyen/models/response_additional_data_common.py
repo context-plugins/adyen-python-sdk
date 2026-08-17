@@ -58,9 +58,14 @@ class ResponseAdditionalDataCommon(object):
             particular fraud check. The fraud check name is found in the key of the
             key-value pair.
         fraud_manual_review (str): Indicates if the payment is sent to manual review.
-        fraud_result_type (FraudResultType): The model property of type
-            FraudResultType.
-        fraud_risk_level (FraudRiskLevel): The model property of type FraudRiskLevel.
+        fraud_result_type (FraudResultTypeEnum): The fraud result properties of the
+            payment. Possible values: * AMBER * GREEN * RED
+        fraud_risk_level (FraudRiskLevelEnum): The risk level of the transaction as
+            classified by the [machine
+            learning](https://docs.adyen.com/risk-management/configure-your-risk-profi
+            le/machine-learning-rules/) fraud risk rule. The risk level indicates the
+            likelihood that a transaction will result in a fraudulent dispute.
+            Possible values: * veryLow * low * medium * high * veryHigh
         funding_source (str): Information regarding the funding type of the card. The
             possible return values are: * CHARGE * CREDIT * DEBIT * PREPAID *
             PREPAID_RELOADABLE  * PREPAID_NONRELOADABLE * DEFFERED_DEBIT  > This
@@ -136,8 +141,8 @@ class ResponseAdditionalDataCommon(object):
             identifies the recurring transaction.
         recurring_shopper_reference (str): The provided reference of the shopper for
             a recurring transaction.
-        recurring_processing_model (RecurringProcessingModel7): The model property of
-            type RecurringProcessingModel7.
+        recurring_processing_model (RecurringProcessingModel7Enum): The processing
+            model used for the recurring transaction.
         referred (str): If the payment is referred, this field is set to true.  This
             field is unavailable if the payment is referred and is usually not
             returned with ecommerce transactions.  Example: true
@@ -162,8 +167,10 @@ class ResponseAdditionalDataCommon(object):
         three_ds_version (str): The 3D Secure 2 version.
         tokenization_shopper_reference (str): The reference for the shopper that you
             sent when tokenizing the payment details.
-        tokenization_store_operation_type (TokenizationStoreOperationType): The model
-            property of type TokenizationStoreOperationType.
+        tokenization_store_operation_type (TokenizationStoreOperationTypeEnum): The
+            operation performed on the token. Possible values:  * **created**: the
+            token has been created. * **updated**: the existing token has been
+            updated. * **alreadyExisting**: the details have already been stored.
         tokenization_stored_payment_method_id (str): The reference that uniquely
             identifies tokenized payment details.
         transaction_link_id (str): Returned in the response for Mastercard payments.
@@ -173,8 +180,6 @@ class ResponseAdditionalDataCommon(object):
         xid (str): The 3DS transaction ID of the 3DS session sent in notifications.
             The value is Base64-encoded and is returned for transactions with
             directoryResponse 'N' or 'Y'.   Example: ODgxNDc2MDg2MDExODk5MAAAAAA=
-        additional_properties (Dict[str, Any]): The additional properties for the
-            model.
 
     """
 
@@ -381,8 +386,7 @@ class ResponseAdditionalDataCommon(object):
         tokenization_stored_payment_method_id=APIHelper.SKIP,
         transaction_link_id=APIHelper.SKIP,
         visa_transaction_id=APIHelper.SKIP,
-        xid=APIHelper.SKIP,
-        additional_properties=None):
+        xid=APIHelper.SKIP):
         """Initialize a ResponseAdditionalDataCommon instance."""
         # Initialize members of the class
         if acquirer_account_code is not APIHelper.SKIP:
@@ -519,11 +523,6 @@ class ResponseAdditionalDataCommon(object):
             self.visa_transaction_id = visa_transaction_id
         if xid is not APIHelper.SKIP:
             self.xid = xid
-
-        # Add additional model properties to the instance
-        if additional_properties is None:
-            additional_properties = {}
-        self.additional_properties = additional_properties
 
     @classmethod
     def from_dictionary(cls,
@@ -804,11 +803,6 @@ class ResponseAdditionalDataCommon(object):
             if dictionary.get("xid")\
                 else APIHelper.SKIP
 
-        additional_properties = APIHelper.get_additional_properties(
-            dictionary={k: v for k, v in dictionary.items()
-                        if k not in cls._names.values()},
-            unboxing_function=lambda value: value)
-
         # Return an object of this model
         return cls(acquirer_account_code,
                    acquirer_code,
@@ -874,8 +868,7 @@ class ResponseAdditionalDataCommon(object):
                    tokenization_stored_payment_method_id,
                    transaction_link_id,
                    visa_transaction_id,
-                   xid,
-                   additional_properties)
+                   xid)
 
     def __repr__(self):
         """Return a unambiguous string representation."""
@@ -1204,7 +1197,6 @@ class ResponseAdditionalDataCommon(object):
             if hasattr(self, "xid")
             else None
         )
-        _additional_properties=self.additional_properties
         return (
             f"{self.__class__.__name__}("
             f"acquirer_account_code={_acquirer_account_code!r}, "
@@ -1272,7 +1264,6 @@ class ResponseAdditionalDataCommon(object):
             f"transaction_link_id={_transaction_link_id!r}, "
             f"visa_transaction_id={_visa_transaction_id!r}, "
             f"xid={_xid!r}, "
-            f"additional_properties={_additional_properties!r}, "
             f")"
         )
 
@@ -1603,7 +1594,6 @@ class ResponseAdditionalDataCommon(object):
             if hasattr(self, "xid")
             else None
         )
-        _additional_properties=self.additional_properties
         return (
             f"{self.__class__.__name__}("
             f"acquirer_account_code={_acquirer_account_code!s}, "
@@ -1671,6 +1661,5 @@ class ResponseAdditionalDataCommon(object):
             f"transaction_link_id={_transaction_link_id!s}, "
             f"visa_transaction_id={_visa_transaction_id!s}, "
             f"xid={_xid!s}, "
-            f"additional_properties={_additional_properties!s}, "
             f")"
         )

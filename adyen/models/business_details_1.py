@@ -40,8 +40,6 @@ class BusinessDetails1(object):
         stock_number (str): International Securities Identification Number (ISIN).
         stock_ticker (str): Stock Ticker symbol.
         tax_id (str): The tax ID of the company.
-        additional_properties (Dict[str, Any]): The additional properties for the
-            model.
 
     """
 
@@ -83,8 +81,7 @@ class BusinessDetails1(object):
         stock_exchange=APIHelper.SKIP,
         stock_number=APIHelper.SKIP,
         stock_ticker=APIHelper.SKIP,
-        tax_id=APIHelper.SKIP,
-        additional_properties=None):
+        tax_id=APIHelper.SKIP):
         """Initialize a BusinessDetails1 instance."""
         # Initialize members of the class
         if doing_business_as is not APIHelper.SKIP:
@@ -107,11 +104,6 @@ class BusinessDetails1(object):
             self.stock_ticker = stock_ticker
         if tax_id is not APIHelper.SKIP:
             self.tax_id = tax_id
-
-        # Add additional model properties to the instance
-        if additional_properties is None:
-            additional_properties = {}
-        self.additional_properties = additional_properties
 
     @classmethod
     def from_dictionary(cls,
@@ -184,11 +176,6 @@ class BusinessDetails1(object):
             if dictionary.get("taxId")\
                 else APIHelper.SKIP
 
-        additional_properties = APIHelper.get_additional_properties(
-            dictionary={k: v for k, v in dictionary.items()
-                        if k not in cls._names.values()},
-            unboxing_function=lambda value: value)
-
         # Return an object of this model
         return cls(doing_business_as,
                    legal_business_name,
@@ -199,8 +186,7 @@ class BusinessDetails1(object):
                    stock_exchange,
                    stock_number,
                    stock_ticker,
-                   tax_id,
-                   additional_properties)
+                   tax_id)
 
     def __repr__(self):
         """Return a unambiguous string representation."""
@@ -254,7 +240,6 @@ class BusinessDetails1(object):
             if hasattr(self, "tax_id")
             else None
         )
-        _additional_properties=self.additional_properties
         return (
             f"{self.__class__.__name__}("
             f"doing_business_as={_doing_business_as!r}, "
@@ -267,7 +252,6 @@ class BusinessDetails1(object):
             f"stock_number={_stock_number!r}, "
             f"stock_ticker={_stock_ticker!r}, "
             f"tax_id={_tax_id!r}, "
-            f"additional_properties={_additional_properties!r}, "
             f")"
         )
 
@@ -323,7 +307,6 @@ class BusinessDetails1(object):
             if hasattr(self, "tax_id")
             else None
         )
-        _additional_properties=self.additional_properties
         return (
             f"{self.__class__.__name__}("
             f"doing_business_as={_doing_business_as!s}, "
@@ -336,6 +319,5 @@ class BusinessDetails1(object):
             f"stock_number={_stock_number!s}, "
             f"stock_ticker={_stock_ticker!s}, "
             f"tax_id={_tax_id!s}, "
-            f"additional_properties={_additional_properties!s}, "
             f")"
         )

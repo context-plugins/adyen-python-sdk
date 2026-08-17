@@ -3,8 +3,6 @@
 
 The reason why the web data is not provided.
 
-*This model accepts additional fields of type Any.*
-
 ## Structure
 
 `WebDataExemption1`
@@ -13,22 +11,16 @@ The reason why the web data is not provided.
 
 | Name | Type | Tags | Description |
 |  --- | --- | --- | --- |
-| `reason` | [`Reason1`](../../doc/models/reason-1.md) | Optional | - |
-| `additional_properties` | `Dict[str, Any]` | Optional | - |
+| `reason` | [`Reason3Enum`](../../doc/models/reason-3-enum.md) | Optional | The reason why the web data was not provided. Possible value: **noOnlinePresence**. |
 
 ## Example
 
 ```python
-import jsonpickle
-
-from adyen.models.reason_1 import Reason1
+from adyen.models.reason_3_enum import Reason3Enum
 from adyen.models.web_data_exemption_1 import WebDataExemption1
 
 web_data_exemption_1 = WebDataExemption1(
-    reason=Reason1.NOONLINEPRESENCE,
-    additional_properties={
-        'exampleAdditionalProperty': jsonpickle.decode('{"key1":"val1","key2":"val2"}')
-    }
+    reason=Reason3Enum.NOONLINEPRESENCE
 )
 ```
 

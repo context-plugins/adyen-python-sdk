@@ -1,8 +1,6 @@
 
 # Afterpay
 
-*This model accepts additional fields of type Any.*
-
 ## Structure
 
 `Afterpay`
@@ -18,27 +16,21 @@
 | `recurring_detail_reference` | `str` | Optional | This is the `recurringDetailReference` returned in the response when you created the token. |
 | `sdk_data` | `str` | Optional | Base64-encoded JSON object containing SDK related parameters required by the SDK<br><br>**Constraints**: *Maximum Length*: `50000` |
 | `stored_payment_method_id` | `str` | Optional | This is the `recurringDetailReference` returned in the response when you created the token.<br><br>**Constraints**: *Maximum Length*: `64` |
-| `mtype` | [`Type22`](../../doc/models/type-22.md) | Required | - |
-| `additional_properties` | `Dict[str, Any]` | Optional | - |
+| `mtype` | [`Type2Enum`](../../doc/models/type-2-enum.md) | Required | **afterpay_default**<br><br>**Default**: `"afterpay_default"` |
 
 ## Example
 
 ```python
-import jsonpickle
-
 from adyen.models.afterpay import Afterpay
-from adyen.models.type_22 import Type22
+from adyen.models.type_2_enum import Type2Enum
 
 afterpay = Afterpay(
-    mtype=Type22.AFTERPAY_DEFAULT,
+    mtype=Type2Enum.AFTERPAY_DEFAULT,
     billing_address='billingAddress8',
     checkout_attempt_id='checkoutAttemptId6',
     delivery_address='deliveryAddress6',
     personal_details='personalDetails8',
-    recurring_detail_reference='recurringDetailReference0',
-    additional_properties={
-        'exampleAdditionalProperty': jsonpickle.decode('{"key1":"val1","key2":"val2"}')
-    }
+    recurring_detail_reference='recurringDetailReference0'
 )
 ```
 

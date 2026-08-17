@@ -18,8 +18,6 @@ class Room(object):
             units](https://docs.adyen.com/development-resources/currency-codes). *
             For example, 2000 means USD 20.00. * Encoding: Numeric * Max value:
             10000000000 * **additionalData key:** `lodging.room[N].rate`
-        additional_properties (Dict[str, Any]): The additional properties for the
-            model.
 
     """
 
@@ -37,19 +35,13 @@ class Room(object):
     def __init__(
         self,
         number_of_nights=APIHelper.SKIP,
-        rate=APIHelper.SKIP,
-        additional_properties=None):
+        rate=APIHelper.SKIP):
         """Initialize a Room instance."""
         # Initialize members of the class
         if number_of_nights is not APIHelper.SKIP:
             self.number_of_nights = number_of_nights
         if rate is not APIHelper.SKIP:
             self.rate = rate
-
-        # Add additional model properties to the instance
-        if additional_properties is None:
-            additional_properties = {}
-        self.additional_properties = additional_properties
 
     @classmethod
     def from_dictionary(cls,
@@ -78,15 +70,9 @@ class Room(object):
             if dictionary.get("rate")\
                 else APIHelper.SKIP
 
-        additional_properties = APIHelper.get_additional_properties(
-            dictionary={k: v for k, v in dictionary.items()
-                        if k not in cls._names.values()},
-            unboxing_function=lambda value: value)
-
         # Return an object of this model
         return cls(number_of_nights,
-                   rate,
-                   additional_properties)
+                   rate)
 
     @classmethod
     def validate(cls, dictionary):
@@ -121,12 +107,10 @@ class Room(object):
             if hasattr(self, "rate")
             else None
         )
-        _additional_properties=self.additional_properties
         return (
             f"{self.__class__.__name__}("
             f"number_of_nights={_number_of_nights!r}, "
             f"rate={_rate!r}, "
-            f"additional_properties={_additional_properties!r}, "
             f")"
         )
 
@@ -142,11 +126,9 @@ class Room(object):
             if hasattr(self, "rate")
             else None
         )
-        _additional_properties=self.additional_properties
         return (
             f"{self.__class__.__name__}("
             f"number_of_nights={_number_of_nights!s}, "
             f"rate={_rate!s}, "
-            f"additional_properties={_additional_properties!s}, "
             f")"
         )

@@ -1,8 +1,6 @@
 
 # List Merchant Api Credentials Response
 
-*This model accepts additional fields of type Any.*
-
 ## Structure
 
 `ListMerchantApiCredentialsResponse`
@@ -11,71 +9,51 @@
 
 | Name | Type | Tags | Description |
 |  --- | --- | --- | --- |
-| `links` | [`PaginationLinks`](../../doc/models/pagination-links.md) | Optional | - |
+| `links` | [`PaginationLinks1`](../../doc/models/pagination-links-1.md) | Optional | Pagination references. |
 | `data` | [`List[ApiCredential]`](../../doc/models/api-credential.md) | Optional | The list of API credentials. |
 | `items_total` | `int` | Required | Total number of items. |
 | `pages_total` | `int` | Required | Total number of pages. |
-| `additional_properties` | `Dict[str, Any]` | Optional | - |
 
 ## Example
 
 ```python
-import jsonpickle
-
 from adyen.models.allowed_origin import AllowedOrigin
-from adyen.models.allowed_origins import AllowedOrigins
 from adyen.models.api_credential import ApiCredential
-from adyen.models.api_credential_links import ApiCredentialLinks
-from adyen.models.company_4 import Company4
-from adyen.models.first import First
-from adyen.models.generate_api_key import GenerateApiKey
-from adyen.models.generate_client_key import GenerateClientKey
-from adyen.models.last import Last
+from adyen.models.api_credential_links_2 import ApiCredentialLinks2
 from adyen.models.links_2 import Links2
+from adyen.models.links_element_1 import LinksElement1
+from adyen.models.links_element_10 import LinksElement10
+from adyen.models.links_element_11 import LinksElement11
+from adyen.models.links_element_12 import LinksElement12
+from adyen.models.links_element_13 import LinksElement13
+from adyen.models.links_element_2 import LinksElement2
+from adyen.models.links_element_3 import LinksElement3
+from adyen.models.links_element_4 import LinksElement4
+from adyen.models.links_element_5 import LinksElement5
+from adyen.models.links_element_6 import LinksElement6
+from adyen.models.links_element_9 import LinksElement9
 from adyen.models.list_merchant_api_credentials_response import ListMerchantApiCredentialsResponse
-from adyen.models.merchant_1 import Merchant1
-from adyen.models.mself import Self
-from adyen.models.next import Next
-from adyen.models.pagination_links import PaginationLinks
-from adyen.models.prev import Prev
+from adyen.models.pagination_links_1 import PaginationLinks1
 
 list_merchant_api_credentials_response = ListMerchantApiCredentialsResponse(
     items_total=228,
     pages_total=66,
-    links=PaginationLinks(
-        first=First(
-            href='href2',
-            additional_properties={
-                'exampleAdditionalProperty': jsonpickle.decode('{"key1":"val1","key2":"val2"}')
-            }
+    links=PaginationLinks1(
+        first=LinksElement9(
+            href='href2'
         ),
-        last=Last(
-            href='href2',
-            additional_properties={
-                'exampleAdditionalProperty': jsonpickle.decode('{"key1":"val1","key2":"val2"}')
-            }
+        last=LinksElement10(
+            href='href2'
         ),
-        mself=Self(
-            href='href0',
-            additional_properties={
-                'exampleAdditionalProperty': jsonpickle.decode('{"key1":"val1","key2":"val2"}')
-            }
+        mself=LinksElement13(
+            href='href0'
         ),
-        next=Next(
-            href='href4',
-            additional_properties={
-                'exampleAdditionalProperty': jsonpickle.decode('{"key1":"val1","key2":"val2"}')
-            }
+        next=LinksElement11(
+            href='href4'
         ),
-        prev=Prev(
-            href='href8',
-            additional_properties={
-                'exampleAdditionalProperty': jsonpickle.decode('{"key1":"val1","key2":"val2"}')
-            }
-        ),
-        additional_properties={
-            'exampleAdditionalProperty': jsonpickle.decode('{"key1":"val1","key2":"val2"}')
-        }
+        prev=LinksElement12(
+            href='href8'
+        )
     ),
     data=[
         ApiCredential(
@@ -89,72 +67,39 @@ list_merchant_api_credentials_response = ListMerchantApiCredentialsResponse(
                 'roles8'
             ],
             username='username0',
-            links=ApiCredentialLinks(
-                mself=Self(
-                    href='href0',
-                    additional_properties={
-                        'exampleAdditionalProperty': jsonpickle.decode('{"key1":"val1","key2":"val2"}')
-                    }
+            links=ApiCredentialLinks2(
+                mself=LinksElement6(
+                    href='href0'
                 ),
-                allowed_origins=AllowedOrigins(
-                    href='href6',
-                    additional_properties={
-                        'exampleAdditionalProperty': jsonpickle.decode('{"key1":"val1","key2":"val2"}')
-                    }
+                allowed_origins=LinksElement1(
+                    href='href6'
                 ),
-                company=Company4(
-                    href='href2',
-                    additional_properties={
-                        'exampleAdditionalProperty': jsonpickle.decode('{"key1":"val1","key2":"val2"}')
-                    }
+                company=LinksElement2(
+                    href='href2'
                 ),
-                generate_api_key=GenerateApiKey(
-                    href='href6',
-                    additional_properties={
-                        'exampleAdditionalProperty': jsonpickle.decode('{"key1":"val1","key2":"val2"}')
-                    }
+                generate_api_key=LinksElement3(
+                    href='href6'
                 ),
-                generate_client_key=GenerateClientKey(
-                    href='href4',
-                    additional_properties={
-                        'exampleAdditionalProperty': jsonpickle.decode('{"key1":"val1","key2":"val2"}')
-                    }
+                generate_client_key=LinksElement4(
+                    href='href4'
                 ),
-                merchant=Merchant1(
-                    href='href6',
-                    additional_properties={
-                        'exampleAdditionalProperty': jsonpickle.decode('{"key1":"val1","key2":"val2"}')
-                    }
-                ),
-                additional_properties={
-                    'exampleAdditionalProperty': jsonpickle.decode('{"key1":"val1","key2":"val2"}')
-                }
+                merchant=LinksElement5(
+                    href='href6'
+                )
             ),
             allowed_origins=[
                 AllowedOrigin(
                     domain='domain0',
                     links=Links2(
-                        mself=Self(
-                            href='href0',
-                            additional_properties={
-                                'exampleAdditionalProperty': jsonpickle.decode('{"key1":"val1","key2":"val2"}')
-                            }
-                        ),
-                        additional_properties={
-                            'exampleAdditionalProperty': jsonpickle.decode('{"key1":"val1","key2":"val2"}')
-                        }
+                        mself=LinksElement6(
+                            href='href0'
+                        )
                     ),
-                    id='id4',
-                    additional_properties={
-                        'exampleAdditionalProperty': jsonpickle.decode('{"key1":"val1","key2":"val2"}')
-                    }
+                    id='id4'
                 )
             ],
             description='description0',
-            subject_dn='subjectDN0',
-            additional_properties={
-                'exampleAdditionalProperty': jsonpickle.decode('{"key1":"val1","key2":"val2"}')
-            }
+            subject_dn='subjectDN0'
         ),
         ApiCredential(
             active=False,
@@ -167,72 +112,39 @@ list_merchant_api_credentials_response = ListMerchantApiCredentialsResponse(
                 'roles8'
             ],
             username='username0',
-            links=ApiCredentialLinks(
-                mself=Self(
-                    href='href0',
-                    additional_properties={
-                        'exampleAdditionalProperty': jsonpickle.decode('{"key1":"val1","key2":"val2"}')
-                    }
+            links=ApiCredentialLinks2(
+                mself=LinksElement6(
+                    href='href0'
                 ),
-                allowed_origins=AllowedOrigins(
-                    href='href6',
-                    additional_properties={
-                        'exampleAdditionalProperty': jsonpickle.decode('{"key1":"val1","key2":"val2"}')
-                    }
+                allowed_origins=LinksElement1(
+                    href='href6'
                 ),
-                company=Company4(
-                    href='href2',
-                    additional_properties={
-                        'exampleAdditionalProperty': jsonpickle.decode('{"key1":"val1","key2":"val2"}')
-                    }
+                company=LinksElement2(
+                    href='href2'
                 ),
-                generate_api_key=GenerateApiKey(
-                    href='href6',
-                    additional_properties={
-                        'exampleAdditionalProperty': jsonpickle.decode('{"key1":"val1","key2":"val2"}')
-                    }
+                generate_api_key=LinksElement3(
+                    href='href6'
                 ),
-                generate_client_key=GenerateClientKey(
-                    href='href4',
-                    additional_properties={
-                        'exampleAdditionalProperty': jsonpickle.decode('{"key1":"val1","key2":"val2"}')
-                    }
+                generate_client_key=LinksElement4(
+                    href='href4'
                 ),
-                merchant=Merchant1(
-                    href='href6',
-                    additional_properties={
-                        'exampleAdditionalProperty': jsonpickle.decode('{"key1":"val1","key2":"val2"}')
-                    }
-                ),
-                additional_properties={
-                    'exampleAdditionalProperty': jsonpickle.decode('{"key1":"val1","key2":"val2"}')
-                }
+                merchant=LinksElement5(
+                    href='href6'
+                )
             ),
             allowed_origins=[
                 AllowedOrigin(
                     domain='domain0',
                     links=Links2(
-                        mself=Self(
-                            href='href0',
-                            additional_properties={
-                                'exampleAdditionalProperty': jsonpickle.decode('{"key1":"val1","key2":"val2"}')
-                            }
-                        ),
-                        additional_properties={
-                            'exampleAdditionalProperty': jsonpickle.decode('{"key1":"val1","key2":"val2"}')
-                        }
+                        mself=LinksElement6(
+                            href='href0'
+                        )
                     ),
-                    id='id4',
-                    additional_properties={
-                        'exampleAdditionalProperty': jsonpickle.decode('{"key1":"val1","key2":"val2"}')
-                    }
+                    id='id4'
                 )
             ],
             description='description0',
-            subject_dn='subjectDN0',
-            additional_properties={
-                'exampleAdditionalProperty': jsonpickle.decode('{"key1":"val1","key2":"val2"}')
-            }
+            subject_dn='subjectDN0'
         ),
         ApiCredential(
             active=False,
@@ -245,77 +157,41 @@ list_merchant_api_credentials_response = ListMerchantApiCredentialsResponse(
                 'roles8'
             ],
             username='username0',
-            links=ApiCredentialLinks(
-                mself=Self(
-                    href='href0',
-                    additional_properties={
-                        'exampleAdditionalProperty': jsonpickle.decode('{"key1":"val1","key2":"val2"}')
-                    }
+            links=ApiCredentialLinks2(
+                mself=LinksElement6(
+                    href='href0'
                 ),
-                allowed_origins=AllowedOrigins(
-                    href='href6',
-                    additional_properties={
-                        'exampleAdditionalProperty': jsonpickle.decode('{"key1":"val1","key2":"val2"}')
-                    }
+                allowed_origins=LinksElement1(
+                    href='href6'
                 ),
-                company=Company4(
-                    href='href2',
-                    additional_properties={
-                        'exampleAdditionalProperty': jsonpickle.decode('{"key1":"val1","key2":"val2"}')
-                    }
+                company=LinksElement2(
+                    href='href2'
                 ),
-                generate_api_key=GenerateApiKey(
-                    href='href6',
-                    additional_properties={
-                        'exampleAdditionalProperty': jsonpickle.decode('{"key1":"val1","key2":"val2"}')
-                    }
+                generate_api_key=LinksElement3(
+                    href='href6'
                 ),
-                generate_client_key=GenerateClientKey(
-                    href='href4',
-                    additional_properties={
-                        'exampleAdditionalProperty': jsonpickle.decode('{"key1":"val1","key2":"val2"}')
-                    }
+                generate_client_key=LinksElement4(
+                    href='href4'
                 ),
-                merchant=Merchant1(
-                    href='href6',
-                    additional_properties={
-                        'exampleAdditionalProperty': jsonpickle.decode('{"key1":"val1","key2":"val2"}')
-                    }
-                ),
-                additional_properties={
-                    'exampleAdditionalProperty': jsonpickle.decode('{"key1":"val1","key2":"val2"}')
-                }
+                merchant=LinksElement5(
+                    href='href6'
+                )
             ),
             allowed_origins=[
                 AllowedOrigin(
                     domain='domain0',
                     links=Links2(
-                        mself=Self(
-                            href='href0',
-                            additional_properties={
-                                'exampleAdditionalProperty': jsonpickle.decode('{"key1":"val1","key2":"val2"}')
-                            }
-                        ),
-                        additional_properties={
-                            'exampleAdditionalProperty': jsonpickle.decode('{"key1":"val1","key2":"val2"}')
-                        }
+                        mself=LinksElement6(
+                            href='href0'
+                        )
                     ),
-                    id='id4',
-                    additional_properties={
-                        'exampleAdditionalProperty': jsonpickle.decode('{"key1":"val1","key2":"val2"}')
-                    }
+                    id='id4'
                 )
             ],
             description='description0',
-            subject_dn='subjectDN0',
-            additional_properties={
-                'exampleAdditionalProperty': jsonpickle.decode('{"key1":"val1","key2":"val2"}')
-            }
+            subject_dn='subjectDN0'
         )
-    ],
-    additional_properties={
-        'exampleAdditionalProperty': jsonpickle.decode('{"key1":"val1","key2":"val2"}')
-    }
+    ]
 )
 ```
 

@@ -21,8 +21,6 @@ class TransferNotificationMerchantData(object):
         merchant_id (str): The unique identifier of the merchant.
         name (str): The name of the merchant's shop or service.
         postal_code (str): The postal code of the merchant.
-        additional_properties (Dict[str, Any]): The additional properties for the
-            model.
 
     """
 
@@ -58,8 +56,7 @@ class TransferNotificationMerchantData(object):
         mcc=APIHelper.SKIP,
         merchant_id=APIHelper.SKIP,
         name=APIHelper.SKIP,
-        postal_code=APIHelper.SKIP,
-        additional_properties=None):
+        postal_code=APIHelper.SKIP):
         """Initialize a TransferNotificationMerchantData instance."""
         # Initialize members of the class
         if acquirer_id is not APIHelper.SKIP:
@@ -78,11 +75,6 @@ class TransferNotificationMerchantData(object):
             self.name = name
         if postal_code is not APIHelper.SKIP:
             self.postal_code = postal_code
-
-        # Add additional model properties to the instance
-        if additional_properties is None:
-            additional_properties = {}
-        self.additional_properties = additional_properties
 
     @classmethod
     def from_dictionary(cls,
@@ -135,11 +127,6 @@ class TransferNotificationMerchantData(object):
             if dictionary.get("postalCode")\
                 else APIHelper.SKIP
 
-        additional_properties = APIHelper.get_additional_properties(
-            dictionary={k: v for k, v in dictionary.items()
-                        if k not in cls._names.values()},
-            unboxing_function=lambda value: value)
-
         # Return an object of this model
         return cls(acquirer_id,
                    city,
@@ -148,29 +135,7 @@ class TransferNotificationMerchantData(object):
                    mcc,
                    merchant_id,
                    name,
-                   postal_code,
-                   additional_properties)
-
-    @classmethod
-    def validate(cls, dictionary):
-        """Validate dictionary against class required properties
-
-        Args:
-            dictionary (dictionary): A dictionary representation of the object
-            as obtained from the deserialization of the server's response. The
-            keys MUST match property names in the API description.
-
-        Returns:
-            boolean : if dictionary is valid contains required properties.
-
-        """
-        if isinstance(dictionary, cls):
-            return True
-
-        if not isinstance(dictionary, dict):
-            return False
-
-        return True
+                   postal_code)
 
     def __repr__(self):
         """Return a unambiguous string representation."""
@@ -214,7 +179,6 @@ class TransferNotificationMerchantData(object):
             if hasattr(self, "postal_code")
             else None
         )
-        _additional_properties=self.additional_properties
         return (
             f"{self.__class__.__name__}("
             f"acquirer_id={_acquirer_id!r}, "
@@ -225,7 +189,6 @@ class TransferNotificationMerchantData(object):
             f"merchant_id={_merchant_id!r}, "
             f"name={_name!r}, "
             f"postal_code={_postal_code!r}, "
-            f"additional_properties={_additional_properties!r}, "
             f")"
         )
 
@@ -271,7 +234,6 @@ class TransferNotificationMerchantData(object):
             if hasattr(self, "postal_code")
             else None
         )
-        _additional_properties=self.additional_properties
         return (
             f"{self.__class__.__name__}("
             f"acquirer_id={_acquirer_id!s}, "
@@ -282,6 +244,5 @@ class TransferNotificationMerchantData(object):
             f"merchant_id={_merchant_id!s}, "
             f"name={_name!s}, "
             f"postal_code={_postal_code!s}, "
-            f"additional_properties={_additional_properties!s}, "
             f")"
         )

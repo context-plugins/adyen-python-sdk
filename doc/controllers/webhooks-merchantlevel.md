@@ -53,7 +53,7 @@ This endpoint requires [BasicAuth](../../doc/auth/basic-authentication.md) **OR*
 
 **200**: OK - the request has succeeded.
 
-This method returns an [`ApiResponse`](../../doc/api-response.md) instance. The `body` property of this instance returns the response data which is of type [`ListWebhooksResponse`](../../doc/models/list-webhooks-response.md).
+[`ListWebhooksResponse`](../../doc/models/list-webhooks-response.md)
 
 ## Example Usage
 
@@ -61,11 +61,7 @@ This method returns an [`ApiResponse`](../../doc/api-response.md) instance. The 
 merchant_id = 'merchantId6'
 
 result = webhooks_merchant_level_api.get_merchants_merchant_id_webhooks(merchant_id)
-
-if result.is_success():
-    print(result.body)
-elif result.is_error():
-    print(result.errors)
+print(result)
 ```
 
 ## Example Response *(as JSON)*
@@ -225,7 +221,7 @@ This endpoint requires [BasicAuth](../../doc/auth/basic-authentication.md) **OR*
 
 **200**: OK - the request has succeeded.
 
-This method returns an [`ApiResponse`](../../doc/api-response.md) instance. The `body` property of this instance returns the response data which is of type [`Webhook`](../../doc/models/webhook.md).
+[`Webhook`](../../doc/models/webhook.md)
 
 ## Example Usage
 
@@ -234,7 +230,7 @@ merchant_id = 'merchantId6'
 
 body = CreateMerchantWebhookRequest(
     active=True,
-    communication_format=CommunicationFormat.JSON,
+    communication_format=CommunicationFormatEnum.JSON,
     mtype='standard',
     url='YOUR_WEBHOOK_URL',
     accepts_expired_certificate=False,
@@ -249,11 +245,7 @@ result = webhooks_merchant_level_api.post_merchants_merchant_id_webhooks(
     merchant_id,
     body=body
 )
-
-if result.is_success():
-    print(result.body)
-elif result.is_error():
-    print(result.errors)
+print(result)
 ```
 
 ## Example Response *(as JSON)*
@@ -398,7 +390,7 @@ This endpoint requires [BasicAuth](../../doc/auth/basic-authentication.md) **OR*
 
 **200**: OK - the request has succeeded.
 
-This method returns an [`ApiResponse`](../../doc/api-response.md) instance. The `body` property of this instance returns the response data which is of type [`Webhook`](../../doc/models/webhook.md).
+[`Webhook`](../../doc/models/webhook.md)
 
 ## Example Usage
 
@@ -411,11 +403,7 @@ result = webhooks_merchant_level_api.get_merchants_merchant_id_webhooks_webhook_
     merchant_id,
     webhook_id
 )
-
-if result.is_success():
-    print(result.body)
-elif result.is_error():
-    print(result.errors)
+print(result)
 ```
 
 ## Example Response *(as JSON)*
@@ -558,7 +546,7 @@ This endpoint requires [BasicAuth](../../doc/auth/basic-authentication.md) **OR*
 
 **204**: No Content - look at the actual response code for the status of the request.
 
-This method returns an [`ApiResponse`](../../doc/api-response.md) instance.
+`void`
 
 ## Example Usage
 
@@ -567,15 +555,10 @@ merchant_id = 'merchantId6'
 
 webhook_id = 'webhookId6'
 
-result = webhooks_merchant_level_api.delete_merchants_merchant_id_webhooks_webhook_id(
+webhooks_merchant_level_api.delete_merchants_merchant_id_webhooks_webhook_id(
     merchant_id,
     webhook_id
 )
-
-if result.is_success():
-    print(result.body)
-elif result.is_error():
-    print(result.errors)
 ```
 
 ## Errors
@@ -620,7 +603,7 @@ This endpoint requires [BasicAuth](../../doc/auth/basic-authentication.md) **OR*
 
 **200**: OK - the request has succeeded.
 
-This method returns an [`ApiResponse`](../../doc/api-response.md) instance. The `body` property of this instance returns the response data which is of type [`Webhook`](../../doc/models/webhook.md).
+[`Webhook`](../../doc/models/webhook.md)
 
 ## Example Usage
 
@@ -638,11 +621,7 @@ result = webhooks_merchant_level_api.patch_merchants_merchant_id_webhooks_webhoo
     webhook_id,
     body=body
 )
-
-if result.is_success():
-    print(result.body)
-elif result.is_error():
-    print(result.errors)
+print(result)
 ```
 
 ## Example Response *(as JSON)*
@@ -785,7 +764,7 @@ This endpoint requires [BasicAuth](../../doc/auth/basic-authentication.md) **OR*
 
 **200**: OK - the request has succeeded.
 
-This method returns an [`ApiResponse`](../../doc/api-response.md) instance. The `body` property of this instance returns the response data which is of type [`GenerateHmacKeyResponse`](../../doc/models/generate-hmac-key-response.md).
+[`GenerateHmacKeyResponse`](../../doc/models/generate-hmac-key-response.md)
 
 ## Example Usage
 
@@ -798,11 +777,7 @@ result = webhooks_merchant_level_api.post_merchants_merchant_id_webhooks_webhook
     merchant_id,
     webhook_id
 )
-
-if result.is_success():
-    print(result.body)
-elif result.is_error():
-    print(result.errors)
+print(result)
 ```
 
 ## Example Response *(as JSON)*
@@ -859,7 +834,7 @@ This endpoint requires [BasicAuth](../../doc/auth/basic-authentication.md) **OR*
 
 **200**: OK - the request has succeeded.
 
-This method returns an [`ApiResponse`](../../doc/api-response.md) instance. The `body` property of this instance returns the response data which is of type [`TestWebhookResponse`](../../doc/models/test-webhook-response.md).
+[`TestWebhookResponse`](../../doc/models/test-webhook-response.md)
 
 ## Example Usage
 
@@ -879,11 +854,7 @@ result = webhooks_merchant_level_api.post_merchants_merchant_id_webhooks_webhook
     webhook_id,
     body=body
 )
-
-if result.is_success():
-    print(result.body)
-elif result.is_error():
-    print(result.errors)
+print(result)
 ```
 
 ## Example Response *(as JSON)*

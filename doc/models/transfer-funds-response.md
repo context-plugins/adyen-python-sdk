@@ -1,8 +1,6 @@
 
 # Transfer Funds Response
 
-*This model accepts additional fields of type Any.*
-
 ## Structure
 
 `TransferFundsResponse`
@@ -15,16 +13,13 @@
 | `merchant_reference` | `str` | Optional | The value supplied by the executing user when initiating the transfer; may be used to link multiple transactions. |
 | `psp_reference` | `str` | Optional | The reference of a request. Can be used to uniquely identify the request. |
 | `result_code` | `str` | Optional | The result code. |
-| `additional_properties` | `Dict[str, Any]` | Optional | - |
 
 ## Example
 
 ```python
-import jsonpickle
-
 from adyen.models.error_field_type import ErrorFieldType
-from adyen.models.field_name import FieldName
-from adyen.models.field_type_2 import FieldType2
+from adyen.models.field_name_enum import FieldNameEnum
+from adyen.models.field_type import FieldType
 from adyen.models.transfer_funds_response import TransferFundsResponse
 
 transfer_funds_response = TransferFundsResponse(
@@ -32,25 +27,16 @@ transfer_funds_response = TransferFundsResponse(
         ErrorFieldType(
             error_code=78,
             error_description='errorDescription6',
-            field_type=FieldType2(
+            field_type=FieldType(
                 field='field6',
-                field_name=FieldName.DRIVINGLICENCEFRONT,
-                shareholder_code='shareholderCode0',
-                additional_properties={
-                    'exampleAdditionalProperty': jsonpickle.decode('{"key1":"val1","key2":"val2"}')
-                }
-            ),
-            additional_properties={
-                'exampleAdditionalProperty': jsonpickle.decode('{"key1":"val1","key2":"val2"}')
-            }
+                field_name=FieldNameEnum.DRIVINGLICENCEFRONT,
+                shareholder_code='shareholderCode0'
+            )
         )
     ],
     merchant_reference='merchantReference2',
     psp_reference='pspReference4',
-    result_code='resultCode0',
-    additional_properties={
-        'exampleAdditionalProperty': jsonpickle.decode('{"key1":"val1","key2":"val2"}')
-    }
+    result_code='resultCode0'
 )
 ```
 

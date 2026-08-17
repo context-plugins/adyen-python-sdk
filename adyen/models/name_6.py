@@ -15,8 +15,6 @@ class Name6(object):
             validation](https://docs.adyen.com/payment-methods/cards/name-validation)
             to verify if the cardholder name provided by the shopper matches the
             cardholder name on file at the issuing bank.
-        additional_properties (Dict[str, Any]): The additional properties for the
-            model.
 
     """
 
@@ -27,16 +25,10 @@ class Name6(object):
 
     def __init__(
         self,
-        status=None,
-        additional_properties=None):
+        status=None):
         """Initialize a Name6 instance."""
         # Initialize members of the class
         self.status = status
-
-        # Add additional model properties to the instance
-        if additional_properties is None:
-            additional_properties = {}
-        self.additional_properties = additional_properties
 
     @classmethod
     def from_dictionary(cls,
@@ -61,14 +53,8 @@ class Name6(object):
             if dictionary.get("status")\
                 else None
 
-        additional_properties = APIHelper.get_additional_properties(
-            dictionary={k: v for k, v in dictionary.items()
-                        if k not in cls._names.values()},
-            unboxing_function=lambda value: value)
-
         # Return an object of this model
-        return cls(status,
-                   additional_properties)
+        return cls(status)
 
     @classmethod
     def validate(cls, dictionary):
@@ -106,21 +92,17 @@ class Name6(object):
     def __repr__(self):
         """Return a unambiguous string representation."""
         _status=self.status
-        _additional_properties=self.additional_properties
         return (
             f"{self.__class__.__name__}("
             f"status={_status!r}, "
-            f"additional_properties={_additional_properties!r}, "
             f")"
         )
 
     def __str__(self):
         """Return a human-readable string representation."""
         _status=self.status
-        _additional_properties=self.additional_properties
         return (
             f"{self.__class__.__name__}("
             f"status={_status!s}, "
-            f"additional_properties={_additional_properties!s}, "
             f")"
         )

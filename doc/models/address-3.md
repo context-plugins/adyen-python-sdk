@@ -1,9 +1,7 @@
 
 # Address 3
 
-The address of the organization registered at their registrar (such as the Chamber of Commerce).
-
-*This model accepts additional fields of type Any.*
+The address where to send the invoice.
 
 ## Structure
 
@@ -13,31 +11,25 @@ The address of the organization registered at their registrar (such as the Chamb
 
 | Name | Type | Tags | Description |
 |  --- | --- | --- | --- |
-| `city` | `str` | Optional | The name of the city. Required if `stateOrProvince` is provided.<br><br>If you specify the city, you must also send `postalCode` and `street`. |
-| `country` | `str` | Required | The two-letter [ISO 3166-1 alpha-2](https://en.wikipedia.org/wiki/ISO_3166-1_alpha-2) country code. |
-| `postal_code` | `str` | Optional | The postal code. Required if `stateOrProvince` and/or `city` is provided.<br><br>When using alphanumeric postal codes, all letters must be uppercase. For example, 1234 AB or SW1A 1AA. |
-| `state_or_province` | `str` | Optional | The two-letter ISO 3166-2 state or province code. For example, **CA** in the US. Required for Australia and New Zealand.<br><br>If you specify the state or province, you must also send `city`, `postalCode`, and `street`. |
-| `street` | `str` | Optional | The name of the street, and the house or building number. Required if `stateOrProvince` and/or `city` is provided. |
-| `street_2` | `str` | Optional | The apartment, unit, or suite number. |
-| `additional_properties` | `Dict[str, Any]` | Optional | - |
+| `city` | `str` | Required | The name of the city. Maximum length: 3000 characters.<br><br>**Constraints**: *Maximum Length*: `3000` |
+| `country` | `str` | Required | The two-character ISO-3166-1 alpha-2 country code. For example, **US**.<br><br>> If you don't know the country or are not collecting the country from the shopper, provide `country` as `ZZ`. |
+| `house_number_or_name` | `str` | Required | The number or name of the house. Maximum length: 3000 characters.<br><br>**Constraints**: *Maximum Length*: `3000` |
+| `postal_code` | `str` | Required | A maximum of five digits for an address in the US, or a maximum of ten characters for an address in all other countries. |
+| `state_or_province` | `str` | Optional | The two-character ISO 3166-2 state or province code. For example, **CA** in the US or **ON** in Canada.<br><br>> Required for the US and Canada. |
+| `street` | `str` | Required | The name of the street. Maximum length: 3000 characters.<br><br>> The house number should not be included in this field; it should be separately provided via `houseNumberOrName`.<br><br>**Constraints**: *Maximum Length*: `3000` |
 
 ## Example
 
 ```python
-import jsonpickle
-
 from adyen.models.address_3 import Address3
 
 address_3 = Address3(
-    country='country6',
     city='city2',
+    country='country6',
+    house_number_or_name='houseNumberOrName0',
     postal_code='postalCode4',
-    state_or_province='stateOrProvince0',
     street='street2',
-    street_2='street28',
-    additional_properties={
-        'exampleAdditionalProperty': jsonpickle.decode('{"key1":"val1","key2":"val2"}')
-    }
+    state_or_province='stateOrProvince0'
 )
 ```
 

@@ -15,8 +15,6 @@ class LocalTime(object):
         minute (int): The model property of type int.
         nano (int): The model property of type int.
         second (int): The model property of type int.
-        additional_properties (Dict[str, Any]): The additional properties for the
-            model.
 
     """
 
@@ -40,8 +38,7 @@ class LocalTime(object):
         hour=APIHelper.SKIP,
         minute=APIHelper.SKIP,
         nano=APIHelper.SKIP,
-        second=APIHelper.SKIP,
-        additional_properties=None):
+        second=APIHelper.SKIP):
         """Initialize a LocalTime instance."""
         # Initialize members of the class
         if hour is not APIHelper.SKIP:
@@ -52,11 +49,6 @@ class LocalTime(object):
             self.nano = nano
         if second is not APIHelper.SKIP:
             self.second = second
-
-        # Add additional model properties to the instance
-        if additional_properties is None:
-            additional_properties = {}
-        self.additional_properties = additional_properties
 
     @classmethod
     def from_dictionary(cls,
@@ -93,17 +85,11 @@ class LocalTime(object):
             if dictionary.get("second")\
                 else APIHelper.SKIP
 
-        additional_properties = APIHelper.get_additional_properties(
-            dictionary={k: v for k, v in dictionary.items()
-                        if k not in cls._names.values()},
-            unboxing_function=lambda value: value)
-
         # Return an object of this model
         return cls(hour,
                    minute,
                    nano,
-                   second,
-                   additional_properties)
+                   second)
 
     def __repr__(self):
         """Return a unambiguous string representation."""
@@ -127,14 +113,12 @@ class LocalTime(object):
             if hasattr(self, "second")
             else None
         )
-        _additional_properties=self.additional_properties
         return (
             f"{self.__class__.__name__}("
             f"hour={_hour!r}, "
             f"minute={_minute!r}, "
             f"nano={_nano!r}, "
             f"second={_second!r}, "
-            f"additional_properties={_additional_properties!r}, "
             f")"
         )
 
@@ -160,13 +144,11 @@ class LocalTime(object):
             if hasattr(self, "second")
             else None
         )
-        _additional_properties=self.additional_properties
         return (
             f"{self.__class__.__name__}("
             f"hour={_hour!s}, "
             f"minute={_minute!s}, "
             f"nano={_nano!s}, "
             f"second={_second!s}, "
-            f"additional_properties={_additional_properties!s}, "
             f")"
         )

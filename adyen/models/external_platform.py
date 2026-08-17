@@ -18,8 +18,6 @@ class ExternalPlatform(object):
         name (str): Name of the field. For example, Name of External Platform.
         version (str): Version of the field. For example, Version of External
             Platform.
-        additional_properties (Dict[str, Any]): The additional properties for the
-            model.
 
     """
 
@@ -40,8 +38,7 @@ class ExternalPlatform(object):
         self,
         integrator=APIHelper.SKIP,
         name=APIHelper.SKIP,
-        version=APIHelper.SKIP,
-        additional_properties=None):
+        version=APIHelper.SKIP):
         """Initialize a ExternalPlatform instance."""
         # Initialize members of the class
         if integrator is not APIHelper.SKIP:
@@ -50,11 +47,6 @@ class ExternalPlatform(object):
             self.name = name
         if version is not APIHelper.SKIP:
             self.version = version
-
-        # Add additional model properties to the instance
-        if additional_properties is None:
-            additional_properties = {}
-        self.additional_properties = additional_properties
 
     @classmethod
     def from_dictionary(cls,
@@ -87,16 +79,31 @@ class ExternalPlatform(object):
             if dictionary.get("version")\
                 else APIHelper.SKIP
 
-        additional_properties = APIHelper.get_additional_properties(
-            dictionary={k: v for k, v in dictionary.items()
-                        if k not in cls._names.values()},
-            unboxing_function=lambda value: value)
-
         # Return an object of this model
         return cls(integrator,
                    name,
-                   version,
-                   additional_properties)
+                   version)
+
+    @classmethod
+    def validate(cls, dictionary):
+        """Validate dictionary against class required properties
+
+        Args:
+            dictionary (dictionary): A dictionary representation of the object
+            as obtained from the deserialization of the server's response. The
+            keys MUST match property names in the API description.
+
+        Returns:
+            boolean : if dictionary is valid contains required properties.
+
+        """
+        if isinstance(dictionary, cls):
+            return True
+
+        if not isinstance(dictionary, dict):
+            return False
+
+        return True
 
     def __repr__(self):
         """Return a unambiguous string representation."""
@@ -115,13 +122,11 @@ class ExternalPlatform(object):
             if hasattr(self, "version")
             else None
         )
-        _additional_properties=self.additional_properties
         return (
             f"{self.__class__.__name__}("
             f"integrator={_integrator!r}, "
             f"name={_name!r}, "
             f"version={_version!r}, "
-            f"additional_properties={_additional_properties!r}, "
             f")"
         )
 
@@ -142,12 +147,10 @@ class ExternalPlatform(object):
             if hasattr(self, "version")
             else None
         )
-        _additional_properties=self.additional_properties
         return (
             f"{self.__class__.__name__}("
             f"integrator={_integrator!s}, "
             f"name={_name!s}, "
             f"version={_version!s}, "
-            f"additional_properties={_additional_properties!s}, "
             f")"
         )

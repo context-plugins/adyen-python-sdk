@@ -1,0 +1,29 @@
+
+# Attempt Authentication Enum
+
+Indicates when 3D Secure authentication should be attempted. This overrides all other rules, including [Dynamic 3D Secure settings](https://docs.adyen.com/risk-management/dynamic-3d-secure).
+
+Possible values:
+
+* **always**: Perform 3D Secure authentication.
+* **never**: Don't perform 3D Secure authentication. If PSD2 SCA or other national regulations require authentication, the transaction gets declined.
+
+## Enumeration
+
+`AttemptAuthenticationEnum`
+
+## Fields
+
+| Name |
+|  --- |
+| `ALWAYS` |
+| `NEVER` |
+
+## Example
+
+```python
+from adyen.models.attempt_authentication_enum import AttemptAuthenticationEnum
+
+attempt_authentication = AttemptAuthenticationEnum.ALWAYS
+```
+

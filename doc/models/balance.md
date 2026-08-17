@@ -1,8 +1,6 @@
 
 # Balance
 
-*This model accepts additional fields of type Any.*
-
 ## Structure
 
 `Balance`
@@ -17,13 +15,10 @@
 | `pending` | `int` | Optional | The sum of the transactions that will be settled in the future. |
 | `pending_available` | `int` | Optional | The balance that will become the available balance after the pending balance is settled.<br><br>The pending available balance is equal to the lower of the following:<br><br>- The `pending` balance<br>- The `pending` balance plus the `available` balance. |
 | `reserved` | `int` | Required | The balance currently held in reserve. |
-| `additional_properties` | `Dict[str, Any]` | Optional | - |
 
 ## Example
 
 ```python
-import jsonpickle
-
 from adyen.models.balance import Balance
 
 balance = Balance(
@@ -32,10 +27,7 @@ balance = Balance(
     currency='currency4',
     reserved=62,
     pending=56,
-    pending_available=248,
-    additional_properties={
-        'exampleAdditionalProperty': jsonpickle.decode('{"key1":"val1","key2":"val2"}')
-    }
+    pending_available=248
 )
 ```
 

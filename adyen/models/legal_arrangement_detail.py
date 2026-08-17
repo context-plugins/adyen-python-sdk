@@ -8,14 +8,14 @@ from adyen.api_helper import APIHelper
 from adyen.models.legal_arrangement_entity_detail import (
     LegalArrangementEntityDetail,
 )
-from adyen.models.vias_address import ViasAddress
+from adyen.models.vias_address_4 import ViasAddress4
 
 
 class LegalArrangementDetail(object):
     """Implementation of the 'LegalArrangementDetail' model.
 
     Attributes:
-        address (ViasAddress): The model property of type ViasAddress.
+        address (ViasAddress4): The address of the legal arrangement.
         legal_arrangement_code (str): Adyen-generated unique alphanumeric identifier
             (UUID) for the entry, returned in the response when you create a legal
             arrangement. Use only when updating an account holder. If you include
@@ -25,14 +25,26 @@ class LegalArrangementDetail(object):
             arrangement.
         legal_arrangement_reference (str): Your reference for the legal arrangement.
             Must be between 3 to 128 characters.
-        legal_form (LegalForm): The model property of type LegalForm.
+        legal_form (LegalFormEnum): The form of legal arrangement. Required if `type`
+            is **Trust** or **Partnership**.  The possible values depend on the
+            `type`.  - For `type` **Trust**:  **CashManagementTrust**,
+            **CorporateUnitTrust**, **DeceasedEstate**,
+            **DiscretionaryInvestmentTrust**,
+            **DiscretionaryServicesManagementTrust**, **DiscretionaryTradingTrust**,
+            **FirstHomeSaverAccountsTrust**, **FixedTrust**, **FixedUnitTrust**,
+            **HybridTrust**, **ListedPublicUnitTrust**, **OtherTrust**,
+            **PooledSuperannuationTrust**, **PublicTradingTrust**, or
+            **UnlistedPublicUnitTrust**.  - For `type` **Partnership**:
+            **LimitedPartnership**, **FamilyPartnership**, or **OtherPartnership**
         name (str): The legal name of the legal arrangement. Minimum length: 3
             characters.
         registration_number (str): The registration number of the legal arrangement.
         tax_number (str): The tax identification number of the legal arrangement.
-        mtype (Type1): The model property of type Type1.
-        additional_properties (Dict[str, Any]): The additional properties for the
-            model.
+        mtype (Type110Enum): The [type of legal
+            arrangement](https://docs.adyen.com/classic-platforms/verification-process
+            /legal-arrangements#types-of-legal-arrangements).  Possible values:  -
+            **Association**   - **Partnership**   - **SoleProprietorship**   -
+            **Trust**
 
     """
 
@@ -68,8 +80,7 @@ class LegalArrangementDetail(object):
         legal_arrangement_reference=APIHelper.SKIP,
         legal_form=APIHelper.SKIP,
         registration_number=APIHelper.SKIP,
-        tax_number=APIHelper.SKIP,
-        additional_properties=None):
+        tax_number=APIHelper.SKIP):
         """Initialize a LegalArrangementDetail instance."""
         # Initialize members of the class
         self.address = address
@@ -87,11 +98,6 @@ class LegalArrangementDetail(object):
         if tax_number is not APIHelper.SKIP:
             self.tax_number = tax_number
         self.mtype = mtype
-
-        # Add additional model properties to the instance
-        if additional_properties is None:
-            additional_properties = {}
-        self.additional_properties = additional_properties
 
     @classmethod
     def from_dictionary(cls,
@@ -112,7 +118,7 @@ class LegalArrangementDetail(object):
 
         # Extract variables from the dictionary
         address =\
-            ViasAddress.from_dictionary(
+            ViasAddress4.from_dictionary(
                 dictionary.get("address"))\
                 if dictionary.get("address") else None
         name =\
@@ -152,11 +158,6 @@ class LegalArrangementDetail(object):
             if dictionary.get("taxNumber")\
                 else APIHelper.SKIP
 
-        additional_properties = APIHelper.get_additional_properties(
-            dictionary={k: v for k, v in dictionary.items()
-                        if k not in cls._names.values()},
-            unboxing_function=lambda value: value)
-
         # Return an object of this model
         return cls(address,
                    name,
@@ -166,8 +167,7 @@ class LegalArrangementDetail(object):
                    legal_arrangement_reference,
                    legal_form,
                    registration_number,
-                   tax_number,
-                   additional_properties)
+                   tax_number)
 
     def __repr__(self):
         """Return a unambiguous string representation."""
@@ -204,7 +204,6 @@ class LegalArrangementDetail(object):
             else None
         )
         _mtype=self.mtype
-        _additional_properties=self.additional_properties
         return (
             f"{self.__class__.__name__}("
             f"address={_address!r}, "
@@ -216,7 +215,6 @@ class LegalArrangementDetail(object):
             f"registration_number={_registration_number!r}, "
             f"tax_number={_tax_number!r}, "
             f"mtype={_mtype!r}, "
-            f"additional_properties={_additional_properties!r}, "
             f")"
         )
 
@@ -255,7 +253,6 @@ class LegalArrangementDetail(object):
             else None
         )
         _mtype=self.mtype
-        _additional_properties=self.additional_properties
         return (
             f"{self.__class__.__name__}("
             f"address={_address!s}, "
@@ -267,6 +264,5 @@ class LegalArrangementDetail(object):
             f"registration_number={_registration_number!s}, "
             f"tax_number={_tax_number!s}, "
             f"mtype={_mtype!s}, "
-            f"additional_properties={_additional_properties!s}, "
             f")"
         )

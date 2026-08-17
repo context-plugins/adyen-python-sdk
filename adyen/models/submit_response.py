@@ -19,8 +19,6 @@ class SubmitResponse(object):
         result_code (str): The response: * In case of success, it is
             `payout-submit-received`. * In case of an error, an informational message
             is returned.
-        additional_properties (Dict[str, Any]): The additional properties for the
-            model.
 
     """
 
@@ -42,8 +40,7 @@ class SubmitResponse(object):
         psp_reference=None,
         result_code=None,
         additional_data=APIHelper.SKIP,
-        refusal_reason=APIHelper.SKIP,
-        additional_properties=None):
+        refusal_reason=APIHelper.SKIP):
         """Initialize a SubmitResponse instance."""
         # Initialize members of the class
         if additional_data is not APIHelper.SKIP:
@@ -52,11 +49,6 @@ class SubmitResponse(object):
         if refusal_reason is not APIHelper.SKIP:
             self.refusal_reason = refusal_reason
         self.result_code = result_code
-
-        # Add additional model properties to the instance
-        if additional_properties is None:
-            additional_properties = {}
-        self.additional_properties = additional_properties
 
     @classmethod
     def from_dictionary(cls,
@@ -93,17 +85,11 @@ class SubmitResponse(object):
             if dictionary.get("refusalReason")\
                 else APIHelper.SKIP
 
-        additional_properties = APIHelper.get_additional_properties(
-            dictionary={k: v for k, v in dictionary.items()
-                        if k not in cls._names.values()},
-            unboxing_function=lambda value: value)
-
         # Return an object of this model
         return cls(psp_reference,
                    result_code,
                    additional_data,
-                   refusal_reason,
-                   additional_properties)
+                   refusal_reason)
 
     def __repr__(self):
         """Return a unambiguous string representation."""
@@ -119,14 +105,12 @@ class SubmitResponse(object):
             else None
         )
         _result_code=self.result_code
-        _additional_properties=self.additional_properties
         return (
             f"{self.__class__.__name__}("
             f"additional_data={_additional_data!r}, "
             f"psp_reference={_psp_reference!r}, "
             f"refusal_reason={_refusal_reason!r}, "
             f"result_code={_result_code!r}, "
-            f"additional_properties={_additional_properties!r}, "
             f")"
         )
 
@@ -144,13 +128,11 @@ class SubmitResponse(object):
             else None
         )
         _result_code=self.result_code
-        _additional_properties=self.additional_properties
         return (
             f"{self.__class__.__name__}("
             f"additional_data={_additional_data!s}, "
             f"psp_reference={_psp_reference!s}, "
             f"refusal_reason={_refusal_reason!s}, "
             f"result_code={_result_code!s}, "
-            f"additional_properties={_additional_properties!s}, "
             f")"
         )

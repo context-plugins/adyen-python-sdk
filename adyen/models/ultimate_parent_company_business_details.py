@@ -16,8 +16,6 @@ class UltimateParentCompanyBusinessDetails(object):
         stock_exchange (str): Market Identifier Code (MIC).
         stock_number (str): International Securities Identification Number (ISIN).
         stock_ticker (str): Stock Ticker symbol.
-        additional_properties (Dict[str, Any]): The additional properties for the
-            model.
 
     """
 
@@ -44,8 +42,7 @@ class UltimateParentCompanyBusinessDetails(object):
         registration_number=APIHelper.SKIP,
         stock_exchange=APIHelper.SKIP,
         stock_number=APIHelper.SKIP,
-        stock_ticker=APIHelper.SKIP,
-        additional_properties=None):
+        stock_ticker=APIHelper.SKIP):
         """Initialize a UltimateParentCompanyBusinessDetails instance."""
         # Initialize members of the class
         if legal_business_name is not APIHelper.SKIP:
@@ -58,11 +55,6 @@ class UltimateParentCompanyBusinessDetails(object):
             self.stock_number = stock_number
         if stock_ticker is not APIHelper.SKIP:
             self.stock_ticker = stock_ticker
-
-        # Add additional model properties to the instance
-        if additional_properties is None:
-            additional_properties = {}
-        self.additional_properties = additional_properties
 
     @classmethod
     def from_dictionary(cls,
@@ -103,18 +95,12 @@ class UltimateParentCompanyBusinessDetails(object):
             if dictionary.get("stockTicker")\
                 else APIHelper.SKIP
 
-        additional_properties = APIHelper.get_additional_properties(
-            dictionary={k: v for k, v in dictionary.items()
-                        if k not in cls._names.values()},
-            unboxing_function=lambda value: value)
-
         # Return an object of this model
         return cls(legal_business_name,
                    registration_number,
                    stock_exchange,
                    stock_number,
-                   stock_ticker,
-                   additional_properties)
+                   stock_ticker)
 
     def __repr__(self):
         """Return a unambiguous string representation."""
@@ -143,7 +129,6 @@ class UltimateParentCompanyBusinessDetails(object):
             if hasattr(self, "stock_ticker")
             else None
         )
-        _additional_properties=self.additional_properties
         return (
             f"{self.__class__.__name__}("
             f"legal_business_name={_legal_business_name!r}, "
@@ -151,7 +136,6 @@ class UltimateParentCompanyBusinessDetails(object):
             f"stock_exchange={_stock_exchange!r}, "
             f"stock_number={_stock_number!r}, "
             f"stock_ticker={_stock_ticker!r}, "
-            f"additional_properties={_additional_properties!r}, "
             f")"
         )
 
@@ -182,7 +166,6 @@ class UltimateParentCompanyBusinessDetails(object):
             if hasattr(self, "stock_ticker")
             else None
         )
-        _additional_properties=self.additional_properties
         return (
             f"{self.__class__.__name__}("
             f"legal_business_name={_legal_business_name!s}, "
@@ -190,6 +173,5 @@ class UltimateParentCompanyBusinessDetails(object):
             f"stock_exchange={_stock_exchange!s}, "
             f"stock_number={_stock_number!s}, "
             f"stock_ticker={_stock_ticker!s}, "
-            f"additional_properties={_additional_properties!s}, "
             f")"
         )

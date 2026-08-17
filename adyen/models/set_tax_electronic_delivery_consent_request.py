@@ -12,8 +12,6 @@ class SetTaxElectronicDeliveryConsentRequest(object):
 
     Attributes:
         us_1099_k (bool): Consent to electronically deliver tax form US1099-K.
-        additional_properties (Dict[str, Any]): The additional properties for the
-            model.
 
     """
 
@@ -28,17 +26,11 @@ class SetTaxElectronicDeliveryConsentRequest(object):
 
     def __init__(
         self,
-        us_1099_k=APIHelper.SKIP,
-        additional_properties=None):
+        us_1099_k=APIHelper.SKIP):
         """Initialize a SetTaxElectronicDeliveryConsentRequest instance."""
         # Initialize members of the class
         if us_1099_k is not APIHelper.SKIP:
             self.us_1099_k = us_1099_k
-
-        # Add additional model properties to the instance
-        if additional_properties is None:
-            additional_properties = {}
-        self.additional_properties = additional_properties
 
     @classmethod
     def from_dictionary(cls,
@@ -63,14 +55,8 @@ class SetTaxElectronicDeliveryConsentRequest(object):
             if "US1099k" in dictionary.keys()\
                 else APIHelper.SKIP
 
-        additional_properties = APIHelper.get_additional_properties(
-            dictionary={k: v for k, v in dictionary.items()
-                        if k not in cls._names.values()},
-            unboxing_function=lambda value: value)
-
         # Return an object of this model
-        return cls(us_1099_k,
-                   additional_properties)
+        return cls(us_1099_k)
 
     def __repr__(self):
         """Return a unambiguous string representation."""
@@ -79,11 +65,9 @@ class SetTaxElectronicDeliveryConsentRequest(object):
             if hasattr(self, "us_1099_k")
             else None
         )
-        _additional_properties=self.additional_properties
         return (
             f"{self.__class__.__name__}("
             f"us_1099_k={_us_1099_k!r}, "
-            f"additional_properties={_additional_properties!r}, "
             f")"
         )
 
@@ -94,10 +78,8 @@ class SetTaxElectronicDeliveryConsentRequest(object):
             if hasattr(self, "us_1099_k")
             else None
         )
-        _additional_properties=self.additional_properties
         return (
             f"{self.__class__.__name__}("
             f"us_1099_k={_us_1099_k!s}, "
-            f"additional_properties={_additional_properties!s}, "
             f")"
         )

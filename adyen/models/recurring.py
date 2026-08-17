@@ -12,18 +12,43 @@ class Recurring(object):
 
     The recurring settings for the payment. Use this property when you want to enable
     [recurring
-    payments](https://docs.adyen.com/classic-integration/recurring-payments).
+    payments](https://docs.adyen.com/classic-integration/recurring-payments)., A
+    container for the type of a recurring contract to be retrieved.
+    The contract value needs to match the contract value submitted in the payment
+    transaction used to create a recurring contract.
+    However, if `ONECLICK,RECURRING` is the original contract definition in the
+    initial payment, then `contract` should take either `ONECLICK` or `RECURRING`,
+    depending on whether or not you want the shopper to enter their card's security
+    code when they finalize their purchase., A container for the type of recurring
+    contract to be retrieved.
+    The recurring.contract must be set to `PAYOUT`, A container for the type of
+    recurring contract to be retrieved.
+    The `recurring.contract` must be set to "PAYOUT"., The recurring settings for the
+    payment. Use this property when you want to enable [recurring
+    payments](https://docs.adyen.com/classic-integration/recurring-payments)., The
+    recurring settings for the payment. Use this property when you want to enable
+    [recurring payments](https://docs.adyen.com/online-payments/tokenization).
 
     Attributes:
-        contract (Contract): The model property of type Contract.
+        contract (ContractEnum): The type of recurring contract to be used. Possible
+            values: * `ONECLICK` – Payment details can be used to initiate a
+            one-click payment, where the shopper enters the [card security code
+            (CVC/CVV)](https://docs.adyen.com/payments-fundamentals/payment-glossary#c
+            ard-security-code-cvc-cvv-cid). * `RECURRING` – Payment details can be
+            used without the card security code to initiate [card-not-present
+            transactions](https://docs.adyen.com/payments-fundamentals/payment-glossar
+            y#card-not-present-cnp). * `ONECLICK,RECURRING` – Payment details can be
+            used regardless of whether the shopper is on your site or not. * `PAYOUT`
+            – Payment details can be used to [make a
+            payout](https://docs.adyen.com/online-payments/online-payouts). *
+            `EXTERNAL` - Use this when you store payment details and send the raw
+            card number or network token directly in your API request.
         recurring_detail_name (str): A descriptive name for this detail.
         recurring_expiry (datetime): Date after which no further authorisations shall
             be performed. Only for 3D Secure 2.
         recurring_frequency (str): Minimum number of days between authorisations.
             Only for 3D Secure 2.
-        token_service (TokenService): The model property of type TokenService.
-        additional_properties (Dict[str, Any]): The additional properties for the
-            model.
+        token_service (TokenServiceEnum): The name of the token service.
 
     """
 
@@ -50,8 +75,7 @@ class Recurring(object):
         recurring_detail_name=APIHelper.SKIP,
         recurring_expiry=APIHelper.SKIP,
         recurring_frequency=APIHelper.SKIP,
-        token_service=APIHelper.SKIP,
-        additional_properties=None):
+        token_service=APIHelper.SKIP):
         """Initialize a Recurring instance."""
         # Initialize members of the class
         if contract is not APIHelper.SKIP:
@@ -67,11 +91,6 @@ class Recurring(object):
             self.recurring_frequency = recurring_frequency
         if token_service is not APIHelper.SKIP:
             self.token_service = token_service
-
-        # Add additional model properties to the instance
-        if additional_properties is None:
-            additional_properties = {}
-        self.additional_properties = additional_properties
 
     @classmethod
     def from_dictionary(cls,
@@ -111,18 +130,12 @@ class Recurring(object):
             if dictionary.get("tokenService")\
                 else APIHelper.SKIP
 
-        additional_properties = APIHelper.get_additional_properties(
-            dictionary={k: v for k, v in dictionary.items()
-                        if k not in cls._names.values()},
-            unboxing_function=lambda value: value)
-
         # Return an object of this model
         return cls(contract,
                    recurring_detail_name,
                    recurring_expiry,
                    recurring_frequency,
-                   token_service,
-                   additional_properties)
+                   token_service)
 
     def __repr__(self):
         """Return a unambiguous string representation."""
@@ -151,7 +164,6 @@ class Recurring(object):
             if hasattr(self, "token_service")
             else None
         )
-        _additional_properties=self.additional_properties
         return (
             f"{self.__class__.__name__}("
             f"contract={_contract!r}, "
@@ -159,7 +171,6 @@ class Recurring(object):
             f"recurring_expiry={_recurring_expiry!r}, "
             f"recurring_frequency={_recurring_frequency!r}, "
             f"token_service={_token_service!r}, "
-            f"additional_properties={_additional_properties!r}, "
             f")"
         )
 
@@ -190,7 +201,6 @@ class Recurring(object):
             if hasattr(self, "token_service")
             else None
         )
-        _additional_properties=self.additional_properties
         return (
             f"{self.__class__.__name__}("
             f"contract={_contract!s}, "
@@ -198,6 +208,5 @@ class Recurring(object):
             f"recurring_expiry={_recurring_expiry!s}, "
             f"recurring_frequency={_recurring_frequency!s}, "
             f"token_service={_token_service!s}, "
-            f"additional_properties={_additional_properties!s}, "
             f")"
         )

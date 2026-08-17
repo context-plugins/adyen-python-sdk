@@ -1,8 +1,6 @@
 
 # Find Transfers Response
 
-*This model accepts additional fields of type Any.*
-
 ## Structure
 
 `FindTransfersResponse`
@@ -11,73 +9,52 @@
 
 | Name | Type | Tags | Description |
 |  --- | --- | --- | --- |
-| `links` | [`Links3`](../../doc/models/links-3.md) | Optional | - |
+| `links` | [`Links21`](../../doc/models/links-21.md) | Optional | Contains links to the next and previous page whenever applicable. |
 | `data` | [`List[TransferData]`](../../doc/models/transfer-data.md) | Optional | Contains the transfers that match the query parameters. |
-| `additional_properties` | `Dict[str, Any]` | Optional | - |
 
 ## Example
 
 ```python
-import jsonpickle
-
-from adyen.models.amount_5 import Amount5
+from adyen.models.amount_17 import Amount17
 from adyen.models.balance_mutation import BalanceMutation
 from adyen.models.bank_category_data import BankCategoryData
-from adyen.models.category_3 import Category3
+from adyen.models.category_3_enum import Category3Enum
 from adyen.models.find_transfers_response import FindTransfersResponse
-from adyen.models.links_3 import Links3
-from adyen.models.next import Next
-from adyen.models.prev import Prev
-from adyen.models.priority import Priority
-from adyen.models.resource_reference import ResourceReference
-from adyen.models.status_53 import Status53
+from adyen.models.links_21 import Links21
+from adyen.models.links_element import LinksElement
+from adyen.models.priority_1_enum import Priority1Enum
+from adyen.models.resource_reference_1 import ResourceReference1
+from adyen.models.resource_reference_5 import ResourceReference5
+from adyen.models.status_51_enum import Status51Enum
 from adyen.models.transfer_data import TransferData
-from adyen.models.type_312 import Type312
+from adyen.models.type_310_enum import Type310Enum
 
 find_transfers_response = FindTransfersResponse(
-    links=Links3(
-        next=Next(
-            href='href4',
-            additional_properties={
-                'exampleAdditionalProperty': jsonpickle.decode('{"key1":"val1","key2":"val2"}')
-            }
+    links=Links21(
+        next=LinksElement(
+            href='href4'
         ),
-        prev=Prev(
-            href='href8',
-            additional_properties={
-                'exampleAdditionalProperty': jsonpickle.decode('{"key1":"val1","key2":"val2"}')
-            }
-        ),
-        additional_properties={
-            'exampleAdditionalProperty': jsonpickle.decode('{"key1":"val1","key2":"val2"}')
-        }
+        prev=LinksElement(
+            href='href8'
+        )
     ),
     data=[
         TransferData(
-            amount=Amount5(
+            amount=Amount17(
                 currency='currency2',
-                value=110,
-                additional_properties={
-                    'exampleAdditionalProperty': jsonpickle.decode('{"key1":"val1","key2":"val2"}')
-                }
+                value=110
             ),
-            category=Category3.INTERNAL,
-            status=Status53.CANCELLED,
-            account_holder=ResourceReference(
+            category=Category3Enum.INTERNAL,
+            status=Status51Enum.CANCELLED,
+            account_holder=ResourceReference5(
                 description='description0',
                 id='id0',
-                reference='reference4',
-                additional_properties={
-                    'exampleAdditionalProperty': jsonpickle.decode('{"key1":"val1","key2":"val2"}')
-                }
+                reference='reference4'
             ),
-            balance_account=ResourceReference(
+            balance_account=ResourceReference1(
                 description='description2',
                 id='id2',
-                reference='reference2',
-                additional_properties={
-                    'exampleAdditionalProperty': jsonpickle.decode('{"key1":"val1","key2":"val2"}')
-                }
+                reference='reference2'
             ),
             balance_platform='balancePlatform2',
             balances=[
@@ -85,66 +62,42 @@ find_transfers_response = FindTransfersResponse(
                     balance=224,
                     currency='currency0',
                     received=214,
-                    reserved=158,
-                    additional_properties={
-                        'exampleAdditionalProperty': jsonpickle.decode('{"key1":"val1","key2":"val2"}')
-                    }
+                    reserved=158
                 ),
                 BalanceMutation(
                     balance=224,
                     currency='currency0',
                     received=214,
-                    reserved=158,
-                    additional_properties={
-                        'exampleAdditionalProperty': jsonpickle.decode('{"key1":"val1","key2":"val2"}')
-                    }
+                    reserved=158
                 ),
                 BalanceMutation(
                     balance=224,
                     currency='currency0',
                     received=214,
-                    reserved=158,
-                    additional_properties={
-                        'exampleAdditionalProperty': jsonpickle.decode('{"key1":"val1","key2":"val2"}')
-                    }
+                    reserved=158
                 )
             ],
             category_data=BankCategoryData(
-                priority=Priority.INSTANT,
-                mtype=Type312.BANK,
-                additional_properties={
-                    'exampleAdditionalProperty': jsonpickle.decode('{"key1":"val1","key2":"val2"}')
-                }
-            ),
-            additional_properties={
-                'exampleAdditionalProperty': jsonpickle.decode('{"key1":"val1","key2":"val2"}')
-            }
+                priority=Priority1Enum.INSTANT,
+                mtype=Type310Enum.BANK
+            )
         ),
         TransferData(
-            amount=Amount5(
+            amount=Amount17(
                 currency='currency2',
-                value=110,
-                additional_properties={
-                    'exampleAdditionalProperty': jsonpickle.decode('{"key1":"val1","key2":"val2"}')
-                }
+                value=110
             ),
-            category=Category3.INTERNAL,
-            status=Status53.CANCELLED,
-            account_holder=ResourceReference(
+            category=Category3Enum.INTERNAL,
+            status=Status51Enum.CANCELLED,
+            account_holder=ResourceReference5(
                 description='description0',
                 id='id0',
-                reference='reference4',
-                additional_properties={
-                    'exampleAdditionalProperty': jsonpickle.decode('{"key1":"val1","key2":"val2"}')
-                }
+                reference='reference4'
             ),
-            balance_account=ResourceReference(
+            balance_account=ResourceReference1(
                 description='description2',
                 id='id2',
-                reference='reference2',
-                additional_properties={
-                    'exampleAdditionalProperty': jsonpickle.decode('{"key1":"val1","key2":"val2"}')
-                }
+                reference='reference2'
             ),
             balance_platform='balancePlatform2',
             balances=[
@@ -152,45 +105,27 @@ find_transfers_response = FindTransfersResponse(
                     balance=224,
                     currency='currency0',
                     received=214,
-                    reserved=158,
-                    additional_properties={
-                        'exampleAdditionalProperty': jsonpickle.decode('{"key1":"val1","key2":"val2"}')
-                    }
+                    reserved=158
                 ),
                 BalanceMutation(
                     balance=224,
                     currency='currency0',
                     received=214,
-                    reserved=158,
-                    additional_properties={
-                        'exampleAdditionalProperty': jsonpickle.decode('{"key1":"val1","key2":"val2"}')
-                    }
+                    reserved=158
                 ),
                 BalanceMutation(
                     balance=224,
                     currency='currency0',
                     received=214,
-                    reserved=158,
-                    additional_properties={
-                        'exampleAdditionalProperty': jsonpickle.decode('{"key1":"val1","key2":"val2"}')
-                    }
+                    reserved=158
                 )
             ],
             category_data=BankCategoryData(
-                priority=Priority.INSTANT,
-                mtype=Type312.BANK,
-                additional_properties={
-                    'exampleAdditionalProperty': jsonpickle.decode('{"key1":"val1","key2":"val2"}')
-                }
-            ),
-            additional_properties={
-                'exampleAdditionalProperty': jsonpickle.decode('{"key1":"val1","key2":"val2"}')
-            }
+                priority=Priority1Enum.INSTANT,
+                mtype=Type310Enum.BANK
+            )
         )
-    ],
-    additional_properties={
-        'exampleAdditionalProperty': jsonpickle.decode('{"key1":"val1","key2":"val2"}')
-    }
+    ]
 )
 ```
 

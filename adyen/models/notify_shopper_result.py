@@ -21,8 +21,6 @@ class NotifyShopperResult(object):
             sent downstream.
         stored_payment_method_id (str): This is the recurringDetailReference returned
             in the response when token was created
-        additional_properties (Dict[str, Any]): The additional properties for the
-            model.
 
     """
 
@@ -55,8 +53,7 @@ class NotifyShopperResult(object):
         reference=APIHelper.SKIP,
         result_code=APIHelper.SKIP,
         shopper_notification_reference=APIHelper.SKIP,
-        stored_payment_method_id=APIHelper.SKIP,
-        additional_properties=None):
+        stored_payment_method_id=APIHelper.SKIP):
         """Initialize a NotifyShopperResult instance."""
         # Initialize members of the class
         if displayed_reference is not APIHelper.SKIP:
@@ -73,11 +70,6 @@ class NotifyShopperResult(object):
             self.shopper_notification_reference = shopper_notification_reference
         if stored_payment_method_id is not APIHelper.SKIP:
             self.stored_payment_method_id = stored_payment_method_id
-
-        # Add additional model properties to the instance
-        if additional_properties is None:
-            additional_properties = {}
-        self.additional_properties = additional_properties
 
     @classmethod
     def from_dictionary(cls,
@@ -126,11 +118,6 @@ class NotifyShopperResult(object):
             if dictionary.get("storedPaymentMethodId")\
                 else APIHelper.SKIP
 
-        additional_properties = APIHelper.get_additional_properties(
-            dictionary={k: v for k, v in dictionary.items()
-                        if k not in cls._names.values()},
-            unboxing_function=lambda value: value)
-
         # Return an object of this model
         return cls(displayed_reference,
                    message,
@@ -138,8 +125,7 @@ class NotifyShopperResult(object):
                    reference,
                    result_code,
                    shopper_notification_reference,
-                   stored_payment_method_id,
-                   additional_properties)
+                   stored_payment_method_id)
 
     def __repr__(self):
         """Return a unambiguous string representation."""
@@ -178,7 +164,6 @@ class NotifyShopperResult(object):
             if hasattr(self, "stored_payment_method_id")
             else None
         )
-        _additional_properties=self.additional_properties
         return (
             f"{self.__class__.__name__}("
             f"displayed_reference={_displayed_reference!r}, "
@@ -188,7 +173,6 @@ class NotifyShopperResult(object):
             f"result_code={_result_code!r}, "
             f"shopper_notification_reference={_shopper_notification_reference!r}, "
             f"stored_payment_method_id={_stored_payment_method_id!r}, "
-            f"additional_properties={_additional_properties!r}, "
             f")"
         )
 
@@ -229,7 +213,6 @@ class NotifyShopperResult(object):
             if hasattr(self, "stored_payment_method_id")
             else None
         )
-        _additional_properties=self.additional_properties
         return (
             f"{self.__class__.__name__}("
             f"displayed_reference={_displayed_reference!s}, "
@@ -239,6 +222,5 @@ class NotifyShopperResult(object):
             f"result_code={_result_code!s}, "
             f"shopper_notification_reference={_shopper_notification_reference!s}, "
             f"stored_payment_method_id={_stored_payment_method_id!s}, "
-            f"additional_properties={_additional_properties!s}, "
             f")"
         )

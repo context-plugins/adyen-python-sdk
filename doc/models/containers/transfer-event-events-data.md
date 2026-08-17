@@ -20,9 +20,7 @@
 #### Example
 
 ```python
-value = InterchangeData(
-    mtype=Type85.INTERCHANGEDATA
-)
+value = InterchangeData()
 ```
 
 ## IssuingTransactionData
@@ -32,9 +30,7 @@ value = InterchangeData(
 #### Example
 
 ```python
-value = IssuingTransactionData(
-    mtype=Type86.ISSUINGTRANSACTIONDATA
-)
+value = IssuingTransactionData()
 ```
 
 ## MerchantPurchaseData
@@ -44,8 +40,6 @@ value = IssuingTransactionData(
 #### Example
 
 ```python
-value = MerchantPurchaseData(
-    mtype=Type87.MERCHANTPURCHASEDATA
-)
+value = MerchantPurchaseData()
 ```
 

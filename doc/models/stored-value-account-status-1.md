@@ -3,8 +3,6 @@
 
 Data related to the result of the stored value card transaction.
 
-*This model accepts additional fields of type Any.*
-
 ## Structure
 
 `StoredValueAccountStatus1`
@@ -13,41 +11,32 @@ Data related to the result of the stored value card transaction.
 
 | Name | Type | Tags | Description |
 |  --- | --- | --- | --- |
-| `stored_value_account_id` | [`StoredValueAccountId2`](../../doc/models/stored-value-account-id-2.md) | Required | - |
+| `stored_value_account_id` | [`StoredValueAccountID`](../../doc/models/stored-value-account-id.md) | Required | Identification of the stored value account or the stored value card and the associated product sold by the Sale System for stored value requests. |
 | `current_balance` | `float` | Optional | If relevant and known.<br><br>**Constraints**: `>= 0`, `<= 99999999.999999` |
-| `additional_properties` | `Dict[str, Any]` | Optional | - |
 
 ## Example
 
 ```python
-import jsonpickle
-
-from adyen.models.entry_mode import EntryMode
-from adyen.models.identification_type_11 import IdentificationType11
-from adyen.models.stored_value_account_id_2 import StoredValueAccountId2
+from adyen.models.entry_mode_enum import EntryModeEnum
+from adyen.models.identification_type_11_enum import IdentificationType11Enum
+from adyen.models.stored_value_account_id import StoredValueAccountID
 from adyen.models.stored_value_account_status_1 import StoredValueAccountStatus1
-from adyen.models.stored_value_account_type_1 import StoredValueAccountType1
+from adyen.models.stored_value_account_type_1_enum import StoredValueAccountType1Enum
 
 stored_value_account_status_1 = StoredValueAccountStatus1(
-    stored_value_account_id=StoredValueAccountId2(
-        stored_value_account_type=StoredValueAccountType1.PHONECARD,
+    stored_value_account_id=StoredValueAccountID(
+        stored_value_account_type=StoredValueAccountType1Enum.PHONECARD,
         entry_mode=[
-            EntryMode.MAGSTRIPE,
-            EntryMode.SCANNED
+            EntryModeEnum.MAGSTRIPE,
+            EntryModeEnum.SCANNED
         ],
-        identification_type=IdentificationType11.PHONENUMBER,
+        identification_type=IdentificationType11Enum.PHONENUMBER,
         stored_value_id='StoredValueID8',
         stored_value_provider='StoredValueProvider4',
         owner_name='OwnerName0',
-        expiry_date=4,
-        additional_properties={
-            'exampleAdditionalProperty': jsonpickle.decode('{"key1":"val1","key2":"val2"}')
-        }
+        expiry_date=4
     ),
-    current_balance=186.86,
-    additional_properties={
-        'exampleAdditionalProperty': jsonpickle.decode('{"key1":"val1","key2":"val2"}')
-    }
+    current_balance=186.86
 )
 ```
 

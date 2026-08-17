@@ -10,102 +10,34 @@ from adyen.api_helper import APIHelper
 class BankAccount11(object):
     """Implementation of the 'BankAccount11' model.
 
-    The details of the bank account, from which the payment should be made.
-    > Either `bankAccount` or `card` field must be provided in a payment request.
+    Contains information about the bank account.
 
     Attributes:
-        bank_account_number (str): The bank account number (without separators).
-        bank_city (str): The bank city.
-        bank_location_id (str): The location id of the bank. The field value is `nil`
-            in most cases.
-        bank_name (str): The name of the bank.
-        bic (str): The [Business Identifier
-            Code](https://en.wikipedia.org/wiki/ISO_9362) (BIC) is the SWIFT address
-            assigned to a bank. The field value is `nil` in most cases.
-        country_code (str): Country code where the bank is located.  A valid value is
-            an ISO two-character country code (e.g. 'NL').
-        iban (str): The [International Bank Account
-            Number](https://en.wikipedia.org/wiki/International_Bank_Account_Number)
-            (IBAN).
-        owner_name (str): The name of the bank account holder. If you submit a name
-            with non-Latin characters, we automatically replace some of them with
-            corresponding Latin characters to meet the FATF recommendations. For
-            example: * χ12 is converted to ch12. * üA is converted to euA. * Peter
-            Møller is converted to Peter Mller, because banks don't accept 'ø'. After
-            replacement, the ownerName must have at least three alphanumeric
-            characters (A-Z, a-z, 0-9), and at least one of them must be a valid
-            Latin character (A-Z, a-z). For example: * John17 - allowed. * J17 -
-            allowed. * 171 - not allowed. * John-7 - allowed. > If provided details
-            don't match the required format, the response returns the error message:
-            203 'Invalid bank account holder name'.
-        tax_id (str): The bank account holder's tax ID.
-        additional_properties (Dict[str, Any]): The additional properties for the
-            model.
+        account_identification (AULocalAccountIdentification |
+            BRLocalAccountIdentification | CALocalAccountIdentification |
+            CZLocalAccountIdentification | DKLocalAccountIdentification |
+            HKLocalAccountIdentification | HULocalAccountIdentification |
+            IbanAccountIdentification | NOLocalAccountIdentification |
+            NZLocalAccountIdentification | NumberAndBicAccountIdentification |
+            PLLocalAccountIdentification | SELocalAccountIdentification |
+            SGLocalAccountIdentification | UKLocalAccountIdentification |
+            USLocalAccountIdentification): Contains the bank account details. The
+            fields required in this object depend on the country of the bank account
+            and the currency of the transfer.
 
     """
 
     # Create a mapping from Model property names to API property names
     _names = {
-        "bank_account_number": "bankAccountNumber",
-        "bank_city": "bankCity",
-        "bank_location_id": "bankLocationId",
-        "bank_name": "bankName",
-        "bic": "bic",
-        "country_code": "countryCode",
-        "iban": "iban",
-        "owner_name": "ownerName",
-        "tax_id": "taxId",
+        "account_identification": "accountIdentification",
     }
-
-    _optionals = [
-        "bank_account_number",
-        "bank_city",
-        "bank_location_id",
-        "bank_name",
-        "bic",
-        "country_code",
-        "iban",
-        "owner_name",
-        "tax_id",
-    ]
 
     def __init__(
         self,
-        bank_account_number=APIHelper.SKIP,
-        bank_city=APIHelper.SKIP,
-        bank_location_id=APIHelper.SKIP,
-        bank_name=APIHelper.SKIP,
-        bic=APIHelper.SKIP,
-        country_code=APIHelper.SKIP,
-        iban=APIHelper.SKIP,
-        owner_name=APIHelper.SKIP,
-        tax_id=APIHelper.SKIP,
-        additional_properties=None):
+        account_identification=None):
         """Initialize a BankAccount11 instance."""
         # Initialize members of the class
-        if bank_account_number is not APIHelper.SKIP:
-            self.bank_account_number = bank_account_number
-        if bank_city is not APIHelper.SKIP:
-            self.bank_city = bank_city
-        if bank_location_id is not APIHelper.SKIP:
-            self.bank_location_id = bank_location_id
-        if bank_name is not APIHelper.SKIP:
-            self.bank_name = bank_name
-        if bic is not APIHelper.SKIP:
-            self.bic = bic
-        if country_code is not APIHelper.SKIP:
-            self.country_code = country_code
-        if iban is not APIHelper.SKIP:
-            self.iban = iban
-        if owner_name is not APIHelper.SKIP:
-            self.owner_name = owner_name
-        if tax_id is not APIHelper.SKIP:
-            self.tax_id = tax_id
-
-        # Add additional model properties to the instance
-        if additional_properties is None:
-            additional_properties = {}
-        self.additional_properties = additional_properties
+        self.account_identification = account_identification
 
     @classmethod
     def from_dictionary(cls,
@@ -121,186 +53,65 @@ class BankAccount11(object):
             object: An instance of this structure class.
 
         """
+        from adyen.utilities.union_type_lookup import (
+            UnionTypeLookUp,
+        )
+
         if not isinstance(dictionary, dict) or dictionary is None:
             return None
 
         # Extract variables from the dictionary
-        bank_account_number =\
-            dictionary.get("bankAccountNumber")\
-            if dictionary.get("bankAccountNumber")\
-                else APIHelper.SKIP
-        bank_city =\
-            dictionary.get("bankCity")\
-            if dictionary.get("bankCity")\
-                else APIHelper.SKIP
-        bank_location_id =\
-            dictionary.get("bankLocationId")\
-            if dictionary.get("bankLocationId")\
-                else APIHelper.SKIP
-        bank_name =\
-            dictionary.get("bankName")\
-            if dictionary.get("bankName")\
-                else APIHelper.SKIP
-        bic =\
-            dictionary.get("bic")\
-            if dictionary.get("bic")\
-                else APIHelper.SKIP
-        country_code =\
-            dictionary.get("countryCode")\
-            if dictionary.get("countryCode")\
-                else APIHelper.SKIP
-        iban =\
-            dictionary.get("iban")\
-            if dictionary.get("iban")\
-                else APIHelper.SKIP
-        owner_name =\
-            dictionary.get("ownerName")\
-            if dictionary.get("ownerName")\
-                else APIHelper.SKIP
-        tax_id =\
-            dictionary.get("taxId")\
-            if dictionary.get("taxId")\
-                else APIHelper.SKIP
-
-        additional_properties = APIHelper.get_additional_properties(
-            dictionary={k: v for k, v in dictionary.items()
-                        if k not in cls._names.values()},
-            unboxing_function=lambda value: value)
+        account_identification = APIHelper.deserialize_union_type(
+            UnionTypeLookUp.get("BankAccount11AccountIdentification"),
+            dictionary.get("accountIdentification"),
+            False)\
+            if dictionary.get("accountIdentification") is not None\
+            else None
 
         # Return an object of this model
-        return cls(bank_account_number,
-                   bank_city,
-                   bank_location_id,
-                   bank_name,
-                   bic,
-                   country_code,
-                   iban,
-                   owner_name,
-                   tax_id,
-                   additional_properties)
+        return cls(account_identification)
+
+    @classmethod
+    def validate(cls, dictionary):
+        """Validate dictionary against class required properties
+
+        Args:
+            dictionary (dictionary): A dictionary representation of the object
+            as obtained from the deserialization of the server's response. The
+            keys MUST match property names in the API description.
+
+        Returns:
+            boolean : if dictionary is valid contains required properties.
+
+        """
+        from adyen.utilities.union_type_lookup import (
+            UnionTypeLookUp,
+        )
+
+        if isinstance(dictionary, cls):
+            return (UnionTypeLookUp.get("BankAccount11AccountIdentification")
+                .validate(dictionary.account_identification).is_valid)
+
+        if not isinstance(dictionary, dict):
+            return False
+
+        return (UnionTypeLookUp.get("BankAccount11AccountIdentification")
+            .validate(dictionary.get("accountIdentification")).is_valid)
 
     def __repr__(self):
         """Return a unambiguous string representation."""
-        _bank_account_number=(
-            self.bank_account_number
-            if hasattr(self, "bank_account_number")
-            else None
-        )
-        _bank_city=(
-            self.bank_city
-            if hasattr(self, "bank_city")
-            else None
-        )
-        _bank_location_id=(
-            self.bank_location_id
-            if hasattr(self, "bank_location_id")
-            else None
-        )
-        _bank_name=(
-            self.bank_name
-            if hasattr(self, "bank_name")
-            else None
-        )
-        _bic=(
-            self.bic
-            if hasattr(self, "bic")
-            else None
-        )
-        _country_code=(
-            self.country_code
-            if hasattr(self, "country_code")
-            else None
-        )
-        _iban=(
-            self.iban
-            if hasattr(self, "iban")
-            else None
-        )
-        _owner_name=(
-            self.owner_name
-            if hasattr(self, "owner_name")
-            else None
-        )
-        _tax_id=(
-            self.tax_id
-            if hasattr(self, "tax_id")
-            else None
-        )
-        _additional_properties=self.additional_properties
+        _account_identification=self.account_identification
         return (
             f"{self.__class__.__name__}("
-            f"bank_account_number={_bank_account_number!r}, "
-            f"bank_city={_bank_city!r}, "
-            f"bank_location_id={_bank_location_id!r}, "
-            f"bank_name={_bank_name!r}, "
-            f"bic={_bic!r}, "
-            f"country_code={_country_code!r}, "
-            f"iban={_iban!r}, "
-            f"owner_name={_owner_name!r}, "
-            f"tax_id={_tax_id!r}, "
-            f"additional_properties={_additional_properties!r}, "
+            f"account_identification={_account_identification!r}, "
             f")"
         )
 
     def __str__(self):
         """Return a human-readable string representation."""
-        _bank_account_number=(
-            self.bank_account_number
-            if hasattr(self, "bank_account_number")
-            else None
-        )
-        _bank_city=(
-            self.bank_city
-            if hasattr(self, "bank_city")
-            else None
-        )
-        _bank_location_id=(
-            self.bank_location_id
-            if hasattr(self, "bank_location_id")
-            else None
-        )
-        _bank_name=(
-            self.bank_name
-            if hasattr(self, "bank_name")
-            else None
-        )
-        _bic=(
-            self.bic
-            if hasattr(self, "bic")
-            else None
-        )
-        _country_code=(
-            self.country_code
-            if hasattr(self, "country_code")
-            else None
-        )
-        _iban=(
-            self.iban
-            if hasattr(self, "iban")
-            else None
-        )
-        _owner_name=(
-            self.owner_name
-            if hasattr(self, "owner_name")
-            else None
-        )
-        _tax_id=(
-            self.tax_id
-            if hasattr(self, "tax_id")
-            else None
-        )
-        _additional_properties=self.additional_properties
+        _account_identification=self.account_identification
         return (
             f"{self.__class__.__name__}("
-            f"bank_account_number={_bank_account_number!s}, "
-            f"bank_city={_bank_city!s}, "
-            f"bank_location_id={_bank_location_id!s}, "
-            f"bank_name={_bank_name!s}, "
-            f"bic={_bic!s}, "
-            f"country_code={_country_code!s}, "
-            f"iban={_iban!s}, "
-            f"owner_name={_owner_name!s}, "
-            f"tax_id={_tax_id!s}, "
-            f"additional_properties={_additional_properties!s}, "
+            f"account_identification={_account_identification!s}, "
             f")"
         )

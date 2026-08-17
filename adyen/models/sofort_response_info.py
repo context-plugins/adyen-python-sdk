@@ -13,8 +13,6 @@ class SofortResponseInfo(object):
     Attributes:
         currency_code (str): Sofort currency code. For example, **EUR**.
         logo (str): Sofort logo. Format: Base64-encoded string.
-        additional_properties (Dict[str, Any]): The additional properties for the
-            model.
 
     """
 
@@ -32,19 +30,13 @@ class SofortResponseInfo(object):
     def __init__(
         self,
         currency_code=APIHelper.SKIP,
-        logo=APIHelper.SKIP,
-        additional_properties=None):
+        logo=APIHelper.SKIP):
         """Initialize a SofortResponseInfo instance."""
         # Initialize members of the class
         if currency_code is not APIHelper.SKIP:
             self.currency_code = currency_code
         if logo is not APIHelper.SKIP:
             self.logo = logo
-
-        # Add additional model properties to the instance
-        if additional_properties is None:
-            additional_properties = {}
-        self.additional_properties = additional_properties
 
     @classmethod
     def from_dictionary(cls,
@@ -73,15 +65,9 @@ class SofortResponseInfo(object):
             if dictionary.get("logo")\
                 else APIHelper.SKIP
 
-        additional_properties = APIHelper.get_additional_properties(
-            dictionary={k: v for k, v in dictionary.items()
-                        if k not in cls._names.values()},
-            unboxing_function=lambda value: value)
-
         # Return an object of this model
         return cls(currency_code,
-                   logo,
-                   additional_properties)
+                   logo)
 
     def __repr__(self):
         """Return a unambiguous string representation."""
@@ -95,12 +81,10 @@ class SofortResponseInfo(object):
             if hasattr(self, "logo")
             else None
         )
-        _additional_properties=self.additional_properties
         return (
             f"{self.__class__.__name__}("
             f"currency_code={_currency_code!r}, "
             f"logo={_logo!r}, "
-            f"additional_properties={_additional_properties!r}, "
             f")"
         )
 
@@ -116,11 +100,9 @@ class SofortResponseInfo(object):
             if hasattr(self, "logo")
             else None
         )
-        _additional_properties=self.additional_properties
         return (
             f"{self.__class__.__name__}("
             f"currency_code={_currency_code!s}, "
             f"logo={_logo!s}, "
-            f"additional_properties={_additional_properties!s}, "
             f")"
         )

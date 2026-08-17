@@ -1,8 +1,6 @@
 
 # Contact Details
 
-*This model accepts additional fields of type Any.*
-
 ## Structure
 
 `ContactDetails`
@@ -11,46 +9,34 @@
 
 | Name | Type | Tags | Description |
 |  --- | --- | --- | --- |
-| `address` | [`Address112`](../../doc/models/address-112.md) | Required | - |
+| `address` | [`Address`](../../doc/models/address.md) | Required | The address of the account holder. |
 | `email` | `str` | Required | The email address of the account holder. |
-| `phone` | [`Phone`](../../doc/models/phone.md) | Required | - |
+| `phone` | [`Phone31`](../../doc/models/phone-31.md) | Required | The phone number of the account holder. |
 | `web_address` | `str` | Optional | The URL of the account holder's website. |
-| `additional_properties` | `Dict[str, Any]` | Optional | - |
 
 ## Example
 
 ```python
-import jsonpickle
-
-from adyen.models.address_112 import Address112
+from adyen.models.address import Address
 from adyen.models.contact_details import ContactDetails
-from adyen.models.phone import Phone
-from adyen.models.type_4 import Type4
+from adyen.models.phone_31 import Phone31
+from adyen.models.type_410_enum import Type410Enum
 
 contact_details = ContactDetails(
-    address=Address112(
+    address=Address(
         city='city6',
         country='country0',
         house_number_or_name='houseNumberOrName4',
         postal_code='postalCode8',
         street='street6',
-        state_or_province='stateOrProvince4',
-        additional_properties={
-            'exampleAdditionalProperty': jsonpickle.decode('{"key1":"val1","key2":"val2"}')
-        }
+        state_or_province='stateOrProvince4'
     ),
     email='email2',
-    phone=Phone(
+    phone=Phone31(
         number='number8',
-        mtype=Type4.LANDLINE,
-        additional_properties={
-            'exampleAdditionalProperty': jsonpickle.decode('{"key1":"val1","key2":"val2"}')
-        }
+        mtype=Type410Enum.LANDLINE
     ),
-    web_address='webAddress4',
-    additional_properties={
-        'exampleAdditionalProperty': jsonpickle.decode('{"key1":"val1","key2":"val2"}')
-    }
+    web_address='webAddress4'
 )
 ```
 

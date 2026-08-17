@@ -23,8 +23,6 @@ class ResponseAdditionalDataBillingAddress(object):
             province passed in the payment request.  Example: NH
         billing_address_street (str): The billing address street passed in the
             payment request.
-        additional_properties (Dict[str, Any]): The additional properties for the
-            model.
 
     """
 
@@ -54,8 +52,7 @@ class ResponseAdditionalDataBillingAddress(object):
         billing_address_house_number_or_name=APIHelper.SKIP,
         billing_address_postal_code=APIHelper.SKIP,
         billing_address_state_or_province=APIHelper.SKIP,
-        billing_address_street=APIHelper.SKIP,
-        additional_properties=None):
+        billing_address_street=APIHelper.SKIP):
         """Initialize a ResponseAdditionalDataBillingAddress instance."""
         # Initialize members of the class
         if billing_address_city is not APIHelper.SKIP:
@@ -72,11 +69,6 @@ class ResponseAdditionalDataBillingAddress(object):
                  billing_address_state_or_province
         if billing_address_street is not APIHelper.SKIP:
             self.billing_address_street = billing_address_street
-
-        # Add additional model properties to the instance
-        if additional_properties is None:
-            additional_properties = {}
-        self.additional_properties = additional_properties
 
     @classmethod
     def from_dictionary(cls,
@@ -121,19 +113,13 @@ class ResponseAdditionalDataBillingAddress(object):
             if dictionary.get("billingAddress.street")\
                 else APIHelper.SKIP
 
-        additional_properties = APIHelper.get_additional_properties(
-            dictionary={k: v for k, v in dictionary.items()
-                        if k not in cls._names.values()},
-            unboxing_function=lambda value: value)
-
         # Return an object of this model
         return cls(billing_address_city,
                    billing_address_country,
                    billing_address_house_number_or_name,
                    billing_address_postal_code,
                    billing_address_state_or_province,
-                   billing_address_street,
-                   additional_properties)
+                   billing_address_street)
 
     def __repr__(self):
         """Return a unambiguous string representation."""
@@ -167,7 +153,6 @@ class ResponseAdditionalDataBillingAddress(object):
             if hasattr(self, "billing_address_street")
             else None
         )
-        _additional_properties=self.additional_properties
         return (
             f"{self.__class__.__name__}("
             f"billing_address_city={_billing_address_city!r}, "
@@ -176,7 +161,6 @@ class ResponseAdditionalDataBillingAddress(object):
             f"billing_address_postal_code={_billing_address_postal_code!r}, "
             f"billing_address_state_or_province={_billing_address_state_or_province!r}, "
             f"billing_address_street={_billing_address_street!r}, "
-            f"additional_properties={_additional_properties!r}, "
             f")"
         )
 
@@ -212,7 +196,6 @@ class ResponseAdditionalDataBillingAddress(object):
             if hasattr(self, "billing_address_street")
             else None
         )
-        _additional_properties=self.additional_properties
         return (
             f"{self.__class__.__name__}("
             f"billing_address_city={_billing_address_city!s}, "
@@ -221,6 +204,5 @@ class ResponseAdditionalDataBillingAddress(object):
             f"billing_address_postal_code={_billing_address_postal_code!s}, "
             f"billing_address_state_or_province={_billing_address_state_or_province!s}, "
             f"billing_address_street={_billing_address_street!s}, "
-            f"additional_properties={_additional_properties!s}, "
             f")"
         )

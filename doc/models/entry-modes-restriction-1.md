@@ -5,8 +5,6 @@ List of point-of-sale entry modes and the operation..
 
 Supported operations: **anyMatch**, **noneMatch**.
 
-*This model accepts additional fields of type Any.*
-
 ## Structure
 
 `EntryModesRestriction1`
@@ -16,25 +14,19 @@ Supported operations: **anyMatch**, **noneMatch**.
 | Name | Type | Tags | Description |
 |  --- | --- | --- | --- |
 | `operation` | `str` | Required | Defines how the condition must be evaluated. |
-| `value` | [`List[Value2]`](../../doc/models/value-2.md) | Optional | List of point-of-sale entry modes.<br><br>Possible values: **barcode**, **chip**, **cof**, **contactless**, **magstripe**, **manual**, **ocr**, **server**. |
-| `additional_properties` | `Dict[str, Any]` | Optional | - |
+| `value` | [`List[Value2Enum]`](../../doc/models/value-2-enum.md) | Optional | List of point-of-sale entry modes.<br><br>Possible values: **barcode**, **chip**, **cof**, **contactless**, **magstripe**, **manual**, **ocr**, **server**. |
 
 ## Example
 
 ```python
-import jsonpickle
-
 from adyen.models.entry_modes_restriction_1 import EntryModesRestriction1
-from adyen.models.value_2 import Value2
+from adyen.models.value_2_enum import Value2Enum
 
 entry_modes_restriction_1 = EntryModesRestriction1(
     operation='operation0',
     value=[
-        Value2.UNKNOWN
-    ],
-    additional_properties={
-        'exampleAdditionalProperty': jsonpickle.decode('{"key1":"val1","key2":"val2"}')
-    }
+        Value2Enum.UNKNOWN
+    ]
 )
 ```
 

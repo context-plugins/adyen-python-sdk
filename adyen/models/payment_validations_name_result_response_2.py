@@ -29,8 +29,6 @@ class PaymentValidationsNameResultResponse2(object):
             matches the cardholder middle name on file at the issuing bank. The
             middle name is only validated for Visa. Possible values:  **match**,
             **partialMatch**, **noMatch**
-        additional_properties (Dict[str, Any]): The additional properties for the
-            model.
 
     """
 
@@ -54,8 +52,7 @@ class PaymentValidationsNameResultResponse2(object):
         first_name=APIHelper.SKIP,
         full_name=APIHelper.SKIP,
         last_name=APIHelper.SKIP,
-        middle_name=APIHelper.SKIP,
-        additional_properties=None):
+        middle_name=APIHelper.SKIP):
         """Initialize a PaymentValidationsNameResultResponse2 instance."""
         # Initialize members of the class
         if first_name is not APIHelper.SKIP:
@@ -66,11 +63,6 @@ class PaymentValidationsNameResultResponse2(object):
             self.last_name = last_name
         if middle_name is not APIHelper.SKIP:
             self.middle_name = middle_name
-
-        # Add additional model properties to the instance
-        if additional_properties is None:
-            additional_properties = {}
-        self.additional_properties = additional_properties
 
     @classmethod
     def from_dictionary(cls,
@@ -107,17 +99,32 @@ class PaymentValidationsNameResultResponse2(object):
             if dictionary.get("middleName")\
                 else APIHelper.SKIP
 
-        additional_properties = APIHelper.get_additional_properties(
-            dictionary={k: v for k, v in dictionary.items()
-                        if k not in cls._names.values()},
-            unboxing_function=lambda value: value)
-
         # Return an object of this model
         return cls(first_name,
                    full_name,
                    last_name,
-                   middle_name,
-                   additional_properties)
+                   middle_name)
+
+    @classmethod
+    def validate(cls, dictionary):
+        """Validate dictionary against class required properties
+
+        Args:
+            dictionary (dictionary): A dictionary representation of the object
+            as obtained from the deserialization of the server's response. The
+            keys MUST match property names in the API description.
+
+        Returns:
+            boolean : if dictionary is valid contains required properties.
+
+        """
+        if isinstance(dictionary, cls):
+            return True
+
+        if not isinstance(dictionary, dict):
+            return False
+
+        return True
 
     def __repr__(self):
         """Return a unambiguous string representation."""
@@ -141,14 +148,12 @@ class PaymentValidationsNameResultResponse2(object):
             if hasattr(self, "middle_name")
             else None
         )
-        _additional_properties=self.additional_properties
         return (
             f"{self.__class__.__name__}("
             f"first_name={_first_name!r}, "
             f"full_name={_full_name!r}, "
             f"last_name={_last_name!r}, "
             f"middle_name={_middle_name!r}, "
-            f"additional_properties={_additional_properties!r}, "
             f")"
         )
 
@@ -174,13 +179,11 @@ class PaymentValidationsNameResultResponse2(object):
             if hasattr(self, "middle_name")
             else None
         )
-        _additional_properties=self.additional_properties
         return (
             f"{self.__class__.__name__}("
             f"first_name={_first_name!s}, "
             f"full_name={_full_name!s}, "
             f"last_name={_last_name!s}, "
             f"middle_name={_middle_name!s}, "
-            f"additional_properties={_additional_properties!s}, "
             f")"
         )

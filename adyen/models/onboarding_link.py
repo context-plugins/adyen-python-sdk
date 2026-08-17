@@ -15,8 +15,6 @@ class OnboardingLink(object):
             your user. This URL:   - Expires after 4 minutes.  - Can only be used
             once.  - Can only be clicked once by the user.  If the link expires, you
             need to create a new link.
-        additional_properties (Dict[str, Any]): The additional properties for the
-            model.
 
     """
 
@@ -31,17 +29,11 @@ class OnboardingLink(object):
 
     def __init__(
         self,
-        url=APIHelper.SKIP,
-        additional_properties=None):
+        url=APIHelper.SKIP):
         """Initialize a OnboardingLink instance."""
         # Initialize members of the class
         if url is not APIHelper.SKIP:
             self.url = url
-
-        # Add additional model properties to the instance
-        if additional_properties is None:
-            additional_properties = {}
-        self.additional_properties = additional_properties
 
     @classmethod
     def from_dictionary(cls,
@@ -66,14 +58,8 @@ class OnboardingLink(object):
             if dictionary.get("url")\
                 else APIHelper.SKIP
 
-        additional_properties = APIHelper.get_additional_properties(
-            dictionary={k: v for k, v in dictionary.items()
-                        if k not in cls._names.values()},
-            unboxing_function=lambda value: value)
-
         # Return an object of this model
-        return cls(url,
-                   additional_properties)
+        return cls(url)
 
     def __repr__(self):
         """Return a unambiguous string representation."""
@@ -82,11 +68,9 @@ class OnboardingLink(object):
             if hasattr(self, "url")
             else None
         )
-        _additional_properties=self.additional_properties
         return (
             f"{self.__class__.__name__}("
             f"url={_url!r}, "
-            f"additional_properties={_additional_properties!r}, "
             f")"
         )
 
@@ -97,10 +81,8 @@ class OnboardingLink(object):
             if hasattr(self, "url")
             else None
         )
-        _additional_properties=self.additional_properties
         return (
             f"{self.__class__.__name__}("
             f"url={_url!s}, "
-            f"additional_properties={_additional_properties!s}, "
             f")"
         )

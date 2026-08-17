@@ -1,11 +1,9 @@
 
-# Eft Direct Debit
-
-*This model accepts additional fields of type Any.*
+# EFT Direct Debit
 
 ## Structure
 
-`EftDirectDebit`
+`EFTDirectDebit`
 
 ## Fields
 
@@ -19,25 +17,21 @@
 | `recurring_detail_reference` | `str` | Optional | This is the `recurringDetailReference` returned in the response when you created the token. |
 | `sdk_data` | `str` | Optional | Base64-encoded JSON object containing SDK related parameters required by the SDK<br><br>**Constraints**: *Maximum Length*: `50000` |
 | `stored_payment_method_id` | `str` | Optional | This is the `recurringDetailReference` returned in the response when you created the token.<br><br>**Constraints**: *Maximum Length*: `64` |
-| `mtype` | [`Type30`](../../doc/models/type-30.md) | Optional | - |
-| `additional_properties` | `Dict[str, Any]` | Optional | - |
+| `mtype` | [`Type30Enum`](../../doc/models/type-30-enum.md) | Optional | **eft**<br><br>**Default**: `"eft_directdebit_CA"` |
 
 ## Example
 
 ```python
-import jsonpickle
+from adyen.models.eft_direct_debit import EFTDirectDebit
+from adyen.models.type_30_enum import Type30Enum
 
-from adyen.models.eft_direct_debit import EftDirectDebit
-
-eft_direct_debit = EftDirectDebit(
+eft_direct_debit = EFTDirectDebit(
     bank_account_number='bankAccountNumber6',
     bank_code='bankCode6',
     bank_location_id='bankLocationId0',
     checkout_attempt_id='checkoutAttemptId2',
     owner_name='ownerName0',
-    additional_properties={
-        'exampleAdditionalProperty': jsonpickle.decode('{"key1":"val1","key2":"val2"}')
-    }
+    mtype=Type30Enum.EFT_DIRECTDEBIT_CA
 )
 ```
 

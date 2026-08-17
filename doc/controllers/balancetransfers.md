@@ -35,28 +35,24 @@ def post_balance_transfers(self,
 
 **200**: OK - The request has succeeded.
 
-This method returns an [`ApiResponse`](../../doc/api-response.md) instance. The `body` property of this instance returns the response data which is of type [`BalanceTransferResponse`](../../doc/models/balance-transfer-response.md).
+[`BalanceTransferResponse`](../../doc/models/balance-transfer-response.md)
 
 ## Example Usage
 
 ```python
 body = BalanceTransferRequest(
-    amount=Amount5(
+    amount=Amount17(
         currency='EUR',
         value=3000
     ),
     from_merchant='SOURCE_MERCHANT_ACCOUNT',
     to_merchant='DESTINATION_MERCHANT_ACCOUNT',
-    mtype=BalanceTransferType2.ADJUSTMENT,
+    mtype=BalanceTransferType2Enum.ADJUSTMENT,
     reference='Your reference for the balance transfer.'
 )
 
 result = balance_transfers_api.post_balance_transfers(body)
-
-if result.is_success():
-    print(result.body)
-elif result.is_error():
-    print(result.errors)
+print(result)
 ```
 
 ## Example Response *(as JSON)*
@@ -72,6 +68,6 @@ elif result.is_error():
 
 | HTTP Status Code | Error Description | Exception Class |
 |  --- | --- | --- |
-| 401 | Unauthorized | [`BalanceTransfers401ErrorException`](../../doc/models/balance-transfers-401-error-exception.md) |
-| 422 | Unprocessable Content - A request validation error. | [`BalanceTransfers422ErrorException`](../../doc/models/balance-transfers-422-error-exception.md) |
+| 401 | Unauthorized | [`DefaultErrorResponseEntityException`](../../doc/models/default-error-response-entity-exception.md) |
+| 422 | Unprocessable Content - A request validation error. | [`DefaultErrorResponseEntityException`](../../doc/models/default-error-response-entity-exception.md) |
 

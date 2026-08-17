@@ -11,17 +11,8 @@ from apimatic_core.types.parameter import Parameter
 from adyen.api_helper import APIHelper
 from adyen.apis.base_api import BaseApi
 from adyen.configuration import Server
-from adyen.exceptions.grants_404_error_exception import (
-    Grants404ErrorException,
-)
-from adyen.exceptions.grants_422_error_exception import (
-    Grants422ErrorException,
-)
-from adyen.exceptions.grants_disbursements_404_error_exception import (
-    GrantsDisbursements404ErrorException,
-)
-from adyen.exceptions.grants_disbursements_422_error_exception import (
-    GrantsDisbursements422ErrorException,
+from adyen.exceptions.default_error_response_entity_exception import (
+    DefaultErrorResponseEntityException,
 )
 from adyen.http.http_method_enum import HttpMethodEnum
 from adyen.models.disbursement import Disbursement
@@ -48,24 +39,21 @@ class GrantsApi(BaseApi):
                 account holder that received the grants.
 
         Returns:
-            ApiResponse: An object with the response value as well as other useful
-                information such as status codes and headers. OK - The request has
-                succeeded.
+            Grants: Response from the API. OK - The request has succeeded.
 
         Raises:
-            ApiException: When an error occurs while fetching the data from the
+            APIException: When an error occurs while fetching the data from the
                 remote API. This exception includes the HTTP Response code, an error
                 message, and the HTTP body that was received in the request.
 
         """
         return super().new_api_call_builder.request(
-            RequestBuilder().server(Server.DEFAULT)
+            RequestBuilder().server(Server.DEFAULT15)
             .path("/grants")
             .http_method(HttpMethodEnum.GET)
             .query_param(Parameter()
                 .key("counterpartyAccountHolderId")
-                .value(counterparty_account_holder_id)
-                .is_required(True))
+                .value(counterparty_account_holder_id))
             .header_param(Parameter()
                 .key("accept")
                 .value("application/json")),
@@ -73,13 +61,12 @@ class GrantsApi(BaseApi):
             ResponseHandler()
             .deserializer(APIHelper.json_deserialize)
             .deserialize_into(Grants.from_dictionary)
-            .is_api_response(True)
             .local_error("404",
                 "Not Found - The entity was not found.",
-                Grants404ErrorException)
+                DefaultErrorResponseEntityException)
             .local_error("422",
                 "Unprocessable Entity - A request validation error.",
-                Grants422ErrorException),
+                DefaultErrorResponseEntityException),
         ).execute()
 
     def post_grants(self,
@@ -89,21 +76,19 @@ class GrantsApi(BaseApi):
         Make a request for a grant on behalf of an account holder.
 
         Args:
-            body (GrantInfo, optional): The request body parameter.
+            body (CapitalGrantInfo, optional): The request body parameter.
 
         Returns:
-            ApiResponse: An object with the response value as well as other useful
-                information such as status codes and headers. OK - The request has
-                succeeded.
+            Grant: Response from the API. OK - The request has succeeded.
 
         Raises:
-            ApiException: When an error occurs while fetching the data from the
+            APIException: When an error occurs while fetching the data from the
                 remote API. This exception includes the HTTP Response code, an error
                 message, and the HTTP body that was received in the request.
 
         """
         return super().new_api_call_builder.request(
-            RequestBuilder().server(Server.DEFAULT)
+            RequestBuilder().server(Server.DEFAULT15)
             .path("/grants")
             .http_method(HttpMethodEnum.POST)
             .header_param(Parameter()
@@ -119,10 +104,9 @@ class GrantsApi(BaseApi):
             ResponseHandler()
             .deserializer(APIHelper.json_deserialize)
             .deserialize_into(Grant.from_dictionary)
-            .is_api_response(True)
             .local_error("422",
                 "Unprocessable Entity - A request validation error.",
-                Grants422ErrorException),
+                DefaultErrorResponseEntityException),
         ).execute()
 
     def get_grants_grant_id(self,
@@ -135,24 +119,21 @@ class GrantsApi(BaseApi):
             grant_id (str): The unique identifier of the grant reference.
 
         Returns:
-            ApiResponse: An object with the response value as well as other useful
-                information such as status codes and headers. OK - The request has
-                succeeded.
+            Grant: Response from the API. OK - The request has succeeded.
 
         Raises:
-            ApiException: When an error occurs while fetching the data from the
+            APIException: When an error occurs while fetching the data from the
                 remote API. This exception includes the HTTP Response code, an error
                 message, and the HTTP body that was received in the request.
 
         """
         return super().new_api_call_builder.request(
-            RequestBuilder().server(Server.DEFAULT)
+            RequestBuilder().server(Server.DEFAULT15)
             .path("/grants/{grantId}")
             .http_method(HttpMethodEnum.GET)
             .template_param(Parameter()
                 .key("grantId")
                 .value(grant_id)
-                .is_required(True)
                 .should_encode(True))
             .header_param(Parameter()
                 .key("accept")
@@ -161,13 +142,12 @@ class GrantsApi(BaseApi):
             ResponseHandler()
             .deserializer(APIHelper.json_deserialize)
             .deserialize_into(Grant.from_dictionary)
-            .is_api_response(True)
             .local_error("404",
                 "Not Found - The entity was not found.",
-                Grants404ErrorException)
+                DefaultErrorResponseEntityException)
             .local_error("422",
                 "Unprocessable Entity - A request validation error.",
-                Grants422ErrorException),
+                DefaultErrorResponseEntityException),
         ).execute()
 
     def get_grants_grant_id_disbursements(self,
@@ -180,24 +160,21 @@ class GrantsApi(BaseApi):
             grant_id (str): The unique identifier of the grant reference.
 
         Returns:
-            ApiResponse: An object with the response value as well as other useful
-                information such as status codes and headers. OK - The request has
-                succeeded.
+            Disbursements: Response from the API. OK - The request has succeeded.
 
         Raises:
-            ApiException: When an error occurs while fetching the data from the
+            APIException: When an error occurs while fetching the data from the
                 remote API. This exception includes the HTTP Response code, an error
                 message, and the HTTP body that was received in the request.
 
         """
         return super().new_api_call_builder.request(
-            RequestBuilder().server(Server.DEFAULT)
+            RequestBuilder().server(Server.DEFAULT15)
             .path("/grants/{grantId}/disbursements")
             .http_method(HttpMethodEnum.GET)
             .template_param(Parameter()
                 .key("grantId")
                 .value(grant_id)
-                .is_required(True)
                 .should_encode(True))
             .header_param(Parameter()
                 .key("accept")
@@ -206,13 +183,12 @@ class GrantsApi(BaseApi):
             ResponseHandler()
             .deserializer(APIHelper.json_deserialize)
             .deserialize_into(Disbursements.from_dictionary)
-            .is_api_response(True)
             .local_error("404",
                 "Not Found - The entity was not found.",
-                GrantsDisbursements404ErrorException)
+                DefaultErrorResponseEntityException)
             .local_error("422",
                 "Unprocessable Entity - A request validation error.",
-                GrantsDisbursements422ErrorException),
+                DefaultErrorResponseEntityException),
         ).execute()
 
     def get_grants_grant_id_disbursements_disbursement_id(self,
@@ -228,29 +204,25 @@ class GrantsApi(BaseApi):
             disbursement_id (str): The unique identifier of the disbursement.
 
         Returns:
-            ApiResponse: An object with the response value as well as other useful
-                information such as status codes and headers. OK - The request has
-                succeeded.
+            Disbursement: Response from the API. OK - The request has succeeded.
 
         Raises:
-            ApiException: When an error occurs while fetching the data from the
+            APIException: When an error occurs while fetching the data from the
                 remote API. This exception includes the HTTP Response code, an error
                 message, and the HTTP body that was received in the request.
 
         """
         return super().new_api_call_builder.request(
-            RequestBuilder().server(Server.DEFAULT)
+            RequestBuilder().server(Server.DEFAULT15)
             .path("/grants/{grantId}/disbursements/{disbursementId}")
             .http_method(HttpMethodEnum.GET)
             .template_param(Parameter()
                 .key("grantId")
                 .value(grant_id)
-                .is_required(True)
                 .should_encode(True))
             .template_param(Parameter()
                 .key("disbursementId")
                 .value(disbursement_id)
-                .is_required(True)
                 .should_encode(True))
             .header_param(Parameter()
                 .key("accept")
@@ -259,13 +231,12 @@ class GrantsApi(BaseApi):
             ResponseHandler()
             .deserializer(APIHelper.json_deserialize)
             .deserialize_into(Disbursement.from_dictionary)
-            .is_api_response(True)
             .local_error("404",
                 "Not Found - The entity was not found.",
-                GrantsDisbursements404ErrorException)
+                DefaultErrorResponseEntityException)
             .local_error("422",
                 "Unprocessable Entity - A request validation error.",
-                GrantsDisbursements422ErrorException),
+                DefaultErrorResponseEntityException),
         ).execute()
 
     def patch_grants_grant_id_disbursements_disbursement_id(self,
@@ -284,36 +255,31 @@ class GrantsApi(BaseApi):
             body (DisbursementInfoUpdate): The request body parameter.
 
         Returns:
-            ApiResponse: An object with the response value as well as other useful
-                information such as status codes and headers. OK - The request has
-                succeeded.
+            Disbursement: Response from the API. OK - The request has succeeded.
 
         Raises:
-            ApiException: When an error occurs while fetching the data from the
+            APIException: When an error occurs while fetching the data from the
                 remote API. This exception includes the HTTP Response code, an error
                 message, and the HTTP body that was received in the request.
 
         """
         return super().new_api_call_builder.request(
-            RequestBuilder().server(Server.DEFAULT)
+            RequestBuilder().server(Server.DEFAULT15)
             .path("/grants/{grantId}/disbursements/{disbursementId}")
             .http_method(HttpMethodEnum.PATCH)
             .template_param(Parameter()
                 .key("grantId")
                 .value(grant_id)
-                .is_required(True)
                 .should_encode(True))
             .template_param(Parameter()
                 .key("disbursementId")
                 .value(disbursement_id)
-                .is_required(True)
                 .should_encode(True))
             .header_param(Parameter()
                 .key("Content-Type")
                 .value("application/json"))
             .body_param(Parameter()
-                .value(body)
-                .is_required(True))
+                .value(body))
             .header_param(Parameter()
                 .key("accept")
                 .value("application/json"))
@@ -322,11 +288,10 @@ class GrantsApi(BaseApi):
             ResponseHandler()
             .deserializer(APIHelper.json_deserialize)
             .deserialize_into(Disbursement.from_dictionary)
-            .is_api_response(True)
             .local_error("404",
                 "Not Found - The entity was not found.",
-                GrantsDisbursements404ErrorException)
+                DefaultErrorResponseEntityException)
             .local_error("422",
                 "Unprocessable Entity - A request validation error.",
-                GrantsDisbursements422ErrorException),
+                DefaultErrorResponseEntityException),
         ).execute()

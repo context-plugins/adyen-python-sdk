@@ -1,8 +1,6 @@
 
 # Company Api Credential
 
-*This model accepts additional fields of type Any.*
-
 ## Structure
 
 `CompanyApiCredential`
@@ -11,7 +9,7 @@
 
 | Name | Type | Tags | Description |
 |  --- | --- | --- | --- |
-| `links` | [`ApiCredentialLinks`](../../doc/models/api-credential-links.md) | Optional | - |
+| `links` | [`ApiCredentialLinks2`](../../doc/models/api-credential-links-2.md) | Optional | References to resources linked to the API credential. |
 | `active` | `bool` | Required | Indicates if the API credential is enabled. Must be set to **true** to use the credential in your integration. |
 | `allowed_ip_addresses` | `List[str]` | Required | List of IP addresses from which your client can make requests.<br><br>If the list is empty, we allow requests from any IP.<br>If the list is not empty and we get a request from an IP which is not on the list, you get a security error. |
 | `allowed_origins` | [`List[AllowedOrigin]`](../../doc/models/allowed-origin.md) | Optional | List containing the [allowed origins](https://docs.adyen.com/development-resources/client-side-authentication#allowed-origins) linked to the API credential. |
@@ -22,23 +20,20 @@
 | `roles` | `List[str]` | Required | List of [roles](https://docs.adyen.com/development-resources/api-credentials#roles-1) for the API credential. |
 | `subject_dn` | `str` | Optional | The subject DN of the certificate issued by Adyen. |
 | `username` | `str` | Required | The name of the [API credential](https://docs.adyen.com/development-resources/api-credentials), for example **ws@Company.TestCompany**. |
-| `additional_properties` | `Dict[str, Any]` | Optional | - |
 
 ## Example
 
 ```python
-import jsonpickle
-
 from adyen.models.allowed_origin import AllowedOrigin
-from adyen.models.allowed_origins import AllowedOrigins
-from adyen.models.api_credential_links import ApiCredentialLinks
-from adyen.models.company_4 import Company4
+from adyen.models.api_credential_links_2 import ApiCredentialLinks2
 from adyen.models.company_api_credential import CompanyApiCredential
-from adyen.models.generate_api_key import GenerateApiKey
-from adyen.models.generate_client_key import GenerateClientKey
 from adyen.models.links_2 import Links2
-from adyen.models.merchant_1 import Merchant1
-from adyen.models.mself import Self
+from adyen.models.links_element_1 import LinksElement1
+from adyen.models.links_element_2 import LinksElement2
+from adyen.models.links_element_3 import LinksElement3
+from adyen.models.links_element_4 import LinksElement4
+from adyen.models.links_element_5 import LinksElement5
+from adyen.models.links_element_6 import LinksElement6
 
 company_api_credential = CompanyApiCredential(
     active=False,
@@ -53,93 +48,51 @@ company_api_credential = CompanyApiCredential(
         'roles9'
     ],
     username='username8',
-    links=ApiCredentialLinks(
-        mself=Self(
-            href='href0',
-            additional_properties={
-                'exampleAdditionalProperty': jsonpickle.decode('{"key1":"val1","key2":"val2"}')
-            }
+    links=ApiCredentialLinks2(
+        mself=LinksElement6(
+            href='href0'
         ),
-        allowed_origins=AllowedOrigins(
-            href='href6',
-            additional_properties={
-                'exampleAdditionalProperty': jsonpickle.decode('{"key1":"val1","key2":"val2"}')
-            }
+        allowed_origins=LinksElement1(
+            href='href6'
         ),
-        company=Company4(
-            href='href2',
-            additional_properties={
-                'exampleAdditionalProperty': jsonpickle.decode('{"key1":"val1","key2":"val2"}')
-            }
+        company=LinksElement2(
+            href='href2'
         ),
-        generate_api_key=GenerateApiKey(
-            href='href6',
-            additional_properties={
-                'exampleAdditionalProperty': jsonpickle.decode('{"key1":"val1","key2":"val2"}')
-            }
+        generate_api_key=LinksElement3(
+            href='href6'
         ),
-        generate_client_key=GenerateClientKey(
-            href='href4',
-            additional_properties={
-                'exampleAdditionalProperty': jsonpickle.decode('{"key1":"val1","key2":"val2"}')
-            }
+        generate_client_key=LinksElement4(
+            href='href4'
         ),
-        merchant=Merchant1(
-            href='href6',
-            additional_properties={
-                'exampleAdditionalProperty': jsonpickle.decode('{"key1":"val1","key2":"val2"}')
-            }
-        ),
-        additional_properties={
-            'exampleAdditionalProperty': jsonpickle.decode('{"key1":"val1","key2":"val2"}')
-        }
+        merchant=LinksElement5(
+            href='href6'
+        )
     ),
     allowed_origins=[
         AllowedOrigin(
             domain='domain0',
             links=Links2(
-                mself=Self(
-                    href='href0',
-                    additional_properties={
-                        'exampleAdditionalProperty': jsonpickle.decode('{"key1":"val1","key2":"val2"}')
-                    }
-                ),
-                additional_properties={
-                    'exampleAdditionalProperty': jsonpickle.decode('{"key1":"val1","key2":"val2"}')
-                }
+                mself=LinksElement6(
+                    href='href0'
+                )
             ),
-            id='id4',
-            additional_properties={
-                'exampleAdditionalProperty': jsonpickle.decode('{"key1":"val1","key2":"val2"}')
-            }
+            id='id4'
         ),
         AllowedOrigin(
             domain='domain0',
             links=Links2(
-                mself=Self(
-                    href='href0',
-                    additional_properties={
-                        'exampleAdditionalProperty': jsonpickle.decode('{"key1":"val1","key2":"val2"}')
-                    }
-                ),
-                additional_properties={
-                    'exampleAdditionalProperty': jsonpickle.decode('{"key1":"val1","key2":"val2"}')
-                }
+                mself=LinksElement6(
+                    href='href0'
+                )
             ),
-            id='id4',
-            additional_properties={
-                'exampleAdditionalProperty': jsonpickle.decode('{"key1":"val1","key2":"val2"}')
-            }
+            id='id4'
         )
     ],
     associated_merchant_accounts=[
         'associatedMerchantAccounts8'
     ],
     description='description8',
-    subject_dn='subjectDN8',
-    additional_properties={
-        'exampleAdditionalProperty': jsonpickle.decode('{"key1":"val1","key2":"val2"}')
-    }
+    subject_dn='subjectDN8'
 )
 ```
 

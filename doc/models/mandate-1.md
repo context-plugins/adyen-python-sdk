@@ -1,8 +1,6 @@
 
 # Mandate 1
 
-*This model accepts additional fields of type Any.*
-
 ## Structure
 
 `Mandate1`
@@ -11,39 +9,38 @@
 
 | Name | Type | Tags | Description |
 |  --- | --- | --- | --- |
-| `amount` | `str` | Required | The billing amount (in minor units) of the recurring transactions. |
-| `amount_rule` | [`AmountRule`](../../doc/models/amount-rule.md) | Optional | - |
-| `billing_attempts_rule` | [`BillingAttemptsRule`](../../doc/models/billing-attempts-rule.md) | Optional | - |
-| `billing_day` | `str` | Optional | The number of the day, on which the recurring debit can happen. Should be within the same calendar month as the mandate recurring date.<br><br>Possible values: 1-31 based on the `frequency`. |
-| `count` | `str` | Optional | The number of transactions that can be performed within the given frequency. |
-| `ends_at` | `str` | Required | End date of the billing plan, in YYYY-MM-DD format. |
-| `frequency` | [`Frequency1`](../../doc/models/frequency-1.md) | Required | - |
-| `remarks` | `str` | Optional | The message shown by UPI to the shopper on the approval screen. |
-| `starts_at` | `str` | Optional | Start date of the billing plan, in YYYY-MM-DD format. By default, the transaction date. |
-| `additional_properties` | `Dict[str, Any]` | Optional | - |
+| `balance_account_id` | `str` | Optional | The unique identifier of the balance account linked to the payment instrument. |
+| `counterparty` | [`MandateBankAccount2`](../../doc/models/mandate-bank-account-2.md) | Optional | Contains information to identify the counterparty. |
+| `created_at` | `datetime` | Optional | The date when the mandate was created. |
+| `id` | `str` | Optional | The unique identifier of the mandate. |
+| `payment_instrument_id` | `str` | Optional | The unique identifier of the payment instrument linked to the mandate. |
+| `status` | [`MandateStatus2Enum`](../../doc/models/mandate-status-2-enum.md) | Optional | The status of the mandate.<br><br>Possible values: **pending**, **approved**, **cancelled**. |
+| `mtype` | [`MandateType2Enum`](../../doc/models/mandate-type-2-enum.md) | Optional | The type of mandate. Possible value: **bacs**. |
+| `updated_at` | `datetime` | Optional | The date when the mandate was updated. |
 
 ## Example
 
 ```python
-import jsonpickle
+import dateutil.parser
 
-from adyen.models.amount_rule import AmountRule
-from adyen.models.billing_attempts_rule import BillingAttemptsRule
-from adyen.models.frequency_1 import Frequency1
 from adyen.models.mandate_1 import Mandate1
+from adyen.models.mandate_account_identification_2 import MandateAccountIdentification2
+from adyen.models.mandate_bank_account_2 import MandateBankAccount2
+from adyen.models.mandate_party_identification_2 import MandatePartyIdentification2
 
 mandate_1 = Mandate1(
-    amount='amount6',
-    ends_at='endsAt4',
-    frequency=Frequency1.MONTHLY,
-    amount_rule=AmountRule.MAX,
-    billing_attempts_rule=BillingAttemptsRule.ON,
-    billing_day='billingDay6',
-    count='count0',
-    remarks='remarks0',
-    additional_properties={
-        'exampleAdditionalProperty': jsonpickle.decode('{"key1":"val1","key2":"val2"}')
-    }
+    balance_account_id='balanceAccountId4',
+    counterparty=MandateBankAccount2(
+        account_holder=MandatePartyIdentification2(
+            full_name='fullName0'
+        ),
+        account_identification=MandateAccountIdentification2(
+            mtype='MandateAccountIdentification2'
+        )
+    ),
+    created_at=dateutil.parser.parse('2016-03-13T12:52:32.123Z'),
+    id='id4',
+    payment_instrument_id='paymentInstrumentId6'
 )
 ```
 

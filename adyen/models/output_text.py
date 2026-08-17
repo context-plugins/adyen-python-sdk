@@ -22,16 +22,24 @@ class OutputText(object):
         start_row (int): Row where the text string has to be displayed or printed.
         start_column (int): Column where the text string has to be displayed or
             printed.
-        character_width (CharacterWidth1): The model property of type CharacterWidth1.
-        character_height (CharacterHeight1): The model property of type
-            CharacterHeight1.
-        character_style (CharacterStyle1): The model property of type CharacterStyle1.
-        alignment (Alignment1): The model property of type Alignment1.
+        character_width (CharacterWidth1Enum): Character width of the text string to
+            display or print. Absence of this data element means the characters have
+            normal width. Possible values: * **DoubleWidth** * **SingleWidth**
+        character_height (CharacterHeight1Enum): Character height of the text string
+            to display or print. Absence of this data element means the characters
+            have normal height. Possible values: * **DoubleHeight** * **HalfHeight**
+            * **SingleHeight**
+        character_style (CharacterStyle1Enum): Typographic style of the sequence of
+            characters to display or print. Absence of this data element means the
+            characters have normal style. Possible values: * **Bold** * **Italic** *
+            **Normal** * **Underline**
+        alignment (Alignment1Enum): Alignment of the text string on the display line
+            or print line. Absence of this data element means the characters have
+            normal alignment. Possible values: * **Centred** * **Justified** *
+            **Left** * **Right**
         end_of_line_flag (bool): Indicates if the text is at the end of a line.
             Allows the display or the print of a new line and a carry-over return
             characters after the formatted text.
-        additional_properties (Dict[str, Any]): The additional properties for the
-            model.
 
     """
 
@@ -69,8 +77,7 @@ class OutputText(object):
         character_height=APIHelper.SKIP,
         character_style=APIHelper.SKIP,
         alignment=APIHelper.SKIP,
-        end_of_line_flag=True,
-        additional_properties=None):
+        end_of_line_flag=True):
         """Initialize a OutputText instance."""
         # Initialize members of the class
         self.text = text
@@ -89,11 +96,6 @@ class OutputText(object):
         if alignment is not APIHelper.SKIP:
             self.alignment = alignment
         self.end_of_line_flag = end_of_line_flag
-
-        # Add additional model properties to the instance
-        if additional_properties is None:
-            additional_properties = {}
-        self.additional_properties = additional_properties
 
     @classmethod
     def from_dictionary(cls,
@@ -150,11 +152,6 @@ class OutputText(object):
             if dictionary.get("EndOfLineFlag")\
                 else True
 
-        additional_properties = APIHelper.get_additional_properties(
-            dictionary={k: v for k, v in dictionary.items()
-                        if k not in cls._names.values()},
-            unboxing_function=lambda value: value)
-
         # Return an object of this model
         return cls(text,
                    character_set,
@@ -164,8 +161,7 @@ class OutputText(object):
                    character_height,
                    character_style,
                    alignment,
-                   end_of_line_flag,
-                   additional_properties)
+                   end_of_line_flag)
 
     def __repr__(self):
         """Return a unambiguous string representation."""
@@ -210,7 +206,6 @@ class OutputText(object):
             if hasattr(self, "end_of_line_flag")
             else None
         )
-        _additional_properties=self.additional_properties
         return (
             f"{self.__class__.__name__}("
             f"text={_text!r}, "
@@ -222,7 +217,6 @@ class OutputText(object):
             f"character_style={_character_style!r}, "
             f"alignment={_alignment!r}, "
             f"end_of_line_flag={_end_of_line_flag!r}, "
-            f"additional_properties={_additional_properties!r}, "
             f")"
         )
 
@@ -269,7 +263,6 @@ class OutputText(object):
             if hasattr(self, "end_of_line_flag")
             else None
         )
-        _additional_properties=self.additional_properties
         return (
             f"{self.__class__.__name__}("
             f"text={_text!s}, "
@@ -281,6 +274,5 @@ class OutputText(object):
             f"character_style={_character_style!s}, "
             f"alignment={_alignment!s}, "
             f"end_of_line_flag={_end_of_line_flag!s}, "
-            f"additional_properties={_additional_properties!s}, "
             f")"
         )

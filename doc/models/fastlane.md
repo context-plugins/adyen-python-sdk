@@ -1,8 +1,6 @@
 
 # Fastlane
 
-*This model accepts additional fields of type Any.*
-
 ## Structure
 
 `Fastlane`
@@ -16,27 +14,19 @@
 | `recurring_detail_reference` | `str` | Optional | This is the `recurringDetailReference` returned in the response when you created the token. |
 | `sdk_data` | `str` | Optional | Base64-encoded JSON object containing SDK related parameters required by the SDK<br><br>**Constraints**: *Maximum Length*: `50000` |
 | `stored_payment_method_id` | `str` | Optional | This is the `recurringDetailReference` returned in the response when you created the token.<br><br>**Constraints**: *Maximum Length*: `64` |
-| `mtype` | [`Type68`](../../doc/models/type-68.md) | Required | **fastlane** |
-| `additional_properties` | `Dict[str, Any]` | Optional | - |
+| `mtype` | `str` | Required, Constant | **fastlane**<br><br>**Value**: `"fastlane"` |
 
 ## Example
 
 ```python
-import jsonpickle
-
 from adyen.models.fastlane import Fastlane
-from adyen.models.type_68 import Type68
 
 fastlane = Fastlane(
     fastlane_data='fastlaneData6',
-    mtype=Type68.FASTLANE,
     checkout_attempt_id='checkoutAttemptId8',
     recurring_detail_reference='recurringDetailReference2',
     sdk_data='sdkData8',
-    stored_payment_method_id='storedPaymentMethodId6',
-    additional_properties={
-        'exampleAdditionalProperty': jsonpickle.decode('{"key1":"val1","key2":"val2"}')
-    }
+    stored_payment_method_id='storedPaymentMethodId6'
 )
 ```
 

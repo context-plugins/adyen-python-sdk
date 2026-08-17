@@ -16,8 +16,6 @@ class NotificationUrl(object):
             using Terminal API.
         public_urls (List[Url]): One or more public URLs to send notifications to
             when using Terminal API.
-        additional_properties (Dict[str, Any]): The additional properties for the
-            model.
 
     """
 
@@ -35,19 +33,13 @@ class NotificationUrl(object):
     def __init__(
         self,
         local_urls=APIHelper.SKIP,
-        public_urls=APIHelper.SKIP,
-        additional_properties=None):
+        public_urls=APIHelper.SKIP):
         """Initialize a NotificationUrl instance."""
         # Initialize members of the class
         if local_urls is not APIHelper.SKIP:
             self.local_urls = local_urls
         if public_urls is not APIHelper.SKIP:
             self.public_urls = public_urls
-
-        # Add additional model properties to the instance
-        if additional_properties is None:
-            additional_properties = {}
-        self.additional_properties = additional_properties
 
     @classmethod
     def from_dictionary(cls,
@@ -84,15 +76,9 @@ class NotificationUrl(object):
         else:
             public_urls = APIHelper.SKIP
 
-        additional_properties = APIHelper.get_additional_properties(
-            dictionary={k: v for k, v in dictionary.items()
-                        if k not in cls._names.values()},
-            unboxing_function=lambda value: value)
-
         # Return an object of this model
         return cls(local_urls,
-                   public_urls,
-                   additional_properties)
+                   public_urls)
 
     def __repr__(self):
         """Return a unambiguous string representation."""
@@ -106,12 +92,10 @@ class NotificationUrl(object):
             if hasattr(self, "public_urls")
             else None
         )
-        _additional_properties=self.additional_properties
         return (
             f"{self.__class__.__name__}("
             f"local_urls={_local_urls!r}, "
             f"public_urls={_public_urls!r}, "
-            f"additional_properties={_additional_properties!r}, "
             f")"
         )
 
@@ -127,11 +111,9 @@ class NotificationUrl(object):
             if hasattr(self, "public_urls")
             else None
         )
-        _additional_properties=self.additional_properties
         return (
             f"{self.__class__.__name__}("
             f"local_urls={_local_urls!s}, "
             f"public_urls={_public_urls!s}, "
-            f"additional_properties={_additional_properties!s}, "
             f")"
         )

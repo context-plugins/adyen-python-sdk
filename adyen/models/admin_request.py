@@ -16,8 +16,6 @@ class AdminRequest(object):
     Attributes:
         service_identification (str): Identification of the administrative service to
             process.
-        additional_properties (Dict[str, Any]): The additional properties for the
-            model.
 
     """
 
@@ -32,17 +30,11 @@ class AdminRequest(object):
 
     def __init__(
         self,
-        service_identification=APIHelper.SKIP,
-        additional_properties=None):
+        service_identification=APIHelper.SKIP):
         """Initialize a AdminRequest instance."""
         # Initialize members of the class
         if service_identification is not APIHelper.SKIP:
             self.service_identification = service_identification
-
-        # Add additional model properties to the instance
-        if additional_properties is None:
-            additional_properties = {}
-        self.additional_properties = additional_properties
 
     @classmethod
     def from_dictionary(cls,
@@ -67,14 +59,8 @@ class AdminRequest(object):
             if dictionary.get("ServiceIdentification")\
                 else APIHelper.SKIP
 
-        additional_properties = APIHelper.get_additional_properties(
-            dictionary={k: v for k, v in dictionary.items()
-                        if k not in cls._names.values()},
-            unboxing_function=lambda value: value)
-
         # Return an object of this model
-        return cls(service_identification,
-                   additional_properties)
+        return cls(service_identification)
 
     def __repr__(self):
         """Return a unambiguous string representation."""
@@ -83,11 +69,9 @@ class AdminRequest(object):
             if hasattr(self, "service_identification")
             else None
         )
-        _additional_properties=self.additional_properties
         return (
             f"{self.__class__.__name__}("
             f"service_identification={_service_identification!r}, "
-            f"additional_properties={_additional_properties!r}, "
             f")"
         )
 
@@ -98,10 +82,8 @@ class AdminRequest(object):
             if hasattr(self, "service_identification")
             else None
         )
-        _additional_properties=self.additional_properties
         return (
             f"{self.__class__.__name__}("
             f"service_identification={_service_identification!s}, "
-            f"additional_properties={_additional_properties!s}, "
             f")"
         )

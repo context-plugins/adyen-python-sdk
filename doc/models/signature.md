@@ -1,8 +1,6 @@
 
 # Signature
 
-*This model accepts additional fields of type Any.*
-
 ## Structure
 
 `Signature`
@@ -15,23 +13,17 @@
 | `device_name` | `str` | Optional | Name that identifies the terminal. |
 | `device_slogan` | `str` | Optional | Slogan shown on the start screen of the device.<br><br>**Constraints**: *Maximum Length*: `50` |
 | `skip_signature` | `bool` | Optional | Skip asking for a signature. This is possible because all global card schemes (American Express, Diners, Discover, JCB, MasterCard, VISA, and UnionPay) regard a signature as optional. |
-| `additional_properties` | `Dict[str, Any]` | Optional | - |
 
 ## Example
 
 ```python
-import jsonpickle
-
 from adyen.models.signature import Signature
 
 signature = Signature(
     ask_signature_on_screen=False,
     device_name='deviceName8',
     device_slogan='deviceSlogan6',
-    skip_signature=False,
-    additional_properties={
-        'exampleAdditionalProperty': jsonpickle.decode('{"key1":"val1","key2":"val2"}')
-    }
+    skip_signature=False
 )
 ```
 

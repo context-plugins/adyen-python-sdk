@@ -15,376 +15,16 @@ from apimatic_requests_client_adapter.requests_client import (
 )
 from dotenv import load_dotenv
 
-from adyen.api_helper import APIHelper
 from adyen.http.proxy_settings import ProxySettings
-from adyen.logging.configuration.api_logging_configuration import (
-    LoggingConfiguration,
-)
 
 
 class Environment(Enum):
     """An enum for SDK environments."""
 
-    # Test Environment
-    PRODUCTION = 0
-    # Test Environment
-    ENVIRONMENT2 = 1
-    # Test Environment
-    ENVIRONMENT3 = 2
-    # Test Environment
-    ENVIRONMENT4 = 3
-    # Test Environment
-    ENVIRONMENT5 = 4
-    # Test Environment
-    ENVIRONMENT6 = 5
-    # Test Environment
-    ENVIRONMENT7 = 6
-    # Test Environment
-    ENVIRONMENT8 = 7
-    # Test Environment
-    ENVIRONMENT9 = 8
-    # Test Environment
-    ENVIRONMENT10 = 9
-    # Test Environment
-    ENVIRONMENT11 = 10
-    # Test Environment
-    ENVIRONMENT12 = 11
-    # Test Environment
-    ENVIRONMENT13 = 12
-    # Test Environment
-    ENVIRONMENT14 = 13
-    # Test Environment
-    ENVIRONMENT15 = 14
-    # Test Environment
-    ENVIRONMENT16 = 15
-    # Test Environment
-    ENVIRONMENT17 = 16
-    # Test Environment
-    ENVIRONMENT18 = 17
-    # Test Environment
-    ENVIRONMENT19 = 18
-    # Test Environment
-    ENVIRONMENT20 = 19
-    # Test Environment
-    ENVIRONMENT21 = 20
-    # Test Environment
-    ENVIRONMENT22 = 21
-    # Test Environment
-    ENVIRONMENT23 = 22
-    # Test Environment
-    ENVIRONMENT24 = 23
-    # Test Environment
-    ENVIRONMENT25 = 24
-    # Test Environment
-    ENVIRONMENT26 = 25
-    # Test Environment
-    ENVIRONMENT27 = 26
-    # Test Environment
-    ENVIRONMENT28 = 27
-    # Test Environment
-    ENVIRONMENT29 = 28
-    # Test Environment
-    ENVIRONMENT30 = 29
-    # Live Environment
-    ENVIRONMENT31 = 30
-    # Live Environment
-    ENVIRONMENT32 = 31
-    # Live Environment
-    ENVIRONMENT33 = 32
-    # Live Environment
-    ENVIRONMENT34 = 33
-    # Live Environment
-    ENVIRONMENT35 = 34
-    # Live Environment
-    ENVIRONMENT36 = 35
-    # Live Environment
-    ENVIRONMENT37 = 36
-    # Live Environment
-    ENVIRONMENT38 = 37
-    # Live Environment
-    ENVIRONMENT39 = 38
-    # Live Environment
-    ENVIRONMENT40 = 39
-    # Live Environment
-    ENVIRONMENT41 = 40
-    # Live Environment
-    ENVIRONMENT42 = 41
-    # Live Environment
-    ENVIRONMENT43 = 42
-    # Live Environment
-    ENVIRONMENT44 = 43
-    # Live Environment
-    ENVIRONMENT45 = 44
-    # Live Environment
-    ENVIRONMENT46 = 45
-    # Live Environment
-    ENVIRONMENT47 = 46
-    # Live Environment
-    ENVIRONMENT48 = 47
-    # Live Environment
-    ENVIRONMENT49 = 48
-    # Live Environment
-    ENVIRONMENT50 = 49
-    # Live Environment
-    ENVIRONMENT51 = 50
-    # Live Environment
-    ENVIRONMENT52 = 51
-    # Live Environment
-    ENVIRONMENT53 = 52
-    # Live Environment
-    ENVIRONMENT54 = 53
-    # Live Environment
-    ENVIRONMENT55 = 54
-    # Live Environment
-    ENVIRONMENT56 = 55
-    # Live Environment
-    ENVIRONMENT57 = 56
-    # Live Environment
-    ENVIRONMENT58 = 57
-    # Live Environment
-    ENVIRONMENT59 = 58
-    # Live Environment
-    ENVIRONMENT60 = 59
-    # Live environment for East Asia
-    ENVIRONMENT61 = 60
-    # Live environment for East Asia
-    ENVIRONMENT62 = 61
-    # Live environment for East Asia
-    ENVIRONMENT63 = 62
-    # Live environment for East Asia
-    ENVIRONMENT64 = 63
-    # Live environment for East Asia
-    ENVIRONMENT65 = 64
-    # Live environment for East Asia
-    ENVIRONMENT66 = 65
-    # Live environment for East Asia
-    ENVIRONMENT67 = 66
-    # Live environment for East Asia
-    ENVIRONMENT68 = 67
-    # Live environment for East Asia
-    ENVIRONMENT69 = 68
-    # Live environment for East Asia
-    ENVIRONMENT70 = 69
-    # Live environment for East Asia
-    ENVIRONMENT71 = 70
-    # Live environment for East Asia
-    ENVIRONMENT72 = 71
-    # Live environment for East Asia
-    ENVIRONMENT73 = 72
-    # Live environment for East Asia
-    ENVIRONMENT74 = 73
-    # Live environment for East Asia
-    ENVIRONMENT75 = 74
-    # Live environment for East Asia
-    ENVIRONMENT76 = 75
-    # Live environment for East Asia
-    ENVIRONMENT77 = 76
-    # Live environment for East Asia
-    ENVIRONMENT78 = 77
-    # Live environment for East Asia
-    ENVIRONMENT79 = 78
-    # Live environment for East Asia
-    ENVIRONMENT80 = 79
-    # Live environment for East Asia
-    ENVIRONMENT81 = 80
-    # Live environment for East Asia
-    ENVIRONMENT82 = 81
-    # Live environment for East Asia
-    ENVIRONMENT83 = 82
-    # Live environment for East Asia
-    ENVIRONMENT84 = 83
-    # Live environment for East Asia
-    ENVIRONMENT85 = 84
-    # Live environment for East Asia
-    ENVIRONMENT86 = 85
-    # Live environment for East Asia
-    ENVIRONMENT87 = 86
-    # Live environment for East Asia
-    ENVIRONMENT88 = 87
-    # Live environment for East Asia
-    ENVIRONMENT89 = 88
-    # Live environment for East Asia
-    ENVIRONMENT90 = 89
-    # Live environment for Europe
-    ENVIRONMENT91 = 90
-    # Live environment for Europe
-    ENVIRONMENT92 = 91
-    # Live environment for Europe
-    ENVIRONMENT93 = 92
-    # Live environment for Europe
-    ENVIRONMENT94 = 93
-    # Live environment for Europe
-    ENVIRONMENT95 = 94
-    # Live environment for Europe
-    ENVIRONMENT96 = 95
-    # Live environment for Europe
-    ENVIRONMENT97 = 96
-    # Live environment for Europe
-    ENVIRONMENT98 = 97
-    # Live environment for Europe
-    ENVIRONMENT99 = 98
-    # Live environment for Europe
-    ENVIRONMENT100 = 99
-    # Live environment for Europe
-    ENVIRONMENT101 = 100
-    # Live environment for Europe
-    ENVIRONMENT102 = 101
-    # Live environment for Europe
-    ENVIRONMENT103 = 102
-    # Live environment for Europe
-    ENVIRONMENT104 = 103
-    # Live environment for Europe
-    ENVIRONMENT105 = 104
-    # Live environment for Europe
-    ENVIRONMENT106 = 105
-    # Live environment for Europe
-    ENVIRONMENT107 = 106
-    # Live environment for Europe
-    ENVIRONMENT108 = 107
-    # Live environment for Europe
-    ENVIRONMENT109 = 108
-    # Live environment for Europe
-    ENVIRONMENT110 = 109
-    # Live environment for Europe
-    ENVIRONMENT111 = 110
-    # Live environment for Europe
-    ENVIRONMENT112 = 111
-    # Live environment for Europe
-    ENVIRONMENT113 = 112
-    # Live environment for Europe
-    ENVIRONMENT114 = 113
-    # Live environment for Europe
-    ENVIRONMENT115 = 114
-    # Live environment for Europe
-    ENVIRONMENT116 = 115
-    # Live environment for Europe
-    ENVIRONMENT117 = 116
-    # Live environment for Europe
-    ENVIRONMENT118 = 117
-    # Live environment for Europe
-    ENVIRONMENT119 = 118
-    # Live environment for Europe
-    ENVIRONMENT120 = 119
-    # Live environment for United States of America
-    ENVIRONMENT121 = 120
-    # Live environment for United States of America
-    ENVIRONMENT122 = 121
-    # Live environment for United States of America
-    ENVIRONMENT123 = 122
-    # Live environment for United States of America
-    ENVIRONMENT124 = 123
-    # Live environment for United States of America
-    ENVIRONMENT125 = 124
-    # Live environment for United States of America
-    ENVIRONMENT126 = 125
-    # Live environment for United States of America
-    ENVIRONMENT127 = 126
-    # Live environment for United States of America
-    ENVIRONMENT128 = 127
-    # Live environment for United States of America
-    ENVIRONMENT129 = 128
-    # Live environment for United States of America
-    ENVIRONMENT130 = 129
-    # Live environment for United States of America
-    ENVIRONMENT131 = 130
-    # Live environment for United States of America
-    ENVIRONMENT132 = 131
-    # Live environment for United States of America
-    ENVIRONMENT133 = 132
-    # Live environment for United States of America
-    ENVIRONMENT134 = 133
-    # Live environment for United States of America
-    ENVIRONMENT135 = 134
-    # Live environment for United States of America
-    ENVIRONMENT136 = 135
-    # Live environment for United States of America
-    ENVIRONMENT137 = 136
-    # Live environment for United States of America
-    ENVIRONMENT138 = 137
-    # Live environment for United States of America
-    ENVIRONMENT139 = 138
-    # Live environment for United States of America
-    ENVIRONMENT140 = 139
-    # Live environment for United States of America
-    ENVIRONMENT141 = 140
-    # Live environment for United States of America
-    ENVIRONMENT142 = 141
-    # Live environment for United States of America
-    ENVIRONMENT143 = 142
-    # Live environment for United States of America
-    ENVIRONMENT144 = 143
-    # Live environment for United States of America
-    ENVIRONMENT145 = 144
-    # Live environment for United States of America
-    ENVIRONMENT146 = 145
-    # Live environment for United States of America
-    ENVIRONMENT147 = 146
-    # Live environment for United States of America
-    ENVIRONMENT148 = 147
-    # Live environment for United States of America
-    ENVIRONMENT149 = 148
-    # Live environment for United States of America
-    ENVIRONMENT150 = 149
-    # Live environment for United States of America
-    ENVIRONMENT151 = 150
-    # Live environment for United States of America
-    ENVIRONMENT152 = 151
-    # Live environment for United States of America
-    ENVIRONMENT153 = 152
-    # Live environment for United States of America
-    ENVIRONMENT154 = 153
-    # Live environment for United States of America
-    ENVIRONMENT155 = 154
-    # Live environment for United States of America
-    ENVIRONMENT156 = 155
-    # Live environment for United States of America
-    ENVIRONMENT157 = 156
-    # Live environment for United States of America
-    ENVIRONMENT158 = 157
-    # Live environment for United States of America
-    ENVIRONMENT159 = 158
-    # Live environment for United States of America
-    ENVIRONMENT160 = 159
-    # Live environment for United States of America
-    ENVIRONMENT161 = 160
-    # Live environment for United States of America
-    ENVIRONMENT162 = 161
-    # Live environment for United States of America
-    ENVIRONMENT163 = 162
-    # Live environment for United States of America
-    ENVIRONMENT164 = 163
-    # Live environment for United States of America
-    ENVIRONMENT165 = 164
-    # Live environment for United States of America
-    ENVIRONMENT166 = 165
-    # Live environment for United States of America
-    ENVIRONMENT167 = 166
-    # Live environment for United States of America
-    ENVIRONMENT168 = 167
-    # Live environment for United States of America
-    ENVIRONMENT169 = 168
-    # Live environment for United States of America
-    ENVIRONMENT170 = 169
-    # Live environment for United States of America
-    ENVIRONMENT171 = 170
-    # Live environment for United States of America
-    ENVIRONMENT172 = 171
-    # Live environment for United States of America
-    ENVIRONMENT173 = 172
-    # Live environment for United States of America
-    ENVIRONMENT174 = 173
-    # Live environment for United States of America
-    ENVIRONMENT175 = 174
-    # Live environment for United States of America
-    ENVIRONMENT176 = 175
-    # Live environment for United States of America
-    ENVIRONMENT177 = 176
-    # Live environment for United States of America
-    ENVIRONMENT178 = 177
-    # Live environment for United States of America
-    ENVIRONMENT179 = 178
-    # Live environment for United States of America
-    ENVIRONMENT180 = 179
+    # Adyen test environment. Adyen's live endpoints are merchant-prefixed
+    # ({prefix}-checkout-live.adyenpayments.com), so no static live URL is correct
+    # here - point the client's BaseUrl at the merchant's own live host instead.
+    TEST = 0
 
     @classmethod
     def from_value(cls, value, default=None):
@@ -419,6 +59,34 @@ class Server(Enum):
     """An enum for API servers."""
 
     DEFAULT = 0
+    DEFAULT1 = 1
+    DEFAULT2 = 2
+    DEFAULT3 = 3
+    DEFAULT4 = 4
+    DEFAULT5 = 5
+    DEFAULT6 = 6
+    DEFAULT7 = 7
+    DEFAULT8 = 8
+    DEFAULT9 = 9
+    DEFAULT10 = 10
+    DEFAULT11 = 11
+    DEFAULT12 = 12
+    DEFAULT13 = 13
+    DEFAULT14 = 14
+    DEFAULT15 = 15
+    DEFAULT16 = 16
+    DEFAULT17 = 17
+    DEFAULT18 = 18
+    DEFAULT19 = 19
+    DEFAULT20 = 20
+    DEFAULT21 = 21
+    DEFAULT22 = 22
+    DEFAULT23 = 23
+    DEFAULT24 = 24
+    DEFAULT25 = 25
+    DEFAULT26 = 26
+    DEFAULT27 = 27
+    DEFAULT28 = 28
 
     @classmethod
     def from_value(cls, value, default=None):
@@ -458,16 +126,6 @@ class Configuration(HttpClientConfiguration):
         return self._environment
 
     @property
-    def merchant_account(self):
-        """Return current merchant_account."""
-        return self._merchant_account
-
-    @property
-    def device_id(self):
-        """Return current device_id."""
-        return self._device_id
-
-    @property
     def api_key_auth_credentials(self):
         """Return current api_key_auth_credentials."""
         return self._api_key_auth_credentials
@@ -485,11 +143,9 @@ class Configuration(HttpClientConfiguration):
     def __init__(self, http_client_instance=None,
                  override_http_client_configuration=False, http_call_back=None,
                  timeout=30, max_retries=0, backoff_factor=2, retry_statuses=None,
-                 retry_methods=None, proxy_settings=None, logging_configuration=None,
-                 environment=Environment.PRODUCTION,
-                 merchant_account="merchantAccountDefaultValue",
-                 device_id="deviceIdDefaultValue", api_key_auth_credentials=None,
-                 basic_auth_credentials=None, client_key_credentials=None):
+                 retry_methods=None, proxy_settings=None, environment=Environment.TEST,
+                 api_key_auth_credentials=None, basic_auth_credentials=None,
+                 client_key_credentials=None):
         """Initialize Configuration object."""
         if retry_methods is None:
             retry_methods = ["GET", "PUT", "GET", "PUT"]
@@ -505,17 +161,10 @@ class Configuration(HttpClientConfiguration):
             max_retries=max_retries, backoff_factor=backoff_factor,
             retry_statuses=retry_statuses, retry_methods=retry_methods,
             proxy_settings=proxy_settings,
-            logging_configuration=logging_configuration,
         )
 
         # Current API environment
         self._environment = environment
-
-        # merchant_account value
-        self._merchant_account = merchant_account
-
-        # device_id value
-        self._device_id = device_id
 
         # The object holding Custom Header Signature credentials
         self._api_key_auth_credentials = api_key_auth_credentials
@@ -533,8 +182,7 @@ class Configuration(HttpClientConfiguration):
                    override_http_client_configuration=None, http_call_back=None,
                    timeout=None, max_retries=None, backoff_factor=None,
                    retry_statuses=None, retry_methods=None, proxy_settings=None,
-                   logging_configuration=None, environment=None, merchant_account=None,
-                   device_id=None, api_key_auth_credentials=None,
+                   environment=None, api_key_auth_credentials=None,
                    basic_auth_credentials=None, client_key_credentials=None):
         """Clone configuration with overrides."""
         http_client_instance = http_client_instance or self.http_client_instance
@@ -548,10 +196,7 @@ class Configuration(HttpClientConfiguration):
         retry_statuses = retry_statuses or self.retry_statuses
         retry_methods = retry_methods or self.retry_methods
         proxy_settings = proxy_settings or self.proxy_settings
-        logging_configuration = logging_configuration or self.logging_configuration
         environment = environment or self.environment
-        merchant_account = merchant_account or self.merchant_account
-        device_id = device_id or self.device_id
         api_key_auth_credentials =\
             (api_key_auth_credentials
             or self.api_key_auth_credentials)
@@ -563,9 +208,7 @@ class Configuration(HttpClientConfiguration):
             http_call_back=http_call_back, timeout=timeout, max_retries=max_retries,
             backoff_factor=backoff_factor, retry_statuses=retry_statuses,
             retry_methods=retry_methods, proxy_settings=proxy_settings,
-            logging_configuration=logging_configuration, environment=environment,
-            merchant_account=merchant_account, device_id=device_id,
-            api_key_auth_credentials=api_key_auth_credentials,
+            environment=environment, api_key_auth_credentials=api_key_auth_credentials,
             basic_auth_credentials=basic_auth_credentials,
             client_key_credentials=client_key_credentials,
         )
@@ -584,545 +227,36 @@ class Configuration(HttpClientConfiguration):
 
     # All the environments the SDK can run in
     environments = {
-        Environment.PRODUCTION: {
-            Server.DEFAULT: "https://balanceplatform-api-test.adyen.com/a2aissuer-api/v1",
-        },
-        Environment.ENVIRONMENT2: {
-            Server.DEFAULT: "https://cal-test.adyen.com/cal/services/Account/v6",
-        },
-        Environment.ENVIRONMENT3: {
-            Server.DEFAULT: "https://balance-control-test.adyen.com/balance-control/api/v2",
-        },
-        Environment.ENVIRONMENT4: {
-            Server.DEFAULT: "https://balanceplatform-api-test.adyen.com/bcl/v2",
-        },
-        Environment.ENVIRONMENT5: {
-            Server.DEFAULT: "https://pal-test.adyen.com/pal/servlet/BinLookup/v54",
-        },
-        Environment.ENVIRONMENT6: {
-            Server.DEFAULT: "https://balanceplatform-api-test.adyen.com/capital/v1",
-        },
-        Environment.ENVIRONMENT7: {
+        Environment.TEST: {
             Server.DEFAULT: "https://checkout-test.adyen.com/v72",
-        },
-        Environment.ENVIRONMENT8: {
-            Server.DEFAULT: "https://device-api-test.adyen.com/v1",
-        },
-        Environment.ENVIRONMENT9: {
-            Server.DEFAULT: "https://ca-test.adyen.com/ca/services/DataProtectionService/v1",
-        },
-        Environment.ENVIRONMENT10: {
-            Server.DEFAULT: "https://ca-test.adyen.com/ca/services/DisputeService/v30",
-        },
-        Environment.ENVIRONMENT11: {
-            Server.DEFAULT: "https://balanceplatform-api-test.adyen.com/fx/api/v1",
-        },
-        Environment.ENVIRONMENT12: {
-            Server.DEFAULT: "https://cal-test.adyen.com/cal/services/Fund/v6",
-        },
-        Environment.ENVIRONMENT13: {
-            Server.DEFAULT: "https://cal-test.adyen.com/cal/services/Hop/v6",
-        },
-        Environment.ENVIRONMENT14: {
-            Server.DEFAULT: "https://kyc-test.adyen.com/lem/v4",
-        },
-        Environment.ENVIRONMENT15: {
-            Server.DEFAULT: "https://management-test.adyen.com/v3",
-        },
-        Environment.ENVIRONMENT16: {
-            Server.DEFAULT: "https://cal-test.adyen.com/cal/services/Notification/v6",
-        },
-        Environment.ENVIRONMENT17: {
-            Server.DEFAULT: "https://obgateway-test.adyen.com/obgateway/v1",
-        },
-        Environment.ENVIRONMENT18: {
-            Server.DEFAULT: "https://management-live.adyen.com/v1",
-        },
-        Environment.ENVIRONMENT19: {
-            Server.DEFAULT: "https://pal-test.adyen.com/pal/servlet/Payment/v68",
-        },
-        Environment.ENVIRONMENT20: {
-            Server.DEFAULT: "https://pal-test.adyen.com/pal/servlet/Payout/v68",
-        },
-        Environment.ENVIRONMENT21: {
-            Server.DEFAULT: "https://balanceplatform-api-test.adyen.com/btl/api/v4",
-        },
-        Environment.ENVIRONMENT22: {
-            Server.DEFAULT: "https://pal-test.adyen.com/pal/servlet/Recurring/v68",
-        },
-        Environment.ENVIRONMENT23: {
-            Server.DEFAULT: "https://test.adyen.com/authe/api/v1",
-        },
-        Environment.ENVIRONMENT24: {
-            Server.DEFAULT: "https://checkout-test.adyen.com/checkout/possdk/v68",
-        },
-        Environment.ENVIRONMENT25: {
-            Server.DEFAULT: "https://softposconfig-test.adyen.com/softposconfig/v3",
-        },
-        Environment.ENVIRONMENT26: {
-            Server.DEFAULT: "https://pal-test.adyen.com/pal/servlet/StoredValue/v46",
-        },
-        Environment.ENVIRONMENT27: {
-            Server.DEFAULT: "https://device-api-test.adyen.com/v1/merchants/{merchantAccount}/devices/{deviceId}/sync",
-        },
-        Environment.ENVIRONMENT28: {
-            Server.DEFAULT: "https://pal-test.adyen.com/pal/services/TestCard/v1",
-        },
-        Environment.ENVIRONMENT29: {
-            Server.DEFAULT: "https://postfmapi-test.adyen.com/postfmapi/terminal/v1",
-        },
-        Environment.ENVIRONMENT30: {
-            Server.DEFAULT: "https://balanceplatform-api-test.adyen.com/btl/v4",
-        },
-        Environment.ENVIRONMENT31: {
-            Server.DEFAULT: "https://balanceplatform-api-live.adyen.com/a2aissuer-api/v1",
-        },
-        Environment.ENVIRONMENT32: {
-            Server.DEFAULT: "https://cal-test.adyen.com/cal/services/Account/v6",
-        },
-        Environment.ENVIRONMENT33: {
-            Server.DEFAULT: "https://balance-control-live.adyen.com/balance-control/api/v2",
-        },
-        Environment.ENVIRONMENT34: {
-            Server.DEFAULT: "https://balanceplatform-api-test.adyen.com/bcl/v2",
-        },
-        Environment.ENVIRONMENT35: {
-            Server.DEFAULT: "https://pal-test.adyen.com/pal/servlet/BinLookup/v54",
-        },
-        Environment.ENVIRONMENT36: {
-            Server.DEFAULT: "https://balanceplatform-api-live.adyen.com/capital/v1",
-        },
-        Environment.ENVIRONMENT37: {
-            Server.DEFAULT: "https://checkout-test.adyen.com/v72",
-        },
-        Environment.ENVIRONMENT38: {
-            Server.DEFAULT: "https://device-api-live-au.adyen.com/v1",
-        },
-        Environment.ENVIRONMENT39: {
-            Server.DEFAULT: "https://ca-test.adyen.com/ca/services/DataProtectionService/v1",
-        },
-        Environment.ENVIRONMENT40: {
-            Server.DEFAULT: "https://ca-test.adyen.com/ca/services/DisputeService/v30",
-        },
-        Environment.ENVIRONMENT41: {
-            Server.DEFAULT: "https://balanceplatform-api-live.adyen.com/fx/api/v1",
-        },
-        Environment.ENVIRONMENT42: {
-            Server.DEFAULT: "https://cal-test.adyen.com/cal/services/Fund/v6",
-        },
-        Environment.ENVIRONMENT43: {
-            Server.DEFAULT: "https://cal-test.adyen.com/cal/services/Hop/v6",
-        },
-        Environment.ENVIRONMENT44: {
-            Server.DEFAULT: "https://kyc-test.adyen.com/lem/v4",
-        },
-        Environment.ENVIRONMENT45: {
-            Server.DEFAULT: "https://management-test.adyen.com/v3",
-        },
-        Environment.ENVIRONMENT46: {
-            Server.DEFAULT: "https://cal-test.adyen.com/cal/services/Notification/v6",
-        },
-        Environment.ENVIRONMENT47: {
-            Server.DEFAULT: "https://obgateway-live.adyen.com/obgateway/v1",
-        },
-        Environment.ENVIRONMENT48: {
-            Server.DEFAULT: "https://management-test.adyen.com/v1",
-        },
-        Environment.ENVIRONMENT49: {
-            Server.DEFAULT: "https://pal-test.adyen.com/pal/servlet/Payment/v68",
-        },
-        Environment.ENVIRONMENT50: {
-            Server.DEFAULT: "https://pal-test.adyen.com/pal/servlet/Payout/v68",
-        },
-        Environment.ENVIRONMENT51: {
-            Server.DEFAULT: "https://balanceplatform-api-live.adyen.com/btl/api/v4",
-        },
-        Environment.ENVIRONMENT52: {
-            Server.DEFAULT: "https://pal-test.adyen.com/pal/servlet/Recurring/v68",
-        },
-        Environment.ENVIRONMENT53: {
-            Server.DEFAULT: "https://authe-live.adyen.com/authe/api/v1",
-        },
-        Environment.ENVIRONMENT54: {
-            Server.DEFAULT: "https://checkout-test.adyen.com/checkout/possdk/v68",
-        },
-        Environment.ENVIRONMENT55: {
-            Server.DEFAULT: "https://softposconfig-live-au.adyen.com/softposconfig/v3",
-        },
-        Environment.ENVIRONMENT56: {
-            Server.DEFAULT: "https://pal-test.adyen.com/pal/servlet/StoredValue/v46",
-        },
-        Environment.ENVIRONMENT57: {
-            Server.DEFAULT: "https://device-api-test.adyen.com/v1/merchants/{merchantAccount}/devices/{deviceId}/async",
-        },
-        Environment.ENVIRONMENT58: {
-            Server.DEFAULT: "https://pal-test.adyen.com/pal/services/TestCard/v1",
-        },
-        Environment.ENVIRONMENT59: {
-            Server.DEFAULT: "https://postfmapi-test.adyen.com/postfmapi/terminal/v1",
-        },
-        Environment.ENVIRONMENT60: {
-            Server.DEFAULT: "https://balanceplatform-api-test.adyen.com/btl/v4",
-        },
-        Environment.ENVIRONMENT61: {
-            Server.DEFAULT: "https://balanceplatform-api-test.adyen.com/a2aissuer-api/v1",
-        },
-        Environment.ENVIRONMENT62: {
-            Server.DEFAULT: "https://cal-test.adyen.com/cal/services/Account/v6",
-        },
-        Environment.ENVIRONMENT63: {
-            Server.DEFAULT: "https://balance-control-test.adyen.com/balance-control/api/v2",
-        },
-        Environment.ENVIRONMENT64: {
-            Server.DEFAULT: "https://balanceplatform-api-test.adyen.com/bcl/v2",
-        },
-        Environment.ENVIRONMENT65: {
-            Server.DEFAULT: "https://pal-test.adyen.com/pal/servlet/BinLookup/v54",
-        },
-        Environment.ENVIRONMENT66: {
-            Server.DEFAULT: "https://balanceplatform-api-test.adyen.com/capital/v1",
-        },
-        Environment.ENVIRONMENT67: {
-            Server.DEFAULT: "https://checkout-test.adyen.com/v72",
-        },
-        Environment.ENVIRONMENT68: {
-            Server.DEFAULT: "https://device-api-live-apse.adyen.com/v1",
-        },
-        Environment.ENVIRONMENT69: {
-            Server.DEFAULT: "https://ca-test.adyen.com/ca/services/DataProtectionService/v1",
-        },
-        Environment.ENVIRONMENT70: {
-            Server.DEFAULT: "https://ca-test.adyen.com/ca/services/DisputeService/v30",
-        },
-        Environment.ENVIRONMENT71: {
-            Server.DEFAULT: "https://balanceplatform-api-test.adyen.com/fx/api/v1",
-        },
-        Environment.ENVIRONMENT72: {
-            Server.DEFAULT: "https://cal-test.adyen.com/cal/services/Fund/v6",
-        },
-        Environment.ENVIRONMENT73: {
-            Server.DEFAULT: "https://cal-test.adyen.com/cal/services/Hop/v6",
-        },
-        Environment.ENVIRONMENT74: {
-            Server.DEFAULT: "https://kyc-test.adyen.com/lem/v4",
-        },
-        Environment.ENVIRONMENT75: {
-            Server.DEFAULT: "https://management-test.adyen.com/v3",
-        },
-        Environment.ENVIRONMENT76: {
-            Server.DEFAULT: "https://cal-test.adyen.com/cal/services/Notification/v6",
-        },
-        Environment.ENVIRONMENT77: {
-            Server.DEFAULT: "https://obgateway-test.adyen.com/obgateway/v1",
-        },
-        Environment.ENVIRONMENT78: {
-            Server.DEFAULT: "https://management-live.adyen.com/v1",
-        },
-        Environment.ENVIRONMENT79: {
-            Server.DEFAULT: "https://pal-test.adyen.com/pal/servlet/Payment/v68",
-        },
-        Environment.ENVIRONMENT80: {
-            Server.DEFAULT: "https://pal-test.adyen.com/pal/servlet/Payout/v68",
-        },
-        Environment.ENVIRONMENT81: {
-            Server.DEFAULT: "https://balanceplatform-api-test.adyen.com/btl/api/v4",
-        },
-        Environment.ENVIRONMENT82: {
-            Server.DEFAULT: "https://pal-test.adyen.com/pal/servlet/Recurring/v68",
-        },
-        Environment.ENVIRONMENT83: {
-            Server.DEFAULT: "https://test.adyen.com/authe/api/v1",
-        },
-        Environment.ENVIRONMENT84: {
-            Server.DEFAULT: "https://checkout-test.adyen.com/checkout/possdk/v68",
-        },
-        Environment.ENVIRONMENT85: {
-            Server.DEFAULT: "https://softposconfig-live-apse.adyen.com/softposconfig/v3",
-        },
-        Environment.ENVIRONMENT86: {
-            Server.DEFAULT: "https://pal-test.adyen.com/pal/servlet/StoredValue/v46",
-        },
-        Environment.ENVIRONMENT87: {
-            Server.DEFAULT: "<local-terminal-IP-address>",
-        },
-        Environment.ENVIRONMENT88: {
-            Server.DEFAULT: "https://pal-test.adyen.com/pal/services/TestCard/v1",
-        },
-        Environment.ENVIRONMENT89: {
-            Server.DEFAULT: "https://postfmapi-test.adyen.com/postfmapi/terminal/v1",
-        },
-        Environment.ENVIRONMENT90: {
-            Server.DEFAULT: "https://balanceplatform-api-test.adyen.com/btl/v4",
-        },
-        Environment.ENVIRONMENT91: {
-            Server.DEFAULT: "https://balanceplatform-api-test.adyen.com/a2aissuer-api/v1",
-        },
-        Environment.ENVIRONMENT92: {
-            Server.DEFAULT: "https://cal-test.adyen.com/cal/services/Account/v6",
-        },
-        Environment.ENVIRONMENT93: {
-            Server.DEFAULT: "https://balance-control-test.adyen.com/balance-control/api/v2",
-        },
-        Environment.ENVIRONMENT94: {
-            Server.DEFAULT: "https://balanceplatform-api-test.adyen.com/bcl/v2",
-        },
-        Environment.ENVIRONMENT95: {
-            Server.DEFAULT: "https://pal-test.adyen.com/pal/servlet/BinLookup/v54",
-        },
-        Environment.ENVIRONMENT96: {
-            Server.DEFAULT: "https://balanceplatform-api-test.adyen.com/capital/v1",
-        },
-        Environment.ENVIRONMENT97: {
-            Server.DEFAULT: "https://checkout-test.adyen.com/v72",
-        },
-        Environment.ENVIRONMENT98: {
-            Server.DEFAULT: "https://device-api-live.adyen.com/v1",
-        },
-        Environment.ENVIRONMENT99: {
-            Server.DEFAULT: "https://ca-test.adyen.com/ca/services/DataProtectionService/v1",
-        },
-        Environment.ENVIRONMENT100: {
-            Server.DEFAULT: "https://ca-test.adyen.com/ca/services/DisputeService/v30",
-        },
-        Environment.ENVIRONMENT101: {
-            Server.DEFAULT: "https://balanceplatform-api-test.adyen.com/fx/api/v1",
-        },
-        Environment.ENVIRONMENT102: {
-            Server.DEFAULT: "https://cal-test.adyen.com/cal/services/Fund/v6",
-        },
-        Environment.ENVIRONMENT103: {
-            Server.DEFAULT: "https://cal-test.adyen.com/cal/services/Hop/v6",
-        },
-        Environment.ENVIRONMENT104: {
-            Server.DEFAULT: "https://kyc-test.adyen.com/lem/v4",
-        },
-        Environment.ENVIRONMENT105: {
-            Server.DEFAULT: "https://management-test.adyen.com/v3",
-        },
-        Environment.ENVIRONMENT106: {
-            Server.DEFAULT: "https://cal-test.adyen.com/cal/services/Notification/v6",
-        },
-        Environment.ENVIRONMENT107: {
-            Server.DEFAULT: "https://obgateway-test.adyen.com/obgateway/v1",
-        },
-        Environment.ENVIRONMENT108: {
-            Server.DEFAULT: "https://management-live.adyen.com/v1",
-        },
-        Environment.ENVIRONMENT109: {
-            Server.DEFAULT: "https://pal-test.adyen.com/pal/servlet/Payment/v68",
-        },
-        Environment.ENVIRONMENT110: {
-            Server.DEFAULT: "https://pal-test.adyen.com/pal/servlet/Payout/v68",
-        },
-        Environment.ENVIRONMENT111: {
-            Server.DEFAULT: "https://balanceplatform-api-test.adyen.com/btl/api/v4",
-        },
-        Environment.ENVIRONMENT112: {
-            Server.DEFAULT: "https://pal-test.adyen.com/pal/servlet/Recurring/v68",
-        },
-        Environment.ENVIRONMENT113: {
-            Server.DEFAULT: "https://test.adyen.com/authe/api/v1",
-        },
-        Environment.ENVIRONMENT114: {
-            Server.DEFAULT: "https://checkout-test.adyen.com/checkout/possdk/v68",
-        },
-        Environment.ENVIRONMENT115: {
-            Server.DEFAULT: "https://softposconfig-live.adyen.com/softposconfig/v3",
-        },
-        Environment.ENVIRONMENT116: {
-            Server.DEFAULT: "https://pal-test.adyen.com/pal/servlet/StoredValue/v46",
-        },
-        Environment.ENVIRONMENT117: {
-            Server.DEFAULT: "https://device-api-test.adyen.com/v1/merchants/{merchantAccount}/devices/{deviceId}/sync",
-        },
-        Environment.ENVIRONMENT118: {
-            Server.DEFAULT: "https://pal-test.adyen.com/pal/services/TestCard/v1",
-        },
-        Environment.ENVIRONMENT119: {
-            Server.DEFAULT: "https://postfmapi-test.adyen.com/postfmapi/terminal/v1",
-        },
-        Environment.ENVIRONMENT120: {
-            Server.DEFAULT: "https://balanceplatform-api-test.adyen.com/btl/v4",
-        },
-        Environment.ENVIRONMENT121: {
-            Server.DEFAULT: "https://balanceplatform-api-test.adyen.com/a2aissuer-api/v1",
-        },
-        Environment.ENVIRONMENT122: {
-            Server.DEFAULT: "https://cal-test.adyen.com/cal/services/Account/v6",
-        },
-        Environment.ENVIRONMENT123: {
-            Server.DEFAULT: "https://balance-control-test.adyen.com/balance-control/api/v2",
-        },
-        Environment.ENVIRONMENT124: {
-            Server.DEFAULT: "https://balanceplatform-api-test.adyen.com/bcl/v2",
-        },
-        Environment.ENVIRONMENT125: {
-            Server.DEFAULT: "https://pal-test.adyen.com/pal/servlet/BinLookup/v54",
-        },
-        Environment.ENVIRONMENT126: {
-            Server.DEFAULT: "https://balanceplatform-api-test.adyen.com/capital/v1",
-        },
-        Environment.ENVIRONMENT127: {
-            Server.DEFAULT: "https://checkout-test.adyen.com/v72",
-        },
-        Environment.ENVIRONMENT128: {
-            Server.DEFAULT: "https://device-api-live-us.adyen.com/v1",
-        },
-        Environment.ENVIRONMENT129: {
-            Server.DEFAULT: "https://ca-test.adyen.com/ca/services/DataProtectionService/v1",
-        },
-        Environment.ENVIRONMENT130: {
-            Server.DEFAULT: "https://ca-test.adyen.com/ca/services/DisputeService/v30",
-        },
-        Environment.ENVIRONMENT131: {
-            Server.DEFAULT: "https://balanceplatform-api-test.adyen.com/fx/api/v1",
-        },
-        Environment.ENVIRONMENT132: {
-            Server.DEFAULT: "https://cal-test.adyen.com/cal/services/Fund/v6",
-        },
-        Environment.ENVIRONMENT133: {
-            Server.DEFAULT: "https://cal-test.adyen.com/cal/services/Hop/v6",
-        },
-        Environment.ENVIRONMENT134: {
-            Server.DEFAULT: "https://kyc-test.adyen.com/lem/v4",
-        },
-        Environment.ENVIRONMENT135: {
-            Server.DEFAULT: "https://management-test.adyen.com/v3",
-        },
-        Environment.ENVIRONMENT136: {
-            Server.DEFAULT: "https://cal-test.adyen.com/cal/services/Notification/v6",
-        },
-        Environment.ENVIRONMENT137: {
-            Server.DEFAULT: "https://obgateway-test.adyen.com/obgateway/v1",
-        },
-        Environment.ENVIRONMENT138: {
-            Server.DEFAULT: "https://management-live.adyen.com/v1",
-        },
-        Environment.ENVIRONMENT139: {
-            Server.DEFAULT: "https://pal-test.adyen.com/pal/servlet/Payment/v68",
-        },
-        Environment.ENVIRONMENT140: {
-            Server.DEFAULT: "https://pal-test.adyen.com/pal/servlet/Payout/v68",
-        },
-        Environment.ENVIRONMENT141: {
-            Server.DEFAULT: "https://balanceplatform-api-test.adyen.com/btl/api/v4",
-        },
-        Environment.ENVIRONMENT142: {
-            Server.DEFAULT: "https://pal-test.adyen.com/pal/servlet/Recurring/v68",
-        },
-        Environment.ENVIRONMENT143: {
-            Server.DEFAULT: "https://test.adyen.com/authe/api/v1",
-        },
-        Environment.ENVIRONMENT144: {
-            Server.DEFAULT: "https://checkout-test.adyen.com/checkout/possdk/v68",
-        },
-        Environment.ENVIRONMENT145: {
-            Server.DEFAULT: "https://softposconfig-live-nea.adyen.com/softposconfig/v3",
-        },
-        Environment.ENVIRONMENT146: {
-            Server.DEFAULT: "https://pal-test.adyen.com/pal/servlet/StoredValue/v46",
-        },
-        Environment.ENVIRONMENT147: {
-            Server.DEFAULT: "https://device-api-test.adyen.com/v1/merchants/{merchantAccount}/devices/{deviceId}/sync",
-        },
-        Environment.ENVIRONMENT148: {
-            Server.DEFAULT: "https://pal-test.adyen.com/pal/services/TestCard/v1",
-        },
-        Environment.ENVIRONMENT149: {
-            Server.DEFAULT: "https://postfmapi-test.adyen.com/postfmapi/terminal/v1",
-        },
-        Environment.ENVIRONMENT150: {
-            Server.DEFAULT: "https://balanceplatform-api-test.adyen.com/btl/v4",
-        },
-        Environment.ENVIRONMENT151: {
-            Server.DEFAULT: "https://balanceplatform-api-test.adyen.com/a2aissuer-api/v1",
-        },
-        Environment.ENVIRONMENT152: {
-            Server.DEFAULT: "https://cal-test.adyen.com/cal/services/Account/v6",
-        },
-        Environment.ENVIRONMENT153: {
-            Server.DEFAULT: "https://balance-control-test.adyen.com/balance-control/api/v2",
-        },
-        Environment.ENVIRONMENT154: {
-            Server.DEFAULT: "https://balanceplatform-api-test.adyen.com/bcl/v2",
-        },
-        Environment.ENVIRONMENT155: {
-            Server.DEFAULT: "https://pal-test.adyen.com/pal/servlet/BinLookup/v54",
-        },
-        Environment.ENVIRONMENT156: {
-            Server.DEFAULT: "https://balanceplatform-api-test.adyen.com/capital/v1",
-        },
-        Environment.ENVIRONMENT157: {
-            Server.DEFAULT: "https://checkout-test.adyen.com/v72",
-        },
-        Environment.ENVIRONMENT158: {
-            Server.DEFAULT: "https://device-api-test.adyen.com/v1",
-        },
-        Environment.ENVIRONMENT159: {
-            Server.DEFAULT: "https://ca-test.adyen.com/ca/services/DataProtectionService/v1",
-        },
-        Environment.ENVIRONMENT160: {
-            Server.DEFAULT: "https://ca-test.adyen.com/ca/services/DisputeService/v30",
-        },
-        Environment.ENVIRONMENT161: {
-            Server.DEFAULT: "https://balanceplatform-api-test.adyen.com/fx/api/v1",
-        },
-        Environment.ENVIRONMENT162: {
-            Server.DEFAULT: "https://cal-test.adyen.com/cal/services/Fund/v6",
-        },
-        Environment.ENVIRONMENT163: {
-            Server.DEFAULT: "https://cal-test.adyen.com/cal/services/Hop/v6",
-        },
-        Environment.ENVIRONMENT164: {
-            Server.DEFAULT: "https://kyc-test.adyen.com/lem/v4",
-        },
-        Environment.ENVIRONMENT165: {
-            Server.DEFAULT: "https://management-test.adyen.com/v3",
-        },
-        Environment.ENVIRONMENT166: {
-            Server.DEFAULT: "https://cal-test.adyen.com/cal/services/Notification/v6",
-        },
-        Environment.ENVIRONMENT167: {
-            Server.DEFAULT: "https://obgateway-test.adyen.com/obgateway/v1",
-        },
-        Environment.ENVIRONMENT168: {
-            Server.DEFAULT: "https://management-live.adyen.com/v1",
-        },
-        Environment.ENVIRONMENT169: {
-            Server.DEFAULT: "https://pal-test.adyen.com/pal/servlet/Payment/v68",
-        },
-        Environment.ENVIRONMENT170: {
-            Server.DEFAULT: "https://pal-test.adyen.com/pal/servlet/Payout/v68",
-        },
-        Environment.ENVIRONMENT171: {
-            Server.DEFAULT: "https://balanceplatform-api-test.adyen.com/btl/api/v4",
-        },
-        Environment.ENVIRONMENT172: {
-            Server.DEFAULT: "https://pal-test.adyen.com/pal/servlet/Recurring/v68",
-        },
-        Environment.ENVIRONMENT173: {
-            Server.DEFAULT: "https://test.adyen.com/authe/api/v1",
-        },
-        Environment.ENVIRONMENT174: {
-            Server.DEFAULT: "https://checkout-test.adyen.com/checkout/possdk/v68",
-        },
-        Environment.ENVIRONMENT175: {
-            Server.DEFAULT: "https://softposconfig-live-us.adyen.com/softposconfig/v3",
-        },
-        Environment.ENVIRONMENT176: {
-            Server.DEFAULT: "https://pal-test.adyen.com/pal/servlet/StoredValue/v46",
-        },
-        Environment.ENVIRONMENT177: {
-            Server.DEFAULT: "https://device-api-test.adyen.com/v1/merchants/{merchantAccount}/devices/{deviceId}/sync",
-        },
-        Environment.ENVIRONMENT178: {
-            Server.DEFAULT: "https://pal-test.adyen.com/pal/services/TestCard/v1",
-        },
-        Environment.ENVIRONMENT179: {
-            Server.DEFAULT: "https://postfmapi-test.adyen.com/postfmapi/terminal/v1",
-        },
-        Environment.ENVIRONMENT180: {
-            Server.DEFAULT: "https://balanceplatform-api-test.adyen.com/btl/v4",
+            Server.DEFAULT1: "https://pal-test.adyen.com/pal/servlet/Payment/v68",
+            Server.DEFAULT2: "https://pal-test.adyen.com/pal/servlet/Recurring/v68",
+            Server.DEFAULT3: "https://pal-test.adyen.com/pal/servlet/Payout/v68",
+            Server.DEFAULT4: "https://pal-test.adyen.com/pal/servlet/BinLookup/v54",
+            Server.DEFAULT5: "https://pal-test.adyen.com/pal/servlet/StoredValue/v46",
+            Server.DEFAULT6: "https://ca-test.adyen.com/ca/services/DataProtectionService/v1",
+            Server.DEFAULT7: "https://balanceplatform-api-test.adyen.com/fx/api/v1",
+            Server.DEFAULT8: "https://pal-test.adyen.com/pal/services/TestCard/v1",
+            Server.DEFAULT9: "https://management-test.adyen.com/v3",
+            Server.DEFAULT10: "https://cal-test.adyen.com/cal/services/Account/v6",
+            Server.DEFAULT11: "https://balance-control-test.adyen.com/balance-control/api/v2",
+            Server.DEFAULT12: "https://cal-test.adyen.com/cal/services/Notification/v6",
+            Server.DEFAULT13: "https://balanceplatform-api-test.adyen.com/bcl/v2",
+            Server.DEFAULT14: "https://balanceplatform-api-test.adyen.com/btl/v4",
+            Server.DEFAULT15: "https://balanceplatform-api-test.adyen.com/capital/v1",
+            Server.DEFAULT16: "https://cal-test.adyen.com/cal/services/Fund/v6",
+            Server.DEFAULT17: "https://test.adyen.com/authe/api/v1",
+            Server.DEFAULT18: "https://kyc-test.adyen.com/lem/v4",
+            Server.DEFAULT19: "https://cal-test.adyen.com/cal/services/Hop/v6",
+            Server.DEFAULT20: "https://balanceplatform-api-test.adyen.com/a2aissuer-api/v1",
+            Server.DEFAULT21: "https://obgateway-test.adyen.com/obgateway/v1",
+            Server.DEFAULT22: "https://ca-test.adyen.com/ca/services/DisputeService/v30",
+            Server.DEFAULT23: "https://balanceplatform-api-test.adyen.com/btl/api/v4",
+            Server.DEFAULT24: "https://device-api-test.adyen.com/v1",
+            Server.DEFAULT25: "https://softposconfig-test.adyen.com/softposconfig/v3",
+            Server.DEFAULT26: "https://management-test.adyen.com/v1",
+            Server.DEFAULT27: "https://checkout-test.adyen.com/checkout/possdk/v68",
+            Server.DEFAULT28: "https://postfmapi-test.adyen.com/postfmapi/terminal/v1",
         },
     }
 
@@ -1137,14 +271,7 @@ class Configuration(HttpClientConfiguration):
             String: The base URI.
 
         """
-        parameters = {
-            "merchantAccount": {"value": self.merchant_account, "encode": False},
-            "deviceId": {"value": self.device_id, "encode": False},
-        }
-
-        return APIHelper.append_url_with_template_parameters(
-            self.environments[self.environment][server], parameters,
-        )
+        return self.environments[self.environment][server]
 
     @classmethod
     def from_environment(cls, dotenv_path=None, **overrides):
@@ -1174,9 +301,7 @@ class Configuration(HttpClientConfiguration):
         retry_methods = [v.strip() for v in methods.split(",") if v.strip()]\
             if methods else None
         environment = Environment.from_value(
-            os.getenv("ENVIRONMENT"), Environment.PRODUCTION)
-        merchant_account = os.getenv("MERCHANT_ACCOUNT", "merchantAccountDefaultValue")
-        device_id = os.getenv("DEVICE_ID", "deviceIdDefaultValue")
+            os.getenv("ENVIRONMENT"), Environment.TEST)
 
         from adyen.http.auth.api_key_auth import ApiKeyAuthCredentials
         from adyen.http.auth.basic_auth import BasicAuthCredentials
@@ -1191,10 +316,7 @@ class Configuration(HttpClientConfiguration):
             retry_statuses=retry_statuses,
             retry_methods=retry_methods,
             environment=environment,
-            merchant_account=merchant_account,
-            device_id=device_id,
             proxy_settings=ProxySettings.from_environment(),
-            logging_configuration=LoggingConfiguration.from_environment(),
             api_key_auth_credentials=ApiKeyAuthCredentials.from_environment(),
             basic_auth_credentials=BasicAuthCredentials.from_environment(),
             client_key_credentials=ClientKeyCredentials.from_environment(),

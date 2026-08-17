@@ -1,8 +1,6 @@
 
 # Card Identification
 
-*This model accepts additional fields of type Any.*
-
 ## Structure
 
 `CardIdentification`
@@ -18,13 +16,10 @@
 | `start_month` | `str` | Optional | The month when the card was issued. Applies only to some UK debit cards.<br><br>Format: two digits. Add a leading zero for single-digit months. For example:<br><br>* 03 = March<br>* 11 = November<br><br>**Constraints**: *Minimum Length*: `2`, *Maximum Length*: `2` |
 | `start_year` | `str` | Optional | The year when the card was issued. Applies only to some UK debit cards.<br><br>Format: four digits. For example: 2020<br><br>**Constraints**: *Minimum Length*: `4`, *Maximum Length*: `4` |
 | `stored_payment_method_id` | `str` | Optional | The unique [token](/payouts/payout-service/pay-out-to-cards/manage-card-information#save-card-details) created to identify the counterparty. |
-| `additional_properties` | `Dict[str, Any]` | Optional | - |
 
 ## Example
 
 ```python
-import jsonpickle
-
 from adyen.models.card_identification import CardIdentification
 
 card_identification = CardIdentification(
@@ -32,10 +27,7 @@ card_identification = CardIdentification(
     expiry_year='expiryYear0',
     issue_number='issueNumber8',
     number='number4',
-    start_month='startMonth6',
-    additional_properties={
-        'exampleAdditionalProperty': jsonpickle.decode('{"key1":"val1","key2":"val2"}')
-    }
+    start_month='startMonth6'
 )
 ```
 

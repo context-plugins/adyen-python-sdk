@@ -1,14 +1,12 @@
 
-# Card Reader Apdu Request
+# Card Reader APDU Request
 
 It contains the APDU request to send to the chip of the card, and a possible invitation message to display on the CashierInterface or the CustomerInterface.
 Content of the Card Reader APDU Request message.
 
-*This model accepts additional fields of type Any.*
-
 ## Structure
 
-`CardReaderApduRequest`
+`CardReaderAPDURequest`
 
 ## Fields
 
@@ -20,25 +18,19 @@ Content of the Card Reader APDU Request message.
 | `apdu_par_2` | `str` | Required | Parameter 2 field of the APDU command(P2).<br><br>**Constraints**: *Pattern*: `^.{1,1}$` |
 | `apdu_data` | `str` | Optional | Data field of the APDU command (Lc + Data).<br><br>**Constraints**: *Pattern*: `^.+$` |
 | `apdu_expected_length` | `str` | Optional | Expected length of the data field of the APDU response to the command (Le).<br><br>**Constraints**: *Pattern*: `^.{1,1}$` |
-| `additional_properties` | `Dict[str, Any]` | Optional | - |
 
 ## Example
 
 ```python
-import jsonpickle
+from adyen.models.card_reader_apdu_request import CardReaderAPDURequest
 
-from adyen.models.card_reader_apdu_request import CardReaderApduRequest
-
-card_reader_apdu_request = CardReaderApduRequest(
+card_reader_apdu_request = CardReaderAPDURequest(
     apdu_class='APDUClass8',
     apdu_instruction='APDUInstruction0',
     apdu_par_1='APDUPar14',
     apdu_par_2='APDUPar24',
     apdu_data='APDUData8',
-    apdu_expected_length='APDUExpectedLength2',
-    additional_properties={
-        'exampleAdditionalProperty': jsonpickle.decode('{"key1":"val1","key2":"val2"}')
-    }
+    apdu_expected_length='APDUExpectedLength2'
 )
 ```
 

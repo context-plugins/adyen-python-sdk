@@ -26,8 +26,6 @@ class Nonprofit(object):
         terms_and_conditions_url (str): The URL to the terms and conditions of the
             nonprofit.
         website (str): The URL to the website of the nonprofit.
-        additional_properties (Dict[str, Any]): The additional properties for the
-            model.
 
     """
 
@@ -60,8 +58,7 @@ class Nonprofit(object):
         regions=None,
         terms_and_conditions_url=None,
         website=None,
-        id=APIHelper.SKIP,
-        additional_properties=None):
+        id=APIHelper.SKIP):
         """Initialize a Nonprofit instance."""
         # Initialize members of the class
         self.causes = causes
@@ -75,11 +72,6 @@ class Nonprofit(object):
         self.regions = regions
         self.terms_and_conditions_url = terms_and_conditions_url
         self.website = website
-
-        # Add additional model properties to the instance
-        if additional_properties is None:
-            additional_properties = {}
-        self.additional_properties = additional_properties
 
     @classmethod
     def from_dictionary(cls,
@@ -142,11 +134,6 @@ class Nonprofit(object):
             if dictionary.get("id")\
                 else APIHelper.SKIP
 
-        additional_properties = APIHelper.get_additional_properties(
-            dictionary={k: v for k, v in dictionary.items()
-                        if k not in cls._names.values()},
-            unboxing_function=lambda value: value)
-
         # Return an object of this model
         return cls(causes,
                    description,
@@ -157,8 +144,7 @@ class Nonprofit(object):
                    regions,
                    terms_and_conditions_url,
                    website,
-                   id,
-                   additional_properties)
+                   id)
 
     def __repr__(self):
         """Return a unambiguous string representation."""
@@ -176,7 +162,6 @@ class Nonprofit(object):
         _regions=self.regions
         _terms_and_conditions_url=self.terms_and_conditions_url
         _website=self.website
-        _additional_properties=self.additional_properties
         return (
             f"{self.__class__.__name__}("
             f"causes={_causes!r}, "
@@ -189,7 +174,6 @@ class Nonprofit(object):
             f"regions={_regions!r}, "
             f"terms_and_conditions_url={_terms_and_conditions_url!r}, "
             f"website={_website!r}, "
-            f"additional_properties={_additional_properties!r}, "
             f")"
         )
 
@@ -209,7 +193,6 @@ class Nonprofit(object):
         _regions=self.regions
         _terms_and_conditions_url=self.terms_and_conditions_url
         _website=self.website
-        _additional_properties=self.additional_properties
         return (
             f"{self.__class__.__name__}("
             f"causes={_causes!s}, "
@@ -222,6 +205,5 @@ class Nonprofit(object):
             f"regions={_regions!s}, "
             f"terms_and_conditions_url={_terms_and_conditions_url!s}, "
             f"website={_website!s}, "
-            f"additional_properties={_additional_properties!s}, "
             f")"
         )

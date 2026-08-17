@@ -14,16 +14,21 @@ class ThreeDSecureData(object):
     Cartes Bancaires).
 
     Attributes:
-        authentication_response (AuthenticationResponse): The model property of type
-            AuthenticationResponse.
+        authentication_response (AuthenticationResponseEnum): In 3D Secure 2, this is
+            the `transStatus` from the challenge result. If the transaction was
+            frictionless, omit this parameter.
         cavv (str): The cardholder authentication value (base64 encoded, 20 bytes in
             a decoded form).
         cavv_algorithm (str): The CAVV algorithm used. Include this only for 3D
             Secure 1.
-        challenge_cancel (ChallengeCancel): The model property of type
-            ChallengeCancel.
-        directory_response (DirectoryResponse): The model property of type
-            DirectoryResponse.
+        challenge_cancel (ChallengeCancelEnum): Indicator informing the Access
+            Control Server (ACS) and the Directory Server (DS) that the
+            authentication has been cancelled. For possible values, refer to [3D
+            Secure API
+            reference](https://docs.adyen.com/online-payments/3d-secure/api-reference#
+            mpidata).
+        directory_response (DirectoryResponseEnum): In 3D Secure 2, this is the
+            `transStatus` from the `ARes`.
         ds_trans_id (str): Supported for 3D Secure 2. The unique transaction
             identifier assigned by the Directory Server (DS) to identify a single
             transaction.
@@ -39,8 +44,6 @@ class ThreeDSecureData(object):
             ble-transstatusreason-values).
         xid (str): Supported for 3D Secure 1. The transaction identifier
             (Base64-encoded, 20 bytes in a decoded form).
-        additional_properties (Dict[str, Any]): The additional properties for the
-            model.
 
     """
 
@@ -89,8 +92,7 @@ class ThreeDSecureData(object):
         three_ds_version=APIHelper.SKIP,
         token_authentication_verification_value=APIHelper.SKIP,
         trans_status_reason=APIHelper.SKIP,
-        xid=APIHelper.SKIP,
-        additional_properties=None):
+        xid=APIHelper.SKIP):
         """Initialize a ThreeDSecureData instance."""
         # Initialize members of the class
         if authentication_response is not APIHelper.SKIP:
@@ -118,11 +120,6 @@ class ThreeDSecureData(object):
             self.trans_status_reason = trans_status_reason
         if xid is not APIHelper.SKIP:
             self.xid = xid
-
-        # Add additional model properties to the instance
-        if additional_properties is None:
-            additional_properties = {}
-        self.additional_properties = additional_properties
 
     @classmethod
     def from_dictionary(cls,
@@ -191,11 +188,6 @@ class ThreeDSecureData(object):
             if dictionary.get("xid")\
                 else APIHelper.SKIP
 
-        additional_properties = APIHelper.get_additional_properties(
-            dictionary={k: v for k, v in dictionary.items()
-                        if k not in cls._names.values()},
-            unboxing_function=lambda value: value)
-
         # Return an object of this model
         return cls(authentication_response,
                    cavv,
@@ -208,8 +200,28 @@ class ThreeDSecureData(object):
                    three_ds_version,
                    token_authentication_verification_value,
                    trans_status_reason,
-                   xid,
-                   additional_properties)
+                   xid)
+
+    @classmethod
+    def validate(cls, dictionary):
+        """Validate dictionary against class required properties
+
+        Args:
+            dictionary (dictionary): A dictionary representation of the object
+            as obtained from the deserialization of the server's response. The
+            keys MUST match property names in the API description.
+
+        Returns:
+            boolean : if dictionary is valid contains required properties.
+
+        """
+        if isinstance(dictionary, cls):
+            return True
+
+        if not isinstance(dictionary, dict):
+            return False
+
+        return True
 
     def __repr__(self):
         """Return a unambiguous string representation."""
@@ -273,7 +285,6 @@ class ThreeDSecureData(object):
             if hasattr(self, "xid")
             else None
         )
-        _additional_properties=self.additional_properties
         return (
             f"{self.__class__.__name__}("
             f"authentication_response={_authentication_response!r}, "
@@ -288,7 +299,6 @@ class ThreeDSecureData(object):
             f"token_authentication_verification_value={_token_authentication_verification_value!r}, "
             f"trans_status_reason={_trans_status_reason!r}, "
             f"xid={_xid!r}, "
-            f"additional_properties={_additional_properties!r}, "
             f")"
         )
 
@@ -354,7 +364,6 @@ class ThreeDSecureData(object):
             if hasattr(self, "xid")
             else None
         )
-        _additional_properties=self.additional_properties
         return (
             f"{self.__class__.__name__}("
             f"authentication_response={_authentication_response!s}, "
@@ -369,6 +378,5 @@ class ThreeDSecureData(object):
             f"token_authentication_verification_value={_token_authentication_verification_value!s}, "
             f"trans_status_reason={_trans_status_reason!s}, "
             f"xid={_xid!s}, "
-            f"additional_properties={_additional_properties!s}, "
             f")"
         )

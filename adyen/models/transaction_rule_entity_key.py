@@ -15,8 +15,6 @@ class TransactionRuleEntityKey(object):
         entity_type (str): The type of resource.  Possible values:
             **balancePlatform**, **paymentInstrumentGroup**, **accountHolder**,
             **balanceAccount**, or **paymentInstrument**.
-        additional_properties (Dict[str, Any]): The additional properties for the
-            model.
 
     """
 
@@ -34,19 +32,13 @@ class TransactionRuleEntityKey(object):
     def __init__(
         self,
         entity_reference=APIHelper.SKIP,
-        entity_type=APIHelper.SKIP,
-        additional_properties=None):
+        entity_type=APIHelper.SKIP):
         """Initialize a TransactionRuleEntityKey instance."""
         # Initialize members of the class
         if entity_reference is not APIHelper.SKIP:
             self.entity_reference = entity_reference
         if entity_type is not APIHelper.SKIP:
             self.entity_type = entity_type
-
-        # Add additional model properties to the instance
-        if additional_properties is None:
-            additional_properties = {}
-        self.additional_properties = additional_properties
 
     @classmethod
     def from_dictionary(cls,
@@ -75,15 +67,9 @@ class TransactionRuleEntityKey(object):
             if dictionary.get("entityType")\
                 else APIHelper.SKIP
 
-        additional_properties = APIHelper.get_additional_properties(
-            dictionary={k: v for k, v in dictionary.items()
-                        if k not in cls._names.values()},
-            unboxing_function=lambda value: value)
-
         # Return an object of this model
         return cls(entity_reference,
-                   entity_type,
-                   additional_properties)
+                   entity_type)
 
     def __repr__(self):
         """Return a unambiguous string representation."""
@@ -97,12 +83,10 @@ class TransactionRuleEntityKey(object):
             if hasattr(self, "entity_type")
             else None
         )
-        _additional_properties=self.additional_properties
         return (
             f"{self.__class__.__name__}("
             f"entity_reference={_entity_reference!r}, "
             f"entity_type={_entity_type!r}, "
-            f"additional_properties={_additional_properties!r}, "
             f")"
         )
 
@@ -118,11 +102,9 @@ class TransactionRuleEntityKey(object):
             if hasattr(self, "entity_type")
             else None
         )
-        _additional_properties=self.additional_properties
         return (
             f"{self.__class__.__name__}("
             f"entity_reference={_entity_reference!s}, "
             f"entity_type={_entity_type!s}, "
-            f"additional_properties={_additional_properties!s}, "
             f")"
         )

@@ -10,6 +10,7 @@ from adyen.api_helper import APIHelper
 class RepaymentTerm(object):
     """Implementation of the 'RepaymentTerm' model.
 
+    An object containing the details of the configuration for repayment term.,
     Contains information about the time period in which your user must repay the
     total amount of the grant.
 
@@ -17,8 +18,6 @@ class RepaymentTerm(object):
         estimated_days (int): The estimated term for repaying the grant, in days.
         maximum_days (int): The maximum term for repaying the grant, in days. Only
             applies when `contractType` is **loan**.
-        additional_properties (Dict[str, Any]): The additional properties for the
-            model.
 
     """
 
@@ -35,18 +34,12 @@ class RepaymentTerm(object):
     def __init__(
         self,
         estimated_days=None,
-        maximum_days=APIHelper.SKIP,
-        additional_properties=None):
+        maximum_days=APIHelper.SKIP):
         """Initialize a RepaymentTerm instance."""
         # Initialize members of the class
         self.estimated_days = estimated_days
         if maximum_days is not APIHelper.SKIP:
             self.maximum_days = maximum_days
-
-        # Add additional model properties to the instance
-        if additional_properties is None:
-            additional_properties = {}
-        self.additional_properties = additional_properties
 
     @classmethod
     def from_dictionary(cls,
@@ -75,15 +68,9 @@ class RepaymentTerm(object):
             if dictionary.get("maximumDays")\
                 else APIHelper.SKIP
 
-        additional_properties = APIHelper.get_additional_properties(
-            dictionary={k: v for k, v in dictionary.items()
-                        if k not in cls._names.values()},
-            unboxing_function=lambda value: value)
-
         # Return an object of this model
         return cls(estimated_days,
-                   maximum_days,
-                   additional_properties)
+                   maximum_days)
 
     def __repr__(self):
         """Return a unambiguous string representation."""
@@ -93,12 +80,10 @@ class RepaymentTerm(object):
             if hasattr(self, "maximum_days")
             else None
         )
-        _additional_properties=self.additional_properties
         return (
             f"{self.__class__.__name__}("
             f"estimated_days={_estimated_days!r}, "
             f"maximum_days={_maximum_days!r}, "
-            f"additional_properties={_additional_properties!r}, "
             f")"
         )
 
@@ -110,11 +95,9 @@ class RepaymentTerm(object):
             if hasattr(self, "maximum_days")
             else None
         )
-        _additional_properties=self.additional_properties
         return (
             f"{self.__class__.__name__}("
             f"estimated_days={_estimated_days!s}, "
             f"maximum_days={_maximum_days!s}, "
-            f"additional_properties={_additional_properties!s}, "
             f")"
         )

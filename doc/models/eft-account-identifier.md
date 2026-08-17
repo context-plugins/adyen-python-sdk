@@ -1,11 +1,9 @@
 
-# Eft Account Identifier
-
-*This model accepts additional fields of type Any.*
+# EFT Account Identifier
 
 ## Structure
 
-`EftAccountIdentifier`
+`EFTAccountIdentifier`
 
 ## Fields
 
@@ -14,22 +12,16 @@
 | `account_number` | `str` | Required | The account number of the bank account. |
 | `branch` | `str` | Required | Identifies the specific branch where the account is held within the Canadian banking system. |
 | `institution` | `str` | Required | The financial institution that identifies the bank in Canada. |
-| `additional_properties` | `Dict[str, Any]` | Optional | - |
 
 ## Example
 
 ```python
-import jsonpickle
+from adyen.models.eft_account_identifier import EFTAccountIdentifier
 
-from adyen.models.eft_account_identifier import EftAccountIdentifier
-
-eft_account_identifier = EftAccountIdentifier(
+eft_account_identifier = EFTAccountIdentifier(
     account_number='accountNumber2',
     branch='branch0',
-    institution='institution4',
-    additional_properties={
-        'exampleAdditionalProperty': jsonpickle.decode('{"key1":"val1","key2":"val2"}')
-    }
+    institution='institution4'
 )
 ```
 

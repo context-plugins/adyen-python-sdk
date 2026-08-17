@@ -3,8 +3,6 @@
 
 An object containing the details of the 30-day repayment threshold.
 
-*This model accepts additional fields of type Any.*
-
 ## Structure
 
 `Repayment`
@@ -14,44 +12,29 @@ An object containing the details of the 30-day repayment threshold.
 | Name | Type | Tags | Description |
 |  --- | --- | --- | --- |
 | `basis_points` | `int` | Required | The repayment that is deducted daily from incoming net volume, in [basis points](https://www.investopedia.com/terms/b/basispoint.asp). |
-| `term` | [`Term`](../../doc/models/term.md) | Optional | - |
-| `threshold` | [`ThresholdRepayment`](../../doc/models/threshold-repayment.md) | Optional | - |
-| `additional_properties` | `Dict[str, Any]` | Optional | - |
+| `term` | [`RepaymentTerm`](../../doc/models/repayment-term.md) | Optional | An object containing the details of the configuration for repayment term. |
+| `threshold` | [`ThresholdRepayment2`](../../doc/models/threshold-repayment-2.md) | Optional | An object containing the details of the 30-day repayment threshold. |
 
 ## Example
 
 ```python
-import jsonpickle
-
-from adyen.models.amount_5 import Amount5
+from adyen.models.amount_17 import Amount17
 from adyen.models.repayment import Repayment
-from adyen.models.term import Term
-from adyen.models.threshold_repayment import ThresholdRepayment
+from adyen.models.repayment_term import RepaymentTerm
+from adyen.models.threshold_repayment_2 import ThresholdRepayment2
 
 repayment = Repayment(
     basis_points=18,
-    term=Term(
+    term=RepaymentTerm(
         estimated_days=248,
-        maximum_days=24,
-        additional_properties={
-            'exampleAdditionalProperty': jsonpickle.decode('{"key1":"val1","key2":"val2"}')
-        }
+        maximum_days=24
     ),
-    threshold=ThresholdRepayment(
-        amount=Amount5(
+    threshold=ThresholdRepayment2(
+        amount=Amount17(
             currency='currency2',
-            value=110,
-            additional_properties={
-                'exampleAdditionalProperty': jsonpickle.decode('{"key1":"val1","key2":"val2"}')
-            }
-        ),
-        additional_properties={
-            'exampleAdditionalProperty': jsonpickle.decode('{"key1":"val1","key2":"val2"}')
-        }
-    ),
-    additional_properties={
-        'exampleAdditionalProperty': jsonpickle.decode('{"key1":"val1","key2":"val2"}')
-    }
+            value=110
+        )
+    )
 )
 ```
 

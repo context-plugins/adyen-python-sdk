@@ -17,7 +17,7 @@ class VerificationError(object):
     """Implementation of the 'VerificationError' model.
 
     Attributes:
-        capabilities (List[Capability]): Contains the capabilities that the
+        capabilities (List[CapabilityEnum]): Contains the capabilities that the
             verification error applies to.
         code (str): The verification error code.
         message (str): A description of the error.
@@ -25,9 +25,8 @@ class VerificationError(object):
             can take to resolve the verification error.
         sub_errors (List[VerificationErrorRecursive]): Contains more granular
             information about the verification error.
-        mtype (Type21): The model property of type Type21.
-        additional_properties (Dict[str, Any]): The additional properties for the
-            model.
+        mtype (Type212Enum): The type of error.    Possible values: *
+            **invalidInput** *  **dataMissing** *  **pendingStatus** *  **dataReview**
 
     """
 
@@ -57,8 +56,7 @@ class VerificationError(object):
         message=APIHelper.SKIP,
         remediating_actions=APIHelper.SKIP,
         sub_errors=APIHelper.SKIP,
-        mtype=APIHelper.SKIP,
-        additional_properties=None):
+        mtype=APIHelper.SKIP):
         """Initialize a VerificationError instance."""
         # Initialize members of the class
         if capabilities is not APIHelper.SKIP:
@@ -73,11 +71,6 @@ class VerificationError(object):
             self.sub_errors = sub_errors
         if mtype is not APIHelper.SKIP:
             self.mtype = mtype
-
-        # Add additional model properties to the instance
-        if additional_properties is None:
-            additional_properties = {}
-        self.additional_properties = additional_properties
 
     @classmethod
     def from_dictionary(cls,
@@ -130,19 +123,13 @@ class VerificationError(object):
             if dictionary.get("type")\
                 else APIHelper.SKIP
 
-        additional_properties = APIHelper.get_additional_properties(
-            dictionary={k: v for k, v in dictionary.items()
-                        if k not in cls._names.values()},
-            unboxing_function=lambda value: value)
-
         # Return an object of this model
         return cls(capabilities,
                    code,
                    message,
                    remediating_actions,
                    sub_errors,
-                   mtype,
-                   additional_properties)
+                   mtype)
 
     def __repr__(self):
         """Return a unambiguous string representation."""
@@ -176,7 +163,6 @@ class VerificationError(object):
             if hasattr(self, "mtype")
             else None
         )
-        _additional_properties=self.additional_properties
         return (
             f"{self.__class__.__name__}("
             f"capabilities={_capabilities!r}, "
@@ -185,7 +171,6 @@ class VerificationError(object):
             f"remediating_actions={_remediating_actions!r}, "
             f"sub_errors={_sub_errors!r}, "
             f"mtype={_mtype!r}, "
-            f"additional_properties={_additional_properties!r}, "
             f")"
         )
 
@@ -221,7 +206,6 @@ class VerificationError(object):
             if hasattr(self, "mtype")
             else None
         )
-        _additional_properties=self.additional_properties
         return (
             f"{self.__class__.__name__}("
             f"capabilities={_capabilities!s}, "
@@ -230,6 +214,5 @@ class VerificationError(object):
             f"remediating_actions={_remediating_actions!s}, "
             f"sub_errors={_sub_errors!s}, "
             f"mtype={_mtype!s}, "
-            f"additional_properties={_additional_properties!s}, "
             f")"
         )

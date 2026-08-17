@@ -22,8 +22,9 @@ class TransactionConditions(object):
             transaction rather than a credit transaction.
         allowed_loyalty_brand (List[str]): Loyalty brands or programs allowed by the
             Sale System for the loyalty transaction. Restrict brand if data sent.
-        loyalty_handling (LoyaltyHandling1): The model property of type
-            LoyaltyHandling1.
+        loyalty_handling (LoyaltyHandling1Enum): Type of Loyalty processing requested
+            by the Sale System. Possible values: * **Allowed** * **Forbidden** *
+            **Processed** * **Proposed** * **Required**
         customer_language (str): The language used on the terminal screen or in text
             printed by the terminal. Typical use case is setting the language on
             unattended terminals. Format: two-character [ISO
@@ -31,15 +32,13 @@ class TransactionConditions(object):
             format.
         force_online_flag (bool): Indicates if the Cashier requires POI forces online
             access to the Acquirer. Go online if data sent.
-        force_entry_mode (List[ForceEntryMode]): Payment instrument entry mode
+        force_entry_mode (List[ForceEntryModeEnum]): Payment instrument entry mode
             requested by the Sale System. Restrict entry mode if sent. Possible
             values: * **CheckReader** * **Contactless** * **File** * **ICC** *
             **Keyed** * **MagStripe** * **Manual** * **RFID** * **Scanned** *
             **SynchronousICC** * **Tapped**
         merchant_category_code (str): The code which identifies the category of the
             transaction (MCC). The payment implies a specific MCC.
-        additional_properties (Dict[str, Any]): The additional properties for the
-            model.
 
     """
 
@@ -78,8 +77,7 @@ class TransactionConditions(object):
         customer_language=APIHelper.SKIP,
         force_online_flag=False,
         force_entry_mode=APIHelper.SKIP,
-        merchant_category_code=APIHelper.SKIP,
-        additional_properties=None):
+        merchant_category_code=APIHelper.SKIP):
         """Initialize a TransactionConditions instance."""
         # Initialize members of the class
         if allowed_payment_brand is not APIHelper.SKIP:
@@ -99,11 +97,6 @@ class TransactionConditions(object):
             self.force_entry_mode = force_entry_mode
         if merchant_category_code is not APIHelper.SKIP:
             self.merchant_category_code = merchant_category_code
-
-        # Add additional model properties to the instance
-        if additional_properties is None:
-            additional_properties = {}
-        self.additional_properties = additional_properties
 
     @classmethod
     def from_dictionary(cls,
@@ -160,11 +153,6 @@ class TransactionConditions(object):
             if dictionary.get("MerchantCategoryCode")\
                 else APIHelper.SKIP
 
-        additional_properties = APIHelper.get_additional_properties(
-            dictionary={k: v for k, v in dictionary.items()
-                        if k not in cls._names.values()},
-            unboxing_function=lambda value: value)
-
         # Return an object of this model
         return cls(allowed_payment_brand,
                    acquirer_id,
@@ -174,8 +162,7 @@ class TransactionConditions(object):
                    customer_language,
                    force_online_flag,
                    force_entry_mode,
-                   merchant_category_code,
-                   additional_properties)
+                   merchant_category_code)
 
     def __repr__(self):
         """Return a unambiguous string representation."""
@@ -224,7 +211,6 @@ class TransactionConditions(object):
             if hasattr(self, "merchant_category_code")
             else None
         )
-        _additional_properties=self.additional_properties
         return (
             f"{self.__class__.__name__}("
             f"allowed_payment_brand={_allowed_payment_brand!r}, "
@@ -236,7 +222,6 @@ class TransactionConditions(object):
             f"force_online_flag={_force_online_flag!r}, "
             f"force_entry_mode={_force_entry_mode!r}, "
             f"merchant_category_code={_merchant_category_code!r}, "
-            f"additional_properties={_additional_properties!r}, "
             f")"
         )
 
@@ -287,7 +272,6 @@ class TransactionConditions(object):
             if hasattr(self, "merchant_category_code")
             else None
         )
-        _additional_properties=self.additional_properties
         return (
             f"{self.__class__.__name__}("
             f"allowed_payment_brand={_allowed_payment_brand!s}, "
@@ -299,6 +283,5 @@ class TransactionConditions(object):
             f"force_online_flag={_force_online_flag!s}, "
             f"force_entry_mode={_force_entry_mode!s}, "
             f"merchant_category_code={_merchant_category_code!s}, "
-            f"additional_properties={_additional_properties!s}, "
             f")"
         )

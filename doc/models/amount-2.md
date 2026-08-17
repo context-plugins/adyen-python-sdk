@@ -1,9 +1,7 @@
 
 # Amount 2
 
-The transaction amount used as a base for the cost estimation.
-
-*This model accepts additional fields of type Any.*
+The amount information for the transaction (in [minor units](https://docs.adyen.com/development-resources/currency-codes)). For [BIN or card verification](https://docs.adyen.com/payment-methods/cards/bin-data-and-card-verification) requests, set amount to 0 (zero).
 
 ## Structure
 
@@ -13,23 +11,17 @@ The transaction amount used as a base for the cost estimation.
 
 | Name | Type | Tags | Description |
 |  --- | --- | --- | --- |
-| `currency` | `str` | Required | The three-character [ISO currency code](https://docs.adyen.com/development-resources/currency-codes).<br><br>**Constraints**: *Minimum Length*: `3`, *Maximum Length*: `3` |
-| `value` | `int` | Required | The amount of the transaction, in [minor units](https://docs.adyen.com/development-resources/currency-codes). |
-| `additional_properties` | `Dict[str, Any]` | Optional | - |
+| `currency` | `str` | Required | The three-character [ISO currency code](https://docs.adyen.com/development-resources/currency-codes#currency-codes) of the amount.<br><br>**Constraints**: *Minimum Length*: `3`, *Maximum Length*: `3` |
+| `value` | `int` | Required | The numeric value of the amount, in [minor units](https://docs.adyen.com/development-resources/currency-codes#minor-units). |
 
 ## Example
 
 ```python
-import jsonpickle
-
 from adyen.models.amount_2 import Amount2
 
 amount_2 = Amount2(
     currency='currency4',
-    value=24,
-    additional_properties={
-        'exampleAdditionalProperty': jsonpickle.decode('{"key1":"val1","key2":"val2"}')
-    }
+    value=24
 )
 ```
 

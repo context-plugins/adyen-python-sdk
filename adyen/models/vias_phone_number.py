@@ -18,9 +18,8 @@ class ViasPhoneNumber(object):
             'NL').
         phone_number (str): The phone number. >The inclusion of the phone number
             country code is not necessary.
-        phone_type (PhoneType): The model property of type PhoneType.
-        additional_properties (Dict[str, Any]): The additional properties for the
-            model.
+        phone_type (PhoneTypeEnum): The type of the phone number. >The following
+            values are permitted: `Landline`, `Mobile`, `SIP`, `Fax`.
 
     """
 
@@ -41,8 +40,7 @@ class ViasPhoneNumber(object):
         self,
         phone_country_code=APIHelper.SKIP,
         phone_number=APIHelper.SKIP,
-        phone_type=APIHelper.SKIP,
-        additional_properties=None):
+        phone_type=APIHelper.SKIP):
         """Initialize a ViasPhoneNumber instance."""
         # Initialize members of the class
         if phone_country_code is not APIHelper.SKIP:
@@ -51,11 +49,6 @@ class ViasPhoneNumber(object):
             self.phone_number = phone_number
         if phone_type is not APIHelper.SKIP:
             self.phone_type = phone_type
-
-        # Add additional model properties to the instance
-        if additional_properties is None:
-            additional_properties = {}
-        self.additional_properties = additional_properties
 
     @classmethod
     def from_dictionary(cls,
@@ -88,16 +81,31 @@ class ViasPhoneNumber(object):
             if dictionary.get("phoneType")\
                 else APIHelper.SKIP
 
-        additional_properties = APIHelper.get_additional_properties(
-            dictionary={k: v for k, v in dictionary.items()
-                        if k not in cls._names.values()},
-            unboxing_function=lambda value: value)
-
         # Return an object of this model
         return cls(phone_country_code,
                    phone_number,
-                   phone_type,
-                   additional_properties)
+                   phone_type)
+
+    @classmethod
+    def validate(cls, dictionary):
+        """Validate dictionary against class required properties
+
+        Args:
+            dictionary (dictionary): A dictionary representation of the object
+            as obtained from the deserialization of the server's response. The
+            keys MUST match property names in the API description.
+
+        Returns:
+            boolean : if dictionary is valid contains required properties.
+
+        """
+        if isinstance(dictionary, cls):
+            return True
+
+        if not isinstance(dictionary, dict):
+            return False
+
+        return True
 
     def __repr__(self):
         """Return a unambiguous string representation."""
@@ -116,13 +124,11 @@ class ViasPhoneNumber(object):
             if hasattr(self, "phone_type")
             else None
         )
-        _additional_properties=self.additional_properties
         return (
             f"{self.__class__.__name__}("
             f"phone_country_code={_phone_country_code!r}, "
             f"phone_number={_phone_number!r}, "
             f"phone_type={_phone_type!r}, "
-            f"additional_properties={_additional_properties!r}, "
             f")"
         )
 
@@ -143,12 +149,10 @@ class ViasPhoneNumber(object):
             if hasattr(self, "phone_type")
             else None
         )
-        _additional_properties=self.additional_properties
         return (
             f"{self.__class__.__name__}("
             f"phone_country_code={_phone_country_code!s}, "
             f"phone_number={_phone_number!s}, "
             f"phone_type={_phone_type!s}, "
-            f"additional_properties={_additional_properties!s}, "
             f")"
         )

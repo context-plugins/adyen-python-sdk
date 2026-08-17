@@ -3,38 +3,36 @@
 
 ## Data Type
 
-`UkFpsTracingData | UsAchTracingData`
+`UKFpsTracingData | USAchTracingData`
 
 ## Cases
 
 | Type |
 |  --- |
-| [`UkFpsTracingData`](../../../doc/models/uk-fps-tracing-data.md) |
-| [`UsAchTracingData`](../../../doc/models/us-ach-tracing-data.md) |
+| [`UKFpsTracingData`](../../../doc/models/uk-fps-tracing-data.md) |
+| [`USAchTracingData`](../../../doc/models/us-ach-tracing-data.md) |
 
-## UkFpsTracingData
+## UKFpsTracingData
 
 ### Initialization Code
 
 #### Example
 
 ```python
-value = UkFpsTracingData(
-    fpid='fpid0',
-    mtype=Type88.UKFPS
+value = UKFpsTracingData(
+    fpid='fpid0'
 )
 ```
 
-## UsAchTracingData
+## USAchTracingData
 
 ### Initialization Code
 
 #### Example
 
 ```python
-value = UsAchTracingData(
-    trace_number='traceNumber8',
-    mtype=Type89.USACH
+value = USAchTracingData(
+    trace_number='traceNumber8'
 )
 ```
 

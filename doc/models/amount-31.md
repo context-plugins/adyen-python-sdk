@@ -1,7 +1,7 @@
 
 # Amount 31
 
-*This model accepts additional fields of type Any.*
+The amount that you want to capture. The `currency` must match the currency used in authorisation, the `value` must be smaller than or equal to the authorised amount.
 
 ## Structure
 
@@ -11,23 +11,17 @@
 
 | Name | Type | Tags | Description |
 |  --- | --- | --- | --- |
-| `currency` | `str` | Optional | The three-character [ISO currency code](https://docs.adyen.com/development-resources/currency-codes). By default, this is the original payment currency.<br><br>**Constraints**: *Minimum Length*: `3`, *Maximum Length*: `3` |
-| `value` | `int` | Required | The value of the split amount, in [minor units](https://docs.adyen.com/development-resources/currency-codes). |
-| `additional_properties` | `Dict[str, Any]` | Optional | - |
+| `currency` | `str` | Required | The three-character [ISO currency code](https://docs.adyen.com/development-resources/currency-codes#currency-codes) of the amount.<br><br>**Constraints**: *Minimum Length*: `3`, *Maximum Length*: `3` |
+| `value` | `int` | Required | The numeric value of the amount, in [minor units](https://docs.adyen.com/development-resources/currency-codes#minor-units). |
 
 ## Example
 
 ```python
-import jsonpickle
-
 from adyen.models.amount_31 import Amount31
 
 amount_31 = Amount31(
-    value=56,
     currency='currency2',
-    additional_properties={
-        'exampleAdditionalProperty': jsonpickle.decode('{"key1":"val1","key2":"val2"}')
-    }
+    value=56
 )
 ```
 

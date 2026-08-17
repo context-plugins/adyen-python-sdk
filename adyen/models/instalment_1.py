@@ -16,13 +16,16 @@ class Instalment1(object):
     issuer, or to make individual instalments of a payment transaction.
 
     Attributes:
-        instalment_type (InstalmentType): The model property of type InstalmentType.
+        instalment_type (InstalmentTypeEnum): Type of instalment transaction. For
+            requesting an instalment payment transaction. Possible values: *
+            **DeferredInstalments** * **EqualInstalments** * **InequalInstalments**
         sequence_number (int): Sequence number of the instalment. For an instalment
             payment transaction, number of the payment, from 1 to TotalNbOfPayments.
         plan_id (str): Identification of an instalment plan.
         period (int): Period of time with defined unit of time. A period between 2
             payment instalments.
-        period_unit (PeriodUnit1): The model property of type PeriodUnit1.
+        period_unit (PeriodUnit1Enum): Type of instalment transaction. Possible
+            values: * **Annual** * **Daily** * **Monthly** * **Weekly**
         first_payment_date (date): First date of a payment. For instalment, the date
             of the first payments, if not immediate.
         total_nb_of_payments (int): Total number of payments. For instalment, the
@@ -32,8 +35,6 @@ class Instalment1(object):
         first_amount (float): First amount of the payment instalments.
         charges (float): Charges related to a transaction. Charge related to the
             payment instalments.
-        additional_properties (Dict[str, Any]): The additional properties for the
-            model.
 
     """
 
@@ -75,8 +76,7 @@ class Instalment1(object):
         total_nb_of_payments=APIHelper.SKIP,
         cumulative_amount=APIHelper.SKIP,
         first_amount=APIHelper.SKIP,
-        charges=APIHelper.SKIP,
-        additional_properties=None):
+        charges=APIHelper.SKIP):
         """Initialize a Instalment1 instance."""
         # Initialize members of the class
         if instalment_type is not APIHelper.SKIP:
@@ -99,11 +99,6 @@ class Instalment1(object):
             self.first_amount = first_amount
         if charges is not APIHelper.SKIP:
             self.charges = charges
-
-        # Add additional model properties to the instance
-        if additional_properties is None:
-            additional_properties = {}
-        self.additional_properties = additional_properties
 
     @classmethod
     def from_dictionary(cls,
@@ -163,11 +158,6 @@ class Instalment1(object):
             if dictionary.get("Charges")\
                 else APIHelper.SKIP
 
-        additional_properties = APIHelper.get_additional_properties(
-            dictionary={k: v for k, v in dictionary.items()
-                        if k not in cls._names.values()},
-            unboxing_function=lambda value: value)
-
         # Return an object of this model
         return cls(instalment_type,
                    sequence_number,
@@ -178,8 +168,7 @@ class Instalment1(object):
                    total_nb_of_payments,
                    cumulative_amount,
                    first_amount,
-                   charges,
-                   additional_properties)
+                   charges)
 
     def __repr__(self):
         """Return a unambiguous string representation."""
@@ -233,7 +222,6 @@ class Instalment1(object):
             if hasattr(self, "charges")
             else None
         )
-        _additional_properties=self.additional_properties
         return (
             f"{self.__class__.__name__}("
             f"instalment_type={_instalment_type!r}, "
@@ -246,7 +234,6 @@ class Instalment1(object):
             f"cumulative_amount={_cumulative_amount!r}, "
             f"first_amount={_first_amount!r}, "
             f"charges={_charges!r}, "
-            f"additional_properties={_additional_properties!r}, "
             f")"
         )
 
@@ -302,7 +289,6 @@ class Instalment1(object):
             if hasattr(self, "charges")
             else None
         )
-        _additional_properties=self.additional_properties
         return (
             f"{self.__class__.__name__}("
             f"instalment_type={_instalment_type!s}, "
@@ -315,6 +301,5 @@ class Instalment1(object):
             f"cumulative_amount={_cumulative_amount!s}, "
             f"first_amount={_first_amount!s}, "
             f"charges={_charges!s}, "
-            f"additional_properties={_additional_properties!s}, "
             f")"
         )

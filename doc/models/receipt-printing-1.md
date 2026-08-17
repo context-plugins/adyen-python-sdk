@@ -3,8 +3,6 @@
 
 Transaction outcomes that you want the terminal to print a merchant receipt or a shopper receipt for.
 
-*This model accepts additional fields of type Any.*
-
 ## Structure
 
 `ReceiptPrinting1`
@@ -29,13 +27,10 @@ Transaction outcomes that you want the terminal to print a merchant receipt or a
 | `shopper_refund_refused` | `bool` | Optional | Print a shopper receipt when the refund is refused. |
 | `shopper_refused` | `bool` | Optional | Print a shopper receipt when the payment is refused. |
 | `shopper_void` | `bool` | Optional | Print a shopper receipt when a previous transaction is voided. |
-| `additional_properties` | `Dict[str, Any]` | Optional | - |
 
 ## Example
 
 ```python
-import jsonpickle
-
 from adyen.models.receipt_printing_1 import ReceiptPrinting1
 
 receipt_printing_1 = ReceiptPrinting1(
@@ -43,10 +38,7 @@ receipt_printing_1 = ReceiptPrinting1(
     merchant_cancelled=False,
     merchant_capture_approved=False,
     merchant_capture_refused=False,
-    merchant_refund_approved=False,
-    additional_properties={
-        'exampleAdditionalProperty': jsonpickle.decode('{"key1":"val1","key2":"val2"}')
-    }
+    merchant_refund_approved=False
 )
 ```
 

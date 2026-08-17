@@ -1,8 +1,6 @@
 
 # Merchant Account
 
-*This model accepts additional fields of type Any.*
-
 ## Structure
 
 `MerchantAccount`
@@ -15,14 +13,11 @@
 | `inventory_terminals` | `List[str]` | Optional | List of terminals assigned to the inventory of this merchant account. |
 | `merchant_account` | `str` | Required | The merchant account. |
 | `stores` | [`List[Store1]`](../../doc/models/store-1.md) | Optional | Array of stores under this merchant account. |
-| `additional_properties` | `Dict[str, Any]` | Optional | - |
 
 ## Example
 
 ```python
-import jsonpickle
-
-from adyen.models.address_7 import Address7
+from adyen.models.address_14 import Address14
 from adyen.models.merchant_account import MerchantAccount
 from adyen.models.store_1 import Store1
 
@@ -41,15 +36,12 @@ merchant_account = MerchantAccount(
     stores=[
         Store1(
             store='store8',
-            address=Address7(
+            address=Address14(
                 city='city6',
                 country_code='countryCode8',
                 postal_code='postalCode8',
                 state_or_province='stateOrProvince4',
-                street_address='streetAddress6',
-                additional_properties={
-                    'exampleAdditionalProperty': jsonpickle.decode('{"key1":"val1","key2":"val2"}')
-                }
+                street_address='streetAddress6'
             ),
             description='description8',
             in_store_terminals=[
@@ -58,15 +50,9 @@ merchant_account = MerchantAccount(
                 'inStoreTerminals1'
             ],
             merchant_account_code='merchantAccountCode0',
-            status='status0',
-            additional_properties={
-                'exampleAdditionalProperty': jsonpickle.decode('{"key1":"val1","key2":"val2"}')
-            }
+            status='status0'
         )
-    ],
-    additional_properties={
-        'exampleAdditionalProperty': jsonpickle.decode('{"key1":"val1","key2":"val2"}')
-    }
+    ]
 )
 ```
 

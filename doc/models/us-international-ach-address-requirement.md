@@ -1,34 +1,24 @@
 
-# Us International Ach Address Requirement
-
-*This model accepts additional fields of type Any.*
+# US International Ach Address Requirement
 
 ## Structure
 
-`UsInternationalAchAddressRequirement`
+`USInternationalAchAddressRequirement`
 
 ## Fields
 
 | Name | Type | Tags | Description |
 |  --- | --- | --- | --- |
 | `description` | `str` | Optional | Specifies that you must provide a complete street address for International ACH (IAT) transactions. |
-| `mtype` | [`Type383`](../../doc/models/type-383.md) | Required | **usInternationalAchAddressRequirement** |
-| `additional_properties` | `Dict[str, Any]` | Optional | - |
+| `mtype` | `str` | Required, Constant | **usInternationalAchAddressRequirement**<br><br>**Value**: `"usInternationalAchAddressRequirement"` |
 
 ## Example
 
 ```python
-import jsonpickle
+from adyen.models.us_international_ach_address_requirement import USInternationalAchAddressRequirement
 
-from adyen.models.type_383 import Type383
-from adyen.models.us_international_ach_address_requirement import UsInternationalAchAddressRequirement
-
-us_international_ach_address_requirement = UsInternationalAchAddressRequirement(
-    mtype=Type383.USINTERNATIONALACHADDRESSREQUIREMENT,
-    description='description2',
-    additional_properties={
-        'exampleAdditionalProperty': jsonpickle.decode('{"key1":"val1","key2":"val2"}')
-    }
+us_international_ach_address_requirement = USInternationalAchAddressRequirement(
+    description='description2'
 )
 ```
 

@@ -21,8 +21,6 @@ class Folio2(object):
             number. * Format: Alphanumeric * Must not start with a space * Must not
             contain any special characters * Must not be all zeros. *
             **additionalData key:** `lodging.folioNumber`
-        additional_properties (Dict[str, Any]): The additional properties for the
-            model.
 
     """
 
@@ -40,19 +38,13 @@ class Folio2(object):
     def __init__(
         self,
         cash_advances=APIHelper.SKIP,
-        number=APIHelper.SKIP,
-        additional_properties=None):
+        number=APIHelper.SKIP):
         """Initialize a Folio2 instance."""
         # Initialize members of the class
         if cash_advances is not APIHelper.SKIP:
             self.cash_advances = cash_advances
         if number is not APIHelper.SKIP:
             self.number = number
-
-        # Add additional model properties to the instance
-        if additional_properties is None:
-            additional_properties = {}
-        self.additional_properties = additional_properties
 
     @classmethod
     def from_dictionary(cls,
@@ -81,15 +73,30 @@ class Folio2(object):
             if dictionary.get("number")\
                 else APIHelper.SKIP
 
-        additional_properties = APIHelper.get_additional_properties(
-            dictionary={k: v for k, v in dictionary.items()
-                        if k not in cls._names.values()},
-            unboxing_function=lambda value: value)
-
         # Return an object of this model
         return cls(cash_advances,
-                   number,
-                   additional_properties)
+                   number)
+
+    @classmethod
+    def validate(cls, dictionary):
+        """Validate dictionary against class required properties
+
+        Args:
+            dictionary (dictionary): A dictionary representation of the object
+            as obtained from the deserialization of the server's response. The
+            keys MUST match property names in the API description.
+
+        Returns:
+            boolean : if dictionary is valid contains required properties.
+
+        """
+        if isinstance(dictionary, cls):
+            return True
+
+        if not isinstance(dictionary, dict):
+            return False
+
+        return True
 
     def __repr__(self):
         """Return a unambiguous string representation."""
@@ -103,12 +110,10 @@ class Folio2(object):
             if hasattr(self, "number")
             else None
         )
-        _additional_properties=self.additional_properties
         return (
             f"{self.__class__.__name__}("
             f"cash_advances={_cash_advances!r}, "
             f"number={_number!r}, "
-            f"additional_properties={_additional_properties!r}, "
             f")"
         )
 
@@ -124,11 +129,9 @@ class Folio2(object):
             if hasattr(self, "number")
             else None
         )
-        _additional_properties=self.additional_properties
         return (
             f"{self.__class__.__name__}("
             f"cash_advances={_cash_advances!s}, "
             f"number={_number!s}, "
-            f"additional_properties={_additional_properties!s}, "
             f")"
         )

@@ -15,9 +15,7 @@ class InternalCategoryData(object):
             included in the transfer.
         modification_psp_reference (str): The capture reference included in the
             transfer.
-        mtype (Type410): The model property of type Type410.
-        additional_properties (Dict[str, Any]): The additional properties for the
-            model.
+        mtype (Type411Enum): **internal**
 
     """
 
@@ -38,21 +36,14 @@ class InternalCategoryData(object):
         self,
         modification_merchant_reference=APIHelper.SKIP,
         modification_psp_reference=APIHelper.SKIP,
-        mtype=APIHelper.SKIP,
-        additional_properties=None):
+        mtype="internal"):
         """Initialize a InternalCategoryData instance."""
         # Initialize members of the class
         if modification_merchant_reference is not APIHelper.SKIP:
             self.modification_merchant_reference = modification_merchant_reference
         if modification_psp_reference is not APIHelper.SKIP:
             self.modification_psp_reference = modification_psp_reference
-        if mtype is not APIHelper.SKIP:
-            self.mtype = mtype
-
-        # Add additional model properties to the instance
-        if additional_properties is None:
-            additional_properties = {}
-        self.additional_properties = additional_properties
+        self.mtype = mtype
 
     @classmethod
     def from_dictionary(cls,
@@ -83,18 +74,12 @@ class InternalCategoryData(object):
         mtype =\
             dictionary.get("type")\
             if dictionary.get("type")\
-                else APIHelper.SKIP
-
-        additional_properties = APIHelper.get_additional_properties(
-            dictionary={k: v for k, v in dictionary.items()
-                        if k not in cls._names.values()},
-            unboxing_function=lambda value: value)
+                else "internal"
 
         # Return an object of this model
         return cls(modification_merchant_reference,
                    modification_psp_reference,
-                   mtype,
-                   additional_properties)
+                   mtype)
 
     @classmethod
     def validate(cls, dictionary):
@@ -134,13 +119,11 @@ class InternalCategoryData(object):
             if hasattr(self, "mtype")
             else None
         )
-        _additional_properties=self.additional_properties
         return (
             f"{self.__class__.__name__}("
             f"modification_merchant_reference={_modification_merchant_reference!r}, "
             f"modification_psp_reference={_modification_psp_reference!r}, "
             f"mtype={_mtype!r}, "
-            f"additional_properties={_additional_properties!r}, "
             f")"
         )
 
@@ -161,12 +144,10 @@ class InternalCategoryData(object):
             if hasattr(self, "mtype")
             else None
         )
-        _additional_properties=self.additional_properties
         return (
             f"{self.__class__.__name__}("
             f"modification_merchant_reference={_modification_merchant_reference!s}, "
             f"modification_psp_reference={_modification_psp_reference!s}, "
             f"mtype={_mtype!s}, "
-            f"additional_properties={_additional_properties!s}, "
             f")"
         )

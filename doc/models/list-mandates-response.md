@@ -1,8 +1,6 @@
 
 # List Mandates Response
 
-*This model accepts additional fields of type Any.*
-
 ## Structure
 
 `ListMandatesResponse`
@@ -11,95 +9,56 @@
 
 | Name | Type | Tags | Description |
 |  --- | --- | --- | --- |
-| `link` | [`Link`](../../doc/models/link.md) | Required | - |
-| `mandates` | [`List[Mandate]`](../../doc/models/mandate.md) | Required | Contains a list of the mandates. |
-| `additional_properties` | `Dict[str, Any]` | Optional | - |
+| `link` | [`Link2`](../../doc/models/link-2.md) | Required | Contains links to the next and previous page whenever applicable. |
+| `mandates` | [`List[Mandate1]`](../../doc/models/mandate-1.md) | Required | Contains a list of the mandates. |
 
 ## Example
 
 ```python
 import dateutil.parser
-import jsonpickle
 
-from adyen.models.first import First
-from adyen.models.last import Last
-from adyen.models.link import Link
+from adyen.models.link_2 import Link2
+from adyen.models.links_element import LinksElement
 from adyen.models.list_mandates_response import ListMandatesResponse
-from adyen.models.mandate import Mandate
+from adyen.models.mandate_1 import Mandate1
 from adyen.models.mandate_account_identification_2 import MandateAccountIdentification2
-from adyen.models.mandate_bank_account import MandateBankAccount
-from adyen.models.mandate_party_identification import MandatePartyIdentification
-from adyen.models.mself import Self
-from adyen.models.next import Next
-from adyen.models.previous import Previous
+from adyen.models.mandate_bank_account_2 import MandateBankAccount2
+from adyen.models.mandate_party_identification_2 import MandatePartyIdentification2
 
 list_mandates_response = ListMandatesResponse(
-    link=Link(
-        first=First(
-            href='href2',
-            additional_properties={
-                'exampleAdditionalProperty': jsonpickle.decode('{"key1":"val1","key2":"val2"}')
-            }
+    link=Link2(
+        first=LinksElement(
+            href='href2'
         ),
-        last=Last(
-            href='href2',
-            additional_properties={
-                'exampleAdditionalProperty': jsonpickle.decode('{"key1":"val1","key2":"val2"}')
-            }
+        last=LinksElement(
+            href='href2'
         ),
-        next=Next(
-            href='href4',
-            additional_properties={
-                'exampleAdditionalProperty': jsonpickle.decode('{"key1":"val1","key2":"val2"}')
-            }
+        next=LinksElement(
+            href='href4'
         ),
-        previous=Previous(
-            href='href0',
-            additional_properties={
-                'exampleAdditionalProperty': jsonpickle.decode('{"key1":"val1","key2":"val2"}')
-            }
+        previous=LinksElement(
+            href='href0'
         ),
-        mself=Self(
-            href='href0',
-            additional_properties={
-                'exampleAdditionalProperty': jsonpickle.decode('{"key1":"val1","key2":"val2"}')
-            }
-        ),
-        additional_properties={
-            'exampleAdditionalProperty': jsonpickle.decode('{"key1":"val1","key2":"val2"}')
-        }
+        mself=LinksElement(
+            href='href0'
+        )
     ),
     mandates=[
-        Mandate(
+        Mandate1(
             balance_account_id='balanceAccountId4',
-            counterparty=MandateBankAccount(
-                account_holder=MandatePartyIdentification(
-                    full_name='fullName0',
-                    additional_properties={
-                        'exampleAdditionalProperty': jsonpickle.decode('{"key1":"val1","key2":"val2"}')
-                    }
+            counterparty=MandateBankAccount2(
+                account_holder=MandatePartyIdentification2(
+                    full_name='fullName0'
                 ),
                 account_identification=MandateAccountIdentification2(
-                    mtype='MandateAccountIdentification2',
-                    additional_properties={
-                        'exampleAdditionalProperty': jsonpickle.decode('{"key1":"val1","key2":"val2"}')
-                    }
-                ),
-                additional_properties={
-                    'exampleAdditionalProperty': jsonpickle.decode('{"key1":"val1","key2":"val2"}')
-                }
+                    mtype='MandateAccountIdentification2'
+                )
             ),
             created_at=dateutil.parser.parse('2016-03-13T12:52:32.123Z'),
             id='id4',
-            payment_instrument_id='paymentInstrumentId6',
-            additional_properties={
-                'exampleAdditionalProperty': jsonpickle.decode('{"key1":"val1","key2":"val2"}')
-            }
+            payment_instrument_id='paymentInstrumentId6'
         )
-    ],
-    additional_properties={
-        'exampleAdditionalProperty': jsonpickle.decode('{"key1":"val1","key2":"val2"}')
-    }
+    ]
 )
 ```
 

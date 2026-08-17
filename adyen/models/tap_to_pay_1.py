@@ -15,8 +15,6 @@ class TapToPay1(object):
     Attributes:
         merchant_display_name (str): The text shown on the screen during the Tap to
             Pay transaction.
-        additional_properties (Dict[str, Any]): The additional properties for the
-            model.
 
     """
 
@@ -31,17 +29,11 @@ class TapToPay1(object):
 
     def __init__(
         self,
-        merchant_display_name=APIHelper.SKIP,
-        additional_properties=None):
+        merchant_display_name=APIHelper.SKIP):
         """Initialize a TapToPay1 instance."""
         # Initialize members of the class
         if merchant_display_name is not APIHelper.SKIP:
             self.merchant_display_name = merchant_display_name
-
-        # Add additional model properties to the instance
-        if additional_properties is None:
-            additional_properties = {}
-        self.additional_properties = additional_properties
 
     @classmethod
     def from_dictionary(cls,
@@ -66,14 +58,8 @@ class TapToPay1(object):
             if dictionary.get("merchantDisplayName")\
                 else APIHelper.SKIP
 
-        additional_properties = APIHelper.get_additional_properties(
-            dictionary={k: v for k, v in dictionary.items()
-                        if k not in cls._names.values()},
-            unboxing_function=lambda value: value)
-
         # Return an object of this model
-        return cls(merchant_display_name,
-                   additional_properties)
+        return cls(merchant_display_name)
 
     def __repr__(self):
         """Return a unambiguous string representation."""
@@ -82,11 +68,9 @@ class TapToPay1(object):
             if hasattr(self, "merchant_display_name")
             else None
         )
-        _additional_properties=self.additional_properties
         return (
             f"{self.__class__.__name__}("
             f"merchant_display_name={_merchant_display_name!r}, "
-            f"additional_properties={_additional_properties!r}, "
             f")"
         )
 
@@ -97,10 +81,8 @@ class TapToPay1(object):
             if hasattr(self, "merchant_display_name")
             else None
         )
-        _additional_properties=self.additional_properties
         return (
             f"{self.__class__.__name__}("
             f"merchant_display_name={_merchant_display_name!s}, "
-            f"additional_properties={_additional_properties!s}, "
             f")"
         )

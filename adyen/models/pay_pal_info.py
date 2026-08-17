@@ -18,8 +18,6 @@ class PayPalInfo(object):
         payer_id (str): PayPal Merchant ID. Character length and limitations: 13
             single-byte alphanumeric characters.
         subject (str): Your business email address.
-        additional_properties (Dict[str, Any]): The additional properties for the
-            model.
 
     """
 
@@ -38,19 +36,13 @@ class PayPalInfo(object):
         self,
         payer_id=None,
         subject=None,
-        direct_capture=APIHelper.SKIP,
-        additional_properties=None):
+        direct_capture=APIHelper.SKIP):
         """Initialize a PayPalInfo instance."""
         # Initialize members of the class
         if direct_capture is not APIHelper.SKIP:
             self.direct_capture = direct_capture
         self.payer_id = payer_id
         self.subject = subject
-
-        # Add additional model properties to the instance
-        if additional_properties is None:
-            additional_properties = {}
-        self.additional_properties = additional_properties
 
     @classmethod
     def from_dictionary(cls,
@@ -83,16 +75,10 @@ class PayPalInfo(object):
             if "directCapture" in dictionary.keys()\
                 else APIHelper.SKIP
 
-        additional_properties = APIHelper.get_additional_properties(
-            dictionary={k: v for k, v in dictionary.items()
-                        if k not in cls._names.values()},
-            unboxing_function=lambda value: value)
-
         # Return an object of this model
         return cls(payer_id,
                    subject,
-                   direct_capture,
-                   additional_properties)
+                   direct_capture)
 
     def __repr__(self):
         """Return a unambiguous string representation."""
@@ -103,13 +89,11 @@ class PayPalInfo(object):
         )
         _payer_id=self.payer_id
         _subject=self.subject
-        _additional_properties=self.additional_properties
         return (
             f"{self.__class__.__name__}("
             f"direct_capture={_direct_capture!r}, "
             f"payer_id={_payer_id!r}, "
             f"subject={_subject!r}, "
-            f"additional_properties={_additional_properties!r}, "
             f")"
         )
 
@@ -122,12 +106,10 @@ class PayPalInfo(object):
         )
         _payer_id=self.payer_id
         _subject=self.subject
-        _additional_properties=self.additional_properties
         return (
             f"{self.__class__.__name__}("
             f"direct_capture={_direct_capture!s}, "
             f"payer_id={_payer_id!s}, "
             f"subject={_subject!s}, "
-            f"additional_properties={_additional_properties!s}, "
             f")"
         )

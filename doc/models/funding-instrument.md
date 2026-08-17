@@ -1,8 +1,6 @@
 
 # Funding Instrument
 
-*This model accepts additional fields of type Any.*
-
 ## Structure
 
 `FundingInstrument`
@@ -11,38 +9,29 @@
 
 | Name | Type | Tags | Description |
 |  --- | --- | --- | --- |
-| `card_identification` | [`CardIdentification`](../../doc/models/card-identification.md) | Optional | - |
+| `card_identification` | [`CardIdentification2`](../../doc/models/card-identification-2.md) | Optional | Card details used for the transfer, such as the Primary Account Number (PAN) or stored payment method ID. Required if `sourceOfFunds` is **DEBIT**. Provide either:<br><br>- `storedPaymentMethodId` or<br>- `expiryMonth`, `expiryYear`, and `number`. |
 | `network_payment_reference` | `str` | Optional | The unique reference assigned by the card network for the pay-in transaction. |
 | `reference` | `str` | Optional | Your internal reference that identifies this funding instrument. Required if `sourceOfFunds` is **DEPOSIT_ACCOUNT**. |
-| `source_of_funds` | [`SourceOfFunds2`](../../doc/models/source-of-funds-2.md) | Optional | - |
-| `additional_properties` | `Dict[str, Any]` | Optional | - |
+| `source_of_funds` | [`SourceOfFundsEnum`](../../doc/models/source-of-funds-enum.md) | Optional | Indicates where the funds used for the transfer originated. Possible values are:<br><br>- **DEBIT** for card-to-card transfers.<br>- **DEPOSIT_ACCOUNT** for wallet-to-card transfers. |
 
 ## Example
 
 ```python
-import jsonpickle
-
-from adyen.models.card_identification import CardIdentification
+from adyen.models.card_identification_2 import CardIdentification2
 from adyen.models.funding_instrument import FundingInstrument
-from adyen.models.source_of_funds_2 import SourceOfFunds2
+from adyen.models.source_of_funds_enum import SourceOfFundsEnum
 
 funding_instrument = FundingInstrument(
-    card_identification=CardIdentification(
+    card_identification=CardIdentification2(
         expiry_month='expiryMonth2',
         expiry_year='expiryYear2',
         issue_number='issueNumber0',
         number='number6',
-        start_month='startMonth8',
-        additional_properties={
-            'exampleAdditionalProperty': jsonpickle.decode('{"key1":"val1","key2":"val2"}')
-        }
+        start_month='startMonth8'
     ),
     network_payment_reference='networkPaymentReference4',
     reference='reference0',
-    source_of_funds=SourceOfFunds2.DEBIT,
-    additional_properties={
-        'exampleAdditionalProperty': jsonpickle.decode('{"key1":"val1","key2":"val2"}')
-    }
+    source_of_funds=SourceOfFundsEnum.DEBIT
 )
 ```
 

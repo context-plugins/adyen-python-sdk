@@ -28,7 +28,8 @@ class CarRental1(object):
         no_show (bool): Indicates if the customer didn't pick up their rental car. *
             **additionalData key:** `carRental.noShowIndicator`
         pickup_info (PickupInfo): The model property of type PickupInfo.
-        rate_type (RateType): The model property of type RateType.
+        rate_type (RateTypeEnum): Indicates whether the rental rate is daily or
+            weekly. * **additionalData key:** `carRental.rateIndicator`
         rental_agreement_number (str): The rental agreement number for the car
             rental. * Format: ASCII * maxLength: 9 characters * Must not start with a
             space or be all spaces. * Must not be all zeros. * **additionalData
@@ -53,8 +54,6 @@ class CarRental1(object):
         tax_exempt (bool): Indicates if the goods or services were tax-exempt, or if
             tax was not collected. * **additionalData key:**
             `carRental.taxExemptIndicator`
-        additional_properties (Dict[str, Any]): The additional properties for the
-            model.
 
     """
 
@@ -101,8 +100,7 @@ class CarRental1(object):
         rental_rate=APIHelper.SKIP,
         rental_surcharges=APIHelper.SKIP,
         return_info=APIHelper.SKIP,
-        tax_exempt=APIHelper.SKIP,
-        additional_properties=None):
+        tax_exempt=APIHelper.SKIP):
         """Initialize a CarRental1 instance."""
         # Initialize members of the class
         if customer_service_phone_number is not APIHelper.SKIP:
@@ -128,11 +126,6 @@ class CarRental1(object):
             self.return_info = return_info
         if tax_exempt is not APIHelper.SKIP:
             self.tax_exempt = tax_exempt
-
-        # Add additional model properties to the instance
-        if additional_properties is None:
-            additional_properties = {}
-        self.additional_properties = additional_properties
 
     @classmethod
     def from_dictionary(cls,
@@ -204,11 +197,6 @@ class CarRental1(object):
             if "taxExempt" in dictionary.keys()\
                 else APIHelper.SKIP
 
-        additional_properties = APIHelper.get_additional_properties(
-            dictionary={k: v for k, v in dictionary.items()
-                        if k not in cls._names.values()},
-            unboxing_function=lambda value: value)
-
         # Return an object of this model
         return cls(renter_name,
                    customer_service_phone_number,
@@ -221,8 +209,40 @@ class CarRental1(object):
                    rental_rate,
                    rental_surcharges,
                    return_info,
-                   tax_exempt,
-                   additional_properties)
+                   tax_exempt)
+
+    @classmethod
+    def validate(cls, dictionary):
+        """Validate dictionary against class required properties
+
+        Args:
+            dictionary (dictionary): A dictionary representation of the object
+            as obtained from the deserialization of the server's response. The
+            keys MUST match property names in the API description.
+
+        Returns:
+            boolean : if dictionary is valid contains required properties.
+
+        """
+        if isinstance(dictionary, cls):
+            return APIHelper.is_valid_type(
+                    value=dictionary.renter_name,
+                    type_callable=lambda value:
+                        isinstance(
+                        value,
+                        str,
+                ))
+
+        if not isinstance(dictionary, dict):
+            return False
+
+        return APIHelper.is_valid_type(
+                value=dictionary.get("renterName"),
+                type_callable=lambda value:
+                    isinstance(
+                    value,
+                    str,
+            ))
 
     def __repr__(self):
         """Return a unambiguous string representation."""
@@ -282,7 +302,6 @@ class CarRental1(object):
             if hasattr(self, "tax_exempt")
             else None
         )
-        _additional_properties=self.additional_properties
         return (
             f"{self.__class__.__name__}("
             f"customer_service_phone_number={_customer_service_phone_number!r}, "
@@ -297,7 +316,6 @@ class CarRental1(object):
             f"renter_name={_renter_name!r}, "
             f"return_info={_return_info!r}, "
             f"tax_exempt={_tax_exempt!r}, "
-            f"additional_properties={_additional_properties!r}, "
             f")"
         )
 
@@ -359,7 +377,6 @@ class CarRental1(object):
             if hasattr(self, "tax_exempt")
             else None
         )
-        _additional_properties=self.additional_properties
         return (
             f"{self.__class__.__name__}("
             f"customer_service_phone_number={_customer_service_phone_number!s}, "
@@ -374,6 +391,5 @@ class CarRental1(object):
             f"renter_name={_renter_name!s}, "
             f"return_info={_return_info!s}, "
             f"tax_exempt={_tax_exempt!s}, "
-            f"additional_properties={_additional_properties!s}, "
             f")"
         )

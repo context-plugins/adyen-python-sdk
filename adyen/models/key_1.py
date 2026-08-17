@@ -22,8 +22,6 @@ class Key1(object):
             `~`, `!`, `@`, `#`, `$`, `%`, `^`, `&`, `*`, `(`, `)`, `_`, `+`, `=`,
             `}`, `{`, `]`, `[`, `;`, `:`, `?`, `.`, `,`, `>`, `<`.
         version (int): The version number of the shared key.
-        additional_properties (Dict[str, Any]): The additional properties for the
-            model.
 
     """
 
@@ -44,8 +42,7 @@ class Key1(object):
         self,
         identifier=APIHelper.SKIP,
         passphrase=APIHelper.SKIP,
-        version=APIHelper.SKIP,
-        additional_properties=None):
+        version=APIHelper.SKIP):
         """Initialize a Key1 instance."""
         # Initialize members of the class
         if identifier is not APIHelper.SKIP:
@@ -54,11 +51,6 @@ class Key1(object):
             self.passphrase = passphrase
         if version is not APIHelper.SKIP:
             self.version = version
-
-        # Add additional model properties to the instance
-        if additional_properties is None:
-            additional_properties = {}
-        self.additional_properties = additional_properties
 
     @classmethod
     def from_dictionary(cls,
@@ -91,16 +83,10 @@ class Key1(object):
             if dictionary.get("version")\
                 else APIHelper.SKIP
 
-        additional_properties = APIHelper.get_additional_properties(
-            dictionary={k: v for k, v in dictionary.items()
-                        if k not in cls._names.values()},
-            unboxing_function=lambda value: value)
-
         # Return an object of this model
         return cls(identifier,
                    passphrase,
-                   version,
-                   additional_properties)
+                   version)
 
     def __repr__(self):
         """Return a unambiguous string representation."""
@@ -119,13 +105,11 @@ class Key1(object):
             if hasattr(self, "version")
             else None
         )
-        _additional_properties=self.additional_properties
         return (
             f"{self.__class__.__name__}("
             f"identifier={_identifier!r}, "
             f"passphrase={_passphrase!r}, "
             f"version={_version!r}, "
-            f"additional_properties={_additional_properties!r}, "
             f")"
         )
 
@@ -146,12 +130,10 @@ class Key1(object):
             if hasattr(self, "version")
             else None
         )
-        _additional_properties=self.additional_properties
         return (
             f"{self.__class__.__name__}("
             f"identifier={_identifier!s}, "
             f"passphrase={_passphrase!s}, "
             f"version={_version!s}, "
-            f"additional_properties={_additional_properties!s}, "
             f")"
         )

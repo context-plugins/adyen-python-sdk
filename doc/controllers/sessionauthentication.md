@@ -8,6 +8,80 @@ sessionauthentication_api = client.sessionauthentication
 
 `SessionauthenticationApi`
 
+## Methods
+
+* [Post-Sessions](../../doc/controllers/sessionauthentication.md#post-sessions)
+* [Post-Auth-Certificate](../../doc/controllers/sessionauthentication.md#post-auth-certificate)
+
+
+# Post-Sessions
+
+Creates a session token that is required to integrate [components](https://docs.adyen.com/platforms/components-overview).
+
+The response contains encrypted session data. The front end then uses the session data to make the required server-side calls for the component.
+
+To create a token, you must meet specific requirements. These requirements vary depending on the type of component. For more information, see the documentation for [Onboarding](https://docs.adyen.com/platforms/onboard-users/components) and [Platform Experience](https://docs.adyen.com/platforms/build-user-dashboards) components.
+
+:information_source: **Note** This endpoint does not require authentication.
+
+```python
+def post_sessions(self,
+                 body)
+```
+
+## Parameters
+
+| Parameter | Type | Tags | Description |
+|  --- | --- | --- | --- |
+| `body` | [`AuthenticationSessionRequest`](../../doc/models/authentication-session-request.md) | Body, Required | - |
+
+## Response Type
+
+**200**: Successful operation
+
+[`AuthenticationSessionResponse`](../../doc/models/authentication-session-response.md)
+
+## Example Usage
+
+```python
+body = AuthenticationSessionRequest(
+    allow_origin='https://www.your-website.com',
+    policy=Policy2(
+        resources=[
+            LegalEntityResource(
+                legal_entity_id='LE00000000000000000000001',
+                mtype='legalEntity'
+            )
+        ],
+        roles=[
+            'createTransferInstrumentComponent',
+            'manageTransferInstrumentComponent'
+        ]
+    ),
+    product=ProductType2Enum.ONBOARDING
+)
+
+result = session_authentication_api.post_sessions(body)
+print(result)
+```
+
+## Example Response *(as JSON)*
+
+```json
+{
+  "id": "11a1e60a-18b0-4dda-9258-e0ae29e1e2a3",
+  "token": "eyJraWQiOiJwbGF0Zm9ybWNvbGRlciI..."
+}
+```
+
+## Errors
+
+| HTTP Status Code | Error Description | Exception Class |
+|  --- | --- | --- |
+| 400 | Bad request | [`DefaultErrorResponseEntityException`](../../doc/models/default-error-response-entity-exception.md) |
+| 401 | Unauthorized | [`DefaultErrorResponseEntityException`](../../doc/models/default-error-response-entity-exception.md) |
+| 403 | Forbidden | [`DefaultErrorResponseEntityException`](../../doc/models/default-error-response-entity-exception.md) |
+
 
 # Post-Auth-Certificate
 
@@ -32,7 +106,7 @@ def post_auth_certificate(self,
 
 **201**: OK - the request has succeeded.
 
-This method returns an [`ApiResponse`](../../doc/api-response.md) instance. The `body` property of this instance returns the response data which is of type [`CreateSessionResponse`](../../doc/models/create-session-response.md).
+[`CertificateLoadingResponse`](../../doc/models/certificate-loading-response.md)
 
 ## Example Usage
 
@@ -46,11 +120,7 @@ body = CertificateLoadingRequest(
 result = session_authentication_api.post_auth_certificate(
     body=body
 )
-
-if result.is_success():
-    print(result.body)
-elif result.is_error():
-    print(result.errors)
+print(result)
 ```
 
 ## Example Response *(as JSON)*
@@ -69,8 +139,8 @@ elif result.is_error():
 
 | HTTP Status Code | Error Description | Exception Class |
 |  --- | --- | --- |
-| 400 | Bad request - validation failed. | [`AuthCertificate400ErrorException`](../../doc/models/auth-certificate-400-error-exception.md) |
-| 401 | Unauthorized - authentication required. | [`AuthCertificate401ErrorException`](../../doc/models/auth-certificate-401-error-exception.md) |
-| 422 | Unprocessable entity - session request could not be processed. | [`AuthCertificate422ErrorException`](../../doc/models/auth-certificate-422-error-exception.md) |
-| 500 | Internal server error. | [`AuthCertificate500ErrorException`](../../doc/models/auth-certificate-500-error-exception.md) |
+| 400 | Bad request - validation failed. | [`DefaultErrorResponseEntityException`](../../doc/models/default-error-response-entity-exception.md) |
+| 401 | Unauthorized - authentication required. | [`DefaultErrorResponseEntityException`](../../doc/models/default-error-response-entity-exception.md) |
+| 422 | Unprocessable entity - session request could not be processed. | [`DefaultErrorResponseEntityException`](../../doc/models/default-error-response-entity-exception.md) |
+| 500 | Internal server error. | [`DefaultErrorResponseEntityException`](../../doc/models/default-error-response-entity-exception.md) |
 

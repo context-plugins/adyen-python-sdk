@@ -1,8 +1,6 @@
 
 # Payout Account Holder Response
 
-*This model accepts additional fields of type Any.*
-
 ## Structure
 
 `PayoutAccountHolderResponse`
@@ -14,21 +12,18 @@
 | `bank_account_uuid` | `str` | Optional | The unique ID of the Bank Account to which the payout was made. |
 | `invalid_fields` | [`List[ErrorFieldType]`](../../doc/models/error-field-type.md) | Optional | Contains field validation errors that would prevent requests from being processed. |
 | `merchant_reference` | `str` | Optional | The value supplied by the executing user when initiating the transfer; may be used to link multiple transactions. |
-| `payout_speed` | [`PayoutSpeed`](../../doc/models/payout-speed.md) | Optional | - |
+| `payout_speed` | [`PayoutSpeedEnum`](../../doc/models/payout-speed-enum.md) | Optional | Speed with which payouts for this account are processed. Permitted values: `STANDARD`, `SAME_DAY`.<br><br>**Default**: `"STANDARD"` |
 | `psp_reference` | `str` | Optional | The reference of a request. Can be used to uniquely identify the request. |
 | `result_code` | `str` | Optional | The result code. |
-| `additional_properties` | `Dict[str, Any]` | Optional | - |
 
 ## Example
 
 ```python
-import jsonpickle
-
 from adyen.models.error_field_type import ErrorFieldType
-from adyen.models.field_name import FieldName
-from adyen.models.field_type_2 import FieldType2
+from adyen.models.field_name_enum import FieldNameEnum
+from adyen.models.field_type import FieldType
 from adyen.models.payout_account_holder_response import PayoutAccountHolderResponse
-from adyen.models.payout_speed import PayoutSpeed
+from adyen.models.payout_speed_enum import PayoutSpeedEnum
 
 payout_account_holder_response = PayoutAccountHolderResponse(
     bank_account_uuid='bankAccountUUID0',
@@ -36,55 +31,34 @@ payout_account_holder_response = PayoutAccountHolderResponse(
         ErrorFieldType(
             error_code=78,
             error_description='errorDescription6',
-            field_type=FieldType2(
+            field_type=FieldType(
                 field='field6',
-                field_name=FieldName.DRIVINGLICENCEFRONT,
-                shareholder_code='shareholderCode0',
-                additional_properties={
-                    'exampleAdditionalProperty': jsonpickle.decode('{"key1":"val1","key2":"val2"}')
-                }
-            ),
-            additional_properties={
-                'exampleAdditionalProperty': jsonpickle.decode('{"key1":"val1","key2":"val2"}')
-            }
+                field_name=FieldNameEnum.DRIVINGLICENCEFRONT,
+                shareholder_code='shareholderCode0'
+            )
         ),
         ErrorFieldType(
             error_code=78,
             error_description='errorDescription6',
-            field_type=FieldType2(
+            field_type=FieldType(
                 field='field6',
-                field_name=FieldName.DRIVINGLICENCEFRONT,
-                shareholder_code='shareholderCode0',
-                additional_properties={
-                    'exampleAdditionalProperty': jsonpickle.decode('{"key1":"val1","key2":"val2"}')
-                }
-            ),
-            additional_properties={
-                'exampleAdditionalProperty': jsonpickle.decode('{"key1":"val1","key2":"val2"}')
-            }
+                field_name=FieldNameEnum.DRIVINGLICENCEFRONT,
+                shareholder_code='shareholderCode0'
+            )
         ),
         ErrorFieldType(
             error_code=78,
             error_description='errorDescription6',
-            field_type=FieldType2(
+            field_type=FieldType(
                 field='field6',
-                field_name=FieldName.DRIVINGLICENCEFRONT,
-                shareholder_code='shareholderCode0',
-                additional_properties={
-                    'exampleAdditionalProperty': jsonpickle.decode('{"key1":"val1","key2":"val2"}')
-                }
-            ),
-            additional_properties={
-                'exampleAdditionalProperty': jsonpickle.decode('{"key1":"val1","key2":"val2"}')
-            }
+                field_name=FieldNameEnum.DRIVINGLICENCEFRONT,
+                shareholder_code='shareholderCode0'
+            )
         )
     ],
     merchant_reference='merchantReference8',
-    payout_speed=PayoutSpeed.STANDARD,
-    psp_reference='pspReference6',
-    additional_properties={
-        'exampleAdditionalProperty': jsonpickle.decode('{"key1":"val1","key2":"val2"}')
-    }
+    payout_speed=PayoutSpeedEnum.STANDARD,
+    psp_reference='pspReference6'
 )
 ```
 

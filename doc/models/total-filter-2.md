@@ -4,8 +4,6 @@
 Filter to compute the totals.
 Used for the Get Totals, to request totals for a (or a combination of) particular value of the POI Terminal, Sale Terminal, Cashier, Shift, or TotalsGroupID.
 
-*This model accepts additional fields of type Any.*
-
 ## Structure
 
 `TotalFilter2`
@@ -19,13 +17,10 @@ Used for the Get Totals, to request totals for a (or a combination of) particula
 | `operator_id` | `str` | Optional | Identification of the Cashier or Operator.<br><br>**Constraints**: *Pattern*: `^.+$` |
 | `shift_number` | `str` | Optional | Shift number.<br><br>**Constraints**: *Pattern*: `^.+$` |
 | `totals_group_id` | `str` | Optional | Sent if totals in the response have to be computed only for this particular value of TotalsGroupID.<br><br>**Constraints**: *Pattern*: `^.{1,16}$` |
-| `additional_properties` | `Dict[str, Any]` | Optional | - |
 
 ## Example
 
 ```python
-import jsonpickle
-
 from adyen.models.total_filter_2 import TotalFilter2
 
 total_filter_2 = TotalFilter2(
@@ -33,10 +28,7 @@ total_filter_2 = TotalFilter2(
     sale_id='SaleID2',
     operator_id='OperatorID2',
     shift_number='ShiftNumber4',
-    totals_group_id='TotalsGroupID6',
-    additional_properties={
-        'exampleAdditionalProperty': jsonpickle.decode('{"key1":"val1","key2":"val2"}')
-    }
+    totals_group_id='TotalsGroupID6'
 )
 ```
 

@@ -15,8 +15,6 @@ class GetStoresUnderAccountResponse(object):
         stores (List[Store1]): Array that returns a list of all stores for the
             specified merchant account, or for all merchant accounts under the
             company account.
-        additional_properties (Dict[str, Any]): The additional properties for the
-            model.
 
     """
 
@@ -31,17 +29,11 @@ class GetStoresUnderAccountResponse(object):
 
     def __init__(
         self,
-        stores=APIHelper.SKIP,
-        additional_properties=None):
+        stores=APIHelper.SKIP):
         """Initialize a GetStoresUnderAccountResponse instance."""
         # Initialize members of the class
         if stores is not APIHelper.SKIP:
             self.stores = stores
-
-        # Add additional model properties to the instance
-        if additional_properties is None:
-            additional_properties = {}
-        self.additional_properties = additional_properties
 
     @classmethod
     def from_dictionary(cls,
@@ -70,14 +62,8 @@ class GetStoresUnderAccountResponse(object):
         else:
             stores = APIHelper.SKIP
 
-        additional_properties = APIHelper.get_additional_properties(
-            dictionary={k: v for k, v in dictionary.items()
-                        if k not in cls._names.values()},
-            unboxing_function=lambda value: value)
-
         # Return an object of this model
-        return cls(stores,
-                   additional_properties)
+        return cls(stores)
 
     def __repr__(self):
         """Return a unambiguous string representation."""
@@ -86,11 +72,9 @@ class GetStoresUnderAccountResponse(object):
             if hasattr(self, "stores")
             else None
         )
-        _additional_properties=self.additional_properties
         return (
             f"{self.__class__.__name__}("
             f"stores={_stores!r}, "
-            f"additional_properties={_additional_properties!r}, "
             f")"
         )
 
@@ -101,10 +85,8 @@ class GetStoresUnderAccountResponse(object):
             if hasattr(self, "stores")
             else None
         )
-        _additional_properties=self.additional_properties
         return (
             f"{self.__class__.__name__}("
             f"stores={_stores!s}, "
-            f"additional_properties={_additional_properties!s}, "
             f")"
         )

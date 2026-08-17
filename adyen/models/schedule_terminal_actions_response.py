@@ -39,8 +39,6 @@ class ScheduleTerminalActionsResponse(object):
             failed.
         total_scheduled (int): The number of terminals for which the action was
             successfully scheduled. This doesn't mean the action has happened yet.
-        additional_properties (Dict[str, Any]): The additional properties for the
-            model.
 
     """
 
@@ -73,8 +71,7 @@ class ScheduleTerminalActionsResponse(object):
         store_id=APIHelper.SKIP,
         terminals_with_errors=APIHelper.SKIP,
         total_errors=APIHelper.SKIP,
-        total_scheduled=APIHelper.SKIP,
-        additional_properties=None):
+        total_scheduled=APIHelper.SKIP):
         """Initialize a ScheduleTerminalActionsResponse instance."""
         # Initialize members of the class
         if action_details is not APIHelper.SKIP:
@@ -91,11 +88,6 @@ class ScheduleTerminalActionsResponse(object):
             self.total_errors = total_errors
         if total_scheduled is not APIHelper.SKIP:
             self.total_scheduled = total_scheduled
-
-        # Add additional model properties to the instance
-        if additional_properties is None:
-            additional_properties = {}
-        self.additional_properties = additional_properties
 
     @classmethod
     def from_dictionary(cls,
@@ -154,11 +146,6 @@ class ScheduleTerminalActionsResponse(object):
             if dictionary.get("totalScheduled")\
                 else APIHelper.SKIP
 
-        additional_properties = APIHelper.get_additional_properties(
-            dictionary={k: v for k, v in dictionary.items()
-                        if k not in cls._names.values()},
-            unboxing_function=lambda value: value)
-
         # Return an object of this model
         return cls(action_details,
                    items,
@@ -166,8 +153,7 @@ class ScheduleTerminalActionsResponse(object):
                    store_id,
                    terminals_with_errors,
                    total_errors,
-                   total_scheduled,
-                   additional_properties)
+                   total_scheduled)
 
     def __repr__(self):
         """Return a unambiguous string representation."""
@@ -206,7 +192,6 @@ class ScheduleTerminalActionsResponse(object):
             if hasattr(self, "total_scheduled")
             else None
         )
-        _additional_properties=self.additional_properties
         return (
             f"{self.__class__.__name__}("
             f"action_details={_action_details!r}, "
@@ -216,7 +201,6 @@ class ScheduleTerminalActionsResponse(object):
             f"terminals_with_errors={_terminals_with_errors!r}, "
             f"total_errors={_total_errors!r}, "
             f"total_scheduled={_total_scheduled!r}, "
-            f"additional_properties={_additional_properties!r}, "
             f")"
         )
 
@@ -257,7 +241,6 @@ class ScheduleTerminalActionsResponse(object):
             if hasattr(self, "total_scheduled")
             else None
         )
-        _additional_properties=self.additional_properties
         return (
             f"{self.__class__.__name__}("
             f"action_details={_action_details!s}, "
@@ -267,6 +250,5 @@ class ScheduleTerminalActionsResponse(object):
             f"terminals_with_errors={_terminals_with_errors!s}, "
             f"total_errors={_total_errors!s}, "
             f"total_scheduled={_total_scheduled!s}, "
-            f"additional_properties={_additional_properties!s}, "
             f")"
         )

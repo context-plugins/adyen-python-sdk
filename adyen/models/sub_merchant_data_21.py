@@ -37,8 +37,6 @@ class SubMerchantData21(object):
         tax_id (str): The tax ID of the sub-merchant. Required only in Brazil and for
             Cartes Bancaires in France. For Brazil, this is the 11-digit CPF or
             14-digit CNPJ. For France, this is the SIRET, with a maximum of 14 digits.
-        additional_properties (Dict[str, Any]): The additional properties for the
-            model.
 
     """
 
@@ -82,8 +80,7 @@ class SubMerchantData21(object):
         postal_code=APIHelper.SKIP,
         state=APIHelper.SKIP,
         street=APIHelper.SKIP,
-        tax_id=APIHelper.SKIP,
-        additional_properties=None):
+        tax_id=APIHelper.SKIP):
         """Initialize a SubMerchantData21 instance."""
         # Initialize members of the class
         if city is not APIHelper.SKIP:
@@ -106,11 +103,6 @@ class SubMerchantData21(object):
             self.street = street
         if tax_id is not APIHelper.SKIP:
             self.tax_id = tax_id
-
-        # Add additional model properties to the instance
-        if additional_properties is None:
-            additional_properties = {}
-        self.additional_properties = additional_properties
 
     @classmethod
     def from_dictionary(cls,
@@ -179,11 +171,6 @@ class SubMerchantData21(object):
             if dictionary.get("taxId")\
                 else APIHelper.SKIP
 
-        additional_properties = APIHelper.get_additional_properties(
-            dictionary={k: v for k, v in dictionary.items()
-                        if k not in cls._names.values()},
-            unboxing_function=lambda value: value)
-
         # Return an object of this model
         return cls(display_name,
                    id,
@@ -196,8 +183,7 @@ class SubMerchantData21(object):
                    postal_code,
                    state,
                    street,
-                   tax_id,
-                   additional_properties)
+                   tax_id)
 
     def __repr__(self):
         """Return a unambiguous string representation."""
@@ -245,7 +231,6 @@ class SubMerchantData21(object):
             if hasattr(self, "tax_id")
             else None
         )
-        _additional_properties=self.additional_properties
         return (
             f"{self.__class__.__name__}("
             f"city={_city!r}, "
@@ -260,7 +245,6 @@ class SubMerchantData21(object):
             f"state={_state!r}, "
             f"street={_street!r}, "
             f"tax_id={_tax_id!r}, "
-            f"additional_properties={_additional_properties!r}, "
             f")"
         )
 
@@ -310,7 +294,6 @@ class SubMerchantData21(object):
             if hasattr(self, "tax_id")
             else None
         )
-        _additional_properties=self.additional_properties
         return (
             f"{self.__class__.__name__}("
             f"city={_city!s}, "
@@ -325,6 +308,5 @@ class SubMerchantData21(object):
             f"state={_state!s}, "
             f"street={_street!s}, "
             f"tax_id={_tax_id!s}, "
-            f"additional_properties={_additional_properties!s}, "
             f")"
         )

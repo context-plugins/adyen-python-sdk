@@ -26,8 +26,6 @@ class ViasAddress(object):
             Canada.  * 3 characters for all other countries.
         street (str): The name of the street. Required if the `houseNumberOrName`,
             `city`, `postalCode`, or `stateOrProvince` are provided.
-        additional_properties (Dict[str, Any]): The additional properties for the
-            model.
 
     """
 
@@ -56,8 +54,7 @@ class ViasAddress(object):
         house_number_or_name=APIHelper.SKIP,
         postal_code=APIHelper.SKIP,
         state_or_province=APIHelper.SKIP,
-        street=APIHelper.SKIP,
-        additional_properties=None):
+        street=APIHelper.SKIP):
         """Initialize a ViasAddress instance."""
         # Initialize members of the class
         if city is not APIHelper.SKIP:
@@ -71,11 +68,6 @@ class ViasAddress(object):
             self.state_or_province = state_or_province
         if street is not APIHelper.SKIP:
             self.street = street
-
-        # Add additional model properties to the instance
-        if additional_properties is None:
-            additional_properties = {}
-        self.additional_properties = additional_properties
 
     @classmethod
     def from_dictionary(cls,
@@ -120,19 +112,13 @@ class ViasAddress(object):
             if dictionary.get("street")\
                 else APIHelper.SKIP
 
-        additional_properties = APIHelper.get_additional_properties(
-            dictionary={k: v for k, v in dictionary.items()
-                        if k not in cls._names.values()},
-            unboxing_function=lambda value: value)
-
         # Return an object of this model
         return cls(country,
                    city,
                    house_number_or_name,
                    postal_code,
                    state_or_province,
-                   street,
-                   additional_properties)
+                   street)
 
     def __repr__(self):
         """Return a unambiguous string representation."""
@@ -162,7 +148,6 @@ class ViasAddress(object):
             if hasattr(self, "street")
             else None
         )
-        _additional_properties=self.additional_properties
         return (
             f"{self.__class__.__name__}("
             f"city={_city!r}, "
@@ -171,7 +156,6 @@ class ViasAddress(object):
             f"postal_code={_postal_code!r}, "
             f"state_or_province={_state_or_province!r}, "
             f"street={_street!r}, "
-            f"additional_properties={_additional_properties!r}, "
             f")"
         )
 
@@ -203,7 +187,6 @@ class ViasAddress(object):
             if hasattr(self, "street")
             else None
         )
-        _additional_properties=self.additional_properties
         return (
             f"{self.__class__.__name__}("
             f"city={_city!s}, "
@@ -212,6 +195,5 @@ class ViasAddress(object):
             f"postal_code={_postal_code!s}, "
             f"state_or_province={_state_or_province!s}, "
             f"street={_street!s}, "
-            f"additional_properties={_additional_properties!s}, "
             f")"
         )

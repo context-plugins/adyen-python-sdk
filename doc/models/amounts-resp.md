@@ -1,8 +1,6 @@
 
 # Amounts Resp
 
-*This model accepts additional fields of type Any.*
-
 ## Structure
 
 `AmountsResp`
@@ -17,13 +15,10 @@
 | `total_fees_amount` | `float` | Optional | Total amount of financial fees.<br><br>**Constraints**: `>= 0`, `<= 99999999.999999` |
 | `cash_back_amount` | `float` | Optional | The cash-back part of the amount requested by the Sale for the payment.<br><br>**Constraints**: `>= 0`, `<= 99999999.999999` |
 | `tip_amount` | `float` | Optional | Amount paid for a tip. Allow the printing of the tip on the receipt, and to qualify the tip part of the amount.<br><br>**Constraints**: `>= 0`, `<= 99999999.999999` |
-| `additional_properties` | `Dict[str, Any]` | Optional | - |
 
 ## Example
 
 ```python
-import jsonpickle
-
 from adyen.models.amounts_resp import AmountsResp
 
 amounts_resp = AmountsResp(
@@ -32,10 +27,7 @@ amounts_resp = AmountsResp(
     total_rebates_amount=88.78,
     total_fees_amount=106.18,
     cash_back_amount=237.84,
-    tip_amount=200.3,
-    additional_properties={
-        'exampleAdditionalProperty': jsonpickle.decode('{"key1":"val1","key2":"val2"}')
-    }
+    tip_amount=200.3
 )
 ```
 

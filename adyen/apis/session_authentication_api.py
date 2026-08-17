@@ -11,21 +11,15 @@ from apimatic_core.types.parameter import Parameter
 from adyen.api_helper import APIHelper
 from adyen.apis.base_api import BaseApi
 from adyen.configuration import Server
-from adyen.exceptions.auth_certificate_400_error_exception import (
-    AuthCertificate400ErrorException,
-)
-from adyen.exceptions.auth_certificate_401_error_exception import (
-    AuthCertificate401ErrorException,
-)
-from adyen.exceptions.auth_certificate_422_error_exception import (
-    AuthCertificate422ErrorException,
-)
-from adyen.exceptions.auth_certificate_500_error_exception import (
-    AuthCertificate500ErrorException,
+from adyen.exceptions.default_error_response_entity_exception import (
+    DefaultErrorResponseEntityException,
 )
 from adyen.http.http_method_enum import HttpMethodEnum
-from adyen.models.create_session_response import (
-    CreateSessionResponse,
+from adyen.models.authentication_session_response import (
+    AuthenticationSessionResponse,
+)
+from adyen.models.certificate_loading_response import (
+    CertificateLoadingResponse,
 )
 
 
@@ -35,6 +29,55 @@ class SessionAuthenticationApi(BaseApi):
     def __init__(self, config):
         """Initialize SessionAuthenticationApi object."""
         super(SessionAuthenticationApi, self).__init__(config)
+
+    def post_sessions(self,
+                      body):
+        """Perform a POST request to /sessions.
+
+        Creates a session token that is required to integrate
+        [components](https://docs.adyen.com/platforms/components-overview).
+        The response contains encrypted session data. The front end then uses the
+        session data to make the required server-side calls for the component.
+        To create a token, you must meet specific requirements. These requirements
+        vary depending on the type of component. For more information, see the
+        documentation for
+        [Onboarding](https://docs.adyen.com/platforms/onboard-users/components) and
+        [Platform Experience](https://docs.adyen.com/platforms/build-user-dashboards)
+        components.
+
+        Args:
+            body (AuthenticationSessionRequest): The request body parameter.
+
+        Returns:
+            AuthenticationSessionResponse: Response from the API. Successful operation
+
+        Raises:
+            APIException: When an error occurs while fetching the data from the
+                remote API. This exception includes the HTTP Response code, an error
+                message, and the HTTP body that was received in the request.
+
+        """
+        return super().new_api_call_builder.request(
+            RequestBuilder().server(Server.DEFAULT17)
+            .path("/sessions")
+            .http_method(HttpMethodEnum.POST)
+            .header_param(Parameter()
+                .key("Content-Type")
+                .value("application/json"))
+            .body_param(Parameter()
+                .value(body))
+            .header_param(Parameter()
+                .key("accept")
+                .value("application/json"))
+            .body_serializer(APIHelper.json_serialize),
+        ).response(
+            ResponseHandler()
+            .deserializer(APIHelper.json_deserialize)
+            .deserialize_into(AuthenticationSessionResponse.from_dictionary)
+            .local_error("400", "Bad request", DefaultErrorResponseEntityException)
+            .local_error("401", "Unauthorized", DefaultErrorResponseEntityException)
+            .local_error("403", "Forbidden", DefaultErrorResponseEntityException),
+        ).execute()
 
     def post_auth_certificate(self,
                               x_api_key=None,
@@ -52,18 +95,17 @@ class SessionAuthenticationApi(BaseApi):
             body (CertificateLoadingRequest, optional): The request body parameter.
 
         Returns:
-            ApiResponse: An object with the response value as well as other useful
-                information such as status codes and headers. OK - the request has
+            CertificateLoadingResponse: Response from the API. OK - the request has
                 succeeded.
 
         Raises:
-            ApiException: When an error occurs while fetching the data from the
+            APIException: When an error occurs while fetching the data from the
                 remote API. This exception includes the HTTP Response code, an error
                 message, and the HTTP body that was received in the request.
 
         """
         return super().new_api_call_builder.request(
-            RequestBuilder().server(Server.DEFAULT)
+            RequestBuilder().server(Server.DEFAULT25)
             .path("/auth/certificate")
             .http_method(HttpMethodEnum.POST)
             .header_param(Parameter()
@@ -81,18 +123,17 @@ class SessionAuthenticationApi(BaseApi):
         ).response(
             ResponseHandler()
             .deserializer(APIHelper.json_deserialize)
-            .deserialize_into(CreateSessionResponse.from_dictionary)
-            .is_api_response(True)
+            .deserialize_into(CertificateLoadingResponse.from_dictionary)
             .local_error("400",
                 "Bad request - validation failed.",
-                AuthCertificate400ErrorException)
+                DefaultErrorResponseEntityException)
             .local_error("401",
                 "Unauthorized - authentication required.",
-                AuthCertificate401ErrorException)
+                DefaultErrorResponseEntityException)
             .local_error("422",
                 "Unprocessable entity - session request could not be processed.",
-                AuthCertificate422ErrorException)
+                DefaultErrorResponseEntityException)
             .local_error("500",
                 "Internal server error.",
-                AuthCertificate500ErrorException),
+                DefaultErrorResponseEntityException),
         ).execute()

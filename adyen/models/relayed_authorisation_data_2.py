@@ -17,8 +17,6 @@ class RelayedAuthorisationData2(object):
         metadata (Dict[str, str]): Contains key-value pairs of your references and
             descriptions, for example, `customId`:`your-own-custom-field-12345`.
         reference (str): Your reference for the relayed authorisation data.
-        additional_properties (Dict[str, Any]): The additional properties for the
-            model.
 
     """
 
@@ -36,19 +34,13 @@ class RelayedAuthorisationData2(object):
     def __init__(
         self,
         metadata=APIHelper.SKIP,
-        reference=APIHelper.SKIP,
-        additional_properties=None):
+        reference=APIHelper.SKIP):
         """Initialize a RelayedAuthorisationData2 instance."""
         # Initialize members of the class
         if metadata is not APIHelper.SKIP:
             self.metadata = metadata
         if reference is not APIHelper.SKIP:
             self.reference = reference
-
-        # Add additional model properties to the instance
-        if additional_properties is None:
-            additional_properties = {}
-        self.additional_properties = additional_properties
 
     @classmethod
     def from_dictionary(cls,
@@ -77,15 +69,9 @@ class RelayedAuthorisationData2(object):
             if dictionary.get("reference")\
                 else APIHelper.SKIP
 
-        additional_properties = APIHelper.get_additional_properties(
-            dictionary={k: v for k, v in dictionary.items()
-                        if k not in cls._names.values()},
-            unboxing_function=lambda value: value)
-
         # Return an object of this model
         return cls(metadata,
-                   reference,
-                   additional_properties)
+                   reference)
 
     @classmethod
     def validate(cls, dictionary):
@@ -120,12 +106,10 @@ class RelayedAuthorisationData2(object):
             if hasattr(self, "reference")
             else None
         )
-        _additional_properties=self.additional_properties
         return (
             f"{self.__class__.__name__}("
             f"metadata={_metadata!r}, "
             f"reference={_reference!r}, "
-            f"additional_properties={_additional_properties!r}, "
             f")"
         )
 
@@ -141,11 +125,9 @@ class RelayedAuthorisationData2(object):
             if hasattr(self, "reference")
             else None
         )
-        _additional_properties=self.additional_properties
         return (
             f"{self.__class__.__name__}("
             f"metadata={_metadata!s}, "
             f"reference={_reference!s}, "
-            f"additional_properties={_additional_properties!s}, "
             f")"
         )

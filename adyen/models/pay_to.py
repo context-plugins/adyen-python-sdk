@@ -20,9 +20,7 @@ class PayTo(object):
             reference, used to complete payment.
         stored_payment_method_id (str): This is the `recurringDetailReference`
             returned in the response when you created the token.
-        mtype (Type411): The model property of type Type411.
-        additional_properties (Dict[str, Any]): The additional properties for the
-            model.
+        mtype (Type41Enum): **payto**
 
     """
 
@@ -52,8 +50,7 @@ class PayTo(object):
         sdk_data=APIHelper.SKIP,
         shopper_account_identifier=APIHelper.SKIP,
         stored_payment_method_id=APIHelper.SKIP,
-        mtype=APIHelper.SKIP,
-        additional_properties=None):
+        mtype="payto"):
         """Initialize a PayTo instance."""
         # Initialize members of the class
         if checkout_attempt_id is not APIHelper.SKIP:
@@ -66,13 +63,7 @@ class PayTo(object):
             self.shopper_account_identifier = shopper_account_identifier
         if stored_payment_method_id is not APIHelper.SKIP:
             self.stored_payment_method_id = stored_payment_method_id
-        if mtype is not APIHelper.SKIP:
-            self.mtype = mtype
-
-        # Add additional model properties to the instance
-        if additional_properties is None:
-            additional_properties = {}
-        self.additional_properties = additional_properties
+        self.mtype = mtype
 
     @classmethod
     def from_dictionary(cls,
@@ -115,12 +106,7 @@ class PayTo(object):
         mtype =\
             dictionary.get("type")\
             if dictionary.get("type")\
-                else APIHelper.SKIP
-
-        additional_properties = APIHelper.get_additional_properties(
-            dictionary={k: v for k, v in dictionary.items()
-                        if k not in cls._names.values()},
-            unboxing_function=lambda value: value)
+                else "payto"
 
         # Return an object of this model
         return cls(checkout_attempt_id,
@@ -128,8 +114,7 @@ class PayTo(object):
                    sdk_data,
                    shopper_account_identifier,
                    stored_payment_method_id,
-                   mtype,
-                   additional_properties)
+                   mtype)
 
     @classmethod
     def validate(cls, dictionary):
@@ -184,7 +169,6 @@ class PayTo(object):
             if hasattr(self, "mtype")
             else None
         )
-        _additional_properties=self.additional_properties
         return (
             f"{self.__class__.__name__}("
             f"checkout_attempt_id={_checkout_attempt_id!r}, "
@@ -193,7 +177,6 @@ class PayTo(object):
             f"shopper_account_identifier={_shopper_account_identifier!r}, "
             f"stored_payment_method_id={_stored_payment_method_id!r}, "
             f"mtype={_mtype!r}, "
-            f"additional_properties={_additional_properties!r}, "
             f")"
         )
 
@@ -229,7 +212,6 @@ class PayTo(object):
             if hasattr(self, "mtype")
             else None
         )
-        _additional_properties=self.additional_properties
         return (
             f"{self.__class__.__name__}("
             f"checkout_attempt_id={_checkout_attempt_id!s}, "
@@ -238,6 +220,5 @@ class PayTo(object):
             f"shopper_account_identifier={_shopper_account_identifier!s}, "
             f"stored_payment_method_id={_stored_payment_method_id!s}, "
             f"mtype={_mtype!s}, "
-            f"additional_properties={_additional_properties!s}, "
             f")"
         )

@@ -21,8 +21,7 @@
 
 ```python
 value = ConfirmationTrackingData(
-    status=Status110.CREDITED,
-    mtype=Type834.CONFIRMATION
+    status=Status15Enum.CREDITED
 )
 ```
 
@@ -34,8 +33,7 @@ value = ConfirmationTrackingData(
 
 ```python
 value = EstimationTrackingData(
-    estimated_arrival_time=dateutil.parser.parse('2016-03-13T12:52:32.123Z'),
-    mtype=Type84.ESTIMATION
+    estimated_arrival_time=dateutil.parser.parse('2016-03-13T12:52:32.123Z')
 )
 ```
 
@@ -47,8 +45,7 @@ value = EstimationTrackingData(
 
 ```python
 value = InternalReviewTrackingData(
-    status=Status44.PENDING,
-    mtype=Type90.INTERNALREVIEW
+    status=Status44Enum.PENDING
 )
 ```
 

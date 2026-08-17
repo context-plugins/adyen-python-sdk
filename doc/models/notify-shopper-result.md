@@ -1,8 +1,6 @@
 
 # Notify Shopper Result
 
-*This model accepts additional fields of type Any.*
-
 ## Structure
 
 `NotifyShopperResult`
@@ -18,13 +16,10 @@
 | `result_code` | `str` | Optional | The code indicating the status of notification. |
 | `shopper_notification_reference` | `str` | Optional | The unique reference for the request sent downstream. |
 | `stored_payment_method_id` | `str` | Optional | This is the recurringDetailReference returned in the response when token was created |
-| `additional_properties` | `Dict[str, Any]` | Optional | - |
 
 ## Example
 
 ```python
-import jsonpickle
-
 from adyen.models.notify_shopper_result import NotifyShopperResult
 
 notify_shopper_result = NotifyShopperResult(
@@ -32,10 +27,7 @@ notify_shopper_result = NotifyShopperResult(
     message='message8',
     psp_reference='pspReference0',
     reference='reference4',
-    result_code='resultCode4',
-    additional_properties={
-        'exampleAdditionalProperty': jsonpickle.decode('{"key1":"val1","key2":"val2"}')
-    }
+    result_code='resultCode4'
 )
 ```
 

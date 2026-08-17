@@ -1,8 +1,6 @@
 
 # Dynamic Offer Repayment
 
-*This model accepts additional fields of type Any.*
-
 ## Structure
 
 `DynamicOfferRepayment`
@@ -11,28 +9,19 @@
 
 | Name | Type | Tags | Description |
 |  --- | --- | --- | --- |
-| `term` | [`Term`](../../doc/models/term.md) | Required | - |
-| `additional_properties` | `Dict[str, Any]` | Optional | - |
+| `term` | [`RepaymentTerm`](../../doc/models/repayment-term.md) | Required | Contains information about the time period in which your user must repay the total amount of the grant. |
 
 ## Example
 
 ```python
-import jsonpickle
-
 from adyen.models.dynamic_offer_repayment import DynamicOfferRepayment
-from adyen.models.term import Term
+from adyen.models.repayment_term import RepaymentTerm
 
 dynamic_offer_repayment = DynamicOfferRepayment(
-    term=Term(
+    term=RepaymentTerm(
         estimated_days=248,
-        maximum_days=24,
-        additional_properties={
-            'exampleAdditionalProperty': jsonpickle.decode('{"key1":"val1","key2":"val2"}')
-        }
-    ),
-    additional_properties={
-        'exampleAdditionalProperty': jsonpickle.decode('{"key1":"val1","key2":"val2"}')
-    }
+        maximum_days=24
+    )
 )
 ```
 

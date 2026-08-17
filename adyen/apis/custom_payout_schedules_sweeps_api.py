@@ -54,24 +54,22 @@ class CustomPayoutSchedulesSweepsApi(BaseApi):
                 items. By default, the response returns 10 items per page.
 
         Returns:
-            ApiResponse: An object with the response value as well as other useful
-                information such as status codes and headers. OK - the request has
-                succeeded.
+            BalanceSweepConfigurationsResponse: Response from the API. OK - the
+                request has succeeded.
 
         Raises:
-            ApiException: When an error occurs while fetching the data from the
+            APIException: When an error occurs while fetching the data from the
                 remote API. This exception includes the HTTP Response code, an error
                 message, and the HTTP body that was received in the request.
 
         """
         return super().new_api_call_builder.request(
-            RequestBuilder().server(Server.DEFAULT)
+            RequestBuilder().server(Server.DEFAULT13)
             .path("/balanceAccounts/{balanceAccountId}/sweeps")
             .http_method(HttpMethodEnum.GET)
             .template_param(Parameter()
                 .key("balanceAccountId")
                 .value(balance_account_id)
-                .is_required(True)
                 .should_encode(True))
             .query_param(Parameter()
                 .key("offset")
@@ -87,7 +85,6 @@ class CustomPayoutSchedulesSweepsApi(BaseApi):
             ResponseHandler()
             .deserializer(APIHelper.json_deserialize)
             .deserialize_into(BalanceSweepConfigurationsResponse.from_dictionary)
-            .is_api_response(True)
             .local_error("400",
                 "Bad Request - a problem reading or understanding the request.",
                 RestServiceErrorException)
@@ -120,24 +117,22 @@ class CustomPayoutSchedulesSweepsApi(BaseApi):
             body (CreateSweepConfigurationV2, optional): The request body parameter.
 
         Returns:
-            ApiResponse: An object with the response value as well as other useful
-                information such as status codes and headers. OK - the request has
+            SweepConfigurationV2: Response from the API. OK - the request has
                 succeeded.
 
         Raises:
-            ApiException: When an error occurs while fetching the data from the
+            APIException: When an error occurs while fetching the data from the
                 remote API. This exception includes the HTTP Response code, an error
                 message, and the HTTP body that was received in the request.
 
         """
         return super().new_api_call_builder.request(
-            RequestBuilder().server(Server.DEFAULT)
+            RequestBuilder().server(Server.DEFAULT13)
             .path("/balanceAccounts/{balanceAccountId}/sweeps")
             .http_method(HttpMethodEnum.POST)
             .template_param(Parameter()
                 .key("balanceAccountId")
                 .value(balance_account_id)
-                .is_required(True)
                 .should_encode(True))
             .header_param(Parameter()
                 .key("Content-Type")
@@ -153,7 +148,6 @@ class CustomPayoutSchedulesSweepsApi(BaseApi):
             ResponseHandler()
             .deserializer(APIHelper.json_deserialize)
             .deserialize_into(SweepConfigurationV2.from_dictionary)
-            .is_api_response(True)
             .local_error("400",
                 "Bad Request - a problem reading or understanding the request.",
                 RestServiceErrorException)
@@ -184,29 +178,26 @@ class CustomPayoutSchedulesSweepsApi(BaseApi):
             sweep_id (str): The unique identifier of the sweep.
 
         Returns:
-            ApiResponse: An object with the response value as well as other useful
-                information such as status codes and headers. OK - the request has
+            SweepConfigurationV2: Response from the API. OK - the request has
                 succeeded.
 
         Raises:
-            ApiException: When an error occurs while fetching the data from the
+            APIException: When an error occurs while fetching the data from the
                 remote API. This exception includes the HTTP Response code, an error
                 message, and the HTTP body that was received in the request.
 
         """
         return super().new_api_call_builder.request(
-            RequestBuilder().server(Server.DEFAULT)
+            RequestBuilder().server(Server.DEFAULT13)
             .path("/balanceAccounts/{balanceAccountId}/sweeps/{sweepId}")
             .http_method(HttpMethodEnum.GET)
             .template_param(Parameter()
                 .key("balanceAccountId")
                 .value(balance_account_id)
-                .is_required(True)
                 .should_encode(True))
             .template_param(Parameter()
                 .key("sweepId")
                 .value(sweep_id)
-                .is_required(True)
                 .should_encode(True))
             .header_param(Parameter()
                 .key("accept")
@@ -216,7 +207,6 @@ class CustomPayoutSchedulesSweepsApi(BaseApi):
             ResponseHandler()
             .deserializer(APIHelper.json_deserialize)
             .deserialize_into(SweepConfigurationV2.from_dictionary)
-            .is_api_response(True)
             .local_error("400",
                 "Bad Request - a problem reading or understanding the request.",
                 RestServiceErrorException)
@@ -247,49 +237,28 @@ class CustomPayoutSchedulesSweepsApi(BaseApi):
             sweep_id (str): The unique identifier of the sweep.
 
         Returns:
-            ApiResponse: An object with the response value as well as other useful
-                information such as status codes and headers. No Content - look at
-                the actual response code for the status of the request.
+            void: Response from the API. No Content - look at the actual response
+                code for the status of the request.
 
         Raises:
-            ApiException: When an error occurs while fetching the data from the
+            APIException: When an error occurs while fetching the data from the
                 remote API. This exception includes the HTTP Response code, an error
                 message, and the HTTP body that was received in the request.
 
         """
         return super().new_api_call_builder.request(
-            RequestBuilder().server(Server.DEFAULT)
+            RequestBuilder().server(Server.DEFAULT13)
             .path("/balanceAccounts/{balanceAccountId}/sweeps/{sweepId}")
             .http_method(HttpMethodEnum.DELETE)
             .template_param(Parameter()
                 .key("balanceAccountId")
                 .value(balance_account_id)
-                .is_required(True)
                 .should_encode(True))
             .template_param(Parameter()
                 .key("sweepId")
                 .value(sweep_id)
-                .is_required(True)
                 .should_encode(True))
             .auth(Or(Single("clientKey"), Single("BasicAuth"), Single("ApiKeyAuth"))),
-        ).response(
-            ResponseHandler()
-            .is_api_response(True)
-            .local_error("400",
-                "Bad Request - a problem reading or understanding the request.",
-                RestServiceErrorException)
-            .local_error("401",
-                "Unauthorized - authentication required.",
-                RestServiceErrorException)
-            .local_error("403",
-                "Forbidden - insufficient permissions to process the request.",
-                RestServiceErrorException)
-            .local_error("422",
-                "Unprocessable Entity - a request validation error.",
-                RestServiceErrorException)
-            .local_error("500",
-                "Internal Server Error - the server could not process the request.",
-                RestServiceErrorException),
         ).execute()
 
     def patch_balance_accounts_balance_account_id_sweeps_sweep_id(self,
@@ -308,29 +277,26 @@ class CustomPayoutSchedulesSweepsApi(BaseApi):
             body (UpdateSweepConfigurationV2, optional): The request body parameter.
 
         Returns:
-            ApiResponse: An object with the response value as well as other useful
-                information such as status codes and headers. OK - the request has
+            SweepConfigurationV2: Response from the API. OK - the request has
                 succeeded.
 
         Raises:
-            ApiException: When an error occurs while fetching the data from the
+            APIException: When an error occurs while fetching the data from the
                 remote API. This exception includes the HTTP Response code, an error
                 message, and the HTTP body that was received in the request.
 
         """
         return super().new_api_call_builder.request(
-            RequestBuilder().server(Server.DEFAULT)
+            RequestBuilder().server(Server.DEFAULT13)
             .path("/balanceAccounts/{balanceAccountId}/sweeps/{sweepId}")
             .http_method(HttpMethodEnum.PATCH)
             .template_param(Parameter()
                 .key("balanceAccountId")
                 .value(balance_account_id)
-                .is_required(True)
                 .should_encode(True))
             .template_param(Parameter()
                 .key("sweepId")
                 .value(sweep_id)
-                .is_required(True)
                 .should_encode(True))
             .header_param(Parameter()
                 .key("Content-Type")
@@ -346,7 +312,6 @@ class CustomPayoutSchedulesSweepsApi(BaseApi):
             ResponseHandler()
             .deserializer(APIHelper.json_deserialize)
             .deserialize_into(SweepConfigurationV2.from_dictionary)
-            .is_api_response(True)
             .local_error("400",
                 "Bad Request - a problem reading or understanding the request.",
                 RestServiceErrorException)

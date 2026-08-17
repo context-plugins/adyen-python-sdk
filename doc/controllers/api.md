@@ -6,7 +6,7 @@ client_api = client.client
 
 ## Class Name
 
-`Api`
+`API`
 
 ## Methods
 
@@ -55,14 +55,14 @@ This endpoint requires [BasicAuth](../../doc/auth/basic-authentication.md) **OR*
 **200**: It conveys Information related to the Login to process.
 Content of the Login Response message.
 
-This method returns an [`ApiResponse`](../../doc/api-response.md) instance. The `body` property of this instance returns the response data which is of type [`LoginResponse1`](../../doc/models/login-response-1.md).
+[`LoginResponse`](../../doc/models/login-response.md)
 
 ## Example Usage
 
 ```python
 body = LoginRequest(
     date_time=dateutil.parser.parse('2016-03-13T12:52:32.123Z'),
-    sale_software=SaleSoftware2(
+    sale_software=SaleSoftware1(
         manufacturer_id='ManufacturerID4',
         application_name='ApplicationName8',
         software_version='SoftwareVersion0',
@@ -75,11 +75,7 @@ body = LoginRequest(
 result = client_api.login_request(
     body=body
 )
-
-if result.is_success():
-    print(result.body)
-elif result.is_error():
-    print(result.errors)
+print(result)
 ```
 
 
@@ -108,7 +104,7 @@ This endpoint requires [BasicAuth](../../doc/auth/basic-authentication.md) **OR*
 **200**: It conveys the result of the Logout.
 Content of the Logout Response message.
 
-This method returns an [`ApiResponse`](../../doc/api-response.md) instance. The `body` property of this instance returns the response data which is of type [`LogoutResponse1`](../../doc/models/logout-response-1.md).
+[`LogoutResponse`](../../doc/models/logout-response.md)
 
 ## Example Usage
 
@@ -120,11 +116,7 @@ body = LogoutRequest(
 result = client_api.logout_request(
     body=body
 )
-
-if result.is_success():
-    print(result.body)
-elif result.is_error():
-    print(result.errors)
+print(result)
 ```
 
 
@@ -153,17 +145,13 @@ This endpoint requires [BasicAuth](../../doc/auth/basic-authentication.md) **OR*
 **200**: It conveys the result of the Enable Service processing.
 Content of the Enable Service Response message.
 
-This method returns an [`ApiResponse`](../../doc/api-response.md) instance. The `body` property of this instance returns the response data which is of type [`EnableserviceResponse1`](../../doc/models/enableservice-response-1.md).
+[`EnableServiceResponse`](../../doc/models/enable-service-response.md)
 
 ## Example Usage
 
 ```python
 result = client_api.enable_service_request()
-
-if result.is_success():
-    print(result.body)
-elif result.is_error():
-    print(result.errors)
+print(result)
 ```
 
 
@@ -192,17 +180,13 @@ This endpoint requires [BasicAuth](../../doc/auth/basic-authentication.md) **OR*
 **200**: It conveys the result of the Custom Admin.
 Content of the Custom Admin Response message.
 
-This method returns an [`ApiResponse`](../../doc/api-response.md) instance. The `body` property of this instance returns the response data which is of type [`AdminResponse1`](../../doc/models/admin-response-1.md).
+[`AdminResponse`](../../doc/models/admin-response.md)
 
 ## Example Usage
 
 ```python
 result = client_api.admin_request()
-
-if result.is_success():
-    print(result.body)
-elif result.is_error():
-    print(result.errors)
+print(result)
 ```
 
 
@@ -232,17 +216,13 @@ This endpoint requires [BasicAuth](../../doc/auth/basic-authentication.md) **OR*
 **200**: It conveys Information related to the Payment transaction processed by the POI System.
 Content of the Payment Response message.
 
-This method returns an [`ApiResponse`](../../doc/api-response.md) instance. The `body` property of this instance returns the response data which is of type [`PaymentResponse6`](../../doc/models/payment-response-6.md).
+[`PaymentResponse4`](../../doc/models/payment-response-4.md)
 
 ## Example Usage
 
 ```python
 result = client_api.payment_request()
-
-if result.is_success():
-    print(result.body)
-elif result.is_error():
-    print(result.errors)
+print(result)
 ```
 
 
@@ -271,17 +251,13 @@ This endpoint requires [BasicAuth](../../doc/auth/basic-authentication.md) **OR*
 **200**: It conveys Information related to the payment and loyalty cards read and processed by the POI System and entered by the Customer.
 Content of the Card Acquisition Response message.
 
-This method returns an [`ApiResponse`](../../doc/api-response.md) instance. The `body` property of this instance returns the response data which is of type [`CardacquisitionResponse4`](../../doc/models/cardacquisition-response-4.md).
+[`CardAcquisitionResponse`](../../doc/models/card-acquisition-response.md)
 
 ## Example Usage
 
 ```python
 result = client_api.card_acquisition_request()
-
-if result.is_success():
-    print(result.body)
-elif result.is_error():
-    print(result.errors)
+print(result)
 ```
 
 
@@ -310,21 +286,21 @@ This endpoint requires [BasicAuth](../../doc/auth/basic-authentication.md) **OR*
 **200**: It conveys Information related to the Stored Value transaction processed by the POI System.
 Content of the Stored Value Response message.
 
-This method returns an [`ApiResponse`](../../doc/api-response.md) instance. The `body` property of this instance returns the response data which is of type [`StoredvalueResponse4`](../../doc/models/storedvalue-response-4.md).
+[`StoredValueResponse`](../../doc/models/stored-value-response.md)
 
 ## Example Usage
 
 ```python
 body = StoredValueRequest(
-    sale_data=SaleData2(
-        sale_transaction_id=SaleTransactionId(
+    sale_data=SaleData1(
+        sale_transaction_id=TransactionIDType1(
             transaction_id='TransactionID2',
             time_stamp=dateutil.parser.parse('2016-03-13T12:52:32.123Z')
         )
     ),
     stored_value_data=[
         StoredValueData(
-            stored_value_transaction_type=StoredValueTransactionType1.RESERVE
+            stored_value_transaction_type=StoredValueTransactionType1Enum.RESERVE
         )
     ]
 )
@@ -332,11 +308,7 @@ body = StoredValueRequest(
 result = client_api.stored_value_request(
     body=body
 )
-
-if result.is_success():
-    print(result.body)
-elif result.is_error():
-    print(result.errors)
+print(result)
 ```
 
 
@@ -365,26 +337,22 @@ This endpoint requires [BasicAuth](../../doc/auth/basic-authentication.md) **OR*
 **200**: It conveys Information related to the reversal processed by the POI System.
 Content of the Reversal Response message.
 
-This method returns an [`ApiResponse`](../../doc/api-response.md) instance. The `body` property of this instance returns the response data which is of type [`ReversalResponse4`](../../doc/models/reversal-response-4.md).
+[`ReversalResponse`](../../doc/models/reversal-response.md)
 
 ## Example Usage
 
 ```python
 body = ReversalRequest(
-    original_poi_transaction=OriginalPoiTransaction3(
+    original_poi_transaction=OriginalPOITransaction2(
         reuse_card_data_flag=True
     ),
-    reversal_reason=ReversalReason1.CUSTCANCEL
+    reversal_reason=ReversalReason1Enum.CUSTCANCEL
 )
 
 result = client_api.reversal_request(
     body=body
 )
-
-if result.is_success():
-    print(result.body)
-elif result.is_error():
-    print(result.errors)
+print(result)
 ```
 
 
@@ -413,17 +381,13 @@ This endpoint requires [BasicAuth](../../doc/auth/basic-authentication.md) **OR*
 **200**: It conveys Information related to the Reconciliation transaction processed by the POI System.
 Content of the Reconciliation Response message.
 
-This method returns an [`ApiResponse`](../../doc/api-response.md) instance. The `body` property of this instance returns the response data which is of type [`ReconciliationResponse1`](../../doc/models/reconciliation-response-1.md).
+[`ReconciliationResponse`](../../doc/models/reconciliation-response.md)
 
 ## Example Usage
 
 ```python
 result = client_api.reconciliation_request()
-
-if result.is_success():
-    print(result.body)
-elif result.is_error():
-    print(result.errors)
+print(result)
 ```
 
 
@@ -452,17 +416,13 @@ This endpoint requires [BasicAuth](../../doc/auth/basic-authentication.md) **OR*
 **200**: Content of the Reconciliation Response message.
 It conveys Information related to the Reconciliation transaction processed by the POI System.
 
-This method returns an [`ApiResponse`](../../doc/api-response.md) instance. The `body` property of this instance returns the response data which is of type [`GettotalsResponse1`](../../doc/models/gettotals-response-1.md).
+[`GetTotalsResponse`](../../doc/models/get-totals-response.md)
 
 ## Example Usage
 
 ```python
 result = client_api.get_totals_request()
-
-if result.is_success():
-    print(result.body)
-elif result.is_error():
-    print(result.errors)
+print(result)
 ```
 
 
@@ -491,17 +451,13 @@ This endpoint requires [BasicAuth](../../doc/auth/basic-authentication.md) **OR*
 **200**: Content of the Balance Inquiry Response message.
 It conveys the balance and the identification of the associated payment, loyalty or stored value account.
 
-This method returns an [`ApiResponse`](../../doc/api-response.md) instance. The `body` property of this instance returns the response data which is of type [`BalanceinquiryResponse1`](../../doc/models/balanceinquiry-response-1.md).
+[`BalanceInquiryResponse`](../../doc/models/balance-inquiry-response.md)
 
 ## Example Usage
 
 ```python
 result = client_api.balance_inquiry_request()
-
-if result.is_success():
-    print(result.body)
-elif result.is_error():
-    print(result.errors)
+print(result)
 ```
 
 
@@ -530,7 +486,7 @@ This endpoint requires [BasicAuth](../../doc/auth/basic-authentication.md) **OR*
 **200**: Content of the TransactionStatus Response message.
 It conveys Information related to the status of the last or current Payment, Loyalty or Reversal transaction.
 
-This method returns an [`ApiResponse`](../../doc/api-response.md) instance. The `body` property of this instance returns the response data which is of type [`TransactionstatusResponse1`](../../doc/models/transactionstatus-response-1.md).
+[`TransactionStatusResponse`](../../doc/models/transaction-status-response.md)
 
 ## Example Usage
 
@@ -542,11 +498,7 @@ body = TransactionStatusRequest(
 result = client_api.transaction_status_request(
     body=body
 )
-
-if result.is_success():
-    print(result.body)
-elif result.is_error():
-    print(result.errors)
+print(result)
 ```
 
 
@@ -574,17 +526,13 @@ This endpoint requires [BasicAuth](../../doc/auth/basic-authentication.md) **OR*
 
 **200**: A successful `AbortRequest` returns a response with a **200 OK** HTTP status code and no body.
 
-This method returns an [`ApiResponse`](../../doc/api-response.md) instance. The `body` property of this instance returns the response data which is of type `Any`.
+`Any`
 
 ## Example Usage
 
 ```python
 result = client_api.abort_request()
-
-if result.is_success():
-    print(result.body)
-elif result.is_error():
-    print(result.errors)
+print(result)
 ```
 
 
@@ -613,7 +561,7 @@ This endpoint requires [BasicAuth](../../doc/auth/basic-authentication.md) **OR*
 **200**: It conveys the result of the requested diagnosis and a possible message to display on a logical device.
 Content of the Diagnosis Response message.
 
-This method returns an [`ApiResponse`](../../doc/api-response.md) instance. The `body` property of this instance returns the response data which is of type [`DiagnosisResponse1`](../../doc/models/diagnosis-response-1.md).
+[`DiagnosisResponse`](../../doc/models/diagnosis-response.md)
 
 ## Example Usage
 
@@ -625,11 +573,7 @@ body = DiagnosisRequest(
 result = client_api.diagnosis_request(
     body=body
 )
-
-if result.is_success():
-    print(result.body)
-elif result.is_error():
-    print(result.errors)
+print(result)
 ```
 
 
@@ -658,7 +602,7 @@ This endpoint requires [BasicAuth](../../doc/auth/basic-authentication.md) **OR*
 **200**: It conveys the result of the display, parallel to the message request, except if response not required and absent.
 Content of the Display Response message.
 
-This method returns an [`ApiResponse`](../../doc/api-response.md) instance. The `body` property of this instance returns the response data which is of type [`DisplayResponse1`](../../doc/models/display-response-1.md).
+[`DisplayResponse`](../../doc/models/display-response.md)
 
 ## Example Usage
 
@@ -666,10 +610,10 @@ This method returns an [`ApiResponse`](../../doc/api-response.md) instance. The 
 body = DisplayRequest(
     display_output=[
         DisplayOutput(
-            device=Device11.CASHIERDISPLAY,
-            info_qualify=InfoQualify1.STATUS,
-            output_content=OutputContent2(
-                output_format=OutputFormat1.XHTML
+            device=Device11Enum.CASHIERDISPLAY,
+            info_qualify=InfoQualify1Enum.STATUS,
+            output_content=OutputContent1(
+                output_format=OutputFormat1Enum.XHTML
             ),
             response_required_flag=True,
             minimum_display_time=0
@@ -680,11 +624,7 @@ body = DisplayRequest(
 result = client_api.display_request(
     body=body
 )
-
-if result.is_success():
-    print(result.body)
-elif result.is_error():
-    print(result.errors)
+print(result)
 ```
 
 
@@ -712,16 +652,16 @@ This endpoint requires [BasicAuth](../../doc/auth/basic-authentication.md) **OR*
 **200**: It conveys the result of the input or the result of the outputs, parallel to the message request, except if response not required and absent.
 Content of the Input Response message.
 
-This method returns an [`ApiResponse`](../../doc/api-response.md) instance. The `body` property of this instance returns the response data which is of type [`InputResponse1`](../../doc/models/input-response-1.md).
+[`InputResponse`](../../doc/models/input-response.md)
 
 ## Example Usage
 
 ```python
 body = InputRequest(
-    input_data=InputData(
-        device=Device2.CASHIERDISPLAY,
-        info_qualify=InfoQualify2.CUSTOMERASSISTANCE,
-        input_command=InputCommand1.GETANYKEY,
+    input_data=InputData2(
+        device=Device2Enum.CASHIERDISPLAY,
+        info_qualify=InfoQualify2Enum.CUSTOMERASSISTANCE,
+        input_command=InputCommand1Enum.GETANYKEY,
         notify_card_input_flag=False,
         immediate_response_flag=False,
         wait_user_validation_flag=True,
@@ -739,11 +679,7 @@ body = InputRequest(
 result = client_api.input_request(
     body=body
 )
-
-if result.is_success():
-    print(result.body)
-elif result.is_error():
-    print(result.errors)
+print(result)
 ```
 
 
@@ -772,17 +708,17 @@ This endpoint requires [BasicAuth](../../doc/auth/basic-authentication.md) **OR*
 **200**: It conveys the result of the print, parallel to the message request, except if response not required and absent.
 Content of the Print Response message.
 
-This method returns an [`ApiResponse`](../../doc/api-response.md) instance. The `body` property of this instance returns the response data which is of type [`PrintResponse1`](../../doc/models/print-response-1.md).
+[`PrintResponse`](../../doc/models/print-response.md)
 
 ## Example Usage
 
 ```python
 body = PrintRequest(
-    print_output=PrintOutput(
-        document_qualifier=DocumentQualifier2.CUSTOMERRECEIPT,
-        response_mode=ResponseMode1.PRINTEND,
-        output_content=OutputContent2(
-            output_format=OutputFormat1.XHTML
+    print_output=PrintOutput2(
+        document_qualifier=DocumentQualifier2Enum.CUSTOMERRECEIPT,
+        response_mode=ResponseMode1Enum.PRINTEND,
+        output_content=OutputContent3(
+            output_format=OutputFormat1Enum.XHTML
         ),
         integrated_print_flag=False,
         required_signature_flag=False
@@ -792,11 +728,7 @@ body = PrintRequest(
 result = client_api.print_request(
     body=body
 )
-
-if result.is_success():
-    print(result.body)
-elif result.is_error():
-    print(result.errors)
+print(result)
 ```
 
 
@@ -818,23 +750,19 @@ This endpoint requires [BasicAuth](../../doc/auth/basic-authentication.md) **OR*
 
 | Parameter | Type | Tags | Description |
 |  --- | --- | --- | --- |
-| `body` | [`CardReaderApduRequest`](../../doc/models/card-reader-apdu-request.md) | Body, Optional | - |
+| `body` | [`CardReaderAPDURequest`](../../doc/models/card-reader-apdu-request.md) | Body, Optional | - |
 
 ## Response Type
 
 **200**: Content of the Card Reader APDU Response message.
 It contains the result of the requested service, APDU response sent by the chip of the card in response to the APDU request.
 
-This method returns an [`ApiResponse`](../../doc/api-response.md) instance. The `body` property of this instance returns the response data which is of type [`CardreaderapduResponse4`](../../doc/models/cardreaderapdu-response-4.md).
+[`CardReaderAPDUResponse`](../../doc/models/card-reader-apdu-response.md)
 
 ## Example Usage
 
 ```python
 result = client_api.card_reader_apdu_request()
-
-if result.is_success():
-    print(result.body)
-elif result.is_error():
-    print(result.errors)
+print(result)
 ```
 

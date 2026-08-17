@@ -16,8 +16,6 @@ class SaleToIssuerData(object):
 
     Attributes:
         statement_reference (str): Label to print on the bank statement.
-        additional_properties (Dict[str, Any]): The additional properties for the
-            model.
 
     """
 
@@ -32,17 +30,11 @@ class SaleToIssuerData(object):
 
     def __init__(
         self,
-        statement_reference=APIHelper.SKIP,
-        additional_properties=None):
+        statement_reference=APIHelper.SKIP):
         """Initialize a SaleToIssuerData instance."""
         # Initialize members of the class
         if statement_reference is not APIHelper.SKIP:
             self.statement_reference = statement_reference
-
-        # Add additional model properties to the instance
-        if additional_properties is None:
-            additional_properties = {}
-        self.additional_properties = additional_properties
 
     @classmethod
     def from_dictionary(cls,
@@ -67,14 +59,8 @@ class SaleToIssuerData(object):
             if dictionary.get("StatementReference")\
                 else APIHelper.SKIP
 
-        additional_properties = APIHelper.get_additional_properties(
-            dictionary={k: v for k, v in dictionary.items()
-                        if k not in cls._names.values()},
-            unboxing_function=lambda value: value)
-
         # Return an object of this model
-        return cls(statement_reference,
-                   additional_properties)
+        return cls(statement_reference)
 
     def __repr__(self):
         """Return a unambiguous string representation."""
@@ -83,11 +69,9 @@ class SaleToIssuerData(object):
             if hasattr(self, "statement_reference")
             else None
         )
-        _additional_properties=self.additional_properties
         return (
             f"{self.__class__.__name__}("
             f"statement_reference={_statement_reference!r}, "
-            f"additional_properties={_additional_properties!r}, "
             f")"
         )
 
@@ -98,10 +82,8 @@ class SaleToIssuerData(object):
             if hasattr(self, "statement_reference")
             else None
         )
-        _additional_properties=self.additional_properties
         return (
             f"{self.__class__.__name__}("
             f"statement_reference={_statement_reference!s}, "
-            f"additional_properties={_additional_properties!s}, "
             f")"
         )

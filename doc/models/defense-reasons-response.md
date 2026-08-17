@@ -1,8 +1,6 @@
 
 # Defense Reasons Response
 
-*This model accepts additional fields of type Any.*
-
 ## Structure
 
 `DefenseReasonsResponse`
@@ -12,26 +10,20 @@
 | Name | Type | Tags | Description |
 |  --- | --- | --- | --- |
 | `defense_reasons` | [`List[DefenseReason]`](../../doc/models/defense-reason.md) | Optional | The defense reasons that can be used to defend the dispute. |
-| `dispute_service_result` | [`DisputeServiceResult`](../../doc/models/dispute-service-result.md) | Required | - |
-| `additional_properties` | `Dict[str, Any]` | Optional | - |
+| `dispute_service_result` | [`DisputeServiceResult1`](../../doc/models/dispute-service-result-1.md) | Required | The result of the dispute service. |
 
 ## Example
 
 ```python
-import jsonpickle
-
 from adyen.models.defense_document_type import DefenseDocumentType
 from adyen.models.defense_reason import DefenseReason
 from adyen.models.defense_reasons_response import DefenseReasonsResponse
-from adyen.models.dispute_service_result import DisputeServiceResult
+from adyen.models.dispute_service_result_1 import DisputeServiceResult1
 
 defense_reasons_response = DefenseReasonsResponse(
-    dispute_service_result=DisputeServiceResult(
+    dispute_service_result=DisputeServiceResult1(
         success=False,
-        error_message='errorMessage8',
-        additional_properties={
-            'exampleAdditionalProperty': jsonpickle.decode('{"key1":"val1","key2":"val2"}')
-        }
+        error_message='errorMessage8'
     ),
     defense_reasons=[
         DefenseReason(
@@ -41,28 +33,16 @@ defense_reasons_response = DefenseReasonsResponse(
                 DefenseDocumentType(
                     available=False,
                     defense_document_type_code='defenseDocumentTypeCode0',
-                    requirement_level='requirementLevel4',
-                    additional_properties={
-                        'exampleAdditionalProperty': jsonpickle.decode('{"key1":"val1","key2":"val2"}')
-                    }
+                    requirement_level='requirementLevel4'
                 ),
                 DefenseDocumentType(
                     available=False,
                     defense_document_type_code='defenseDocumentTypeCode0',
-                    requirement_level='requirementLevel4',
-                    additional_properties={
-                        'exampleAdditionalProperty': jsonpickle.decode('{"key1":"val1","key2":"val2"}')
-                    }
+                    requirement_level='requirementLevel4'
                 )
-            ],
-            additional_properties={
-                'exampleAdditionalProperty': jsonpickle.decode('{"key1":"val1","key2":"val2"}')
-            }
+            ]
         )
-    ],
-    additional_properties={
-        'exampleAdditionalProperty': jsonpickle.decode('{"key1":"val1","key2":"val2"}')
-    }
+    ]
 )
 ```
 

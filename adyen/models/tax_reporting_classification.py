@@ -11,16 +11,21 @@ class TaxReportingClassification(object):
     """Implementation of the 'TaxReportingClassification' model.
 
     Attributes:
-        business_type (BusinessType): The model property of type BusinessType.
+        business_type (BusinessTypeEnum): The organization's business type.  Possible
+            values: **other**, **listedPublicCompany**,
+            **subsidiaryOfListedPublicCompany**, **governmentalOrganization**,
+            **internationalOrganization**, **financialInstitution**.
         financial_institution_number (str): The Global Intermediary Identification
             Number (GIIN) required for FATCA. Only required if the organization is a
             US financial institution and the `businessType` is
             **financialInstitution**.
-        main_source_of_income (MainSourceOfIncome): The model property of type
-            MainSourceOfIncome.
-        mtype (Type151): The model property of type Type151.
-        additional_properties (Dict[str, Any]): The additional properties for the
-            model.
+        main_source_of_income (MainSourceOfIncomeEnum): The organization's main
+            source of income. Only required if `businessType` is **other**.  Possible
+            values: **businessOperation**, **realEstateSales**,
+            **investmentInterestOrRoyalty**, **propertyRental**, **other**.
+        mtype (Type151Enum): The tax reporting classification type.  Possible values:
+            **nonFinancialNonReportable**, **financialNonReportable**,
+            **nonFinancialActive**, **nonFinancialPassive**.
 
     """
 
@@ -44,8 +49,7 @@ class TaxReportingClassification(object):
         business_type=APIHelper.SKIP,
         financial_institution_number=APIHelper.SKIP,
         main_source_of_income=APIHelper.SKIP,
-        mtype=APIHelper.SKIP,
-        additional_properties=None):
+        mtype=APIHelper.SKIP):
         """Initialize a TaxReportingClassification instance."""
         # Initialize members of the class
         if business_type is not APIHelper.SKIP:
@@ -56,11 +60,6 @@ class TaxReportingClassification(object):
             self.main_source_of_income = main_source_of_income
         if mtype is not APIHelper.SKIP:
             self.mtype = mtype
-
-        # Add additional model properties to the instance
-        if additional_properties is None:
-            additional_properties = {}
-        self.additional_properties = additional_properties
 
     @classmethod
     def from_dictionary(cls,
@@ -97,17 +96,11 @@ class TaxReportingClassification(object):
             if dictionary.get("type")\
                 else APIHelper.SKIP
 
-        additional_properties = APIHelper.get_additional_properties(
-            dictionary={k: v for k, v in dictionary.items()
-                        if k not in cls._names.values()},
-            unboxing_function=lambda value: value)
-
         # Return an object of this model
         return cls(business_type,
                    financial_institution_number,
                    main_source_of_income,
-                   mtype,
-                   additional_properties)
+                   mtype)
 
     def __repr__(self):
         """Return a unambiguous string representation."""
@@ -131,14 +124,12 @@ class TaxReportingClassification(object):
             if hasattr(self, "mtype")
             else None
         )
-        _additional_properties=self.additional_properties
         return (
             f"{self.__class__.__name__}("
             f"business_type={_business_type!r}, "
             f"financial_institution_number={_financial_institution_number!r}, "
             f"main_source_of_income={_main_source_of_income!r}, "
             f"mtype={_mtype!r}, "
-            f"additional_properties={_additional_properties!r}, "
             f")"
         )
 
@@ -164,13 +155,11 @@ class TaxReportingClassification(object):
             if hasattr(self, "mtype")
             else None
         )
-        _additional_properties=self.additional_properties
         return (
             f"{self.__class__.__name__}("
             f"business_type={_business_type!s}, "
             f"financial_institution_number={_financial_institution_number!s}, "
             f"main_source_of_income={_main_source_of_income!s}, "
             f"mtype={_mtype!s}, "
-            f"additional_properties={_additional_properties!s}, "
             f")"
         )

@@ -1,8 +1,6 @@
 
 # Onboarding Link Settings
 
-*This model accepts additional fields of type Any.*
-
 ## Structure
 
 `OnboardingLinkSettings`
@@ -28,13 +26,10 @@
 | `require_pci_sign_pos` | `bool` | Optional | Default value: **false**<br><br>Indicates if the user is required to sign a PCI questionnaires for the **pos** sales channel type. |
 | `require_pci_sign_pos_moto` | `bool` | Optional | Default value: **false**<br><br>Indicates if the user is required to sign a PCI questionnaires for the **posMoto** sales channel type. |
 | `transfer_instrument_limit` | `int` | Optional | The maximum number of transfer instruments the user can create. |
-| `additional_properties` | `Dict[str, Any]` | Optional | - |
 
 ## Example
 
 ```python
-import jsonpickle
-
 from adyen.models.onboarding_link_settings import OnboardingLinkSettings
 
 onboarding_link_settings = OnboardingLinkSettings(
@@ -45,10 +40,7 @@ onboarding_link_settings = OnboardingLinkSettings(
     allow_bank_account_format_selection=False,
     allow_debug_ui=False,
     allow_intra_region_cross_border_payout=False,
-    change_legal_entity_type=False,
-    additional_properties={
-        'exampleAdditionalProperty': jsonpickle.decode('{"key1":"val1","key2":"val2"}')
-    }
+    change_legal_entity_type=False
 )
 ```
 

@@ -1,8 +1,6 @@
 
 # Install Android Certificate Details
 
-*This model accepts additional fields of type Any.*
-
 ## Structure
 
 `InstallAndroidCertificateDetails`
@@ -12,23 +10,17 @@
 | Name | Type | Tags | Description |
 |  --- | --- | --- | --- |
 | `certificate_id` | `str` | Optional | The unique identifier of the certificate to be installed. |
-| `mtype` | [`Type42`](../../doc/models/type-42.md) | Optional | - |
-| `additional_properties` | `Dict[str, Any]` | Optional | - |
+| `mtype` | [`Type42Enum`](../../doc/models/type-42-enum.md) | Optional | Type of terminal action: Install an Android certificate.<br><br>**Default**: `"InstallAndroidCertificate"` |
 
 ## Example
 
 ```python
-import jsonpickle
-
 from adyen.models.install_android_certificate_details import InstallAndroidCertificateDetails
-from adyen.models.type_42 import Type42
+from adyen.models.type_42_enum import Type42Enum
 
 install_android_certificate_details = InstallAndroidCertificateDetails(
     certificate_id='certificateId2',
-    mtype=Type42.INSTALLANDROIDCERTIFICATE,
-    additional_properties={
-        'exampleAdditionalProperty': jsonpickle.decode('{"key1":"val1","key2":"val2"}')
-    }
+    mtype=Type42Enum.INSTALLANDROIDCERTIFICATE
 )
 ```
 

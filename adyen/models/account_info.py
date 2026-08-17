@@ -10,43 +10,56 @@ from adyen.api_helper import APIHelper
 class AccountInfo(object):
     """Implementation of the 'AccountInfo' model.
 
+    Shopper account information for 3D Secure 2.
+    > For 3D Secure 2 transactions, we recommend that you include this object to
+    increase the chances of achieving a frictionless flow.
+
     Attributes:
-        account_age_indicator (AccountAgeIndicator): The model property of type
-            AccountAgeIndicator.
+        account_age_indicator (AccountAgeIndicatorEnum): Indicator for the length of
+            time since this shopper account was created in the merchant's
+            environment. Allowed values: * notApplicable * thisTransaction *
+            lessThan30Days * from30To60Days * moreThan60Days
         account_change_date (datetime): Date when the shopper's account was last
             changed.
-        account_change_indicator (AccountChangeIndicator): The model property of type
-            AccountChangeIndicator.
+        account_change_indicator (AccountChangeIndicatorEnum): Indicator for the
+            length of time since the shopper's account was last updated. Allowed
+            values: * thisTransaction * lessThan30Days * from30To60Days *
+            moreThan60Days
         account_creation_date (datetime): Date when the shopper's account was created.
-        account_type (AccountType1): The model property of type AccountType1.
+        account_type (AccountTypeEnum): Indicates the type of account. For example,
+            for a multi-account card product. Allowed values: * notApplicable *
+            credit * debit
         add_card_attempts_day (int): Number of attempts the shopper tried to add a
             card to their account in the last day.
         delivery_address_usage_date (datetime): Date the selected delivery address
             was first used.
-        delivery_address_usage_indicator (DeliveryAddressUsageIndicator): The model
-            property of type DeliveryAddressUsageIndicator.
+        delivery_address_usage_indicator (DeliveryAddressUsageIndicatorEnum):
+            Indicator for the length of time since this delivery address was first
+            used. Allowed values: * thisTransaction * lessThan30Days * from30To60Days
+            * moreThan60Days
         home_phone (str): Shopper's home phone number (including the country code).
         mobile_phone (str): Shopper's mobile phone number (including the country
             code).
         password_change_date (datetime): Date when the shopper last changed their
             password.
-        password_change_indicator (PasswordChangeIndicator): The model property of
-            type PasswordChangeIndicator.
+        password_change_indicator (PasswordChangeIndicatorEnum): Indicator when the
+            shopper has changed their password. Allowed values: * notApplicable *
+            thisTransaction * lessThan30Days * from30To60Days * moreThan60Days
         past_transactions_day (int): Number of all transactions (successful and
             abandoned) from this shopper in the past 24 hours.
         past_transactions_year (int): Number of all transactions (successful and
             abandoned) from this shopper in the past year.
         payment_account_age (datetime): Date this payment method was added to the
             shopper's account.
-        payment_account_indicator (PaymentAccountIndicator): The model property of
-            type PaymentAccountIndicator.
+        payment_account_indicator (PaymentAccountIndicatorEnum): Indicator for the
+            length of time since this payment method was added to this shopper's
+            account. Allowed values: * notApplicable * thisTransaction *
+            lessThan30Days * from30To60Days * moreThan60Days
         purchases_last_6_months (int): Number of successful purchases in the last six
             months.
         suspicious_activity (bool): Whether suspicious activity was recorded on this
             account.
         work_phone (str): Shopper's work phone number (including the country code).
-        additional_properties (Dict[str, Any]): The additional properties for the
-            model.
 
     """
 
@@ -115,8 +128,7 @@ class AccountInfo(object):
         payment_account_indicator=APIHelper.SKIP,
         purchases_last_6_months=APIHelper.SKIP,
         suspicious_activity=APIHelper.SKIP,
-        work_phone=APIHelper.SKIP,
-        additional_properties=None):
+        work_phone=APIHelper.SKIP):
         """Initialize a AccountInfo instance."""
         # Initialize members of the class
         if account_age_indicator is not APIHelper.SKIP:
@@ -172,11 +184,6 @@ class AccountInfo(object):
             self.suspicious_activity = suspicious_activity
         if work_phone is not APIHelper.SKIP:
             self.work_phone = work_phone
-
-        # Add additional model properties to the instance
-        if additional_properties is None:
-            additional_properties = {}
-        self.additional_properties = additional_properties
 
     @classmethod
     def from_dictionary(cls,
@@ -268,11 +275,6 @@ class AccountInfo(object):
             if dictionary.get("workPhone")\
                 else APIHelper.SKIP
 
-        additional_properties = APIHelper.get_additional_properties(
-            dictionary={k: v for k, v in dictionary.items()
-                        if k not in cls._names.values()},
-            unboxing_function=lambda value: value)
-
         # Return an object of this model
         return cls(account_age_indicator,
                    account_change_date,
@@ -292,8 +294,7 @@ class AccountInfo(object):
                    payment_account_indicator,
                    purchases_last_6_months,
                    suspicious_activity,
-                   work_phone,
-                   additional_properties)
+                   work_phone)
 
     @classmethod
     def validate(cls, dictionary):
@@ -413,7 +414,6 @@ class AccountInfo(object):
             if hasattr(self, "work_phone")
             else None
         )
-        _additional_properties=self.additional_properties
         return (
             f"{self.__class__.__name__}("
             f"account_age_indicator={_account_age_indicator!r}, "
@@ -435,7 +435,6 @@ class AccountInfo(object):
             f"purchases_last_6_months={_purchases_last_6_months!r}, "
             f"suspicious_activity={_suspicious_activity!r}, "
             f"work_phone={_work_phone!r}, "
-            f"additional_properties={_additional_properties!r}, "
             f")"
         )
 
@@ -536,7 +535,6 @@ class AccountInfo(object):
             if hasattr(self, "work_phone")
             else None
         )
-        _additional_properties=self.additional_properties
         return (
             f"{self.__class__.__name__}("
             f"account_age_indicator={_account_age_indicator!s}, "
@@ -558,6 +556,5 @@ class AccountInfo(object):
             f"purchases_last_6_months={_purchases_last_6_months!s}, "
             f"suspicious_activity={_suspicious_activity!s}, "
             f"work_phone={_work_phone!s}, "
-            f"additional_properties={_additional_properties!s}, "
             f")"
         )

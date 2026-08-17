@@ -13,8 +13,6 @@ class ExchangeMessage(object):
     Attributes:
         message_code (str): The model property of type str.
         message_description (str): The model property of type str.
-        additional_properties (Dict[str, Any]): The additional properties for the
-            model.
 
     """
 
@@ -32,19 +30,13 @@ class ExchangeMessage(object):
     def __init__(
         self,
         message_code=APIHelper.SKIP,
-        message_description=APIHelper.SKIP,
-        additional_properties=None):
+        message_description=APIHelper.SKIP):
         """Initialize a ExchangeMessage instance."""
         # Initialize members of the class
         if message_code is not APIHelper.SKIP:
             self.message_code = message_code
         if message_description is not APIHelper.SKIP:
             self.message_description = message_description
-
-        # Add additional model properties to the instance
-        if additional_properties is None:
-            additional_properties = {}
-        self.additional_properties = additional_properties
 
     @classmethod
     def from_dictionary(cls,
@@ -73,15 +65,9 @@ class ExchangeMessage(object):
             if dictionary.get("messageDescription")\
                 else APIHelper.SKIP
 
-        additional_properties = APIHelper.get_additional_properties(
-            dictionary={k: v for k, v in dictionary.items()
-                        if k not in cls._names.values()},
-            unboxing_function=lambda value: value)
-
         # Return an object of this model
         return cls(message_code,
-                   message_description,
-                   additional_properties)
+                   message_description)
 
     def __repr__(self):
         """Return a unambiguous string representation."""
@@ -95,12 +81,10 @@ class ExchangeMessage(object):
             if hasattr(self, "message_description")
             else None
         )
-        _additional_properties=self.additional_properties
         return (
             f"{self.__class__.__name__}("
             f"message_code={_message_code!r}, "
             f"message_description={_message_description!r}, "
-            f"additional_properties={_additional_properties!r}, "
             f")"
         )
 
@@ -116,11 +100,9 @@ class ExchangeMessage(object):
             if hasattr(self, "message_description")
             else None
         )
-        _additional_properties=self.additional_properties
         return (
             f"{self.__class__.__name__}("
             f"message_code={_message_code!s}, "
             f"message_description={_message_description!s}, "
-            f"additional_properties={_additional_properties!s}, "
             f")"
         )

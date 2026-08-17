@@ -17,7 +17,10 @@ class BalanceAccountConfigurationUpdate(object):
             from the balance platform schedule that you are applying.
         enabled (bool): Specifies whether the payout schedule is enabled immediately
             after it is created.
-        frequency (Frequency): The model property of type Frequency.
+        frequency (Frequency1Enum): The frequency of payouts initiated by this payout
+            schedule.  Possible values: * daily * weekdays * weekly * monthly
+            Default value: The `defaultFrequency` from the balance platform schedule
+            that you are applying.
         frequency_value (int): The date of the month or day of the week when payouts
             are initiated. Allowed only if `frequency` is **monthly** or **weekly**.
             Possible values if `frequency` is **monthly**: **[1 - 31]**. * If your
@@ -50,8 +53,6 @@ class BalanceAccountConfigurationUpdate(object):
             00:00 to 07:00.  Format: **HH:mm:ss**
         transfer_instrument_id (str): The unique identifier of the transfer
             instrument to which the funds are paid out.
-        additional_properties (Dict[str, Any]): The additional properties for the
-            model.
 
     """
 
@@ -107,8 +108,7 @@ class BalanceAccountConfigurationUpdate(object):
         reference_for_beneficiary=APIHelper.SKIP,
         retained_amount=APIHelper.SKIP,
         sales_day_closing_time=APIHelper.SKIP,
-        transfer_instrument_id=APIHelper.SKIP,
-        additional_properties=None):
+        transfer_instrument_id=APIHelper.SKIP):
         """Initialize a BalanceAccountConfigurationUpdate instance."""
         # Initialize members of the class
         if description is not APIHelper.SKIP:
@@ -133,11 +133,6 @@ class BalanceAccountConfigurationUpdate(object):
             self.sales_day_closing_time = sales_day_closing_time
         if transfer_instrument_id is not APIHelper.SKIP:
             self.transfer_instrument_id = transfer_instrument_id
-
-        # Add additional model properties to the instance
-        if additional_properties is None:
-            additional_properties = {}
-        self.additional_properties = additional_properties
 
     @classmethod
     def from_dictionary(cls,
@@ -202,11 +197,6 @@ class BalanceAccountConfigurationUpdate(object):
             if dictionary.get("transferInstrumentId")\
                 else APIHelper.SKIP
 
-        additional_properties = APIHelper.get_additional_properties(
-            dictionary={k: v for k, v in dictionary.items()
-                        if k not in cls._names.values()},
-            unboxing_function=lambda value: value)
-
         # Return an object of this model
         return cls(description,
                    enabled,
@@ -218,8 +208,7 @@ class BalanceAccountConfigurationUpdate(object):
                    reference_for_beneficiary,
                    retained_amount,
                    sales_day_closing_time,
-                   transfer_instrument_id,
-                   additional_properties)
+                   transfer_instrument_id)
 
     def __repr__(self):
         """Return a unambiguous string representation."""
@@ -278,7 +267,6 @@ class BalanceAccountConfigurationUpdate(object):
             if hasattr(self, "transfer_instrument_id")
             else None
         )
-        _additional_properties=self.additional_properties
         return (
             f"{self.__class__.__name__}("
             f"description={_description!r}, "
@@ -292,7 +280,6 @@ class BalanceAccountConfigurationUpdate(object):
             f"retained_amount={_retained_amount!r}, "
             f"sales_day_closing_time={_sales_day_closing_time!r}, "
             f"transfer_instrument_id={_transfer_instrument_id!r}, "
-            f"additional_properties={_additional_properties!r}, "
             f")"
         )
 
@@ -353,7 +340,6 @@ class BalanceAccountConfigurationUpdate(object):
             if hasattr(self, "transfer_instrument_id")
             else None
         )
-        _additional_properties=self.additional_properties
         return (
             f"{self.__class__.__name__}("
             f"description={_description!s}, "
@@ -367,6 +353,5 @@ class BalanceAccountConfigurationUpdate(object):
             f"retained_amount={_retained_amount!s}, "
             f"sales_day_closing_time={_sales_day_closing_time!s}, "
             f"transfer_instrument_id={_transfer_instrument_id!s}, "
-            f"additional_properties={_additional_properties!s}, "
             f")"
         )

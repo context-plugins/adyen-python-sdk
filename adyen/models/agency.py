@@ -17,8 +17,6 @@ class Agency(object):
         plan_name (str): The two-letter agency plan identifier. * Encoding: ASCII *
             minLength: 2 characters * maxLength: 2 characters * **additionalData
             key:** `airline.agency_plan_name`
-        additional_properties (Dict[str, Any]): The additional properties for the
-            model.
 
     """
 
@@ -36,19 +34,13 @@ class Agency(object):
     def __init__(
         self,
         invoice_number=APIHelper.SKIP,
-        plan_name=APIHelper.SKIP,
-        additional_properties=None):
+        plan_name=APIHelper.SKIP):
         """Initialize a Agency instance."""
         # Initialize members of the class
         if invoice_number is not APIHelper.SKIP:
             self.invoice_number = invoice_number
         if plan_name is not APIHelper.SKIP:
             self.plan_name = plan_name
-
-        # Add additional model properties to the instance
-        if additional_properties is None:
-            additional_properties = {}
-        self.additional_properties = additional_properties
 
     @classmethod
     def from_dictionary(cls,
@@ -77,15 +69,9 @@ class Agency(object):
             if dictionary.get("planName")\
                 else APIHelper.SKIP
 
-        additional_properties = APIHelper.get_additional_properties(
-            dictionary={k: v for k, v in dictionary.items()
-                        if k not in cls._names.values()},
-            unboxing_function=lambda value: value)
-
         # Return an object of this model
         return cls(invoice_number,
-                   plan_name,
-                   additional_properties)
+                   plan_name)
 
     @classmethod
     def validate(cls, dictionary):
@@ -120,12 +106,10 @@ class Agency(object):
             if hasattr(self, "plan_name")
             else None
         )
-        _additional_properties=self.additional_properties
         return (
             f"{self.__class__.__name__}("
             f"invoice_number={_invoice_number!r}, "
             f"plan_name={_plan_name!r}, "
-            f"additional_properties={_additional_properties!r}, "
             f")"
         )
 
@@ -141,11 +125,9 @@ class Agency(object):
             if hasattr(self, "plan_name")
             else None
         )
-        _additional_properties=self.additional_properties
         return (
             f"{self.__class__.__name__}("
             f"invoice_number={_invoice_number!s}, "
             f"plan_name={_plan_name!s}, "
-            f"additional_properties={_additional_properties!s}, "
             f")"
         )

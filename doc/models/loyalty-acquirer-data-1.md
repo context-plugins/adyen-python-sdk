@@ -4,8 +4,6 @@
 Data related to the loyalty Acquirer during a loyalty transaction.
 If content not empty.
 
-*This model accepts additional fields of type Any.*
-
 ## Structure
 
 `LoyaltyAcquirerData1`
@@ -16,33 +14,25 @@ If content not empty.
 |  --- | --- | --- | --- |
 | `loyalty_acquirer_id` | `str` | Optional | Identification of the loyalty Acquirer.<br><br>**Constraints**: *Pattern*: `^.+$` |
 | `approval_code` | `str` | Optional | Code assigned to a transaction approval by the Acquirer. Could be an identifier of the approved transaction for the Acquirer. This data element is conditional for the Loyalty Acquirers. Used in the PaymentRequest request for a referral.<br><br>**Constraints**: *Pattern*: `^.+$` |
-| `loyalty_transaction_id` | [`LoyaltyTransactionId`](../../doc/models/loyalty-transaction-id.md) | Optional | - |
+| `loyalty_transaction_id` | [`TransactionIDType`](../../doc/models/transaction-id-type.md) | Optional | Identification of a transaction for the Sale System or the POI System. |
 | `host_reconciliation_id` | `str` | Optional | Identifier of a reconciliation period with a payment or loyalty host. Allows the assignment of a transaction to the Acquirer reconciliation (or batch).<br><br>**Constraints**: *Pattern*: `^.+$` |
-| `additional_properties` | `Dict[str, Any]` | Optional | - |
 
 ## Example
 
 ```python
 import dateutil.parser
-import jsonpickle
 
 from adyen.models.loyalty_acquirer_data_1 import LoyaltyAcquirerData1
-from adyen.models.loyalty_transaction_id import LoyaltyTransactionId
+from adyen.models.transaction_id_type import TransactionIDType
 
 loyalty_acquirer_data_1 = LoyaltyAcquirerData1(
     loyalty_acquirer_id='LoyaltyAcquirerID0',
     approval_code='ApprovalCode8',
-    loyalty_transaction_id=LoyaltyTransactionId(
+    loyalty_transaction_id=TransactionIDType(
         transaction_id='TransactionID6',
-        time_stamp=dateutil.parser.parse('2016-03-13T12:52:32.123Z'),
-        additional_properties={
-            'exampleAdditionalProperty': jsonpickle.decode('{"key1":"val1","key2":"val2"}')
-        }
+        time_stamp=dateutil.parser.parse('2016-03-13T12:52:32.123Z')
     ),
-    host_reconciliation_id='HostReconciliationID8',
-    additional_properties={
-        'exampleAdditionalProperty': jsonpickle.decode('{"key1":"val1","key2":"val2"}')
-    }
+    host_reconciliation_id='HostReconciliationID8'
 )
 ```
 

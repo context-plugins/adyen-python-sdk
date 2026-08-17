@@ -17,8 +17,6 @@ class CheckoutForwardResponseFromUrl(object):
             from the third party.
         status (int): The HTTP status of the response Adyen received from the third
             party.
-        additional_properties (Dict[str, Any]): The additional properties for the
-            model.
 
     """
 
@@ -39,8 +37,7 @@ class CheckoutForwardResponseFromUrl(object):
         self,
         body=APIHelper.SKIP,
         headers=APIHelper.SKIP,
-        status=APIHelper.SKIP,
-        additional_properties=None):
+        status=APIHelper.SKIP):
         """Initialize a CheckoutForwardResponseFromUrl instance."""
         # Initialize members of the class
         if body is not APIHelper.SKIP:
@@ -49,11 +46,6 @@ class CheckoutForwardResponseFromUrl(object):
             self.headers = headers
         if status is not APIHelper.SKIP:
             self.status = status
-
-        # Add additional model properties to the instance
-        if additional_properties is None:
-            additional_properties = {}
-        self.additional_properties = additional_properties
 
     @classmethod
     def from_dictionary(cls,
@@ -86,16 +78,10 @@ class CheckoutForwardResponseFromUrl(object):
             if dictionary.get("status")\
                 else APIHelper.SKIP
 
-        additional_properties = APIHelper.get_additional_properties(
-            dictionary={k: v for k, v in dictionary.items()
-                        if k not in cls._names.values()},
-            unboxing_function=lambda value: value)
-
         # Return an object of this model
         return cls(body,
                    headers,
-                   status,
-                   additional_properties)
+                   status)
 
     def __repr__(self):
         """Return a unambiguous string representation."""
@@ -114,13 +100,11 @@ class CheckoutForwardResponseFromUrl(object):
             if hasattr(self, "status")
             else None
         )
-        _additional_properties=self.additional_properties
         return (
             f"{self.__class__.__name__}("
             f"body={_body!r}, "
             f"headers={_headers!r}, "
             f"status={_status!r}, "
-            f"additional_properties={_additional_properties!r}, "
             f")"
         )
 
@@ -141,12 +125,10 @@ class CheckoutForwardResponseFromUrl(object):
             if hasattr(self, "status")
             else None
         )
-        _additional_properties=self.additional_properties
         return (
             f"{self.__class__.__name__}("
             f"body={_body!s}, "
             f"headers={_headers!s}, "
             f"status={_status!s}, "
-            f"additional_properties={_additional_properties!s}, "
             f")"
         )

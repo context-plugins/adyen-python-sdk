@@ -4,8 +4,6 @@
 Details to provide if `type` is **maestro_usa**.
 Only for Maestro USA, otherwise use `maestro`.
 
-*This model accepts additional fields of type Any.*
-
 ## Structure
 
 `GenericPmWithTdiUpdateInfo12`
@@ -14,29 +12,20 @@ Only for Maestro USA, otherwise use `maestro`.
 
 | Name | Type | Tags | Description |
 |  --- | --- | --- | --- |
-| `transaction_description` | [`TransactionDescriptionInfo`](../../doc/models/transaction-description-info.md) | Optional | - |
-| `additional_properties` | `Dict[str, Any]` | Optional | - |
+| `transaction_description` | [`TransactionDescriptionInfo1`](../../doc/models/transaction-description-info-1.md) | Optional | Information regarding the transaction description.<br><br>> You cannot configure the transaction description in the test environment. |
 
 ## Example
 
 ```python
-import jsonpickle
-
 from adyen.models.generic_pm_with_tdi_update_info_12 import GenericPmWithTdiUpdateInfo12
-from adyen.models.transaction_description_info import TransactionDescriptionInfo
-from adyen.models.type_33 import Type33
+from adyen.models.transaction_description_info_1 import TransactionDescriptionInfo1
+from adyen.models.type_8_enum import Type8Enum
 
 generic_pm_with_tdi_update_info_12 = GenericPmWithTdiUpdateInfo12(
-    transaction_description=TransactionDescriptionInfo(
+    transaction_description=TransactionDescriptionInfo1(
         doing_business_as_name='doingBusinessAsName0',
-        mtype=Type33.FIXED,
-        additional_properties={
-            'exampleAdditionalProperty': jsonpickle.decode('{"key1":"val1","key2":"val2"}')
-        }
-    ),
-    additional_properties={
-        'exampleAdditionalProperty': jsonpickle.decode('{"key1":"val1","key2":"val2"}')
-    }
+        mtype=Type8Enum.FIXED
+    )
 )
 ```
 

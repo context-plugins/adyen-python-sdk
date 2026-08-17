@@ -1,92 +1,34 @@
 
 # Status 25
 
-The status of the transfer event.
+Contains the status of the grant.
 
-## Enumeration
+## Structure
 
 `Status25`
 
 ## Fields
 
-| Name |
-|  --- |
-| `APPROVALPENDING` |
-| `ATMWITHDRAWAL` |
-| `ATMWITHDRAWALREVERSALPENDING` |
-| `ATMWITHDRAWALREVERSED` |
-| `AUTHADJUSTMENTAUTHORISED` |
-| `AUTHADJUSTMENTERROR` |
-| `AUTHADJUSTMENTREFUSED` |
-| `AUTHORISED` |
-| `BANKTRANSFER` |
-| `BANKTRANSFERPENDING` |
-| `BOOKED` |
-| `BOOKINGPENDING` |
-| `CANCELLED` |
-| `CAPTUREPENDING` |
-| `CAPTUREREVERSALPENDING` |
-| `CAPTUREREVERSED` |
-| `CAPTURED` |
-| `CAPTUREDEXTERNALLY` |
-| `CHARGEBACK` |
-| `CHARGEBACKEXTERNALLY` |
-| `CHARGEBACKPENDING` |
-| `CHARGEBACKREVERSALPENDING` |
-| `CHARGEBACKREVERSED` |
-| `CREDITED` |
-| `DEPOSITCORRECTION` |
-| `DEPOSITCORRECTIONPENDING` |
-| `DISPUTE` |
-| `DISPUTECLOSED` |
-| `DISPUTEEXPIRED` |
-| `DISPUTENEEDSREVIEW` |
-| `ERROR` |
-| `EXPIRED` |
-| `FAILED` |
-| `FEE` |
-| `FEEPENDING` |
-| `INTERCHANGEADJUSTED` |
-| `INTERNALTRANSFER` |
-| `INTERNALTRANSFERPENDING` |
-| `INVOICEDEDUCTION` |
-| `INVOICEDEDUCTIONPENDING` |
-| `MANUALCORRECTIONPENDING` |
-| `MANUALLYCORRECTED` |
-| `MATCHEDSTATEMENT` |
-| `MATCHEDSTATEMENTPENDING` |
-| `MERCHANTPAYIN` |
-| `MERCHANTPAYINPENDING` |
-| `MERCHANTPAYINREVERSED` |
-| `MERCHANTPAYINREVERSEDPENDING` |
-| `MISCCOST` |
-| `MISCCOSTPENDING` |
-| `PAYMENTCOST` |
-| `PAYMENTCOSTPENDING` |
-| `PENDING` |
-| `PENDINGAPPROVAL` |
-| `PENDINGEXECUTION` |
-| `RECEIVED` |
-| `REFUNDPENDING` |
-| `REFUNDREVERSALPENDING` |
-| `REFUNDREVERSED` |
-| `REFUNDED` |
-| `REFUNDEDEXTERNALLY` |
-| `REFUSED` |
-| `REJECTED` |
-| `RESERVEADJUSTMENT` |
-| `RESERVEADJUSTMENTPENDING` |
-| `RETURNED` |
-| `REVERSED` |
-| `SECONDCHARGEBACK` |
-| `SECONDCHARGEBACKPENDING` |
-| `UNDEFINED` |
+| Name | Type | Tags | Description |
+|  --- | --- | --- | --- |
+| `actions` | [`List[Action1]`](../../doc/models/action-1.md) | Optional | A list of actions that need to be completed to proceed with the grant. |
+| `code` | [`CodeEnum`](../../doc/models/code-enum.md) | Required | The code for the status of the grant. Possible values:<br><br>- **Pending**<br>- **Active**<br>- **Repaid**<br>- **WrittenOff**<br>- **Failed**<br>- **Revoked**<br>- **Requested**<br>- **Reviewing**<br>- **Approved**<br>- **Rejected**<br>- **Cancelled** |
 
 ## Example
 
 ```python
+from adyen.models.action_1 import Action1
+from adyen.models.code_enum import CodeEnum
 from adyen.models.status_25 import Status25
 
-status_25 = Status25.PENDINGEXECUTION
+status_25 = Status25(
+    code=CodeEnum.REVIEWING,
+    actions=[
+        Action1(
+            action_code='actionCode6',
+            resolved=False
+        )
+    ]
+)
 ```
 

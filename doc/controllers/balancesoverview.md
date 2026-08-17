@@ -47,7 +47,7 @@ def get_balance_overview_companies_company_account_code_balances(self,
 
 **200**: OK - The request has succeeded.
 
-This method returns an [`ApiResponse`](../../doc/api-response.md) instance. The `body` property of this instance returns the response data which is of type [`CompanyBalances`](../../doc/models/company-balances.md).
+[`CompanyBalances`](../../doc/models/company-balances.md)
 
 ## Example Usage
 
@@ -60,20 +60,16 @@ result = balances_overview_api.get_balance_overview_companies_company_account_co
     company_account_code,
     currency
 )
-
-if result.is_success():
-    print(result.body)
-elif result.is_error():
-    print(result.errors)
+print(result)
 ```
 
 ## Errors
 
 | HTTP Status Code | Error Description | Exception Class |
 |  --- | --- | --- |
-| 401 | Unauthorized - Authentication required. | [`BalanceOverviewCompaniesBalances401ErrorException`](../../doc/models/balance-overview-companies-balances-401-error-exception.md) |
-| 403 | Forbidden - insufficient permissions to process the request. | [`BalanceOverviewCompaniesBalances403ErrorException`](../../doc/models/balance-overview-companies-balances-403-error-exception.md) |
-| 422 | Unprocessable Content - A request validation error. | [`BalanceOverviewCompaniesBalances422ErrorException`](../../doc/models/balance-overview-companies-balances-422-error-exception.md) |
+| 401 | Unauthorized - Authentication required. | [`DefaultErrorResponseEntityException`](../../doc/models/default-error-response-entity-exception.md) |
+| 403 | Forbidden - insufficient permissions to process the request. | [`DefaultErrorResponseEntityException`](../../doc/models/default-error-response-entity-exception.md) |
+| 422 | Unprocessable Content - A request validation error. | [`DefaultErrorResponseEntityException`](../../doc/models/default-error-response-entity-exception.md) |
 
 
 # Get-Balance Overview-Merchants-Merchant Account Code-Balances
@@ -109,7 +105,7 @@ def get_balance_overview_merchants_merchant_account_code_balances(self,
 
 **200**: OK - The request has succeeded.
 
-This method returns an [`ApiResponse`](../../doc/api-response.md) instance. The `body` property of this instance returns the response data which is of type [`MerchantBalance`](../../doc/models/merchant-balance.md).
+[`MerchantBalance`](../../doc/models/merchant-balance.md)
 
 ## Example Usage
 
@@ -122,18 +118,14 @@ result = balances_overview_api.get_balance_overview_merchants_merchant_account_c
     merchant_account_code,
     currency
 )
-
-if result.is_success():
-    print(result.body)
-elif result.is_error():
-    print(result.errors)
+print(result)
 ```
 
 ## Errors
 
 | HTTP Status Code | Error Description | Exception Class |
 |  --- | --- | --- |
-| 401 | Unauthorized - Authentication required. | [`BalanceOverviewMerchantsBalances401ErrorException`](../../doc/models/balance-overview-merchants-balances-401-error-exception.md) |
-| 403 | Forbidden - insufficient permissions to process the request. | [`BalanceOverviewMerchantsBalances403ErrorException`](../../doc/models/balance-overview-merchants-balances-403-error-exception.md) |
-| 422 | Unprocessable Content - A request validation error. | [`BalanceOverviewMerchantsBalances422ErrorException`](../../doc/models/balance-overview-merchants-balances-422-error-exception.md) |
+| 401 | Unauthorized - Authentication required. | [`DefaultErrorResponseEntityException`](../../doc/models/default-error-response-entity-exception.md) |
+| 403 | Forbidden - insufficient permissions to process the request. | [`DefaultErrorResponseEntityException`](../../doc/models/default-error-response-entity-exception.md) |
+| 422 | Unprocessable Content - A request validation error. | [`DefaultErrorResponseEntityException`](../../doc/models/default-error-response-entity-exception.md) |
 

@@ -3,14 +3,13 @@
 
 ## Data Type
 
-`PatchableOtherInfo | Any | None`
+`PatchableOtherInfo`
 
 ## Cases
 
 | Type |
 |  --- |
 | [`PatchableOtherInfo`](../../../doc/models/patchable-other-info.md) |
-| `Any` |
 
 ## PatchableOtherInfo
 
@@ -20,15 +19,5 @@
 
 ```python
 value = PatchableOtherInfo()
-```
-
-## Any
-
-### Initialization Code
-
-#### Example
-
-```python
-value = jsonpickle.decode('{"key1":"val1","key2":"val2"}')
 ```
 

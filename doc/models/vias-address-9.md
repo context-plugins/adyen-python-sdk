@@ -3,8 +3,6 @@
 
 The address of the account holder.
 
-*This model accepts additional fields of type Any.*
-
 ## Structure
 
 `ViasAddress9`
@@ -19,13 +17,10 @@ The address of the account holder.
 | `postal_code` | `str` | Optional | The postal code. Required if the `houseNumberOrName`, `street`, `city`, or `stateOrProvince` are provided.<br><br>Maximum length:<br><br>* 5 digits for addresses in the US.<br><br>* 10 characters for all other countries. |
 | `state_or_province` | `str` | Optional | The abbreviation of the state or province. Required if the `houseNumberOrName`, `street`, `city`, or `postalCode` are provided.<br><br>Maximum length:<br><br>* 2 characters for addresses in the US or Canada.<br><br>* 3 characters for all other countries. |
 | `street` | `str` | Optional | The name of the street. Required if the `houseNumberOrName`, `city`, `postalCode`, or `stateOrProvince` are provided. |
-| `additional_properties` | `Dict[str, Any]` | Optional | - |
 
 ## Example
 
 ```python
-import jsonpickle
-
 from adyen.models.vias_address_9 import ViasAddress9
 
 vias_address_9 = ViasAddress9(
@@ -34,10 +29,7 @@ vias_address_9 = ViasAddress9(
     house_number_or_name='houseNumberOrName4',
     postal_code='postalCode8',
     state_or_province='stateOrProvince4',
-    street='street6',
-    additional_properties={
-        'exampleAdditionalProperty': jsonpickle.decode('{"key1":"val1","key2":"val2"}')
-    }
+    street='street6'
 )
 ```
 

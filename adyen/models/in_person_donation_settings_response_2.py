@@ -21,10 +21,15 @@ class InPersonDonationSettingsResponse2(object):
             fixed donation amounts. Format: three-character [ISO currency
             code](https://docs.adyen.com/development-resources/currency-codes#currency
             -codes).
-        display_text_field (DisplayTextField1): The model property of type
-            DisplayTextField1.
-        donation_flow (DonationFlow4): The model property of type DonationFlow4.
-        donation_type (DonationType1): The model property of type DonationType1.
+        display_text_field (DisplayTextField1Enum): The text shown on the payment
+            terminal, asking the shopper for a donation.
+        donation_flow (DonationFlow4Enum): The interaction flow for in-person
+            donations: complete payment for the purchase and the donation in one go,
+            or separately.
+        donation_type (DonationType1Enum): The type of donation to collect from the
+            shopper. Possible values:   - **roundup**: Round up the transaction
+            amount.  - **fixedAmounts**: Choose a fixed amount.  -
+            **fixedAmountsRoundup**: Round up, or choose a fixed amount.
         merchant_accounts (List[str]): The merchant accounts for this sales channel
             that are associated with the donation campaign.
         present_card_timeout_ms (int): The time, in milliseconds, that the terminal
@@ -33,8 +38,6 @@ class InPersonDonationSettingsResponse2(object):
             for the shopper to respond to the text asking for a donation.
         store_ids (List[str]): The Adyen-generated unique identifiers of stores for
             this sales channel that are associated with the donation campaign.
-        additional_properties (Dict[str, Any]): The additional properties for the
-            model.
 
     """
 
@@ -73,8 +76,7 @@ class InPersonDonationSettingsResponse2(object):
         merchant_accounts=APIHelper.SKIP,
         present_card_timeout_ms=APIHelper.SKIP,
         prompt_timeout_ms=APIHelper.SKIP,
-        store_ids=APIHelper.SKIP,
-        additional_properties=None):
+        store_ids=APIHelper.SKIP):
         """Initialize a InPersonDonationSettingsResponse2 instance."""
         # Initialize members of the class
         if amounts is not APIHelper.SKIP:
@@ -95,11 +97,6 @@ class InPersonDonationSettingsResponse2(object):
             self.prompt_timeout_ms = prompt_timeout_ms
         if store_ids is not APIHelper.SKIP:
             self.store_ids = store_ids
-
-        # Add additional model properties to the instance
-        if additional_properties is None:
-            additional_properties = {}
-        self.additional_properties = additional_properties
 
     @classmethod
     def from_dictionary(cls,
@@ -160,11 +157,6 @@ class InPersonDonationSettingsResponse2(object):
             if dictionary.get("storeIds")\
                 else APIHelper.SKIP
 
-        additional_properties = APIHelper.get_additional_properties(
-            dictionary={k: v for k, v in dictionary.items()
-                        if k not in cls._names.values()},
-            unboxing_function=lambda value: value)
-
         # Return an object of this model
         return cls(amounts,
                    default_currency,
@@ -174,8 +166,7 @@ class InPersonDonationSettingsResponse2(object):
                    merchant_accounts,
                    present_card_timeout_ms,
                    prompt_timeout_ms,
-                   store_ids,
-                   additional_properties)
+                   store_ids)
 
     def __repr__(self):
         """Return a unambiguous string representation."""
@@ -224,7 +215,6 @@ class InPersonDonationSettingsResponse2(object):
             if hasattr(self, "store_ids")
             else None
         )
-        _additional_properties=self.additional_properties
         return (
             f"{self.__class__.__name__}("
             f"amounts={_amounts!r}, "
@@ -236,7 +226,6 @@ class InPersonDonationSettingsResponse2(object):
             f"present_card_timeout_ms={_present_card_timeout_ms!r}, "
             f"prompt_timeout_ms={_prompt_timeout_ms!r}, "
             f"store_ids={_store_ids!r}, "
-            f"additional_properties={_additional_properties!r}, "
             f")"
         )
 
@@ -287,7 +276,6 @@ class InPersonDonationSettingsResponse2(object):
             if hasattr(self, "store_ids")
             else None
         )
-        _additional_properties=self.additional_properties
         return (
             f"{self.__class__.__name__}("
             f"amounts={_amounts!s}, "
@@ -299,6 +287,5 @@ class InPersonDonationSettingsResponse2(object):
             f"present_card_timeout_ms={_present_card_timeout_ms!s}, "
             f"prompt_timeout_ms={_prompt_timeout_ms!s}, "
             f"store_ids={_store_ids!s}, "
-            f"additional_properties={_additional_properties!s}, "
             f")"
         )

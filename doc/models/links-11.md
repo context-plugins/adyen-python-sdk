@@ -1,9 +1,7 @@
 
 # Links 11
 
-References to resources connected with this user.
-
-*This model accepts additional fields of type Any.*
+Contains redirection URLs to guide the user to the appropriate page, after a successful payment or a cancellation.
 
 ## Structure
 
@@ -13,27 +11,23 @@ References to resources connected with this user.
 
 | Name | Type | Tags | Description |
 |  --- | --- | --- | --- |
-| `mself` | [`Self`](../../doc/models/self.md) | Required | - |
-| `additional_properties` | `Dict[str, Any]` | Optional | - |
+| `cancel` | [`Href6`](../../doc/models/href-6.md) | Optional | The URL to where the user must be redirected after a payment has been canceled. |
+| `success` | [`Href1`](../../doc/models/href-1.md) | Optional | The URL to where the user must be redirected after a successful payment. |
 
 ## Example
 
 ```python
-import jsonpickle
-
+from adyen.models.href_1 import Href1
+from adyen.models.href_6 import Href6
 from adyen.models.links_11 import Links11
-from adyen.models.mself import Self
 
 links_11 = Links11(
-    mself=Self(
-        href='href0',
-        additional_properties={
-            'exampleAdditionalProperty': jsonpickle.decode('{"key1":"val1","key2":"val2"}')
-        }
+    cancel=Href6(
+        href='href4'
     ),
-    additional_properties={
-        'exampleAdditionalProperty': jsonpickle.decode('{"key1":"val1","key2":"val2"}')
-    }
+    success=Href1(
+        href='href2'
+    )
 )
 ```
 

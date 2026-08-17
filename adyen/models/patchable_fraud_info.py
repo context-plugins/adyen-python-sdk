@@ -19,8 +19,6 @@ class PatchableFraudInfo(object):
         report_only (bool): Set to **true** to report fraud to Adyen with no further
             action, such as a request for a chargeback or fee reversal. The default
             value is **false**.
-        additional_properties (Dict[str, Any]): The additional properties for the
-            model.
 
     """
 
@@ -48,8 +46,7 @@ class PatchableFraudInfo(object):
         card_does_not_belong_to_cardholder=APIHelper.SKIP,
         card_was_counterfeited=APIHelper.SKIP,
         description_of_issue=APIHelper.SKIP,
-        report_only=APIHelper.SKIP,
-        additional_properties=None):
+        report_only=APIHelper.SKIP):
         """Initialize a PatchableFraudInfo instance."""
         # Initialize members of the class
         if card_does_not_belong_to_cardholder is not APIHelper.SKIP:
@@ -61,11 +58,6 @@ class PatchableFraudInfo(object):
             self.description_of_issue = description_of_issue
         if report_only is not APIHelper.SKIP:
             self.report_only = report_only
-
-        # Add additional model properties to the instance
-        if additional_properties is None:
-            additional_properties = {}
-        self.additional_properties = additional_properties
 
     @classmethod
     def from_dictionary(cls,
@@ -102,17 +94,11 @@ class PatchableFraudInfo(object):
             if "reportOnly" in dictionary.keys()\
                 else APIHelper.SKIP
 
-        additional_properties = APIHelper.get_additional_properties(
-            dictionary={k: v for k, v in dictionary.items()
-                        if k not in cls._names.values()},
-            unboxing_function=lambda value: value)
-
         # Return an object of this model
         return cls(card_does_not_belong_to_cardholder,
                    card_was_counterfeited,
                    description_of_issue,
-                   report_only,
-                   additional_properties)
+                   report_only)
 
     @classmethod
     def validate(cls, dictionary):
@@ -157,14 +143,12 @@ class PatchableFraudInfo(object):
             if hasattr(self, "report_only")
             else None
         )
-        _additional_properties=self.additional_properties
         return (
             f"{self.__class__.__name__}("
             f"card_does_not_belong_to_cardholder={_card_does_not_belong_to_cardholder!r}, "
             f"card_was_counterfeited={_card_was_counterfeited!r}, "
             f"description_of_issue={_description_of_issue!r}, "
             f"report_only={_report_only!r}, "
-            f"additional_properties={_additional_properties!r}, "
             f")"
         )
 
@@ -190,13 +174,11 @@ class PatchableFraudInfo(object):
             if hasattr(self, "report_only")
             else None
         )
-        _additional_properties=self.additional_properties
         return (
             f"{self.__class__.__name__}("
             f"card_does_not_belong_to_cardholder={_card_does_not_belong_to_cardholder!s}, "
             f"card_was_counterfeited={_card_was_counterfeited!s}, "
             f"description_of_issue={_description_of_issue!s}, "
             f"report_only={_report_only!s}, "
-            f"additional_properties={_additional_properties!s}, "
             f")"
         )

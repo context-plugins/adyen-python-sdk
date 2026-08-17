@@ -1,61 +1,44 @@
 
-# Checkout Session Three Ds 2 Request Data 3
+# Checkout Session Three DS 2 Request Data 3
 
 The cardholder phone number need to be part of the authentication message for payment data. It is a requirement for Visa Secure Authentication Data Field Mandate effective August 2024.
 
-*This model accepts additional fields of type Any.*
-
 ## Structure
 
-`CheckoutSessionThreeDs2RequestData3`
+`CheckoutSessionThreeDS2RequestData3`
 
 ## Fields
 
 | Name | Type | Tags | Description |
 |  --- | --- | --- | --- |
-| `home_phone` | [`HomePhone`](../../doc/models/home-phone.md) | Optional | - |
-| `mobile_phone` | [`MobilePhone`](../../doc/models/mobile-phone.md) | Optional | - |
-| `three_ds_requestor_challenge_ind` | [`ThreeDsRequestorChallengeInd`](../../doc/models/three-ds-requestor-challenge-ind.md) | Optional | - |
-| `work_phone` | [`WorkPhone`](../../doc/models/work-phone.md) | Optional | - |
-| `additional_properties` | `Dict[str, Any]` | Optional | - |
+| `home_phone` | [`Phone3`](../../doc/models/phone-3.md) | Optional | The home phone number provided by the cardholder. The phone number must consist of a country code, followed by the number. If the value you provide does not follow the guidelines, we do not submit it for authentication.<br><br>> Required for Visa and JCB transactions that require 3D Secure 2 authentication, if you did not include the `shopperEmail`, and did not send the shopper's phone number in `telephoneNumber`. |
+| `mobile_phone` | [`Phone1`](../../doc/models/phone-1.md) | Optional | The mobile phone number provided by the cardholder. The phone number must consist of a country code, followed by the number. If the value you provide does not follow the guidelines, we do not submit it for authentication.<br><br>> Required for Visa and JCB transactions that require 3D Secure 2 authentication, if you did not include the `shopperEmail`, and did not send the shopper's phone number in `telephoneNumber`. |
+| `three_ds_requestor_challenge_ind` | [`ThreeDSRequestorChallengeIndEnum`](../../doc/models/three-ds-requestor-challenge-ind-enum.md) | Optional | Indicates whether a challenge is requested for this transaction. Possible values:<br><br>* **01** — No preference<br>* **02** — No challenge requested<br>* **03** — Challenge requested (3DS Requestor preference)<br>* **04** — Challenge requested (Mandate)<br>* **05** — No challenge (transactional risk analysis is already performed)<br>* **06** — Data Only |
+| `work_phone` | [`Phone2`](../../doc/models/phone-2.md) | Optional | The work phone number provided by the cardholder. The phone number must consist of a country code, followed by the number. If the value you provide does not follow the guidelines, we do not submit it for authentication.<br><br>> Required for Visa and JCB transactions that require 3D Secure 2 authentication, if you did not include the `shopperEmail`, and did not send the shopper's phone number in `telephoneNumber`. |
 
 ## Example
 
 ```python
-import jsonpickle
+from adyen.models.checkout_session_three_ds_2_request_data_3 import CheckoutSessionThreeDS2RequestData3
+from adyen.models.phone_1 import Phone1
+from adyen.models.phone_2 import Phone2
+from adyen.models.phone_3 import Phone3
+from adyen.models.three_ds_requestor_challenge_ind_enum import ThreeDSRequestorChallengeIndEnum
 
-from adyen.models.checkout_session_three_ds_2_request_data_3 import CheckoutSessionThreeDs2RequestData3
-from adyen.models.home_phone import HomePhone
-from adyen.models.mobile_phone import MobilePhone
-from adyen.models.three_ds_requestor_challenge_ind import ThreeDsRequestorChallengeInd
-from adyen.models.work_phone import WorkPhone
-
-checkout_session_three_ds_2_request_data_3 = CheckoutSessionThreeDs2RequestData3(
-    home_phone=HomePhone(
+checkout_session_three_ds_2_request_data_3 = CheckoutSessionThreeDS2RequestData3(
+    home_phone=Phone3(
         cc='cc0',
-        subscriber='subscriber2',
-        additional_properties={
-            'exampleAdditionalProperty': jsonpickle.decode('{"key1":"val1","key2":"val2"}')
-        }
+        subscriber='subscriber2'
     ),
-    mobile_phone=MobilePhone(
+    mobile_phone=Phone1(
         cc='cc4',
-        subscriber='subscriber6',
-        additional_properties={
-            'exampleAdditionalProperty': jsonpickle.decode('{"key1":"val1","key2":"val2"}')
-        }
+        subscriber='subscriber6'
     ),
-    three_ds_requestor_challenge_ind=ThreeDsRequestorChallengeInd.ENUM_03,
-    work_phone=WorkPhone(
+    three_ds_requestor_challenge_ind=ThreeDSRequestorChallengeIndEnum.ENUM_03,
+    work_phone=Phone2(
         cc='cc2',
-        subscriber='subscriber4',
-        additional_properties={
-            'exampleAdditionalProperty': jsonpickle.decode('{"key1":"val1","key2":"val2"}')
-        }
-    ),
-    additional_properties={
-        'exampleAdditionalProperty': jsonpickle.decode('{"key1":"val1","key2":"val2"}')
-    }
+        subscriber='subscriber4'
+    )
 )
 ```
 

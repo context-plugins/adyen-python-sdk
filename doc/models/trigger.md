@@ -1,8 +1,6 @@
 
 # Trigger
 
-*This model accepts additional fields of type Any.*
-
 ## Structure
 
 `Trigger`
@@ -11,37 +9,25 @@
 
 | Name | Type | Tags | Description |
 |  --- | --- | --- | --- |
-| `schedule` | [`Schedule2`](../../doc/models/schedule-2.md) | Optional | - |
-| `threshold` | [`Threshold2`](../../doc/models/threshold-2.md) | Required | - |
-| `additional_properties` | `Dict[str, Any]` | Optional | - |
+| `schedule` | [`Schedule21`](../../doc/models/schedule-21.md) | Optional | Contains the details about the schedule that determines when the top up is executed. |
+| `threshold` | [`Amount17`](../../doc/models/amount-17.md) | Required | The balance threshold that triggers the top-up. If the balance falls below this amount, a top-up is initiated. |
 
 ## Example
 
 ```python
-import jsonpickle
-
-from adyen.models.schedule_2 import Schedule2
-from adyen.models.schedule_type_1 import ScheduleType1
-from adyen.models.threshold_2 import Threshold2
+from adyen.models.amount_17 import Amount17
+from adyen.models.schedule_21 import Schedule21
+from adyen.models.schedule_type_1_enum import ScheduleType1Enum
 from adyen.models.trigger import Trigger
 
 trigger = Trigger(
-    threshold=Threshold2(
+    threshold=Amount17(
         currency='currency8',
-        value=32,
-        additional_properties={
-            'exampleAdditionalProperty': jsonpickle.decode('{"key1":"val1","key2":"val2"}')
-        }
+        value=32
     ),
-    schedule=Schedule2(
-        mtype=ScheduleType1.WEEKDAYS,
-        additional_properties={
-            'exampleAdditionalProperty': jsonpickle.decode('{"key1":"val1","key2":"val2"}')
-        }
-    ),
-    additional_properties={
-        'exampleAdditionalProperty': jsonpickle.decode('{"key1":"val1","key2":"val2"}')
-    }
+    schedule=Schedule21(
+        mtype=ScheduleType1Enum.WEEKDAYS
+    )
 )
 ```
 

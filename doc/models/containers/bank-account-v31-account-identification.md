@@ -3,164 +3,155 @@
 
 ## Data Type
 
-`AuLocalAccountIdentification | BrLocalAccountIdentification | CaLocalAccountIdentification | CzLocalAccountIdentification | DkLocalAccountIdentification | HkLocalAccountIdentification | HuLocalAccountIdentification | IbanAccountIdentification1 | NoLocalAccountIdentification | NzLocalAccountIdentification | NumberAndBicAccountIdentification | PlLocalAccountIdentification | SeLocalAccountIdentification | SgLocalAccountIdentification | UkLocalAccountIdentification | UsLocalAccountIdentification`
+`AULocalAccountIdentification | BRLocalAccountIdentification | CALocalAccountIdentification | CZLocalAccountIdentification | DKLocalAccountIdentification | HKLocalAccountIdentification | HULocalAccountIdentification | IbanAccountIdentification | NOLocalAccountIdentification | NZLocalAccountIdentification | NumberAndBicAccountIdentification | PLLocalAccountIdentification | SELocalAccountIdentification | SGLocalAccountIdentification | UKLocalAccountIdentification | USLocalAccountIdentification`
 
 ## Cases
 
 | Type |
 |  --- |
-| [`AuLocalAccountIdentification`](../../../doc/models/au-local-account-identification.md) |
-| [`BrLocalAccountIdentification`](../../../doc/models/br-local-account-identification.md) |
-| [`CaLocalAccountIdentification`](../../../doc/models/ca-local-account-identification.md) |
-| [`CzLocalAccountIdentification`](../../../doc/models/cz-local-account-identification.md) |
-| [`DkLocalAccountIdentification`](../../../doc/models/dk-local-account-identification.md) |
-| [`HkLocalAccountIdentification`](../../../doc/models/hk-local-account-identification.md) |
-| [`HuLocalAccountIdentification`](../../../doc/models/hu-local-account-identification.md) |
-| [`IbanAccountIdentification1`](../../../doc/models/iban-account-identification-1.md) |
-| [`NoLocalAccountIdentification`](../../../doc/models/no-local-account-identification.md) |
-| [`NzLocalAccountIdentification`](../../../doc/models/nz-local-account-identification.md) |
+| [`AULocalAccountIdentification`](../../../doc/models/au-local-account-identification.md) |
+| [`BRLocalAccountIdentification`](../../../doc/models/br-local-account-identification.md) |
+| [`CALocalAccountIdentification`](../../../doc/models/ca-local-account-identification.md) |
+| [`CZLocalAccountIdentification`](../../../doc/models/cz-local-account-identification.md) |
+| [`DKLocalAccountIdentification`](../../../doc/models/dk-local-account-identification.md) |
+| [`HKLocalAccountIdentification`](../../../doc/models/hk-local-account-identification.md) |
+| [`HULocalAccountIdentification`](../../../doc/models/hu-local-account-identification.md) |
+| [`IbanAccountIdentification`](../../../doc/models/iban-account-identification.md) |
+| [`NOLocalAccountIdentification`](../../../doc/models/no-local-account-identification.md) |
+| [`NZLocalAccountIdentification`](../../../doc/models/nz-local-account-identification.md) |
 | [`NumberAndBicAccountIdentification`](../../../doc/models/number-and-bic-account-identification.md) |
-| [`PlLocalAccountIdentification`](../../../doc/models/pl-local-account-identification.md) |
-| [`SeLocalAccountIdentification`](../../../doc/models/se-local-account-identification.md) |
-| [`SgLocalAccountIdentification`](../../../doc/models/sg-local-account-identification.md) |
-| [`UkLocalAccountIdentification`](../../../doc/models/uk-local-account-identification.md) |
-| [`UsLocalAccountIdentification`](../../../doc/models/us-local-account-identification.md) |
+| [`PLLocalAccountIdentification`](../../../doc/models/pl-local-account-identification.md) |
+| [`SELocalAccountIdentification`](../../../doc/models/se-local-account-identification.md) |
+| [`SGLocalAccountIdentification`](../../../doc/models/sg-local-account-identification.md) |
+| [`UKLocalAccountIdentification`](../../../doc/models/uk-local-account-identification.md) |
+| [`USLocalAccountIdentification`](../../../doc/models/us-local-account-identification.md) |
 
-## AuLocalAccountIdentification
+## AULocalAccountIdentification
 
 ### Initialization Code
 
 #### Example
 
 ```python
-value = AuLocalAccountIdentification(
+value = AULocalAccountIdentification(
     account_number='accountNumber4',
-    bsb_code='bsbCode8',
-    mtype=Type413.AULOCAL
+    bsb_code='bsbCode8'
 )
 ```
 
-## BrLocalAccountIdentification
+## BRLocalAccountIdentification
 
 ### Initialization Code
 
 #### Example
 
 ```python
-value = BrLocalAccountIdentification(
+value = BRLocalAccountIdentification(
     account_number='accountNumber0',
     bank_code='bankCode2',
-    branch_number='branchNumber2',
-    mtype=Type146.BRLOCAL
+    branch_number='branchNumber2'
 )
 ```
 
-## CaLocalAccountIdentification
+## CALocalAccountIdentification
 
 ### Initialization Code
 
 #### Example
 
 ```python
-value = CaLocalAccountIdentification(
+value = CALocalAccountIdentification(
     account_number='accountNumber8',
     institution_number='institutionNumber2',
     transit_number='transitNumber8',
-    mtype=Type153.CALOCAL
+    account_type=AccountType2Enum.CHECKING
 )
 ```
 
-## CzLocalAccountIdentification
+## CZLocalAccountIdentification
 
 ### Initialization Code
 
 #### Example
 
 ```python
-value = CzLocalAccountIdentification(
+value = CZLocalAccountIdentification(
     account_number='accountNumber4',
-    bank_code='bankCode8',
-    mtype=Type163.CZLOCAL
+    bank_code='bankCode8'
 )
 ```
 
-## DkLocalAccountIdentification
+## DKLocalAccountIdentification
 
 ### Initialization Code
 
 #### Example
 
 ```python
-value = DkLocalAccountIdentification(
+value = DKLocalAccountIdentification(
     account_number='accountNumber6',
-    bank_code='bankCode6',
-    mtype=Type173.DKLOCAL
+    bank_code='bankCode6'
 )
 ```
 
-## HkLocalAccountIdentification
+## HKLocalAccountIdentification
 
 ### Initialization Code
 
 #### Example
 
 ```python
-value = HkLocalAccountIdentification(
+value = HKLocalAccountIdentification(
     account_number='accountNumber8',
-    clearing_code='clearingCode2',
-    mtype=Type1810.HKLOCAL
+    clearing_code='clearingCode2'
 )
 ```
 
-## HuLocalAccountIdentification
+## HULocalAccountIdentification
 
 ### Initialization Code
 
 #### Example
 
 ```python
-value = HuLocalAccountIdentification(
-    account_number='accountNumber8',
-    mtype=Type193.HULOCAL
+value = HULocalAccountIdentification(
+    account_number='accountNumber8'
 )
 ```
 
-## IbanAccountIdentification1
+## IbanAccountIdentification
 
 ### Initialization Code
 
 #### Example
 
 ```python
-value = IbanAccountIdentification1(
-    iban='iban4',
-    mtype=Type203.IBAN
+value = IbanAccountIdentification(
+    iban='iban6'
 )
 ```
 
-## NoLocalAccountIdentification
+## NOLocalAccountIdentification
 
 ### Initialization Code
 
 #### Example
 
 ```python
-value = NoLocalAccountIdentification(
-    account_number='accountNumber6',
-    mtype=Type223.NOLOCAL
+value = NOLocalAccountIdentification(
+    account_number='accountNumber6'
 )
 ```
 
-## NzLocalAccountIdentification
+## NZLocalAccountIdentification
 
 ### Initialization Code
 
 #### Example
 
 ```python
-value = NzLocalAccountIdentification(
-    account_number='accountNumber6',
-    mtype=Type233.NZLOCAL
+value = NZLocalAccountIdentification(
+    account_number='accountNumber6'
 )
 ```
 
@@ -173,76 +164,73 @@ value = NzLocalAccountIdentification(
 ```python
 value = NumberAndBicAccountIdentification(
     account_number='accountNumber0',
-    bic='bic4',
-    mtype=Type244.NUMBERANDBIC
+    bic='bic4'
 )
 ```
 
-## PlLocalAccountIdentification
+## PLLocalAccountIdentification
 
 ### Initialization Code
 
 #### Example
 
 ```python
-value = PlLocalAccountIdentification(
-    account_number='accountNumber4',
-    mtype=Type256.PLLOCAL
+value = PLLocalAccountIdentification(
+    account_number='accountNumber4'
 )
 ```
 
-## SeLocalAccountIdentification
+## SELocalAccountIdentification
 
 ### Initialization Code
 
 #### Example
 
 ```python
-value = SeLocalAccountIdentification(
+value = SELocalAccountIdentification(
     account_number='accountNumber0',
-    clearing_number='clearingNumber2',
-    mtype=Type264.SELOCAL
+    clearing_number='clearingNumber2'
 )
 ```
 
-## SgLocalAccountIdentification
+## SGLocalAccountIdentification
 
 ### Initialization Code
 
 #### Example
 
 ```python
-value = SgLocalAccountIdentification(
+value = SGLocalAccountIdentification(
     account_number='accountNumber2',
-    bic='bic2'
+    bic='bic2',
+    mtype=Type82Enum.SGLOCAL
 )
 ```
 
-## UkLocalAccountIdentification
+## UKLocalAccountIdentification
 
 ### Initialization Code
 
 #### Example
 
 ```python
-value = UkLocalAccountIdentification(
+value = UKLocalAccountIdentification(
     account_number='accountNumber8',
-    sort_code='sortCode8',
-    mtype=Type273.UKLOCAL
+    sort_code='sortCode8'
 )
 ```
 
-## UsLocalAccountIdentification
+## USLocalAccountIdentification
 
 ### Initialization Code
 
 #### Example
 
 ```python
-value = UsLocalAccountIdentification(
+value = USLocalAccountIdentification(
     account_number='accountNumber2',
     routing_number='routingNumber2',
-    mtype=Type283.USLOCAL
+    account_type=AccountType2Enum.CHECKING
 )
 ```
 

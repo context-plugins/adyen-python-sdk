@@ -21,8 +21,6 @@ class Signature1(object):
         skip_signature (bool): Skip asking for a signature. This is possible because
             all global card schemes (American Express, Diners, Discover, JCB,
             MasterCard, VISA, and UnionPay) regard a signature as optional.
-        additional_properties (Dict[str, Any]): The additional properties for the
-            model.
 
     """
 
@@ -46,8 +44,7 @@ class Signature1(object):
         ask_signature_on_screen=APIHelper.SKIP,
         device_name=APIHelper.SKIP,
         device_slogan=APIHelper.SKIP,
-        skip_signature=APIHelper.SKIP,
-        additional_properties=None):
+        skip_signature=APIHelper.SKIP):
         """Initialize a Signature1 instance."""
         # Initialize members of the class
         if ask_signature_on_screen is not APIHelper.SKIP:
@@ -58,11 +55,6 @@ class Signature1(object):
             self.device_slogan = device_slogan
         if skip_signature is not APIHelper.SKIP:
             self.skip_signature = skip_signature
-
-        # Add additional model properties to the instance
-        if additional_properties is None:
-            additional_properties = {}
-        self.additional_properties = additional_properties
 
     @classmethod
     def from_dictionary(cls,
@@ -99,17 +91,11 @@ class Signature1(object):
             if "skipSignature" in dictionary.keys()\
                 else APIHelper.SKIP
 
-        additional_properties = APIHelper.get_additional_properties(
-            dictionary={k: v for k, v in dictionary.items()
-                        if k not in cls._names.values()},
-            unboxing_function=lambda value: value)
-
         # Return an object of this model
         return cls(ask_signature_on_screen,
                    device_name,
                    device_slogan,
-                   skip_signature,
-                   additional_properties)
+                   skip_signature)
 
     def __repr__(self):
         """Return a unambiguous string representation."""
@@ -133,14 +119,12 @@ class Signature1(object):
             if hasattr(self, "skip_signature")
             else None
         )
-        _additional_properties=self.additional_properties
         return (
             f"{self.__class__.__name__}("
             f"ask_signature_on_screen={_ask_signature_on_screen!r}, "
             f"device_name={_device_name!r}, "
             f"device_slogan={_device_slogan!r}, "
             f"skip_signature={_skip_signature!r}, "
-            f"additional_properties={_additional_properties!r}, "
             f")"
         )
 
@@ -166,13 +150,11 @@ class Signature1(object):
             if hasattr(self, "skip_signature")
             else None
         )
-        _additional_properties=self.additional_properties
         return (
             f"{self.__class__.__name__}("
             f"ask_signature_on_screen={_ask_signature_on_screen!s}, "
             f"device_name={_device_name!s}, "
             f"device_slogan={_device_slogan!s}, "
             f"skip_signature={_skip_signature!s}, "
-            f"additional_properties={_additional_properties!s}, "
             f")"
         )

@@ -1,8 +1,6 @@
 
 # Profile Registration Response
 
-*This model accepts additional fields of type Any.*
-
 ## Structure
 
 `ProfileRegistrationResponse`
@@ -11,27 +9,18 @@
 
 | Name | Type | Tags | Description |
 |  --- | --- | --- | --- |
-| `redirect_url` | [`Href`](../../doc/models/href.md) | Optional | - |
-| `additional_properties` | `Dict[str, Any]` | Optional | - |
+| `redirect_url` | [`Href5`](../../doc/models/href-5.md) | Optional | A short-lived URL that redirects the user to the iDEAL profile registration page. |
 
 ## Example
 
 ```python
-import jsonpickle
-
-from adyen.models.href import Href
+from adyen.models.href_5 import Href5
 from adyen.models.profile_registration_response import ProfileRegistrationResponse
 
 profile_registration_response = ProfileRegistrationResponse(
-    redirect_url=Href(
-        href='href8',
-        additional_properties={
-            'exampleAdditionalProperty': jsonpickle.decode('{"key1":"val1","key2":"val2"}')
-        }
-    ),
-    additional_properties={
-        'exampleAdditionalProperty': jsonpickle.decode('{"key1":"val1","key2":"val2"}')
-    }
+    redirect_url=Href5(
+        href='href8'
+    )
 )
 ```
 

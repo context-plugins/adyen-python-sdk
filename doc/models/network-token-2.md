@@ -3,8 +3,6 @@
 
 The details of the network token.
 
-*This model accepts additional fields of type Any.*
-
 ## Structure
 
 `NetworkToken2`
@@ -15,48 +13,37 @@ The details of the network token.
 |  --- | --- | --- | --- |
 | `brand_variant` | `str` | Optional | The card brand variant of the payment instrument associated with the network token. For example, **mc_prepaid_mrw**. |
 | `creation_date` | `datetime` | Optional | Date and time when the network token was created, in [ISO 8601](https://www.iso.org/iso-8601-date-and-time-format.html) extended format. For example, **2025-03-19T10:15:30+01:00**.. |
-| `device` | [`DeviceInfo`](../../doc/models/device-info.md) | Optional | - |
+| `device` | [`DeviceInfo1`](../../doc/models/device-info-1.md) | Optional | Contains information about the device used to provision the network token. |
 | `id` | `str` | Optional | The unique identifier of the network token. |
 | `payment_instrument_id` | `str` | Optional | The unique identifier of the payment instrument to which this network token belongs to. |
-| `status` | [`Status9`](../../doc/models/status-9.md) | Optional | - |
+| `status` | [`Status91Enum`](../../doc/models/status-91-enum.md) | Optional | The status of the network token. Possible values: **active**, **inactive**, **suspended**, **closed**. |
 | `token_last_four` | `str` | Optional | The last four digits of the network token `id`. |
-| `token_requestor` | [`NetworkTokenRequestor`](../../doc/models/network-token-requestor.md) | Optional | - |
+| `token_requestor` | [`Item`](../../doc/models/item.md) | Optional | The token requestor is an entity who requested tokenization of the card for secure payments. |
 | `mtype` | `str` | Optional | The type of network token. For example, **wallet**, **cof**. |
-| `additional_properties` | `Dict[str, Any]` | Optional | - |
 
 ## Example
 
 ```python
 import dateutil.parser
-import jsonpickle
 
-from adyen.models.device_info import DeviceInfo
+from adyen.models.device_info_1 import DeviceInfo1
 from adyen.models.network_token_2 import NetworkToken2
-from adyen.models.phone_info import PhoneInfo
+from adyen.models.phone_info_2 import PhoneInfo2
 
 network_token_2 = NetworkToken2(
     brand_variant='brandVariant2',
     creation_date=dateutil.parser.parse('2016-03-13T12:52:32.123Z'),
-    device=DeviceInfo(
+    device=DeviceInfo1(
         form_factor='formFactor4',
         os_name='osName6',
-        phone=PhoneInfo(
+        phone=PhoneInfo2(
             hashed_number='hashedNumber2',
             last_four_digits='lastFourDigits8',
-            number='number8',
-            additional_properties={
-                'exampleAdditionalProperty': jsonpickle.decode('{"key1":"val1","key2":"val2"}')
-            }
-        ),
-        additional_properties={
-            'exampleAdditionalProperty': jsonpickle.decode('{"key1":"val1","key2":"val2"}')
-        }
+            number='number8'
+        )
     ),
     id='id0',
-    payment_instrument_id='paymentInstrumentId2',
-    additional_properties={
-        'exampleAdditionalProperty': jsonpickle.decode('{"key1":"val1","key2":"val2"}')
-    }
+    payment_instrument_id='paymentInstrumentId2'
 )
 ```
 

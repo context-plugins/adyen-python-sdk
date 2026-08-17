@@ -1,8 +1,6 @@
 
 # Input Data
 
-*This model accepts additional fields of type Any.*
-
 ## Structure
 
 `InputData`
@@ -11,9 +9,9 @@
 
 | Name | Type | Tags | Description |
 |  --- | --- | --- | --- |
-| `device` | [`Device2`](../../doc/models/device-2.md) | Required | - |
-| `info_qualify` | [`InfoQualify2`](../../doc/models/info-qualify-2.md) | Required | - |
-| `input_command` | [`InputCommand1`](../../doc/models/input-command-1.md) | Required | - |
+| `device` | [`Device2Enum`](../../doc/models/device-2-enum.md) | Required | Logical device located on a Sale Terminal or a POI Terminal, regarding the class of information to output (display, print or store), or input (keyboard) for the Cashier or the Customer.<br>Possible values:<br><br>* **CashierDisplay**<br>* **CashierInput**<br>* **CustomerDisplay**<br>* **CustomerInput** |
+| `info_qualify` | [`InfoQualify2Enum`](../../doc/models/info-qualify-2-enum.md) | Required | Qualification of the information to send to an output logical device, to display or print to the Cashier or the Customer.<br>Possible values:<br><br>* **CustomerAssistance**<br>* **Display**<br>* **Document**<br>* **Error**<br>* **Input**<br>* **POIReplication**<br>* **Receipt**<br>* **Sound**<br>* **Status**<br>* **Voucher** |
+| `input_command` | [`InputCommand1Enum`](../../doc/models/input-command-1-enum.md) | Required | Type of requested input. Can be: **GetConfirmation**, **TextString**, **DigitString**, **DecimalString** or **GetMenuEntry**.<br>Possible values:<br><br>* **DecimalString**<br>* **DigitString**<br>* **GetAnyKey**<br>* **GetConfirmation**<br>* **GetFunctionKey**<br>* **GetMenuEntry**<br>* **Password**<br>* **SiteManager**<br>* **TextString** |
 | `notify_card_input_flag` | `bool` | Optional | Request Notification of the card entered in the POI card reader.<br><br>**Default**: `False` |
 | `max_input_time` | `int` | Optional | Maximum input time in seconds. Limits the time to answer to an Input request message. |
 | `immediate_response_flag` | `bool` | Optional | Indicates whether to request an Immediate response to the message without waiting for the completion of the command.<br><br>**Default**: `False` |
@@ -32,22 +30,19 @@
 | `disable_correct_flag` | `bool` | Optional | Indicates if the Correct function key has to be deactivated (value True). During the processing of an Input command `GetConfirmation`, `SiteManager`, or `GetMenuEntry`.<br><br>**Default**: `False` |
 | `disable_valid_flag` | `bool` | Optional | Indicates if the Valid function key has to be deactivated (value True). During the processing of an Input command `GetConfirmation`, `SiteManager`, or `GetMenuEntry`.<br><br>**Default**: `False` |
 | `menu_back_flag` | `bool` | Optional | If it has the value True, it indicates that the Back function key (respectively Home function key) may be used to go back to the immediate upper level of the menu. If it has the value False, it indicates that the current menu level has no parent menu.<br><br>**Default**: `False` |
-| `additional_properties` | `Dict[str, Any]` | Optional | - |
 
 ## Example
 
 ```python
-import jsonpickle
-
-from adyen.models.device_2 import Device2
-from adyen.models.info_qualify_2 import InfoQualify2
-from adyen.models.input_command_1 import InputCommand1
+from adyen.models.device_2_enum import Device2Enum
+from adyen.models.info_qualify_2_enum import InfoQualify2Enum
+from adyen.models.input_command_1_enum import InputCommand1Enum
 from adyen.models.input_data import InputData
 
 input_data = InputData(
-    device=Device2.CASHIERINPUT,
-    info_qualify=InfoQualify2.DISPLAY,
-    input_command=InputCommand1.GETFUNCTIONKEY,
+    device=Device2Enum.CASHIERINPUT,
+    info_qualify=InfoQualify2Enum.DISPLAY,
+    input_command=InputCommand1Enum.GETFUNCTIONKEY,
     notify_card_input_flag=False,
     max_input_time=84,
     immediate_response_flag=False,
@@ -61,10 +56,7 @@ input_data = InputData(
     disable_cancel_flag=False,
     disable_correct_flag=False,
     disable_valid_flag=False,
-    menu_back_flag=False,
-    additional_properties={
-        'exampleAdditionalProperty': jsonpickle.decode('{"key1":"val1","key2":"val2"}')
-    }
+    menu_back_flag=False
 )
 ```
 

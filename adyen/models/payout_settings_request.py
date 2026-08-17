@@ -25,8 +25,6 @@ class PayoutSettingsRequest(object):
         transfer_instrument_id (str): The unique identifier of the [transfer
             instrument](https://docs.adyen.com/api-explorer/#/legalentity/latest/post/
             transferInstruments) that contains the details of the bank account.
-        additional_properties (Dict[str, Any]): The additional properties for the
-            model.
 
     """
 
@@ -46,8 +44,7 @@ class PayoutSettingsRequest(object):
         self,
         transfer_instrument_id=None,
         enabled=APIHelper.SKIP,
-        enabled_from_date=APIHelper.SKIP,
-        additional_properties=None):
+        enabled_from_date=APIHelper.SKIP):
         """Initialize a PayoutSettingsRequest instance."""
         # Initialize members of the class
         if enabled is not APIHelper.SKIP:
@@ -55,11 +52,6 @@ class PayoutSettingsRequest(object):
         if enabled_from_date is not APIHelper.SKIP:
             self.enabled_from_date = enabled_from_date
         self.transfer_instrument_id = transfer_instrument_id
-
-        # Add additional model properties to the instance
-        if additional_properties is None:
-            additional_properties = {}
-        self.additional_properties = additional_properties
 
     @classmethod
     def from_dictionary(cls,
@@ -92,16 +84,10 @@ class PayoutSettingsRequest(object):
             if dictionary.get("enabledFromDate")\
                 else APIHelper.SKIP
 
-        additional_properties = APIHelper.get_additional_properties(
-            dictionary={k: v for k, v in dictionary.items()
-                        if k not in cls._names.values()},
-            unboxing_function=lambda value: value)
-
         # Return an object of this model
         return cls(transfer_instrument_id,
                    enabled,
-                   enabled_from_date,
-                   additional_properties)
+                   enabled_from_date)
 
     def __repr__(self):
         """Return a unambiguous string representation."""
@@ -116,13 +102,11 @@ class PayoutSettingsRequest(object):
             else None
         )
         _transfer_instrument_id=self.transfer_instrument_id
-        _additional_properties=self.additional_properties
         return (
             f"{self.__class__.__name__}("
             f"enabled={_enabled!r}, "
             f"enabled_from_date={_enabled_from_date!r}, "
             f"transfer_instrument_id={_transfer_instrument_id!r}, "
-            f"additional_properties={_additional_properties!r}, "
             f")"
         )
 
@@ -139,12 +123,10 @@ class PayoutSettingsRequest(object):
             else None
         )
         _transfer_instrument_id=self.transfer_instrument_id
-        _additional_properties=self.additional_properties
         return (
             f"{self.__class__.__name__}("
             f"enabled={_enabled!s}, "
             f"enabled_from_date={_enabled_from_date!s}, "
             f"transfer_instrument_id={_transfer_instrument_id!s}, "
-            f"additional_properties={_additional_properties!s}, "
             f")"
         )

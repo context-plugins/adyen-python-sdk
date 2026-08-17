@@ -21,8 +21,6 @@ class ListStoredPaymentMethodsResponse(object):
             example name or email address.
         stored_payment_methods (List[StoredPaymentMethodResource]): List of all
             stored payment methods.
-        additional_properties (Dict[str, Any]): The additional properties for the
-            model.
 
     """
 
@@ -43,8 +41,7 @@ class ListStoredPaymentMethodsResponse(object):
         self,
         merchant_account=APIHelper.SKIP,
         shopper_reference=APIHelper.SKIP,
-        stored_payment_methods=APIHelper.SKIP,
-        additional_properties=None):
+        stored_payment_methods=APIHelper.SKIP):
         """Initialize a ListStoredPaymentMethodsResponse instance."""
         # Initialize members of the class
         if merchant_account is not APIHelper.SKIP:
@@ -53,11 +50,6 @@ class ListStoredPaymentMethodsResponse(object):
             self.shopper_reference = shopper_reference
         if stored_payment_methods is not APIHelper.SKIP:
             self.stored_payment_methods = stored_payment_methods
-
-        # Add additional model properties to the instance
-        if additional_properties is None:
-            additional_properties = {}
-        self.additional_properties = additional_properties
 
     @classmethod
     def from_dictionary(cls,
@@ -94,16 +86,10 @@ class ListStoredPaymentMethodsResponse(object):
         else:
             stored_payment_methods = APIHelper.SKIP
 
-        additional_properties = APIHelper.get_additional_properties(
-            dictionary={k: v for k, v in dictionary.items()
-                        if k not in cls._names.values()},
-            unboxing_function=lambda value: value)
-
         # Return an object of this model
         return cls(merchant_account,
                    shopper_reference,
-                   stored_payment_methods,
-                   additional_properties)
+                   stored_payment_methods)
 
     def __repr__(self):
         """Return a unambiguous string representation."""
@@ -122,13 +108,11 @@ class ListStoredPaymentMethodsResponse(object):
             if hasattr(self, "stored_payment_methods")
             else None
         )
-        _additional_properties=self.additional_properties
         return (
             f"{self.__class__.__name__}("
             f"merchant_account={_merchant_account!r}, "
             f"shopper_reference={_shopper_reference!r}, "
             f"stored_payment_methods={_stored_payment_methods!r}, "
-            f"additional_properties={_additional_properties!r}, "
             f")"
         )
 
@@ -149,12 +133,10 @@ class ListStoredPaymentMethodsResponse(object):
             if hasattr(self, "stored_payment_methods")
             else None
         )
-        _additional_properties=self.additional_properties
         return (
             f"{self.__class__.__name__}("
             f"merchant_account={_merchant_account!s}, "
             f"shopper_reference={_shopper_reference!s}, "
             f"stored_payment_methods={_stored_payment_methods!s}, "
-            f"additional_properties={_additional_properties!s}, "
             f")"
         )

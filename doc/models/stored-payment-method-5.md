@@ -1,8 +1,6 @@
 
 # Stored Payment Method 5
 
-*This model accepts additional fields of type Any.*
-
 ## Structure
 
 `StoredPaymentMethod5`
@@ -18,17 +16,15 @@
 | `risk_signals` | [`PixPayByBankRiskSignals`](../../doc/models/pix-pay-by-bank-risk-signals.md) | Optional | - |
 | `sdk_data` | `str` | Optional | Base64-encoded JSON object containing SDK related parameters required by the SDK<br><br>**Constraints**: *Maximum Length*: `50000` |
 | `stored_payment_method_id` | `str` | Optional | This is the `recurringDetailReference` returned in the response when you created the token.<br><br>**Constraints**: *Maximum Length*: `64` |
-| `mtype` | [`Type45`](../../doc/models/type-45.md) | Optional | - |
-| `additional_properties` | `Dict[str, Any]` | Optional | - |
+| `mtype` | [`Type45Enum`](../../doc/models/type-45-enum.md) | Optional | **paybybank_pix**<br><br>**Default**: `"paybybank_pix"` |
 
 ## Example
 
 ```python
-import jsonpickle
-
 from adyen.models.confidence_score import ConfidenceScore
 from adyen.models.pix_pay_by_bank_risk_signals import PixPayByBankRiskSignals
 from adyen.models.stored_payment_method_5 import StoredPaymentMethod5
+from adyen.models.type_45_enum import Type45Enum
 
 stored_payment_method_5 = StoredPaymentMethod5(
     checkout_attempt_id='checkoutAttemptId4',
@@ -42,22 +38,14 @@ stored_payment_method_5 = StoredPaymentMethod5(
                 'errors0',
                 'errors1'
             ],
-            score=155.44,
-            additional_properties={
-                'exampleAdditionalProperty': jsonpickle.decode('{"key1":"val1","key2":"val2"}')
-            }
+            score=155.44
         ),
         elapsed_time_since_boot=84,
         is_rooted_device=False,
         language='language0',
-        os_version='osVersion8',
-        additional_properties={
-            'exampleAdditionalProperty': jsonpickle.decode('{"key1":"val1","key2":"val2"}')
-        }
+        os_version='osVersion8'
     ),
-    additional_properties={
-        'exampleAdditionalProperty': jsonpickle.decode('{"key1":"val1","key2":"val2"}')
-    }
+    mtype=Type45Enum.PAYBYBANK_PIX
 )
 ```
 

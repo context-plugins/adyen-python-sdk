@@ -1,8 +1,6 @@
 
 # Response Additional Data Common 1
 
-*This model accepts additional fields of type Any.*
-
 ## Structure
 
 `ResponseAdditionalDataCommon1`
@@ -33,8 +31,8 @@
 | `extra_costs_value` | `str` | Optional | The value of the extra amount charged due to additional amounts set in the skin used in the HPP payment request. The amount is in minor units. |
 | `fraud_check_item_nr_fraud_checkname` | `str` | Optional | The fraud score due to a particular fraud check. The fraud check name is found in the key of the key-value pair. |
 | `fraud_manual_review` | `str` | Optional | Indicates if the payment is sent to manual review. |
-| `fraud_result_type` | [`FraudResultType`](../../doc/models/fraud-result-type.md) | Optional | - |
-| `fraud_risk_level` | [`FraudRiskLevel`](../../doc/models/fraud-risk-level.md) | Optional | - |
+| `fraud_result_type` | [`FraudResultTypeEnum`](../../doc/models/fraud-result-type-enum.md) | Optional | The fraud result properties of the payment. Possible values:<br><br>* AMBER<br>* GREEN<br>* RED |
+| `fraud_risk_level` | [`FraudRiskLevelEnum`](../../doc/models/fraud-risk-level-enum.md) | Optional | The risk level of the transaction as classified by the [machine learning](https://docs.adyen.com/risk-management/configure-your-risk-profile/machine-learning-rules/) fraud risk rule. The risk level indicates the likelihood that a transaction will result in a fraudulent dispute. Possible values:<br><br>* veryLow<br>* low<br>* medium<br>* high<br>* veryHigh |
 | `funding_source` | `str` | Optional | Information regarding the funding type of the card. The possible return values are:<br><br>* CHARGE<br><br>* CREDIT<br><br>* DEBIT<br><br>* PREPAID<br><br>* PREPAID_RELOADABLE<br><br>* PREPAID_NONRELOADABLE<br><br>* DEFFERED_DEBIT<br><br>> This functionality requires additional configuration on Adyen's end. To enable it, contact the Support Team.<br><br>For receiving this field in the notification, enable **Include Funding Source** in **Notifications** > **Additional settings**. |
 | `funds_availability` | `str` | Optional | Indicates availability of funds.<br><br>Visa:<br><br>* "I" (fast funds are supported)<br>* "N" (otherwise)<br><br>Mastercard:<br><br>* "I" (product type is Prepaid or Debit, or issuing country is in CEE/HGEM list)<br>* "N" (otherwise)<br><br>> Returned when you verify a card BIN or estimate costs, and only if payoutEligible is "Y" or "D". |
 | `inferred_refusal_reason` | `str` | Optional | Provides the more granular indication of why a transaction was refused. When a transaction fails with either "Refused", "Restricted Card", "Transaction Not Permitted", "Not supported" or "DeclinedNon Generic" refusalReason from the issuer, Adyen cross references its PSP-wide data for extra insight into the refusal reason. If an inferred refusal reason is available, the `inferredRefusalReason`, field is populated and the `refusalReason`, is set to "Not Supported".<br><br>Possible values:<br><br>* 3D Secure Mandated<br><br>* Closed Account<br><br>* ContAuth Not Supported<br><br>* CVC Mandated<br><br>* Ecommerce Not Allowed<br><br>* Crossborder Not Supported<br><br>* Card Updated<br><br>* Low Authrate Bin<br><br>* Non-reloadable prepaid card |
@@ -57,7 +55,7 @@
 | `recurring_first_psp_reference` | `str` | Optional | The `pspReference`, of the first recurring payment that created the recurring detail.<br><br>This functionality requires additional configuration on Adyen's end. To enable it, contact the Support Team. |
 | `recurring_recurring_detail_reference` | `str` | Optional | The reference that uniquely identifies the recurring transaction. |
 | `recurring_shopper_reference` | `str` | Optional | The provided reference of the shopper for a recurring transaction. |
-| `recurring_processing_model` | [`RecurringProcessingModel`](../../doc/models/recurring-processing-model.md) | Optional | - |
+| `recurring_processing_model` | [`RecurringProcessingModelEnum`](../../doc/models/recurring-processing-model-enum.md) | Optional | The processing model used for the recurring transaction. |
 | `referred` | `str` | Optional | If the payment is referred, this field is set to true.<br><br>This field is unavailable if the payment is referred and is usually not returned with ecommerce transactions.<br><br>Example: true |
 | `refusal_reason_raw` | `str` | Optional | Raw refusal reason received from the acquirer, where available.<br><br>Example: AUTHORISED |
 | `request_amount` | `str` | Optional | The amount of the payment request. |
@@ -71,18 +69,15 @@
 | `three_d_offered_response` | `str` | Optional | The raw enrollment result from the 3DS directory services of the card schemes.<br><br>Example: Y |
 | `three_ds_version` | `str` | Optional | The 3D Secure 2 version. |
 | `tokenization_shopper_reference` | `str` | Optional | The reference for the shopper that you sent when tokenizing the payment details. |
-| `tokenization_store_operation_type` | [`TokenizationStoreOperationType`](../../doc/models/tokenization-store-operation-type.md) | Optional | - |
+| `tokenization_store_operation_type` | [`TokenizationStoreOperationTypeEnum`](../../doc/models/tokenization-store-operation-type-enum.md) | Optional | The operation performed on the token. Possible values:<br><br>* **created**: the token has been created.<br>* **updated**: the existing token has been updated.<br>* **alreadyExisting**: the details have already been stored. |
 | `tokenization_stored_payment_method_id` | `str` | Optional | The reference that uniquely identifies tokenized payment details. |
 | `transaction_link_id` | `str` | Optional | Returned in the response for Mastercard payments.<br><br>This contains the Mastercard Transaction Link Identifier (TLID). |
 | `visa_transaction_id` | `str` | Optional | The `visaTransactionId`, has a fixed length of 15 numeric characters.<br><br>> Contact Support Team to enable this field. |
 | `xid` | `str` | Optional | The 3DS transaction ID of the 3DS session sent in notifications. The value is Base64-encoded and is returned for transactions with directoryResponse 'N' or 'Y'.<br><br>Example: ODgxNDc2MDg2MDExODk5MAAAAAA= |
-| `additional_properties` | `Dict[str, Any]` | Optional | - |
 
 ## Example
 
 ```python
-import jsonpickle
-
 from adyen.models.response_additional_data_common_1 import ResponseAdditionalDataCommon1
 
 response_additional_data_common_1 = ResponseAdditionalDataCommon1(
@@ -92,10 +87,7 @@ response_additional_data_common_1 = ResponseAdditionalDataCommon1(
     alias='alias4',
     alias_type='aliasType6',
     cvc_result='1 Matches',
-    cvc_result_raw='M',
-    additional_properties={
-        'exampleAdditionalProperty': jsonpickle.decode('{"key1":"val1","key2":"val2"}')
-    }
+    cvc_result_raw='M'
 )
 ```
 

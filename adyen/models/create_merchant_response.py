@@ -27,8 +27,6 @@ class CreateMerchantResponse(object):
         pricing_plan (str): Partner pricing plan for the merchant, applicable for
             merchants under AfP managed company accounts.
         reference (str): Your reference for the merchant account.
-        additional_properties (Dict[str, Any]): The additional properties for the
-            model.
 
     """
 
@@ -61,8 +59,7 @@ class CreateMerchantResponse(object):
         id=APIHelper.SKIP,
         legal_entity_id=APIHelper.SKIP,
         pricing_plan=APIHelper.SKIP,
-        reference=APIHelper.SKIP,
-        additional_properties=None):
+        reference=APIHelper.SKIP):
         """Initialize a CreateMerchantResponse instance."""
         # Initialize members of the class
         if business_line_id is not APIHelper.SKIP:
@@ -79,11 +76,6 @@ class CreateMerchantResponse(object):
             self.pricing_plan = pricing_plan
         if reference is not APIHelper.SKIP:
             self.reference = reference
-
-        # Add additional model properties to the instance
-        if additional_properties is None:
-            additional_properties = {}
-        self.additional_properties = additional_properties
 
     @classmethod
     def from_dictionary(cls,
@@ -132,11 +124,6 @@ class CreateMerchantResponse(object):
             if dictionary.get("reference")\
                 else APIHelper.SKIP
 
-        additional_properties = APIHelper.get_additional_properties(
-            dictionary={k: v for k, v in dictionary.items()
-                        if k not in cls._names.values()},
-            unboxing_function=lambda value: value)
-
         # Return an object of this model
         return cls(business_line_id,
                    company_id,
@@ -144,8 +131,7 @@ class CreateMerchantResponse(object):
                    id,
                    legal_entity_id,
                    pricing_plan,
-                   reference,
-                   additional_properties)
+                   reference)
 
     def __repr__(self):
         """Return a unambiguous string representation."""
@@ -184,7 +170,6 @@ class CreateMerchantResponse(object):
             if hasattr(self, "reference")
             else None
         )
-        _additional_properties=self.additional_properties
         return (
             f"{self.__class__.__name__}("
             f"business_line_id={_business_line_id!r}, "
@@ -194,7 +179,6 @@ class CreateMerchantResponse(object):
             f"legal_entity_id={_legal_entity_id!r}, "
             f"pricing_plan={_pricing_plan!r}, "
             f"reference={_reference!r}, "
-            f"additional_properties={_additional_properties!r}, "
             f")"
         )
 
@@ -235,7 +219,6 @@ class CreateMerchantResponse(object):
             if hasattr(self, "reference")
             else None
         )
-        _additional_properties=self.additional_properties
         return (
             f"{self.__class__.__name__}("
             f"business_line_id={_business_line_id!s}, "
@@ -245,6 +228,5 @@ class CreateMerchantResponse(object):
             f"legal_entity_id={_legal_entity_id!s}, "
             f"pricing_plan={_pricing_plan!s}, "
             f"reference={_reference!s}, "
-            f"additional_properties={_additional_properties!s}, "
             f")"
         )

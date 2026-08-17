@@ -1,8 +1,6 @@
 
 # Accept Dispute Response
 
-*This model accepts additional fields of type Any.*
-
 ## Structure
 
 `AcceptDisputeResponse`
@@ -11,28 +9,19 @@
 
 | Name | Type | Tags | Description |
 |  --- | --- | --- | --- |
-| `dispute_service_result` | [`DisputeServiceResult`](../../doc/models/dispute-service-result.md) | Required | - |
-| `additional_properties` | `Dict[str, Any]` | Optional | - |
+| `dispute_service_result` | [`DisputeServiceResult1`](../../doc/models/dispute-service-result-1.md) | Required | The result of the dispute service. |
 
 ## Example
 
 ```python
-import jsonpickle
-
 from adyen.models.accept_dispute_response import AcceptDisputeResponse
-from adyen.models.dispute_service_result import DisputeServiceResult
+from adyen.models.dispute_service_result_1 import DisputeServiceResult1
 
 accept_dispute_response = AcceptDisputeResponse(
-    dispute_service_result=DisputeServiceResult(
+    dispute_service_result=DisputeServiceResult1(
         success=False,
-        error_message='errorMessage8',
-        additional_properties={
-            'exampleAdditionalProperty': jsonpickle.decode('{"key1":"val1","key2":"val2"}')
-        }
-    ),
-    additional_properties={
-        'exampleAdditionalProperty': jsonpickle.decode('{"key1":"val1","key2":"val2"}')
-    }
+        error_message='errorMessage8'
+    )
 )
 ```
 

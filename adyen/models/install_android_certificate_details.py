@@ -13,9 +13,7 @@ class InstallAndroidCertificateDetails(object):
     Attributes:
         certificate_id (str): The unique identifier of the certificate to be
             installed.
-        mtype (Type42): The model property of type Type42.
-        additional_properties (Dict[str, Any]): The additional properties for the
-            model.
+        mtype (Type42Enum): Type of terminal action: Install an Android certificate.
 
     """
 
@@ -33,19 +31,12 @@ class InstallAndroidCertificateDetails(object):
     def __init__(
         self,
         certificate_id=APIHelper.SKIP,
-        mtype=APIHelper.SKIP,
-        additional_properties=None):
+        mtype="InstallAndroidCertificate"):
         """Initialize a InstallAndroidCertificateDetails instance."""
         # Initialize members of the class
         if certificate_id is not APIHelper.SKIP:
             self.certificate_id = certificate_id
-        if mtype is not APIHelper.SKIP:
-            self.mtype = mtype
-
-        # Add additional model properties to the instance
-        if additional_properties is None:
-            additional_properties = {}
-        self.additional_properties = additional_properties
+        self.mtype = mtype
 
     @classmethod
     def from_dictionary(cls,
@@ -72,17 +63,11 @@ class InstallAndroidCertificateDetails(object):
         mtype =\
             dictionary.get("type")\
             if dictionary.get("type")\
-                else APIHelper.SKIP
-
-        additional_properties = APIHelper.get_additional_properties(
-            dictionary={k: v for k, v in dictionary.items()
-                        if k not in cls._names.values()},
-            unboxing_function=lambda value: value)
+                else "InstallAndroidCertificate"
 
         # Return an object of this model
         return cls(certificate_id,
-                   mtype,
-                   additional_properties)
+                   mtype)
 
     @classmethod
     def validate(cls, dictionary):
@@ -117,12 +102,10 @@ class InstallAndroidCertificateDetails(object):
             if hasattr(self, "mtype")
             else None
         )
-        _additional_properties=self.additional_properties
         return (
             f"{self.__class__.__name__}("
             f"certificate_id={_certificate_id!r}, "
             f"mtype={_mtype!r}, "
-            f"additional_properties={_additional_properties!r}, "
             f")"
         )
 
@@ -138,11 +121,9 @@ class InstallAndroidCertificateDetails(object):
             if hasattr(self, "mtype")
             else None
         )
-        _additional_properties=self.additional_properties
         return (
             f"{self.__class__.__name__}("
             f"certificate_id={_certificate_id!s}, "
             f"mtype={_mtype!s}, "
-            f"additional_properties={_additional_properties!s}, "
             f")"
         )

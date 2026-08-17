@@ -17,8 +17,6 @@ class ApplePayResponseInfo1(object):
             [Apple Pay
             documentation](https://docs.adyen.com/payment-methods/apple-pay/web-drop-i
             n?tab=adyen-certificate-live_1#going-live).
-        additional_properties (Dict[str, Any]): The additional properties for the
-            model.
 
     """
 
@@ -33,17 +31,11 @@ class ApplePayResponseInfo1(object):
 
     def __init__(
         self,
-        domains=APIHelper.SKIP,
-        additional_properties=None):
+        domains=APIHelper.SKIP):
         """Initialize a ApplePayResponseInfo1 instance."""
         # Initialize members of the class
         if domains is not APIHelper.SKIP:
             self.domains = domains
-
-        # Add additional model properties to the instance
-        if additional_properties is None:
-            additional_properties = {}
-        self.additional_properties = additional_properties
 
     @classmethod
     def from_dictionary(cls,
@@ -68,14 +60,8 @@ class ApplePayResponseInfo1(object):
             if dictionary.get("domains")\
                 else APIHelper.SKIP
 
-        additional_properties = APIHelper.get_additional_properties(
-            dictionary={k: v for k, v in dictionary.items()
-                        if k not in cls._names.values()},
-            unboxing_function=lambda value: value)
-
         # Return an object of this model
-        return cls(domains,
-                   additional_properties)
+        return cls(domains)
 
     def __repr__(self):
         """Return a unambiguous string representation."""
@@ -84,11 +70,9 @@ class ApplePayResponseInfo1(object):
             if hasattr(self, "domains")
             else None
         )
-        _additional_properties=self.additional_properties
         return (
             f"{self.__class__.__name__}("
             f"domains={_domains!r}, "
-            f"additional_properties={_additional_properties!r}, "
             f")"
         )
 
@@ -99,10 +83,8 @@ class ApplePayResponseInfo1(object):
             if hasattr(self, "domains")
             else None
         )
-        _additional_properties=self.additional_properties
         return (
             f"{self.__class__.__name__}("
             f"domains={_domains!s}, "
-            f"additional_properties={_additional_properties!s}, "
             f")"
         )

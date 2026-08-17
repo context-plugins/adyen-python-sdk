@@ -3,32 +3,21 @@
 
 ## Data Type
 
-`CancellingEntity | Any | None`
+`CancellingEntityEnum`
 
 ## Cases
 
 | Type |
 |  --- |
-| [`CancellingEntity`](../../../doc/models/cancelling-entity.md) |
-| `Any` |
+| [`CancellingEntityEnum`](../../../doc/models/cancelling-entity-enum.md) |
 
-## CancellingEntity
-
-### Initialization Code
-
-#### Example
-
-```python
-value = CancellingEntity.MERCHANT
-```
-
-## Any
+## CancellingEntityEnum
 
 ### Initialization Code
 
 #### Example
 
 ```python
-value = jsonpickle.decode('{"key1":"val1","key2":"val2"}')
+value = CancellingEntityEnum.MERCHANT
 ```
 

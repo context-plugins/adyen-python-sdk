@@ -61,8 +61,6 @@ class BalanceAccountConfiguration(object):
         transfer_instrument_id (str): The unique identifier of the transfer
             instrument to which the funds are paid out.
         updated_at (datetime): The date and time when the payout schedule was updated.
-        additional_properties (Dict[str, Any]): The additional properties for the
-            model.
 
     """
 
@@ -121,8 +119,7 @@ class BalanceAccountConfiguration(object):
         reference_for_beneficiary=APIHelper.SKIP,
         retained_amount=APIHelper.SKIP,
         sales_day_closing_time=APIHelper.SKIP,
-        updated_at=APIHelper.SKIP,
-        additional_properties=None):
+        updated_at=APIHelper.SKIP):
         """Initialize a BalanceAccountConfiguration instance."""
         # Initialize members of the class
         self.balance_account_id = balance_account_id
@@ -162,11 +159,6 @@ class BalanceAccountConfiguration(object):
                  APIHelper.apply_datetime_converter(
                 updated_at, APIHelper.RFC3339DateTime)\
                  if updated_at else None
-
-        # Add additional model properties to the instance
-        if additional_properties is None:
-            additional_properties = {}
-        self.additional_properties = additional_properties
 
     @classmethod
     def from_dictionary(cls,
@@ -253,11 +245,6 @@ class BalanceAccountConfiguration(object):
             dictionary.get("updatedAt")).datetime\
             if dictionary.get("updatedAt") else APIHelper.SKIP
 
-        additional_properties = APIHelper.get_additional_properties(
-            dictionary={k: v for k, v in dictionary.items()
-                        if k not in cls._names.values()},
-            unboxing_function=lambda value: value)
-
         # Return an object of this model
         return cls(balance_account_id,
                    balance_platform_payout_schedule_id,
@@ -275,8 +262,7 @@ class BalanceAccountConfiguration(object):
                    reference_for_beneficiary,
                    retained_amount,
                    sales_day_closing_time,
-                   updated_at,
-                   additional_properties)
+                   updated_at)
 
     def __repr__(self):
         """Return a unambiguous string representation."""
@@ -349,7 +335,6 @@ class BalanceAccountConfiguration(object):
             if hasattr(self, "updated_at")
             else None
         )
-        _additional_properties=self.additional_properties
         return (
             f"{self.__class__.__name__}("
             f"balance_account_id={_balance_account_id!r}, "
@@ -369,7 +354,6 @@ class BalanceAccountConfiguration(object):
             f"sales_day_closing_time={_sales_day_closing_time!r}, "
             f"transfer_instrument_id={_transfer_instrument_id!r}, "
             f"updated_at={_updated_at!r}, "
-            f"additional_properties={_additional_properties!r}, "
             f")"
         )
 
@@ -444,7 +428,6 @@ class BalanceAccountConfiguration(object):
             if hasattr(self, "updated_at")
             else None
         )
-        _additional_properties=self.additional_properties
         return (
             f"{self.__class__.__name__}("
             f"balance_account_id={_balance_account_id!s}, "
@@ -464,6 +447,5 @@ class BalanceAccountConfiguration(object):
             f"sales_day_closing_time={_sales_day_closing_time!s}, "
             f"transfer_instrument_id={_transfer_instrument_id!s}, "
             f"updated_at={_updated_at!s}, "
-            f"additional_properties={_additional_properties!s}, "
             f")"
         )

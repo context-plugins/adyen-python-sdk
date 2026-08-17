@@ -1,7 +1,7 @@
 
 # Links 2
 
-*This model accepts additional fields of type Any.*
+References to resources linked to the allowed origin.
 
 ## Structure
 
@@ -11,27 +11,18 @@
 
 | Name | Type | Tags | Description |
 |  --- | --- | --- | --- |
-| `mself` | [`Self`](../../doc/models/self.md) | Required | - |
-| `additional_properties` | `Dict[str, Any]` | Optional | - |
+| `mself` | [`LinksElement6`](../../doc/models/links-element-6.md) | Required | Link to the resource itself. |
 
 ## Example
 
 ```python
-import jsonpickle
-
 from adyen.models.links_2 import Links2
-from adyen.models.mself import Self
+from adyen.models.links_element_6 import LinksElement6
 
 links_2 = Links2(
-    mself=Self(
-        href='href0',
-        additional_properties={
-            'exampleAdditionalProperty': jsonpickle.decode('{"key1":"val1","key2":"val2"}')
-        }
-    ),
-    additional_properties={
-        'exampleAdditionalProperty': jsonpickle.decode('{"key1":"val1","key2":"val2"}')
-    }
+    mself=LinksElement6(
+        href='href0'
+    )
 )
 ```
 

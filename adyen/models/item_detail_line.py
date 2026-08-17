@@ -58,8 +58,6 @@ class ItemDetailLine(object):
             For example, 2000 means USD 20.00. * Encoding: Numeric * Max value:
             10000000000 * **additionalData key:**
             `enhancedSchemeData.itemDetailLine[N].unitPrice`
-        additional_properties (Dict[str, Any]): The additional properties for the
-            model.
 
     """
 
@@ -95,8 +93,7 @@ class ItemDetailLine(object):
         quantity=APIHelper.SKIP,
         total_amount=APIHelper.SKIP,
         unit_of_measure=APIHelper.SKIP,
-        unit_price=APIHelper.SKIP,
-        additional_properties=None):
+        unit_price=APIHelper.SKIP):
         """Initialize a ItemDetailLine instance."""
         # Initialize members of the class
         if commodity_code is not APIHelper.SKIP:
@@ -115,11 +112,6 @@ class ItemDetailLine(object):
             self.unit_of_measure = unit_of_measure
         if unit_price is not APIHelper.SKIP:
             self.unit_price = unit_price
-
-        # Add additional model properties to the instance
-        if additional_properties is None:
-            additional_properties = {}
-        self.additional_properties = additional_properties
 
     @classmethod
     def from_dictionary(cls,
@@ -172,11 +164,6 @@ class ItemDetailLine(object):
             if dictionary.get("unitPrice")\
                 else APIHelper.SKIP
 
-        additional_properties = APIHelper.get_additional_properties(
-            dictionary={k: v for k, v in dictionary.items()
-                        if k not in cls._names.values()},
-            unboxing_function=lambda value: value)
-
         # Return an object of this model
         return cls(commodity_code,
                    description,
@@ -185,8 +172,7 @@ class ItemDetailLine(object):
                    quantity,
                    total_amount,
                    unit_of_measure,
-                   unit_price,
-                   additional_properties)
+                   unit_price)
 
     @classmethod
     def validate(cls, dictionary):
@@ -251,7 +237,6 @@ class ItemDetailLine(object):
             if hasattr(self, "unit_price")
             else None
         )
-        _additional_properties=self.additional_properties
         return (
             f"{self.__class__.__name__}("
             f"commodity_code={_commodity_code!r}, "
@@ -262,7 +247,6 @@ class ItemDetailLine(object):
             f"total_amount={_total_amount!r}, "
             f"unit_of_measure={_unit_of_measure!r}, "
             f"unit_price={_unit_price!r}, "
-            f"additional_properties={_additional_properties!r}, "
             f")"
         )
 
@@ -308,7 +292,6 @@ class ItemDetailLine(object):
             if hasattr(self, "unit_price")
             else None
         )
-        _additional_properties=self.additional_properties
         return (
             f"{self.__class__.__name__}("
             f"commodity_code={_commodity_code!s}, "
@@ -319,6 +302,5 @@ class ItemDetailLine(object):
             f"total_amount={_total_amount!s}, "
             f"unit_of_measure={_unit_of_measure!s}, "
             f"unit_price={_unit_price!s}, "
-            f"additional_properties={_additional_properties!s}, "
             f")"
         )

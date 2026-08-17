@@ -16,8 +16,6 @@ class GetPciUrlRequest(object):
         return_url (str): The URL where the account holder will be redirected back to
             after they fill out the questionnaire, or if their session times out.
             Maximum length of 500 characters.
-        additional_properties (Dict[str, Any]): The additional properties for the
-            model.
 
     """
 
@@ -34,18 +32,12 @@ class GetPciUrlRequest(object):
     def __init__(
         self,
         account_holder_code=None,
-        return_url=APIHelper.SKIP,
-        additional_properties=None):
+        return_url=APIHelper.SKIP):
         """Initialize a GetPciUrlRequest instance."""
         # Initialize members of the class
         self.account_holder_code = account_holder_code
         if return_url is not APIHelper.SKIP:
             self.return_url = return_url
-
-        # Add additional model properties to the instance
-        if additional_properties is None:
-            additional_properties = {}
-        self.additional_properties = additional_properties
 
     @classmethod
     def from_dictionary(cls,
@@ -74,15 +66,9 @@ class GetPciUrlRequest(object):
             if dictionary.get("returnUrl")\
                 else APIHelper.SKIP
 
-        additional_properties = APIHelper.get_additional_properties(
-            dictionary={k: v for k, v in dictionary.items()
-                        if k not in cls._names.values()},
-            unboxing_function=lambda value: value)
-
         # Return an object of this model
         return cls(account_holder_code,
-                   return_url,
-                   additional_properties)
+                   return_url)
 
     def __repr__(self):
         """Return a unambiguous string representation."""
@@ -92,12 +78,10 @@ class GetPciUrlRequest(object):
             if hasattr(self, "return_url")
             else None
         )
-        _additional_properties=self.additional_properties
         return (
             f"{self.__class__.__name__}("
             f"account_holder_code={_account_holder_code!r}, "
             f"return_url={_return_url!r}, "
-            f"additional_properties={_additional_properties!r}, "
             f")"
         )
 
@@ -109,11 +93,9 @@ class GetPciUrlRequest(object):
             if hasattr(self, "return_url")
             else None
         )
-        _additional_properties=self.additional_properties
         return (
             f"{self.__class__.__name__}("
             f"account_holder_code={_account_holder_code!s}, "
             f"return_url={_return_url!s}, "
-            f"additional_properties={_additional_properties!s}, "
             f")"
         )

@@ -15,8 +15,6 @@ class AndroidAppError(object):
             either **error** or **invalid**.
         terminal_models (List[str]): The list of payment terminal models to which the
             returned `errorCode` applies.
-        additional_properties (Dict[str, Any]): The additional properties for the
-            model.
 
     """
 
@@ -34,19 +32,13 @@ class AndroidAppError(object):
     def __init__(
         self,
         error_code=APIHelper.SKIP,
-        terminal_models=APIHelper.SKIP,
-        additional_properties=None):
+        terminal_models=APIHelper.SKIP):
         """Initialize a AndroidAppError instance."""
         # Initialize members of the class
         if error_code is not APIHelper.SKIP:
             self.error_code = error_code
         if terminal_models is not APIHelper.SKIP:
             self.terminal_models = terminal_models
-
-        # Add additional model properties to the instance
-        if additional_properties is None:
-            additional_properties = {}
-        self.additional_properties = additional_properties
 
     @classmethod
     def from_dictionary(cls,
@@ -75,15 +67,9 @@ class AndroidAppError(object):
             if dictionary.get("terminalModels")\
                 else APIHelper.SKIP
 
-        additional_properties = APIHelper.get_additional_properties(
-            dictionary={k: v for k, v in dictionary.items()
-                        if k not in cls._names.values()},
-            unboxing_function=lambda value: value)
-
         # Return an object of this model
         return cls(error_code,
-                   terminal_models,
-                   additional_properties)
+                   terminal_models)
 
     def __repr__(self):
         """Return a unambiguous string representation."""
@@ -97,12 +83,10 @@ class AndroidAppError(object):
             if hasattr(self, "terminal_models")
             else None
         )
-        _additional_properties=self.additional_properties
         return (
             f"{self.__class__.__name__}("
             f"error_code={_error_code!r}, "
             f"terminal_models={_terminal_models!r}, "
-            f"additional_properties={_additional_properties!r}, "
             f")"
         )
 
@@ -118,11 +102,9 @@ class AndroidAppError(object):
             if hasattr(self, "terminal_models")
             else None
         )
-        _additional_properties=self.additional_properties
         return (
             f"{self.__class__.__name__}("
             f"error_code={_error_code!s}, "
             f"terminal_models={_terminal_models!s}, "
-            f"additional_properties={_additional_properties!s}, "
             f")"
         )

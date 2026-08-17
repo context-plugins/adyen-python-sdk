@@ -11,7 +11,8 @@ class Notification(object):
     """Implementation of the 'Notification' model.
 
     Attributes:
-        category (Category1): The model property of type Category1.
+        category (CategoryEnum): The type of event notification sent when you select
+            the notification button.
         details (str): The text shown in the prompt which opens when you select the
             notification button. For example, the description of the input box for
             pay-at-table.
@@ -21,8 +22,6 @@ class Notification(object):
         show_button (bool): Shows or hides the event notification button on the
             screen of terminal models that have a keypad.
         title (str): The name of the notification button on the terminal screen.
-        additional_properties (Dict[str, Any]): The additional properties for the
-            model.
 
     """
 
@@ -49,8 +48,7 @@ class Notification(object):
         details=APIHelper.SKIP,
         enabled=APIHelper.SKIP,
         show_button=APIHelper.SKIP,
-        title=APIHelper.SKIP,
-        additional_properties=None):
+        title=APIHelper.SKIP):
         """Initialize a Notification instance."""
         # Initialize members of the class
         if category is not APIHelper.SKIP:
@@ -63,11 +61,6 @@ class Notification(object):
             self.show_button = show_button
         if title is not APIHelper.SKIP:
             self.title = title
-
-        # Add additional model properties to the instance
-        if additional_properties is None:
-            additional_properties = {}
-        self.additional_properties = additional_properties
 
     @classmethod
     def from_dictionary(cls,
@@ -108,18 +101,12 @@ class Notification(object):
             if dictionary.get("title")\
                 else APIHelper.SKIP
 
-        additional_properties = APIHelper.get_additional_properties(
-            dictionary={k: v for k, v in dictionary.items()
-                        if k not in cls._names.values()},
-            unboxing_function=lambda value: value)
-
         # Return an object of this model
         return cls(category,
                    details,
                    enabled,
                    show_button,
-                   title,
-                   additional_properties)
+                   title)
 
     def __repr__(self):
         """Return a unambiguous string representation."""
@@ -148,7 +135,6 @@ class Notification(object):
             if hasattr(self, "title")
             else None
         )
-        _additional_properties=self.additional_properties
         return (
             f"{self.__class__.__name__}("
             f"category={_category!r}, "
@@ -156,7 +142,6 @@ class Notification(object):
             f"enabled={_enabled!r}, "
             f"show_button={_show_button!r}, "
             f"title={_title!r}, "
-            f"additional_properties={_additional_properties!r}, "
             f")"
         )
 
@@ -187,7 +172,6 @@ class Notification(object):
             if hasattr(self, "title")
             else None
         )
-        _additional_properties=self.additional_properties
         return (
             f"{self.__class__.__name__}("
             f"category={_category!s}, "
@@ -195,6 +179,5 @@ class Notification(object):
             f"enabled={_enabled!s}, "
             f"show_button={_show_button!s}, "
             f"title={_title!s}, "
-            f"additional_properties={_additional_properties!s}, "
             f")"
         )

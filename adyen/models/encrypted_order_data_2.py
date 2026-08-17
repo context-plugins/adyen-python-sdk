@@ -15,8 +15,6 @@ class EncryptedOrderData2(object):
     Attributes:
         order_data (str): The encrypted order data.
         psp_reference (str): The `pspReference` that belongs to the order.
-        additional_properties (Dict[str, Any]): The additional properties for the
-            model.
 
     """
 
@@ -29,17 +27,11 @@ class EncryptedOrderData2(object):
     def __init__(
         self,
         order_data=None,
-        psp_reference=None,
-        additional_properties=None):
+        psp_reference=None):
         """Initialize a EncryptedOrderData2 instance."""
         # Initialize members of the class
         self.order_data = order_data
         self.psp_reference = psp_reference
-
-        # Add additional model properties to the instance
-        if additional_properties is None:
-            additional_properties = {}
-        self.additional_properties = additional_properties
 
     @classmethod
     def from_dictionary(cls,
@@ -68,26 +60,65 @@ class EncryptedOrderData2(object):
             if dictionary.get("pspReference")\
                 else None
 
-        additional_properties = APIHelper.get_additional_properties(
-            dictionary={k: v for k, v in dictionary.items()
-                        if k not in cls._names.values()},
-            unboxing_function=lambda value: value)
-
         # Return an object of this model
         return cls(order_data,
-                   psp_reference,
-                   additional_properties)
+                   psp_reference)
+
+    @classmethod
+    def validate(cls, dictionary):
+        """Validate dictionary against class required properties
+
+        Args:
+            dictionary (dictionary): A dictionary representation of the object
+            as obtained from the deserialization of the server's response. The
+            keys MUST match property names in the API description.
+
+        Returns:
+            boolean : if dictionary is valid contains required properties.
+
+        """
+        if isinstance(dictionary, cls):
+            return APIHelper.is_valid_type(
+                    value=dictionary.order_data,
+                    type_callable=lambda value:
+                        isinstance(
+                        value,
+                        str,
+                )) \
+                and APIHelper.is_valid_type(
+                    value=dictionary.psp_reference,
+                    type_callable=lambda value:
+                        isinstance(
+                        value,
+                        str,
+                ))
+
+        if not isinstance(dictionary, dict):
+            return False
+
+        return APIHelper.is_valid_type(
+                value=dictionary.get("orderData"),
+                type_callable=lambda value:
+                    isinstance(
+                    value,
+                    str,
+            )) \
+            and APIHelper.is_valid_type(
+                value=dictionary.get("pspReference"),
+                type_callable=lambda value:
+                    isinstance(
+                    value,
+                    str,
+            ))
 
     def __repr__(self):
         """Return a unambiguous string representation."""
         _order_data=self.order_data
         _psp_reference=self.psp_reference
-        _additional_properties=self.additional_properties
         return (
             f"{self.__class__.__name__}("
             f"order_data={_order_data!r}, "
             f"psp_reference={_psp_reference!r}, "
-            f"additional_properties={_additional_properties!r}, "
             f")"
         )
 
@@ -95,11 +126,9 @@ class EncryptedOrderData2(object):
         """Return a human-readable string representation."""
         _order_data=self.order_data
         _psp_reference=self.psp_reference
-        _additional_properties=self.additional_properties
         return (
             f"{self.__class__.__name__}("
             f"order_data={_order_data!s}, "
             f"psp_reference={_psp_reference!s}, "
-            f"additional_properties={_additional_properties!s}, "
             f")"
         )

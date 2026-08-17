@@ -1,8 +1,6 @@
 
 # Transfer Service Rest Service Error Exception
 
-*This model accepts additional fields of type Any.*
-
 ## Structure
 
 `TransferServiceRestServiceErrorException`
@@ -21,7 +19,6 @@
 | `status` | `int` | Required | The HTTP status code. |
 | `title` | `str` | Required | A short, human-readable summary of the problem type. |
 | `mtype` | `str` | Required | A URI that identifies the problem type, pointing to human-readable documentation on this problem type. |
-| `additional_properties` | `Dict[str, Any]` | Optional | - |
 
 ## Example
 
@@ -30,7 +27,7 @@ try:
     # make the API call
 except TransferServiceRestServiceErrorException as e:
     print(e)
-except ApiException as e:
+except APIException as e:
     print(e)
 ```
 

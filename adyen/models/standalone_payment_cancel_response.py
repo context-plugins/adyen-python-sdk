@@ -19,10 +19,8 @@ class StandalonePaymentCancelResponse(object):
         psp_reference (str): Adyen's 16-character reference associated with the
             cancel request.
         reference (str): Your reference for the cancel request.
-        status (Status20): The status of your request. This will always have the
-            value **received**.
-        additional_properties (Dict[str, Any]): The additional properties for the
-            model.
+        status (str): The status of your request. This will always have the value
+            **received**.
 
     """
 
@@ -44,9 +42,7 @@ class StandalonePaymentCancelResponse(object):
         merchant_account=None,
         payment_reference=None,
         psp_reference=None,
-        status=None,
-        reference=APIHelper.SKIP,
-        additional_properties=None):
+        reference=APIHelper.SKIP):
         """Initialize a StandalonePaymentCancelResponse instance."""
         # Initialize members of the class
         self.merchant_account = merchant_account
@@ -54,12 +50,7 @@ class StandalonePaymentCancelResponse(object):
         self.psp_reference = psp_reference
         if reference is not APIHelper.SKIP:
             self.reference = reference
-        self.status = status
-
-        # Add additional model properties to the instance
-        if additional_properties is None:
-            additional_properties = {}
-        self.additional_properties = additional_properties
+        self.status = "received"
 
     @classmethod
     def from_dictionary(cls,
@@ -91,27 +82,16 @@ class StandalonePaymentCancelResponse(object):
             dictionary.get("pspReference")\
             if dictionary.get("pspReference")\
                 else None
-        status =\
-            dictionary.get("status")\
-            if dictionary.get("status")\
-                else None
         reference =\
             dictionary.get("reference")\
             if dictionary.get("reference")\
                 else APIHelper.SKIP
 
-        additional_properties = APIHelper.get_additional_properties(
-            dictionary={k: v for k, v in dictionary.items()
-                        if k not in cls._names.values()},
-            unboxing_function=lambda value: value)
-
         # Return an object of this model
         return cls(merchant_account,
                    payment_reference,
                    psp_reference,
-                   status,
-                   reference,
-                   additional_properties)
+                   reference)
 
     def __repr__(self):
         """Return a unambiguous string representation."""
@@ -124,7 +104,6 @@ class StandalonePaymentCancelResponse(object):
             else None
         )
         _status=self.status
-        _additional_properties=self.additional_properties
         return (
             f"{self.__class__.__name__}("
             f"merchant_account={_merchant_account!r}, "
@@ -132,7 +111,6 @@ class StandalonePaymentCancelResponse(object):
             f"psp_reference={_psp_reference!r}, "
             f"reference={_reference!r}, "
             f"status={_status!r}, "
-            f"additional_properties={_additional_properties!r}, "
             f")"
         )
 
@@ -147,7 +125,6 @@ class StandalonePaymentCancelResponse(object):
             else None
         )
         _status=self.status
-        _additional_properties=self.additional_properties
         return (
             f"{self.__class__.__name__}("
             f"merchant_account={_merchant_account!s}, "
@@ -155,6 +132,5 @@ class StandalonePaymentCancelResponse(object):
             f"psp_reference={_psp_reference!s}, "
             f"reference={_reference!s}, "
             f"status={_status!s}, "
-            f"additional_properties={_additional_properties!s}, "
             f")"
         )

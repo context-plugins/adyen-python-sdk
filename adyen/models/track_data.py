@@ -18,10 +18,9 @@ class TrackData(object):
 
     Attributes:
         track_numb (int): Card track number.
-        track_format (TrackFormat1): The model property of type TrackFormat1.
+        track_format (TrackFormat1Enum): Card track format. Possible values: *
+            **AAMVA** * **ISO**
         track_value (str): Card track content.
-        additional_properties (Dict[str, Any]): The additional properties for the
-            model.
 
     """
 
@@ -41,19 +40,13 @@ class TrackData(object):
         self,
         track_value=None,
         track_numb=2,
-        track_format=APIHelper.SKIP,
-        additional_properties=None):
+        track_format=APIHelper.SKIP):
         """Initialize a TrackData instance."""
         # Initialize members of the class
         self.track_numb = track_numb
         if track_format is not APIHelper.SKIP:
             self.track_format = track_format
         self.track_value = track_value
-
-        # Add additional model properties to the instance
-        if additional_properties is None:
-            additional_properties = {}
-        self.additional_properties = additional_properties
 
     @classmethod
     def from_dictionary(cls,
@@ -86,16 +79,10 @@ class TrackData(object):
             if dictionary.get("TrackFormat")\
                 else APIHelper.SKIP
 
-        additional_properties = APIHelper.get_additional_properties(
-            dictionary={k: v for k, v in dictionary.items()
-                        if k not in cls._names.values()},
-            unboxing_function=lambda value: value)
-
         # Return an object of this model
         return cls(track_value,
                    track_numb,
-                   track_format,
-                   additional_properties)
+                   track_format)
 
     def __repr__(self):
         """Return a unambiguous string representation."""
@@ -110,13 +97,11 @@ class TrackData(object):
             else None
         )
         _track_value=self.track_value
-        _additional_properties=self.additional_properties
         return (
             f"{self.__class__.__name__}("
             f"track_numb={_track_numb!r}, "
             f"track_format={_track_format!r}, "
             f"track_value={_track_value!r}, "
-            f"additional_properties={_additional_properties!r}, "
             f")"
         )
 
@@ -133,12 +118,10 @@ class TrackData(object):
             else None
         )
         _track_value=self.track_value
-        _additional_properties=self.additional_properties
         return (
             f"{self.__class__.__name__}("
             f"track_numb={_track_numb!s}, "
             f"track_format={_track_format!s}, "
             f"track_value={_track_value!s}, "
-            f"additional_properties={_additional_properties!s}, "
             f")"
         )

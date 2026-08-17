@@ -30,8 +30,6 @@ class SensitiveCardData(object):
             File.
         track_data (List[TrackData]): Magnetic track or magnetic ink characters line.
             If EntryMode is MagStripe or RFID .
-        additional_properties (Dict[str, Any]): The additional properties for the
-            model.
 
     """
 
@@ -55,8 +53,7 @@ class SensitiveCardData(object):
         pan=APIHelper.SKIP,
         card_seq_numb=APIHelper.SKIP,
         expiry_date=APIHelper.SKIP,
-        track_data=APIHelper.SKIP,
-        additional_properties=None):
+        track_data=APIHelper.SKIP):
         """Initialize a SensitiveCardData instance."""
         # Initialize members of the class
         if pan is not APIHelper.SKIP:
@@ -67,11 +64,6 @@ class SensitiveCardData(object):
             self.expiry_date = expiry_date
         if track_data is not APIHelper.SKIP:
             self.track_data = track_data
-
-        # Add additional model properties to the instance
-        if additional_properties is None:
-            additional_properties = {}
-        self.additional_properties = additional_properties
 
     @classmethod
     def from_dictionary(cls,
@@ -112,17 +104,11 @@ class SensitiveCardData(object):
         else:
             track_data = APIHelper.SKIP
 
-        additional_properties = APIHelper.get_additional_properties(
-            dictionary={k: v for k, v in dictionary.items()
-                        if k not in cls._names.values()},
-            unboxing_function=lambda value: value)
-
         # Return an object of this model
         return cls(pan,
                    card_seq_numb,
                    expiry_date,
-                   track_data,
-                   additional_properties)
+                   track_data)
 
     def __repr__(self):
         """Return a unambiguous string representation."""
@@ -146,14 +132,12 @@ class SensitiveCardData(object):
             if hasattr(self, "track_data")
             else None
         )
-        _additional_properties=self.additional_properties
         return (
             f"{self.__class__.__name__}("
             f"pan={_pan!r}, "
             f"card_seq_numb={_card_seq_numb!r}, "
             f"expiry_date={_expiry_date!r}, "
             f"track_data={_track_data!r}, "
-            f"additional_properties={_additional_properties!r}, "
             f")"
         )
 
@@ -179,13 +163,11 @@ class SensitiveCardData(object):
             if hasattr(self, "track_data")
             else None
         )
-        _additional_properties=self.additional_properties
         return (
             f"{self.__class__.__name__}("
             f"pan={_pan!s}, "
             f"card_seq_numb={_card_seq_numb!s}, "
             f"expiry_date={_expiry_date!s}, "
             f"track_data={_track_data!s}, "
-            f"additional_properties={_additional_properties!s}, "
             f")"
         )

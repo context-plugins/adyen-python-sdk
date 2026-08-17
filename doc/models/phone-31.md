@@ -1,11 +1,7 @@
 
 # Phone 31
 
-The home phone number provided by the cardholder. The phone number must consist of a country code, followed by the number. If the value you provide does not follow the guidelines, we do not submit it for authentication.
-
-> Required for Visa and JCB transactions that require 3D Secure 2 authentication, if you did not include the `shopperEmail`, and did not send the shopper's phone number in `telephoneNumber`.
-
-*This model accepts additional fields of type Any.*
+The phone number of the account holder.
 
 ## Structure
 
@@ -15,23 +11,18 @@ The home phone number provided by the cardholder. The phone number must consist 
 
 | Name | Type | Tags | Description |
 |  --- | --- | --- | --- |
-| `cc` | `str` | Optional | Country code. Length: 1–3 digits.<br><br>**Constraints**: *Minimum Length*: `1`, *Maximum Length*: `3` |
-| `subscriber` | `str` | Optional | Subscriber number. Length: 4-15  digits.<br><br>**Constraints**: *Maximum Length*: `15` |
-| `additional_properties` | `Dict[str, Any]` | Optional | - |
+| `number` | `str` | Required | The full phone number provided as a single string.<br>For example, **"0031 6 11 22 33 44"**, **"+316/1122-3344"**,<br><br>or **"(0031) 611223344"**. |
+| `mtype` | [`Type410Enum`](../../doc/models/type-410-enum.md) | Required | Type of phone number.<br>Possible values:<br>**Landline**, **Mobile**. |
 
 ## Example
 
 ```python
-import jsonpickle
-
 from adyen.models.phone_31 import Phone31
+from adyen.models.type_410_enum import Type410Enum
 
 phone_31 = Phone31(
-    cc='cc4',
-    subscriber='subscriber6',
-    additional_properties={
-        'exampleAdditionalProperty': jsonpickle.decode('{"key1":"val1","key2":"val2"}')
-    }
+    number='number6',
+    mtype=Type410Enum.LANDLINE
 )
 ```
 

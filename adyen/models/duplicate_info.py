@@ -18,8 +18,6 @@ class DuplicateInfo(object):
             values: **true**, **false**.
         same_issuer (bool): The issuer associated with each charge is the same.
             Possible values: **true**, **false**.
-        additional_properties (Dict[str, Any]): The additional properties for the
-            model.
 
     """
 
@@ -38,19 +36,13 @@ class DuplicateInfo(object):
         self,
         duplicate_transaction_id=None,
         same_card=None,
-        same_issuer=APIHelper.SKIP,
-        additional_properties=None):
+        same_issuer=APIHelper.SKIP):
         """Initialize a DuplicateInfo instance."""
         # Initialize members of the class
         self.duplicate_transaction_id = duplicate_transaction_id
         self.same_card = same_card
         if same_issuer is not APIHelper.SKIP:
             self.same_issuer = same_issuer
-
-        # Add additional model properties to the instance
-        if additional_properties is None:
-            additional_properties = {}
-        self.additional_properties = additional_properties
 
     @classmethod
     def from_dictionary(cls,
@@ -83,16 +75,10 @@ class DuplicateInfo(object):
             if "sameIssuer" in dictionary.keys()\
                 else APIHelper.SKIP
 
-        additional_properties = APIHelper.get_additional_properties(
-            dictionary={k: v for k, v in dictionary.items()
-                        if k not in cls._names.values()},
-            unboxing_function=lambda value: value)
-
         # Return an object of this model
         return cls(duplicate_transaction_id,
                    same_card,
-                   same_issuer,
-                   additional_properties)
+                   same_issuer)
 
     def __repr__(self):
         """Return a unambiguous string representation."""
@@ -103,13 +89,11 @@ class DuplicateInfo(object):
             if hasattr(self, "same_issuer")
             else None
         )
-        _additional_properties=self.additional_properties
         return (
             f"{self.__class__.__name__}("
             f"duplicate_transaction_id={_duplicate_transaction_id!r}, "
             f"same_card={_same_card!r}, "
             f"same_issuer={_same_issuer!r}, "
-            f"additional_properties={_additional_properties!r}, "
             f")"
         )
 
@@ -122,12 +106,10 @@ class DuplicateInfo(object):
             if hasattr(self, "same_issuer")
             else None
         )
-        _additional_properties=self.additional_properties
         return (
             f"{self.__class__.__name__}("
             f"duplicate_transaction_id={_duplicate_transaction_id!s}, "
             f"same_card={_same_card!s}, "
             f"same_issuer={_same_issuer!s}, "
-            f"additional_properties={_additional_properties!s}, "
             f")"
         )

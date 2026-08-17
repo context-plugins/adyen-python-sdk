@@ -3,8 +3,6 @@
 
 The settings that are allowed for the legal entity.
 
-*This model accepts additional fields of type Any.*
-
 ## Structure
 
 `CapabilitySettings11`
@@ -13,56 +11,40 @@ The settings that are allowed for the legal entity.
 
 | Name | Type | Tags | Description |
 |  --- | --- | --- | --- |
-| `amount_per_industry` | [`Dict[str, PatchableAmountDto]`](../../doc/models/patchable-amount-dto.md) | Optional | The maximum amount a card holder can spend per industry. |
+| `amount_per_industry` | [`Dict[str, PatchableAmountDTO]`](../../doc/models/patchable-amount-dto.md) | Optional | The maximum amount a card holder can spend per industry. |
 | `authorized_card_users` | `bool` | Optional | The number of card holders who can use the card. |
-| `funding_source` | [`List[FundingSource]`](../../doc/models/funding-source.md) | Optional | The funding source of the card, for example **debit**. |
-| `interval` | [`Interval`](../../doc/models/interval.md) | Optional | - |
-| `max_amount` | [`MaxAmount`](../../doc/models/max-amount.md) | Optional | - |
-| `additional_properties` | `Dict[str, Any]` | Optional | - |
+| `funding_source` | [`List[FundingSourceEnum]`](../../doc/models/funding-source-enum.md) | Optional | The funding source of the card, for example **debit**. |
+| `interval` | [`IntervalEnum`](../../doc/models/interval-enum.md) | Optional | The period when the rule conditions apply. |
+| `max_amount` | [`PatchableAmountDTO`](../../doc/models/patchable-amount-dto.md) | Optional | The maximum amount a card holder can withdraw per day. |
 
 ## Example
 
 ```python
-import jsonpickle
-
 from adyen.models.capability_settings_11 import CapabilitySettings11
-from adyen.models.funding_source import FundingSource
-from adyen.models.interval import Interval
-from adyen.models.max_amount import MaxAmount
-from adyen.models.patchable_amount_dto import PatchableAmountDto
+from adyen.models.funding_source_enum import FundingSourceEnum
+from adyen.models.interval_enum import IntervalEnum
+from adyen.models.patchable_amount_dto import PatchableAmountDTO
 
 capability_settings_11 = CapabilitySettings11(
     amount_per_industry={
-        'key0': PatchableAmountDto(
+        'key0': PatchableAmountDTO(
             currency='currency8',
-            value=56,
-            additional_properties={
-                'exampleAdditionalProperty': jsonpickle.decode('{"key1":"val1","key2":"val2"}')
-            }
+            value=56
         ),
-        'key1': PatchableAmountDto(
+        'key1': PatchableAmountDTO(
             currency='currency8',
-            value=56,
-            additional_properties={
-                'exampleAdditionalProperty': jsonpickle.decode('{"key1":"val1","key2":"val2"}')
-            }
+            value=56
         )
     },
     authorized_card_users=False,
     funding_source=[
-        FundingSource.DEBIT
+        FundingSourceEnum.DEBIT
     ],
-    interval=Interval.WEEKLY,
-    max_amount=MaxAmount(
+    interval=IntervalEnum.WEEKLY,
+    max_amount=PatchableAmountDTO(
         currency='currency4',
-        value=160,
-        additional_properties={
-            'exampleAdditionalProperty': jsonpickle.decode('{"key1":"val1","key2":"val2"}')
-        }
-    ),
-    additional_properties={
-        'exampleAdditionalProperty': jsonpickle.decode('{"key1":"val1","key2":"val2"}')
-    }
+        value=160
+    )
 )
 ```
 

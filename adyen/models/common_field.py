@@ -11,14 +11,15 @@ class CommonField(object):
     """Implementation of the 'CommonField' model.
 
     Adyen-developed software to get payment details. For example, Checkout SDK,
-    Secured Fields SDK, etc.
+    Secured Fields SDK, etc., Merchant developed software, such as cashier
+    application, used to interact with the Adyen API., Adyen-developed software, such
+    as libraries and plugins, used to interact with the Adyen API. For example,
+    Magento plugin, Java API library, etc.
 
     Attributes:
         name (str): Name of the field. For example, Name of External Platform.
         version (str): Version of the field. For example, Version of External
             Platform.
-        additional_properties (Dict[str, Any]): The additional properties for the
-            model.
 
     """
 
@@ -36,19 +37,13 @@ class CommonField(object):
     def __init__(
         self,
         name=APIHelper.SKIP,
-        version=APIHelper.SKIP,
-        additional_properties=None):
+        version=APIHelper.SKIP):
         """Initialize a CommonField instance."""
         # Initialize members of the class
         if name is not APIHelper.SKIP:
             self.name = name
         if version is not APIHelper.SKIP:
             self.version = version
-
-        # Add additional model properties to the instance
-        if additional_properties is None:
-            additional_properties = {}
-        self.additional_properties = additional_properties
 
     @classmethod
     def from_dictionary(cls,
@@ -77,15 +72,9 @@ class CommonField(object):
             if dictionary.get("version")\
                 else APIHelper.SKIP
 
-        additional_properties = APIHelper.get_additional_properties(
-            dictionary={k: v for k, v in dictionary.items()
-                        if k not in cls._names.values()},
-            unboxing_function=lambda value: value)
-
         # Return an object of this model
         return cls(name,
-                   version,
-                   additional_properties)
+                   version)
 
     def __repr__(self):
         """Return a unambiguous string representation."""
@@ -99,12 +88,10 @@ class CommonField(object):
             if hasattr(self, "version")
             else None
         )
-        _additional_properties=self.additional_properties
         return (
             f"{self.__class__.__name__}("
             f"name={_name!r}, "
             f"version={_version!r}, "
-            f"additional_properties={_additional_properties!r}, "
             f")"
         )
 
@@ -120,11 +107,9 @@ class CommonField(object):
             if hasattr(self, "version")
             else None
         )
-        _additional_properties=self.additional_properties
         return (
             f"{self.__class__.__name__}("
             f"name={_name!s}, "
             f"version={_version!s}, "
-            f"additional_properties={_additional_properties!s}, "
             f")"
         )

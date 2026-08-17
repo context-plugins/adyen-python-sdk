@@ -3,7 +3,7 @@
 
 ## Data Type
 
-`CheckoutAwaitAction | CheckoutBankTransferAction | CheckoutDelegatedAuthenticationAction | CheckoutNativeRedirectAction | CheckoutQrCodeAction | CheckoutRedirectAction | CheckoutSdkAction | CheckoutThreeDs2Action | CheckoutVoucherAction`
+`CheckoutAwaitAction | CheckoutBankTransferAction | CheckoutDelegatedAuthenticationAction | CheckoutNativeRedirectAction | CheckoutQrCodeAction | CheckoutRedirectAction | CheckoutSDKAction | CheckoutThreeDS2Action | CheckoutVoucherAction`
 
 ## Cases
 
@@ -15,8 +15,8 @@
 | [`CheckoutNativeRedirectAction`](../../../doc/models/checkout-native-redirect-action.md) |
 | [`CheckoutQrCodeAction`](../../../doc/models/checkout-qr-code-action.md) |
 | [`CheckoutRedirectAction`](../../../doc/models/checkout-redirect-action.md) |
-| [`CheckoutSdkAction`](../../../doc/models/checkout-sdk-action.md) |
-| [`CheckoutThreeDs2Action`](../../../doc/models/checkout-three-ds-2-action.md) |
+| [`CheckoutSDKAction`](../../../doc/models/checkout-sdk-action.md) |
+| [`CheckoutThreeDS2Action`](../../../doc/models/checkout-three-ds-2-action.md) |
 | [`CheckoutVoucherAction`](../../../doc/models/checkout-voucher-action.md) |
 
 ## CheckoutAwaitAction
@@ -26,9 +26,7 @@
 #### Example
 
 ```python
-value = CheckoutAwaitAction(
-    mtype=Type493.AWAIT
-)
+value = CheckoutAwaitAction()
 ```
 
 ## CheckoutBankTransferAction
@@ -38,9 +36,7 @@ value = CheckoutAwaitAction(
 #### Example
 
 ```python
-value = CheckoutBankTransferAction(
-    mtype=Type503.BANKTRANSFER
-)
+value = CheckoutBankTransferAction()
 ```
 
 ## CheckoutDelegatedAuthenticationAction
@@ -50,9 +46,7 @@ value = CheckoutBankTransferAction(
 #### Example
 
 ```python
-value = CheckoutDelegatedAuthenticationAction(
-    mtype=Type543.DELEGATEDAUTHENTICATION
-)
+value = CheckoutDelegatedAuthenticationAction()
 ```
 
 ## CheckoutNativeRedirectAction
@@ -62,9 +56,7 @@ value = CheckoutDelegatedAuthenticationAction(
 #### Example
 
 ```python
-value = CheckoutNativeRedirectAction(
-    mtype=Type553.NATIVEREDIRECT
-)
+value = CheckoutNativeRedirectAction()
 ```
 
 ## CheckoutQrCodeAction
@@ -74,9 +66,7 @@ value = CheckoutNativeRedirectAction(
 #### Example
 
 ```python
-value = CheckoutQrCodeAction(
-    mtype=Type563.QRCODE
-)
+value = CheckoutQrCodeAction()
 ```
 
 ## CheckoutRedirectAction
@@ -86,33 +76,29 @@ value = CheckoutQrCodeAction(
 #### Example
 
 ```python
-value = CheckoutRedirectAction(
-    mtype=Type573.REDIRECT
-)
+value = CheckoutRedirectAction()
 ```
 
-## CheckoutSdkAction
+## CheckoutSDKAction
 
 ### Initialization Code
 
 #### Example
 
 ```python
-value = CheckoutSdkAction(
-    mtype=Type19.SDK
+value = CheckoutSDKAction(
+    mtype=Type19Enum.SDK
 )
 ```
 
-## CheckoutThreeDs2Action
+## CheckoutThreeDS2Action
 
 ### Initialization Code
 
 #### Example
 
 ```python
-value = CheckoutThreeDs2Action(
-    mtype=Type583.THREEDS2
-)
+value = CheckoutThreeDS2Action()
 ```
 
 ## CheckoutVoucherAction
@@ -122,8 +108,6 @@ value = CheckoutThreeDs2Action(
 #### Example
 
 ```python
-value = CheckoutVoucherAction(
-    mtype=Type594.VOUCHER
-)
+value = CheckoutVoucherAction()
 ```
 

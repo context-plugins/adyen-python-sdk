@@ -1,8 +1,6 @@
 
 # Checkout Forward Request
 
-*This model accepts additional fields of type Any.*
-
 ## Structure
 
 `CheckoutForwardRequest`
@@ -11,86 +9,65 @@
 
 | Name | Type | Tags | Description |
 |  --- | --- | --- | --- |
-| `amount` | [`Amount16`](../../doc/models/amount-16.md) | Optional | - |
+| `amount` | [`Amount11`](../../doc/models/amount-11.md) | Optional | The amount of the forwarded payment. |
 | `base_url` | `str` | Required | The base URL of the third party API, where Adyen will send the request to forward the payment details. |
 | `merchant_account` | `str` | Required | Your merchant account. |
 | `merchant_reference` | `str` | Optional | Merchant defined payment reference. |
-| `options` | [`CheckoutForwardRequestOptions`](../../doc/models/checkout-forward-request-options.md) | Optional | - |
-| `payment_method` | [`CheckoutForwardRequestCard`](../../doc/models/checkout-forward-request-card.md) | Optional | - |
-| `request` | [`CheckoutOutgoingForwardRequest`](../../doc/models/checkout-outgoing-forward-request.md) | Required | - |
+| `options` | [`CheckoutForwardRequestOptions2`](../../doc/models/checkout-forward-request-options-2.md) | Optional | The customizations that can be applied when making a forward request. |
+| `payment_method` | [`CheckoutForwardRequestCard2`](../../doc/models/checkout-forward-request-card-2.md) | Optional | The card details. |
+| `request` | [`CheckoutOutgoingForwardRequest2`](../../doc/models/checkout-outgoing-forward-request-2.md) | Required | The [details of the request](https://docs.adyen.com/online-payments/tokenization/forward-payment-details#request-to-adyen-card) that you want to forward to the third-party. |
 | `shopper_reference` | `str` | Required | Your reference to uniquely identify this shopper, for example user ID or account ID. The value is case-sensitive and must be at least three characters.<br><br>> Your reference must not include personally identifiable information (PII) such as name or email address. |
 | `stored_payment_method_id` | `str` | Optional | The unique identifier of the token that you want to forward to the third party. This is the `storedPaymentMethodId` you received in the webhook after you created the token. |
-| `additional_properties` | `Dict[str, Any]` | Optional | - |
 
 ## Example
 
 ```python
-import jsonpickle
-
-from adyen.models.amount_16 import Amount16
+from adyen.models.amount_11 import Amount11
 from adyen.models.checkout_forward_request import CheckoutForwardRequest
-from adyen.models.checkout_forward_request_card import CheckoutForwardRequestCard
-from adyen.models.checkout_forward_request_options import CheckoutForwardRequestOptions
-from adyen.models.checkout_network_token_option import CheckoutNetworkTokenOption
-from adyen.models.checkout_outgoing_forward_request import CheckoutOutgoingForwardRequest
-from adyen.models.http_method import HttpMethod
+from adyen.models.checkout_forward_request_card_2 import CheckoutForwardRequestCard2
+from adyen.models.checkout_forward_request_options_2 import CheckoutForwardRequestOptions2
+from adyen.models.checkout_network_token_option_2 import CheckoutNetworkTokenOption2
+from adyen.models.checkout_outgoing_forward_request_2 import CheckoutOutgoingForwardRequest2
+from adyen.models.http_method_enum import HttpMethodEnum
 
 checkout_forward_request = CheckoutForwardRequest(
     base_url='baseUrl8',
     merchant_account='merchantAccount2',
-    request=CheckoutOutgoingForwardRequest(
+    request=CheckoutOutgoingForwardRequest2(
         body='body2',
-        http_method=HttpMethod.POST,
+        http_method=HttpMethodEnum.POST,
         credentials='credentials0',
         headers={
             'key0': 'headers9'
         },
-        url_suffix='urlSuffix2',
-        additional_properties={
-            'exampleAdditionalProperty': jsonpickle.decode('{"key1":"val1","key2":"val2"}')
-        }
+        url_suffix='urlSuffix2'
     ),
     shopper_reference='shopperReference8',
-    amount=Amount16(
+    amount=Amount11(
         currency='currency2',
-        value=110,
-        additional_properties={
-            'exampleAdditionalProperty': jsonpickle.decode('{"key1":"val1","key2":"val2"}')
-        }
+        value=110
     ),
     merchant_reference='merchantReference4',
-    options=CheckoutForwardRequestOptions(
+    options=CheckoutForwardRequestOptions2(
         account_update=False,
         dry_run=False,
-        network_token=CheckoutNetworkTokenOption(
+        network_token=CheckoutNetworkTokenOption2(
             include_cryptogram=False,
-            use_network_token=False,
-            additional_properties={
-                'exampleAdditionalProperty': jsonpickle.decode('{"key1":"val1","key2":"val2"}')
-            }
+            use_network_token=False
         ),
         network_tx_reference_paths=[
             'networkTxReferencePaths7'
         ],
-        tokenize=False,
-        additional_properties={
-            'exampleAdditionalProperty': jsonpickle.decode('{"key1":"val1","key2":"val2"}')
-        }
+        tokenize=False
     ),
-    payment_method=CheckoutForwardRequestCard(
+    payment_method=CheckoutForwardRequestCard2(
         cvc='cvc6',
         encrypted_card_number='encryptedCardNumber0',
         encrypted_expiry_month='encryptedExpiryMonth2',
         encrypted_expiry_year='encryptedExpiryYear2',
-        encrypted_security_code='encryptedSecurityCode2',
-        additional_properties={
-            'exampleAdditionalProperty': jsonpickle.decode('{"key1":"val1","key2":"val2"}')
-        }
+        encrypted_security_code='encryptedSecurityCode2'
     ),
-    stored_payment_method_id='storedPaymentMethodId4',
-    additional_properties={
-        'exampleAdditionalProperty': jsonpickle.decode('{"key1":"val1","key2":"val2"}')
-    }
+    stored_payment_method_id='storedPaymentMethodId4'
 )
 ```
 

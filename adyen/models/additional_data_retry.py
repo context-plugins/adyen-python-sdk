@@ -31,8 +31,6 @@ class AdditionalDataRetry(object):
             `retry.chainAttemptNumber`, `retry.orderAttemptNumber`, and
             `retry.skipRetry` values, we also recommend you provide the
             `merchantOrderReference` to facilitate linking payment attempts together.
-        additional_properties (Dict[str, Any]): The additional properties for the
-            model.
 
     """
 
@@ -53,8 +51,7 @@ class AdditionalDataRetry(object):
         self,
         retry_chain_attempt_number=APIHelper.SKIP,
         retry_order_attempt_number=APIHelper.SKIP,
-        retry_skip_retry=APIHelper.SKIP,
-        additional_properties=None):
+        retry_skip_retry=APIHelper.SKIP):
         """Initialize a AdditionalDataRetry instance."""
         # Initialize members of the class
         if retry_chain_attempt_number is not APIHelper.SKIP:
@@ -63,11 +60,6 @@ class AdditionalDataRetry(object):
             self.retry_order_attempt_number = retry_order_attempt_number
         if retry_skip_retry is not APIHelper.SKIP:
             self.retry_skip_retry = retry_skip_retry
-
-        # Add additional model properties to the instance
-        if additional_properties is None:
-            additional_properties = {}
-        self.additional_properties = additional_properties
 
     @classmethod
     def from_dictionary(cls,
@@ -100,16 +92,10 @@ class AdditionalDataRetry(object):
             if dictionary.get("retry.skipRetry")\
                 else APIHelper.SKIP
 
-        additional_properties = APIHelper.get_additional_properties(
-            dictionary={k: v for k, v in dictionary.items()
-                        if k not in cls._names.values()},
-            unboxing_function=lambda value: value)
-
         # Return an object of this model
         return cls(retry_chain_attempt_number,
                    retry_order_attempt_number,
-                   retry_skip_retry,
-                   additional_properties)
+                   retry_skip_retry)
 
     def __repr__(self):
         """Return a unambiguous string representation."""
@@ -128,13 +114,11 @@ class AdditionalDataRetry(object):
             if hasattr(self, "retry_skip_retry")
             else None
         )
-        _additional_properties=self.additional_properties
         return (
             f"{self.__class__.__name__}("
             f"retry_chain_attempt_number={_retry_chain_attempt_number!r}, "
             f"retry_order_attempt_number={_retry_order_attempt_number!r}, "
             f"retry_skip_retry={_retry_skip_retry!r}, "
-            f"additional_properties={_additional_properties!r}, "
             f")"
         )
 
@@ -155,12 +139,10 @@ class AdditionalDataRetry(object):
             if hasattr(self, "retry_skip_retry")
             else None
         )
-        _additional_properties=self.additional_properties
         return (
             f"{self.__class__.__name__}("
             f"retry_chain_attempt_number={_retry_chain_attempt_number!s}, "
             f"retry_order_attempt_number={_retry_order_attempt_number!s}, "
             f"retry_skip_retry={_retry_skip_retry!s}, "
-            f"additional_properties={_additional_properties!s}, "
             f")"
         )

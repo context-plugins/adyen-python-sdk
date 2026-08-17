@@ -11,25 +11,37 @@ class TransferRoute(object):
     """Implementation of the 'TransferRoute' model.
 
     Attributes:
-        category (Category2): The model property of type Category2.
+        category (Category2Enum): The type of transfer.   Possible values:    -
+            **bank**: Transfer to a [transfer
+            instrument](https://docs.adyen.com/api-explorer/#/legalentity/latest/post/
+            transferInstruments__resParam_id) or a bank account.
         country (str): The two-character ISO-3166-1 alpha-2 country code of the
             counterparty. For example, **US** or **NL**.
         currency (str): The three-character ISO currency code of transfer. For
             example, **USD** or **EUR**.
-        priority (Priority2): The model property of type Priority2.
+        priority (Priority2Enum): The priority for the bank transfer. This sets the
+            speed at which the transfer is sent and the fees that you have to pay.
+            Possible values:  * **regular**: For normal, low-value transactions.  *
+            **fast**: A faster way to transfer funds, but the fees are higher.
+            Recommended for high-priority, low-value transactions.  * **wire**: The
+            fastest way to transfer funds, but this has the highest fees. Recommended
+            for high-priority, high-value transactions.  * **instant**: For instant
+            funds transfers within the United States and in [SEPA
+            locations](https://www.ecb.europa.eu/paym/integration/retail/sepa/html/ind
+            ex.en.html).  * **crossBorder**: For high-value transfers to a recipient
+            in a different country.  * **internal**: For transfers to an Adyen-issued
+            business bank account (by bank account number/IBAN).
         requirements (List[AdditionalBankIdentificationRequirement |
             AddressRequirement | AmountMinMaxRequirement |
             AmountNonZeroDecimalsRequirement |
             BankAccountIdentificationTypeRequirement |
             IbanAccountIdentificationRequirement | PaymentInstrumentRequirement |
-            UsInstantPayoutAddressRequirement | UsInternationalAchAddressRequirement
-            | UsInternationalAchPriorityRequirement] | None): A set of rules defined
+            USInstantPayoutAddressRequirement | USInternationalAchAddressRequirement
+            | USInternationalAchPriorityRequirement] | None): A set of rules defined
             by clearing houses and banking partners. Your transfer request must
             adhere to these rules to ensure successful initiation of transfer. Based
             on the priority, one or more requirements may be returned. Each
             requirement is defined with a `type` and `description`.
-        additional_properties (Dict[str, Any]): The additional properties for the
-            model.
 
     """
 
@@ -56,8 +68,7 @@ class TransferRoute(object):
         country=APIHelper.SKIP,
         currency=APIHelper.SKIP,
         priority=APIHelper.SKIP,
-        requirements=APIHelper.SKIP,
-        additional_properties=None):
+        requirements=APIHelper.SKIP):
         """Initialize a TransferRoute instance."""
         # Initialize members of the class
         if category is not APIHelper.SKIP:
@@ -70,11 +81,6 @@ class TransferRoute(object):
             self.priority = priority
         if requirements is not APIHelper.SKIP:
             self.requirements = requirements
-
-        # Add additional model properties to the instance
-        if additional_properties is None:
-            additional_properties = {}
-        self.additional_properties = additional_properties
 
     @classmethod
     def from_dictionary(cls,
@@ -121,18 +127,12 @@ class TransferRoute(object):
             if dictionary.get("requirements") is not None\
             else APIHelper.SKIP
 
-        additional_properties = APIHelper.get_additional_properties(
-            dictionary={k: v for k, v in dictionary.items()
-                        if k not in cls._names.values()},
-            unboxing_function=lambda value: value)
-
         # Return an object of this model
         return cls(category,
                    country,
                    currency,
                    priority,
-                   requirements,
-                   additional_properties)
+                   requirements)
 
     def __repr__(self):
         """Return a unambiguous string representation."""
@@ -161,7 +161,6 @@ class TransferRoute(object):
             if hasattr(self, "requirements")
             else None
         )
-        _additional_properties=self.additional_properties
         return (
             f"{self.__class__.__name__}("
             f"category={_category!r}, "
@@ -169,7 +168,6 @@ class TransferRoute(object):
             f"currency={_currency!r}, "
             f"priority={_priority!r}, "
             f"requirements={_requirements!r}, "
-            f"additional_properties={_additional_properties!r}, "
             f")"
         )
 
@@ -200,7 +198,6 @@ class TransferRoute(object):
             if hasattr(self, "requirements")
             else None
         )
-        _additional_properties=self.additional_properties
         return (
             f"{self.__class__.__name__}("
             f"category={_category!s}, "
@@ -208,6 +205,5 @@ class TransferRoute(object):
             f"currency={_currency!s}, "
             f"priority={_priority!s}, "
             f"requirements={_requirements!s}, "
-            f"additional_properties={_additional_properties!s}, "
             f")"
         )

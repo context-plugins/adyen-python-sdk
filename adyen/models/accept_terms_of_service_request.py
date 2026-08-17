@@ -18,8 +18,6 @@ class AcceptTermsOfServiceRequest(object):
             owner.  For individuals, this must be the individual legal entity id of
             either the individual, parent, or guardian.
         ip_address (str): The IP address of the user accepting the Terms of Service.
-        additional_properties (Dict[str, Any]): The additional properties for the
-            model.
 
     """
 
@@ -36,18 +34,12 @@ class AcceptTermsOfServiceRequest(object):
     def __init__(
         self,
         accepted_by=None,
-        ip_address=APIHelper.SKIP,
-        additional_properties=None):
+        ip_address=APIHelper.SKIP):
         """Initialize a AcceptTermsOfServiceRequest instance."""
         # Initialize members of the class
         self.accepted_by = accepted_by
         if ip_address is not APIHelper.SKIP:
             self.ip_address = ip_address
-
-        # Add additional model properties to the instance
-        if additional_properties is None:
-            additional_properties = {}
-        self.additional_properties = additional_properties
 
     @classmethod
     def from_dictionary(cls,
@@ -76,15 +68,9 @@ class AcceptTermsOfServiceRequest(object):
             if dictionary.get("ipAddress")\
                 else APIHelper.SKIP
 
-        additional_properties = APIHelper.get_additional_properties(
-            dictionary={k: v for k, v in dictionary.items()
-                        if k not in cls._names.values()},
-            unboxing_function=lambda value: value)
-
         # Return an object of this model
         return cls(accepted_by,
-                   ip_address,
-                   additional_properties)
+                   ip_address)
 
     def __repr__(self):
         """Return a unambiguous string representation."""
@@ -94,12 +80,10 @@ class AcceptTermsOfServiceRequest(object):
             if hasattr(self, "ip_address")
             else None
         )
-        _additional_properties=self.additional_properties
         return (
             f"{self.__class__.__name__}("
             f"accepted_by={_accepted_by!r}, "
             f"ip_address={_ip_address!r}, "
-            f"additional_properties={_additional_properties!r}, "
             f")"
         )
 
@@ -111,11 +95,9 @@ class AcceptTermsOfServiceRequest(object):
             if hasattr(self, "ip_address")
             else None
         )
-        _additional_properties=self.additional_properties
         return (
             f"{self.__class__.__name__}("
             f"accepted_by={_accepted_by!s}, "
             f"ip_address={_ip_address!s}, "
-            f"additional_properties={_additional_properties!s}, "
             f")"
         )

@@ -67,8 +67,6 @@ class AdditionalDataLodging(object):
         travel_entertainment_auth_data_market (str): Indicates what market-specific
             dataset will be submitted. Must be 'H' for Hotel. This should be included
             in the auth message.  * Format: alphanumeric * Max length: 1 character
-        additional_properties (Dict[str, Any]): The additional properties for the
-            model.
 
     """
 
@@ -133,8 +131,7 @@ class AdditionalDataLodging(object):
         lodging_total_room_tax=APIHelper.SKIP,
         lodging_total_tax=APIHelper.SKIP,
         travel_entertainment_auth_data_duration=APIHelper.SKIP,
-        travel_entertainment_auth_data_market=APIHelper.SKIP,
-        additional_properties=None):
+        travel_entertainment_auth_data_market=APIHelper.SKIP):
         """Initialize a AdditionalDataLodging instance."""
         # Initialize members of the class
         if lodging_special_program_code is not APIHelper.SKIP:
@@ -175,11 +172,6 @@ class AdditionalDataLodging(object):
         if travel_entertainment_auth_data_market is not APIHelper.SKIP:
             self.travel_entertainment_auth_data_market =\
                  travel_entertainment_auth_data_market
-
-        # Add additional model properties to the instance
-        if additional_properties is None:
-            additional_properties = {}
-        self.additional_properties = additional_properties
 
     @classmethod
     def from_dictionary(cls,
@@ -268,11 +260,6 @@ class AdditionalDataLodging(object):
             if dictionary.get("travelEntertainmentAuthData.market")\
                 else APIHelper.SKIP
 
-        additional_properties = APIHelper.get_additional_properties(
-            dictionary={k: v for k, v in dictionary.items()
-                        if k not in cls._names.values()},
-            unboxing_function=lambda value: value)
-
         # Return an object of this model
         return cls(lodging_special_program_code,
                    lodging_check_in_date,
@@ -290,8 +277,7 @@ class AdditionalDataLodging(object):
                    lodging_total_room_tax,
                    lodging_total_tax,
                    travel_entertainment_auth_data_duration,
-                   travel_entertainment_auth_data_market,
-                   additional_properties)
+                   travel_entertainment_auth_data_market)
 
     def __repr__(self):
         """Return a unambiguous string representation."""
@@ -380,7 +366,6 @@ class AdditionalDataLodging(object):
             if hasattr(self, "travel_entertainment_auth_data_market")
             else None
         )
-        _additional_properties=self.additional_properties
         return (
             f"{self.__class__.__name__}("
             f"lodging_special_program_code={_lodging_special_program_code!r}, "
@@ -400,7 +385,6 @@ class AdditionalDataLodging(object):
             f"lodging_total_tax={_lodging_total_tax!r}, "
             f"travel_entertainment_auth_data_duration={_travel_entertainment_auth_data_duration!r}, "
             f"travel_entertainment_auth_data_market={_travel_entertainment_auth_data_market!r}, "
-            f"additional_properties={_additional_properties!r}, "
             f")"
         )
 
@@ -491,7 +475,6 @@ class AdditionalDataLodging(object):
             if hasattr(self, "travel_entertainment_auth_data_market")
             else None
         )
-        _additional_properties=self.additional_properties
         return (
             f"{self.__class__.__name__}("
             f"lodging_special_program_code={_lodging_special_program_code!s}, "
@@ -511,6 +494,5 @@ class AdditionalDataLodging(object):
             f"lodging_total_tax={_lodging_total_tax!s}, "
             f"travel_entertainment_auth_data_duration={_travel_entertainment_auth_data_duration!s}, "
             f"travel_entertainment_auth_data_market={_travel_entertainment_auth_data_market!s}, "
-            f"additional_properties={_additional_properties!s}, "
             f")"
         )

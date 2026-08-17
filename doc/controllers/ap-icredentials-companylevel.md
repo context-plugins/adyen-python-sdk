@@ -6,7 +6,7 @@ ap_icredentials_companylevel_api = client.ap_icredentials_companylevel
 
 ## Class Name
 
-`ApIcredentialsCompanylevelApi`
+`APIcredentialsCompanylevelApi`
 
 ## Methods
 
@@ -47,7 +47,7 @@ This endpoint requires [BasicAuth](../../doc/auth/basic-authentication.md) **OR*
 
 **200**: OK - the request has succeeded.
 
-This method returns an [`ApiResponse`](../../doc/api-response.md) instance. The `body` property of this instance returns the response data which is of type [`ListCompanyApiCredentialsResponse`](../../doc/models/list-company-api-credentials-response.md).
+[`ListCompanyApiCredentialsResponse`](../../doc/models/list-company-api-credentials-response.md)
 
 ## Example Usage
 
@@ -55,11 +55,7 @@ This method returns an [`ApiResponse`](../../doc/api-response.md) instance. The 
 company_id = 'companyId0'
 
 result = api_credentials_company_level_api.get_companies_company_id_api_credentials(company_id)
-
-if result.is_success():
-    print(result.body)
-elif result.is_error():
-    print(result.errors)
+print(result)
 ```
 
 ## Example Response *(as JSON)*
@@ -460,7 +456,7 @@ This endpoint requires [BasicAuth](../../doc/auth/basic-authentication.md) **OR*
 
 **200**: OK - the request has succeeded.
 
-This method returns an [`ApiResponse`](../../doc/api-response.md) instance. The `body` property of this instance returns the response data which is of type [`CreateCompanyApiCredentialResponse`](../../doc/models/create-company-api-credential-response.md).
+[`CreateCompanyApiCredentialResponse`](../../doc/models/create-company-api-credential-response.md)
 
 ## Example Usage
 
@@ -485,11 +481,7 @@ result = api_credentials_company_level_api.post_companies_company_id_api_credent
     company_id,
     body=body
 )
-
-if result.is_success():
-    print(result.body)
-elif result.is_error():
-    print(result.errors)
+print(result)
 ```
 
 ## Example Response *(as JSON)*
@@ -582,7 +574,7 @@ This endpoint requires [BasicAuth](../../doc/auth/basic-authentication.md) **OR*
 
 **200**: OK - the request has succeeded.
 
-This method returns an [`ApiResponse`](../../doc/api-response.md) instance. The `body` property of this instance returns the response data which is of type [`CompanyApiCredential`](../../doc/models/company-api-credential.md).
+[`CompanyApiCredential`](../../doc/models/company-api-credential.md)
 
 ## Example Usage
 
@@ -595,11 +587,7 @@ result = api_credentials_company_level_api.get_companies_company_id_api_credenti
     company_id,
     api_credential_id
 )
-
-if result.is_success():
-    print(result.body)
-elif result.is_error():
-    print(result.errors)
+print(result)
 ```
 
 ## Example Response *(as JSON)*
@@ -699,7 +687,7 @@ This endpoint requires [BasicAuth](../../doc/auth/basic-authentication.md) **OR*
 
 **200**: OK - the request has succeeded.
 
-This method returns an [`ApiResponse`](../../doc/api-response.md) instance. The `body` property of this instance returns the response data which is of type [`CompanyApiCredential`](../../doc/models/company-api-credential.md).
+[`CompanyApiCredential`](../../doc/models/company-api-credential.md)
 
 ## Example Usage
 
@@ -717,11 +705,7 @@ result = api_credentials_company_level_api.patch_companies_company_id_api_creden
     api_credential_id,
     body=body
 )
-
-if result.is_success():
-    print(result.body)
-elif result.is_error():
-    print(result.errors)
+print(result)
 ```
 
 ## Example Response *(as JSON)*

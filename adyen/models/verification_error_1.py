@@ -17,8 +17,8 @@ class VerificationError1(object):
     """Implementation of the 'VerificationError1' model.
 
     Attributes:
-        capabilities (List[Capability]): Contains key-value pairs that specify the
-            actions that the legal entity can do in your platform. The key is a
+        capabilities (List[CapabilityEnum]): Contains key-value pairs that specify
+            the actions that the legal entity can do in your platform. The key is a
             capability required for your integration. For example, **issueCard** for
             Issuing.The value is an object containing the settings for the capability.
         code (str): The general error code.
@@ -27,9 +27,8 @@ class VerificationError1(object):
             solutions to fix a verification error.
         sub_errors (List[VerificationErrorRecursive1]): An array containing more
             granular information about the cause of the verification error.
-        mtype (Type59): The model property of type Type59.
-        additional_properties (Dict[str, Any]): The additional properties for the
-            model.
+        mtype (Type512Enum): The type of error.  Possible values: *  **invalidInput**
+            *  **dataMissing** *  **pendingStatus** *  **rejected** *  **dataReview**
 
     """
 
@@ -59,8 +58,7 @@ class VerificationError1(object):
         message=APIHelper.SKIP,
         remediating_actions=APIHelper.SKIP,
         sub_errors=APIHelper.SKIP,
-        mtype=APIHelper.SKIP,
-        additional_properties=None):
+        mtype=APIHelper.SKIP):
         """Initialize a VerificationError1 instance."""
         # Initialize members of the class
         if capabilities is not APIHelper.SKIP:
@@ -75,11 +73,6 @@ class VerificationError1(object):
             self.sub_errors = sub_errors
         if mtype is not APIHelper.SKIP:
             self.mtype = mtype
-
-        # Add additional model properties to the instance
-        if additional_properties is None:
-            additional_properties = {}
-        self.additional_properties = additional_properties
 
     @classmethod
     def from_dictionary(cls,
@@ -132,19 +125,13 @@ class VerificationError1(object):
             if dictionary.get("type")\
                 else APIHelper.SKIP
 
-        additional_properties = APIHelper.get_additional_properties(
-            dictionary={k: v for k, v in dictionary.items()
-                        if k not in cls._names.values()},
-            unboxing_function=lambda value: value)
-
         # Return an object of this model
         return cls(capabilities,
                    code,
                    message,
                    remediating_actions,
                    sub_errors,
-                   mtype,
-                   additional_properties)
+                   mtype)
 
     def __repr__(self):
         """Return a unambiguous string representation."""
@@ -178,7 +165,6 @@ class VerificationError1(object):
             if hasattr(self, "mtype")
             else None
         )
-        _additional_properties=self.additional_properties
         return (
             f"{self.__class__.__name__}("
             f"capabilities={_capabilities!r}, "
@@ -187,7 +173,6 @@ class VerificationError1(object):
             f"remediating_actions={_remediating_actions!r}, "
             f"sub_errors={_sub_errors!r}, "
             f"mtype={_mtype!r}, "
-            f"additional_properties={_additional_properties!r}, "
             f")"
         )
 
@@ -223,7 +208,6 @@ class VerificationError1(object):
             if hasattr(self, "mtype")
             else None
         )
-        _additional_properties=self.additional_properties
         return (
             f"{self.__class__.__name__}("
             f"capabilities={_capabilities!s}, "
@@ -232,6 +216,5 @@ class VerificationError1(object):
             f"remediating_actions={_remediating_actions!s}, "
             f"sub_errors={_sub_errors!s}, "
             f"mtype={_mtype!s}, "
-            f"additional_properties={_additional_properties!s}, "
             f")"
         )

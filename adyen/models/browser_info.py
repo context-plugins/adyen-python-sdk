@@ -35,8 +35,6 @@ class BrowserInfo(object):
         time_zone_offset (int): Time difference between UTC time and the shopper's
             browser local time, in minutes.
         user_agent (str): The user agent value of the shopper's browser.
-        additional_properties (Dict[str, Any]): The additional properties for the
-            model.
 
     """
 
@@ -67,8 +65,7 @@ class BrowserInfo(object):
         screen_width=None,
         time_zone_offset=None,
         user_agent=None,
-        java_script_enabled=True,
-        additional_properties=None):
+        java_script_enabled=True):
         """Initialize a BrowserInfo instance."""
         # Initialize members of the class
         self.accept_header = accept_header
@@ -80,11 +77,6 @@ class BrowserInfo(object):
         self.screen_width = screen_width
         self.time_zone_offset = time_zone_offset
         self.user_agent = user_agent
-
-        # Add additional model properties to the instance
-        if additional_properties is None:
-            additional_properties = {}
-        self.additional_properties = additional_properties
 
     @classmethod
     def from_dictionary(cls,
@@ -141,11 +133,6 @@ class BrowserInfo(object):
             if dictionary.get("javaScriptEnabled")\
                 else True
 
-        additional_properties = APIHelper.get_additional_properties(
-            dictionary={k: v for k, v in dictionary.items()
-                        if k not in cls._names.values()},
-            unboxing_function=lambda value: value)
-
         # Return an object of this model
         return cls(accept_header,
                    color_depth,
@@ -155,8 +142,138 @@ class BrowserInfo(object):
                    screen_width,
                    time_zone_offset,
                    user_agent,
-                   java_script_enabled,
-                   additional_properties)
+                   java_script_enabled)
+
+    @classmethod
+    def validate(cls, dictionary):
+        """Validate dictionary against class required properties
+
+        Args:
+            dictionary (dictionary): A dictionary representation of the object
+            as obtained from the deserialization of the server's response. The
+            keys MUST match property names in the API description.
+
+        Returns:
+            boolean : if dictionary is valid contains required properties.
+
+        """
+        if isinstance(dictionary, cls):
+            return APIHelper.is_valid_type(
+                    value=dictionary.accept_header,
+                    type_callable=lambda value:
+                        isinstance(
+                        value,
+                        str,
+                )) \
+                and APIHelper.is_valid_type(
+                    value=dictionary.color_depth,
+                    type_callable=lambda value:
+                        isinstance(
+                        value,
+                        int,
+                )) \
+                and APIHelper.is_valid_type(
+                    value=dictionary.java_enabled,
+                    type_callable=lambda value:
+                        isinstance(
+                        value,
+                        bool,
+                )) \
+                and APIHelper.is_valid_type(
+                    value=dictionary.language,
+                    type_callable=lambda value:
+                        isinstance(
+                        value,
+                        str,
+                )) \
+                and APIHelper.is_valid_type(
+                    value=dictionary.screen_height,
+                    type_callable=lambda value:
+                        isinstance(
+                        value,
+                        int,
+                )) \
+                and APIHelper.is_valid_type(
+                    value=dictionary.screen_width,
+                    type_callable=lambda value:
+                        isinstance(
+                        value,
+                        int,
+                )) \
+                and APIHelper.is_valid_type(
+                    value=dictionary.time_zone_offset,
+                    type_callable=lambda value:
+                        isinstance(
+                        value,
+                        int,
+                )) \
+                and APIHelper.is_valid_type(
+                    value=dictionary.user_agent,
+                    type_callable=lambda value:
+                        isinstance(
+                        value,
+                        str,
+                ))
+
+        if not isinstance(dictionary, dict):
+            return False
+
+        return APIHelper.is_valid_type(
+                value=dictionary.get("acceptHeader"),
+                type_callable=lambda value:
+                    isinstance(
+                    value,
+                    str,
+            )) \
+            and APIHelper.is_valid_type(
+                value=dictionary.get("colorDepth"),
+                type_callable=lambda value:
+                    isinstance(
+                    value,
+                    int,
+            )) \
+            and APIHelper.is_valid_type(
+                value=dictionary.get("javaEnabled"),
+                type_callable=lambda value:
+                    isinstance(
+                    value,
+                    bool,
+            )) \
+            and APIHelper.is_valid_type(
+                value=dictionary.get("language"),
+                type_callable=lambda value:
+                    isinstance(
+                    value,
+                    str,
+            )) \
+            and APIHelper.is_valid_type(
+                value=dictionary.get("screenHeight"),
+                type_callable=lambda value:
+                    isinstance(
+                    value,
+                    int,
+            )) \
+            and APIHelper.is_valid_type(
+                value=dictionary.get("screenWidth"),
+                type_callable=lambda value:
+                    isinstance(
+                    value,
+                    int,
+            )) \
+            and APIHelper.is_valid_type(
+                value=dictionary.get("timeZoneOffset"),
+                type_callable=lambda value:
+                    isinstance(
+                    value,
+                    int,
+            )) \
+            and APIHelper.is_valid_type(
+                value=dictionary.get("userAgent"),
+                type_callable=lambda value:
+                    isinstance(
+                    value,
+                    str,
+            ))
 
     def __repr__(self):
         """Return a unambiguous string representation."""
@@ -173,7 +290,6 @@ class BrowserInfo(object):
         _screen_width=self.screen_width
         _time_zone_offset=self.time_zone_offset
         _user_agent=self.user_agent
-        _additional_properties=self.additional_properties
         return (
             f"{self.__class__.__name__}("
             f"accept_header={_accept_header!r}, "
@@ -185,7 +301,6 @@ class BrowserInfo(object):
             f"screen_width={_screen_width!r}, "
             f"time_zone_offset={_time_zone_offset!r}, "
             f"user_agent={_user_agent!r}, "
-            f"additional_properties={_additional_properties!r}, "
             f")"
         )
 
@@ -204,7 +319,6 @@ class BrowserInfo(object):
         _screen_width=self.screen_width
         _time_zone_offset=self.time_zone_offset
         _user_agent=self.user_agent
-        _additional_properties=self.additional_properties
         return (
             f"{self.__class__.__name__}("
             f"accept_header={_accept_header!s}, "
@@ -216,6 +330,5 @@ class BrowserInfo(object):
             f"screen_width={_screen_width!s}, "
             f"time_zone_offset={_time_zone_offset!s}, "
             f"user_agent={_user_agent!s}, "
-            f"additional_properties={_additional_properties!s}, "
             f")"
         )

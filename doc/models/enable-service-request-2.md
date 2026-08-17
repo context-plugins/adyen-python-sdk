@@ -3,8 +3,6 @@
 
 Content of the Enable Service Request message.
 
-*This model accepts additional fields of type Any.*
-
 ## Structure
 
 `EnableServiceRequest2`
@@ -13,51 +11,46 @@ Content of the Enable Service Request message.
 
 | Name | Type | Tags | Description |
 |  --- | --- | --- | --- |
-| `transaction_action` | [`TransactionAction1`](../../doc/models/transaction-action-1.md) | Required | - |
-| `services_enabled` | [`List[ServicesEnabled]`](../../doc/models/services-enabled.md) | Optional | Services which are enabled before the start-up of a transaction.<br>Mandatory if `TransactionAction` is `StartTransaction`, absent if not.<br>Possible values:<br><br>* **CardAcquisition**<br>* **Loyalty**<br>* **Payment** |
-| `display_output` | [`DisplayOutput3`](../../doc/models/display-output-3.md) | Optional | - |
-| `additional_properties` | `Dict[str, Any]` | Optional | - |
+| `transaction_action` | [`TransactionAction1Enum`](../../doc/models/transaction-action-1-enum.md) | Required | Action to realise on a transaction. In an `EnableService` request message:<br><br>- Starts a transaction by a swipe-ahead mechanism, with the services which are enabled.<br>- Aborts a swipe-ahead transaction or started by a `CardAcquisition`, and not followed by a service request from the Sale System to complete the transaction.<br>  Possible values:<br><br>* **AbortTransaction**<br>* **StartTransaction** |
+| `services_enabled` | [`List[ServicesEnabledEnum]`](../../doc/models/services-enabled-enum.md) | Optional | Services which are enabled before the start-up of a transaction.<br>Mandatory if `TransactionAction` is `StartTransaction`, absent if not.<br>Possible values:<br><br>* **CardAcquisition**<br>* **Loyalty**<br>* **Payment** |
+| `display_output` | [`DisplayOutput2`](../../doc/models/display-output-2.md) | Optional | Information to display and the way to process the display. |
 
 ## Example
 
 ```python
-import jsonpickle
-
-from adyen.models.character_height_1 import CharacterHeight1
-from adyen.models.character_width_1 import CharacterWidth1
-from adyen.models.device_11 import Device11
-from adyen.models.display_output_3 import DisplayOutput3
+from adyen.models.character_height_1_enum import CharacterHeight1Enum
+from adyen.models.character_width_1_enum import CharacterWidth1Enum
+from adyen.models.device_11_enum import Device11Enum
+from adyen.models.display_output_2 import DisplayOutput2
 from adyen.models.enable_service_request_2 import EnableServiceRequest2
-from adyen.models.info_qualify_1 import InfoQualify1
+from adyen.models.info_qualify_1_enum import InfoQualify1Enum
 from adyen.models.menu_entry import MenuEntry
-from adyen.models.menu_entry_tag_1 import MenuEntryTag1
-from adyen.models.output_barcode import OutputBarcode
-from adyen.models.output_content_2 import OutputContent2
-from adyen.models.output_format_1 import OutputFormat1
-from adyen.models.output_format_2 import OutputFormat2
+from adyen.models.menu_entry_tag_1_enum import MenuEntryTag1Enum
+from adyen.models.output_barcode_1 import OutputBarcode1
+from adyen.models.output_content_1 import OutputContent1
+from adyen.models.output_format_1_enum import OutputFormat1Enum
+from adyen.models.output_format_2_enum import OutputFormat2Enum
 from adyen.models.output_text import OutputText
-from adyen.models.predefined_content_2 import PredefinedContent2
-from adyen.models.services_enabled import ServicesEnabled
-from adyen.models.transaction_action_1 import TransactionAction1
+from adyen.models.predefined_content import PredefinedContent
+from adyen.models.predefined_content_1 import PredefinedContent1
+from adyen.models.services_enabled_enum import ServicesEnabledEnum
+from adyen.models.transaction_action_1_enum import TransactionAction1Enum
 
 enable_service_request_2 = EnableServiceRequest2(
-    transaction_action=TransactionAction1.STARTTRANSACTION,
+    transaction_action=TransactionAction1Enum.STARTTRANSACTION,
     services_enabled=[
-        ServicesEnabled.CARDACQUISITION,
-        ServicesEnabled.PAYMENT,
-        ServicesEnabled.LOYALTY
+        ServicesEnabledEnum.CARDACQUISITION,
+        ServicesEnabledEnum.PAYMENT,
+        ServicesEnabledEnum.LOYALTY
     ],
-    display_output=DisplayOutput3(
-        device=Device11.CASHIERDISPLAY,
-        info_qualify=InfoQualify1.STATUS,
-        output_content=OutputContent2(
-            output_format=OutputFormat1.XHTML,
-            predefined_content=PredefinedContent2(
+    display_output=DisplayOutput2(
+        device=Device11Enum.CASHIERDISPLAY,
+        info_qualify=InfoQualify1Enum.STATUS,
+        output_content=OutputContent1(
+            output_format=OutputFormat1Enum.XHTML,
+            predefined_content=PredefinedContent1(
                 reference_id='ReferenceID0',
-                language='Language2',
-                additional_properties={
-                    'exampleAdditionalProperty': jsonpickle.decode('{"key1":"val1","key2":"val2"}')
-                }
+                language='Language2'
             ),
             output_text=[
                 OutputText(
@@ -65,37 +58,25 @@ enable_service_request_2 = EnableServiceRequest2(
                     character_set=194,
                     start_row=74,
                     start_column=220,
-                    character_width=CharacterWidth1.SINGLEWIDTH,
-                    character_height=CharacterHeight1.SINGLEHEIGHT,
-                    additional_properties={
-                        'exampleAdditionalProperty': jsonpickle.decode('{"key1":"val1","key2":"val2"}')
-                    }
+                    character_width=CharacterWidth1Enum.SINGLEWIDTH,
+                    character_height=CharacterHeight1Enum.SINGLEHEIGHT
                 )
             ],
             output_xhtml='OutputXHTML2',
-            output_barcode=OutputBarcode(
-                barcode_value='BarcodeValue2',
-                additional_properties={
-                    'exampleAdditionalProperty': jsonpickle.decode('{"key1":"val1","key2":"val2"}')
-                }
-            ),
-            additional_properties={
-                'exampleAdditionalProperty': jsonpickle.decode('{"key1":"val1","key2":"val2"}')
-            }
+            output_barcode=OutputBarcode1(
+                barcode_value='BarcodeValue2'
+            )
         ),
         response_required_flag=False,
         minimum_display_time=110,
         menu_entry=[
             MenuEntry(
-                output_format=OutputFormat2.XHTML,
-                menu_entry_tag=MenuEntryTag1.SUBMENU,
+                output_format=OutputFormat2Enum.XHTML,
+                menu_entry_tag=MenuEntryTag1Enum.SUBMENU,
                 default_selected_flag=False,
-                predefined_content=PredefinedContent2(
+                predefined_content=PredefinedContent(
                     reference_id='ReferenceID0',
-                    language='Language2',
-                    additional_properties={
-                        'exampleAdditionalProperty': jsonpickle.decode('{"key1":"val1","key2":"val2"}')
-                    }
+                    language='Language2'
                 ),
                 output_text=[
                     OutputText(
@@ -103,39 +84,27 @@ enable_service_request_2 = EnableServiceRequest2(
                         character_set=194,
                         start_row=74,
                         start_column=220,
-                        character_width=CharacterWidth1.SINGLEWIDTH,
-                        character_height=CharacterHeight1.SINGLEHEIGHT,
-                        additional_properties={
-                            'exampleAdditionalProperty': jsonpickle.decode('{"key1":"val1","key2":"val2"}')
-                        }
+                        character_width=CharacterWidth1Enum.SINGLEWIDTH,
+                        character_height=CharacterHeight1Enum.SINGLEHEIGHT
                     ),
                     OutputText(
                         text='Text6',
                         character_set=194,
                         start_row=74,
                         start_column=220,
-                        character_width=CharacterWidth1.SINGLEWIDTH,
-                        character_height=CharacterHeight1.SINGLEHEIGHT,
-                        additional_properties={
-                            'exampleAdditionalProperty': jsonpickle.decode('{"key1":"val1","key2":"val2"}')
-                        }
+                        character_width=CharacterWidth1Enum.SINGLEWIDTH,
+                        character_height=CharacterHeight1Enum.SINGLEHEIGHT
                     )
                 ],
-                output_xhtml='OutputXHTML8',
-                additional_properties={
-                    'exampleAdditionalProperty': jsonpickle.decode('{"key1":"val1","key2":"val2"}')
-                }
+                output_xhtml='OutputXHTML8'
             ),
             MenuEntry(
-                output_format=OutputFormat2.XHTML,
-                menu_entry_tag=MenuEntryTag1.SUBMENU,
+                output_format=OutputFormat2Enum.XHTML,
+                menu_entry_tag=MenuEntryTag1Enum.SUBMENU,
                 default_selected_flag=False,
-                predefined_content=PredefinedContent2(
+                predefined_content=PredefinedContent(
                     reference_id='ReferenceID0',
-                    language='Language2',
-                    additional_properties={
-                        'exampleAdditionalProperty': jsonpickle.decode('{"key1":"val1","key2":"val2"}')
-                    }
+                    language='Language2'
                 ),
                 output_text=[
                     OutputText(
@@ -143,38 +112,23 @@ enable_service_request_2 = EnableServiceRequest2(
                         character_set=194,
                         start_row=74,
                         start_column=220,
-                        character_width=CharacterWidth1.SINGLEWIDTH,
-                        character_height=CharacterHeight1.SINGLEHEIGHT,
-                        additional_properties={
-                            'exampleAdditionalProperty': jsonpickle.decode('{"key1":"val1","key2":"val2"}')
-                        }
+                        character_width=CharacterWidth1Enum.SINGLEWIDTH,
+                        character_height=CharacterHeight1Enum.SINGLEHEIGHT
                     ),
                     OutputText(
                         text='Text6',
                         character_set=194,
                         start_row=74,
                         start_column=220,
-                        character_width=CharacterWidth1.SINGLEWIDTH,
-                        character_height=CharacterHeight1.SINGLEHEIGHT,
-                        additional_properties={
-                            'exampleAdditionalProperty': jsonpickle.decode('{"key1":"val1","key2":"val2"}')
-                        }
+                        character_width=CharacterWidth1Enum.SINGLEWIDTH,
+                        character_height=CharacterHeight1Enum.SINGLEHEIGHT
                     )
                 ],
-                output_xhtml='OutputXHTML8',
-                additional_properties={
-                    'exampleAdditionalProperty': jsonpickle.decode('{"key1":"val1","key2":"val2"}')
-                }
+                output_xhtml='OutputXHTML8'
             )
         ],
-        output_signature='OutputSignature4',
-        additional_properties={
-            'exampleAdditionalProperty': jsonpickle.decode('{"key1":"val1","key2":"val2"}')
-        }
-    ),
-    additional_properties={
-        'exampleAdditionalProperty': jsonpickle.decode('{"key1":"val1","key2":"val2"}')
-    }
+        output_signature='OutputSignature4'
+    )
 )
 ```
 

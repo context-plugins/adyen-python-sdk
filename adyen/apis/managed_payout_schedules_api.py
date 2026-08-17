@@ -11,50 +11,8 @@ from apimatic_core.types.parameter import Parameter
 from adyen.api_helper import APIHelper
 from adyen.apis.base_api import BaseApi
 from adyen.configuration import Server
-from adyen.exceptions.balance_accounts_payout_schedules_401_error_exception import (
-    BalanceAccountsPayoutSchedules401ErrorException,
-)
-from adyen.exceptions.balance_accounts_payout_schedules_403_error_exception import (
-    BalanceAccountsPayoutSchedules403ErrorException,
-)
-from adyen.exceptions.balance_accounts_payout_schedules_404_error_exception import (
-    BalanceAccountsPayoutSchedules404ErrorException,
-)
-from adyen.exceptions.balance_accounts_payout_schedules_422_error_exception import (
-    BalanceAccountsPayoutSchedules422ErrorException,
-)
-from adyen.exceptions.balance_accounts_payout_schedules_500_error_exception import (
-    BalanceAccountsPayoutSchedules500ErrorException,
-)
-from adyen.exceptions.balance_accounts_payout_schedules_executions_401_error_exception import (  # noqa: E501
-    BalanceAccountsPayoutSchedulesExecutions401ErrorException,
-)
-from adyen.exceptions.balance_accounts_payout_schedules_executions_403_error_exception import (  # noqa: E501
-    BalanceAccountsPayoutSchedulesExecutions403ErrorException,
-)
-from adyen.exceptions.balance_accounts_payout_schedules_executions_404_error_exception import (  # noqa: E501
-    BalanceAccountsPayoutSchedulesExecutions404ErrorException,
-)
-from adyen.exceptions.balance_accounts_payout_schedules_executions_422_error_exception import (  # noqa: E501
-    BalanceAccountsPayoutSchedulesExecutions422ErrorException,
-)
-from adyen.exceptions.balance_accounts_payout_schedules_executions_500_error_exception import (  # noqa: E501
-    BalanceAccountsPayoutSchedulesExecutions500ErrorException,
-)
-from adyen.exceptions.balance_platforms_payout_schedules_401_error_exception import (
-    BalancePlatformsPayoutSchedules401ErrorException,
-)
-from adyen.exceptions.balance_platforms_payout_schedules_403_error_exception import (
-    BalancePlatformsPayoutSchedules403ErrorException,
-)
-from adyen.exceptions.balance_platforms_payout_schedules_404_error_exception import (
-    BalancePlatformsPayoutSchedules404ErrorException,
-)
-from adyen.exceptions.balance_platforms_payout_schedules_422_error_exception import (
-    BalancePlatformsPayoutSchedules422ErrorException,
-)
-from adyen.exceptions.balance_platforms_payout_schedules_500_error_exception import (
-    BalancePlatformsPayoutSchedules500ErrorException,
+from adyen.exceptions.default_error_response_entity_exception import (
+    DefaultErrorResponseEntityException,
 )
 from adyen.http.http_method_enum import HttpMethodEnum
 from adyen.models.balance_account_configuration import (
@@ -104,24 +62,22 @@ class ManagedPayoutSchedulesApi(BaseApi):
                 100 items. By default, the response returns 10 items per page.
 
         Returns:
-            ApiResponse: An object with the response value as well as other useful
-                information such as status codes and headers. OK - The request has
+            BalanceAccountConfigurations: Response from the API. OK - The request has
                 succeeded.
 
         Raises:
-            ApiException: When an error occurs while fetching the data from the
+            APIException: When an error occurs while fetching the data from the
                 remote API. This exception includes the HTTP Response code, an error
                 message, and the HTTP body that was received in the request.
 
         """
         return super().new_api_call_builder.request(
-            RequestBuilder().server(Server.DEFAULT)
+            RequestBuilder().server(Server.DEFAULT13)
             .path("/balanceAccounts/{balanceAccountId}/payoutSchedules")
             .http_method(HttpMethodEnum.GET)
             .template_param(Parameter()
                 .key("balanceAccountId")
                 .value(balance_account_id)
-                .is_required(True)
                 .should_encode(True))
             .query_param(Parameter()
                 .key("currency")
@@ -139,22 +95,21 @@ class ManagedPayoutSchedulesApi(BaseApi):
             ResponseHandler()
             .deserializer(APIHelper.json_deserialize)
             .deserialize_into(BalanceAccountConfigurations.from_dictionary)
-            .is_api_response(True)
             .local_error("401",
                 "Unauthorized - authentication required.",
-                BalanceAccountsPayoutSchedules401ErrorException)
+                DefaultErrorResponseEntityException)
             .local_error("403",
                 "Forbidden - insufficient permissions to process the request.",
-                BalanceAccountsPayoutSchedules403ErrorException)
+                DefaultErrorResponseEntityException)
             .local_error("404",
                 "Not Found - the resource was not found",
-                BalanceAccountsPayoutSchedules404ErrorException)
+                DefaultErrorResponseEntityException)
             .local_error("422",
                 "Unprocessable Entity - a request validation error.",
-                BalanceAccountsPayoutSchedules422ErrorException)
+                DefaultErrorResponseEntityException)
             .local_error("500",
                 "Internal Server Error - the server could not process the request.",
-                BalanceAccountsPayoutSchedules500ErrorException),
+                DefaultErrorResponseEntityException),
         ).execute()
 
     def post_balance_accounts_balance_account_id_payout_schedules(self,
@@ -171,31 +126,28 @@ class ManagedPayoutSchedulesApi(BaseApi):
             body (BalanceAccountConfigurationRequest): The request body parameter.
 
         Returns:
-            ApiResponse: An object with the response value as well as other useful
-                information such as status codes and headers. OK - The request has
+            BalanceAccountConfiguration: Response from the API. OK - The request has
                 succeeded.
 
         Raises:
-            ApiException: When an error occurs while fetching the data from the
+            APIException: When an error occurs while fetching the data from the
                 remote API. This exception includes the HTTP Response code, an error
                 message, and the HTTP body that was received in the request.
 
         """
         return super().new_api_call_builder.request(
-            RequestBuilder().server(Server.DEFAULT)
+            RequestBuilder().server(Server.DEFAULT13)
             .path("/balanceAccounts/{balanceAccountId}/payoutSchedules")
             .http_method(HttpMethodEnum.POST)
             .template_param(Parameter()
                 .key("balanceAccountId")
                 .value(balance_account_id)
-                .is_required(True)
                 .should_encode(True))
             .header_param(Parameter()
                 .key("Content-Type")
                 .value("application/json"))
             .body_param(Parameter()
-                .value(body)
-                .is_required(True))
+                .value(body))
             .header_param(Parameter()
                 .key("accept")
                 .value("application/json"))
@@ -204,22 +156,21 @@ class ManagedPayoutSchedulesApi(BaseApi):
             ResponseHandler()
             .deserializer(APIHelper.json_deserialize)
             .deserialize_into(BalanceAccountConfiguration.from_dictionary)
-            .is_api_response(True)
             .local_error("401",
                 "Unauthorized - authentication required.",
-                BalanceAccountsPayoutSchedules401ErrorException)
+                DefaultErrorResponseEntityException)
             .local_error("403",
                 "Forbidden - insufficient permissions to process the request.",
-                BalanceAccountsPayoutSchedules403ErrorException)
+                DefaultErrorResponseEntityException)
             .local_error("404",
                 "Not Found - the resource was not found",
-                BalanceAccountsPayoutSchedules404ErrorException)
+                DefaultErrorResponseEntityException)
             .local_error("422",
                 "Unprocessable Entity - a request validation error.",
-                BalanceAccountsPayoutSchedules422ErrorException)
+                DefaultErrorResponseEntityException)
             .local_error("500",
                 "Internal Server Error - the server could not process the request.",
-                BalanceAccountsPayoutSchedules500ErrorException),
+                DefaultErrorResponseEntityException),
         ).execute()
 
     def get_balance_accounts_balance_account_id_payout_schedules_id(self,
@@ -236,29 +187,26 @@ class ManagedPayoutSchedulesApi(BaseApi):
                 account.
 
         Returns:
-            ApiResponse: An object with the response value as well as other useful
-                information such as status codes and headers. OK - The request has
+            BalanceAccountConfiguration: Response from the API. OK - The request has
                 succeeded.
 
         Raises:
-            ApiException: When an error occurs while fetching the data from the
+            APIException: When an error occurs while fetching the data from the
                 remote API. This exception includes the HTTP Response code, an error
                 message, and the HTTP body that was received in the request.
 
         """
         return super().new_api_call_builder.request(
-            RequestBuilder().server(Server.DEFAULT)
+            RequestBuilder().server(Server.DEFAULT13)
             .path("/balanceAccounts/{balanceAccountId}/payoutSchedules/{id}")
             .http_method(HttpMethodEnum.GET)
             .template_param(Parameter()
                 .key("balanceAccountId")
                 .value(balance_account_id)
-                .is_required(True)
                 .should_encode(True))
             .template_param(Parameter()
                 .key("id")
                 .value(id)
-                .is_required(True)
                 .should_encode(True))
             .header_param(Parameter()
                 .key("accept")
@@ -267,22 +215,21 @@ class ManagedPayoutSchedulesApi(BaseApi):
             ResponseHandler()
             .deserializer(APIHelper.json_deserialize)
             .deserialize_into(BalanceAccountConfiguration.from_dictionary)
-            .is_api_response(True)
             .local_error("401",
                 "Unauthorized - authentication required.",
-                BalanceAccountsPayoutSchedules401ErrorException)
+                DefaultErrorResponseEntityException)
             .local_error("403",
                 "Forbidden - insufficient permissions to process the request.",
-                BalanceAccountsPayoutSchedules403ErrorException)
+                DefaultErrorResponseEntityException)
             .local_error("404",
                 "Not Found - the resource was not found",
-                BalanceAccountsPayoutSchedules404ErrorException)
+                DefaultErrorResponseEntityException)
             .local_error("422",
                 "Unprocessable Entity - a request validation error.",
-                BalanceAccountsPayoutSchedules422ErrorException)
+                DefaultErrorResponseEntityException)
             .local_error("500",
                 "Internal Server Error - the server could not process the request.",
-                BalanceAccountsPayoutSchedules500ErrorException),
+                DefaultErrorResponseEntityException),
         ).execute()
 
     def delete_balance_accounts_balance_account_id_payout_schedules_id(self,
@@ -299,48 +246,26 @@ class ManagedPayoutSchedulesApi(BaseApi):
                 balance account.
 
         Returns:
-            ApiResponse: An object with the response value as well as other useful
-                information such as status codes and headers. OK - The request has
-                succeeded.
+            void: Response from the API. OK - The request has succeeded.
 
         Raises:
-            ApiException: When an error occurs while fetching the data from the
+            APIException: When an error occurs while fetching the data from the
                 remote API. This exception includes the HTTP Response code, an error
                 message, and the HTTP body that was received in the request.
 
         """
         return super().new_api_call_builder.request(
-            RequestBuilder().server(Server.DEFAULT)
+            RequestBuilder().server(Server.DEFAULT13)
             .path("/balanceAccounts/{balanceAccountId}/payoutSchedules/{id}")
             .http_method(HttpMethodEnum.DELETE)
             .template_param(Parameter()
                 .key("balanceAccountId")
                 .value(balance_account_id)
-                .is_required(True)
                 .should_encode(True))
             .template_param(Parameter()
                 .key("id")
                 .value(id)
-                .is_required(True)
                 .should_encode(True)),
-        ).response(
-            ResponseHandler()
-            .is_api_response(True)
-            .local_error("401",
-                "Unauthorized - authentication required.",
-                BalanceAccountsPayoutSchedules401ErrorException)
-            .local_error("403",
-                "Forbidden - insufficient permissions to process the request.",
-                BalanceAccountsPayoutSchedules403ErrorException)
-            .local_error("404",
-                "Not Found - the resource was not found",
-                BalanceAccountsPayoutSchedules404ErrorException)
-            .local_error("422",
-                "Unprocessable Entity - a request validation error.",
-                BalanceAccountsPayoutSchedules422ErrorException)
-            .local_error("500",
-                "Internal Server Error - the server could not process the request.",
-                BalanceAccountsPayoutSchedules500ErrorException),
         ).execute()
 
     def patch_balance_accounts_balance_account_id_payout_schedules_id(self,
@@ -360,36 +285,32 @@ class ManagedPayoutSchedulesApi(BaseApi):
             body (BalanceAccountConfigurationUpdate): The request body parameter.
 
         Returns:
-            ApiResponse: An object with the response value as well as other useful
-                information such as status codes and headers. OK - The request has
+            BalanceAccountConfiguration: Response from the API. OK - The request has
                 succeeded.
 
         Raises:
-            ApiException: When an error occurs while fetching the data from the
+            APIException: When an error occurs while fetching the data from the
                 remote API. This exception includes the HTTP Response code, an error
                 message, and the HTTP body that was received in the request.
 
         """
         return super().new_api_call_builder.request(
-            RequestBuilder().server(Server.DEFAULT)
+            RequestBuilder().server(Server.DEFAULT13)
             .path("/balanceAccounts/{balanceAccountId}/payoutSchedules/{id}")
             .http_method(HttpMethodEnum.PATCH)
             .template_param(Parameter()
                 .key("balanceAccountId")
                 .value(balance_account_id)
-                .is_required(True)
                 .should_encode(True))
             .template_param(Parameter()
                 .key("id")
                 .value(id)
-                .is_required(True)
                 .should_encode(True))
             .header_param(Parameter()
                 .key("Content-Type")
                 .value("application/json"))
             .body_param(Parameter()
-                .value(body)
-                .is_required(True))
+                .value(body))
             .header_param(Parameter()
                 .key("accept")
                 .value("application/json"))
@@ -398,22 +319,21 @@ class ManagedPayoutSchedulesApi(BaseApi):
             ResponseHandler()
             .deserializer(APIHelper.json_deserialize)
             .deserialize_into(BalanceAccountConfiguration.from_dictionary)
-            .is_api_response(True)
             .local_error("401",
                 "Unauthorized - authentication required.",
-                BalanceAccountsPayoutSchedules401ErrorException)
+                DefaultErrorResponseEntityException)
             .local_error("403",
                 "Forbidden - insufficient permissions to process the request.",
-                BalanceAccountsPayoutSchedules403ErrorException)
+                DefaultErrorResponseEntityException)
             .local_error("404",
                 "Not Found - the resource was not found",
-                BalanceAccountsPayoutSchedules404ErrorException)
+                DefaultErrorResponseEntityException)
             .local_error("422",
                 "Unprocessable Entity - a request validation error.",
-                BalanceAccountsPayoutSchedules422ErrorException)
+                DefaultErrorResponseEntityException)
             .local_error("500",
                 "Internal Server Error - the server could not process the request.",
-                BalanceAccountsPayoutSchedules500ErrorException),
+                DefaultErrorResponseEntityException),
         ).execute()
 
     def get_balance_accounts_balance_account_id_payout_schedules_id_executions(self,
@@ -434,7 +354,7 @@ class ManagedPayoutSchedulesApi(BaseApi):
             id (str): The unique identifier of the payout schedule on the balance
                 account.
             offset (int): The page number to be returned.  Default: **1**
-            results (List[ExecutionResult], optional): Contains a list of payout
+            results (List[ExecutionResultEnum], optional): Contains a list of payout
                 statuses. If included, the response returns only executed payouts
                 that currently have one of the specified statuses.  Possible
                 statuses: - **succeeded**: The payout was sent successfully. -
@@ -444,34 +364,30 @@ class ManagedPayoutSchedulesApi(BaseApi):
                 **10**
 
         Returns:
-            ApiResponse: An object with the response value as well as other useful
-                information such as status codes and headers. OK - The request has
+            PayoutScheduleExecutions: Response from the API. OK - The request has
                 succeeded.
 
         Raises:
-            ApiException: When an error occurs while fetching the data from the
+            APIException: When an error occurs while fetching the data from the
                 remote API. This exception includes the HTTP Response code, an error
                 message, and the HTTP body that was received in the request.
 
         """
         return super().new_api_call_builder.request(
-            RequestBuilder().server(Server.DEFAULT)
+            RequestBuilder().server(Server.DEFAULT13)
             .path("/balanceAccounts/{balanceAccountId}/payoutSchedules/{id}/executions")
             .http_method(HttpMethodEnum.GET)
             .template_param(Parameter()
                 .key("balanceAccountId")
                 .value(balance_account_id)
-                .is_required(True)
                 .should_encode(True))
             .template_param(Parameter()
                 .key("id")
                 .value(id)
-                .is_required(True)
                 .should_encode(True))
             .query_param(Parameter()
                 .key("offset")
-                .value(offset)
-                .is_required(True))
+                .value(offset))
             .query_param(Parameter()
                 .key("results")
                 .value(results))
@@ -485,22 +401,21 @@ class ManagedPayoutSchedulesApi(BaseApi):
             ResponseHandler()
             .deserializer(APIHelper.json_deserialize)
             .deserialize_into(PayoutScheduleExecutions.from_dictionary)
-            .is_api_response(True)
             .local_error("401",
                 "Unauthorized - authentication required.",
-                BalanceAccountsPayoutSchedulesExecutions401ErrorException)
+                DefaultErrorResponseEntityException)
             .local_error("403",
                 "Forbidden - insufficient permissions to process the request.",
-                BalanceAccountsPayoutSchedulesExecutions403ErrorException)
+                DefaultErrorResponseEntityException)
             .local_error("404",
                 "Not Found - the resource was not found",
-                BalanceAccountsPayoutSchedulesExecutions404ErrorException)
+                DefaultErrorResponseEntityException)
             .local_error("422",
                 "Unprocessable Entity - a request validation error.",
-                BalanceAccountsPayoutSchedulesExecutions422ErrorException)
+                DefaultErrorResponseEntityException)
             .local_error("500",
                 "Internal Server Error - the server could not process the request.",
-                BalanceAccountsPayoutSchedulesExecutions500ErrorException),
+                DefaultErrorResponseEntityException),
         ).execute()
 
     def get_balance_platforms_balance_platform_id_payout_schedules(self,
@@ -524,24 +439,22 @@ class ManagedPayoutSchedulesApi(BaseApi):
                 the currency used in the payout configuration.
 
         Returns:
-            ApiResponse: An object with the response value as well as other useful
-                information such as status codes and headers. OK - The request has
-                succeeded.
+            BalancePlatformConfigurations: Response from the API. OK - The request
+                has succeeded.
 
         Raises:
-            ApiException: When an error occurs while fetching the data from the
+            APIException: When an error occurs while fetching the data from the
                 remote API. This exception includes the HTTP Response code, an error
                 message, and the HTTP body that was received in the request.
 
         """
         return super().new_api_call_builder.request(
-            RequestBuilder().server(Server.DEFAULT)
+            RequestBuilder().server(Server.DEFAULT13)
             .path("/balancePlatforms/{balancePlatformId}/payoutSchedules")
             .http_method(HttpMethodEnum.GET)
             .template_param(Parameter()
                 .key("balancePlatformId")
                 .value(balance_platform_id)
-                .is_required(True)
                 .should_encode(True))
             .query_param(Parameter()
                 .key("countryCode")
@@ -556,22 +469,21 @@ class ManagedPayoutSchedulesApi(BaseApi):
             ResponseHandler()
             .deserializer(APIHelper.json_deserialize)
             .deserialize_into(BalancePlatformConfigurations.from_dictionary)
-            .is_api_response(True)
             .local_error("401",
                 "Unauthorized - authentication required.",
-                BalancePlatformsPayoutSchedules401ErrorException)
+                DefaultErrorResponseEntityException)
             .local_error("403",
                 "Forbidden - insufficient permissions to process the request.",
-                BalancePlatformsPayoutSchedules403ErrorException)
+                DefaultErrorResponseEntityException)
             .local_error("404",
                 "Not Found - the resource was not found",
-                BalancePlatformsPayoutSchedules404ErrorException)
+                DefaultErrorResponseEntityException)
             .local_error("422",
                 "Unprocessable Entity - a request validation error.",
-                BalancePlatformsPayoutSchedules422ErrorException)
+                DefaultErrorResponseEntityException)
             .local_error("500",
                 "Internal Server Error - the server could not process the request.",
-                BalancePlatformsPayoutSchedules500ErrorException),
+                DefaultErrorResponseEntityException),
         ).execute()
 
     def get_balance_platforms_balance_platform_id_payout_schedules_id(self,
@@ -589,29 +501,26 @@ class ManagedPayoutSchedulesApi(BaseApi):
                 balance platform.
 
         Returns:
-            ApiResponse: An object with the response value as well as other useful
-                information such as status codes and headers. OK - The request has
+            BalancePlatformConfiguration: Response from the API. OK - The request has
                 succeeded.
 
         Raises:
-            ApiException: When an error occurs while fetching the data from the
+            APIException: When an error occurs while fetching the data from the
                 remote API. This exception includes the HTTP Response code, an error
                 message, and the HTTP body that was received in the request.
 
         """
         return super().new_api_call_builder.request(
-            RequestBuilder().server(Server.DEFAULT)
+            RequestBuilder().server(Server.DEFAULT13)
             .path("/balancePlatforms/{balancePlatformId}/payoutSchedules/{id}")
             .http_method(HttpMethodEnum.GET)
             .template_param(Parameter()
                 .key("balancePlatformId")
                 .value(balance_platform_id)
-                .is_required(True)
                 .should_encode(True))
             .template_param(Parameter()
                 .key("id")
                 .value(id)
-                .is_required(True)
                 .should_encode(True))
             .header_param(Parameter()
                 .key("accept")
@@ -620,20 +529,19 @@ class ManagedPayoutSchedulesApi(BaseApi):
             ResponseHandler()
             .deserializer(APIHelper.json_deserialize)
             .deserialize_into(BalancePlatformConfiguration.from_dictionary)
-            .is_api_response(True)
             .local_error("401",
                 "Unauthorized - authentication required.",
-                BalancePlatformsPayoutSchedules401ErrorException)
+                DefaultErrorResponseEntityException)
             .local_error("403",
                 "Forbidden - insufficient permissions to process the request.",
-                BalancePlatformsPayoutSchedules403ErrorException)
+                DefaultErrorResponseEntityException)
             .local_error("404",
                 "Not Found - the resource was not found",
-                BalancePlatformsPayoutSchedules404ErrorException)
+                DefaultErrorResponseEntityException)
             .local_error("422",
                 "Unprocessable Entity - a request validation error.",
-                BalancePlatformsPayoutSchedules422ErrorException)
+                DefaultErrorResponseEntityException)
             .local_error("500",
                 "Internal Server Error - the server could not process the request.",
-                BalancePlatformsPayoutSchedules500ErrorException),
+                DefaultErrorResponseEntityException),
         ).execute()

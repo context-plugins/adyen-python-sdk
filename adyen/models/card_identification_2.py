@@ -34,8 +34,6 @@ class CardIdentification2(object):
         stored_payment_method_id (str): The unique
             [token](/payouts/payout-service/pay-out-to-cards/manage-card-information#s
             ave-card-details) created to identify the counterparty.
-        additional_properties (Dict[str, Any]): The additional properties for the
-            model.
 
     """
 
@@ -68,8 +66,7 @@ class CardIdentification2(object):
         number=APIHelper.SKIP,
         start_month=APIHelper.SKIP,
         start_year=APIHelper.SKIP,
-        stored_payment_method_id=APIHelper.SKIP,
-        additional_properties=None):
+        stored_payment_method_id=APIHelper.SKIP):
         """Initialize a CardIdentification2 instance."""
         # Initialize members of the class
         if expiry_month is not APIHelper.SKIP:
@@ -86,11 +83,6 @@ class CardIdentification2(object):
             self.start_year = start_year
         if stored_payment_method_id is not APIHelper.SKIP:
             self.stored_payment_method_id = stored_payment_method_id
-
-        # Add additional model properties to the instance
-        if additional_properties is None:
-            additional_properties = {}
-        self.additional_properties = additional_properties
 
     @classmethod
     def from_dictionary(cls,
@@ -139,11 +131,6 @@ class CardIdentification2(object):
             if dictionary.get("storedPaymentMethodId")\
                 else APIHelper.SKIP
 
-        additional_properties = APIHelper.get_additional_properties(
-            dictionary={k: v for k, v in dictionary.items()
-                        if k not in cls._names.values()},
-            unboxing_function=lambda value: value)
-
         # Return an object of this model
         return cls(expiry_month,
                    expiry_year,
@@ -151,8 +138,28 @@ class CardIdentification2(object):
                    number,
                    start_month,
                    start_year,
-                   stored_payment_method_id,
-                   additional_properties)
+                   stored_payment_method_id)
+
+    @classmethod
+    def validate(cls, dictionary):
+        """Validate dictionary against class required properties
+
+        Args:
+            dictionary (dictionary): A dictionary representation of the object
+            as obtained from the deserialization of the server's response. The
+            keys MUST match property names in the API description.
+
+        Returns:
+            boolean : if dictionary is valid contains required properties.
+
+        """
+        if isinstance(dictionary, cls):
+            return True
+
+        if not isinstance(dictionary, dict):
+            return False
+
+        return True
 
     def __repr__(self):
         """Return a unambiguous string representation."""
@@ -191,7 +198,6 @@ class CardIdentification2(object):
             if hasattr(self, "stored_payment_method_id")
             else None
         )
-        _additional_properties=self.additional_properties
         return (
             f"{self.__class__.__name__}("
             f"expiry_month={_expiry_month!r}, "
@@ -201,7 +207,6 @@ class CardIdentification2(object):
             f"start_month={_start_month!r}, "
             f"start_year={_start_year!r}, "
             f"stored_payment_method_id={_stored_payment_method_id!r}, "
-            f"additional_properties={_additional_properties!r}, "
             f")"
         )
 
@@ -242,7 +247,6 @@ class CardIdentification2(object):
             if hasattr(self, "stored_payment_method_id")
             else None
         )
-        _additional_properties=self.additional_properties
         return (
             f"{self.__class__.__name__}("
             f"expiry_month={_expiry_month!s}, "
@@ -252,6 +256,5 @@ class CardIdentification2(object):
             f"start_month={_start_month!s}, "
             f"start_year={_start_year!s}, "
             f"stored_payment_method_id={_stored_payment_method_id!s}, "
-            f"additional_properties={_additional_properties!s}, "
             f")"
         )

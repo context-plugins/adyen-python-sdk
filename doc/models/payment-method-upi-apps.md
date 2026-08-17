@@ -1,42 +1,31 @@
 
-# Payment Method Upi Apps
-
-*This model accepts additional fields of type Any.*
+# Payment Method UPI Apps
 
 ## Structure
 
-`PaymentMethodUpiApps`
+`PaymentMethodUPIApps`
 
 ## Fields
 
 | Name | Type | Tags | Description |
 |  --- | --- | --- | --- |
-| `app_identifier_info` | [`AppIdentifierInfo`](../../doc/models/app-identifier-info.md) | Optional | - |
+| `app_identifier_info` | [`AppIdentifierInfo1`](../../doc/models/app-identifier-info-1.md) | Optional | The app identifier information containing iOS scheme and Android package ID. |
 | `id` | `str` | Required | The unique identifier of this app, to submit in requests to /payments. |
 | `name` | `str` | Required | A localized name of the app. |
-| `additional_properties` | `Dict[str, Any]` | Optional | - |
 
 ## Example
 
 ```python
-import jsonpickle
+from adyen.models.app_identifier_info_1 import AppIdentifierInfo1
+from adyen.models.payment_method_upi_apps import PaymentMethodUPIApps
 
-from adyen.models.app_identifier_info import AppIdentifierInfo
-from adyen.models.payment_method_upi_apps import PaymentMethodUpiApps
-
-payment_method_upi_apps = PaymentMethodUpiApps(
+payment_method_upi_apps = PaymentMethodUPIApps(
     id='id0',
     name='name0',
-    app_identifier_info=AppIdentifierInfo(
+    app_identifier_info=AppIdentifierInfo1(
         android_package_id='androidPackageId8',
-        ios_scheme='iosScheme8',
-        additional_properties={
-            'exampleAdditionalProperty': jsonpickle.decode('{"key1":"val1","key2":"val2"}')
-        }
-    ),
-    additional_properties={
-        'exampleAdditionalProperty': jsonpickle.decode('{"key1":"val1","key2":"val2"}')
-    }
+        ios_scheme='iosScheme8'
+    )
 )
 ```
 

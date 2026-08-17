@@ -13,9 +13,7 @@ class DocumentPage(object):
     Attributes:
         page_name (str): The model property of type str.
         page_number (int): The model property of type int.
-        mtype (Type92): The model property of type Type92.
-        additional_properties (Dict[str, Any]): The additional properties for the
-            model.
+        mtype (Type91Enum): The model property of type Type91Enum.
 
     """
 
@@ -36,8 +34,7 @@ class DocumentPage(object):
         self,
         page_name=APIHelper.SKIP,
         page_number=APIHelper.SKIP,
-        mtype=APIHelper.SKIP,
-        additional_properties=None):
+        mtype=APIHelper.SKIP):
         """Initialize a DocumentPage instance."""
         # Initialize members of the class
         if page_name is not APIHelper.SKIP:
@@ -46,11 +43,6 @@ class DocumentPage(object):
             self.page_number = page_number
         if mtype is not APIHelper.SKIP:
             self.mtype = mtype
-
-        # Add additional model properties to the instance
-        if additional_properties is None:
-            additional_properties = {}
-        self.additional_properties = additional_properties
 
     @classmethod
     def from_dictionary(cls,
@@ -83,16 +75,10 @@ class DocumentPage(object):
             if dictionary.get("type")\
                 else APIHelper.SKIP
 
-        additional_properties = APIHelper.get_additional_properties(
-            dictionary={k: v for k, v in dictionary.items()
-                        if k not in cls._names.values()},
-            unboxing_function=lambda value: value)
-
         # Return an object of this model
         return cls(page_name,
                    page_number,
-                   mtype,
-                   additional_properties)
+                   mtype)
 
     def __repr__(self):
         """Return a unambiguous string representation."""
@@ -111,13 +97,11 @@ class DocumentPage(object):
             if hasattr(self, "mtype")
             else None
         )
-        _additional_properties=self.additional_properties
         return (
             f"{self.__class__.__name__}("
             f"page_name={_page_name!r}, "
             f"page_number={_page_number!r}, "
             f"mtype={_mtype!r}, "
-            f"additional_properties={_additional_properties!r}, "
             f")"
         )
 
@@ -138,12 +122,10 @@ class DocumentPage(object):
             if hasattr(self, "mtype")
             else None
         )
-        _additional_properties=self.additional_properties
         return (
             f"{self.__class__.__name__}("
             f"page_name={_page_name!s}, "
             f"page_number={_page_number!s}, "
             f"mtype={_mtype!s}, "
-            f"additional_properties={_additional_properties!s}, "
             f")"
         )

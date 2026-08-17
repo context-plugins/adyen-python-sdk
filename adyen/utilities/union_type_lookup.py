@@ -24,7 +24,7 @@ from apimatic_core.types.union_types.union_type_context import (
     UnionTypeContext as Context,
 )
 
-from adyen.models.ach_direct_debit import AchDirectDebit
+from adyen.models.ach_direct_debit import ACHDirectDebit
 from adyen.models.additional_bank_identification_requirement import (
     AdditionalBankIdentificationRequirement,
 )
@@ -41,17 +41,17 @@ from adyen.models.amount_min_max_requirement import (
 from adyen.models.amount_non_zero_decimals_requirement import (
     AmountNonZeroDecimalsRequirement,
 )
-from adyen.models.ancv import Ancv
+from adyen.models.ancv import ANCV
 from adyen.models.android_pay import AndroidPay
 from adyen.models.apple_pay_details import ApplePayDetails
 from adyen.models.apple_pay_donations import (
     ApplePayDonations,
 )
 from adyen.models.au_local_account_identification import (
-    AuLocalAccountIdentification,
+    AULocalAccountIdentification,
 )
 from adyen.models.au_pay import AuPay
-from adyen.models.bacs_direct_debit import BacsDirectDebit
+from adyen.models.bacs_direct_debit import BACSDirectDebit
 from adyen.models.bank_account_identification_type_requirement import (
     BankAccountIdentificationTypeRequirement,
 )
@@ -59,14 +59,16 @@ from adyen.models.bank_category_data import (
     BankCategoryData,
 )
 from adyen.models.bill_desk import BillDesk
-from adyen.models.blik import Blik
+from adyen.models.blik import BLIK
 from adyen.models.br_local_account_identification import (
-    BrLocalAccountIdentification,
+    BRLocalAccountIdentification,
 )
 from adyen.models.ca_local_account_identification import (
-    CaLocalAccountIdentification,
+    CALocalAccountIdentification,
 )
-from adyen.models.cancelling_entity import CancellingEntity
+from adyen.models.cancelling_entity_enum import (
+    CancellingEntityEnum,
+)
 from adyen.models.card_details import CardDetails
 from adyen.models.card_donations import CardDonations
 from adyen.models.cellulant import Cellulant
@@ -89,10 +91,10 @@ from adyen.models.checkout_redirect_action import (
     CheckoutRedirectAction,
 )
 from adyen.models.checkout_sdk_action import (
-    CheckoutSdkAction,
+    CheckoutSDKAction,
 )
 from adyen.models.checkout_three_ds_2_action import (
-    CheckoutThreeDs2Action,
+    CheckoutThreeDS2Action,
 )
 from adyen.models.checkout_voucher_action import (
     CheckoutVoucherAction,
@@ -101,25 +103,29 @@ from adyen.models.confirmation_tracking_data import (
     ConfirmationTrackingData,
 )
 from adyen.models.cz_local_account_identification import (
-    CzLocalAccountIdentification,
+    CZLocalAccountIdentification,
 )
 from adyen.models.d_barai import DBarai
-from adyen.models.detailsoftokensthatarenotstoredwith_adyen import (
-    DetailsoftokensthatarenotstoredwithAdyen,
+from adyen.models.details_of_tokens_that_are_not_stored_with_adyen import (
+    DetailsOfTokensThatAreNotStoredWithAdyen,
 )
 from adyen.models.direct_debit_au import DirectDebitAu
-from adyen.models.dispute_status import DisputeStatus
+from adyen.models.dispute_status_enum import (
+    DisputeStatusEnum,
+)
 from adyen.models.dk_local_account_identification import (
-    DkLocalAccountIdentification,
+    DKLocalAccountIdentification,
 )
 from adyen.models.doku import Doku
 from adyen.models.donation_amount_update import (
     DonationAmountUpdate,
 )
-from adyen.models.donation_type import DonationType
+from adyen.models.donation_type_enum import (
+    DonationTypeEnum,
+)
 from adyen.models.dragonpay import Dragonpay
 from adyen.models.e_banking_finland import EBankingFinland
-from adyen.models.eft_direct_debit import EftDirectDebit
+from adyen.models.eft_direct_debit import EFTDirectDebit
 from adyen.models.estimation_tracking_data import (
     EstimationTrackingData,
 )
@@ -134,13 +140,13 @@ from adyen.models.google_pay_donations import (
     GooglePayDonations,
 )
 from adyen.models.hk_local_account_identification import (
-    HkLocalAccountIdentification,
+    HKLocalAccountIdentification,
 )
 from adyen.models.hu_local_account_identification import (
-    HuLocalAccountIdentification,
+    HULocalAccountIdentification,
 )
-from adyen.models.iban_account_identification_1 import (
-    IbanAccountIdentification1,
+from adyen.models.iban_account_identification import (
+    IbanAccountIdentification,
 )
 from adyen.models.iban_account_identification_requirement import (
     IbanAccountIdentificationRequirement,
@@ -170,27 +176,27 @@ from adyen.models.issuing_transaction_data import (
 from adyen.models.klarna import Klarna
 from adyen.models.klarna_network import KlarnaNetwork
 from adyen.models.masterpass import Masterpass
-from adyen.models.mb_way import MbWay
+from adyen.models.mb_way import MBWay
 from adyen.models.merchant_purchase_data import (
     MerchantPurchaseData,
 )
 from adyen.models.mobile_pay import MobilePay
-from adyen.models.mol_pay import MolPay
+from adyen.models.mol_pay import MOLPay
 from adyen.models.no_local_account_identification import (
-    NoLocalAccountIdentification,
+    NOLocalAccountIdentification,
 )
 from adyen.models.number_and_bic_account_identification import (
     NumberAndBicAccountIdentification,
 )
 from adyen.models.nz_local_account_identification import (
-    NzLocalAccountIdentification,
+    NZLocalAccountIdentification,
 )
 from adyen.models.online_donation_settings_update import (
     OnlineDonationSettingsUpdate,
 )
 from adyen.models.open_invoice import OpenInvoice
 from adyen.models.patchable_amount_dto import (
-    PatchableAmountDto,
+    PatchableAmountDTO,
 )
 from adyen.models.patchable_duplicate_info import (
     PatchableDuplicateInfo,
@@ -209,7 +215,7 @@ from adyen.models.patchable_schedule import (
 )
 from adyen.models.pay_by_bank import PayByBank
 from adyen.models.pay_by_bank_ais_direct_debit import (
-    PayByBankAisDirectDebit,
+    PayByBankAISDirectDebit,
 )
 from adyen.models.pay_pal import PayPal
 from adyen.models.pay_pay import PayPay
@@ -221,15 +227,15 @@ from adyen.models.pay_with_google_details import (
 from adyen.models.pay_with_google_donations import (
     PayWithGoogleDonations,
 )
-from adyen.models.payment_details_2 import PaymentDetails2
+from adyen.models.payment_details import PaymentDetails
 from adyen.models.payment_instrument_requirement import (
     PaymentInstrumentRequirement,
 )
 from adyen.models.pl_local_account_identification import (
-    PlLocalAccountIdentification,
+    PLLocalAccountIdentification,
 )
 from adyen.models.platform_payment import PlatformPayment
-from adyen.models.pse_latam import PseLatam
+from adyen.models.pse_latam import PSELatam
 from adyen.models.rakuten_pay import RakutenPay
 from adyen.models.ratepay import Ratepay
 from adyen.models.release_update_details import (
@@ -238,11 +244,11 @@ from adyen.models.release_update_details import (
 from adyen.models.riverty import Riverty
 from adyen.models.samsung_pay import SamsungPay
 from adyen.models.se_local_account_identification import (
-    SeLocalAccountIdentification,
+    SELocalAccountIdentification,
 )
-from adyen.models.sepa_direct_debit import SepaDirectDebit
+from adyen.models.sepa_direct_debit import SEPADirectDebit
 from adyen.models.sg_local_account_identification import (
-    SgLocalAccountIdentification,
+    SGLocalAccountIdentification,
 )
 from adyen.models.stored_payment_method import (
     StoredPaymentMethod,
@@ -264,10 +270,10 @@ from adyen.models.stored_payment_method_6 import (
 )
 from adyen.models.twint import Twint
 from adyen.models.uk_fps_tracing_data import (
-    UkFpsTracingData,
+    UKFpsTracingData,
 )
 from adyen.models.uk_local_account_identification import (
-    UkLocalAccountIdentification,
+    UKLocalAccountIdentification,
 )
 from adyen.models.uninstall_android_app_details import (
     UninstallAndroidAppDetails,
@@ -275,23 +281,23 @@ from adyen.models.uninstall_android_app_details import (
 from adyen.models.uninstall_android_certificate_details import (
     UninstallAndroidCertificateDetails,
 )
-from adyen.models.upi_collect import UpiCollect
-from adyen.models.upi_intent import UpiIntent
-from adyen.models.upiqr import Upiqr
+from adyen.models.upi_collect import UPICollect
+from adyen.models.upi_intent import UPIIntent
+from adyen.models.upiqr import UPIQR
 from adyen.models.us_ach_tracing_data import (
-    UsAchTracingData,
+    USAchTracingData,
 )
 from adyen.models.us_instant_payout_address_requirement import (
-    UsInstantPayoutAddressRequirement,
+    USInstantPayoutAddressRequirement,
 )
 from adyen.models.us_international_ach_address_requirement import (
-    UsInternationalAchAddressRequirement,
+    USInternationalAchAddressRequirement,
 )
 from adyen.models.us_international_ach_priority_requirement import (
-    UsInternationalAchPriorityRequirement,
+    USInternationalAchPriorityRequirement,
 )
 from adyen.models.us_local_account_identification import (
-    UsLocalAccountIdentification,
+    USLocalAccountIdentification,
 )
 from adyen.models.vipps import Vipps
 from adyen.models.visa_checkout import VisaCheckout
@@ -318,156 +324,6 @@ class UnionTypeLookUp:
     """
 
     _templates: ClassVar[dict[str, Callable]] = {
-        "BankAccountAccountIdentification": lambda: OneOf(
-            [
-                LeafType(AuLocalAccountIdentification),
-                LeafType(BrLocalAccountIdentification),
-                LeafType(CaLocalAccountIdentification),
-                LeafType(CzLocalAccountIdentification),
-                LeafType(DkLocalAccountIdentification),
-                LeafType(HkLocalAccountIdentification),
-                LeafType(HuLocalAccountIdentification),
-                LeafType(IbanAccountIdentification1),
-                LeafType(NoLocalAccountIdentification),
-                LeafType(NzLocalAccountIdentification),
-                LeafType(NumberAndBicAccountIdentification),
-                LeafType(PlLocalAccountIdentification),
-                LeafType(SeLocalAccountIdentification),
-                LeafType(SgLocalAccountIdentification),
-                LeafType(UkLocalAccountIdentification),
-                LeafType(UsLocalAccountIdentification),
-            ],
-        ),
-        "BankAccountIdentificationValidationRequestAccountIdentification": lambda: OneOf(
-            [
-                LeafType(AuLocalAccountIdentification),
-                LeafType(BrLocalAccountIdentification),
-                LeafType(CaLocalAccountIdentification),
-                LeafType(CzLocalAccountIdentification),
-                LeafType(DkLocalAccountIdentification),
-                LeafType(HkLocalAccountIdentification),
-                LeafType(HuLocalAccountIdentification),
-                LeafType(IbanAccountIdentification1),
-                LeafType(NoLocalAccountIdentification),
-                LeafType(NzLocalAccountIdentification),
-                LeafType(NumberAndBicAccountIdentification),
-                LeafType(PlLocalAccountIdentification),
-                LeafType(SeLocalAccountIdentification),
-                LeafType(SgLocalAccountIdentification),
-                LeafType(UkLocalAccountIdentification),
-                LeafType(UsLocalAccountIdentification),
-            ],
-        ),
-        "TransferRouteRequirements": lambda: OneOf(
-            [
-                LeafType(AdditionalBankIdentificationRequirement),
-                LeafType(AddressRequirement),
-                LeafType(AmountMinMaxRequirement),
-                LeafType(AmountNonZeroDecimalsRequirement),
-                LeafType(BankAccountIdentificationTypeRequirement),
-                LeafType(IbanAccountIdentificationRequirement),
-                LeafType(PaymentInstrumentRequirement),
-                LeafType(UsInstantPayoutAddressRequirement),
-                LeafType(UsInternationalAchAddressRequirement),
-                LeafType(UsInternationalAchPriorityRequirement),
-            ],
-            Context.create(
-               is_array=True,
-               is_optional=True,
-            ),
-        ),
-        "PatchableTopUpAmountFixed": lambda: OneOf(
-            [
-                LeafType(PatchableAmountDto),
-                LeafType(object,
-                         Context.create(
-                             is_nullable=True,
-                         )),
-            ],
-            Context.create(
-               is_optional=True,
-            ),
-        ),
-        "PatchableTopUpAmountTarget": lambda: OneOf(
-            [
-                LeafType(PatchableAmountDto),
-                LeafType(object,
-                         Context.create(
-                             is_nullable=True,
-                         )),
-            ],
-            Context.create(
-               is_optional=True,
-            ),
-        ),
-        "PatchableTriggerSchedule": lambda: OneOf(
-            [
-                LeafType(PatchableSchedule),
-                LeafType(object,
-                         Context.create(
-                             is_nullable=True,
-                         )),
-            ],
-            Context.create(
-               is_optional=True,
-            ),
-        ),
-        "BankAccount1AccountIdentification": lambda: OneOf(
-            [
-                LeafType(AuLocalAccountIdentification),
-                LeafType(BrLocalAccountIdentification),
-                LeafType(CaLocalAccountIdentification),
-                LeafType(CzLocalAccountIdentification),
-                LeafType(DkLocalAccountIdentification),
-                LeafType(HkLocalAccountIdentification),
-                LeafType(HuLocalAccountIdentification),
-                LeafType(IbanAccountIdentification1),
-                LeafType(NoLocalAccountIdentification),
-                LeafType(NzLocalAccountIdentification),
-                LeafType(NumberAndBicAccountIdentification),
-                LeafType(PlLocalAccountIdentification),
-                LeafType(SeLocalAccountIdentification),
-                LeafType(SgLocalAccountIdentification),
-                LeafType(UkLocalAccountIdentification),
-                LeafType(UsLocalAccountIdentification),
-            ],
-        ),
-        "PatchableTopUpAmount2Fixed": lambda: OneOf(
-            [
-                LeafType(PatchableAmountDto),
-                LeafType(object,
-                         Context.create(
-                             is_nullable=True,
-                         )),
-            ],
-            Context.create(
-               is_optional=True,
-            ),
-        ),
-        "PatchableTopUpAmount2Target": lambda: OneOf(
-            [
-                LeafType(PatchableAmountDto),
-                LeafType(object,
-                         Context.create(
-                             is_nullable=True,
-                         )),
-            ],
-            Context.create(
-               is_optional=True,
-            ),
-        ),
-        "PatchableTrigger2Schedule": lambda: OneOf(
-            [
-                LeafType(PatchableSchedule),
-                LeafType(object,
-                         Context.create(
-                             is_nullable=True,
-                         )),
-            ],
-            Context.create(
-               is_optional=True,
-            ),
-        ),
         "DonationPaymentRequestPaymentMethod": lambda: OneOf(
             [
                 LeafType(ApplePayDonations),
@@ -481,20 +337,28 @@ class UnionTypeLookUp:
                is_optional=True,
             ),
         ),
+        "PaymentDetailsResponseAction": lambda: OneOf(
+            [
+                LeafType(CheckoutThreeDS2Action),
+            ],
+            Context.create(
+               is_optional=True,
+            ),
+        ),
         "PaymentRequestPaymentMethod": lambda: OneOf(
             [
-                LeafType(AchDirectDebit),
+                LeafType(ACHDirectDebit),
                 LeafType(Affirm),
                 LeafType(Afterpay),
                 LeafType(Alma),
                 LeafType(AmazonPay),
-                LeafType(Ancv),
+                LeafType(ANCV),
                 LeafType(AndroidPay),
                 LeafType(ApplePayDetails),
                 LeafType(AuPay),
-                LeafType(BacsDirectDebit),
+                LeafType(BACSDirectDebit),
                 LeafType(BillDesk),
-                LeafType(Blik),
+                LeafType(BLIK),
                 LeafType(CardDetails),
                 LeafType(StoredPaymentMethod),
                 LeafType(Cellulant),
@@ -504,8 +368,8 @@ class UnionTypeLookUp:
                 LeafType(Dragonpay),
                 LeafType(EBankingFinland),
                 LeafType(Voucher),
-                LeafType(EftDirectDebit),
-                LeafType(DetailsoftokensthatarenotstoredwithAdyen),
+                LeafType(EFTDirectDebit),
+                LeafType(DetailsOfTokensThatAreNotStoredWithAdyen),
                 LeafType(Fastlane),
                 LeafType(StoredPaymentMethod2),
                 LeafType(GooglePayDetails),
@@ -513,31 +377,31 @@ class UnionTypeLookUp:
                 LeafType(Klarna),
                 LeafType(KlarnaNetwork),
                 LeafType(Masterpass),
-                LeafType(MbWay),
+                LeafType(MBWay),
                 LeafType(MobilePay),
-                LeafType(MolPay),
+                LeafType(MOLPay),
                 LeafType(OpenInvoice),
-                LeafType(PayByBankAisDirectDebit),
+                LeafType(PayByBankAISDirectDebit),
                 LeafType(PayByBank),
                 LeafType(PayPal),
                 LeafType(PayPay),
                 LeafType(PayTo),
                 LeafType(PayU),
                 LeafType(PayWithGoogleDetails),
-                LeafType(PaymentDetails2),
+                LeafType(PaymentDetails),
                 LeafType(StoredPaymentMethod4),
                 LeafType(StoredPaymentMethod5),
-                LeafType(PseLatam),
+                LeafType(PSELatam),
                 LeafType(RakutenPay),
                 LeafType(Ratepay),
                 LeafType(Riverty),
                 LeafType(SamsungPay),
-                LeafType(SepaDirectDebit),
+                LeafType(SEPADirectDebit),
                 LeafType(StoredPaymentMethod6),
                 LeafType(Twint),
-                LeafType(UpiCollect),
-                LeafType(UpiIntent),
-                LeafType(Upiqr),
+                LeafType(UPICollect),
+                LeafType(UPIIntent),
+                LeafType(UPIQR),
                 LeafType(Vipps),
                 LeafType(VisaCheckout),
                 LeafType(WeChatPay),
@@ -553,8 +417,8 @@ class UnionTypeLookUp:
                 LeafType(CheckoutNativeRedirectAction),
                 LeafType(CheckoutQrCodeAction),
                 LeafType(CheckoutRedirectAction),
-                LeafType(CheckoutSdkAction),
-                LeafType(CheckoutThreeDs2Action),
+                LeafType(CheckoutSDKAction),
+                LeafType(CheckoutThreeDS2Action),
                 LeafType(CheckoutVoucherAction),
             ],
             Context.create(
@@ -569,53 +433,9 @@ class UnionTypeLookUp:
                 LeafType(CheckoutNativeRedirectAction),
                 LeafType(CheckoutQrCodeAction),
                 LeafType(CheckoutRedirectAction),
-                LeafType(CheckoutSdkAction),
-                LeafType(CheckoutThreeDs2Action),
+                LeafType(CheckoutSDKAction),
+                LeafType(CheckoutThreeDS2Action),
                 LeafType(CheckoutVoucherAction),
-            ],
-            Context.create(
-               is_optional=True,
-            ),
-        ),
-        "BankAccountInfoAccountIdentification": lambda: OneOf(
-            [
-                LeafType(AuLocalAccountIdentification),
-                LeafType(CaLocalAccountIdentification),
-                LeafType(CzLocalAccountIdentification),
-                LeafType(DkLocalAccountIdentification),
-                LeafType(HkLocalAccountIdentification),
-                LeafType(HuLocalAccountIdentification),
-                LeafType(IbanAccountIdentification1),
-                LeafType(NoLocalAccountIdentification),
-                LeafType(NzLocalAccountIdentification),
-                LeafType(NumberAndBicAccountIdentification),
-                LeafType(PlLocalAccountIdentification),
-                LeafType(SeLocalAccountIdentification),
-                LeafType(SgLocalAccountIdentification),
-                LeafType(UkLocalAccountIdentification),
-                LeafType(UsLocalAccountIdentification),
-            ],
-            Context.create(
-               is_optional=True,
-            ),
-        ),
-        "BankAccountInfo1AccountIdentification": lambda: OneOf(
-            [
-                LeafType(AuLocalAccountIdentification),
-                LeafType(CaLocalAccountIdentification),
-                LeafType(CzLocalAccountIdentification),
-                LeafType(DkLocalAccountIdentification),
-                LeafType(HkLocalAccountIdentification),
-                LeafType(HuLocalAccountIdentification),
-                LeafType(IbanAccountIdentification1),
-                LeafType(NoLocalAccountIdentification),
-                LeafType(NzLocalAccountIdentification),
-                LeafType(NumberAndBicAccountIdentification),
-                LeafType(PlLocalAccountIdentification),
-                LeafType(SeLocalAccountIdentification),
-                LeafType(SgLocalAccountIdentification),
-                LeafType(UkLocalAccountIdentification),
-                LeafType(UsLocalAccountIdentification),
             ],
             Context.create(
                is_optional=True,
@@ -650,165 +470,225 @@ class UnionTypeLookUp:
         "DonationCampaignUpdateInPerson": lambda: OneOf(
             [
                 LeafType(InPersonDonationSettingsUpdate),
-                LeafType(object,
-                         Context.create(
-                             is_nullable=True,
-                         )),
             ],
             Context.create(
                is_optional=True,
+               is_nullable=True,
             ),
         ),
         "DonationCampaignUpdateOnline": lambda: OneOf(
             [
                 LeafType(OnlineDonationSettingsUpdate),
-                LeafType(object,
-                         Context.create(
-                             is_nullable=True,
-                         )),
             ],
             Context.create(
                is_optional=True,
+               is_nullable=True,
             ),
         ),
         "InPersonDonationSettingsUpdateDefaultAmount": lambda: OneOf(
             [
                 LeafType(DonationAmountUpdate),
-                LeafType(object,
-                         Context.create(
-                             is_nullable=True,
-                         )),
             ],
             Context.create(
                is_optional=True,
+               is_nullable=True,
             ),
         ),
         "InPersonDonationSettingsUpdateDonationType": lambda: OneOf(
             [
-                LeafType(DonationType),
-                LeafType(object,
-                         Context.create(
-                             is_nullable=True,
-                         )),
+                LeafType(DonationTypeEnum),
             ],
             Context.create(
                is_optional=True,
+               is_nullable=True,
             ),
         ),
         "OnlineDonationSettingsUpdateDefaultAmount": lambda: OneOf(
             [
                 LeafType(DonationAmountUpdate),
-                LeafType(object,
-                         Context.create(
-                             is_nullable=True,
-                         )),
             ],
             Context.create(
                is_optional=True,
+               is_nullable=True,
             ),
         ),
         "OnlineDonationSettingsUpdateDonationType": lambda: OneOf(
             [
-                LeafType(DonationType),
-                LeafType(object,
-                         Context.create(
-                             is_nullable=True,
-                         )),
+                LeafType(DonationTypeEnum),
             ],
             Context.create(
+               is_optional=True,
+               is_nullable=True,
+            ),
+        ),
+        "BankAccount2AccountIdentification": lambda: OneOf(
+            [
+                LeafType(AULocalAccountIdentification),
+                LeafType(BRLocalAccountIdentification),
+                LeafType(CALocalAccountIdentification),
+                LeafType(CZLocalAccountIdentification),
+                LeafType(DKLocalAccountIdentification),
+                LeafType(HKLocalAccountIdentification),
+                LeafType(HULocalAccountIdentification),
+                LeafType(IbanAccountIdentification),
+                LeafType(NOLocalAccountIdentification),
+                LeafType(NZLocalAccountIdentification),
+                LeafType(NumberAndBicAccountIdentification),
+                LeafType(PLLocalAccountIdentification),
+                LeafType(SELocalAccountIdentification),
+                LeafType(SGLocalAccountIdentification),
+                LeafType(UKLocalAccountIdentification),
+                LeafType(USLocalAccountIdentification),
+            ],
+        ),
+        "BankAccountIdentificationValidationRequestAccountIdentification": lambda: OneOf(
+            [
+                LeafType(AULocalAccountIdentification),
+                LeafType(BRLocalAccountIdentification),
+                LeafType(CALocalAccountIdentification),
+                LeafType(CZLocalAccountIdentification),
+                LeafType(DKLocalAccountIdentification),
+                LeafType(HKLocalAccountIdentification),
+                LeafType(HULocalAccountIdentification),
+                LeafType(IbanAccountIdentification),
+                LeafType(NOLocalAccountIdentification),
+                LeafType(NZLocalAccountIdentification),
+                LeafType(NumberAndBicAccountIdentification),
+                LeafType(PLLocalAccountIdentification),
+                LeafType(SELocalAccountIdentification),
+                LeafType(SGLocalAccountIdentification),
+                LeafType(UKLocalAccountIdentification),
+                LeafType(USLocalAccountIdentification),
+            ],
+        ),
+        "PaymentInstrument1AdditionalBankAccountIdentifications": lambda: OneOf(
+            [
+                LeafType(IbanAccountIdentification),
+            ],
+            Context.create(
+               is_array=True,
                is_optional=True,
             ),
         ),
-        "PatchableDisputeRequestDuplicateInfo": lambda: OneOf(
+        "TransferRouteRequirements": lambda: OneOf(
             [
-                LeafType(PatchableDuplicateInfo),
-                LeafType(object,
-                         Context.create(
-                             is_nullable=True,
-                         )),
+                LeafType(AdditionalBankIdentificationRequirement),
+                LeafType(AddressRequirement),
+                LeafType(AmountMinMaxRequirement),
+                LeafType(AmountNonZeroDecimalsRequirement),
+                LeafType(BankAccountIdentificationTypeRequirement),
+                LeafType(IbanAccountIdentificationRequirement),
+                LeafType(PaymentInstrumentRequirement),
+                LeafType(USInstantPayoutAddressRequirement),
+                LeafType(USInternationalAchAddressRequirement),
+                LeafType(USInternationalAchPriorityRequirement),
             ],
             Context.create(
+               is_array=True,
                is_optional=True,
             ),
         ),
-        "PatchableDisputeRequestFraudInfo": lambda: OneOf(
+        "UpdatePaymentInstrumentAdditionalBankAccountIdentifications": lambda: OneOf(
             [
-                LeafType(PatchableFraudInfo),
-                LeafType(object,
-                         Context.create(
-                             is_nullable=True,
-                         )),
+                LeafType(IbanAccountIdentification),
             ],
             Context.create(
+               is_array=True,
                is_optional=True,
             ),
         ),
-        "PatchableDisputeRequestNotDeliveredInfo": lambda: OneOf(
+        "PatchableTopUpAmountFixed": lambda: OneOf(
             [
-                LeafType(PatchableNotDeliveredInfo),
-                LeafType(object,
-                         Context.create(
-                             is_nullable=True,
-                         )),
+                LeafType(PatchableAmountDTO),
             ],
             Context.create(
                is_optional=True,
+               is_nullable=True,
             ),
         ),
-        "PatchableDisputeRequestOtherInfo": lambda: OneOf(
+        "PatchableTopUpAmountTarget": lambda: OneOf(
             [
-                LeafType(PatchableOtherInfo),
-                LeafType(object,
-                         Context.create(
-                             is_nullable=True,
-                         )),
+                LeafType(PatchableAmountDTO),
             ],
             Context.create(
                is_optional=True,
+               is_nullable=True,
             ),
         ),
-        "PatchableDisputeRequestStatus": lambda: OneOf(
+        "PatchableTriggerSchedule": lambda: OneOf(
             [
-                LeafType(DisputeStatus),
-                LeafType(object,
-                         Context.create(
-                             is_nullable=True,
-                         )),
+                LeafType(PatchableSchedule),
             ],
             Context.create(
                is_optional=True,
+               is_nullable=True,
             ),
         ),
-        "PatchableNotDeliveredInfoWhoCancelled": lambda: OneOf(
+        "BankAccount11AccountIdentification": lambda: OneOf(
             [
-                LeafType(CancellingEntity),
-                LeafType(object,
-                         Context.create(
-                             is_nullable=True,
-                         )),
+                LeafType(AULocalAccountIdentification),
+                LeafType(BRLocalAccountIdentification),
+                LeafType(CALocalAccountIdentification),
+                LeafType(CZLocalAccountIdentification),
+                LeafType(DKLocalAccountIdentification),
+                LeafType(HKLocalAccountIdentification),
+                LeafType(HULocalAccountIdentification),
+                LeafType(IbanAccountIdentification),
+                LeafType(NOLocalAccountIdentification),
+                LeafType(NZLocalAccountIdentification),
+                LeafType(NumberAndBicAccountIdentification),
+                LeafType(PLLocalAccountIdentification),
+                LeafType(SELocalAccountIdentification),
+                LeafType(SGLocalAccountIdentification),
+                LeafType(UKLocalAccountIdentification),
+                LeafType(USLocalAccountIdentification),
+            ],
+        ),
+        "PatchableTopUpAmount2Fixed": lambda: OneOf(
+            [
+                LeafType(PatchableAmountDTO),
             ],
             Context.create(
                is_optional=True,
+               is_nullable=True,
+            ),
+        ),
+        "PatchableTopUpAmount2Target": lambda: OneOf(
+            [
+                LeafType(PatchableAmountDTO),
+            ],
+            Context.create(
+               is_optional=True,
+               is_nullable=True,
+            ),
+        ),
+        "PatchableTrigger2Schedule": lambda: OneOf(
+            [
+                LeafType(PatchableSchedule),
+            ],
+            Context.create(
+               is_optional=True,
+               is_nullable=True,
             ),
         ),
         "BankAccountV3AccountIdentification": lambda: OneOf(
             [
-                LeafType(AuLocalAccountIdentification),
-                LeafType(BrLocalAccountIdentification),
-                LeafType(CaLocalAccountIdentification),
-                LeafType(CzLocalAccountIdentification),
-                LeafType(DkLocalAccountIdentification),
-                LeafType(HkLocalAccountIdentification),
-                LeafType(HuLocalAccountIdentification),
-                LeafType(IbanAccountIdentification1),
-                LeafType(NoLocalAccountIdentification),
-                LeafType(NzLocalAccountIdentification),
+                LeafType(AULocalAccountIdentification),
+                LeafType(BRLocalAccountIdentification),
+                LeafType(CALocalAccountIdentification),
+                LeafType(CZLocalAccountIdentification),
+                LeafType(DKLocalAccountIdentification),
+                LeafType(HKLocalAccountIdentification),
+                LeafType(HULocalAccountIdentification),
+                LeafType(IbanAccountIdentification),
+                LeafType(NOLocalAccountIdentification),
+                LeafType(NZLocalAccountIdentification),
                 LeafType(NumberAndBicAccountIdentification),
-                LeafType(PlLocalAccountIdentification),
-                LeafType(SeLocalAccountIdentification),
-                LeafType(SgLocalAccountIdentification),
-                LeafType(UkLocalAccountIdentification),
-                LeafType(UsLocalAccountIdentification),
+                LeafType(PLLocalAccountIdentification),
+                LeafType(SELocalAccountIdentification),
+                LeafType(SGLocalAccountIdentification),
+                LeafType(UKLocalAccountIdentification),
+                LeafType(USLocalAccountIdentification),
             ],
         ),
         "TransferCategoryData": lambda: OneOf(
@@ -835,8 +715,8 @@ class UnionTypeLookUp:
         ),
         "TransferDataTracing": lambda: OneOf(
             [
-                LeafType(UkFpsTracingData),
-                LeafType(UsAchTracingData),
+                LeafType(UKFpsTracingData),
+                LeafType(USAchTracingData),
             ],
             Context.create(
                is_optional=True,
@@ -865,8 +745,8 @@ class UnionTypeLookUp:
         ),
         "TransferEventTracingData": lambda: OneOf(
             [
-                LeafType(UkFpsTracingData),
-                LeafType(UsAchTracingData),
+                LeafType(UKFpsTracingData),
+                LeafType(USAchTracingData),
             ],
             Context.create(
                is_optional=True,
@@ -895,22 +775,22 @@ class UnionTypeLookUp:
         ),
         "BankAccountV31AccountIdentification": lambda: OneOf(
             [
-                LeafType(AuLocalAccountIdentification),
-                LeafType(BrLocalAccountIdentification),
-                LeafType(CaLocalAccountIdentification),
-                LeafType(CzLocalAccountIdentification),
-                LeafType(DkLocalAccountIdentification),
-                LeafType(HkLocalAccountIdentification),
-                LeafType(HuLocalAccountIdentification),
-                LeafType(IbanAccountIdentification1),
-                LeafType(NoLocalAccountIdentification),
-                LeafType(NzLocalAccountIdentification),
+                LeafType(AULocalAccountIdentification),
+                LeafType(BRLocalAccountIdentification),
+                LeafType(CALocalAccountIdentification),
+                LeafType(CZLocalAccountIdentification),
+                LeafType(DKLocalAccountIdentification),
+                LeafType(HKLocalAccountIdentification),
+                LeafType(HULocalAccountIdentification),
+                LeafType(IbanAccountIdentification),
+                LeafType(NOLocalAccountIdentification),
+                LeafType(NZLocalAccountIdentification),
                 LeafType(NumberAndBicAccountIdentification),
-                LeafType(PlLocalAccountIdentification),
-                LeafType(SeLocalAccountIdentification),
-                LeafType(SgLocalAccountIdentification),
-                LeafType(UkLocalAccountIdentification),
-                LeafType(UsLocalAccountIdentification),
+                LeafType(PLLocalAccountIdentification),
+                LeafType(SELocalAccountIdentification),
+                LeafType(SGLocalAccountIdentification),
+                LeafType(UKLocalAccountIdentification),
+                LeafType(USLocalAccountIdentification),
             ],
         ),
         "TransferView2CategoryData": lambda: OneOf(
@@ -922,6 +802,104 @@ class UnionTypeLookUp:
             ],
             Context.create(
                is_optional=True,
+            ),
+        ),
+        "BankAccountInfoAccountIdentification": lambda: OneOf(
+            [
+                LeafType(AULocalAccountIdentification),
+                LeafType(CALocalAccountIdentification),
+                LeafType(CZLocalAccountIdentification),
+                LeafType(DKLocalAccountIdentification),
+                LeafType(HKLocalAccountIdentification),
+                LeafType(HULocalAccountIdentification),
+                LeafType(IbanAccountIdentification),
+                LeafType(NOLocalAccountIdentification),
+                LeafType(NZLocalAccountIdentification),
+                LeafType(NumberAndBicAccountIdentification),
+                LeafType(PLLocalAccountIdentification),
+                LeafType(SELocalAccountIdentification),
+                LeafType(SGLocalAccountIdentification),
+                LeafType(UKLocalAccountIdentification),
+                LeafType(USLocalAccountIdentification),
+            ],
+            Context.create(
+               is_optional=True,
+            ),
+        ),
+        "BankAccountInfo1AccountIdentification": lambda: OneOf(
+            [
+                LeafType(AULocalAccountIdentification),
+                LeafType(CALocalAccountIdentification),
+                LeafType(CZLocalAccountIdentification),
+                LeafType(DKLocalAccountIdentification),
+                LeafType(HKLocalAccountIdentification),
+                LeafType(HULocalAccountIdentification),
+                LeafType(IbanAccountIdentification),
+                LeafType(NOLocalAccountIdentification),
+                LeafType(NZLocalAccountIdentification),
+                LeafType(NumberAndBicAccountIdentification),
+                LeafType(PLLocalAccountIdentification),
+                LeafType(SELocalAccountIdentification),
+                LeafType(SGLocalAccountIdentification),
+                LeafType(UKLocalAccountIdentification),
+                LeafType(USLocalAccountIdentification),
+            ],
+            Context.create(
+               is_optional=True,
+            ),
+        ),
+        "PatchableDisputeRequestDuplicateInfo": lambda: OneOf(
+            [
+                LeafType(PatchableDuplicateInfo),
+            ],
+            Context.create(
+               is_optional=True,
+               is_nullable=True,
+            ),
+        ),
+        "PatchableDisputeRequestFraudInfo": lambda: OneOf(
+            [
+                LeafType(PatchableFraudInfo),
+            ],
+            Context.create(
+               is_optional=True,
+               is_nullable=True,
+            ),
+        ),
+        "PatchableDisputeRequestNotDeliveredInfo": lambda: OneOf(
+            [
+                LeafType(PatchableNotDeliveredInfo),
+            ],
+            Context.create(
+               is_optional=True,
+               is_nullable=True,
+            ),
+        ),
+        "PatchableDisputeRequestOtherInfo": lambda: OneOf(
+            [
+                LeafType(PatchableOtherInfo),
+            ],
+            Context.create(
+               is_optional=True,
+               is_nullable=True,
+            ),
+        ),
+        "PatchableDisputeRequestStatus": lambda: OneOf(
+            [
+                LeafType(DisputeStatusEnum),
+            ],
+            Context.create(
+               is_optional=True,
+               is_nullable=True,
+            ),
+        ),
+        "PatchableNotDeliveredInfoWhoCancelled": lambda: OneOf(
+            [
+                LeafType(CancellingEntityEnum),
+            ],
+            Context.create(
+               is_optional=True,
+               is_nullable=True,
             ),
         ),
     }

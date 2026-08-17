@@ -23,8 +23,6 @@ class PlatformPaymentConfiguration1(object):
             Requires Custom Sales Day Payout to be enabled for your balance account.
             Contact your account manager or implementation manager to enable this.
             Possible values: **1** to **20**, or **null**.  Default value: **null**.
-        additional_properties (Dict[str, Any]): The additional properties for the
-            model.
 
     """
 
@@ -42,8 +40,7 @@ class PlatformPaymentConfiguration1(object):
     def __init__(
         self,
         sales_day_closing_time=APIHelper.SKIP,
-        settlement_delay_days=APIHelper.SKIP,
-        additional_properties=None):
+        settlement_delay_days=APIHelper.SKIP):
         """Initialize a PlatformPaymentConfiguration1 instance."""
         # Initialize members of the class
         if sales_day_closing_time is not APIHelper.SKIP:
@@ -53,11 +50,6 @@ class PlatformPaymentConfiguration1(object):
                  if sales_day_closing_time else None
         if settlement_delay_days is not APIHelper.SKIP:
             self.settlement_delay_days = settlement_delay_days
-
-        # Add additional model properties to the instance
-        if additional_properties is None:
-            additional_properties = {}
-        self.additional_properties = additional_properties
 
     @classmethod
     def from_dictionary(cls,
@@ -85,15 +77,9 @@ class PlatformPaymentConfiguration1(object):
             if dictionary.get("settlementDelayDays")\
                 else APIHelper.SKIP
 
-        additional_properties = APIHelper.get_additional_properties(
-            dictionary={k: v for k, v in dictionary.items()
-                        if k not in cls._names.values()},
-            unboxing_function=lambda value: value)
-
         # Return an object of this model
         return cls(sales_day_closing_time,
-                   settlement_delay_days,
-                   additional_properties)
+                   settlement_delay_days)
 
     def __repr__(self):
         """Return a unambiguous string representation."""
@@ -107,12 +93,10 @@ class PlatformPaymentConfiguration1(object):
             if hasattr(self, "settlement_delay_days")
             else None
         )
-        _additional_properties=self.additional_properties
         return (
             f"{self.__class__.__name__}("
             f"sales_day_closing_time={_sales_day_closing_time!r}, "
             f"settlement_delay_days={_settlement_delay_days!r}, "
-            f"additional_properties={_additional_properties!r}, "
             f")"
         )
 
@@ -128,11 +112,9 @@ class PlatformPaymentConfiguration1(object):
             if hasattr(self, "settlement_delay_days")
             else None
         )
-        _additional_properties=self.additional_properties
         return (
             f"{self.__class__.__name__}("
             f"sales_day_closing_time={_sales_day_closing_time!s}, "
             f"settlement_delay_days={_settlement_delay_days!s}, "
-            f"additional_properties={_additional_properties!s}, "
             f")"
         )

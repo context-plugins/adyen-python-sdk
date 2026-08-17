@@ -19,8 +19,6 @@ class GetPciUrlResponse(object):
             should redirect your account holder. This URL must be used within 30
             seconds and can only be used once.
         result_code (str): The result code.
-        additional_properties (Dict[str, Any]): The additional properties for the
-            model.
 
     """
 
@@ -44,8 +42,7 @@ class GetPciUrlResponse(object):
         invalid_fields=APIHelper.SKIP,
         psp_reference=APIHelper.SKIP,
         redirect_url=APIHelper.SKIP,
-        result_code=APIHelper.SKIP,
-        additional_properties=None):
+        result_code=APIHelper.SKIP):
         """Initialize a GetPciUrlResponse instance."""
         # Initialize members of the class
         if invalid_fields is not APIHelper.SKIP:
@@ -56,11 +53,6 @@ class GetPciUrlResponse(object):
             self.redirect_url = redirect_url
         if result_code is not APIHelper.SKIP:
             self.result_code = result_code
-
-        # Add additional model properties to the instance
-        if additional_properties is None:
-            additional_properties = {}
-        self.additional_properties = additional_properties
 
     @classmethod
     def from_dictionary(cls,
@@ -101,17 +93,11 @@ class GetPciUrlResponse(object):
             if dictionary.get("resultCode")\
                 else APIHelper.SKIP
 
-        additional_properties = APIHelper.get_additional_properties(
-            dictionary={k: v for k, v in dictionary.items()
-                        if k not in cls._names.values()},
-            unboxing_function=lambda value: value)
-
         # Return an object of this model
         return cls(invalid_fields,
                    psp_reference,
                    redirect_url,
-                   result_code,
-                   additional_properties)
+                   result_code)
 
     def __repr__(self):
         """Return a unambiguous string representation."""
@@ -135,14 +121,12 @@ class GetPciUrlResponse(object):
             if hasattr(self, "result_code")
             else None
         )
-        _additional_properties=self.additional_properties
         return (
             f"{self.__class__.__name__}("
             f"invalid_fields={_invalid_fields!r}, "
             f"psp_reference={_psp_reference!r}, "
             f"redirect_url={_redirect_url!r}, "
             f"result_code={_result_code!r}, "
-            f"additional_properties={_additional_properties!r}, "
             f")"
         )
 
@@ -168,13 +152,11 @@ class GetPciUrlResponse(object):
             if hasattr(self, "result_code")
             else None
         )
-        _additional_properties=self.additional_properties
         return (
             f"{self.__class__.__name__}("
             f"invalid_fields={_invalid_fields!s}, "
             f"psp_reference={_psp_reference!s}, "
             f"redirect_url={_redirect_url!s}, "
             f"result_code={_result_code!s}, "
-            f"additional_properties={_additional_properties!s}, "
             f")"
         )

@@ -14,8 +14,6 @@ class HomeScreenSettings(object):
         hide_navigation_bar (bool): Hide/show the navigation bar.
         show_payments_menu (bool): Show/hide the payments menu.
         show_settings_menu (bool): Show/hide the settings menu.
-        additional_properties (Dict[str, Any]): The additional properties for the
-            model.
 
     """
 
@@ -36,8 +34,7 @@ class HomeScreenSettings(object):
         self,
         hide_navigation_bar=APIHelper.SKIP,
         show_payments_menu=APIHelper.SKIP,
-        show_settings_menu=APIHelper.SKIP,
-        additional_properties=None):
+        show_settings_menu=APIHelper.SKIP):
         """Initialize a HomeScreenSettings instance."""
         # Initialize members of the class
         if hide_navigation_bar is not APIHelper.SKIP:
@@ -46,11 +43,6 @@ class HomeScreenSettings(object):
             self.show_payments_menu = show_payments_menu
         if show_settings_menu is not APIHelper.SKIP:
             self.show_settings_menu = show_settings_menu
-
-        # Add additional model properties to the instance
-        if additional_properties is None:
-            additional_properties = {}
-        self.additional_properties = additional_properties
 
     @classmethod
     def from_dictionary(cls,
@@ -83,16 +75,10 @@ class HomeScreenSettings(object):
             if "showSettingsMenu" in dictionary.keys()\
                 else APIHelper.SKIP
 
-        additional_properties = APIHelper.get_additional_properties(
-            dictionary={k: v for k, v in dictionary.items()
-                        if k not in cls._names.values()},
-            unboxing_function=lambda value: value)
-
         # Return an object of this model
         return cls(hide_navigation_bar,
                    show_payments_menu,
-                   show_settings_menu,
-                   additional_properties)
+                   show_settings_menu)
 
     def __repr__(self):
         """Return a unambiguous string representation."""
@@ -111,13 +97,11 @@ class HomeScreenSettings(object):
             if hasattr(self, "show_settings_menu")
             else None
         )
-        _additional_properties=self.additional_properties
         return (
             f"{self.__class__.__name__}("
             f"hide_navigation_bar={_hide_navigation_bar!r}, "
             f"show_payments_menu={_show_payments_menu!r}, "
             f"show_settings_menu={_show_settings_menu!r}, "
-            f"additional_properties={_additional_properties!r}, "
             f")"
         )
 
@@ -138,12 +122,10 @@ class HomeScreenSettings(object):
             if hasattr(self, "show_settings_menu")
             else None
         )
-        _additional_properties=self.additional_properties
         return (
             f"{self.__class__.__name__}("
             f"hide_navigation_bar={_hide_navigation_bar!s}, "
             f"show_payments_menu={_show_payments_menu!s}, "
             f"show_settings_menu={_show_settings_menu!s}, "
-            f"additional_properties={_additional_properties!s}, "
             f")"
         )

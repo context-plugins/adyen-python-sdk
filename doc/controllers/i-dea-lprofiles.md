@@ -6,7 +6,7 @@ i_dea_lprofiles_api = client.i_dea_lprofiles
 
 ## Class Name
 
-`IdeaLprofilesApi`
+`IDEALprofilesApi`
 
 ## Methods
 
@@ -36,7 +36,7 @@ def post_ideal_profile_auth_link(self,
 
 **200**: OK - The request has succeeded.
 
-This method returns an [`ApiResponse`](../../doc/api-response.md) instance. The `body` property of this instance returns the response data which is of type [`IdealAuthLinkResponse`](../../doc/models/ideal-auth-link-response.md).
+[`IdealAuthLinkResponse`](../../doc/models/ideal-auth-link-response.md)
 
 ## Example Usage
 
@@ -46,11 +46,7 @@ body = IdealAuthLinkRequest(
 )
 
 result = i_deal_profiles_api.post_ideal_profile_auth_link(body)
-
-if result.is_success():
-    print(result.body)
-elif result.is_error():
-    print(result.errors)
+print(result)
 ```
 
 ## Example Response *(as JSON)*
@@ -67,9 +63,9 @@ elif result.is_error():
 
 | HTTP Status Code | Error Description | Exception Class |
 |  --- | --- | --- |
-| 400 | Bad Request - The request is malformed or is not the expected format. | [`IdealProfileAuthLink400ErrorException`](../../doc/models/ideal-profile-auth-link-400-error-exception.md) |
-| 422 | Unprocessable Entity - A request validation error. | [`IdealProfileAuthLink422ErrorException`](../../doc/models/ideal-profile-auth-link-422-error-exception.md) |
-| 500 | Internal Service Error - An unrecoverable error occurred while trying to perform the request. | [`IdealProfileAuthLink500ErrorException`](../../doc/models/ideal-profile-auth-link-500-error-exception.md) |
+| 400 | Bad Request - The request is malformed or is not the expected format. | [`DefaultErrorResponseEntityException`](../../doc/models/default-error-response-entity-exception.md) |
+| 422 | Unprocessable Entity - A request validation error. | [`DefaultErrorResponseEntityException`](../../doc/models/default-error-response-entity-exception.md) |
+| 500 | Internal Service Error - An unrecoverable error occurred while trying to perform the request. | [`DefaultErrorResponseEntityException`](../../doc/models/default-error-response-entity-exception.md) |
 
 
 # Post-Ideal-Profile-Authenticate
@@ -93,7 +89,7 @@ def post_ideal_profile_authenticate(self,
 
 **200**: OK - The request has succeeded.
 
-This method returns an [`ApiResponse`](../../doc/api-response.md) instance. The `body` property of this instance returns the response data which is of type [`IdealAuthLinkResponse`](../../doc/models/ideal-auth-link-response.md).
+[`IdealAuthenticateResponse`](../../doc/models/ideal-authenticate-response.md)
 
 ## Example Usage
 
@@ -104,11 +100,7 @@ body = IdealAuthenticateRequest(
 )
 
 result = i_deal_profiles_api.post_ideal_profile_authenticate(body)
-
-if result.is_success():
-    print(result.body)
-elif result.is_error():
-    print(result.errors)
+print(result)
 ```
 
 ## Example Response *(as JSON)*
@@ -125,9 +117,9 @@ elif result.is_error():
 
 | HTTP Status Code | Error Description | Exception Class |
 |  --- | --- | --- |
-| 400 | Bad Request - The request is malformed or is not the expected format. | [`IdealProfileAuthenticate400ErrorException`](../../doc/models/ideal-profile-authenticate-400-error-exception.md) |
-| 422 | Unprocessable Entity - A request validation error. | [`IdealProfileAuthenticate422ErrorException`](../../doc/models/ideal-profile-authenticate-422-error-exception.md) |
-| 500 | Internal Service Error - An unrecoverable error occurred while trying to perform the request. | [`IdealProfileAuthenticate500ErrorException`](../../doc/models/ideal-profile-authenticate-500-error-exception.md) |
+| 400 | Bad Request - The request is malformed or is not the expected format. | [`DefaultErrorResponseEntityException`](../../doc/models/default-error-response-entity-exception.md) |
+| 422 | Unprocessable Entity - A request validation error. | [`DefaultErrorResponseEntityException`](../../doc/models/default-error-response-entity-exception.md) |
+| 500 | Internal Service Error - An unrecoverable error occurred while trying to perform the request. | [`DefaultErrorResponseEntityException`](../../doc/models/default-error-response-entity-exception.md) |
 
 
 # Post-Ideal-Profile-Register
@@ -151,7 +143,7 @@ def post_ideal_profile_register(self,
 
 **200**: OK - The request has succeeded.
 
-This method returns an [`ApiResponse`](../../doc/api-response.md) instance. The `body` property of this instance returns the response data which is of type [`IdealAuthLinkResponse`](../../doc/models/ideal-auth-link-response.md).
+[`ProfileRegistrationResponse`](../../doc/models/profile-registration-response.md)
 
 ## Example Usage
 
@@ -165,11 +157,7 @@ body = ProfileRegistrationRequest(
 )
 
 result = i_deal_profiles_api.post_ideal_profile_register(body)
-
-if result.is_success():
-    print(result.body)
-elif result.is_error():
-    print(result.errors)
+print(result)
 ```
 
 ## Example Response *(as JSON)*
@@ -186,7 +174,7 @@ elif result.is_error():
 
 | HTTP Status Code | Error Description | Exception Class |
 |  --- | --- | --- |
-| 400 | Bad Request - The request is malformed or is not the expected format. | [`IdealProfileRegister400ErrorException`](../../doc/models/ideal-profile-register-400-error-exception.md) |
-| 422 | Unprocessable Entity - A request validation error. | [`IdealProfileRegister422ErrorException`](../../doc/models/ideal-profile-register-422-error-exception.md) |
-| 500 | Internal Service Error - An unrecoverable error occurred while trying to perform the request. | [`IdealProfileRegister500ErrorException`](../../doc/models/ideal-profile-register-500-error-exception.md) |
+| 400 | Bad Request - The request is malformed or is not the expected format. | [`DefaultErrorResponseEntityException`](../../doc/models/default-error-response-entity-exception.md) |
+| 422 | Unprocessable Entity - A request validation error. | [`DefaultErrorResponseEntityException`](../../doc/models/default-error-response-entity-exception.md) |
+| 500 | Internal Service Error - An unrecoverable error occurred while trying to perform the request. | [`DefaultErrorResponseEntityException`](../../doc/models/default-error-response-entity-exception.md) |
 

@@ -1,8 +1,6 @@
 
 # Update Company Api Credential Request
 
-*This model accepts additional fields of type Any.*
-
 ## Structure
 
 `UpdateCompanyApiCredentialRequest`
@@ -17,13 +15,10 @@
 | `description` | `str` | Optional | Description of the API credential. |
 | `roles` | `List[str]` | Optional | List of [roles](https://docs.adyen.com/development-resources/api-credentials#roles-1) for the API credential. Only roles assigned to 'ws@Company.<CompanyName>' can be assigned to other API credentials. |
 | `subject_dn` | `str` | Optional | The subject DN of the certificate issued by Adyen. |
-| `additional_properties` | `Dict[str, Any]` | Optional | - |
 
 ## Example
 
 ```python
-import jsonpickle
-
 from adyen.models.update_company_api_credential_request import UpdateCompanyApiCredentialRequest
 
 update_company_api_credential_request = UpdateCompanyApiCredentialRequest(
@@ -41,10 +36,7 @@ update_company_api_credential_request = UpdateCompanyApiCredentialRequest(
     roles=[
         'roles4',
         'roles3'
-    ],
-    additional_properties={
-        'exampleAdditionalProperty': jsonpickle.decode('{"key1":"val1","key2":"val2"}')
-    }
+    ]
 )
 ```
 

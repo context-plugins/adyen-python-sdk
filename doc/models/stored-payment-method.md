@@ -1,8 +1,6 @@
 
 # Stored Payment Method
 
-*This model accepts additional fields of type Any.*
-
 ## Structure
 
 `StoredPaymentMethod`
@@ -21,15 +19,13 @@
 | `sdk_data` | `str` | Optional | Base64-encoded JSON object containing SDK related parameters required by the SDK<br><br>**Constraints**: *Maximum Length*: `50000` |
 | `stored_payment_method_id` | `str` | Optional | This is the `recurringDetailReference` returned in the response when you created the token.<br><br>**Constraints**: *Maximum Length*: `64` |
 | `subtype` | `str` | Optional | The payment method subtype. |
-| `mtype` | [`Type16`](../../doc/models/type-16.md) | Optional | - |
-| `additional_properties` | `Dict[str, Any]` | Optional | - |
+| `mtype` | [`Type16Enum`](../../doc/models/type-16-enum.md) | Optional | cashapp<br><br>**Default**: `"cashapp"` |
 
 ## Example
 
 ```python
-import jsonpickle
-
 from adyen.models.stored_payment_method import StoredPaymentMethod
+from adyen.models.type_16_enum import Type16Enum
 
 stored_payment_method = StoredPaymentMethod(
     cashtag='cashtag6',
@@ -37,9 +33,7 @@ stored_payment_method = StoredPaymentMethod(
     customer_id='customerId2',
     grant_id='grantId6',
     on_file_grant_id='onFileGrantId6',
-    additional_properties={
-        'exampleAdditionalProperty': jsonpickle.decode('{"key1":"val1","key2":"val2"}')
-    }
+    mtype=Type16Enum.CASHAPP
 )
 ```
 

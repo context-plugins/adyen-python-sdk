@@ -14,12 +14,10 @@ class PatchableTopUpAmount2(object):
     units. This can be a fixed amount or a target amount.
 
     Attributes:
-        fixed (PatchableAmountDto | Any | None): The fixed amount with which you want
-            to top up the balance account.
-        target (PatchableAmountDto | Any | None): The target balance for the balance
+        fixed (PatchableAmountDTO | None): The fixed amount with which you want to
+            top up the balance account.
+        target (PatchableAmountDTO | None): The target balance for the balance
             account that the top-up must achieve.
-        additional_properties (Dict[str, Any]): The additional properties for the
-            model.
 
     """
 
@@ -34,22 +32,21 @@ class PatchableTopUpAmount2(object):
         "target",
     ]
 
+    _nullables = [
+        "fixed",
+        "target",
+    ]
+
     def __init__(
         self,
         fixed=APIHelper.SKIP,
-        target=APIHelper.SKIP,
-        additional_properties=None):
+        target=APIHelper.SKIP):
         """Initialize a PatchableTopUpAmount2 instance."""
         # Initialize members of the class
         if fixed is not APIHelper.SKIP:
             self.fixed = fixed
         if target is not APIHelper.SKIP:
             self.target = target
-
-        # Add additional model properties to the instance
-        if additional_properties is None:
-            additional_properties = {}
-        self.additional_properties = additional_properties
 
     @classmethod
     def from_dictionary(cls,
@@ -73,28 +70,28 @@ class PatchableTopUpAmount2(object):
             return None
 
         # Extract variables from the dictionary
-        fixed = APIHelper.deserialize_union_type(
+        if "fixed" in dictionary.keys():
+            fixed = APIHelper.deserialize_union_type(
             UnionTypeLookUp.get("PatchableTopUpAmount2Fixed"),
             dictionary.get("fixed"),
             False)\
             if dictionary.get("fixed") is not None\
-            else APIHelper.SKIP
-        target = APIHelper.deserialize_union_type(
+            else None
+        else:
+            fixed = APIHelper.SKIP
+        if "target" in dictionary.keys():
+            target = APIHelper.deserialize_union_type(
             UnionTypeLookUp.get("PatchableTopUpAmount2Target"),
             dictionary.get("target"),
             False)\
             if dictionary.get("target") is not None\
-            else APIHelper.SKIP
-
-        additional_properties = APIHelper.get_additional_properties(
-            dictionary={k: v for k, v in dictionary.items()
-                        if k not in cls._names.values()},
-            unboxing_function=lambda value: value)
+            else None
+        else:
+            target = APIHelper.SKIP
 
         # Return an object of this model
         return cls(fixed,
-                   target,
-                   additional_properties)
+                   target)
 
     def __repr__(self):
         """Return a unambiguous string representation."""
@@ -108,12 +105,10 @@ class PatchableTopUpAmount2(object):
             if hasattr(self, "target")
             else None
         )
-        _additional_properties=self.additional_properties
         return (
             f"{self.__class__.__name__}("
             f"fixed={_fixed!r}, "
             f"target={_target!r}, "
-            f"additional_properties={_additional_properties!r}, "
             f")"
         )
 
@@ -129,11 +124,9 @@ class PatchableTopUpAmount2(object):
             if hasattr(self, "target")
             else None
         )
-        _additional_properties=self.additional_properties
         return (
             f"{self.__class__.__name__}("
             f"fixed={_fixed!s}, "
             f"target={_target!s}, "
-            f"additional_properties={_additional_properties!s}, "
             f")"
         )

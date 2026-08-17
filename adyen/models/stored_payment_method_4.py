@@ -9,7 +9,7 @@ from adyen.models.pix_recurring import PixRecurring
 
 
 class StoredPaymentMethod4(object):
-    """Implementation of the 'StoredPaymentMethod4' model.
+    """Implementation of the 'Stored Payment Method4' model.
 
     Attributes:
         checkout_attempt_id (str): The checkout attempt identifier.
@@ -20,9 +20,7 @@ class StoredPaymentMethod4(object):
             required by the SDK
         stored_payment_method_id (str): This is the `recurringDetailReference`
             returned in the response when you created the token.
-        mtype (Type44): The model property of type Type44.
-        additional_properties (Dict[str, Any]): The additional properties for the
-            model.
+        mtype (Type44Enum): The payment method type.
 
     """
 
@@ -52,8 +50,7 @@ class StoredPaymentMethod4(object):
         recurring_detail_reference=APIHelper.SKIP,
         sdk_data=APIHelper.SKIP,
         stored_payment_method_id=APIHelper.SKIP,
-        mtype=APIHelper.SKIP,
-        additional_properties=None):
+        mtype=APIHelper.SKIP):
         """Initialize a StoredPaymentMethod4 instance."""
         # Initialize members of the class
         if checkout_attempt_id is not APIHelper.SKIP:
@@ -68,11 +65,6 @@ class StoredPaymentMethod4(object):
             self.stored_payment_method_id = stored_payment_method_id
         if mtype is not APIHelper.SKIP:
             self.mtype = mtype
-
-        # Add additional model properties to the instance
-        if additional_properties is None:
-            additional_properties = {}
-        self.additional_properties = additional_properties
 
     @classmethod
     def from_dictionary(cls,
@@ -118,19 +110,13 @@ class StoredPaymentMethod4(object):
             if dictionary.get("type")\
                 else APIHelper.SKIP
 
-        additional_properties = APIHelper.get_additional_properties(
-            dictionary={k: v for k, v in dictionary.items()
-                        if k not in cls._names.values()},
-            unboxing_function=lambda value: value)
-
         # Return an object of this model
         return cls(checkout_attempt_id,
                    pix_recurring,
                    recurring_detail_reference,
                    sdk_data,
                    stored_payment_method_id,
-                   mtype,
-                   additional_properties)
+                   mtype)
 
     @classmethod
     def validate(cls, dictionary):
@@ -185,7 +171,6 @@ class StoredPaymentMethod4(object):
             if hasattr(self, "mtype")
             else None
         )
-        _additional_properties=self.additional_properties
         return (
             f"{self.__class__.__name__}("
             f"checkout_attempt_id={_checkout_attempt_id!r}, "
@@ -194,7 +179,6 @@ class StoredPaymentMethod4(object):
             f"sdk_data={_sdk_data!r}, "
             f"stored_payment_method_id={_stored_payment_method_id!r}, "
             f"mtype={_mtype!r}, "
-            f"additional_properties={_additional_properties!r}, "
             f")"
         )
 
@@ -230,7 +214,6 @@ class StoredPaymentMethod4(object):
             if hasattr(self, "mtype")
             else None
         )
-        _additional_properties=self.additional_properties
         return (
             f"{self.__class__.__name__}("
             f"checkout_attempt_id={_checkout_attempt_id!s}, "
@@ -239,6 +222,5 @@ class StoredPaymentMethod4(object):
             f"sdk_data={_sdk_data!s}, "
             f"stored_payment_method_id={_stored_payment_method_id!s}, "
             f"mtype={_mtype!s}, "
-            f"additional_properties={_additional_properties!s}, "
             f")"
         )

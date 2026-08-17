@@ -39,7 +39,7 @@ def get_grants(self,
 
 **200**: OK - The request has succeeded.
 
-This method returns an [`ApiResponse`](../../doc/api-response.md) instance. The `body` property of this instance returns the response data which is of type [`Grants`](../../doc/models/grants.md).
+[`Grants`](../../doc/models/grants.md)
 
 ## Example Usage
 
@@ -47,19 +47,15 @@ This method returns an [`ApiResponse`](../../doc/api-response.md) instance. The 
 counterparty_account_holder_id = 'counterpartyAccountHolderId8'
 
 result = grants_api.get_grants(counterparty_account_holder_id)
-
-if result.is_success():
-    print(result.body)
-elif result.is_error():
-    print(result.errors)
+print(result)
 ```
 
 ## Errors
 
 | HTTP Status Code | Error Description | Exception Class |
 |  --- | --- | --- |
-| 404 | Not Found - The entity was not found. | [`Grants404ErrorException`](../../doc/models/grants-404-error-exception.md) |
-| 422 | Unprocessable Entity - A request validation error. | [`Grants422ErrorException`](../../doc/models/grants-422-error-exception.md) |
+| 404 | Not Found - The entity was not found. | [`DefaultErrorResponseEntityException`](../../doc/models/default-error-response-entity-exception.md) |
+| 422 | Unprocessable Entity - A request validation error. | [`DefaultErrorResponseEntityException`](../../doc/models/default-error-response-entity-exception.md) |
 
 
 # Post-Grants
@@ -77,30 +73,26 @@ def post_grants(self,
 
 | Parameter | Type | Tags | Description |
 |  --- | --- | --- | --- |
-| `body` | [`GrantInfo`](../../doc/models/grant-info.md) | Body, Optional | - |
+| `body` | [`CapitalGrantInfo`](../../doc/models/capital-grant-info.md) | Body, Optional | - |
 
 ## Response Type
 
 **200**: OK - The request has succeeded.
 
-This method returns an [`ApiResponse`](../../doc/api-response.md) instance. The `body` property of this instance returns the response data which is of type [`Grant`](../../doc/models/grant.md).
+[`Grant`](../../doc/models/grant.md)
 
 ## Example Usage
 
 ```python
 result = grants_api.post_grants()
-
-if result.is_success():
-    print(result.body)
-elif result.is_error():
-    print(result.errors)
+print(result)
 ```
 
 ## Errors
 
 | HTTP Status Code | Error Description | Exception Class |
 |  --- | --- | --- |
-| 422 | Unprocessable Entity - A request validation error. | [`Grants422ErrorException`](../../doc/models/grants-422-error-exception.md) |
+| 422 | Unprocessable Entity - A request validation error. | [`DefaultErrorResponseEntityException`](../../doc/models/default-error-response-entity-exception.md) |
 
 
 # Get-Grants-Grant Id
@@ -124,7 +116,7 @@ def get_grants_grant_id(self,
 
 **200**: OK - The request has succeeded.
 
-This method returns an [`ApiResponse`](../../doc/api-response.md) instance. The `body` property of this instance returns the response data which is of type [`Grant`](../../doc/models/grant.md).
+[`Grant`](../../doc/models/grant.md)
 
 ## Example Usage
 
@@ -132,19 +124,15 @@ This method returns an [`ApiResponse`](../../doc/api-response.md) instance. The 
 grant_id = 'grantId8'
 
 result = grants_api.get_grants_grant_id(grant_id)
-
-if result.is_success():
-    print(result.body)
-elif result.is_error():
-    print(result.errors)
+print(result)
 ```
 
 ## Errors
 
 | HTTP Status Code | Error Description | Exception Class |
 |  --- | --- | --- |
-| 404 | Not Found - The entity was not found. | [`Grants404ErrorException`](../../doc/models/grants-404-error-exception.md) |
-| 422 | Unprocessable Entity - A request validation error. | [`Grants422ErrorException`](../../doc/models/grants-422-error-exception.md) |
+| 404 | Not Found - The entity was not found. | [`DefaultErrorResponseEntityException`](../../doc/models/default-error-response-entity-exception.md) |
+| 422 | Unprocessable Entity - A request validation error. | [`DefaultErrorResponseEntityException`](../../doc/models/default-error-response-entity-exception.md) |
 
 
 # Get-Grants-Grant Id-Disbursements
@@ -168,7 +156,7 @@ def get_grants_grant_id_disbursements(self,
 
 **200**: OK - The request has succeeded.
 
-This method returns an [`ApiResponse`](../../doc/api-response.md) instance. The `body` property of this instance returns the response data which is of type [`Disbursements`](../../doc/models/disbursements.md).
+[`Disbursements`](../../doc/models/disbursements.md)
 
 ## Example Usage
 
@@ -176,19 +164,15 @@ This method returns an [`ApiResponse`](../../doc/api-response.md) instance. The 
 grant_id = 'grantId8'
 
 result = grants_api.get_grants_grant_id_disbursements(grant_id)
-
-if result.is_success():
-    print(result.body)
-elif result.is_error():
-    print(result.errors)
+print(result)
 ```
 
 ## Errors
 
 | HTTP Status Code | Error Description | Exception Class |
 |  --- | --- | --- |
-| 404 | Not Found - The entity was not found. | [`GrantsDisbursements404ErrorException`](../../doc/models/grants-disbursements-404-error-exception.md) |
-| 422 | Unprocessable Entity - A request validation error. | [`GrantsDisbursements422ErrorException`](../../doc/models/grants-disbursements-422-error-exception.md) |
+| 404 | Not Found - The entity was not found. | [`DefaultErrorResponseEntityException`](../../doc/models/default-error-response-entity-exception.md) |
+| 422 | Unprocessable Entity - A request validation error. | [`DefaultErrorResponseEntityException`](../../doc/models/default-error-response-entity-exception.md) |
 
 
 # Get-Grants-Grant Id-Disbursements-Disbursement Id
@@ -214,7 +198,7 @@ def get_grants_grant_id_disbursements_disbursement_id(self,
 
 **200**: OK - The request has succeeded.
 
-This method returns an [`ApiResponse`](../../doc/api-response.md) instance. The `body` property of this instance returns the response data which is of type [`Disbursement`](../../doc/models/disbursement.md).
+[`Disbursement`](../../doc/models/disbursement.md)
 
 ## Example Usage
 
@@ -227,19 +211,15 @@ result = grants_api.get_grants_grant_id_disbursements_disbursement_id(
     grant_id,
     disbursement_id
 )
-
-if result.is_success():
-    print(result.body)
-elif result.is_error():
-    print(result.errors)
+print(result)
 ```
 
 ## Errors
 
 | HTTP Status Code | Error Description | Exception Class |
 |  --- | --- | --- |
-| 404 | Not Found - The entity was not found. | [`GrantsDisbursements404ErrorException`](../../doc/models/grants-disbursements-404-error-exception.md) |
-| 422 | Unprocessable Entity - A request validation error. | [`GrantsDisbursements422ErrorException`](../../doc/models/grants-disbursements-422-error-exception.md) |
+| 404 | Not Found - The entity was not found. | [`DefaultErrorResponseEntityException`](../../doc/models/default-error-response-entity-exception.md) |
+| 422 | Unprocessable Entity - A request validation error. | [`DefaultErrorResponseEntityException`](../../doc/models/default-error-response-entity-exception.md) |
 
 
 # Patch-Grants-Grant Id-Disbursements-Disbursement Id
@@ -267,7 +247,7 @@ def patch_grants_grant_id_disbursements_disbursement_id(self,
 
 **200**: OK - The request has succeeded.
 
-This method returns an [`ApiResponse`](../../doc/api-response.md) instance. The `body` property of this instance returns the response data which is of type [`Disbursement`](../../doc/models/disbursement.md).
+[`Disbursement`](../../doc/models/disbursement.md)
 
 ## Example Usage
 
@@ -283,17 +263,13 @@ result = grants_api.patch_grants_grant_id_disbursements_disbursement_id(
     disbursement_id,
     body
 )
-
-if result.is_success():
-    print(result.body)
-elif result.is_error():
-    print(result.errors)
+print(result)
 ```
 
 ## Errors
 
 | HTTP Status Code | Error Description | Exception Class |
 |  --- | --- | --- |
-| 404 | Not Found - The entity was not found. | [`GrantsDisbursements404ErrorException`](../../doc/models/grants-disbursements-404-error-exception.md) |
-| 422 | Unprocessable Entity - A request validation error. | [`GrantsDisbursements422ErrorException`](../../doc/models/grants-disbursements-422-error-exception.md) |
+| 404 | Not Found - The entity was not found. | [`DefaultErrorResponseEntityException`](../../doc/models/default-error-response-entity-exception.md) |
+| 422 | Unprocessable Entity - A request validation error. | [`DefaultErrorResponseEntityException`](../../doc/models/default-error-response-entity-exception.md) |
 

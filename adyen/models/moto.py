@@ -18,8 +18,6 @@ class Moto(object):
             /1/patch/companies/(companyId)/terminalSettings#request-standalone-currenc
             yCode) parameter. Do not enable standalone, unless you are using a
             standalone solution.
-        additional_properties (Dict[str, Any]): The additional properties for the
-            model.
 
     """
 
@@ -37,19 +35,13 @@ class Moto(object):
     def __init__(
         self,
         enable_moto=APIHelper.SKIP,
-        max_amount=APIHelper.SKIP,
-        additional_properties=None):
+        max_amount=APIHelper.SKIP):
         """Initialize a Moto instance."""
         # Initialize members of the class
         if enable_moto is not APIHelper.SKIP:
             self.enable_moto = enable_moto
         if max_amount is not APIHelper.SKIP:
             self.max_amount = max_amount
-
-        # Add additional model properties to the instance
-        if additional_properties is None:
-            additional_properties = {}
-        self.additional_properties = additional_properties
 
     @classmethod
     def from_dictionary(cls,
@@ -78,15 +70,9 @@ class Moto(object):
             if dictionary.get("maxAmount")\
                 else APIHelper.SKIP
 
-        additional_properties = APIHelper.get_additional_properties(
-            dictionary={k: v for k, v in dictionary.items()
-                        if k not in cls._names.values()},
-            unboxing_function=lambda value: value)
-
         # Return an object of this model
         return cls(enable_moto,
-                   max_amount,
-                   additional_properties)
+                   max_amount)
 
     def __repr__(self):
         """Return a unambiguous string representation."""
@@ -100,12 +86,10 @@ class Moto(object):
             if hasattr(self, "max_amount")
             else None
         )
-        _additional_properties=self.additional_properties
         return (
             f"{self.__class__.__name__}("
             f"enable_moto={_enable_moto!r}, "
             f"max_amount={_max_amount!r}, "
-            f"additional_properties={_additional_properties!r}, "
             f")"
         )
 
@@ -121,11 +105,9 @@ class Moto(object):
             if hasattr(self, "max_amount")
             else None
         )
-        _additional_properties=self.additional_properties
         return (
             f"{self.__class__.__name__}("
             f"enable_moto={_enable_moto!s}, "
             f"max_amount={_max_amount!s}, "
-            f"additional_properties={_additional_properties!s}, "
             f")"
         )

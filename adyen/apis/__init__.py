@@ -28,7 +28,6 @@ __all__ = [
     "cash_out_api",
     "client_key_company_level_api",
     "client_key_merchant_level_api",
-    "cloud_endpoints_and_connection_api",
     "custom_payout_schedules_sweeps_api",
     "direct_debit_mandates_api",
     "dispute_attachments_api",

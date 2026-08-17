@@ -1,8 +1,6 @@
 
 # Account Holder Capability
 
-*This model accepts additional fields of type Any.*
-
 ## Structure
 
 `AccountHolderCapability`
@@ -12,510 +10,50 @@
 | Name | Type | Tags | Description |
 |  --- | --- | --- | --- |
 | `allowed` | `bool` | Optional, Read-only | Indicates whether the capability is allowed. Adyen sets this to **true** if the verification is successful and the account holder is permitted to use the capability. |
-| `allowed_level` | [`AllowedLevel`](../../doc/models/allowed-level.md) | Optional, Read-only | - |
-| `allowed_settings` | [`CapabilitySettings`](../../doc/models/capability-settings.md) | Optional | - |
+| `allowed_level` | [`AllowedLevelEnum`](../../doc/models/allowed-level-enum.md) | Optional, Read-only | The capability level that is allowed for the account holder.<br><br>Possible values: **notApplicable**, **low**, **medium**, **high**. |
+| `allowed_settings` | [`CapabilitySettings3`](../../doc/models/capability-settings-3.md) | Optional | A JSON object containing the settings that are allowed for the account holder. |
 | `enabled` | `bool` | Optional | Indicates whether the capability is enabled. If **false**, the capability is temporarily disabled for the account holder. |
 | `problems` | [`List[CapabilityProblem]`](../../doc/models/capability-problem.md) | Optional, Read-only | Contains verification errors and the actions that you can take to resolve them. |
 | `requested` | `bool` | Optional | Indicates whether the capability is requested. To check whether the account holder is permitted to use the capability, refer to the `allowed` field. |
-| `requested_level` | [`RequestedLevel`](../../doc/models/requested-level.md) | Optional | - |
-| `requested_settings` | [`CapabilitySettings`](../../doc/models/capability-settings.md) | Optional | - |
+| `requested_level` | [`RequestedLevelEnum`](../../doc/models/requested-level-enum.md) | Optional | The requested level of the capability. Some capabilities, such as those used in [card issuing](https://docs.adyen.com/issuing/add-capabilities#capability-levels), have different levels. Levels increase the capability, but also require additional checks and increased monitoring.<br><br>Possible values: **notApplicable**, **low**, **medium**, **high**. |
+| `requested_settings` | [`CapabilitySettings1`](../../doc/models/capability-settings-1.md) | Optional | A JSON object containing the settings that were requested for the account holder. |
 | `transfer_instruments` | [`List[AccountSupportingEntityCapability]`](../../doc/models/account-supporting-entity-capability.md) | Optional, Read-only | Contains the status of the transfer instruments associated with this capability. |
-| `verification_status` | [`VerificationStatus1`](../../doc/models/verification-status-1.md) | Optional, Read-only | - |
-| `additional_properties` | `Dict[str, Any]` | Optional | - |
+| `verification_status` | [`VerificationStatusEnum`](../../doc/models/verification-status-enum.md) | Optional, Read-only | The status of the verification checks for the capability.<br><br>Possible values:<br><br>* **pending**: Adyen is running the verification.<br><br>* **invalid**: The verification failed. Check if the `errors` array contains more information.<br><br>* **valid**: The verification has been successfully completed.<br><br>* **rejected**: Adyen has verified the information, but found reasons to not allow the capability. |
 
 ## Example
 
 ```python
-import jsonpickle
-
 from adyen.models.account_holder_capability import AccountHolderCapability
-from adyen.models.allowed_level import AllowedLevel
-from adyen.models.amount_3 import Amount3
-from adyen.models.capability import Capability
-from adyen.models.capability_problem import CapabilityProblem
-from adyen.models.capability_problem_entity import CapabilityProblemEntity
-from adyen.models.capability_problem_entity_recursive import CapabilityProblemEntityRecursive
-from adyen.models.capability_settings import CapabilitySettings
-from adyen.models.funding_source import FundingSource
-from adyen.models.interval import Interval
-from adyen.models.remediating_action import RemediatingAction
-from adyen.models.type_21 import Type21
-from adyen.models.type_3 import Type3
-from adyen.models.verification_error import VerificationError
-from adyen.models.verification_error_recursive import VerificationErrorRecursive
+from adyen.models.amount_17 import Amount17
+from adyen.models.capability_settings_3 import CapabilitySettings3
+from adyen.models.funding_source_enum import FundingSourceEnum
+from adyen.models.interval_enum import IntervalEnum
 
 account_holder_capability = AccountHolderCapability(
-    allowed=False,
-    allowed_level=AllowedLevel.MEDIUM,
-    allowed_settings=CapabilitySettings(
+    allowed_settings=CapabilitySettings3(
         amount_per_industry={
-            'key0': Amount3(
+            'key0': Amount17(
                 currency='currency8',
-                value=56,
-                additional_properties={
-                    'exampleAdditionalProperty': jsonpickle.decode('{"key1":"val1","key2":"val2"}')
-                }
+                value=56
             ),
-            'key1': Amount3(
+            'key1': Amount17(
                 currency='currency8',
-                value=56,
-                additional_properties={
-                    'exampleAdditionalProperty': jsonpickle.decode('{"key1":"val1","key2":"val2"}')
-                }
+                value=56
             )
         },
         authorized_card_users=False,
         funding_source=[
-            FundingSource.CREDIT,
-            FundingSource.DEBIT,
-            FundingSource.PREPAID
+            FundingSourceEnum.CREDIT,
+            FundingSourceEnum.DEBIT,
+            FundingSourceEnum.PREPAID
         ],
-        interval=Interval.DAILY,
-        max_amount=Amount3(
+        interval=IntervalEnum.DAILY,
+        max_amount=Amount17(
             currency='currency4',
-            value=160,
-            additional_properties={
-                'exampleAdditionalProperty': jsonpickle.decode('{"key1":"val1","key2":"val2"}')
-            }
-        ),
-        additional_properties={
-            'exampleAdditionalProperty': jsonpickle.decode('{"key1":"val1","key2":"val2"}')
-        }
-    ),
-    enabled=False,
-    problems=[
-        CapabilityProblem(
-            entity=CapabilityProblemEntity(
-                documents=[
-                    'documents1',
-                    'documents2'
-                ],
-                id='id2',
-                owner=CapabilityProblemEntityRecursive(
-                    documents=[
-                        'documents3',
-                        'documents4'
-                    ],
-                    id='id4',
-                    mtype=Type3.LEGALENTITY,
-                    additional_properties={
-                        'exampleAdditionalProperty': jsonpickle.decode('{"key1":"val1","key2":"val2"}')
-                    }
-                ),
-                mtype=Type3.LEGALENTITY,
-                additional_properties={
-                    'exampleAdditionalProperty': jsonpickle.decode('{"key1":"val1","key2":"val2"}')
-                }
-            ),
-            verification_errors=[
-                VerificationError(
-                    capabilities=[
-                        Capability.USECARDINRESTRICTEDINDUSTRIESCOMMERCIAL
-                    ],
-                    code='code0',
-                    message='message8',
-                    remediating_actions=[
-                        RemediatingAction(
-                            code='code4',
-                            message='message6',
-                            additional_properties={
-                                'exampleAdditionalProperty': jsonpickle.decode('{"key1":"val1","key2":"val2"}')
-                            }
-                        ),
-                        RemediatingAction(
-                            code='code4',
-                            message='message6',
-                            additional_properties={
-                                'exampleAdditionalProperty': jsonpickle.decode('{"key1":"val1","key2":"val2"}')
-                            }
-                        )
-                    ],
-                    sub_errors=[
-                        VerificationErrorRecursive(
-                            capabilities=[
-                                Capability.PROCESSING,
-                                Capability.PAYOUTTOTRANSFERINSTRUMENT
-                            ],
-                            code='code2',
-                            message='message4',
-                            mtype=Type21.INVALIDINPUT,
-                            remediating_actions=[
-                                RemediatingAction(
-                                    code='code4',
-                                    message='message6',
-                                    additional_properties={
-                                        'exampleAdditionalProperty': jsonpickle.decode('{"key1":"val1","key2":"val2"}')
-                                    }
-                                ),
-                                RemediatingAction(
-                                    code='code4',
-                                    message='message6',
-                                    additional_properties={
-                                        'exampleAdditionalProperty': jsonpickle.decode('{"key1":"val1","key2":"val2"}')
-                                    }
-                                ),
-                                RemediatingAction(
-                                    code='code4',
-                                    message='message6',
-                                    additional_properties={
-                                        'exampleAdditionalProperty': jsonpickle.decode('{"key1":"val1","key2":"val2"}')
-                                    }
-                                )
-                            ],
-                            additional_properties={
-                                'exampleAdditionalProperty': jsonpickle.decode('{"key1":"val1","key2":"val2"}')
-                            }
-                        ),
-                        VerificationErrorRecursive(
-                            capabilities=[
-                                Capability.PROCESSING,
-                                Capability.PAYOUTTOTRANSFERINSTRUMENT
-                            ],
-                            code='code2',
-                            message='message4',
-                            mtype=Type21.INVALIDINPUT,
-                            remediating_actions=[
-                                RemediatingAction(
-                                    code='code4',
-                                    message='message6',
-                                    additional_properties={
-                                        'exampleAdditionalProperty': jsonpickle.decode('{"key1":"val1","key2":"val2"}')
-                                    }
-                                ),
-                                RemediatingAction(
-                                    code='code4',
-                                    message='message6',
-                                    additional_properties={
-                                        'exampleAdditionalProperty': jsonpickle.decode('{"key1":"val1","key2":"val2"}')
-                                    }
-                                ),
-                                RemediatingAction(
-                                    code='code4',
-                                    message='message6',
-                                    additional_properties={
-                                        'exampleAdditionalProperty': jsonpickle.decode('{"key1":"val1","key2":"val2"}')
-                                    }
-                                )
-                            ],
-                            additional_properties={
-                                'exampleAdditionalProperty': jsonpickle.decode('{"key1":"val1","key2":"val2"}')
-                            }
-                        ),
-                        VerificationErrorRecursive(
-                            capabilities=[
-                                Capability.PROCESSING,
-                                Capability.PAYOUTTOTRANSFERINSTRUMENT
-                            ],
-                            code='code2',
-                            message='message4',
-                            mtype=Type21.INVALIDINPUT,
-                            remediating_actions=[
-                                RemediatingAction(
-                                    code='code4',
-                                    message='message6',
-                                    additional_properties={
-                                        'exampleAdditionalProperty': jsonpickle.decode('{"key1":"val1","key2":"val2"}')
-                                    }
-                                ),
-                                RemediatingAction(
-                                    code='code4',
-                                    message='message6',
-                                    additional_properties={
-                                        'exampleAdditionalProperty': jsonpickle.decode('{"key1":"val1","key2":"val2"}')
-                                    }
-                                ),
-                                RemediatingAction(
-                                    code='code4',
-                                    message='message6',
-                                    additional_properties={
-                                        'exampleAdditionalProperty': jsonpickle.decode('{"key1":"val1","key2":"val2"}')
-                                    }
-                                )
-                            ],
-                            additional_properties={
-                                'exampleAdditionalProperty': jsonpickle.decode('{"key1":"val1","key2":"val2"}')
-                            }
-                        )
-                    ],
-                    additional_properties={
-                        'exampleAdditionalProperty': jsonpickle.decode('{"key1":"val1","key2":"val2"}')
-                    }
-                ),
-                VerificationError(
-                    capabilities=[
-                        Capability.USECARDINRESTRICTEDINDUSTRIESCOMMERCIAL
-                    ],
-                    code='code0',
-                    message='message8',
-                    remediating_actions=[
-                        RemediatingAction(
-                            code='code4',
-                            message='message6',
-                            additional_properties={
-                                'exampleAdditionalProperty': jsonpickle.decode('{"key1":"val1","key2":"val2"}')
-                            }
-                        ),
-                        RemediatingAction(
-                            code='code4',
-                            message='message6',
-                            additional_properties={
-                                'exampleAdditionalProperty': jsonpickle.decode('{"key1":"val1","key2":"val2"}')
-                            }
-                        )
-                    ],
-                    sub_errors=[
-                        VerificationErrorRecursive(
-                            capabilities=[
-                                Capability.PROCESSING,
-                                Capability.PAYOUTTOTRANSFERINSTRUMENT
-                            ],
-                            code='code2',
-                            message='message4',
-                            mtype=Type21.INVALIDINPUT,
-                            remediating_actions=[
-                                RemediatingAction(
-                                    code='code4',
-                                    message='message6',
-                                    additional_properties={
-                                        'exampleAdditionalProperty': jsonpickle.decode('{"key1":"val1","key2":"val2"}')
-                                    }
-                                ),
-                                RemediatingAction(
-                                    code='code4',
-                                    message='message6',
-                                    additional_properties={
-                                        'exampleAdditionalProperty': jsonpickle.decode('{"key1":"val1","key2":"val2"}')
-                                    }
-                                ),
-                                RemediatingAction(
-                                    code='code4',
-                                    message='message6',
-                                    additional_properties={
-                                        'exampleAdditionalProperty': jsonpickle.decode('{"key1":"val1","key2":"val2"}')
-                                    }
-                                )
-                            ],
-                            additional_properties={
-                                'exampleAdditionalProperty': jsonpickle.decode('{"key1":"val1","key2":"val2"}')
-                            }
-                        ),
-                        VerificationErrorRecursive(
-                            capabilities=[
-                                Capability.PROCESSING,
-                                Capability.PAYOUTTOTRANSFERINSTRUMENT
-                            ],
-                            code='code2',
-                            message='message4',
-                            mtype=Type21.INVALIDINPUT,
-                            remediating_actions=[
-                                RemediatingAction(
-                                    code='code4',
-                                    message='message6',
-                                    additional_properties={
-                                        'exampleAdditionalProperty': jsonpickle.decode('{"key1":"val1","key2":"val2"}')
-                                    }
-                                ),
-                                RemediatingAction(
-                                    code='code4',
-                                    message='message6',
-                                    additional_properties={
-                                        'exampleAdditionalProperty': jsonpickle.decode('{"key1":"val1","key2":"val2"}')
-                                    }
-                                ),
-                                RemediatingAction(
-                                    code='code4',
-                                    message='message6',
-                                    additional_properties={
-                                        'exampleAdditionalProperty': jsonpickle.decode('{"key1":"val1","key2":"val2"}')
-                                    }
-                                )
-                            ],
-                            additional_properties={
-                                'exampleAdditionalProperty': jsonpickle.decode('{"key1":"val1","key2":"val2"}')
-                            }
-                        ),
-                        VerificationErrorRecursive(
-                            capabilities=[
-                                Capability.PROCESSING,
-                                Capability.PAYOUTTOTRANSFERINSTRUMENT
-                            ],
-                            code='code2',
-                            message='message4',
-                            mtype=Type21.INVALIDINPUT,
-                            remediating_actions=[
-                                RemediatingAction(
-                                    code='code4',
-                                    message='message6',
-                                    additional_properties={
-                                        'exampleAdditionalProperty': jsonpickle.decode('{"key1":"val1","key2":"val2"}')
-                                    }
-                                ),
-                                RemediatingAction(
-                                    code='code4',
-                                    message='message6',
-                                    additional_properties={
-                                        'exampleAdditionalProperty': jsonpickle.decode('{"key1":"val1","key2":"val2"}')
-                                    }
-                                ),
-                                RemediatingAction(
-                                    code='code4',
-                                    message='message6',
-                                    additional_properties={
-                                        'exampleAdditionalProperty': jsonpickle.decode('{"key1":"val1","key2":"val2"}')
-                                    }
-                                )
-                            ],
-                            additional_properties={
-                                'exampleAdditionalProperty': jsonpickle.decode('{"key1":"val1","key2":"val2"}')
-                            }
-                        )
-                    ],
-                    additional_properties={
-                        'exampleAdditionalProperty': jsonpickle.decode('{"key1":"val1","key2":"val2"}')
-                    }
-                ),
-                VerificationError(
-                    capabilities=[
-                        Capability.USECARDINRESTRICTEDINDUSTRIESCOMMERCIAL
-                    ],
-                    code='code0',
-                    message='message8',
-                    remediating_actions=[
-                        RemediatingAction(
-                            code='code4',
-                            message='message6',
-                            additional_properties={
-                                'exampleAdditionalProperty': jsonpickle.decode('{"key1":"val1","key2":"val2"}')
-                            }
-                        ),
-                        RemediatingAction(
-                            code='code4',
-                            message='message6',
-                            additional_properties={
-                                'exampleAdditionalProperty': jsonpickle.decode('{"key1":"val1","key2":"val2"}')
-                            }
-                        )
-                    ],
-                    sub_errors=[
-                        VerificationErrorRecursive(
-                            capabilities=[
-                                Capability.PROCESSING,
-                                Capability.PAYOUTTOTRANSFERINSTRUMENT
-                            ],
-                            code='code2',
-                            message='message4',
-                            mtype=Type21.INVALIDINPUT,
-                            remediating_actions=[
-                                RemediatingAction(
-                                    code='code4',
-                                    message='message6',
-                                    additional_properties={
-                                        'exampleAdditionalProperty': jsonpickle.decode('{"key1":"val1","key2":"val2"}')
-                                    }
-                                ),
-                                RemediatingAction(
-                                    code='code4',
-                                    message='message6',
-                                    additional_properties={
-                                        'exampleAdditionalProperty': jsonpickle.decode('{"key1":"val1","key2":"val2"}')
-                                    }
-                                ),
-                                RemediatingAction(
-                                    code='code4',
-                                    message='message6',
-                                    additional_properties={
-                                        'exampleAdditionalProperty': jsonpickle.decode('{"key1":"val1","key2":"val2"}')
-                                    }
-                                )
-                            ],
-                            additional_properties={
-                                'exampleAdditionalProperty': jsonpickle.decode('{"key1":"val1","key2":"val2"}')
-                            }
-                        ),
-                        VerificationErrorRecursive(
-                            capabilities=[
-                                Capability.PROCESSING,
-                                Capability.PAYOUTTOTRANSFERINSTRUMENT
-                            ],
-                            code='code2',
-                            message='message4',
-                            mtype=Type21.INVALIDINPUT,
-                            remediating_actions=[
-                                RemediatingAction(
-                                    code='code4',
-                                    message='message6',
-                                    additional_properties={
-                                        'exampleAdditionalProperty': jsonpickle.decode('{"key1":"val1","key2":"val2"}')
-                                    }
-                                ),
-                                RemediatingAction(
-                                    code='code4',
-                                    message='message6',
-                                    additional_properties={
-                                        'exampleAdditionalProperty': jsonpickle.decode('{"key1":"val1","key2":"val2"}')
-                                    }
-                                ),
-                                RemediatingAction(
-                                    code='code4',
-                                    message='message6',
-                                    additional_properties={
-                                        'exampleAdditionalProperty': jsonpickle.decode('{"key1":"val1","key2":"val2"}')
-                                    }
-                                )
-                            ],
-                            additional_properties={
-                                'exampleAdditionalProperty': jsonpickle.decode('{"key1":"val1","key2":"val2"}')
-                            }
-                        ),
-                        VerificationErrorRecursive(
-                            capabilities=[
-                                Capability.PROCESSING,
-                                Capability.PAYOUTTOTRANSFERINSTRUMENT
-                            ],
-                            code='code2',
-                            message='message4',
-                            mtype=Type21.INVALIDINPUT,
-                            remediating_actions=[
-                                RemediatingAction(
-                                    code='code4',
-                                    message='message6',
-                                    additional_properties={
-                                        'exampleAdditionalProperty': jsonpickle.decode('{"key1":"val1","key2":"val2"}')
-                                    }
-                                ),
-                                RemediatingAction(
-                                    code='code4',
-                                    message='message6',
-                                    additional_properties={
-                                        'exampleAdditionalProperty': jsonpickle.decode('{"key1":"val1","key2":"val2"}')
-                                    }
-                                ),
-                                RemediatingAction(
-                                    code='code4',
-                                    message='message6',
-                                    additional_properties={
-                                        'exampleAdditionalProperty': jsonpickle.decode('{"key1":"val1","key2":"val2"}')
-                                    }
-                                )
-                            ],
-                            additional_properties={
-                                'exampleAdditionalProperty': jsonpickle.decode('{"key1":"val1","key2":"val2"}')
-                            }
-                        )
-                    ],
-                    additional_properties={
-                        'exampleAdditionalProperty': jsonpickle.decode('{"key1":"val1","key2":"val2"}')
-                    }
-                )
-            ],
-            additional_properties={
-                'exampleAdditionalProperty': jsonpickle.decode('{"key1":"val1","key2":"val2"}')
-            }
+            value=160
         )
-    ],
-    additional_properties={
-        'exampleAdditionalProperty': jsonpickle.decode('{"key1":"val1","key2":"val2"}')
-    }
+    ),
+    enabled=False
 )
 ```
 

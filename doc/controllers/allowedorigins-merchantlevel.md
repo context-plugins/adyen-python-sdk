@@ -45,7 +45,7 @@ This endpoint requires [BasicAuth](../../doc/auth/basic-authentication.md) **OR*
 
 **200**: OK - the request has succeeded.
 
-This method returns an [`ApiResponse`](../../doc/api-response.md) instance. The `body` property of this instance returns the response data which is of type [`AllowedOriginsResponse`](../../doc/models/allowed-origins-response.md).
+[`AllowedOriginsResponse`](../../doc/models/allowed-origins-response.md)
 
 ## Example Usage
 
@@ -58,11 +58,7 @@ result = allowed_origins_merchant_level_api.get_merchants_merchant_id_api_creden
     merchant_id,
     api_credential_id
 )
-
-if result.is_success():
-    print(result.body)
-elif result.is_error():
-    print(result.errors)
+print(result)
 ```
 
 ## Example Response *(as JSON)*
@@ -134,7 +130,7 @@ This endpoint requires [BasicAuth](../../doc/auth/basic-authentication.md) **OR*
 
 **200**: OK - the request has succeeded.
 
-This method returns an [`ApiResponse`](../../doc/api-response.md) instance. The `body` property of this instance returns the response data which is of type [`AllowedOrigin`](../../doc/models/allowed-origin.md).
+[`AllowedOrigin`](../../doc/models/allowed-origin.md)
 
 ## Example Usage
 
@@ -152,11 +148,7 @@ result = allowed_origins_merchant_level_api.post_merchants_merchant_id_api_crede
     api_credential_id,
     body=body
 )
-
-if result.is_success():
-    print(result.body)
-elif result.is_error():
-    print(result.errors)
+print(result)
 ```
 
 ## Example Response *(as JSON)*
@@ -214,7 +206,7 @@ This endpoint requires [BasicAuth](../../doc/auth/basic-authentication.md) **OR*
 
 **200**: OK - the request has succeeded.
 
-This method returns an [`ApiResponse`](../../doc/api-response.md) instance. The `body` property of this instance returns the response data which is of type [`AllowedOrigin`](../../doc/models/allowed-origin.md).
+[`AllowedOrigin`](../../doc/models/allowed-origin.md)
 
 ## Example Usage
 
@@ -230,11 +222,7 @@ result = allowed_origins_merchant_level_api.get_merchants_merchant_id_api_creden
     api_credential_id,
     origin_id
 )
-
-if result.is_success():
-    print(result.body)
-elif result.is_error():
-    print(result.errors)
+print(result)
 ```
 
 ## Example Response *(as JSON)*
@@ -293,7 +281,7 @@ This endpoint requires [BasicAuth](../../doc/auth/basic-authentication.md) **OR*
 
 **204**: No Content - look at the actual response code for the status of the request.
 
-This method returns an [`ApiResponse`](../../doc/api-response.md) instance.
+`void`
 
 ## Example Usage
 
@@ -304,16 +292,11 @@ api_credential_id = 'apiCredentialId8'
 
 origin_id = 'originId6'
 
-result = allowed_origins_merchant_level_api.delete_merchants_merchant_id_api_credentials_api_credential_id_allowed_origins_origin_id(
+allowed_origins_merchant_level_api.delete_merchants_merchant_id_api_credentials_api_credential_id_allowed_origins_origin_id(
     merchant_id,
     api_credential_id,
     origin_id
 )
-
-if result.is_success():
-    print(result.body)
-elif result.is_error():
-    print(result.errors)
 ```
 
 ## Errors

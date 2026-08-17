@@ -14,8 +14,6 @@ class UtilityResponse(object):
         origin_keys (Dict[str, str]): The list of origin keys for all requested
             domains. For each list item, the key is the domain and the value is the
             origin key.
-        additional_properties (Dict[str, Any]): The additional properties for the
-            model.
 
     """
 
@@ -30,17 +28,11 @@ class UtilityResponse(object):
 
     def __init__(
         self,
-        origin_keys=APIHelper.SKIP,
-        additional_properties=None):
+        origin_keys=APIHelper.SKIP):
         """Initialize a UtilityResponse instance."""
         # Initialize members of the class
         if origin_keys is not APIHelper.SKIP:
             self.origin_keys = origin_keys
-
-        # Add additional model properties to the instance
-        if additional_properties is None:
-            additional_properties = {}
-        self.additional_properties = additional_properties
 
     @classmethod
     def from_dictionary(cls,
@@ -65,14 +57,8 @@ class UtilityResponse(object):
             if dictionary.get("originKeys")\
                 else APIHelper.SKIP
 
-        additional_properties = APIHelper.get_additional_properties(
-            dictionary={k: v for k, v in dictionary.items()
-                        if k not in cls._names.values()},
-            unboxing_function=lambda value: value)
-
         # Return an object of this model
-        return cls(origin_keys,
-                   additional_properties)
+        return cls(origin_keys)
 
     def __repr__(self):
         """Return a unambiguous string representation."""
@@ -81,11 +67,9 @@ class UtilityResponse(object):
             if hasattr(self, "origin_keys")
             else None
         )
-        _additional_properties=self.additional_properties
         return (
             f"{self.__class__.__name__}("
             f"origin_keys={_origin_keys!r}, "
-            f"additional_properties={_additional_properties!r}, "
             f")"
         )
 
@@ -96,10 +80,8 @@ class UtilityResponse(object):
             if hasattr(self, "origin_keys")
             else None
         )
-        _additional_properties=self.additional_properties
         return (
             f"{self.__class__.__name__}("
             f"origin_keys={_origin_keys!s}, "
-            f"additional_properties={_additional_properties!s}, "
             f")"
         )

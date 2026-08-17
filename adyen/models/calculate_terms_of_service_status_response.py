@@ -11,11 +11,9 @@ class CalculateTermsOfServiceStatusResponse(object):
     """Implementation of the 'CalculateTermsOfServiceStatusResponse' model.
 
     Attributes:
-        terms_of_service_types (List[TermsOfServiceType]): The type of Terms of
+        terms_of_service_types (List[TermsOfServiceTypeEnum]): The type of Terms of
             Service that the legal entity needs to accept. If empty, no Terms of
             Service needs to be accepted.
-        additional_properties (Dict[str, Any]): The additional properties for the
-            model.
 
     """
 
@@ -30,17 +28,11 @@ class CalculateTermsOfServiceStatusResponse(object):
 
     def __init__(
         self,
-        terms_of_service_types=APIHelper.SKIP,
-        additional_properties=None):
+        terms_of_service_types=APIHelper.SKIP):
         """Initialize a CalculateTermsOfServiceStatusResponse instance."""
         # Initialize members of the class
         if terms_of_service_types is not APIHelper.SKIP:
             self.terms_of_service_types = terms_of_service_types
-
-        # Add additional model properties to the instance
-        if additional_properties is None:
-            additional_properties = {}
-        self.additional_properties = additional_properties
 
     @classmethod
     def from_dictionary(cls,
@@ -65,14 +57,8 @@ class CalculateTermsOfServiceStatusResponse(object):
             if dictionary.get("termsOfServiceTypes")\
                 else APIHelper.SKIP
 
-        additional_properties = APIHelper.get_additional_properties(
-            dictionary={k: v for k, v in dictionary.items()
-                        if k not in cls._names.values()},
-            unboxing_function=lambda value: value)
-
         # Return an object of this model
-        return cls(terms_of_service_types,
-                   additional_properties)
+        return cls(terms_of_service_types)
 
     def __repr__(self):
         """Return a unambiguous string representation."""
@@ -81,11 +67,9 @@ class CalculateTermsOfServiceStatusResponse(object):
             if hasattr(self, "terms_of_service_types")
             else None
         )
-        _additional_properties=self.additional_properties
         return (
             f"{self.__class__.__name__}("
             f"terms_of_service_types={_terms_of_service_types!r}, "
-            f"additional_properties={_additional_properties!r}, "
             f")"
         )
 
@@ -96,10 +80,8 @@ class CalculateTermsOfServiceStatusResponse(object):
             if hasattr(self, "terms_of_service_types")
             else None
         )
-        _additional_properties=self.additional_properties
         return (
             f"{self.__class__.__name__}("
             f"terms_of_service_types={_terms_of_service_types!s}, "
-            f"additional_properties={_additional_properties!s}, "
             f")"
         )

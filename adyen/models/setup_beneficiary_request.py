@@ -15,8 +15,6 @@ class SetupBeneficiaryRequest(object):
         merchant_reference (str): A value that can be supplied at the discretion of
             the executing user.
         source_account_code (str): The benefactor account.
-        additional_properties (Dict[str, Any]): The additional properties for the
-            model.
 
     """
 
@@ -35,19 +33,13 @@ class SetupBeneficiaryRequest(object):
         self,
         destination_account_code=None,
         source_account_code=None,
-        merchant_reference=APIHelper.SKIP,
-        additional_properties=None):
+        merchant_reference=APIHelper.SKIP):
         """Initialize a SetupBeneficiaryRequest instance."""
         # Initialize members of the class
         self.destination_account_code = destination_account_code
         if merchant_reference is not APIHelper.SKIP:
             self.merchant_reference = merchant_reference
         self.source_account_code = source_account_code
-
-        # Add additional model properties to the instance
-        if additional_properties is None:
-            additional_properties = {}
-        self.additional_properties = additional_properties
 
     @classmethod
     def from_dictionary(cls,
@@ -80,16 +72,10 @@ class SetupBeneficiaryRequest(object):
             if dictionary.get("merchantReference")\
                 else APIHelper.SKIP
 
-        additional_properties = APIHelper.get_additional_properties(
-            dictionary={k: v for k, v in dictionary.items()
-                        if k not in cls._names.values()},
-            unboxing_function=lambda value: value)
-
         # Return an object of this model
         return cls(destination_account_code,
                    source_account_code,
-                   merchant_reference,
-                   additional_properties)
+                   merchant_reference)
 
     def __repr__(self):
         """Return a unambiguous string representation."""
@@ -100,13 +86,11 @@ class SetupBeneficiaryRequest(object):
             else None
         )
         _source_account_code=self.source_account_code
-        _additional_properties=self.additional_properties
         return (
             f"{self.__class__.__name__}("
             f"destination_account_code={_destination_account_code!r}, "
             f"merchant_reference={_merchant_reference!r}, "
             f"source_account_code={_source_account_code!r}, "
-            f"additional_properties={_additional_properties!r}, "
             f")"
         )
 
@@ -119,12 +103,10 @@ class SetupBeneficiaryRequest(object):
             else None
         )
         _source_account_code=self.source_account_code
-        _additional_properties=self.additional_properties
         return (
             f"{self.__class__.__name__}("
             f"destination_account_code={_destination_account_code!s}, "
             f"merchant_reference={_merchant_reference!s}, "
             f"source_account_code={_source_account_code!s}, "
-            f"additional_properties={_additional_properties!s}, "
             f")"
         )

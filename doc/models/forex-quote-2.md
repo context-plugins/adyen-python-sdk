@@ -3,8 +3,6 @@
 
 The forex quote as returned in the response of the forex service.
 
-*This model accepts additional fields of type Any.*
-
 ## Structure
 
 `ForexQuote2`
@@ -15,58 +13,44 @@ The forex quote as returned in the response of the forex service.
 |  --- | --- | --- | --- |
 | `account` | `str` | Optional | The account name. |
 | `account_type` | `str` | Optional | The account type. |
-| `base_amount` | [`BaseAmount`](../../doc/models/base-amount.md) | Optional | - |
+| `base_amount` | [`Amount3`](../../doc/models/amount-3.md) | Optional | The base amount. |
 | `base_points` | `int` | Required | The base points. |
-| `buy` | [`Buy`](../../doc/models/buy.md) | Optional | - |
-| `interbank` | [`Interbank`](../../doc/models/interbank.md) | Optional | - |
+| `buy` | [`Amount4`](../../doc/models/amount-4.md) | Optional | The buy rate. |
+| `interbank` | [`Amount5`](../../doc/models/amount-5.md) | Optional | The interbank amount. |
 | `reference` | `str` | Optional | The reference assigned to the forex quote request. |
-| `sell` | [`Sell`](../../doc/models/sell.md) | Optional | - |
+| `sell` | [`Amount6`](../../doc/models/amount-6.md) | Optional | The sell rate. |
 | `signature` | `str` | Optional | The signature to validate the integrity. |
 | `source` | `str` | Optional | The source of the forex quote. |
 | `mtype` | `str` | Optional | The type of forex. |
 | `valid_till` | `datetime` | Required | The date until which the forex quote is valid. |
-| `additional_properties` | `Dict[str, Any]` | Optional | - |
 
 ## Example
 
 ```python
 import dateutil.parser
-import jsonpickle
 
-from adyen.models.base_amount import BaseAmount
-from adyen.models.buy import Buy
+from adyen.models.amount_3 import Amount3
+from adyen.models.amount_4 import Amount4
+from adyen.models.amount_5 import Amount5
 from adyen.models.forex_quote_2 import ForexQuote2
-from adyen.models.interbank import Interbank
 
 forex_quote_2 = ForexQuote2(
     base_points=130,
     valid_till=dateutil.parser.parse('2016-03-13T12:52:32.123Z'),
     account='account6',
     account_type='accountType6',
-    base_amount=BaseAmount(
+    base_amount=Amount3(
         currency='currency8',
-        value=202,
-        additional_properties={
-            'exampleAdditionalProperty': jsonpickle.decode('{"key1":"val1","key2":"val2"}')
-        }
+        value=202
     ),
-    buy=Buy(
+    buy=Amount4(
         currency='currency2',
-        value=72,
-        additional_properties={
-            'exampleAdditionalProperty': jsonpickle.decode('{"key1":"val1","key2":"val2"}')
-        }
+        value=72
     ),
-    interbank=Interbank(
+    interbank=Amount5(
         currency='currency4',
-        value=244,
-        additional_properties={
-            'exampleAdditionalProperty': jsonpickle.decode('{"key1":"val1","key2":"val2"}')
-        }
-    ),
-    additional_properties={
-        'exampleAdditionalProperty': jsonpickle.decode('{"key1":"val1","key2":"val2"}')
-    }
+        value=244
+    )
 )
 ```
 

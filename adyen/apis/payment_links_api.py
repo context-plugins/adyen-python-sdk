@@ -17,8 +17,8 @@ from apimatic_core.types.parameter import Parameter
 from adyen.api_helper import APIHelper
 from adyen.apis.base_api import BaseApi
 from adyen.configuration import Server
-from adyen.exceptions.service_error_1_exception import (
-    ServiceError1Exception,
+from adyen.exceptions.service_error_exception import (
+    ServiceErrorException,
 )
 from adyen.http.http_method_enum import HttpMethodEnum
 from adyen.models.payment_link_response import (
@@ -52,12 +52,11 @@ class PaymentLinksApi(BaseApi):
             body (PaymentLinkRequest, optional): The request body parameter.
 
         Returns:
-            ApiResponse: An object with the response value as well as other useful
-                information such as status codes and headers. Created - the request
-                has succeeded.
+            PaymentLinkResponse: Response from the API. Created - the request has
+                succeeded.
 
         Raises:
-            ApiException: When an error occurs while fetching the data from the
+            APIException: When an error occurs while fetching the data from the
                 remote API. This exception includes the HTTP Response code, an error
                 message, and the HTTP body that was received in the request.
 
@@ -83,22 +82,21 @@ class PaymentLinksApi(BaseApi):
             ResponseHandler()
             .deserializer(APIHelper.json_deserialize)
             .deserialize_into(PaymentLinkResponse.from_dictionary)
-            .is_api_response(True)
             .local_error("400",
                 "Bad Request - a problem reading or understanding the request.",
-                ServiceError1Exception)
+                ServiceErrorException)
             .local_error("401",
                 "Unauthorized - authentication required.",
-                ServiceError1Exception)
+                ServiceErrorException)
             .local_error("403",
                 "Forbidden - insufficient permissions to process the request.",
-                ServiceError1Exception)
+                ServiceErrorException)
             .local_error("422",
                 "Unprocessable Entity - a request validation error.",
-                ServiceError1Exception)
+                ServiceErrorException)
             .local_error("500",
                 "Internal Server Error - the server could not process the request.",
-                ServiceError1Exception),
+                ServiceErrorException),
         ).execute()
 
     def get_payment_links_link_id(self,
@@ -111,12 +109,11 @@ class PaymentLinksApi(BaseApi):
             link_id (str): Unique identifier of the payment link.
 
         Returns:
-            ApiResponse: An object with the response value as well as other useful
-                information such as status codes and headers. OK - the request has
+            PaymentLinkResponse: Response from the API. OK - the request has
                 succeeded.
 
         Raises:
-            ApiException: When an error occurs while fetching the data from the
+            APIException: When an error occurs while fetching the data from the
                 remote API. This exception includes the HTTP Response code, an error
                 message, and the HTTP body that was received in the request.
 
@@ -128,7 +125,6 @@ class PaymentLinksApi(BaseApi):
             .template_param(Parameter()
                 .key("linkId")
                 .value(link_id)
-                .is_required(True)
                 .should_encode(True))
             .header_param(Parameter()
                 .key("accept")
@@ -138,22 +134,21 @@ class PaymentLinksApi(BaseApi):
             ResponseHandler()
             .deserializer(APIHelper.json_deserialize)
             .deserialize_into(PaymentLinkResponse.from_dictionary)
-            .is_api_response(True)
             .local_error("400",
                 "Bad Request - a problem reading or understanding the request.",
-                ServiceError1Exception)
+                ServiceErrorException)
             .local_error("401",
                 "Unauthorized - authentication required.",
-                ServiceError1Exception)
+                ServiceErrorException)
             .local_error("403",
                 "Forbidden - insufficient permissions to process the request.",
-                ServiceError1Exception)
+                ServiceErrorException)
             .local_error("422",
                 "Unprocessable Entity - a request validation error.",
-                ServiceError1Exception)
+                ServiceErrorException)
             .local_error("500",
                 "Internal Server Error - the server could not process the request.",
-                ServiceError1Exception),
+                ServiceErrorException),
         ).execute()
 
     def patch_payment_links_link_id(self,
@@ -171,12 +166,11 @@ class PaymentLinksApi(BaseApi):
             body (UpdatePaymentLinkRequest, optional): The request body parameter.
 
         Returns:
-            ApiResponse: An object with the response value as well as other useful
-                information such as status codes and headers. OK - the request has
+            PaymentLinkResponse: Response from the API. OK - the request has
                 succeeded.
 
         Raises:
-            ApiException: When an error occurs while fetching the data from the
+            APIException: When an error occurs while fetching the data from the
                 remote API. This exception includes the HTTP Response code, an error
                 message, and the HTTP body that was received in the request.
 
@@ -188,7 +182,6 @@ class PaymentLinksApi(BaseApi):
             .template_param(Parameter()
                 .key("linkId")
                 .value(link_id)
-                .is_required(True)
                 .should_encode(True))
             .header_param(Parameter()
                 .key("Content-Type")
@@ -204,20 +197,19 @@ class PaymentLinksApi(BaseApi):
             ResponseHandler()
             .deserializer(APIHelper.json_deserialize)
             .deserialize_into(PaymentLinkResponse.from_dictionary)
-            .is_api_response(True)
             .local_error("400",
                 "Bad Request - a problem reading or understanding the request.",
-                ServiceError1Exception)
+                ServiceErrorException)
             .local_error("401",
                 "Unauthorized - authentication required.",
-                ServiceError1Exception)
+                ServiceErrorException)
             .local_error("403",
                 "Forbidden - insufficient permissions to process the request.",
-                ServiceError1Exception)
+                ServiceErrorException)
             .local_error("422",
                 "Unprocessable Entity - a request validation error.",
-                ServiceError1Exception)
+                ServiceErrorException)
             .local_error("500",
                 "Internal Server Error - the server could not process the request.",
-                ServiceError1Exception),
+                ServiceErrorException),
         ).execute()

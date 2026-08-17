@@ -20,8 +20,6 @@ class GetTerminalsUnderAccountRequest(object):
             merchant account.
         store (str): The store code of the store. With this parameter, the response
             only includes the terminals assigned to the specified store.
-        additional_properties (Dict[str, Any]): The additional properties for the
-            model.
 
     """
 
@@ -41,8 +39,7 @@ class GetTerminalsUnderAccountRequest(object):
         self,
         company_account=None,
         merchant_account=APIHelper.SKIP,
-        store=APIHelper.SKIP,
-        additional_properties=None):
+        store=APIHelper.SKIP):
         """Initialize a GetTerminalsUnderAccountRequest instance."""
         # Initialize members of the class
         self.company_account = company_account
@@ -50,11 +47,6 @@ class GetTerminalsUnderAccountRequest(object):
             self.merchant_account = merchant_account
         if store is not APIHelper.SKIP:
             self.store = store
-
-        # Add additional model properties to the instance
-        if additional_properties is None:
-            additional_properties = {}
-        self.additional_properties = additional_properties
 
     @classmethod
     def from_dictionary(cls,
@@ -87,16 +79,10 @@ class GetTerminalsUnderAccountRequest(object):
             if dictionary.get("store")\
                 else APIHelper.SKIP
 
-        additional_properties = APIHelper.get_additional_properties(
-            dictionary={k: v for k, v in dictionary.items()
-                        if k not in cls._names.values()},
-            unboxing_function=lambda value: value)
-
         # Return an object of this model
         return cls(company_account,
                    merchant_account,
-                   store,
-                   additional_properties)
+                   store)
 
     def __repr__(self):
         """Return a unambiguous string representation."""
@@ -111,13 +97,11 @@ class GetTerminalsUnderAccountRequest(object):
             if hasattr(self, "store")
             else None
         )
-        _additional_properties=self.additional_properties
         return (
             f"{self.__class__.__name__}("
             f"company_account={_company_account!r}, "
             f"merchant_account={_merchant_account!r}, "
             f"store={_store!r}, "
-            f"additional_properties={_additional_properties!r}, "
             f")"
         )
 
@@ -134,12 +118,10 @@ class GetTerminalsUnderAccountRequest(object):
             if hasattr(self, "store")
             else None
         )
-        _additional_properties=self.additional_properties
         return (
             f"{self.__class__.__name__}("
             f"company_account={_company_account!s}, "
             f"merchant_account={_merchant_account!s}, "
             f"store={_store!s}, "
-            f"additional_properties={_additional_properties!s}, "
             f")"
         )

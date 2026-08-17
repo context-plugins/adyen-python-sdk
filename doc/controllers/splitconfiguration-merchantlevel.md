@@ -48,7 +48,7 @@ This endpoint requires [BasicAuth](../../doc/auth/basic-authentication.md) **OR*
 
 **200**: OK - the request has succeeded.
 
-This method returns an [`ApiResponse`](../../doc/api-response.md) instance. The `body` property of this instance returns the response data which is of type [`SplitConfigurationList`](../../doc/models/split-configuration-list.md).
+[`SplitConfigurationList`](../../doc/models/split-configuration-list.md)
 
 ## Example Usage
 
@@ -56,11 +56,7 @@ This method returns an [`ApiResponse`](../../doc/api-response.md) instance. The 
 merchant_id = 'merchantId6'
 
 result = split_configuration_merchant_level_api.get_merchants_merchant_id_split_configurations(merchant_id)
-
-if result.is_success():
-    print(result.body)
-elif result.is_error():
-    print(result.errors)
+print(result)
 ```
 
 ## Example Response *(as JSON)*
@@ -193,7 +189,7 @@ This endpoint requires [BasicAuth](../../doc/auth/basic-authentication.md) **OR*
 
 **200**: OK - the request has succeeded.
 
-This method returns an [`ApiResponse`](../../doc/api-response.md) instance. The `body` property of this instance returns the response data which is of type [`SplitConfiguration`](../../doc/models/split-configuration.md).
+[`SplitConfiguration`](../../doc/models/split-configuration.md)
 
 ## Example Usage
 
@@ -205,23 +201,23 @@ body = SplitConfiguration(
     rules=[
         SplitConfigurationRule(
             currency='ANY',
-            funding_source=FundingSource1.ANY,
+            funding_source=FundingSource1Enum.ANY,
             payment_method='ANY',
-            shopper_interaction=ShopperInteraction11.ANY,
-            split_logic=SplitConfigurationLogic(
-                commission=Commission(
+            shopper_interaction=ShopperInteraction11Enum.ANY,
+            split_logic=SplitConfigurationLogic2(
+                commission=Commission1(
                     fixed_amount=10,
                     variable_percentage=100
                 ),
-                additional_commission=AdditionalCommission(
+                additional_commission=AdditionalCommission1(
                     balance_account_id='BA3227C223222H5HQ2XX77VVH',
                     fixed_amount=10,
                     variable_percentage=50
                 ),
-                chargeback=Behavior.DEDUCTFROMLIABLEACCOUNT,
-                payment_fee=PaymentFee.DEDUCTFROMLIABLEACCOUNT,
-                remainder=Remainder.ADDTOONEBALANCEACCOUNT,
-                tip=Tip.ADDTOONEBALANCEACCOUNT
+                chargeback=BehaviorEnum.DEDUCTFROMLIABLEACCOUNT,
+                payment_fee=PaymentFeeEnum.DEDUCTFROMLIABLEACCOUNT,
+                remainder=RemainderEnum.ADDTOONEBALANCEACCOUNT,
+                tip=TipEnum.ADDTOONEBALANCEACCOUNT
             )
         )
     ]
@@ -231,11 +227,7 @@ result = split_configuration_merchant_level_api.post_merchants_merchant_id_split
     merchant_id,
     body=body
 )
-
-if result.is_success():
-    print(result.body)
-elif result.is_error():
-    print(result.errors)
+print(result)
 ```
 
 ## Example Response *(as JSON)*
@@ -312,7 +304,7 @@ This endpoint requires [BasicAuth](../../doc/auth/basic-authentication.md) **OR*
 
 **200**: OK - the request has succeeded.
 
-This method returns an [`ApiResponse`](../../doc/api-response.md) instance. The `body` property of this instance returns the response data which is of type [`SplitConfiguration`](../../doc/models/split-configuration.md).
+[`SplitConfiguration`](../../doc/models/split-configuration.md)
 
 ## Example Usage
 
@@ -325,11 +317,7 @@ result = split_configuration_merchant_level_api.get_merchants_merchant_id_split_
     merchant_id,
     split_configuration_id
 )
-
-if result.is_success():
-    print(result.body)
-elif result.is_error():
-    print(result.errors)
+print(result)
 ```
 
 ## Example Response *(as JSON)*
@@ -431,7 +419,7 @@ This endpoint requires [BasicAuth](../../doc/auth/basic-authentication.md) **OR*
 
 **200**: OK - the request has succeeded.
 
-This method returns an [`ApiResponse`](../../doc/api-response.md) instance. The `body` property of this instance returns the response data which is of type [`SplitConfiguration`](../../doc/models/split-configuration.md).
+[`SplitConfiguration`](../../doc/models/split-configuration.md)
 
 ## Example Usage
 
@@ -442,23 +430,23 @@ split_configuration_id = 'splitConfigurationId4'
 
 body = SplitConfigurationRule(
     currency='USD',
-    funding_source=FundingSource1.ANY,
+    funding_source=FundingSource1Enum.ANY,
     payment_method='visa',
-    shopper_interaction=ShopperInteraction11.POS,
-    split_logic=SplitConfigurationLogic(
-        commission=Commission(
+    shopper_interaction=ShopperInteraction11Enum.POS,
+    split_logic=SplitConfigurationLogic2(
+        commission=Commission1(
             fixed_amount=10,
             variable_percentage=100
         ),
-        additional_commission=AdditionalCommission(
+        additional_commission=AdditionalCommission1(
             balance_account_id='BA3227C223222H5HQ2XX77VVH',
             fixed_amount=10,
             variable_percentage=50
         ),
-        chargeback=Behavior.DEDUCTFROMLIABLEACCOUNT,
-        payment_fee=PaymentFee.DEDUCTFROMLIABLEACCOUNT,
-        remainder=Remainder.ADDTOLIABLEACCOUNT,
-        tip=Tip.ADDTOONEBALANCEACCOUNT
+        chargeback=BehaviorEnum.DEDUCTFROMLIABLEACCOUNT,
+        payment_fee=PaymentFeeEnum.DEDUCTFROMLIABLEACCOUNT,
+        remainder=RemainderEnum.ADDTOLIABLEACCOUNT,
+        tip=TipEnum.ADDTOONEBALANCEACCOUNT
     )
 )
 
@@ -467,11 +455,7 @@ result = split_configuration_merchant_level_api.post_merchants_merchant_id_split
     split_configuration_id,
     body=body
 )
-
-if result.is_success():
-    print(result.body)
-elif result.is_error():
-    print(result.errors)
+print(result)
 ```
 
 ## Example Response *(as JSON)*
@@ -571,7 +555,7 @@ This endpoint requires [BasicAuth](../../doc/auth/basic-authentication.md) **OR*
 
 **200**: OK - the request has succeeded.
 
-This method returns an [`ApiResponse`](../../doc/api-response.md) instance. The `body` property of this instance returns the response data which is of type [`SplitConfiguration`](../../doc/models/split-configuration.md).
+[`SplitConfiguration`](../../doc/models/split-configuration.md)
 
 ## Example Usage
 
@@ -584,11 +568,7 @@ result = split_configuration_merchant_level_api.delete_merchants_merchant_id_spl
     merchant_id,
     split_configuration_id
 )
-
-if result.is_success():
-    print(result.body)
-elif result.is_error():
-    print(result.errors)
+print(result)
 ```
 
 ## Errors
@@ -633,7 +613,7 @@ This endpoint requires [BasicAuth](../../doc/auth/basic-authentication.md) **OR*
 
 **200**: OK - the request has succeeded.
 
-This method returns an [`ApiResponse`](../../doc/api-response.md) instance. The `body` property of this instance returns the response data which is of type [`SplitConfiguration`](../../doc/models/split-configuration.md).
+[`SplitConfiguration`](../../doc/models/split-configuration.md)
 
 ## Example Usage
 
@@ -651,11 +631,7 @@ result = split_configuration_merchant_level_api.patch_merchants_merchant_id_spli
     split_configuration_id,
     body=body
 )
-
-if result.is_success():
-    print(result.body)
-elif result.is_error():
-    print(result.errors)
+print(result)
 ```
 
 ## Example Response *(as JSON)*
@@ -757,7 +733,7 @@ This endpoint requires [BasicAuth](../../doc/auth/basic-authentication.md) **OR*
 
 **200**: OK - the request has succeeded.
 
-This method returns an [`ApiResponse`](../../doc/api-response.md) instance. The `body` property of this instance returns the response data which is of type [`SplitConfiguration`](../../doc/models/split-configuration.md).
+[`SplitConfiguration`](../../doc/models/split-configuration.md)
 
 ## Example Usage
 
@@ -773,11 +749,7 @@ result = split_configuration_merchant_level_api.delete_merchants_merchant_id_spl
     split_configuration_id,
     rule_id
 )
-
-if result.is_success():
-    print(result.body)
-elif result.is_error():
-    print(result.errors)
+print(result)
 ```
 
 ## Errors
@@ -824,7 +796,7 @@ This endpoint requires [BasicAuth](../../doc/auth/basic-authentication.md) **OR*
 
 **200**: OK - the request has succeeded.
 
-This method returns an [`ApiResponse`](../../doc/api-response.md) instance. The `body` property of this instance returns the response data which is of type [`SplitConfiguration`](../../doc/models/split-configuration.md).
+[`SplitConfiguration`](../../doc/models/split-configuration.md)
 
 ## Example Usage
 
@@ -848,11 +820,7 @@ result = split_configuration_merchant_level_api.patch_merchants_merchant_id_spli
     rule_id,
     body=body
 )
-
-if result.is_success():
-    print(result.body)
-elif result.is_error():
-    print(result.errors)
+print(result)
 ```
 
 ## Example Response *(as JSON)*
@@ -952,13 +920,13 @@ This endpoint requires [BasicAuth](../../doc/auth/basic-authentication.md) **OR*
 | `split_configuration_id` | `str` | Template, Required | The unique identifier of the split configuration. |
 | `rule_id` | `str` | Template, Required | The unique identifier of the split configuration rule. |
 | `split_logic_id` | `str` | Template, Required | The unique identifier of the split configuration split. |
-| `body` | [`SplitConfigurationLogic`](../../doc/models/split-configuration-logic.md) | Body, Optional | - |
+| `body` | [`UpdateSplitConfigurationLogicRequest`](../../doc/models/update-split-configuration-logic-request.md) | Body, Optional | - |
 
 ## Response Type
 
 **200**: OK - the request has succeeded.
 
-This method returns an [`ApiResponse`](../../doc/api-response.md) instance. The `body` property of this instance returns the response data which is of type [`SplitConfiguration`](../../doc/models/split-configuration.md).
+[`SplitConfiguration`](../../doc/models/split-configuration.md)
 
 ## Example Usage
 
@@ -971,20 +939,20 @@ rule_id = 'ruleId4'
 
 split_logic_id = 'splitLogicId4'
 
-body = SplitConfigurationLogic(
-    commission=Commission(
+body = UpdateSplitConfigurationLogicRequest(
+    commission=Commission1(
         fixed_amount=100,
         variable_percentage=100
     ),
-    additional_commission=AdditionalCommission(
+    additional_commission=AdditionalCommission1(
         balance_account_id='BA3227C223222H5HQ2XX77VVH',
         fixed_amount=100,
         variable_percentage=0
     ),
-    chargeback=Behavior.DEDUCTFROMLIABLEACCOUNT,
-    payment_fee=PaymentFee.DEDUCTFROMLIABLEACCOUNT,
-    remainder=Remainder.ADDTOLIABLEACCOUNT,
-    tip=Tip.ADDTOLIABLEACCOUNT
+    chargeback=BehaviorEnum.DEDUCTFROMLIABLEACCOUNT,
+    payment_fee=PaymentFeeEnum.DEDUCTFROMLIABLEACCOUNT,
+    remainder=RemainderEnum.ADDTOLIABLEACCOUNT,
+    tip=TipEnum.ADDTOLIABLEACCOUNT
 )
 
 result = split_configuration_merchant_level_api.patch_merchants_split_configurations_rules_split_logic(
@@ -994,11 +962,7 @@ result = split_configuration_merchant_level_api.patch_merchants_split_configurat
     split_logic_id,
     body=body
 )
-
-if result.is_success():
-    print(result.body)
-elif result.is_error():
-    print(result.errors)
+print(result)
 ```
 
 ## Example Response *(as JSON)*

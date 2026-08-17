@@ -21,8 +21,6 @@ class SupportedCardTypes2(object):
         prepaid (bool): Set to **true** to accept prepaid cards.
         unknown (bool): Set to **true** to accept card types for which the terminal
             can't determine the funding source while offline.
-        additional_properties (Dict[str, Any]): The additional properties for the
-            model.
 
     """
 
@@ -49,8 +47,7 @@ class SupportedCardTypes2(object):
         debit=APIHelper.SKIP,
         deferred_debit=APIHelper.SKIP,
         prepaid=APIHelper.SKIP,
-        unknown=APIHelper.SKIP,
-        additional_properties=None):
+        unknown=APIHelper.SKIP):
         """Initialize a SupportedCardTypes2 instance."""
         # Initialize members of the class
         if credit is not APIHelper.SKIP:
@@ -63,11 +60,6 @@ class SupportedCardTypes2(object):
             self.prepaid = prepaid
         if unknown is not APIHelper.SKIP:
             self.unknown = unknown
-
-        # Add additional model properties to the instance
-        if additional_properties is None:
-            additional_properties = {}
-        self.additional_properties = additional_properties
 
     @classmethod
     def from_dictionary(cls,
@@ -108,18 +100,12 @@ class SupportedCardTypes2(object):
             if "unknown" in dictionary.keys()\
                 else APIHelper.SKIP
 
-        additional_properties = APIHelper.get_additional_properties(
-            dictionary={k: v for k, v in dictionary.items()
-                        if k not in cls._names.values()},
-            unboxing_function=lambda value: value)
-
         # Return an object of this model
         return cls(credit,
                    debit,
                    deferred_debit,
                    prepaid,
-                   unknown,
-                   additional_properties)
+                   unknown)
 
     def __repr__(self):
         """Return a unambiguous string representation."""
@@ -148,7 +134,6 @@ class SupportedCardTypes2(object):
             if hasattr(self, "unknown")
             else None
         )
-        _additional_properties=self.additional_properties
         return (
             f"{self.__class__.__name__}("
             f"credit={_credit!r}, "
@@ -156,7 +141,6 @@ class SupportedCardTypes2(object):
             f"deferred_debit={_deferred_debit!r}, "
             f"prepaid={_prepaid!r}, "
             f"unknown={_unknown!r}, "
-            f"additional_properties={_additional_properties!r}, "
             f")"
         )
 
@@ -187,7 +171,6 @@ class SupportedCardTypes2(object):
             if hasattr(self, "unknown")
             else None
         )
-        _additional_properties=self.additional_properties
         return (
             f"{self.__class__.__name__}("
             f"credit={_credit!s}, "
@@ -195,6 +178,5 @@ class SupportedCardTypes2(object):
             f"deferred_debit={_deferred_debit!s}, "
             f"prepaid={_prepaid!s}, "
             f"unknown={_unknown!s}, "
-            f"additional_properties={_additional_properties!s}, "
             f")"
         )

@@ -1,8 +1,6 @@
 
 # Counterparty
 
-*This model accepts additional fields of type Any.*
-
 ## Structure
 
 `Counterparty`
@@ -11,35 +9,24 @@
 
 | Name | Type | Tags | Description |
 |  --- | --- | --- | --- |
-| `account_holder` | [`AccountHolder`](../../doc/models/account-holder.md) | Required | - |
-| `account_identification` | [`AccountIdentification1`](../../doc/models/account-identification-1.md) | Required | - |
-| `additional_properties` | `Dict[str, Any]` | Optional | - |
+| `bank_account` | [`BankAccount11`](../../doc/models/bank-account-11.md) | Optional | Contains information about the bank account. |
+| `transfer_instrument_id` | `str` | Optional | The unique identifier of the [transfer instrument](https://docs.adyen.com/api-explorer/#/legalentity/latest/post/transferInstruments__resParam_id). |
 
 ## Example
 
 ```python
-import jsonpickle
-
-from adyen.models.account_holder import AccountHolder
-from adyen.models.account_identification_1 import AccountIdentification1
+from adyen.models.au_local_account_identification import AULocalAccountIdentification
+from adyen.models.bank_account_11 import BankAccount11
 from adyen.models.counterparty import Counterparty
 
 counterparty = Counterparty(
-    account_holder=AccountHolder(
-        full_name='John Doe',
-        additional_properties={
-            'exampleAdditionalProperty': jsonpickle.decode('{"key1":"val1","key2":"val2"}')
-        }
+    bank_account=BankAccount11(
+        account_identification=AULocalAccountIdentification(
+            account_number='accountNumber4',
+            bsb_code='bsbCode8'
+        )
     ),
-    account_identification=AccountIdentification1(
-        mtype='AccountIdentification1',
-        additional_properties={
-            'exampleAdditionalProperty': jsonpickle.decode('{"key1":"val1","key2":"val2"}')
-        }
-    ),
-    additional_properties={
-        'exampleAdditionalProperty': jsonpickle.decode('{"key1":"val1","key2":"val2"}')
-    }
+    transfer_instrument_id='transferInstrumentId4'
 )
 ```
 

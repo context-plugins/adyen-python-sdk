@@ -13,8 +13,6 @@ class TerminalConnectivityBluetooth(object):
     Attributes:
         ip_address (str): The terminal's Bluetooth IP address.
         mac_address (str): The terminal's Bluetooth MAC address.
-        additional_properties (Dict[str, Any]): The additional properties for the
-            model.
 
     """
 
@@ -32,19 +30,13 @@ class TerminalConnectivityBluetooth(object):
     def __init__(
         self,
         ip_address=APIHelper.SKIP,
-        mac_address=APIHelper.SKIP,
-        additional_properties=None):
+        mac_address=APIHelper.SKIP):
         """Initialize a TerminalConnectivityBluetooth instance."""
         # Initialize members of the class
         if ip_address is not APIHelper.SKIP:
             self.ip_address = ip_address
         if mac_address is not APIHelper.SKIP:
             self.mac_address = mac_address
-
-        # Add additional model properties to the instance
-        if additional_properties is None:
-            additional_properties = {}
-        self.additional_properties = additional_properties
 
     @classmethod
     def from_dictionary(cls,
@@ -73,15 +65,9 @@ class TerminalConnectivityBluetooth(object):
             if dictionary.get("macAddress")\
                 else APIHelper.SKIP
 
-        additional_properties = APIHelper.get_additional_properties(
-            dictionary={k: v for k, v in dictionary.items()
-                        if k not in cls._names.values()},
-            unboxing_function=lambda value: value)
-
         # Return an object of this model
         return cls(ip_address,
-                   mac_address,
-                   additional_properties)
+                   mac_address)
 
     def __repr__(self):
         """Return a unambiguous string representation."""
@@ -95,12 +81,10 @@ class TerminalConnectivityBluetooth(object):
             if hasattr(self, "mac_address")
             else None
         )
-        _additional_properties=self.additional_properties
         return (
             f"{self.__class__.__name__}("
             f"ip_address={_ip_address!r}, "
             f"mac_address={_mac_address!r}, "
-            f"additional_properties={_additional_properties!r}, "
             f")"
         )
 
@@ -116,11 +100,9 @@ class TerminalConnectivityBluetooth(object):
             if hasattr(self, "mac_address")
             else None
         )
-        _additional_properties=self.additional_properties
         return (
             f"{self.__class__.__name__}("
             f"ip_address={_ip_address!s}, "
             f"mac_address={_mac_address!s}, "
-            f"additional_properties={_additional_properties!s}, "
             f")"
         )

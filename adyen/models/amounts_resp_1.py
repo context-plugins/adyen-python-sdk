@@ -29,8 +29,6 @@ class AmountsResp1(object):
             Sale for the payment.
         tip_amount (float): Amount paid for a tip. Allow the printing of the tip on
             the receipt, and to qualify the tip part of the amount.
-        additional_properties (Dict[str, Any]): The additional properties for the
-            model.
 
     """
 
@@ -59,8 +57,7 @@ class AmountsResp1(object):
         total_rebates_amount=APIHelper.SKIP,
         total_fees_amount=APIHelper.SKIP,
         cash_back_amount=APIHelper.SKIP,
-        tip_amount=APIHelper.SKIP,
-        additional_properties=None):
+        tip_amount=APIHelper.SKIP):
         """Initialize a AmountsResp1 instance."""
         # Initialize members of the class
         if currency is not APIHelper.SKIP:
@@ -74,11 +71,6 @@ class AmountsResp1(object):
             self.cash_back_amount = cash_back_amount
         if tip_amount is not APIHelper.SKIP:
             self.tip_amount = tip_amount
-
-        # Add additional model properties to the instance
-        if additional_properties is None:
-            additional_properties = {}
-        self.additional_properties = additional_properties
 
     @classmethod
     def from_dictionary(cls,
@@ -123,19 +115,13 @@ class AmountsResp1(object):
             if dictionary.get("TipAmount")\
                 else APIHelper.SKIP
 
-        additional_properties = APIHelper.get_additional_properties(
-            dictionary={k: v for k, v in dictionary.items()
-                        if k not in cls._names.values()},
-            unboxing_function=lambda value: value)
-
         # Return an object of this model
         return cls(authorized_amount,
                    currency,
                    total_rebates_amount,
                    total_fees_amount,
                    cash_back_amount,
-                   tip_amount,
-                   additional_properties)
+                   tip_amount)
 
     def __repr__(self):
         """Return a unambiguous string representation."""
@@ -165,7 +151,6 @@ class AmountsResp1(object):
             if hasattr(self, "tip_amount")
             else None
         )
-        _additional_properties=self.additional_properties
         return (
             f"{self.__class__.__name__}("
             f"currency={_currency!r}, "
@@ -174,7 +159,6 @@ class AmountsResp1(object):
             f"total_fees_amount={_total_fees_amount!r}, "
             f"cash_back_amount={_cash_back_amount!r}, "
             f"tip_amount={_tip_amount!r}, "
-            f"additional_properties={_additional_properties!r}, "
             f")"
         )
 
@@ -206,7 +190,6 @@ class AmountsResp1(object):
             if hasattr(self, "tip_amount")
             else None
         )
-        _additional_properties=self.additional_properties
         return (
             f"{self.__class__.__name__}("
             f"currency={_currency!s}, "
@@ -215,6 +198,5 @@ class AmountsResp1(object):
             f"total_fees_amount={_total_fees_amount!s}, "
             f"cash_back_amount={_cash_back_amount!s}, "
             f"tip_amount={_tip_amount!s}, "
-            f"additional_properties={_additional_properties!s}, "
             f")"
         )

@@ -13,8 +13,6 @@ class MandateUpdate(object):
     Attributes:
         payment_instrument_id (str): The unique identifier of the payment instrument
             linked to the mandate.
-        additional_properties (Dict[str, Any]): The additional properties for the
-            model.
 
     """
 
@@ -33,17 +31,11 @@ class MandateUpdate(object):
 
     def __init__(
         self,
-        payment_instrument_id=APIHelper.SKIP,
-        additional_properties=None):
+        payment_instrument_id=APIHelper.SKIP):
         """Initialize a MandateUpdate instance."""
         # Initialize members of the class
         if payment_instrument_id is not APIHelper.SKIP:
             self.payment_instrument_id = payment_instrument_id
-
-        # Add additional model properties to the instance
-        if additional_properties is None:
-            additional_properties = {}
-        self.additional_properties = additional_properties
 
     @classmethod
     def from_dictionary(cls,
@@ -68,14 +60,8 @@ class MandateUpdate(object):
             if "paymentInstrumentId" in dictionary.keys()\
                 else APIHelper.SKIP
 
-        additional_properties = APIHelper.get_additional_properties(
-            dictionary={k: v for k, v in dictionary.items()
-                        if k not in cls._names.values()},
-            unboxing_function=lambda value: value)
-
         # Return an object of this model
-        return cls(payment_instrument_id,
-                   additional_properties)
+        return cls(payment_instrument_id)
 
     def __repr__(self):
         """Return a unambiguous string representation."""
@@ -84,11 +70,9 @@ class MandateUpdate(object):
             if hasattr(self, "payment_instrument_id")
             else None
         )
-        _additional_properties=self.additional_properties
         return (
             f"{self.__class__.__name__}("
             f"payment_instrument_id={_payment_instrument_id!r}, "
-            f"additional_properties={_additional_properties!r}, "
             f")"
         )
 
@@ -99,10 +83,8 @@ class MandateUpdate(object):
             if hasattr(self, "payment_instrument_id")
             else None
         )
-        _additional_properties=self.additional_properties
         return (
             f"{self.__class__.__name__}("
             f"payment_instrument_id={_payment_instrument_id!s}, "
-            f"additional_properties={_additional_properties!s}, "
             f")"
         )

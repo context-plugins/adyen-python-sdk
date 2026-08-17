@@ -1,8 +1,6 @@
 
 # Pagination Links
 
-*This model accepts additional fields of type Any.*
-
 ## Structure
 
 `PaginationLinks`
@@ -11,59 +9,38 @@
 
 | Name | Type | Tags | Description |
 |  --- | --- | --- | --- |
-| `first` | [`First`](../../doc/models/first.md) | Required | - |
-| `last` | [`Last`](../../doc/models/last.md) | Required | - |
-| `next` | [`Next`](../../doc/models/next.md) | Optional | - |
-| `prev` | [`Prev`](../../doc/models/prev.md) | Optional | - |
-| `mself` | [`Self`](../../doc/models/self.md) | Required | - |
-| `additional_properties` | `Dict[str, Any]` | Optional | - |
+| `first` | [`LinksElement9`](../../doc/models/links-element-9.md) | Required | The first page. |
+| `last` | [`LinksElement10`](../../doc/models/links-element-10.md) | Required | The last page. |
+| `next` | [`LinksElement11`](../../doc/models/links-element-11.md) | Optional | The next page. Only present if there is a next page. |
+| `prev` | [`LinksElement12`](../../doc/models/links-element-12.md) | Optional | The previous page. Only present if there is a previous page. |
+| `mself` | [`LinksElement13`](../../doc/models/links-element-13.md) | Required | The current page. |
 
 ## Example
 
 ```python
-import jsonpickle
-
-from adyen.models.first import First
-from adyen.models.last import Last
-from adyen.models.mself import Self
-from adyen.models.next import Next
+from adyen.models.links_element_10 import LinksElement10
+from adyen.models.links_element_11 import LinksElement11
+from adyen.models.links_element_12 import LinksElement12
+from adyen.models.links_element_13 import LinksElement13
+from adyen.models.links_element_9 import LinksElement9
 from adyen.models.pagination_links import PaginationLinks
-from adyen.models.prev import Prev
 
 pagination_links = PaginationLinks(
-    first=First(
-        href='href2',
-        additional_properties={
-            'exampleAdditionalProperty': jsonpickle.decode('{"key1":"val1","key2":"val2"}')
-        }
+    first=LinksElement9(
+        href='href2'
     ),
-    last=Last(
-        href='href2',
-        additional_properties={
-            'exampleAdditionalProperty': jsonpickle.decode('{"key1":"val1","key2":"val2"}')
-        }
+    last=LinksElement10(
+        href='href2'
     ),
-    mself=Self(
-        href='href0',
-        additional_properties={
-            'exampleAdditionalProperty': jsonpickle.decode('{"key1":"val1","key2":"val2"}')
-        }
+    mself=LinksElement13(
+        href='href0'
     ),
-    next=Next(
-        href='href4',
-        additional_properties={
-            'exampleAdditionalProperty': jsonpickle.decode('{"key1":"val1","key2":"val2"}')
-        }
+    next=LinksElement11(
+        href='href4'
     ),
-    prev=Prev(
-        href='href8',
-        additional_properties={
-            'exampleAdditionalProperty': jsonpickle.decode('{"key1":"val1","key2":"val2"}')
-        }
-    ),
-    additional_properties={
-        'exampleAdditionalProperty': jsonpickle.decode('{"key1":"val1","key2":"val2"}')
-    }
+    prev=LinksElement12(
+        href='href8'
+    )
 )
 ```
 

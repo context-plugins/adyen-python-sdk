@@ -10,11 +10,11 @@ from adyen.api_helper import APIHelper
 class Name22(object):
     """Implementation of the 'Name22' model.
 
+    The user's full name.
+
     Attributes:
         first_name (str): The first name.
         last_name (str): The last name.
-        additional_properties (Dict[str, Any]): The additional properties for the
-            model.
 
     """
 
@@ -32,19 +32,13 @@ class Name22(object):
     def __init__(
         self,
         first_name=APIHelper.SKIP,
-        last_name=APIHelper.SKIP,
-        additional_properties=None):
+        last_name=APIHelper.SKIP):
         """Initialize a Name22 instance."""
         # Initialize members of the class
         if first_name is not APIHelper.SKIP:
             self.first_name = first_name
         if last_name is not APIHelper.SKIP:
             self.last_name = last_name
-
-        # Add additional model properties to the instance
-        if additional_properties is None:
-            additional_properties = {}
-        self.additional_properties = additional_properties
 
     @classmethod
     def from_dictionary(cls,
@@ -73,15 +67,9 @@ class Name22(object):
             if dictionary.get("lastName")\
                 else APIHelper.SKIP
 
-        additional_properties = APIHelper.get_additional_properties(
-            dictionary={k: v for k, v in dictionary.items()
-                        if k not in cls._names.values()},
-            unboxing_function=lambda value: value)
-
         # Return an object of this model
         return cls(first_name,
-                   last_name,
-                   additional_properties)
+                   last_name)
 
     def __repr__(self):
         """Return a unambiguous string representation."""
@@ -95,12 +83,10 @@ class Name22(object):
             if hasattr(self, "last_name")
             else None
         )
-        _additional_properties=self.additional_properties
         return (
             f"{self.__class__.__name__}("
             f"first_name={_first_name!r}, "
             f"last_name={_last_name!r}, "
-            f"additional_properties={_additional_properties!r}, "
             f")"
         )
 
@@ -116,11 +102,9 @@ class Name22(object):
             if hasattr(self, "last_name")
             else None
         )
-        _additional_properties=self.additional_properties
         return (
             f"{self.__class__.__name__}("
             f"first_name={_first_name!s}, "
             f"last_name={_last_name!s}, "
-            f"additional_properties={_additional_properties!s}, "
             f")"
         )

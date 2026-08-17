@@ -18,11 +18,13 @@ class TermsOfServiceAcceptanceInfo(object):
         created_at (datetime): The date when the Terms of Service were accepted, in
             ISO 8601 extended format. For example, 2022-12-18T10:15:30+01:00.
         id (str): An Adyen-generated reference for the accepted Terms of Service.
-        mtype (Type25): The model property of type Type25.
+        mtype (Type64Enum): The type of Terms of Service.  Possible values: *
+            **adyenForPlatformsManage** *  **adyenIssuing** *
+            **adyenForPlatformsAdvanced** *  **adyenCapital** *  **adyenAccount** *
+            **adyenCard** *  **adyenFranchisee** *  **adyenPccr** *
+            **adyenChargeCard** *  **kycOnInvite**
         valid_to (datetime): The expiration date for the Terms of Service acceptance,
             in ISO 8601 extended format. For example, 2022-12-18T00:00:00+01:00.
-        additional_properties (Dict[str, Any]): The additional properties for the
-            model.
 
     """
 
@@ -52,8 +54,7 @@ class TermsOfServiceAcceptanceInfo(object):
         created_at=APIHelper.SKIP,
         id=APIHelper.SKIP,
         mtype=APIHelper.SKIP,
-        valid_to=APIHelper.SKIP,
-        additional_properties=None):
+        valid_to=APIHelper.SKIP):
         """Initialize a TermsOfServiceAcceptanceInfo instance."""
         # Initialize members of the class
         if accepted_by is not APIHelper.SKIP:
@@ -74,11 +75,6 @@ class TermsOfServiceAcceptanceInfo(object):
                  APIHelper.apply_datetime_converter(
                 valid_to, APIHelper.RFC3339DateTime)\
                  if valid_to else None
-
-        # Add additional model properties to the instance
-        if additional_properties is None:
-            additional_properties = {}
-        self.additional_properties = additional_properties
 
     @classmethod
     def from_dictionary(cls,
@@ -121,19 +117,13 @@ class TermsOfServiceAcceptanceInfo(object):
             dictionary.get("validTo")).datetime\
             if dictionary.get("validTo") else APIHelper.SKIP
 
-        additional_properties = APIHelper.get_additional_properties(
-            dictionary={k: v for k, v in dictionary.items()
-                        if k not in cls._names.values()},
-            unboxing_function=lambda value: value)
-
         # Return an object of this model
         return cls(accepted_by,
                    accepted_for,
                    created_at,
                    id,
                    mtype,
-                   valid_to,
-                   additional_properties)
+                   valid_to)
 
     def __repr__(self):
         """Return a unambiguous string representation."""
@@ -167,7 +157,6 @@ class TermsOfServiceAcceptanceInfo(object):
             if hasattr(self, "valid_to")
             else None
         )
-        _additional_properties=self.additional_properties
         return (
             f"{self.__class__.__name__}("
             f"accepted_by={_accepted_by!r}, "
@@ -176,7 +165,6 @@ class TermsOfServiceAcceptanceInfo(object):
             f"id={_id!r}, "
             f"mtype={_mtype!r}, "
             f"valid_to={_valid_to!r}, "
-            f"additional_properties={_additional_properties!r}, "
             f")"
         )
 
@@ -212,7 +200,6 @@ class TermsOfServiceAcceptanceInfo(object):
             if hasattr(self, "valid_to")
             else None
         )
-        _additional_properties=self.additional_properties
         return (
             f"{self.__class__.__name__}("
             f"accepted_by={_accepted_by!s}, "
@@ -221,6 +208,5 @@ class TermsOfServiceAcceptanceInfo(object):
             f"id={_id!s}, "
             f"mtype={_mtype!s}, "
             f"valid_to={_valid_to!s}, "
-            f"additional_properties={_additional_properties!s}, "
             f")"
         )

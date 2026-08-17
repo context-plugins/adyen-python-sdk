@@ -15,8 +15,6 @@ class AppIdentifierInfo1(object):
     Attributes:
         android_package_id (str): The Android package identifier for this app.
         ios_scheme (str): The iOS URL scheme for this app.
-        additional_properties (Dict[str, Any]): The additional properties for the
-            model.
 
     """
 
@@ -34,19 +32,13 @@ class AppIdentifierInfo1(object):
     def __init__(
         self,
         android_package_id=APIHelper.SKIP,
-        ios_scheme=APIHelper.SKIP,
-        additional_properties=None):
+        ios_scheme=APIHelper.SKIP):
         """Initialize a AppIdentifierInfo1 instance."""
         # Initialize members of the class
         if android_package_id is not APIHelper.SKIP:
             self.android_package_id = android_package_id
         if ios_scheme is not APIHelper.SKIP:
             self.ios_scheme = ios_scheme
-
-        # Add additional model properties to the instance
-        if additional_properties is None:
-            additional_properties = {}
-        self.additional_properties = additional_properties
 
     @classmethod
     def from_dictionary(cls,
@@ -75,15 +67,9 @@ class AppIdentifierInfo1(object):
             if dictionary.get("iosScheme")\
                 else APIHelper.SKIP
 
-        additional_properties = APIHelper.get_additional_properties(
-            dictionary={k: v for k, v in dictionary.items()
-                        if k not in cls._names.values()},
-            unboxing_function=lambda value: value)
-
         # Return an object of this model
         return cls(android_package_id,
-                   ios_scheme,
-                   additional_properties)
+                   ios_scheme)
 
     def __repr__(self):
         """Return a unambiguous string representation."""
@@ -97,12 +83,10 @@ class AppIdentifierInfo1(object):
             if hasattr(self, "ios_scheme")
             else None
         )
-        _additional_properties=self.additional_properties
         return (
             f"{self.__class__.__name__}("
             f"android_package_id={_android_package_id!r}, "
             f"ios_scheme={_ios_scheme!r}, "
-            f"additional_properties={_additional_properties!r}, "
             f")"
         )
 
@@ -118,11 +102,9 @@ class AppIdentifierInfo1(object):
             if hasattr(self, "ios_scheme")
             else None
         )
-        _additional_properties=self.additional_properties
         return (
             f"{self.__class__.__name__}("
             f"android_package_id={_android_package_id!s}, "
             f"ios_scheme={_ios_scheme!s}, "
-            f"additional_properties={_additional_properties!s}, "
             f")"
         )

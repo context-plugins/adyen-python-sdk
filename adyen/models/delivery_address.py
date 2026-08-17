@@ -10,79 +10,67 @@ from adyen.api_helper import APIHelper
 class DeliveryAddress(object):
     """Implementation of the 'DeliveryAddress' model.
 
-    The address of the store.
-
     Attributes:
-        city (str): The name of the city.
+        city (str): The name of the city. Maximum length: 3000 characters.
         country (str): The two-character ISO-3166-1 alpha-2 country code. For
-            example, **US**. >If you don't know the country or are not collecting the
-            country from the shopper, provide `country` as `ZZ`.
-        line_1 (str): The name of the street. Do not include the number of the
-            building.  For example, if the address is Simon Carmiggeltstraat 6-50,
-            provide **Simon Carmiggeltstraat**.
-        line_2 (str): The number of the building.  For example, if the address is
-            Simon Carmiggeltstraat 6-50, provide **6-50**.
-        line_3 (str): Additional information about the delivery address.
-        postal_code (str): The postal code. Maximum length: * 5 digits for an address
-            in the US. * 10 characters for an address in all other countries.
-        state_or_province (str): The state or province code, maximum 3 characters.
-            For example, **CA** for California in the US or **ON** for Ontario in
-            Canada. > Required for the US and Canada.
-        additional_properties (Dict[str, Any]): The additional properties for the
-            model.
+            example, **US**. > If you don't know the country or are not collecting
+            the country from the shopper, provide `country` as `ZZ`.
+        first_name (str): The model property of type str.
+        house_number_or_name (str): The number or name of the house. Maximum length:
+            3000 characters.
+        last_name (str): The model property of type str.
+        postal_code (str): A maximum of five digits for an address in the US, or a
+            maximum of ten characters for an address in all other countries.
+        state_or_province (str): The two-character ISO 3166-2 state or province code.
+            For example, **CA** in the US or **ON** in Canada. > Required for the US
+            and Canada.
+        street (str): The name of the street. Maximum length: 3000 characters. > The
+            house number should not be included in this field; it should be
+            separately provided via `houseNumberOrName`.
 
     """
 
     # Create a mapping from Model property names to API property names
     _names = {
-        "country": "country",
         "city": "city",
-        "line_1": "line1",
-        "line_2": "line2",
-        "line_3": "line3",
+        "country": "country",
+        "house_number_or_name": "houseNumberOrName",
         "postal_code": "postalCode",
+        "street": "street",
+        "first_name": "firstName",
+        "last_name": "lastName",
         "state_or_province": "stateOrProvince",
     }
 
     _optionals = [
-        "city",
-        "line_1",
-        "line_2",
-        "line_3",
-        "postal_code",
+        "first_name",
+        "last_name",
         "state_or_province",
     ]
 
     def __init__(
         self,
+        city=None,
         country=None,
-        city=APIHelper.SKIP,
-        line_1=APIHelper.SKIP,
-        line_2=APIHelper.SKIP,
-        line_3=APIHelper.SKIP,
-        postal_code=APIHelper.SKIP,
-        state_or_province=APIHelper.SKIP,
-        additional_properties=None):
+        house_number_or_name=None,
+        postal_code=None,
+        street=None,
+        first_name=APIHelper.SKIP,
+        last_name=APIHelper.SKIP,
+        state_or_province=APIHelper.SKIP):
         """Initialize a DeliveryAddress instance."""
         # Initialize members of the class
-        if city is not APIHelper.SKIP:
-            self.city = city
+        self.city = city
         self.country = country
-        if line_1 is not APIHelper.SKIP:
-            self.line_1 = line_1
-        if line_2 is not APIHelper.SKIP:
-            self.line_2 = line_2
-        if line_3 is not APIHelper.SKIP:
-            self.line_3 = line_3
-        if postal_code is not APIHelper.SKIP:
-            self.postal_code = postal_code
+        if first_name is not APIHelper.SKIP:
+            self.first_name = first_name
+        self.house_number_or_name = house_number_or_name
+        if last_name is not APIHelper.SKIP:
+            self.last_name = last_name
+        self.postal_code = postal_code
         if state_or_province is not APIHelper.SKIP:
             self.state_or_province = state_or_province
-
-        # Add additional model properties to the instance
-        if additional_properties is None:
-            additional_properties = {}
-        self.additional_properties = additional_properties
+        self.street = street
 
     @classmethod
     def from_dictionary(cls,
@@ -102,140 +90,115 @@ class DeliveryAddress(object):
             return None
 
         # Extract variables from the dictionary
+        city =\
+            dictionary.get("city")\
+            if dictionary.get("city")\
+                else None
         country =\
             dictionary.get("country")\
             if dictionary.get("country")\
                 else None
-        city =\
-            dictionary.get("city")\
-            if dictionary.get("city")\
-                else APIHelper.SKIP
-        line_1 =\
-            dictionary.get("line1")\
-            if dictionary.get("line1")\
-                else APIHelper.SKIP
-        line_2 =\
-            dictionary.get("line2")\
-            if dictionary.get("line2")\
-                else APIHelper.SKIP
-        line_3 =\
-            dictionary.get("line3")\
-            if dictionary.get("line3")\
-                else APIHelper.SKIP
+        house_number_or_name =\
+            dictionary.get("houseNumberOrName")\
+            if dictionary.get("houseNumberOrName")\
+                else None
         postal_code =\
             dictionary.get("postalCode")\
             if dictionary.get("postalCode")\
+                else None
+        street =\
+            dictionary.get("street")\
+            if dictionary.get("street")\
+                else None
+        first_name =\
+            dictionary.get("firstName")\
+            if dictionary.get("firstName")\
+                else APIHelper.SKIP
+        last_name =\
+            dictionary.get("lastName")\
+            if dictionary.get("lastName")\
                 else APIHelper.SKIP
         state_or_province =\
             dictionary.get("stateOrProvince")\
             if dictionary.get("stateOrProvince")\
                 else APIHelper.SKIP
 
-        additional_properties = APIHelper.get_additional_properties(
-            dictionary={k: v for k, v in dictionary.items()
-                        if k not in cls._names.values()},
-            unboxing_function=lambda value: value)
-
         # Return an object of this model
-        return cls(country,
-                   city,
-                   line_1,
-                   line_2,
-                   line_3,
+        return cls(city,
+                   country,
+                   house_number_or_name,
                    postal_code,
-                   state_or_province,
-                   additional_properties)
+                   street,
+                   first_name,
+                   last_name,
+                   state_or_province)
 
     def __repr__(self):
         """Return a unambiguous string representation."""
-        _city=(
-            self.city
-            if hasattr(self, "city")
-            else None
-        )
+        _city=self.city
         _country=self.country
-        _line_1=(
-            self.line_1
-            if hasattr(self, "line_1")
+        _first_name=(
+            self.first_name
+            if hasattr(self, "first_name")
             else None
         )
-        _line_2=(
-            self.line_2
-            if hasattr(self, "line_2")
+        _house_number_or_name=self.house_number_or_name
+        _last_name=(
+            self.last_name
+            if hasattr(self, "last_name")
             else None
         )
-        _line_3=(
-            self.line_3
-            if hasattr(self, "line_3")
-            else None
-        )
-        _postal_code=(
-            self.postal_code
-            if hasattr(self, "postal_code")
-            else None
-        )
+        _postal_code=self.postal_code
         _state_or_province=(
             self.state_or_province
             if hasattr(self, "state_or_province")
             else None
         )
-        _additional_properties=self.additional_properties
+        _street=self.street
         return (
             f"{self.__class__.__name__}("
             f"city={_city!r}, "
             f"country={_country!r}, "
-            f"line_1={_line_1!r}, "
-            f"line_2={_line_2!r}, "
-            f"line_3={_line_3!r}, "
+            f"first_name={_first_name!r}, "
+            f"house_number_or_name={_house_number_or_name!r}, "
+            f"last_name={_last_name!r}, "
             f"postal_code={_postal_code!r}, "
             f"state_or_province={_state_or_province!r}, "
-            f"additional_properties={_additional_properties!r}, "
+            f"street={_street!r}, "
             f")"
         )
 
     def __str__(self):
         """Return a human-readable string representation."""
-        _city=(
-            self.city
-            if hasattr(self, "city")
-            else None
-        )
+        _city=self.city
         _country=self.country
-        _line_1=(
-            self.line_1
-            if hasattr(self, "line_1")
+        _first_name=(
+            self.first_name
+            if hasattr(self, "first_name")
             else None
         )
-        _line_2=(
-            self.line_2
-            if hasattr(self, "line_2")
+        _house_number_or_name=self.house_number_or_name
+        _last_name=(
+            self.last_name
+            if hasattr(self, "last_name")
             else None
         )
-        _line_3=(
-            self.line_3
-            if hasattr(self, "line_3")
-            else None
-        )
-        _postal_code=(
-            self.postal_code
-            if hasattr(self, "postal_code")
-            else None
-        )
+        _postal_code=self.postal_code
         _state_or_province=(
             self.state_or_province
             if hasattr(self, "state_or_province")
             else None
         )
-        _additional_properties=self.additional_properties
+        _street=self.street
         return (
             f"{self.__class__.__name__}("
             f"city={_city!s}, "
             f"country={_country!s}, "
-            f"line_1={_line_1!s}, "
-            f"line_2={_line_2!s}, "
-            f"line_3={_line_3!s}, "
+            f"first_name={_first_name!s}, "
+            f"house_number_or_name={_house_number_or_name!s}, "
+            f"last_name={_last_name!s}, "
             f"postal_code={_postal_code!s}, "
             f"state_or_province={_state_or_province!s}, "
-            f"additional_properties={_additional_properties!s}, "
+            f"street={_street!s}, "
             f")"
         )

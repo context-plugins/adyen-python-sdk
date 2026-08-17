@@ -13,6 +13,12 @@ class SplitAmount(object):
     The amount of the split item.
     * Required for all split types in the [Classic Platforms
     integration](https://docs.adyen.com/classic-platforms).
+    * Required if `type` is **BalanceAccount**, **Commission**, **Surcharge**,
+    **Default**, or **VAT** in your [Balance
+    Platform](https://docs.adyen.com/adyen-for-platforms-model) integration., The
+    amount of the split item.
+    * Required for all split types in the [Classic Platforms
+    integration](https://docs.adyen.com/classic-platforms).
     * Required if `type` is **BalanceAccount**, **Commission**, **Default**, or
     **VAT** in your [Balance
     Platform](https://docs.adyen.com/adyen-for-platforms-model) integration.
@@ -23,8 +29,6 @@ class SplitAmount(object):
             default, this is the original payment currency.
         value (int): The value of the split amount, in [minor
             units](https://docs.adyen.com/development-resources/currency-codes).
-        additional_properties (Dict[str, Any]): The additional properties for the
-            model.
 
     """
 
@@ -41,18 +45,12 @@ class SplitAmount(object):
     def __init__(
         self,
         value=None,
-        currency=APIHelper.SKIP,
-        additional_properties=None):
+        currency=APIHelper.SKIP):
         """Initialize a SplitAmount instance."""
         # Initialize members of the class
         if currency is not APIHelper.SKIP:
             self.currency = currency
         self.value = value
-
-        # Add additional model properties to the instance
-        if additional_properties is None:
-            additional_properties = {}
-        self.additional_properties = additional_properties
 
     @classmethod
     def from_dictionary(cls,
@@ -81,15 +79,42 @@ class SplitAmount(object):
             if dictionary.get("currency")\
                 else APIHelper.SKIP
 
-        additional_properties = APIHelper.get_additional_properties(
-            dictionary={k: v for k, v in dictionary.items()
-                        if k not in cls._names.values()},
-            unboxing_function=lambda value: value)
-
         # Return an object of this model
         return cls(value,
-                   currency,
-                   additional_properties)
+                   currency)
+
+    @classmethod
+    def validate(cls, dictionary):
+        """Validate dictionary against class required properties
+
+        Args:
+            dictionary (dictionary): A dictionary representation of the object
+            as obtained from the deserialization of the server's response. The
+            keys MUST match property names in the API description.
+
+        Returns:
+            boolean : if dictionary is valid contains required properties.
+
+        """
+        if isinstance(dictionary, cls):
+            return APIHelper.is_valid_type(
+                    value=dictionary.value,
+                    type_callable=lambda value:
+                        isinstance(
+                        value,
+                        int,
+                ))
+
+        if not isinstance(dictionary, dict):
+            return False
+
+        return APIHelper.is_valid_type(
+                value=dictionary.get("value"),
+                type_callable=lambda value:
+                    isinstance(
+                    value,
+                    int,
+            ))
 
     def __repr__(self):
         """Return a unambiguous string representation."""
@@ -99,12 +124,10 @@ class SplitAmount(object):
             else None
         )
         _value=self.value
-        _additional_properties=self.additional_properties
         return (
             f"{self.__class__.__name__}("
             f"currency={_currency!r}, "
             f"value={_value!r}, "
-            f"additional_properties={_additional_properties!r}, "
             f")"
         )
 
@@ -116,11 +139,9 @@ class SplitAmount(object):
             else None
         )
         _value=self.value
-        _additional_properties=self.additional_properties
         return (
             f"{self.__class__.__name__}("
             f"currency={_currency!s}, "
             f"value={_value!s}, "
-            f"additional_properties={_additional_properties!s}, "
             f")"
         )

@@ -19,8 +19,6 @@ class TotalFilter(object):
         shift_number (str): Shift number.
         totals_group_id (str): Sent if totals in the response have to be computed
             only for this particular value of TotalsGroupID.
-        additional_properties (Dict[str, Any]): The additional properties for the
-            model.
 
     """
 
@@ -47,8 +45,7 @@ class TotalFilter(object):
         sale_id=APIHelper.SKIP,
         operator_id=APIHelper.SKIP,
         shift_number=APIHelper.SKIP,
-        totals_group_id=APIHelper.SKIP,
-        additional_properties=None):
+        totals_group_id=APIHelper.SKIP):
         """Initialize a TotalFilter instance."""
         # Initialize members of the class
         if poiid is not APIHelper.SKIP:
@@ -61,11 +58,6 @@ class TotalFilter(object):
             self.shift_number = shift_number
         if totals_group_id is not APIHelper.SKIP:
             self.totals_group_id = totals_group_id
-
-        # Add additional model properties to the instance
-        if additional_properties is None:
-            additional_properties = {}
-        self.additional_properties = additional_properties
 
     @classmethod
     def from_dictionary(cls,
@@ -106,18 +98,12 @@ class TotalFilter(object):
             if dictionary.get("TotalsGroupID")\
                 else APIHelper.SKIP
 
-        additional_properties = APIHelper.get_additional_properties(
-            dictionary={k: v for k, v in dictionary.items()
-                        if k not in cls._names.values()},
-            unboxing_function=lambda value: value)
-
         # Return an object of this model
         return cls(poiid,
                    sale_id,
                    operator_id,
                    shift_number,
-                   totals_group_id,
-                   additional_properties)
+                   totals_group_id)
 
     def __repr__(self):
         """Return a unambiguous string representation."""
@@ -146,7 +132,6 @@ class TotalFilter(object):
             if hasattr(self, "totals_group_id")
             else None
         )
-        _additional_properties=self.additional_properties
         return (
             f"{self.__class__.__name__}("
             f"poiid={_poiid!r}, "
@@ -154,7 +139,6 @@ class TotalFilter(object):
             f"operator_id={_operator_id!r}, "
             f"shift_number={_shift_number!r}, "
             f"totals_group_id={_totals_group_id!r}, "
-            f"additional_properties={_additional_properties!r}, "
             f")"
         )
 
@@ -185,7 +169,6 @@ class TotalFilter(object):
             if hasattr(self, "totals_group_id")
             else None
         )
-        _additional_properties=self.additional_properties
         return (
             f"{self.__class__.__name__}("
             f"poiid={_poiid!s}, "
@@ -193,6 +176,5 @@ class TotalFilter(object):
             f"operator_id={_operator_id!s}, "
             f"shift_number={_shift_number!s}, "
             f"totals_group_id={_totals_group_id!s}, "
-            f"additional_properties={_additional_properties!s}, "
             f")"
         )

@@ -24,9 +24,14 @@ class IdentificationData1(object):
             **true** if the individual does not have an SSN. To verify their
             identity, Adyen will require them to upload an ID document.
         number (str): The number in the document.
-        mtype (Type132): The model property of type Type132.
-        additional_properties (Dict[str, Any]): The additional properties for the
-            model.
+        mtype (Type132Enum): Type of identity data. For individuals, the following
+            types are supported. See our [onboarding
+            guide](https://docs.adyen.com/platforms/onboard-users/onboarding-steps/?on
+            boarding_type=custom) for other supported countries.  - Australia:
+            **driversLicense**, **passport**  - Hong Kong: **driversLicense**,
+            **nationalIdNumber**, **passport**  - New Zealand: **driversLicense**,
+            **passport**  - Singapore: **driversLicense**, **nationalIdNumber**,
+            **passport**   - All other supported countries: **nationalIdNumber**
 
     """
 
@@ -58,8 +63,7 @@ class IdentificationData1(object):
         issuer_country=APIHelper.SKIP,
         issuer_state=APIHelper.SKIP,
         national_id_exempt=APIHelper.SKIP,
-        number=APIHelper.SKIP,
-        additional_properties=None):
+        number=APIHelper.SKIP):
         """Initialize a IdentificationData1 instance."""
         # Initialize members of the class
         if card_number is not APIHelper.SKIP:
@@ -75,11 +79,6 @@ class IdentificationData1(object):
         if number is not APIHelper.SKIP:
             self.number = number
         self.mtype = mtype
-
-        # Add additional model properties to the instance
-        if additional_properties is None:
-            additional_properties = {}
-        self.additional_properties = additional_properties
 
     @classmethod
     def from_dictionary(cls,
@@ -128,11 +127,6 @@ class IdentificationData1(object):
             if dictionary.get("number")\
                 else APIHelper.SKIP
 
-        additional_properties = APIHelper.get_additional_properties(
-            dictionary={k: v for k, v in dictionary.items()
-                        if k not in cls._names.values()},
-            unboxing_function=lambda value: value)
-
         # Return an object of this model
         return cls(mtype,
                    card_number,
@@ -140,8 +134,7 @@ class IdentificationData1(object):
                    issuer_country,
                    issuer_state,
                    national_id_exempt,
-                   number,
-                   additional_properties)
+                   number)
 
     def __repr__(self):
         """Return a unambiguous string representation."""
@@ -176,7 +169,6 @@ class IdentificationData1(object):
             else None
         )
         _mtype=self.mtype
-        _additional_properties=self.additional_properties
         return (
             f"{self.__class__.__name__}("
             f"card_number={_card_number!r}, "
@@ -186,7 +178,6 @@ class IdentificationData1(object):
             f"national_id_exempt={_national_id_exempt!r}, "
             f"number={_number!r}, "
             f"mtype={_mtype!r}, "
-            f"additional_properties={_additional_properties!r}, "
             f")"
         )
 
@@ -223,7 +214,6 @@ class IdentificationData1(object):
             else None
         )
         _mtype=self.mtype
-        _additional_properties=self.additional_properties
         return (
             f"{self.__class__.__name__}("
             f"card_number={_card_number!s}, "
@@ -233,6 +223,5 @@ class IdentificationData1(object):
             f"national_id_exempt={_national_id_exempt!s}, "
             f"number={_number!s}, "
             f"mtype={_mtype!s}, "
-            f"additional_properties={_additional_properties!s}, "
             f")"
         )

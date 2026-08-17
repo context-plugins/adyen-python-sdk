@@ -1,34 +1,24 @@
 
-# Uk Fps Tracing Data
-
-*This model accepts additional fields of type Any.*
+# UK Fps Tracing Data
 
 ## Structure
 
-`UkFpsTracingData`
+`UKFpsTracingData`
 
 ## Fields
 
 | Name | Type | Tags | Description |
 |  --- | --- | --- | --- |
 | `fpid` | `str` | Required | The FPS trace number. This is a unique identifier assigned to transfers processed by [FPS](https://www.bankofengland.co.uk/payment-systems/services/faster-payments-service). |
-| `mtype` | [`Type88`](../../doc/models/type-88.md) | Required | **ukFps** |
-| `additional_properties` | `Dict[str, Any]` | Optional | - |
+| `mtype` | `str` | Required, Constant | **ukFps**<br><br>**Value**: `"ukFps"` |
 
 ## Example
 
 ```python
-import jsonpickle
+from adyen.models.uk_fps_tracing_data import UKFpsTracingData
 
-from adyen.models.type_88 import Type88
-from adyen.models.uk_fps_tracing_data import UkFpsTracingData
-
-uk_fps_tracing_data = UkFpsTracingData(
-    fpid='fpid0',
-    mtype=Type88.UKFPS,
-    additional_properties={
-        'exampleAdditionalProperty': jsonpickle.decode('{"key1":"val1","key2":"val2"}')
-    }
+uk_fps_tracing_data = UKFpsTracingData(
+    fpid='fpid0'
 )
 ```
 

@@ -17,8 +17,6 @@ class PaginatedGetCardOrderResponse(object):
         has_next (bool): Indicates whether there are more items on the next page.
         has_previous (bool): Indicates whether there are more items on the previous
             page.
-        additional_properties (Dict[str, Any]): The additional properties for the
-            model.
 
     """
 
@@ -37,19 +35,13 @@ class PaginatedGetCardOrderResponse(object):
         self,
         has_next=None,
         has_previous=None,
-        card_orders=APIHelper.SKIP,
-        additional_properties=None):
+        card_orders=APIHelper.SKIP):
         """Initialize a PaginatedGetCardOrderResponse instance."""
         # Initialize members of the class
         if card_orders is not APIHelper.SKIP:
             self.card_orders = card_orders
         self.has_next = has_next
         self.has_previous = has_previous
-
-        # Add additional model properties to the instance
-        if additional_properties is None:
-            additional_properties = {}
-        self.additional_properties = additional_properties
 
     @classmethod
     def from_dictionary(cls,
@@ -86,16 +78,10 @@ class PaginatedGetCardOrderResponse(object):
         else:
             card_orders = APIHelper.SKIP
 
-        additional_properties = APIHelper.get_additional_properties(
-            dictionary={k: v for k, v in dictionary.items()
-                        if k not in cls._names.values()},
-            unboxing_function=lambda value: value)
-
         # Return an object of this model
         return cls(has_next,
                    has_previous,
-                   card_orders,
-                   additional_properties)
+                   card_orders)
 
     def __repr__(self):
         """Return a unambiguous string representation."""
@@ -106,13 +92,11 @@ class PaginatedGetCardOrderResponse(object):
         )
         _has_next=self.has_next
         _has_previous=self.has_previous
-        _additional_properties=self.additional_properties
         return (
             f"{self.__class__.__name__}("
             f"card_orders={_card_orders!r}, "
             f"has_next={_has_next!r}, "
             f"has_previous={_has_previous!r}, "
-            f"additional_properties={_additional_properties!r}, "
             f")"
         )
 
@@ -125,12 +109,10 @@ class PaginatedGetCardOrderResponse(object):
         )
         _has_next=self.has_next
         _has_previous=self.has_previous
-        _additional_properties=self.additional_properties
         return (
             f"{self.__class__.__name__}("
             f"card_orders={_card_orders!s}, "
             f"has_next={_has_next!s}, "
             f"has_previous={_has_previous!s}, "
-            f"additional_properties={_additional_properties!s}, "
             f")"
         )

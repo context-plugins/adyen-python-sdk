@@ -11,10 +11,20 @@ class BankCategoryData(object):
     """Implementation of the 'BankCategoryData' model.
 
     Attributes:
-        priority (Priority): The model property of type Priority.
-        mtype (Type312): The model property of type Type312.
-        additional_properties (Dict[str, Any]): The additional properties for the
-            model.
+        priority (Priority1Enum): The priority for the bank transfer. This sets the
+            speed at which the transfer is sent and the fees that you have to pay.
+            Required for transfers with `category` **bank**.  Possible values:  *
+            **regular**: For normal, low-value transactions.  * **fast**: A faster
+            way to transfer funds, but the fees are higher. Recommended for
+            high-priority, low-value transactions.  * **wire**: The fastest way to
+            transfer funds, but this has the highest fees. Recommended for
+            high-priority, high-value transactions.  * **instant**: For instant funds
+            transfers within the United States and in [SEPA
+            locations](https://www.ecb.europa.eu/paym/integration/retail/sepa/html/ind
+            ex.en.html).  * **crossBorder**: For high-value transfers to a recipient
+            in a different country.  * **internal**: For transfers to an Adyen-issued
+            business bank account (by bank account number/IBAN).
+        mtype (Type310Enum): **bank**
 
     """
 
@@ -32,19 +42,12 @@ class BankCategoryData(object):
     def __init__(
         self,
         priority=APIHelper.SKIP,
-        mtype=APIHelper.SKIP,
-        additional_properties=None):
+        mtype="bank"):
         """Initialize a BankCategoryData instance."""
         # Initialize members of the class
         if priority is not APIHelper.SKIP:
             self.priority = priority
-        if mtype is not APIHelper.SKIP:
-            self.mtype = mtype
-
-        # Add additional model properties to the instance
-        if additional_properties is None:
-            additional_properties = {}
-        self.additional_properties = additional_properties
+        self.mtype = mtype
 
     @classmethod
     def from_dictionary(cls,
@@ -71,17 +74,11 @@ class BankCategoryData(object):
         mtype =\
             dictionary.get("type")\
             if dictionary.get("type")\
-                else APIHelper.SKIP
-
-        additional_properties = APIHelper.get_additional_properties(
-            dictionary={k: v for k, v in dictionary.items()
-                        if k not in cls._names.values()},
-            unboxing_function=lambda value: value)
+                else "bank"
 
         # Return an object of this model
         return cls(priority,
-                   mtype,
-                   additional_properties)
+                   mtype)
 
     @classmethod
     def validate(cls, dictionary):
@@ -116,12 +113,10 @@ class BankCategoryData(object):
             if hasattr(self, "mtype")
             else None
         )
-        _additional_properties=self.additional_properties
         return (
             f"{self.__class__.__name__}("
             f"priority={_priority!r}, "
             f"mtype={_mtype!r}, "
-            f"additional_properties={_additional_properties!r}, "
             f")"
         )
 
@@ -137,11 +132,9 @@ class BankCategoryData(object):
             if hasattr(self, "mtype")
             else None
         )
-        _additional_properties=self.additional_properties
         return (
             f"{self.__class__.__name__}("
             f"priority={_priority!s}, "
             f"mtype={_mtype!s}, "
-            f"additional_properties={_additional_properties!s}, "
             f")"
         )

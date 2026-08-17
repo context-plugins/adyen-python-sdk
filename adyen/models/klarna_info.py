@@ -15,10 +15,9 @@ class KlarnaInfo(object):
             capture](https://docs.adyen.com/online-payments/capture#automatic-capture)
             . Default value: **false**.
         dispute_email (str): The email address for disputes.
-        region (Region): The model property of type Region.
+        region (RegionEnum): The region of operation. For example, **NA**, **EU**,
+            **CH**, **AU**.
         support_email (str): The email address of merchant support.
-        additional_properties (Dict[str, Any]): The additional properties for the
-            model.
 
     """
 
@@ -39,8 +38,7 @@ class KlarnaInfo(object):
         dispute_email=None,
         region=None,
         support_email=None,
-        auto_capture=APIHelper.SKIP,
-        additional_properties=None):
+        auto_capture=APIHelper.SKIP):
         """Initialize a KlarnaInfo instance."""
         # Initialize members of the class
         if auto_capture is not APIHelper.SKIP:
@@ -48,11 +46,6 @@ class KlarnaInfo(object):
         self.dispute_email = dispute_email
         self.region = region
         self.support_email = support_email
-
-        # Add additional model properties to the instance
-        if additional_properties is None:
-            additional_properties = {}
-        self.additional_properties = additional_properties
 
     @classmethod
     def from_dictionary(cls,
@@ -89,17 +82,11 @@ class KlarnaInfo(object):
             if "autoCapture" in dictionary.keys()\
                 else APIHelper.SKIP
 
-        additional_properties = APIHelper.get_additional_properties(
-            dictionary={k: v for k, v in dictionary.items()
-                        if k not in cls._names.values()},
-            unboxing_function=lambda value: value)
-
         # Return an object of this model
         return cls(dispute_email,
                    region,
                    support_email,
-                   auto_capture,
-                   additional_properties)
+                   auto_capture)
 
     def __repr__(self):
         """Return a unambiguous string representation."""
@@ -111,14 +98,12 @@ class KlarnaInfo(object):
         _dispute_email=self.dispute_email
         _region=self.region
         _support_email=self.support_email
-        _additional_properties=self.additional_properties
         return (
             f"{self.__class__.__name__}("
             f"auto_capture={_auto_capture!r}, "
             f"dispute_email={_dispute_email!r}, "
             f"region={_region!r}, "
             f"support_email={_support_email!r}, "
-            f"additional_properties={_additional_properties!r}, "
             f")"
         )
 
@@ -132,13 +117,11 @@ class KlarnaInfo(object):
         _dispute_email=self.dispute_email
         _region=self.region
         _support_email=self.support_email
-        _additional_properties=self.additional_properties
         return (
             f"{self.__class__.__name__}("
             f"auto_capture={_auto_capture!s}, "
             f"dispute_email={_dispute_email!s}, "
             f"region={_region!s}, "
             f"support_email={_support_email!s}, "
-            f"additional_properties={_additional_properties!s}, "
             f")"
         )

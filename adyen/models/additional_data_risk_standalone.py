@@ -40,8 +40,6 @@ class AdditionalDataRiskStandalone(object):
             this payment. Example: true
         token_data_type (str): Required for PayPal payments only. The only supported
             value is: **paypal**.
-        additional_properties (Dict[str, Any]): The additional properties for the
-            model.
 
     """
 
@@ -98,8 +96,7 @@ class AdditionalDataRiskStandalone(object):
         risk_token=APIHelper.SKIP,
         three_d_authenticated=APIHelper.SKIP,
         three_d_offered=APIHelper.SKIP,
-        token_data_type=APIHelper.SKIP,
-        additional_properties=None):
+        token_data_type=APIHelper.SKIP):
         """Initialize a AdditionalDataRiskStandalone instance."""
         # Initialize members of the class
         if pay_pal_country_code is not APIHelper.SKIP:
@@ -132,11 +129,6 @@ class AdditionalDataRiskStandalone(object):
             self.three_d_offered = three_d_offered
         if token_data_type is not APIHelper.SKIP:
             self.token_data_type = token_data_type
-
-        # Add additional model properties to the instance
-        if additional_properties is None:
-            additional_properties = {}
-        self.additional_properties = additional_properties
 
     @classmethod
     def from_dictionary(cls,
@@ -217,11 +209,6 @@ class AdditionalDataRiskStandalone(object):
             if dictionary.get("tokenDataType")\
                 else APIHelper.SKIP
 
-        additional_properties = APIHelper.get_additional_properties(
-            dictionary={k: v for k, v in dictionary.items()
-                        if k not in cls._names.values()},
-            unboxing_function=lambda value: value)
-
         # Return an object of this model
         return cls(pay_pal_country_code,
                    pay_pal_email_id,
@@ -237,8 +224,7 @@ class AdditionalDataRiskStandalone(object):
                    risk_token,
                    three_d_authenticated,
                    three_d_offered,
-                   token_data_type,
-                   additional_properties)
+                   token_data_type)
 
     def __repr__(self):
         """Return a unambiguous string representation."""
@@ -317,7 +303,6 @@ class AdditionalDataRiskStandalone(object):
             if hasattr(self, "token_data_type")
             else None
         )
-        _additional_properties=self.additional_properties
         return (
             f"{self.__class__.__name__}("
             f"pay_pal_country_code={_pay_pal_country_code!r}, "
@@ -335,7 +320,6 @@ class AdditionalDataRiskStandalone(object):
             f"three_d_authenticated={_three_d_authenticated!r}, "
             f"three_d_offered={_three_d_offered!r}, "
             f"token_data_type={_token_data_type!r}, "
-            f"additional_properties={_additional_properties!r}, "
             f")"
         )
 
@@ -416,7 +400,6 @@ class AdditionalDataRiskStandalone(object):
             if hasattr(self, "token_data_type")
             else None
         )
-        _additional_properties=self.additional_properties
         return (
             f"{self.__class__.__name__}("
             f"pay_pal_country_code={_pay_pal_country_code!s}, "
@@ -434,6 +417,5 @@ class AdditionalDataRiskStandalone(object):
             f"three_d_authenticated={_three_d_authenticated!s}, "
             f"three_d_offered={_three_d_offered!s}, "
             f"token_data_type={_token_data_type!s}, "
-            f"additional_properties={_additional_properties!s}, "
             f")"
         )

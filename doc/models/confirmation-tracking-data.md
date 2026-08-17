@@ -1,8 +1,6 @@
 
 # Confirmation Tracking Data
 
-*This model accepts additional fields of type Any.*
-
 ## Structure
 
 `ConfirmationTrackingData`
@@ -11,25 +9,17 @@
 
 | Name | Type | Tags | Description |
 |  --- | --- | --- | --- |
-| `status` | [`Status110`](../../doc/models/status-110.md) | Required | - |
-| `mtype` | [`Type834`](../../doc/models/type-834.md) | Required | The type of the tracking event.<br><br>Possible values:<br><br>- **confirmation**: the transfer passed Adyen's internal review. |
-| `additional_properties` | `Dict[str, Any]` | Optional | - |
+| `status` | [`Status15Enum`](../../doc/models/status-15-enum.md) | Required | The status of the transfer.<br><br>Possible values:<br><br>- **credited**: the funds are credited to your user's transfer instrument or bank account.- **accepted**: the request is accepted by the integration. |
+| `mtype` | `str` | Required, Constant | The type of the tracking event.<br><br>Possible values:<br><br>- **confirmation**: the transfer passed Adyen's internal review.<br><br>**Value**: `"confirmation"` |
 
 ## Example
 
 ```python
-import jsonpickle
-
 from adyen.models.confirmation_tracking_data import ConfirmationTrackingData
-from adyen.models.status_110 import Status110
-from adyen.models.type_834 import Type834
+from adyen.models.status_15_enum import Status15Enum
 
 confirmation_tracking_data = ConfirmationTrackingData(
-    status=Status110.CREDITED,
-    mtype=Type834.CONFIRMATION,
-    additional_properties={
-        'exampleAdditionalProperty': jsonpickle.decode('{"key1":"val1","key2":"val2"}')
-    }
+    status=Status15Enum.CREDITED
 )
 ```
 

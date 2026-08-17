@@ -1,8 +1,6 @@
 
 # Create Account Request
 
-*This model accepts additional fields of type Any.*
-
 ## Structure
 
 `CreateAccountRequest`
@@ -16,18 +14,16 @@
 | `description` | `str` | Optional | A description of the account, maximum 256 characters. You can use alphanumeric characters (A-Z, a-z, 0-9), white spaces, and underscores `_`. |
 | `metadata` | `Dict[str, str]` | Optional | A set of key and value pairs for general use by the merchant.<br>The keys do not have specific names and may be used for storing miscellaneous data as desired.<br><br>> Note that during an update of metadata, the omission of existing key-value pairs will result in the deletion of those key-value pairs. |
 | `payout_method_code` | `str` | Optional | The payout method code held by the account holder to couple the account with. Scheduled card payouts will be sent using this payout method code. |
-| `payout_schedule` | [`PayoutSchedule`](../../doc/models/payout-schedule.md) | Optional | - |
+| `payout_schedule` | [`PayoutScheduleEnum`](../../doc/models/payout-schedule-enum.md) | Optional | The payout schedule for the account.<br><br>Possible values: `DEFAULT`, `DAILY`, `DAILY_US`, `DAILY_EU`, `DAILY_AU`, `DAILY_SG`, `WEEKLY`, `WEEKLY_ON_TUE_FRI_MIDNIGHT`, `BIWEEKLY_ON_1ST_AND_15TH_AT_MIDNIGHT`, `MONTHLY`, `HOLD`.<br><br>> `HOLD` prevents scheduled payouts, but you can still initiate payouts manually. |
 | `payout_schedule_reason` | `str` | Optional | The reason for the payout schedule choice.<br><br>> This field is required when the `payoutSchedule` parameter is set to `HOLD`. |
-| `payout_speed` | [`PayoutSpeed1`](../../doc/models/payout-speed-1.md) | Optional | - |
-| `additional_properties` | `Dict[str, Any]` | Optional | - |
+| `payout_speed` | [`PayoutSpeed1Enum`](../../doc/models/payout-speed-1-enum.md) | Optional | Speed at which payouts for this account are processed.<br><br>Possible values: `STANDARD` (default), `SAME_DAY`.<br><br>**Default**: `"STANDARD"` |
 
 ## Example
 
 ```python
-import jsonpickle
-
 from adyen.models.create_account_request import CreateAccountRequest
-from adyen.models.payout_schedule import PayoutSchedule
+from adyen.models.payout_schedule_enum import PayoutScheduleEnum
+from adyen.models.payout_speed_1_enum import PayoutSpeed1Enum
 
 create_account_request = CreateAccountRequest(
     account_holder_code='accountHolderCode0',
@@ -37,10 +33,8 @@ create_account_request = CreateAccountRequest(
         'key0': 'metadata9'
     },
     payout_method_code='payoutMethodCode6',
-    payout_schedule=PayoutSchedule.WEEKLY_SUN_TO_THU_AU,
-    additional_properties={
-        'exampleAdditionalProperty': jsonpickle.decode('{"key1":"val1","key2":"val2"}')
-    }
+    payout_schedule=PayoutScheduleEnum.WEEKLY_SUN_TO_THU_AU,
+    payout_speed=PayoutSpeed1Enum.STANDARD
 )
 ```
 

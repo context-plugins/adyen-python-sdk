@@ -22,8 +22,6 @@ class Balance(object):
             equal to the lower of the following: - The `pending` balance - The
             `pending` balance plus the `available` balance.
         reserved (int): The balance currently held in reserve.
-        additional_properties (Dict[str, Any]): The additional properties for the
-            model.
 
     """
 
@@ -49,8 +47,7 @@ class Balance(object):
         currency=None,
         reserved=None,
         pending=APIHelper.SKIP,
-        pending_available=APIHelper.SKIP,
-        additional_properties=None):
+        pending_available=APIHelper.SKIP):
         """Initialize a Balance instance."""
         # Initialize members of the class
         self.available = available
@@ -61,11 +58,6 @@ class Balance(object):
         if pending_available is not APIHelper.SKIP:
             self.pending_available = pending_available
         self.reserved = reserved
-
-        # Add additional model properties to the instance
-        if additional_properties is None:
-            additional_properties = {}
-        self.additional_properties = additional_properties
 
     @classmethod
     def from_dictionary(cls,
@@ -110,19 +102,13 @@ class Balance(object):
             if dictionary.get("pendingAvailable")\
                 else APIHelper.SKIP
 
-        additional_properties = APIHelper.get_additional_properties(
-            dictionary={k: v for k, v in dictionary.items()
-                        if k not in cls._names.values()},
-            unboxing_function=lambda value: value)
-
         # Return an object of this model
         return cls(available,
                    balance,
                    currency,
                    reserved,
                    pending,
-                   pending_available,
-                   additional_properties)
+                   pending_available)
 
     def __repr__(self):
         """Return a unambiguous string representation."""
@@ -140,7 +126,6 @@ class Balance(object):
             else None
         )
         _reserved=self.reserved
-        _additional_properties=self.additional_properties
         return (
             f"{self.__class__.__name__}("
             f"available={_available!r}, "
@@ -149,7 +134,6 @@ class Balance(object):
             f"pending={_pending!r}, "
             f"pending_available={_pending_available!r}, "
             f"reserved={_reserved!r}, "
-            f"additional_properties={_additional_properties!r}, "
             f")"
         )
 
@@ -169,7 +153,6 @@ class Balance(object):
             else None
         )
         _reserved=self.reserved
-        _additional_properties=self.additional_properties
         return (
             f"{self.__class__.__name__}("
             f"available={_available!s}, "
@@ -178,6 +161,5 @@ class Balance(object):
             f"pending={_pending!s}, "
             f"pending_available={_pending_available!s}, "
             f"reserved={_reserved!s}, "
-            f"additional_properties={_additional_properties!s}, "
             f")"
         )

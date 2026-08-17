@@ -14,12 +14,11 @@ class DeviceRenderOptions(object):
     Optional and only for `deviceChannel` **app**.
 
     Attributes:
-        sdk_interface (SdkInterface): The model property of type SdkInterface.
-        sdk_ui_type (List[SdkUiType]): UI types supported for displaying specific
+        sdk_interface (SdkInterfaceEnum): Supported SDK interface types. Allowed
+            values: * native * html * both
+        sdk_ui_type (List[SdkUiTypeEnum]): UI types supported for displaying specific
             challenges. Allowed values: * text * singleSelect * outOfBand * otherHtml
             * multiSelect
-        additional_properties (Dict[str, Any]): The additional properties for the
-            model.
 
     """
 
@@ -36,20 +35,13 @@ class DeviceRenderOptions(object):
 
     def __init__(
         self,
-        sdk_interface=APIHelper.SKIP,
-        sdk_ui_type=APIHelper.SKIP,
-        additional_properties=None):
+        sdk_interface="both",
+        sdk_ui_type=APIHelper.SKIP):
         """Initialize a DeviceRenderOptions instance."""
         # Initialize members of the class
-        if sdk_interface is not APIHelper.SKIP:
-            self.sdk_interface = sdk_interface
+        self.sdk_interface = sdk_interface
         if sdk_ui_type is not APIHelper.SKIP:
             self.sdk_ui_type = sdk_ui_type
-
-        # Add additional model properties to the instance
-        if additional_properties is None:
-            additional_properties = {}
-        self.additional_properties = additional_properties
 
     @classmethod
     def from_dictionary(cls,
@@ -72,21 +64,36 @@ class DeviceRenderOptions(object):
         sdk_interface =\
             dictionary.get("sdkInterface")\
             if dictionary.get("sdkInterface")\
-                else APIHelper.SKIP
+                else "both"
         sdk_ui_type =\
             dictionary.get("sdkUiType")\
             if dictionary.get("sdkUiType")\
                 else APIHelper.SKIP
 
-        additional_properties = APIHelper.get_additional_properties(
-            dictionary={k: v for k, v in dictionary.items()
-                        if k not in cls._names.values()},
-            unboxing_function=lambda value: value)
-
         # Return an object of this model
         return cls(sdk_interface,
-                   sdk_ui_type,
-                   additional_properties)
+                   sdk_ui_type)
+
+    @classmethod
+    def validate(cls, dictionary):
+        """Validate dictionary against class required properties
+
+        Args:
+            dictionary (dictionary): A dictionary representation of the object
+            as obtained from the deserialization of the server's response. The
+            keys MUST match property names in the API description.
+
+        Returns:
+            boolean : if dictionary is valid contains required properties.
+
+        """
+        if isinstance(dictionary, cls):
+            return True
+
+        if not isinstance(dictionary, dict):
+            return False
+
+        return True
 
     def __repr__(self):
         """Return a unambiguous string representation."""
@@ -100,12 +107,10 @@ class DeviceRenderOptions(object):
             if hasattr(self, "sdk_ui_type")
             else None
         )
-        _additional_properties=self.additional_properties
         return (
             f"{self.__class__.__name__}("
             f"sdk_interface={_sdk_interface!r}, "
             f"sdk_ui_type={_sdk_ui_type!r}, "
-            f"additional_properties={_additional_properties!r}, "
             f")"
         )
 
@@ -121,11 +126,9 @@ class DeviceRenderOptions(object):
             if hasattr(self, "sdk_ui_type")
             else None
         )
-        _additional_properties=self.additional_properties
         return (
             f"{self.__class__.__name__}("
             f"sdk_interface={_sdk_interface!s}, "
             f"sdk_ui_type={_sdk_ui_type!s}, "
-            f"additional_properties={_additional_properties!s}, "
             f")"
         )

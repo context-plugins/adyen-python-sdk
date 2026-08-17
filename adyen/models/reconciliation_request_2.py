@@ -13,16 +13,16 @@ class ReconciliationRequest2(object):
     Content of the Reconciliation Request message.
 
     Attributes:
-        reconciliation_type (ReconciliationType1): The model property of type
-            ReconciliationType1.
+        reconciliation_type (ReconciliationType1Enum): Type of Reconciliation
+            requested by the Sale to the POI. Possible values: *
+            **AcquirerReconciliation** * **AcquirerSynchronisation** *
+            **PreviousReconciliation** * **SaleReconciliation**
         acquirer_id (List[int]): Identification of the Acquirer. Could be present
             only if ReconciliationType is AcquirerReconciliation or
             AcquirerSynchronisation.
         poi_reconciliation_id (int): Identification of the reconciliation period
             between Sale and POI. Absent if ReconciliationType is not
             PreviousReconciliation.
-        additional_properties (Dict[str, Any]): The additional properties for the
-            model.
 
     """
 
@@ -42,8 +42,7 @@ class ReconciliationRequest2(object):
         self,
         reconciliation_type=None,
         acquirer_id=APIHelper.SKIP,
-        poi_reconciliation_id=APIHelper.SKIP,
-        additional_properties=None):
+        poi_reconciliation_id=APIHelper.SKIP):
         """Initialize a ReconciliationRequest2 instance."""
         # Initialize members of the class
         self.reconciliation_type = reconciliation_type
@@ -51,11 +50,6 @@ class ReconciliationRequest2(object):
             self.acquirer_id = acquirer_id
         if poi_reconciliation_id is not APIHelper.SKIP:
             self.poi_reconciliation_id = poi_reconciliation_id
-
-        # Add additional model properties to the instance
-        if additional_properties is None:
-            additional_properties = {}
-        self.additional_properties = additional_properties
 
     @classmethod
     def from_dictionary(cls,
@@ -88,16 +82,10 @@ class ReconciliationRequest2(object):
             if dictionary.get("POIReconciliationID")\
                 else APIHelper.SKIP
 
-        additional_properties = APIHelper.get_additional_properties(
-            dictionary={k: v for k, v in dictionary.items()
-                        if k not in cls._names.values()},
-            unboxing_function=lambda value: value)
-
         # Return an object of this model
         return cls(reconciliation_type,
                    acquirer_id,
-                   poi_reconciliation_id,
-                   additional_properties)
+                   poi_reconciliation_id)
 
     def __repr__(self):
         """Return a unambiguous string representation."""
@@ -112,13 +100,11 @@ class ReconciliationRequest2(object):
             if hasattr(self, "poi_reconciliation_id")
             else None
         )
-        _additional_properties=self.additional_properties
         return (
             f"{self.__class__.__name__}("
             f"reconciliation_type={_reconciliation_type!r}, "
             f"acquirer_id={_acquirer_id!r}, "
             f"poi_reconciliation_id={_poi_reconciliation_id!r}, "
-            f"additional_properties={_additional_properties!r}, "
             f")"
         )
 
@@ -135,12 +121,10 @@ class ReconciliationRequest2(object):
             if hasattr(self, "poi_reconciliation_id")
             else None
         )
-        _additional_properties=self.additional_properties
         return (
             f"{self.__class__.__name__}("
             f"reconciliation_type={_reconciliation_type!s}, "
             f"acquirer_id={_acquirer_id!s}, "
             f"poi_reconciliation_id={_poi_reconciliation_id!s}, "
-            f"additional_properties={_additional_properties!s}, "
             f")"
         )

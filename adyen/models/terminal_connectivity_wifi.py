@@ -14,8 +14,6 @@ class TerminalConnectivityWifi(object):
         ip_address (str): The terminal's IP address in the Wi-Fi network.
         mac_address (str): The terminal's MAC address in the Wi-Fi network.
         ssid (str): The SSID of the Wi-Fi network that the terminal is connected to.
-        additional_properties (Dict[str, Any]): The additional properties for the
-            model.
 
     """
 
@@ -36,8 +34,7 @@ class TerminalConnectivityWifi(object):
         self,
         ip_address=APIHelper.SKIP,
         mac_address=APIHelper.SKIP,
-        ssid=APIHelper.SKIP,
-        additional_properties=None):
+        ssid=APIHelper.SKIP):
         """Initialize a TerminalConnectivityWifi instance."""
         # Initialize members of the class
         if ip_address is not APIHelper.SKIP:
@@ -46,11 +43,6 @@ class TerminalConnectivityWifi(object):
             self.mac_address = mac_address
         if ssid is not APIHelper.SKIP:
             self.ssid = ssid
-
-        # Add additional model properties to the instance
-        if additional_properties is None:
-            additional_properties = {}
-        self.additional_properties = additional_properties
 
     @classmethod
     def from_dictionary(cls,
@@ -83,16 +75,10 @@ class TerminalConnectivityWifi(object):
             if dictionary.get("ssid")\
                 else APIHelper.SKIP
 
-        additional_properties = APIHelper.get_additional_properties(
-            dictionary={k: v for k, v in dictionary.items()
-                        if k not in cls._names.values()},
-            unboxing_function=lambda value: value)
-
         # Return an object of this model
         return cls(ip_address,
                    mac_address,
-                   ssid,
-                   additional_properties)
+                   ssid)
 
     def __repr__(self):
         """Return a unambiguous string representation."""
@@ -111,13 +97,11 @@ class TerminalConnectivityWifi(object):
             if hasattr(self, "ssid")
             else None
         )
-        _additional_properties=self.additional_properties
         return (
             f"{self.__class__.__name__}("
             f"ip_address={_ip_address!r}, "
             f"mac_address={_mac_address!r}, "
             f"ssid={_ssid!r}, "
-            f"additional_properties={_additional_properties!r}, "
             f")"
         )
 
@@ -138,12 +122,10 @@ class TerminalConnectivityWifi(object):
             if hasattr(self, "ssid")
             else None
         )
-        _additional_properties=self.additional_properties
         return (
             f"{self.__class__.__name__}("
             f"ip_address={_ip_address!s}, "
             f"mac_address={_mac_address!s}, "
             f"ssid={_ssid!s}, "
-            f"additional_properties={_additional_properties!s}, "
             f")"
         )

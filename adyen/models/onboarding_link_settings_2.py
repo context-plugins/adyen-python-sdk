@@ -74,8 +74,6 @@ class OnboardingLinkSettings2(object):
             channel type.
         transfer_instrument_limit (int): The maximum number of transfer instruments
             the user can create.
-        additional_properties (Dict[str, Any]): The additional properties for the
-            model.
 
     """
 
@@ -141,8 +139,7 @@ class OnboardingLinkSettings2(object):
         require_pci_sign_ecommerce=APIHelper.SKIP,
         require_pci_sign_pos=APIHelper.SKIP,
         require_pci_sign_pos_moto=APIHelper.SKIP,
-        transfer_instrument_limit=APIHelper.SKIP,
-        additional_properties=None):
+        transfer_instrument_limit=APIHelper.SKIP):
         """Initialize a OnboardingLinkSettings2 instance."""
         # Initialize members of the class
         if accepted_countries is not APIHelper.SKIP:
@@ -185,11 +182,6 @@ class OnboardingLinkSettings2(object):
             self.require_pci_sign_pos_moto = require_pci_sign_pos_moto
         if transfer_instrument_limit is not APIHelper.SKIP:
             self.transfer_instrument_limit = transfer_instrument_limit
-
-        # Add additional model properties to the instance
-        if additional_properties is None:
-            additional_properties = {}
-        self.additional_properties = additional_properties
 
     @classmethod
     def from_dictionary(cls,
@@ -278,11 +270,6 @@ class OnboardingLinkSettings2(object):
             if dictionary.get("transferInstrumentLimit")\
                 else APIHelper.SKIP
 
-        additional_properties = APIHelper.get_additional_properties(
-            dictionary={k: v for k, v in dictionary.items()
-                        if k not in cls._names.values()},
-            unboxing_function=lambda value: value)
-
         # Return an object of this model
         return cls(accepted_countries,
                    allow_bank_account_format_selection,
@@ -300,8 +287,7 @@ class OnboardingLinkSettings2(object):
                    require_pci_sign_ecommerce,
                    require_pci_sign_pos,
                    require_pci_sign_pos_moto,
-                   transfer_instrument_limit,
-                   additional_properties)
+                   transfer_instrument_limit)
 
     def __repr__(self):
         """Return a unambiguous string representation."""
@@ -390,7 +376,6 @@ class OnboardingLinkSettings2(object):
             if hasattr(self, "transfer_instrument_limit")
             else None
         )
-        _additional_properties=self.additional_properties
         return (
             f"{self.__class__.__name__}("
             f"accepted_countries={_accepted_countries!r}, "
@@ -410,7 +395,6 @@ class OnboardingLinkSettings2(object):
             f"require_pci_sign_pos={_require_pci_sign_pos!r}, "
             f"require_pci_sign_pos_moto={_require_pci_sign_pos_moto!r}, "
             f"transfer_instrument_limit={_transfer_instrument_limit!r}, "
-            f"additional_properties={_additional_properties!r}, "
             f")"
         )
 
@@ -501,7 +485,6 @@ class OnboardingLinkSettings2(object):
             if hasattr(self, "transfer_instrument_limit")
             else None
         )
-        _additional_properties=self.additional_properties
         return (
             f"{self.__class__.__name__}("
             f"accepted_countries={_accepted_countries!s}, "
@@ -521,6 +504,5 @@ class OnboardingLinkSettings2(object):
             f"require_pci_sign_pos={_require_pci_sign_pos!s}, "
             f"require_pci_sign_pos_moto={_require_pci_sign_pos_moto!s}, "
             f"transfer_instrument_limit={_transfer_instrument_limit!s}, "
-            f"additional_properties={_additional_properties!s}, "
             f")"
         )

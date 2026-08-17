@@ -20,8 +20,6 @@ class CreateSessionRequest(object):
             `PaymentServiceDelegate`.
         store (str): The unique identifier of the store that you want to process
             transactions for.
-        additional_properties (Dict[str, Any]): The additional properties for the
-            model.
 
     """
 
@@ -40,19 +38,13 @@ class CreateSessionRequest(object):
         self,
         merchant_account=None,
         setup_token=None,
-        store=APIHelper.SKIP,
-        additional_properties=None):
+        store=APIHelper.SKIP):
         """Initialize a CreateSessionRequest instance."""
         # Initialize members of the class
         self.merchant_account = merchant_account
         self.setup_token = setup_token
         if store is not APIHelper.SKIP:
             self.store = store
-
-        # Add additional model properties to the instance
-        if additional_properties is None:
-            additional_properties = {}
-        self.additional_properties = additional_properties
 
     @classmethod
     def from_dictionary(cls,
@@ -85,16 +77,10 @@ class CreateSessionRequest(object):
             if dictionary.get("store")\
                 else APIHelper.SKIP
 
-        additional_properties = APIHelper.get_additional_properties(
-            dictionary={k: v for k, v in dictionary.items()
-                        if k not in cls._names.values()},
-            unboxing_function=lambda value: value)
-
         # Return an object of this model
         return cls(merchant_account,
                    setup_token,
-                   store,
-                   additional_properties)
+                   store)
 
     def __repr__(self):
         """Return a unambiguous string representation."""
@@ -105,13 +91,11 @@ class CreateSessionRequest(object):
             if hasattr(self, "store")
             else None
         )
-        _additional_properties=self.additional_properties
         return (
             f"{self.__class__.__name__}("
             f"merchant_account={_merchant_account!r}, "
             f"setup_token={_setup_token!r}, "
             f"store={_store!r}, "
-            f"additional_properties={_additional_properties!r}, "
             f")"
         )
 
@@ -124,12 +108,10 @@ class CreateSessionRequest(object):
             if hasattr(self, "store")
             else None
         )
-        _additional_properties=self.additional_properties
         return (
             f"{self.__class__.__name__}("
             f"merchant_account={_merchant_account!s}, "
             f"setup_token={_setup_token!s}, "
             f"store={_store!s}, "
-            f"additional_properties={_additional_properties!s}, "
             f")"
         )

@@ -18,9 +18,8 @@ class CloseAccountResponse(object):
         psp_reference (str): The reference of a request. Can be used to uniquely
             identify the request.
         result_code (str): The result code.
-        status (Status2): The model property of type Status2.
-        additional_properties (Dict[str, Any]): The additional properties for the
-            model.
+        status (Status22Enum): The new status of the account. >Permitted values:
+            `Active`, `Inactive`, `Suspended`, `Closed`.
 
     """
 
@@ -47,8 +46,7 @@ class CloseAccountResponse(object):
         invalid_fields=APIHelper.SKIP,
         psp_reference=APIHelper.SKIP,
         result_code=APIHelper.SKIP,
-        status=APIHelper.SKIP,
-        additional_properties=None):
+        status=APIHelper.SKIP):
         """Initialize a CloseAccountResponse instance."""
         # Initialize members of the class
         if account_code is not APIHelper.SKIP:
@@ -61,11 +59,6 @@ class CloseAccountResponse(object):
             self.result_code = result_code
         if status is not APIHelper.SKIP:
             self.status = status
-
-        # Add additional model properties to the instance
-        if additional_properties is None:
-            additional_properties = {}
-        self.additional_properties = additional_properties
 
     @classmethod
     def from_dictionary(cls,
@@ -110,18 +103,12 @@ class CloseAccountResponse(object):
             if dictionary.get("status")\
                 else APIHelper.SKIP
 
-        additional_properties = APIHelper.get_additional_properties(
-            dictionary={k: v for k, v in dictionary.items()
-                        if k not in cls._names.values()},
-            unboxing_function=lambda value: value)
-
         # Return an object of this model
         return cls(account_code,
                    invalid_fields,
                    psp_reference,
                    result_code,
-                   status,
-                   additional_properties)
+                   status)
 
     def __repr__(self):
         """Return a unambiguous string representation."""
@@ -150,7 +137,6 @@ class CloseAccountResponse(object):
             if hasattr(self, "status")
             else None
         )
-        _additional_properties=self.additional_properties
         return (
             f"{self.__class__.__name__}("
             f"account_code={_account_code!r}, "
@@ -158,7 +144,6 @@ class CloseAccountResponse(object):
             f"psp_reference={_psp_reference!r}, "
             f"result_code={_result_code!r}, "
             f"status={_status!r}, "
-            f"additional_properties={_additional_properties!r}, "
             f")"
         )
 
@@ -189,7 +174,6 @@ class CloseAccountResponse(object):
             if hasattr(self, "status")
             else None
         )
-        _additional_properties=self.additional_properties
         return (
             f"{self.__class__.__name__}("
             f"account_code={_account_code!s}, "
@@ -197,6 +181,5 @@ class CloseAccountResponse(object):
             f"psp_reference={_psp_reference!s}, "
             f"result_code={_result_code!s}, "
             f"status={_status!s}, "
-            f"additional_properties={_additional_properties!s}, "
             f")"
         )

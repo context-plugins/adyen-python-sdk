@@ -6,7 +6,7 @@ my_ap_icredential_api = client.my_ap_icredential
 
 ## Class Name
 
-`MyApIcredentialApi`
+`MyAPIcredentialApi`
 
 ## Methods
 
@@ -36,17 +36,13 @@ This endpoint requires [BasicAuth](../../doc/auth/basic-authentication.md) **OR*
 
 **200**: OK - the request has succeeded.
 
-This method returns an [`ApiResponse`](../../doc/api-response.md) instance. The `body` property of this instance returns the response data which is of type [`MeApiCredential`](../../doc/models/me-api-credential.md).
+[`MeApiCredential`](../../doc/models/me-api-credential.md)
 
 ## Example Usage
 
 ```python
 result = my_api_credential_api.get_me()
-
-if result.is_success():
-    print(result.body)
-elif result.is_error():
-    print(result.errors)
+print(result)
 ```
 
 ## Errors
@@ -78,17 +74,13 @@ This endpoint requires [BasicAuth](../../doc/auth/basic-authentication.md) **OR*
 
 **200**: OK - the request has succeeded.
 
-This method returns an [`ApiResponse`](../../doc/api-response.md) instance. The `body` property of this instance returns the response data which is of type [`AllowedOriginsResponse`](../../doc/models/allowed-origins-response.md).
+[`AllowedOriginsResponse`](../../doc/models/allowed-origins-response.md)
 
 ## Example Usage
 
 ```python
 result = my_api_credential_api.get_me_allowed_origins()
-
-if result.is_success():
-    print(result.body)
-elif result.is_error():
-    print(result.errors)
+print(result)
 ```
 
 ## Errors
@@ -128,7 +120,7 @@ This endpoint requires [BasicAuth](../../doc/auth/basic-authentication.md) **OR*
 
 **200**: OK - the request has succeeded.
 
-This method returns an [`ApiResponse`](../../doc/api-response.md) instance. The `body` property of this instance returns the response data which is of type [`AllowedOrigin`](../../doc/models/allowed-origin.md).
+[`AllowedOrigin`](../../doc/models/allowed-origin.md)
 
 ## Example Usage
 
@@ -140,11 +132,7 @@ body = CreateAllowedOriginRequest(
 result = my_api_credential_api.post_me_allowed_origins(
     body=body
 )
-
-if result.is_success():
-    print(result.body)
-elif result.is_error():
-    print(result.errors)
+print(result)
 ```
 
 ## Errors
@@ -184,7 +172,7 @@ This endpoint requires [BasicAuth](../../doc/auth/basic-authentication.md) **OR*
 
 **200**: OK - the request has succeeded.
 
-This method returns an [`ApiResponse`](../../doc/api-response.md) instance. The `body` property of this instance returns the response data which is of type [`AllowedOrigin`](../../doc/models/allowed-origin.md).
+[`AllowedOrigin`](../../doc/models/allowed-origin.md)
 
 ## Example Usage
 
@@ -192,11 +180,7 @@ This method returns an [`ApiResponse`](../../doc/api-response.md) instance. The 
 origin_id = 'originId6'
 
 result = my_api_credential_api.get_me_allowed_origins_origin_id(origin_id)
-
-if result.is_success():
-    print(result.body)
-elif result.is_error():
-    print(result.errors)
+print(result)
 ```
 
 ## Errors
@@ -236,19 +220,14 @@ This endpoint requires [BasicAuth](../../doc/auth/basic-authentication.md) **OR*
 
 **204**: No Content - look at the actual response code for the status of the request.
 
-This method returns an [`ApiResponse`](../../doc/api-response.md) instance.
+`void`
 
 ## Example Usage
 
 ```python
 origin_id = 'originId6'
 
-result = my_api_credential_api.delete_me_allowed_origins_origin_id(origin_id)
-
-if result.is_success():
-    print(result.body)
-elif result.is_error():
-    print(result.errors)
+my_api_credential_api.delete_me_allowed_origins_origin_id(origin_id)
 ```
 
 ## Errors
@@ -284,17 +263,13 @@ This endpoint requires [BasicAuth](../../doc/auth/basic-authentication.md) **OR*
 
 **200**: OK - the request has succeeded.
 
-This method returns an [`ApiResponse`](../../doc/api-response.md) instance. The `body` property of this instance returns the response data which is of type [`GenerateClientKeyResponse`](../../doc/models/generate-client-key-response.md).
+[`GenerateClientKeyResponse`](../../doc/models/generate-client-key-response.md)
 
 ## Example Usage
 
 ```python
 result = my_api_credential_api.post_me_generate_client_key()
-
-if result.is_success():
-    print(result.body)
-elif result.is_error():
-    print(result.errors)
+print(result)
 ```
 
 ## Errors

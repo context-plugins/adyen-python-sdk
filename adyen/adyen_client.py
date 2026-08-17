@@ -34,18 +34,18 @@ from adyen.apis.allowed_origins_merchant_level_api import (
 from adyen.apis.android_files_company_level_api import (
     AndroidFilesCompanyLevelApi,
 )
-from adyen.apis.api import Api
+from adyen.apis.api import API
 from adyen.apis.api_credentials_company_level_api import (
-    ApiCredentialsCompanyLevelApi,
+    APICredentialsCompanyLevelApi,
 )
 from adyen.apis.api_credentials_merchant_level_api import (
-    ApiCredentialsMerchantLevelApi,
+    APICredentialsMerchantLevelApi,
 )
 from adyen.apis.api_key_company_level_api import (
-    ApiKeyCompanyLevelApi,
+    APIKeyCompanyLevelApi,
 )
 from adyen.apis.api_key_merchant_level_api import (
-    ApiKeyMerchantLevelApi,
+    APIKeyMerchantLevelApi,
 )
 from adyen.apis.authorized_card_users_api import (
     AuthorizedCardUsersApi,
@@ -74,9 +74,6 @@ from adyen.apis.client_key_company_level_api import (
 from adyen.apis.client_key_merchant_level_api import (
     ClientKeyMerchantLevelApi,
 )
-from adyen.apis.cloud_endpoints_and_connection_api import (
-    CloudEndpointsAndConnectionApi,
-)
 from adyen.apis.custom_payout_schedules_sweeps_api import (
     CustomPayoutSchedulesSweepsApi,
 )
@@ -102,20 +99,20 @@ from adyen.apis.hosted_onboarding_api import (
 from adyen.apis.hosted_onboarding_page_api import (
     HostedOnboardingPageApi,
 )
-from adyen.apis.ideal_profiles_api import IdealProfilesApi
+from adyen.apis.ideal_profiles_api import IDEALProfilesApi
 from adyen.apis.initialization_api import InitializationApi
 from adyen.apis.instant_payouts_api import InstantPayoutsApi
 from adyen.apis.legal_entities_api import LegalEntitiesApi
-from adyen.apis.manage_card_pin_api import ManageCardPinApi
+from adyen.apis.manage_card_pin_api import ManageCardPINApi
 from adyen.apis.manage_sca_devices_api import (
-    ManageScaDevicesApi,
+    ManageSCADevicesApi,
 )
 from adyen.apis.managed_payout_schedules_api import (
     ManagedPayoutSchedulesApi,
 )
 from adyen.apis.modifications_api import ModificationsApi
 from adyen.apis.my_api_credential_api import (
-    MyApiCredentialApi,
+    MyAPICredentialApi,
 )
 from adyen.apis.network_tokens_api import NetworkTokensApi
 from adyen.apis.orders_api import OrdersApi
@@ -135,10 +132,10 @@ from adyen.apis.payout_settings_merchant_level_api import (
     PayoutSettingsMerchantLevelApi,
 )
 from adyen.apis.pci_compliance_questionnaire_page_api import (
-    PciComplianceQuestionnairePageApi,
+    PCIComplianceQuestionnairePageApi,
 )
 from adyen.apis.pci_questionnaires_api import (
-    PciQuestionnairesApi,
+    PCIQuestionnairesApi,
 )
 from adyen.apis.platform_api import PlatformApi
 from adyen.apis.raise_disputes_api import RaiseDisputesApi
@@ -149,10 +146,10 @@ from adyen.apis.recurring_top_ups_api import (
 )
 from adyen.apis.reviewing_api import ReviewingApi
 from adyen.apis.sca_association_management_api import (
-    ScaAssociationManagementApi,
+    SCAAssociationManagementApi,
 )
 from adyen.apis.sca_device_management_api import (
-    ScaDeviceManagementApi,
+    SCADeviceManagementApi,
 )
 from adyen.apis.session_authentication_api import (
     SessionAuthenticationApi,
@@ -240,9 +237,209 @@ class AdyenClient(object):
         return PaymentsApi(self.global_configuration)
 
     @LazyProperty
-    def i_deal_profiles(self):
-        """Provide access to the IdealProfilesApi endpoints."""
-        return IdealProfilesApi(self.global_configuration)
+    def donations(self):
+        """Provide access to the DonationsApi endpoints."""
+        return DonationsApi(self.global_configuration)
+
+    @LazyProperty
+    def payment_links(self):
+        """Provide access to the PaymentLinksApi endpoints."""
+        return PaymentLinksApi(self.global_configuration)
+
+    @LazyProperty
+    def modifications(self):
+        """Provide access to the ModificationsApi endpoints."""
+        return ModificationsApi(self.global_configuration)
+
+    @LazyProperty
+    def recurring(self):
+        """Provide access to the RecurringApi endpoints."""
+        return RecurringApi(self.global_configuration)
+
+    @LazyProperty
+    def orders(self):
+        """Provide access to the OrdersApi endpoints."""
+        return OrdersApi(self.global_configuration)
+
+    @LazyProperty
+    def utility(self):
+        """Provide access to the UtilityApi endpoints."""
+        return UtilityApi(self.global_configuration)
+
+    @LazyProperty
+    def general(self):
+        """Provide access to the GeneralApi endpoints."""
+        return GeneralApi(self.global_configuration)
+
+    @LazyProperty
+    def initialization(self):
+        """Provide access to the InitializationApi endpoints."""
+        return InitializationApi(self.global_configuration)
+
+    @LazyProperty
+    def reviewing(self):
+        """Provide access to the ReviewingApi endpoints."""
+        return ReviewingApi(self.global_configuration)
+
+    @LazyProperty
+    def instant_payouts(self):
+        """Provide access to the InstantPayoutsApi endpoints."""
+        return InstantPayoutsApi(self.global_configuration)
+
+    @LazyProperty
+    def rates(self):
+        """Provide access to the RatesApi endpoints."""
+        return RatesApi(self.global_configuration)
+
+    @LazyProperty
+    def account_company_level(self):
+        """Provide access to the AccountCompanyLevelApi endpoints."""
+        return AccountCompanyLevelApi(self.global_configuration)
+
+    @LazyProperty
+    def account_merchant_level(self):
+        """Provide access to the AccountMerchantLevelApi endpoints."""
+        return AccountMerchantLevelApi(self.global_configuration)
+
+    @LazyProperty
+    def account_store_level(self):
+        """Provide access to the AccountStoreLevelApi endpoints."""
+        return AccountStoreLevelApi(self.global_configuration)
+
+    @LazyProperty
+    def payout_settings_merchant_level(self):
+        """Provide access to the PayoutSettingsMerchantLevelApi endpoints."""
+        return PayoutSettingsMerchantLevelApi(self.global_configuration)
+
+    @LazyProperty
+    def users_company_level(self):
+        """Provide access to the UsersCompanyLevelApi endpoints."""
+        return UsersCompanyLevelApi(self.global_configuration)
+
+    @LazyProperty
+    def users_merchant_level(self):
+        """Provide access to the UsersMerchantLevelApi endpoints."""
+        return UsersMerchantLevelApi(self.global_configuration)
+
+    @LazyProperty
+    def my_api_credential(self):
+        """Provide access to the MyAPICredentialApi endpoints."""
+        return MyAPICredentialApi(self.global_configuration)
+
+    @LazyProperty
+    def api_credentials_company_level(self):
+        """Provide access to the APICredentialsCompanyLevelApi endpoints."""
+        return APICredentialsCompanyLevelApi(self.global_configuration)
+
+    @LazyProperty
+    def api_credentials_merchant_level(self):
+        """Provide access to the APICredentialsMerchantLevelApi endpoints."""
+        return APICredentialsMerchantLevelApi(self.global_configuration)
+
+    @LazyProperty
+    def api_key_company_level(self):
+        """Provide access to the APIKeyCompanyLevelApi endpoints."""
+        return APIKeyCompanyLevelApi(self.global_configuration)
+
+    @LazyProperty
+    def api_key_merchant_level(self):
+        """Provide access to the APIKeyMerchantLevelApi endpoints."""
+        return APIKeyMerchantLevelApi(self.global_configuration)
+
+    @LazyProperty
+    def client_key_company_level(self):
+        """Provide access to the ClientKeyCompanyLevelApi endpoints."""
+        return ClientKeyCompanyLevelApi(self.global_configuration)
+
+    @LazyProperty
+    def client_key_merchant_level(self):
+        """Provide access to the ClientKeyMerchantLevelApi endpoints."""
+        return ClientKeyMerchantLevelApi(self.global_configuration)
+
+    @LazyProperty
+    def allowed_origins_company_level(self):
+        """Provide access to the AllowedOriginsCompanyLevelApi endpoints."""
+        return AllowedOriginsCompanyLevelApi(self.global_configuration)
+
+    @LazyProperty
+    def allowed_origins_merchant_level(self):
+        """Provide access to the AllowedOriginsMerchantLevelApi endpoints."""
+        return AllowedOriginsMerchantLevelApi(self.global_configuration)
+
+    @LazyProperty
+    def webhooks_company_level(self):
+        """Provide access to the WebhooksCompanyLevelApi endpoints."""
+        return WebhooksCompanyLevelApi(self.global_configuration)
+
+    @LazyProperty
+    def webhooks_merchant_level(self):
+        """Provide access to the WebhooksMerchantLevelApi endpoints."""
+        return WebhooksMerchantLevelApi(self.global_configuration)
+
+    @LazyProperty
+    def payment_methods_merchant_level(self):
+        """Provide access to the PaymentMethodsMerchantLevelApi endpoints."""
+        return PaymentMethodsMerchantLevelApi(self.global_configuration)
+
+    @LazyProperty
+    def terminals_terminal_level(self):
+        """Provide access to the TerminalsTerminalLevelApi endpoints."""
+        return TerminalsTerminalLevelApi(self.global_configuration)
+
+    @LazyProperty
+    def terminal_actions_company_level(self):
+        """Provide access to the TerminalActionsCompanyLevelApi endpoints."""
+        return TerminalActionsCompanyLevelApi(self.global_configuration)
+
+    @LazyProperty
+    def terminal_actions_terminal_level(self):
+        """Provide access to the TerminalActionsTerminalLevelApi endpoints."""
+        return TerminalActionsTerminalLevelApi(self.global_configuration)
+
+    @LazyProperty
+    def terminal_orders_company_level(self):
+        """Provide access to the TerminalOrdersCompanyLevelApi endpoints."""
+        return TerminalOrdersCompanyLevelApi(self.global_configuration)
+
+    @LazyProperty
+    def terminal_orders_merchant_level(self):
+        """Provide access to the TerminalOrdersMerchantLevelApi endpoints."""
+        return TerminalOrdersMerchantLevelApi(self.global_configuration)
+
+    @LazyProperty
+    def terminal_settings_company_level(self):
+        """Provide access to the TerminalSettingsCompanyLevelApi endpoints."""
+        return TerminalSettingsCompanyLevelApi(self.global_configuration)
+
+    @LazyProperty
+    def terminal_settings_merchant_level(self):
+        """Provide access to the TerminalSettingsMerchantLevelApi endpoints."""
+        return TerminalSettingsMerchantLevelApi(self.global_configuration)
+
+    @LazyProperty
+    def terminal_settings_store_level(self):
+        """Provide access to the TerminalSettingsStoreLevelApi endpoints."""
+        return TerminalSettingsStoreLevelApi(self.global_configuration)
+
+    @LazyProperty
+    def terminal_settings_terminal_level(self):
+        """Provide access to the TerminalSettingsTerminalLevelApi endpoints."""
+        return TerminalSettingsTerminalLevelApi(self.global_configuration)
+
+    @LazyProperty
+    def android_files_company_level(self):
+        """Provide access to the AndroidFilesCompanyLevelApi endpoints."""
+        return AndroidFilesCompanyLevelApi(self.global_configuration)
+
+    @LazyProperty
+    def split_configuration_merchant_level(self):
+        """Provide access to the SplitConfigurationMerchantLevelApi endpoints."""
+        return SplitConfigurationMerchantLevelApi(self.global_configuration)
+
+    @LazyProperty
+    def donation_campaigns(self):
+        """Provide access to the DonationCampaignsApi endpoints."""
+        return DonationCampaignsApi(self.global_configuration)
 
     @LazyProperty
     def account_holders(self):
@@ -351,8 +548,8 @@ class AdyenClient(object):
 
     @LazyProperty
     def manage_card_pin(self):
-        """Provide access to the ManageCardPinApi endpoints."""
-        return ManageCardPinApi(self.global_configuration)
+        """Provide access to the ManageCardPINApi endpoints."""
+        return ManageCardPINApi(self.global_configuration)
 
     @LazyProperty
     def transfer_routes(self):
@@ -361,8 +558,8 @@ class AdyenClient(object):
 
     @LazyProperty
     def sca_device_management(self):
-        """Provide access to the ScaDeviceManagementApi endpoints."""
-        return ScaDeviceManagementApi(self.global_configuration)
+        """Provide access to the SCADeviceManagementApi endpoints."""
+        return SCADeviceManagementApi(self.global_configuration)
 
     @LazyProperty
     def transfer_limits_balance_account_level(self):
@@ -376,18 +573,33 @@ class AdyenClient(object):
 
     @LazyProperty
     def manage_sca_devices(self):
-        """Provide access to the ManageScaDevicesApi endpoints."""
-        return ManageScaDevicesApi(self.global_configuration)
+        """Provide access to the ManageSCADevicesApi endpoints."""
+        return ManageSCADevicesApi(self.global_configuration)
 
     @LazyProperty
     def sca_association_management(self):
-        """Provide access to the ScaAssociationManagementApi endpoints."""
-        return ScaAssociationManagementApi(self.global_configuration)
+        """Provide access to the SCAAssociationManagementApi endpoints."""
+        return SCAAssociationManagementApi(self.global_configuration)
 
     @LazyProperty
-    def general(self):
-        """Provide access to the GeneralApi endpoints."""
-        return GeneralApi(self.global_configuration)
+    def transfers(self):
+        """Provide access to the TransfersApi endpoints."""
+        return TransfersApi(self.global_configuration)
+
+    @LazyProperty
+    def transactions(self):
+        """Provide access to the TransactionsApi endpoints."""
+        return TransactionsApi(self.global_configuration)
+
+    @LazyProperty
+    def capital(self):
+        """Provide access to the CapitalApi endpoints."""
+        return CapitalApi(self.global_configuration)
+
+    @LazyProperty
+    def cash_out(self):
+        """Provide access to the CashOutApi endpoints."""
+        return CashOutApi(self.global_configuration)
 
     @LazyProperty
     def dynamic_offers(self):
@@ -400,54 +612,9 @@ class AdyenClient(object):
         return GrantsApi(self.global_configuration)
 
     @LazyProperty
-    def donations(self):
-        """Provide access to the DonationsApi endpoints."""
-        return DonationsApi(self.global_configuration)
-
-    @LazyProperty
-    def payment_links(self):
-        """Provide access to the PaymentLinksApi endpoints."""
-        return PaymentLinksApi(self.global_configuration)
-
-    @LazyProperty
-    def modifications(self):
-        """Provide access to the ModificationsApi endpoints."""
-        return ModificationsApi(self.global_configuration)
-
-    @LazyProperty
-    def recurring(self):
-        """Provide access to the RecurringApi endpoints."""
-        return RecurringApi(self.global_configuration)
-
-    @LazyProperty
-    def orders(self):
-        """Provide access to the OrdersApi endpoints."""
-        return OrdersApi(self.global_configuration)
-
-    @LazyProperty
-    def utility(self):
-        """Provide access to the UtilityApi endpoints."""
-        return UtilityApi(self.global_configuration)
-
-    @LazyProperty
-    def cloud_endpoints_and_connection(self):
-        """Provide access to the CloudEndpointsAndConnectionApi endpoints."""
-        return CloudEndpointsAndConnectionApi(self.global_configuration)
-
-    @LazyProperty
-    def rates(self):
-        """Provide access to the RatesApi endpoints."""
-        return RatesApi(self.global_configuration)
-
-    @LazyProperty
-    def hosted_onboarding_page(self):
-        """Provide access to the HostedOnboardingPageApi endpoints."""
-        return HostedOnboardingPageApi(self.global_configuration)
-
-    @LazyProperty
-    def pci_compliance_questionnaire_page(self):
-        """Provide access to the PciComplianceQuestionnairePageApi endpoints."""
-        return PciComplianceQuestionnairePageApi(self.global_configuration)
+    def session_authentication(self):
+        """Provide access to the SessionAuthenticationApi endpoints."""
+        return SessionAuthenticationApi(self.global_configuration)
 
     @LazyProperty
     def legal_entities(self):
@@ -476,8 +643,8 @@ class AdyenClient(object):
 
     @LazyProperty
     def pci_questionnaires(self):
-        """Provide access to the PciQuestionnairesApi endpoints."""
-        return PciQuestionnairesApi(self.global_configuration)
+        """Provide access to the PCIQuestionnairesApi endpoints."""
+        return PCIQuestionnairesApi(self.global_configuration)
 
     @LazyProperty
     def tax_e_delivery_consent(self):
@@ -490,179 +657,24 @@ class AdyenClient(object):
         return HostedOnboardingApi(self.global_configuration)
 
     @LazyProperty
-    def account_company_level(self):
-        """Provide access to the AccountCompanyLevelApi endpoints."""
-        return AccountCompanyLevelApi(self.global_configuration)
+    def hosted_onboarding_page(self):
+        """Provide access to the HostedOnboardingPageApi endpoints."""
+        return HostedOnboardingPageApi(self.global_configuration)
 
     @LazyProperty
-    def account_merchant_level(self):
-        """Provide access to the AccountMerchantLevelApi endpoints."""
-        return AccountMerchantLevelApi(self.global_configuration)
+    def pci_compliance_questionnaire_page(self):
+        """Provide access to the PCIComplianceQuestionnairePageApi endpoints."""
+        return PCIComplianceQuestionnairePageApi(self.global_configuration)
 
     @LazyProperty
-    def account_store_level(self):
-        """Provide access to the AccountStoreLevelApi endpoints."""
-        return AccountStoreLevelApi(self.global_configuration)
-
-    @LazyProperty
-    def payout_settings_merchant_level(self):
-        """Provide access to the PayoutSettingsMerchantLevelApi endpoints."""
-        return PayoutSettingsMerchantLevelApi(self.global_configuration)
-
-    @LazyProperty
-    def users_company_level(self):
-        """Provide access to the UsersCompanyLevelApi endpoints."""
-        return UsersCompanyLevelApi(self.global_configuration)
-
-    @LazyProperty
-    def users_merchant_level(self):
-        """Provide access to the UsersMerchantLevelApi endpoints."""
-        return UsersMerchantLevelApi(self.global_configuration)
-
-    @LazyProperty
-    def my_api_credential(self):
-        """Provide access to the MyApiCredentialApi endpoints."""
-        return MyApiCredentialApi(self.global_configuration)
-
-    @LazyProperty
-    def api_credentials_company_level(self):
-        """Provide access to the ApiCredentialsCompanyLevelApi endpoints."""
-        return ApiCredentialsCompanyLevelApi(self.global_configuration)
-
-    @LazyProperty
-    def api_credentials_merchant_level(self):
-        """Provide access to the ApiCredentialsMerchantLevelApi endpoints."""
-        return ApiCredentialsMerchantLevelApi(self.global_configuration)
-
-    @LazyProperty
-    def api_key_company_level(self):
-        """Provide access to the ApiKeyCompanyLevelApi endpoints."""
-        return ApiKeyCompanyLevelApi(self.global_configuration)
-
-    @LazyProperty
-    def api_key_merchant_level(self):
-        """Provide access to the ApiKeyMerchantLevelApi endpoints."""
-        return ApiKeyMerchantLevelApi(self.global_configuration)
-
-    @LazyProperty
-    def client_key_company_level(self):
-        """Provide access to the ClientKeyCompanyLevelApi endpoints."""
-        return ClientKeyCompanyLevelApi(self.global_configuration)
-
-    @LazyProperty
-    def client_key_merchant_level(self):
-        """Provide access to the ClientKeyMerchantLevelApi endpoints."""
-        return ClientKeyMerchantLevelApi(self.global_configuration)
-
-    @LazyProperty
-    def allowed_origins_company_level(self):
-        """Provide access to the AllowedOriginsCompanyLevelApi endpoints."""
-        return AllowedOriginsCompanyLevelApi(self.global_configuration)
-
-    @LazyProperty
-    def allowed_origins_merchant_level(self):
-        """Provide access to the AllowedOriginsMerchantLevelApi endpoints."""
-        return AllowedOriginsMerchantLevelApi(self.global_configuration)
-
-    @LazyProperty
-    def webhooks_company_level(self):
-        """Provide access to the WebhooksCompanyLevelApi endpoints."""
-        return WebhooksCompanyLevelApi(self.global_configuration)
-
-    @LazyProperty
-    def webhooks_merchant_level(self):
-        """Provide access to the WebhooksMerchantLevelApi endpoints."""
-        return WebhooksMerchantLevelApi(self.global_configuration)
-
-    @LazyProperty
-    def payment_methods_merchant_level(self):
-        """Provide access to the PaymentMethodsMerchantLevelApi endpoints."""
-        return PaymentMethodsMerchantLevelApi(self.global_configuration)
-
-    @LazyProperty
-    def terminals_terminal_level(self):
-        """Provide access to the TerminalsTerminalLevelApi endpoints."""
-        return TerminalsTerminalLevelApi(self.global_configuration)
-
-    @LazyProperty
-    def terminal_actions_company_level(self):
-        """Provide access to the TerminalActionsCompanyLevelApi endpoints."""
-        return TerminalActionsCompanyLevelApi(self.global_configuration)
-
-    @LazyProperty
-    def terminal_actions_terminal_level(self):
-        """Provide access to the TerminalActionsTerminalLevelApi endpoints."""
-        return TerminalActionsTerminalLevelApi(self.global_configuration)
-
-    @LazyProperty
-    def terminal_orders_company_level(self):
-        """Provide access to the TerminalOrdersCompanyLevelApi endpoints."""
-        return TerminalOrdersCompanyLevelApi(self.global_configuration)
-
-    @LazyProperty
-    def terminal_orders_merchant_level(self):
-        """Provide access to the TerminalOrdersMerchantLevelApi endpoints."""
-        return TerminalOrdersMerchantLevelApi(self.global_configuration)
-
-    @LazyProperty
-    def terminal_settings_company_level(self):
-        """Provide access to the TerminalSettingsCompanyLevelApi endpoints."""
-        return TerminalSettingsCompanyLevelApi(self.global_configuration)
-
-    @LazyProperty
-    def terminal_settings_merchant_level(self):
-        """Provide access to the TerminalSettingsMerchantLevelApi endpoints."""
-        return TerminalSettingsMerchantLevelApi(self.global_configuration)
-
-    @LazyProperty
-    def terminal_settings_store_level(self):
-        """Provide access to the TerminalSettingsStoreLevelApi endpoints."""
-        return TerminalSettingsStoreLevelApi(self.global_configuration)
-
-    @LazyProperty
-    def terminal_settings_terminal_level(self):
-        """Provide access to the TerminalSettingsTerminalLevelApi endpoints."""
-        return TerminalSettingsTerminalLevelApi(self.global_configuration)
-
-    @LazyProperty
-    def android_files_company_level(self):
-        """Provide access to the AndroidFilesCompanyLevelApi endpoints."""
-        return AndroidFilesCompanyLevelApi(self.global_configuration)
-
-    @LazyProperty
-    def split_configuration_merchant_level(self):
-        """Provide access to the SplitConfigurationMerchantLevelApi endpoints."""
-        return SplitConfigurationMerchantLevelApi(self.global_configuration)
-
-    @LazyProperty
-    def donation_campaigns(self):
-        """Provide access to the DonationCampaignsApi endpoints."""
-        return DonationCampaignsApi(self.global_configuration)
+    def i_deal_profiles(self):
+        """Provide access to the IDEALProfilesApi endpoints."""
+        return IDEALProfilesApi(self.global_configuration)
 
     @LazyProperty
     def account_verification(self):
         """Provide access to the AccountVerificationApi endpoints."""
         return AccountVerificationApi(self.global_configuration)
-
-    @LazyProperty
-    def payments_app(self):
-        """Provide access to the PaymentsAppApi endpoints."""
-        return PaymentsAppApi(self.global_configuration)
-
-    @LazyProperty
-    def initialization(self):
-        """Provide access to the InitializationApi endpoints."""
-        return InitializationApi(self.global_configuration)
-
-    @LazyProperty
-    def reviewing(self):
-        """Provide access to the ReviewingApi endpoints."""
-        return ReviewingApi(self.global_configuration)
-
-    @LazyProperty
-    def instant_payouts(self):
-        """Provide access to the InstantPayoutsApi endpoints."""
-        return InstantPayoutsApi(self.global_configuration)
 
     @LazyProperty
     def dispute_attachments(self):
@@ -675,44 +687,22 @@ class AdyenClient(object):
         return RaiseDisputesApi(self.global_configuration)
 
     @LazyProperty
-    def session_authentication(self):
-        """Provide access to the SessionAuthenticationApi endpoints."""
-        return SessionAuthenticationApi(self.global_configuration)
-
-    @LazyProperty
-    def transfers(self):
-        """Provide access to the TransfersApi endpoints."""
-        return TransfersApi(self.global_configuration)
-
-    @LazyProperty
-    def transactions(self):
-        """Provide access to the TransactionsApi endpoints."""
-        return TransactionsApi(self.global_configuration)
-
-    @LazyProperty
-    def capital(self):
-        """Provide access to the CapitalApi endpoints."""
-        return CapitalApi(self.global_configuration)
-
-    @LazyProperty
-    def cash_out(self):
-        """Provide access to the CashOutApi endpoints."""
-        return CashOutApi(self.global_configuration)
-
-    @LazyProperty
     def client(self):
-        """Provide access to the Api endpoints."""
-        return Api(self.global_configuration)
+        """Provide access to the API endpoints."""
+        return API(self.global_configuration)
+
+    @LazyProperty
+    def payments_app(self):
+        """Provide access to the PaymentsAppApi endpoints."""
+        return PaymentsAppApi(self.global_configuration)
 
     def __init__(self, http_client_instance=None,
                  override_http_client_configuration=False, http_call_back=None,
                  timeout=30, max_retries=0, backoff_factor=2,
                  retry_statuses=None, retry_methods=None, proxy_settings=None,
-                 logging_configuration=None, environment=Environment.PRODUCTION,
-                 merchant_account="merchantAccountDefaultValue",
-                 device_id="deviceIdDefaultValue",
-                 api_key_auth_credentials=None, basic_auth_credentials=None,
-                 client_key_credentials=None, config=None):
+                 environment=Environment.TEST, api_key_auth_credentials=None,
+                 basic_auth_credentials=None, client_key_credentials=None,
+                 config=None):
         """Initialize a new instance of AdyenClient."""
         self.config = config or Configuration(
             http_client_instance=http_client_instance,
@@ -720,10 +710,7 @@ class AdyenClient(object):
             http_call_back=http_call_back, timeout=timeout,
             max_retries=max_retries, backoff_factor=backoff_factor,
             retry_statuses=retry_statuses, retry_methods=retry_methods,
-            proxy_settings=proxy_settings,
-            logging_configuration=logging_configuration,
-            environment=environment, merchant_account=merchant_account,
-            device_id=device_id,
+            proxy_settings=proxy_settings, environment=environment,
             api_key_auth_credentials=api_key_auth_credentials,
             basic_auth_credentials=basic_auth_credentials,
             client_key_credentials=client_key_credentials)

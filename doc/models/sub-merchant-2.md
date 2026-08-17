@@ -4,8 +4,6 @@
 Required for back-to-back/purchase-driven-load transactions, where the funds are taken from the shopper's stored card when the wallet balance is insufficient.
 The final merchant who will receive the money, also known as a [sub-merchant](https://docs.adyen.com/get-started-with-adyen/payment-glossary/#submerchant).
 
-*This model accepts additional fields of type Any.*
-
 ## Structure
 
 `SubMerchant2`
@@ -19,13 +17,10 @@ The final merchant who will receive the money, also known as a [sub-merchant](ht
 | `mcc` | `str` | Optional | The sub-merchant's 4-digit Merchant Category Code (MCC).<br><br>* Format: Numeric<br>* Fixed length: 4 digits |
 | `name` | `str` | Optional | The name of the sub-merchant. Based on scheme specifications, this value will overwrite the shopper statement  that will appear in the card statement.<br><br>* Format: Alphanumeric<br>* Maximum length: 22 characters |
 | `tax_id` | `str` | Optional | The tax ID of the sub-merchant.<br><br>* Format: Numeric<br>* Fixed length: 11 digits for the CPF or 14 digits for the CNPJ |
-| `additional_properties` | `Dict[str, Any]` | Optional | - |
 
 ## Example
 
 ```python
-import jsonpickle
-
 from adyen.models.sub_merchant_2 import SubMerchant2
 
 sub_merchant_2 = SubMerchant2(
@@ -33,10 +28,7 @@ sub_merchant_2 = SubMerchant2(
     country='country8',
     mcc='mcc4',
     name='name4',
-    tax_id='taxId0',
-    additional_properties={
-        'exampleAdditionalProperty': jsonpickle.decode('{"key1":"val1","key2":"val2"}')
-    }
+    tax_id='taxId0'
 )
 ```
 

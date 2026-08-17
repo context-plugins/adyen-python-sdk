@@ -1,36 +1,28 @@
 
-# Card Holder Pin
-
-*This model accepts additional fields of type Any.*
+# Card Holder PIN
 
 ## Structure
 
-`CardHolderPin`
+`CardHolderPIN`
 
 ## Fields
 
 | Name | Type | Tags | Description |
 |  --- | --- | --- | --- |
 | `encr_pin_block` | `str` | Required | - |
-| `pin_format` | [`PinFormat1`](../../doc/models/pin-format-1.md) | Required | - |
+| `pin_format` | [`PINFormat1Enum`](../../doc/models/pin-format-1-enum.md) | Required | Possible values:<br><br>* **ISO0**<br>* **ISO1**<br>* **ISO2**<br>* **ISO3** |
 | `additional_input` | `str` | Optional | **Constraints**: *Pattern*: `^.+$` |
-| `additional_properties` | `Dict[str, Any]` | Optional | - |
 
 ## Example
 
 ```python
-import jsonpickle
+from adyen.models.card_holder_pin import CardHolderPIN
+from adyen.models.pin_format_1_enum import PINFormat1Enum
 
-from adyen.models.card_holder_pin import CardHolderPin
-from adyen.models.pin_format_1 import PinFormat1
-
-card_holder_pin = CardHolderPin(
+card_holder_pin = CardHolderPIN(
     encr_pin_block='EncrPINBlock2',
-    pin_format=PinFormat1.ISO2,
-    additional_input='AdditionalInput2',
-    additional_properties={
-        'exampleAdditionalProperty': jsonpickle.decode('{"key1":"val1","key2":"val2"}')
-    }
+    pin_format=PINFormat1Enum.ISO2,
+    additional_input='AdditionalInput2'
 )
 ```
 

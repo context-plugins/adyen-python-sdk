@@ -44,7 +44,7 @@ This endpoint requires [BasicAuth](../../doc/auth/basic-authentication.md) **OR*
 
 **200**: OK - the request has succeeded.
 
-This method returns an [`ApiResponse`](../../doc/api-response.md) instance. The `body` property of this instance returns the response data which is of type [`ScheduleTerminalActionsResponse`](../../doc/models/schedule-terminal-actions-response.md).
+[`ScheduleTerminalActionsResponse`](../../doc/models/schedule-terminal-actions-response.md)
 
 ## Example Usage
 
@@ -52,7 +52,7 @@ This method returns an [`ApiResponse`](../../doc/api-response.md) instance. The 
 body = ScheduleTerminalActionsRequest(
     action_details=InstallAndroidAppDetails(
         app_id='ANDA422LZ223223K5F694GCCF732K8',
-        mtype=Type310.INSTALLANDROIDAPP
+        mtype=Type32Enum.INSTALLANDROIDAPP
     ),
     scheduled_at='2021-12-12T20:21:22-0100',
     store_id='',
@@ -66,11 +66,7 @@ body = ScheduleTerminalActionsRequest(
 result = terminal_actions_terminal_level_api.post_terminals_schedule_actions(
     body=body
 )
-
-if result.is_success():
-    print(result.body)
-elif result.is_error():
-    print(result.errors)
+print(result)
 ```
 
 ## Example Response *(as JSON)*

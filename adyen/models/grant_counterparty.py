@@ -10,19 +10,14 @@ from adyen.api_helper import APIHelper
 class GrantCounterparty(object):
     """Implementation of the 'GrantCounterparty' model.
 
-    An object containing the details of the receiving party of the grant.
+    Contains the details of the party that receives the grant.
 
     Attributes:
-        account_holder_id (str): The unique identifier of the account holder that
-            receives the grant.
-        balance_account_id (str): The unique identifier of the balance account where
-            the funds are disbursed. The balance account must belong to the specified
-            account holder.
-        transfer_instrument_id (str): The unique identifier of the transfer
-            instrument where the funds are disbursed. The transfer instrument must
-            belong to the legal entity of the specified account holder.
-        additional_properties (Dict[str, Any]): The additional properties for the
-            model.
+        account_holder_id (str): The identifier of the receiving account holder.
+        balance_account_id (str): The identifier of the balance account that belongs
+            to the receiving account holder.
+        transfer_instrument_id (str): The identifier of the transfer instrument that
+            belongs to the legal entity of the account holder.
 
     """
 
@@ -43,8 +38,7 @@ class GrantCounterparty(object):
         self,
         account_holder_id=APIHelper.SKIP,
         balance_account_id=APIHelper.SKIP,
-        transfer_instrument_id=APIHelper.SKIP,
-        additional_properties=None):
+        transfer_instrument_id=APIHelper.SKIP):
         """Initialize a GrantCounterparty instance."""
         # Initialize members of the class
         if account_holder_id is not APIHelper.SKIP:
@@ -53,11 +47,6 @@ class GrantCounterparty(object):
             self.balance_account_id = balance_account_id
         if transfer_instrument_id is not APIHelper.SKIP:
             self.transfer_instrument_id = transfer_instrument_id
-
-        # Add additional model properties to the instance
-        if additional_properties is None:
-            additional_properties = {}
-        self.additional_properties = additional_properties
 
     @classmethod
     def from_dictionary(cls,
@@ -90,16 +79,10 @@ class GrantCounterparty(object):
             if dictionary.get("transferInstrumentId")\
                 else APIHelper.SKIP
 
-        additional_properties = APIHelper.get_additional_properties(
-            dictionary={k: v for k, v in dictionary.items()
-                        if k not in cls._names.values()},
-            unboxing_function=lambda value: value)
-
         # Return an object of this model
         return cls(account_holder_id,
                    balance_account_id,
-                   transfer_instrument_id,
-                   additional_properties)
+                   transfer_instrument_id)
 
     def __repr__(self):
         """Return a unambiguous string representation."""
@@ -118,13 +101,11 @@ class GrantCounterparty(object):
             if hasattr(self, "transfer_instrument_id")
             else None
         )
-        _additional_properties=self.additional_properties
         return (
             f"{self.__class__.__name__}("
             f"account_holder_id={_account_holder_id!r}, "
             f"balance_account_id={_balance_account_id!r}, "
             f"transfer_instrument_id={_transfer_instrument_id!r}, "
-            f"additional_properties={_additional_properties!r}, "
             f")"
         )
 
@@ -145,12 +126,10 @@ class GrantCounterparty(object):
             if hasattr(self, "transfer_instrument_id")
             else None
         )
-        _additional_properties=self.additional_properties
         return (
             f"{self.__class__.__name__}("
             f"account_holder_id={_account_holder_id!s}, "
             f"balance_account_id={_balance_account_id!s}, "
             f"transfer_instrument_id={_transfer_instrument_id!s}, "
-            f"additional_properties={_additional_properties!s}, "
             f")"
         )

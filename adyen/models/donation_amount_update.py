@@ -16,8 +16,6 @@ class DonationAmountUpdate(object):
         currency_code (str): The three-character [ISO currency
             code](https://docs.adyen.com/development-resources/currency-codes#currency
             -codes).
-        additional_properties (Dict[str, Any]): The additional properties for the
-            model.
 
     """
 
@@ -35,19 +33,13 @@ class DonationAmountUpdate(object):
     def __init__(
         self,
         amounts=APIHelper.SKIP,
-        currency_code=APIHelper.SKIP,
-        additional_properties=None):
+        currency_code=APIHelper.SKIP):
         """Initialize a DonationAmountUpdate instance."""
         # Initialize members of the class
         if amounts is not APIHelper.SKIP:
             self.amounts = amounts
         if currency_code is not APIHelper.SKIP:
             self.currency_code = currency_code
-
-        # Add additional model properties to the instance
-        if additional_properties is None:
-            additional_properties = {}
-        self.additional_properties = additional_properties
 
     @classmethod
     def from_dictionary(cls,
@@ -76,15 +68,9 @@ class DonationAmountUpdate(object):
             if dictionary.get("currencyCode")\
                 else APIHelper.SKIP
 
-        additional_properties = APIHelper.get_additional_properties(
-            dictionary={k: v for k, v in dictionary.items()
-                        if k not in cls._names.values()},
-            unboxing_function=lambda value: value)
-
         # Return an object of this model
         return cls(amounts,
-                   currency_code,
-                   additional_properties)
+                   currency_code)
 
     @classmethod
     def validate(cls, dictionary):
@@ -119,12 +105,10 @@ class DonationAmountUpdate(object):
             if hasattr(self, "currency_code")
             else None
         )
-        _additional_properties=self.additional_properties
         return (
             f"{self.__class__.__name__}("
             f"amounts={_amounts!r}, "
             f"currency_code={_currency_code!r}, "
-            f"additional_properties={_additional_properties!r}, "
             f")"
         )
 
@@ -140,11 +124,9 @@ class DonationAmountUpdate(object):
             if hasattr(self, "currency_code")
             else None
         )
-        _additional_properties=self.additional_properties
         return (
             f"{self.__class__.__name__}("
             f"amounts={_amounts!s}, "
             f"currency_code={_currency_code!s}, "
-            f"additional_properties={_additional_properties!s}, "
             f")"
         )

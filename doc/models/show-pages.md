@@ -1,8 +1,6 @@
 
 # Show Pages
 
-*This model accepts additional fields of type Any.*
-
 ## Structure
 
 `ShowPages`
@@ -20,13 +18,10 @@
 | `manual_bank_account_page` | `bool` | Optional | Indicates whether the page to manually add bank account' details must be shown. Defaults to **true**. |
 | `shareholder_details_summary_page` | `bool` | Optional | Indicates whether the page with the shareholders' details must be shown. Defaults to **true**. |
 | `welcome_page` | `bool` | Optional | Indicates whether the welcome page must be shown. Defaults to **false**. |
-| `additional_properties` | `Dict[str, Any]` | Optional | - |
 
 ## Example
 
 ```python
-import jsonpickle
-
 from adyen.models.show_pages import ShowPages
 
 show_pages = ShowPages(
@@ -34,10 +29,7 @@ show_pages = ShowPages(
     bank_verification_page=False,
     business_details_summary_page=False,
     checks_overview_page=False,
-    individual_details_summary_page=False,
-    additional_properties={
-        'exampleAdditionalProperty': jsonpickle.decode('{"key1":"val1","key2":"val2"}')
-    }
+    individual_details_summary_page=False
 )
 ```
 

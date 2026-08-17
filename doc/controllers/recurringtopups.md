@@ -43,7 +43,7 @@ def get_balance_accounts_balance_account_id_recurring_top_ups(self,
 
 **200**: OK - the request has succeeded.
 
-This method returns an [`ApiResponse`](../../doc/api-response.md) instance. The `body` property of this instance returns the response data which is of type [`RecurringTopUpsResult`](../../doc/models/recurring-top-ups-result.md).
+[`RecurringTopUpsResult`](../../doc/models/recurring-top-ups-result.md)
 
 ## Example Usage
 
@@ -56,11 +56,7 @@ result = recurring_top_ups_api.get_balance_accounts_balance_account_id_recurring
     balance_account_id,
     limit=limit
 )
-
-if result.is_success():
-    print(result.body)
-elif result.is_error():
-    print(result.errors)
+print(result)
 ```
 
 ## Example Response *(as JSON)*
@@ -107,10 +103,10 @@ elif result.is_error():
 
 | HTTP Status Code | Error Description | Exception Class |
 |  --- | --- | --- |
-| 401 | Unauthorized - authentication required. | [`BalanceAccountsRecurringTopUps401ErrorException`](../../doc/models/balance-accounts-recurring-top-ups-401-error-exception.md) |
-| 403 | Forbidden - insufficient permissions to process the request. | [`BalanceAccountsRecurringTopUps403ErrorException`](../../doc/models/balance-accounts-recurring-top-ups-403-error-exception.md) |
-| 404 | Not Found - the recurring top up was not found | [`BalanceAccountsRecurringTopUps404ErrorException`](../../doc/models/balance-accounts-recurring-top-ups-404-error-exception.md) |
-| 500 | Internal Server Error - the server could not process the request. | [`BalanceAccountsRecurringTopUps500ErrorException`](../../doc/models/balance-accounts-recurring-top-ups-500-error-exception.md) |
+| 401 | Unauthorized - authentication required. | [`DefaultErrorResponseEntityException`](../../doc/models/default-error-response-entity-exception.md) |
+| 403 | Forbidden - insufficient permissions to process the request. | [`DefaultErrorResponseEntityException`](../../doc/models/default-error-response-entity-exception.md) |
+| 404 | Not Found - the recurring top up was not found | [`DefaultErrorResponseEntityException`](../../doc/models/default-error-response-entity-exception.md) |
+| 500 | Internal Server Error - the server could not process the request. | [`DefaultErrorResponseEntityException`](../../doc/models/default-error-response-entity-exception.md) |
 
 
 # Post-Balance Accounts-Balance Account Id-Recurring Top Ups
@@ -138,7 +134,7 @@ def post_balance_accounts_balance_account_id_recurring_top_ups(self,
 
 **200**: OK - the request has succeeded.
 
-This method returns an [`ApiResponse`](../../doc/api-response.md) instance. The `body` property of this instance returns the response data which is of type [`RecurringTopUp`](../../doc/models/recurring-top-up.md).
+[`RecurringTopUp`](../../doc/models/recurring-top-up.md)
 
 ## Example Usage
 
@@ -146,23 +142,23 @@ This method returns an [`ApiResponse`](../../doc/api-response.md) instance. The 
 balance_account_id = 'balanceAccountId8'
 
 body = CreateRecurringTopUp(
-    counterparty=TopUpCounterparty(
+    counterparty=TopUpCounterparty1(
         transfer_instrument_id='SE000000000000000000000001'
     ),
     description='My description',
-    top_up_amount=TopUpAmount(
-        fixed=Fixed(
+    top_up_amount=TopUpAmount1(
+        fixed=Amount17(
             currency='EUR',
             value=1000
         )
     ),
-    trigger=Trigger(
-        threshold=Threshold2(
+    trigger=Trigger1(
+        threshold=Amount17(
             currency='EUR',
             value=100
         ),
-        schedule=Schedule2(
-            mtype=ScheduleType1.WEEKDAYS
+        schedule=Schedule21(
+            mtype=ScheduleType1Enum.WEEKDAYS
         )
     )
 )
@@ -171,11 +167,7 @@ result = recurring_top_ups_api.post_balance_accounts_balance_account_id_recurrin
     balance_account_id,
     body
 )
-
-if result.is_success():
-    print(result.body)
-elif result.is_error():
-    print(result.errors)
+print(result)
 ```
 
 ## Example Response *(as JSON)*
@@ -210,10 +202,10 @@ elif result.is_error():
 
 | HTTP Status Code | Error Description | Exception Class |
 |  --- | --- | --- |
-| 400 | Bad Request - a problem reading or understanding the request. | [`BalanceAccountsRecurringTopUps400ErrorException`](../../doc/models/balance-accounts-recurring-top-ups-400-error-exception.md) |
-| 401 | Unauthorized - authentication required. | [`BalanceAccountsRecurringTopUps401ErrorException`](../../doc/models/balance-accounts-recurring-top-ups-401-error-exception.md) |
-| 403 | Forbidden - insufficient permissions to process the request. | [`BalanceAccountsRecurringTopUps403ErrorException`](../../doc/models/balance-accounts-recurring-top-ups-403-error-exception.md) |
-| 422 | Unprocessable Entity - a request validation error. | [`BalanceAccountsRecurringTopUps422ErrorException`](../../doc/models/balance-accounts-recurring-top-ups-422-error-exception.md) |
+| 400 | Bad Request - a problem reading or understanding the request. | [`DefaultErrorResponseEntityException`](../../doc/models/default-error-response-entity-exception.md) |
+| 401 | Unauthorized - authentication required. | [`DefaultErrorResponseEntityException`](../../doc/models/default-error-response-entity-exception.md) |
+| 403 | Forbidden - insufficient permissions to process the request. | [`DefaultErrorResponseEntityException`](../../doc/models/default-error-response-entity-exception.md) |
+| 422 | Unprocessable Entity - a request validation error. | [`DefaultErrorResponseEntityException`](../../doc/models/default-error-response-entity-exception.md) |
 
 
 # Delete-Balance Accounts-Balance Account Id-Recurring Top Ups-Top Up Id
@@ -241,7 +233,7 @@ def delete_balance_accounts_balance_account_id_recurring_top_ups_top_up_id(self,
 
 **204**: No Content - the request has been successfully processed, but there is no additional content.
 
-This method returns an [`ApiResponse`](../../doc/api-response.md) instance. The `body` property of this instance returns the response data which is of type `Any`.
+`Any`
 
 ## Example Usage
 
@@ -254,23 +246,19 @@ result = recurring_top_ups_api.delete_balance_accounts_balance_account_id_recurr
     balance_account_id,
     top_up_id
 )
-
-if result.is_success():
-    print(result.body)
-elif result.is_error():
-    print(result.errors)
+print(result)
 ```
 
 ## Errors
 
 | HTTP Status Code | Error Description | Exception Class |
 |  --- | --- | --- |
-| 400 | Bad Request - a problem reading or understanding the request. | [`BalanceAccountsRecurringTopUps400ErrorException`](../../doc/models/balance-accounts-recurring-top-ups-400-error-exception.md) |
-| 401 | Unauthorized - authentication required. | [`BalanceAccountsRecurringTopUps401ErrorException`](../../doc/models/balance-accounts-recurring-top-ups-401-error-exception.md) |
-| 403 | Forbidden - insufficient permissions to process the request. | [`BalanceAccountsRecurringTopUps403ErrorException`](../../doc/models/balance-accounts-recurring-top-ups-403-error-exception.md) |
-| 404 | Not Found - the recurring top up was not found | [`BalanceAccountsRecurringTopUps404ErrorException`](../../doc/models/balance-accounts-recurring-top-ups-404-error-exception.md) |
-| 422 | Unprocessable Entity - a request validation error. | [`BalanceAccountsRecurringTopUps422ErrorException`](../../doc/models/balance-accounts-recurring-top-ups-422-error-exception.md) |
-| 500 | Internal Server Error - the server could not process the request. | [`BalanceAccountsRecurringTopUps500ErrorException`](../../doc/models/balance-accounts-recurring-top-ups-500-error-exception.md) |
+| 400 | Bad Request - a problem reading or understanding the request. | [`DefaultErrorResponseEntityException`](../../doc/models/default-error-response-entity-exception.md) |
+| 401 | Unauthorized - authentication required. | [`DefaultErrorResponseEntityException`](../../doc/models/default-error-response-entity-exception.md) |
+| 403 | Forbidden - insufficient permissions to process the request. | [`DefaultErrorResponseEntityException`](../../doc/models/default-error-response-entity-exception.md) |
+| 404 | Not Found - the recurring top up was not found | [`DefaultErrorResponseEntityException`](../../doc/models/default-error-response-entity-exception.md) |
+| 422 | Unprocessable Entity - a request validation error. | [`DefaultErrorResponseEntityException`](../../doc/models/default-error-response-entity-exception.md) |
+| 500 | Internal Server Error - the server could not process the request. | [`DefaultErrorResponseEntityException`](../../doc/models/default-error-response-entity-exception.md) |
 
 
 # Patch-Balance Accounts-Balance Account Id-Recurring Top Ups-Top Up Id
@@ -300,7 +288,7 @@ def patch_balance_accounts_balance_account_id_recurring_top_ups_top_up_id(self,
 
 **200**: OK - the request has succeeded.
 
-This method returns an [`ApiResponse`](../../doc/api-response.md) instance. The `body` property of this instance returns the response data which is of type [`RecurringTopUp`](../../doc/models/recurring-top-up.md).
+[`RecurringTopUp`](../../doc/models/recurring-top-up.md)
 
 ## Example Usage
 
@@ -318,11 +306,7 @@ result = recurring_top_ups_api.patch_balance_accounts_balance_account_id_recurri
     top_up_id,
     body
 )
-
-if result.is_success():
-    print(result.body)
-elif result.is_error():
-    print(result.errors)
+print(result)
 ```
 
 ## Example Response *(as JSON)*
@@ -357,8 +341,8 @@ elif result.is_error():
 
 | HTTP Status Code | Error Description | Exception Class |
 |  --- | --- | --- |
-| 400 | Bad Request - a problem reading or understanding the request. | [`BalanceAccountsRecurringTopUps400ErrorException`](../../doc/models/balance-accounts-recurring-top-ups-400-error-exception.md) |
-| 401 | Unauthorized - authentication required. | [`BalanceAccountsRecurringTopUps401ErrorException`](../../doc/models/balance-accounts-recurring-top-ups-401-error-exception.md) |
-| 403 | Forbidden - insufficient permissions to process the request. | [`BalanceAccountsRecurringTopUps403ErrorException`](../../doc/models/balance-accounts-recurring-top-ups-403-error-exception.md) |
-| 422 | Unprocessable Entity - a request validation error. | [`BalanceAccountsRecurringTopUps422ErrorException`](../../doc/models/balance-accounts-recurring-top-ups-422-error-exception.md) |
+| 400 | Bad Request - a problem reading or understanding the request. | [`DefaultErrorResponseEntityException`](../../doc/models/default-error-response-entity-exception.md) |
+| 401 | Unauthorized - authentication required. | [`DefaultErrorResponseEntityException`](../../doc/models/default-error-response-entity-exception.md) |
+| 403 | Forbidden - insufficient permissions to process the request. | [`DefaultErrorResponseEntityException`](../../doc/models/default-error-response-entity-exception.md) |
+| 422 | Unprocessable Entity - a request validation error. | [`DefaultErrorResponseEntityException`](../../doc/models/default-error-response-entity-exception.md) |
 

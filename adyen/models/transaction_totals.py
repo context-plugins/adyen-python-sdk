@@ -17,8 +17,9 @@ class TransactionTotals(object):
     Result of the Sale to POI Reconciliation processing.
 
     Attributes:
-        payment_instrument_type (PaymentInstrumentType11): The model property of type
-            PaymentInstrumentType11.
+        payment_instrument_type (PaymentInstrumentType11Enum): Type of payment
+            instrument. Possible values: * **Card** * **Cash** * **Check** *
+            **Mobile** * **StoredValue**
         acquirer_id (int): Identification of the Acquirer.
         host_reconciliation_id (str): Identifier of a reconciliation period with a
             payment or loyalty host.
@@ -38,8 +39,6 @@ class TransactionTotals(object):
         payment_totals (List[PaymentTotals]): Totals of the payment transaction
             during the reconciliation period. If both `TransactionCount` and
             `TransactionAmount` are not equal to zero.
-        additional_properties (Dict[str, Any]): The additional properties for the
-            model.
 
     """
 
@@ -83,8 +82,7 @@ class TransactionTotals(object):
         shift_number=APIHelper.SKIP,
         totals_group_id=APIHelper.SKIP,
         payment_currency=APIHelper.SKIP,
-        payment_totals=APIHelper.SKIP,
-        additional_properties=None):
+        payment_totals=APIHelper.SKIP):
         """Initialize a TransactionTotals instance."""
         # Initialize members of the class
         self.payment_instrument_type = payment_instrument_type
@@ -108,11 +106,6 @@ class TransactionTotals(object):
             self.payment_currency = payment_currency
         if payment_totals is not APIHelper.SKIP:
             self.payment_totals = payment_totals
-
-        # Add additional model properties to the instance
-        if additional_properties is None:
-            additional_properties = {}
-        self.additional_properties = additional_properties
 
     @classmethod
     def from_dictionary(cls,
@@ -181,11 +174,6 @@ class TransactionTotals(object):
         else:
             payment_totals = APIHelper.SKIP
 
-        additional_properties = APIHelper.get_additional_properties(
-            dictionary={k: v for k, v in dictionary.items()
-                        if k not in cls._names.values()},
-            unboxing_function=lambda value: value)
-
         # Return an object of this model
         return cls(payment_instrument_type,
                    acquirer_id,
@@ -197,8 +185,7 @@ class TransactionTotals(object):
                    shift_number,
                    totals_group_id,
                    payment_currency,
-                   payment_totals,
-                   additional_properties)
+                   payment_totals)
 
     def __repr__(self):
         """Return a unambiguous string representation."""
@@ -253,7 +240,6 @@ class TransactionTotals(object):
             if hasattr(self, "payment_totals")
             else None
         )
-        _additional_properties=self.additional_properties
         return (
             f"{self.__class__.__name__}("
             f"payment_instrument_type={_payment_instrument_type!r}, "
@@ -267,7 +253,6 @@ class TransactionTotals(object):
             f"totals_group_id={_totals_group_id!r}, "
             f"payment_currency={_payment_currency!r}, "
             f"payment_totals={_payment_totals!r}, "
-            f"additional_properties={_additional_properties!r}, "
             f")"
         )
 
@@ -324,7 +309,6 @@ class TransactionTotals(object):
             if hasattr(self, "payment_totals")
             else None
         )
-        _additional_properties=self.additional_properties
         return (
             f"{self.__class__.__name__}("
             f"payment_instrument_type={_payment_instrument_type!s}, "
@@ -338,6 +322,5 @@ class TransactionTotals(object):
             f"totals_group_id={_totals_group_id!s}, "
             f"payment_currency={_payment_currency!s}, "
             f"payment_totals={_payment_totals!s}, "
-            f"additional_properties={_additional_properties!s}, "
             f")"
         )

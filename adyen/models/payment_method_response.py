@@ -8,22 +8,22 @@ from adyen.api_helper import APIHelper
 from adyen.models.management_payment_method import (
     ManagementPaymentMethod,
 )
-from adyen.models.pagination_links import PaginationLinks
+from adyen.models.pagination_links_1 import (
+    PaginationLinks1,
+)
 
 
 class PaymentMethodResponse(object):
     """Implementation of the 'PaymentMethodResponse' model.
 
     Attributes:
-        links (PaginationLinks): The model property of type PaginationLinks.
+        links (PaginationLinks1): Pagination references.
         data (List[ManagementPaymentMethod]): The list of supported payment methods
             and their details.
         items_total (int): Total number of items.
         pages_total (int): Total number of pages.
-        types_with_errors (List[TypesWithError]): The payment method types that were
-            not successfully requested and their corresponding errors.
-        additional_properties (Dict[str, Any]): The additional properties for the
-            model.
+        types_with_errors (List[TypesWithErrorEnum]): The payment method types that
+            were not successfully requested and their corresponding errors.
 
     """
 
@@ -48,8 +48,7 @@ class PaymentMethodResponse(object):
         pages_total=None,
         links=APIHelper.SKIP,
         data=APIHelper.SKIP,
-        types_with_errors=APIHelper.SKIP,
-        additional_properties=None):
+        types_with_errors=APIHelper.SKIP):
         """Initialize a PaymentMethodResponse instance."""
         # Initialize members of the class
         if links is not APIHelper.SKIP:
@@ -60,11 +59,6 @@ class PaymentMethodResponse(object):
         self.pages_total = pages_total
         if types_with_errors is not APIHelper.SKIP:
             self.types_with_errors = types_with_errors
-
-        # Add additional model properties to the instance
-        if additional_properties is None:
-            additional_properties = {}
-        self.additional_properties = additional_properties
 
     @classmethod
     def from_dictionary(cls,
@@ -93,7 +87,7 @@ class PaymentMethodResponse(object):
             if dictionary.get("pagesTotal")\
                 else None
         links =\
-            PaginationLinks.from_dictionary(
+            PaginationLinks1.from_dictionary(
                 dictionary.get("_links"))\
                 if "_links" in dictionary.keys()\
                 else APIHelper.SKIP
@@ -110,18 +104,12 @@ class PaymentMethodResponse(object):
             if dictionary.get("typesWithErrors")\
                 else APIHelper.SKIP
 
-        additional_properties = APIHelper.get_additional_properties(
-            dictionary={k: v for k, v in dictionary.items()
-                        if k not in cls._names.values()},
-            unboxing_function=lambda value: value)
-
         # Return an object of this model
         return cls(items_total,
                    pages_total,
                    links,
                    data,
-                   types_with_errors,
-                   additional_properties)
+                   types_with_errors)
 
     def __repr__(self):
         """Return a unambiguous string representation."""
@@ -142,7 +130,6 @@ class PaymentMethodResponse(object):
             if hasattr(self, "types_with_errors")
             else None
         )
-        _additional_properties=self.additional_properties
         return (
             f"{self.__class__.__name__}("
             f"links={_links!r}, "
@@ -150,7 +137,6 @@ class PaymentMethodResponse(object):
             f"items_total={_items_total!r}, "
             f"pages_total={_pages_total!r}, "
             f"types_with_errors={_types_with_errors!r}, "
-            f"additional_properties={_additional_properties!r}, "
             f")"
         )
 
@@ -173,7 +159,6 @@ class PaymentMethodResponse(object):
             if hasattr(self, "types_with_errors")
             else None
         )
-        _additional_properties=self.additional_properties
         return (
             f"{self.__class__.__name__}("
             f"links={_links!s}, "
@@ -181,6 +166,5 @@ class PaymentMethodResponse(object):
             f"items_total={_items_total!s}, "
             f"pages_total={_pages_total!s}, "
             f"types_with_errors={_types_with_errors!s}, "
-            f"additional_properties={_additional_properties!s}, "
             f")"
         )

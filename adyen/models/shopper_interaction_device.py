@@ -18,8 +18,6 @@ class ShopperInteractionDevice(object):
         os (str): Operating system running on the shopper interaction device.
         os_version (str): Version of the operating system on the shopper interaction
             device.
-        additional_properties (Dict[str, Any]): The additional properties for the
-            model.
 
     """
 
@@ -40,8 +38,7 @@ class ShopperInteractionDevice(object):
         self,
         locale=APIHelper.SKIP,
         os=APIHelper.SKIP,
-        os_version=APIHelper.SKIP,
-        additional_properties=None):
+        os_version=APIHelper.SKIP):
         """Initialize a ShopperInteractionDevice instance."""
         # Initialize members of the class
         if locale is not APIHelper.SKIP:
@@ -50,11 +47,6 @@ class ShopperInteractionDevice(object):
             self.os = os
         if os_version is not APIHelper.SKIP:
             self.os_version = os_version
-
-        # Add additional model properties to the instance
-        if additional_properties is None:
-            additional_properties = {}
-        self.additional_properties = additional_properties
 
     @classmethod
     def from_dictionary(cls,
@@ -87,16 +79,31 @@ class ShopperInteractionDevice(object):
             if dictionary.get("osVersion")\
                 else APIHelper.SKIP
 
-        additional_properties = APIHelper.get_additional_properties(
-            dictionary={k: v for k, v in dictionary.items()
-                        if k not in cls._names.values()},
-            unboxing_function=lambda value: value)
-
         # Return an object of this model
         return cls(locale,
                    os,
-                   os_version,
-                   additional_properties)
+                   os_version)
+
+    @classmethod
+    def validate(cls, dictionary):
+        """Validate dictionary against class required properties
+
+        Args:
+            dictionary (dictionary): A dictionary representation of the object
+            as obtained from the deserialization of the server's response. The
+            keys MUST match property names in the API description.
+
+        Returns:
+            boolean : if dictionary is valid contains required properties.
+
+        """
+        if isinstance(dictionary, cls):
+            return True
+
+        if not isinstance(dictionary, dict):
+            return False
+
+        return True
 
     def __repr__(self):
         """Return a unambiguous string representation."""
@@ -115,13 +122,11 @@ class ShopperInteractionDevice(object):
             if hasattr(self, "os_version")
             else None
         )
-        _additional_properties=self.additional_properties
         return (
             f"{self.__class__.__name__}("
             f"locale={_locale!r}, "
             f"os={_os!r}, "
             f"os_version={_os_version!r}, "
-            f"additional_properties={_additional_properties!r}, "
             f")"
         )
 
@@ -142,12 +147,10 @@ class ShopperInteractionDevice(object):
             if hasattr(self, "os_version")
             else None
         )
-        _additional_properties=self.additional_properties
         return (
             f"{self.__class__.__name__}("
             f"locale={_locale!s}, "
             f"os={_os!s}, "
             f"os_version={_os_version!s}, "
-            f"additional_properties={_additional_properties!s}, "
             f")"
         )

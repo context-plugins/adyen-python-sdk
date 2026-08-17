@@ -1,8 +1,6 @@
 
 # Notification Configuration Details
 
-*This model accepts additional fields of type Any.*
-
 ## Structure
 
 `NotificationConfigurationDetails`
@@ -20,16 +18,13 @@
 | `notify_password` | `str` | Optional | The password to use when accessing the notifyURL with the specified username. |
 | `notify_url` | `str` | Optional | The URL to which the notifications are to be sent. |
 | `notify_username` | `str` | Optional | The username to use when accessing the notifyURL. |
-| `ssl_protocol` | [`SslProtocol`](../../doc/models/ssl-protocol.md) | Optional | - |
-| `additional_properties` | `Dict[str, Any]` | Optional | - |
+| `ssl_protocol` | [`SslProtocolEnum`](../../doc/models/ssl-protocol-enum.md) | Optional | The SSL protocol employed by the endpoint.<br><br>> Permitted values: `TLSv12`, `TLSv13`. |
 
 ## Example
 
 ```python
-import jsonpickle
-
-from adyen.models.event_type import EventType
-from adyen.models.include_mode import IncludeMode
+from adyen.models.event_type_enum import EventTypeEnum
+from adyen.models.include_mode_enum import IncludeModeEnum
 from adyen.models.notification_configuration_details import NotificationConfigurationDetails
 from adyen.models.notification_event_configuration import NotificationEventConfiguration
 
@@ -39,17 +34,11 @@ notification_configuration_details = NotificationConfigurationDetails(
     description='description0',
     event_configs=[
         NotificationEventConfiguration(
-            event_type=EventType.SCHEDULED_REFUNDS,
-            include_mode=IncludeMode.EXCLUDE,
-            additional_properties={
-                'exampleAdditionalProperty': jsonpickle.decode('{"key1":"val1","key2":"val2"}')
-            }
+            event_type=EventTypeEnum.SCHEDULED_REFUNDS,
+            include_mode=IncludeModeEnum.EXCLUDE
         )
     ],
-    hmac_signature_key='hmacSignatureKey6',
-    additional_properties={
-        'exampleAdditionalProperty': jsonpickle.decode('{"key1":"val1","key2":"val2"}')
-    }
+    hmac_signature_key='hmacSignatureKey6'
 )
 ```
 

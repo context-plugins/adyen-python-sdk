@@ -45,19 +45,19 @@ This endpoint requires [BasicAuth](../../doc/auth/basic-authentication.md) **OR*
 
 **200**: OK - the request has succeeded.
 
-This method returns an [`ApiResponse`](../../doc/api-response.md) instance. The `body` property of this instance returns the response data which is of type [`PayoutResponse`](../../doc/models/payout-response.md).
+[`PayoutResponse`](../../doc/models/payout-response.md)
 
 ## Example Usage
 
 ```python
 body = PayoutRequest(
-    amount=Amount16(
+    amount=Amount(
         currency='USD',
         value=2500
     ),
     merchant_account='YOUR_MERCHANT_ACCOUNT',
     reference='P9999999999999999',
-    billing_address=BillingAddress7(
+    billing_address=Address(
         city='Beverly Hills',
         country='US',
         house_number_or_name='121',
@@ -65,13 +65,13 @@ body = PayoutRequest(
         street='Brannan Street',
         state_or_province='CA'
     ),
-    card=Card6(
+    card=Card(
         expiry_month='03',
         expiry_year='2030',
         holder_name='John Smith',
         number='4111111111111111'
     ),
-    shopper_name=ShopperName(
+    shopper_name=Name(
         first_name='John',
         last_name='Smith'
     )
@@ -80,20 +80,16 @@ body = PayoutRequest(
 result = instant_payouts_api.post_payout(
     body=body
 )
-
-if result.is_success():
-    print(result.body)
-elif result.is_error():
-    print(result.errors)
+print(result)
 ```
 
 ## Errors
 
 | HTTP Status Code | Error Description | Exception Class |
 |  --- | --- | --- |
-| 400 | Bad Request - a problem reading or understanding the request. | [`ServiceError1Exception`](../../doc/models/service-error-1-exception.md) |
-| 401 | Unauthorized - authentication required. | [`ServiceError1Exception`](../../doc/models/service-error-1-exception.md) |
-| 403 | Forbidden - insufficient permissions to process the request. | [`ServiceError1Exception`](../../doc/models/service-error-1-exception.md) |
-| 422 | Unprocessable Entity - a request validation error. | [`ServiceError1Exception`](../../doc/models/service-error-1-exception.md) |
-| 500 | Internal Server Error - the server could not process the request. | [`ServiceError1Exception`](../../doc/models/service-error-1-exception.md) |
+| 400 | Bad Request - a problem reading or understanding the request. | [`ServiceErrorException`](../../doc/models/service-error-exception.md) |
+| 401 | Unauthorized - authentication required. | [`ServiceErrorException`](../../doc/models/service-error-exception.md) |
+| 403 | Forbidden - insufficient permissions to process the request. | [`ServiceErrorException`](../../doc/models/service-error-exception.md) |
+| 422 | Unprocessable Entity - a request validation error. | [`ServiceErrorException`](../../doc/models/service-error-exception.md) |
+| 500 | Internal Server Error - the server could not process the request. | [`ServiceErrorException`](../../doc/models/service-error-exception.md) |
 

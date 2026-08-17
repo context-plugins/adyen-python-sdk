@@ -3,8 +3,6 @@
 
 Various amounts related to the payment request from the Sale System.
 
-*This model accepts additional fields of type Any.*
-
 ## Structure
 
 `AmountsReq`
@@ -21,13 +19,10 @@ Various amounts related to the payment request from the Sale System.
 | `minimum_amount_to_deliver` | `float` | Optional | Minimum amount the Sale System is allowed to deliver for this payment. For the OneTimeReservation, when the maximum amount is unknown, the Sale System indicates the minimum amount it allows.<br><br>**Constraints**: `>= 0`, `<= 99999999.999999` |
 | `maximum_cash_back_amount` | `float` | Optional | Maximum amount which could be requested for cash-back to the Sale System. Allows the Cashier<br>to limit the amount value of cash-back to deliver to the Customer.<br><br>**Constraints**: `>= 0`, `<= 99999999.999999` |
 | `minimum_split_amount` | `float` | Optional | Minimum amount of a split, which could be requested by a Customer.Allows the Merchant to limit the number of split requested by the Customer.<br><br>**Constraints**: `>= 0`, `<= 99999999.999999` |
-| `additional_properties` | `Dict[str, Any]` | Optional | - |
 
 ## Example
 
 ```python
-import jsonpickle
-
 from adyen.models.amounts_req import AmountsReq
 
 amounts_req = AmountsReq(
@@ -37,10 +32,7 @@ amounts_req = AmountsReq(
     tip_amount=209.22,
     paid_amount=246.58,
     minimum_amount_to_deliver=79.98,
-    maximum_cash_back_amount=30.22,
-    additional_properties={
-        'exampleAdditionalProperty': jsonpickle.decode('{"key1":"val1","key2":"val2"}')
-    }
+    maximum_cash_back_amount=30.22
 )
 ```
 

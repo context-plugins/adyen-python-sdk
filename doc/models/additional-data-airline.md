@@ -1,8 +1,6 @@
 
 # Additional Data Airline
 
-*This model accepts additional fields of type Any.*
-
 ## Structure
 
 `AdditionalDataAirline`
@@ -40,13 +38,10 @@
 | `airline_ticket_number` | `str` | Optional | The ticket's unique identifier.<br><br>* minLength: 1 character<br>* maxLength: 15 characters<br>* Must not be all spaces<br>* Must not be all zeros. |
 | `airline_travel_agency_code` | `str` | Optional | The unique identifier from IATA or ARC for the travel agency that issues the ticket.<br><br>* Encoding: ASCII<br>* minLength: 1 character<br>* maxLength: 8 characters<br>* Must not be all spaces<br>* Must not be all zeros. |
 | `airline_travel_agency_name` | `str` | Optional | The name of the travel agency.<br><br>* Encoding: ASCII<br>* minLength: 1 character<br>* maxLength: 25 characters<br>* Must not be all spaces<br>* Must not be all zeros. |
-| `additional_properties` | `Dict[str, Any]` | Optional | - |
 
 ## Example
 
 ```python
-import jsonpickle
-
 from adyen.models.additional_data_airline import AdditionalDataAirline
 
 additional_data_airline = AdditionalDataAirline(
@@ -55,10 +50,7 @@ additional_data_airline = AdditionalDataAirline(
     airline_agency_plan_name='airline.agency_plan_name0',
     airline_airline_code='airline.airline_code6',
     airline_airline_designator_code='airline.airline_designator_code8',
-    airline_boarding_fee='airline.boarding_fee6',
-    additional_properties={
-        'exampleAdditionalProperty': jsonpickle.decode('{"key1":"val1","key2":"val2"}')
-    }
+    airline_boarding_fee='airline.boarding_fee6'
 )
 ```
 

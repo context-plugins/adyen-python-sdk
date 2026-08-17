@@ -13,8 +13,6 @@ class ListNetworkTokensResponse(object):
 
     Attributes:
         network_tokens (List[NetworkToken]): List of network tokens.
-        additional_properties (Dict[str, Any]): The additional properties for the
-            model.
 
     """
 
@@ -29,17 +27,11 @@ class ListNetworkTokensResponse(object):
 
     def __init__(
         self,
-        network_tokens=APIHelper.SKIP,
-        additional_properties=None):
+        network_tokens=APIHelper.SKIP):
         """Initialize a ListNetworkTokensResponse instance."""
         # Initialize members of the class
         if network_tokens is not APIHelper.SKIP:
             self.network_tokens = network_tokens
-
-        # Add additional model properties to the instance
-        if additional_properties is None:
-            additional_properties = {}
-        self.additional_properties = additional_properties
 
     @classmethod
     def from_dictionary(cls,
@@ -68,14 +60,8 @@ class ListNetworkTokensResponse(object):
         else:
             network_tokens = APIHelper.SKIP
 
-        additional_properties = APIHelper.get_additional_properties(
-            dictionary={k: v for k, v in dictionary.items()
-                        if k not in cls._names.values()},
-            unboxing_function=lambda value: value)
-
         # Return an object of this model
-        return cls(network_tokens,
-                   additional_properties)
+        return cls(network_tokens)
 
     def __repr__(self):
         """Return a unambiguous string representation."""
@@ -84,11 +70,9 @@ class ListNetworkTokensResponse(object):
             if hasattr(self, "network_tokens")
             else None
         )
-        _additional_properties=self.additional_properties
         return (
             f"{self.__class__.__name__}("
             f"network_tokens={_network_tokens!r}, "
-            f"additional_properties={_additional_properties!r}, "
             f")"
         )
 
@@ -99,10 +83,8 @@ class ListNetworkTokensResponse(object):
             if hasattr(self, "network_tokens")
             else None
         )
-        _additional_properties=self.additional_properties
         return (
             f"{self.__class__.__name__}("
             f"network_tokens={_network_tokens!s}, "
-            f"additional_properties={_additional_properties!s}, "
             f")"
         )

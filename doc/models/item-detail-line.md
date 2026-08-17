@@ -1,8 +1,6 @@
 
 # Item Detail Line
 
-*This model accepts additional fields of type Any.*
-
 ## Structure
 
 `ItemDetailLine`
@@ -19,13 +17,10 @@
 | `total_amount` | `int` | Optional | The total amount for the line item, in [minor units](https://docs.adyen.com/development-resources/currency-codes).<br><br>* For example, 2000 means USD 20.00.<br>* Encoding: Numeric<br>* Max value: 10000000000<br><br>See [Amount requirements for level 2/3 ESD](https://docs.adyen.com//payment-methods/cards/enhanced-scheme-data/l2-l3#amount-requirements) to learn more about how to calculate the line item total.<br><br>* **additionalData key:** `enhancedSchemeData.itemDetailLine[N].totalAmount` |
 | `unit_of_measure` | `str` | Optional | The unit of measurement for an item.<br><br>* Encoding: ASCII<br>* Max length: 3 characters<br>* **additionalData key:** `enhancedSchemeData.itemDetailLine[N].unitOfMeasure` |
 | `unit_price` | `int` | Optional | The unit price, in [minor units](https://docs.adyen.com/development-resources/currency-codes).<br><br>* For example, 2000 means USD 20.00.<br>* Encoding: Numeric<br>* Max value: 10000000000<br>* **additionalData key:** `enhancedSchemeData.itemDetailLine[N].unitPrice` |
-| `additional_properties` | `Dict[str, Any]` | Optional | - |
 
 ## Example
 
 ```python
-import jsonpickle
-
 from adyen.models.item_detail_line import ItemDetailLine
 
 item_detail_line = ItemDetailLine(
@@ -33,10 +28,7 @@ item_detail_line = ItemDetailLine(
     description='description6',
     discount_amount=106,
     product_code='productCode8',
-    quantity=70,
-    additional_properties={
-        'exampleAdditionalProperty': jsonpickle.decode('{"key1":"val1","key2":"val2"}')
-    }
+    quantity=70
 )
 ```
 

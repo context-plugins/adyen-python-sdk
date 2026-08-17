@@ -1,8 +1,6 @@
 
 # Additional Data Sub Merchant
 
-*This model accepts additional fields of type Any.*
-
 ## Structure
 
 `AdditionalDataSubMerchant`
@@ -23,13 +21,10 @@
 | `sub_merchant_sub_seller_sub_seller_nr_state` | `str` | Optional | Required for transactions performed by registered payment facilitators. The state code of the sub-merchant's address, if applicable to the country.<br><br>* Format: Alphanumeric<br>* Maximum length: 2 characters |
 | `sub_merchant_sub_seller_sub_seller_nr_street` | `str` | Optional | Required for transactions performed by registered payment facilitators. The street name and house number of the sub-merchant's address.<br><br>* Format: Alphanumeric<br>* Maximum length: 60 characters |
 | `sub_merchant_sub_seller_sub_seller_nr_tax_id` | `str` | Optional | Required for transactions performed by registered payment facilitators. The tax ID of the sub-merchant.<br><br>* Format: Numeric<br>* Fixed length: 11 digits for the CPF or 14 digits for the CNPJ |
-| `additional_properties` | `Dict[str, Any]` | Optional | - |
 
 ## Example
 
 ```python
-import jsonpickle
-
 from adyen.models.additional_data_sub_merchant import AdditionalDataSubMerchant
 
 additional_data_sub_merchant = AdditionalDataSubMerchant(
@@ -37,10 +32,7 @@ additional_data_sub_merchant = AdditionalDataSubMerchant(
     sub_merchant_sub_seller_sub_seller_nr_city=Liquid error: Value cannot be null. (Parameter 'key'),
     sub_merchant_sub_seller_sub_seller_nr_country=Liquid error: Value cannot be null. (Parameter 'key'),
     sub_merchant_sub_seller_sub_seller_nr_email=Liquid error: Value cannot be null. (Parameter 'key'),
-    sub_merchant_sub_seller_sub_seller_nr_id=Liquid error: Value cannot be null. (Parameter 'key'),
-    additional_properties={
-        'exampleAdditionalProperty': jsonpickle.decode('{"key1":"val1","key2":"val2"}')
-    }
+    sub_merchant_sub_seller_sub_seller_nr_id=Liquid error: Value cannot be null. (Parameter 'key')
 )
 ```
 

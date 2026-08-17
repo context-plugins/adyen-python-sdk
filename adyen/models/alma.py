@@ -12,12 +12,10 @@ class Alma(object):
 
     Attributes:
         checkout_attempt_id (str): The checkout attempt identifier.
-        fee_type (FeeType): The model property of type FeeType.
+        fee_type (FeeTypeEnum): **Alma payment request fee type**
         sdk_data (str): Base64-encoded JSON object containing SDK related parameters
             required by the SDK
-        mtype (Type31): The model property of type Type31.
-        additional_properties (Dict[str, Any]): The additional properties for the
-            model.
+        mtype (Type3Enum): The payment method type.
 
     """
 
@@ -41,8 +39,7 @@ class Alma(object):
         checkout_attempt_id=APIHelper.SKIP,
         fee_type=APIHelper.SKIP,
         sdk_data=APIHelper.SKIP,
-        mtype=APIHelper.SKIP,
-        additional_properties=None):
+        mtype=APIHelper.SKIP):
         """Initialize a Alma instance."""
         # Initialize members of the class
         if checkout_attempt_id is not APIHelper.SKIP:
@@ -53,11 +50,6 @@ class Alma(object):
             self.sdk_data = sdk_data
         if mtype is not APIHelper.SKIP:
             self.mtype = mtype
-
-        # Add additional model properties to the instance
-        if additional_properties is None:
-            additional_properties = {}
-        self.additional_properties = additional_properties
 
     @classmethod
     def from_dictionary(cls,
@@ -94,17 +86,11 @@ class Alma(object):
             if dictionary.get("type")\
                 else APIHelper.SKIP
 
-        additional_properties = APIHelper.get_additional_properties(
-            dictionary={k: v for k, v in dictionary.items()
-                        if k not in cls._names.values()},
-            unboxing_function=lambda value: value)
-
         # Return an object of this model
         return cls(checkout_attempt_id,
                    fee_type,
                    sdk_data,
-                   mtype,
-                   additional_properties)
+                   mtype)
 
     @classmethod
     def validate(cls, dictionary):
@@ -149,14 +135,12 @@ class Alma(object):
             if hasattr(self, "mtype")
             else None
         )
-        _additional_properties=self.additional_properties
         return (
             f"{self.__class__.__name__}("
             f"checkout_attempt_id={_checkout_attempt_id!r}, "
             f"fee_type={_fee_type!r}, "
             f"sdk_data={_sdk_data!r}, "
             f"mtype={_mtype!r}, "
-            f"additional_properties={_additional_properties!r}, "
             f")"
         )
 
@@ -182,13 +166,11 @@ class Alma(object):
             if hasattr(self, "mtype")
             else None
         )
-        _additional_properties=self.additional_properties
         return (
             f"{self.__class__.__name__}("
             f"checkout_attempt_id={_checkout_attempt_id!s}, "
             f"fee_type={_fee_type!s}, "
             f"sdk_data={_sdk_data!s}, "
             f"mtype={_mtype!s}, "
-            f"additional_properties={_additional_properties!s}, "
             f")"
         )

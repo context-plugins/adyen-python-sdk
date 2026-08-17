@@ -1,9 +1,7 @@
 
 # Links 21
 
-References to resources linked to the allowed origin.
-
-*This model accepts additional fields of type Any.*
+Contains links to the next and previous page whenever applicable.
 
 ## Structure
 
@@ -13,27 +11,22 @@ References to resources linked to the allowed origin.
 
 | Name | Type | Tags | Description |
 |  --- | --- | --- | --- |
-| `mself` | [`Self`](../../doc/models/self.md) | Required | - |
-| `additional_properties` | `Dict[str, Any]` | Optional | - |
+| `next` | [`LinksElement`](../../doc/models/links-element.md) | Optional | Contains a link to the next page. |
+| `prev` | [`LinksElement`](../../doc/models/links-element.md) | Optional | Contains a link to the previous page. |
 
 ## Example
 
 ```python
-import jsonpickle
-
 from adyen.models.links_21 import Links21
-from adyen.models.mself import Self
+from adyen.models.links_element import LinksElement
 
 links_21 = Links21(
-    mself=Self(
-        href='href0',
-        additional_properties={
-            'exampleAdditionalProperty': jsonpickle.decode('{"key1":"val1","key2":"val2"}')
-        }
+    next=LinksElement(
+        href='href4'
     ),
-    additional_properties={
-        'exampleAdditionalProperty': jsonpickle.decode('{"key1":"val1","key2":"val2"}')
-    }
+    prev=LinksElement(
+        href='href8'
+    )
 )
 ```
 

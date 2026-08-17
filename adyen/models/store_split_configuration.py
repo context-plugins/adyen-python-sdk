@@ -21,8 +21,6 @@ class StoreSplitConfiguration(object):
             configuration
             profile](https://docs.adyen.com/platforms/automatic-split-configuration/cr
             eate-split-configuration/).
-        additional_properties (Dict[str, Any]): The additional properties for the
-            model.
 
     """
 
@@ -40,19 +38,13 @@ class StoreSplitConfiguration(object):
     def __init__(
         self,
         balance_account_id=APIHelper.SKIP,
-        split_configuration_id=APIHelper.SKIP,
-        additional_properties=None):
+        split_configuration_id=APIHelper.SKIP):
         """Initialize a StoreSplitConfiguration instance."""
         # Initialize members of the class
         if balance_account_id is not APIHelper.SKIP:
             self.balance_account_id = balance_account_id
         if split_configuration_id is not APIHelper.SKIP:
             self.split_configuration_id = split_configuration_id
-
-        # Add additional model properties to the instance
-        if additional_properties is None:
-            additional_properties = {}
-        self.additional_properties = additional_properties
 
     @classmethod
     def from_dictionary(cls,
@@ -81,15 +73,9 @@ class StoreSplitConfiguration(object):
             if dictionary.get("splitConfigurationId")\
                 else APIHelper.SKIP
 
-        additional_properties = APIHelper.get_additional_properties(
-            dictionary={k: v for k, v in dictionary.items()
-                        if k not in cls._names.values()},
-            unboxing_function=lambda value: value)
-
         # Return an object of this model
         return cls(balance_account_id,
-                   split_configuration_id,
-                   additional_properties)
+                   split_configuration_id)
 
     def __repr__(self):
         """Return a unambiguous string representation."""
@@ -103,12 +89,10 @@ class StoreSplitConfiguration(object):
             if hasattr(self, "split_configuration_id")
             else None
         )
-        _additional_properties=self.additional_properties
         return (
             f"{self.__class__.__name__}("
             f"balance_account_id={_balance_account_id!r}, "
             f"split_configuration_id={_split_configuration_id!r}, "
-            f"additional_properties={_additional_properties!r}, "
             f")"
         )
 
@@ -124,11 +108,9 @@ class StoreSplitConfiguration(object):
             if hasattr(self, "split_configuration_id")
             else None
         )
-        _additional_properties=self.additional_properties
         return (
             f"{self.__class__.__name__}("
             f"balance_account_id={_balance_account_id!s}, "
             f"split_configuration_id={_split_configuration_id!s}, "
-            f"additional_properties={_additional_properties!s}, "
             f")"
         )

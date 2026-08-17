@@ -34,8 +34,6 @@ class Donation1(object):
             units](https://docs.adyen.com/development-resources/currency-codes//#minor
             -units). This field is only present when `donationType` is
             **fixedAmounts**.
-        additional_properties (Dict[str, Any]): The additional properties for the
-            model.
 
     """
 
@@ -60,8 +58,7 @@ class Donation1(object):
         mtype=None,
         donation_type=APIHelper.SKIP,
         max_roundup_amount=APIHelper.SKIP,
-        values=APIHelper.SKIP,
-        additional_properties=None):
+        values=APIHelper.SKIP):
         """Initialize a Donation1 instance."""
         # Initialize members of the class
         self.currency = currency
@@ -72,11 +69,6 @@ class Donation1(object):
         self.mtype = mtype
         if values is not APIHelper.SKIP:
             self.values = values
-
-        # Add additional model properties to the instance
-        if additional_properties is None:
-            additional_properties = {}
-        self.additional_properties = additional_properties
 
     @classmethod
     def from_dictionary(cls,
@@ -117,18 +109,12 @@ class Donation1(object):
             if dictionary.get("values")\
                 else APIHelper.SKIP
 
-        additional_properties = APIHelper.get_additional_properties(
-            dictionary={k: v for k, v in dictionary.items()
-                        if k not in cls._names.values()},
-            unboxing_function=lambda value: value)
-
         # Return an object of this model
         return cls(currency,
                    mtype,
                    donation_type,
                    max_roundup_amount,
-                   values,
-                   additional_properties)
+                   values)
 
     def __repr__(self):
         """Return a unambiguous string representation."""
@@ -149,7 +135,6 @@ class Donation1(object):
             if hasattr(self, "values")
             else None
         )
-        _additional_properties=self.additional_properties
         return (
             f"{self.__class__.__name__}("
             f"currency={_currency!r}, "
@@ -157,7 +142,6 @@ class Donation1(object):
             f"max_roundup_amount={_max_roundup_amount!r}, "
             f"mtype={_mtype!r}, "
             f"values={_values!r}, "
-            f"additional_properties={_additional_properties!r}, "
             f")"
         )
 
@@ -180,7 +164,6 @@ class Donation1(object):
             if hasattr(self, "values")
             else None
         )
-        _additional_properties=self.additional_properties
         return (
             f"{self.__class__.__name__}("
             f"currency={_currency!s}, "
@@ -188,6 +171,5 @@ class Donation1(object):
             f"max_roundup_amount={_max_roundup_amount!s}, "
             f"mtype={_mtype!s}, "
             f"values={_values!s}, "
-            f"additional_properties={_additional_properties!s}, "
             f")"
         )

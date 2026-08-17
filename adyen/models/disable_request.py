@@ -23,8 +23,6 @@ class DisableRequest(object):
         shopper_reference (str): The ID that uniquely identifies the shopper.  This
             `shopperReference` must be the same as the `shopperReference` used in the
             initial payment.
-        additional_properties (Dict[str, Any]): The additional properties for the
-            model.
 
     """
 
@@ -46,8 +44,7 @@ class DisableRequest(object):
         merchant_account=None,
         shopper_reference=None,
         contract=APIHelper.SKIP,
-        recurring_detail_reference=APIHelper.SKIP,
-        additional_properties=None):
+        recurring_detail_reference=APIHelper.SKIP):
         """Initialize a DisableRequest instance."""
         # Initialize members of the class
         if contract is not APIHelper.SKIP:
@@ -56,11 +53,6 @@ class DisableRequest(object):
         if recurring_detail_reference is not APIHelper.SKIP:
             self.recurring_detail_reference = recurring_detail_reference
         self.shopper_reference = shopper_reference
-
-        # Add additional model properties to the instance
-        if additional_properties is None:
-            additional_properties = {}
-        self.additional_properties = additional_properties
 
     @classmethod
     def from_dictionary(cls,
@@ -97,17 +89,11 @@ class DisableRequest(object):
             if dictionary.get("recurringDetailReference")\
                 else APIHelper.SKIP
 
-        additional_properties = APIHelper.get_additional_properties(
-            dictionary={k: v for k, v in dictionary.items()
-                        if k not in cls._names.values()},
-            unboxing_function=lambda value: value)
-
         # Return an object of this model
         return cls(merchant_account,
                    shopper_reference,
                    contract,
-                   recurring_detail_reference,
-                   additional_properties)
+                   recurring_detail_reference)
 
     def __repr__(self):
         """Return a unambiguous string representation."""
@@ -123,14 +109,12 @@ class DisableRequest(object):
             else None
         )
         _shopper_reference=self.shopper_reference
-        _additional_properties=self.additional_properties
         return (
             f"{self.__class__.__name__}("
             f"contract={_contract!r}, "
             f"merchant_account={_merchant_account!r}, "
             f"recurring_detail_reference={_recurring_detail_reference!r}, "
             f"shopper_reference={_shopper_reference!r}, "
-            f"additional_properties={_additional_properties!r}, "
             f")"
         )
 
@@ -148,13 +132,11 @@ class DisableRequest(object):
             else None
         )
         _shopper_reference=self.shopper_reference
-        _additional_properties=self.additional_properties
         return (
             f"{self.__class__.__name__}("
             f"contract={_contract!s}, "
             f"merchant_account={_merchant_account!s}, "
             f"recurring_detail_reference={_recurring_detail_reference!s}, "
             f"shopper_reference={_shopper_reference!s}, "
-            f"additional_properties={_additional_properties!s}, "
             f")"
         )

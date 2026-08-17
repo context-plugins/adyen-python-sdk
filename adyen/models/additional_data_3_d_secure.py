@@ -25,8 +25,10 @@ class AdditionalData3DSecure(object):
             rates and improve the shopper's experience. * **false** – Not ready to
             support native 3D Secure 2 authentication. Adyen offers redirect 3D
             Secure 2 authentication instead, based on your configuration.
-        challenge_window_size (ChallengeWindowSize): The model property of type
-            ChallengeWindowSize.
+        challenge_window_size (ChallengeWindowSizeEnum): Dimensions of the 3DS2
+            challenge window to be displayed to the cardholder.  Possible values:  *
+            **01** - size of 250x400  * **02** - size of 390x400 * **03** - size of
+            500x600 * **04** - size of 600x400 * **05** - Fullscreen
         execute_three_d (str): Indicates if you want to perform 3D Secure
             authentication on a transaction.   > Alternatively, you can use [Dynamic
             3D Secure](/risk-management/dynamic-3d-secure) to configure rules for
@@ -52,8 +54,6 @@ class AdditionalData3DSecure(object):
             negative `transStatus` in the `ARes`, we will apply the fallback policy
             configured in your account. * If you the BIN is not enrolled, you will
             receive an error.
-        additional_properties (Dict[str, Any]): The additional properties for the
-            model.
 
     """
 
@@ -83,8 +83,7 @@ class AdditionalData3DSecure(object):
         execute_three_d=APIHelper.SKIP,
         mpi_implementation_type=APIHelper.SKIP,
         sca_exemption=APIHelper.SKIP,
-        three_ds_version=APIHelper.SKIP,
-        additional_properties=None):
+        three_ds_version=APIHelper.SKIP):
         """Initialize a AdditionalData3DSecure instance."""
         # Initialize members of the class
         if allow_3_ds_2 is not APIHelper.SKIP:
@@ -99,11 +98,6 @@ class AdditionalData3DSecure(object):
             self.sca_exemption = sca_exemption
         if three_ds_version is not APIHelper.SKIP:
             self.three_ds_version = three_ds_version
-
-        # Add additional model properties to the instance
-        if additional_properties is None:
-            additional_properties = {}
-        self.additional_properties = additional_properties
 
     @classmethod
     def from_dictionary(cls,
@@ -148,19 +142,13 @@ class AdditionalData3DSecure(object):
             if dictionary.get("threeDSVersion")\
                 else APIHelper.SKIP
 
-        additional_properties = APIHelper.get_additional_properties(
-            dictionary={k: v for k, v in dictionary.items()
-                        if k not in cls._names.values()},
-            unboxing_function=lambda value: value)
-
         # Return an object of this model
         return cls(allow_3_ds_2,
                    challenge_window_size,
                    execute_three_d,
                    mpi_implementation_type,
                    sca_exemption,
-                   three_ds_version,
-                   additional_properties)
+                   three_ds_version)
 
     def __repr__(self):
         """Return a unambiguous string representation."""
@@ -194,7 +182,6 @@ class AdditionalData3DSecure(object):
             if hasattr(self, "three_ds_version")
             else None
         )
-        _additional_properties=self.additional_properties
         return (
             f"{self.__class__.__name__}("
             f"allow_3_ds_2={_allow_3_ds_2!r}, "
@@ -203,7 +190,6 @@ class AdditionalData3DSecure(object):
             f"mpi_implementation_type={_mpi_implementation_type!r}, "
             f"sca_exemption={_sca_exemption!r}, "
             f"three_ds_version={_three_ds_version!r}, "
-            f"additional_properties={_additional_properties!r}, "
             f")"
         )
 
@@ -239,7 +225,6 @@ class AdditionalData3DSecure(object):
             if hasattr(self, "three_ds_version")
             else None
         )
-        _additional_properties=self.additional_properties
         return (
             f"{self.__class__.__name__}("
             f"allow_3_ds_2={_allow_3_ds_2!s}, "
@@ -248,6 +233,5 @@ class AdditionalData3DSecure(object):
             f"mpi_implementation_type={_mpi_implementation_type!s}, "
             f"sca_exemption={_sca_exemption!s}, "
             f"three_ds_version={_three_ds_version!s}, "
-            f"additional_properties={_additional_properties!s}, "
             f")"
         )

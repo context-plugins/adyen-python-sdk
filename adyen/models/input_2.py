@@ -13,7 +13,12 @@ class Input2(object):
     Data entered by the user, related to the input command.
 
     Attributes:
-        input_command (InputCommand1): The model property of type InputCommand1.
+        input_command (InputCommand1Enum): Type of requested input. Can be:
+            **GetConfirmation**, **TextString**, **DigitString**, **DecimalString**
+            or **GetMenuEntry**. Possible values: * **DecimalString** *
+            **DigitString** * **GetAnyKey** * **GetConfirmation** *
+            **GetFunctionKey** * **GetMenuEntry** * **Password** * **SiteManager** *
+            **TextString**
         confirmed_flag (bool): Indicates te response of the user from the
             `GetConfirmation` input command.
         function_key (int): The number of the function key which is typed by the
@@ -28,8 +33,6 @@ class Input2(object):
             is selected by the Cashier on the Sale Terminal. The value -1 indicates
             that the immediate upper level of the menu is requested. The value 0
             indicates that the root of the menu is requested.
-        additional_properties (Dict[str, Any]): The additional properties for the
-            model.
 
     """
 
@@ -61,8 +64,7 @@ class Input2(object):
         text_input=APIHelper.SKIP,
         digit_input=APIHelper.SKIP,
         password=APIHelper.SKIP,
-        menu_entry_number=APIHelper.SKIP,
-        additional_properties=None):
+        menu_entry_number=APIHelper.SKIP):
         """Initialize a Input2 instance."""
         # Initialize members of the class
         self.input_command = input_command
@@ -78,11 +80,6 @@ class Input2(object):
             self.password = password
         if menu_entry_number is not APIHelper.SKIP:
             self.menu_entry_number = menu_entry_number
-
-        # Add additional model properties to the instance
-        if additional_properties is None:
-            additional_properties = {}
-        self.additional_properties = additional_properties
 
     @classmethod
     def from_dictionary(cls,
@@ -131,11 +128,6 @@ class Input2(object):
             if dictionary.get("MenuEntryNumber")\
                 else APIHelper.SKIP
 
-        additional_properties = APIHelper.get_additional_properties(
-            dictionary={k: v for k, v in dictionary.items()
-                        if k not in cls._names.values()},
-            unboxing_function=lambda value: value)
-
         # Return an object of this model
         return cls(input_command,
                    confirmed_flag,
@@ -143,8 +135,7 @@ class Input2(object):
                    text_input,
                    digit_input,
                    password,
-                   menu_entry_number,
-                   additional_properties)
+                   menu_entry_number)
 
     def __repr__(self):
         """Return a unambiguous string representation."""
@@ -179,7 +170,6 @@ class Input2(object):
             if hasattr(self, "menu_entry_number")
             else None
         )
-        _additional_properties=self.additional_properties
         return (
             f"{self.__class__.__name__}("
             f"input_command={_input_command!r}, "
@@ -189,7 +179,6 @@ class Input2(object):
             f"digit_input={_digit_input!r}, "
             f"password={_password!r}, "
             f"menu_entry_number={_menu_entry_number!r}, "
-            f"additional_properties={_additional_properties!r}, "
             f")"
         )
 
@@ -226,7 +215,6 @@ class Input2(object):
             if hasattr(self, "menu_entry_number")
             else None
         )
-        _additional_properties=self.additional_properties
         return (
             f"{self.__class__.__name__}("
             f"input_command={_input_command!s}, "
@@ -236,6 +224,5 @@ class Input2(object):
             f"digit_input={_digit_input!s}, "
             f"password={_password!s}, "
             f"menu_entry_number={_menu_entry_number!s}, "
-            f"additional_properties={_additional_properties!s}, "
             f")"
         )

@@ -20,8 +20,6 @@ class AmexResponseInfo(object):
             settlement and handles disputes, then pays out to you or your
             sub-merchant directly. * **paymentDesignatorContract**: Adyen receives
             the settlement, and handles disputes and payouts.
-        additional_properties (Dict[str, Any]): The additional properties for the
-            model.
 
     """
 
@@ -42,8 +40,7 @@ class AmexResponseInfo(object):
         self,
         mid_number=APIHelper.SKIP,
         reuse_mid_number=APIHelper.SKIP,
-        service_level=APIHelper.SKIP,
-        additional_properties=None):
+        service_level=APIHelper.SKIP):
         """Initialize a AmexResponseInfo instance."""
         # Initialize members of the class
         if mid_number is not APIHelper.SKIP:
@@ -52,11 +49,6 @@ class AmexResponseInfo(object):
             self.reuse_mid_number = reuse_mid_number
         if service_level is not APIHelper.SKIP:
             self.service_level = service_level
-
-        # Add additional model properties to the instance
-        if additional_properties is None:
-            additional_properties = {}
-        self.additional_properties = additional_properties
 
     @classmethod
     def from_dictionary(cls,
@@ -89,16 +81,10 @@ class AmexResponseInfo(object):
             if dictionary.get("serviceLevel")\
                 else APIHelper.SKIP
 
-        additional_properties = APIHelper.get_additional_properties(
-            dictionary={k: v for k, v in dictionary.items()
-                        if k not in cls._names.values()},
-            unboxing_function=lambda value: value)
-
         # Return an object of this model
         return cls(mid_number,
                    reuse_mid_number,
-                   service_level,
-                   additional_properties)
+                   service_level)
 
     def __repr__(self):
         """Return a unambiguous string representation."""
@@ -117,13 +103,11 @@ class AmexResponseInfo(object):
             if hasattr(self, "service_level")
             else None
         )
-        _additional_properties=self.additional_properties
         return (
             f"{self.__class__.__name__}("
             f"mid_number={_mid_number!r}, "
             f"reuse_mid_number={_reuse_mid_number!r}, "
             f"service_level={_service_level!r}, "
-            f"additional_properties={_additional_properties!r}, "
             f")"
         )
 
@@ -144,12 +128,10 @@ class AmexResponseInfo(object):
             if hasattr(self, "service_level")
             else None
         )
-        _additional_properties=self.additional_properties
         return (
             f"{self.__class__.__name__}("
             f"mid_number={_mid_number!s}, "
             f"reuse_mid_number={_reuse_mid_number!s}, "
             f"service_level={_service_level!s}, "
-            f"additional_properties={_additional_properties!s}, "
             f")"
         )

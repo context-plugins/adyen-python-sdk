@@ -3,8 +3,6 @@
 
 Contains information to identify the counterparty.
 
-*This model accepts additional fields of type Any.*
-
 ## Structure
 
 `MandateBankAccount2`
@@ -13,35 +11,23 @@ Contains information to identify the counterparty.
 
 | Name | Type | Tags | Description |
 |  --- | --- | --- | --- |
-| `account_holder` | [`MandatePartyIdentification`](../../doc/models/mandate-party-identification.md) | Required | - |
-| `account_identification` | [`MandateAccountIdentification2`](../../doc/models/mandate-account-identification-2.md) | Required | - |
-| `additional_properties` | `Dict[str, Any]` | Optional | - |
+| `account_holder` | [`MandatePartyIdentification2`](../../doc/models/mandate-party-identification-2.md) | Required | Contains information about the owner of the counterparty bank account. |
+| `account_identification` | [`MandateAccountIdentification2`](../../doc/models/mandate-account-identification-2.md) | Required | Contains the bank account details of the counterparty. The fields required in this object depend on the country of the bank account and the currency of the transfer. |
 
 ## Example
 
 ```python
-import jsonpickle
-
 from adyen.models.mandate_account_identification_2 import MandateAccountIdentification2
 from adyen.models.mandate_bank_account_2 import MandateBankAccount2
-from adyen.models.mandate_party_identification import MandatePartyIdentification
+from adyen.models.mandate_party_identification_2 import MandatePartyIdentification2
 
 mandate_bank_account_2 = MandateBankAccount2(
-    account_holder=MandatePartyIdentification(
-        full_name='fullName0',
-        additional_properties={
-            'exampleAdditionalProperty': jsonpickle.decode('{"key1":"val1","key2":"val2"}')
-        }
+    account_holder=MandatePartyIdentification2(
+        full_name='fullName0'
     ),
     account_identification=MandateAccountIdentification2(
-        mtype='MandateAccountIdentification2',
-        additional_properties={
-            'exampleAdditionalProperty': jsonpickle.decode('{"key1":"val1","key2":"val2"}')
-        }
-    ),
-    additional_properties={
-        'exampleAdditionalProperty': jsonpickle.decode('{"key1":"val1","key2":"val2"}')
-    }
+        mtype='MandateAccountIdentification2'
+    )
 )
 ```
 

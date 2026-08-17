@@ -23,8 +23,6 @@ class Attachment1(object):
             **front** or **back** and include both sides in the same API request.  *
             For any other types, when this is omitted, we infer the page number based
             on the order of attachments.
-        additional_properties (Dict[str, Any]): The additional properties for the
-            model.
 
     """
 
@@ -50,8 +48,7 @@ class Attachment1(object):
         content_type=APIHelper.SKIP,
         filename=APIHelper.SKIP,
         page_name=APIHelper.SKIP,
-        page_type=APIHelper.SKIP,
-        additional_properties=None):
+        page_type=APIHelper.SKIP):
         """Initialize a Attachment1 instance."""
         # Initialize members of the class
         self.content = content
@@ -63,11 +60,6 @@ class Attachment1(object):
             self.page_name = page_name
         if page_type is not APIHelper.SKIP:
             self.page_type = page_type
-
-        # Add additional model properties to the instance
-        if additional_properties is None:
-            additional_properties = {}
-        self.additional_properties = additional_properties
 
     @classmethod
     def from_dictionary(cls,
@@ -108,18 +100,12 @@ class Attachment1(object):
             if dictionary.get("pageType")\
                 else APIHelper.SKIP
 
-        additional_properties = APIHelper.get_additional_properties(
-            dictionary={k: v for k, v in dictionary.items()
-                        if k not in cls._names.values()},
-            unboxing_function=lambda value: value)
-
         # Return an object of this model
         return cls(content,
                    content_type,
                    filename,
                    page_name,
-                   page_type,
-                   additional_properties)
+                   page_type)
 
     def __repr__(self):
         """Return a unambiguous string representation."""
@@ -144,7 +130,6 @@ class Attachment1(object):
             if hasattr(self, "page_type")
             else None
         )
-        _additional_properties=self.additional_properties
         return (
             f"{self.__class__.__name__}("
             f"content={_content!r}, "
@@ -152,7 +137,6 @@ class Attachment1(object):
             f"filename={_filename!r}, "
             f"page_name={_page_name!r}, "
             f"page_type={_page_type!r}, "
-            f"additional_properties={_additional_properties!r}, "
             f")"
         )
 
@@ -179,7 +163,6 @@ class Attachment1(object):
             if hasattr(self, "page_type")
             else None
         )
-        _additional_properties=self.additional_properties
         return (
             f"{self.__class__.__name__}("
             f"content={_content!s}, "
@@ -187,6 +170,5 @@ class Attachment1(object):
             f"filename={_filename!s}, "
             f"page_name={_page_name!s}, "
             f"page_type={_page_type!s}, "
-            f"additional_properties={_additional_properties!s}, "
             f")"
         )
