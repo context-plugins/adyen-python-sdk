@@ -1,0 +1,33 @@
+from __future__ import annotations
+
+from typing_extensions import NotRequired, TypedDict
+
+from ..core import UNSET, Optional, SdkBaseModel
+from .links_element import LinksElement, LinksElementDict
+
+
+class Link2(SdkBaseModel):
+    """Contains links to the next and previous page whenever applicable."""
+
+    first: Optional[LinksElement] = UNSET
+    """The link to the first page of the list."""
+
+    last: Optional[LinksElement] = UNSET
+    """The link to the last page of the list."""
+
+    next: Optional[LinksElement] = UNSET
+    """The link to the next page of the list."""
+
+    previous: Optional[LinksElement] = UNSET
+    """The link to the previous page of the list."""
+
+    self: Optional[LinksElement] = UNSET
+    """The link to the list page you are currently viewing."""
+
+
+class Link2Dict(TypedDict):
+    first: NotRequired[LinksElement | LinksElementDict]
+    last: NotRequired[LinksElement | LinksElementDict]
+    next: NotRequired[LinksElement | LinksElementDict]
+    previous: NotRequired[LinksElement | LinksElementDict]
+    self: NotRequired[LinksElement | LinksElementDict]

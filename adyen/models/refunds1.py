@@ -1,0 +1,22 @@
+from __future__ import annotations
+
+from typing_extensions import NotRequired, TypedDict
+
+from ..core import UNSET, Optional, SdkBaseModel
+from .referenced1 import Referenced1, Referenced1Dict
+from .unreferenced2 import Unreferenced2, Unreferenced2Dict
+
+
+class Refunds1(SdkBaseModel):
+    """Settings for refunds."""
+
+    referenced: Optional[Referenced1] = UNSET
+    """Settings for referenced refunds."""
+
+    unreferenced: Optional[Unreferenced2] = UNSET
+    """Settings for unreferenced refunds."""
+
+
+class Refunds1Dict(TypedDict):
+    referenced: NotRequired[Referenced1 | Referenced1Dict]
+    unreferenced: NotRequired[Unreferenced2 | Unreferenced2Dict]

@@ -1,0 +1,54 @@
+from __future__ import annotations
+
+from typing_extensions import TypedDict
+
+from ..core import SdkBaseModel
+
+
+class Amount17(SdkBaseModel):
+    """The amount of the transfer., The amount that must be pushed out or pulled in. You can configure either
+    ``sweepAmount`` or ``targetAmount``, not both., The amount that must be available in the balance account after the
+    sweep. You can configure either ``sweepAmount`` or ``targetAmount``, not both., The threshold amount that triggers
+    the sweep. If not provided, by default, the amount is set to zero. The ``triggerAmount`` is evaluated according to
+    the specified ``schedule.type``.
+
+    * For ``type`` **pull**, if the balance is less than or equal to the ``triggerAmount``, funds are pulled in to the
+        balance account.
+
+    * For ``type`` **push**, if the balance is more than or equal to the ``triggerAmount``, funds are pushed out of the
+        balance account., The amount available on the grant account., Contains the fee amount., The principal amount of
+        the grant., The amount to be repaid on a 30-day basis., The amount value and currency., The amount for the
+        transfer limit. This is the maximum amount allowed per transfer or per day based on the ``scope`` of the limit.,
+        The fixed amount with which you want to top up the balance account., The target balance for the balance account
+        that the top-up must achieve., The balance threshold that triggers the top-up. If the balance falls below this
+        amount, a top-up is initiated., The adjustment amount., An object containing the amount of the grant, in `minor
+        units <https://docs.adyen.com/development-resources/currency-codes>`__., Contains the fee amount., The amount to
+        be repaid on a 30-day basis., The amount of the transfer., The original journal amount. Only applicable for
+        `issuing <https://docs.adyen.com/issuing/>`__ integrations., The currency and value of the adjusted interchange
+        fee., The amount in the original currency. Only applicable for `issuing <https://docs.adyen.com/issuing/>`__
+        integrations., Contains information about the amount to be returned., Contains information about the amount of
+        the transaction., Contains the amount of the cashout, in `minor units
+        <https://docs.adyen.com/development-resources/currency-codes>`__., The amount of the cashout instruction
+        transaction, in `minor units <https://docs.adyen.com/development-resources/currency-codes>`__., The financing
+        amount that the user selected from a dynamic offer. Adyen uses this amount to calculate a preliminary offer.,
+        The financing amount that would be paid out to your user., Contains the amount of the offer fee., The minimum
+        threshold amount that your user must repay on every 30-day period., The financing amount that the user selected
+        from the dynamic offer. Adyen uses this amount to create a static offer., Contains information about the amount
+        of the disbursement., Contains the amount of the grant fee., The maximum financing amount available to the
+        account holder under this offer., The minimum financing amount available to the account holder under this
+        offer., The limit amount of the grant account., The amount that would be paid out to the user for business
+        financing., The amount for which you dispute the transaction. The disputed amount cannot be greater than the
+        transaction amount. If you do not provide an amount, the entire transaction amount will be disputed."""
+
+    currency: str
+    """The three-character `ISO currency code
+    <https://docs.adyen.com/development-resources/currency-codes#currency-codes>`__."""
+
+    value: int
+    """The amount of the transaction, in `minor units
+    <https://docs.adyen.com/development-resources/currency-codes#minor-units>`__."""
+
+
+class Amount17Dict(TypedDict):
+    currency: str
+    value: int

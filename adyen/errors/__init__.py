@@ -1,0 +1,2073 @@
+from .delete_balance_accounts_balance_account_id_payout_schedules_id_error import (
+    DeleteBalanceAccountsBalanceAccountIdPayoutSchedulesIdErrorBody,
+    delete_balance_accounts_balance_account_id_payout_schedules_id_error_mapper,
+)
+from .delete_balance_accounts_balance_account_id_recurring_top_ups_top_up_id_error import (
+    DeleteBalanceAccountsBalanceAccountIdRecurringTopUpsTopUpIdErrorBody,
+    delete_balance_accounts_balance_account_id_recurring_top_ups_top_up_id_error_mapper,
+)
+from .delete_balance_accounts_balance_account_id_sweeps_sweep_id_error import (
+    DeleteBalanceAccountsBalanceAccountIdSweepsSweepIdErrorBody,
+    delete_balance_accounts_balance_account_id_sweeps_sweep_id_error_mapper,
+)
+from .delete_balance_accounts_id_transfer_limits_transfer_limit_id_error import (
+    DeleteBalanceAccountsIdTransferLimitsTransferLimitIdErrorBody,
+    delete_balance_accounts_id_transfer_limits_transfer_limit_id_error_mapper,
+)
+from .delete_balance_platforms_balance_platform_id_webhooks_webhook_id_settings_setting_id_error import (
+    DeleteBalancePlatformsBalancePlatformIdWebhooksWebhookIdSettingsSettingIdErrorBody,
+    delete_balance_platforms_balance_platform_id_webhooks_webhook_id_settings_setting_id_error_mapper,
+)
+from .delete_balance_platforms_id_transfer_limits_transfer_limit_id_error import (
+    DeleteBalancePlatformsIdTransferLimitsTransferLimitIdErrorBody,
+    delete_balance_platforms_id_transfer_limits_transfer_limit_id_error_mapper,
+)
+from .delete_business_lines_id_error import DeleteBusinessLinesIdErrorBody, delete_business_lines_id_error_mapper
+from .delete_companies_company_id_api_credentials_api_credential_id_allowed_origins_origin_id_error import (
+    DeleteCompaniesCompanyIdApiCredentialsApiCredentialIdAllowedOriginsOriginIdErrorBody,
+    delete_companies_company_id_api_credentials_api_credential_id_allowed_origins_origin_id_error_mapper,
+)
+from .delete_companies_company_id_campaign_management_donation_campaign_id_error import (
+    DeleteCompaniesCompanyIdCampaignManagementDonationCampaignIdErrorBody,
+    delete_companies_company_id_campaign_management_donation_campaign_id_error_mapper,
+)
+from .delete_companies_company_id_webhooks_webhook_id_error import (
+    DeleteCompaniesCompanyIdWebhooksWebhookIdErrorBody,
+    delete_companies_company_id_webhooks_webhook_id_error_mapper,
+)
+from .delete_disputes_dispute_id_attachments_attachment_id_error import (
+    DeleteDisputesDisputeIdAttachmentsAttachmentIdErrorBody,
+    delete_disputes_dispute_id_attachments_attachment_id_error_mapper,
+)
+from .delete_documents_id_error import DeleteDocumentsIdErrorBody, delete_documents_id_error_mapper
+from .delete_me_allowed_origins_origin_id_error import (
+    DeleteMeAllowedOriginsOriginIdErrorBody,
+    delete_me_allowed_origins_origin_id_error_mapper,
+)
+from .delete_merchants_merchant_id_api_credentials_api_credential_id_allowed_origins_origin_id_error import (
+    DeleteMerchantsMerchantIdApiCredentialsApiCredentialIdAllowedOriginsOriginIdErrorBody,
+    delete_merchants_merchant_id_api_credentials_api_credential_id_allowed_origins_origin_id_error_mapper,
+)
+from .delete_merchants_merchant_id_payout_settings_payout_settings_id_error import (
+    DeleteMerchantsMerchantIdPayoutSettingsPayoutSettingsIdErrorBody,
+    delete_merchants_merchant_id_payout_settings_payout_settings_id_error_mapper,
+)
+from .delete_merchants_merchant_id_split_configurations_split_configuration_id_error import (
+    DeleteMerchantsMerchantIdSplitConfigurationsSplitConfigurationIdErrorBody,
+    delete_merchants_merchant_id_split_configurations_split_configuration_id_error_mapper,
+)
+from .delete_merchants_merchant_id_split_configurations_split_configuration_id_rules_rule_id_error import (
+    DeleteMerchantsMerchantIdSplitConfigurationsSplitConfigurationIdRulesRuleIdErrorBody,
+    delete_merchants_merchant_id_split_configurations_split_configuration_id_rules_rule_id_error_mapper,
+)
+from .delete_merchants_merchant_id_webhooks_webhook_id_error import (
+    DeleteMerchantsMerchantIdWebhooksWebhookIdErrorBody,
+    delete_merchants_merchant_id_webhooks_webhook_id_error_mapper,
+)
+from .delete_payment_instruments_payment_instrument_id_authorised_card_users_error import (
+    DeletePaymentInstrumentsPaymentInstrumentIdAuthorisedCardUsersErrorBody,
+    delete_payment_instruments_payment_instrument_id_authorised_card_users_error_mapper,
+)
+from .delete_registered_devices_id_error import (
+    DeleteRegisteredDevicesIdErrorBody,
+    delete_registered_devices_id_error_mapper,
+)
+from .delete_sca_associations_error import DeleteScaAssociationsErrorBody, delete_sca_associations_error_mapper
+from .delete_sca_devices_device_id_error import (
+    DeleteScaDevicesDeviceIdErrorBody,
+    delete_sca_devices_device_id_error_mapper,
+)
+from .delete_transaction_rules_transaction_rule_id_error import (
+    DeleteTransactionRulesTransactionRuleIdErrorBody,
+    delete_transaction_rules_transaction_rule_id_error_mapper,
+)
+from .delete_transfer_instruments_id_error import (
+    DeleteTransferInstrumentsIdErrorBody,
+    delete_transfer_instruments_id_error_mapper,
+)
+from .get_account_holders_id_balance_accounts_error import (
+    GetAccountHoldersIdBalanceAccountsErrorBody,
+    get_account_holders_id_balance_accounts_error_mapper,
+)
+from .get_account_holders_id_error import GetAccountHoldersIdErrorBody, get_account_holders_id_error_mapper
+from .get_account_holders_id_tax_forms_error import (
+    GetAccountHoldersIdTaxFormsErrorBody,
+    get_account_holders_id_tax_forms_error_mapper,
+)
+from .get_account_holders_id_transaction_rules_error import (
+    GetAccountHoldersIdTransactionRulesErrorBody,
+    get_account_holders_id_transaction_rules_error_mapper,
+)
+from .get_account_verification_reports_code_error import (
+    GetAccountVerificationReportsCodeErrorBody,
+    get_account_verification_reports_code_error_mapper,
+)
+from .get_balance_accounts_balance_account_id_payout_schedules_error import (
+    GetBalanceAccountsBalanceAccountIdPayoutSchedulesErrorBody,
+    get_balance_accounts_balance_account_id_payout_schedules_error_mapper,
+)
+from .get_balance_accounts_balance_account_id_payout_schedules_id_error import (
+    GetBalanceAccountsBalanceAccountIdPayoutSchedulesIdErrorBody,
+    get_balance_accounts_balance_account_id_payout_schedules_id_error_mapper,
+)
+from .get_balance_accounts_balance_account_id_payout_schedules_id_executions_error import (
+    GetBalanceAccountsBalanceAccountIdPayoutSchedulesIdExecutionsErrorBody,
+    get_balance_accounts_balance_account_id_payout_schedules_id_executions_error_mapper,
+)
+from .get_balance_accounts_balance_account_id_recurring_top_ups_error import (
+    GetBalanceAccountsBalanceAccountIdRecurringTopUpsErrorBody,
+    get_balance_accounts_balance_account_id_recurring_top_ups_error_mapper,
+)
+from .get_balance_accounts_balance_account_id_sweeps_error import (
+    GetBalanceAccountsBalanceAccountIdSweepsErrorBody,
+    get_balance_accounts_balance_account_id_sweeps_error_mapper,
+)
+from .get_balance_accounts_balance_account_id_sweeps_sweep_id_error import (
+    GetBalanceAccountsBalanceAccountIdSweepsSweepIdErrorBody,
+    get_balance_accounts_balance_account_id_sweeps_sweep_id_error_mapper,
+)
+from .get_balance_accounts_id_error import GetBalanceAccountsIdErrorBody, get_balance_accounts_id_error_mapper
+from .get_balance_accounts_id_payment_instruments_error import (
+    GetBalanceAccountsIdPaymentInstrumentsErrorBody,
+    get_balance_accounts_id_payment_instruments_error_mapper,
+)
+from .get_balance_accounts_id_transaction_rules_error import (
+    GetBalanceAccountsIdTransactionRulesErrorBody,
+    get_balance_accounts_id_transaction_rules_error_mapper,
+)
+from .get_balance_accounts_id_transfer_limits_current_error import (
+    GetBalanceAccountsIdTransferLimitsCurrentErrorBody,
+    get_balance_accounts_id_transfer_limits_current_error_mapper,
+)
+from .get_balance_accounts_id_transfer_limits_error import (
+    GetBalanceAccountsIdTransferLimitsErrorBody,
+    get_balance_accounts_id_transfer_limits_error_mapper,
+)
+from .get_balance_accounts_id_transfer_limits_transfer_limit_id_error import (
+    GetBalanceAccountsIdTransferLimitsTransferLimitIdErrorBody,
+    get_balance_accounts_id_transfer_limits_transfer_limit_id_error_mapper,
+)
+from .get_balance_overview_companies_company_account_code_balances_error import (
+    GetBalanceOverviewCompaniesCompanyAccountCodeBalancesErrorBody,
+    get_balance_overview_companies_company_account_code_balances_error_mapper,
+)
+from .get_balance_overview_merchants_merchant_account_code_balances_error import (
+    GetBalanceOverviewMerchantsMerchantAccountCodeBalancesErrorBody,
+    get_balance_overview_merchants_merchant_account_code_balances_error_mapper,
+)
+from .get_balance_platforms_balance_platform_id_payout_schedules_error import (
+    GetBalancePlatformsBalancePlatformIdPayoutSchedulesErrorBody,
+    get_balance_platforms_balance_platform_id_payout_schedules_error_mapper,
+)
+from .get_balance_platforms_balance_platform_id_payout_schedules_id_error import (
+    GetBalancePlatformsBalancePlatformIdPayoutSchedulesIdErrorBody,
+    get_balance_platforms_balance_platform_id_payout_schedules_id_error_mapper,
+)
+from .get_balance_platforms_balance_platform_id_webhooks_webhook_id_settings_error import (
+    GetBalancePlatformsBalancePlatformIdWebhooksWebhookIdSettingsErrorBody,
+    get_balance_platforms_balance_platform_id_webhooks_webhook_id_settings_error_mapper,
+)
+from .get_balance_platforms_balance_platform_id_webhooks_webhook_id_settings_setting_id_error import (
+    GetBalancePlatformsBalancePlatformIdWebhooksWebhookIdSettingsSettingIdErrorBody,
+    get_balance_platforms_balance_platform_id_webhooks_webhook_id_settings_setting_id_error_mapper,
+)
+from .get_balance_platforms_id_account_holders_error import (
+    GetBalancePlatformsIdAccountHoldersErrorBody,
+    get_balance_platforms_id_account_holders_error_mapper,
+)
+from .get_balance_platforms_id_error import GetBalancePlatformsIdErrorBody, get_balance_platforms_id_error_mapper
+from .get_balance_platforms_id_transaction_rules_error import (
+    GetBalancePlatformsIdTransactionRulesErrorBody,
+    get_balance_platforms_id_transaction_rules_error_mapper,
+)
+from .get_balance_platforms_id_transfer_limits_error import (
+    GetBalancePlatformsIdTransferLimitsErrorBody,
+    get_balance_platforms_id_transfer_limits_error_mapper,
+)
+from .get_balance_platforms_id_transfer_limits_transfer_limit_id_error import (
+    GetBalancePlatformsIdTransferLimitsTransferLimitIdErrorBody,
+    get_balance_platforms_id_transfer_limits_transfer_limit_id_error_mapper,
+)
+from .get_business_lines_id_error import GetBusinessLinesIdErrorBody, get_business_lines_id_error_mapper
+from .get_cardorders_error import GetCardordersErrorBody, get_cardorders_error_mapper
+from .get_cardorders_id_items_error import GetCardordersIdItemsErrorBody, get_cardorders_id_items_error_mapper
+from .get_companies_company_id_android_apps_error import (
+    GetCompaniesCompanyIdAndroidAppsErrorBody,
+    get_companies_company_id_android_apps_error_mapper,
+)
+from .get_companies_company_id_android_apps_id_error import (
+    GetCompaniesCompanyIdAndroidAppsIdErrorBody,
+    get_companies_company_id_android_apps_id_error_mapper,
+)
+from .get_companies_company_id_android_certificates_error import (
+    GetCompaniesCompanyIdAndroidCertificatesErrorBody,
+    get_companies_company_id_android_certificates_error_mapper,
+)
+from .get_companies_company_id_api_credentials_api_credential_id_allowed_origins_error import (
+    GetCompaniesCompanyIdApiCredentialsApiCredentialIdAllowedOriginsErrorBody,
+    get_companies_company_id_api_credentials_api_credential_id_allowed_origins_error_mapper,
+)
+from .get_companies_company_id_api_credentials_api_credential_id_allowed_origins_origin_id_error import (
+    GetCompaniesCompanyIdApiCredentialsApiCredentialIdAllowedOriginsOriginIdErrorBody,
+    get_companies_company_id_api_credentials_api_credential_id_allowed_origins_origin_id_error_mapper,
+)
+from .get_companies_company_id_api_credentials_api_credential_id_error import (
+    GetCompaniesCompanyIdApiCredentialsApiCredentialIdErrorBody,
+    get_companies_company_id_api_credentials_api_credential_id_error_mapper,
+)
+from .get_companies_company_id_api_credentials_error import (
+    GetCompaniesCompanyIdApiCredentialsErrorBody,
+    get_companies_company_id_api_credentials_error_mapper,
+)
+from .get_companies_company_id_billing_entities_error import (
+    GetCompaniesCompanyIdBillingEntitiesErrorBody,
+    get_companies_company_id_billing_entities_error_mapper,
+)
+from .get_companies_company_id_campaign_management_account_holders_account_holder_id_error import (
+    GetCompaniesCompanyIdCampaignManagementAccountHoldersAccountHolderIdErrorBody,
+    get_companies_company_id_campaign_management_account_holders_account_holder_id_error_mapper,
+)
+from .get_companies_company_id_error import GetCompaniesCompanyIdErrorBody, get_companies_company_id_error_mapper
+from .get_companies_company_id_merchants_error import (
+    GetCompaniesCompanyIdMerchantsErrorBody,
+    get_companies_company_id_merchants_error_mapper,
+)
+from .get_companies_company_id_shipping_locations_error import (
+    GetCompaniesCompanyIdShippingLocationsErrorBody,
+    get_companies_company_id_shipping_locations_error_mapper,
+)
+from .get_companies_company_id_terminal_actions_action_id_error import (
+    GetCompaniesCompanyIdTerminalActionsActionIdErrorBody,
+    get_companies_company_id_terminal_actions_action_id_error_mapper,
+)
+from .get_companies_company_id_terminal_actions_error import (
+    GetCompaniesCompanyIdTerminalActionsErrorBody,
+    get_companies_company_id_terminal_actions_error_mapper,
+)
+from .get_companies_company_id_terminal_logos_error import (
+    GetCompaniesCompanyIdTerminalLogosErrorBody,
+    get_companies_company_id_terminal_logos_error_mapper,
+)
+from .get_companies_company_id_terminal_models_error import (
+    GetCompaniesCompanyIdTerminalModelsErrorBody,
+    get_companies_company_id_terminal_models_error_mapper,
+)
+from .get_companies_company_id_terminal_orders_error import (
+    GetCompaniesCompanyIdTerminalOrdersErrorBody,
+    get_companies_company_id_terminal_orders_error_mapper,
+)
+from .get_companies_company_id_terminal_orders_order_id_error import (
+    GetCompaniesCompanyIdTerminalOrdersOrderIdErrorBody,
+    get_companies_company_id_terminal_orders_order_id_error_mapper,
+)
+from .get_companies_company_id_terminal_products_error import (
+    GetCompaniesCompanyIdTerminalProductsErrorBody,
+    get_companies_company_id_terminal_products_error_mapper,
+)
+from .get_companies_company_id_terminal_settings_error import (
+    GetCompaniesCompanyIdTerminalSettingsErrorBody,
+    get_companies_company_id_terminal_settings_error_mapper,
+)
+from .get_companies_company_id_users_error import (
+    GetCompaniesCompanyIdUsersErrorBody,
+    get_companies_company_id_users_error_mapper,
+)
+from .get_companies_company_id_users_user_id_error import (
+    GetCompaniesCompanyIdUsersUserIdErrorBody,
+    get_companies_company_id_users_user_id_error_mapper,
+)
+from .get_companies_company_id_webhooks_error import (
+    GetCompaniesCompanyIdWebhooksErrorBody,
+    get_companies_company_id_webhooks_error_mapper,
+)
+from .get_companies_company_id_webhooks_webhook_id_error import (
+    GetCompaniesCompanyIdWebhooksWebhookIdErrorBody,
+    get_companies_company_id_webhooks_webhook_id_error_mapper,
+)
+from .get_companies_error import GetCompaniesErrorBody, get_companies_error_mapper
+from .get_disputes_dispute_id_attachments_attachment_id_error import (
+    GetDisputesDisputeIdAttachmentsAttachmentIdErrorBody,
+    get_disputes_dispute_id_attachments_attachment_id_error_mapper,
+)
+from .get_disputes_dispute_id_attachments_error import (
+    GetDisputesDisputeIdAttachmentsErrorBody,
+    get_disputes_dispute_id_attachments_error_mapper,
+)
+from .get_disputes_error import GetDisputesErrorBody, get_disputes_error_mapper
+from .get_disputes_id_error import GetDisputesIdErrorBody, get_disputes_id_error_mapper
+from .get_documents_id_error import GetDocumentsIdErrorBody, get_documents_id_error_mapper
+from .get_dynamic_offers_error import GetDynamicOffersErrorBody, get_dynamic_offers_error_mapper
+from .get_grant_accounts_id1_error import GetGrantAccountsId1ErrorBody, get_grant_accounts_id1_error_mapper
+from .get_grant_accounts_id_error import GetGrantAccountsIdErrorBody, get_grant_accounts_id_error_mapper
+from .get_grant_offers1_error import GetGrantOffers1ErrorBody, get_grant_offers1_error_mapper
+from .get_grant_offers_error import GetGrantOffersErrorBody, get_grant_offers_error_mapper
+from .get_grant_offers_grant_offer_id_error import (
+    GetGrantOffersGrantOfferIdErrorBody,
+    get_grant_offers_grant_offer_id_error_mapper,
+)
+from .get_grant_offers_id_error import GetGrantOffersIdErrorBody, get_grant_offers_id_error_mapper
+from .get_grants2_error import GetGrants2ErrorBody, get_grants2_error_mapper
+from .get_grants_error import GetGrantsErrorBody, get_grants_error_mapper
+from .get_grants_grant_id_disbursements_disbursement_id_error import (
+    GetGrantsGrantIdDisbursementsDisbursementIdErrorBody,
+    get_grants_grant_id_disbursements_disbursement_id_error_mapper,
+)
+from .get_grants_grant_id_disbursements_error import (
+    GetGrantsGrantIdDisbursementsErrorBody,
+    get_grants_grant_id_disbursements_error_mapper,
+)
+from .get_grants_grant_id_error import GetGrantsGrantIdErrorBody, get_grants_grant_id_error_mapper
+from .get_grants_id_error import GetGrantsIdErrorBody, get_grants_id_error_mapper
+from .get_legal_entities_id_accepted_terms_of_service_document_termsofserviceacceptancereference_error import (
+    GetLegalEntitiesIdAcceptedTermsOfServiceDocumentTermsofserviceacceptancereferenceErrorBody,
+    get_legal_entities_id_accepted_terms_of_service_document_termsofserviceacceptancereference_error_mapper,
+)
+from .get_legal_entities_id_business_lines_error import (
+    GetLegalEntitiesIdBusinessLinesErrorBody,
+    get_legal_entities_id_business_lines_error_mapper,
+)
+from .get_legal_entities_id_error import GetLegalEntitiesIdErrorBody, get_legal_entities_id_error_mapper
+from .get_legal_entities_id_pci_questionnaires_error import (
+    GetLegalEntitiesIdPciQuestionnairesErrorBody,
+    get_legal_entities_id_pci_questionnaires_error_mapper,
+)
+from .get_legal_entities_id_pci_questionnaires_pciid_error import (
+    GetLegalEntitiesIdPciQuestionnairesPciidErrorBody,
+    get_legal_entities_id_pci_questionnaires_pciid_error_mapper,
+)
+from .get_legal_entities_id_terms_of_service_acceptance_infos_error import (
+    GetLegalEntitiesIdTermsOfServiceAcceptanceInfosErrorBody,
+    get_legal_entities_id_terms_of_service_acceptance_infos_error_mapper,
+)
+from .get_legal_entities_id_terms_of_service_status_error import (
+    GetLegalEntitiesIdTermsOfServiceStatusErrorBody,
+    get_legal_entities_id_terms_of_service_status_error_mapper,
+)
+from .get_mandates_error import GetMandatesErrorBody, get_mandates_error_mapper
+from .get_mandates_mandate_id_error import GetMandatesMandateIdErrorBody, get_mandates_mandate_id_error_mapper
+from .get_me_allowed_origins_error import GetMeAllowedOriginsErrorBody, get_me_allowed_origins_error_mapper
+from .get_me_allowed_origins_origin_id_error import (
+    GetMeAllowedOriginsOriginIdErrorBody,
+    get_me_allowed_origins_origin_id_error_mapper,
+)
+from .get_me_error import GetMeErrorBody, get_me_error_mapper
+from .get_merchants_error import GetMerchantsErrorBody, get_merchants_error_mapper
+from .get_merchants_merchant_id_api_credentials_api_credential_id_allowed_origins_error import (
+    GetMerchantsMerchantIdApiCredentialsApiCredentialIdAllowedOriginsErrorBody,
+    get_merchants_merchant_id_api_credentials_api_credential_id_allowed_origins_error_mapper,
+)
+from .get_merchants_merchant_id_api_credentials_api_credential_id_allowed_origins_origin_id_error import (
+    GetMerchantsMerchantIdApiCredentialsApiCredentialIdAllowedOriginsOriginIdErrorBody,
+    get_merchants_merchant_id_api_credentials_api_credential_id_allowed_origins_origin_id_error_mapper,
+)
+from .get_merchants_merchant_id_api_credentials_api_credential_id_error import (
+    GetMerchantsMerchantIdApiCredentialsApiCredentialIdErrorBody,
+    get_merchants_merchant_id_api_credentials_api_credential_id_error_mapper,
+)
+from .get_merchants_merchant_id_api_credentials_error import (
+    GetMerchantsMerchantIdApiCredentialsErrorBody,
+    get_merchants_merchant_id_api_credentials_error_mapper,
+)
+from .get_merchants_merchant_id_billing_entities_error import (
+    GetMerchantsMerchantIdBillingEntitiesErrorBody,
+    get_merchants_merchant_id_billing_entities_error_mapper,
+)
+from .get_merchants_merchant_id_error import GetMerchantsMerchantIdErrorBody, get_merchants_merchant_id_error_mapper
+from .get_merchants_merchant_id_payment_method_settings_error import (
+    GetMerchantsMerchantIdPaymentMethodSettingsErrorBody,
+    get_merchants_merchant_id_payment_method_settings_error_mapper,
+)
+from .get_merchants_merchant_id_payment_method_settings_payment_method_id_error import (
+    GetMerchantsMerchantIdPaymentMethodSettingsPaymentMethodIdErrorBody,
+    get_merchants_merchant_id_payment_method_settings_payment_method_id_error_mapper,
+)
+from .get_merchants_merchant_id_payment_method_settings_payment_method_id_get_apple_pay_domains_error import (
+    GetMerchantsMerchantIdPaymentMethodSettingsPaymentMethodIdGetApplePayDomainsErrorBody,
+    get_merchants_merchant_id_payment_method_settings_payment_method_id_get_apple_pay_domains_error_mapper,
+)
+from .get_merchants_merchant_id_payments_apps_error import (
+    GetMerchantsMerchantIdPaymentsAppsErrorBody,
+    get_merchants_merchant_id_payments_apps_error_mapper,
+)
+from .get_merchants_merchant_id_payout_settings_error import (
+    GetMerchantsMerchantIdPayoutSettingsErrorBody,
+    get_merchants_merchant_id_payout_settings_error_mapper,
+)
+from .get_merchants_merchant_id_payout_settings_payout_settings_id_error import (
+    GetMerchantsMerchantIdPayoutSettingsPayoutSettingsIdErrorBody,
+    get_merchants_merchant_id_payout_settings_payout_settings_id_error_mapper,
+)
+from .get_merchants_merchant_id_shipping_locations_error import (
+    GetMerchantsMerchantIdShippingLocationsErrorBody,
+    get_merchants_merchant_id_shipping_locations_error_mapper,
+)
+from .get_merchants_merchant_id_split_configurations_error import (
+    GetMerchantsMerchantIdSplitConfigurationsErrorBody,
+    get_merchants_merchant_id_split_configurations_error_mapper,
+)
+from .get_merchants_merchant_id_split_configurations_split_configuration_id_error import (
+    GetMerchantsMerchantIdSplitConfigurationsSplitConfigurationIdErrorBody,
+    get_merchants_merchant_id_split_configurations_split_configuration_id_error_mapper,
+)
+from .get_merchants_merchant_id_stores_error import (
+    GetMerchantsMerchantIdStoresErrorBody,
+    get_merchants_merchant_id_stores_error_mapper,
+)
+from .get_merchants_merchant_id_stores_reference_terminal_logos_error import (
+    GetMerchantsMerchantIdStoresReferenceTerminalLogosErrorBody,
+    get_merchants_merchant_id_stores_reference_terminal_logos_error_mapper,
+)
+from .get_merchants_merchant_id_stores_reference_terminal_settings_error import (
+    GetMerchantsMerchantIdStoresReferenceTerminalSettingsErrorBody,
+    get_merchants_merchant_id_stores_reference_terminal_settings_error_mapper,
+)
+from .get_merchants_merchant_id_stores_store_id_error import (
+    GetMerchantsMerchantIdStoresStoreIdErrorBody,
+    get_merchants_merchant_id_stores_store_id_error_mapper,
+)
+from .get_merchants_merchant_id_stores_store_id_payments_apps_error import (
+    GetMerchantsMerchantIdStoresStoreIdPaymentsAppsErrorBody,
+    get_merchants_merchant_id_stores_store_id_payments_apps_error_mapper,
+)
+from .get_merchants_merchant_id_terminal_logos_error import (
+    GetMerchantsMerchantIdTerminalLogosErrorBody,
+    get_merchants_merchant_id_terminal_logos_error_mapper,
+)
+from .get_merchants_merchant_id_terminal_models_error import (
+    GetMerchantsMerchantIdTerminalModelsErrorBody,
+    get_merchants_merchant_id_terminal_models_error_mapper,
+)
+from .get_merchants_merchant_id_terminal_orders_error import (
+    GetMerchantsMerchantIdTerminalOrdersErrorBody,
+    get_merchants_merchant_id_terminal_orders_error_mapper,
+)
+from .get_merchants_merchant_id_terminal_orders_order_id_error import (
+    GetMerchantsMerchantIdTerminalOrdersOrderIdErrorBody,
+    get_merchants_merchant_id_terminal_orders_order_id_error_mapper,
+)
+from .get_merchants_merchant_id_terminal_products_error import (
+    GetMerchantsMerchantIdTerminalProductsErrorBody,
+    get_merchants_merchant_id_terminal_products_error_mapper,
+)
+from .get_merchants_merchant_id_terminal_settings_error import (
+    GetMerchantsMerchantIdTerminalSettingsErrorBody,
+    get_merchants_merchant_id_terminal_settings_error_mapper,
+)
+from .get_merchants_merchant_id_users_error import (
+    GetMerchantsMerchantIdUsersErrorBody,
+    get_merchants_merchant_id_users_error_mapper,
+)
+from .get_merchants_merchant_id_users_user_id_error import (
+    GetMerchantsMerchantIdUsersUserIdErrorBody,
+    get_merchants_merchant_id_users_user_id_error_mapper,
+)
+from .get_merchants_merchant_id_webhooks_error import (
+    GetMerchantsMerchantIdWebhooksErrorBody,
+    get_merchants_merchant_id_webhooks_error_mapper,
+)
+from .get_merchants_merchant_id_webhooks_webhook_id_error import (
+    GetMerchantsMerchantIdWebhooksWebhookIdErrorBody,
+    get_merchants_merchant_id_webhooks_webhook_id_error_mapper,
+)
+from .get_network_tokens_network_token_id_error import (
+    GetNetworkTokensNetworkTokenIdErrorBody,
+    get_network_tokens_network_token_id_error_mapper,
+)
+from .get_payment_instrument_groups_id_error import (
+    GetPaymentInstrumentGroupsIdErrorBody,
+    get_payment_instrument_groups_id_error_mapper,
+)
+from .get_payment_instrument_groups_id_transaction_rules_error import (
+    GetPaymentInstrumentGroupsIdTransactionRulesErrorBody,
+    get_payment_instrument_groups_id_transaction_rules_error_mapper,
+)
+from .get_payment_instruments_id_error import GetPaymentInstrumentsIdErrorBody, get_payment_instruments_id_error_mapper
+from .get_payment_instruments_id_network_token_activation_data_error import (
+    GetPaymentInstrumentsIdNetworkTokenActivationDataErrorBody,
+    get_payment_instruments_id_network_token_activation_data_error_mapper,
+)
+from .get_payment_instruments_id_network_tokens_error import (
+    GetPaymentInstrumentsIdNetworkTokensErrorBody,
+    get_payment_instruments_id_network_tokens_error_mapper,
+)
+from .get_payment_instruments_id_reveal_error import (
+    GetPaymentInstrumentsIdRevealErrorBody,
+    get_payment_instruments_id_reveal_error_mapper,
+)
+from .get_payment_instruments_id_transaction_rules_error import (
+    GetPaymentInstrumentsIdTransactionRulesErrorBody,
+    get_payment_instruments_id_transaction_rules_error_mapper,
+)
+from .get_payment_instruments_payment_instrument_id_authorised_card_users_error import (
+    GetPaymentInstrumentsPaymentInstrumentIdAuthorisedCardUsersErrorBody,
+    get_payment_instruments_payment_instrument_id_authorised_card_users_error_mapper,
+)
+from .get_payment_links_link_id_error import GetPaymentLinksLinkIdErrorBody, get_payment_links_link_id_error_mapper
+from .get_public_key_error import GetPublicKeyErrorBody, get_public_key_error_mapper
+from .get_registered_devices_error import GetRegisteredDevicesErrorBody, get_registered_devices_error_mapper
+from .get_sca_associations_error import GetScaAssociationsErrorBody, get_sca_associations_error_mapper
+from .get_stores_error import GetStoresErrorBody, get_stores_error_mapper
+from .get_stores_store_id_error import GetStoresStoreIdErrorBody, get_stores_store_id_error_mapper
+from .get_stores_store_id_terminal_logos_error import (
+    GetStoresStoreIdTerminalLogosErrorBody,
+    get_stores_store_id_terminal_logos_error_mapper,
+)
+from .get_stores_store_id_terminal_settings_error import (
+    GetStoresStoreIdTerminalSettingsErrorBody,
+    get_stores_store_id_terminal_settings_error_mapper,
+)
+from .get_terminals_error import GetTerminalsErrorBody, get_terminals_error_mapper
+from .get_terminals_terminal_id_terminal_logos_error import (
+    GetTerminalsTerminalIdTerminalLogosErrorBody,
+    get_terminals_terminal_id_terminal_logos_error_mapper,
+)
+from .get_terminals_terminal_id_terminal_settings_error import (
+    GetTerminalsTerminalIdTerminalSettingsErrorBody,
+    get_terminals_terminal_id_terminal_settings_error_mapper,
+)
+from .get_themes_error import GetThemesErrorBody, get_themes_error_mapper
+from .get_themes_id_error import GetThemesIdErrorBody, get_themes_id_error_mapper
+from .get_transaction_rules_transaction_rule_id_error import (
+    GetTransactionRulesTransactionRuleIdErrorBody,
+    get_transaction_rules_transaction_rule_id_error_mapper,
+)
+from .get_transactions_error import GetTransactionsErrorBody, get_transactions_error_mapper
+from .get_transactions_id_error import GetTransactionsIdErrorBody, get_transactions_id_error_mapper
+from .get_transfer_instruments_id_error import (
+    GetTransferInstrumentsIdErrorBody,
+    get_transfer_instruments_id_error_mapper,
+)
+from .get_transfers_error import GetTransfersErrorBody, get_transfers_error_mapper
+from .get_transfers_id_error import GetTransfersIdErrorBody, get_transfers_id_error_mapper
+from .patch_account_holders_id_error import PatchAccountHoldersIdErrorBody, patch_account_holders_id_error_mapper
+from .patch_balance_accounts_balance_account_id_payout_schedules_id_error import (
+    PatchBalanceAccountsBalanceAccountIdPayoutSchedulesIdErrorBody,
+    patch_balance_accounts_balance_account_id_payout_schedules_id_error_mapper,
+)
+from .patch_balance_accounts_balance_account_id_recurring_top_ups_top_up_id_error import (
+    PatchBalanceAccountsBalanceAccountIdRecurringTopUpsTopUpIdErrorBody,
+    patch_balance_accounts_balance_account_id_recurring_top_ups_top_up_id_error_mapper,
+)
+from .patch_balance_accounts_balance_account_id_sweeps_sweep_id_error import (
+    PatchBalanceAccountsBalanceAccountIdSweepsSweepIdErrorBody,
+    patch_balance_accounts_balance_account_id_sweeps_sweep_id_error_mapper,
+)
+from .patch_balance_accounts_id_error import PatchBalanceAccountsIdErrorBody, patch_balance_accounts_id_error_mapper
+from .patch_balance_platforms_balance_platform_id_webhooks_webhook_id_settings_setting_id_error import (
+    PatchBalancePlatformsBalancePlatformIdWebhooksWebhookIdSettingsSettingIdErrorBody,
+    patch_balance_platforms_balance_platform_id_webhooks_webhook_id_settings_setting_id_error_mapper,
+)
+from .patch_business_lines_id_error import PatchBusinessLinesIdErrorBody, patch_business_lines_id_error_mapper
+from .patch_companies_company_id_android_apps_id_error import (
+    PatchCompaniesCompanyIdAndroidAppsIdErrorBody,
+    patch_companies_company_id_android_apps_id_error_mapper,
+)
+from .patch_companies_company_id_api_credentials_api_credential_id_error import (
+    PatchCompaniesCompanyIdApiCredentialsApiCredentialIdErrorBody,
+    patch_companies_company_id_api_credentials_api_credential_id_error_mapper,
+)
+from .patch_companies_company_id_campaign_management_donation_campaign_id_error import (
+    PatchCompaniesCompanyIdCampaignManagementDonationCampaignIdErrorBody,
+    patch_companies_company_id_campaign_management_donation_campaign_id_error_mapper,
+)
+from .patch_companies_company_id_terminal_logos_error import (
+    PatchCompaniesCompanyIdTerminalLogosErrorBody,
+    patch_companies_company_id_terminal_logos_error_mapper,
+)
+from .patch_companies_company_id_terminal_orders_order_id_error import (
+    PatchCompaniesCompanyIdTerminalOrdersOrderIdErrorBody,
+    patch_companies_company_id_terminal_orders_order_id_error_mapper,
+)
+from .patch_companies_company_id_terminal_settings_error import (
+    PatchCompaniesCompanyIdTerminalSettingsErrorBody,
+    patch_companies_company_id_terminal_settings_error_mapper,
+)
+from .patch_companies_company_id_users_user_id_error import (
+    PatchCompaniesCompanyIdUsersUserIdErrorBody,
+    patch_companies_company_id_users_user_id_error_mapper,
+)
+from .patch_companies_company_id_webhooks_webhook_id_error import (
+    PatchCompaniesCompanyIdWebhooksWebhookIdErrorBody,
+    patch_companies_company_id_webhooks_webhook_id_error_mapper,
+)
+from .patch_disputes_id_error import PatchDisputesIdErrorBody, patch_disputes_id_error_mapper
+from .patch_documents_id_error import PatchDocumentsIdErrorBody, patch_documents_id_error_mapper
+from .patch_grants_grant_id_disbursements_disbursement_id_error import (
+    PatchGrantsGrantIdDisbursementsDisbursementIdErrorBody,
+    patch_grants_grant_id_disbursements_disbursement_id_error_mapper,
+)
+from .patch_legal_entities_id_error import PatchLegalEntitiesIdErrorBody, patch_legal_entities_id_error_mapper
+from .patch_legal_entities_id_terms_of_service_termsofservicedocumentid_error import (
+    PatchLegalEntitiesIdTermsOfServiceTermsofservicedocumentidErrorBody,
+    patch_legal_entities_id_terms_of_service_termsofservicedocumentid_error_mapper,
+)
+from .patch_mandates_mandate_id_error import PatchMandatesMandateIdErrorBody, patch_mandates_mandate_id_error_mapper
+from .patch_merchants_merchant_id_api_credentials_api_credential_id_error import (
+    PatchMerchantsMerchantIdApiCredentialsApiCredentialIdErrorBody,
+    patch_merchants_merchant_id_api_credentials_api_credential_id_error_mapper,
+)
+from .patch_merchants_merchant_id_payment_method_settings_payment_method_id_error import (
+    PatchMerchantsMerchantIdPaymentMethodSettingsPaymentMethodIdErrorBody,
+    patch_merchants_merchant_id_payment_method_settings_payment_method_id_error_mapper,
+)
+from .patch_merchants_merchant_id_payout_settings_payout_settings_id_error import (
+    PatchMerchantsMerchantIdPayoutSettingsPayoutSettingsIdErrorBody,
+    patch_merchants_merchant_id_payout_settings_payout_settings_id_error_mapper,
+)
+from .patch_merchants_merchant_id_split_configurations_split_configuration_id_error import (
+    PatchMerchantsMerchantIdSplitConfigurationsSplitConfigurationIdErrorBody,
+    patch_merchants_merchant_id_split_configurations_split_configuration_id_error_mapper,
+)
+from .patch_merchants_merchant_id_split_configurations_split_configuration_id_rules_rule_id_error import (
+    PatchMerchantsMerchantIdSplitConfigurationsSplitConfigurationIdRulesRuleIdErrorBody,
+    patch_merchants_merchant_id_split_configurations_split_configuration_id_rules_rule_id_error_mapper,
+)
+from .patch_merchants_merchant_id_stores_reference_terminal_logos_error import (
+    PatchMerchantsMerchantIdStoresReferenceTerminalLogosErrorBody,
+    patch_merchants_merchant_id_stores_reference_terminal_logos_error_mapper,
+)
+from .patch_merchants_merchant_id_stores_reference_terminal_settings_error import (
+    PatchMerchantsMerchantIdStoresReferenceTerminalSettingsErrorBody,
+    patch_merchants_merchant_id_stores_reference_terminal_settings_error_mapper,
+)
+from .patch_merchants_merchant_id_stores_store_id_error import (
+    PatchMerchantsMerchantIdStoresStoreIdErrorBody,
+    patch_merchants_merchant_id_stores_store_id_error_mapper,
+)
+from .patch_merchants_merchant_id_terminal_logos_error import (
+    PatchMerchantsMerchantIdTerminalLogosErrorBody,
+    patch_merchants_merchant_id_terminal_logos_error_mapper,
+)
+from .patch_merchants_merchant_id_terminal_orders_order_id_error import (
+    PatchMerchantsMerchantIdTerminalOrdersOrderIdErrorBody,
+    patch_merchants_merchant_id_terminal_orders_order_id_error_mapper,
+)
+from .patch_merchants_merchant_id_terminal_settings_error import (
+    PatchMerchantsMerchantIdTerminalSettingsErrorBody,
+    patch_merchants_merchant_id_terminal_settings_error_mapper,
+)
+from .patch_merchants_merchant_id_users_user_id_error import (
+    PatchMerchantsMerchantIdUsersUserIdErrorBody,
+    patch_merchants_merchant_id_users_user_id_error_mapper,
+)
+from .patch_merchants_merchant_id_webhooks_webhook_id_error import (
+    PatchMerchantsMerchantIdWebhooksWebhookIdErrorBody,
+    patch_merchants_merchant_id_webhooks_webhook_id_error_mapper,
+)
+from .patch_merchants_split_configurations_rules_split_logic_error import (
+    PatchMerchantsSplitConfigurationsRulesSplitLogicErrorBody,
+    patch_merchants_split_configurations_rules_split_logic_error_mapper,
+)
+from .patch_network_tokens_network_token_id_error import (
+    PatchNetworkTokensNetworkTokenIdErrorBody,
+    patch_network_tokens_network_token_id_error_mapper,
+)
+from .patch_payment_instruments_id_error import (
+    PatchPaymentInstrumentsIdErrorBody,
+    patch_payment_instruments_id_error_mapper,
+)
+from .patch_payment_instruments_payment_instrument_id_authorised_card_users_error import (
+    PatchPaymentInstrumentsPaymentInstrumentIdAuthorisedCardUsersErrorBody,
+    patch_payment_instruments_payment_instrument_id_authorised_card_users_error_mapper,
+)
+from .patch_payment_links_link_id_error import (
+    PatchPaymentLinksLinkIdErrorBody,
+    patch_payment_links_link_id_error_mapper,
+)
+from .patch_registered_devices_device_id_associations_error import (
+    PatchRegisteredDevicesDeviceIdAssociationsErrorBody,
+    patch_registered_devices_device_id_associations_error_mapper,
+)
+from .patch_registered_devices_id_error import (
+    PatchRegisteredDevicesIdErrorBody,
+    patch_registered_devices_id_error_mapper,
+)
+from .patch_sca_associations_error import PatchScaAssociationsErrorBody, patch_sca_associations_error_mapper
+from .patch_sca_devices_device_id_error import (
+    PatchScaDevicesDeviceIdErrorBody,
+    patch_sca_devices_device_id_error_mapper,
+)
+from .patch_stores_store_id_error import PatchStoresStoreIdErrorBody, patch_stores_store_id_error_mapper
+from .patch_stores_store_id_terminal_logos_error import (
+    PatchStoresStoreIdTerminalLogosErrorBody,
+    patch_stores_store_id_terminal_logos_error_mapper,
+)
+from .patch_stores_store_id_terminal_settings_error import (
+    PatchStoresStoreIdTerminalSettingsErrorBody,
+    patch_stores_store_id_terminal_settings_error_mapper,
+)
+from .patch_terminals_terminal_id_terminal_logos_error import (
+    PatchTerminalsTerminalIdTerminalLogosErrorBody,
+    patch_terminals_terminal_id_terminal_logos_error_mapper,
+)
+from .patch_terminals_terminal_id_terminal_settings_error import (
+    PatchTerminalsTerminalIdTerminalSettingsErrorBody,
+    patch_terminals_terminal_id_terminal_settings_error_mapper,
+)
+from .patch_transaction_rules_transaction_rule_id_error import (
+    PatchTransactionRulesTransactionRuleIdErrorBody,
+    patch_transaction_rules_transaction_rule_id_error_mapper,
+)
+from .patch_transfer_instruments_id_error import (
+    PatchTransferInstrumentsIdErrorBody,
+    patch_transfer_instruments_id_error_mapper,
+)
+from .post_accept_dispute_error import PostAcceptDisputeErrorBody, post_accept_dispute_error_mapper
+from .post_account_holder_balance_error import (
+    PostAccountHolderBalanceErrorBody,
+    post_account_holder_balance_error_mapper,
+)
+from .post_account_holder_transaction_list_error import (
+    PostAccountHolderTransactionListErrorBody,
+    post_account_holder_transaction_list_error_mapper,
+)
+from .post_account_holders_error import PostAccountHoldersErrorBody, post_account_holders_error_mapper
+from .post_account_verification_routes_error import (
+    PostAccountVerificationRoutesErrorBody,
+    post_account_verification_routes_error_mapper,
+)
+from .post_adjust_authorisation_error import PostAdjustAuthorisationErrorBody, post_adjust_authorisation_error_mapper
+from .post_assign_terminals_error import PostAssignTerminalsErrorBody, post_assign_terminals_error_mapper
+from .post_auth_certificate_error import PostAuthCertificateErrorBody, post_auth_certificate_error_mapper
+from .post_authorise3_d_error import PostAuthorise3DErrorBody, post_authorise3_d_error_mapper
+from .post_authorise3_ds2_error import PostAuthorise3Ds2ErrorBody, post_authorise3_ds2_error_mapper
+from .post_authorise_error import PostAuthoriseErrorBody, post_authorise_error_mapper
+from .post_balance_accounts_balance_account_id_payout_schedules_error import (
+    PostBalanceAccountsBalanceAccountIdPayoutSchedulesErrorBody,
+    post_balance_accounts_balance_account_id_payout_schedules_error_mapper,
+)
+from .post_balance_accounts_balance_account_id_recurring_top_ups_error import (
+    PostBalanceAccountsBalanceAccountIdRecurringTopUpsErrorBody,
+    post_balance_accounts_balance_account_id_recurring_top_ups_error_mapper,
+)
+from .post_balance_accounts_balance_account_id_sweeps_error import (
+    PostBalanceAccountsBalanceAccountIdSweepsErrorBody,
+    post_balance_accounts_balance_account_id_sweeps_error_mapper,
+)
+from .post_balance_accounts_error import PostBalanceAccountsErrorBody, post_balance_accounts_error_mapper
+from .post_balance_accounts_id_transfer_limits_approve_error import (
+    PostBalanceAccountsIdTransferLimitsApproveErrorBody,
+    post_balance_accounts_id_transfer_limits_approve_error_mapper,
+)
+from .post_balance_accounts_id_transfer_limits_error import (
+    PostBalanceAccountsIdTransferLimitsErrorBody,
+    post_balance_accounts_id_transfer_limits_error_mapper,
+)
+from .post_balance_platforms_balance_platform_id_webhooks_webhook_id_settings_error import (
+    PostBalancePlatformsBalancePlatformIdWebhooksWebhookIdSettingsErrorBody,
+    post_balance_platforms_balance_platform_id_webhooks_webhook_id_settings_error_mapper,
+)
+from .post_balance_platforms_id_transfer_limits_error import (
+    PostBalancePlatformsIdTransferLimitsErrorBody,
+    post_balance_platforms_id_transfer_limits_error_mapper,
+)
+from .post_balance_transfers_error import PostBalanceTransfersErrorBody, post_balance_transfers_error_mapper
+from .post_business_lines_error import PostBusinessLinesErrorBody, post_business_lines_error_mapper
+from .post_cancel_error import PostCancelErrorBody, post_cancel_error_mapper
+from .post_cancel_or_refund_error import PostCancelOrRefundErrorBody, post_cancel_or_refund_error_mapper
+from .post_cancels_error import PostCancelsErrorBody, post_cancels_error_mapper
+from .post_capture_error import PostCaptureErrorBody, post_capture_error_mapper
+from .post_cashouts_error import PostCashoutsErrorBody, post_cashouts_error_mapper
+from .post_change_status_error import PostChangeStatusErrorBody, post_change_status_error_mapper
+from .post_check_account_holder_error import PostCheckAccountHolderErrorBody, post_check_account_holder_error_mapper
+from .post_check_balance_error import PostCheckBalanceErrorBody, post_check_balance_error_mapper
+from .post_close_account_error import PostCloseAccountErrorBody, post_close_account_error_mapper
+from .post_close_account_holder_error import PostCloseAccountHolderErrorBody, post_close_account_holder_error_mapper
+from .post_close_stores_error import PostCloseStoresErrorBody, post_close_stores_error_mapper
+from .post_companies_company_id_android_apps_error import (
+    PostCompaniesCompanyIdAndroidAppsErrorBody,
+    post_companies_company_id_android_apps_error_mapper,
+)
+from .post_companies_company_id_android_certificates_error import (
+    PostCompaniesCompanyIdAndroidCertificatesErrorBody,
+    post_companies_company_id_android_certificates_error_mapper,
+)
+from .post_companies_company_id_api_credentials_api_credential_id_allowed_origins_error import (
+    PostCompaniesCompanyIdApiCredentialsApiCredentialIdAllowedOriginsErrorBody,
+    post_companies_company_id_api_credentials_api_credential_id_allowed_origins_error_mapper,
+)
+from .post_companies_company_id_api_credentials_api_credential_id_generate_api_key_error import (
+    PostCompaniesCompanyIdApiCredentialsApiCredentialIdGenerateApiKeyErrorBody,
+    post_companies_company_id_api_credentials_api_credential_id_generate_api_key_error_mapper,
+)
+from .post_companies_company_id_api_credentials_api_credential_id_generate_client_key_error import (
+    PostCompaniesCompanyIdApiCredentialsApiCredentialIdGenerateClientKeyErrorBody,
+    post_companies_company_id_api_credentials_api_credential_id_generate_client_key_error_mapper,
+)
+from .post_companies_company_id_api_credentials_error import (
+    PostCompaniesCompanyIdApiCredentialsErrorBody,
+    post_companies_company_id_api_credentials_error_mapper,
+)
+from .post_companies_company_id_campaign_management_donation_campaign_id_status_status_error import (
+    PostCompaniesCompanyIdCampaignManagementDonationCampaignIdStatusStatusErrorBody,
+    post_companies_company_id_campaign_management_donation_campaign_id_status_status_error_mapper,
+)
+from .post_companies_company_id_campaign_management_error import (
+    PostCompaniesCompanyIdCampaignManagementErrorBody,
+    post_companies_company_id_campaign_management_error_mapper,
+)
+from .post_companies_company_id_nonprofits_error import (
+    PostCompaniesCompanyIdNonprofitsErrorBody,
+    post_companies_company_id_nonprofits_error_mapper,
+)
+from .post_companies_company_id_shipping_locations_error import (
+    PostCompaniesCompanyIdShippingLocationsErrorBody,
+    post_companies_company_id_shipping_locations_error_mapper,
+)
+from .post_companies_company_id_terminal_orders_error import (
+    PostCompaniesCompanyIdTerminalOrdersErrorBody,
+    post_companies_company_id_terminal_orders_error_mapper,
+)
+from .post_companies_company_id_terminal_orders_order_id_cancel_error import (
+    PostCompaniesCompanyIdTerminalOrdersOrderIdCancelErrorBody,
+    post_companies_company_id_terminal_orders_order_id_cancel_error_mapper,
+)
+from .post_companies_company_id_users_error import (
+    PostCompaniesCompanyIdUsersErrorBody,
+    post_companies_company_id_users_error_mapper,
+)
+from .post_companies_company_id_webhooks_error import (
+    PostCompaniesCompanyIdWebhooksErrorBody,
+    post_companies_company_id_webhooks_error_mapper,
+)
+from .post_companies_company_id_webhooks_webhook_id_generate_hmac_error import (
+    PostCompaniesCompanyIdWebhooksWebhookIdGenerateHmacErrorBody,
+    post_companies_company_id_webhooks_webhook_id_generate_hmac_error_mapper,
+)
+from .post_companies_company_id_webhooks_webhook_id_test_error import (
+    PostCompaniesCompanyIdWebhooksWebhookIdTestErrorBody,
+    post_companies_company_id_webhooks_webhook_id_test_error_mapper,
+)
+from .post_confirm_third_party_error import PostConfirmThirdPartyErrorBody, post_confirm_third_party_error_mapper
+from .post_create_account_error import PostCreateAccountErrorBody, post_create_account_error_mapper
+from .post_create_account_holder_error import PostCreateAccountHolderErrorBody, post_create_account_holder_error_mapper
+from .post_create_notification_configuration_error import (
+    PostCreateNotificationConfigurationErrorBody,
+    post_create_notification_configuration_error_mapper,
+)
+from .post_create_permit_error import PostCreatePermitErrorBody, post_create_permit_error_mapper
+from .post_create_test_card_ranges_error import (
+    PostCreateTestCardRangesErrorBody,
+    post_create_test_card_ranges_error_mapper,
+)
+from .post_debit_account_holder_error import PostDebitAccountHolderErrorBody, post_debit_account_holder_error_mapper
+from .post_decline_third_party_error import PostDeclineThirdPartyErrorBody, post_decline_third_party_error_mapper
+from .post_defend_dispute_error import PostDefendDisputeErrorBody, post_defend_dispute_error_mapper
+from .post_delete_bank_accounts_error import PostDeleteBankAccountsErrorBody, post_delete_bank_accounts_error_mapper
+from .post_delete_dispute_defense_document_error import (
+    PostDeleteDisputeDefenseDocumentErrorBody,
+    post_delete_dispute_defense_document_error_mapper,
+)
+from .post_delete_legal_arrangements_error import (
+    PostDeleteLegalArrangementsErrorBody,
+    post_delete_legal_arrangements_error_mapper,
+)
+from .post_delete_notification_configurations_error import (
+    PostDeleteNotificationConfigurationsErrorBody,
+    post_delete_notification_configurations_error_mapper,
+)
+from .post_delete_payout_methods_error import PostDeletePayoutMethodsErrorBody, post_delete_payout_methods_error_mapper
+from .post_delete_shareholders_error import PostDeleteShareholdersErrorBody, post_delete_shareholders_error_mapper
+from .post_delete_signatories_error import PostDeleteSignatoriesErrorBody, post_delete_signatories_error_mapper
+from .post_disable_error import PostDisableErrorBody, post_disable_error_mapper
+from .post_disable_permit_error import PostDisablePermitErrorBody, post_disable_permit_error_mapper
+from .post_disputes_dispute_id_attachments_error import (
+    PostDisputesDisputeIdAttachmentsErrorBody,
+    post_disputes_dispute_id_attachments_error_mapper,
+)
+from .post_disputes_error import PostDisputesErrorBody, post_disputes_error_mapper
+from .post_documents_error import PostDocumentsErrorBody, post_documents_error_mapper
+from .post_donate_error import PostDonateErrorBody, post_donate_error_mapper
+from .post_donation_campaigns_error import PostDonationCampaignsErrorBody, post_donation_campaigns_error_mapper
+from .post_donations_error import PostDonationsErrorBody, post_donations_error_mapper
+from .post_dynamic_offers_id_calculate_error import (
+    PostDynamicOffersIdCalculateErrorBody,
+    post_dynamic_offers_id_calculate_error_mapper,
+)
+from .post_dynamic_offers_id_grant_offer_error import (
+    PostDynamicOffersIdGrantOfferErrorBody,
+    post_dynamic_offers_id_grant_offer_error_mapper,
+)
+from .post_find_terminal_error import PostFindTerminalErrorBody, post_find_terminal_error_mapper
+from .post_get3_ds_availability_error import PostGet3DsAvailabilityErrorBody, post_get3_ds_availability_error_mapper
+from .post_get_account_holder_error import PostGetAccountHolderErrorBody, post_get_account_holder_error_mapper
+from .post_get_authentication_result_error import (
+    PostGetAuthenticationResultErrorBody,
+    post_get_authentication_result_error_mapper,
+)
+from .post_get_cost_estimate_error import PostGetCostEstimateErrorBody, post_get_cost_estimate_error_mapper
+from .post_get_notification_configuration_error import (
+    PostGetNotificationConfigurationErrorBody,
+    post_get_notification_configuration_error_mapper,
+)
+from .post_get_notification_configuration_list_error import (
+    PostGetNotificationConfigurationListErrorBody,
+    post_get_notification_configuration_list_error_mapper,
+)
+from .post_get_onboarding_url_error import PostGetOnboardingUrlErrorBody, post_get_onboarding_url_error_mapper
+from .post_get_pci_questionnaire_url_error import (
+    PostGetPciQuestionnaireUrlErrorBody,
+    post_get_pci_questionnaire_url_error_mapper,
+)
+from .post_get_stores_under_account_error import (
+    PostGetStoresUnderAccountErrorBody,
+    post_get_stores_under_account_error_mapper,
+)
+from .post_get_tax_form_error import PostGetTaxFormErrorBody, post_get_tax_form_error_mapper
+from .post_get_terminal_details_error import PostGetTerminalDetailsErrorBody, post_get_terminal_details_error_mapper
+from .post_get_terminals_under_account_error import (
+    PostGetTerminalsUnderAccountErrorBody,
+    post_get_terminals_under_account_error_mapper,
+)
+from .post_get_uploaded_documents_error import (
+    PostGetUploadedDocumentsErrorBody,
+    post_get_uploaded_documents_error_mapper,
+)
+from .post_grants2_error import PostGrants2ErrorBody, post_grants2_error_mapper
+from .post_grants_error import PostGrantsErrorBody, post_grants_error_mapper
+from .post_ideal_profile_auth_link_error import (
+    PostIdealProfileAuthLinkErrorBody,
+    post_ideal_profile_auth_link_error_mapper,
+)
+from .post_ideal_profile_authenticate_error import (
+    PostIdealProfileAuthenticateErrorBody,
+    post_ideal_profile_authenticate_error_mapper,
+)
+from .post_ideal_profile_register_error import (
+    PostIdealProfileRegisterErrorBody,
+    post_ideal_profile_register_error_mapper,
+)
+from .post_issue_error import PostIssueErrorBody, post_issue_error_mapper
+from .post_legal_entities_error import PostLegalEntitiesErrorBody, post_legal_entities_error_mapper
+from .post_legal_entities_id_check_tax_electronic_delivery_consent_error import (
+    PostLegalEntitiesIdCheckTaxElectronicDeliveryConsentErrorBody,
+    post_legal_entities_id_check_tax_electronic_delivery_consent_error_mapper,
+)
+from .post_legal_entities_id_check_verification_errors_error import (
+    PostLegalEntitiesIdCheckVerificationErrorsErrorBody,
+    post_legal_entities_id_check_verification_errors_error_mapper,
+)
+from .post_legal_entities_id_confirm_data_review_error import (
+    PostLegalEntitiesIdConfirmDataReviewErrorBody,
+    post_legal_entities_id_confirm_data_review_error_mapper,
+)
+from .post_legal_entities_id_onboarding_links_error import (
+    PostLegalEntitiesIdOnboardingLinksErrorBody,
+    post_legal_entities_id_onboarding_links_error_mapper,
+)
+from .post_legal_entities_id_pci_questionnaires_generate_pci_templates_error import (
+    PostLegalEntitiesIdPciQuestionnairesGeneratePciTemplatesErrorBody,
+    post_legal_entities_id_pci_questionnaires_generate_pci_templates_error_mapper,
+)
+from .post_legal_entities_id_pci_questionnaires_sign_pci_templates_error import (
+    PostLegalEntitiesIdPciQuestionnairesSignPciTemplatesErrorBody,
+    post_legal_entities_id_pci_questionnaires_sign_pci_templates_error_mapper,
+)
+from .post_legal_entities_id_pci_questionnaires_signing_required_error import (
+    PostLegalEntitiesIdPciQuestionnairesSigningRequiredErrorBody,
+    post_legal_entities_id_pci_questionnaires_signing_required_error_mapper,
+)
+from .post_legal_entities_id_set_tax_electronic_delivery_consent_error import (
+    PostLegalEntitiesIdSetTaxElectronicDeliveryConsentErrorBody,
+    post_legal_entities_id_set_tax_electronic_delivery_consent_error_mapper,
+)
+from .post_legal_entities_id_terms_of_service_error import (
+    PostLegalEntitiesIdTermsOfServiceErrorBody,
+    post_legal_entities_id_terms_of_service_error_mapper,
+)
+from .post_list_recurring_details_error import (
+    PostListRecurringDetailsErrorBody,
+    post_list_recurring_details_error_mapper,
+)
+from .post_load_error import PostLoadErrorBody, post_load_error_mapper
+from .post_mandates_mandate_id_cancel_error import (
+    PostMandatesMandateIdCancelErrorBody,
+    post_mandates_mandate_id_cancel_error_mapper,
+)
+from .post_me_allowed_origins_error import PostMeAllowedOriginsErrorBody, post_me_allowed_origins_error_mapper
+from .post_me_generate_client_key_error import (
+    PostMeGenerateClientKeyErrorBody,
+    post_me_generate_client_key_error_mapper,
+)
+from .post_merchants_error import PostMerchantsErrorBody, post_merchants_error_mapper
+from .post_merchants_merchant_id_activate_error import (
+    PostMerchantsMerchantIdActivateErrorBody,
+    post_merchants_merchant_id_activate_error_mapper,
+)
+from .post_merchants_merchant_id_api_credentials_api_credential_id_allowed_origins_error import (
+    PostMerchantsMerchantIdApiCredentialsApiCredentialIdAllowedOriginsErrorBody,
+    post_merchants_merchant_id_api_credentials_api_credential_id_allowed_origins_error_mapper,
+)
+from .post_merchants_merchant_id_api_credentials_api_credential_id_generate_api_key_error import (
+    PostMerchantsMerchantIdApiCredentialsApiCredentialIdGenerateApiKeyErrorBody,
+    post_merchants_merchant_id_api_credentials_api_credential_id_generate_api_key_error_mapper,
+)
+from .post_merchants_merchant_id_api_credentials_api_credential_id_generate_client_key_error import (
+    PostMerchantsMerchantIdApiCredentialsApiCredentialIdGenerateClientKeyErrorBody,
+    post_merchants_merchant_id_api_credentials_api_credential_id_generate_client_key_error_mapper,
+)
+from .post_merchants_merchant_id_api_credentials_error import (
+    PostMerchantsMerchantIdApiCredentialsErrorBody,
+    post_merchants_merchant_id_api_credentials_error_mapper,
+)
+from .post_merchants_merchant_id_generate_payments_app_boarding_token_error import (
+    PostMerchantsMerchantIdGeneratePaymentsAppBoardingTokenErrorBody,
+    post_merchants_merchant_id_generate_payments_app_boarding_token_error_mapper,
+)
+from .post_merchants_merchant_id_payment_method_settings_error import (
+    PostMerchantsMerchantIdPaymentMethodSettingsErrorBody,
+    post_merchants_merchant_id_payment_method_settings_error_mapper,
+)
+from .post_merchants_merchant_id_payment_method_settings_payment_method_id_add_apple_pay_domains_error import (
+    PostMerchantsMerchantIdPaymentMethodSettingsPaymentMethodIdAddApplePayDomainsErrorBody,
+    post_merchants_merchant_id_payment_method_settings_payment_method_id_add_apple_pay_domains_error_mapper,
+)
+from .post_merchants_merchant_id_payments_apps_installation_id_revoke_error import (
+    PostMerchantsMerchantIdPaymentsAppsInstallationIdRevokeErrorBody,
+    post_merchants_merchant_id_payments_apps_installation_id_revoke_error_mapper,
+)
+from .post_merchants_merchant_id_payout_settings_error import (
+    PostMerchantsMerchantIdPayoutSettingsErrorBody,
+    post_merchants_merchant_id_payout_settings_error_mapper,
+)
+from .post_merchants_merchant_id_shipping_locations_error import (
+    PostMerchantsMerchantIdShippingLocationsErrorBody,
+    post_merchants_merchant_id_shipping_locations_error_mapper,
+)
+from .post_merchants_merchant_id_split_configurations_error import (
+    PostMerchantsMerchantIdSplitConfigurationsErrorBody,
+    post_merchants_merchant_id_split_configurations_error_mapper,
+)
+from .post_merchants_merchant_id_split_configurations_split_configuration_id_error import (
+    PostMerchantsMerchantIdSplitConfigurationsSplitConfigurationIdErrorBody,
+    post_merchants_merchant_id_split_configurations_split_configuration_id_error_mapper,
+)
+from .post_merchants_merchant_id_stores_error import (
+    PostMerchantsMerchantIdStoresErrorBody,
+    post_merchants_merchant_id_stores_error_mapper,
+)
+from .post_merchants_merchant_id_stores_store_id_generate_payments_app_boarding_token_error import (
+    PostMerchantsMerchantIdStoresStoreIdGeneratePaymentsAppBoardingTokenErrorBody,
+    post_merchants_merchant_id_stores_store_id_generate_payments_app_boarding_token_error_mapper,
+)
+from .post_merchants_merchant_id_terminal_orders_error import (
+    PostMerchantsMerchantIdTerminalOrdersErrorBody,
+    post_merchants_merchant_id_terminal_orders_error_mapper,
+)
+from .post_merchants_merchant_id_terminal_orders_order_id_cancel_error import (
+    PostMerchantsMerchantIdTerminalOrdersOrderIdCancelErrorBody,
+    post_merchants_merchant_id_terminal_orders_order_id_cancel_error_mapper,
+)
+from .post_merchants_merchant_id_users_error import (
+    PostMerchantsMerchantIdUsersErrorBody,
+    post_merchants_merchant_id_users_error_mapper,
+)
+from .post_merchants_merchant_id_webhooks_error import (
+    PostMerchantsMerchantIdWebhooksErrorBody,
+    post_merchants_merchant_id_webhooks_error_mapper,
+)
+from .post_merchants_merchant_id_webhooks_webhook_id_generate_hmac_error import (
+    PostMerchantsMerchantIdWebhooksWebhookIdGenerateHmacErrorBody,
+    post_merchants_merchant_id_webhooks_webhook_id_generate_hmac_error_mapper,
+)
+from .post_merchants_merchant_id_webhooks_webhook_id_test_error import (
+    PostMerchantsMerchantIdWebhooksWebhookIdTestErrorBody,
+    post_merchants_merchant_id_webhooks_webhook_id_test_error_mapper,
+)
+from .post_merge_balance_error import PostMergeBalanceErrorBody, post_merge_balance_error_mapper
+from .post_notify_shopper_error import PostNotifyShopperErrorBody, post_notify_shopper_error_mapper
+from .post_orders_cancel_error import PostOrdersCancelErrorBody, post_orders_cancel_error_mapper
+from .post_orders_error import PostOrdersErrorBody, post_orders_error_mapper
+from .post_origin_keys_error import PostOriginKeysErrorBody, post_origin_keys_error_mapper
+from .post_payment_instrument_groups_error import (
+    PostPaymentInstrumentGroupsErrorBody,
+    post_payment_instrument_groups_error_mapper,
+)
+from .post_payment_instruments_error import PostPaymentInstrumentsErrorBody, post_payment_instruments_error_mapper
+from .post_payment_instruments_id_network_token_activation_data_error import (
+    PostPaymentInstrumentsIdNetworkTokenActivationDataErrorBody,
+    post_payment_instruments_id_network_token_activation_data_error_mapper,
+)
+from .post_payment_instruments_payment_instrument_id_authorised_card_users_error import (
+    PostPaymentInstrumentsPaymentInstrumentIdAuthorisedCardUsersErrorBody,
+    post_payment_instruments_payment_instrument_id_authorised_card_users_error_mapper,
+)
+from .post_payment_instruments_reveal_error import (
+    PostPaymentInstrumentsRevealErrorBody,
+    post_payment_instruments_reveal_error_mapper,
+)
+from .post_payment_links_error import PostPaymentLinksErrorBody, post_payment_links_error_mapper
+from .post_payment_methods_balance_error import (
+    PostPaymentMethodsBalanceErrorBody,
+    post_payment_methods_balance_error_mapper,
+)
+from .post_payment_methods_error import PostPaymentMethodsErrorBody, post_payment_methods_error_mapper
+from .post_payments_cancel_error import PostPaymentsCancelErrorBody, post_payments_cancel_error_mapper
+from .post_payments_confirm_error import PostPaymentsConfirmErrorBody, post_payments_confirm_error_mapper
+from .post_payments_details1_error import PostPaymentsDetails1ErrorBody, post_payments_details1_error_mapper
+from .post_payments_details_error import PostPaymentsDetailsErrorBody, post_payments_details_error_mapper
+from .post_payments_error import PostPaymentsErrorBody, post_payments_error_mapper
+from .post_payments_payment_psp_reference_amount_updates_error import (
+    PostPaymentsPaymentPspReferenceAmountUpdatesErrorBody,
+    post_payments_payment_psp_reference_amount_updates_error_mapper,
+)
+from .post_payments_payment_psp_reference_cancels_error import (
+    PostPaymentsPaymentPspReferenceCancelsErrorBody,
+    post_payments_payment_psp_reference_cancels_error_mapper,
+)
+from .post_payments_payment_psp_reference_captures_error import (
+    PostPaymentsPaymentPspReferenceCapturesErrorBody,
+    post_payments_payment_psp_reference_captures_error_mapper,
+)
+from .post_payments_payment_psp_reference_refunds_error import (
+    PostPaymentsPaymentPspReferenceRefundsErrorBody,
+    post_payments_payment_psp_reference_refunds_error_mapper,
+)
+from .post_payments_payment_psp_reference_reversals_error import (
+    PostPaymentsPaymentPspReferenceReversalsErrorBody,
+    post_payments_payment_psp_reference_reversals_error_mapper,
+)
+from .post_payout_account_holder_error import PostPayoutAccountHolderErrorBody, post_payout_account_holder_error_mapper
+from .post_payout_error import PostPayoutErrorBody, post_payout_error_mapper
+from .post_paypal_update_order_error import PostPaypalUpdateOrderErrorBody, post_paypal_update_order_error_mapper
+from .post_pins_change_error import PostPinsChangeErrorBody, post_pins_change_error_mapper
+from .post_pins_reveal_error import PostPinsRevealErrorBody, post_pins_reveal_error_mapper
+from .post_rates_calculate_error import PostRatesCalculateErrorBody, post_rates_calculate_error_mapper
+from .post_refund_error import PostRefundErrorBody, post_refund_error_mapper
+from .post_refund_funds_transfer_error import PostRefundFundsTransferErrorBody, post_refund_funds_transfer_error_mapper
+from .post_refund_not_paid_out_transfers_error import (
+    PostRefundNotPaidOutTransfersErrorBody,
+    post_refund_not_paid_out_transfers_error_mapper,
+)
+from .post_registered_devices_device_id_associations_error import (
+    PostRegisteredDevicesDeviceIdAssociationsErrorBody,
+    post_registered_devices_device_id_associations_error_mapper,
+)
+from .post_registered_devices_error import PostRegisteredDevicesErrorBody, post_registered_devices_error_mapper
+from .post_request_subject_erasure_error import (
+    PostRequestSubjectErasureErrorBody,
+    post_request_subject_erasure_error_mapper,
+)
+from .post_retrieve3_ds2_result_error import PostRetrieve3Ds2ResultErrorBody, post_retrieve3_ds2_result_error_mapper
+from .post_retrieve_applicable_defense_reasons_error import (
+    PostRetrieveApplicableDefenseReasonsErrorBody,
+    post_retrieve_applicable_defense_reasons_error_mapper,
+)
+from .post_sca_devices_device_id_sca_associations_error import (
+    PostScaDevicesDeviceIdScaAssociationsErrorBody,
+    post_sca_devices_device_id_sca_associations_error_mapper,
+)
+from .post_sca_devices_error import PostScaDevicesErrorBody, post_sca_devices_error_mapper
+from .post_schedule_account_updater_error import (
+    PostScheduleAccountUpdaterErrorBody,
+    post_schedule_account_updater_error_mapper,
+)
+from .post_sessions2_error import PostSessions2ErrorBody, post_sessions2_error_mapper
+from .post_setup_beneficiary_error import PostSetupBeneficiaryErrorBody, post_setup_beneficiary_error_mapper
+from .post_store_detail_and_submit_third_party_error import (
+    PostStoreDetailAndSubmitThirdPartyErrorBody,
+    post_store_detail_and_submit_third_party_error_mapper,
+)
+from .post_store_detail_error import PostStoreDetailErrorBody, post_store_detail_error_mapper
+from .post_stores_error import PostStoresErrorBody, post_stores_error_mapper
+from .post_submit_third_party_error import PostSubmitThirdPartyErrorBody, post_submit_third_party_error_mapper
+from .post_supply_defense_document_error import (
+    PostSupplyDefenseDocumentErrorBody,
+    post_supply_defense_document_error_mapper,
+)
+from .post_suspend_account_holder_error import (
+    PostSuspendAccountHolderErrorBody,
+    post_suspend_account_holder_error_mapper,
+)
+from .post_technical_cancel_error import PostTechnicalCancelErrorBody, post_technical_cancel_error_mapper
+from .post_terminals_schedule_actions_error import (
+    PostTerminalsScheduleActionsErrorBody,
+    post_terminals_schedule_actions_error_mapper,
+)
+from .post_terminals_terminal_id_reassign_error import (
+    PostTerminalsTerminalIdReassignErrorBody,
+    post_terminals_terminal_id_reassign_error_mapper,
+)
+from .post_test_notification_configuration_error import (
+    PostTestNotificationConfigurationErrorBody,
+    post_test_notification_configuration_error_mapper,
+)
+from .post_transaction_rules_error import PostTransactionRulesErrorBody, post_transaction_rules_error_mapper
+from .post_transfer_funds_error import PostTransferFundsErrorBody, post_transfer_funds_error_mapper
+from .post_transfer_instruments_error import PostTransferInstrumentsErrorBody, post_transfer_instruments_error_mapper
+from .post_transfer_routes_calculate_error import (
+    PostTransferRoutesCalculateErrorBody,
+    post_transfer_routes_calculate_error_mapper,
+)
+from .post_transfers_approve_error import PostTransfersApproveErrorBody, post_transfers_approve_error_mapper
+from .post_transfers_cancel_error import PostTransfersCancelErrorBody, post_transfers_cancel_error_mapper
+from .post_transfers_error import PostTransfersErrorBody, post_transfers_error_mapper
+from .post_transfers_transfer_id_returns_error import (
+    PostTransfersTransferIdReturnsErrorBody,
+    post_transfers_transfer_id_returns_error_mapper,
+)
+from .post_un_suspend_account_holder_error import (
+    PostUnSuspendAccountHolderErrorBody,
+    post_un_suspend_account_holder_error_mapper,
+)
+from .post_update_account_error import PostUpdateAccountErrorBody, post_update_account_error_mapper
+from .post_update_account_holder_error import PostUpdateAccountHolderErrorBody, post_update_account_holder_error_mapper
+from .post_update_account_holder_state_error import (
+    PostUpdateAccountHolderStateErrorBody,
+    post_update_account_holder_state_error_mapper,
+)
+from .post_update_notification_configuration_error import (
+    PostUpdateNotificationConfigurationErrorBody,
+    post_update_notification_configuration_error_mapper,
+)
+from .post_upload_document_error import PostUploadDocumentErrorBody, post_upload_document_error_mapper
+from .post_validate_bank_account_identification_error import (
+    PostValidateBankAccountIdentificationErrorBody,
+    post_validate_bank_account_identification_error_mapper,
+)
+from .post_validate_shopper_id_error import PostValidateShopperIdErrorBody, post_validate_shopper_id_error_mapper
+from .post_void_pending_refund_error import PostVoidPendingRefundErrorBody, post_void_pending_refund_error_mapper
+from .post_void_transaction_error import PostVoidTransactionErrorBody, post_void_transaction_error_mapper
+
+__all__ = [
+    "DeleteBalanceAccountsBalanceAccountIdPayoutSchedulesIdErrorBody",
+    "DeleteBalanceAccountsBalanceAccountIdRecurringTopUpsTopUpIdErrorBody",
+    "DeleteBalanceAccountsBalanceAccountIdSweepsSweepIdErrorBody",
+    "DeleteBalanceAccountsIdTransferLimitsTransferLimitIdErrorBody",
+    "DeleteBalancePlatformsBalancePlatformIdWebhooksWebhookIdSettingsSettingIdErrorBody",
+    "DeleteBalancePlatformsIdTransferLimitsTransferLimitIdErrorBody",
+    "DeleteBusinessLinesIdErrorBody",
+    "DeleteCompaniesCompanyIdApiCredentialsApiCredentialIdAllowedOriginsOriginIdErrorBody",
+    "DeleteCompaniesCompanyIdCampaignManagementDonationCampaignIdErrorBody",
+    "DeleteCompaniesCompanyIdWebhooksWebhookIdErrorBody",
+    "DeleteDisputesDisputeIdAttachmentsAttachmentIdErrorBody",
+    "DeleteDocumentsIdErrorBody",
+    "DeleteMeAllowedOriginsOriginIdErrorBody",
+    "DeleteMerchantsMerchantIdApiCredentialsApiCredentialIdAllowedOriginsOriginIdErrorBody",
+    "DeleteMerchantsMerchantIdPayoutSettingsPayoutSettingsIdErrorBody",
+    "DeleteMerchantsMerchantIdSplitConfigurationsSplitConfigurationIdErrorBody",
+    "DeleteMerchantsMerchantIdSplitConfigurationsSplitConfigurationIdRulesRuleIdErrorBody",
+    "DeleteMerchantsMerchantIdWebhooksWebhookIdErrorBody",
+    "DeletePaymentInstrumentsPaymentInstrumentIdAuthorisedCardUsersErrorBody",
+    "DeleteRegisteredDevicesIdErrorBody",
+    "DeleteScaAssociationsErrorBody",
+    "DeleteScaDevicesDeviceIdErrorBody",
+    "DeleteTransactionRulesTransactionRuleIdErrorBody",
+    "DeleteTransferInstrumentsIdErrorBody",
+    "GetAccountHoldersIdBalanceAccountsErrorBody",
+    "GetAccountHoldersIdErrorBody",
+    "GetAccountHoldersIdTaxFormsErrorBody",
+    "GetAccountHoldersIdTransactionRulesErrorBody",
+    "GetAccountVerificationReportsCodeErrorBody",
+    "GetBalanceAccountsBalanceAccountIdPayoutSchedulesErrorBody",
+    "GetBalanceAccountsBalanceAccountIdPayoutSchedulesIdErrorBody",
+    "GetBalanceAccountsBalanceAccountIdPayoutSchedulesIdExecutionsErrorBody",
+    "GetBalanceAccountsBalanceAccountIdRecurringTopUpsErrorBody",
+    "GetBalanceAccountsBalanceAccountIdSweepsErrorBody",
+    "GetBalanceAccountsBalanceAccountIdSweepsSweepIdErrorBody",
+    "GetBalanceAccountsIdErrorBody",
+    "GetBalanceAccountsIdPaymentInstrumentsErrorBody",
+    "GetBalanceAccountsIdTransactionRulesErrorBody",
+    "GetBalanceAccountsIdTransferLimitsCurrentErrorBody",
+    "GetBalanceAccountsIdTransferLimitsErrorBody",
+    "GetBalanceAccountsIdTransferLimitsTransferLimitIdErrorBody",
+    "GetBalanceOverviewCompaniesCompanyAccountCodeBalancesErrorBody",
+    "GetBalanceOverviewMerchantsMerchantAccountCodeBalancesErrorBody",
+    "GetBalancePlatformsBalancePlatformIdPayoutSchedulesErrorBody",
+    "GetBalancePlatformsBalancePlatformIdPayoutSchedulesIdErrorBody",
+    "GetBalancePlatformsBalancePlatformIdWebhooksWebhookIdSettingsErrorBody",
+    "GetBalancePlatformsBalancePlatformIdWebhooksWebhookIdSettingsSettingIdErrorBody",
+    "GetBalancePlatformsIdAccountHoldersErrorBody",
+    "GetBalancePlatformsIdErrorBody",
+    "GetBalancePlatformsIdTransactionRulesErrorBody",
+    "GetBalancePlatformsIdTransferLimitsErrorBody",
+    "GetBalancePlatformsIdTransferLimitsTransferLimitIdErrorBody",
+    "GetBusinessLinesIdErrorBody",
+    "GetCardordersErrorBody",
+    "GetCardordersIdItemsErrorBody",
+    "GetCompaniesCompanyIdAndroidAppsErrorBody",
+    "GetCompaniesCompanyIdAndroidAppsIdErrorBody",
+    "GetCompaniesCompanyIdAndroidCertificatesErrorBody",
+    "GetCompaniesCompanyIdApiCredentialsApiCredentialIdAllowedOriginsErrorBody",
+    "GetCompaniesCompanyIdApiCredentialsApiCredentialIdAllowedOriginsOriginIdErrorBody",
+    "GetCompaniesCompanyIdApiCredentialsApiCredentialIdErrorBody",
+    "GetCompaniesCompanyIdApiCredentialsErrorBody",
+    "GetCompaniesCompanyIdBillingEntitiesErrorBody",
+    "GetCompaniesCompanyIdCampaignManagementAccountHoldersAccountHolderIdErrorBody",
+    "GetCompaniesCompanyIdErrorBody",
+    "GetCompaniesCompanyIdMerchantsErrorBody",
+    "GetCompaniesCompanyIdShippingLocationsErrorBody",
+    "GetCompaniesCompanyIdTerminalActionsActionIdErrorBody",
+    "GetCompaniesCompanyIdTerminalActionsErrorBody",
+    "GetCompaniesCompanyIdTerminalLogosErrorBody",
+    "GetCompaniesCompanyIdTerminalModelsErrorBody",
+    "GetCompaniesCompanyIdTerminalOrdersErrorBody",
+    "GetCompaniesCompanyIdTerminalOrdersOrderIdErrorBody",
+    "GetCompaniesCompanyIdTerminalProductsErrorBody",
+    "GetCompaniesCompanyIdTerminalSettingsErrorBody",
+    "GetCompaniesCompanyIdUsersErrorBody",
+    "GetCompaniesCompanyIdUsersUserIdErrorBody",
+    "GetCompaniesCompanyIdWebhooksErrorBody",
+    "GetCompaniesCompanyIdWebhooksWebhookIdErrorBody",
+    "GetCompaniesErrorBody",
+    "GetDisputesDisputeIdAttachmentsAttachmentIdErrorBody",
+    "GetDisputesDisputeIdAttachmentsErrorBody",
+    "GetDisputesErrorBody",
+    "GetDisputesIdErrorBody",
+    "GetDocumentsIdErrorBody",
+    "GetDynamicOffersErrorBody",
+    "GetGrantAccountsId1ErrorBody",
+    "GetGrantAccountsIdErrorBody",
+    "GetGrantOffers1ErrorBody",
+    "GetGrantOffersErrorBody",
+    "GetGrantOffersGrantOfferIdErrorBody",
+    "GetGrantOffersIdErrorBody",
+    "GetGrants2ErrorBody",
+    "GetGrantsErrorBody",
+    "GetGrantsGrantIdDisbursementsDisbursementIdErrorBody",
+    "GetGrantsGrantIdDisbursementsErrorBody",
+    "GetGrantsGrantIdErrorBody",
+    "GetGrantsIdErrorBody",
+    "GetLegalEntitiesIdAcceptedTermsOfServiceDocumentTermsofserviceacceptancereferenceErrorBody",
+    "GetLegalEntitiesIdBusinessLinesErrorBody",
+    "GetLegalEntitiesIdErrorBody",
+    "GetLegalEntitiesIdPciQuestionnairesErrorBody",
+    "GetLegalEntitiesIdPciQuestionnairesPciidErrorBody",
+    "GetLegalEntitiesIdTermsOfServiceAcceptanceInfosErrorBody",
+    "GetLegalEntitiesIdTermsOfServiceStatusErrorBody",
+    "GetMandatesErrorBody",
+    "GetMandatesMandateIdErrorBody",
+    "GetMeAllowedOriginsErrorBody",
+    "GetMeAllowedOriginsOriginIdErrorBody",
+    "GetMeErrorBody",
+    "GetMerchantsErrorBody",
+    "GetMerchantsMerchantIdApiCredentialsApiCredentialIdAllowedOriginsErrorBody",
+    "GetMerchantsMerchantIdApiCredentialsApiCredentialIdAllowedOriginsOriginIdErrorBody",
+    "GetMerchantsMerchantIdApiCredentialsApiCredentialIdErrorBody",
+    "GetMerchantsMerchantIdApiCredentialsErrorBody",
+    "GetMerchantsMerchantIdBillingEntitiesErrorBody",
+    "GetMerchantsMerchantIdErrorBody",
+    "GetMerchantsMerchantIdPaymentMethodSettingsErrorBody",
+    "GetMerchantsMerchantIdPaymentMethodSettingsPaymentMethodIdErrorBody",
+    "GetMerchantsMerchantIdPaymentMethodSettingsPaymentMethodIdGetApplePayDomainsErrorBody",
+    "GetMerchantsMerchantIdPaymentsAppsErrorBody",
+    "GetMerchantsMerchantIdPayoutSettingsErrorBody",
+    "GetMerchantsMerchantIdPayoutSettingsPayoutSettingsIdErrorBody",
+    "GetMerchantsMerchantIdShippingLocationsErrorBody",
+    "GetMerchantsMerchantIdSplitConfigurationsErrorBody",
+    "GetMerchantsMerchantIdSplitConfigurationsSplitConfigurationIdErrorBody",
+    "GetMerchantsMerchantIdStoresErrorBody",
+    "GetMerchantsMerchantIdStoresReferenceTerminalLogosErrorBody",
+    "GetMerchantsMerchantIdStoresReferenceTerminalSettingsErrorBody",
+    "GetMerchantsMerchantIdStoresStoreIdErrorBody",
+    "GetMerchantsMerchantIdStoresStoreIdPaymentsAppsErrorBody",
+    "GetMerchantsMerchantIdTerminalLogosErrorBody",
+    "GetMerchantsMerchantIdTerminalModelsErrorBody",
+    "GetMerchantsMerchantIdTerminalOrdersErrorBody",
+    "GetMerchantsMerchantIdTerminalOrdersOrderIdErrorBody",
+    "GetMerchantsMerchantIdTerminalProductsErrorBody",
+    "GetMerchantsMerchantIdTerminalSettingsErrorBody",
+    "GetMerchantsMerchantIdUsersErrorBody",
+    "GetMerchantsMerchantIdUsersUserIdErrorBody",
+    "GetMerchantsMerchantIdWebhooksErrorBody",
+    "GetMerchantsMerchantIdWebhooksWebhookIdErrorBody",
+    "GetNetworkTokensNetworkTokenIdErrorBody",
+    "GetPaymentInstrumentGroupsIdErrorBody",
+    "GetPaymentInstrumentGroupsIdTransactionRulesErrorBody",
+    "GetPaymentInstrumentsIdErrorBody",
+    "GetPaymentInstrumentsIdNetworkTokenActivationDataErrorBody",
+    "GetPaymentInstrumentsIdNetworkTokensErrorBody",
+    "GetPaymentInstrumentsIdRevealErrorBody",
+    "GetPaymentInstrumentsIdTransactionRulesErrorBody",
+    "GetPaymentInstrumentsPaymentInstrumentIdAuthorisedCardUsersErrorBody",
+    "GetPaymentLinksLinkIdErrorBody",
+    "GetPublicKeyErrorBody",
+    "GetRegisteredDevicesErrorBody",
+    "GetScaAssociationsErrorBody",
+    "GetStoresErrorBody",
+    "GetStoresStoreIdErrorBody",
+    "GetStoresStoreIdTerminalLogosErrorBody",
+    "GetStoresStoreIdTerminalSettingsErrorBody",
+    "GetTerminalsErrorBody",
+    "GetTerminalsTerminalIdTerminalLogosErrorBody",
+    "GetTerminalsTerminalIdTerminalSettingsErrorBody",
+    "GetThemesErrorBody",
+    "GetThemesIdErrorBody",
+    "GetTransactionRulesTransactionRuleIdErrorBody",
+    "GetTransactionsErrorBody",
+    "GetTransactionsIdErrorBody",
+    "GetTransferInstrumentsIdErrorBody",
+    "GetTransfersErrorBody",
+    "GetTransfersIdErrorBody",
+    "PatchAccountHoldersIdErrorBody",
+    "PatchBalanceAccountsBalanceAccountIdPayoutSchedulesIdErrorBody",
+    "PatchBalanceAccountsBalanceAccountIdRecurringTopUpsTopUpIdErrorBody",
+    "PatchBalanceAccountsBalanceAccountIdSweepsSweepIdErrorBody",
+    "PatchBalanceAccountsIdErrorBody",
+    "PatchBalancePlatformsBalancePlatformIdWebhooksWebhookIdSettingsSettingIdErrorBody",
+    "PatchBusinessLinesIdErrorBody",
+    "PatchCompaniesCompanyIdAndroidAppsIdErrorBody",
+    "PatchCompaniesCompanyIdApiCredentialsApiCredentialIdErrorBody",
+    "PatchCompaniesCompanyIdCampaignManagementDonationCampaignIdErrorBody",
+    "PatchCompaniesCompanyIdTerminalLogosErrorBody",
+    "PatchCompaniesCompanyIdTerminalOrdersOrderIdErrorBody",
+    "PatchCompaniesCompanyIdTerminalSettingsErrorBody",
+    "PatchCompaniesCompanyIdUsersUserIdErrorBody",
+    "PatchCompaniesCompanyIdWebhooksWebhookIdErrorBody",
+    "PatchDisputesIdErrorBody",
+    "PatchDocumentsIdErrorBody",
+    "PatchGrantsGrantIdDisbursementsDisbursementIdErrorBody",
+    "PatchLegalEntitiesIdErrorBody",
+    "PatchLegalEntitiesIdTermsOfServiceTermsofservicedocumentidErrorBody",
+    "PatchMandatesMandateIdErrorBody",
+    "PatchMerchantsMerchantIdApiCredentialsApiCredentialIdErrorBody",
+    "PatchMerchantsMerchantIdPaymentMethodSettingsPaymentMethodIdErrorBody",
+    "PatchMerchantsMerchantIdPayoutSettingsPayoutSettingsIdErrorBody",
+    "PatchMerchantsMerchantIdSplitConfigurationsSplitConfigurationIdErrorBody",
+    "PatchMerchantsMerchantIdSplitConfigurationsSplitConfigurationIdRulesRuleIdErrorBody",
+    "PatchMerchantsMerchantIdStoresReferenceTerminalLogosErrorBody",
+    "PatchMerchantsMerchantIdStoresReferenceTerminalSettingsErrorBody",
+    "PatchMerchantsMerchantIdStoresStoreIdErrorBody",
+    "PatchMerchantsMerchantIdTerminalLogosErrorBody",
+    "PatchMerchantsMerchantIdTerminalOrdersOrderIdErrorBody",
+    "PatchMerchantsMerchantIdTerminalSettingsErrorBody",
+    "PatchMerchantsMerchantIdUsersUserIdErrorBody",
+    "PatchMerchantsMerchantIdWebhooksWebhookIdErrorBody",
+    "PatchMerchantsSplitConfigurationsRulesSplitLogicErrorBody",
+    "PatchNetworkTokensNetworkTokenIdErrorBody",
+    "PatchPaymentInstrumentsIdErrorBody",
+    "PatchPaymentInstrumentsPaymentInstrumentIdAuthorisedCardUsersErrorBody",
+    "PatchPaymentLinksLinkIdErrorBody",
+    "PatchRegisteredDevicesDeviceIdAssociationsErrorBody",
+    "PatchRegisteredDevicesIdErrorBody",
+    "PatchScaAssociationsErrorBody",
+    "PatchScaDevicesDeviceIdErrorBody",
+    "PatchStoresStoreIdErrorBody",
+    "PatchStoresStoreIdTerminalLogosErrorBody",
+    "PatchStoresStoreIdTerminalSettingsErrorBody",
+    "PatchTerminalsTerminalIdTerminalLogosErrorBody",
+    "PatchTerminalsTerminalIdTerminalSettingsErrorBody",
+    "PatchTransactionRulesTransactionRuleIdErrorBody",
+    "PatchTransferInstrumentsIdErrorBody",
+    "PostAcceptDisputeErrorBody",
+    "PostAccountHolderBalanceErrorBody",
+    "PostAccountHolderTransactionListErrorBody",
+    "PostAccountHoldersErrorBody",
+    "PostAccountVerificationRoutesErrorBody",
+    "PostAdjustAuthorisationErrorBody",
+    "PostAssignTerminalsErrorBody",
+    "PostAuthCertificateErrorBody",
+    "PostAuthorise3DErrorBody",
+    "PostAuthorise3Ds2ErrorBody",
+    "PostAuthoriseErrorBody",
+    "PostBalanceAccountsBalanceAccountIdPayoutSchedulesErrorBody",
+    "PostBalanceAccountsBalanceAccountIdRecurringTopUpsErrorBody",
+    "PostBalanceAccountsBalanceAccountIdSweepsErrorBody",
+    "PostBalanceAccountsErrorBody",
+    "PostBalanceAccountsIdTransferLimitsApproveErrorBody",
+    "PostBalanceAccountsIdTransferLimitsErrorBody",
+    "PostBalancePlatformsBalancePlatformIdWebhooksWebhookIdSettingsErrorBody",
+    "PostBalancePlatformsIdTransferLimitsErrorBody",
+    "PostBalanceTransfersErrorBody",
+    "PostBusinessLinesErrorBody",
+    "PostCancelErrorBody",
+    "PostCancelOrRefundErrorBody",
+    "PostCancelsErrorBody",
+    "PostCaptureErrorBody",
+    "PostCashoutsErrorBody",
+    "PostChangeStatusErrorBody",
+    "PostCheckAccountHolderErrorBody",
+    "PostCheckBalanceErrorBody",
+    "PostCloseAccountErrorBody",
+    "PostCloseAccountHolderErrorBody",
+    "PostCloseStoresErrorBody",
+    "PostCompaniesCompanyIdAndroidAppsErrorBody",
+    "PostCompaniesCompanyIdAndroidCertificatesErrorBody",
+    "PostCompaniesCompanyIdApiCredentialsApiCredentialIdAllowedOriginsErrorBody",
+    "PostCompaniesCompanyIdApiCredentialsApiCredentialIdGenerateApiKeyErrorBody",
+    "PostCompaniesCompanyIdApiCredentialsApiCredentialIdGenerateClientKeyErrorBody",
+    "PostCompaniesCompanyIdApiCredentialsErrorBody",
+    "PostCompaniesCompanyIdCampaignManagementDonationCampaignIdStatusStatusErrorBody",
+    "PostCompaniesCompanyIdCampaignManagementErrorBody",
+    "PostCompaniesCompanyIdNonprofitsErrorBody",
+    "PostCompaniesCompanyIdShippingLocationsErrorBody",
+    "PostCompaniesCompanyIdTerminalOrdersErrorBody",
+    "PostCompaniesCompanyIdTerminalOrdersOrderIdCancelErrorBody",
+    "PostCompaniesCompanyIdUsersErrorBody",
+    "PostCompaniesCompanyIdWebhooksErrorBody",
+    "PostCompaniesCompanyIdWebhooksWebhookIdGenerateHmacErrorBody",
+    "PostCompaniesCompanyIdWebhooksWebhookIdTestErrorBody",
+    "PostConfirmThirdPartyErrorBody",
+    "PostCreateAccountErrorBody",
+    "PostCreateAccountHolderErrorBody",
+    "PostCreateNotificationConfigurationErrorBody",
+    "PostCreatePermitErrorBody",
+    "PostCreateTestCardRangesErrorBody",
+    "PostDebitAccountHolderErrorBody",
+    "PostDeclineThirdPartyErrorBody",
+    "PostDefendDisputeErrorBody",
+    "PostDeleteBankAccountsErrorBody",
+    "PostDeleteDisputeDefenseDocumentErrorBody",
+    "PostDeleteLegalArrangementsErrorBody",
+    "PostDeleteNotificationConfigurationsErrorBody",
+    "PostDeletePayoutMethodsErrorBody",
+    "PostDeleteShareholdersErrorBody",
+    "PostDeleteSignatoriesErrorBody",
+    "PostDisableErrorBody",
+    "PostDisablePermitErrorBody",
+    "PostDisputesDisputeIdAttachmentsErrorBody",
+    "PostDisputesErrorBody",
+    "PostDocumentsErrorBody",
+    "PostDonateErrorBody",
+    "PostDonationCampaignsErrorBody",
+    "PostDonationsErrorBody",
+    "PostDynamicOffersIdCalculateErrorBody",
+    "PostDynamicOffersIdGrantOfferErrorBody",
+    "PostFindTerminalErrorBody",
+    "PostGet3DsAvailabilityErrorBody",
+    "PostGetAccountHolderErrorBody",
+    "PostGetAuthenticationResultErrorBody",
+    "PostGetCostEstimateErrorBody",
+    "PostGetNotificationConfigurationErrorBody",
+    "PostGetNotificationConfigurationListErrorBody",
+    "PostGetOnboardingUrlErrorBody",
+    "PostGetPciQuestionnaireUrlErrorBody",
+    "PostGetStoresUnderAccountErrorBody",
+    "PostGetTaxFormErrorBody",
+    "PostGetTerminalDetailsErrorBody",
+    "PostGetTerminalsUnderAccountErrorBody",
+    "PostGetUploadedDocumentsErrorBody",
+    "PostGrants2ErrorBody",
+    "PostGrantsErrorBody",
+    "PostIdealProfileAuthLinkErrorBody",
+    "PostIdealProfileAuthenticateErrorBody",
+    "PostIdealProfileRegisterErrorBody",
+    "PostIssueErrorBody",
+    "PostLegalEntitiesErrorBody",
+    "PostLegalEntitiesIdCheckTaxElectronicDeliveryConsentErrorBody",
+    "PostLegalEntitiesIdCheckVerificationErrorsErrorBody",
+    "PostLegalEntitiesIdConfirmDataReviewErrorBody",
+    "PostLegalEntitiesIdOnboardingLinksErrorBody",
+    "PostLegalEntitiesIdPciQuestionnairesGeneratePciTemplatesErrorBody",
+    "PostLegalEntitiesIdPciQuestionnairesSignPciTemplatesErrorBody",
+    "PostLegalEntitiesIdPciQuestionnairesSigningRequiredErrorBody",
+    "PostLegalEntitiesIdSetTaxElectronicDeliveryConsentErrorBody",
+    "PostLegalEntitiesIdTermsOfServiceErrorBody",
+    "PostListRecurringDetailsErrorBody",
+    "PostLoadErrorBody",
+    "PostMandatesMandateIdCancelErrorBody",
+    "PostMeAllowedOriginsErrorBody",
+    "PostMeGenerateClientKeyErrorBody",
+    "PostMerchantsErrorBody",
+    "PostMerchantsMerchantIdActivateErrorBody",
+    "PostMerchantsMerchantIdApiCredentialsApiCredentialIdAllowedOriginsErrorBody",
+    "PostMerchantsMerchantIdApiCredentialsApiCredentialIdGenerateApiKeyErrorBody",
+    "PostMerchantsMerchantIdApiCredentialsApiCredentialIdGenerateClientKeyErrorBody",
+    "PostMerchantsMerchantIdApiCredentialsErrorBody",
+    "PostMerchantsMerchantIdGeneratePaymentsAppBoardingTokenErrorBody",
+    "PostMerchantsMerchantIdPaymentMethodSettingsErrorBody",
+    "PostMerchantsMerchantIdPaymentMethodSettingsPaymentMethodIdAddApplePayDomainsErrorBody",
+    "PostMerchantsMerchantIdPaymentsAppsInstallationIdRevokeErrorBody",
+    "PostMerchantsMerchantIdPayoutSettingsErrorBody",
+    "PostMerchantsMerchantIdShippingLocationsErrorBody",
+    "PostMerchantsMerchantIdSplitConfigurationsErrorBody",
+    "PostMerchantsMerchantIdSplitConfigurationsSplitConfigurationIdErrorBody",
+    "PostMerchantsMerchantIdStoresErrorBody",
+    "PostMerchantsMerchantIdStoresStoreIdGeneratePaymentsAppBoardingTokenErrorBody",
+    "PostMerchantsMerchantIdTerminalOrdersErrorBody",
+    "PostMerchantsMerchantIdTerminalOrdersOrderIdCancelErrorBody",
+    "PostMerchantsMerchantIdUsersErrorBody",
+    "PostMerchantsMerchantIdWebhooksErrorBody",
+    "PostMerchantsMerchantIdWebhooksWebhookIdGenerateHmacErrorBody",
+    "PostMerchantsMerchantIdWebhooksWebhookIdTestErrorBody",
+    "PostMergeBalanceErrorBody",
+    "PostNotifyShopperErrorBody",
+    "PostOrdersCancelErrorBody",
+    "PostOrdersErrorBody",
+    "PostOriginKeysErrorBody",
+    "PostPaymentInstrumentGroupsErrorBody",
+    "PostPaymentInstrumentsErrorBody",
+    "PostPaymentInstrumentsIdNetworkTokenActivationDataErrorBody",
+    "PostPaymentInstrumentsPaymentInstrumentIdAuthorisedCardUsersErrorBody",
+    "PostPaymentInstrumentsRevealErrorBody",
+    "PostPaymentLinksErrorBody",
+    "PostPaymentMethodsBalanceErrorBody",
+    "PostPaymentMethodsErrorBody",
+    "PostPaymentsCancelErrorBody",
+    "PostPaymentsConfirmErrorBody",
+    "PostPaymentsDetails1ErrorBody",
+    "PostPaymentsDetailsErrorBody",
+    "PostPaymentsErrorBody",
+    "PostPaymentsPaymentPspReferenceAmountUpdatesErrorBody",
+    "PostPaymentsPaymentPspReferenceCancelsErrorBody",
+    "PostPaymentsPaymentPspReferenceCapturesErrorBody",
+    "PostPaymentsPaymentPspReferenceRefundsErrorBody",
+    "PostPaymentsPaymentPspReferenceReversalsErrorBody",
+    "PostPayoutAccountHolderErrorBody",
+    "PostPayoutErrorBody",
+    "PostPaypalUpdateOrderErrorBody",
+    "PostPinsChangeErrorBody",
+    "PostPinsRevealErrorBody",
+    "PostRatesCalculateErrorBody",
+    "PostRefundErrorBody",
+    "PostRefundFundsTransferErrorBody",
+    "PostRefundNotPaidOutTransfersErrorBody",
+    "PostRegisteredDevicesDeviceIdAssociationsErrorBody",
+    "PostRegisteredDevicesErrorBody",
+    "PostRequestSubjectErasureErrorBody",
+    "PostRetrieve3Ds2ResultErrorBody",
+    "PostRetrieveApplicableDefenseReasonsErrorBody",
+    "PostScaDevicesDeviceIdScaAssociationsErrorBody",
+    "PostScaDevicesErrorBody",
+    "PostScheduleAccountUpdaterErrorBody",
+    "PostSessions2ErrorBody",
+    "PostSetupBeneficiaryErrorBody",
+    "PostStoreDetailAndSubmitThirdPartyErrorBody",
+    "PostStoreDetailErrorBody",
+    "PostStoresErrorBody",
+    "PostSubmitThirdPartyErrorBody",
+    "PostSupplyDefenseDocumentErrorBody",
+    "PostSuspendAccountHolderErrorBody",
+    "PostTechnicalCancelErrorBody",
+    "PostTerminalsScheduleActionsErrorBody",
+    "PostTerminalsTerminalIdReassignErrorBody",
+    "PostTestNotificationConfigurationErrorBody",
+    "PostTransactionRulesErrorBody",
+    "PostTransferFundsErrorBody",
+    "PostTransferInstrumentsErrorBody",
+    "PostTransferRoutesCalculateErrorBody",
+    "PostTransfersApproveErrorBody",
+    "PostTransfersCancelErrorBody",
+    "PostTransfersErrorBody",
+    "PostTransfersTransferIdReturnsErrorBody",
+    "PostUnSuspendAccountHolderErrorBody",
+    "PostUpdateAccountErrorBody",
+    "PostUpdateAccountHolderErrorBody",
+    "PostUpdateAccountHolderStateErrorBody",
+    "PostUpdateNotificationConfigurationErrorBody",
+    "PostUploadDocumentErrorBody",
+    "PostValidateBankAccountIdentificationErrorBody",
+    "PostValidateShopperIdErrorBody",
+    "PostVoidPendingRefundErrorBody",
+    "PostVoidTransactionErrorBody",
+    "delete_balance_accounts_balance_account_id_payout_schedules_id_error_mapper",
+    "delete_balance_accounts_balance_account_id_recurring_top_ups_top_up_id_error_mapper",
+    "delete_balance_accounts_balance_account_id_sweeps_sweep_id_error_mapper",
+    "delete_balance_accounts_id_transfer_limits_transfer_limit_id_error_mapper",
+    "delete_balance_platforms_balance_platform_id_webhooks_webhook_id_settings_setting_id_error_mapper",
+    "delete_balance_platforms_id_transfer_limits_transfer_limit_id_error_mapper",
+    "delete_business_lines_id_error_mapper",
+    "delete_companies_company_id_api_credentials_api_credential_id_allowed_origins_origin_id_error_mapper",
+    "delete_companies_company_id_campaign_management_donation_campaign_id_error_mapper",
+    "delete_companies_company_id_webhooks_webhook_id_error_mapper",
+    "delete_disputes_dispute_id_attachments_attachment_id_error_mapper",
+    "delete_documents_id_error_mapper",
+    "delete_me_allowed_origins_origin_id_error_mapper",
+    "delete_merchants_merchant_id_api_credentials_api_credential_id_allowed_origins_origin_id_error_mapper",
+    "delete_merchants_merchant_id_payout_settings_payout_settings_id_error_mapper",
+    "delete_merchants_merchant_id_split_configurations_split_configuration_id_error_mapper",
+    "delete_merchants_merchant_id_split_configurations_split_configuration_id_rules_rule_id_error_mapper",
+    "delete_merchants_merchant_id_webhooks_webhook_id_error_mapper",
+    "delete_payment_instruments_payment_instrument_id_authorised_card_users_error_mapper",
+    "delete_registered_devices_id_error_mapper",
+    "delete_sca_associations_error_mapper",
+    "delete_sca_devices_device_id_error_mapper",
+    "delete_transaction_rules_transaction_rule_id_error_mapper",
+    "delete_transfer_instruments_id_error_mapper",
+    "get_account_holders_id_balance_accounts_error_mapper",
+    "get_account_holders_id_error_mapper",
+    "get_account_holders_id_tax_forms_error_mapper",
+    "get_account_holders_id_transaction_rules_error_mapper",
+    "get_account_verification_reports_code_error_mapper",
+    "get_balance_accounts_balance_account_id_payout_schedules_error_mapper",
+    "get_balance_accounts_balance_account_id_payout_schedules_id_error_mapper",
+    "get_balance_accounts_balance_account_id_payout_schedules_id_executions_error_mapper",
+    "get_balance_accounts_balance_account_id_recurring_top_ups_error_mapper",
+    "get_balance_accounts_balance_account_id_sweeps_error_mapper",
+    "get_balance_accounts_balance_account_id_sweeps_sweep_id_error_mapper",
+    "get_balance_accounts_id_error_mapper",
+    "get_balance_accounts_id_payment_instruments_error_mapper",
+    "get_balance_accounts_id_transaction_rules_error_mapper",
+    "get_balance_accounts_id_transfer_limits_current_error_mapper",
+    "get_balance_accounts_id_transfer_limits_error_mapper",
+    "get_balance_accounts_id_transfer_limits_transfer_limit_id_error_mapper",
+    "get_balance_overview_companies_company_account_code_balances_error_mapper",
+    "get_balance_overview_merchants_merchant_account_code_balances_error_mapper",
+    "get_balance_platforms_balance_platform_id_payout_schedules_error_mapper",
+    "get_balance_platforms_balance_platform_id_payout_schedules_id_error_mapper",
+    "get_balance_platforms_balance_platform_id_webhooks_webhook_id_settings_error_mapper",
+    "get_balance_platforms_balance_platform_id_webhooks_webhook_id_settings_setting_id_error_mapper",
+    "get_balance_platforms_id_account_holders_error_mapper",
+    "get_balance_platforms_id_error_mapper",
+    "get_balance_platforms_id_transaction_rules_error_mapper",
+    "get_balance_platforms_id_transfer_limits_error_mapper",
+    "get_balance_platforms_id_transfer_limits_transfer_limit_id_error_mapper",
+    "get_business_lines_id_error_mapper",
+    "get_cardorders_error_mapper",
+    "get_cardorders_id_items_error_mapper",
+    "get_companies_company_id_android_apps_error_mapper",
+    "get_companies_company_id_android_apps_id_error_mapper",
+    "get_companies_company_id_android_certificates_error_mapper",
+    "get_companies_company_id_api_credentials_api_credential_id_allowed_origins_error_mapper",
+    "get_companies_company_id_api_credentials_api_credential_id_allowed_origins_origin_id_error_mapper",
+    "get_companies_company_id_api_credentials_api_credential_id_error_mapper",
+    "get_companies_company_id_api_credentials_error_mapper",
+    "get_companies_company_id_billing_entities_error_mapper",
+    "get_companies_company_id_campaign_management_account_holders_account_holder_id_error_mapper",
+    "get_companies_company_id_error_mapper",
+    "get_companies_company_id_merchants_error_mapper",
+    "get_companies_company_id_shipping_locations_error_mapper",
+    "get_companies_company_id_terminal_actions_action_id_error_mapper",
+    "get_companies_company_id_terminal_actions_error_mapper",
+    "get_companies_company_id_terminal_logos_error_mapper",
+    "get_companies_company_id_terminal_models_error_mapper",
+    "get_companies_company_id_terminal_orders_error_mapper",
+    "get_companies_company_id_terminal_orders_order_id_error_mapper",
+    "get_companies_company_id_terminal_products_error_mapper",
+    "get_companies_company_id_terminal_settings_error_mapper",
+    "get_companies_company_id_users_error_mapper",
+    "get_companies_company_id_users_user_id_error_mapper",
+    "get_companies_company_id_webhooks_error_mapper",
+    "get_companies_company_id_webhooks_webhook_id_error_mapper",
+    "get_companies_error_mapper",
+    "get_disputes_dispute_id_attachments_attachment_id_error_mapper",
+    "get_disputes_dispute_id_attachments_error_mapper",
+    "get_disputes_error_mapper",
+    "get_disputes_id_error_mapper",
+    "get_documents_id_error_mapper",
+    "get_dynamic_offers_error_mapper",
+    "get_grant_accounts_id1_error_mapper",
+    "get_grant_accounts_id_error_mapper",
+    "get_grant_offers1_error_mapper",
+    "get_grant_offers_error_mapper",
+    "get_grant_offers_grant_offer_id_error_mapper",
+    "get_grant_offers_id_error_mapper",
+    "get_grants2_error_mapper",
+    "get_grants_error_mapper",
+    "get_grants_grant_id_disbursements_disbursement_id_error_mapper",
+    "get_grants_grant_id_disbursements_error_mapper",
+    "get_grants_grant_id_error_mapper",
+    "get_grants_id_error_mapper",
+    "get_legal_entities_id_accepted_terms_of_service_document_termsofserviceacceptancereference_error_mapper",
+    "get_legal_entities_id_business_lines_error_mapper",
+    "get_legal_entities_id_error_mapper",
+    "get_legal_entities_id_pci_questionnaires_error_mapper",
+    "get_legal_entities_id_pci_questionnaires_pciid_error_mapper",
+    "get_legal_entities_id_terms_of_service_acceptance_infos_error_mapper",
+    "get_legal_entities_id_terms_of_service_status_error_mapper",
+    "get_mandates_error_mapper",
+    "get_mandates_mandate_id_error_mapper",
+    "get_me_allowed_origins_error_mapper",
+    "get_me_allowed_origins_origin_id_error_mapper",
+    "get_me_error_mapper",
+    "get_merchants_error_mapper",
+    "get_merchants_merchant_id_api_credentials_api_credential_id_allowed_origins_error_mapper",
+    "get_merchants_merchant_id_api_credentials_api_credential_id_allowed_origins_origin_id_error_mapper",
+    "get_merchants_merchant_id_api_credentials_api_credential_id_error_mapper",
+    "get_merchants_merchant_id_api_credentials_error_mapper",
+    "get_merchants_merchant_id_billing_entities_error_mapper",
+    "get_merchants_merchant_id_error_mapper",
+    "get_merchants_merchant_id_payment_method_settings_error_mapper",
+    "get_merchants_merchant_id_payment_method_settings_payment_method_id_error_mapper",
+    "get_merchants_merchant_id_payment_method_settings_payment_method_id_get_apple_pay_domains_error_mapper",
+    "get_merchants_merchant_id_payments_apps_error_mapper",
+    "get_merchants_merchant_id_payout_settings_error_mapper",
+    "get_merchants_merchant_id_payout_settings_payout_settings_id_error_mapper",
+    "get_merchants_merchant_id_shipping_locations_error_mapper",
+    "get_merchants_merchant_id_split_configurations_error_mapper",
+    "get_merchants_merchant_id_split_configurations_split_configuration_id_error_mapper",
+    "get_merchants_merchant_id_stores_error_mapper",
+    "get_merchants_merchant_id_stores_reference_terminal_logos_error_mapper",
+    "get_merchants_merchant_id_stores_reference_terminal_settings_error_mapper",
+    "get_merchants_merchant_id_stores_store_id_error_mapper",
+    "get_merchants_merchant_id_stores_store_id_payments_apps_error_mapper",
+    "get_merchants_merchant_id_terminal_logos_error_mapper",
+    "get_merchants_merchant_id_terminal_models_error_mapper",
+    "get_merchants_merchant_id_terminal_orders_error_mapper",
+    "get_merchants_merchant_id_terminal_orders_order_id_error_mapper",
+    "get_merchants_merchant_id_terminal_products_error_mapper",
+    "get_merchants_merchant_id_terminal_settings_error_mapper",
+    "get_merchants_merchant_id_users_error_mapper",
+    "get_merchants_merchant_id_users_user_id_error_mapper",
+    "get_merchants_merchant_id_webhooks_error_mapper",
+    "get_merchants_merchant_id_webhooks_webhook_id_error_mapper",
+    "get_network_tokens_network_token_id_error_mapper",
+    "get_payment_instrument_groups_id_error_mapper",
+    "get_payment_instrument_groups_id_transaction_rules_error_mapper",
+    "get_payment_instruments_id_error_mapper",
+    "get_payment_instruments_id_network_token_activation_data_error_mapper",
+    "get_payment_instruments_id_network_tokens_error_mapper",
+    "get_payment_instruments_id_reveal_error_mapper",
+    "get_payment_instruments_id_transaction_rules_error_mapper",
+    "get_payment_instruments_payment_instrument_id_authorised_card_users_error_mapper",
+    "get_payment_links_link_id_error_mapper",
+    "get_public_key_error_mapper",
+    "get_registered_devices_error_mapper",
+    "get_sca_associations_error_mapper",
+    "get_stores_error_mapper",
+    "get_stores_store_id_error_mapper",
+    "get_stores_store_id_terminal_logos_error_mapper",
+    "get_stores_store_id_terminal_settings_error_mapper",
+    "get_terminals_error_mapper",
+    "get_terminals_terminal_id_terminal_logos_error_mapper",
+    "get_terminals_terminal_id_terminal_settings_error_mapper",
+    "get_themes_error_mapper",
+    "get_themes_id_error_mapper",
+    "get_transaction_rules_transaction_rule_id_error_mapper",
+    "get_transactions_error_mapper",
+    "get_transactions_id_error_mapper",
+    "get_transfer_instruments_id_error_mapper",
+    "get_transfers_error_mapper",
+    "get_transfers_id_error_mapper",
+    "patch_account_holders_id_error_mapper",
+    "patch_balance_accounts_balance_account_id_payout_schedules_id_error_mapper",
+    "patch_balance_accounts_balance_account_id_recurring_top_ups_top_up_id_error_mapper",
+    "patch_balance_accounts_balance_account_id_sweeps_sweep_id_error_mapper",
+    "patch_balance_accounts_id_error_mapper",
+    "patch_balance_platforms_balance_platform_id_webhooks_webhook_id_settings_setting_id_error_mapper",
+    "patch_business_lines_id_error_mapper",
+    "patch_companies_company_id_android_apps_id_error_mapper",
+    "patch_companies_company_id_api_credentials_api_credential_id_error_mapper",
+    "patch_companies_company_id_campaign_management_donation_campaign_id_error_mapper",
+    "patch_companies_company_id_terminal_logos_error_mapper",
+    "patch_companies_company_id_terminal_orders_order_id_error_mapper",
+    "patch_companies_company_id_terminal_settings_error_mapper",
+    "patch_companies_company_id_users_user_id_error_mapper",
+    "patch_companies_company_id_webhooks_webhook_id_error_mapper",
+    "patch_disputes_id_error_mapper",
+    "patch_documents_id_error_mapper",
+    "patch_grants_grant_id_disbursements_disbursement_id_error_mapper",
+    "patch_legal_entities_id_error_mapper",
+    "patch_legal_entities_id_terms_of_service_termsofservicedocumentid_error_mapper",
+    "patch_mandates_mandate_id_error_mapper",
+    "patch_merchants_merchant_id_api_credentials_api_credential_id_error_mapper",
+    "patch_merchants_merchant_id_payment_method_settings_payment_method_id_error_mapper",
+    "patch_merchants_merchant_id_payout_settings_payout_settings_id_error_mapper",
+    "patch_merchants_merchant_id_split_configurations_split_configuration_id_error_mapper",
+    "patch_merchants_merchant_id_split_configurations_split_configuration_id_rules_rule_id_error_mapper",
+    "patch_merchants_merchant_id_stores_reference_terminal_logos_error_mapper",
+    "patch_merchants_merchant_id_stores_reference_terminal_settings_error_mapper",
+    "patch_merchants_merchant_id_stores_store_id_error_mapper",
+    "patch_merchants_merchant_id_terminal_logos_error_mapper",
+    "patch_merchants_merchant_id_terminal_orders_order_id_error_mapper",
+    "patch_merchants_merchant_id_terminal_settings_error_mapper",
+    "patch_merchants_merchant_id_users_user_id_error_mapper",
+    "patch_merchants_merchant_id_webhooks_webhook_id_error_mapper",
+    "patch_merchants_split_configurations_rules_split_logic_error_mapper",
+    "patch_network_tokens_network_token_id_error_mapper",
+    "patch_payment_instruments_id_error_mapper",
+    "patch_payment_instruments_payment_instrument_id_authorised_card_users_error_mapper",
+    "patch_payment_links_link_id_error_mapper",
+    "patch_registered_devices_device_id_associations_error_mapper",
+    "patch_registered_devices_id_error_mapper",
+    "patch_sca_associations_error_mapper",
+    "patch_sca_devices_device_id_error_mapper",
+    "patch_stores_store_id_error_mapper",
+    "patch_stores_store_id_terminal_logos_error_mapper",
+    "patch_stores_store_id_terminal_settings_error_mapper",
+    "patch_terminals_terminal_id_terminal_logos_error_mapper",
+    "patch_terminals_terminal_id_terminal_settings_error_mapper",
+    "patch_transaction_rules_transaction_rule_id_error_mapper",
+    "patch_transfer_instruments_id_error_mapper",
+    "post_accept_dispute_error_mapper",
+    "post_account_holder_balance_error_mapper",
+    "post_account_holder_transaction_list_error_mapper",
+    "post_account_holders_error_mapper",
+    "post_account_verification_routes_error_mapper",
+    "post_adjust_authorisation_error_mapper",
+    "post_assign_terminals_error_mapper",
+    "post_auth_certificate_error_mapper",
+    "post_authorise3_d_error_mapper",
+    "post_authorise3_ds2_error_mapper",
+    "post_authorise_error_mapper",
+    "post_balance_accounts_balance_account_id_payout_schedules_error_mapper",
+    "post_balance_accounts_balance_account_id_recurring_top_ups_error_mapper",
+    "post_balance_accounts_balance_account_id_sweeps_error_mapper",
+    "post_balance_accounts_error_mapper",
+    "post_balance_accounts_id_transfer_limits_approve_error_mapper",
+    "post_balance_accounts_id_transfer_limits_error_mapper",
+    "post_balance_platforms_balance_platform_id_webhooks_webhook_id_settings_error_mapper",
+    "post_balance_platforms_id_transfer_limits_error_mapper",
+    "post_balance_transfers_error_mapper",
+    "post_business_lines_error_mapper",
+    "post_cancel_error_mapper",
+    "post_cancel_or_refund_error_mapper",
+    "post_cancels_error_mapper",
+    "post_capture_error_mapper",
+    "post_cashouts_error_mapper",
+    "post_change_status_error_mapper",
+    "post_check_account_holder_error_mapper",
+    "post_check_balance_error_mapper",
+    "post_close_account_error_mapper",
+    "post_close_account_holder_error_mapper",
+    "post_close_stores_error_mapper",
+    "post_companies_company_id_android_apps_error_mapper",
+    "post_companies_company_id_android_certificates_error_mapper",
+    "post_companies_company_id_api_credentials_api_credential_id_allowed_origins_error_mapper",
+    "post_companies_company_id_api_credentials_api_credential_id_generate_api_key_error_mapper",
+    "post_companies_company_id_api_credentials_api_credential_id_generate_client_key_error_mapper",
+    "post_companies_company_id_api_credentials_error_mapper",
+    "post_companies_company_id_campaign_management_donation_campaign_id_status_status_error_mapper",
+    "post_companies_company_id_campaign_management_error_mapper",
+    "post_companies_company_id_nonprofits_error_mapper",
+    "post_companies_company_id_shipping_locations_error_mapper",
+    "post_companies_company_id_terminal_orders_error_mapper",
+    "post_companies_company_id_terminal_orders_order_id_cancel_error_mapper",
+    "post_companies_company_id_users_error_mapper",
+    "post_companies_company_id_webhooks_error_mapper",
+    "post_companies_company_id_webhooks_webhook_id_generate_hmac_error_mapper",
+    "post_companies_company_id_webhooks_webhook_id_test_error_mapper",
+    "post_confirm_third_party_error_mapper",
+    "post_create_account_error_mapper",
+    "post_create_account_holder_error_mapper",
+    "post_create_notification_configuration_error_mapper",
+    "post_create_permit_error_mapper",
+    "post_create_test_card_ranges_error_mapper",
+    "post_debit_account_holder_error_mapper",
+    "post_decline_third_party_error_mapper",
+    "post_defend_dispute_error_mapper",
+    "post_delete_bank_accounts_error_mapper",
+    "post_delete_dispute_defense_document_error_mapper",
+    "post_delete_legal_arrangements_error_mapper",
+    "post_delete_notification_configurations_error_mapper",
+    "post_delete_payout_methods_error_mapper",
+    "post_delete_shareholders_error_mapper",
+    "post_delete_signatories_error_mapper",
+    "post_disable_error_mapper",
+    "post_disable_permit_error_mapper",
+    "post_disputes_dispute_id_attachments_error_mapper",
+    "post_disputes_error_mapper",
+    "post_documents_error_mapper",
+    "post_donate_error_mapper",
+    "post_donation_campaigns_error_mapper",
+    "post_donations_error_mapper",
+    "post_dynamic_offers_id_calculate_error_mapper",
+    "post_dynamic_offers_id_grant_offer_error_mapper",
+    "post_find_terminal_error_mapper",
+    "post_get3_ds_availability_error_mapper",
+    "post_get_account_holder_error_mapper",
+    "post_get_authentication_result_error_mapper",
+    "post_get_cost_estimate_error_mapper",
+    "post_get_notification_configuration_error_mapper",
+    "post_get_notification_configuration_list_error_mapper",
+    "post_get_onboarding_url_error_mapper",
+    "post_get_pci_questionnaire_url_error_mapper",
+    "post_get_stores_under_account_error_mapper",
+    "post_get_tax_form_error_mapper",
+    "post_get_terminal_details_error_mapper",
+    "post_get_terminals_under_account_error_mapper",
+    "post_get_uploaded_documents_error_mapper",
+    "post_grants2_error_mapper",
+    "post_grants_error_mapper",
+    "post_ideal_profile_auth_link_error_mapper",
+    "post_ideal_profile_authenticate_error_mapper",
+    "post_ideal_profile_register_error_mapper",
+    "post_issue_error_mapper",
+    "post_legal_entities_error_mapper",
+    "post_legal_entities_id_check_tax_electronic_delivery_consent_error_mapper",
+    "post_legal_entities_id_check_verification_errors_error_mapper",
+    "post_legal_entities_id_confirm_data_review_error_mapper",
+    "post_legal_entities_id_onboarding_links_error_mapper",
+    "post_legal_entities_id_pci_questionnaires_generate_pci_templates_error_mapper",
+    "post_legal_entities_id_pci_questionnaires_sign_pci_templates_error_mapper",
+    "post_legal_entities_id_pci_questionnaires_signing_required_error_mapper",
+    "post_legal_entities_id_set_tax_electronic_delivery_consent_error_mapper",
+    "post_legal_entities_id_terms_of_service_error_mapper",
+    "post_list_recurring_details_error_mapper",
+    "post_load_error_mapper",
+    "post_mandates_mandate_id_cancel_error_mapper",
+    "post_me_allowed_origins_error_mapper",
+    "post_me_generate_client_key_error_mapper",
+    "post_merchants_error_mapper",
+    "post_merchants_merchant_id_activate_error_mapper",
+    "post_merchants_merchant_id_api_credentials_api_credential_id_allowed_origins_error_mapper",
+    "post_merchants_merchant_id_api_credentials_api_credential_id_generate_api_key_error_mapper",
+    "post_merchants_merchant_id_api_credentials_api_credential_id_generate_client_key_error_mapper",
+    "post_merchants_merchant_id_api_credentials_error_mapper",
+    "post_merchants_merchant_id_generate_payments_app_boarding_token_error_mapper",
+    "post_merchants_merchant_id_payment_method_settings_error_mapper",
+    "post_merchants_merchant_id_payment_method_settings_payment_method_id_add_apple_pay_domains_error_mapper",
+    "post_merchants_merchant_id_payments_apps_installation_id_revoke_error_mapper",
+    "post_merchants_merchant_id_payout_settings_error_mapper",
+    "post_merchants_merchant_id_shipping_locations_error_mapper",
+    "post_merchants_merchant_id_split_configurations_error_mapper",
+    "post_merchants_merchant_id_split_configurations_split_configuration_id_error_mapper",
+    "post_merchants_merchant_id_stores_error_mapper",
+    "post_merchants_merchant_id_stores_store_id_generate_payments_app_boarding_token_error_mapper",
+    "post_merchants_merchant_id_terminal_orders_error_mapper",
+    "post_merchants_merchant_id_terminal_orders_order_id_cancel_error_mapper",
+    "post_merchants_merchant_id_users_error_mapper",
+    "post_merchants_merchant_id_webhooks_error_mapper",
+    "post_merchants_merchant_id_webhooks_webhook_id_generate_hmac_error_mapper",
+    "post_merchants_merchant_id_webhooks_webhook_id_test_error_mapper",
+    "post_merge_balance_error_mapper",
+    "post_notify_shopper_error_mapper",
+    "post_orders_cancel_error_mapper",
+    "post_orders_error_mapper",
+    "post_origin_keys_error_mapper",
+    "post_payment_instrument_groups_error_mapper",
+    "post_payment_instruments_error_mapper",
+    "post_payment_instruments_id_network_token_activation_data_error_mapper",
+    "post_payment_instruments_payment_instrument_id_authorised_card_users_error_mapper",
+    "post_payment_instruments_reveal_error_mapper",
+    "post_payment_links_error_mapper",
+    "post_payment_methods_balance_error_mapper",
+    "post_payment_methods_error_mapper",
+    "post_payments_cancel_error_mapper",
+    "post_payments_confirm_error_mapper",
+    "post_payments_details1_error_mapper",
+    "post_payments_details_error_mapper",
+    "post_payments_error_mapper",
+    "post_payments_payment_psp_reference_amount_updates_error_mapper",
+    "post_payments_payment_psp_reference_cancels_error_mapper",
+    "post_payments_payment_psp_reference_captures_error_mapper",
+    "post_payments_payment_psp_reference_refunds_error_mapper",
+    "post_payments_payment_psp_reference_reversals_error_mapper",
+    "post_payout_account_holder_error_mapper",
+    "post_payout_error_mapper",
+    "post_paypal_update_order_error_mapper",
+    "post_pins_change_error_mapper",
+    "post_pins_reveal_error_mapper",
+    "post_rates_calculate_error_mapper",
+    "post_refund_error_mapper",
+    "post_refund_funds_transfer_error_mapper",
+    "post_refund_not_paid_out_transfers_error_mapper",
+    "post_registered_devices_device_id_associations_error_mapper",
+    "post_registered_devices_error_mapper",
+    "post_request_subject_erasure_error_mapper",
+    "post_retrieve3_ds2_result_error_mapper",
+    "post_retrieve_applicable_defense_reasons_error_mapper",
+    "post_sca_devices_device_id_sca_associations_error_mapper",
+    "post_sca_devices_error_mapper",
+    "post_schedule_account_updater_error_mapper",
+    "post_sessions2_error_mapper",
+    "post_setup_beneficiary_error_mapper",
+    "post_store_detail_and_submit_third_party_error_mapper",
+    "post_store_detail_error_mapper",
+    "post_stores_error_mapper",
+    "post_submit_third_party_error_mapper",
+    "post_supply_defense_document_error_mapper",
+    "post_suspend_account_holder_error_mapper",
+    "post_technical_cancel_error_mapper",
+    "post_terminals_schedule_actions_error_mapper",
+    "post_terminals_terminal_id_reassign_error_mapper",
+    "post_test_notification_configuration_error_mapper",
+    "post_transaction_rules_error_mapper",
+    "post_transfer_funds_error_mapper",
+    "post_transfer_instruments_error_mapper",
+    "post_transfer_routes_calculate_error_mapper",
+    "post_transfers_approve_error_mapper",
+    "post_transfers_cancel_error_mapper",
+    "post_transfers_error_mapper",
+    "post_transfers_transfer_id_returns_error_mapper",
+    "post_un_suspend_account_holder_error_mapper",
+    "post_update_account_error_mapper",
+    "post_update_account_holder_error_mapper",
+    "post_update_account_holder_state_error_mapper",
+    "post_update_notification_configuration_error_mapper",
+    "post_upload_document_error_mapper",
+    "post_validate_bank_account_identification_error_mapper",
+    "post_validate_shopper_id_error_mapper",
+    "post_void_pending_refund_error_mapper",
+    "post_void_transaction_error_mapper",
+]

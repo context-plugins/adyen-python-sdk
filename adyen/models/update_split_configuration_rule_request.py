@@ -1,0 +1,51 @@
+from __future__ import annotations
+
+from pydantic import Field
+from typing_extensions import TypedDict
+
+from ..core import SdkBaseModel
+
+
+class UpdateSplitConfigurationRuleRequest(SdkBaseModel):
+    currency: str
+    """The currency condition that defines whether the split logic applies. Its value must be a three-character `ISO
+    currency code <https://en.wikipedia.org/wiki/ISO_4217>`__."""
+
+    funding_source: str = Field(alias="fundingSource")
+    """The funding source of the payment method.
+
+    Possible values:
+    * **credit**
+    * **debit**
+    * **prepaid**
+    * **deferred_debit**
+    * **charged**
+    * **ANY**"""
+
+    payment_method: str = Field(alias="paymentMethod")
+    """The payment method condition that defines whether the split logic applies.
+
+    Possible values:
+    * `Payment method variant <https://docs.adyen.com/development-resources/paymentmethodvariant>`__: Apply the split
+        logic for a specific payment method.
+    * **ANY**: Apply the split logic for all available payment methods."""
+
+    shopper_interaction: str = Field(alias="shopperInteraction")
+    """The sales channel condition that defines whether the split logic applies.
+
+    Possible values:
+    * **Ecommerce**: Online transactions where the cardholder is present.
+    * **ContAuth**: Card on file and/or subscription transactions, where the cardholder is known to the merchant
+        (returning customer).
+    * **Moto**: Mail-order and telephone-order transactions where the customer is in contact with the merchant via email
+        or telephone.
+    * **POS**: Point-of-sale transactions where the customer is physically present to make a payment using a secure
+        payment terminal.
+    * **ANY**: All sales channels."""
+
+
+class UpdateSplitConfigurationRuleRequestDict(TypedDict):
+    currency: str
+    funding_source: str
+    payment_method: str
+    shopper_interaction: str

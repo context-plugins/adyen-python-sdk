@@ -1,0 +1,18 @@
+from __future__ import annotations
+
+from pydantic import Field
+from typing_extensions import NotRequired, TypedDict
+
+from ..core import UNSET, Optional, SdkBaseModel
+
+
+class OfflineProcessing1(SdkBaseModel):
+    """Settings for EMV `offline payment <https://docs.adyen.com/point-of-sale/offline-payments>`__ features."""
+
+    chip_floor_limit: Optional[int] = Field(default=UNSET, alias="chipFloorLimit")
+    """The maximum offline transaction amount for chip cards, in the processing currency and specified in `minor units
+    <https://docs.adyen.com/development-resources/currency-codes>`__."""
+
+
+class OfflineProcessing1Dict(TypedDict):
+    chip_floor_limit: NotRequired[int]
