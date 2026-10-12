@@ -24,6 +24,6 @@ class TransferInstrumentInfo(SdkBaseModel):
 
 
 class TransferInstrumentInfoDict(TypedDict):
-    bank_account: BankAccountInfo1 | BankAccountInfo1Dict
+    bank_account: BankAccountInfo1Dict
     legal_entity_id: str
     type_: Type221OrStr

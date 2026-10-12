@@ -35,9 +35,9 @@ class CardAcquisitionResponse2(SdkBaseModel):
 
 
 class CardAcquisitionResponse2Dict(TypedDict):
-    response: Response11 | Response11Dict
-    sale_data: SaleData1 | SaleData1Dict
-    poi_data: Poidata1 | Poidata1Dict
+    response: Response11Dict
+    sale_data: SaleData1Dict
+    poi_data: Poidata1Dict
     payment_brand: NotRequired[list[str]]
-    payment_instrument_data: NotRequired[PaymentInstrumentData1 | PaymentInstrumentData1Dict]
-    loyalty_account: NotRequired[list[LoyaltyAccount | LoyaltyAccountDict]]
+    payment_instrument_data: NotRequired[PaymentInstrumentData1Dict]
+    loyalty_account: NotRequired[list[LoyaltyAccountDict]]

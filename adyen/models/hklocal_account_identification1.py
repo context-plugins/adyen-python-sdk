@@ -1,9 +1,7 @@
 from __future__ import annotations
 
-from typing import Literal
-
 from pydantic import Field
-from typing_extensions import NotRequired, TypedDict
+from typing_extensions import TypedDict
 
 from ..core import SdkBaseModel
 
@@ -11,7 +9,8 @@ from ..core import SdkBaseModel
 class HklocalAccountIdentification1(SdkBaseModel):
     """All Of BankAccountIdentification, HKLocalAccountIdentification1."""
 
-    type_: Literal["hkLocal"] = Field(default="hkLocal", alias="type")
+    type_: str = Field(default="hkLocal", alias="type")
+    """**hkLocal**"""
 
     account_number: str = Field(alias="accountNumber")
     """The 9- to 17-digit bank account number, without separators or whitespace. Starts with the 3-digit branch code."""
@@ -21,6 +20,6 @@ class HklocalAccountIdentification1(SdkBaseModel):
 
 
 class HklocalAccountIdentification1Dict(TypedDict):
-    type_: NotRequired[Literal["hkLocal"]]
+    type_: str
     account_number: str
     clearing_code: str

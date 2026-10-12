@@ -25,6 +25,6 @@ class CashOutTransfer(SdkBaseModel):
 
 
 class CashOutTransferDict(TypedDict):
-    amount: Amount17 | Amount17Dict
+    amount: Amount17Dict
     id: str
     type_: Type121OrStr

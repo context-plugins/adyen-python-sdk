@@ -20,5 +20,5 @@ class SplitConfiguration(SdkBaseModel):
 
 class SplitConfigurationDict(TypedDict):
     description: str
-    rules: list[SplitConfigurationRule | SplitConfigurationRuleDict]
+    rules: list[SplitConfigurationRuleDict]
     split_configuration_id: NotRequired[str]

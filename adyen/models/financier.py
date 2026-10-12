@@ -22,7 +22,7 @@ class Financier(SdkBaseModel):
 
 
 class FinancierDict(TypedDict):
-    amount: PatchableAmountDto | PatchableAmountDtoDict
+    amount: PatchableAmountDtoDict
     first_name: str
     last_name: str
     location: str

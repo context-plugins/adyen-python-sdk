@@ -25,5 +25,5 @@ class CapturedSignature1(SdkBaseModel):
 
 
 class CapturedSignature1Dict(TypedDict):
-    area_size: NotRequired[AreaSize1 | AreaSize1Dict]
-    signature_point: NotRequired[list[Point | PointDict]]
+    area_size: NotRequired[AreaSize1Dict]
+    signature_point: NotRequired[list[PointDict]]

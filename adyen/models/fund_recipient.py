@@ -56,13 +56,13 @@ class FundRecipient(SdkBaseModel):
 
 class FundRecipientDict(TypedDict):
     iban: NotRequired[str]
-    billing_address: NotRequired[Address3 | Address3Dict]
-    payment_method: NotRequired[CardDetails1 | CardDetails1Dict]
+    billing_address: NotRequired[Address3Dict]
+    payment_method: NotRequired[CardDetails1Dict]
     shopper_email: NotRequired[str]
-    shopper_name: NotRequired[Name2 | Name2Dict]
+    shopper_name: NotRequired[Name2Dict]
     shopper_reference: NotRequired[str]
     stored_payment_method_id: NotRequired[str]
-    sub_merchant: NotRequired[SubMerchant2 | SubMerchant2Dict]
+    sub_merchant: NotRequired[SubMerchant2Dict]
     telephone_number: NotRequired[str]
     wallet_identifier: NotRequired[str]
     wallet_owner_tax_id: NotRequired[str]

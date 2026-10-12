@@ -9,8 +9,10 @@ from ..core import (
     RawClient,
     RequestOptionsOrDict,
     SecuredRawResponse,
+    async_json_decoder,
     json_decoder,
     param,
+    unwrap,
 )
 from ..errors.get_balance_platforms_id_account_holders_error import (
     GetBalancePlatformsIdAccountHoldersErrorBody,
@@ -35,13 +37,14 @@ class Platform:
         self._with_raw_response = PlatformWithRawResponse(client, server, auth)
 
     def get_balance_platforms_id(
-        self, id: str, *, request_options: RequestOptionsOrDict | None = None
+        self, id_: str, *, request_options: RequestOptionsOrDict | None = None
     ) -> BalancePlatform:
         """Returns a balance platform.
 
         Args:
-            id: The unique identifier of the balance platform.
-            request_options: Per-call overrides for this one request, such as a timeout or extra headers.
+            id_: The unique identifier of the balance platform.
+            request_options: Per-call overrides for this one request, such as a timeout, extra headers, or its retry
+                count and statuses.
 
         Returns:
             OK - the request has succeeded.
@@ -51,11 +54,11 @@ class Platform:
                 required. Forbidden - insufficient permissions to process the request. Unprocessable Entity - a request
                 validation error. Internal Server Error - the server could not process the request. ``error`` is
                 ``RestServiceError | RawError``."""
-        return self._with_raw_response.get_balance_platforms_id(id, request_options=request_options).unwrap()
+        return unwrap(self._with_raw_response.get_balance_platforms_id(id_, request_options=request_options))
 
     def get_balance_platforms_id_account_holders(
         self,
-        id: str,
+        id_: str,
         *,
         offset: int | None = None,
         limit: int | None = None,
@@ -68,11 +71,12 @@ class Platform:
         ``/balancePlatforms/{id}/accountHolders?limit=5&offset=20``.
 
         Args:
-            id: The unique identifier of the balance platform.
+            id_: The unique identifier of the balance platform.
             offset: The number of items that you want to skip.
             limit: The number of items returned per page, maximum 100 items. By default, the response returns 10 items
                 per page.
-            request_options: Per-call overrides for this one request, such as a timeout or extra headers.
+            request_options: Per-call overrides for this one request, such as a timeout, extra headers, or its retry
+                count and statuses.
 
         Returns:
             OK - the request has succeeded.
@@ -82,18 +86,21 @@ class Platform:
                 required. Forbidden - insufficient permissions to process the request. Unprocessable Entity - a request
                 validation error. Internal Server Error - the server could not process the request. ``error`` is
                 ``RestServiceError | RawError``."""
-        return self._with_raw_response.get_balance_platforms_id_account_holders(
-            id, offset=offset, limit=limit, request_options=request_options
-        ).unwrap()
+        return unwrap(
+            self._with_raw_response.get_balance_platforms_id_account_holders(
+                id_, offset=offset, limit=limit, request_options=request_options
+            ),
+        )
 
     def get_balance_platforms_id_transaction_rules(
-        self, id: str, *, request_options: RequestOptionsOrDict | None = None
+        self, id_: str, *, request_options: RequestOptionsOrDict | None = None
     ) -> TransactionRulesResponse:
         """Returns a list of transaction rules associated with a balance platform.
 
         Args:
-            id: The unique identifier of the balance platform.
-            request_options: Per-call overrides for this one request, such as a timeout or extra headers.
+            id_: The unique identifier of the balance platform.
+            request_options: Per-call overrides for this one request, such as a timeout, extra headers, or its retry
+                count and statuses.
 
         Returns:
             OK - the request has succeeded.
@@ -103,9 +110,9 @@ class Platform:
                 required. Forbidden - insufficient permissions to process the request. Unprocessable Entity - a request
                 validation error. Internal Server Error - the server could not process the request. ``error`` is
                 ``RestServiceError | RawError``."""
-        return self._with_raw_response.get_balance_platforms_id_transaction_rules(
-            id, request_options=request_options
-        ).unwrap()
+        return unwrap(
+            self._with_raw_response.get_balance_platforms_id_transaction_rules(id_, request_options=request_options)
+        )
 
     @property
     def with_raw_response(self) -> PlatformWithRawResponse:
@@ -117,13 +124,14 @@ class AsyncPlatform:
         self._with_raw_response = AsyncPlatformWithRawResponse(client, server, auth)
 
     async def get_balance_platforms_id(
-        self, id: str, *, request_options: RequestOptionsOrDict | None = None
+        self, id_: str, *, request_options: RequestOptionsOrDict | None = None
     ) -> BalancePlatform:
         """Returns a balance platform.
 
         Args:
-            id: The unique identifier of the balance platform.
-            request_options: Per-call overrides for this one request, such as a timeout or extra headers.
+            id_: The unique identifier of the balance platform.
+            request_options: Per-call overrides for this one request, such as a timeout, extra headers, or its retry
+                count and statuses.
 
         Returns:
             OK - the request has succeeded.
@@ -133,11 +141,11 @@ class AsyncPlatform:
                 required. Forbidden - insufficient permissions to process the request. Unprocessable Entity - a request
                 validation error. Internal Server Error - the server could not process the request. ``error`` is
                 ``RestServiceError | RawError``."""
-        return (await self._with_raw_response.get_balance_platforms_id(id, request_options=request_options)).unwrap()
+        return unwrap(await self._with_raw_response.get_balance_platforms_id(id_, request_options=request_options))
 
     async def get_balance_platforms_id_account_holders(
         self,
-        id: str,
+        id_: str,
         *,
         offset: int | None = None,
         limit: int | None = None,
@@ -150,11 +158,12 @@ class AsyncPlatform:
         ``/balancePlatforms/{id}/accountHolders?limit=5&offset=20``.
 
         Args:
-            id: The unique identifier of the balance platform.
+            id_: The unique identifier of the balance platform.
             offset: The number of items that you want to skip.
             limit: The number of items returned per page, maximum 100 items. By default, the response returns 10 items
                 per page.
-            request_options: Per-call overrides for this one request, such as a timeout or extra headers.
+            request_options: Per-call overrides for this one request, such as a timeout, extra headers, or its retry
+                count and statuses.
 
         Returns:
             OK - the request has succeeded.
@@ -164,20 +173,21 @@ class AsyncPlatform:
                 required. Forbidden - insufficient permissions to process the request. Unprocessable Entity - a request
                 validation error. Internal Server Error - the server could not process the request. ``error`` is
                 ``RestServiceError | RawError``."""
-        return (
+        return unwrap(
             await self._with_raw_response.get_balance_platforms_id_account_holders(
-                id, offset=offset, limit=limit, request_options=request_options
-            )
-        ).unwrap()
+                id_, offset=offset, limit=limit, request_options=request_options
+            ),
+        )
 
     async def get_balance_platforms_id_transaction_rules(
-        self, id: str, *, request_options: RequestOptionsOrDict | None = None
+        self, id_: str, *, request_options: RequestOptionsOrDict | None = None
     ) -> TransactionRulesResponse:
         """Returns a list of transaction rules associated with a balance platform.
 
         Args:
-            id: The unique identifier of the balance platform.
-            request_options: Per-call overrides for this one request, such as a timeout or extra headers.
+            id_: The unique identifier of the balance platform.
+            request_options: Per-call overrides for this one request, such as a timeout, extra headers, or its retry
+                count and statuses.
 
         Returns:
             OK - the request has succeeded.
@@ -187,11 +197,11 @@ class AsyncPlatform:
                 required. Forbidden - insufficient permissions to process the request. Unprocessable Entity - a request
                 validation error. Internal Server Error - the server could not process the request. ``error`` is
                 ``RestServiceError | RawError``."""
-        return (
+        return unwrap(
             await self._with_raw_response.get_balance_platforms_id_transaction_rules(
-                id, request_options=request_options
-            )
-        ).unwrap()
+                id_, request_options=request_options
+            ),
+        )
 
     @property
     def with_raw_response(self) -> AsyncPlatformWithRawResponse:
@@ -200,20 +210,21 @@ class AsyncPlatform:
 
 class PlatformWithRawResponse(SecuredRawResponse[RawClient, Server, AuthSchemes]):
     def get_balance_platforms_id(
-        self, id: str, *, request_options: RequestOptionsOrDict | None = None
+        self, id_: str, *, request_options: RequestOptionsOrDict | None = None
     ) -> ApiResult[BalancePlatform, GetBalancePlatformsIdErrorBody]:
         """Returns a balance platform.
 
         Args:
-            id: The unique identifier of the balance platform.
-            request_options: Per-call overrides for this one request, such as a timeout or extra headers.
+            id_: The unique identifier of the balance platform.
+            request_options: Per-call overrides for this one request, such as a timeout, extra headers, or its retry
+                count and statuses.
 
         Returns:
             An ``ApiResult`` holding the deserialized response or the error body."""
         return self._client.execute(
             http_method="GET",
             url_template=self._server.default13("/balancePlatforms/{id}"),
-            path_params=[param[str]("id", id)],
+            path_params=[param[str]("id", id_)],
             auth_scheme=AnySchemes(self._auth.client_key, self._auth.basic_auth, self._auth.api_key_auth),
             decoder=json_decoder[BalancePlatform],
             error_mapper=get_balance_platforms_id_error_mapper,
@@ -222,7 +233,7 @@ class PlatformWithRawResponse(SecuredRawResponse[RawClient, Server, AuthSchemes]
 
     def get_balance_platforms_id_account_holders(
         self,
-        id: str,
+        id_: str,
         *,
         offset: int | None = None,
         limit: int | None = None,
@@ -235,18 +246,19 @@ class PlatformWithRawResponse(SecuredRawResponse[RawClient, Server, AuthSchemes]
         ``/balancePlatforms/{id}/accountHolders?limit=5&offset=20``.
 
         Args:
-            id: The unique identifier of the balance platform.
+            id_: The unique identifier of the balance platform.
             offset: The number of items that you want to skip.
             limit: The number of items returned per page, maximum 100 items. By default, the response returns 10 items
                 per page.
-            request_options: Per-call overrides for this one request, such as a timeout or extra headers.
+            request_options: Per-call overrides for this one request, such as a timeout, extra headers, or its retry
+                count and statuses.
 
         Returns:
             An ``ApiResult`` holding the deserialized response or the error body."""
         return self._client.execute(
             http_method="GET",
             url_template=self._server.default13("/balancePlatforms/{id}/accountHolders"),
-            path_params=[param[str]("id", id)],
+            path_params=[param[str]("id", id_)],
             query_params=[param[int | None]("offset", offset), param[int | None]("limit", limit)],
             auth_scheme=AnySchemes(self._auth.client_key, self._auth.basic_auth, self._auth.api_key_auth),
             decoder=json_decoder[PaginatedAccountHoldersResponse],
@@ -255,20 +267,21 @@ class PlatformWithRawResponse(SecuredRawResponse[RawClient, Server, AuthSchemes]
         )
 
     def get_balance_platforms_id_transaction_rules(
-        self, id: str, *, request_options: RequestOptionsOrDict | None = None
+        self, id_: str, *, request_options: RequestOptionsOrDict | None = None
     ) -> ApiResult[TransactionRulesResponse, GetBalancePlatformsIdTransactionRulesErrorBody]:
         """Returns a list of transaction rules associated with a balance platform.
 
         Args:
-            id: The unique identifier of the balance platform.
-            request_options: Per-call overrides for this one request, such as a timeout or extra headers.
+            id_: The unique identifier of the balance platform.
+            request_options: Per-call overrides for this one request, such as a timeout, extra headers, or its retry
+                count and statuses.
 
         Returns:
             An ``ApiResult`` holding the deserialized response or the error body."""
         return self._client.execute(
             http_method="GET",
             url_template=self._server.default13("/balancePlatforms/{id}/transactionRules"),
-            path_params=[param[str]("id", id)],
+            path_params=[param[str]("id", id_)],
             auth_scheme=AnySchemes(self._auth.client_key, self._auth.basic_auth, self._auth.api_key_auth),
             decoder=json_decoder[TransactionRulesResponse],
             error_mapper=get_balance_platforms_id_transaction_rules_error_mapper,
@@ -278,29 +291,30 @@ class PlatformWithRawResponse(SecuredRawResponse[RawClient, Server, AuthSchemes]
 
 class AsyncPlatformWithRawResponse(SecuredRawResponse[AsyncRawClient, Server, AsyncAuthSchemes]):
     async def get_balance_platforms_id(
-        self, id: str, *, request_options: RequestOptionsOrDict | None = None
+        self, id_: str, *, request_options: RequestOptionsOrDict | None = None
     ) -> ApiResult[BalancePlatform, GetBalancePlatformsIdErrorBody]:
         """Returns a balance platform.
 
         Args:
-            id: The unique identifier of the balance platform.
-            request_options: Per-call overrides for this one request, such as a timeout or extra headers.
+            id_: The unique identifier of the balance platform.
+            request_options: Per-call overrides for this one request, such as a timeout, extra headers, or its retry
+                count and statuses.
 
         Returns:
             An ``ApiResult`` holding the deserialized response or the error body."""
         return await self._client.execute(
             http_method="GET",
             url_template=self._server.default13("/balancePlatforms/{id}"),
-            path_params=[param[str]("id", id)],
+            path_params=[param[str]("id", id_)],
             auth_scheme=AsyncAnySchemes(self._auth.client_key, self._auth.basic_auth, self._auth.api_key_auth),
-            decoder=json_decoder[BalancePlatform],
+            decoder=async_json_decoder[BalancePlatform],
             error_mapper=get_balance_platforms_id_error_mapper,
             request_options=request_options,
         )
 
     async def get_balance_platforms_id_account_holders(
         self,
-        id: str,
+        id_: str,
         *,
         offset: int | None = None,
         limit: int | None = None,
@@ -313,42 +327,44 @@ class AsyncPlatformWithRawResponse(SecuredRawResponse[AsyncRawClient, Server, As
         ``/balancePlatforms/{id}/accountHolders?limit=5&offset=20``.
 
         Args:
-            id: The unique identifier of the balance platform.
+            id_: The unique identifier of the balance platform.
             offset: The number of items that you want to skip.
             limit: The number of items returned per page, maximum 100 items. By default, the response returns 10 items
                 per page.
-            request_options: Per-call overrides for this one request, such as a timeout or extra headers.
+            request_options: Per-call overrides for this one request, such as a timeout, extra headers, or its retry
+                count and statuses.
 
         Returns:
             An ``ApiResult`` holding the deserialized response or the error body."""
         return await self._client.execute(
             http_method="GET",
             url_template=self._server.default13("/balancePlatforms/{id}/accountHolders"),
-            path_params=[param[str]("id", id)],
+            path_params=[param[str]("id", id_)],
             query_params=[param[int | None]("offset", offset), param[int | None]("limit", limit)],
             auth_scheme=AsyncAnySchemes(self._auth.client_key, self._auth.basic_auth, self._auth.api_key_auth),
-            decoder=json_decoder[PaginatedAccountHoldersResponse],
+            decoder=async_json_decoder[PaginatedAccountHoldersResponse],
             error_mapper=get_balance_platforms_id_account_holders_error_mapper,
             request_options=request_options,
         )
 
     async def get_balance_platforms_id_transaction_rules(
-        self, id: str, *, request_options: RequestOptionsOrDict | None = None
+        self, id_: str, *, request_options: RequestOptionsOrDict | None = None
     ) -> ApiResult[TransactionRulesResponse, GetBalancePlatformsIdTransactionRulesErrorBody]:
         """Returns a list of transaction rules associated with a balance platform.
 
         Args:
-            id: The unique identifier of the balance platform.
-            request_options: Per-call overrides for this one request, such as a timeout or extra headers.
+            id_: The unique identifier of the balance platform.
+            request_options: Per-call overrides for this one request, such as a timeout, extra headers, or its retry
+                count and statuses.
 
         Returns:
             An ``ApiResult`` holding the deserialized response or the error body."""
         return await self._client.execute(
             http_method="GET",
             url_template=self._server.default13("/balancePlatforms/{id}/transactionRules"),
-            path_params=[param[str]("id", id)],
+            path_params=[param[str]("id", id_)],
             auth_scheme=AsyncAnySchemes(self._auth.client_key, self._auth.basic_auth, self._auth.api_key_auth),
-            decoder=json_decoder[TransactionRulesResponse],
+            decoder=async_json_decoder[TransactionRulesResponse],
             error_mapper=get_balance_platforms_id_transaction_rules_error_mapper,
             request_options=request_options,
         )

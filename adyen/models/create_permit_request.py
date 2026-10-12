@@ -23,6 +23,6 @@ class CreatePermitRequest(SdkBaseModel):
 
 class CreatePermitRequestDict(TypedDict):
     merchant_account: str
-    permits: list[Permit | PermitDict]
+    permits: list[PermitDict]
     recurring_detail_reference: str
     shopper_reference: str

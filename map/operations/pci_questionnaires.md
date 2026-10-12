@@ -11,9 +11,9 @@ Each `###` block is one operation and assumes `sdk-map.md` is loaded: blocks omi
 - **Route**: `GET /legalEntities/{id}/pciQuestionnaires`
 - **Auth**: `basic_auth` OR `api_key_auth`
 - **Server**: `default18`
-- **Signature**: `def get_legal_entities_id_pci_questionnaires(id: str, *, request_options: RequestOptionsOrDict | None = None)`
-  - required, positional: `id`
-- **Params**: `id` — path
+- **Signature**: `def get_legal_entities_id_pci_questionnaires(id_: str, *, request_options: RequestOptionsOrDict | None = None)`
+  - required, positional: `id_`
+- **Params**: `id_` — path `id`
 - **Returns (parsed)**: `GetPciQuestionnaireInfosResponse`
 - **Returns (raw)**: `ApiResult[GetPciQuestionnaireInfosResponse, GetLegalEntitiesIdPciQuestionnairesErrorBody]`
 - **Error**: `GetLegalEntitiesIdPciQuestionnairesErrorBody` — **Case A (typed)**
@@ -30,9 +30,9 @@ Each `###` block is one operation and assumes `sdk-map.md` is loaded: blocks omi
 - **Route**: `GET /legalEntities/{id}/pciQuestionnaires/{pciid}`
 - **Auth**: `basic_auth` OR `api_key_auth`
 - **Server**: `default18`
-- **Signature**: `def get_legal_entities_id_pci_questionnaires_pciid(id: str, pciid: str, *, request_options: RequestOptionsOrDict | None = None)`
-  - required, positional: `id`, `pciid`
-- **Params**: `id` — path · `pciid` — path
+- **Signature**: `def get_legal_entities_id_pci_questionnaires_pciid(id_: str, pciid: str, *, request_options: RequestOptionsOrDict | None = None)`
+  - required, positional: `id_`, `pciid`
+- **Params**: `id_` — path `id` · `pciid` — path
 - **Returns (parsed)**: `GetPciQuestionnaireResponse`
 - **Returns (raw)**: `ApiResult[GetPciQuestionnaireResponse, GetLegalEntitiesIdPciQuestionnairesPciidErrorBody]`
 - **Error**: `GetLegalEntitiesIdPciQuestionnairesPciidErrorBody` — **Case A (typed)**
@@ -49,9 +49,9 @@ Each `###` block is one operation and assumes `sdk-map.md` is loaded: blocks omi
 - **Route**: `POST /legalEntities/{id}/pciQuestionnaires/generatePciTemplates`
 - **Auth**: `basic_auth` OR `api_key_auth`
 - **Server**: `default18`
-- **Signature**: `def post_legal_entities_id_pci_questionnaires_generate_pci_templates(id: str, *, body: GeneratePciDescriptionRequest | GeneratePciDescriptionRequestDict | None = None, request_options: RequestOptionsOrDict | None = None)`
-  - required, positional: `id`
-- **Params**: `id` — path · `body` — JSON body
+- **Signature**: `def post_legal_entities_id_pci_questionnaires_generate_pci_templates(id_: str, *, body: GeneratePciDescriptionRequest | GeneratePciDescriptionRequestDict | None = None, request_options: RequestOptionsOrDict | None = None)`
+  - required, positional: `id_`
+- **Params**: `id_` — path `id` · `body` — JSON body
 - **Returns (parsed)**: `GeneratePciDescriptionResponse`
 - **Returns (raw)**: `ApiResult[GeneratePciDescriptionResponse, PostLegalEntitiesIdPciQuestionnairesGeneratePciTemplatesErrorBody]`
 - **Error**: `PostLegalEntitiesIdPciQuestionnairesGeneratePciTemplatesErrorBody` — **Case A (typed)**
@@ -70,9 +70,9 @@ Each `###` block is one operation and assumes `sdk-map.md` is loaded: blocks omi
 - **Route**: `POST /legalEntities/{id}/pciQuestionnaires/signPciTemplates`
 - **Auth**: `basic_auth` OR `api_key_auth`
 - **Server**: `default18`
-- **Signature**: `def post_legal_entities_id_pci_questionnaires_sign_pci_templates(id: str, *, body: PciSigningRequest | PciSigningRequestDict | None = None, request_options: RequestOptionsOrDict | None = None)`
-  - required, positional: `id`
-- **Params**: `id` — path · `body` — JSON body
+- **Signature**: `def post_legal_entities_id_pci_questionnaires_sign_pci_templates(id_: str, *, body: PciSigningRequest | PciSigningRequestDict | None = None, request_options: RequestOptionsOrDict | None = None)`
+  - required, positional: `id_`
+- **Params**: `id_` — path `id` · `body` — JSON body
 - **Returns (parsed)**: `PciSigningResponse`
 - **Returns (raw)**: `ApiResult[PciSigningResponse, PostLegalEntitiesIdPciQuestionnairesSignPciTemplatesErrorBody]`
 - **Error**: `PostLegalEntitiesIdPciQuestionnairesSignPciTemplatesErrorBody` — **Case A (typed)**
@@ -91,9 +91,9 @@ Each `###` block is one operation and assumes `sdk-map.md` is loaded: blocks omi
 - **Route**: `POST /legalEntities/{id}/pciQuestionnaires/signingRequired`
 - **Auth**: `basic_auth` OR `api_key_auth`
 - **Server**: `default18`
-- **Signature**: `def post_legal_entities_id_pci_questionnaires_signing_required(id: str, *, body: CalculatePciStatusRequest | CalculatePciStatusRequestDict | None = None, request_options: RequestOptionsOrDict | None = None)`
-  - required, positional: `id`
-- **Params**: `id` — path · `body` — JSON body
+- **Signature**: `def post_legal_entities_id_pci_questionnaires_signing_required(id_: str, *, body: CalculatePciStatusRequest | CalculatePciStatusRequestDict | None = None, request_options: RequestOptionsOrDict | None = None)`
+  - required, positional: `id_`
+- **Params**: `id_` — path `id` · `body` — JSON body
 - **Returns (parsed)**: `CalculatePciStatusResponse`
 - **Returns (raw)**: `ApiResult[CalculatePciStatusResponse, PostLegalEntitiesIdPciQuestionnairesSigningRequiredErrorBody]`
 - **Error**: `PostLegalEntitiesIdPciQuestionnairesSigningRequiredErrorBody` — **Case A (typed)**

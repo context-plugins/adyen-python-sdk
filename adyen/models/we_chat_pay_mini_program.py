@@ -4,7 +4,7 @@ from pydantic import Field
 from typing_extensions import NotRequired, TypedDict
 
 from ..core import UNSET, Optional, SdkBaseModel
-from .enums.type57 import Type57OrStr
+from .enums.type57 import Type57, Type57OrStr
 
 
 class WeChatPayMiniProgram(SdkBaseModel):
@@ -22,7 +22,7 @@ class WeChatPayMiniProgram(SdkBaseModel):
     stored_payment_method_id: Optional[str] = Field(default=UNSET, alias="storedPaymentMethodId")
     """This is the ``recurringDetailReference`` returned in the response when you created the token."""
 
-    type_: Optional[Type57OrStr] = Field(default=UNSET, alias="type")
+    type_: Type57OrStr = Field(default=Type57.WECHATPAY_MINI_PROGRAM, alias="type")
     """**wechatpayMiniProgram**"""
 
 

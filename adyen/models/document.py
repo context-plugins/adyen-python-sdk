@@ -73,8 +73,8 @@ class Document(SdkBaseModel):
 
 
 class DocumentDict(TypedDict):
-    attachment: NotRequired[Attachment1 | Attachment1Dict]
-    attachments: NotRequired[list[Attachment | AttachmentDict]]
+    attachment: NotRequired[Attachment1Dict]
+    attachments: NotRequired[list[AttachmentDict]]
     creation_date: NotRequired[RFC3339DateTime]
     description: str
     expiry_date: NotRequired[str]
@@ -84,5 +84,5 @@ class DocumentDict(TypedDict):
     issuer_state: NotRequired[str]
     modification_date: NotRequired[RFC3339DateTime]
     number: NotRequired[str]
-    owner: NotRequired[OwnerEntity2 | OwnerEntity2Dict]
+    owner: NotRequired[OwnerEntity2Dict]
     type_: Type84OrStr

@@ -20,8 +20,8 @@ class CapabilitySettings3(SdkBaseModel):
 
 
 class CapabilitySettings3Dict(TypedDict):
-    amount_per_industry: NotRequired[dict[str, Amount17 | Amount17Dict]]
+    amount_per_industry: NotRequired[dict[str, Amount17Dict]]
     authorized_card_users: NotRequired[bool]
     funding_source: NotRequired[list[FundingSourceOrStr]]
     interval: NotRequired[IntervalOrStr]
-    max_amount: NotRequired[Amount17 | Amount17Dict]
+    max_amount: NotRequired[Amount17Dict]

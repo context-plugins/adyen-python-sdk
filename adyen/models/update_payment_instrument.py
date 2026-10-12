@@ -90,12 +90,10 @@ class UpdatePaymentInstrument(SdkBaseModel):
 
 
 class UpdatePaymentInstrumentDict(TypedDict):
-    additional_bank_account_identifications: NotRequired[
-        list[IbanAccountIdentification | IbanAccountIdentificationDict]
-    ]
+    additional_bank_account_identifications: NotRequired[list[IbanAccountIdentificationDict]]
     balance_account_id: str
-    bank_account: NotRequired[BankAccountDetails1 | BankAccountDetails1Dict]
-    card: NotRequired[Card11 | Card11Dict]
+    bank_account: NotRequired[BankAccountDetails1Dict]
+    card: NotRequired[Card11Dict]
     description: NotRequired[str]
     id: str
     issuing_country_code: str

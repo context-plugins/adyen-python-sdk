@@ -8,10 +8,13 @@ from ..core import (
     BaseRawResponse,
     RawClient,
     RequestOptionsOrDict,
+    async_empty_response,
+    async_json_decoder,
     empty_response,
     json_body,
     json_decoder,
     param,
+    unwrap,
 )
 from ..errors.delete_sca_devices_device_id_error import (
     DeleteScaDevicesDeviceIdErrorBody,
@@ -52,7 +55,8 @@ class ScaDeviceManagement:
 
         Args:
             device_id: The unique identifier of the SCA device to delete.
-            request_options: Per-call overrides for this one request, such as a timeout or extra headers.
+            request_options: Per-call overrides for this one request, such as a timeout, extra headers, or its retry
+                count and statuses.
 
         Returns:
             No Content - The device was deleted successfully.
@@ -62,7 +66,7 @@ class ScaDeviceManagement:
                 Authentication required. Forbidden - Insufficient permissions to process the request. Not Found - Device
                 not found. Unprocessable entity - A request validation error. Internal Server Error - The server could
                 not process the request. ``error`` is ``DefaultErrorResponseEntity | RawError``."""
-        return self._with_raw_response.delete_sca_devices_device_id(device_id, request_options=request_options).unwrap()
+        return unwrap(self._with_raw_response.delete_sca_devices_device_id(device_id, request_options=request_options))
 
     def patch_sca_devices_device_id(
         self,
@@ -76,7 +80,8 @@ class ScaDeviceManagement:
         Args:
             device_id: The unique identifier of the SCA device that you are associating with a resource.
             body: The request body.
-            request_options: Per-call overrides for this one request, such as a timeout or extra headers.
+            request_options: Per-call overrides for this one request, such as a timeout, extra headers, or its retry
+                count and statuses.
 
         Returns:
             OK - Device registration was completed successfully.
@@ -86,9 +91,9 @@ class ScaDeviceManagement:
                 Authentication required. Forbidden - Insufficient permissions to process the request. Not Found - Device
                 not found. Unprocessable entity - A request validation error. Internal Server Error - The server could
                 not process the request. ``error`` is ``DefaultErrorResponseEntity | RawError``."""
-        return self._with_raw_response.patch_sca_devices_device_id(
-            device_id, body=body, request_options=request_options
-        ).unwrap()
+        return unwrap(
+            self._with_raw_response.patch_sca_devices_device_id(device_id, body=body, request_options=request_options)
+        )
 
     def post_sca_devices(
         self,
@@ -100,7 +105,8 @@ class ScaDeviceManagement:
 
         Args:
             body: The request body.
-            request_options: Per-call overrides for this one request, such as a timeout or extra headers.
+            request_options: Per-call overrides for this one request, such as a timeout, extra headers, or its retry
+                count and statuses.
 
         Returns:
             Created - A device resource is created. The initial step of registration is complete, but the device isn't
@@ -111,7 +117,7 @@ class ScaDeviceManagement:
                 Authentication required. Forbidden - Insufficient permissions to process the request. Unprocessable
                 entity - A request validation error. Internal Server Error - The server could not process the request.
                 ``error`` is ``DefaultErrorResponseEntity | RawError``."""
-        return self._with_raw_response.post_sca_devices(body=body, request_options=request_options).unwrap()
+        return unwrap(self._with_raw_response.post_sca_devices(body=body, request_options=request_options))
 
     def post_sca_devices_device_id_sca_associations(
         self,
@@ -127,7 +133,8 @@ class ScaDeviceManagement:
         Args:
             device_id: The unique identifier of the SCA device that you are associating with a resource.
             body: The request body.
-            request_options: Per-call overrides for this one request, such as a timeout or extra headers.
+            request_options: Per-call overrides for this one request, such as a timeout, extra headers, or its retry
+                count and statuses.
 
         Returns:
             Created - Association created.
@@ -137,9 +144,11 @@ class ScaDeviceManagement:
                 Authentication required. Forbidden - Insufficient permissions to process the request. Not Found - Device
                 not found. Unprocessable Entity - A request validation error. Internal Server Error - The server could
                 not process the request. ``error`` is ``DefaultErrorResponseEntity | RawError``."""
-        return self._with_raw_response.post_sca_devices_device_id_sca_associations(
-            device_id, body=body, request_options=request_options
-        ).unwrap()
+        return unwrap(
+            self._with_raw_response.post_sca_devices_device_id_sca_associations(
+                device_id, body=body, request_options=request_options
+            ),
+        )
 
     @property
     def with_raw_response(self) -> ScaDeviceManagementWithRawResponse:
@@ -157,7 +166,8 @@ class AsyncScaDeviceManagement:
 
         Args:
             device_id: The unique identifier of the SCA device to delete.
-            request_options: Per-call overrides for this one request, such as a timeout or extra headers.
+            request_options: Per-call overrides for this one request, such as a timeout, extra headers, or its retry
+                count and statuses.
 
         Returns:
             No Content - The device was deleted successfully.
@@ -167,9 +177,9 @@ class AsyncScaDeviceManagement:
                 Authentication required. Forbidden - Insufficient permissions to process the request. Not Found - Device
                 not found. Unprocessable entity - A request validation error. Internal Server Error - The server could
                 not process the request. ``error`` is ``DefaultErrorResponseEntity | RawError``."""
-        return (
+        return unwrap(
             await self._with_raw_response.delete_sca_devices_device_id(device_id, request_options=request_options)
-        ).unwrap()
+        )
 
     async def patch_sca_devices_device_id(
         self,
@@ -183,7 +193,8 @@ class AsyncScaDeviceManagement:
         Args:
             device_id: The unique identifier of the SCA device that you are associating with a resource.
             body: The request body.
-            request_options: Per-call overrides for this one request, such as a timeout or extra headers.
+            request_options: Per-call overrides for this one request, such as a timeout, extra headers, or its retry
+                count and statuses.
 
         Returns:
             OK - Device registration was completed successfully.
@@ -193,11 +204,11 @@ class AsyncScaDeviceManagement:
                 Authentication required. Forbidden - Insufficient permissions to process the request. Not Found - Device
                 not found. Unprocessable entity - A request validation error. Internal Server Error - The server could
                 not process the request. ``error`` is ``DefaultErrorResponseEntity | RawError``."""
-        return (
+        return unwrap(
             await self._with_raw_response.patch_sca_devices_device_id(
                 device_id, body=body, request_options=request_options
-            )
-        ).unwrap()
+            ),
+        )
 
     async def post_sca_devices(
         self,
@@ -209,7 +220,8 @@ class AsyncScaDeviceManagement:
 
         Args:
             body: The request body.
-            request_options: Per-call overrides for this one request, such as a timeout or extra headers.
+            request_options: Per-call overrides for this one request, such as a timeout, extra headers, or its retry
+                count and statuses.
 
         Returns:
             Created - A device resource is created. The initial step of registration is complete, but the device isn't
@@ -220,7 +232,7 @@ class AsyncScaDeviceManagement:
                 Authentication required. Forbidden - Insufficient permissions to process the request. Unprocessable
                 entity - A request validation error. Internal Server Error - The server could not process the request.
                 ``error`` is ``DefaultErrorResponseEntity | RawError``."""
-        return (await self._with_raw_response.post_sca_devices(body=body, request_options=request_options)).unwrap()
+        return unwrap(await self._with_raw_response.post_sca_devices(body=body, request_options=request_options))
 
     async def post_sca_devices_device_id_sca_associations(
         self,
@@ -236,7 +248,8 @@ class AsyncScaDeviceManagement:
         Args:
             device_id: The unique identifier of the SCA device that you are associating with a resource.
             body: The request body.
-            request_options: Per-call overrides for this one request, such as a timeout or extra headers.
+            request_options: Per-call overrides for this one request, such as a timeout, extra headers, or its retry
+                count and statuses.
 
         Returns:
             Created - Association created.
@@ -246,11 +259,11 @@ class AsyncScaDeviceManagement:
                 Authentication required. Forbidden - Insufficient permissions to process the request. Not Found - Device
                 not found. Unprocessable Entity - A request validation error. Internal Server Error - The server could
                 not process the request. ``error`` is ``DefaultErrorResponseEntity | RawError``."""
-        return (
+        return unwrap(
             await self._with_raw_response.post_sca_devices_device_id_sca_associations(
                 device_id, body=body, request_options=request_options
-            )
-        ).unwrap()
+            ),
+        )
 
     @property
     def with_raw_response(self) -> AsyncScaDeviceManagementWithRawResponse:
@@ -265,7 +278,8 @@ class ScaDeviceManagementWithRawResponse(BaseRawResponse[RawClient, Server]):
 
         Args:
             device_id: The unique identifier of the SCA device to delete.
-            request_options: Per-call overrides for this one request, such as a timeout or extra headers.
+            request_options: Per-call overrides for this one request, such as a timeout, extra headers, or its retry
+                count and statuses.
 
         Returns:
             An ``ApiResult`` holding the deserialized response or the error body."""
@@ -291,7 +305,8 @@ class ScaDeviceManagementWithRawResponse(BaseRawResponse[RawClient, Server]):
         Args:
             device_id: The unique identifier of the SCA device that you are associating with a resource.
             body: The request body.
-            request_options: Per-call overrides for this one request, such as a timeout or extra headers.
+            request_options: Per-call overrides for this one request, such as a timeout, extra headers, or its retry
+                count and statuses.
 
         Returns:
             An ``ApiResult`` holding the deserialized response or the error body."""
@@ -316,7 +331,8 @@ class ScaDeviceManagementWithRawResponse(BaseRawResponse[RawClient, Server]):
 
         Args:
             body: The request body.
-            request_options: Per-call overrides for this one request, such as a timeout or extra headers.
+            request_options: Per-call overrides for this one request, such as a timeout, extra headers, or its retry
+                count and statuses.
 
         Returns:
             An ``ApiResult`` holding the deserialized response or the error body."""
@@ -344,7 +360,8 @@ class ScaDeviceManagementWithRawResponse(BaseRawResponse[RawClient, Server]):
         Args:
             device_id: The unique identifier of the SCA device that you are associating with a resource.
             body: The request body.
-            request_options: Per-call overrides for this one request, such as a timeout or extra headers.
+            request_options: Per-call overrides for this one request, such as a timeout, extra headers, or its retry
+                count and statuses.
 
         Returns:
             An ``ApiResult`` holding the deserialized response or the error body."""
@@ -368,7 +385,8 @@ class AsyncScaDeviceManagementWithRawResponse(BaseRawResponse[AsyncRawClient, Se
 
         Args:
             device_id: The unique identifier of the SCA device to delete.
-            request_options: Per-call overrides for this one request, such as a timeout or extra headers.
+            request_options: Per-call overrides for this one request, such as a timeout, extra headers, or its retry
+                count and statuses.
 
         Returns:
             An ``ApiResult`` holding the deserialized response or the error body."""
@@ -377,7 +395,7 @@ class AsyncScaDeviceManagementWithRawResponse(BaseRawResponse[AsyncRawClient, Se
             url_template=self._server.default13("/scaDevices/{deviceId}"),
             path_params=[param[str]("deviceId", device_id)],
             headers=[param[UUID]("Idempotency-Key", uuid4())],
-            decoder=empty_response,
+            decoder=async_empty_response,
             error_mapper=delete_sca_devices_device_id_error_mapper,
             request_options=request_options,
         )
@@ -394,7 +412,8 @@ class AsyncScaDeviceManagementWithRawResponse(BaseRawResponse[AsyncRawClient, Se
         Args:
             device_id: The unique identifier of the SCA device that you are associating with a resource.
             body: The request body.
-            request_options: Per-call overrides for this one request, such as a timeout or extra headers.
+            request_options: Per-call overrides for this one request, such as a timeout, extra headers, or its retry
+                count and statuses.
 
         Returns:
             An ``ApiResult`` holding the deserialized response or the error body."""
@@ -404,7 +423,7 @@ class AsyncScaDeviceManagementWithRawResponse(BaseRawResponse[AsyncRawClient, Se
             path_params=[param[str]("deviceId", device_id)],
             headers=[param[UUID]("Idempotency-Key", uuid4())],
             body=json_body[FinishScaDeviceRegistrationRequest | FinishScaDeviceRegistrationRequestDict | None](body),
-            decoder=json_decoder[FinishScaDeviceRegistrationResponse],
+            decoder=async_json_decoder[FinishScaDeviceRegistrationResponse],
             error_mapper=patch_sca_devices_device_id_error_mapper,
             request_options=request_options,
         )
@@ -419,7 +438,8 @@ class AsyncScaDeviceManagementWithRawResponse(BaseRawResponse[AsyncRawClient, Se
 
         Args:
             body: The request body.
-            request_options: Per-call overrides for this one request, such as a timeout or extra headers.
+            request_options: Per-call overrides for this one request, such as a timeout, extra headers, or its retry
+                count and statuses.
 
         Returns:
             An ``ApiResult`` holding the deserialized response or the error body."""
@@ -428,7 +448,7 @@ class AsyncScaDeviceManagementWithRawResponse(BaseRawResponse[AsyncRawClient, Se
             url_template=self._server.default13("/scaDevices"),
             headers=[param[UUID]("Idempotency-Key", uuid4())],
             body=json_body[BeginScaDeviceRegistrationRequest | BeginScaDeviceRegistrationRequestDict | None](body),
-            decoder=json_decoder[BeginScaDeviceRegistrationResponse],
+            decoder=async_json_decoder[BeginScaDeviceRegistrationResponse],
             error_mapper=post_sca_devices_error_mapper,
             request_options=request_options,
         )
@@ -447,7 +467,8 @@ class AsyncScaDeviceManagementWithRawResponse(BaseRawResponse[AsyncRawClient, Se
         Args:
             device_id: The unique identifier of the SCA device that you are associating with a resource.
             body: The request body.
-            request_options: Per-call overrides for this one request, such as a timeout or extra headers.
+            request_options: Per-call overrides for this one request, such as a timeout, extra headers, or its retry
+                count and statuses.
 
         Returns:
             An ``ApiResult`` holding the deserialized response or the error body."""
@@ -457,7 +478,7 @@ class AsyncScaDeviceManagementWithRawResponse(BaseRawResponse[AsyncRawClient, Se
             path_params=[param[str]("deviceId", device_id)],
             headers=[param[UUID]("Idempotency-Key", uuid4())],
             body=json_body[SubmitScaAssociationRequest | SubmitScaAssociationRequestDict | None](body),
-            decoder=json_decoder[SubmitScaAssociationResponse],
+            decoder=async_json_decoder[SubmitScaAssociationResponse],
             error_mapper=post_sca_devices_device_id_sca_associations_error_mapper,
             request_options=request_options,
         )

@@ -54,12 +54,12 @@ class CardInfo(SdkBaseModel):
 
 
 class CardInfoDict(TypedDict):
-    authentication: NotRequired[Authentication1 | Authentication1Dict]
+    authentication: NotRequired[Authentication1Dict]
     brand: str
     brand_variant: str
     cardholder_name: str
-    configuration: NotRequired[CardConfiguration2 | CardConfiguration2Dict]
-    delivery_contact: NotRequired[DeliveryContact1 | DeliveryContact1Dict]
+    configuration: NotRequired[CardConfiguration2Dict]
+    delivery_contact: NotRequired[DeliveryContact1Dict]
     form_factor: FormFactor1OrStr
     three_d_secure: NotRequired[str]
     usage: NotRequired[str]

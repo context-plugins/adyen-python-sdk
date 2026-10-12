@@ -31,9 +31,9 @@ class PerformedTransaction(SdkBaseModel):
 
 
 class PerformedTransactionDict(TypedDict):
-    response: Response1 | Response1Dict
-    sale_data: NotRequired[SaleData | SaleDataDict]
-    poi_data: NotRequired[Poidata | PoidataDict]
-    payment_result: NotRequired[PaymentResult1 | PaymentResult1Dict]
-    loyalty_result: NotRequired[list[LoyaltyResult | LoyaltyResultDict]]
+    response: Response1Dict
+    sale_data: NotRequired[SaleDataDict]
+    poi_data: NotRequired[PoidataDict]
+    payment_result: NotRequired[PaymentResult1Dict]
+    loyalty_result: NotRequired[list[LoyaltyResultDict]]
     reversed_amount: NotRequired[float]

@@ -61,13 +61,13 @@ class StoreCreationRequest(SdkBaseModel):
 
 
 class StoreCreationRequestDict(TypedDict):
-    address: StoreLocation1 | StoreLocation1Dict
+    address: StoreLocation1Dict
     business_line_ids: NotRequired[list[str]]
     description: str
     external_reference_id: NotRequired[str]
-    localized_information: NotRequired[LocalizedInformation2 | LocalizedInformation2Dict]
+    localized_information: NotRequired[LocalizedInformation2Dict]
     phone_number: str
     reference: NotRequired[str]
     shopper_statement: str
-    split_configuration: NotRequired[StoreSplitConfiguration1 | StoreSplitConfiguration1Dict]
-    sub_merchant_data: NotRequired[SubMerchantData1 | SubMerchantData1Dict]
+    split_configuration: NotRequired[StoreSplitConfiguration1Dict]
+    sub_merchant_data: NotRequired[SubMerchantData1Dict]

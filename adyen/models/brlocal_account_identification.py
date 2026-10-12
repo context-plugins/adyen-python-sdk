@@ -30,4 +30,4 @@ class BrlocalAccountIdentificationDict(TypedDict):
     bank_code: str
     branch_number: str
     ispb: NotRequired[str]
-    type_: NotRequired[Literal["brLocal"]]
+    type_: Literal["brLocal"]

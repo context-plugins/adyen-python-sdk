@@ -60,12 +60,12 @@ class CashOut(SdkBaseModel):
 
 
 class CashOutDict(TypedDict):
-    amount: Amount17 | Amount17Dict
-    counterparty: NotRequired[CashOutInfoCounterparty1 | CashOutInfoCounterparty1Dict]
+    amount: Amount17Dict
+    counterparty: NotRequired[CashOutInfoCounterparty1Dict]
     description: NotRequired[str]
-    fee: NotRequired[Fee21 | Fee21Dict]
+    fee: NotRequired[Fee21Dict]
     id: str
     instructing_balance_account_id: str
     reference_for_beneficiary: NotRequired[str]
     transfer_instrument_id: NotRequired[str]
-    transfers: list[CashOutTransfer | CashOutTransferDict]
+    transfers: list[CashOutTransferDict]

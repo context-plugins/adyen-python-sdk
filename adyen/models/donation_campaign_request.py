@@ -27,7 +27,7 @@ class DonationCampaignRequest(SdkBaseModel):
 
 class DonationCampaignRequestDict(TypedDict):
     account_holder_ids: NotRequired[list[str]]
-    in_person: NotRequired[InPersonDonationSettings2 | InPersonDonationSettings2Dict]
+    in_person: NotRequired[InPersonDonationSettings2Dict]
     name: str
     nonprofit_cause_id: str
-    online: NotRequired[OnlineDonationSettings2 | OnlineDonationSettings2Dict]
+    online: NotRequired[OnlineDonationSettings2Dict]

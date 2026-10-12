@@ -27,7 +27,7 @@ class CloseAccountResponse(SdkBaseModel):
 
 class CloseAccountResponseDict(TypedDict):
     account_code: NotRequired[str]
-    invalid_fields: NotRequired[list[ErrorFieldType | ErrorFieldTypeDict]]
+    invalid_fields: NotRequired[list[ErrorFieldTypeDict]]
     psp_reference: NotRequired[str]
     result_code: NotRequired[str]
     status: NotRequired[Status22OrStr]

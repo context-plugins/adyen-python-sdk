@@ -147,7 +147,7 @@ from .funds_collection_type2 import FundsCollectionType2, FundsCollectionType2Or
 from .gender import Gender, GenderOrStr
 from .global_status import GlobalStatus, GlobalStatusOrStr
 from .global_status1 import GlobalStatus1, GlobalStatus1OrStr
-from .http_method import HttpMethod, HttpMethodOrStr
+from .http_method_model import HttpMethodModel, HttpMethodModelOrStr
 from .identification_support import IdentificationSupport, IdentificationSupportOrStr
 from .identification_support1 import IdentificationSupport1, IdentificationSupport1OrStr
 from .identification_type import IdentificationType, IdentificationTypeOrStr
@@ -820,8 +820,8 @@ __all__ = [
     "GlobalStatus1",
     "GlobalStatus1OrStr",
     "GlobalStatusOrStr",
-    "HttpMethod",
-    "HttpMethodOrStr",
+    "HttpMethodModel",
+    "HttpMethodModelOrStr",
     "IdentificationSupport",
     "IdentificationSupport1",
     "IdentificationSupport1OrStr",

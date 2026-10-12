@@ -48,7 +48,7 @@ class UpdateAccountHolderRequest(SdkBaseModel):
 
 class UpdateAccountHolderRequestDict(TypedDict):
     account_holder_code: str
-    account_holder_details: NotRequired[AccountHolderDetails4 | AccountHolderDetails4Dict]
+    account_holder_details: NotRequired[AccountHolderDetails4Dict]
     description: NotRequired[str]
     legal_entity: NotRequired[LegalEntityOrStr]
     primary_currency: NotRequired[str]

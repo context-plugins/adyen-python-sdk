@@ -12,4 +12,4 @@ class GetNetworkTokenResponse(SdkBaseModel):
 
 
 class GetNetworkTokenResponseDict(TypedDict):
-    token: NetworkToken2 | NetworkToken2Dict
+    token: NetworkToken2Dict

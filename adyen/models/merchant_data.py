@@ -28,5 +28,5 @@ class MerchantDataDict(TypedDict):
     acquirer_id: NotRequired[str]
     mcc: NotRequired[str]
     merchant_id: NotRequired[str]
-    name_location: NotRequired[NameLocation2 | NameLocation2Dict]
+    name_location: NotRequired[NameLocation2Dict]
     postal_code: NotRequired[str]

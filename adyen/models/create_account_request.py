@@ -5,7 +5,7 @@ from typing_extensions import NotRequired, TypedDict
 
 from ..core import UNSET, Optional, SdkBaseModel
 from .enums.payout_schedule import PayoutScheduleOrStr
-from .enums.payout_speed1 import PayoutSpeed1OrStr
+from .enums.payout_speed1 import PayoutSpeed1, PayoutSpeed1OrStr
 
 
 class CreateAccountRequest(SdkBaseModel):
@@ -42,7 +42,7 @@ class CreateAccountRequest(SdkBaseModel):
     """The reason for the payout schedule choice.
     > This field is required when the ``payoutSchedule`` parameter is set to ``HOLD``."""
 
-    payout_speed: Optional[PayoutSpeed1OrStr] = Field(default=UNSET, alias="payoutSpeed")
+    payout_speed: PayoutSpeed1OrStr = Field(default=PayoutSpeed1.STANDARD, alias="payoutSpeed")
     """Speed at which payouts for this account are processed.
 
     Possible values: ``STANDARD`` (default), ``SAME_DAY``."""

@@ -10,7 +10,7 @@ class BankAccountDetails(SdkBaseModel):
     account_number: Optional[str] = Field(default=UNSET, alias="accountNumber")
     """The bank account number, without separators or whitespace."""
 
-    account_type: Optional[str] = Field(default=UNSET, alias="accountType")
+    account_type: str = Field(default="checking", alias="accountType")
     """The bank account type.
 
     Possible values: **checking** or **savings**. Defaults to **checking**."""
@@ -18,7 +18,7 @@ class BankAccountDetails(SdkBaseModel):
     branch_number: Optional[str] = Field(default=UNSET, alias="branchNumber")
     """The bank account branch number, without separators or whitespace"""
 
-    form_factor: Optional[str] = Field(default=UNSET, alias="formFactor")
+    form_factor: str = Field(default="physical", alias="formFactor")
     """Business accounts with a ``formFactor`` value of **physical** are business accounts issued under the central bank
     of that country. The default value is **physical** for NL, US, and UK business accounts.
 
@@ -37,7 +37,7 @@ class BankAccountDetails(SdkBaseModel):
     sort_code: Optional[str] = Field(default=UNSET, alias="sortCode")
     """The `sort code <https://en.wikipedia.org/wiki/Sort_code>`__, without separators or whitespace."""
 
-    type_: str = Field(alias="type")
+    type_: str = Field(default="iban", alias="type")
     """**iban** or **usLocal** or **ukLocal**"""
 
 

@@ -8,10 +8,13 @@ from ..core import (
     BaseRawResponse,
     RawClient,
     RequestOptionsOrDict,
+    async_empty_response,
+    async_json_decoder,
     empty_response,
     json_body,
     json_decoder,
     param,
+    unwrap,
 )
 from ..errors.delete_sca_associations_error import DeleteScaAssociationsErrorBody, delete_sca_associations_error_mapper
 from ..errors.get_sca_associations_error import GetScaAssociationsErrorBody, get_sca_associations_error_mapper
@@ -40,7 +43,8 @@ class ScaAssociationManagement:
         Args:
             www_authenticate: The header for authenticating through SCA.
             body: The request body.
-            request_options: Per-call overrides for this one request, such as a timeout or extra headers.
+            request_options: Per-call overrides for this one request, such as a timeout, extra headers, or its retry
+                count and statuses.
 
         Returns:
             No Content - Successful association deletion.
@@ -49,9 +53,11 @@ class ScaAssociationManagement:
             ApiError: Unauthorized - Authentication required. Forbidden - Insufficient permissions to process the
                 request. Internal Server Error - The server could not process the request. ``error`` is
                 ``DefaultErrorResponseEntity | RawError``."""
-        return self._with_raw_response.delete_sca_associations(
-            www_authenticate, body=body, request_options=request_options
-        ).unwrap()
+        return unwrap(
+            self._with_raw_response.delete_sca_associations(
+                www_authenticate, body=body, request_options=request_options
+            ),
+        )
 
     def get_sca_associations(
         self,
@@ -70,7 +76,8 @@ class ScaAssociationManagement:
             entity_id: The unique identifier of the entity.
             page_size: The number of items to have on a page. Default: **5**.
             page_number: The index of the page to retrieve. The index of the first page is **0** (zero). Default: **0**.
-            request_options: Per-call overrides for this one request, such as a timeout or extra headers.
+            request_options: Per-call overrides for this one request, such as a timeout, extra headers, or its retry
+                count and statuses.
 
         Returns:
             OK - The request has succeeded.
@@ -80,9 +87,11 @@ class ScaAssociationManagement:
                 Authentication required. Forbidden - Insufficient permissions to process the request. Internal Server
                 Error - The server could not process the request. ``error`` is ``DefaultErrorResponseEntity |
                 RawError``."""
-        return self._with_raw_response.get_sca_associations(
-            entity_type, entity_id, page_size, page_number, request_options=request_options
-        ).unwrap()
+        return unwrap(
+            self._with_raw_response.get_sca_associations(
+                entity_type, entity_id, page_size, page_number, request_options=request_options
+            ),
+        )
 
     def patch_sca_associations(
         self,
@@ -96,7 +105,8 @@ class ScaAssociationManagement:
         Args:
             www_authenticate: The header for authenticating through SCA.
             body: The request body.
-            request_options: Per-call overrides for this one request, such as a timeout or extra headers.
+            request_options: Per-call overrides for this one request, such as a timeout, extra headers, or its retry
+                count and statuses.
 
         Returns:
             OK - Successful approval
@@ -105,9 +115,9 @@ class ScaAssociationManagement:
             ApiError: Unauthorized - Authentication required. Forbidden - Insufficient permissions to process the
                 request. Internal Server Error - The server could not process the request. ``error`` is
                 ``DefaultErrorResponseEntity | RawError``."""
-        return self._with_raw_response.patch_sca_associations(
-            www_authenticate, body=body, request_options=request_options
-        ).unwrap()
+        return unwrap(
+            self._with_raw_response.patch_sca_associations(www_authenticate, body=body, request_options=request_options)
+        )
 
     @property
     def with_raw_response(self) -> ScaAssociationManagementWithRawResponse:
@@ -130,7 +140,8 @@ class AsyncScaAssociationManagement:
         Args:
             www_authenticate: The header for authenticating through SCA.
             body: The request body.
-            request_options: Per-call overrides for this one request, such as a timeout or extra headers.
+            request_options: Per-call overrides for this one request, such as a timeout, extra headers, or its retry
+                count and statuses.
 
         Returns:
             No Content - Successful association deletion.
@@ -139,11 +150,11 @@ class AsyncScaAssociationManagement:
             ApiError: Unauthorized - Authentication required. Forbidden - Insufficient permissions to process the
                 request. Internal Server Error - The server could not process the request. ``error`` is
                 ``DefaultErrorResponseEntity | RawError``."""
-        return (
+        return unwrap(
             await self._with_raw_response.delete_sca_associations(
                 www_authenticate, body=body, request_options=request_options
-            )
-        ).unwrap()
+            ),
+        )
 
     async def get_sca_associations(
         self,
@@ -162,7 +173,8 @@ class AsyncScaAssociationManagement:
             entity_id: The unique identifier of the entity.
             page_size: The number of items to have on a page. Default: **5**.
             page_number: The index of the page to retrieve. The index of the first page is **0** (zero). Default: **0**.
-            request_options: Per-call overrides for this one request, such as a timeout or extra headers.
+            request_options: Per-call overrides for this one request, such as a timeout, extra headers, or its retry
+                count and statuses.
 
         Returns:
             OK - The request has succeeded.
@@ -172,11 +184,11 @@ class AsyncScaAssociationManagement:
                 Authentication required. Forbidden - Insufficient permissions to process the request. Internal Server
                 Error - The server could not process the request. ``error`` is ``DefaultErrorResponseEntity |
                 RawError``."""
-        return (
+        return unwrap(
             await self._with_raw_response.get_sca_associations(
                 entity_type, entity_id, page_size, page_number, request_options=request_options
-            )
-        ).unwrap()
+            ),
+        )
 
     async def patch_sca_associations(
         self,
@@ -190,7 +202,8 @@ class AsyncScaAssociationManagement:
         Args:
             www_authenticate: The header for authenticating through SCA.
             body: The request body.
-            request_options: Per-call overrides for this one request, such as a timeout or extra headers.
+            request_options: Per-call overrides for this one request, such as a timeout, extra headers, or its retry
+                count and statuses.
 
         Returns:
             OK - Successful approval
@@ -199,11 +212,11 @@ class AsyncScaAssociationManagement:
             ApiError: Unauthorized - Authentication required. Forbidden - Insufficient permissions to process the
                 request. Internal Server Error - The server could not process the request. ``error`` is
                 ``DefaultErrorResponseEntity | RawError``."""
-        return (
+        return unwrap(
             await self._with_raw_response.patch_sca_associations(
                 www_authenticate, body=body, request_options=request_options
-            )
-        ).unwrap()
+            ),
+        )
 
     @property
     def with_raw_response(self) -> AsyncScaAssociationManagementWithRawResponse:
@@ -223,7 +236,8 @@ class ScaAssociationManagementWithRawResponse(BaseRawResponse[RawClient, Server]
         Args:
             www_authenticate: The header for authenticating through SCA.
             body: The request body.
-            request_options: Per-call overrides for this one request, such as a timeout or extra headers.
+            request_options: Per-call overrides for this one request, such as a timeout, extra headers, or its retry
+                count and statuses.
 
         Returns:
             An ``ApiResult`` holding the deserialized response or the error body."""
@@ -254,7 +268,8 @@ class ScaAssociationManagementWithRawResponse(BaseRawResponse[RawClient, Server]
             entity_id: The unique identifier of the entity.
             page_size: The number of items to have on a page. Default: **5**.
             page_number: The index of the page to retrieve. The index of the first page is **0** (zero). Default: **0**.
-            request_options: Per-call overrides for this one request, such as a timeout or extra headers.
+            request_options: Per-call overrides for this one request, such as a timeout, extra headers, or its retry
+                count and statuses.
 
         Returns:
             An ``ApiResult`` holding the deserialized response or the error body."""
@@ -284,7 +299,8 @@ class ScaAssociationManagementWithRawResponse(BaseRawResponse[RawClient, Server]
         Args:
             www_authenticate: The header for authenticating through SCA.
             body: The request body.
-            request_options: Per-call overrides for this one request, such as a timeout or extra headers.
+            request_options: Per-call overrides for this one request, such as a timeout, extra headers, or its retry
+                count and statuses.
 
         Returns:
             An ``ApiResult`` holding the deserialized response or the error body."""
@@ -312,7 +328,8 @@ class AsyncScaAssociationManagementWithRawResponse(BaseRawResponse[AsyncRawClien
         Args:
             www_authenticate: The header for authenticating through SCA.
             body: The request body.
-            request_options: Per-call overrides for this one request, such as a timeout or extra headers.
+            request_options: Per-call overrides for this one request, such as a timeout, extra headers, or its retry
+                count and statuses.
 
         Returns:
             An ``ApiResult`` holding the deserialized response or the error body."""
@@ -321,7 +338,7 @@ class AsyncScaAssociationManagementWithRawResponse(BaseRawResponse[AsyncRawClien
             url_template=self._server.default13("/scaAssociations"),
             headers=[param[str]("WWW-Authenticate", www_authenticate), param[UUID]("Idempotency-Key", uuid4())],
             body=json_body[RemoveAssociationRequest | RemoveAssociationRequestDict | None](body),
-            decoder=empty_response,
+            decoder=async_empty_response,
             error_mapper=delete_sca_associations_error_mapper,
             request_options=request_options,
         )
@@ -343,7 +360,8 @@ class AsyncScaAssociationManagementWithRawResponse(BaseRawResponse[AsyncRawClien
             entity_id: The unique identifier of the entity.
             page_size: The number of items to have on a page. Default: **5**.
             page_number: The index of the page to retrieve. The index of the first page is **0** (zero). Default: **0**.
-            request_options: Per-call overrides for this one request, such as a timeout or extra headers.
+            request_options: Per-call overrides for this one request, such as a timeout, extra headers, or its retry
+                count and statuses.
 
         Returns:
             An ``ApiResult`` holding the deserialized response or the error body."""
@@ -356,7 +374,7 @@ class AsyncScaAssociationManagementWithRawResponse(BaseRawResponse[AsyncRawClien
                 param[int]("pageSize", page_size),
                 param[int]("pageNumber", page_number),
             ],
-            decoder=json_decoder[ListAssociationsResponse],
+            decoder=async_json_decoder[ListAssociationsResponse],
             error_mapper=get_sca_associations_error_mapper,
             request_options=request_options,
         )
@@ -373,7 +391,8 @@ class AsyncScaAssociationManagementWithRawResponse(BaseRawResponse[AsyncRawClien
         Args:
             www_authenticate: The header for authenticating through SCA.
             body: The request body.
-            request_options: Per-call overrides for this one request, such as a timeout or extra headers.
+            request_options: Per-call overrides for this one request, such as a timeout, extra headers, or its retry
+                count and statuses.
 
         Returns:
             An ``ApiResult`` holding the deserialized response or the error body."""
@@ -382,7 +401,7 @@ class AsyncScaAssociationManagementWithRawResponse(BaseRawResponse[AsyncRawClien
             url_template=self._server.default13("/scaAssociations"),
             headers=[param[str]("WWW-Authenticate", www_authenticate), param[UUID]("Idempotency-Key", uuid4())],
             body=json_body[ApproveAssociationRequest | ApproveAssociationRequestDict | None](body),
-            decoder=json_decoder[ApproveAssociationResponse],
+            decoder=async_json_decoder[ApproveAssociationResponse],
             error_mapper=patch_sca_associations_error_mapper,
             request_options=request_options,
         )

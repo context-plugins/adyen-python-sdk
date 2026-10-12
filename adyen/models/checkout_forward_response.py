@@ -25,5 +25,5 @@ class CheckoutForwardResponse(SdkBaseModel):
 class CheckoutForwardResponseDict(TypedDict):
     merchant_reference: NotRequired[str]
     psp_reference: NotRequired[str]
-    response: CheckoutForwardResponseFromUrl2 | CheckoutForwardResponseFromUrl2Dict
+    response: CheckoutForwardResponseFromUrl2Dict
     stored_payment_method_id: NotRequired[str]

@@ -26,8 +26,8 @@ class ListWebhooksResponse(SdkBaseModel):
 
 
 class ListWebhooksResponseDict(TypedDict):
-    links: NotRequired[PaginationLinks1 | PaginationLinks1Dict]
+    links: NotRequired[PaginationLinks1Dict]
     account_reference: NotRequired[str]
-    data: NotRequired[list[Webhook | WebhookDict]]
+    data: NotRequired[list[WebhookDict]]
     items_total: int
     pages_total: int

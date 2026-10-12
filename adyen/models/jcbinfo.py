@@ -14,7 +14,7 @@ class Jcbinfo(SdkBaseModel):
     and New Zealand when requesting ``gatewayContract`` or ``paymentDesignatorContract`` service levels.Format: 14
     numeric characters for Japan, 10 numeric characters for Canada, Australia and New Zealand."""
 
-    reuse_mid_number: Optional[bool] = Field(default=UNSET, alias="reuseMidNumber")
+    reuse_mid_number: bool = Field(default=False, alias="reuseMidNumber")
     """Indicates whether the JCB Merchant ID is reused from a previously setup JCB payment method. The default value is
     **false**.For merchants operating in Japan, this field is required and must be set to **true**."""
 
@@ -39,4 +39,4 @@ class JcbinfoDict(TypedDict):
     mid_number: NotRequired[str]
     reuse_mid_number: NotRequired[bool]
     service_level: NotRequired[ServiceLevel2OrStr]
-    transaction_description: NotRequired[TransactionDescriptionInfo1 | TransactionDescriptionInfo1Dict]
+    transaction_description: NotRequired[TransactionDescriptionInfo1Dict]

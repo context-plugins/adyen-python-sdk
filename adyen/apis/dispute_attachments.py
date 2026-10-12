@@ -8,10 +8,13 @@ from ..core import (
     BaseRawResponse,
     RawClient,
     RequestOptionsOrDict,
+    async_empty_response,
+    async_json_decoder,
     empty_response,
     json_body,
     json_decoder,
     param,
+    unwrap,
 )
 from ..errors.delete_disputes_dispute_id_attachments_attachment_id_error import (
     DeleteDisputesDisputeIdAttachmentsAttachmentIdErrorBody,
@@ -46,7 +49,8 @@ class DisputeAttachments:
         Args:
             dispute_id: The unique identifier of the raised dispute.
             attachment_id: The unique identifier of the attachment.
-            request_options: Per-call overrides for this one request, such as a timeout or extra headers.
+            request_options: Per-call overrides for this one request, such as a timeout, extra headers, or its retry
+                count and statuses.
 
         Returns:
             The attachment was successfully removed
@@ -54,9 +58,11 @@ class DisputeAttachments:
         Raises:
             ApiError: Authentication required. Insufficient permissions to process the request. A request validation
                 error. ``error`` is ``DefaultErrorResponseEntity | RawError``."""
-        return self._with_raw_response.delete_disputes_dispute_id_attachments_attachment_id(
-            dispute_id, attachment_id, request_options=request_options
-        ).unwrap()
+        return unwrap(
+            self._with_raw_response.delete_disputes_dispute_id_attachments_attachment_id(
+                dispute_id, attachment_id, request_options=request_options
+            ),
+        )
 
     def get_disputes_dispute_id_attachments(
         self, dispute_id: str, *, request_options: RequestOptionsOrDict | None = None
@@ -65,7 +71,8 @@ class DisputeAttachments:
 
         Args:
             dispute_id: The unique identifier of the raised dispute.
-            request_options: Per-call overrides for this one request, such as a timeout or extra headers.
+            request_options: Per-call overrides for this one request, such as a timeout, extra headers, or its retry
+                count and statuses.
 
         Returns:
             OK - the request has succeeded.
@@ -73,9 +80,9 @@ class DisputeAttachments:
         Raises:
             ApiError: Authentication required. Insufficient permissions to process the request. A request validation
                 error. ``error`` is ``DefaultErrorResponseEntity | RawError``."""
-        return self._with_raw_response.get_disputes_dispute_id_attachments(
-            dispute_id, request_options=request_options
-        ).unwrap()
+        return unwrap(
+            self._with_raw_response.get_disputes_dispute_id_attachments(dispute_id, request_options=request_options)
+        )
 
     def get_disputes_dispute_id_attachments_attachment_id(
         self, dispute_id: str, attachment_id: str, *, request_options: RequestOptionsOrDict | None = None
@@ -85,7 +92,8 @@ class DisputeAttachments:
         Args:
             dispute_id: The unique identifier of the raised dispute.
             attachment_id: The unique identifier of the attachment.
-            request_options: Per-call overrides for this one request, such as a timeout or extra headers.
+            request_options: Per-call overrides for this one request, such as a timeout, extra headers, or its retry
+                count and statuses.
 
         Returns:
             OK - the request has succeeded.
@@ -93,9 +101,11 @@ class DisputeAttachments:
         Raises:
             ApiError: Authentication required. Insufficient permissions to process the request. A request validation
                 error. ``error`` is ``DefaultErrorResponseEntity | RawError``."""
-        return self._with_raw_response.get_disputes_dispute_id_attachments_attachment_id(
-            dispute_id, attachment_id, request_options=request_options
-        ).unwrap()
+        return unwrap(
+            self._with_raw_response.get_disputes_dispute_id_attachments_attachment_id(
+                dispute_id, attachment_id, request_options=request_options
+            ),
+        )
 
     def post_disputes_dispute_id_attachments(
         self,
@@ -110,7 +120,8 @@ class DisputeAttachments:
         Args:
             dispute_id: The unique identifier of the raised dispute.
             body: The request body.
-            request_options: Per-call overrides for this one request, such as a timeout or extra headers.
+            request_options: Per-call overrides for this one request, such as a timeout, extra headers, or its retry
+                count and statuses.
 
         Returns:
             OK - the request has succeeded.
@@ -118,9 +129,11 @@ class DisputeAttachments:
         Raises:
             ApiError: Authentication required. Insufficient permissions to process the request. A request validation
                 error. ``error`` is ``DefaultErrorResponseEntity | RawError``."""
-        return self._with_raw_response.post_disputes_dispute_id_attachments(
-            dispute_id, body, request_options=request_options
-        ).unwrap()
+        return unwrap(
+            self._with_raw_response.post_disputes_dispute_id_attachments(
+                dispute_id, body, request_options=request_options
+            ),
+        )
 
     @property
     def with_raw_response(self) -> DisputeAttachmentsWithRawResponse:
@@ -139,7 +152,8 @@ class AsyncDisputeAttachments:
         Args:
             dispute_id: The unique identifier of the raised dispute.
             attachment_id: The unique identifier of the attachment.
-            request_options: Per-call overrides for this one request, such as a timeout or extra headers.
+            request_options: Per-call overrides for this one request, such as a timeout, extra headers, or its retry
+                count and statuses.
 
         Returns:
             The attachment was successfully removed
@@ -147,11 +161,11 @@ class AsyncDisputeAttachments:
         Raises:
             ApiError: Authentication required. Insufficient permissions to process the request. A request validation
                 error. ``error`` is ``DefaultErrorResponseEntity | RawError``."""
-        return (
+        return unwrap(
             await self._with_raw_response.delete_disputes_dispute_id_attachments_attachment_id(
                 dispute_id, attachment_id, request_options=request_options
-            )
-        ).unwrap()
+            ),
+        )
 
     async def get_disputes_dispute_id_attachments(
         self, dispute_id: str, *, request_options: RequestOptionsOrDict | None = None
@@ -160,7 +174,8 @@ class AsyncDisputeAttachments:
 
         Args:
             dispute_id: The unique identifier of the raised dispute.
-            request_options: Per-call overrides for this one request, such as a timeout or extra headers.
+            request_options: Per-call overrides for this one request, such as a timeout, extra headers, or its retry
+                count and statuses.
 
         Returns:
             OK - the request has succeeded.
@@ -168,11 +183,11 @@ class AsyncDisputeAttachments:
         Raises:
             ApiError: Authentication required. Insufficient permissions to process the request. A request validation
                 error. ``error`` is ``DefaultErrorResponseEntity | RawError``."""
-        return (
+        return unwrap(
             await self._with_raw_response.get_disputes_dispute_id_attachments(
                 dispute_id, request_options=request_options
-            )
-        ).unwrap()
+            ),
+        )
 
     async def get_disputes_dispute_id_attachments_attachment_id(
         self, dispute_id: str, attachment_id: str, *, request_options: RequestOptionsOrDict | None = None
@@ -182,7 +197,8 @@ class AsyncDisputeAttachments:
         Args:
             dispute_id: The unique identifier of the raised dispute.
             attachment_id: The unique identifier of the attachment.
-            request_options: Per-call overrides for this one request, such as a timeout or extra headers.
+            request_options: Per-call overrides for this one request, such as a timeout, extra headers, or its retry
+                count and statuses.
 
         Returns:
             OK - the request has succeeded.
@@ -190,11 +206,11 @@ class AsyncDisputeAttachments:
         Raises:
             ApiError: Authentication required. Insufficient permissions to process the request. A request validation
                 error. ``error`` is ``DefaultErrorResponseEntity | RawError``."""
-        return (
+        return unwrap(
             await self._with_raw_response.get_disputes_dispute_id_attachments_attachment_id(
                 dispute_id, attachment_id, request_options=request_options
-            )
-        ).unwrap()
+            ),
+        )
 
     async def post_disputes_dispute_id_attachments(
         self,
@@ -209,7 +225,8 @@ class AsyncDisputeAttachments:
         Args:
             dispute_id: The unique identifier of the raised dispute.
             body: The request body.
-            request_options: Per-call overrides for this one request, such as a timeout or extra headers.
+            request_options: Per-call overrides for this one request, such as a timeout, extra headers, or its retry
+                count and statuses.
 
         Returns:
             OK - the request has succeeded.
@@ -217,11 +234,11 @@ class AsyncDisputeAttachments:
         Raises:
             ApiError: Authentication required. Insufficient permissions to process the request. A request validation
                 error. ``error`` is ``DefaultErrorResponseEntity | RawError``."""
-        return (
+        return unwrap(
             await self._with_raw_response.post_disputes_dispute_id_attachments(
                 dispute_id, body, request_options=request_options
-            )
-        ).unwrap()
+            ),
+        )
 
     @property
     def with_raw_response(self) -> AsyncDisputeAttachmentsWithRawResponse:
@@ -237,7 +254,8 @@ class DisputeAttachmentsWithRawResponse(BaseRawResponse[RawClient, Server]):
         Args:
             dispute_id: The unique identifier of the raised dispute.
             attachment_id: The unique identifier of the attachment.
-            request_options: Per-call overrides for this one request, such as a timeout or extra headers.
+            request_options: Per-call overrides for this one request, such as a timeout, extra headers, or its retry
+                count and statuses.
 
         Returns:
             An ``ApiResult`` holding the deserialized response or the error body."""
@@ -258,7 +276,8 @@ class DisputeAttachmentsWithRawResponse(BaseRawResponse[RawClient, Server]):
 
         Args:
             dispute_id: The unique identifier of the raised dispute.
-            request_options: Per-call overrides for this one request, such as a timeout or extra headers.
+            request_options: Per-call overrides for this one request, such as a timeout, extra headers, or its retry
+                count and statuses.
 
         Returns:
             An ``ApiResult`` holding the deserialized response or the error body."""
@@ -279,7 +298,8 @@ class DisputeAttachmentsWithRawResponse(BaseRawResponse[RawClient, Server]):
         Args:
             dispute_id: The unique identifier of the raised dispute.
             attachment_id: The unique identifier of the attachment.
-            request_options: Per-call overrides for this one request, such as a timeout or extra headers.
+            request_options: Per-call overrides for this one request, such as a timeout, extra headers, or its retry
+                count and statuses.
 
         Returns:
             An ``ApiResult`` holding the deserialized response or the error body."""
@@ -305,7 +325,8 @@ class DisputeAttachmentsWithRawResponse(BaseRawResponse[RawClient, Server]):
         Args:
             dispute_id: The unique identifier of the raised dispute.
             body: The request body.
-            request_options: Per-call overrides for this one request, such as a timeout or extra headers.
+            request_options: Per-call overrides for this one request, such as a timeout, extra headers, or its retry
+                count and statuses.
 
         Returns:
             An ``ApiResult`` holding the deserialized response or the error body."""
@@ -330,7 +351,8 @@ class AsyncDisputeAttachmentsWithRawResponse(BaseRawResponse[AsyncRawClient, Ser
         Args:
             dispute_id: The unique identifier of the raised dispute.
             attachment_id: The unique identifier of the attachment.
-            request_options: Per-call overrides for this one request, such as a timeout or extra headers.
+            request_options: Per-call overrides for this one request, such as a timeout, extra headers, or its retry
+                count and statuses.
 
         Returns:
             An ``ApiResult`` holding the deserialized response or the error body."""
@@ -339,7 +361,7 @@ class AsyncDisputeAttachmentsWithRawResponse(BaseRawResponse[AsyncRawClient, Ser
             url_template=self._server.default23("/disputes/{disputeId}/attachments/{attachmentId}"),
             path_params=[param[str]("disputeId", dispute_id), param[str]("attachmentId", attachment_id)],
             headers=[param[UUID]("Idempotency-Key", uuid4())],
-            decoder=empty_response,
+            decoder=async_empty_response,
             error_mapper=delete_disputes_dispute_id_attachments_attachment_id_error_mapper,
             request_options=request_options,
         )
@@ -351,7 +373,8 @@ class AsyncDisputeAttachmentsWithRawResponse(BaseRawResponse[AsyncRawClient, Ser
 
         Args:
             dispute_id: The unique identifier of the raised dispute.
-            request_options: Per-call overrides for this one request, such as a timeout or extra headers.
+            request_options: Per-call overrides for this one request, such as a timeout, extra headers, or its retry
+                count and statuses.
 
         Returns:
             An ``ApiResult`` holding the deserialized response or the error body."""
@@ -359,7 +382,7 @@ class AsyncDisputeAttachmentsWithRawResponse(BaseRawResponse[AsyncRawClient, Ser
             http_method="GET",
             url_template=self._server.default23("/disputes/{disputeId}/attachments"),
             path_params=[param[str]("disputeId", dispute_id)],
-            decoder=json_decoder[list[DisputeAttachment]],
+            decoder=async_json_decoder[list[DisputeAttachment]],
             error_mapper=get_disputes_dispute_id_attachments_error_mapper,
             request_options=request_options,
         )
@@ -372,7 +395,8 @@ class AsyncDisputeAttachmentsWithRawResponse(BaseRawResponse[AsyncRawClient, Ser
         Args:
             dispute_id: The unique identifier of the raised dispute.
             attachment_id: The unique identifier of the attachment.
-            request_options: Per-call overrides for this one request, such as a timeout or extra headers.
+            request_options: Per-call overrides for this one request, such as a timeout, extra headers, or its retry
+                count and statuses.
 
         Returns:
             An ``ApiResult`` holding the deserialized response or the error body."""
@@ -380,7 +404,7 @@ class AsyncDisputeAttachmentsWithRawResponse(BaseRawResponse[AsyncRawClient, Ser
             http_method="GET",
             url_template=self._server.default23("/disputes/{disputeId}/attachments/{attachmentId}"),
             path_params=[param[str]("disputeId", dispute_id), param[str]("attachmentId", attachment_id)],
-            decoder=json_decoder[DisputeAttachment],
+            decoder=async_json_decoder[DisputeAttachment],
             error_mapper=get_disputes_dispute_id_attachments_attachment_id_error_mapper,
             request_options=request_options,
         )
@@ -398,7 +422,8 @@ class AsyncDisputeAttachmentsWithRawResponse(BaseRawResponse[AsyncRawClient, Ser
         Args:
             dispute_id: The unique identifier of the raised dispute.
             body: The request body.
-            request_options: Per-call overrides for this one request, such as a timeout or extra headers.
+            request_options: Per-call overrides for this one request, such as a timeout, extra headers, or its retry
+                count and statuses.
 
         Returns:
             An ``ApiResult`` holding the deserialized response or the error body."""
@@ -408,7 +433,7 @@ class AsyncDisputeAttachmentsWithRawResponse(BaseRawResponse[AsyncRawClient, Ser
             path_params=[param[str]("disputeId", dispute_id)],
             headers=[param[UUID]("Idempotency-Key", uuid4())],
             body=json_body[DisputeAttachment | DisputeAttachmentDict](body),
-            decoder=json_decoder[AttachDocumentResponse],
+            decoder=async_json_decoder[AttachDocumentResponse],
             error_mapper=post_disputes_dispute_id_attachments_error_mapper,
             request_options=request_options,
         )

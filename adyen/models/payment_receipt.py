@@ -25,7 +25,7 @@ class PaymentReceipt(SdkBaseModel):
     integrated_print_flag: Optional[bool] = Field(default=UNSET, alias="IntegratedPrintFlag")
     """Type of the print integrated to other prints."""
 
-    required_signature_flag: Optional[bool] = Field(default=UNSET, alias="RequiredSignatureFlag")
+    required_signature_flag: bool = Field(default=False, alias="RequiredSignatureFlag")
     """Indicate that the cardholder payment receipt requires a physical signature by the Customer."""
 
     output_content: OutputContent1 = Field(alias="OutputContent")
@@ -36,4 +36,4 @@ class PaymentReceiptDict(TypedDict):
     document_qualifier: DocumentQualifier1OrStr
     integrated_print_flag: NotRequired[bool]
     required_signature_flag: NotRequired[bool]
-    output_content: OutputContent1 | OutputContent1Dict
+    output_content: OutputContent1Dict

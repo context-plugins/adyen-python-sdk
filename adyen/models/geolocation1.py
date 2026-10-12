@@ -16,5 +16,5 @@ class Geolocation1(SdkBaseModel):
 
 
 class Geolocation1Dict(TypedDict):
-    geographic_coordinates: NotRequired[GeographicCoordinates | GeographicCoordinatesDict]
-    utm_coordinates: NotRequired[Utmcoordinates | UtmcoordinatesDict]
+    geographic_coordinates: NotRequired[GeographicCoordinatesDict]
+    utm_coordinates: NotRequired[UtmcoordinatesDict]

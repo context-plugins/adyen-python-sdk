@@ -122,15 +122,15 @@ class TransactionRuleDict(TypedDict):
     aggregation_level: NotRequired[str]
     description: str
     end_date: NotRequired[str]
-    entity_key: TransactionRuleEntityKey2 | TransactionRuleEntityKey2Dict
+    entity_key: TransactionRuleEntityKey2Dict
     id: NotRequired[str]
-    interval: TransactionRuleInterval1 | TransactionRuleInterval1Dict
+    interval: TransactionRuleInterval1Dict
     outcome_type: NotRequired[OutcomeTypeOrStr]
     overrides_rule: NotRequired[str]
     purpose: NotRequired[PurposeOrStr]
     reference: str
     request_type: NotRequired[RequestTypeOrStr]
-    rule_restrictions: TransactionRuleRestrictions1 | TransactionRuleRestrictions1Dict
+    rule_restrictions: TransactionRuleRestrictions1Dict
     score: NotRequired[int]
     start_date: NotRequired[str]
     status: NotRequired[Status6OrStr]

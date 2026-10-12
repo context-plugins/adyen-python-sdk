@@ -64,12 +64,12 @@ class PaymentAmountUpdateResponse(SdkBaseModel):
 
 class PaymentAmountUpdateResponseDict(TypedDict):
     adjust_authorisation_data: NotRequired[str]
-    amount: Amount30 | Amount30Dict
+    amount: Amount30Dict
     industry_usage: NotRequired[IndustryUsage1OrStr]
-    line_items: NotRequired[list[LineItem | LineItemDict]]
+    line_items: NotRequired[list[LineItemDict]]
     merchant_account: str
     payment_psp_reference: str
     psp_reference: str
     reference: str
-    splits: NotRequired[list[Split | SplitDict]]
+    splits: NotRequired[list[SplitDict]]
     status: Status2OrStr

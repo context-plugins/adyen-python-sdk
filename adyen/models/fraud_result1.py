@@ -19,4 +19,4 @@ class FraudResult1(SdkBaseModel):
 
 class FraudResult1Dict(TypedDict):
     account_score: int
-    results: NotRequired[list[FraudCheckResult | FraudCheckResultDict]]
+    results: NotRequired[list[FraudCheckResultDict]]

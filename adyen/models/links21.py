@@ -17,5 +17,5 @@ class Links21(SdkBaseModel):
 
 
 class Links21Dict(TypedDict):
-    next: NotRequired[LinksElement | LinksElementDict]
-    prev: NotRequired[LinksElement | LinksElementDict]
+    next: NotRequired[LinksElementDict]
+    prev: NotRequired[LinksElementDict]

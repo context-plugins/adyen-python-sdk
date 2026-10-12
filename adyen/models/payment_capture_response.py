@@ -54,13 +54,13 @@ class PaymentCaptureResponse(SdkBaseModel):
 
 
 class PaymentCaptureResponseDict(TypedDict):
-    amount: Amount33 | Amount33Dict
-    line_items: NotRequired[list[LineItem | LineItemDict]]
+    amount: Amount33Dict
+    line_items: NotRequired[list[LineItemDict]]
     merchant_account: str
     payment_psp_reference: str
-    platform_chargeback_logic: NotRequired[PlatformChargebackLogic | PlatformChargebackLogicDict]
+    platform_chargeback_logic: NotRequired[PlatformChargebackLogicDict]
     psp_reference: str
     reference: NotRequired[str]
-    splits: NotRequired[list[Split | SplitDict]]
-    status: NotRequired[Literal["received"]]
-    sub_merchants: NotRequired[list[SubMerchantInfo | SubMerchantInfoDict]]
+    splits: NotRequired[list[SplitDict]]
+    status: Literal["received"]
+    sub_merchants: NotRequired[list[SubMerchantInfoDict]]

@@ -15,4 +15,4 @@ class LogoutResponse2(SdkBaseModel):
 
 
 class LogoutResponse2Dict(TypedDict):
-    response: Response11 | Response11Dict
+    response: Response11Dict

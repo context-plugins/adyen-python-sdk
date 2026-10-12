@@ -66,10 +66,10 @@ class LevelTwoThree(SdkBaseModel):
 
 class LevelTwoThreeDict(TypedDict):
     customer_reference_number: NotRequired[str]
-    destination: NotRequired[Destination1 | Destination1Dict]
+    destination: NotRequired[Destination1Dict]
     duty_amount: NotRequired[int]
     freight_amount: NotRequired[int]
-    item_detail_lines: NotRequired[list[ItemDetailLine | ItemDetailLineDict]]
+    item_detail_lines: NotRequired[list[ItemDetailLineDict]]
     order_date: NotRequired[Date]
     ship_from_postal_code: NotRequired[str]
     total_tax_amount: NotRequired[int]

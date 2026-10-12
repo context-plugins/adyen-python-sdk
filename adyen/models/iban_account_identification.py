@@ -23,4 +23,4 @@ class IbanAccountIdentification(SdkBaseModel):
 class IbanAccountIdentificationDict(TypedDict):
     bic: NotRequired[str]
     iban: str
-    type_: NotRequired[Literal["iban"]]
+    type_: Literal["iban"]

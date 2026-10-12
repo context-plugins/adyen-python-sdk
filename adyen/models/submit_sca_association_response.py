@@ -13,4 +13,4 @@ class SubmitScaAssociationResponse(SdkBaseModel):
 
 
 class SubmitScaAssociationResponseDict(TypedDict):
-    sca_associations: list[Association | AssociationDict]
+    sca_associations: list[AssociationDict]

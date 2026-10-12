@@ -37,4 +37,4 @@ class PaymentInstrumentRequirementDict(TypedDict):
     issuing_country_codes: NotRequired[list[str]]
     only_for_cross_balance_platform: NotRequired[bool]
     payment_instrument_type: NotRequired[PaymentInstrumentTypeOrStr]
-    type_: NotRequired[Literal["paymentInstrumentRequirement"]]
+    type_: Literal["paymentInstrumentRequirement"]

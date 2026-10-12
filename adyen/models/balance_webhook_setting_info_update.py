@@ -3,7 +3,7 @@ from __future__ import annotations
 from pydantic import Field
 from typing_extensions import NotRequired, TypedDict
 
-from ..core import UNSET, Optional, SdkBaseModel
+from ..core import UNSET, Optional, OptionalNullable, SdkBaseModel
 from .condition import Condition, ConditionDict
 from .enums.status6 import Status6OrStr
 from .enums.type201 import Type201OrStr
@@ -11,7 +11,7 @@ from .target_update2 import TargetUpdate2, TargetUpdate2Dict
 
 
 class BalanceWebhookSettingInfoUpdate(SdkBaseModel):
-    conditions: Optional[list[Condition | None]] = UNSET
+    conditions: OptionalNullable[list[Condition]] = UNSET
     """The array of conditions a balance change must meet for Adyen to send the webhook."""
 
     currency: Optional[str] = UNSET
@@ -32,8 +32,8 @@ class BalanceWebhookSettingInfoUpdate(SdkBaseModel):
 
 
 class BalanceWebhookSettingInfoUpdateDict(TypedDict):
-    conditions: NotRequired[list[Condition | ConditionDict | None]]
+    conditions: NotRequired[list[ConditionDict] | None]
     currency: NotRequired[str]
     status: NotRequired[Status6OrStr]
-    target: NotRequired[TargetUpdate2 | TargetUpdate2Dict]
+    target: NotRequired[TargetUpdate2Dict]
     type_: NotRequired[Type201OrStr]

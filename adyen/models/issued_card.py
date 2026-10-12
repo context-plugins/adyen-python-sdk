@@ -6,7 +6,7 @@ from typing_extensions import NotRequired, TypedDict
 from ..core import UNSET, Optional, SdkBaseModel
 from .enums.pan_entry_mode import PanEntryModeOrStr
 from .enums.processing_type1 import ProcessingType1OrStr
-from .enums.type511 import Type511OrStr
+from .enums.type511 import Type511, Type511OrStr
 from .relayed_authorisation_data2 import RelayedAuthorisationData2, RelayedAuthorisationData2Dict
 from .three_dsecure2 import ThreeDsecure2, ThreeDsecure2Dict
 from .transfer_notification_validation_fact import (
@@ -48,7 +48,7 @@ class IssuedCard(SdkBaseModel):
     three_d_secure: Optional[ThreeDsecure2] = Field(default=UNSET, alias="threeDSecure")
     """The data of the result from the 3DS authentication."""
 
-    type_: Optional[Type511OrStr] = Field(default=UNSET, alias="type")
+    type_: Type511OrStr = Field(default=Type511.ISSUED_CARD, alias="type")
     """**issuedCard**"""
 
     validation_facts: Optional[list[TransferNotificationValidationFact]] = Field(default=UNSET, alias="validationFacts")
@@ -60,9 +60,9 @@ class IssuedCardDict(TypedDict):
     authorisation_type: NotRequired[str]
     pan_entry_mode: NotRequired[PanEntryModeOrStr]
     processing_type: NotRequired[ProcessingType1OrStr]
-    relayed_authorisation_data: NotRequired[RelayedAuthorisationData2 | RelayedAuthorisationData2Dict]
+    relayed_authorisation_data: NotRequired[RelayedAuthorisationData2Dict]
     scheme_trace_id: NotRequired[str]
     scheme_unique_transaction_id: NotRequired[str]
-    three_d_secure: NotRequired[ThreeDsecure2 | ThreeDsecure2Dict]
+    three_d_secure: NotRequired[ThreeDsecure2Dict]
     type_: NotRequired[Type511OrStr]
-    validation_facts: NotRequired[list[TransferNotificationValidationFact | TransferNotificationValidationFactDict]]
+    validation_facts: NotRequired[list[TransferNotificationValidationFactDict]]

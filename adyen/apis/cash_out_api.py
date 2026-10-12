@@ -8,9 +8,11 @@ from ..core import (
     BaseRawResponse,
     RawClient,
     RequestOptionsOrDict,
+    async_json_decoder,
     json_body,
     json_decoder,
     param,
+    unwrap,
 )
 from ..errors.post_cashouts_error import PostCashoutsErrorBody, post_cashouts_error_mapper
 from ..models.cash_out import CashOut
@@ -29,7 +31,8 @@ class CashOutApi:
 
         Args:
             body: The request body.
-            request_options: Per-call overrides for this one request, such as a timeout or extra headers.
+            request_options: Per-call overrides for this one request, such as a timeout, extra headers, or its retry
+                count and statuses.
 
         Returns:
             OK - The request has succeeded.
@@ -41,7 +44,7 @@ class CashOutApi:
                 validation error. Too Many Requests - Request rate limit exceeded. Internal Service Error - An
                 unrecoverable error occurred while trying to perform the request. ``error`` is
                 ``DefaultErrorResponseEntity | RawError``."""
-        return self._with_raw_response.post_cashouts(body, request_options=request_options).unwrap()
+        return unwrap(self._with_raw_response.post_cashouts(body, request_options=request_options))
 
     @property
     def with_raw_response(self) -> CashOutApiWithRawResponse:
@@ -59,7 +62,8 @@ class AsyncCashOutApi:
 
         Args:
             body: The request body.
-            request_options: Per-call overrides for this one request, such as a timeout or extra headers.
+            request_options: Per-call overrides for this one request, such as a timeout, extra headers, or its retry
+                count and statuses.
 
         Returns:
             OK - The request has succeeded.
@@ -71,7 +75,7 @@ class AsyncCashOutApi:
                 validation error. Too Many Requests - Request rate limit exceeded. Internal Service Error - An
                 unrecoverable error occurred while trying to perform the request. ``error`` is
                 ``DefaultErrorResponseEntity | RawError``."""
-        return (await self._with_raw_response.post_cashouts(body, request_options=request_options)).unwrap()
+        return unwrap(await self._with_raw_response.post_cashouts(body, request_options=request_options))
 
     @property
     def with_raw_response(self) -> AsyncCashOutApiWithRawResponse:
@@ -86,7 +90,8 @@ class CashOutApiWithRawResponse(BaseRawResponse[RawClient, Server]):
 
         Args:
             body: The request body.
-            request_options: Per-call overrides for this one request, such as a timeout or extra headers.
+            request_options: Per-call overrides for this one request, such as a timeout, extra headers, or its retry
+                count and statuses.
 
         Returns:
             An ``ApiResult`` holding the deserialized response or the error body."""
@@ -109,7 +114,8 @@ class AsyncCashOutApiWithRawResponse(BaseRawResponse[AsyncRawClient, Server]):
 
         Args:
             body: The request body.
-            request_options: Per-call overrides for this one request, such as a timeout or extra headers.
+            request_options: Per-call overrides for this one request, such as a timeout, extra headers, or its retry
+                count and statuses.
 
         Returns:
             An ``ApiResult`` holding the deserialized response or the error body."""
@@ -118,7 +124,7 @@ class AsyncCashOutApiWithRawResponse(BaseRawResponse[AsyncRawClient, Server]):
             url_template=self._server.default14("/cashouts"),
             headers=[param[UUID]("Idempotency-Key", uuid4())],
             body=json_body[CashOutInfo | CashOutInfoDict](body),
-            decoder=json_decoder[CashOut],
+            decoder=async_json_decoder[CashOut],
             error_mapper=post_cashouts_error_mapper,
             request_options=request_options,
         )

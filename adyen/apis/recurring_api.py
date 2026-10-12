@@ -12,11 +12,14 @@ from ..core import (
     RawError,
     RequestOptionsOrDict,
     SecuredRawResponse,
+    async_empty_response,
+    async_json_decoder,
     empty_response,
     json_body,
     json_decoder,
     param,
     raw_error_response,
+    unwrap,
 )
 from ..models.checkout_forward_request import CheckoutForwardRequest, CheckoutForwardRequestDict
 from ..models.checkout_forward_response import CheckoutForwardResponse
@@ -46,16 +49,19 @@ class RecurringApi:
                 Minimum length: 3 characters. > Your reference must not include personally identifiable information
                 (PII), for example name or email address.
             merchant_account: Your merchant account.
-            request_options: Per-call overrides for this one request, such as a timeout or extra headers.
+            request_options: Per-call overrides for this one request, such as a timeout, extra headers, or its retry
+                count and statuses.
 
         Returns:
             No Content - look at the actual response code for the status of the request.
 
         Raises:
             ApiError: If the API responds with an error status code. ``error`` is ``RawError``."""
-        return self._with_raw_response.delete_stored_payment_methods_stored_payment_method_id(
-            stored_payment_method_id, shopper_reference, merchant_account, request_options=request_options
-        ).unwrap()
+        return unwrap(
+            self._with_raw_response.delete_stored_payment_methods_stored_payment_method_id(
+                stored_payment_method_id, shopper_reference, merchant_account, request_options=request_options
+            ),
+        )
 
     def get_stored_payment_methods(
         self,
@@ -73,16 +79,19 @@ class RecurringApi:
                 Minimum length: 3 characters. > Your reference must not include personally identifiable information
                 (PII), for example name or email address.
             merchant_account: Your merchant account.
-            request_options: Per-call overrides for this one request, such as a timeout or extra headers.
+            request_options: Per-call overrides for this one request, such as a timeout, extra headers, or its retry
+                count and statuses.
 
         Returns:
             OK - the request has succeeded.
 
         Raises:
             ApiError: If the API responds with an error status code. ``error`` is ``RawError``."""
-        return self._with_raw_response.get_stored_payment_methods(
-            shopper_reference=shopper_reference, merchant_account=merchant_account, request_options=request_options
-        ).unwrap()
+        return unwrap(
+            self._with_raw_response.get_stored_payment_methods(
+                shopper_reference=shopper_reference, merchant_account=merchant_account, request_options=request_options
+            ),
+        )
 
     def post_forward(
         self,
@@ -99,16 +108,19 @@ class RecurringApi:
         Args:
             idempotency_key: A unique identifier for the message with a maximum of 64 characters (we recommend a UUID).
             body: The request body.
-            request_options: Per-call overrides for this one request, such as a timeout or extra headers.
+            request_options: Per-call overrides for this one request, such as a timeout, extra headers, or its retry
+                count and statuses.
 
         Returns:
             OK - the request has succeeded.
 
         Raises:
             ApiError: If the API responds with an error status code. ``error`` is ``RawError``."""
-        return self._with_raw_response.post_forward(
-            idempotency_key=idempotency_key, body=body, request_options=request_options
-        ).unwrap()
+        return unwrap(
+            self._with_raw_response.post_forward(
+                idempotency_key=idempotency_key, body=body, request_options=request_options
+            ),
+        )
 
     def post_stored_payment_methods(
         self,
@@ -123,16 +135,19 @@ class RecurringApi:
         Args:
             idempotency_key: A unique identifier for the message with a maximum of 64 characters (we recommend a UUID).
             body: The request body.
-            request_options: Per-call overrides for this one request, such as a timeout or extra headers.
+            request_options: Per-call overrides for this one request, such as a timeout, extra headers, or its retry
+                count and statuses.
 
         Returns:
             Created - the request has been fulfilled and has resulted in one or more new resources being created.
 
         Raises:
             ApiError: If the API responds with an error status code. ``error`` is ``RawError``."""
-        return self._with_raw_response.post_stored_payment_methods(
-            idempotency_key=idempotency_key, body=body, request_options=request_options
-        ).unwrap()
+        return unwrap(
+            self._with_raw_response.post_stored_payment_methods(
+                idempotency_key=idempotency_key, body=body, request_options=request_options
+            ),
+        )
 
     @property
     def with_raw_response(self) -> RecurringApiWithRawResponse:
@@ -159,18 +174,19 @@ class AsyncRecurringApi:
                 Minimum length: 3 characters. > Your reference must not include personally identifiable information
                 (PII), for example name or email address.
             merchant_account: Your merchant account.
-            request_options: Per-call overrides for this one request, such as a timeout or extra headers.
+            request_options: Per-call overrides for this one request, such as a timeout, extra headers, or its retry
+                count and statuses.
 
         Returns:
             No Content - look at the actual response code for the status of the request.
 
         Raises:
             ApiError: If the API responds with an error status code. ``error`` is ``RawError``."""
-        return (
+        return unwrap(
             await self._with_raw_response.delete_stored_payment_methods_stored_payment_method_id(
                 stored_payment_method_id, shopper_reference, merchant_account, request_options=request_options
-            )
-        ).unwrap()
+            ),
+        )
 
     async def get_stored_payment_methods(
         self,
@@ -188,18 +204,19 @@ class AsyncRecurringApi:
                 Minimum length: 3 characters. > Your reference must not include personally identifiable information
                 (PII), for example name or email address.
             merchant_account: Your merchant account.
-            request_options: Per-call overrides for this one request, such as a timeout or extra headers.
+            request_options: Per-call overrides for this one request, such as a timeout, extra headers, or its retry
+                count and statuses.
 
         Returns:
             OK - the request has succeeded.
 
         Raises:
             ApiError: If the API responds with an error status code. ``error`` is ``RawError``."""
-        return (
+        return unwrap(
             await self._with_raw_response.get_stored_payment_methods(
                 shopper_reference=shopper_reference, merchant_account=merchant_account, request_options=request_options
-            )
-        ).unwrap()
+            ),
+        )
 
     async def post_forward(
         self,
@@ -216,18 +233,19 @@ class AsyncRecurringApi:
         Args:
             idempotency_key: A unique identifier for the message with a maximum of 64 characters (we recommend a UUID).
             body: The request body.
-            request_options: Per-call overrides for this one request, such as a timeout or extra headers.
+            request_options: Per-call overrides for this one request, such as a timeout, extra headers, or its retry
+                count and statuses.
 
         Returns:
             OK - the request has succeeded.
 
         Raises:
             ApiError: If the API responds with an error status code. ``error`` is ``RawError``."""
-        return (
+        return unwrap(
             await self._with_raw_response.post_forward(
                 idempotency_key=idempotency_key, body=body, request_options=request_options
-            )
-        ).unwrap()
+            ),
+        )
 
     async def post_stored_payment_methods(
         self,
@@ -242,18 +260,19 @@ class AsyncRecurringApi:
         Args:
             idempotency_key: A unique identifier for the message with a maximum of 64 characters (we recommend a UUID).
             body: The request body.
-            request_options: Per-call overrides for this one request, such as a timeout or extra headers.
+            request_options: Per-call overrides for this one request, such as a timeout, extra headers, or its retry
+                count and statuses.
 
         Returns:
             Created - the request has been fulfilled and has resulted in one or more new resources being created.
 
         Raises:
             ApiError: If the API responds with an error status code. ``error`` is ``RawError``."""
-        return (
+        return unwrap(
             await self._with_raw_response.post_stored_payment_methods(
                 idempotency_key=idempotency_key, body=body, request_options=request_options
-            )
-        ).unwrap()
+            ),
+        )
 
     @property
     def with_raw_response(self) -> AsyncRecurringApiWithRawResponse:
@@ -277,7 +296,8 @@ class RecurringApiWithRawResponse(SecuredRawResponse[RawClient, Server, AuthSche
                 Minimum length: 3 characters. > Your reference must not include personally identifiable information
                 (PII), for example name or email address.
             merchant_account: Your merchant account.
-            request_options: Per-call overrides for this one request, such as a timeout or extra headers.
+            request_options: Per-call overrides for this one request, such as a timeout, extra headers, or its retry
+                count and statuses.
 
         Returns:
             An ``ApiResult`` holding the deserialized response or the error body."""
@@ -311,7 +331,8 @@ class RecurringApiWithRawResponse(SecuredRawResponse[RawClient, Server, AuthSche
                 Minimum length: 3 characters. > Your reference must not include personally identifiable information
                 (PII), for example name or email address.
             merchant_account: Your merchant account.
-            request_options: Per-call overrides for this one request, such as a timeout or extra headers.
+            request_options: Per-call overrides for this one request, such as a timeout, extra headers, or its retry
+                count and statuses.
 
         Returns:
             An ``ApiResult`` holding the deserialized response or the error body."""
@@ -343,7 +364,8 @@ class RecurringApiWithRawResponse(SecuredRawResponse[RawClient, Server, AuthSche
         Args:
             idempotency_key: A unique identifier for the message with a maximum of 64 characters (we recommend a UUID).
             body: The request body.
-            request_options: Per-call overrides for this one request, such as a timeout or extra headers.
+            request_options: Per-call overrides for this one request, such as a timeout, extra headers, or its retry
+                count and statuses.
 
         Returns:
             An ``ApiResult`` holding the deserialized response or the error body."""
@@ -371,7 +393,8 @@ class RecurringApiWithRawResponse(SecuredRawResponse[RawClient, Server, AuthSche
         Args:
             idempotency_key: A unique identifier for the message with a maximum of 64 characters (we recommend a UUID).
             body: The request body.
-            request_options: Per-call overrides for this one request, such as a timeout or extra headers.
+            request_options: Per-call overrides for this one request, such as a timeout, extra headers, or its retry
+                count and statuses.
 
         Returns:
             An ``ApiResult`` holding the deserialized response or the error body."""
@@ -404,7 +427,8 @@ class AsyncRecurringApiWithRawResponse(SecuredRawResponse[AsyncRawClient, Server
                 Minimum length: 3 characters. > Your reference must not include personally identifiable information
                 (PII), for example name or email address.
             merchant_account: Your merchant account.
-            request_options: Per-call overrides for this one request, such as a timeout or extra headers.
+            request_options: Per-call overrides for this one request, such as a timeout, extra headers, or its retry
+                count and statuses.
 
         Returns:
             An ``ApiResult`` holding the deserialized response or the error body."""
@@ -417,7 +441,7 @@ class AsyncRecurringApiWithRawResponse(SecuredRawResponse[AsyncRawClient, Server
             ],
             headers=[param[UUID]("Idempotency-Key", uuid4())],
             auth_scheme=AsyncAnySchemes(self._auth.basic_auth, self._auth.api_key_auth),
-            decoder=empty_response,
+            decoder=async_empty_response,
             error_mapper=raw_error_response,
             request_options=request_options,
         )
@@ -438,7 +462,8 @@ class AsyncRecurringApiWithRawResponse(SecuredRawResponse[AsyncRawClient, Server
                 Minimum length: 3 characters. > Your reference must not include personally identifiable information
                 (PII), for example name or email address.
             merchant_account: Your merchant account.
-            request_options: Per-call overrides for this one request, such as a timeout or extra headers.
+            request_options: Per-call overrides for this one request, such as a timeout, extra headers, or its retry
+                count and statuses.
 
         Returns:
             An ``ApiResult`` holding the deserialized response or the error body."""
@@ -450,7 +475,7 @@ class AsyncRecurringApiWithRawResponse(SecuredRawResponse[AsyncRawClient, Server
                 param[str | None]("merchantAccount", merchant_account),
             ],
             auth_scheme=AsyncAnySchemes(self._auth.basic_auth, self._auth.api_key_auth),
-            decoder=json_decoder[ListStoredPaymentMethodsResponse],
+            decoder=async_json_decoder[ListStoredPaymentMethodsResponse],
             error_mapper=raw_error_response,
             request_options=request_options,
         )
@@ -470,7 +495,8 @@ class AsyncRecurringApiWithRawResponse(SecuredRawResponse[AsyncRawClient, Server
         Args:
             idempotency_key: A unique identifier for the message with a maximum of 64 characters (we recommend a UUID).
             body: The request body.
-            request_options: Per-call overrides for this one request, such as a timeout or extra headers.
+            request_options: Per-call overrides for this one request, such as a timeout, extra headers, or its retry
+                count and statuses.
 
         Returns:
             An ``ApiResult`` holding the deserialized response or the error body."""
@@ -480,7 +506,7 @@ class AsyncRecurringApiWithRawResponse(SecuredRawResponse[AsyncRawClient, Server
             headers=[param[str | None]("Idempotency-Key", idempotency_key)],
             body=json_body[CheckoutForwardRequest | CheckoutForwardRequestDict | None](body),
             auth_scheme=AsyncAnySchemes(self._auth.basic_auth, self._auth.api_key_auth),
-            decoder=json_decoder[CheckoutForwardResponse],
+            decoder=async_json_decoder[CheckoutForwardResponse],
             error_mapper=raw_error_response,
             request_options=request_options,
         )
@@ -498,7 +524,8 @@ class AsyncRecurringApiWithRawResponse(SecuredRawResponse[AsyncRawClient, Server
         Args:
             idempotency_key: A unique identifier for the message with a maximum of 64 characters (we recommend a UUID).
             body: The request body.
-            request_options: Per-call overrides for this one request, such as a timeout or extra headers.
+            request_options: Per-call overrides for this one request, such as a timeout, extra headers, or its retry
+                count and statuses.
 
         Returns:
             An ``ApiResult`` holding the deserialized response or the error body."""
@@ -508,7 +535,7 @@ class AsyncRecurringApiWithRawResponse(SecuredRawResponse[AsyncRawClient, Server
             headers=[param[str | None]("Idempotency-Key", idempotency_key)],
             body=json_body[StoredPaymentMethodRequest | StoredPaymentMethodRequestDict | None](body),
             auth_scheme=AsyncAnySchemes(self._auth.basic_auth, self._auth.api_key_auth),
-            decoder=json_decoder[StoredPaymentMethodResource],
+            decoder=async_json_decoder[StoredPaymentMethodResource],
             error_mapper=raw_error_response,
             request_options=request_options,
         )

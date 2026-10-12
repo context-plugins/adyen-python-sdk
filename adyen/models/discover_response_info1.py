@@ -20,4 +20,4 @@ class DiscoverResponseInfo1(SdkBaseModel):
 
 
 class DiscoverResponseInfo1Dict(TypedDict):
-    transaction_description: NotRequired[TransactionDescriptionResponseInfo1 | TransactionDescriptionResponseInfo1Dict]
+    transaction_description: NotRequired[TransactionDescriptionResponseInfo1Dict]

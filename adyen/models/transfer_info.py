@@ -156,17 +156,17 @@ class TransferInfo(SdkBaseModel):
 
 
 class TransferInfoDict(TypedDict):
-    amount: Amount17 | Amount17Dict
+    amount: Amount17Dict
     balance_account_id: NotRequired[str]
     category: Category3OrStr
-    counterparty: CounterpartyInfoV31 | CounterpartyInfoV31Dict
+    counterparty: CounterpartyInfoV31Dict
     description: NotRequired[str]
-    execution_date: NotRequired[ExecutionDate3 | ExecutionDate3Dict]
+    execution_date: NotRequired[ExecutionDate3Dict]
     payment_instrument_id: NotRequired[str]
     priorities: NotRequired[list[Priority1OrStr]]
     priority: NotRequired[Priority1OrStr]
     reference: NotRequired[str]
     reference_for_beneficiary: NotRequired[str]
-    review: NotRequired[TransferRequestReview2 | TransferRequestReview2Dict]
+    review: NotRequired[TransferRequestReview2Dict]
     type_: NotRequired[Type113OrStr]
-    ultimate_party: NotRequired[UltimatePartyIdentification1 | UltimatePartyIdentification1Dict]
+    ultimate_party: NotRequired[UltimatePartyIdentification1Dict]

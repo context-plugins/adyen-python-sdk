@@ -11,9 +11,11 @@ from ..core import (
     RawClient,
     RequestOptionsOrDict,
     SecuredRawResponse,
+    async_json_decoder,
     json_body,
     json_decoder,
     param,
+    unwrap,
 )
 from ..errors.get_payment_instruments_id_error import (
     GetPaymentInstrumentsIdErrorBody,
@@ -79,13 +81,14 @@ class PaymentInstruments:
         self._with_raw_response = PaymentInstrumentsWithRawResponse(client, server, auth)
 
     def get_payment_instruments_id(
-        self, id: str, *, request_options: RequestOptionsOrDict | None = None
+        self, id_: str, *, request_options: RequestOptionsOrDict | None = None
     ) -> PaymentInstrument1:
         """Returns the details of a payment instrument.
 
         Args:
-            id: The unique identifier of the payment instrument.
-            request_options: Per-call overrides for this one request, such as a timeout or extra headers.
+            id_: The unique identifier of the payment instrument.
+            request_options: Per-call overrides for this one request, such as a timeout, extra headers, or its retry
+                count and statuses.
 
         Returns:
             OK - the request has succeeded.
@@ -95,16 +98,17 @@ class PaymentInstruments:
                 required. Forbidden - insufficient permissions to process the request. Unprocessable Entity - a request
                 validation error. Internal Server Error - the server could not process the request. ``error`` is
                 ``RestServiceError | RawError``."""
-        return self._with_raw_response.get_payment_instruments_id(id, request_options=request_options).unwrap()
+        return unwrap(self._with_raw_response.get_payment_instruments_id(id_, request_options=request_options))
 
     def get_payment_instruments_id_network_token_activation_data(
-        self, id: str, *, request_options: RequestOptionsOrDict | None = None
+        self, id_: str, *, request_options: RequestOptionsOrDict | None = None
     ) -> NetworkTokenActivationDataResponse:
         """Get the network token activation data for a payment instrument.
 
         Args:
-            id: The unique identifier of the payment instrument.
-            request_options: Per-call overrides for this one request, such as a timeout or extra headers.
+            id_: The unique identifier of the payment instrument.
+            request_options: Per-call overrides for this one request, such as a timeout, extra headers, or its retry
+                count and statuses.
 
         Returns:
             OK - the request has succeeded.
@@ -114,18 +118,21 @@ class PaymentInstruments:
                 required. Forbidden - insufficient permissions to process the request. Unprocessable Entity - a request
                 validation error. Internal Server Error - the server could not process the request. ``error`` is
                 ``RestServiceError | RawError``."""
-        return self._with_raw_response.get_payment_instruments_id_network_token_activation_data(
-            id, request_options=request_options
-        ).unwrap()
+        return unwrap(
+            self._with_raw_response.get_payment_instruments_id_network_token_activation_data(
+                id_, request_options=request_options
+            ),
+        )
 
     def get_payment_instruments_id_network_tokens(
-        self, id: str, *, request_options: RequestOptionsOrDict | None = None
+        self, id_: str, *, request_options: RequestOptionsOrDict | None = None
     ) -> ListNetworkTokensResponse:
         """List the network tokens connected to a payment instrument.
 
         Args:
-            id: The unique identifier of the payment instrument.
-            request_options: Per-call overrides for this one request, such as a timeout or extra headers.
+            id_: The unique identifier of the payment instrument.
+            request_options: Per-call overrides for this one request, such as a timeout, extra headers, or its retry
+                count and statuses.
 
         Returns:
             OK - the request has succeeded.
@@ -135,12 +142,12 @@ class PaymentInstruments:
                 required. Forbidden - insufficient permissions to process the request. Unprocessable Entity - a request
                 validation error. Internal Server Error - the server could not process the request. ``error`` is
                 ``RestServiceError | RawError``."""
-        return self._with_raw_response.get_payment_instruments_id_network_tokens(
-            id, request_options=request_options
-        ).unwrap()
+        return unwrap(
+            self._with_raw_response.get_payment_instruments_id_network_tokens(id_, request_options=request_options)
+        )
 
     def get_payment_instruments_id_reveal(
-        self, id: str, *, request_options: RequestOptionsOrDict | None = None
+        self, id_: str, *, request_options: RequestOptionsOrDict | None = None
     ) -> PaymentInstrumentRevealInfo:
         """Returns the primary account number (PAN) of a payment instrument.
 
@@ -150,8 +157,9 @@ class PaymentInstruments:
         * Balance Platform BCL PCI role
 
         Args:
-            id: The unique identifier of the payment instrument.
-            request_options: Per-call overrides for this one request, such as a timeout or extra headers.
+            id_: The unique identifier of the payment instrument.
+            request_options: Per-call overrides for this one request, such as a timeout, extra headers, or its retry
+                count and statuses.
 
         Returns:
             OK - the request has succeeded.
@@ -161,16 +169,17 @@ class PaymentInstruments:
                 required. Forbidden - insufficient permissions to process the request. Unprocessable Entity - a request
                 validation error. Internal Server Error - the server could not process the request. ``error`` is
                 ``RestServiceError | RawError``."""
-        return self._with_raw_response.get_payment_instruments_id_reveal(id, request_options=request_options).unwrap()
+        return unwrap(self._with_raw_response.get_payment_instruments_id_reveal(id_, request_options=request_options))
 
     def get_payment_instruments_id_transaction_rules(
-        self, id: str, *, request_options: RequestOptionsOrDict | None = None
+        self, id_: str, *, request_options: RequestOptionsOrDict | None = None
     ) -> TransactionRulesResponse:
         """Returns a list of transaction rules associated with a payment instrument.
 
         Args:
-            id: The unique identifier of the payment instrument.
-            request_options: Per-call overrides for this one request, such as a timeout or extra headers.
+            id_: The unique identifier of the payment instrument.
+            request_options: Per-call overrides for this one request, such as a timeout, extra headers, or its retry
+                count and statuses.
 
         Returns:
             OK - the request has succeeded.
@@ -180,13 +189,13 @@ class PaymentInstruments:
                 required. Forbidden - insufficient permissions to process the request. Unprocessable Entity - a request
                 validation error. Internal Server Error - the server could not process the request. ``error`` is
                 ``RestServiceError | RawError``."""
-        return self._with_raw_response.get_payment_instruments_id_transaction_rules(
-            id, request_options=request_options
-        ).unwrap()
+        return unwrap(
+            self._with_raw_response.get_payment_instruments_id_transaction_rules(id_, request_options=request_options)
+        )
 
     def patch_payment_instruments_id(
         self,
-        id: str,
+        id_: str,
         *,
         body: PaymentInstrumentUpdateRequest | PaymentInstrumentUpdateRequestDict | None = None,
         request_options: RequestOptionsOrDict | None = None,
@@ -196,9 +205,10 @@ class PaymentInstruments:
         the card.
 
         Args:
-            id: The unique identifier of the payment instrument.
+            id_: The unique identifier of the payment instrument.
             body: The request body.
-            request_options: Per-call overrides for this one request, such as a timeout or extra headers.
+            request_options: Per-call overrides for this one request, such as a timeout, extra headers, or its retry
+                count and statuses.
 
         Returns:
             OK - the request has succeeded.
@@ -208,9 +218,9 @@ class PaymentInstruments:
                 required. Forbidden - insufficient permissions to process the request. Unprocessable Entity - a request
                 validation error. Internal Server Error - the server could not process the request. ``error`` is
                 ``RestServiceError | RawError``."""
-        return self._with_raw_response.patch_payment_instruments_id(
-            id, body=body, request_options=request_options
-        ).unwrap()
+        return unwrap(
+            self._with_raw_response.patch_payment_instruments_id(id_, body=body, request_options=request_options)
+        )
 
     def post_payment_instruments(
         self,
@@ -225,7 +235,8 @@ class PaymentInstruments:
 
         Args:
             body: The request body.
-            request_options: Per-call overrides for this one request, such as a timeout or extra headers.
+            request_options: Per-call overrides for this one request, such as a timeout, extra headers, or its retry
+                count and statuses.
 
         Returns:
             OK - the request has succeeded.
@@ -235,11 +246,11 @@ class PaymentInstruments:
                 required. Forbidden - insufficient permissions to process the request. Unprocessable Entity - a request
                 validation error. Internal Server Error - the server could not process the request. ``error`` is
                 ``RestServiceError | RawError``."""
-        return self._with_raw_response.post_payment_instruments(body=body, request_options=request_options).unwrap()
+        return unwrap(self._with_raw_response.post_payment_instruments(body=body, request_options=request_options))
 
     def post_payment_instruments_id_network_token_activation_data(
         self,
-        id: str,
+        id_: str,
         *,
         body: NetworkTokenActivationDataRequest | NetworkTokenActivationDataRequestDict | None = None,
         request_options: RequestOptionsOrDict | None = None,
@@ -248,9 +259,10 @@ class PaymentInstruments:
         their digital wallet.
 
         Args:
-            id: The unique identifier of the payment instrument.
+            id_: The unique identifier of the payment instrument.
             body: The request body.
-            request_options: Per-call overrides for this one request, such as a timeout or extra headers.
+            request_options: Per-call overrides for this one request, such as a timeout, extra headers, or its retry
+                count and statuses.
 
         Returns:
             OK - the request has succeeded.
@@ -260,9 +272,11 @@ class PaymentInstruments:
                 required. Forbidden - insufficient permissions to process the request. Unprocessable Entity - a request
                 validation error. Internal Server Error - the server could not process the request. ``error`` is
                 ``RestServiceError | RawError``."""
-        return self._with_raw_response.post_payment_instruments_id_network_token_activation_data(
-            id, body=body, request_options=request_options
-        ).unwrap()
+        return unwrap(
+            self._with_raw_response.post_payment_instruments_id_network_token_activation_data(
+                id_, body=body, request_options=request_options
+            ),
+        )
 
     def post_payment_instruments_reveal(
         self,
@@ -283,7 +297,8 @@ class PaymentInstruments:
 
         Args:
             body: The request body.
-            request_options: Per-call overrides for this one request, such as a timeout or extra headers.
+            request_options: Per-call overrides for this one request, such as a timeout, extra headers, or its retry
+                count and statuses.
 
         Returns:
             OK - the request has succeeded.
@@ -293,9 +308,9 @@ class PaymentInstruments:
                 required. Forbidden - insufficient permissions to process the request. Unprocessable Entity - a request
                 validation error. Internal Server Error - the server could not process the request. ``error`` is
                 ``RestServiceError | RawError``."""
-        return self._with_raw_response.post_payment_instruments_reveal(
-            body=body, request_options=request_options
-        ).unwrap()
+        return unwrap(
+            self._with_raw_response.post_payment_instruments_reveal(body=body, request_options=request_options)
+        )
 
     @property
     def with_raw_response(self) -> PaymentInstrumentsWithRawResponse:
@@ -307,13 +322,14 @@ class AsyncPaymentInstruments:
         self._with_raw_response = AsyncPaymentInstrumentsWithRawResponse(client, server, auth)
 
     async def get_payment_instruments_id(
-        self, id: str, *, request_options: RequestOptionsOrDict | None = None
+        self, id_: str, *, request_options: RequestOptionsOrDict | None = None
     ) -> PaymentInstrument1:
         """Returns the details of a payment instrument.
 
         Args:
-            id: The unique identifier of the payment instrument.
-            request_options: Per-call overrides for this one request, such as a timeout or extra headers.
+            id_: The unique identifier of the payment instrument.
+            request_options: Per-call overrides for this one request, such as a timeout, extra headers, or its retry
+                count and statuses.
 
         Returns:
             OK - the request has succeeded.
@@ -323,16 +339,17 @@ class AsyncPaymentInstruments:
                 required. Forbidden - insufficient permissions to process the request. Unprocessable Entity - a request
                 validation error. Internal Server Error - the server could not process the request. ``error`` is
                 ``RestServiceError | RawError``."""
-        return (await self._with_raw_response.get_payment_instruments_id(id, request_options=request_options)).unwrap()
+        return unwrap(await self._with_raw_response.get_payment_instruments_id(id_, request_options=request_options))
 
     async def get_payment_instruments_id_network_token_activation_data(
-        self, id: str, *, request_options: RequestOptionsOrDict | None = None
+        self, id_: str, *, request_options: RequestOptionsOrDict | None = None
     ) -> NetworkTokenActivationDataResponse:
         """Get the network token activation data for a payment instrument.
 
         Args:
-            id: The unique identifier of the payment instrument.
-            request_options: Per-call overrides for this one request, such as a timeout or extra headers.
+            id_: The unique identifier of the payment instrument.
+            request_options: Per-call overrides for this one request, such as a timeout, extra headers, or its retry
+                count and statuses.
 
         Returns:
             OK - the request has succeeded.
@@ -342,20 +359,21 @@ class AsyncPaymentInstruments:
                 required. Forbidden - insufficient permissions to process the request. Unprocessable Entity - a request
                 validation error. Internal Server Error - the server could not process the request. ``error`` is
                 ``RestServiceError | RawError``."""
-        return (
+        return unwrap(
             await self._with_raw_response.get_payment_instruments_id_network_token_activation_data(
-                id, request_options=request_options
-            )
-        ).unwrap()
+                id_, request_options=request_options
+            ),
+        )
 
     async def get_payment_instruments_id_network_tokens(
-        self, id: str, *, request_options: RequestOptionsOrDict | None = None
+        self, id_: str, *, request_options: RequestOptionsOrDict | None = None
     ) -> ListNetworkTokensResponse:
         """List the network tokens connected to a payment instrument.
 
         Args:
-            id: The unique identifier of the payment instrument.
-            request_options: Per-call overrides for this one request, such as a timeout or extra headers.
+            id_: The unique identifier of the payment instrument.
+            request_options: Per-call overrides for this one request, such as a timeout, extra headers, or its retry
+                count and statuses.
 
         Returns:
             OK - the request has succeeded.
@@ -365,12 +383,14 @@ class AsyncPaymentInstruments:
                 required. Forbidden - insufficient permissions to process the request. Unprocessable Entity - a request
                 validation error. Internal Server Error - the server could not process the request. ``error`` is
                 ``RestServiceError | RawError``."""
-        return (
-            await self._with_raw_response.get_payment_instruments_id_network_tokens(id, request_options=request_options)
-        ).unwrap()
+        return unwrap(
+            await self._with_raw_response.get_payment_instruments_id_network_tokens(
+                id_, request_options=request_options
+            ),
+        )
 
     async def get_payment_instruments_id_reveal(
-        self, id: str, *, request_options: RequestOptionsOrDict | None = None
+        self, id_: str, *, request_options: RequestOptionsOrDict | None = None
     ) -> PaymentInstrumentRevealInfo:
         """Returns the primary account number (PAN) of a payment instrument.
 
@@ -380,8 +400,9 @@ class AsyncPaymentInstruments:
         * Balance Platform BCL PCI role
 
         Args:
-            id: The unique identifier of the payment instrument.
-            request_options: Per-call overrides for this one request, such as a timeout or extra headers.
+            id_: The unique identifier of the payment instrument.
+            request_options: Per-call overrides for this one request, such as a timeout, extra headers, or its retry
+                count and statuses.
 
         Returns:
             OK - the request has succeeded.
@@ -391,18 +412,19 @@ class AsyncPaymentInstruments:
                 required. Forbidden - insufficient permissions to process the request. Unprocessable Entity - a request
                 validation error. Internal Server Error - the server could not process the request. ``error`` is
                 ``RestServiceError | RawError``."""
-        return (
-            await self._with_raw_response.get_payment_instruments_id_reveal(id, request_options=request_options)
-        ).unwrap()
+        return unwrap(
+            await self._with_raw_response.get_payment_instruments_id_reveal(id_, request_options=request_options)
+        )
 
     async def get_payment_instruments_id_transaction_rules(
-        self, id: str, *, request_options: RequestOptionsOrDict | None = None
+        self, id_: str, *, request_options: RequestOptionsOrDict | None = None
     ) -> TransactionRulesResponse:
         """Returns a list of transaction rules associated with a payment instrument.
 
         Args:
-            id: The unique identifier of the payment instrument.
-            request_options: Per-call overrides for this one request, such as a timeout or extra headers.
+            id_: The unique identifier of the payment instrument.
+            request_options: Per-call overrides for this one request, such as a timeout, extra headers, or its retry
+                count and statuses.
 
         Returns:
             OK - the request has succeeded.
@@ -412,15 +434,15 @@ class AsyncPaymentInstruments:
                 required. Forbidden - insufficient permissions to process the request. Unprocessable Entity - a request
                 validation error. Internal Server Error - the server could not process the request. ``error`` is
                 ``RestServiceError | RawError``."""
-        return (
+        return unwrap(
             await self._with_raw_response.get_payment_instruments_id_transaction_rules(
-                id, request_options=request_options
-            )
-        ).unwrap()
+                id_, request_options=request_options
+            ),
+        )
 
     async def patch_payment_instruments_id(
         self,
-        id: str,
+        id_: str,
         *,
         body: PaymentInstrumentUpdateRequest | PaymentInstrumentUpdateRequestDict | None = None,
         request_options: RequestOptionsOrDict | None = None,
@@ -430,9 +452,10 @@ class AsyncPaymentInstruments:
         the card.
 
         Args:
-            id: The unique identifier of the payment instrument.
+            id_: The unique identifier of the payment instrument.
             body: The request body.
-            request_options: Per-call overrides for this one request, such as a timeout or extra headers.
+            request_options: Per-call overrides for this one request, such as a timeout, extra headers, or its retry
+                count and statuses.
 
         Returns:
             OK - the request has succeeded.
@@ -442,9 +465,9 @@ class AsyncPaymentInstruments:
                 required. Forbidden - insufficient permissions to process the request. Unprocessable Entity - a request
                 validation error. Internal Server Error - the server could not process the request. ``error`` is
                 ``RestServiceError | RawError``."""
-        return (
-            await self._with_raw_response.patch_payment_instruments_id(id, body=body, request_options=request_options)
-        ).unwrap()
+        return unwrap(
+            await self._with_raw_response.patch_payment_instruments_id(id_, body=body, request_options=request_options)
+        )
 
     async def post_payment_instruments(
         self,
@@ -459,7 +482,8 @@ class AsyncPaymentInstruments:
 
         Args:
             body: The request body.
-            request_options: Per-call overrides for this one request, such as a timeout or extra headers.
+            request_options: Per-call overrides for this one request, such as a timeout, extra headers, or its retry
+                count and statuses.
 
         Returns:
             OK - the request has succeeded.
@@ -469,13 +493,13 @@ class AsyncPaymentInstruments:
                 required. Forbidden - insufficient permissions to process the request. Unprocessable Entity - a request
                 validation error. Internal Server Error - the server could not process the request. ``error`` is
                 ``RestServiceError | RawError``."""
-        return (
+        return unwrap(
             await self._with_raw_response.post_payment_instruments(body=body, request_options=request_options)
-        ).unwrap()
+        )
 
     async def post_payment_instruments_id_network_token_activation_data(
         self,
-        id: str,
+        id_: str,
         *,
         body: NetworkTokenActivationDataRequest | NetworkTokenActivationDataRequestDict | None = None,
         request_options: RequestOptionsOrDict | None = None,
@@ -484,9 +508,10 @@ class AsyncPaymentInstruments:
         their digital wallet.
 
         Args:
-            id: The unique identifier of the payment instrument.
+            id_: The unique identifier of the payment instrument.
             body: The request body.
-            request_options: Per-call overrides for this one request, such as a timeout or extra headers.
+            request_options: Per-call overrides for this one request, such as a timeout, extra headers, or its retry
+                count and statuses.
 
         Returns:
             OK - the request has succeeded.
@@ -496,11 +521,11 @@ class AsyncPaymentInstruments:
                 required. Forbidden - insufficient permissions to process the request. Unprocessable Entity - a request
                 validation error. Internal Server Error - the server could not process the request. ``error`` is
                 ``RestServiceError | RawError``."""
-        return (
+        return unwrap(
             await self._with_raw_response.post_payment_instruments_id_network_token_activation_data(
-                id, body=body, request_options=request_options
-            )
-        ).unwrap()
+                id_, body=body, request_options=request_options
+            ),
+        )
 
     async def post_payment_instruments_reveal(
         self,
@@ -521,7 +546,8 @@ class AsyncPaymentInstruments:
 
         Args:
             body: The request body.
-            request_options: Per-call overrides for this one request, such as a timeout or extra headers.
+            request_options: Per-call overrides for this one request, such as a timeout, extra headers, or its retry
+                count and statuses.
 
         Returns:
             OK - the request has succeeded.
@@ -531,9 +557,9 @@ class AsyncPaymentInstruments:
                 required. Forbidden - insufficient permissions to process the request. Unprocessable Entity - a request
                 validation error. Internal Server Error - the server could not process the request. ``error`` is
                 ``RestServiceError | RawError``."""
-        return (
+        return unwrap(
             await self._with_raw_response.post_payment_instruments_reveal(body=body, request_options=request_options)
-        ).unwrap()
+        )
 
     @property
     def with_raw_response(self) -> AsyncPaymentInstrumentsWithRawResponse:
@@ -542,20 +568,21 @@ class AsyncPaymentInstruments:
 
 class PaymentInstrumentsWithRawResponse(SecuredRawResponse[RawClient, Server, AuthSchemes]):
     def get_payment_instruments_id(
-        self, id: str, *, request_options: RequestOptionsOrDict | None = None
+        self, id_: str, *, request_options: RequestOptionsOrDict | None = None
     ) -> ApiResult[PaymentInstrument1, GetPaymentInstrumentsIdErrorBody]:
         """Returns the details of a payment instrument.
 
         Args:
-            id: The unique identifier of the payment instrument.
-            request_options: Per-call overrides for this one request, such as a timeout or extra headers.
+            id_: The unique identifier of the payment instrument.
+            request_options: Per-call overrides for this one request, such as a timeout, extra headers, or its retry
+                count and statuses.
 
         Returns:
             An ``ApiResult`` holding the deserialized response or the error body."""
         return self._client.execute(
             http_method="GET",
             url_template=self._server.default13("/paymentInstruments/{id}"),
-            path_params=[param[str]("id", id)],
+            path_params=[param[str]("id", id_)],
             auth_scheme=AnySchemes(self._auth.client_key, self._auth.basic_auth, self._auth.api_key_auth),
             decoder=json_decoder[PaymentInstrument1],
             error_mapper=get_payment_instruments_id_error_mapper,
@@ -563,20 +590,21 @@ class PaymentInstrumentsWithRawResponse(SecuredRawResponse[RawClient, Server, Au
         )
 
     def get_payment_instruments_id_network_token_activation_data(
-        self, id: str, *, request_options: RequestOptionsOrDict | None = None
+        self, id_: str, *, request_options: RequestOptionsOrDict | None = None
     ) -> ApiResult[NetworkTokenActivationDataResponse, GetPaymentInstrumentsIdNetworkTokenActivationDataErrorBody]:
         """Get the network token activation data for a payment instrument.
 
         Args:
-            id: The unique identifier of the payment instrument.
-            request_options: Per-call overrides for this one request, such as a timeout or extra headers.
+            id_: The unique identifier of the payment instrument.
+            request_options: Per-call overrides for this one request, such as a timeout, extra headers, or its retry
+                count and statuses.
 
         Returns:
             An ``ApiResult`` holding the deserialized response or the error body."""
         return self._client.execute(
             http_method="GET",
             url_template=self._server.default13("/paymentInstruments/{id}/networkTokenActivationData"),
-            path_params=[param[str]("id", id)],
+            path_params=[param[str]("id", id_)],
             auth_scheme=AnySchemes(self._auth.client_key, self._auth.basic_auth, self._auth.api_key_auth),
             decoder=json_decoder[NetworkTokenActivationDataResponse],
             error_mapper=get_payment_instruments_id_network_token_activation_data_error_mapper,
@@ -584,20 +612,21 @@ class PaymentInstrumentsWithRawResponse(SecuredRawResponse[RawClient, Server, Au
         )
 
     def get_payment_instruments_id_network_tokens(
-        self, id: str, *, request_options: RequestOptionsOrDict | None = None
+        self, id_: str, *, request_options: RequestOptionsOrDict | None = None
     ) -> ApiResult[ListNetworkTokensResponse, GetPaymentInstrumentsIdNetworkTokensErrorBody]:
         """List the network tokens connected to a payment instrument.
 
         Args:
-            id: The unique identifier of the payment instrument.
-            request_options: Per-call overrides for this one request, such as a timeout or extra headers.
+            id_: The unique identifier of the payment instrument.
+            request_options: Per-call overrides for this one request, such as a timeout, extra headers, or its retry
+                count and statuses.
 
         Returns:
             An ``ApiResult`` holding the deserialized response or the error body."""
         return self._client.execute(
             http_method="GET",
             url_template=self._server.default13("/paymentInstruments/{id}/networkTokens"),
-            path_params=[param[str]("id", id)],
+            path_params=[param[str]("id", id_)],
             auth_scheme=AnySchemes(self._auth.client_key, self._auth.basic_auth, self._auth.api_key_auth),
             decoder=json_decoder[ListNetworkTokensResponse],
             error_mapper=get_payment_instruments_id_network_tokens_error_mapper,
@@ -605,7 +634,7 @@ class PaymentInstrumentsWithRawResponse(SecuredRawResponse[RawClient, Server, Au
         )
 
     def get_payment_instruments_id_reveal(
-        self, id: str, *, request_options: RequestOptionsOrDict | None = None
+        self, id_: str, *, request_options: RequestOptionsOrDict | None = None
     ) -> ApiResult[PaymentInstrumentRevealInfo, GetPaymentInstrumentsIdRevealErrorBody]:
         """Returns the primary account number (PAN) of a payment instrument.
 
@@ -615,15 +644,16 @@ class PaymentInstrumentsWithRawResponse(SecuredRawResponse[RawClient, Server, Au
         * Balance Platform BCL PCI role
 
         Args:
-            id: The unique identifier of the payment instrument.
-            request_options: Per-call overrides for this one request, such as a timeout or extra headers.
+            id_: The unique identifier of the payment instrument.
+            request_options: Per-call overrides for this one request, such as a timeout, extra headers, or its retry
+                count and statuses.
 
         Returns:
             An ``ApiResult`` holding the deserialized response or the error body."""
         return self._client.execute(
             http_method="GET",
             url_template=self._server.default13("/paymentInstruments/{id}/reveal"),
-            path_params=[param[str]("id", id)],
+            path_params=[param[str]("id", id_)],
             auth_scheme=AnySchemes(self._auth.client_key, self._auth.basic_auth, self._auth.api_key_auth),
             decoder=json_decoder[PaymentInstrumentRevealInfo],
             error_mapper=get_payment_instruments_id_reveal_error_mapper,
@@ -631,20 +661,21 @@ class PaymentInstrumentsWithRawResponse(SecuredRawResponse[RawClient, Server, Au
         )
 
     def get_payment_instruments_id_transaction_rules(
-        self, id: str, *, request_options: RequestOptionsOrDict | None = None
+        self, id_: str, *, request_options: RequestOptionsOrDict | None = None
     ) -> ApiResult[TransactionRulesResponse, GetPaymentInstrumentsIdTransactionRulesErrorBody]:
         """Returns a list of transaction rules associated with a payment instrument.
 
         Args:
-            id: The unique identifier of the payment instrument.
-            request_options: Per-call overrides for this one request, such as a timeout or extra headers.
+            id_: The unique identifier of the payment instrument.
+            request_options: Per-call overrides for this one request, such as a timeout, extra headers, or its retry
+                count and statuses.
 
         Returns:
             An ``ApiResult`` holding the deserialized response or the error body."""
         return self._client.execute(
             http_method="GET",
             url_template=self._server.default13("/paymentInstruments/{id}/transactionRules"),
-            path_params=[param[str]("id", id)],
+            path_params=[param[str]("id", id_)],
             auth_scheme=AnySchemes(self._auth.client_key, self._auth.basic_auth, self._auth.api_key_auth),
             decoder=json_decoder[TransactionRulesResponse],
             error_mapper=get_payment_instruments_id_transaction_rules_error_mapper,
@@ -653,7 +684,7 @@ class PaymentInstrumentsWithRawResponse(SecuredRawResponse[RawClient, Server, Au
 
     def patch_payment_instruments_id(
         self,
-        id: str,
+        id_: str,
         *,
         body: PaymentInstrumentUpdateRequest | PaymentInstrumentUpdateRequestDict | None = None,
         request_options: RequestOptionsOrDict | None = None,
@@ -663,16 +694,17 @@ class PaymentInstrumentsWithRawResponse(SecuredRawResponse[RawClient, Server, Au
         the card.
 
         Args:
-            id: The unique identifier of the payment instrument.
+            id_: The unique identifier of the payment instrument.
             body: The request body.
-            request_options: Per-call overrides for this one request, such as a timeout or extra headers.
+            request_options: Per-call overrides for this one request, such as a timeout, extra headers, or its retry
+                count and statuses.
 
         Returns:
             An ``ApiResult`` holding the deserialized response or the error body."""
         return self._client.execute(
             http_method="PATCH",
             url_template=self._server.default13("/paymentInstruments/{id}"),
-            path_params=[param[str]("id", id)],
+            path_params=[param[str]("id", id_)],
             headers=[param[UUID]("Idempotency-Key", uuid4())],
             body=json_body[PaymentInstrumentUpdateRequest | PaymentInstrumentUpdateRequestDict | None](body),
             auth_scheme=AnySchemes(self._auth.client_key, self._auth.basic_auth, self._auth.api_key_auth),
@@ -694,7 +726,8 @@ class PaymentInstrumentsWithRawResponse(SecuredRawResponse[RawClient, Server, Au
 
         Args:
             body: The request body.
-            request_options: Per-call overrides for this one request, such as a timeout or extra headers.
+            request_options: Per-call overrides for this one request, such as a timeout, extra headers, or its retry
+                count and statuses.
 
         Returns:
             An ``ApiResult`` holding the deserialized response or the error body."""
@@ -711,7 +744,7 @@ class PaymentInstrumentsWithRawResponse(SecuredRawResponse[RawClient, Server, Au
 
     def post_payment_instruments_id_network_token_activation_data(
         self,
-        id: str,
+        id_: str,
         *,
         body: NetworkTokenActivationDataRequest | NetworkTokenActivationDataRequestDict | None = None,
         request_options: RequestOptionsOrDict | None = None,
@@ -720,16 +753,17 @@ class PaymentInstrumentsWithRawResponse(SecuredRawResponse[RawClient, Server, Au
         their digital wallet.
 
         Args:
-            id: The unique identifier of the payment instrument.
+            id_: The unique identifier of the payment instrument.
             body: The request body.
-            request_options: Per-call overrides for this one request, such as a timeout or extra headers.
+            request_options: Per-call overrides for this one request, such as a timeout, extra headers, or its retry
+                count and statuses.
 
         Returns:
             An ``ApiResult`` holding the deserialized response or the error body."""
         return self._client.execute(
             http_method="POST",
             url_template=self._server.default13("/paymentInstruments/{id}/networkTokenActivationData"),
-            path_params=[param[str]("id", id)],
+            path_params=[param[str]("id", id_)],
             headers=[param[UUID]("Idempotency-Key", uuid4())],
             body=json_body[NetworkTokenActivationDataRequest | NetworkTokenActivationDataRequestDict | None](body),
             auth_scheme=AnySchemes(self._auth.client_key, self._auth.basic_auth, self._auth.api_key_auth),
@@ -757,7 +791,8 @@ class PaymentInstrumentsWithRawResponse(SecuredRawResponse[RawClient, Server, Au
 
         Args:
             body: The request body.
-            request_options: Per-call overrides for this one request, such as a timeout or extra headers.
+            request_options: Per-call overrides for this one request, such as a timeout, extra headers, or its retry
+                count and statuses.
 
         Returns:
             An ``ApiResult`` holding the deserialized response or the error body."""
@@ -775,70 +810,73 @@ class PaymentInstrumentsWithRawResponse(SecuredRawResponse[RawClient, Server, Au
 
 class AsyncPaymentInstrumentsWithRawResponse(SecuredRawResponse[AsyncRawClient, Server, AsyncAuthSchemes]):
     async def get_payment_instruments_id(
-        self, id: str, *, request_options: RequestOptionsOrDict | None = None
+        self, id_: str, *, request_options: RequestOptionsOrDict | None = None
     ) -> ApiResult[PaymentInstrument1, GetPaymentInstrumentsIdErrorBody]:
         """Returns the details of a payment instrument.
 
         Args:
-            id: The unique identifier of the payment instrument.
-            request_options: Per-call overrides for this one request, such as a timeout or extra headers.
+            id_: The unique identifier of the payment instrument.
+            request_options: Per-call overrides for this one request, such as a timeout, extra headers, or its retry
+                count and statuses.
 
         Returns:
             An ``ApiResult`` holding the deserialized response or the error body."""
         return await self._client.execute(
             http_method="GET",
             url_template=self._server.default13("/paymentInstruments/{id}"),
-            path_params=[param[str]("id", id)],
+            path_params=[param[str]("id", id_)],
             auth_scheme=AsyncAnySchemes(self._auth.client_key, self._auth.basic_auth, self._auth.api_key_auth),
-            decoder=json_decoder[PaymentInstrument1],
+            decoder=async_json_decoder[PaymentInstrument1],
             error_mapper=get_payment_instruments_id_error_mapper,
             request_options=request_options,
         )
 
     async def get_payment_instruments_id_network_token_activation_data(
-        self, id: str, *, request_options: RequestOptionsOrDict | None = None
+        self, id_: str, *, request_options: RequestOptionsOrDict | None = None
     ) -> ApiResult[NetworkTokenActivationDataResponse, GetPaymentInstrumentsIdNetworkTokenActivationDataErrorBody]:
         """Get the network token activation data for a payment instrument.
 
         Args:
-            id: The unique identifier of the payment instrument.
-            request_options: Per-call overrides for this one request, such as a timeout or extra headers.
+            id_: The unique identifier of the payment instrument.
+            request_options: Per-call overrides for this one request, such as a timeout, extra headers, or its retry
+                count and statuses.
 
         Returns:
             An ``ApiResult`` holding the deserialized response or the error body."""
         return await self._client.execute(
             http_method="GET",
             url_template=self._server.default13("/paymentInstruments/{id}/networkTokenActivationData"),
-            path_params=[param[str]("id", id)],
+            path_params=[param[str]("id", id_)],
             auth_scheme=AsyncAnySchemes(self._auth.client_key, self._auth.basic_auth, self._auth.api_key_auth),
-            decoder=json_decoder[NetworkTokenActivationDataResponse],
+            decoder=async_json_decoder[NetworkTokenActivationDataResponse],
             error_mapper=get_payment_instruments_id_network_token_activation_data_error_mapper,
             request_options=request_options,
         )
 
     async def get_payment_instruments_id_network_tokens(
-        self, id: str, *, request_options: RequestOptionsOrDict | None = None
+        self, id_: str, *, request_options: RequestOptionsOrDict | None = None
     ) -> ApiResult[ListNetworkTokensResponse, GetPaymentInstrumentsIdNetworkTokensErrorBody]:
         """List the network tokens connected to a payment instrument.
 
         Args:
-            id: The unique identifier of the payment instrument.
-            request_options: Per-call overrides for this one request, such as a timeout or extra headers.
+            id_: The unique identifier of the payment instrument.
+            request_options: Per-call overrides for this one request, such as a timeout, extra headers, or its retry
+                count and statuses.
 
         Returns:
             An ``ApiResult`` holding the deserialized response or the error body."""
         return await self._client.execute(
             http_method="GET",
             url_template=self._server.default13("/paymentInstruments/{id}/networkTokens"),
-            path_params=[param[str]("id", id)],
+            path_params=[param[str]("id", id_)],
             auth_scheme=AsyncAnySchemes(self._auth.client_key, self._auth.basic_auth, self._auth.api_key_auth),
-            decoder=json_decoder[ListNetworkTokensResponse],
+            decoder=async_json_decoder[ListNetworkTokensResponse],
             error_mapper=get_payment_instruments_id_network_tokens_error_mapper,
             request_options=request_options,
         )
 
     async def get_payment_instruments_id_reveal(
-        self, id: str, *, request_options: RequestOptionsOrDict | None = None
+        self, id_: str, *, request_options: RequestOptionsOrDict | None = None
     ) -> ApiResult[PaymentInstrumentRevealInfo, GetPaymentInstrumentsIdRevealErrorBody]:
         """Returns the primary account number (PAN) of a payment instrument.
 
@@ -848,45 +886,47 @@ class AsyncPaymentInstrumentsWithRawResponse(SecuredRawResponse[AsyncRawClient, 
         * Balance Platform BCL PCI role
 
         Args:
-            id: The unique identifier of the payment instrument.
-            request_options: Per-call overrides for this one request, such as a timeout or extra headers.
+            id_: The unique identifier of the payment instrument.
+            request_options: Per-call overrides for this one request, such as a timeout, extra headers, or its retry
+                count and statuses.
 
         Returns:
             An ``ApiResult`` holding the deserialized response or the error body."""
         return await self._client.execute(
             http_method="GET",
             url_template=self._server.default13("/paymentInstruments/{id}/reveal"),
-            path_params=[param[str]("id", id)],
+            path_params=[param[str]("id", id_)],
             auth_scheme=AsyncAnySchemes(self._auth.client_key, self._auth.basic_auth, self._auth.api_key_auth),
-            decoder=json_decoder[PaymentInstrumentRevealInfo],
+            decoder=async_json_decoder[PaymentInstrumentRevealInfo],
             error_mapper=get_payment_instruments_id_reveal_error_mapper,
             request_options=request_options,
         )
 
     async def get_payment_instruments_id_transaction_rules(
-        self, id: str, *, request_options: RequestOptionsOrDict | None = None
+        self, id_: str, *, request_options: RequestOptionsOrDict | None = None
     ) -> ApiResult[TransactionRulesResponse, GetPaymentInstrumentsIdTransactionRulesErrorBody]:
         """Returns a list of transaction rules associated with a payment instrument.
 
         Args:
-            id: The unique identifier of the payment instrument.
-            request_options: Per-call overrides for this one request, such as a timeout or extra headers.
+            id_: The unique identifier of the payment instrument.
+            request_options: Per-call overrides for this one request, such as a timeout, extra headers, or its retry
+                count and statuses.
 
         Returns:
             An ``ApiResult`` holding the deserialized response or the error body."""
         return await self._client.execute(
             http_method="GET",
             url_template=self._server.default13("/paymentInstruments/{id}/transactionRules"),
-            path_params=[param[str]("id", id)],
+            path_params=[param[str]("id", id_)],
             auth_scheme=AsyncAnySchemes(self._auth.client_key, self._auth.basic_auth, self._auth.api_key_auth),
-            decoder=json_decoder[TransactionRulesResponse],
+            decoder=async_json_decoder[TransactionRulesResponse],
             error_mapper=get_payment_instruments_id_transaction_rules_error_mapper,
             request_options=request_options,
         )
 
     async def patch_payment_instruments_id(
         self,
-        id: str,
+        id_: str,
         *,
         body: PaymentInstrumentUpdateRequest | PaymentInstrumentUpdateRequestDict | None = None,
         request_options: RequestOptionsOrDict | None = None,
@@ -896,20 +936,21 @@ class AsyncPaymentInstrumentsWithRawResponse(SecuredRawResponse[AsyncRawClient, 
         the card.
 
         Args:
-            id: The unique identifier of the payment instrument.
+            id_: The unique identifier of the payment instrument.
             body: The request body.
-            request_options: Per-call overrides for this one request, such as a timeout or extra headers.
+            request_options: Per-call overrides for this one request, such as a timeout, extra headers, or its retry
+                count and statuses.
 
         Returns:
             An ``ApiResult`` holding the deserialized response or the error body."""
         return await self._client.execute(
             http_method="PATCH",
             url_template=self._server.default13("/paymentInstruments/{id}"),
-            path_params=[param[str]("id", id)],
+            path_params=[param[str]("id", id_)],
             headers=[param[UUID]("Idempotency-Key", uuid4())],
             body=json_body[PaymentInstrumentUpdateRequest | PaymentInstrumentUpdateRequestDict | None](body),
             auth_scheme=AsyncAnySchemes(self._auth.client_key, self._auth.basic_auth, self._auth.api_key_auth),
-            decoder=json_decoder[UpdatePaymentInstrument],
+            decoder=async_json_decoder[UpdatePaymentInstrument],
             error_mapper=patch_payment_instruments_id_error_mapper,
             request_options=request_options,
         )
@@ -927,7 +968,8 @@ class AsyncPaymentInstrumentsWithRawResponse(SecuredRawResponse[AsyncRawClient, 
 
         Args:
             body: The request body.
-            request_options: Per-call overrides for this one request, such as a timeout or extra headers.
+            request_options: Per-call overrides for this one request, such as a timeout, extra headers, or its retry
+                count and statuses.
 
         Returns:
             An ``ApiResult`` holding the deserialized response or the error body."""
@@ -937,14 +979,14 @@ class AsyncPaymentInstrumentsWithRawResponse(SecuredRawResponse[AsyncRawClient, 
             headers=[param[UUID]("Idempotency-Key", uuid4())],
             body=json_body[PaymentInstrumentInfo | PaymentInstrumentInfoDict | None](body),
             auth_scheme=AsyncAnySchemes(self._auth.client_key, self._auth.basic_auth, self._auth.api_key_auth),
-            decoder=json_decoder[PaymentInstrument1],
+            decoder=async_json_decoder[PaymentInstrument1],
             error_mapper=post_payment_instruments_error_mapper,
             request_options=request_options,
         )
 
     async def post_payment_instruments_id_network_token_activation_data(
         self,
-        id: str,
+        id_: str,
         *,
         body: NetworkTokenActivationDataRequest | NetworkTokenActivationDataRequestDict | None = None,
         request_options: RequestOptionsOrDict | None = None,
@@ -953,20 +995,21 @@ class AsyncPaymentInstrumentsWithRawResponse(SecuredRawResponse[AsyncRawClient, 
         their digital wallet.
 
         Args:
-            id: The unique identifier of the payment instrument.
+            id_: The unique identifier of the payment instrument.
             body: The request body.
-            request_options: Per-call overrides for this one request, such as a timeout or extra headers.
+            request_options: Per-call overrides for this one request, such as a timeout, extra headers, or its retry
+                count and statuses.
 
         Returns:
             An ``ApiResult`` holding the deserialized response or the error body."""
         return await self._client.execute(
             http_method="POST",
             url_template=self._server.default13("/paymentInstruments/{id}/networkTokenActivationData"),
-            path_params=[param[str]("id", id)],
+            path_params=[param[str]("id", id_)],
             headers=[param[UUID]("Idempotency-Key", uuid4())],
             body=json_body[NetworkTokenActivationDataRequest | NetworkTokenActivationDataRequestDict | None](body),
             auth_scheme=AsyncAnySchemes(self._auth.client_key, self._auth.basic_auth, self._auth.api_key_auth),
-            decoder=json_decoder[NetworkTokenActivationDataResponse],
+            decoder=async_json_decoder[NetworkTokenActivationDataResponse],
             error_mapper=post_payment_instruments_id_network_token_activation_data_error_mapper,
             request_options=request_options,
         )
@@ -990,7 +1033,8 @@ class AsyncPaymentInstrumentsWithRawResponse(SecuredRawResponse[AsyncRawClient, 
 
         Args:
             body: The request body.
-            request_options: Per-call overrides for this one request, such as a timeout or extra headers.
+            request_options: Per-call overrides for this one request, such as a timeout, extra headers, or its retry
+                count and statuses.
 
         Returns:
             An ``ApiResult`` holding the deserialized response or the error body."""
@@ -1000,7 +1044,7 @@ class AsyncPaymentInstrumentsWithRawResponse(SecuredRawResponse[AsyncRawClient, 
             headers=[param[UUID]("Idempotency-Key", uuid4())],
             body=json_body[PaymentInstrumentRevealRequest | PaymentInstrumentRevealRequestDict | None](body),
             auth_scheme=AsyncAnySchemes(self._auth.client_key, self._auth.basic_auth, self._auth.api_key_auth),
-            decoder=json_decoder[PaymentInstrumentRevealResponse],
+            decoder=async_json_decoder[PaymentInstrumentRevealResponse],
             error_mapper=post_payment_instruments_reveal_error_mapper,
             request_options=request_options,
         )

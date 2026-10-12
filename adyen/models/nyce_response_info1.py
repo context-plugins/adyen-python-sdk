@@ -31,4 +31,4 @@ class NyceResponseInfo1(SdkBaseModel):
 
 class NyceResponseInfo1Dict(TypedDict):
     processing_type: NotRequired[ProcessingTypeOrStr]
-    transaction_description: NotRequired[TransactionDescriptionResponseInfo1 | TransactionDescriptionResponseInfo1Dict]
+    transaction_description: NotRequired[TransactionDescriptionResponseInfo1Dict]

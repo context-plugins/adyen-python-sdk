@@ -4,11 +4,11 @@ from pydantic import Field
 from typing_extensions import NotRequired, TypedDict
 
 from ..core import UNSET, Optional, SdkBaseModel
-from .enums.type61 import Type61OrStr
+from .enums.type61 import Type61, Type61OrStr
 
 
 class ReleaseUpdateDetails(SdkBaseModel):
-    type_: Optional[Type61OrStr] = Field(default=UNSET, alias="type")
+    type_: Type61OrStr = Field(default=Type61.RELEASE_UPDATE, alias="type")
     """Type of terminal action: Update Release."""
 
     update_at_first_maintenance_call: Optional[bool] = Field(default=UNSET, alias="updateAtFirstMaintenanceCall")

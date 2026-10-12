@@ -19,7 +19,7 @@ class TerminalConnectivity2(SdkBaseModel):
 
 
 class TerminalConnectivity2Dict(TypedDict):
-    bluetooth: NotRequired[TerminalConnectivityBluetooth | TerminalConnectivityBluetoothDict]
-    cellular: NotRequired[TerminalConnectivityCellular | TerminalConnectivityCellularDict]
-    ethernet: NotRequired[TerminalConnectivityEthernet | TerminalConnectivityEthernetDict]
-    wifi: NotRequired[TerminalConnectivityWifi | TerminalConnectivityWifiDict]
+    bluetooth: NotRequired[TerminalConnectivityBluetoothDict]
+    cellular: NotRequired[TerminalConnectivityCellularDict]
+    ethernet: NotRequired[TerminalConnectivityEthernetDict]
+    wifi: NotRequired[TerminalConnectivityWifiDict]

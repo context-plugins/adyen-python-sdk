@@ -25,6 +25,6 @@ class Surcharge21(SdkBaseModel):
 
 class Surcharge21Dict(TypedDict):
     ask_confirmation: NotRequired[bool]
-    configurations: NotRequired[list[Configuration | ConfigurationDict]]
+    configurations: NotRequired[list[ConfigurationDict]]
     disclosure_on_present_card: NotRequired[bool]
     exclude_gratuity_from_surcharge: NotRequired[bool]

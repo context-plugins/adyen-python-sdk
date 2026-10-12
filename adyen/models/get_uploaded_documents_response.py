@@ -23,7 +23,7 @@ class GetUploadedDocumentsResponse(SdkBaseModel):
 
 
 class GetUploadedDocumentsResponseDict(TypedDict):
-    document_details: NotRequired[list[DocumentDetail | DocumentDetailDict]]
-    invalid_fields: NotRequired[list[ErrorFieldType | ErrorFieldTypeDict]]
+    document_details: NotRequired[list[DocumentDetailDict]]
+    invalid_fields: NotRequired[list[ErrorFieldTypeDict]]
     psp_reference: NotRequired[str]
     result_code: NotRequired[str]

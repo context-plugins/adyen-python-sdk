@@ -11,8 +11,10 @@ from ..core import (
     RawClient,
     RequestOptionsOrDict,
     SecuredRawResponse,
+    async_json_decoder,
     json_decoder,
     param,
+    unwrap,
 )
 from ..errors.post_merchants_merchant_id_api_credentials_api_credential_id_generate_client_key_error import (
     PostMerchantsMerchantIdApiCredentialsApiCredentialIdGenerateClientKeyErrorBody,
@@ -41,7 +43,8 @@ class ClientKeyMerchantLevel:
         Args:
             merchant_id: The unique identifier of the merchant account.
             api_credential_id: Unique identifier of the API credential.
-            request_options: Per-call overrides for this one request, such as a timeout or extra headers.
+            request_options: Per-call overrides for this one request, such as a timeout, extra headers, or its retry
+                count and statuses.
 
         Returns:
             OK - the request has succeeded.
@@ -51,9 +54,11 @@ class ClientKeyMerchantLevel:
                 required. Forbidden - insufficient permissions to process the request. Unprocessable Entity - a request
                 validation error. Internal Server Error - the server could not process the request. ``error`` is
                 ``RestServiceError | RawError``."""
-        return self._with_raw_response.post_merchants_merchant_id_api_credentials_api_credential_id_generate_client_key(
-            merchant_id, api_credential_id, request_options=request_options
-        ).unwrap()
+        return unwrap(
+            self._with_raw_response.post_merchants_merchant_id_api_credentials_api_credential_id_generate_client_key(
+                merchant_id, api_credential_id, request_options=request_options
+            ),
+        )
 
     @property
     def with_raw_response(self) -> ClientKeyMerchantLevelWithRawResponse:
@@ -79,7 +84,8 @@ class AsyncClientKeyMerchantLevel:
         Args:
             merchant_id: The unique identifier of the merchant account.
             api_credential_id: Unique identifier of the API credential.
-            request_options: Per-call overrides for this one request, such as a timeout or extra headers.
+            request_options: Per-call overrides for this one request, such as a timeout, extra headers, or its retry
+                count and statuses.
 
         Returns:
             OK - the request has succeeded.
@@ -89,11 +95,11 @@ class AsyncClientKeyMerchantLevel:
                 required. Forbidden - insufficient permissions to process the request. Unprocessable Entity - a request
                 validation error. Internal Server Error - the server could not process the request. ``error`` is
                 ``RestServiceError | RawError``."""
-        return (
+        return unwrap(
             await self._with_raw_response.post_merchants_merchant_id_api_credentials_api_credential_id_generate_client_key(
                 merchant_id, api_credential_id, request_options=request_options
-            )
-        ).unwrap()
+            ),
+        )
 
     @property
     def with_raw_response(self) -> AsyncClientKeyMerchantLevelWithRawResponse:
@@ -118,7 +124,8 @@ class ClientKeyMerchantLevelWithRawResponse(SecuredRawResponse[RawClient, Server
         Args:
             merchant_id: The unique identifier of the merchant account.
             api_credential_id: Unique identifier of the API credential.
-            request_options: Per-call overrides for this one request, such as a timeout or extra headers.
+            request_options: Per-call overrides for this one request, such as a timeout, extra headers, or its retry
+                count and statuses.
 
         Returns:
             An ``ApiResult`` holding the deserialized response or the error body."""
@@ -154,7 +161,8 @@ class AsyncClientKeyMerchantLevelWithRawResponse(SecuredRawResponse[AsyncRawClie
         Args:
             merchant_id: The unique identifier of the merchant account.
             api_credential_id: Unique identifier of the API credential.
-            request_options: Per-call overrides for this one request, such as a timeout or extra headers.
+            request_options: Per-call overrides for this one request, such as a timeout, extra headers, or its retry
+                count and statuses.
 
         Returns:
             An ``ApiResult`` holding the deserialized response or the error body."""
@@ -166,7 +174,7 @@ class AsyncClientKeyMerchantLevelWithRawResponse(SecuredRawResponse[AsyncRawClie
             path_params=[param[str]("merchantId", merchant_id), param[str]("apiCredentialId", api_credential_id)],
             headers=[param[UUID]("Idempotency-Key", uuid4())],
             auth_scheme=AsyncAnySchemes(self._auth.basic_auth, self._auth.api_key_auth),
-            decoder=json_decoder[GenerateClientKeyResponse],
+            decoder=async_json_decoder[GenerateClientKeyResponse],
             error_mapper=post_merchants_merchant_id_api_credentials_api_credential_id_generate_client_key_error_mapper,
             request_options=request_options,
         )

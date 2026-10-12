@@ -43,5 +43,5 @@ class UpiCollectDict(TypedDict):
     sdk_data: NotRequired[str]
     shopper_notification_reference: NotRequired[str]
     stored_payment_method_id: NotRequired[str]
-    type_: NotRequired[Literal["upi_collect"]]
+    type_: Literal["upi_collect"]
     virtual_payment_address: NotRequired[str]

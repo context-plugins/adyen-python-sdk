@@ -23,5 +23,5 @@ class InputRequest(SdkBaseModel):
 
 
 class InputRequestDict(TypedDict):
-    display_output: NotRequired[DisplayOutput2 | DisplayOutput2Dict]
-    input_data: InputData2 | InputData2Dict
+    display_output: NotRequired[DisplayOutput2Dict]
+    input_data: InputData2Dict

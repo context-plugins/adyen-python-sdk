@@ -23,4 +23,4 @@ class RegisterScarequest(SdkBaseModel):
 class RegisterScarequestDict(TypedDict):
     name: NotRequired[str]
     payment_instrument_id: str
-    strong_customer_authentication: DelegatedAuthenticationData1 | DelegatedAuthenticationData1Dict
+    strong_customer_authentication: DelegatedAuthenticationData1Dict

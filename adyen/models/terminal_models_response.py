@@ -12,4 +12,4 @@ class TerminalModelsResponse(SdkBaseModel):
 
 
 class TerminalModelsResponseDict(TypedDict):
-    data: NotRequired[list[Item | ItemDict]]
+    data: NotRequired[list[ItemDict]]

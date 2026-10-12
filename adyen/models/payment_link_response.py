@@ -192,13 +192,13 @@ class PaymentLinkResponse(SdkBaseModel):
      We recommend sending a maximum of 22 characters, otherwise banks might truncate the string.
      Allowed characters: **a-z**, **A-Z**, **0-9**, spaces, and special characters **. , ' _ - ? + * /**."""
 
-    show_remove_payment_method_button: Optional[bool] = Field(default=UNSET, alias="showRemovePaymentMethodButton")
+    show_remove_payment_method_button: bool = Field(default=True, alias="showRemovePaymentMethodButton")
     """Set to **false** to hide the button that lets the shopper remove a stored payment method."""
 
     social_security_number: Optional[str] = Field(default=UNSET, alias="socialSecurityNumber")
     """The shopper's social security number."""
 
-    split_card_funding_sources: Optional[bool] = Field(default=UNSET, alias="splitCardFundingSources")
+    split_card_funding_sources: bool = Field(default=False, alias="splitCardFundingSources")
     """Boolean value indicating whether the card payment method should be split into separate debit and credit
     options."""
 
@@ -261,48 +261,48 @@ class PaymentLinkResponse(SdkBaseModel):
 
 class PaymentLinkResponseDict(TypedDict):
     allowed_payment_methods: NotRequired[list[str]]
-    amount: Amount35 | Amount35Dict
-    application_info: NotRequired[ApplicationInfo | ApplicationInfoDict]
-    billing_address: NotRequired[Address3 | Address3Dict]
+    amount: Amount35Dict
+    application_info: NotRequired[ApplicationInfoDict]
+    billing_address: NotRequired[Address3Dict]
     blocked_payment_methods: NotRequired[list[str]]
     capture_delay_hours: NotRequired[int]
     country_code: NotRequired[str]
     date_of_birth: NotRequired[Date]
     deliver_at: NotRequired[RFC3339DateTime]
-    delivery_address: NotRequired[Address2 | Address2Dict]
+    delivery_address: NotRequired[Address2Dict]
     description: NotRequired[str]
     expires_at: NotRequired[RFC3339DateTime]
-    fund_origin: NotRequired[FundOrigin1 | FundOrigin1Dict]
-    fund_recipient: NotRequired[FundRecipient1 | FundRecipient1Dict]
+    fund_origin: NotRequired[FundOrigin1Dict]
+    fund_recipient: NotRequired[FundRecipient1Dict]
     id: str
-    installment_options: NotRequired[dict[str, InstallmentOption | InstallmentOptionDict]]
-    line_items: NotRequired[list[LineItem | LineItemDict]]
+    installment_options: NotRequired[dict[str, InstallmentOptionDict]]
+    line_items: NotRequired[list[LineItemDict]]
     manual_capture: NotRequired[bool]
     mcc: NotRequired[str]
     merchant_account: str
     merchant_order_reference: NotRequired[str]
     metadata: NotRequired[dict[str, str]]
-    platform_chargeback_logic: NotRequired[PlatformChargebackLogic4 | PlatformChargebackLogic4Dict]
+    platform_chargeback_logic: NotRequired[PlatformChargebackLogic4Dict]
     recurring_processing_model: NotRequired[RecurringProcessingModel4OrStr]
     reference: str
     required_shopper_fields: NotRequired[list[RequiredShopperFieldOrStr]]
     return_url: NotRequired[str]
     reusable: NotRequired[bool]
-    risk_data: NotRequired[RiskData1 | RiskData1Dict]
+    risk_data: NotRequired[RiskData1Dict]
     shopper_email: NotRequired[str]
     shopper_locale: NotRequired[str]
-    shopper_name: NotRequired[Name4 | Name4Dict]
+    shopper_name: NotRequired[Name4Dict]
     shopper_reference: NotRequired[str]
     shopper_statement: NotRequired[str]
     show_remove_payment_method_button: NotRequired[bool]
     social_security_number: NotRequired[str]
     split_card_funding_sources: NotRequired[bool]
-    splits: NotRequired[list[Split | SplitDict]]
+    splits: NotRequired[list[SplitDict]]
     status: Status3OrStr
     store: NotRequired[str]
     store_payment_method_mode: NotRequired[StorePaymentMethodMode2OrStr]
     telephone_number: NotRequired[str]
     theme_id: NotRequired[str]
-    three_ds2_request_data: NotRequired[CheckoutSessionThreeDs2RequestData3 | CheckoutSessionThreeDs2RequestData3Dict]
+    three_ds2_request_data: NotRequired[CheckoutSessionThreeDs2RequestData3Dict]
     updated_at: NotRequired[RFC3339DateTime]
     url: str

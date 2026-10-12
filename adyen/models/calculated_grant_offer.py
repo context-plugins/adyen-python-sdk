@@ -39,9 +39,9 @@ class CalculatedGrantOffer(SdkBaseModel):
 
 class CalculatedGrantOfferDict(TypedDict):
     account_holder_id: str
-    amount: Amount17 | Amount17Dict
+    amount: Amount17Dict
     contract_type: ContractTypeOrStr
     expires_at: RFC3339DateTime
-    fee: GrantOfferFee1 | GrantOfferFee1Dict
-    repayment: Repayment11 | Repayment11Dict
+    fee: GrantOfferFee1Dict
+    repayment: Repayment11Dict
     starts_at: RFC3339DateTime

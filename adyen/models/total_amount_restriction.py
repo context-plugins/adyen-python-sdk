@@ -16,4 +16,4 @@ class TotalAmountRestriction(SdkBaseModel):
 
 class TotalAmountRestrictionDict(TypedDict):
     operation: str
-    value: NotRequired[Amount17 | Amount17Dict]
+    value: NotRequired[Amount17Dict]

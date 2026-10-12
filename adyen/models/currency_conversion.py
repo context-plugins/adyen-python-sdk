@@ -11,7 +11,7 @@ class CurrencyConversion(SdkBaseModel):
     """Information related to a currency conversion. A currency conversion occurred in the payment, and the merchant
     needs to know information related to this conversion (e.g. to print on the sale receipt)."""
 
-    customer_approved_flag: Optional[bool] = Field(default=UNSET, alias="CustomerApprovedFlag")
+    customer_approved_flag: bool = Field(default=True, alias="CustomerApprovedFlag")
     """Notify if the customer has approved something. Indicates if the customer has accepted a currency conversion."""
 
     converted_amount: ConvertedAmount1 = Field(alias="ConvertedAmount")
@@ -33,7 +33,7 @@ class CurrencyConversion(SdkBaseModel):
 
 class CurrencyConversionDict(TypedDict):
     customer_approved_flag: NotRequired[bool]
-    converted_amount: ConvertedAmount1 | ConvertedAmount1Dict
+    converted_amount: ConvertedAmount1Dict
     rate: NotRequired[float]
     markup: NotRequired[float]
     commission: NotRequired[float]

@@ -52,7 +52,7 @@ class TransactionRuleInterval(SdkBaseModel):
 class TransactionRuleIntervalDict(TypedDict):
     day_of_month: NotRequired[int]
     day_of_week: NotRequired[DayOfWeekOrStr]
-    duration: NotRequired[Duration1 | Duration1Dict]
+    duration: NotRequired[Duration1Dict]
     time_of_day: NotRequired[str]
     time_zone: NotRequired[str]
     type_: Type131OrStr

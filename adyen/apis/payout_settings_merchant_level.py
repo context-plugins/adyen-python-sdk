@@ -11,10 +11,13 @@ from ..core import (
     RawClient,
     RequestOptionsOrDict,
     SecuredRawResponse,
+    async_empty_response,
+    async_json_decoder,
     empty_response,
     json_body,
     json_decoder,
     param,
+    unwrap,
 )
 from ..errors.delete_merchants_merchant_id_payout_settings_payout_settings_id_error import (
     DeleteMerchantsMerchantIdPayoutSettingsPayoutSettingsIdErrorBody,
@@ -63,7 +66,8 @@ class PayoutSettingsMerchantLevel:
         Args:
             merchant_id: The unique identifier of the merchant account.
             payout_settings_id: The unique identifier of the payout setting.
-            request_options: Per-call overrides for this one request, such as a timeout or extra headers.
+            request_options: Per-call overrides for this one request, such as a timeout, extra headers, or its retry
+                count and statuses.
 
         Returns:
             No Content - look at the actual response code for the status of the request.
@@ -73,9 +77,11 @@ class PayoutSettingsMerchantLevel:
                 required. Forbidden - insufficient permissions to process the request. Unprocessable Entity - a request
                 validation error. Internal Server Error - the server could not process the request. ``error`` is
                 ``RestServiceError | RawError``."""
-        return self._with_raw_response.delete_merchants_merchant_id_payout_settings_payout_settings_id(
-            merchant_id, payout_settings_id, request_options=request_options
-        ).unwrap()
+        return unwrap(
+            self._with_raw_response.delete_merchants_merchant_id_payout_settings_payout_settings_id(
+                merchant_id, payout_settings_id, request_options=request_options
+            ),
+        )
 
     def get_merchants_merchant_id_payout_settings(
         self, merchant_id: str, *, request_options: RequestOptionsOrDict | None = None
@@ -91,7 +97,8 @@ class PayoutSettingsMerchantLevel:
 
         Args:
             merchant_id: The unique identifier of the merchant account.
-            request_options: Per-call overrides for this one request, such as a timeout or extra headers.
+            request_options: Per-call overrides for this one request, such as a timeout, extra headers, or its retry
+                count and statuses.
 
         Returns:
             OK - the request has succeeded.
@@ -101,9 +108,11 @@ class PayoutSettingsMerchantLevel:
                 required. Forbidden - insufficient permissions to process the request. Unprocessable Entity - a request
                 validation error. Internal Server Error - the server could not process the request. ``error`` is
                 ``RestServiceError | RawError``."""
-        return self._with_raw_response.get_merchants_merchant_id_payout_settings(
-            merchant_id, request_options=request_options
-        ).unwrap()
+        return unwrap(
+            self._with_raw_response.get_merchants_merchant_id_payout_settings(
+                merchant_id, request_options=request_options
+            ),
+        )
 
     def get_merchants_merchant_id_payout_settings_payout_settings_id(
         self, merchant_id: str, payout_settings_id: str, *, request_options: RequestOptionsOrDict | None = None
@@ -120,7 +129,8 @@ class PayoutSettingsMerchantLevel:
         Args:
             merchant_id: The unique identifier of the merchant account.
             payout_settings_id: The unique identifier of the payout setting.
-            request_options: Per-call overrides for this one request, such as a timeout or extra headers.
+            request_options: Per-call overrides for this one request, such as a timeout, extra headers, or its retry
+                count and statuses.
 
         Returns:
             OK - the request has succeeded.
@@ -130,9 +140,11 @@ class PayoutSettingsMerchantLevel:
                 required. Forbidden - insufficient permissions to process the request. Unprocessable Entity - a request
                 validation error. Internal Server Error - the server could not process the request. ``error`` is
                 ``RestServiceError | RawError``."""
-        return self._with_raw_response.get_merchants_merchant_id_payout_settings_payout_settings_id(
-            merchant_id, payout_settings_id, request_options=request_options
-        ).unwrap()
+        return unwrap(
+            self._with_raw_response.get_merchants_merchant_id_payout_settings_payout_settings_id(
+                merchant_id, payout_settings_id, request_options=request_options
+            ),
+        )
 
     def patch_merchants_merchant_id_payout_settings_payout_settings_id(
         self,
@@ -156,7 +168,8 @@ class PayoutSettingsMerchantLevel:
             merchant_id: The unique identifier of the merchant account.
             payout_settings_id: The unique identifier of the payout setting.
             body: The request body.
-            request_options: Per-call overrides for this one request, such as a timeout or extra headers.
+            request_options: Per-call overrides for this one request, such as a timeout, extra headers, or its retry
+                count and statuses.
 
         Returns:
             OK - the request has succeeded.
@@ -166,9 +179,11 @@ class PayoutSettingsMerchantLevel:
                 required. Forbidden - insufficient permissions to process the request. Unprocessable Entity - a request
                 validation error. Internal Server Error - the server could not process the request. ``error`` is
                 ``RestServiceError | RawError``."""
-        return self._with_raw_response.patch_merchants_merchant_id_payout_settings_payout_settings_id(
-            merchant_id, payout_settings_id, body=body, request_options=request_options
-        ).unwrap()
+        return unwrap(
+            self._with_raw_response.patch_merchants_merchant_id_payout_settings_payout_settings_id(
+                merchant_id, payout_settings_id, body=body, request_options=request_options
+            ),
+        )
 
     def post_merchants_merchant_id_payout_settings(
         self,
@@ -196,7 +211,8 @@ class PayoutSettingsMerchantLevel:
         Args:
             merchant_id: The unique identifier of the merchant account.
             body: The request body.
-            request_options: Per-call overrides for this one request, such as a timeout or extra headers.
+            request_options: Per-call overrides for this one request, such as a timeout, extra headers, or its retry
+                count and statuses.
 
         Returns:
             OK - the request has succeeded.
@@ -206,9 +222,11 @@ class PayoutSettingsMerchantLevel:
                 required. Forbidden - insufficient permissions to process the request. Unprocessable Entity - a request
                 validation error. Internal Server Error - the server could not process the request. ``error`` is
                 ``RestServiceError | RawError``."""
-        return self._with_raw_response.post_merchants_merchant_id_payout_settings(
-            merchant_id, body=body, request_options=request_options
-        ).unwrap()
+        return unwrap(
+            self._with_raw_response.post_merchants_merchant_id_payout_settings(
+                merchant_id, body=body, request_options=request_options
+            ),
+        )
 
     @property
     def with_raw_response(self) -> PayoutSettingsMerchantLevelWithRawResponse:
@@ -235,7 +253,8 @@ class AsyncPayoutSettingsMerchantLevel:
         Args:
             merchant_id: The unique identifier of the merchant account.
             payout_settings_id: The unique identifier of the payout setting.
-            request_options: Per-call overrides for this one request, such as a timeout or extra headers.
+            request_options: Per-call overrides for this one request, such as a timeout, extra headers, or its retry
+                count and statuses.
 
         Returns:
             No Content - look at the actual response code for the status of the request.
@@ -245,11 +264,11 @@ class AsyncPayoutSettingsMerchantLevel:
                 required. Forbidden - insufficient permissions to process the request. Unprocessable Entity - a request
                 validation error. Internal Server Error - the server could not process the request. ``error`` is
                 ``RestServiceError | RawError``."""
-        return (
+        return unwrap(
             await self._with_raw_response.delete_merchants_merchant_id_payout_settings_payout_settings_id(
                 merchant_id, payout_settings_id, request_options=request_options
-            )
-        ).unwrap()
+            ),
+        )
 
     async def get_merchants_merchant_id_payout_settings(
         self, merchant_id: str, *, request_options: RequestOptionsOrDict | None = None
@@ -265,7 +284,8 @@ class AsyncPayoutSettingsMerchantLevel:
 
         Args:
             merchant_id: The unique identifier of the merchant account.
-            request_options: Per-call overrides for this one request, such as a timeout or extra headers.
+            request_options: Per-call overrides for this one request, such as a timeout, extra headers, or its retry
+                count and statuses.
 
         Returns:
             OK - the request has succeeded.
@@ -275,11 +295,11 @@ class AsyncPayoutSettingsMerchantLevel:
                 required. Forbidden - insufficient permissions to process the request. Unprocessable Entity - a request
                 validation error. Internal Server Error - the server could not process the request. ``error`` is
                 ``RestServiceError | RawError``."""
-        return (
+        return unwrap(
             await self._with_raw_response.get_merchants_merchant_id_payout_settings(
                 merchant_id, request_options=request_options
-            )
-        ).unwrap()
+            ),
+        )
 
     async def get_merchants_merchant_id_payout_settings_payout_settings_id(
         self, merchant_id: str, payout_settings_id: str, *, request_options: RequestOptionsOrDict | None = None
@@ -296,7 +316,8 @@ class AsyncPayoutSettingsMerchantLevel:
         Args:
             merchant_id: The unique identifier of the merchant account.
             payout_settings_id: The unique identifier of the payout setting.
-            request_options: Per-call overrides for this one request, such as a timeout or extra headers.
+            request_options: Per-call overrides for this one request, such as a timeout, extra headers, or its retry
+                count and statuses.
 
         Returns:
             OK - the request has succeeded.
@@ -306,11 +327,11 @@ class AsyncPayoutSettingsMerchantLevel:
                 required. Forbidden - insufficient permissions to process the request. Unprocessable Entity - a request
                 validation error. Internal Server Error - the server could not process the request. ``error`` is
                 ``RestServiceError | RawError``."""
-        return (
+        return unwrap(
             await self._with_raw_response.get_merchants_merchant_id_payout_settings_payout_settings_id(
                 merchant_id, payout_settings_id, request_options=request_options
-            )
-        ).unwrap()
+            ),
+        )
 
     async def patch_merchants_merchant_id_payout_settings_payout_settings_id(
         self,
@@ -334,7 +355,8 @@ class AsyncPayoutSettingsMerchantLevel:
             merchant_id: The unique identifier of the merchant account.
             payout_settings_id: The unique identifier of the payout setting.
             body: The request body.
-            request_options: Per-call overrides for this one request, such as a timeout or extra headers.
+            request_options: Per-call overrides for this one request, such as a timeout, extra headers, or its retry
+                count and statuses.
 
         Returns:
             OK - the request has succeeded.
@@ -344,11 +366,11 @@ class AsyncPayoutSettingsMerchantLevel:
                 required. Forbidden - insufficient permissions to process the request. Unprocessable Entity - a request
                 validation error. Internal Server Error - the server could not process the request. ``error`` is
                 ``RestServiceError | RawError``."""
-        return (
+        return unwrap(
             await self._with_raw_response.patch_merchants_merchant_id_payout_settings_payout_settings_id(
                 merchant_id, payout_settings_id, body=body, request_options=request_options
-            )
-        ).unwrap()
+            ),
+        )
 
     async def post_merchants_merchant_id_payout_settings(
         self,
@@ -376,7 +398,8 @@ class AsyncPayoutSettingsMerchantLevel:
         Args:
             merchant_id: The unique identifier of the merchant account.
             body: The request body.
-            request_options: Per-call overrides for this one request, such as a timeout or extra headers.
+            request_options: Per-call overrides for this one request, such as a timeout, extra headers, or its retry
+                count and statuses.
 
         Returns:
             OK - the request has succeeded.
@@ -386,11 +409,11 @@ class AsyncPayoutSettingsMerchantLevel:
                 required. Forbidden - insufficient permissions to process the request. Unprocessable Entity - a request
                 validation error. Internal Server Error - the server could not process the request. ``error`` is
                 ``RestServiceError | RawError``."""
-        return (
+        return unwrap(
             await self._with_raw_response.post_merchants_merchant_id_payout_settings(
                 merchant_id, body=body, request_options=request_options
-            )
-        ).unwrap()
+            ),
+        )
 
     @property
     def with_raw_response(self) -> AsyncPayoutSettingsMerchantLevelWithRawResponse:
@@ -414,7 +437,8 @@ class PayoutSettingsMerchantLevelWithRawResponse(SecuredRawResponse[RawClient, S
         Args:
             merchant_id: The unique identifier of the merchant account.
             payout_settings_id: The unique identifier of the payout setting.
-            request_options: Per-call overrides for this one request, such as a timeout or extra headers.
+            request_options: Per-call overrides for this one request, such as a timeout, extra headers, or its retry
+                count and statuses.
 
         Returns:
             An ``ApiResult`` holding the deserialized response or the error body."""
@@ -443,7 +467,8 @@ class PayoutSettingsMerchantLevelWithRawResponse(SecuredRawResponse[RawClient, S
 
         Args:
             merchant_id: The unique identifier of the merchant account.
-            request_options: Per-call overrides for this one request, such as a timeout or extra headers.
+            request_options: Per-call overrides for this one request, such as a timeout, extra headers, or its retry
+                count and statuses.
 
         Returns:
             An ``ApiResult`` holding the deserialized response or the error body."""
@@ -472,7 +497,8 @@ class PayoutSettingsMerchantLevelWithRawResponse(SecuredRawResponse[RawClient, S
         Args:
             merchant_id: The unique identifier of the merchant account.
             payout_settings_id: The unique identifier of the payout setting.
-            request_options: Per-call overrides for this one request, such as a timeout or extra headers.
+            request_options: Per-call overrides for this one request, such as a timeout, extra headers, or its retry
+                count and statuses.
 
         Returns:
             An ``ApiResult`` holding the deserialized response or the error body."""
@@ -508,7 +534,8 @@ class PayoutSettingsMerchantLevelWithRawResponse(SecuredRawResponse[RawClient, S
             merchant_id: The unique identifier of the merchant account.
             payout_settings_id: The unique identifier of the payout setting.
             body: The request body.
-            request_options: Per-call overrides for this one request, such as a timeout or extra headers.
+            request_options: Per-call overrides for this one request, such as a timeout, extra headers, or its retry
+                count and statuses.
 
         Returns:
             An ``ApiResult`` holding the deserialized response or the error body."""
@@ -550,7 +577,8 @@ class PayoutSettingsMerchantLevelWithRawResponse(SecuredRawResponse[RawClient, S
         Args:
             merchant_id: The unique identifier of the merchant account.
             body: The request body.
-            request_options: Per-call overrides for this one request, such as a timeout or extra headers.
+            request_options: Per-call overrides for this one request, such as a timeout, extra headers, or its retry
+                count and statuses.
 
         Returns:
             An ``ApiResult`` holding the deserialized response or the error body."""
@@ -584,7 +612,8 @@ class AsyncPayoutSettingsMerchantLevelWithRawResponse(SecuredRawResponse[AsyncRa
         Args:
             merchant_id: The unique identifier of the merchant account.
             payout_settings_id: The unique identifier of the payout setting.
-            request_options: Per-call overrides for this one request, such as a timeout or extra headers.
+            request_options: Per-call overrides for this one request, such as a timeout, extra headers, or its retry
+                count and statuses.
 
         Returns:
             An ``ApiResult`` holding the deserialized response or the error body."""
@@ -594,7 +623,7 @@ class AsyncPayoutSettingsMerchantLevelWithRawResponse(SecuredRawResponse[AsyncRa
             path_params=[param[str]("merchantId", merchant_id), param[str]("payoutSettingsId", payout_settings_id)],
             headers=[param[UUID]("Idempotency-Key", uuid4())],
             auth_scheme=AsyncAnySchemes(self._auth.basic_auth, self._auth.api_key_auth),
-            decoder=empty_response,
+            decoder=async_empty_response,
             error_mapper=delete_merchants_merchant_id_payout_settings_payout_settings_id_error_mapper,
             request_options=request_options,
         )
@@ -613,7 +642,8 @@ class AsyncPayoutSettingsMerchantLevelWithRawResponse(SecuredRawResponse[AsyncRa
 
         Args:
             merchant_id: The unique identifier of the merchant account.
-            request_options: Per-call overrides for this one request, such as a timeout or extra headers.
+            request_options: Per-call overrides for this one request, such as a timeout, extra headers, or its retry
+                count and statuses.
 
         Returns:
             An ``ApiResult`` holding the deserialized response or the error body."""
@@ -622,7 +652,7 @@ class AsyncPayoutSettingsMerchantLevelWithRawResponse(SecuredRawResponse[AsyncRa
             url_template=self._server.default9("/merchants/{merchantId}/payoutSettings"),
             path_params=[param[str]("merchantId", merchant_id)],
             auth_scheme=AsyncAnySchemes(self._auth.basic_auth, self._auth.api_key_auth),
-            decoder=json_decoder[PayoutSettingsResponse],
+            decoder=async_json_decoder[PayoutSettingsResponse],
             error_mapper=get_merchants_merchant_id_payout_settings_error_mapper,
             request_options=request_options,
         )
@@ -642,7 +672,8 @@ class AsyncPayoutSettingsMerchantLevelWithRawResponse(SecuredRawResponse[AsyncRa
         Args:
             merchant_id: The unique identifier of the merchant account.
             payout_settings_id: The unique identifier of the payout setting.
-            request_options: Per-call overrides for this one request, such as a timeout or extra headers.
+            request_options: Per-call overrides for this one request, such as a timeout, extra headers, or its retry
+                count and statuses.
 
         Returns:
             An ``ApiResult`` holding the deserialized response or the error body."""
@@ -651,7 +682,7 @@ class AsyncPayoutSettingsMerchantLevelWithRawResponse(SecuredRawResponse[AsyncRa
             url_template=self._server.default9("/merchants/{merchantId}/payoutSettings/{payoutSettingsId}"),
             path_params=[param[str]("merchantId", merchant_id), param[str]("payoutSettingsId", payout_settings_id)],
             auth_scheme=AsyncAnySchemes(self._auth.basic_auth, self._auth.api_key_auth),
-            decoder=json_decoder[PayoutSettings],
+            decoder=async_json_decoder[PayoutSettings],
             error_mapper=get_merchants_merchant_id_payout_settings_payout_settings_id_error_mapper,
             request_options=request_options,
         )
@@ -678,7 +709,8 @@ class AsyncPayoutSettingsMerchantLevelWithRawResponse(SecuredRawResponse[AsyncRa
             merchant_id: The unique identifier of the merchant account.
             payout_settings_id: The unique identifier of the payout setting.
             body: The request body.
-            request_options: Per-call overrides for this one request, such as a timeout or extra headers.
+            request_options: Per-call overrides for this one request, such as a timeout, extra headers, or its retry
+                count and statuses.
 
         Returns:
             An ``ApiResult`` holding the deserialized response or the error body."""
@@ -689,7 +721,7 @@ class AsyncPayoutSettingsMerchantLevelWithRawResponse(SecuredRawResponse[AsyncRa
             headers=[param[UUID]("Idempotency-Key", uuid4())],
             body=json_body[UpdatePayoutSettingsRequest | UpdatePayoutSettingsRequestDict | None](body),
             auth_scheme=AsyncAnySchemes(self._auth.basic_auth, self._auth.api_key_auth),
-            decoder=json_decoder[PayoutSettings],
+            decoder=async_json_decoder[PayoutSettings],
             error_mapper=patch_merchants_merchant_id_payout_settings_payout_settings_id_error_mapper,
             request_options=request_options,
         )
@@ -720,7 +752,8 @@ class AsyncPayoutSettingsMerchantLevelWithRawResponse(SecuredRawResponse[AsyncRa
         Args:
             merchant_id: The unique identifier of the merchant account.
             body: The request body.
-            request_options: Per-call overrides for this one request, such as a timeout or extra headers.
+            request_options: Per-call overrides for this one request, such as a timeout, extra headers, or its retry
+                count and statuses.
 
         Returns:
             An ``ApiResult`` holding the deserialized response or the error body."""
@@ -731,7 +764,7 @@ class AsyncPayoutSettingsMerchantLevelWithRawResponse(SecuredRawResponse[AsyncRa
             headers=[param[UUID]("Idempotency-Key", uuid4())],
             body=json_body[PayoutSettingsRequest | PayoutSettingsRequestDict | None](body),
             auth_scheme=AsyncAnySchemes(self._auth.basic_auth, self._auth.api_key_auth),
-            decoder=json_decoder[PayoutSettings],
+            decoder=async_json_decoder[PayoutSettings],
             error_mapper=post_merchants_merchant_id_payout_settings_error_mapper,
             request_options=request_options,
         )

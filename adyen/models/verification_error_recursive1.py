@@ -40,4 +40,4 @@ class VerificationErrorRecursive1Dict(TypedDict):
     code: NotRequired[str]
     message: NotRequired[str]
     type_: NotRequired[Type512OrStr]
-    remediating_actions: NotRequired[list[RemediatingAction | RemediatingActionDict]]
+    remediating_actions: NotRequired[list[RemediatingActionDict]]

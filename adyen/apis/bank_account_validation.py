@@ -11,9 +11,11 @@ from ..core import (
     RawClient,
     RequestOptionsOrDict,
     SecuredRawResponse,
+    async_empty_response,
     empty_response,
     json_body,
     param,
+    unwrap,
 )
 from ..errors.post_validate_bank_account_identification_error import (
     PostValidateBankAccountIdentificationErrorBody,
@@ -42,7 +44,8 @@ class BankAccountValidation:
 
         Args:
             body: The request body.
-            request_options: Per-call overrides for this one request, such as a timeout or extra headers.
+            request_options: Per-call overrides for this one request, such as a timeout, extra headers, or its retry
+                count and statuses.
 
         Returns:
             No Content - look at the actual response code for the status of the request.
@@ -51,9 +54,11 @@ class BankAccountValidation:
             ApiError: Unauthorized - authentication required. Forbidden - insufficient permissions to process the
                 request. Unprocessable Entity - a request validation error. Internal Server Error - the server could not
                 process the request. ``error`` is ``RestServiceError | RawError``."""
-        return self._with_raw_response.post_validate_bank_account_identification(
-            body=body, request_options=request_options
-        ).unwrap()
+        return unwrap(
+            self._with_raw_response.post_validate_bank_account_identification(
+                body=body, request_options=request_options
+            ),
+        )
 
     @property
     def with_raw_response(self) -> BankAccountValidationWithRawResponse:
@@ -76,7 +81,8 @@ class AsyncBankAccountValidation:
 
         Args:
             body: The request body.
-            request_options: Per-call overrides for this one request, such as a timeout or extra headers.
+            request_options: Per-call overrides for this one request, such as a timeout, extra headers, or its retry
+                count and statuses.
 
         Returns:
             No Content - look at the actual response code for the status of the request.
@@ -85,11 +91,11 @@ class AsyncBankAccountValidation:
             ApiError: Unauthorized - authentication required. Forbidden - insufficient permissions to process the
                 request. Unprocessable Entity - a request validation error. Internal Server Error - the server could not
                 process the request. ``error`` is ``RestServiceError | RawError``."""
-        return (
+        return unwrap(
             await self._with_raw_response.post_validate_bank_account_identification(
                 body=body, request_options=request_options
-            )
-        ).unwrap()
+            ),
+        )
 
     @property
     def with_raw_response(self) -> AsyncBankAccountValidationWithRawResponse:
@@ -109,7 +115,8 @@ class BankAccountValidationWithRawResponse(SecuredRawResponse[RawClient, Server,
 
         Args:
             body: The request body.
-            request_options: Per-call overrides for this one request, such as a timeout or extra headers.
+            request_options: Per-call overrides for this one request, such as a timeout, extra headers, or its retry
+                count and statuses.
 
         Returns:
             An ``ApiResult`` holding the deserialized response or the error body."""
@@ -140,7 +147,8 @@ class AsyncBankAccountValidationWithRawResponse(SecuredRawResponse[AsyncRawClien
 
         Args:
             body: The request body.
-            request_options: Per-call overrides for this one request, such as a timeout or extra headers.
+            request_options: Per-call overrides for this one request, such as a timeout, extra headers, or its retry
+                count and statuses.
 
         Returns:
             An ``ApiResult`` holding the deserialized response or the error body."""
@@ -152,7 +160,7 @@ class AsyncBankAccountValidationWithRawResponse(SecuredRawResponse[AsyncRawClien
                 BankAccountIdentificationValidationRequest | BankAccountIdentificationValidationRequestDict | None
             ](body),
             auth_scheme=AsyncAnySchemes(self._auth.client_key, self._auth.basic_auth, self._auth.api_key_auth),
-            decoder=empty_response,
+            decoder=async_empty_response,
             error_mapper=post_validate_bank_account_identification_error_mapper,
             request_options=request_options,
         )

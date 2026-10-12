@@ -56,8 +56,8 @@ class SubMerchantInfo(SdkBaseModel):
 
 
 class SubMerchantInfoDict(TypedDict):
-    address: NotRequired[BillingAddress4 | BillingAddress4Dict]
-    amount: NotRequired[Amount32 | Amount32Dict]
+    address: NotRequired[BillingAddress4Dict]
+    amount: NotRequired[Amount32Dict]
     email: NotRequired[str]
     id: NotRequired[str]
     mcc: NotRequired[str]

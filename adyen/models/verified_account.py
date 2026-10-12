@@ -44,5 +44,5 @@ class VerifiedAccountDict(TypedDict):
     account_type: AccountType11OrStr
     bank_name: NotRequired[str]
     currency: str
-    identifiers: AccountIdentifiers1 | AccountIdentifiers1Dict
-    parties: list[AccountParty | AccountPartyDict]
+    identifiers: AccountIdentifiers1Dict
+    parties: list[AccountPartyDict]

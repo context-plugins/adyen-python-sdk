@@ -67,16 +67,16 @@ class Transaction(SdkBaseModel):
 
 
 class TransactionDict(TypedDict):
-    account_holder: ResourceReference3 | ResourceReference3Dict
-    amount: Amount17 | Amount17Dict
-    balance_account: ResourceReference4 | ResourceReference4Dict
+    account_holder: ResourceReference3Dict
+    amount: Amount17Dict
+    balance_account: ResourceReference4Dict
     balance_platform: str
     booking_date: RFC3339DateTime
     creation_date: NotRequired[RFC3339DateTime]
     description: NotRequired[str]
     id: str
-    payment_instrument: NotRequired[PaymentInstrument21 | PaymentInstrument21Dict]
+    payment_instrument: NotRequired[PaymentInstrument21Dict]
     reference_for_beneficiary: NotRequired[str]
     status: Status72OrStr
-    transfer: NotRequired[TransferView2 | TransferView2Dict]
+    transfer: NotRequired[TransferView2Dict]
     value_date: RFC3339DateTime

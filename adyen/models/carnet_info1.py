@@ -23,4 +23,4 @@ class CarnetInfo1(SdkBaseModel):
 
 class CarnetInfo1Dict(TypedDict):
     add_mcc_acronym: NotRequired[bool]
-    transaction_description: NotRequired[TransactionDescriptionInfo1 | TransactionDescriptionInfo1Dict]
+    transaction_description: NotRequired[TransactionDescriptionInfo1Dict]

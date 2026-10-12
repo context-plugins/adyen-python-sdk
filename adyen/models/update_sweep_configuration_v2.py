@@ -9,7 +9,7 @@ from .enums.category1 import Category1OrStr
 from .enums.priority1 import Priority1OrStr
 from .enums.reason import ReasonOrStr
 from .enums.status6 import Status6OrStr
-from .enums.type72 import Type72OrStr
+from .enums.type72 import Type72, Type72OrStr
 from .sweep_counterparty1 import SweepCounterparty1, SweepCounterparty1Dict
 from .sweep_schedule1 import SweepSchedule1, SweepSchedule1Dict
 
@@ -123,7 +123,7 @@ class UpdateSweepConfigurationV2(SdkBaseModel):
     * For ``type`` **push**, if the balance is more than or equal to the ``triggerAmount``, funds are pushed out of the
         balance account."""
 
-    type_: Optional[Type72OrStr] = Field(default=UNSET, alias="type")
+    type_: Type72OrStr = Field(default=Type72.PUSH, alias="type")
     """The direction of sweep, whether pushing out or pulling in funds to the balance account. If not provided, by
     default, this is set to **push**.
 
@@ -136,7 +136,7 @@ class UpdateSweepConfigurationV2(SdkBaseModel):
 
 class UpdateSweepConfigurationV2Dict(TypedDict):
     category: NotRequired[Category1OrStr]
-    counterparty: NotRequired[SweepCounterparty1 | SweepCounterparty1Dict]
+    counterparty: NotRequired[SweepCounterparty1Dict]
     currency: NotRequired[str]
     description: NotRequired[str]
     id: NotRequired[str]
@@ -145,9 +145,9 @@ class UpdateSweepConfigurationV2Dict(TypedDict):
     reason_detail: NotRequired[str]
     reference: NotRequired[str]
     reference_for_beneficiary: NotRequired[str]
-    schedule: NotRequired[SweepSchedule1 | SweepSchedule1Dict]
+    schedule: NotRequired[SweepSchedule1Dict]
     status: NotRequired[Status6OrStr]
-    sweep_amount: NotRequired[Amount17 | Amount17Dict]
-    target_amount: NotRequired[Amount17 | Amount17Dict]
-    trigger_amount: NotRequired[Amount17 | Amount17Dict]
+    sweep_amount: NotRequired[Amount17Dict]
+    target_amount: NotRequired[Amount17Dict]
+    trigger_amount: NotRequired[Amount17Dict]
     type_: NotRequired[Type72OrStr]

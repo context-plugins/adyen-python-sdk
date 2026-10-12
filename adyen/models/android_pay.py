@@ -4,7 +4,7 @@ from pydantic import Field
 from typing_extensions import NotRequired, TypedDict
 
 from ..core import UNSET, Optional, SdkBaseModel
-from .enums.type6 import Type6OrStr
+from .enums.type6 import Type6, Type6OrStr
 
 
 class AndroidPay(SdkBaseModel):
@@ -14,7 +14,7 @@ class AndroidPay(SdkBaseModel):
     sdk_data: Optional[str] = Field(default=UNSET, alias="sdkData")
     """Base64-encoded JSON object containing SDK related parameters required by the SDK"""
 
-    type_: Optional[Type6OrStr] = Field(default=UNSET, alias="type")
+    type_: Type6OrStr = Field(default=Type6.ANDROIDPAY, alias="type")
     """**androidpay**"""
 
 

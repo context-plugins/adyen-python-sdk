@@ -41,6 +41,6 @@ class SessionResultResponse(SdkBaseModel):
 class SessionResultResponseDict(TypedDict):
     additional_data: NotRequired[dict[str, str]]
     id: NotRequired[str]
-    payments: NotRequired[list[Payment | PaymentDict]]
+    payments: NotRequired[list[PaymentDict]]
     reference: NotRequired[str]
     status: NotRequired[Status5OrStr]

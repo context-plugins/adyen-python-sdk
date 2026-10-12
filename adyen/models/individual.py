@@ -47,13 +47,13 @@ class Individual(SdkBaseModel):
 
 
 class IndividualDict(TypedDict):
-    birth_data: NotRequired[BirthData1 | BirthData1Dict]
+    birth_data: NotRequired[BirthData1Dict]
     email: NotRequired[str]
-    identification_data: NotRequired[IdentificationData1 | IdentificationData1Dict]
-    name: Name23 | Name23Dict
+    identification_data: NotRequired[IdentificationData1Dict]
+    name: Name23Dict
     nationality: NotRequired[str]
-    phone: NotRequired[PhoneNumber2 | PhoneNumber2Dict]
-    residential_address: Address13 | Address13Dict
-    support: NotRequired[Support1 | Support1Dict]
-    tax_information: NotRequired[list[TaxInformation | TaxInformationDict]]
-    web_data: NotRequired[WebData1 | WebData1Dict]
+    phone: NotRequired[PhoneNumber2Dict]
+    residential_address: Address13Dict
+    support: NotRequired[Support1Dict]
+    tax_information: NotRequired[list[TaxInformationDict]]
+    web_data: NotRequired[WebData1Dict]

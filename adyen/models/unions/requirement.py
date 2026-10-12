@@ -2,8 +2,9 @@ from __future__ import annotations
 
 from typing import Annotated, TypeAlias
 
-from pydantic import Field
+from pydantic import Tag
 
+from ...core import WireDiscriminator
 from ..additional_bank_identification_requirement import (
     AdditionalBankIdentificationRequirement,
     AdditionalBankIdentificationRequirementDict,
@@ -38,18 +39,18 @@ from ..usinternational_ach_priority_requirement import (
 
 Requirement: TypeAlias = Annotated[
     (
-        AdditionalBankIdentificationRequirement
-        | AddressRequirement
-        | AmountMinMaxRequirement
-        | AmountNonZeroDecimalsRequirement
-        | BankAccountIdentificationTypeRequirement
-        | IbanAccountIdentificationRequirement
-        | PaymentInstrumentRequirement
-        | UsinstantPayoutAddressRequirement
-        | UsinternationalAchAddressRequirement
-        | UsinternationalAchPriorityRequirement
+        Annotated[AdditionalBankIdentificationRequirement, Tag("additionalBankIdentificationRequirement")]
+        | Annotated[AddressRequirement, Tag("addressRequirement")]
+        | Annotated[AmountMinMaxRequirement, Tag("amountMinMaxRequirement")]
+        | Annotated[AmountNonZeroDecimalsRequirement, Tag("amountNonZeroDecimalsRequirement")]
+        | Annotated[BankAccountIdentificationTypeRequirement, Tag("bankAccountIdentificationTypeRequirement")]
+        | Annotated[IbanAccountIdentificationRequirement, Tag("ibanAccountIdentificationRequirement")]
+        | Annotated[PaymentInstrumentRequirement, Tag("paymentInstrumentRequirement")]
+        | Annotated[UsinstantPayoutAddressRequirement, Tag("usInstantPayoutAddressRequirement")]
+        | Annotated[UsinternationalAchAddressRequirement, Tag("usInternationalAchAddressRequirement")]
+        | Annotated[UsinternationalAchPriorityRequirement, Tag("usInternationalAchPriorityRequirement")]
     ),
-    Field(discriminator="type_"),
+    WireDiscriminator("type"),
 ]
 
 RequirementDict: TypeAlias = (

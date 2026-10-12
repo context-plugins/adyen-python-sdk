@@ -71,8 +71,8 @@ class PaymentInstrumentInfo(SdkBaseModel):
 
 class PaymentInstrumentInfoDict(TypedDict):
     balance_account_id: str
-    bank_account: NotRequired[BankAccountModel1 | BankAccountModel1Dict]
-    card: NotRequired[CardInfo1 | CardInfo1Dict]
+    bank_account: NotRequired[BankAccountModel1Dict]
+    card: NotRequired[CardInfo1Dict]
     description: NotRequired[str]
     issuing_country_code: str
     payment_instrument_group_id: NotRequired[str]

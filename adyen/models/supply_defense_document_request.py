@@ -19,6 +19,6 @@ class SupplyDefenseDocumentRequest(SdkBaseModel):
 
 
 class SupplyDefenseDocumentRequestDict(TypedDict):
-    defense_documents: list[DefenseDocument | DefenseDocumentDict]
+    defense_documents: list[DefenseDocumentDict]
     dispute_psp_reference: str
     merchant_account_code: str

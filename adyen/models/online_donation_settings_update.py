@@ -3,7 +3,7 @@ from __future__ import annotations
 from pydantic import Field
 from typing_extensions import NotRequired, TypedDict
 
-from ..core import UNSET, Optional, OptionalNullable, SdkBaseModel
+from ..core import UNSET, OptionalNullable, SdkBaseModel
 from .donation_amount_update import DonationAmountUpdate, DonationAmountUpdateDict
 from .enums.donation_type import DonationTypeOrStr
 
@@ -21,16 +21,16 @@ class OnlineDonationSettingsUpdate(SdkBaseModel):
 
     - **fixedAmountsRoundup**: Round up, or choose a fixed amount."""
 
-    merchant_accounts: Optional[list[str | None]] = Field(default=UNSET, alias="merchantAccounts")
+    merchant_accounts: OptionalNullable[list[str]] = Field(default=UNSET, alias="merchantAccounts")
     """The merchant accounts for this sales channel that are associated with the donation campaign."""
 
-    store_ids: Optional[list[str | None]] = Field(default=UNSET, alias="storeIds")
+    store_ids: OptionalNullable[list[str]] = Field(default=UNSET, alias="storeIds")
     """The Adyen-generated unique identifiers of stores for this sales channel that are associated with the donation
     campaign."""
 
 
 class OnlineDonationSettingsUpdateDict(TypedDict):
-    default_amount: NotRequired[DonationAmountUpdate | DonationAmountUpdateDict | None]
+    default_amount: NotRequired[DonationAmountUpdateDict | None]
     donation_type: NotRequired[DonationTypeOrStr | None]
-    merchant_accounts: NotRequired[list[str | None]]
-    store_ids: NotRequired[list[str | None]]
+    merchant_accounts: NotRequired[list[str] | None]
+    store_ids: NotRequired[list[str] | None]

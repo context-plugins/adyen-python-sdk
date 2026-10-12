@@ -29,7 +29,7 @@ class TransferFundsRequest(SdkBaseModel):
 
 
 class TransferFundsRequestDict(TypedDict):
-    amount: Amount | AmountDict
+    amount: AmountDict
     destination_account_code: str
     merchant_reference: NotRequired[str]
     source_account_code: str

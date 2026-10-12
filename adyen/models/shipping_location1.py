@@ -24,7 +24,7 @@ class ShippingLocation1(SdkBaseModel):
 
 
 class ShippingLocation1Dict(TypedDict):
-    address: NotRequired[Address21 | Address21Dict]
-    contact: NotRequired[Contact1 | Contact1Dict]
+    address: NotRequired[Address21Dict]
+    contact: NotRequired[Contact1Dict]
     id: NotRequired[str]
     name: NotRequired[str]

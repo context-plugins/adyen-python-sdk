@@ -3,7 +3,7 @@ from __future__ import annotations
 from dataclasses import dataclass
 from typing import Final, TypeAlias
 
-from ..core import ErrorMapper, HttpResponse, RawError, decode_json
+from ..core import ErrorMapper, RawError, decode_json
 from ..models.default_error_response_entity import DefaultErrorResponseEntity
 
 GetGrantsGrantIdDisbursementsDisbursementIdErrorBody: TypeAlias = DefaultErrorResponseEntity | RawError
@@ -11,12 +11,12 @@ GetGrantsGrantIdDisbursementsDisbursementIdErrorBody: TypeAlias = DefaultErrorRe
 
 @dataclass(frozen=True, slots=True)
 class _GetGrantsGrantIdDisbursementsDisbursementIdError:
-    def map(self, response: HttpResponse) -> GetGrantsGrantIdDisbursementsDisbursementIdErrorBody:
-        match response.status_code:
+    def map(self, status_code: int, content: bytes) -> GetGrantsGrantIdDisbursementsDisbursementIdErrorBody:
+        match status_code:
             case 404 | 422:
-                return decode_json[DefaultErrorResponseEntity](response)
+                return decode_json[DefaultErrorResponseEntity](content)
             case _:
-                return RawError(response)
+                return RawError(status_code, content)
 
 
 get_grants_grant_id_disbursements_disbursement_id_error_mapper: Final[

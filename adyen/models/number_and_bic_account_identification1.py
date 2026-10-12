@@ -1,7 +1,5 @@
 from __future__ import annotations
 
-from typing import Literal
-
 from pydantic import Field
 from typing_extensions import NotRequired, TypedDict
 
@@ -12,7 +10,8 @@ from .additional_bank_identification11 import AdditionalBankIdentification11, Ad
 class NumberAndBicAccountIdentification1(SdkBaseModel):
     """All Of BankAccountIdentification, NumberAndBicAccountIdentification1."""
 
-    type_: Literal["numberAndBic"] = Field(default="numberAndBic", alias="type")
+    type_: str = Field(default="numberAndBic", alias="type")
+    """**numberAndBic**"""
 
     account_number: str = Field(alias="accountNumber")
     """The bank account number, without separators or whitespace. The length and format depends on the bank or
@@ -29,7 +28,7 @@ class NumberAndBicAccountIdentification1(SdkBaseModel):
 
 
 class NumberAndBicAccountIdentification1Dict(TypedDict):
-    type_: NotRequired[Literal["numberAndBic"]]
+    type_: str
     account_number: str
-    additional_bank_identification: NotRequired[AdditionalBankIdentification11 | AdditionalBankIdentification11Dict]
+    additional_bank_identification: NotRequired[AdditionalBankIdentification11Dict]
     bic: str

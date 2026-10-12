@@ -50,7 +50,7 @@ class CreateAccountHolderRequest(SdkBaseModel):
 
 class CreateAccountHolderRequestDict(TypedDict):
     account_holder_code: str
-    account_holder_details: AccountHolderDetails1 | AccountHolderDetails1Dict
+    account_holder_details: AccountHolderDetails1Dict
     create_default_account: NotRequired[bool]
     description: NotRequired[str]
     legal_entity: LegalEntityOrStr

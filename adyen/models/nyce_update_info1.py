@@ -18,4 +18,4 @@ class NyceUpdateInfo1(SdkBaseModel):
 
 
 class NyceUpdateInfo1Dict(TypedDict):
-    transaction_description: NotRequired[TransactionDescriptionInfo1 | TransactionDescriptionInfo1Dict]
+    transaction_description: NotRequired[TransactionDescriptionInfo1Dict]

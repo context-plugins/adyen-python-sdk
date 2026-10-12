@@ -11,9 +11,11 @@ from ..core import (
     RawClient,
     RequestOptionsOrDict,
     SecuredRawResponse,
+    async_json_decoder,
     json_body,
     json_decoder,
     param,
+    unwrap,
 )
 from ..errors.get_legal_entities_id_pci_questionnaires_error import (
     GetLegalEntitiesIdPciQuestionnairesErrorBody,
@@ -51,7 +53,7 @@ class PciQuestionnaires:
         self._with_raw_response = PciQuestionnairesWithRawResponse(client, server, auth)
 
     def get_legal_entities_id_pci_questionnaires(
-        self, id: str, *, request_options: RequestOptionsOrDict | None = None
+        self, id_: str, *, request_options: RequestOptionsOrDict | None = None
     ) -> GetPciQuestionnaireInfosResponse:
         """Get a list of signed PCI questionnaires.
 
@@ -64,8 +66,9 @@ class PciQuestionnaires:
         - Failed requests are subject to a limit of 5 failures per 10 seconds.
 
         Args:
-            id: The unique identifier of the legal entity to get PCI questionnaire information.
-            request_options: Per-call overrides for this one request, such as a timeout or extra headers.
+            id_: The unique identifier of the legal entity to get PCI questionnaire information.
+            request_options: Per-call overrides for this one request, such as a timeout, extra headers, or its retry
+                count and statuses.
 
         Returns:
             OK - the request has succeeded.
@@ -75,12 +78,12 @@ class PciQuestionnaires:
                 required. Forbidden - insufficient permissions to process the request. Unprocessable Entity - a request
                 validation error. Internal Server Error - the server could not process the request. ``error`` is
                 ``ServiceError1 | RawError``."""
-        return self._with_raw_response.get_legal_entities_id_pci_questionnaires(
-            id, request_options=request_options
-        ).unwrap()
+        return unwrap(
+            self._with_raw_response.get_legal_entities_id_pci_questionnaires(id_, request_options=request_options)
+        )
 
     def get_legal_entities_id_pci_questionnaires_pciid(
-        self, id: str, pciid: str, *, request_options: RequestOptionsOrDict | None = None
+        self, id_: str, pciid: str, *, request_options: RequestOptionsOrDict | None = None
     ) -> GetPciQuestionnaireResponse:
         """Returns the signed PCI questionnaire.
 
@@ -93,9 +96,10 @@ class PciQuestionnaires:
         - Failed requests are subject to a limit of 5 failures per 10 seconds.
 
         Args:
-            id: The legal entity ID of the individual who signed the PCI questionnaire.
+            id_: The legal entity ID of the individual who signed the PCI questionnaire.
             pciid: The unique identifier of the signed PCI questionnaire.
-            request_options: Per-call overrides for this one request, such as a timeout or extra headers.
+            request_options: Per-call overrides for this one request, such as a timeout, extra headers, or its retry
+                count and statuses.
 
         Returns:
             OK - the request has succeeded.
@@ -105,13 +109,15 @@ class PciQuestionnaires:
                 required. Forbidden - insufficient permissions to process the request. Unprocessable Entity - a request
                 validation error. Internal Server Error - the server could not process the request. ``error`` is
                 ``ServiceError1 | RawError``."""
-        return self._with_raw_response.get_legal_entities_id_pci_questionnaires_pciid(
-            id, pciid, request_options=request_options
-        ).unwrap()
+        return unwrap(
+            self._with_raw_response.get_legal_entities_id_pci_questionnaires_pciid(
+                id_, pciid, request_options=request_options
+            ),
+        )
 
     def post_legal_entities_id_pci_questionnaires_generate_pci_templates(
         self,
-        id: str,
+        id_: str,
         *,
         body: GeneratePciDescriptionRequest | GeneratePciDescriptionRequestDict | None = None,
         request_options: RequestOptionsOrDict | None = None,
@@ -128,9 +134,10 @@ class PciQuestionnaires:
         - Failed requests are subject to a limit of 5 failures per 10 seconds.
 
         Args:
-            id: The unique identifier of the legal entity to get PCI questionnaire information.
+            id_: The unique identifier of the legal entity to get PCI questionnaire information.
             body: The request body.
-            request_options: Per-call overrides for this one request, such as a timeout or extra headers.
+            request_options: Per-call overrides for this one request, such as a timeout, extra headers, or its retry
+                count and statuses.
 
         Returns:
             OK - the request has succeeded.
@@ -140,13 +147,15 @@ class PciQuestionnaires:
                 required. Forbidden - insufficient permissions to process the request. Unprocessable Entity - a request
                 validation error. Internal Server Error - the server could not process the request. ``error`` is
                 ``ServiceError1 | RawError``."""
-        return self._with_raw_response.post_legal_entities_id_pci_questionnaires_generate_pci_templates(
-            id, body=body, request_options=request_options
-        ).unwrap()
+        return unwrap(
+            self._with_raw_response.post_legal_entities_id_pci_questionnaires_generate_pci_templates(
+                id_, body=body, request_options=request_options
+            ),
+        )
 
     def post_legal_entities_id_pci_questionnaires_sign_pci_templates(
         self,
-        id: str,
+        id_: str,
         *,
         body: PciSigningRequest | PciSigningRequestDict | None = None,
         request_options: RequestOptionsOrDict | None = None,
@@ -162,9 +171,10 @@ class PciQuestionnaires:
         - Failed requests are subject to a limit of 5 failures per 10 seconds.
 
         Args:
-            id: The legal entity ID of the user that has a contractual relationship with your platform.
+            id_: The legal entity ID of the user that has a contractual relationship with your platform.
             body: The request body.
-            request_options: Per-call overrides for this one request, such as a timeout or extra headers.
+            request_options: Per-call overrides for this one request, such as a timeout, extra headers, or its retry
+                count and statuses.
 
         Returns:
             OK - the request has succeeded.
@@ -174,13 +184,15 @@ class PciQuestionnaires:
                 required. Forbidden - insufficient permissions to process the request. Unprocessable Entity - a request
                 validation error. Internal Server Error - the server could not process the request. ``error`` is
                 ``ServiceError1 | RawError``."""
-        return self._with_raw_response.post_legal_entities_id_pci_questionnaires_sign_pci_templates(
-            id, body=body, request_options=request_options
-        ).unwrap()
+        return unwrap(
+            self._with_raw_response.post_legal_entities_id_pci_questionnaires_sign_pci_templates(
+                id_, body=body, request_options=request_options
+            ),
+        )
 
     def post_legal_entities_id_pci_questionnaires_signing_required(
         self,
-        id: str,
+        id_: str,
         *,
         body: CalculatePciStatusRequest | CalculatePciStatusRequestDict | None = None,
         request_options: RequestOptionsOrDict | None = None,
@@ -196,9 +208,10 @@ class PciQuestionnaires:
         - Failed requests are subject to a limit of 5 failures per 10 seconds.
 
         Args:
-            id: The unique identifier of the legal entity to calculate PCI status.
+            id_: The unique identifier of the legal entity to calculate PCI status.
             body: The request body.
-            request_options: Per-call overrides for this one request, such as a timeout or extra headers.
+            request_options: Per-call overrides for this one request, such as a timeout, extra headers, or its retry
+                count and statuses.
 
         Returns:
             OK - the request has succeeded.
@@ -208,9 +221,11 @@ class PciQuestionnaires:
                 required. Forbidden - insufficient permissions to process the request. Unprocessable Entity - a request
                 validation error. Internal Server Error - the server could not process the request. ``error`` is
                 ``ServiceError1 | RawError``."""
-        return self._with_raw_response.post_legal_entities_id_pci_questionnaires_signing_required(
-            id, body=body, request_options=request_options
-        ).unwrap()
+        return unwrap(
+            self._with_raw_response.post_legal_entities_id_pci_questionnaires_signing_required(
+                id_, body=body, request_options=request_options
+            ),
+        )
 
     @property
     def with_raw_response(self) -> PciQuestionnairesWithRawResponse:
@@ -222,7 +237,7 @@ class AsyncPciQuestionnaires:
         self._with_raw_response = AsyncPciQuestionnairesWithRawResponse(client, server, auth)
 
     async def get_legal_entities_id_pci_questionnaires(
-        self, id: str, *, request_options: RequestOptionsOrDict | None = None
+        self, id_: str, *, request_options: RequestOptionsOrDict | None = None
     ) -> GetPciQuestionnaireInfosResponse:
         """Get a list of signed PCI questionnaires.
 
@@ -235,8 +250,9 @@ class AsyncPciQuestionnaires:
         - Failed requests are subject to a limit of 5 failures per 10 seconds.
 
         Args:
-            id: The unique identifier of the legal entity to get PCI questionnaire information.
-            request_options: Per-call overrides for this one request, such as a timeout or extra headers.
+            id_: The unique identifier of the legal entity to get PCI questionnaire information.
+            request_options: Per-call overrides for this one request, such as a timeout, extra headers, or its retry
+                count and statuses.
 
         Returns:
             OK - the request has succeeded.
@@ -246,12 +262,12 @@ class AsyncPciQuestionnaires:
                 required. Forbidden - insufficient permissions to process the request. Unprocessable Entity - a request
                 validation error. Internal Server Error - the server could not process the request. ``error`` is
                 ``ServiceError1 | RawError``."""
-        return (
-            await self._with_raw_response.get_legal_entities_id_pci_questionnaires(id, request_options=request_options)
-        ).unwrap()
+        return unwrap(
+            await self._with_raw_response.get_legal_entities_id_pci_questionnaires(id_, request_options=request_options)
+        )
 
     async def get_legal_entities_id_pci_questionnaires_pciid(
-        self, id: str, pciid: str, *, request_options: RequestOptionsOrDict | None = None
+        self, id_: str, pciid: str, *, request_options: RequestOptionsOrDict | None = None
     ) -> GetPciQuestionnaireResponse:
         """Returns the signed PCI questionnaire.
 
@@ -264,9 +280,10 @@ class AsyncPciQuestionnaires:
         - Failed requests are subject to a limit of 5 failures per 10 seconds.
 
         Args:
-            id: The legal entity ID of the individual who signed the PCI questionnaire.
+            id_: The legal entity ID of the individual who signed the PCI questionnaire.
             pciid: The unique identifier of the signed PCI questionnaire.
-            request_options: Per-call overrides for this one request, such as a timeout or extra headers.
+            request_options: Per-call overrides for this one request, such as a timeout, extra headers, or its retry
+                count and statuses.
 
         Returns:
             OK - the request has succeeded.
@@ -276,15 +293,15 @@ class AsyncPciQuestionnaires:
                 required. Forbidden - insufficient permissions to process the request. Unprocessable Entity - a request
                 validation error. Internal Server Error - the server could not process the request. ``error`` is
                 ``ServiceError1 | RawError``."""
-        return (
+        return unwrap(
             await self._with_raw_response.get_legal_entities_id_pci_questionnaires_pciid(
-                id, pciid, request_options=request_options
-            )
-        ).unwrap()
+                id_, pciid, request_options=request_options
+            ),
+        )
 
     async def post_legal_entities_id_pci_questionnaires_generate_pci_templates(
         self,
-        id: str,
+        id_: str,
         *,
         body: GeneratePciDescriptionRequest | GeneratePciDescriptionRequestDict | None = None,
         request_options: RequestOptionsOrDict | None = None,
@@ -301,9 +318,10 @@ class AsyncPciQuestionnaires:
         - Failed requests are subject to a limit of 5 failures per 10 seconds.
 
         Args:
-            id: The unique identifier of the legal entity to get PCI questionnaire information.
+            id_: The unique identifier of the legal entity to get PCI questionnaire information.
             body: The request body.
-            request_options: Per-call overrides for this one request, such as a timeout or extra headers.
+            request_options: Per-call overrides for this one request, such as a timeout, extra headers, or its retry
+                count and statuses.
 
         Returns:
             OK - the request has succeeded.
@@ -313,15 +331,15 @@ class AsyncPciQuestionnaires:
                 required. Forbidden - insufficient permissions to process the request. Unprocessable Entity - a request
                 validation error. Internal Server Error - the server could not process the request. ``error`` is
                 ``ServiceError1 | RawError``."""
-        return (
+        return unwrap(
             await self._with_raw_response.post_legal_entities_id_pci_questionnaires_generate_pci_templates(
-                id, body=body, request_options=request_options
-            )
-        ).unwrap()
+                id_, body=body, request_options=request_options
+            ),
+        )
 
     async def post_legal_entities_id_pci_questionnaires_sign_pci_templates(
         self,
-        id: str,
+        id_: str,
         *,
         body: PciSigningRequest | PciSigningRequestDict | None = None,
         request_options: RequestOptionsOrDict | None = None,
@@ -337,9 +355,10 @@ class AsyncPciQuestionnaires:
         - Failed requests are subject to a limit of 5 failures per 10 seconds.
 
         Args:
-            id: The legal entity ID of the user that has a contractual relationship with your platform.
+            id_: The legal entity ID of the user that has a contractual relationship with your platform.
             body: The request body.
-            request_options: Per-call overrides for this one request, such as a timeout or extra headers.
+            request_options: Per-call overrides for this one request, such as a timeout, extra headers, or its retry
+                count and statuses.
 
         Returns:
             OK - the request has succeeded.
@@ -349,15 +368,15 @@ class AsyncPciQuestionnaires:
                 required. Forbidden - insufficient permissions to process the request. Unprocessable Entity - a request
                 validation error. Internal Server Error - the server could not process the request. ``error`` is
                 ``ServiceError1 | RawError``."""
-        return (
+        return unwrap(
             await self._with_raw_response.post_legal_entities_id_pci_questionnaires_sign_pci_templates(
-                id, body=body, request_options=request_options
-            )
-        ).unwrap()
+                id_, body=body, request_options=request_options
+            ),
+        )
 
     async def post_legal_entities_id_pci_questionnaires_signing_required(
         self,
-        id: str,
+        id_: str,
         *,
         body: CalculatePciStatusRequest | CalculatePciStatusRequestDict | None = None,
         request_options: RequestOptionsOrDict | None = None,
@@ -373,9 +392,10 @@ class AsyncPciQuestionnaires:
         - Failed requests are subject to a limit of 5 failures per 10 seconds.
 
         Args:
-            id: The unique identifier of the legal entity to calculate PCI status.
+            id_: The unique identifier of the legal entity to calculate PCI status.
             body: The request body.
-            request_options: Per-call overrides for this one request, such as a timeout or extra headers.
+            request_options: Per-call overrides for this one request, such as a timeout, extra headers, or its retry
+                count and statuses.
 
         Returns:
             OK - the request has succeeded.
@@ -385,11 +405,11 @@ class AsyncPciQuestionnaires:
                 required. Forbidden - insufficient permissions to process the request. Unprocessable Entity - a request
                 validation error. Internal Server Error - the server could not process the request. ``error`` is
                 ``ServiceError1 | RawError``."""
-        return (
+        return unwrap(
             await self._with_raw_response.post_legal_entities_id_pci_questionnaires_signing_required(
-                id, body=body, request_options=request_options
-            )
-        ).unwrap()
+                id_, body=body, request_options=request_options
+            ),
+        )
 
     @property
     def with_raw_response(self) -> AsyncPciQuestionnairesWithRawResponse:
@@ -398,7 +418,7 @@ class AsyncPciQuestionnaires:
 
 class PciQuestionnairesWithRawResponse(SecuredRawResponse[RawClient, Server, AuthSchemes]):
     def get_legal_entities_id_pci_questionnaires(
-        self, id: str, *, request_options: RequestOptionsOrDict | None = None
+        self, id_: str, *, request_options: RequestOptionsOrDict | None = None
     ) -> ApiResult[GetPciQuestionnaireInfosResponse, GetLegalEntitiesIdPciQuestionnairesErrorBody]:
         """Get a list of signed PCI questionnaires.
 
@@ -411,15 +431,16 @@ class PciQuestionnairesWithRawResponse(SecuredRawResponse[RawClient, Server, Aut
         - Failed requests are subject to a limit of 5 failures per 10 seconds.
 
         Args:
-            id: The unique identifier of the legal entity to get PCI questionnaire information.
-            request_options: Per-call overrides for this one request, such as a timeout or extra headers.
+            id_: The unique identifier of the legal entity to get PCI questionnaire information.
+            request_options: Per-call overrides for this one request, such as a timeout, extra headers, or its retry
+                count and statuses.
 
         Returns:
             An ``ApiResult`` holding the deserialized response or the error body."""
         return self._client.execute(
             http_method="GET",
             url_template=self._server.default18("/legalEntities/{id}/pciQuestionnaires"),
-            path_params=[param[str]("id", id)],
+            path_params=[param[str]("id", id_)],
             auth_scheme=AnySchemes(self._auth.basic_auth, self._auth.api_key_auth),
             decoder=json_decoder[GetPciQuestionnaireInfosResponse],
             error_mapper=get_legal_entities_id_pci_questionnaires_error_mapper,
@@ -427,7 +448,7 @@ class PciQuestionnairesWithRawResponse(SecuredRawResponse[RawClient, Server, Aut
         )
 
     def get_legal_entities_id_pci_questionnaires_pciid(
-        self, id: str, pciid: str, *, request_options: RequestOptionsOrDict | None = None
+        self, id_: str, pciid: str, *, request_options: RequestOptionsOrDict | None = None
     ) -> ApiResult[GetPciQuestionnaireResponse, GetLegalEntitiesIdPciQuestionnairesPciidErrorBody]:
         """Returns the signed PCI questionnaire.
 
@@ -440,16 +461,17 @@ class PciQuestionnairesWithRawResponse(SecuredRawResponse[RawClient, Server, Aut
         - Failed requests are subject to a limit of 5 failures per 10 seconds.
 
         Args:
-            id: The legal entity ID of the individual who signed the PCI questionnaire.
+            id_: The legal entity ID of the individual who signed the PCI questionnaire.
             pciid: The unique identifier of the signed PCI questionnaire.
-            request_options: Per-call overrides for this one request, such as a timeout or extra headers.
+            request_options: Per-call overrides for this one request, such as a timeout, extra headers, or its retry
+                count and statuses.
 
         Returns:
             An ``ApiResult`` holding the deserialized response or the error body."""
         return self._client.execute(
             http_method="GET",
             url_template=self._server.default18("/legalEntities/{id}/pciQuestionnaires/{pciid}"),
-            path_params=[param[str]("id", id), param[str]("pciid", pciid)],
+            path_params=[param[str]("id", id_), param[str]("pciid", pciid)],
             auth_scheme=AnySchemes(self._auth.basic_auth, self._auth.api_key_auth),
             decoder=json_decoder[GetPciQuestionnaireResponse],
             error_mapper=get_legal_entities_id_pci_questionnaires_pciid_error_mapper,
@@ -458,7 +480,7 @@ class PciQuestionnairesWithRawResponse(SecuredRawResponse[RawClient, Server, Aut
 
     def post_legal_entities_id_pci_questionnaires_generate_pci_templates(
         self,
-        id: str,
+        id_: str,
         *,
         body: GeneratePciDescriptionRequest | GeneratePciDescriptionRequestDict | None = None,
         request_options: RequestOptionsOrDict | None = None,
@@ -475,16 +497,17 @@ class PciQuestionnairesWithRawResponse(SecuredRawResponse[RawClient, Server, Aut
         - Failed requests are subject to a limit of 5 failures per 10 seconds.
 
         Args:
-            id: The unique identifier of the legal entity to get PCI questionnaire information.
+            id_: The unique identifier of the legal entity to get PCI questionnaire information.
             body: The request body.
-            request_options: Per-call overrides for this one request, such as a timeout or extra headers.
+            request_options: Per-call overrides for this one request, such as a timeout, extra headers, or its retry
+                count and statuses.
 
         Returns:
             An ``ApiResult`` holding the deserialized response or the error body."""
         return self._client.execute(
             http_method="POST",
             url_template=self._server.default18("/legalEntities/{id}/pciQuestionnaires/generatePciTemplates"),
-            path_params=[param[str]("id", id)],
+            path_params=[param[str]("id", id_)],
             headers=[param[UUID]("Idempotency-Key", uuid4())],
             body=json_body[GeneratePciDescriptionRequest | GeneratePciDescriptionRequestDict | None](body),
             auth_scheme=AnySchemes(self._auth.basic_auth, self._auth.api_key_auth),
@@ -495,7 +518,7 @@ class PciQuestionnairesWithRawResponse(SecuredRawResponse[RawClient, Server, Aut
 
     def post_legal_entities_id_pci_questionnaires_sign_pci_templates(
         self,
-        id: str,
+        id_: str,
         *,
         body: PciSigningRequest | PciSigningRequestDict | None = None,
         request_options: RequestOptionsOrDict | None = None,
@@ -511,16 +534,17 @@ class PciQuestionnairesWithRawResponse(SecuredRawResponse[RawClient, Server, Aut
         - Failed requests are subject to a limit of 5 failures per 10 seconds.
 
         Args:
-            id: The legal entity ID of the user that has a contractual relationship with your platform.
+            id_: The legal entity ID of the user that has a contractual relationship with your platform.
             body: The request body.
-            request_options: Per-call overrides for this one request, such as a timeout or extra headers.
+            request_options: Per-call overrides for this one request, such as a timeout, extra headers, or its retry
+                count and statuses.
 
         Returns:
             An ``ApiResult`` holding the deserialized response or the error body."""
         return self._client.execute(
             http_method="POST",
             url_template=self._server.default18("/legalEntities/{id}/pciQuestionnaires/signPciTemplates"),
-            path_params=[param[str]("id", id)],
+            path_params=[param[str]("id", id_)],
             headers=[param[UUID]("Idempotency-Key", uuid4())],
             body=json_body[PciSigningRequest | PciSigningRequestDict | None](body),
             auth_scheme=AnySchemes(self._auth.basic_auth, self._auth.api_key_auth),
@@ -531,7 +555,7 @@ class PciQuestionnairesWithRawResponse(SecuredRawResponse[RawClient, Server, Aut
 
     def post_legal_entities_id_pci_questionnaires_signing_required(
         self,
-        id: str,
+        id_: str,
         *,
         body: CalculatePciStatusRequest | CalculatePciStatusRequestDict | None = None,
         request_options: RequestOptionsOrDict | None = None,
@@ -547,16 +571,17 @@ class PciQuestionnairesWithRawResponse(SecuredRawResponse[RawClient, Server, Aut
         - Failed requests are subject to a limit of 5 failures per 10 seconds.
 
         Args:
-            id: The unique identifier of the legal entity to calculate PCI status.
+            id_: The unique identifier of the legal entity to calculate PCI status.
             body: The request body.
-            request_options: Per-call overrides for this one request, such as a timeout or extra headers.
+            request_options: Per-call overrides for this one request, such as a timeout, extra headers, or its retry
+                count and statuses.
 
         Returns:
             An ``ApiResult`` holding the deserialized response or the error body."""
         return self._client.execute(
             http_method="POST",
             url_template=self._server.default18("/legalEntities/{id}/pciQuestionnaires/signingRequired"),
-            path_params=[param[str]("id", id)],
+            path_params=[param[str]("id", id_)],
             headers=[param[UUID]("Idempotency-Key", uuid4())],
             body=json_body[CalculatePciStatusRequest | CalculatePciStatusRequestDict | None](body),
             auth_scheme=AnySchemes(self._auth.basic_auth, self._auth.api_key_auth),
@@ -568,7 +593,7 @@ class PciQuestionnairesWithRawResponse(SecuredRawResponse[RawClient, Server, Aut
 
 class AsyncPciQuestionnairesWithRawResponse(SecuredRawResponse[AsyncRawClient, Server, AsyncAuthSchemes]):
     async def get_legal_entities_id_pci_questionnaires(
-        self, id: str, *, request_options: RequestOptionsOrDict | None = None
+        self, id_: str, *, request_options: RequestOptionsOrDict | None = None
     ) -> ApiResult[GetPciQuestionnaireInfosResponse, GetLegalEntitiesIdPciQuestionnairesErrorBody]:
         """Get a list of signed PCI questionnaires.
 
@@ -581,23 +606,24 @@ class AsyncPciQuestionnairesWithRawResponse(SecuredRawResponse[AsyncRawClient, S
         - Failed requests are subject to a limit of 5 failures per 10 seconds.
 
         Args:
-            id: The unique identifier of the legal entity to get PCI questionnaire information.
-            request_options: Per-call overrides for this one request, such as a timeout or extra headers.
+            id_: The unique identifier of the legal entity to get PCI questionnaire information.
+            request_options: Per-call overrides for this one request, such as a timeout, extra headers, or its retry
+                count and statuses.
 
         Returns:
             An ``ApiResult`` holding the deserialized response or the error body."""
         return await self._client.execute(
             http_method="GET",
             url_template=self._server.default18("/legalEntities/{id}/pciQuestionnaires"),
-            path_params=[param[str]("id", id)],
+            path_params=[param[str]("id", id_)],
             auth_scheme=AsyncAnySchemes(self._auth.basic_auth, self._auth.api_key_auth),
-            decoder=json_decoder[GetPciQuestionnaireInfosResponse],
+            decoder=async_json_decoder[GetPciQuestionnaireInfosResponse],
             error_mapper=get_legal_entities_id_pci_questionnaires_error_mapper,
             request_options=request_options,
         )
 
     async def get_legal_entities_id_pci_questionnaires_pciid(
-        self, id: str, pciid: str, *, request_options: RequestOptionsOrDict | None = None
+        self, id_: str, pciid: str, *, request_options: RequestOptionsOrDict | None = None
     ) -> ApiResult[GetPciQuestionnaireResponse, GetLegalEntitiesIdPciQuestionnairesPciidErrorBody]:
         """Returns the signed PCI questionnaire.
 
@@ -610,25 +636,26 @@ class AsyncPciQuestionnairesWithRawResponse(SecuredRawResponse[AsyncRawClient, S
         - Failed requests are subject to a limit of 5 failures per 10 seconds.
 
         Args:
-            id: The legal entity ID of the individual who signed the PCI questionnaire.
+            id_: The legal entity ID of the individual who signed the PCI questionnaire.
             pciid: The unique identifier of the signed PCI questionnaire.
-            request_options: Per-call overrides for this one request, such as a timeout or extra headers.
+            request_options: Per-call overrides for this one request, such as a timeout, extra headers, or its retry
+                count and statuses.
 
         Returns:
             An ``ApiResult`` holding the deserialized response or the error body."""
         return await self._client.execute(
             http_method="GET",
             url_template=self._server.default18("/legalEntities/{id}/pciQuestionnaires/{pciid}"),
-            path_params=[param[str]("id", id), param[str]("pciid", pciid)],
+            path_params=[param[str]("id", id_), param[str]("pciid", pciid)],
             auth_scheme=AsyncAnySchemes(self._auth.basic_auth, self._auth.api_key_auth),
-            decoder=json_decoder[GetPciQuestionnaireResponse],
+            decoder=async_json_decoder[GetPciQuestionnaireResponse],
             error_mapper=get_legal_entities_id_pci_questionnaires_pciid_error_mapper,
             request_options=request_options,
         )
 
     async def post_legal_entities_id_pci_questionnaires_generate_pci_templates(
         self,
-        id: str,
+        id_: str,
         *,
         body: GeneratePciDescriptionRequest | GeneratePciDescriptionRequestDict | None = None,
         request_options: RequestOptionsOrDict | None = None,
@@ -645,27 +672,28 @@ class AsyncPciQuestionnairesWithRawResponse(SecuredRawResponse[AsyncRawClient, S
         - Failed requests are subject to a limit of 5 failures per 10 seconds.
 
         Args:
-            id: The unique identifier of the legal entity to get PCI questionnaire information.
+            id_: The unique identifier of the legal entity to get PCI questionnaire information.
             body: The request body.
-            request_options: Per-call overrides for this one request, such as a timeout or extra headers.
+            request_options: Per-call overrides for this one request, such as a timeout, extra headers, or its retry
+                count and statuses.
 
         Returns:
             An ``ApiResult`` holding the deserialized response or the error body."""
         return await self._client.execute(
             http_method="POST",
             url_template=self._server.default18("/legalEntities/{id}/pciQuestionnaires/generatePciTemplates"),
-            path_params=[param[str]("id", id)],
+            path_params=[param[str]("id", id_)],
             headers=[param[UUID]("Idempotency-Key", uuid4())],
             body=json_body[GeneratePciDescriptionRequest | GeneratePciDescriptionRequestDict | None](body),
             auth_scheme=AsyncAnySchemes(self._auth.basic_auth, self._auth.api_key_auth),
-            decoder=json_decoder[GeneratePciDescriptionResponse],
+            decoder=async_json_decoder[GeneratePciDescriptionResponse],
             error_mapper=post_legal_entities_id_pci_questionnaires_generate_pci_templates_error_mapper,
             request_options=request_options,
         )
 
     async def post_legal_entities_id_pci_questionnaires_sign_pci_templates(
         self,
-        id: str,
+        id_: str,
         *,
         body: PciSigningRequest | PciSigningRequestDict | None = None,
         request_options: RequestOptionsOrDict | None = None,
@@ -681,27 +709,28 @@ class AsyncPciQuestionnairesWithRawResponse(SecuredRawResponse[AsyncRawClient, S
         - Failed requests are subject to a limit of 5 failures per 10 seconds.
 
         Args:
-            id: The legal entity ID of the user that has a contractual relationship with your platform.
+            id_: The legal entity ID of the user that has a contractual relationship with your platform.
             body: The request body.
-            request_options: Per-call overrides for this one request, such as a timeout or extra headers.
+            request_options: Per-call overrides for this one request, such as a timeout, extra headers, or its retry
+                count and statuses.
 
         Returns:
             An ``ApiResult`` holding the deserialized response or the error body."""
         return await self._client.execute(
             http_method="POST",
             url_template=self._server.default18("/legalEntities/{id}/pciQuestionnaires/signPciTemplates"),
-            path_params=[param[str]("id", id)],
+            path_params=[param[str]("id", id_)],
             headers=[param[UUID]("Idempotency-Key", uuid4())],
             body=json_body[PciSigningRequest | PciSigningRequestDict | None](body),
             auth_scheme=AsyncAnySchemes(self._auth.basic_auth, self._auth.api_key_auth),
-            decoder=json_decoder[PciSigningResponse],
+            decoder=async_json_decoder[PciSigningResponse],
             error_mapper=post_legal_entities_id_pci_questionnaires_sign_pci_templates_error_mapper,
             request_options=request_options,
         )
 
     async def post_legal_entities_id_pci_questionnaires_signing_required(
         self,
-        id: str,
+        id_: str,
         *,
         body: CalculatePciStatusRequest | CalculatePciStatusRequestDict | None = None,
         request_options: RequestOptionsOrDict | None = None,
@@ -717,20 +746,21 @@ class AsyncPciQuestionnairesWithRawResponse(SecuredRawResponse[AsyncRawClient, S
         - Failed requests are subject to a limit of 5 failures per 10 seconds.
 
         Args:
-            id: The unique identifier of the legal entity to calculate PCI status.
+            id_: The unique identifier of the legal entity to calculate PCI status.
             body: The request body.
-            request_options: Per-call overrides for this one request, such as a timeout or extra headers.
+            request_options: Per-call overrides for this one request, such as a timeout, extra headers, or its retry
+                count and statuses.
 
         Returns:
             An ``ApiResult`` holding the deserialized response or the error body."""
         return await self._client.execute(
             http_method="POST",
             url_template=self._server.default18("/legalEntities/{id}/pciQuestionnaires/signingRequired"),
-            path_params=[param[str]("id", id)],
+            path_params=[param[str]("id", id_)],
             headers=[param[UUID]("Idempotency-Key", uuid4())],
             body=json_body[CalculatePciStatusRequest | CalculatePciStatusRequestDict | None](body),
             auth_scheme=AsyncAnySchemes(self._auth.basic_auth, self._auth.api_key_auth),
-            decoder=json_decoder[CalculatePciStatusResponse],
+            decoder=async_json_decoder[CalculatePciStatusResponse],
             error_mapper=post_legal_entities_id_pci_questionnaires_signing_required_error_mapper,
             request_options=request_options,
         )

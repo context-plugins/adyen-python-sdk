@@ -26,4 +26,4 @@ class MerchantAccountDict(TypedDict):
     in_store_terminals: NotRequired[list[str]]
     inventory_terminals: NotRequired[list[str]]
     merchant_account: str
-    stores: NotRequired[list[Store1 | Store1Dict]]
+    stores: NotRequired[list[Store1Dict]]

@@ -12,9 +12,11 @@ from ..core import (
     RequestOptionsOrDict,
     RFC3339DateTime,
     SecuredRawResponse,
+    async_json_decoder,
     json_body,
     json_decoder,
     param,
+    unwrap,
 )
 from ..errors.get_transfers_error import GetTransfersErrorBody, get_transfers_error_mapper
 from ..errors.get_transfers_id_error import GetTransfersIdErrorBody, get_transfers_id_error_mapper
@@ -108,7 +110,8 @@ class Transfers:
             cursor: The ``cursor`` returned in the links of the previous response.
             limit: The number of items returned per page, maximum of 100 items. By default, the response returns 10
                 items per page.
-            request_options: Per-call overrides for this one request, such as a timeout or extra headers.
+            request_options: Per-call overrides for this one request, such as a timeout, extra headers, or its retry
+                count and statuses.
 
         Returns:
             OK - the request has succeeded.
@@ -117,27 +120,30 @@ class Transfers:
             ApiError: Unauthorized - authentication required. Forbidden - insufficient permissions to process the
                 request. Unprocessable Entity - a request validation error. Internal Server Error - the server could not
                 process the request. ``error`` is ``TransferServiceRestServiceError | RawError``."""
-        return self._with_raw_response.get_transfers(
-            created_since,
-            created_until,
-            balance_platform=balance_platform,
-            account_holder_id=account_holder_id,
-            balance_account_id=balance_account_id,
-            payment_instrument_id=payment_instrument_id,
-            reference=reference,
-            category=category,
-            sort_order=sort_order,
-            cursor=cursor,
-            limit=limit,
-            request_options=request_options,
-        ).unwrap()
+        return unwrap(
+            self._with_raw_response.get_transfers(
+                created_since,
+                created_until,
+                balance_platform=balance_platform,
+                account_holder_id=account_holder_id,
+                balance_account_id=balance_account_id,
+                payment_instrument_id=payment_instrument_id,
+                reference=reference,
+                category=category,
+                sort_order=sort_order,
+                cursor=cursor,
+                limit=limit,
+                request_options=request_options,
+            ),
+        )
 
-    def get_transfers_id(self, id: str, *, request_options: RequestOptionsOrDict | None = None) -> TransferData:
+    def get_transfers_id(self, id_: str, *, request_options: RequestOptionsOrDict | None = None) -> TransferData:
         """Returns the details of a specified transfer.
 
         Args:
-            id: Unique identifier of the transfer.
-            request_options: Per-call overrides for this one request, such as a timeout or extra headers.
+            id_: Unique identifier of the transfer.
+            request_options: Per-call overrides for this one request, such as a timeout, extra headers, or its retry
+                count and statuses.
 
         Returns:
             OK - the request has succeeded.
@@ -146,7 +152,7 @@ class Transfers:
             ApiError: Unauthorized - authentication required. Forbidden - insufficient permissions to process the
                 request. Unprocessable Entity - a request validation error. Internal Server Error - the server could not
                 process the request. ``error`` is ``TransferServiceRestServiceError | RawError``."""
-        return self._with_raw_response.get_transfers_id(id, request_options=request_options).unwrap()
+        return unwrap(self._with_raw_response.get_transfers_id(id_, request_options=request_options))
 
     def post_transfers(
         self,
@@ -179,7 +185,8 @@ class Transfers:
             idempotency_key: A unique identifier for the message with a maximum of 64 characters (we recommend a UUID).
             www_authenticate: Header for authenticating through SCA
             body: The request body.
-            request_options: Per-call overrides for this one request, such as a timeout or extra headers.
+            request_options: Per-call overrides for this one request, such as a timeout, extra headers, or its retry
+                count and statuses.
 
         Returns:
             OK - The request has been accepted for processing, but has not been completed.
@@ -188,12 +195,14 @@ class Transfers:
             ApiError: Unauthorized - authentication required. Forbidden - insufficient permissions to process the
                 request. Unprocessable Entity - a request validation error. Internal Server Error - the server could not
                 process the request. ``error`` is ``ServiceError1 | TransferServiceRestServiceError | RawError``."""
-        return self._with_raw_response.post_transfers(
-            idempotency_key=idempotency_key,
-            www_authenticate=www_authenticate,
-            body=body,
-            request_options=request_options,
-        ).unwrap()
+        return unwrap(
+            self._with_raw_response.post_transfers(
+                idempotency_key=idempotency_key,
+                www_authenticate=www_authenticate,
+                body=body,
+                request_options=request_options,
+            ),
+        )
 
     def post_transfers_approve(
         self,
@@ -219,7 +228,8 @@ class Transfers:
             idempotency_key: A unique identifier for the message with a maximum of 64 characters (we recommend a UUID).
             www_authenticate: Header for authenticating through SCA
             body: The request body.
-            request_options: Per-call overrides for this one request, such as a timeout or extra headers.
+            request_options: Per-call overrides for this one request, such as a timeout, extra headers, or its retry
+                count and statuses.
 
         Returns:
             No Content - look at the actual response code for the status of the request.
@@ -228,12 +238,14 @@ class Transfers:
             ApiError: Unauthorized - authentication required. Forbidden - insufficient permissions to process the
                 request. Unprocessable Entity - a request validation error. Internal Server Error - the server could not
                 process the request. ``error`` is ``ServiceError1 | TransferServiceRestServiceError | RawError``."""
-        return self._with_raw_response.post_transfers_approve(
-            idempotency_key=idempotency_key,
-            www_authenticate=www_authenticate,
-            body=body,
-            request_options=request_options,
-        ).unwrap()
+        return unwrap(
+            self._with_raw_response.post_transfers_approve(
+                idempotency_key=idempotency_key,
+                www_authenticate=www_authenticate,
+                body=body,
+                request_options=request_options,
+            ),
+        )
 
     def post_transfers_cancel(
         self,
@@ -257,7 +269,8 @@ class Transfers:
         Args:
             idempotency_key: A unique identifier for the message with a maximum of 64 characters (we recommend a UUID).
             body: The request body.
-            request_options: Per-call overrides for this one request, such as a timeout or extra headers.
+            request_options: Per-call overrides for this one request, such as a timeout, extra headers, or its retry
+                count and statuses.
 
         Returns:
             No Content - look at the actual response code for the status of the request.
@@ -266,9 +279,11 @@ class Transfers:
             ApiError: Unauthorized - authentication required. Forbidden - insufficient permissions to process the
                 request. Unprocessable Entity - a request validation error. Internal Server Error - the server could not
                 process the request. ``error`` is ``TransferServiceRestServiceError | RawError``."""
-        return self._with_raw_response.post_transfers_cancel(
-            idempotency_key=idempotency_key, body=body, request_options=request_options
-        ).unwrap()
+        return unwrap(
+            self._with_raw_response.post_transfers_cancel(
+                idempotency_key=idempotency_key, body=body, request_options=request_options
+            ),
+        )
 
     def post_transfers_transfer_id_returns(
         self,
@@ -284,7 +299,8 @@ class Transfers:
             transfer_id: The unique identifier of the transfer to be returned.
             idempotency_key: A unique identifier for the message with a maximum of 64 characters (we recommend a UUID).
             body: The request body.
-            request_options: Per-call overrides for this one request, such as a timeout or extra headers.
+            request_options: Per-call overrides for this one request, such as a timeout, extra headers, or its retry
+                count and statuses.
 
         Returns:
             OK - the request has succeeded.
@@ -293,9 +309,11 @@ class Transfers:
             ApiError: Unauthorized - authentication required. Forbidden - insufficient permissions to process the
                 request. Unprocessable Entity - a request validation error. Internal Server Error - the server could not
                 process the request. ``error`` is ``TransferServiceRestServiceError | RawError``."""
-        return self._with_raw_response.post_transfers_transfer_id_returns(
-            transfer_id, idempotency_key=idempotency_key, body=body, request_options=request_options
-        ).unwrap()
+        return unwrap(
+            self._with_raw_response.post_transfers_transfer_id_returns(
+                transfer_id, idempotency_key=idempotency_key, body=body, request_options=request_options
+            ),
+        )
 
     @property
     def with_raw_response(self) -> TransfersWithRawResponse:
@@ -372,7 +390,8 @@ class AsyncTransfers:
             cursor: The ``cursor`` returned in the links of the previous response.
             limit: The number of items returned per page, maximum of 100 items. By default, the response returns 10
                 items per page.
-            request_options: Per-call overrides for this one request, such as a timeout or extra headers.
+            request_options: Per-call overrides for this one request, such as a timeout, extra headers, or its retry
+                count and statuses.
 
         Returns:
             OK - the request has succeeded.
@@ -381,7 +400,7 @@ class AsyncTransfers:
             ApiError: Unauthorized - authentication required. Forbidden - insufficient permissions to process the
                 request. Unprocessable Entity - a request validation error. Internal Server Error - the server could not
                 process the request. ``error`` is ``TransferServiceRestServiceError | RawError``."""
-        return (
+        return unwrap(
             await self._with_raw_response.get_transfers(
                 created_since,
                 created_until,
@@ -395,15 +414,16 @@ class AsyncTransfers:
                 cursor=cursor,
                 limit=limit,
                 request_options=request_options,
-            )
-        ).unwrap()
+            ),
+        )
 
-    async def get_transfers_id(self, id: str, *, request_options: RequestOptionsOrDict | None = None) -> TransferData:
+    async def get_transfers_id(self, id_: str, *, request_options: RequestOptionsOrDict | None = None) -> TransferData:
         """Returns the details of a specified transfer.
 
         Args:
-            id: Unique identifier of the transfer.
-            request_options: Per-call overrides for this one request, such as a timeout or extra headers.
+            id_: Unique identifier of the transfer.
+            request_options: Per-call overrides for this one request, such as a timeout, extra headers, or its retry
+                count and statuses.
 
         Returns:
             OK - the request has succeeded.
@@ -412,7 +432,7 @@ class AsyncTransfers:
             ApiError: Unauthorized - authentication required. Forbidden - insufficient permissions to process the
                 request. Unprocessable Entity - a request validation error. Internal Server Error - the server could not
                 process the request. ``error`` is ``TransferServiceRestServiceError | RawError``."""
-        return (await self._with_raw_response.get_transfers_id(id, request_options=request_options)).unwrap()
+        return unwrap(await self._with_raw_response.get_transfers_id(id_, request_options=request_options))
 
     async def post_transfers(
         self,
@@ -445,7 +465,8 @@ class AsyncTransfers:
             idempotency_key: A unique identifier for the message with a maximum of 64 characters (we recommend a UUID).
             www_authenticate: Header for authenticating through SCA
             body: The request body.
-            request_options: Per-call overrides for this one request, such as a timeout or extra headers.
+            request_options: Per-call overrides for this one request, such as a timeout, extra headers, or its retry
+                count and statuses.
 
         Returns:
             OK - The request has been accepted for processing, but has not been completed.
@@ -454,14 +475,14 @@ class AsyncTransfers:
             ApiError: Unauthorized - authentication required. Forbidden - insufficient permissions to process the
                 request. Unprocessable Entity - a request validation error. Internal Server Error - the server could not
                 process the request. ``error`` is ``ServiceError1 | TransferServiceRestServiceError | RawError``."""
-        return (
+        return unwrap(
             await self._with_raw_response.post_transfers(
                 idempotency_key=idempotency_key,
                 www_authenticate=www_authenticate,
                 body=body,
                 request_options=request_options,
-            )
-        ).unwrap()
+            ),
+        )
 
     async def post_transfers_approve(
         self,
@@ -487,7 +508,8 @@ class AsyncTransfers:
             idempotency_key: A unique identifier for the message with a maximum of 64 characters (we recommend a UUID).
             www_authenticate: Header for authenticating through SCA
             body: The request body.
-            request_options: Per-call overrides for this one request, such as a timeout or extra headers.
+            request_options: Per-call overrides for this one request, such as a timeout, extra headers, or its retry
+                count and statuses.
 
         Returns:
             No Content - look at the actual response code for the status of the request.
@@ -496,14 +518,14 @@ class AsyncTransfers:
             ApiError: Unauthorized - authentication required. Forbidden - insufficient permissions to process the
                 request. Unprocessable Entity - a request validation error. Internal Server Error - the server could not
                 process the request. ``error`` is ``ServiceError1 | TransferServiceRestServiceError | RawError``."""
-        return (
+        return unwrap(
             await self._with_raw_response.post_transfers_approve(
                 idempotency_key=idempotency_key,
                 www_authenticate=www_authenticate,
                 body=body,
                 request_options=request_options,
-            )
-        ).unwrap()
+            ),
+        )
 
     async def post_transfers_cancel(
         self,
@@ -527,7 +549,8 @@ class AsyncTransfers:
         Args:
             idempotency_key: A unique identifier for the message with a maximum of 64 characters (we recommend a UUID).
             body: The request body.
-            request_options: Per-call overrides for this one request, such as a timeout or extra headers.
+            request_options: Per-call overrides for this one request, such as a timeout, extra headers, or its retry
+                count and statuses.
 
         Returns:
             No Content - look at the actual response code for the status of the request.
@@ -536,11 +559,11 @@ class AsyncTransfers:
             ApiError: Unauthorized - authentication required. Forbidden - insufficient permissions to process the
                 request. Unprocessable Entity - a request validation error. Internal Server Error - the server could not
                 process the request. ``error`` is ``TransferServiceRestServiceError | RawError``."""
-        return (
+        return unwrap(
             await self._with_raw_response.post_transfers_cancel(
                 idempotency_key=idempotency_key, body=body, request_options=request_options
-            )
-        ).unwrap()
+            ),
+        )
 
     async def post_transfers_transfer_id_returns(
         self,
@@ -556,7 +579,8 @@ class AsyncTransfers:
             transfer_id: The unique identifier of the transfer to be returned.
             idempotency_key: A unique identifier for the message with a maximum of 64 characters (we recommend a UUID).
             body: The request body.
-            request_options: Per-call overrides for this one request, such as a timeout or extra headers.
+            request_options: Per-call overrides for this one request, such as a timeout, extra headers, or its retry
+                count and statuses.
 
         Returns:
             OK - the request has succeeded.
@@ -565,11 +589,11 @@ class AsyncTransfers:
             ApiError: Unauthorized - authentication required. Forbidden - insufficient permissions to process the
                 request. Unprocessable Entity - a request validation error. Internal Server Error - the server could not
                 process the request. ``error`` is ``TransferServiceRestServiceError | RawError``."""
-        return (
+        return unwrap(
             await self._with_raw_response.post_transfers_transfer_id_returns(
                 transfer_id, idempotency_key=idempotency_key, body=body, request_options=request_options
-            )
-        ).unwrap()
+            ),
+        )
 
     @property
     def with_raw_response(self) -> AsyncTransfersWithRawResponse:
@@ -643,7 +667,8 @@ class TransfersWithRawResponse(SecuredRawResponse[RawClient, Server, AuthSchemes
             cursor: The ``cursor`` returned in the links of the previous response.
             limit: The number of items returned per page, maximum of 100 items. By default, the response returns 10
                 items per page.
-            request_options: Per-call overrides for this one request, such as a timeout or extra headers.
+            request_options: Per-call overrides for this one request, such as a timeout, extra headers, or its retry
+                count and statuses.
 
         Returns:
             An ``ApiResult`` holding the deserialized response or the error body."""
@@ -670,20 +695,21 @@ class TransfersWithRawResponse(SecuredRawResponse[RawClient, Server, AuthSchemes
         )
 
     def get_transfers_id(
-        self, id: str, *, request_options: RequestOptionsOrDict | None = None
+        self, id_: str, *, request_options: RequestOptionsOrDict | None = None
     ) -> ApiResult[TransferData, GetTransfersIdErrorBody]:
         """Returns the details of a specified transfer.
 
         Args:
-            id: Unique identifier of the transfer.
-            request_options: Per-call overrides for this one request, such as a timeout or extra headers.
+            id_: Unique identifier of the transfer.
+            request_options: Per-call overrides for this one request, such as a timeout, extra headers, or its retry
+                count and statuses.
 
         Returns:
             An ``ApiResult`` holding the deserialized response or the error body."""
         return self._client.execute(
             http_method="GET",
             url_template=self._server.default14("/transfers/{id}"),
-            path_params=[param[str]("id", id)],
+            path_params=[param[str]("id", id_)],
             auth_scheme=AnySchemes(self._auth.client_key, self._auth.basic_auth, self._auth.api_key_auth),
             decoder=json_decoder[TransferData],
             error_mapper=get_transfers_id_error_mapper,
@@ -721,7 +747,8 @@ class TransfersWithRawResponse(SecuredRawResponse[RawClient, Server, AuthSchemes
             idempotency_key: A unique identifier for the message with a maximum of 64 characters (we recommend a UUID).
             www_authenticate: Header for authenticating through SCA
             body: The request body.
-            request_options: Per-call overrides for this one request, such as a timeout or extra headers.
+            request_options: Per-call overrides for this one request, such as a timeout, extra headers, or its retry
+                count and statuses.
 
         Returns:
             An ``ApiResult`` holding the deserialized response or the error body."""
@@ -763,7 +790,8 @@ class TransfersWithRawResponse(SecuredRawResponse[RawClient, Server, AuthSchemes
             idempotency_key: A unique identifier for the message with a maximum of 64 characters (we recommend a UUID).
             www_authenticate: Header for authenticating through SCA
             body: The request body.
-            request_options: Per-call overrides for this one request, such as a timeout or extra headers.
+            request_options: Per-call overrides for this one request, such as a timeout, extra headers, or its retry
+                count and statuses.
 
         Returns:
             An ``ApiResult`` holding the deserialized response or the error body."""
@@ -803,7 +831,8 @@ class TransfersWithRawResponse(SecuredRawResponse[RawClient, Server, AuthSchemes
         Args:
             idempotency_key: A unique identifier for the message with a maximum of 64 characters (we recommend a UUID).
             body: The request body.
-            request_options: Per-call overrides for this one request, such as a timeout or extra headers.
+            request_options: Per-call overrides for this one request, such as a timeout, extra headers, or its retry
+                count and statuses.
 
         Returns:
             An ``ApiResult`` holding the deserialized response or the error body."""
@@ -832,7 +861,8 @@ class TransfersWithRawResponse(SecuredRawResponse[RawClient, Server, AuthSchemes
             transfer_id: The unique identifier of the transfer to be returned.
             idempotency_key: A unique identifier for the message with a maximum of 64 characters (we recommend a UUID).
             body: The request body.
-            request_options: Per-call overrides for this one request, such as a timeout or extra headers.
+            request_options: Per-call overrides for this one request, such as a timeout, extra headers, or its retry
+                count and statuses.
 
         Returns:
             An ``ApiResult`` holding the deserialized response or the error body."""
@@ -916,7 +946,8 @@ class AsyncTransfersWithRawResponse(SecuredRawResponse[AsyncRawClient, Server, A
             cursor: The ``cursor`` returned in the links of the previous response.
             limit: The number of items returned per page, maximum of 100 items. By default, the response returns 10
                 items per page.
-            request_options: Per-call overrides for this one request, such as a timeout or extra headers.
+            request_options: Per-call overrides for this one request, such as a timeout, extra headers, or its retry
+                count and statuses.
 
         Returns:
             An ``ApiResult`` holding the deserialized response or the error body."""
@@ -937,28 +968,29 @@ class AsyncTransfersWithRawResponse(SecuredRawResponse[AsyncRawClient, Server, A
                 param[int | None]("limit", limit),
             ],
             auth_scheme=AsyncAnySchemes(self._auth.client_key, self._auth.basic_auth, self._auth.api_key_auth),
-            decoder=json_decoder[FindTransfersResponse],
+            decoder=async_json_decoder[FindTransfersResponse],
             error_mapper=get_transfers_error_mapper,
             request_options=request_options,
         )
 
     async def get_transfers_id(
-        self, id: str, *, request_options: RequestOptionsOrDict | None = None
+        self, id_: str, *, request_options: RequestOptionsOrDict | None = None
     ) -> ApiResult[TransferData, GetTransfersIdErrorBody]:
         """Returns the details of a specified transfer.
 
         Args:
-            id: Unique identifier of the transfer.
-            request_options: Per-call overrides for this one request, such as a timeout or extra headers.
+            id_: Unique identifier of the transfer.
+            request_options: Per-call overrides for this one request, such as a timeout, extra headers, or its retry
+                count and statuses.
 
         Returns:
             An ``ApiResult`` holding the deserialized response or the error body."""
         return await self._client.execute(
             http_method="GET",
             url_template=self._server.default14("/transfers/{id}"),
-            path_params=[param[str]("id", id)],
+            path_params=[param[str]("id", id_)],
             auth_scheme=AsyncAnySchemes(self._auth.client_key, self._auth.basic_auth, self._auth.api_key_auth),
-            decoder=json_decoder[TransferData],
+            decoder=async_json_decoder[TransferData],
             error_mapper=get_transfers_id_error_mapper,
             request_options=request_options,
         )
@@ -994,7 +1026,8 @@ class AsyncTransfersWithRawResponse(SecuredRawResponse[AsyncRawClient, Server, A
             idempotency_key: A unique identifier for the message with a maximum of 64 characters (we recommend a UUID).
             www_authenticate: Header for authenticating through SCA
             body: The request body.
-            request_options: Per-call overrides for this one request, such as a timeout or extra headers.
+            request_options: Per-call overrides for this one request, such as a timeout, extra headers, or its retry
+                count and statuses.
 
         Returns:
             An ``ApiResult`` holding the deserialized response or the error body."""
@@ -1007,7 +1040,7 @@ class AsyncTransfersWithRawResponse(SecuredRawResponse[AsyncRawClient, Server, A
             ],
             body=json_body[TransferInfo | TransferInfoDict | None](body),
             auth_scheme=AsyncAnySchemes(self._auth.client_key, self._auth.basic_auth, self._auth.api_key_auth),
-            decoder=json_decoder[Transfer],
+            decoder=async_json_decoder[Transfer],
             error_mapper=post_transfers_error_mapper,
             request_options=request_options,
         )
@@ -1036,7 +1069,8 @@ class AsyncTransfersWithRawResponse(SecuredRawResponse[AsyncRawClient, Server, A
             idempotency_key: A unique identifier for the message with a maximum of 64 characters (we recommend a UUID).
             www_authenticate: Header for authenticating through SCA
             body: The request body.
-            request_options: Per-call overrides for this one request, such as a timeout or extra headers.
+            request_options: Per-call overrides for this one request, such as a timeout, extra headers, or its retry
+                count and statuses.
 
         Returns:
             An ``ApiResult`` holding the deserialized response or the error body."""
@@ -1049,7 +1083,7 @@ class AsyncTransfersWithRawResponse(SecuredRawResponse[AsyncRawClient, Server, A
             ],
             body=json_body[ApproveTransfersRequest | ApproveTransfersRequestDict | None](body),
             auth_scheme=AsyncAnySchemes(self._auth.client_key, self._auth.basic_auth, self._auth.api_key_auth),
-            decoder=json_decoder[Any],
+            decoder=async_json_decoder[Any],
             error_mapper=post_transfers_approve_error_mapper,
             request_options=request_options,
         )
@@ -1076,7 +1110,8 @@ class AsyncTransfersWithRawResponse(SecuredRawResponse[AsyncRawClient, Server, A
         Args:
             idempotency_key: A unique identifier for the message with a maximum of 64 characters (we recommend a UUID).
             body: The request body.
-            request_options: Per-call overrides for this one request, such as a timeout or extra headers.
+            request_options: Per-call overrides for this one request, such as a timeout, extra headers, or its retry
+                count and statuses.
 
         Returns:
             An ``ApiResult`` holding the deserialized response or the error body."""
@@ -1086,7 +1121,7 @@ class AsyncTransfersWithRawResponse(SecuredRawResponse[AsyncRawClient, Server, A
             headers=[param[str | None]("Idempotency-Key", idempotency_key)],
             body=json_body[CancelTransfersRequest | CancelTransfersRequestDict | None](body),
             auth_scheme=AsyncAnySchemes(self._auth.client_key, self._auth.basic_auth, self._auth.api_key_auth),
-            decoder=json_decoder[Any],
+            decoder=async_json_decoder[Any],
             error_mapper=post_transfers_cancel_error_mapper,
             request_options=request_options,
         )
@@ -1105,7 +1140,8 @@ class AsyncTransfersWithRawResponse(SecuredRawResponse[AsyncRawClient, Server, A
             transfer_id: The unique identifier of the transfer to be returned.
             idempotency_key: A unique identifier for the message with a maximum of 64 characters (we recommend a UUID).
             body: The request body.
-            request_options: Per-call overrides for this one request, such as a timeout or extra headers.
+            request_options: Per-call overrides for this one request, such as a timeout, extra headers, or its retry
+                count and statuses.
 
         Returns:
             An ``ApiResult`` holding the deserialized response or the error body."""
@@ -1116,7 +1152,7 @@ class AsyncTransfersWithRawResponse(SecuredRawResponse[AsyncRawClient, Server, A
             headers=[param[str | None]("Idempotency-Key", idempotency_key)],
             body=json_body[ReturnTransferRequest | ReturnTransferRequestDict | None](body),
             auth_scheme=AsyncAnySchemes(self._auth.client_key, self._auth.basic_auth, self._auth.api_key_auth),
-            decoder=json_decoder[ReturnTransferResponse],
+            decoder=async_json_decoder[ReturnTransferResponse],
             error_mapper=post_transfers_transfer_id_returns_error_mapper,
             request_options=request_options,
         )

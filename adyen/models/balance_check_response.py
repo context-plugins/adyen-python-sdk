@@ -48,9 +48,9 @@ class BalanceCheckResponse(SdkBaseModel):
 
 class BalanceCheckResponseDict(TypedDict):
     additional_data: NotRequired[dict[str, str]]
-    balance: Amount8 | Amount8Dict
-    fraud_result: NotRequired[FraudResult1 | FraudResult1Dict]
+    balance: Amount8Dict
+    fraud_result: NotRequired[FraudResult1Dict]
     psp_reference: NotRequired[str]
     refusal_reason: NotRequired[str]
     result_code: ResultCodeOrStr
-    transaction_limit: NotRequired[Amount9 | Amount9Dict]
+    transaction_limit: NotRequired[Amount9Dict]

@@ -4,11 +4,11 @@ from pydantic import Field
 from typing_extensions import NotRequired, TypedDict
 
 from ..core import UNSET, Optional, SdkBaseModel
-from .unions.account_identification2 import AccountIdentification2, AccountIdentification2Dict
+from .unions.account_identification21 import AccountIdentification21, AccountIdentification21Dict
 
 
 class BankAccountInfo(SdkBaseModel):
-    account_identification: Optional[AccountIdentification2] = Field(default=UNSET, alias="accountIdentification")
+    account_identification: Optional[AccountIdentification21] = Field(default=UNSET, alias="accountIdentification")
     """Identification of the bank account."""
 
     account_type: Optional[str] = Field(default=UNSET, alias="accountType")
@@ -27,7 +27,7 @@ class BankAccountInfo(SdkBaseModel):
 
 
 class BankAccountInfoDict(TypedDict):
-    account_identification: NotRequired[AccountIdentification2 | AccountIdentification2Dict]
+    account_identification: NotRequired[AccountIdentification21Dict]
     account_type: NotRequired[str]
     bank_name: NotRequired[str]
     country_code: NotRequired[str]

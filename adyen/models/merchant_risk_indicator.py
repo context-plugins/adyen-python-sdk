@@ -75,7 +75,7 @@ class MerchantRiskIndicatorDict(TypedDict):
     delivery_email: NotRequired[str]
     delivery_email_address: NotRequired[str]
     delivery_timeframe: NotRequired[DeliveryTimeframeOrStr]
-    gift_card_amount: NotRequired[Amount7 | Amount7Dict]
+    gift_card_amount: NotRequired[Amount7Dict]
     gift_card_count: NotRequired[int]
     gift_card_curr: NotRequired[str]
     pre_order_date: NotRequired[RFC3339DateTime]

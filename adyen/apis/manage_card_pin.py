@@ -11,9 +11,11 @@ from ..core import (
     RawClient,
     RequestOptionsOrDict,
     SecuredRawResponse,
+    async_json_decoder,
     json_body,
     json_decoder,
     param,
+    unwrap,
 )
 from ..errors.get_public_key_error import GetPublicKeyErrorBody, get_public_key_error_mapper
 from ..errors.post_pins_change_error import PostPinsChangeErrorBody, post_pins_change_error_mapper
@@ -34,7 +36,7 @@ class ManageCardPin:
         self,
         *,
         purpose: str | None = None,
-        format: str | None = None,
+        format_: str | None = None,
         request_options: RequestOptionsOrDict | None = None,
     ) -> PublicKeyResponse:
         """Get an `RSA <https://en.wikipedia.org/wiki/RSA_(cryptosystem>`__) public key to encrypt or decrypt card data.
@@ -47,8 +49,9 @@ class ManageCardPin:
         Args:
             purpose: The purpose of the public key. Possible values: **pinChange**, **pinReveal**, **panReveal**.
                 Default value: **pinReveal**.
-            format: The encoding format of public key. Possible values: **jwk**, **pem**. Default value: **pem**.
-            request_options: Per-call overrides for this one request, such as a timeout or extra headers.
+            format_: The encoding format of public key. Possible values: **jwk**, **pem**. Default value: **pem**.
+            request_options: Per-call overrides for this one request, such as a timeout, extra headers, or its retry
+                count and statuses.
 
         Returns:
             OK - the request has succeeded.
@@ -57,9 +60,9 @@ class ManageCardPin:
             ApiError: Unauthorized - authentication required. Forbidden - insufficient permissions to process the
                 request. Unprocessable Entity - a request validation error. Internal Server Error - the server could not
                 process the request. ``error`` is ``RestServiceError | RawError``."""
-        return self._with_raw_response.get_public_key(
-            purpose=purpose, format=format, request_options=request_options
-        ).unwrap()
+        return unwrap(
+            self._with_raw_response.get_public_key(purpose=purpose, format_=format_, request_options=request_options)
+        )
 
     def post_pins_change(
         self,
@@ -74,7 +77,8 @@ class ManageCardPin:
 
         Args:
             body: The request body.
-            request_options: Per-call overrides for this one request, such as a timeout or extra headers.
+            request_options: Per-call overrides for this one request, such as a timeout, extra headers, or its retry
+                count and statuses.
 
         Returns:
             OK - the request has succeeded.
@@ -83,7 +87,7 @@ class ManageCardPin:
             ApiError: Unauthorized - authentication required. Forbidden - insufficient permissions to process the
                 request. Unprocessable Entity - a request validation error. Internal Server Error - the server could not
                 process the request. ``error`` is ``RestServiceError | RawError``."""
-        return self._with_raw_response.post_pins_change(body=body, request_options=request_options).unwrap()
+        return unwrap(self._with_raw_response.post_pins_change(body=body, request_options=request_options))
 
     def post_pins_reveal(
         self,
@@ -99,7 +103,8 @@ class ManageCardPin:
 
         Args:
             body: The request body.
-            request_options: Per-call overrides for this one request, such as a timeout or extra headers.
+            request_options: Per-call overrides for this one request, such as a timeout, extra headers, or its retry
+                count and statuses.
 
         Returns:
             OK - the request has succeeded.
@@ -108,7 +113,7 @@ class ManageCardPin:
             ApiError: Unauthorized - authentication required. Forbidden - insufficient permissions to process the
                 request. Unprocessable Entity - a request validation error. Internal Server Error - the server could not
                 process the request. ``error`` is ``RestServiceError | RawError``."""
-        return self._with_raw_response.post_pins_reveal(body=body, request_options=request_options).unwrap()
+        return unwrap(self._with_raw_response.post_pins_reveal(body=body, request_options=request_options))
 
     @property
     def with_raw_response(self) -> ManageCardPinWithRawResponse:
@@ -123,7 +128,7 @@ class AsyncManageCardPin:
         self,
         *,
         purpose: str | None = None,
-        format: str | None = None,
+        format_: str | None = None,
         request_options: RequestOptionsOrDict | None = None,
     ) -> PublicKeyResponse:
         """Get an `RSA <https://en.wikipedia.org/wiki/RSA_(cryptosystem>`__) public key to encrypt or decrypt card data.
@@ -136,8 +141,9 @@ class AsyncManageCardPin:
         Args:
             purpose: The purpose of the public key. Possible values: **pinChange**, **pinReveal**, **panReveal**.
                 Default value: **pinReveal**.
-            format: The encoding format of public key. Possible values: **jwk**, **pem**. Default value: **pem**.
-            request_options: Per-call overrides for this one request, such as a timeout or extra headers.
+            format_: The encoding format of public key. Possible values: **jwk**, **pem**. Default value: **pem**.
+            request_options: Per-call overrides for this one request, such as a timeout, extra headers, or its retry
+                count and statuses.
 
         Returns:
             OK - the request has succeeded.
@@ -146,11 +152,11 @@ class AsyncManageCardPin:
             ApiError: Unauthorized - authentication required. Forbidden - insufficient permissions to process the
                 request. Unprocessable Entity - a request validation error. Internal Server Error - the server could not
                 process the request. ``error`` is ``RestServiceError | RawError``."""
-        return (
+        return unwrap(
             await self._with_raw_response.get_public_key(
-                purpose=purpose, format=format, request_options=request_options
-            )
-        ).unwrap()
+                purpose=purpose, format_=format_, request_options=request_options
+            ),
+        )
 
     async def post_pins_change(
         self,
@@ -165,7 +171,8 @@ class AsyncManageCardPin:
 
         Args:
             body: The request body.
-            request_options: Per-call overrides for this one request, such as a timeout or extra headers.
+            request_options: Per-call overrides for this one request, such as a timeout, extra headers, or its retry
+                count and statuses.
 
         Returns:
             OK - the request has succeeded.
@@ -174,7 +181,7 @@ class AsyncManageCardPin:
             ApiError: Unauthorized - authentication required. Forbidden - insufficient permissions to process the
                 request. Unprocessable Entity - a request validation error. Internal Server Error - the server could not
                 process the request. ``error`` is ``RestServiceError | RawError``."""
-        return (await self._with_raw_response.post_pins_change(body=body, request_options=request_options)).unwrap()
+        return unwrap(await self._with_raw_response.post_pins_change(body=body, request_options=request_options))
 
     async def post_pins_reveal(
         self,
@@ -190,7 +197,8 @@ class AsyncManageCardPin:
 
         Args:
             body: The request body.
-            request_options: Per-call overrides for this one request, such as a timeout or extra headers.
+            request_options: Per-call overrides for this one request, such as a timeout, extra headers, or its retry
+                count and statuses.
 
         Returns:
             OK - the request has succeeded.
@@ -199,7 +207,7 @@ class AsyncManageCardPin:
             ApiError: Unauthorized - authentication required. Forbidden - insufficient permissions to process the
                 request. Unprocessable Entity - a request validation error. Internal Server Error - the server could not
                 process the request. ``error`` is ``RestServiceError | RawError``."""
-        return (await self._with_raw_response.post_pins_reveal(body=body, request_options=request_options)).unwrap()
+        return unwrap(await self._with_raw_response.post_pins_reveal(body=body, request_options=request_options))
 
     @property
     def with_raw_response(self) -> AsyncManageCardPinWithRawResponse:
@@ -211,7 +219,7 @@ class ManageCardPinWithRawResponse(SecuredRawResponse[RawClient, Server, AuthSch
         self,
         *,
         purpose: str | None = None,
-        format: str | None = None,
+        format_: str | None = None,
         request_options: RequestOptionsOrDict | None = None,
     ) -> ApiResult[PublicKeyResponse, GetPublicKeyErrorBody]:
         """Get an `RSA <https://en.wikipedia.org/wiki/RSA_(cryptosystem>`__) public key to encrypt or decrypt card data.
@@ -224,15 +232,16 @@ class ManageCardPinWithRawResponse(SecuredRawResponse[RawClient, Server, AuthSch
         Args:
             purpose: The purpose of the public key. Possible values: **pinChange**, **pinReveal**, **panReveal**.
                 Default value: **pinReveal**.
-            format: The encoding format of public key. Possible values: **jwk**, **pem**. Default value: **pem**.
-            request_options: Per-call overrides for this one request, such as a timeout or extra headers.
+            format_: The encoding format of public key. Possible values: **jwk**, **pem**. Default value: **pem**.
+            request_options: Per-call overrides for this one request, such as a timeout, extra headers, or its retry
+                count and statuses.
 
         Returns:
             An ``ApiResult`` holding the deserialized response or the error body."""
         return self._client.execute(
             http_method="GET",
             url_template=self._server.default13("/publicKey"),
-            query_params=[param[str | None]("purpose", purpose), param[str | None]("format", format)],
+            query_params=[param[str | None]("purpose", purpose), param[str | None]("format", format_)],
             auth_scheme=AnySchemes(self._auth.client_key, self._auth.basic_auth, self._auth.api_key_auth),
             decoder=json_decoder[PublicKeyResponse],
             error_mapper=get_public_key_error_mapper,
@@ -252,7 +261,8 @@ class ManageCardPinWithRawResponse(SecuredRawResponse[RawClient, Server, AuthSch
 
         Args:
             body: The request body.
-            request_options: Per-call overrides for this one request, such as a timeout or extra headers.
+            request_options: Per-call overrides for this one request, such as a timeout, extra headers, or its retry
+                count and statuses.
 
         Returns:
             An ``ApiResult`` holding the deserialized response or the error body."""
@@ -281,7 +291,8 @@ class ManageCardPinWithRawResponse(SecuredRawResponse[RawClient, Server, AuthSch
 
         Args:
             body: The request body.
-            request_options: Per-call overrides for this one request, such as a timeout or extra headers.
+            request_options: Per-call overrides for this one request, such as a timeout, extra headers, or its retry
+                count and statuses.
 
         Returns:
             An ``ApiResult`` holding the deserialized response or the error body."""
@@ -302,7 +313,7 @@ class AsyncManageCardPinWithRawResponse(SecuredRawResponse[AsyncRawClient, Serve
         self,
         *,
         purpose: str | None = None,
-        format: str | None = None,
+        format_: str | None = None,
         request_options: RequestOptionsOrDict | None = None,
     ) -> ApiResult[PublicKeyResponse, GetPublicKeyErrorBody]:
         """Get an `RSA <https://en.wikipedia.org/wiki/RSA_(cryptosystem>`__) public key to encrypt or decrypt card data.
@@ -315,17 +326,18 @@ class AsyncManageCardPinWithRawResponse(SecuredRawResponse[AsyncRawClient, Serve
         Args:
             purpose: The purpose of the public key. Possible values: **pinChange**, **pinReveal**, **panReveal**.
                 Default value: **pinReveal**.
-            format: The encoding format of public key. Possible values: **jwk**, **pem**. Default value: **pem**.
-            request_options: Per-call overrides for this one request, such as a timeout or extra headers.
+            format_: The encoding format of public key. Possible values: **jwk**, **pem**. Default value: **pem**.
+            request_options: Per-call overrides for this one request, such as a timeout, extra headers, or its retry
+                count and statuses.
 
         Returns:
             An ``ApiResult`` holding the deserialized response or the error body."""
         return await self._client.execute(
             http_method="GET",
             url_template=self._server.default13("/publicKey"),
-            query_params=[param[str | None]("purpose", purpose), param[str | None]("format", format)],
+            query_params=[param[str | None]("purpose", purpose), param[str | None]("format", format_)],
             auth_scheme=AsyncAnySchemes(self._auth.client_key, self._auth.basic_auth, self._auth.api_key_auth),
-            decoder=json_decoder[PublicKeyResponse],
+            decoder=async_json_decoder[PublicKeyResponse],
             error_mapper=get_public_key_error_mapper,
             request_options=request_options,
         )
@@ -343,7 +355,8 @@ class AsyncManageCardPinWithRawResponse(SecuredRawResponse[AsyncRawClient, Serve
 
         Args:
             body: The request body.
-            request_options: Per-call overrides for this one request, such as a timeout or extra headers.
+            request_options: Per-call overrides for this one request, such as a timeout, extra headers, or its retry
+                count and statuses.
 
         Returns:
             An ``ApiResult`` holding the deserialized response or the error body."""
@@ -353,7 +366,7 @@ class AsyncManageCardPinWithRawResponse(SecuredRawResponse[AsyncRawClient, Serve
             headers=[param[UUID]("Idempotency-Key", uuid4())],
             body=json_body[PinChangeRequest | PinChangeRequestDict | None](body),
             auth_scheme=AsyncAnySchemes(self._auth.client_key, self._auth.basic_auth, self._auth.api_key_auth),
-            decoder=json_decoder[PinChangeResponse],
+            decoder=async_json_decoder[PinChangeResponse],
             error_mapper=post_pins_change_error_mapper,
             request_options=request_options,
         )
@@ -372,7 +385,8 @@ class AsyncManageCardPinWithRawResponse(SecuredRawResponse[AsyncRawClient, Serve
 
         Args:
             body: The request body.
-            request_options: Per-call overrides for this one request, such as a timeout or extra headers.
+            request_options: Per-call overrides for this one request, such as a timeout, extra headers, or its retry
+                count and statuses.
 
         Returns:
             An ``ApiResult`` holding the deserialized response or the error body."""
@@ -382,7 +396,7 @@ class AsyncManageCardPinWithRawResponse(SecuredRawResponse[AsyncRawClient, Serve
             headers=[param[UUID]("Idempotency-Key", uuid4())],
             body=json_body[RevealPinRequest | RevealPinRequestDict | None](body),
             auth_scheme=AsyncAnySchemes(self._auth.client_key, self._auth.basic_auth, self._auth.api_key_auth),
-            decoder=json_decoder[RevealPinResponse],
+            decoder=async_json_decoder[RevealPinResponse],
             error_mapper=post_pins_reveal_error_mapper,
             request_options=request_options,
         )

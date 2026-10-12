@@ -17,5 +17,5 @@ class StoredValueAccountStatus(SdkBaseModel):
 
 
 class StoredValueAccountStatusDict(TypedDict):
-    stored_value_account_id: StoredValueAccountId | StoredValueAccountIdDict
+    stored_value_account_id: StoredValueAccountIdDict
     current_balance: NotRequired[float]

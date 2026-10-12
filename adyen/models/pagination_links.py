@@ -28,8 +28,8 @@ class PaginationLinks(SdkBaseModel):
 
 
 class PaginationLinksDict(TypedDict):
-    first: LinksElement9 | LinksElement9Dict
-    last: LinksElement10 | LinksElement10Dict
-    next: NotRequired[LinksElement11 | LinksElement11Dict]
-    prev: NotRequired[LinksElement12 | LinksElement12Dict]
-    self: LinksElement13 | LinksElement13Dict
+    first: LinksElement9Dict
+    last: LinksElement10Dict
+    next: NotRequired[LinksElement11Dict]
+    prev: NotRequired[LinksElement12Dict]
+    self: LinksElement13Dict

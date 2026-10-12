@@ -29,5 +29,5 @@ class LoyaltyAcquirerData1(SdkBaseModel):
 class LoyaltyAcquirerData1Dict(TypedDict):
     loyalty_acquirer_id: NotRequired[str]
     approval_code: NotRequired[str]
-    loyalty_transaction_id: NotRequired[TransactionIdtype | TransactionIdtypeDict]
+    loyalty_transaction_id: NotRequired[TransactionIdtypeDict]
     host_reconciliation_id: NotRequired[str]

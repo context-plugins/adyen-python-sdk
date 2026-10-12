@@ -13,4 +13,4 @@ class TransferLimitListResponse(SdkBaseModel):
 
 
 class TransferLimitListResponseDict(TypedDict):
-    transfer_limits: list[TransferLimit | TransferLimitDict]
+    transfer_limits: list[TransferLimitDict]

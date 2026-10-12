@@ -3,7 +3,7 @@ from __future__ import annotations
 from pydantic import Field
 from typing_extensions import NotRequired, TypedDict
 
-from ..core import UNSET, Optional, SdkBaseModel
+from ..core import SdkBaseModel
 from .enums.document_qualifier2 import DocumentQualifier2OrStr
 from .enums.response_mode1 import ResponseMode1OrStr
 from .output_content3 import OutputContent3, OutputContent3Dict
@@ -28,12 +28,12 @@ class PrintOutput(SdkBaseModel):
     * **PrintEnd**
     * **SoundEnd**"""
 
-    integrated_print_flag: Optional[bool] = Field(default=UNSET, alias="IntegratedPrintFlag")
+    integrated_print_flag: bool = Field(default=False, alias="IntegratedPrintFlag")
     """Type of the print integrated in other prints. Allows a separated printing (paper cut if available), or
     integration with the sale receipt or other print. If the printing is integrated, the response is always immediate,
     even if the ``ResponseMode`` is set to ``PrintEnd``."""
 
-    required_signature_flag: Optional[bool] = Field(default=UNSET, alias="RequiredSignatureFlag")
+    required_signature_flag: bool = Field(default=False, alias="RequiredSignatureFlag")
     """Indicates that the cardholder payment receipt requires a physical signature by the Customer."""
 
     output_content: OutputContent3 = Field(alias="OutputContent")
@@ -45,4 +45,4 @@ class PrintOutputDict(TypedDict):
     response_mode: ResponseMode1OrStr
     integrated_print_flag: NotRequired[bool]
     required_signature_flag: NotRequired[bool]
-    output_content: OutputContent3 | OutputContent3Dict
+    output_content: OutputContent3Dict

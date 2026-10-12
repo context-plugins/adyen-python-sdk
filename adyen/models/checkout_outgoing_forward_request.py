@@ -4,7 +4,7 @@ from pydantic import Field
 from typing_extensions import NotRequired, TypedDict
 
 from ..core import UNSET, Optional, SdkBaseModel
-from .enums.http_method import HttpMethodOrStr
+from .enums.http_method_model import HttpMethodModelOrStr
 
 
 class CheckoutOutgoingForwardRequest(SdkBaseModel):
@@ -27,7 +27,7 @@ class CheckoutOutgoingForwardRequest(SdkBaseModel):
     the ``{{credentials}}`` `placeholder
     <https://docs.adyen.com/online-payments/tokenization/forward-payment-details#placeholders>`__."""
 
-    http_method: HttpMethodOrStr = Field(alias="httpMethod")
+    http_method: HttpMethodModelOrStr = Field(alias="httpMethod")
     """The HTTP method to use for the request Adyen makes on your behalf to the third party."""
 
     url_suffix: Optional[str] = Field(default=UNSET, alias="urlSuffix")
@@ -39,5 +39,5 @@ class CheckoutOutgoingForwardRequestDict(TypedDict):
     body: str
     credentials: NotRequired[str]
     headers: NotRequired[dict[str, str]]
-    http_method: HttpMethodOrStr
+    http_method: HttpMethodModelOrStr
     url_suffix: NotRequired[str]

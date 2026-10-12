@@ -4,7 +4,7 @@ from pydantic import Field
 from typing_extensions import NotRequired, TypedDict
 
 from ..core import UNSET, Optional, SdkBaseModel
-from .enums.type8 import Type8OrStr
+from .enums.type8 import Type8, Type8OrStr
 
 
 class TransactionDescriptionResponseInfo1(SdkBaseModel):
@@ -15,7 +15,7 @@ class TransactionDescriptionResponseInfo1(SdkBaseModel):
      We recommend sending a maximum of 22 characters, otherwise banks might truncate the string.
      Allowed characters: **a-z**, **A-Z**, **0-9**, spaces, and special characters **. , ' _ - ? + * /**."""
 
-    type_: Optional[Type8OrStr] = Field(default=UNSET, alias="type")
+    type_: Type8OrStr = Field(default=Type8.DYNAMIC, alias="type")
     """The type of transaction description you want to use:
     - **fixed**: The transaction description set in this request is used for all payments with this payment method.
     - **append**: The transaction description set in this request is used as a base for all payments with this payment

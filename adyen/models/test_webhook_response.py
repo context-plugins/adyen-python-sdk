@@ -12,4 +12,4 @@ class TestWebhookResponse(SdkBaseModel):
 
 
 class TestWebhookResponseDict(TypedDict):
-    data: NotRequired[list[TestOutput | TestOutputDict]]
+    data: NotRequired[list[TestOutputDict]]

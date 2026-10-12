@@ -1,7 +1,5 @@
 from __future__ import annotations
 
-from typing import Literal
-
 from pydantic import Field
 from typing_extensions import NotRequired, TypedDict
 
@@ -11,7 +9,8 @@ from ..core import UNSET, Optional, SdkBaseModel
 class BrlocalAccountIdentification1(SdkBaseModel):
     """All Of BankAccountIdentification, BRLocalAccountIdentification1."""
 
-    type_: Literal["brLocal"] = Field(default="brLocal", alias="type")
+    type_: str = Field(default="brLocal", alias="type")
+    """**brLocal**"""
 
     account_number: str = Field(alias="accountNumber")
     """The bank account number, without separators or whitespace."""
@@ -27,7 +26,7 @@ class BrlocalAccountIdentification1(SdkBaseModel):
 
 
 class BrlocalAccountIdentification1Dict(TypedDict):
-    type_: NotRequired[Literal["brLocal"]]
+    type_: str
     account_number: str
     bank_code: str
     branch_number: str

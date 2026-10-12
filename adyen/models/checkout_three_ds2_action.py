@@ -37,5 +37,5 @@ class CheckoutThreeDs2ActionDict(TypedDict):
     payment_method_type: NotRequired[str]
     subtype: NotRequired[str]
     token: NotRequired[str]
-    type_: NotRequired[Literal["threeDS2"]]
+    type_: Literal["threeDS2"]
     url: NotRequired[str]

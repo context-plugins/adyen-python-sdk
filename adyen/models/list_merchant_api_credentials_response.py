@@ -23,7 +23,7 @@ class ListMerchantApiCredentialsResponse(SdkBaseModel):
 
 
 class ListMerchantApiCredentialsResponseDict(TypedDict):
-    links: NotRequired[PaginationLinks1 | PaginationLinks1Dict]
-    data: NotRequired[list[ApiCredential | ApiCredentialDict]]
+    links: NotRequired[PaginationLinks1Dict]
+    data: NotRequired[list[ApiCredentialDict]]
     items_total: int
     pages_total: int

@@ -27,7 +27,7 @@ class DeliveryMethod(SdkBaseModel):
 
 
 class DeliveryMethodDict(TypedDict):
-    amount: NotRequired[Amount24 | Amount24Dict]
+    amount: NotRequired[Amount24Dict]
     description: NotRequired[str]
     reference: NotRequired[str]
     selected: NotRequired[bool]

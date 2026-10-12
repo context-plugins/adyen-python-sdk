@@ -34,9 +34,9 @@ class AccountIdentifiers(SdkBaseModel):
 
 
 class AccountIdentifiersDict(TypedDict):
-    ach: NotRequired[AchaccountIdentifier1 | AchaccountIdentifier1Dict]
-    bacs: NotRequired[BacsaccountIdentifier2 | BacsaccountIdentifier2Dict]
-    bsb: NotRequired[BsbaccountIdentifier2 | BsbaccountIdentifier2Dict]
-    eft: NotRequired[EftaccountIdentifier2 | EftaccountIdentifier2Dict]
-    iban: NotRequired[IbanaccountIdentifier2 | IbanaccountIdentifier2Dict]
-    rix: NotRequired[RixaccountIdentifier2 | RixaccountIdentifier2Dict]
+    ach: NotRequired[AchaccountIdentifier1Dict]
+    bacs: NotRequired[BacsaccountIdentifier2Dict]
+    bsb: NotRequired[BsbaccountIdentifier2Dict]
+    eft: NotRequired[EftaccountIdentifier2Dict]
+    iban: NotRequired[IbanaccountIdentifier2Dict]
+    rix: NotRequired[RixaccountIdentifier2Dict]

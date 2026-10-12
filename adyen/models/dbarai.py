@@ -4,7 +4,7 @@ from pydantic import Field
 from typing_extensions import NotRequired, TypedDict
 
 from ..core import UNSET, Optional, SdkBaseModel
-from .enums.type20 import Type20OrStr
+from .enums.type20 import Type20, Type20OrStr
 
 
 class Dbarai(SdkBaseModel):
@@ -20,7 +20,7 @@ class Dbarai(SdkBaseModel):
     stored_payment_method_id: Optional[str] = Field(default=UNSET, alias="storedPaymentMethodId")
     """This is the ``recurringDetailReference`` returned in the response when you created the token."""
 
-    type_: Optional[Type20OrStr] = Field(default=UNSET, alias="type")
+    type_: Type20OrStr = Field(default=Type20.DBARAI, alias="type")
     """**dbarai**"""
 
 

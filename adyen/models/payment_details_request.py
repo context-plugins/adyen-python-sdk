@@ -34,7 +34,7 @@ class PaymentDetailsRequest(SdkBaseModel):
 
 
 class PaymentDetailsRequestDict(TypedDict):
-    authentication_data: NotRequired[DetailsRequestAuthenticationData1 | DetailsRequestAuthenticationData1Dict]
-    details: PaymentCompletionDetails1 | PaymentCompletionDetails1Dict
+    authentication_data: NotRequired[DetailsRequestAuthenticationData1Dict]
+    details: PaymentCompletionDetails1Dict
     payment_data: NotRequired[str]
     three_ds_authentication_only: NotRequired[bool]

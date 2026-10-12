@@ -42,8 +42,8 @@ class TestNotificationConfigurationResponse(SdkBaseModel):
 class TestNotificationConfigurationResponseDict(TypedDict):
     error_messages: NotRequired[list[str]]
     event_types: NotRequired[list[EventType1OrStr]]
-    exchange_messages: NotRequired[list[ExchangeMessage | ExchangeMessageDict]]
-    invalid_fields: NotRequired[list[ErrorFieldType | ErrorFieldTypeDict]]
+    exchange_messages: NotRequired[list[ExchangeMessageDict]]
+    invalid_fields: NotRequired[list[ErrorFieldTypeDict]]
     notification_id: int
     ok_messages: NotRequired[list[str]]
     psp_reference: NotRequired[str]

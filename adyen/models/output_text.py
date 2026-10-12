@@ -57,7 +57,7 @@ class OutputText(SdkBaseModel):
     * **Left**
     * **Right**"""
 
-    end_of_line_flag: Optional[bool] = Field(default=UNSET, alias="EndOfLineFlag")
+    end_of_line_flag: bool = Field(default=True, alias="EndOfLineFlag")
     """Indicates if the text is at the end of a line. Allows the display or the print of a new line and a carry-over
     return characters after the formatted text."""
 

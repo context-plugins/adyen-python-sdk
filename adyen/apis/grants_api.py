@@ -8,9 +8,11 @@ from ..core import (
     BaseRawResponse,
     RawClient,
     RequestOptionsOrDict,
+    async_json_decoder,
     json_body,
     json_decoder,
     param,
+    unwrap,
 )
 from ..errors.get_grants2_error import GetGrants2ErrorBody, get_grants2_error_mapper
 from ..errors.get_grants_grant_id_disbursements_disbursement_id_error import (
@@ -45,7 +47,8 @@ class GrantsApi:
 
         Args:
             grant_id: The unique identifier of the grant reference.
-            request_options: Per-call overrides for this one request, such as a timeout or extra headers.
+            request_options: Per-call overrides for this one request, such as a timeout, extra headers, or its retry
+                count and statuses.
 
         Returns:
             OK - The request has succeeded.
@@ -53,7 +56,7 @@ class GrantsApi:
         Raises:
             ApiError: Not Found - The entity was not found. Unprocessable Entity - A request validation error. ``error``
                 is ``DefaultErrorResponseEntity | RawError``."""
-        return self._with_raw_response.get_grants_grant_id(grant_id, request_options=request_options).unwrap()
+        return unwrap(self._with_raw_response.get_grants_grant_id(grant_id, request_options=request_options))
 
     def get_grants_grant_id_disbursements(
         self, grant_id: str, *, request_options: RequestOptionsOrDict | None = None
@@ -62,7 +65,8 @@ class GrantsApi:
 
         Args:
             grant_id: The unique identifier of the grant reference.
-            request_options: Per-call overrides for this one request, such as a timeout or extra headers.
+            request_options: Per-call overrides for this one request, such as a timeout, extra headers, or its retry
+                count and statuses.
 
         Returns:
             OK - The request has succeeded.
@@ -70,9 +74,9 @@ class GrantsApi:
         Raises:
             ApiError: Not Found - The entity was not found. Unprocessable Entity - A request validation error. ``error``
                 is ``DefaultErrorResponseEntity | RawError``."""
-        return self._with_raw_response.get_grants_grant_id_disbursements(
-            grant_id, request_options=request_options
-        ).unwrap()
+        return unwrap(
+            self._with_raw_response.get_grants_grant_id_disbursements(grant_id, request_options=request_options)
+        )
 
     def get_grants_grant_id_disbursements_disbursement_id(
         self, grant_id: str, disbursement_id: str, *, request_options: RequestOptionsOrDict | None = None
@@ -82,7 +86,8 @@ class GrantsApi:
         Args:
             grant_id: The unique identifier of the grant reference.
             disbursement_id: The unique identifier of the disbursement.
-            request_options: Per-call overrides for this one request, such as a timeout or extra headers.
+            request_options: Per-call overrides for this one request, such as a timeout, extra headers, or its retry
+                count and statuses.
 
         Returns:
             OK - The request has succeeded.
@@ -90,9 +95,11 @@ class GrantsApi:
         Raises:
             ApiError: Not Found - The entity was not found. Unprocessable Entity - A request validation error. ``error``
                 is ``DefaultErrorResponseEntity | RawError``."""
-        return self._with_raw_response.get_grants_grant_id_disbursements_disbursement_id(
-            grant_id, disbursement_id, request_options=request_options
-        ).unwrap()
+        return unwrap(
+            self._with_raw_response.get_grants_grant_id_disbursements_disbursement_id(
+                grant_id, disbursement_id, request_options=request_options
+            ),
+        )
 
     def get_grants2(
         self, counterparty_account_holder_id: str, *, request_options: RequestOptionsOrDict | None = None
@@ -101,7 +108,8 @@ class GrantsApi:
 
         Args:
             counterparty_account_holder_id: The unique identifier of the account holder that received the grants.
-            request_options: Per-call overrides for this one request, such as a timeout or extra headers.
+            request_options: Per-call overrides for this one request, such as a timeout, extra headers, or its retry
+                count and statuses.
 
         Returns:
             OK - The request has succeeded.
@@ -109,9 +117,9 @@ class GrantsApi:
         Raises:
             ApiError: Not Found - The entity was not found. Unprocessable Entity - A request validation error. ``error``
                 is ``DefaultErrorResponseEntity | RawError``."""
-        return self._with_raw_response.get_grants2(
-            counterparty_account_holder_id, request_options=request_options
-        ).unwrap()
+        return unwrap(
+            self._with_raw_response.get_grants2(counterparty_account_holder_id, request_options=request_options)
+        )
 
     def patch_grants_grant_id_disbursements_disbursement_id(
         self,
@@ -127,7 +135,8 @@ class GrantsApi:
             grant_id: The unique identifier of the grant reference.
             disbursement_id: The unique identifier of the disbursement.
             body: The request body.
-            request_options: Per-call overrides for this one request, such as a timeout or extra headers.
+            request_options: Per-call overrides for this one request, such as a timeout, extra headers, or its retry
+                count and statuses.
 
         Returns:
             OK - The request has succeeded.
@@ -135,9 +144,11 @@ class GrantsApi:
         Raises:
             ApiError: Not Found - The entity was not found. Unprocessable Entity - A request validation error. ``error``
                 is ``DefaultErrorResponseEntity | RawError``."""
-        return self._with_raw_response.patch_grants_grant_id_disbursements_disbursement_id(
-            grant_id, disbursement_id, body, request_options=request_options
-        ).unwrap()
+        return unwrap(
+            self._with_raw_response.patch_grants_grant_id_disbursements_disbursement_id(
+                grant_id, disbursement_id, body, request_options=request_options
+            ),
+        )
 
     def post_grants2(
         self,
@@ -149,7 +160,8 @@ class GrantsApi:
 
         Args:
             body: The request body.
-            request_options: Per-call overrides for this one request, such as a timeout or extra headers.
+            request_options: Per-call overrides for this one request, such as a timeout, extra headers, or its retry
+                count and statuses.
 
         Returns:
             OK - The request has succeeded.
@@ -157,7 +169,7 @@ class GrantsApi:
         Raises:
             ApiError: Unprocessable Entity - A request validation error. ``error`` is ``DefaultErrorResponseEntity |
                 RawError``."""
-        return self._with_raw_response.post_grants2(body=body, request_options=request_options).unwrap()
+        return unwrap(self._with_raw_response.post_grants2(body=body, request_options=request_options))
 
     @property
     def with_raw_response(self) -> GrantsApiWithRawResponse:
@@ -173,7 +185,8 @@ class AsyncGrantsApi:
 
         Args:
             grant_id: The unique identifier of the grant reference.
-            request_options: Per-call overrides for this one request, such as a timeout or extra headers.
+            request_options: Per-call overrides for this one request, such as a timeout, extra headers, or its retry
+                count and statuses.
 
         Returns:
             OK - The request has succeeded.
@@ -181,7 +194,7 @@ class AsyncGrantsApi:
         Raises:
             ApiError: Not Found - The entity was not found. Unprocessable Entity - A request validation error. ``error``
                 is ``DefaultErrorResponseEntity | RawError``."""
-        return (await self._with_raw_response.get_grants_grant_id(grant_id, request_options=request_options)).unwrap()
+        return unwrap(await self._with_raw_response.get_grants_grant_id(grant_id, request_options=request_options))
 
     async def get_grants_grant_id_disbursements(
         self, grant_id: str, *, request_options: RequestOptionsOrDict | None = None
@@ -190,7 +203,8 @@ class AsyncGrantsApi:
 
         Args:
             grant_id: The unique identifier of the grant reference.
-            request_options: Per-call overrides for this one request, such as a timeout or extra headers.
+            request_options: Per-call overrides for this one request, such as a timeout, extra headers, or its retry
+                count and statuses.
 
         Returns:
             OK - The request has succeeded.
@@ -198,9 +212,9 @@ class AsyncGrantsApi:
         Raises:
             ApiError: Not Found - The entity was not found. Unprocessable Entity - A request validation error. ``error``
                 is ``DefaultErrorResponseEntity | RawError``."""
-        return (
+        return unwrap(
             await self._with_raw_response.get_grants_grant_id_disbursements(grant_id, request_options=request_options)
-        ).unwrap()
+        )
 
     async def get_grants_grant_id_disbursements_disbursement_id(
         self, grant_id: str, disbursement_id: str, *, request_options: RequestOptionsOrDict | None = None
@@ -210,7 +224,8 @@ class AsyncGrantsApi:
         Args:
             grant_id: The unique identifier of the grant reference.
             disbursement_id: The unique identifier of the disbursement.
-            request_options: Per-call overrides for this one request, such as a timeout or extra headers.
+            request_options: Per-call overrides for this one request, such as a timeout, extra headers, or its retry
+                count and statuses.
 
         Returns:
             OK - The request has succeeded.
@@ -218,11 +233,11 @@ class AsyncGrantsApi:
         Raises:
             ApiError: Not Found - The entity was not found. Unprocessable Entity - A request validation error. ``error``
                 is ``DefaultErrorResponseEntity | RawError``."""
-        return (
+        return unwrap(
             await self._with_raw_response.get_grants_grant_id_disbursements_disbursement_id(
                 grant_id, disbursement_id, request_options=request_options
-            )
-        ).unwrap()
+            ),
+        )
 
     async def get_grants2(
         self, counterparty_account_holder_id: str, *, request_options: RequestOptionsOrDict | None = None
@@ -231,7 +246,8 @@ class AsyncGrantsApi:
 
         Args:
             counterparty_account_holder_id: The unique identifier of the account holder that received the grants.
-            request_options: Per-call overrides for this one request, such as a timeout or extra headers.
+            request_options: Per-call overrides for this one request, such as a timeout, extra headers, or its retry
+                count and statuses.
 
         Returns:
             OK - The request has succeeded.
@@ -239,9 +255,9 @@ class AsyncGrantsApi:
         Raises:
             ApiError: Not Found - The entity was not found. Unprocessable Entity - A request validation error. ``error``
                 is ``DefaultErrorResponseEntity | RawError``."""
-        return (
+        return unwrap(
             await self._with_raw_response.get_grants2(counterparty_account_holder_id, request_options=request_options)
-        ).unwrap()
+        )
 
     async def patch_grants_grant_id_disbursements_disbursement_id(
         self,
@@ -257,7 +273,8 @@ class AsyncGrantsApi:
             grant_id: The unique identifier of the grant reference.
             disbursement_id: The unique identifier of the disbursement.
             body: The request body.
-            request_options: Per-call overrides for this one request, such as a timeout or extra headers.
+            request_options: Per-call overrides for this one request, such as a timeout, extra headers, or its retry
+                count and statuses.
 
         Returns:
             OK - The request has succeeded.
@@ -265,11 +282,11 @@ class AsyncGrantsApi:
         Raises:
             ApiError: Not Found - The entity was not found. Unprocessable Entity - A request validation error. ``error``
                 is ``DefaultErrorResponseEntity | RawError``."""
-        return (
+        return unwrap(
             await self._with_raw_response.patch_grants_grant_id_disbursements_disbursement_id(
                 grant_id, disbursement_id, body, request_options=request_options
-            )
-        ).unwrap()
+            ),
+        )
 
     async def post_grants2(
         self,
@@ -281,7 +298,8 @@ class AsyncGrantsApi:
 
         Args:
             body: The request body.
-            request_options: Per-call overrides for this one request, such as a timeout or extra headers.
+            request_options: Per-call overrides for this one request, such as a timeout, extra headers, or its retry
+                count and statuses.
 
         Returns:
             OK - The request has succeeded.
@@ -289,7 +307,7 @@ class AsyncGrantsApi:
         Raises:
             ApiError: Unprocessable Entity - A request validation error. ``error`` is ``DefaultErrorResponseEntity |
                 RawError``."""
-        return (await self._with_raw_response.post_grants2(body=body, request_options=request_options)).unwrap()
+        return unwrap(await self._with_raw_response.post_grants2(body=body, request_options=request_options))
 
     @property
     def with_raw_response(self) -> AsyncGrantsApiWithRawResponse:
@@ -304,7 +322,8 @@ class GrantsApiWithRawResponse(BaseRawResponse[RawClient, Server]):
 
         Args:
             grant_id: The unique identifier of the grant reference.
-            request_options: Per-call overrides for this one request, such as a timeout or extra headers.
+            request_options: Per-call overrides for this one request, such as a timeout, extra headers, or its retry
+                count and statuses.
 
         Returns:
             An ``ApiResult`` holding the deserialized response or the error body."""
@@ -324,7 +343,8 @@ class GrantsApiWithRawResponse(BaseRawResponse[RawClient, Server]):
 
         Args:
             grant_id: The unique identifier of the grant reference.
-            request_options: Per-call overrides for this one request, such as a timeout or extra headers.
+            request_options: Per-call overrides for this one request, such as a timeout, extra headers, or its retry
+                count and statuses.
 
         Returns:
             An ``ApiResult`` holding the deserialized response or the error body."""
@@ -345,7 +365,8 @@ class GrantsApiWithRawResponse(BaseRawResponse[RawClient, Server]):
         Args:
             grant_id: The unique identifier of the grant reference.
             disbursement_id: The unique identifier of the disbursement.
-            request_options: Per-call overrides for this one request, such as a timeout or extra headers.
+            request_options: Per-call overrides for this one request, such as a timeout, extra headers, or its retry
+                count and statuses.
 
         Returns:
             An ``ApiResult`` holding the deserialized response or the error body."""
@@ -365,7 +386,8 @@ class GrantsApiWithRawResponse(BaseRawResponse[RawClient, Server]):
 
         Args:
             counterparty_account_holder_id: The unique identifier of the account holder that received the grants.
-            request_options: Per-call overrides for this one request, such as a timeout or extra headers.
+            request_options: Per-call overrides for this one request, such as a timeout, extra headers, or its retry
+                count and statuses.
 
         Returns:
             An ``ApiResult`` holding the deserialized response or the error body."""
@@ -392,7 +414,8 @@ class GrantsApiWithRawResponse(BaseRawResponse[RawClient, Server]):
             grant_id: The unique identifier of the grant reference.
             disbursement_id: The unique identifier of the disbursement.
             body: The request body.
-            request_options: Per-call overrides for this one request, such as a timeout or extra headers.
+            request_options: Per-call overrides for this one request, such as a timeout, extra headers, or its retry
+                count and statuses.
 
         Returns:
             An ``ApiResult`` holding the deserialized response or the error body."""
@@ -417,7 +440,8 @@ class GrantsApiWithRawResponse(BaseRawResponse[RawClient, Server]):
 
         Args:
             body: The request body.
-            request_options: Per-call overrides for this one request, such as a timeout or extra headers.
+            request_options: Per-call overrides for this one request, such as a timeout, extra headers, or its retry
+                count and statuses.
 
         Returns:
             An ``ApiResult`` holding the deserialized response or the error body."""
@@ -440,7 +464,8 @@ class AsyncGrantsApiWithRawResponse(BaseRawResponse[AsyncRawClient, Server]):
 
         Args:
             grant_id: The unique identifier of the grant reference.
-            request_options: Per-call overrides for this one request, such as a timeout or extra headers.
+            request_options: Per-call overrides for this one request, such as a timeout, extra headers, or its retry
+                count and statuses.
 
         Returns:
             An ``ApiResult`` holding the deserialized response or the error body."""
@@ -448,7 +473,7 @@ class AsyncGrantsApiWithRawResponse(BaseRawResponse[AsyncRawClient, Server]):
             http_method="GET",
             url_template=self._server.default15("/grants/{grantId}"),
             path_params=[param[str]("grantId", grant_id)],
-            decoder=json_decoder[Grant],
+            decoder=async_json_decoder[Grant],
             error_mapper=get_grants_grant_id_error_mapper,
             request_options=request_options,
         )
@@ -460,7 +485,8 @@ class AsyncGrantsApiWithRawResponse(BaseRawResponse[AsyncRawClient, Server]):
 
         Args:
             grant_id: The unique identifier of the grant reference.
-            request_options: Per-call overrides for this one request, such as a timeout or extra headers.
+            request_options: Per-call overrides for this one request, such as a timeout, extra headers, or its retry
+                count and statuses.
 
         Returns:
             An ``ApiResult`` holding the deserialized response or the error body."""
@@ -468,7 +494,7 @@ class AsyncGrantsApiWithRawResponse(BaseRawResponse[AsyncRawClient, Server]):
             http_method="GET",
             url_template=self._server.default15("/grants/{grantId}/disbursements"),
             path_params=[param[str]("grantId", grant_id)],
-            decoder=json_decoder[Disbursements],
+            decoder=async_json_decoder[Disbursements],
             error_mapper=get_grants_grant_id_disbursements_error_mapper,
             request_options=request_options,
         )
@@ -481,7 +507,8 @@ class AsyncGrantsApiWithRawResponse(BaseRawResponse[AsyncRawClient, Server]):
         Args:
             grant_id: The unique identifier of the grant reference.
             disbursement_id: The unique identifier of the disbursement.
-            request_options: Per-call overrides for this one request, such as a timeout or extra headers.
+            request_options: Per-call overrides for this one request, such as a timeout, extra headers, or its retry
+                count and statuses.
 
         Returns:
             An ``ApiResult`` holding the deserialized response or the error body."""
@@ -489,7 +516,7 @@ class AsyncGrantsApiWithRawResponse(BaseRawResponse[AsyncRawClient, Server]):
             http_method="GET",
             url_template=self._server.default15("/grants/{grantId}/disbursements/{disbursementId}"),
             path_params=[param[str]("grantId", grant_id), param[str]("disbursementId", disbursement_id)],
-            decoder=json_decoder[Disbursement],
+            decoder=async_json_decoder[Disbursement],
             error_mapper=get_grants_grant_id_disbursements_disbursement_id_error_mapper,
             request_options=request_options,
         )
@@ -501,7 +528,8 @@ class AsyncGrantsApiWithRawResponse(BaseRawResponse[AsyncRawClient, Server]):
 
         Args:
             counterparty_account_holder_id: The unique identifier of the account holder that received the grants.
-            request_options: Per-call overrides for this one request, such as a timeout or extra headers.
+            request_options: Per-call overrides for this one request, such as a timeout, extra headers, or its retry
+                count and statuses.
 
         Returns:
             An ``ApiResult`` holding the deserialized response or the error body."""
@@ -509,7 +537,7 @@ class AsyncGrantsApiWithRawResponse(BaseRawResponse[AsyncRawClient, Server]):
             http_method="GET",
             url_template=self._server.default15("/grants"),
             query_params=[param[str]("counterpartyAccountHolderId", counterparty_account_holder_id)],
-            decoder=json_decoder[Grants],
+            decoder=async_json_decoder[Grants],
             error_mapper=get_grants2_error_mapper,
             request_options=request_options,
         )
@@ -528,7 +556,8 @@ class AsyncGrantsApiWithRawResponse(BaseRawResponse[AsyncRawClient, Server]):
             grant_id: The unique identifier of the grant reference.
             disbursement_id: The unique identifier of the disbursement.
             body: The request body.
-            request_options: Per-call overrides for this one request, such as a timeout or extra headers.
+            request_options: Per-call overrides for this one request, such as a timeout, extra headers, or its retry
+                count and statuses.
 
         Returns:
             An ``ApiResult`` holding the deserialized response or the error body."""
@@ -538,7 +567,7 @@ class AsyncGrantsApiWithRawResponse(BaseRawResponse[AsyncRawClient, Server]):
             path_params=[param[str]("grantId", grant_id), param[str]("disbursementId", disbursement_id)],
             headers=[param[UUID]("Idempotency-Key", uuid4())],
             body=json_body[DisbursementInfoUpdate | DisbursementInfoUpdateDict](body),
-            decoder=json_decoder[Disbursement],
+            decoder=async_json_decoder[Disbursement],
             error_mapper=patch_grants_grant_id_disbursements_disbursement_id_error_mapper,
             request_options=request_options,
         )
@@ -553,7 +582,8 @@ class AsyncGrantsApiWithRawResponse(BaseRawResponse[AsyncRawClient, Server]):
 
         Args:
             body: The request body.
-            request_options: Per-call overrides for this one request, such as a timeout or extra headers.
+            request_options: Per-call overrides for this one request, such as a timeout, extra headers, or its retry
+                count and statuses.
 
         Returns:
             An ``ApiResult`` holding the deserialized response or the error body."""
@@ -562,7 +592,7 @@ class AsyncGrantsApiWithRawResponse(BaseRawResponse[AsyncRawClient, Server]):
             url_template=self._server.default15("/grants"),
             headers=[param[UUID]("Idempotency-Key", uuid4())],
             body=json_body[CapitalGrantInfo | CapitalGrantInfoDict | None](body),
-            decoder=json_decoder[Grant],
+            decoder=async_json_decoder[Grant],
             error_mapper=post_grants2_error_mapper,
             request_options=request_options,
         )

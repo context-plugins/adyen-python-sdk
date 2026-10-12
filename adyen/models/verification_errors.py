@@ -12,4 +12,4 @@ class VerificationErrors(SdkBaseModel):
 
 
 class VerificationErrorsDict(TypedDict):
-    problems: NotRequired[list[CapabilityProblem1 | CapabilityProblem1Dict]]
+    problems: NotRequired[list[CapabilityProblem1Dict]]

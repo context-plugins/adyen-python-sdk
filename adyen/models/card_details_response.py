@@ -23,7 +23,7 @@ class CardDetailsResponse(SdkBaseModel):
 
 
 class CardDetailsResponseDict(TypedDict):
-    brands: NotRequired[list[CardBrandDetails | CardBrandDetailsDict]]
+    brands: NotRequired[list[CardBrandDetailsDict]]
     funding_source: NotRequired[str]
     is_card_commercial: NotRequired[bool]
     issuing_country_code: NotRequired[str]

@@ -12,4 +12,4 @@ class FraudCheckResultWrapper(SdkBaseModel):
 
 
 class FraudCheckResultWrapperDict(TypedDict):
-    fraud_check_result: NotRequired[FraudCheckResult | FraudCheckResultDict]
+    fraud_check_result: NotRequired[FraudCheckResultDict]

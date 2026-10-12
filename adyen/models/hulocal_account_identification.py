@@ -3,7 +3,7 @@ from __future__ import annotations
 from typing import Literal
 
 from pydantic import Field
-from typing_extensions import NotRequired, TypedDict
+from typing_extensions import TypedDict
 
 from ..core import SdkBaseModel
 
@@ -18,4 +18,4 @@ class HulocalAccountIdentification(SdkBaseModel):
 
 class HulocalAccountIdentificationDict(TypedDict):
     account_number: str
-    type_: NotRequired[Literal["huLocal"]]
+    type_: Literal["huLocal"]

@@ -55,10 +55,10 @@ class CompanyApiCredential(SdkBaseModel):
 
 
 class CompanyApiCredentialDict(TypedDict):
-    links: NotRequired[ApiCredentialLinks2 | ApiCredentialLinks2Dict]
+    links: NotRequired[ApiCredentialLinks2Dict]
     active: bool
     allowed_ip_addresses: list[str]
-    allowed_origins: NotRequired[list[AllowedOrigin | AllowedOriginDict]]
+    allowed_origins: NotRequired[list[AllowedOriginDict]]
     associated_merchant_accounts: NotRequired[list[str]]
     client_key: str
     description: NotRequired[str]

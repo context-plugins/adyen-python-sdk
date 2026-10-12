@@ -59,13 +59,13 @@ class BalanceAccount(SdkBaseModel):
 
 class BalanceAccountDict(TypedDict):
     account_holder_id: str
-    balances: NotRequired[list[Balance | BalanceDict]]
+    balances: NotRequired[list[BalanceDict]]
     default_currency_code: NotRequired[str]
     description: NotRequired[str]
     id: str
     metadata: NotRequired[dict[str, str]]
     migrated_account_code: NotRequired[str]
-    platform_payment_configuration: NotRequired[PlatformPaymentConfiguration1 | PlatformPaymentConfiguration1Dict]
+    platform_payment_configuration: NotRequired[PlatformPaymentConfiguration1Dict]
     reference: NotRequired[str]
     status: NotRequired[Status23OrStr]
     time_zone: NotRequired[str]

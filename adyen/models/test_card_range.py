@@ -76,7 +76,7 @@ class TestCardRange(SdkBaseModel):
 
 
 class TestCardRangeDict(TypedDict):
-    address: NotRequired[AvsAddress1 | AvsAddress1Dict]
+    address: NotRequired[AvsAddress1Dict]
     card_holder_name: str
     cvc: NotRequired[str]
     expiry_month: ExpiryMonthOrStr

@@ -29,8 +29,8 @@ class ThreeDsavailabilityResponse(SdkBaseModel):
 
 
 class ThreeDsavailabilityResponseDict(TypedDict):
-    bin_details: NotRequired[BinDetail1 | BinDetail1Dict]
-    ds_public_keys: NotRequired[list[DspublicKeyDetail | DspublicKeyDetailDict]]
+    bin_details: NotRequired[BinDetail1Dict]
+    ds_public_keys: NotRequired[list[DspublicKeyDetailDict]]
     three_ds1_supported: NotRequired[bool]
-    three_ds2_card_range_details: NotRequired[list[ThreeDs2CardRangeDetail | ThreeDs2CardRangeDetailDict]]
+    three_ds2_card_range_details: NotRequired[list[ThreeDs2CardRangeDetailDict]]
     three_ds2supported: NotRequired[bool]

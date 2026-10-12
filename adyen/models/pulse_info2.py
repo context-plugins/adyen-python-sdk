@@ -29,4 +29,4 @@ class PulseInfo2(SdkBaseModel):
 
 class PulseInfo2Dict(TypedDict):
     processing_type: ProcessingTypeOrStr
-    transaction_description: NotRequired[TransactionDescriptionInfo1 | TransactionDescriptionInfo1Dict]
+    transaction_description: NotRequired[TransactionDescriptionInfo1Dict]

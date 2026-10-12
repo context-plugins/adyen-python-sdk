@@ -11,10 +11,13 @@ from ..core import (
     RawClient,
     RequestOptionsOrDict,
     SecuredRawResponse,
+    async_empty_response,
+    async_json_decoder,
     empty_response,
     json_body,
     json_decoder,
     param,
+    unwrap,
 )
 from ..errors.get_network_tokens_network_token_id_error import (
     GetNetworkTokensNetworkTokenIdErrorBody,
@@ -40,7 +43,8 @@ class NetworkTokens:
 
         Args:
             network_token_id: The unique identifier of the network token.
-            request_options: Per-call overrides for this one request, such as a timeout or extra headers.
+            request_options: Per-call overrides for this one request, such as a timeout, extra headers, or its retry
+                count and statuses.
 
         Returns:
             OK - the request has succeeded.
@@ -49,9 +53,11 @@ class NetworkTokens:
             ApiError: Unauthorized - authentication required. Forbidden - insufficient permissions to process the
                 request. Unprocessable Entity - a request validation error. Internal Server Error - the server could not
                 process the request. ``error`` is ``RestServiceError | RawError``."""
-        return self._with_raw_response.get_network_tokens_network_token_id(
-            network_token_id, request_options=request_options
-        ).unwrap()
+        return unwrap(
+            self._with_raw_response.get_network_tokens_network_token_id(
+                network_token_id, request_options=request_options
+            ),
+        )
 
     def patch_network_tokens_network_token_id(
         self,
@@ -65,7 +71,8 @@ class NetworkTokens:
         Args:
             network_token_id: The unique identifier of the network token.
             body: The request body.
-            request_options: Per-call overrides for this one request, such as a timeout or extra headers.
+            request_options: Per-call overrides for this one request, such as a timeout, extra headers, or its retry
+                count and statuses.
 
         Returns:
             No Content - look at the actual response code for the status of the request.
@@ -74,9 +81,11 @@ class NetworkTokens:
             ApiError: Unauthorized - authentication required. Forbidden - insufficient permissions to process the
                 request. Unprocessable Entity - a request validation error. Internal Server Error - the server could not
                 process the request. ``error`` is ``RestServiceError | RawError``."""
-        return self._with_raw_response.patch_network_tokens_network_token_id(
-            network_token_id, body=body, request_options=request_options
-        ).unwrap()
+        return unwrap(
+            self._with_raw_response.patch_network_tokens_network_token_id(
+                network_token_id, body=body, request_options=request_options
+            ),
+        )
 
     @property
     def with_raw_response(self) -> NetworkTokensWithRawResponse:
@@ -94,7 +103,8 @@ class AsyncNetworkTokens:
 
         Args:
             network_token_id: The unique identifier of the network token.
-            request_options: Per-call overrides for this one request, such as a timeout or extra headers.
+            request_options: Per-call overrides for this one request, such as a timeout, extra headers, or its retry
+                count and statuses.
 
         Returns:
             OK - the request has succeeded.
@@ -103,11 +113,11 @@ class AsyncNetworkTokens:
             ApiError: Unauthorized - authentication required. Forbidden - insufficient permissions to process the
                 request. Unprocessable Entity - a request validation error. Internal Server Error - the server could not
                 process the request. ``error`` is ``RestServiceError | RawError``."""
-        return (
+        return unwrap(
             await self._with_raw_response.get_network_tokens_network_token_id(
                 network_token_id, request_options=request_options
-            )
-        ).unwrap()
+            ),
+        )
 
     async def patch_network_tokens_network_token_id(
         self,
@@ -121,7 +131,8 @@ class AsyncNetworkTokens:
         Args:
             network_token_id: The unique identifier of the network token.
             body: The request body.
-            request_options: Per-call overrides for this one request, such as a timeout or extra headers.
+            request_options: Per-call overrides for this one request, such as a timeout, extra headers, or its retry
+                count and statuses.
 
         Returns:
             No Content - look at the actual response code for the status of the request.
@@ -130,11 +141,11 @@ class AsyncNetworkTokens:
             ApiError: Unauthorized - authentication required. Forbidden - insufficient permissions to process the
                 request. Unprocessable Entity - a request validation error. Internal Server Error - the server could not
                 process the request. ``error`` is ``RestServiceError | RawError``."""
-        return (
+        return unwrap(
             await self._with_raw_response.patch_network_tokens_network_token_id(
                 network_token_id, body=body, request_options=request_options
-            )
-        ).unwrap()
+            ),
+        )
 
     @property
     def with_raw_response(self) -> AsyncNetworkTokensWithRawResponse:
@@ -149,7 +160,8 @@ class NetworkTokensWithRawResponse(SecuredRawResponse[RawClient, Server, AuthSch
 
         Args:
             network_token_id: The unique identifier of the network token.
-            request_options: Per-call overrides for this one request, such as a timeout or extra headers.
+            request_options: Per-call overrides for this one request, such as a timeout, extra headers, or its retry
+                count and statuses.
 
         Returns:
             An ``ApiResult`` holding the deserialized response or the error body."""
@@ -175,7 +187,8 @@ class NetworkTokensWithRawResponse(SecuredRawResponse[RawClient, Server, AuthSch
         Args:
             network_token_id: The unique identifier of the network token.
             body: The request body.
-            request_options: Per-call overrides for this one request, such as a timeout or extra headers.
+            request_options: Per-call overrides for this one request, such as a timeout, extra headers, or its retry
+                count and statuses.
 
         Returns:
             An ``ApiResult`` holding the deserialized response or the error body."""
@@ -200,7 +213,8 @@ class AsyncNetworkTokensWithRawResponse(SecuredRawResponse[AsyncRawClient, Serve
 
         Args:
             network_token_id: The unique identifier of the network token.
-            request_options: Per-call overrides for this one request, such as a timeout or extra headers.
+            request_options: Per-call overrides for this one request, such as a timeout, extra headers, or its retry
+                count and statuses.
 
         Returns:
             An ``ApiResult`` holding the deserialized response or the error body."""
@@ -209,7 +223,7 @@ class AsyncNetworkTokensWithRawResponse(SecuredRawResponse[AsyncRawClient, Serve
             url_template=self._server.default13("/networkTokens/{networkTokenId}"),
             path_params=[param[str]("networkTokenId", network_token_id)],
             auth_scheme=AsyncAnySchemes(self._auth.client_key, self._auth.basic_auth, self._auth.api_key_auth),
-            decoder=json_decoder[GetNetworkTokenResponse],
+            decoder=async_json_decoder[GetNetworkTokenResponse],
             error_mapper=get_network_tokens_network_token_id_error_mapper,
             request_options=request_options,
         )
@@ -226,7 +240,8 @@ class AsyncNetworkTokensWithRawResponse(SecuredRawResponse[AsyncRawClient, Serve
         Args:
             network_token_id: The unique identifier of the network token.
             body: The request body.
-            request_options: Per-call overrides for this one request, such as a timeout or extra headers.
+            request_options: Per-call overrides for this one request, such as a timeout, extra headers, or its retry
+                count and statuses.
 
         Returns:
             An ``ApiResult`` holding the deserialized response or the error body."""
@@ -237,7 +252,7 @@ class AsyncNetworkTokensWithRawResponse(SecuredRawResponse[AsyncRawClient, Serve
             headers=[param[UUID]("Idempotency-Key", uuid4())],
             body=json_body[UpdateNetworkTokenRequest | UpdateNetworkTokenRequestDict | None](body),
             auth_scheme=AsyncAnySchemes(self._auth.client_key, self._auth.basic_auth, self._auth.api_key_auth),
-            decoder=empty_response,
+            decoder=async_empty_response,
             error_mapper=patch_network_tokens_network_token_id_error_mapper,
             request_options=request_options,
         )

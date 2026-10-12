@@ -31,5 +31,5 @@ class ConfigurationDict(TypedDict):
     brand: str
     commercial: NotRequired[bool]
     country: NotRequired[list[str]]
-    currencies: list[Currency | CurrencyDict]
+    currencies: list[CurrencyDict]
     sources: NotRequired[list[str]]

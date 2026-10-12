@@ -2,8 +2,9 @@ from __future__ import annotations
 
 from typing import Annotated, TypeAlias
 
-from pydantic import Field
+from pydantic import Tag
 
+from ...core import WireDiscriminator
 from ..force_reboot_details import ForceRebootDetails, ForceRebootDetailsDict
 from ..install_android_app_details import InstallAndroidAppDetails, InstallAndroidAppDetailsDict
 from ..install_android_certificate_details import InstallAndroidCertificateDetails, InstallAndroidCertificateDetailsDict
@@ -16,14 +17,14 @@ from ..uninstall_android_certificate_details import (
 
 ActionDetails: TypeAlias = Annotated[
     (
-        ForceRebootDetails
-        | InstallAndroidAppDetails
-        | InstallAndroidCertificateDetails
-        | ReleaseUpdateDetails
-        | UninstallAndroidAppDetails
-        | UninstallAndroidCertificateDetails
+        Annotated[ForceRebootDetails, Tag("ForceReboot")]
+        | Annotated[InstallAndroidAppDetails, Tag("InstallAndroidApp")]
+        | Annotated[InstallAndroidCertificateDetails, Tag("InstallAndroidCertificate")]
+        | Annotated[ReleaseUpdateDetails, Tag("ReleaseUpdate")]
+        | Annotated[UninstallAndroidAppDetails, Tag("UninstallAndroidApp")]
+        | Annotated[UninstallAndroidCertificateDetails, Tag("UninstallAndroidCertificate")]
     ),
-    Field(discriminator="type_"),
+    WireDiscriminator("type"),
 ]
 """Information about the action to take."""
 

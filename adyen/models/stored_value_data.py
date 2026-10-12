@@ -49,8 +49,8 @@ class StoredValueData(SdkBaseModel):
 class StoredValueDataDict(TypedDict):
     stored_value_provider: NotRequired[str]
     stored_value_transaction_type: StoredValueTransactionType1OrStr
-    stored_value_account_id: NotRequired[StoredValueAccountId1 | StoredValueAccountId1Dict]
-    original_poi_transaction: NotRequired[OriginalPoitransaction1 | OriginalPoitransaction1Dict]
+    stored_value_account_id: NotRequired[StoredValueAccountId1Dict]
+    original_poi_transaction: NotRequired[OriginalPoitransaction1Dict]
     product_code: NotRequired[int]
     ean_upc: NotRequired[int]
     item_amount: NotRequired[float]

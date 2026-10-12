@@ -15,10 +15,10 @@ class DisplayOutput(SdkBaseModel):
     Device type. For the Input Devices, Diagnosis and ``EnableService``, ``ResponseRequiredFlag``, and
     ``MinimumDisplayTime`` shall be absent."""
 
-    response_required_flag: Optional[bool] = Field(default=UNSET, alias="ResponseRequiredFlag")
+    response_required_flag: bool = Field(default=True, alias="ResponseRequiredFlag")
     """Indicates if the message response is required."""
 
-    minimum_display_time: Optional[int] = Field(default=UNSET, alias="MinimumDisplayTime")
+    minimum_display_time: int = Field(default=0, alias="MinimumDisplayTime")
     """Number of seconds the message has to be displayed."""
 
     device: Device11OrStr = Field(alias="Device")
@@ -61,6 +61,6 @@ class DisplayOutputDict(TypedDict):
     minimum_display_time: NotRequired[int]
     device: Device11OrStr
     info_qualify: InfoQualify1OrStr
-    output_content: OutputContent1 | OutputContent1Dict
-    menu_entry: NotRequired[list[MenuEntry | MenuEntryDict]]
+    output_content: OutputContent1Dict
+    menu_entry: NotRequired[list[MenuEntryDict]]
     output_signature: NotRequired[str]

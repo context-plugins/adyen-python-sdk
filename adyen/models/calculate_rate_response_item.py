@@ -35,6 +35,6 @@ class CalculateRateResponseItem(SdkBaseModel):
 class CalculateRateResponseItemDict(TypedDict):
     applied_exchange_rate: NotRequired[float]
     exchange_side: NotRequired[str]
-    source_amount: NotRequired[Amount22 | Amount22Dict]
-    target_amount: NotRequired[Amount34 | Amount34Dict]
+    source_amount: NotRequired[Amount22Dict]
+    target_amount: NotRequired[Amount34Dict]
     type_: NotRequired[str]

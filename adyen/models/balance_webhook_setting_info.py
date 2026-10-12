@@ -33,8 +33,8 @@ class BalanceWebhookSettingInfo(SdkBaseModel):
 
 
 class BalanceWebhookSettingInfoDict(TypedDict):
-    conditions: NotRequired[list[Condition | ConditionDict]]
+    conditions: NotRequired[list[ConditionDict]]
     currency: str
     status: Status6OrStr
-    target: Target1 | Target1Dict
-    type_: NotRequired[Literal["balance"]]
+    target: Target1Dict
+    type_: Literal["balance"]

@@ -16,4 +16,4 @@ class CalculateRateRequest(SdkBaseModel):
 
 
 class CalculateRateRequestDict(TypedDict):
-    exchange_calculations: list[CalculateRateRequestItem | CalculateRateRequestItemDict]
+    exchange_calculations: list[CalculateRateRequestItemDict]

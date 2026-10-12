@@ -41,4 +41,4 @@ class OutputResult1(SdkBaseModel):
 class OutputResult1Dict(TypedDict):
     device: Device3OrStr
     info_qualify: InfoQualify3OrStr
-    response: Response11 | Response11Dict
+    response: Response11Dict

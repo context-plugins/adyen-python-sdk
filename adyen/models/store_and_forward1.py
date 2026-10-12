@@ -24,6 +24,6 @@ class StoreAndForward1(SdkBaseModel):
 
 
 class StoreAndForward1Dict(TypedDict):
-    max_amount: NotRequired[list[MinorUnitsMonetaryValue | MinorUnitsMonetaryValueDict]]
+    max_amount: NotRequired[list[MinorUnitsMonetaryValueDict]]
     max_payments: NotRequired[int]
-    supported_card_types: NotRequired[SupportedCardTypes2 | SupportedCardTypes2Dict]
+    supported_card_types: NotRequired[SupportedCardTypes2Dict]

@@ -44,7 +44,7 @@ class PaymentInstrumentData1(SdkBaseModel):
 class PaymentInstrumentData1Dict(TypedDict):
     payment_instrument_type: PaymentInstrumentType11OrStr
     protected_card_data: NotRequired[str]
-    card_data: NotRequired[CardData1 | CardData1Dict]
-    check_data: NotRequired[CheckData1 | CheckData1Dict]
-    mobile_data: NotRequired[MobileData1 | MobileData1Dict]
-    stored_value_account_id: NotRequired[StoredValueAccountId | StoredValueAccountIdDict]
+    card_data: NotRequired[CardData1Dict]
+    check_data: NotRequired[CheckData1Dict]
+    mobile_data: NotRequired[MobileData1Dict]
+    stored_value_account_id: NotRequired[StoredValueAccountIdDict]

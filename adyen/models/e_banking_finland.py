@@ -26,4 +26,4 @@ class EBankingFinlandDict(TypedDict):
     checkout_attempt_id: NotRequired[str]
     issuer: NotRequired[str]
     sdk_data: NotRequired[str]
-    type_: NotRequired[Literal["ebanking_FI"]]
+    type_: Literal["ebanking_FI"]

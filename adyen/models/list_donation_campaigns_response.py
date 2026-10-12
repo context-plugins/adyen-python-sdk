@@ -23,7 +23,7 @@ class ListDonationCampaignsResponse(SdkBaseModel):
 
 
 class ListDonationCampaignsResponseDict(TypedDict):
-    links: NotRequired[PaginationLinks1 | PaginationLinks1Dict]
-    campaigns: NotRequired[list[DonationCampaign1 | DonationCampaign1Dict]]
+    links: NotRequired[PaginationLinks1Dict]
+    campaigns: NotRequired[list[DonationCampaign1Dict]]
     items_total: int
     pages_total: int

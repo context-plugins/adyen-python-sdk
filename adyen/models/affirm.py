@@ -4,7 +4,7 @@ from pydantic import Field
 from typing_extensions import NotRequired, TypedDict
 
 from ..core import UNSET, Optional, SdkBaseModel
-from .enums.type1 import Type1OrStr
+from .enums.type1 import Type1, Type1OrStr
 
 
 class Affirm(SdkBaseModel):
@@ -14,7 +14,7 @@ class Affirm(SdkBaseModel):
     sdk_data: Optional[str] = Field(default=UNSET, alias="sdkData")
     """Base64-encoded JSON object containing SDK related parameters required by the SDK"""
 
-    type_: Optional[Type1OrStr] = Field(default=UNSET, alias="type")
+    type_: Type1OrStr = Field(default=Type1.AFFIRM, alias="type")
     """**affirm**"""
 
 

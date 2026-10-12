@@ -52,10 +52,10 @@ class BusinessDetails1(SdkBaseModel):
 class BusinessDetails1Dict(TypedDict):
     doing_business_as: NotRequired[str]
     legal_business_name: NotRequired[str]
-    listed_ultimate_parent_company: NotRequired[list[UltimateParentCompany | UltimateParentCompanyDict]]
+    listed_ultimate_parent_company: NotRequired[list[UltimateParentCompanyDict]]
     registration_number: NotRequired[str]
-    shareholders: NotRequired[list[ShareholderContact | ShareholderContactDict]]
-    signatories: NotRequired[list[SignatoryContact | SignatoryContactDict]]
+    shareholders: NotRequired[list[ShareholderContactDict]]
+    signatories: NotRequired[list[SignatoryContactDict]]
     stock_exchange: NotRequired[str]
     stock_number: NotRequired[str]
     stock_ticker: NotRequired[str]

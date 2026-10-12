@@ -16,5 +16,5 @@ class PaymentDetailsResponse1(SdkBaseModel):
 
 
 class PaymentDetailsResponse1Dict(TypedDict):
-    details: PaymentDetails11 | PaymentDetails11Dict
+    details: PaymentDetails11Dict
     token: str

@@ -37,7 +37,7 @@ class OnlineDonationSettingsResponse2(SdkBaseModel):
 
 
 class OnlineDonationSettingsResponse2Dict(TypedDict):
-    amounts: NotRequired[list[DonationAmount | DonationAmountDict]]
+    amounts: NotRequired[list[DonationAmountDict]]
     default_currency: NotRequired[str]
     donation_type: NotRequired[DonationType1OrStr]
     merchant_accounts: NotRequired[list[str]]

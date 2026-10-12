@@ -50,10 +50,10 @@ class UpdateAccountResponseDict(TypedDict):
     account_code: str
     bank_account_uuid: NotRequired[str]
     description: NotRequired[str]
-    invalid_fields: NotRequired[list[ErrorFieldType | ErrorFieldTypeDict]]
+    invalid_fields: NotRequired[list[ErrorFieldTypeDict]]
     metadata: NotRequired[dict[str, str]]
     payout_method_code: NotRequired[str]
-    payout_schedule: NotRequired[PayoutScheduleResponse3 | PayoutScheduleResponse3Dict]
+    payout_schedule: NotRequired[PayoutScheduleResponse3Dict]
     payout_speed: NotRequired[PayoutSpeed4OrStr]
     psp_reference: NotRequired[str]
     result_code: NotRequired[str]

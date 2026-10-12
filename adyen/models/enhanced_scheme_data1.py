@@ -44,9 +44,9 @@ class EnhancedSchemeData1(SdkBaseModel):
 
 
 class EnhancedSchemeData1Dict(TypedDict):
-    airline: NotRequired[Airline1 | Airline1Dict]
-    car_rental: NotRequired[CarRental1 | CarRental1Dict]
-    healthcare: NotRequired[Healthcare2 | Healthcare2Dict]
-    level_two_three: NotRequired[LevelTwoThree2 | LevelTwoThree2Dict]
-    lodging: NotRequired[Lodging2 | Lodging2Dict]
-    temporary_services: NotRequired[TemporaryServices2 | TemporaryServices2Dict]
+    airline: NotRequired[Airline1Dict]
+    car_rental: NotRequired[CarRental1Dict]
+    healthcare: NotRequired[Healthcare2Dict]
+    level_two_three: NotRequired[LevelTwoThree2Dict]
+    lodging: NotRequired[Lodging2Dict]
+    temporary_services: NotRequired[TemporaryServices2Dict]

@@ -11,10 +11,13 @@ from ..core import (
     RawClient,
     RequestOptionsOrDict,
     SecuredRawResponse,
+    async_empty_response,
+    async_json_decoder,
     empty_response,
     json_body,
     json_decoder,
     param,
+    unwrap,
 )
 from ..errors.delete_registered_devices_id_error import (
     DeleteRegisteredDevicesIdErrorBody,
@@ -50,14 +53,15 @@ class ManageScaDevices:
         self._with_raw_response = ManageScaDevicesWithRawResponse(client, server, auth)
 
     def delete_registered_devices_id(
-        self, id: str, payment_instrument_id: str, *, request_options: RequestOptionsOrDict | None = None
+        self, id_: str, payment_instrument_id: str, *, request_options: RequestOptionsOrDict | None = None
     ) -> None:
         """Deletes an SCA device from the list of registered devices of a specific payment instrument.
 
         Args:
-            id: The unique identifier of the SCA device.
+            id_: The unique identifier of the SCA device.
             payment_instrument_id: The unique identifier of the payment instrument linked to the SCA device.
-            request_options: Per-call overrides for this one request, such as a timeout or extra headers.
+            request_options: Per-call overrides for this one request, such as a timeout, extra headers, or its retry
+                count and statuses.
 
         Returns:
             No Content - look at the actual response code for the status of the request.
@@ -67,9 +71,11 @@ class ManageScaDevices:
                 required. Forbidden - insufficient permissions to process the request. Unprocessable Entity - a request
                 validation error. Internal Server Error - the server could not process the request. ``error`` is
                 ``RestServiceError | RawError``."""
-        return self._with_raw_response.delete_registered_devices_id(
-            id, payment_instrument_id, request_options=request_options
-        ).unwrap()
+        return unwrap(
+            self._with_raw_response.delete_registered_devices_id(
+                id_, payment_instrument_id, request_options=request_options
+            ),
+        )
 
     def get_registered_devices(
         self,
@@ -86,7 +92,8 @@ class ManageScaDevices:
                 devices associated to this payment instrument.
             page_number: The index of the page to retrieve. The index of the first page is 0 (zero). Default: 0.
             page_size: The number of items to have on a page. Default: 20. Maximum: 100.
-            request_options: Per-call overrides for this one request, such as a timeout or extra headers.
+            request_options: Per-call overrides for this one request, such as a timeout, extra headers, or its retry
+                count and statuses.
 
         Returns:
             OK - the request has succeeded.
@@ -96,9 +103,11 @@ class ManageScaDevices:
                 required. Forbidden - insufficient permissions to process the request. Unprocessable Entity - a request
                 validation error. Internal Server Error - the server could not process the request. ``error`` is
                 ``RestServiceError | RawError``."""
-        return self._with_raw_response.get_registered_devices(
-            payment_instrument_id, page_number=page_number, page_size=page_size, request_options=request_options
-        ).unwrap()
+        return unwrap(
+            self._with_raw_response.get_registered_devices(
+                payment_instrument_id, page_number=page_number, page_size=page_size, request_options=request_options
+            ),
+        )
 
     def patch_registered_devices_device_id_associations(
         self,
@@ -117,7 +126,8 @@ class ManageScaDevices:
         Args:
             device_id: The unique identifier of the SCA device that you are associating with a resource.
             body: The request body.
-            request_options: Per-call overrides for this one request, such as a timeout or extra headers.
+            request_options: Per-call overrides for this one request, such as a timeout, extra headers, or its retry
+                count and statuses.
 
         Returns:
             OK - the request has succeeded.
@@ -127,13 +137,15 @@ class ManageScaDevices:
                 required. Forbidden - insufficient permissions to process the request. Unprocessable Entity - a request
                 validation error. Internal Server Error - the server could not process the request. ``error`` is
                 ``RestServiceError | RawError``."""
-        return self._with_raw_response.patch_registered_devices_device_id_associations(
-            device_id, body=body, request_options=request_options
-        ).unwrap()
+        return unwrap(
+            self._with_raw_response.patch_registered_devices_device_id_associations(
+                device_id, body=body, request_options=request_options
+            ),
+        )
 
     def patch_registered_devices_id(
         self,
-        id: str,
+        id_: str,
         *,
         body: RegisterScarequest | RegisterScarequestDict | None = None,
         request_options: RequestOptionsOrDict | None = None,
@@ -143,12 +155,13 @@ class ManageScaDevices:
         `Adyen-issued cards <https://docs.adyen.com/issuing/3d-secure/oob-auth-sdk>`__.
 
         Args:
-            id: The unique identifier of the SCA device. You obtain this ``id`` in the response of a
+            id_: The unique identifier of the SCA device. You obtain this ``id`` in the response of a
                 POST&nbsp;`/registeredDevices
                 <https://docs.adyen.com/api-explorer/balanceplatform/2/post/registeredDevices#responses-200-id>`__
                 request.
             body: The request body.
-            request_options: Per-call overrides for this one request, such as a timeout or extra headers.
+            request_options: Per-call overrides for this one request, such as a timeout, extra headers, or its retry
+                count and statuses.
 
         Returns:
             OK - the request has succeeded.
@@ -158,9 +171,9 @@ class ManageScaDevices:
                 required. Forbidden - insufficient permissions to process the request. Unprocessable Entity - a request
                 validation error. Internal Server Error - the server could not process the request. ``error`` is
                 ``RestServiceError | RawError``."""
-        return self._with_raw_response.patch_registered_devices_id(
-            id, body=body, request_options=request_options
-        ).unwrap()
+        return unwrap(
+            self._with_raw_response.patch_registered_devices_id(id_, body=body, request_options=request_options)
+        )
 
     def post_registered_devices(
         self,
@@ -176,7 +189,8 @@ class ManageScaDevices:
 
         Args:
             body: The request body.
-            request_options: Per-call overrides for this one request, such as a timeout or extra headers.
+            request_options: Per-call overrides for this one request, such as a timeout, extra headers, or its retry
+                count and statuses.
 
         Returns:
             OK - the request has succeeded.
@@ -186,7 +200,7 @@ class ManageScaDevices:
                 required. Forbidden - insufficient permissions to process the request. Unprocessable Entity - a request
                 validation error. Internal Server Error - the server could not process the request. ``error`` is
                 ``RestServiceError | RawError``."""
-        return self._with_raw_response.post_registered_devices(body=body, request_options=request_options).unwrap()
+        return unwrap(self._with_raw_response.post_registered_devices(body=body, request_options=request_options))
 
     def post_registered_devices_device_id_associations(
         self,
@@ -203,7 +217,8 @@ class ManageScaDevices:
         Args:
             device_id: The unique identifier of the SCA device that you are associating with a resource.
             body: The request body.
-            request_options: Per-call overrides for this one request, such as a timeout or extra headers.
+            request_options: Per-call overrides for this one request, such as a timeout, extra headers, or its retry
+                count and statuses.
 
         Returns:
             OK - the request has succeeded.
@@ -213,9 +228,11 @@ class ManageScaDevices:
                 required. Forbidden - insufficient permissions to process the request. Unprocessable Entity - a request
                 validation error. Internal Server Error - the server could not process the request. ``error`` is
                 ``RestServiceError | RawError``."""
-        return self._with_raw_response.post_registered_devices_device_id_associations(
-            device_id, body=body, request_options=request_options
-        ).unwrap()
+        return unwrap(
+            self._with_raw_response.post_registered_devices_device_id_associations(
+                device_id, body=body, request_options=request_options
+            ),
+        )
 
     @property
     def with_raw_response(self) -> ManageScaDevicesWithRawResponse:
@@ -227,14 +244,15 @@ class AsyncManageScaDevices:
         self._with_raw_response = AsyncManageScaDevicesWithRawResponse(client, server, auth)
 
     async def delete_registered_devices_id(
-        self, id: str, payment_instrument_id: str, *, request_options: RequestOptionsOrDict | None = None
+        self, id_: str, payment_instrument_id: str, *, request_options: RequestOptionsOrDict | None = None
     ) -> None:
         """Deletes an SCA device from the list of registered devices of a specific payment instrument.
 
         Args:
-            id: The unique identifier of the SCA device.
+            id_: The unique identifier of the SCA device.
             payment_instrument_id: The unique identifier of the payment instrument linked to the SCA device.
-            request_options: Per-call overrides for this one request, such as a timeout or extra headers.
+            request_options: Per-call overrides for this one request, such as a timeout, extra headers, or its retry
+                count and statuses.
 
         Returns:
             No Content - look at the actual response code for the status of the request.
@@ -244,11 +262,11 @@ class AsyncManageScaDevices:
                 required. Forbidden - insufficient permissions to process the request. Unprocessable Entity - a request
                 validation error. Internal Server Error - the server could not process the request. ``error`` is
                 ``RestServiceError | RawError``."""
-        return (
+        return unwrap(
             await self._with_raw_response.delete_registered_devices_id(
-                id, payment_instrument_id, request_options=request_options
-            )
-        ).unwrap()
+                id_, payment_instrument_id, request_options=request_options
+            ),
+        )
 
     async def get_registered_devices(
         self,
@@ -265,7 +283,8 @@ class AsyncManageScaDevices:
                 devices associated to this payment instrument.
             page_number: The index of the page to retrieve. The index of the first page is 0 (zero). Default: 0.
             page_size: The number of items to have on a page. Default: 20. Maximum: 100.
-            request_options: Per-call overrides for this one request, such as a timeout or extra headers.
+            request_options: Per-call overrides for this one request, such as a timeout, extra headers, or its retry
+                count and statuses.
 
         Returns:
             OK - the request has succeeded.
@@ -275,11 +294,11 @@ class AsyncManageScaDevices:
                 required. Forbidden - insufficient permissions to process the request. Unprocessable Entity - a request
                 validation error. Internal Server Error - the server could not process the request. ``error`` is
                 ``RestServiceError | RawError``."""
-        return (
+        return unwrap(
             await self._with_raw_response.get_registered_devices(
                 payment_instrument_id, page_number=page_number, page_size=page_size, request_options=request_options
-            )
-        ).unwrap()
+            ),
+        )
 
     async def patch_registered_devices_device_id_associations(
         self,
@@ -298,7 +317,8 @@ class AsyncManageScaDevices:
         Args:
             device_id: The unique identifier of the SCA device that you are associating with a resource.
             body: The request body.
-            request_options: Per-call overrides for this one request, such as a timeout or extra headers.
+            request_options: Per-call overrides for this one request, such as a timeout, extra headers, or its retry
+                count and statuses.
 
         Returns:
             OK - the request has succeeded.
@@ -308,15 +328,15 @@ class AsyncManageScaDevices:
                 required. Forbidden - insufficient permissions to process the request. Unprocessable Entity - a request
                 validation error. Internal Server Error - the server could not process the request. ``error`` is
                 ``RestServiceError | RawError``."""
-        return (
+        return unwrap(
             await self._with_raw_response.patch_registered_devices_device_id_associations(
                 device_id, body=body, request_options=request_options
-            )
-        ).unwrap()
+            ),
+        )
 
     async def patch_registered_devices_id(
         self,
-        id: str,
+        id_: str,
         *,
         body: RegisterScarequest | RegisterScarequestDict | None = None,
         request_options: RequestOptionsOrDict | None = None,
@@ -326,12 +346,13 @@ class AsyncManageScaDevices:
         `Adyen-issued cards <https://docs.adyen.com/issuing/3d-secure/oob-auth-sdk>`__.
 
         Args:
-            id: The unique identifier of the SCA device. You obtain this ``id`` in the response of a
+            id_: The unique identifier of the SCA device. You obtain this ``id`` in the response of a
                 POST&nbsp;`/registeredDevices
                 <https://docs.adyen.com/api-explorer/balanceplatform/2/post/registeredDevices#responses-200-id>`__
                 request.
             body: The request body.
-            request_options: Per-call overrides for this one request, such as a timeout or extra headers.
+            request_options: Per-call overrides for this one request, such as a timeout, extra headers, or its retry
+                count and statuses.
 
         Returns:
             OK - the request has succeeded.
@@ -341,9 +362,9 @@ class AsyncManageScaDevices:
                 required. Forbidden - insufficient permissions to process the request. Unprocessable Entity - a request
                 validation error. Internal Server Error - the server could not process the request. ``error`` is
                 ``RestServiceError | RawError``."""
-        return (
-            await self._with_raw_response.patch_registered_devices_id(id, body=body, request_options=request_options)
-        ).unwrap()
+        return unwrap(
+            await self._with_raw_response.patch_registered_devices_id(id_, body=body, request_options=request_options)
+        )
 
     async def post_registered_devices(
         self,
@@ -359,7 +380,8 @@ class AsyncManageScaDevices:
 
         Args:
             body: The request body.
-            request_options: Per-call overrides for this one request, such as a timeout or extra headers.
+            request_options: Per-call overrides for this one request, such as a timeout, extra headers, or its retry
+                count and statuses.
 
         Returns:
             OK - the request has succeeded.
@@ -369,9 +391,7 @@ class AsyncManageScaDevices:
                 required. Forbidden - insufficient permissions to process the request. Unprocessable Entity - a request
                 validation error. Internal Server Error - the server could not process the request. ``error`` is
                 ``RestServiceError | RawError``."""
-        return (
-            await self._with_raw_response.post_registered_devices(body=body, request_options=request_options)
-        ).unwrap()
+        return unwrap(await self._with_raw_response.post_registered_devices(body=body, request_options=request_options))
 
     async def post_registered_devices_device_id_associations(
         self,
@@ -388,7 +408,8 @@ class AsyncManageScaDevices:
         Args:
             device_id: The unique identifier of the SCA device that you are associating with a resource.
             body: The request body.
-            request_options: Per-call overrides for this one request, such as a timeout or extra headers.
+            request_options: Per-call overrides for this one request, such as a timeout, extra headers, or its retry
+                count and statuses.
 
         Returns:
             OK - the request has succeeded.
@@ -398,11 +419,11 @@ class AsyncManageScaDevices:
                 required. Forbidden - insufficient permissions to process the request. Unprocessable Entity - a request
                 validation error. Internal Server Error - the server could not process the request. ``error`` is
                 ``RestServiceError | RawError``."""
-        return (
+        return unwrap(
             await self._with_raw_response.post_registered_devices_device_id_associations(
                 device_id, body=body, request_options=request_options
-            )
-        ).unwrap()
+            ),
+        )
 
     @property
     def with_raw_response(self) -> AsyncManageScaDevicesWithRawResponse:
@@ -411,21 +432,22 @@ class AsyncManageScaDevices:
 
 class ManageScaDevicesWithRawResponse(SecuredRawResponse[RawClient, Server, AuthSchemes]):
     def delete_registered_devices_id(
-        self, id: str, payment_instrument_id: str, *, request_options: RequestOptionsOrDict | None = None
+        self, id_: str, payment_instrument_id: str, *, request_options: RequestOptionsOrDict | None = None
     ) -> ApiResult[None, DeleteRegisteredDevicesIdErrorBody]:
         """Deletes an SCA device from the list of registered devices of a specific payment instrument.
 
         Args:
-            id: The unique identifier of the SCA device.
+            id_: The unique identifier of the SCA device.
             payment_instrument_id: The unique identifier of the payment instrument linked to the SCA device.
-            request_options: Per-call overrides for this one request, such as a timeout or extra headers.
+            request_options: Per-call overrides for this one request, such as a timeout, extra headers, or its retry
+                count and statuses.
 
         Returns:
             An ``ApiResult`` holding the deserialized response or the error body."""
         return self._client.execute(
             http_method="DELETE",
             url_template=self._server.default13("/registeredDevices/{id}"),
-            path_params=[param[str]("id", id)],
+            path_params=[param[str]("id", id_)],
             query_params=[param[str]("paymentInstrumentId", payment_instrument_id)],
             headers=[param[UUID]("Idempotency-Key", uuid4())],
             auth_scheme=AnySchemes(self._auth.client_key, self._auth.basic_auth, self._auth.api_key_auth),
@@ -449,7 +471,8 @@ class ManageScaDevicesWithRawResponse(SecuredRawResponse[RawClient, Server, Auth
                 devices associated to this payment instrument.
             page_number: The index of the page to retrieve. The index of the first page is 0 (zero). Default: 0.
             page_size: The number of items to have on a page. Default: 20. Maximum: 100.
-            request_options: Per-call overrides for this one request, such as a timeout or extra headers.
+            request_options: Per-call overrides for this one request, such as a timeout, extra headers, or its retry
+                count and statuses.
 
         Returns:
             An ``ApiResult`` holding the deserialized response or the error body."""
@@ -484,7 +507,8 @@ class ManageScaDevicesWithRawResponse(SecuredRawResponse[RawClient, Server, Auth
         Args:
             device_id: The unique identifier of the SCA device that you are associating with a resource.
             body: The request body.
-            request_options: Per-call overrides for this one request, such as a timeout or extra headers.
+            request_options: Per-call overrides for this one request, such as a timeout, extra headers, or its retry
+                count and statuses.
 
         Returns:
             An ``ApiResult`` holding the deserialized response or the error body."""
@@ -502,7 +526,7 @@ class ManageScaDevicesWithRawResponse(SecuredRawResponse[RawClient, Server, Auth
 
     def patch_registered_devices_id(
         self,
-        id: str,
+        id_: str,
         *,
         body: RegisterScarequest | RegisterScarequestDict | None = None,
         request_options: RequestOptionsOrDict | None = None,
@@ -512,19 +536,20 @@ class ManageScaDevicesWithRawResponse(SecuredRawResponse[RawClient, Server, Auth
         `Adyen-issued cards <https://docs.adyen.com/issuing/3d-secure/oob-auth-sdk>`__.
 
         Args:
-            id: The unique identifier of the SCA device. You obtain this ``id`` in the response of a
+            id_: The unique identifier of the SCA device. You obtain this ``id`` in the response of a
                 POST&nbsp;`/registeredDevices
                 <https://docs.adyen.com/api-explorer/balanceplatform/2/post/registeredDevices#responses-200-id>`__
                 request.
             body: The request body.
-            request_options: Per-call overrides for this one request, such as a timeout or extra headers.
+            request_options: Per-call overrides for this one request, such as a timeout, extra headers, or its retry
+                count and statuses.
 
         Returns:
             An ``ApiResult`` holding the deserialized response or the error body."""
         return self._client.execute(
             http_method="PATCH",
             url_template=self._server.default13("/registeredDevices/{id}"),
-            path_params=[param[str]("id", id)],
+            path_params=[param[str]("id", id_)],
             headers=[param[UUID]("Idempotency-Key", uuid4())],
             body=json_body[RegisterScarequest | RegisterScarequestDict | None](body),
             auth_scheme=AnySchemes(self._auth.client_key, self._auth.basic_auth, self._auth.api_key_auth),
@@ -547,7 +572,8 @@ class ManageScaDevicesWithRawResponse(SecuredRawResponse[RawClient, Server, Auth
 
         Args:
             body: The request body.
-            request_options: Per-call overrides for this one request, such as a timeout or extra headers.
+            request_options: Per-call overrides for this one request, such as a timeout, extra headers, or its retry
+                count and statuses.
 
         Returns:
             An ``ApiResult`` holding the deserialized response or the error body."""
@@ -577,7 +603,8 @@ class ManageScaDevicesWithRawResponse(SecuredRawResponse[RawClient, Server, Auth
         Args:
             device_id: The unique identifier of the SCA device that you are associating with a resource.
             body: The request body.
-            request_options: Per-call overrides for this one request, such as a timeout or extra headers.
+            request_options: Per-call overrides for this one request, such as a timeout, extra headers, or its retry
+                count and statuses.
 
         Returns:
             An ``ApiResult`` holding the deserialized response or the error body."""
@@ -596,25 +623,26 @@ class ManageScaDevicesWithRawResponse(SecuredRawResponse[RawClient, Server, Auth
 
 class AsyncManageScaDevicesWithRawResponse(SecuredRawResponse[AsyncRawClient, Server, AsyncAuthSchemes]):
     async def delete_registered_devices_id(
-        self, id: str, payment_instrument_id: str, *, request_options: RequestOptionsOrDict | None = None
+        self, id_: str, payment_instrument_id: str, *, request_options: RequestOptionsOrDict | None = None
     ) -> ApiResult[None, DeleteRegisteredDevicesIdErrorBody]:
         """Deletes an SCA device from the list of registered devices of a specific payment instrument.
 
         Args:
-            id: The unique identifier of the SCA device.
+            id_: The unique identifier of the SCA device.
             payment_instrument_id: The unique identifier of the payment instrument linked to the SCA device.
-            request_options: Per-call overrides for this one request, such as a timeout or extra headers.
+            request_options: Per-call overrides for this one request, such as a timeout, extra headers, or its retry
+                count and statuses.
 
         Returns:
             An ``ApiResult`` holding the deserialized response or the error body."""
         return await self._client.execute(
             http_method="DELETE",
             url_template=self._server.default13("/registeredDevices/{id}"),
-            path_params=[param[str]("id", id)],
+            path_params=[param[str]("id", id_)],
             query_params=[param[str]("paymentInstrumentId", payment_instrument_id)],
             headers=[param[UUID]("Idempotency-Key", uuid4())],
             auth_scheme=AsyncAnySchemes(self._auth.client_key, self._auth.basic_auth, self._auth.api_key_auth),
-            decoder=empty_response,
+            decoder=async_empty_response,
             error_mapper=delete_registered_devices_id_error_mapper,
             request_options=request_options,
         )
@@ -634,7 +662,8 @@ class AsyncManageScaDevicesWithRawResponse(SecuredRawResponse[AsyncRawClient, Se
                 devices associated to this payment instrument.
             page_number: The index of the page to retrieve. The index of the first page is 0 (zero). Default: 0.
             page_size: The number of items to have on a page. Default: 20. Maximum: 100.
-            request_options: Per-call overrides for this one request, such as a timeout or extra headers.
+            request_options: Per-call overrides for this one request, such as a timeout, extra headers, or its retry
+                count and statuses.
 
         Returns:
             An ``ApiResult`` holding the deserialized response or the error body."""
@@ -647,7 +676,7 @@ class AsyncManageScaDevicesWithRawResponse(SecuredRawResponse[AsyncRawClient, Se
                 param[int | None]("pageSize", page_size),
             ],
             auth_scheme=AsyncAnySchemes(self._auth.client_key, self._auth.basic_auth, self._auth.api_key_auth),
-            decoder=json_decoder[SearchRegisteredDevicesResponse],
+            decoder=async_json_decoder[SearchRegisteredDevicesResponse],
             error_mapper=get_registered_devices_error_mapper,
             request_options=request_options,
         )
@@ -669,7 +698,8 @@ class AsyncManageScaDevicesWithRawResponse(SecuredRawResponse[AsyncRawClient, Se
         Args:
             device_id: The unique identifier of the SCA device that you are associating with a resource.
             body: The request body.
-            request_options: Per-call overrides for this one request, such as a timeout or extra headers.
+            request_options: Per-call overrides for this one request, such as a timeout, extra headers, or its retry
+                count and statuses.
 
         Returns:
             An ``ApiResult`` holding the deserialized response or the error body."""
@@ -680,14 +710,14 @@ class AsyncManageScaDevicesWithRawResponse(SecuredRawResponse[AsyncRawClient, Se
             headers=[param[UUID]("Idempotency-Key", uuid4())],
             body=json_body[AssociationFinaliseRequest | AssociationFinaliseRequestDict | None](body),
             auth_scheme=AsyncAnySchemes(self._auth.client_key, self._auth.basic_auth, self._auth.api_key_auth),
-            decoder=json_decoder[AssociationFinaliseResponse],
+            decoder=async_json_decoder[AssociationFinaliseResponse],
             error_mapper=patch_registered_devices_device_id_associations_error_mapper,
             request_options=request_options,
         )
 
     async def patch_registered_devices_id(
         self,
-        id: str,
+        id_: str,
         *,
         body: RegisterScarequest | RegisterScarequestDict | None = None,
         request_options: RequestOptionsOrDict | None = None,
@@ -697,23 +727,24 @@ class AsyncManageScaDevicesWithRawResponse(SecuredRawResponse[AsyncRawClient, Se
         `Adyen-issued cards <https://docs.adyen.com/issuing/3d-secure/oob-auth-sdk>`__.
 
         Args:
-            id: The unique identifier of the SCA device. You obtain this ``id`` in the response of a
+            id_: The unique identifier of the SCA device. You obtain this ``id`` in the response of a
                 POST&nbsp;`/registeredDevices
                 <https://docs.adyen.com/api-explorer/balanceplatform/2/post/registeredDevices#responses-200-id>`__
                 request.
             body: The request body.
-            request_options: Per-call overrides for this one request, such as a timeout or extra headers.
+            request_options: Per-call overrides for this one request, such as a timeout, extra headers, or its retry
+                count and statuses.
 
         Returns:
             An ``ApiResult`` holding the deserialized response or the error body."""
         return await self._client.execute(
             http_method="PATCH",
             url_template=self._server.default13("/registeredDevices/{id}"),
-            path_params=[param[str]("id", id)],
+            path_params=[param[str]("id", id_)],
             headers=[param[UUID]("Idempotency-Key", uuid4())],
             body=json_body[RegisterScarequest | RegisterScarequestDict | None](body),
             auth_scheme=AsyncAnySchemes(self._auth.client_key, self._auth.basic_auth, self._auth.api_key_auth),
-            decoder=json_decoder[RegisterScafinalResponse],
+            decoder=async_json_decoder[RegisterScafinalResponse],
             error_mapper=patch_registered_devices_id_error_mapper,
             request_options=request_options,
         )
@@ -732,7 +763,8 @@ class AsyncManageScaDevicesWithRawResponse(SecuredRawResponse[AsyncRawClient, Se
 
         Args:
             body: The request body.
-            request_options: Per-call overrides for this one request, such as a timeout or extra headers.
+            request_options: Per-call overrides for this one request, such as a timeout, extra headers, or its retry
+                count and statuses.
 
         Returns:
             An ``ApiResult`` holding the deserialized response or the error body."""
@@ -742,7 +774,7 @@ class AsyncManageScaDevicesWithRawResponse(SecuredRawResponse[AsyncRawClient, Se
             headers=[param[UUID]("Idempotency-Key", uuid4())],
             body=json_body[RegisterScarequest | RegisterScarequestDict | None](body),
             auth_scheme=AsyncAnySchemes(self._auth.client_key, self._auth.basic_auth, self._auth.api_key_auth),
-            decoder=json_decoder[RegisterScaresponse],
+            decoder=async_json_decoder[RegisterScaresponse],
             error_mapper=post_registered_devices_error_mapper,
             request_options=request_options,
         )
@@ -762,7 +794,8 @@ class AsyncManageScaDevicesWithRawResponse(SecuredRawResponse[AsyncRawClient, Se
         Args:
             device_id: The unique identifier of the SCA device that you are associating with a resource.
             body: The request body.
-            request_options: Per-call overrides for this one request, such as a timeout or extra headers.
+            request_options: Per-call overrides for this one request, such as a timeout, extra headers, or its retry
+                count and statuses.
 
         Returns:
             An ``ApiResult`` holding the deserialized response or the error body."""
@@ -773,7 +806,7 @@ class AsyncManageScaDevicesWithRawResponse(SecuredRawResponse[AsyncRawClient, Se
             headers=[param[UUID]("Idempotency-Key", uuid4())],
             body=json_body[AssociationInitiateRequest | AssociationInitiateRequestDict | None](body),
             auth_scheme=AsyncAnySchemes(self._auth.client_key, self._auth.basic_auth, self._auth.api_key_auth),
-            decoder=json_decoder[AssociationInitiateResponse],
+            decoder=async_json_decoder[AssociationInitiateResponse],
             error_mapper=post_registered_devices_device_id_associations_error_mapper,
             request_options=request_options,
         )

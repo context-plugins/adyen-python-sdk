@@ -12,4 +12,4 @@ class CompanyBalances(SdkBaseModel):
 
 
 class CompanyBalancesDict(TypedDict):
-    merchant_balances_overview: NotRequired[list[MerchantBalance | MerchantBalanceDict]]
+    merchant_balances_overview: NotRequired[list[MerchantBalanceDict]]

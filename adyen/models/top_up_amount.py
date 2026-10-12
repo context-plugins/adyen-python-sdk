@@ -15,5 +15,5 @@ class TopUpAmount(SdkBaseModel):
 
 
 class TopUpAmountDict(TypedDict):
-    fixed: NotRequired[Amount17 | Amount17Dict]
-    target: NotRequired[Amount17 | Amount17Dict]
+    fixed: NotRequired[Amount17Dict]
+    target: NotRequired[Amount17Dict]

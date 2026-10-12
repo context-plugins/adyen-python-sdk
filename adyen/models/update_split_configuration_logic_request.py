@@ -147,14 +147,14 @@ class UpdateSplitConfigurationLogicRequest(SdkBaseModel):
 
 class UpdateSplitConfigurationLogicRequestDict(TypedDict):
     acquiring_fees: NotRequired[AcquiringFeesOrStr]
-    additional_commission: NotRequired[AdditionalCommission1 | AdditionalCommission1Dict]
+    additional_commission: NotRequired[AdditionalCommission1Dict]
     adyen_commission: NotRequired[AdyenCommissionOrStr]
     adyen_fees: NotRequired[AdyenFeesOrStr]
     adyen_markup: NotRequired[AdyenMarkupOrStr]
     chargeback: NotRequired[BehaviorOrStr]
     chargeback_cost_allocation: NotRequired[ChargebackCostAllocationOrStr]
-    commission: Commission1 | Commission1Dict
-    dcc: NotRequired[SplitDcc2 | SplitDcc2Dict]
+    commission: Commission1Dict
+    dcc: NotRequired[SplitDcc2Dict]
     interchange: NotRequired[InterchangeOrStr]
     payment_fee: NotRequired[PaymentFeeOrStr]
     refund: NotRequired[BehaviorOrStr]

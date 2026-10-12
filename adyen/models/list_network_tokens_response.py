@@ -13,4 +13,4 @@ class ListNetworkTokensResponse(SdkBaseModel):
 
 
 class ListNetworkTokensResponseDict(TypedDict):
-    network_tokens: NotRequired[list[NetworkToken | NetworkTokenDict]]
+    network_tokens: NotRequired[list[NetworkTokenDict]]

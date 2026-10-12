@@ -29,9 +29,9 @@ Each `###` block is one operation and assumes `sdk-map.md` is loaded: blocks omi
 - **Route**: `GET /grants/{id}`
 - **Auth**: `client_key` OR `basic_auth` OR `api_key_auth`
 - **Server**: `default14`
-- **Signature**: `def get_grants_id(id: str, *, request_options: RequestOptionsOrDict | None = None)`
-  - required, positional: `id`
-- **Params**: `id` — path
+- **Signature**: `def get_grants_id(id_: str, *, request_options: RequestOptionsOrDict | None = None)`
+  - required, positional: `id_`
+- **Params**: `id_` — path `id`
 - **Returns (parsed)**: `CapitalGrant`
 - **Returns (raw)**: `ApiResult[CapitalGrant, GetGrantsIdErrorBody]`
 - **Error**: `GetGrantsIdErrorBody` — **Case A (typed)**

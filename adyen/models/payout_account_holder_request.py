@@ -5,7 +5,7 @@ from typing_extensions import NotRequired, TypedDict
 
 from ..core import UNSET, Optional, SdkBaseModel
 from .amount import Amount, AmountDict
-from .enums.payout_speed import PayoutSpeedOrStr
+from .enums.payout_speed import PayoutSpeed, PayoutSpeedOrStr
 
 
 class PayoutAccountHolderRequest(SdkBaseModel):
@@ -37,14 +37,14 @@ class PayoutAccountHolderRequest(SdkBaseModel):
     """The unique ID of the payout method held by the Account Holder to which the payout is to be made. If left blank, a
     payout instrument is automatically selected."""
 
-    payout_speed: Optional[PayoutSpeedOrStr] = Field(default=UNSET, alias="payoutSpeed")
+    payout_speed: PayoutSpeedOrStr = Field(default=PayoutSpeed.STANDARD, alias="payoutSpeed")
     """Speed with which payouts for this account are processed. Permitted values: ``STANDARD``, ``SAME_DAY``."""
 
 
 class PayoutAccountHolderRequestDict(TypedDict):
     account_code: str
     account_holder_code: str
-    amount: NotRequired[Amount | AmountDict]
+    amount: NotRequired[AmountDict]
     bank_account_uuid: NotRequired[str]
     description: NotRequired[str]
     merchant_reference: NotRequired[str]

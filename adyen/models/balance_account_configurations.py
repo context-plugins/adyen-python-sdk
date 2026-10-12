@@ -17,5 +17,5 @@ class BalanceAccountConfigurations(SdkBaseModel):
 
 
 class BalanceAccountConfigurationsDict(TypedDict):
-    balance_account_payout_schedules: list[BalanceAccountConfiguration | BalanceAccountConfigurationDict]
-    link: Link2 | Link2Dict
+    balance_account_payout_schedules: list[BalanceAccountConfigurationDict]
+    link: Link2Dict

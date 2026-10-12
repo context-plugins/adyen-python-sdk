@@ -33,5 +33,5 @@ class CheckoutDelegatedAuthenticationActionDict(TypedDict):
     payment_data: NotRequired[str]
     payment_method_type: NotRequired[str]
     token: NotRequired[str]
-    type_: NotRequired[Literal["delegatedAuthentication"]]
+    type_: Literal["delegatedAuthentication"]
     url: NotRequired[str]

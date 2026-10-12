@@ -8,9 +8,11 @@ from ..core import (
     BaseRawResponse,
     RawClient,
     RequestOptionsOrDict,
+    async_json_decoder,
     json_body,
     json_decoder,
     param,
+    unwrap,
 )
 from ..errors.get_account_verification_reports_code_error import (
     GetAccountVerificationReportsCodeErrorBody,
@@ -42,7 +44,8 @@ class AccountVerification:
         Args:
             code: The unique code you receive after a successful open banking flow that is included as a query parameter
                 in the ``redirectUrl`` callback.
-            request_options: Per-call overrides for this one request, such as a timeout or extra headers.
+            request_options: Per-call overrides for this one request, such as a timeout, extra headers, or its retry
+                count and statuses.
 
         Returns:
             OK - The request has succeeded.
@@ -53,9 +56,9 @@ class AccountVerification:
                 was not found. Unprocessable Entity - A request validation error. Too Many Requests - Request rate limit
                 exceeded. Internal Service Error - An unrecoverable error occurred while trying to perform the request.
                 ``error`` is ``DefaultErrorResponseEntity | RawError``."""
-        return self._with_raw_response.get_account_verification_reports_code(
-            code, request_options=request_options
-        ).unwrap()
+        return unwrap(
+            self._with_raw_response.get_account_verification_reports_code(code, request_options=request_options)
+        )
 
     def post_account_verification_routes(
         self,
@@ -68,7 +71,8 @@ class AccountVerification:
 
         Args:
             body: The request body.
-            request_options: Per-call overrides for this one request, such as a timeout or extra headers.
+            request_options: Per-call overrides for this one request, such as a timeout, extra headers, or its retry
+                count and statuses.
 
         Returns:
             OK - The request has succeeded.
@@ -79,7 +83,7 @@ class AccountVerification:
                 A request validation error. Too Many Requests - Request rate limit exceeded. Internal Service Error - An
                 unrecoverable error occurred while trying to perform the request. ``error`` is
                 ``DefaultErrorResponseEntity | RawError``."""
-        return self._with_raw_response.post_account_verification_routes(body, request_options=request_options).unwrap()
+        return unwrap(self._with_raw_response.post_account_verification_routes(body, request_options=request_options))
 
     @property
     def with_raw_response(self) -> AccountVerificationWithRawResponse:
@@ -99,7 +103,8 @@ class AsyncAccountVerification:
         Args:
             code: The unique code you receive after a successful open banking flow that is included as a query parameter
                 in the ``redirectUrl`` callback.
-            request_options: Per-call overrides for this one request, such as a timeout or extra headers.
+            request_options: Per-call overrides for this one request, such as a timeout, extra headers, or its retry
+                count and statuses.
 
         Returns:
             OK - The request has succeeded.
@@ -110,9 +115,9 @@ class AsyncAccountVerification:
                 was not found. Unprocessable Entity - A request validation error. Too Many Requests - Request rate limit
                 exceeded. Internal Service Error - An unrecoverable error occurred while trying to perform the request.
                 ``error`` is ``DefaultErrorResponseEntity | RawError``."""
-        return (
+        return unwrap(
             await self._with_raw_response.get_account_verification_reports_code(code, request_options=request_options)
-        ).unwrap()
+        )
 
     async def post_account_verification_routes(
         self,
@@ -125,7 +130,8 @@ class AsyncAccountVerification:
 
         Args:
             body: The request body.
-            request_options: Per-call overrides for this one request, such as a timeout or extra headers.
+            request_options: Per-call overrides for this one request, such as a timeout, extra headers, or its retry
+                count and statuses.
 
         Returns:
             OK - The request has succeeded.
@@ -136,9 +142,9 @@ class AsyncAccountVerification:
                 A request validation error. Too Many Requests - Request rate limit exceeded. Internal Service Error - An
                 unrecoverable error occurred while trying to perform the request. ``error`` is
                 ``DefaultErrorResponseEntity | RawError``."""
-        return (
+        return unwrap(
             await self._with_raw_response.post_account_verification_routes(body, request_options=request_options)
-        ).unwrap()
+        )
 
     @property
     def with_raw_response(self) -> AsyncAccountVerificationWithRawResponse:
@@ -155,7 +161,8 @@ class AccountVerificationWithRawResponse(BaseRawResponse[RawClient, Server]):
         Args:
             code: The unique code you receive after a successful open banking flow that is included as a query parameter
                 in the ``redirectUrl`` callback.
-            request_options: Per-call overrides for this one request, such as a timeout or extra headers.
+            request_options: Per-call overrides for this one request, such as a timeout, extra headers, or its retry
+                count and statuses.
 
         Returns:
             An ``ApiResult`` holding the deserialized response or the error body."""
@@ -179,7 +186,8 @@ class AccountVerificationWithRawResponse(BaseRawResponse[RawClient, Server]):
 
         Args:
             body: The request body.
-            request_options: Per-call overrides for this one request, such as a timeout or extra headers.
+            request_options: Per-call overrides for this one request, such as a timeout, extra headers, or its retry
+                count and statuses.
 
         Returns:
             An ``ApiResult`` holding the deserialized response or the error body."""
@@ -204,7 +212,8 @@ class AsyncAccountVerificationWithRawResponse(BaseRawResponse[AsyncRawClient, Se
         Args:
             code: The unique code you receive after a successful open banking flow that is included as a query parameter
                 in the ``redirectUrl`` callback.
-            request_options: Per-call overrides for this one request, such as a timeout or extra headers.
+            request_options: Per-call overrides for this one request, such as a timeout, extra headers, or its retry
+                count and statuses.
 
         Returns:
             An ``ApiResult`` holding the deserialized response or the error body."""
@@ -212,7 +221,7 @@ class AsyncAccountVerificationWithRawResponse(BaseRawResponse[AsyncRawClient, Se
             http_method="GET",
             url_template=self._server.default21("/accountVerification/reports/{code}"),
             path_params=[param[str]("code", code)],
-            decoder=json_decoder[AccountVerificationReportResponse],
+            decoder=async_json_decoder[AccountVerificationReportResponse],
             error_mapper=get_account_verification_reports_code_error_mapper,
             request_options=request_options,
         )
@@ -228,7 +237,8 @@ class AsyncAccountVerificationWithRawResponse(BaseRawResponse[AsyncRawClient, Se
 
         Args:
             body: The request body.
-            request_options: Per-call overrides for this one request, such as a timeout or extra headers.
+            request_options: Per-call overrides for this one request, such as a timeout, extra headers, or its retry
+                count and statuses.
 
         Returns:
             An ``ApiResult`` holding the deserialized response or the error body."""
@@ -237,7 +247,7 @@ class AsyncAccountVerificationWithRawResponse(BaseRawResponse[AsyncRawClient, Se
             url_template=self._server.default21("/accountVerification/routes"),
             headers=[param[UUID]("Idempotency-Key", uuid4())],
             body=json_body[AccountVerificationRoutesRequest | AccountVerificationRoutesRequestDict](body),
-            decoder=json_decoder[AccountVerificationRoutesResponse],
+            decoder=async_json_decoder[AccountVerificationRoutesResponse],
             error_mapper=post_account_verification_routes_error_mapper,
             request_options=request_options,
         )

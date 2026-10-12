@@ -4,14 +4,14 @@ from pydantic import Field
 from typing_extensions import NotRequired, TypedDict
 
 from ..core import UNSET, Optional, SdkBaseModel
-from .enums.type42 import Type42OrStr
+from .enums.type42 import Type42, Type42OrStr
 
 
 class InstallAndroidCertificateDetails(SdkBaseModel):
     certificate_id: Optional[str] = Field(default=UNSET, alias="certificateId")
     """The unique identifier of the certificate to be installed."""
 
-    type_: Optional[Type42OrStr] = Field(default=UNSET, alias="type")
+    type_: Type42OrStr = Field(default=Type42.INSTALL_ANDROID_CERTIFICATE, alias="type")
     """Type of terminal action: Install an Android certificate."""
 
 

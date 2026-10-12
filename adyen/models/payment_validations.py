@@ -11,4 +11,4 @@ class PaymentValidations(SdkBaseModel):
 
 
 class PaymentValidationsDict(TypedDict):
-    name: NotRequired[Name6 | Name6Dict]
+    name: NotRequired[Name6Dict]

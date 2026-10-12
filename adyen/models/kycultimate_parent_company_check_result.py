@@ -16,5 +16,5 @@ class KycultimateParentCompanyCheckResult(SdkBaseModel):
 
 
 class KycultimateParentCompanyCheckResultDict(TypedDict):
-    checks: NotRequired[list[KyccheckStatusData | KyccheckStatusDataDict]]
+    checks: NotRequired[list[KyccheckStatusDataDict]]
     ultimate_parent_company_code: NotRequired[str]

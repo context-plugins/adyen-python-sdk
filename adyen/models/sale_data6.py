@@ -64,12 +64,12 @@ class SaleData6Dict(TypedDict):
     operator_id: NotRequired[str]
     operator_language: NotRequired[str]
     shift_number: NotRequired[str]
-    sale_transaction_id: TransactionIdtype1 | TransactionIdtype1Dict
+    sale_transaction_id: TransactionIdtype1Dict
     sale_reference_id: NotRequired[str]
-    sale_terminal_data: NotRequired[SaleTerminalData1 | SaleTerminalData1Dict]
+    sale_terminal_data: NotRequired[SaleTerminalData1Dict]
     token_requested_type: NotRequired[TokenRequestedType1OrStr]
     customer_order_id: NotRequired[str]
     customer_order_req: NotRequired[list[CustomerOrderReqOrStr]]
     sale_to_poi_data: NotRequired[str]
     sale_to_acquirer_data: NotRequired[str]
-    sale_to_issuer_data: NotRequired[SaleToIssuerData1 | SaleToIssuerData1Dict]
+    sale_to_issuer_data: NotRequired[SaleToIssuerData1Dict]

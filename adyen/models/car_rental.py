@@ -77,13 +77,13 @@ class CarRental(SdkBaseModel):
 class CarRentalDict(TypedDict):
     customer_service_phone_number: NotRequired[str]
     no_show: NotRequired[bool]
-    pickup_info: NotRequired[PickupInfo | PickupInfoDict]
+    pickup_info: NotRequired[PickupInfoDict]
     rate_type: NotRequired[RateTypeOrStr]
     rental_agreement_number: NotRequired[str]
     rental_class_id: NotRequired[str]
     rental_days: NotRequired[int]
     rental_rate: NotRequired[int]
-    rental_surcharges: NotRequired[RentalSurcharges | RentalSurchargesDict]
+    rental_surcharges: NotRequired[RentalSurchargesDict]
     renter_name: str
-    return_info: NotRequired[ReturnInfo | ReturnInfoDict]
+    return_info: NotRequired[ReturnInfoDict]
     tax_exempt: NotRequired[bool]

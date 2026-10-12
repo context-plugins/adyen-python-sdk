@@ -4,7 +4,7 @@ from pydantic import Field
 from typing_extensions import NotRequired, TypedDict
 
 from ..core import UNSET, Optional, SdkBaseModel
-from .enums.type49 import Type49OrStr
+from .enums.type49 import Type49, Type49OrStr
 
 
 class Riverty(SdkBaseModel):
@@ -42,7 +42,7 @@ class Riverty(SdkBaseModel):
     subtype: Optional[str] = UNSET
     """The payment method subtype."""
 
-    type_: Type49OrStr = Field(alias="type")
+    type_: Type49OrStr = Field(default=Type49.RIVERTY, alias="type")
     """**riverty**"""
 
 

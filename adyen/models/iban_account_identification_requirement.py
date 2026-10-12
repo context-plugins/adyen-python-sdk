@@ -24,4 +24,4 @@ class IbanAccountIdentificationRequirement(SdkBaseModel):
 class IbanAccountIdentificationRequirementDict(TypedDict):
     description: NotRequired[str]
     iban_prefixes: NotRequired[list[str]]
-    type_: NotRequired[Literal["ibanAccountIdentificationRequirement"]]
+    type_: Literal["ibanAccountIdentificationRequirement"]

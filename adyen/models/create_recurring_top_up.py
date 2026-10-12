@@ -43,9 +43,9 @@ class CreateRecurringTopUp(SdkBaseModel):
 
 
 class CreateRecurringTopUpDict(TypedDict):
-    counterparty: TopUpCounterparty1 | TopUpCounterparty1Dict
+    counterparty: TopUpCounterparty1Dict
     description: str
     reference_for_beneficiary: NotRequired[str]
     status: NotRequired[Status6OrStr]
-    top_up_amount: TopUpAmount1 | TopUpAmount1Dict
-    trigger: Trigger1 | Trigger1Dict
+    top_up_amount: TopUpAmount1Dict
+    trigger: Trigger1Dict

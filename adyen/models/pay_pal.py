@@ -51,4 +51,4 @@ class PayPalDict(TypedDict):
     sdk_data: NotRequired[str]
     stored_payment_method_id: NotRequired[str]
     subtype: NotRequired[SubtypeOrStr]
-    type_: NotRequired[Literal["paypal"]]
+    type_: Literal["paypal"]

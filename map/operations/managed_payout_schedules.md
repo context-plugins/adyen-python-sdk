@@ -10,9 +10,9 @@ Each `###` block is one operation and assumes `sdk-map.md` is loaded: blocks omi
 
 - **Route**: `DELETE /balanceAccounts/{balanceAccountId}/payoutSchedules/{id}`
 - **Server**: `default13`
-- **Signature**: `def delete_balance_accounts_balance_account_id_payout_schedules_id(balance_account_id: str, id: str, *, request_options: RequestOptionsOrDict | None = None)`
-  - required, positional: `balance_account_id`, `id`
-- **Params**: `balance_account_id` — path `balanceAccountId` · `id` — path
+- **Signature**: `def delete_balance_accounts_balance_account_id_payout_schedules_id(balance_account_id: str, id_: str, *, request_options: RequestOptionsOrDict | None = None)`
+  - required, positional: `balance_account_id`, `id_`
+- **Params**: `balance_account_id` — path `balanceAccountId` · `id_` — path `id`
 - **Returns (parsed)**: `None`
 - **Returns (raw)**: `ApiResult[None, DeleteBalanceAccountsBalanceAccountIdPayoutSchedulesIdErrorBody]`
 - **Error**: `DeleteBalanceAccountsBalanceAccountIdPayoutSchedulesIdErrorBody` — **Case A (typed)**
@@ -45,9 +45,9 @@ Each `###` block is one operation and assumes `sdk-map.md` is loaded: blocks omi
 
 - **Route**: `GET /balanceAccounts/{balanceAccountId}/payoutSchedules/{id}`
 - **Server**: `default13`
-- **Signature**: `def get_balance_accounts_balance_account_id_payout_schedules_id(balance_account_id: str, id: str, *, request_options: RequestOptionsOrDict | None = None)`
-  - required, positional: `balance_account_id`, `id`
-- **Params**: `balance_account_id` — path `balanceAccountId` · `id` — path
+- **Signature**: `def get_balance_accounts_balance_account_id_payout_schedules_id(balance_account_id: str, id_: str, *, request_options: RequestOptionsOrDict | None = None)`
+  - required, positional: `balance_account_id`, `id_`
+- **Params**: `balance_account_id` — path `balanceAccountId` · `id_` — path `id`
 - **Returns (parsed)**: `BalanceAccountConfiguration`
 - **Returns (raw)**: `ApiResult[BalanceAccountConfiguration, GetBalanceAccountsBalanceAccountIdPayoutSchedulesIdErrorBody]`
 - **Error**: `GetBalanceAccountsBalanceAccountIdPayoutSchedulesIdErrorBody` — **Case A (typed)**
@@ -63,9 +63,9 @@ Each `###` block is one operation and assumes `sdk-map.md` is loaded: blocks omi
 
 - **Route**: `GET /balanceAccounts/{balanceAccountId}/payoutSchedules/{id}/executions`
 - **Server**: `default13`
-- **Signature**: `def get_balance_accounts_balance_account_id_payout_schedules_id_executions(balance_account_id: str, id: str, offset: int, *, results: list[ExecutionResultOrStr] | None = None, limit: int | None = None, request_options: RequestOptionsOrDict | None = None)`
-  - required, positional: `balance_account_id`, `id`, `offset`
-- **Params**: `balance_account_id` — path `balanceAccountId` · `id` — path · `offset` — query · `results` — query · `limit` — query
+- **Signature**: `def get_balance_accounts_balance_account_id_payout_schedules_id_executions(balance_account_id: str, id_: str, offset: int, *, results: list[ExecutionResultOrStr] | None = None, limit: int | None = None, request_options: RequestOptionsOrDict | None = None)`
+  - required, positional: `balance_account_id`, `id_`, `offset`
+- **Params**: `balance_account_id` — path `balanceAccountId` · `id_` — path `id` · `offset` — query · `results` — query · `limit` — query
 - **Returns (parsed)**: `PayoutScheduleExecutions`
 - **Returns (raw)**: `ApiResult[PayoutScheduleExecutions, GetBalanceAccountsBalanceAccountIdPayoutSchedulesIdExecutionsErrorBody]`
 - **Error**: `GetBalanceAccountsBalanceAccountIdPayoutSchedulesIdExecutionsErrorBody` — **Case A (typed)**
@@ -100,9 +100,9 @@ Each `###` block is one operation and assumes `sdk-map.md` is loaded: blocks omi
 
 - **Route**: `GET /balancePlatforms/{balancePlatformId}/payoutSchedules/{id}`
 - **Server**: `default13`
-- **Signature**: `def get_balance_platforms_balance_platform_id_payout_schedules_id(balance_platform_id: str, id: str, *, request_options: RequestOptionsOrDict | None = None)`
-  - required, positional: `balance_platform_id`, `id`
-- **Params**: `balance_platform_id` — path `balancePlatformId` · `id` — path
+- **Signature**: `def get_balance_platforms_balance_platform_id_payout_schedules_id(balance_platform_id: str, id_: str, *, request_options: RequestOptionsOrDict | None = None)`
+  - required, positional: `balance_platform_id`, `id_`
+- **Params**: `balance_platform_id` — path `balancePlatformId` · `id_` — path `id`
 - **Returns (parsed)**: `BalancePlatformConfiguration`
 - **Returns (raw)**: `ApiResult[BalancePlatformConfiguration, GetBalancePlatformsBalancePlatformIdPayoutSchedulesIdErrorBody]`
 - **Error**: `GetBalancePlatformsBalancePlatformIdPayoutSchedulesIdErrorBody` — **Case A (typed)**
@@ -118,9 +118,9 @@ Each `###` block is one operation and assumes `sdk-map.md` is loaded: blocks omi
 
 - **Route**: `PATCH /balanceAccounts/{balanceAccountId}/payoutSchedules/{id}`
 - **Server**: `default13`
-- **Signature**: `def patch_balance_accounts_balance_account_id_payout_schedules_id(balance_account_id: str, id: str, body: BalanceAccountConfigurationUpdate | BalanceAccountConfigurationUpdateDict, *, request_options: RequestOptionsOrDict | None = None)`
-  - required, positional: `balance_account_id`, `id`, `body`
-- **Params**: `balance_account_id` — path `balanceAccountId` · `id` — path · `body` — JSON body
+- **Signature**: `def patch_balance_accounts_balance_account_id_payout_schedules_id(balance_account_id: str, id_: str, body: BalanceAccountConfigurationUpdate | BalanceAccountConfigurationUpdateDict, *, request_options: RequestOptionsOrDict | None = None)`
+  - required, positional: `balance_account_id`, `id_`, `body`
+- **Params**: `balance_account_id` — path `balanceAccountId` · `id_` — path `id` · `body` — JSON body
 - **Returns (parsed)**: `BalanceAccountConfiguration`
 - **Returns (raw)**: `ApiResult[BalanceAccountConfiguration, PatchBalanceAccountsBalanceAccountIdPayoutSchedulesIdErrorBody]`
 - **Error**: `PatchBalanceAccountsBalanceAccountIdPayoutSchedulesIdErrorBody` — **Case A (typed)**

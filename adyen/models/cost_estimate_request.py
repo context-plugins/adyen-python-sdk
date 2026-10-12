@@ -66,13 +66,13 @@ class CostEstimateRequest(SdkBaseModel):
 
 
 class CostEstimateRequestDict(TypedDict):
-    amount: Amount | AmountDict
-    assumptions: NotRequired[CostEstimateAssumptions1 | CostEstimateAssumptions1Dict]
+    amount: AmountDict
+    assumptions: NotRequired[CostEstimateAssumptions1Dict]
     card_number: NotRequired[str]
     encrypted_card_number: NotRequired[str]
     merchant_account: str
-    merchant_details: NotRequired[MerchantDetails2 | MerchantDetails2Dict]
-    recurring: NotRequired[Recurring | RecurringDict]
+    merchant_details: NotRequired[MerchantDetails2Dict]
+    recurring: NotRequired[RecurringDict]
     selected_recurring_detail_reference: NotRequired[str]
     shopper_interaction: NotRequired[ShopperInteractionOrStr]
     shopper_reference: NotRequired[str]

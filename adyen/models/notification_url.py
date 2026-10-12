@@ -16,5 +16,5 @@ class NotificationUrl(SdkBaseModel):
 
 
 class NotificationUrlDict(TypedDict):
-    local_urls: NotRequired[list[Url | UrlDict]]
-    public_urls: NotRequired[list[Url | UrlDict]]
+    local_urls: NotRequired[list[UrlDict]]
+    public_urls: NotRequired[list[UrlDict]]

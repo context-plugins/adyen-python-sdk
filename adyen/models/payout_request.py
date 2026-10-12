@@ -90,17 +90,17 @@ class PayoutRequest(SdkBaseModel):
 
 
 class PayoutRequestDict(TypedDict):
-    amount: Amount | AmountDict
-    billing_address: NotRequired[Address | AddressDict]
-    card: NotRequired[Card | CardDict]
+    amount: AmountDict
+    billing_address: NotRequired[AddressDict]
+    card: NotRequired[CardDict]
     fraud_offset: NotRequired[int]
-    fund_source: NotRequired[FundSource11 | FundSource11Dict]
+    fund_source: NotRequired[FundSource11Dict]
     merchant_account: str
-    recurring: NotRequired[Recurring | RecurringDict]
+    recurring: NotRequired[RecurringDict]
     reference: str
     selected_recurring_detail_reference: NotRequired[str]
     shopper_email: NotRequired[str]
     shopper_interaction: NotRequired[ShopperInteractionOrStr]
-    shopper_name: NotRequired[Name | NameDict]
+    shopper_name: NotRequired[NameDict]
     shopper_reference: NotRequired[str]
     telephone_number: NotRequired[str]

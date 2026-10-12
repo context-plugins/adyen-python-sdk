@@ -16,5 +16,5 @@ class Trigger(SdkBaseModel):
 
 
 class TriggerDict(TypedDict):
-    schedule: NotRequired[Schedule21 | Schedule21Dict]
-    threshold: Amount17 | Amount17Dict
+    schedule: NotRequired[Schedule21Dict]
+    threshold: Amount17Dict

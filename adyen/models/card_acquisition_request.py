@@ -21,5 +21,5 @@ class CardAcquisitionRequest(SdkBaseModel):
 
 
 class CardAcquisitionRequestDict(TypedDict):
-    sale_data: SaleData1 | SaleData1Dict
-    card_acquisition_transaction: CardAcquisitionTransaction1 | CardAcquisitionTransaction1Dict
+    sale_data: SaleData1Dict
+    card_acquisition_transaction: CardAcquisitionTransaction1Dict

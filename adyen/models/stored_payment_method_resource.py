@@ -103,7 +103,7 @@ class StoredPaymentMethodResource(SdkBaseModel):
 class StoredPaymentMethodResourceDict(TypedDict):
     alias: NotRequired[str]
     alias_type: NotRequired[str]
-    billing_address: NotRequired[Address5 | Address5Dict]
+    billing_address: NotRequired[Address5Dict]
     brand: NotRequired[str]
     card_bin: NotRequired[str]
     created_at: NotRequired[RFC3339DateTime]
@@ -117,7 +117,7 @@ class StoredPaymentMethodResourceDict(TypedDict):
     id: NotRequired[str]
     issuer_name: NotRequired[str]
     last_four: NotRequired[str]
-    mandate: NotRequired[TokenMandate2 | TokenMandate2Dict]
+    mandate: NotRequired[TokenMandate2Dict]
     name: NotRequired[str]
     network_tx_reference: NotRequired[str]
     owner_name: NotRequired[str]

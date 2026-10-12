@@ -5,7 +5,7 @@ from typing_extensions import NotRequired, TypedDict
 
 from ..core import UNSET, Optional, SdkBaseModel
 from .enums.funding_source import FundingSourceOrStr
-from .enums.type14 import Type14OrStr
+from .enums.type14 import Type14, Type14OrStr
 
 
 class CardDonations(SdkBaseModel):
@@ -97,7 +97,7 @@ class CardDonations(SdkBaseModel):
     three_ds2_sdk_version: Optional[str] = Field(default=UNSET, alias="threeDS2SdkVersion")
     """Required for mobile integrations. Version of the 3D Secure 2 mobile SDK."""
 
-    type_: Optional[Type14OrStr] = Field(default=UNSET, alias="type")
+    type_: Type14OrStr = Field(default=Type14.SCHEME, alias="type")
     """Default payment method details. Common for scheme payment methods, and for simple payment method details."""
 
 

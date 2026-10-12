@@ -19,6 +19,6 @@ class AccountVerificationReportResponse(SdkBaseModel):
 
 
 class AccountVerificationReportResponseDict(TypedDict):
-    accounts: list[VerifiedAccount | VerifiedAccountDict]
+    accounts: list[VerifiedAccountDict]
     country: AccountVerificationCountry1OrStr
     id: str

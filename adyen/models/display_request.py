@@ -18,4 +18,4 @@ class DisplayRequest(SdkBaseModel):
 
 
 class DisplayRequestDict(TypedDict):
-    display_output: list[DisplayOutput | DisplayOutputDict]
+    display_output: list[DisplayOutputDict]

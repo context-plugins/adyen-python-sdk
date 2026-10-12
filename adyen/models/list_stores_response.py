@@ -23,7 +23,7 @@ class ListStoresResponse(SdkBaseModel):
 
 
 class ListStoresResponseDict(TypedDict):
-    links: NotRequired[PaginationLinks1 | PaginationLinks1Dict]
-    data: NotRequired[list[Store | StoreDict]]
+    links: NotRequired[PaginationLinks1Dict]
+    data: NotRequired[list[StoreDict]]
     items_total: int
     pages_total: int

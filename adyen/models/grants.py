@@ -12,4 +12,4 @@ class Grants(SdkBaseModel):
 
 
 class GrantsDict(TypedDict):
-    grants: list[Grant | GrantDict]
+    grants: list[GrantDict]

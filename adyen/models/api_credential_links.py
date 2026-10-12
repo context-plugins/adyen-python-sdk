@@ -34,9 +34,9 @@ class ApiCredentialLinks(SdkBaseModel):
 
 
 class ApiCredentialLinksDict(TypedDict):
-    allowed_origins: NotRequired[LinksElement1 | LinksElement1Dict]
-    company: NotRequired[LinksElement2 | LinksElement2Dict]
-    generate_api_key: NotRequired[LinksElement3 | LinksElement3Dict]
-    generate_client_key: NotRequired[LinksElement4 | LinksElement4Dict]
-    merchant: NotRequired[LinksElement5 | LinksElement5Dict]
-    self: LinksElement6 | LinksElement6Dict
+    allowed_origins: NotRequired[LinksElement1Dict]
+    company: NotRequired[LinksElement2Dict]
+    generate_api_key: NotRequired[LinksElement3Dict]
+    generate_client_key: NotRequired[LinksElement4Dict]
+    merchant: NotRequired[LinksElement5Dict]
+    self: LinksElement6Dict

@@ -9,9 +9,11 @@ from ..core import (
     BaseRawResponse,
     RawClient,
     RequestOptionsOrDict,
+    async_json_decoder,
     json_body,
     json_decoder,
     param,
+    unwrap,
 )
 from ..errors.delete_balance_accounts_balance_account_id_recurring_top_ups_top_up_id_error import (
     DeleteBalanceAccountsBalanceAccountIdRecurringTopUpsTopUpIdErrorBody,
@@ -51,7 +53,8 @@ class RecurringTopUps:
         Args:
             balance_account_id: The unique identifier of the balance account.
             top_up_id: The unique identifier of the recurring top-up you want to delete.
-            request_options: Per-call overrides for this one request, such as a timeout or extra headers.
+            request_options: Per-call overrides for this one request, such as a timeout, extra headers, or its retry
+                count and statuses.
 
         Returns:
             No Content - the request has been successfully processed, but there is no additional content.
@@ -61,9 +64,11 @@ class RecurringTopUps:
                 required. Forbidden - insufficient permissions to process the request. Not Found - the recurring top up
                 was not found Unprocessable Entity - a request validation error. Internal Server Error - the server
                 could not process the request. ``error`` is ``DefaultErrorResponseEntity | RawError``."""
-        return self._with_raw_response.delete_balance_accounts_balance_account_id_recurring_top_ups_top_up_id(
-            balance_account_id, top_up_id, request_options=request_options
-        ).unwrap()
+        return unwrap(
+            self._with_raw_response.delete_balance_accounts_balance_account_id_recurring_top_ups_top_up_id(
+                balance_account_id, top_up_id, request_options=request_options
+            ),
+        )
 
     def get_balance_accounts_balance_account_id_recurring_top_ups(
         self,
@@ -82,7 +87,8 @@ class RecurringTopUps:
             balance_account_id: The unique identifier of the balance account.
             limit: The number of items to return per page. Value must be between 1 and 100.
             cursor: The cursor used for pagination. Required if you want to see the next or previous page of results.
-            request_options: Per-call overrides for this one request, such as a timeout or extra headers.
+            request_options: Per-call overrides for this one request, such as a timeout, extra headers, or its retry
+                count and statuses.
 
         Returns:
             OK - the request has succeeded.
@@ -91,9 +97,11 @@ class RecurringTopUps:
             ApiError: Unauthorized - authentication required. Forbidden - insufficient permissions to process the
                 request. Not Found - the recurring top up was not found Internal Server Error - the server could not
                 process the request. ``error`` is ``DefaultErrorResponseEntity | RawError``."""
-        return self._with_raw_response.get_balance_accounts_balance_account_id_recurring_top_ups(
-            balance_account_id, limit=limit, cursor=cursor, request_options=request_options
-        ).unwrap()
+        return unwrap(
+            self._with_raw_response.get_balance_accounts_balance_account_id_recurring_top_ups(
+                balance_account_id, limit=limit, cursor=cursor, request_options=request_options
+            ),
+        )
 
     def patch_balance_accounts_balance_account_id_recurring_top_ups_top_up_id(
         self,
@@ -112,7 +120,8 @@ class RecurringTopUps:
             balance_account_id: The unique identifier of the balance account.
             top_up_id: The unique identifier of the recurring top-up you want to update.
             body: The request body.
-            request_options: Per-call overrides for this one request, such as a timeout or extra headers.
+            request_options: Per-call overrides for this one request, such as a timeout, extra headers, or its retry
+                count and statuses.
 
         Returns:
             OK - the request has succeeded.
@@ -121,9 +130,11 @@ class RecurringTopUps:
             ApiError: Bad Request - a problem reading or understanding the request. Unauthorized - authentication
                 required. Forbidden - insufficient permissions to process the request. Unprocessable Entity - a request
                 validation error. ``error`` is ``DefaultErrorResponseEntity | RawError``."""
-        return self._with_raw_response.patch_balance_accounts_balance_account_id_recurring_top_ups_top_up_id(
-            balance_account_id, top_up_id, body, request_options=request_options
-        ).unwrap()
+        return unwrap(
+            self._with_raw_response.patch_balance_accounts_balance_account_id_recurring_top_ups_top_up_id(
+                balance_account_id, top_up_id, body, request_options=request_options
+            ),
+        )
 
     def post_balance_accounts_balance_account_id_recurring_top_ups(
         self,
@@ -140,7 +151,8 @@ class RecurringTopUps:
         Args:
             balance_account_id: The unique identifier of the balance account.
             body: The request body.
-            request_options: Per-call overrides for this one request, such as a timeout or extra headers.
+            request_options: Per-call overrides for this one request, such as a timeout, extra headers, or its retry
+                count and statuses.
 
         Returns:
             OK - the request has succeeded.
@@ -149,9 +161,11 @@ class RecurringTopUps:
             ApiError: Bad Request - a problem reading or understanding the request. Unauthorized - authentication
                 required. Forbidden - insufficient permissions to process the request. Unprocessable Entity - a request
                 validation error. ``error`` is ``DefaultErrorResponseEntity | RawError``."""
-        return self._with_raw_response.post_balance_accounts_balance_account_id_recurring_top_ups(
-            balance_account_id, body, request_options=request_options
-        ).unwrap()
+        return unwrap(
+            self._with_raw_response.post_balance_accounts_balance_account_id_recurring_top_ups(
+                balance_account_id, body, request_options=request_options
+            ),
+        )
 
     @property
     def with_raw_response(self) -> RecurringTopUpsWithRawResponse:
@@ -173,7 +187,8 @@ class AsyncRecurringTopUps:
         Args:
             balance_account_id: The unique identifier of the balance account.
             top_up_id: The unique identifier of the recurring top-up you want to delete.
-            request_options: Per-call overrides for this one request, such as a timeout or extra headers.
+            request_options: Per-call overrides for this one request, such as a timeout, extra headers, or its retry
+                count and statuses.
 
         Returns:
             No Content - the request has been successfully processed, but there is no additional content.
@@ -183,11 +198,11 @@ class AsyncRecurringTopUps:
                 required. Forbidden - insufficient permissions to process the request. Not Found - the recurring top up
                 was not found Unprocessable Entity - a request validation error. Internal Server Error - the server
                 could not process the request. ``error`` is ``DefaultErrorResponseEntity | RawError``."""
-        return (
+        return unwrap(
             await self._with_raw_response.delete_balance_accounts_balance_account_id_recurring_top_ups_top_up_id(
                 balance_account_id, top_up_id, request_options=request_options
-            )
-        ).unwrap()
+            ),
+        )
 
     async def get_balance_accounts_balance_account_id_recurring_top_ups(
         self,
@@ -206,7 +221,8 @@ class AsyncRecurringTopUps:
             balance_account_id: The unique identifier of the balance account.
             limit: The number of items to return per page. Value must be between 1 and 100.
             cursor: The cursor used for pagination. Required if you want to see the next or previous page of results.
-            request_options: Per-call overrides for this one request, such as a timeout or extra headers.
+            request_options: Per-call overrides for this one request, such as a timeout, extra headers, or its retry
+                count and statuses.
 
         Returns:
             OK - the request has succeeded.
@@ -215,11 +231,11 @@ class AsyncRecurringTopUps:
             ApiError: Unauthorized - authentication required. Forbidden - insufficient permissions to process the
                 request. Not Found - the recurring top up was not found Internal Server Error - the server could not
                 process the request. ``error`` is ``DefaultErrorResponseEntity | RawError``."""
-        return (
+        return unwrap(
             await self._with_raw_response.get_balance_accounts_balance_account_id_recurring_top_ups(
                 balance_account_id, limit=limit, cursor=cursor, request_options=request_options
-            )
-        ).unwrap()
+            ),
+        )
 
     async def patch_balance_accounts_balance_account_id_recurring_top_ups_top_up_id(
         self,
@@ -238,7 +254,8 @@ class AsyncRecurringTopUps:
             balance_account_id: The unique identifier of the balance account.
             top_up_id: The unique identifier of the recurring top-up you want to update.
             body: The request body.
-            request_options: Per-call overrides for this one request, such as a timeout or extra headers.
+            request_options: Per-call overrides for this one request, such as a timeout, extra headers, or its retry
+                count and statuses.
 
         Returns:
             OK - the request has succeeded.
@@ -247,11 +264,11 @@ class AsyncRecurringTopUps:
             ApiError: Bad Request - a problem reading or understanding the request. Unauthorized - authentication
                 required. Forbidden - insufficient permissions to process the request. Unprocessable Entity - a request
                 validation error. ``error`` is ``DefaultErrorResponseEntity | RawError``."""
-        return (
+        return unwrap(
             await self._with_raw_response.patch_balance_accounts_balance_account_id_recurring_top_ups_top_up_id(
                 balance_account_id, top_up_id, body, request_options=request_options
-            )
-        ).unwrap()
+            ),
+        )
 
     async def post_balance_accounts_balance_account_id_recurring_top_ups(
         self,
@@ -268,7 +285,8 @@ class AsyncRecurringTopUps:
         Args:
             balance_account_id: The unique identifier of the balance account.
             body: The request body.
-            request_options: Per-call overrides for this one request, such as a timeout or extra headers.
+            request_options: Per-call overrides for this one request, such as a timeout, extra headers, or its retry
+                count and statuses.
 
         Returns:
             OK - the request has succeeded.
@@ -277,11 +295,11 @@ class AsyncRecurringTopUps:
             ApiError: Bad Request - a problem reading or understanding the request. Unauthorized - authentication
                 required. Forbidden - insufficient permissions to process the request. Unprocessable Entity - a request
                 validation error. ``error`` is ``DefaultErrorResponseEntity | RawError``."""
-        return (
+        return unwrap(
             await self._with_raw_response.post_balance_accounts_balance_account_id_recurring_top_ups(
                 balance_account_id, body, request_options=request_options
-            )
-        ).unwrap()
+            ),
+        )
 
     @property
     def with_raw_response(self) -> AsyncRecurringTopUpsWithRawResponse:
@@ -300,7 +318,8 @@ class RecurringTopUpsWithRawResponse(BaseRawResponse[RawClient, Server]):
         Args:
             balance_account_id: The unique identifier of the balance account.
             top_up_id: The unique identifier of the recurring top-up you want to delete.
-            request_options: Per-call overrides for this one request, such as a timeout or extra headers.
+            request_options: Per-call overrides for this one request, such as a timeout, extra headers, or its retry
+                count and statuses.
 
         Returns:
             An ``ApiResult`` holding the deserialized response or the error body."""
@@ -331,7 +350,8 @@ class RecurringTopUpsWithRawResponse(BaseRawResponse[RawClient, Server]):
             balance_account_id: The unique identifier of the balance account.
             limit: The number of items to return per page. Value must be between 1 and 100.
             cursor: The cursor used for pagination. Required if you want to see the next or previous page of results.
-            request_options: Per-call overrides for this one request, such as a timeout or extra headers.
+            request_options: Per-call overrides for this one request, such as a timeout, extra headers, or its retry
+                count and statuses.
 
         Returns:
             An ``ApiResult`` holding the deserialized response or the error body."""
@@ -362,7 +382,8 @@ class RecurringTopUpsWithRawResponse(BaseRawResponse[RawClient, Server]):
             balance_account_id: The unique identifier of the balance account.
             top_up_id: The unique identifier of the recurring top-up you want to update.
             body: The request body.
-            request_options: Per-call overrides for this one request, such as a timeout or extra headers.
+            request_options: Per-call overrides for this one request, such as a timeout, extra headers, or its retry
+                count and statuses.
 
         Returns:
             An ``ApiResult`` holding the deserialized response or the error body."""
@@ -392,7 +413,8 @@ class RecurringTopUpsWithRawResponse(BaseRawResponse[RawClient, Server]):
         Args:
             balance_account_id: The unique identifier of the balance account.
             body: The request body.
-            request_options: Per-call overrides for this one request, such as a timeout or extra headers.
+            request_options: Per-call overrides for this one request, such as a timeout, extra headers, or its retry
+                count and statuses.
 
         Returns:
             An ``ApiResult`` holding the deserialized response or the error body."""
@@ -420,7 +442,8 @@ class AsyncRecurringTopUpsWithRawResponse(BaseRawResponse[AsyncRawClient, Server
         Args:
             balance_account_id: The unique identifier of the balance account.
             top_up_id: The unique identifier of the recurring top-up you want to delete.
-            request_options: Per-call overrides for this one request, such as a timeout or extra headers.
+            request_options: Per-call overrides for this one request, such as a timeout, extra headers, or its retry
+                count and statuses.
 
         Returns:
             An ``ApiResult`` holding the deserialized response or the error body."""
@@ -429,7 +452,7 @@ class AsyncRecurringTopUpsWithRawResponse(BaseRawResponse[AsyncRawClient, Server
             url_template=self._server.default13("/balanceAccounts/{balanceAccountId}/recurringTopUps/{topUpId}"),
             path_params=[param[str]("balanceAccountId", balance_account_id), param[str]("topUpId", top_up_id)],
             headers=[param[UUID]("Idempotency-Key", uuid4())],
-            decoder=json_decoder[Any],
+            decoder=async_json_decoder[Any],
             error_mapper=delete_balance_accounts_balance_account_id_recurring_top_ups_top_up_id_error_mapper,
             request_options=request_options,
         )
@@ -451,7 +474,8 @@ class AsyncRecurringTopUpsWithRawResponse(BaseRawResponse[AsyncRawClient, Server
             balance_account_id: The unique identifier of the balance account.
             limit: The number of items to return per page. Value must be between 1 and 100.
             cursor: The cursor used for pagination. Required if you want to see the next or previous page of results.
-            request_options: Per-call overrides for this one request, such as a timeout or extra headers.
+            request_options: Per-call overrides for this one request, such as a timeout, extra headers, or its retry
+                count and statuses.
 
         Returns:
             An ``ApiResult`` holding the deserialized response or the error body."""
@@ -460,7 +484,7 @@ class AsyncRecurringTopUpsWithRawResponse(BaseRawResponse[AsyncRawClient, Server
             url_template=self._server.default13("/balanceAccounts/{balanceAccountId}/recurringTopUps"),
             path_params=[param[str]("balanceAccountId", balance_account_id)],
             query_params=[param[int | None]("limit", limit), param[str | None]("cursor", cursor)],
-            decoder=json_decoder[RecurringTopUpsResult],
+            decoder=async_json_decoder[RecurringTopUpsResult],
             error_mapper=get_balance_accounts_balance_account_id_recurring_top_ups_error_mapper,
             request_options=request_options,
         )
@@ -482,7 +506,8 @@ class AsyncRecurringTopUpsWithRawResponse(BaseRawResponse[AsyncRawClient, Server
             balance_account_id: The unique identifier of the balance account.
             top_up_id: The unique identifier of the recurring top-up you want to update.
             body: The request body.
-            request_options: Per-call overrides for this one request, such as a timeout or extra headers.
+            request_options: Per-call overrides for this one request, such as a timeout, extra headers, or its retry
+                count and statuses.
 
         Returns:
             An ``ApiResult`` holding the deserialized response or the error body."""
@@ -492,7 +517,7 @@ class AsyncRecurringTopUpsWithRawResponse(BaseRawResponse[AsyncRawClient, Server
             path_params=[param[str]("balanceAccountId", balance_account_id), param[str]("topUpId", top_up_id)],
             headers=[param[UUID]("Idempotency-Key", uuid4())],
             body=json_body[PatchableCreateRecurringTopUp | PatchableCreateRecurringTopUpDict](body),
-            decoder=json_decoder[RecurringTopUp],
+            decoder=async_json_decoder[RecurringTopUp],
             error_mapper=patch_balance_accounts_balance_account_id_recurring_top_ups_top_up_id_error_mapper,
             request_options=request_options,
         )
@@ -512,7 +537,8 @@ class AsyncRecurringTopUpsWithRawResponse(BaseRawResponse[AsyncRawClient, Server
         Args:
             balance_account_id: The unique identifier of the balance account.
             body: The request body.
-            request_options: Per-call overrides for this one request, such as a timeout or extra headers.
+            request_options: Per-call overrides for this one request, such as a timeout, extra headers, or its retry
+                count and statuses.
 
         Returns:
             An ``ApiResult`` holding the deserialized response or the error body."""
@@ -522,7 +548,7 @@ class AsyncRecurringTopUpsWithRawResponse(BaseRawResponse[AsyncRawClient, Server
             path_params=[param[str]("balanceAccountId", balance_account_id)],
             headers=[param[UUID]("Idempotency-Key", uuid4())],
             body=json_body[CreateRecurringTopUp | CreateRecurringTopUpDict](body),
-            decoder=json_decoder[RecurringTopUp],
+            decoder=async_json_decoder[RecurringTopUp],
             error_mapper=post_balance_accounts_balance_account_id_recurring_top_ups_error_mapper,
             request_options=request_options,
         )

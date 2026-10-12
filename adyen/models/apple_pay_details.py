@@ -5,7 +5,7 @@ from typing_extensions import NotRequired, TypedDict
 
 from ..core import UNSET, Optional, SdkBaseModel
 from .enums.funding_source import FundingSourceOrStr
-from .enums.type7 import Type7OrStr
+from .enums.type7 import Type7, Type7OrStr
 
 
 class ApplePayDetails(SdkBaseModel):
@@ -28,7 +28,7 @@ class ApplePayDetails(SdkBaseModel):
     stored_payment_method_id: Optional[str] = Field(default=UNSET, alias="storedPaymentMethodId")
     """This is the ``recurringDetailReference`` returned in the response when you created the token."""
 
-    type_: Optional[Type7OrStr] = Field(default=UNSET, alias="type")
+    type_: Type7OrStr = Field(default=Type7.APPLEPAY, alias="type")
     """**applepay**"""
 
 

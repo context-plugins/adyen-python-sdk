@@ -9,8 +9,10 @@ from ..core import (
     RawClient,
     RequestOptionsOrDict,
     SecuredRawResponse,
+    async_json_decoder,
     json_decoder,
     param,
+    unwrap,
 )
 from ..errors.get_companies_company_id_terminal_actions_action_id_error import (
     GetCompaniesCompanyIdTerminalActionsActionIdErrorBody,
@@ -58,7 +60,8 @@ class TerminalActionsCompanyLevel:
                 **failed**, **cancelled**, **tryLater**.
             type_: Returns terminal actions of the specified type. Allowed values: **InstallAndroidApp**,
                 **UninstallAndroidApp**, **InstallAndroidCertificate**, **UninstallAndroidCertificate**.
-            request_options: Per-call overrides for this one request, such as a timeout or extra headers.
+            request_options: Per-call overrides for this one request, such as a timeout, extra headers, or its retry
+                count and statuses.
 
         Returns:
             OK - the request has succeeded.
@@ -68,14 +71,16 @@ class TerminalActionsCompanyLevel:
                 required. Forbidden - insufficient permissions to process the request. Unprocessable Entity - a request
                 validation error. Internal Server Error - the server could not process the request. ``error`` is
                 ``RestServiceError | RawError``."""
-        return self._with_raw_response.get_companies_company_id_terminal_actions(
-            company_id,
-            page_number=page_number,
-            page_size=page_size,
-            status=status,
-            type_=type_,
-            request_options=request_options,
-        ).unwrap()
+        return unwrap(
+            self._with_raw_response.get_companies_company_id_terminal_actions(
+                company_id,
+                page_number=page_number,
+                page_size=page_size,
+                status=status,
+                type_=type_,
+                request_options=request_options,
+            ),
+        )
 
     def get_companies_company_id_terminal_actions_action_id(
         self, company_id: str, action_id: str, *, request_options: RequestOptionsOrDict | None = None
@@ -93,7 +98,8 @@ class TerminalActionsCompanyLevel:
         Args:
             company_id: The unique identifier of the company account.
             action_id: The unique identifier of the terminal action.
-            request_options: Per-call overrides for this one request, such as a timeout or extra headers.
+            request_options: Per-call overrides for this one request, such as a timeout, extra headers, or its retry
+                count and statuses.
 
         Returns:
             OK - the request has succeeded.
@@ -103,9 +109,11 @@ class TerminalActionsCompanyLevel:
                 required. Forbidden - insufficient permissions to process the request. Unprocessable Entity - a request
                 validation error. Internal Server Error - the server could not process the request. ``error`` is
                 ``RestServiceError | RawError``."""
-        return self._with_raw_response.get_companies_company_id_terminal_actions_action_id(
-            company_id, action_id, request_options=request_options
-        ).unwrap()
+        return unwrap(
+            self._with_raw_response.get_companies_company_id_terminal_actions_action_id(
+                company_id, action_id, request_options=request_options
+            ),
+        )
 
     @property
     def with_raw_response(self) -> TerminalActionsCompanyLevelWithRawResponse:
@@ -145,7 +153,8 @@ class AsyncTerminalActionsCompanyLevel:
                 **failed**, **cancelled**, **tryLater**.
             type_: Returns terminal actions of the specified type. Allowed values: **InstallAndroidApp**,
                 **UninstallAndroidApp**, **InstallAndroidCertificate**, **UninstallAndroidCertificate**.
-            request_options: Per-call overrides for this one request, such as a timeout or extra headers.
+            request_options: Per-call overrides for this one request, such as a timeout, extra headers, or its retry
+                count and statuses.
 
         Returns:
             OK - the request has succeeded.
@@ -155,7 +164,7 @@ class AsyncTerminalActionsCompanyLevel:
                 required. Forbidden - insufficient permissions to process the request. Unprocessable Entity - a request
                 validation error. Internal Server Error - the server could not process the request. ``error`` is
                 ``RestServiceError | RawError``."""
-        return (
+        return unwrap(
             await self._with_raw_response.get_companies_company_id_terminal_actions(
                 company_id,
                 page_number=page_number,
@@ -163,8 +172,8 @@ class AsyncTerminalActionsCompanyLevel:
                 status=status,
                 type_=type_,
                 request_options=request_options,
-            )
-        ).unwrap()
+            ),
+        )
 
     async def get_companies_company_id_terminal_actions_action_id(
         self, company_id: str, action_id: str, *, request_options: RequestOptionsOrDict | None = None
@@ -182,7 +191,8 @@ class AsyncTerminalActionsCompanyLevel:
         Args:
             company_id: The unique identifier of the company account.
             action_id: The unique identifier of the terminal action.
-            request_options: Per-call overrides for this one request, such as a timeout or extra headers.
+            request_options: Per-call overrides for this one request, such as a timeout, extra headers, or its retry
+                count and statuses.
 
         Returns:
             OK - the request has succeeded.
@@ -192,11 +202,11 @@ class AsyncTerminalActionsCompanyLevel:
                 required. Forbidden - insufficient permissions to process the request. Unprocessable Entity - a request
                 validation error. Internal Server Error - the server could not process the request. ``error`` is
                 ``RestServiceError | RawError``."""
-        return (
+        return unwrap(
             await self._with_raw_response.get_companies_company_id_terminal_actions_action_id(
                 company_id, action_id, request_options=request_options
-            )
-        ).unwrap()
+            ),
+        )
 
     @property
     def with_raw_response(self) -> AsyncTerminalActionsCompanyLevelWithRawResponse:
@@ -233,7 +243,8 @@ class TerminalActionsCompanyLevelWithRawResponse(SecuredRawResponse[RawClient, S
                 **failed**, **cancelled**, **tryLater**.
             type_: Returns terminal actions of the specified type. Allowed values: **InstallAndroidApp**,
                 **UninstallAndroidApp**, **InstallAndroidCertificate**, **UninstallAndroidCertificate**.
-            request_options: Per-call overrides for this one request, such as a timeout or extra headers.
+            request_options: Per-call overrides for this one request, such as a timeout, extra headers, or its retry
+                count and statuses.
 
         Returns:
             An ``ApiResult`` holding the deserialized response or the error body."""
@@ -269,7 +280,8 @@ class TerminalActionsCompanyLevelWithRawResponse(SecuredRawResponse[RawClient, S
         Args:
             company_id: The unique identifier of the company account.
             action_id: The unique identifier of the terminal action.
-            request_options: Per-call overrides for this one request, such as a timeout or extra headers.
+            request_options: Per-call overrides for this one request, such as a timeout, extra headers, or its retry
+                count and statuses.
 
         Returns:
             An ``ApiResult`` holding the deserialized response or the error body."""
@@ -314,7 +326,8 @@ class AsyncTerminalActionsCompanyLevelWithRawResponse(SecuredRawResponse[AsyncRa
                 **failed**, **cancelled**, **tryLater**.
             type_: Returns terminal actions of the specified type. Allowed values: **InstallAndroidApp**,
                 **UninstallAndroidApp**, **InstallAndroidCertificate**, **UninstallAndroidCertificate**.
-            request_options: Per-call overrides for this one request, such as a timeout or extra headers.
+            request_options: Per-call overrides for this one request, such as a timeout, extra headers, or its retry
+                count and statuses.
 
         Returns:
             An ``ApiResult`` holding the deserialized response or the error body."""
@@ -329,7 +342,7 @@ class AsyncTerminalActionsCompanyLevelWithRawResponse(SecuredRawResponse[AsyncRa
                 param[str | None]("type", type_),
             ],
             auth_scheme=AsyncAnySchemes(self._auth.basic_auth, self._auth.api_key_auth),
-            decoder=json_decoder[ListExternalTerminalActionsResponse],
+            decoder=async_json_decoder[ListExternalTerminalActionsResponse],
             error_mapper=get_companies_company_id_terminal_actions_error_mapper,
             request_options=request_options,
         )
@@ -350,7 +363,8 @@ class AsyncTerminalActionsCompanyLevelWithRawResponse(SecuredRawResponse[AsyncRa
         Args:
             company_id: The unique identifier of the company account.
             action_id: The unique identifier of the terminal action.
-            request_options: Per-call overrides for this one request, such as a timeout or extra headers.
+            request_options: Per-call overrides for this one request, such as a timeout, extra headers, or its retry
+                count and statuses.
 
         Returns:
             An ``ApiResult`` holding the deserialized response or the error body."""
@@ -359,7 +373,7 @@ class AsyncTerminalActionsCompanyLevelWithRawResponse(SecuredRawResponse[AsyncRa
             url_template=self._server.default9("/companies/{companyId}/terminalActions/{actionId}"),
             path_params=[param[str]("companyId", company_id), param[str]("actionId", action_id)],
             auth_scheme=AsyncAnySchemes(self._auth.basic_auth, self._auth.api_key_auth),
-            decoder=json_decoder[ExternalTerminalAction],
+            decoder=async_json_decoder[ExternalTerminalAction],
             error_mapper=get_companies_company_id_terminal_actions_action_id_error_mapper,
             request_options=request_options,
         )

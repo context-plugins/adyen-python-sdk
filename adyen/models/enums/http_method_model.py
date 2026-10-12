@@ -4,7 +4,7 @@ from typing import Annotated, TypeAlias
 from ...core import open_enum_validator
 
 
-class HttpMethod(str, Enum):
+class HttpMethodModel(str, Enum):
     """The HTTP method to use for the request Adyen makes on your behalf to the third party."""
 
     POST = "post"
@@ -14,4 +14,4 @@ class HttpMethod(str, Enum):
     __str__ = str.__str__
 
 
-HttpMethodOrStr: TypeAlias = Annotated[HttpMethod | str, open_enum_validator(HttpMethod)]
+HttpMethodModelOrStr: TypeAlias = Annotated[HttpMethodModel | str, open_enum_validator(HttpMethodModel)]

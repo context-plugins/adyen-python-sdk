@@ -27,5 +27,5 @@ class Status17(SdkBaseModel):
 
 
 class Status17Dict(TypedDict):
-    actions: NotRequired[list[Action1 | Action1Dict]]
+    actions: NotRequired[list[Action1Dict]]
     code: CodeOrStr

@@ -20,5 +20,5 @@ class InputResponse(SdkBaseModel):
 
 
 class InputResponseDict(TypedDict):
-    output_result: NotRequired[OutputResult1 | OutputResult1Dict]
-    input_result: InputResult2 | InputResult2Dict
+    output_result: NotRequired[OutputResult1Dict]
+    input_result: InputResult2Dict

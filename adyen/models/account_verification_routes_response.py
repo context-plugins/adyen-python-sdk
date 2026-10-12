@@ -12,4 +12,4 @@ class AccountVerificationRoutesResponse(SdkBaseModel):
 
 
 class AccountVerificationRoutesResponseDict(TypedDict):
-    routes: list[Route | RouteDict]
+    routes: list[RouteDict]

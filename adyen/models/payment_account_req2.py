@@ -34,5 +34,5 @@ class PaymentAccountReq2(SdkBaseModel):
 
 class PaymentAccountReq2Dict(TypedDict):
     account_type: NotRequired[AccountType12OrStr]
-    card_acquisition_reference: NotRequired[TransactionIdtype | TransactionIdtypeDict]
-    payment_instrument_data: NotRequired[PaymentInstrumentData | PaymentInstrumentDataDict]
+    card_acquisition_reference: NotRequired[TransactionIdtypeDict]
+    payment_instrument_data: NotRequired[PaymentInstrumentDataDict]

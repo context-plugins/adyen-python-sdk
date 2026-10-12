@@ -5,7 +5,7 @@ from typing_extensions import NotRequired, TypedDict
 
 from ..core import UNSET, Optional, SdkBaseModel
 from .enums.funding_source import FundingSourceOrStr
-from .enums.type26 import Type26OrStr
+from .enums.type26 import Type26, Type26OrStr
 
 
 class PayWithGoogleDonations(SdkBaseModel):
@@ -32,7 +32,7 @@ class PayWithGoogleDonations(SdkBaseModel):
     three_ds2_sdk_version: Optional[str] = Field(default=UNSET, alias="threeDS2SdkVersion")
     """Required for mobile integrations. Version of the 3D Secure 2 mobile SDK."""
 
-    type_: Optional[Type26OrStr] = Field(default=UNSET, alias="type")
+    type_: Type26OrStr = Field(default=Type26.PAYWITHGOOGLE, alias="type")
     """**paywithgoogle**"""
 
 

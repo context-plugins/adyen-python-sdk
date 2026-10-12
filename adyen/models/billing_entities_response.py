@@ -12,4 +12,4 @@ class BillingEntitiesResponse(SdkBaseModel):
 
 
 class BillingEntitiesResponseDict(TypedDict):
-    data: NotRequired[list[BillingEntity | BillingEntityDict]]
+    data: NotRequired[list[BillingEntityDict]]

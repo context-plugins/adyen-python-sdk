@@ -22,6 +22,6 @@ class LoginResponse2(SdkBaseModel):
 
 
 class LoginResponse2Dict(TypedDict):
-    response: Response11 | Response11Dict
-    poi_system_data: NotRequired[PoisystemData1 | PoisystemData1Dict]
+    response: Response11Dict
+    poi_system_data: NotRequired[PoisystemData1Dict]
     token_request_status: NotRequired[bool]

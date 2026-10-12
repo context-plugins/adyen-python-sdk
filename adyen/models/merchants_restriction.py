@@ -16,4 +16,4 @@ class MerchantsRestriction(SdkBaseModel):
 
 class MerchantsRestrictionDict(TypedDict):
     operation: str
-    value: NotRequired[list[MerchantAcquirerPair | MerchantAcquirerPairDict]]
+    value: NotRequired[list[MerchantAcquirerPairDict]]

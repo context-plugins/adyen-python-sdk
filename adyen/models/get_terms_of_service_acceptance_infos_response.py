@@ -12,4 +12,4 @@ class GetTermsOfServiceAcceptanceInfosResponse(SdkBaseModel):
 
 
 class GetTermsOfServiceAcceptanceInfosResponseDict(TypedDict):
-    data: NotRequired[list[TermsOfServiceAcceptanceInfo | TermsOfServiceAcceptanceInfoDict]]
+    data: NotRequired[list[TermsOfServiceAcceptanceInfoDict]]

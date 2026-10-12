@@ -19,5 +19,5 @@ class ReturnTransferRequest(SdkBaseModel):
 
 
 class ReturnTransferRequestDict(TypedDict):
-    amount: Amount17 | Amount17Dict
+    amount: Amount17Dict
     reference: NotRequired[str]

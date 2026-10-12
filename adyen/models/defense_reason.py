@@ -20,6 +20,6 @@ class DefenseReason(SdkBaseModel):
 
 
 class DefenseReasonDict(TypedDict):
-    defense_document_types: NotRequired[list[DefenseDocumentType | DefenseDocumentTypeDict]]
+    defense_document_types: NotRequired[list[DefenseDocumentTypeDict]]
     defense_reason_code: str
     satisfied: bool

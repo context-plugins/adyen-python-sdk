@@ -11,10 +11,13 @@ from ..core import (
     RawClient,
     RequestOptionsOrDict,
     SecuredRawResponse,
+    async_empty_response,
+    async_json_decoder,
     empty_response,
     json_body,
     json_decoder,
     param,
+    unwrap,
 )
 from ..errors.get_terminals_error import GetTerminalsErrorBody, get_terminals_error_mapper
 from ..errors.post_terminals_terminal_id_reassign_error import (
@@ -68,7 +71,8 @@ class TerminalsTerminalLevel:
                 specified in the format *brand.model*.
             page_number: The number of the page to fetch.
             page_size: The number of items to have on a page, maximum 100. The default is 20 items on a page.
-            request_options: Per-call overrides for this one request, such as a timeout or extra headers.
+            request_options: Per-call overrides for this one request, such as a timeout, extra headers, or its retry
+                count and statuses.
 
         Returns:
             OK - the request has succeeded.
@@ -78,17 +82,19 @@ class TerminalsTerminalLevel:
                 required. Forbidden - insufficient permissions to process the request. Unprocessable Entity - a request
                 validation error. Internal Server Error - the server could not process the request. ``error`` is
                 ``RestServiceError | RawError``."""
-        return self._with_raw_response.get_terminals(
-            search_query=search_query,
-            otp_query=otp_query,
-            countries=countries,
-            merchant_ids=merchant_ids,
-            store_ids=store_ids,
-            brand_models=brand_models,
-            page_number=page_number,
-            page_size=page_size,
-            request_options=request_options,
-        ).unwrap()
+        return unwrap(
+            self._with_raw_response.get_terminals(
+                search_query=search_query,
+                otp_query=otp_query,
+                countries=countries,
+                merchant_ids=merchant_ids,
+                store_ids=store_ids,
+                brand_models=brand_models,
+                page_number=page_number,
+                page_size=page_size,
+                request_options=request_options,
+            ),
+        )
 
     def post_terminals_terminal_id_reassign(
         self,
@@ -109,7 +115,8 @@ class TerminalsTerminalLevel:
         Args:
             terminal_id: The unique identifier of the payment terminal.
             body: The request body.
-            request_options: Per-call overrides for this one request, such as a timeout or extra headers.
+            request_options: Per-call overrides for this one request, such as a timeout, extra headers, or its retry
+                count and statuses.
 
         Returns:
             No Content - look at the actual response code for the status of the request.
@@ -119,9 +126,11 @@ class TerminalsTerminalLevel:
                 required. Forbidden - insufficient permissions to process the request. Unprocessable Entity - a request
                 validation error. Internal Server Error - the server could not process the request. ``error`` is
                 ``RestServiceError | RawError``."""
-        return self._with_raw_response.post_terminals_terminal_id_reassign(
-            terminal_id, body=body, request_options=request_options
-        ).unwrap()
+        return unwrap(
+            self._with_raw_response.post_terminals_terminal_id_reassign(
+                terminal_id, body=body, request_options=request_options
+            ),
+        )
 
     @property
     def with_raw_response(self) -> TerminalsTerminalLevelWithRawResponse:
@@ -170,7 +179,8 @@ class AsyncTerminalsTerminalLevel:
                 specified in the format *brand.model*.
             page_number: The number of the page to fetch.
             page_size: The number of items to have on a page, maximum 100. The default is 20 items on a page.
-            request_options: Per-call overrides for this one request, such as a timeout or extra headers.
+            request_options: Per-call overrides for this one request, such as a timeout, extra headers, or its retry
+                count and statuses.
 
         Returns:
             OK - the request has succeeded.
@@ -180,7 +190,7 @@ class AsyncTerminalsTerminalLevel:
                 required. Forbidden - insufficient permissions to process the request. Unprocessable Entity - a request
                 validation error. Internal Server Error - the server could not process the request. ``error`` is
                 ``RestServiceError | RawError``."""
-        return (
+        return unwrap(
             await self._with_raw_response.get_terminals(
                 search_query=search_query,
                 otp_query=otp_query,
@@ -191,8 +201,8 @@ class AsyncTerminalsTerminalLevel:
                 page_number=page_number,
                 page_size=page_size,
                 request_options=request_options,
-            )
-        ).unwrap()
+            ),
+        )
 
     async def post_terminals_terminal_id_reassign(
         self,
@@ -213,7 +223,8 @@ class AsyncTerminalsTerminalLevel:
         Args:
             terminal_id: The unique identifier of the payment terminal.
             body: The request body.
-            request_options: Per-call overrides for this one request, such as a timeout or extra headers.
+            request_options: Per-call overrides for this one request, such as a timeout, extra headers, or its retry
+                count and statuses.
 
         Returns:
             No Content - look at the actual response code for the status of the request.
@@ -223,11 +234,11 @@ class AsyncTerminalsTerminalLevel:
                 required. Forbidden - insufficient permissions to process the request. Unprocessable Entity - a request
                 validation error. Internal Server Error - the server could not process the request. ``error`` is
                 ``RestServiceError | RawError``."""
-        return (
+        return unwrap(
             await self._with_raw_response.post_terminals_terminal_id_reassign(
                 terminal_id, body=body, request_options=request_options
-            )
-        ).unwrap()
+            ),
+        )
 
     @property
     def with_raw_response(self) -> AsyncTerminalsTerminalLevelWithRawResponse:
@@ -273,7 +284,8 @@ class TerminalsTerminalLevelWithRawResponse(SecuredRawResponse[RawClient, Server
                 specified in the format *brand.model*.
             page_number: The number of the page to fetch.
             page_size: The number of items to have on a page, maximum 100. The default is 20 items on a page.
-            request_options: Per-call overrides for this one request, such as a timeout or extra headers.
+            request_options: Per-call overrides for this one request, such as a timeout, extra headers, or its retry
+                count and statuses.
 
         Returns:
             An ``ApiResult`` holding the deserialized response or the error body."""
@@ -315,7 +327,8 @@ class TerminalsTerminalLevelWithRawResponse(SecuredRawResponse[RawClient, Server
         Args:
             terminal_id: The unique identifier of the payment terminal.
             body: The request body.
-            request_options: Per-call overrides for this one request, such as a timeout or extra headers.
+            request_options: Per-call overrides for this one request, such as a timeout, extra headers, or its retry
+                count and statuses.
 
         Returns:
             An ``ApiResult`` holding the deserialized response or the error body."""
@@ -371,7 +384,8 @@ class AsyncTerminalsTerminalLevelWithRawResponse(SecuredRawResponse[AsyncRawClie
                 specified in the format *brand.model*.
             page_number: The number of the page to fetch.
             page_size: The number of items to have on a page, maximum 100. The default is 20 items on a page.
-            request_options: Per-call overrides for this one request, such as a timeout or extra headers.
+            request_options: Per-call overrides for this one request, such as a timeout, extra headers, or its retry
+                count and statuses.
 
         Returns:
             An ``ApiResult`` holding the deserialized response or the error body."""
@@ -389,7 +403,7 @@ class AsyncTerminalsTerminalLevelWithRawResponse(SecuredRawResponse[AsyncRawClie
                 param[int | None]("pageSize", page_size),
             ],
             auth_scheme=AsyncAnySchemes(self._auth.basic_auth, self._auth.api_key_auth),
-            decoder=json_decoder[ListTerminalsResponse],
+            decoder=async_json_decoder[ListTerminalsResponse],
             error_mapper=get_terminals_error_mapper,
             request_options=request_options,
         )
@@ -413,7 +427,8 @@ class AsyncTerminalsTerminalLevelWithRawResponse(SecuredRawResponse[AsyncRawClie
         Args:
             terminal_id: The unique identifier of the payment terminal.
             body: The request body.
-            request_options: Per-call overrides for this one request, such as a timeout or extra headers.
+            request_options: Per-call overrides for this one request, such as a timeout, extra headers, or its retry
+                count and statuses.
 
         Returns:
             An ``ApiResult`` holding the deserialized response or the error body."""
@@ -424,7 +439,7 @@ class AsyncTerminalsTerminalLevelWithRawResponse(SecuredRawResponse[AsyncRawClie
             headers=[param[UUID]("Idempotency-Key", uuid4())],
             body=json_body[TerminalReassignmentRequest | TerminalReassignmentRequestDict | None](body),
             auth_scheme=AsyncAnySchemes(self._auth.basic_auth, self._auth.api_key_auth),
-            decoder=empty_response,
+            decoder=async_empty_response,
             error_mapper=post_terminals_terminal_id_reassign_error_mapper,
             request_options=request_options,
         )

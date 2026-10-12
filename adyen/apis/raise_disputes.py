@@ -8,9 +8,11 @@ from ..core import (
     BaseRawResponse,
     RawClient,
     RequestOptionsOrDict,
+    async_json_decoder,
     json_body,
     json_decoder,
     param,
+    unwrap,
 )
 from ..errors.get_disputes_error import GetDisputesErrorBody, get_disputes_error_mapper
 from ..errors.get_disputes_id_error import GetDisputesIdErrorBody, get_disputes_id_error_mapper
@@ -55,7 +57,8 @@ class RaiseDisputes:
             offset: The number of items that you want to skip.
             limit: The number of items returned per page, maximum of 500 items. By default, the response returns 100
                 items per page.
-            request_options: Per-call overrides for this one request, such as a timeout or extra headers.
+            request_options: Per-call overrides for this one request, such as a timeout, extra headers, or its retry
+                count and statuses.
 
         Returns:
             OK - the request has succeeded.
@@ -63,22 +66,25 @@ class RaiseDisputes:
         Raises:
             ApiError: Authentication required. Insufficient permissions to process the request. A request validation
                 error. ``error`` is ``DefaultErrorResponseEntity | RawError``."""
-        return self._with_raw_response.get_disputes(
-            status=status,
-            payment_instrument=payment_instrument,
-            created_since=created_since,
-            created_until=created_until,
-            offset=offset,
-            limit=limit,
-            request_options=request_options,
-        ).unwrap()
+        return unwrap(
+            self._with_raw_response.get_disputes(
+                status=status,
+                payment_instrument=payment_instrument,
+                created_since=created_since,
+                created_until=created_until,
+                offset=offset,
+                limit=limit,
+                request_options=request_options,
+            ),
+        )
 
-    def get_disputes_id(self, id: str, *, request_options: RequestOptionsOrDict | None = None) -> DisputeResponse:
+    def get_disputes_id(self, id_: str, *, request_options: RequestOptionsOrDict | None = None) -> DisputeResponse:
         """Get a raised dispute by ID.
 
         Args:
-            id: The unique identifier of the raised dispute.
-            request_options: Per-call overrides for this one request, such as a timeout or extra headers.
+            id_: The unique identifier of the raised dispute.
+            request_options: Per-call overrides for this one request, such as a timeout, extra headers, or its retry
+                count and statuses.
 
         Returns:
             OK - the request has succeeded.
@@ -86,11 +92,11 @@ class RaiseDisputes:
         Raises:
             ApiError: Authentication required. Insufficient permissions to process the request. A request validation
                 error. ``error`` is ``DefaultErrorResponseEntity | RawError``."""
-        return self._with_raw_response.get_disputes_id(id, request_options=request_options).unwrap()
+        return unwrap(self._with_raw_response.get_disputes_id(id_, request_options=request_options))
 
     def patch_disputes_id(
         self,
-        id: str,
+        id_: str,
         *,
         body: PatchableDisputeRequest | PatchableDisputeRequestDict | None = None,
         request_options: RequestOptionsOrDict | None = None,
@@ -106,9 +112,10 @@ class RaiseDisputes:
         review by the card scheme.
 
         Args:
-            id: The unique identifier of the raised dispute.
+            id_: The unique identifier of the raised dispute.
             body: The request body.
-            request_options: Per-call overrides for this one request, such as a timeout or extra headers.
+            request_options: Per-call overrides for this one request, such as a timeout, extra headers, or its retry
+                count and statuses.
 
         Returns:
             OK - the request has succeeded.
@@ -116,7 +123,7 @@ class RaiseDisputes:
         Raises:
             ApiError: Authentication required. Insufficient permissions to process the request. A request validation
                 error. ``error`` is ``DefaultErrorResponseEntity | RawError``."""
-        return self._with_raw_response.patch_disputes_id(id, body=body, request_options=request_options).unwrap()
+        return unwrap(self._with_raw_response.patch_disputes_id(id_, body=body, request_options=request_options))
 
     def post_disputes(
         self, body: DisputeRequest | DisputeRequestDict, *, request_options: RequestOptionsOrDict | None = None
@@ -129,7 +136,8 @@ class RaiseDisputes:
 
         Args:
             body: The request body.
-            request_options: Per-call overrides for this one request, such as a timeout or extra headers.
+            request_options: Per-call overrides for this one request, such as a timeout, extra headers, or its retry
+                count and statuses.
 
         Returns:
             OK - the request has succeeded.
@@ -137,7 +145,7 @@ class RaiseDisputes:
         Raises:
             ApiError: Authentication required. Insufficient permissions to process the request. A request validation
                 error. ``error`` is ``DefaultErrorResponseEntity | RawError``."""
-        return self._with_raw_response.post_disputes(body, request_options=request_options).unwrap()
+        return unwrap(self._with_raw_response.post_disputes(body, request_options=request_options))
 
     @property
     def with_raw_response(self) -> RaiseDisputesWithRawResponse:
@@ -177,7 +185,8 @@ class AsyncRaiseDisputes:
             offset: The number of items that you want to skip.
             limit: The number of items returned per page, maximum of 500 items. By default, the response returns 100
                 items per page.
-            request_options: Per-call overrides for this one request, such as a timeout or extra headers.
+            request_options: Per-call overrides for this one request, such as a timeout, extra headers, or its retry
+                count and statuses.
 
         Returns:
             OK - the request has succeeded.
@@ -185,7 +194,7 @@ class AsyncRaiseDisputes:
         Raises:
             ApiError: Authentication required. Insufficient permissions to process the request. A request validation
                 error. ``error`` is ``DefaultErrorResponseEntity | RawError``."""
-        return (
+        return unwrap(
             await self._with_raw_response.get_disputes(
                 status=status,
                 payment_instrument=payment_instrument,
@@ -194,15 +203,18 @@ class AsyncRaiseDisputes:
                 offset=offset,
                 limit=limit,
                 request_options=request_options,
-            )
-        ).unwrap()
+            ),
+        )
 
-    async def get_disputes_id(self, id: str, *, request_options: RequestOptionsOrDict | None = None) -> DisputeResponse:
+    async def get_disputes_id(
+        self, id_: str, *, request_options: RequestOptionsOrDict | None = None
+    ) -> DisputeResponse:
         """Get a raised dispute by ID.
 
         Args:
-            id: The unique identifier of the raised dispute.
-            request_options: Per-call overrides for this one request, such as a timeout or extra headers.
+            id_: The unique identifier of the raised dispute.
+            request_options: Per-call overrides for this one request, such as a timeout, extra headers, or its retry
+                count and statuses.
 
         Returns:
             OK - the request has succeeded.
@@ -210,11 +222,11 @@ class AsyncRaiseDisputes:
         Raises:
             ApiError: Authentication required. Insufficient permissions to process the request. A request validation
                 error. ``error`` is ``DefaultErrorResponseEntity | RawError``."""
-        return (await self._with_raw_response.get_disputes_id(id, request_options=request_options)).unwrap()
+        return unwrap(await self._with_raw_response.get_disputes_id(id_, request_options=request_options))
 
     async def patch_disputes_id(
         self,
-        id: str,
+        id_: str,
         *,
         body: PatchableDisputeRequest | PatchableDisputeRequestDict | None = None,
         request_options: RequestOptionsOrDict | None = None,
@@ -230,9 +242,10 @@ class AsyncRaiseDisputes:
         review by the card scheme.
 
         Args:
-            id: The unique identifier of the raised dispute.
+            id_: The unique identifier of the raised dispute.
             body: The request body.
-            request_options: Per-call overrides for this one request, such as a timeout or extra headers.
+            request_options: Per-call overrides for this one request, such as a timeout, extra headers, or its retry
+                count and statuses.
 
         Returns:
             OK - the request has succeeded.
@@ -240,9 +253,7 @@ class AsyncRaiseDisputes:
         Raises:
             ApiError: Authentication required. Insufficient permissions to process the request. A request validation
                 error. ``error`` is ``DefaultErrorResponseEntity | RawError``."""
-        return (
-            await self._with_raw_response.patch_disputes_id(id, body=body, request_options=request_options)
-        ).unwrap()
+        return unwrap(await self._with_raw_response.patch_disputes_id(id_, body=body, request_options=request_options))
 
     async def post_disputes(
         self, body: DisputeRequest | DisputeRequestDict, *, request_options: RequestOptionsOrDict | None = None
@@ -255,7 +266,8 @@ class AsyncRaiseDisputes:
 
         Args:
             body: The request body.
-            request_options: Per-call overrides for this one request, such as a timeout or extra headers.
+            request_options: Per-call overrides for this one request, such as a timeout, extra headers, or its retry
+                count and statuses.
 
         Returns:
             OK - the request has succeeded.
@@ -263,7 +275,7 @@ class AsyncRaiseDisputes:
         Raises:
             ApiError: Authentication required. Insufficient permissions to process the request. A request validation
                 error. ``error`` is ``DefaultErrorResponseEntity | RawError``."""
-        return (await self._with_raw_response.post_disputes(body, request_options=request_options)).unwrap()
+        return unwrap(await self._with_raw_response.post_disputes(body, request_options=request_options))
 
     @property
     def with_raw_response(self) -> AsyncRaiseDisputesWithRawResponse:
@@ -300,7 +312,8 @@ class RaiseDisputesWithRawResponse(BaseRawResponse[RawClient, Server]):
             offset: The number of items that you want to skip.
             limit: The number of items returned per page, maximum of 500 items. By default, the response returns 100
                 items per page.
-            request_options: Per-call overrides for this one request, such as a timeout or extra headers.
+            request_options: Per-call overrides for this one request, such as a timeout, extra headers, or its retry
+                count and statuses.
 
         Returns:
             An ``ApiResult`` holding the deserialized response or the error body."""
@@ -321,20 +334,21 @@ class RaiseDisputesWithRawResponse(BaseRawResponse[RawClient, Server]):
         )
 
     def get_disputes_id(
-        self, id: str, *, request_options: RequestOptionsOrDict | None = None
+        self, id_: str, *, request_options: RequestOptionsOrDict | None = None
     ) -> ApiResult[DisputeResponse, GetDisputesIdErrorBody]:
         """Get a raised dispute by ID.
 
         Args:
-            id: The unique identifier of the raised dispute.
-            request_options: Per-call overrides for this one request, such as a timeout or extra headers.
+            id_: The unique identifier of the raised dispute.
+            request_options: Per-call overrides for this one request, such as a timeout, extra headers, or its retry
+                count and statuses.
 
         Returns:
             An ``ApiResult`` holding the deserialized response or the error body."""
         return self._client.execute(
             http_method="GET",
             url_template=self._server.default23("/disputes/{id}"),
-            path_params=[param[str]("id", id)],
+            path_params=[param[str]("id", id_)],
             decoder=json_decoder[DisputeResponse],
             error_mapper=get_disputes_id_error_mapper,
             request_options=request_options,
@@ -342,7 +356,7 @@ class RaiseDisputesWithRawResponse(BaseRawResponse[RawClient, Server]):
 
     def patch_disputes_id(
         self,
-        id: str,
+        id_: str,
         *,
         body: PatchableDisputeRequest | PatchableDisputeRequestDict | None = None,
         request_options: RequestOptionsOrDict | None = None,
@@ -358,16 +372,17 @@ class RaiseDisputesWithRawResponse(BaseRawResponse[RawClient, Server]):
         review by the card scheme.
 
         Args:
-            id: The unique identifier of the raised dispute.
+            id_: The unique identifier of the raised dispute.
             body: The request body.
-            request_options: Per-call overrides for this one request, such as a timeout or extra headers.
+            request_options: Per-call overrides for this one request, such as a timeout, extra headers, or its retry
+                count and statuses.
 
         Returns:
             An ``ApiResult`` holding the deserialized response or the error body."""
         return self._client.execute(
             http_method="PATCH",
             url_template=self._server.default23("/disputes/{id}"),
-            path_params=[param[str]("id", id)],
+            path_params=[param[str]("id", id_)],
             headers=[param[UUID]("Idempotency-Key", uuid4())],
             body=json_body[PatchableDisputeRequest | PatchableDisputeRequestDict | None](body),
             decoder=json_decoder[DisputeResponse],
@@ -386,7 +401,8 @@ class RaiseDisputesWithRawResponse(BaseRawResponse[RawClient, Server]):
 
         Args:
             body: The request body.
-            request_options: Per-call overrides for this one request, such as a timeout or extra headers.
+            request_options: Per-call overrides for this one request, such as a timeout, extra headers, or its retry
+                count and statuses.
 
         Returns:
             An ``ApiResult`` holding the deserialized response or the error body."""
@@ -431,7 +447,8 @@ class AsyncRaiseDisputesWithRawResponse(BaseRawResponse[AsyncRawClient, Server])
             offset: The number of items that you want to skip.
             limit: The number of items returned per page, maximum of 500 items. By default, the response returns 100
                 items per page.
-            request_options: Per-call overrides for this one request, such as a timeout or extra headers.
+            request_options: Per-call overrides for this one request, such as a timeout, extra headers, or its retry
+                count and statuses.
 
         Returns:
             An ``ApiResult`` holding the deserialized response or the error body."""
@@ -446,34 +463,35 @@ class AsyncRaiseDisputesWithRawResponse(BaseRawResponse[AsyncRawClient, Server])
                 param[str | None]("offset", offset),
                 param[str | None]("limit", limit),
             ],
-            decoder=json_decoder[list[list[DisputeResponse]]],
+            decoder=async_json_decoder[list[list[DisputeResponse]]],
             error_mapper=get_disputes_error_mapper,
             request_options=request_options,
         )
 
     async def get_disputes_id(
-        self, id: str, *, request_options: RequestOptionsOrDict | None = None
+        self, id_: str, *, request_options: RequestOptionsOrDict | None = None
     ) -> ApiResult[DisputeResponse, GetDisputesIdErrorBody]:
         """Get a raised dispute by ID.
 
         Args:
-            id: The unique identifier of the raised dispute.
-            request_options: Per-call overrides for this one request, such as a timeout or extra headers.
+            id_: The unique identifier of the raised dispute.
+            request_options: Per-call overrides for this one request, such as a timeout, extra headers, or its retry
+                count and statuses.
 
         Returns:
             An ``ApiResult`` holding the deserialized response or the error body."""
         return await self._client.execute(
             http_method="GET",
             url_template=self._server.default23("/disputes/{id}"),
-            path_params=[param[str]("id", id)],
-            decoder=json_decoder[DisputeResponse],
+            path_params=[param[str]("id", id_)],
+            decoder=async_json_decoder[DisputeResponse],
             error_mapper=get_disputes_id_error_mapper,
             request_options=request_options,
         )
 
     async def patch_disputes_id(
         self,
-        id: str,
+        id_: str,
         *,
         body: PatchableDisputeRequest | PatchableDisputeRequestDict | None = None,
         request_options: RequestOptionsOrDict | None = None,
@@ -489,19 +507,20 @@ class AsyncRaiseDisputesWithRawResponse(BaseRawResponse[AsyncRawClient, Server])
         review by the card scheme.
 
         Args:
-            id: The unique identifier of the raised dispute.
+            id_: The unique identifier of the raised dispute.
             body: The request body.
-            request_options: Per-call overrides for this one request, such as a timeout or extra headers.
+            request_options: Per-call overrides for this one request, such as a timeout, extra headers, or its retry
+                count and statuses.
 
         Returns:
             An ``ApiResult`` holding the deserialized response or the error body."""
         return await self._client.execute(
             http_method="PATCH",
             url_template=self._server.default23("/disputes/{id}"),
-            path_params=[param[str]("id", id)],
+            path_params=[param[str]("id", id_)],
             headers=[param[UUID]("Idempotency-Key", uuid4())],
             body=json_body[PatchableDisputeRequest | PatchableDisputeRequestDict | None](body),
-            decoder=json_decoder[DisputeResponse],
+            decoder=async_json_decoder[DisputeResponse],
             error_mapper=patch_disputes_id_error_mapper,
             request_options=request_options,
         )
@@ -517,7 +536,8 @@ class AsyncRaiseDisputesWithRawResponse(BaseRawResponse[AsyncRawClient, Server])
 
         Args:
             body: The request body.
-            request_options: Per-call overrides for this one request, such as a timeout or extra headers.
+            request_options: Per-call overrides for this one request, such as a timeout, extra headers, or its retry
+                count and statuses.
 
         Returns:
             An ``ApiResult`` holding the deserialized response or the error body."""
@@ -526,7 +546,7 @@ class AsyncRaiseDisputesWithRawResponse(BaseRawResponse[AsyncRawClient, Server])
             url_template=self._server.default23("/disputes"),
             headers=[param[UUID]("Idempotency-Key", uuid4())],
             body=json_body[DisputeRequest | DisputeRequestDict](body),
-            decoder=json_decoder[DisputeResponse],
+            decoder=async_json_decoder[DisputeResponse],
             error_mapper=post_disputes_error_mapper,
             request_options=request_options,
         )

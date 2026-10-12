@@ -73,11 +73,11 @@ class TrustDict(TypedDict):
     doing_business_as: NotRequired[str]
     doing_business_as_absent: NotRequired[bool | None]
     name: str
-    principal_place_of_business: NotRequired[Address41 | Address41Dict]
-    registered_address: Address51 | Address51Dict
+    principal_place_of_business: NotRequired[Address41Dict]
+    registered_address: Address51Dict
     registration_number: NotRequired[str]
-    tax_information: NotRequired[list[TaxInformation | TaxInformationDict]]
+    tax_information: NotRequired[list[TaxInformationDict]]
     type_: Type171OrStr
-    undefined_beneficiary_info: NotRequired[list[UndefinedBeneficiary | UndefinedBeneficiaryDict]]
+    undefined_beneficiary_info: NotRequired[list[UndefinedBeneficiaryDict]]
     vat_absence_reason: NotRequired[VatAbsenceReason1OrStr]
     vat_number: NotRequired[str]

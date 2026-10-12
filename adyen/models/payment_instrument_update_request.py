@@ -47,7 +47,7 @@ class PaymentInstrumentUpdateRequest(SdkBaseModel):
 
 class PaymentInstrumentUpdateRequestDict(TypedDict):
     balance_account_id: NotRequired[str]
-    card: NotRequired[CardInfo2 | CardInfo2Dict]
+    card: NotRequired[CardInfo2Dict]
     status: NotRequired[Status10OrStr]
     status_comment: NotRequired[str]
     status_reason: NotRequired[StatusReason2OrStr]

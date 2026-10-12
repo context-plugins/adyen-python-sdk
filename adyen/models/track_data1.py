@@ -10,7 +10,7 @@ from .enums.track_format1 import TrackFormat1OrStr
 class TrackData1(SdkBaseModel):
     """Magnetic track or magnetic ink characters line. Mandatory if CheckNumber absent."""
 
-    track_numb: Optional[int] = Field(default=UNSET, alias="TrackNumb")
+    track_numb: int = Field(default=2, alias="TrackNumb")
     """Card track number."""
 
     track_format: Optional[TrackFormat1OrStr] = Field(default=UNSET, alias="TrackFormat")

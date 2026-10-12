@@ -17,7 +17,7 @@ class DinersInfo1(SdkBaseModel):
     mid_number: Optional[str] = Field(default=UNSET, alias="midNumber")
     """MID (Merchant ID) number. Required for merchants operating in Japan. Format: 14 numeric characters."""
 
-    reuse_mid_number: bool = Field(alias="reuseMidNumber")
+    reuse_mid_number: bool = Field(default=False, alias="reuseMidNumber")
     """Indicates whether the JCB Merchant ID is reused from a previously configured JCB payment method. The default
     value is **false**. For merchants operating in Japan, this field is required and must be set to **true**."""
 
@@ -39,4 +39,4 @@ class DinersInfo1Dict(TypedDict):
     mid_number: NotRequired[str]
     reuse_mid_number: bool
     service_level: NotRequired[ServiceLevel1OrStr]
-    transaction_description: NotRequired[TransactionDescriptionInfo1 | TransactionDescriptionInfo1Dict]
+    transaction_description: NotRequired[TransactionDescriptionInfo1Dict]

@@ -11,4 +11,4 @@ class TaxTotal(SdkBaseModel):
 
 
 class TaxTotalDict(TypedDict):
-    amount: NotRequired[Amount | AmountDict]
+    amount: NotRequired[AmountDict]

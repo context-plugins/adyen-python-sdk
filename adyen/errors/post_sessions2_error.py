@@ -3,7 +3,7 @@ from __future__ import annotations
 from dataclasses import dataclass
 from typing import Final, TypeAlias
 
-from ..core import ErrorMapper, HttpResponse, RawError, decode_json
+from ..core import ErrorMapper, RawError, decode_json
 from ..models.default_error_response_entity import DefaultErrorResponseEntity
 
 PostSessions2ErrorBody: TypeAlias = DefaultErrorResponseEntity | RawError
@@ -11,12 +11,12 @@ PostSessions2ErrorBody: TypeAlias = DefaultErrorResponseEntity | RawError
 
 @dataclass(frozen=True, slots=True)
 class _PostSessions2Error:
-    def map(self, response: HttpResponse) -> PostSessions2ErrorBody:
-        match response.status_code:
+    def map(self, status_code: int, content: bytes) -> PostSessions2ErrorBody:
+        match status_code:
             case 400 | 401 | 403:
-                return decode_json[DefaultErrorResponseEntity](response)
+                return decode_json[DefaultErrorResponseEntity](content)
             case _:
-                return RawError(response)
+                return RawError(status_code, content)
 
 
 post_sessions2_error_mapper: Final[ErrorMapper[PostSessions2ErrorBody]] = _PostSessions2Error()

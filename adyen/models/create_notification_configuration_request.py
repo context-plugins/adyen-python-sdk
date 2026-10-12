@@ -16,4 +16,4 @@ class CreateNotificationConfigurationRequest(SdkBaseModel):
 
 
 class CreateNotificationConfigurationRequestDict(TypedDict):
-    configuration_details: NotificationConfigurationDetails4 | NotificationConfigurationDetails4Dict
+    configuration_details: NotificationConfigurationDetails4Dict

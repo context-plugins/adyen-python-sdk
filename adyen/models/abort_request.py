@@ -24,6 +24,6 @@ class AbortRequest(SdkBaseModel):
 
 
 class AbortRequestDict(TypedDict):
-    message_reference: MessageReference4 | MessageReference4Dict
+    message_reference: MessageReference4Dict
     abort_reason: str
-    display_output: NotRequired[DisplayOutput1 | DisplayOutput1Dict]
+    display_output: NotRequired[DisplayOutput1Dict]

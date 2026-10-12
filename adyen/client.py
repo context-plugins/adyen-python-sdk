@@ -112,16 +112,18 @@ from .core import (
     BasicAuthCredentialsOrDict,
     BasicAuthScheme,
     HttpClient,
-    HttpxClient,
+    Httpx2Client,
     RawClient,
     RawError,
     RequestOptionsOrDict,
+    RetryOptionsOrDict,
     SecuredRawResponse,
     json_body,
     json_decoder,
     no_auth,
     param,
     raw_error_response,
+    unwrap,
 )
 from .models.abort_request import AbortRequest, AbortRequestDict
 from .models.admin_request import AdminRequest, AdminRequestDict
@@ -168,14 +170,16 @@ class AdyenClient(BaseAdyenClient[RawClient]):
         *,
         server_config: ServerConfigOrDict | None = None,
         timeout: float = DEFAULT_TIMEOUT,
+        retry_options: int | RetryOptionsOrDict | None = None,
         custom_http_client: HttpClient | None = None,
         api_key_auth: str | None = None,
         basic_auth: BasicAuthCredentialsOrDict | None = None,
         client_key: str | None = None,
     ) -> None:
-        super().__init__(server_config=server_config, timeout=timeout)
+        super().__init__(server_config=server_config, timeout=timeout, retry_options=retry_options)
         self._raw_client = RawClient(
-            http_client=custom_http_client if custom_http_client is not None else HttpxClient(timeout=timeout),
+            http_client=custom_http_client if custom_http_client is not None else Httpx2Client(timeout=timeout),
+            retry_options=self._retry_options,
             global_headers=[
                 param[str]("User-Agent", "AdyenClient/72 Python"),
                 param[str]("X-APIMatic-Lang", "Python"),
@@ -575,14 +579,15 @@ class AdyenClient(BaseAdyenClient[RawClient]):
 
         Args:
             body: The request body.
-            request_options: Per-call overrides for this one request, such as a timeout or extra headers.
+            request_options: Per-call overrides for this one request, such as a timeout, extra headers, or its retry
+                count and statuses.
 
         Returns:
             A successful ``AbortRequest`` returns a response with a **200 OK** HTTP status code and no body.
 
         Raises:
             ApiError: If the API responds with an error status code. ``error`` is ``RawError``."""
-        return self.with_raw_response.abort_request(body=body, request_options=request_options).unwrap()
+        return unwrap(self.with_raw_response.abort_request(body=body, request_options=request_options))
 
     def admin_request(
         self,
@@ -594,14 +599,15 @@ class AdyenClient(BaseAdyenClient[RawClient]):
 
         Args:
             body: The request body.
-            request_options: Per-call overrides for this one request, such as a timeout or extra headers.
+            request_options: Per-call overrides for this one request, such as a timeout, extra headers, or its retry
+                count and statuses.
 
         Returns:
             It conveys the result of the Custom Admin. Content of the Custom Admin Response message.
 
         Raises:
             ApiError: If the API responds with an error status code. ``error`` is ``RawError``."""
-        return self.with_raw_response.admin_request(body=body, request_options=request_options).unwrap()
+        return unwrap(self.with_raw_response.admin_request(body=body, request_options=request_options))
 
     def balance_inquiry_request(
         self,
@@ -614,7 +620,8 @@ class AdyenClient(BaseAdyenClient[RawClient]):
 
         Args:
             body: The request body.
-            request_options: Per-call overrides for this one request, such as a timeout or extra headers.
+            request_options: Per-call overrides for this one request, such as a timeout, extra headers, or its retry
+                count and statuses.
 
         Returns:
             Content of the Balance Inquiry Response message. It conveys the balance and the identification of the
@@ -622,7 +629,7 @@ class AdyenClient(BaseAdyenClient[RawClient]):
 
         Raises:
             ApiError: If the API responds with an error status code. ``error`` is ``RawError``."""
-        return self.with_raw_response.balance_inquiry_request(body=body, request_options=request_options).unwrap()
+        return unwrap(self.with_raw_response.balance_inquiry_request(body=body, request_options=request_options))
 
     def card_acquisition_request(
         self,
@@ -636,7 +643,8 @@ class AdyenClient(BaseAdyenClient[RawClient]):
 
         Args:
             body: The request body.
-            request_options: Per-call overrides for this one request, such as a timeout or extra headers.
+            request_options: Per-call overrides for this one request, such as a timeout, extra headers, or its retry
+                count and statuses.
 
         Returns:
             It conveys Information related to the payment and loyalty cards read and processed by the POI System and
@@ -644,7 +652,7 @@ class AdyenClient(BaseAdyenClient[RawClient]):
 
         Raises:
             ApiError: If the API responds with an error status code. ``error`` is ``RawError``."""
-        return self.with_raw_response.card_acquisition_request(body=body, request_options=request_options).unwrap()
+        return unwrap(self.with_raw_response.card_acquisition_request(body=body, request_options=request_options))
 
     def card_reader_apdu_request(
         self,
@@ -657,7 +665,8 @@ class AdyenClient(BaseAdyenClient[RawClient]):
 
         Args:
             body: The request body.
-            request_options: Per-call overrides for this one request, such as a timeout or extra headers.
+            request_options: Per-call overrides for this one request, such as a timeout, extra headers, or its retry
+                count and statuses.
 
         Returns:
             Content of the Card Reader APDU Response message. It contains the result of the requested service, APDU
@@ -665,7 +674,7 @@ class AdyenClient(BaseAdyenClient[RawClient]):
 
         Raises:
             ApiError: If the API responds with an error status code. ``error`` is ``RawError``."""
-        return self.with_raw_response.card_reader_apdu_request(body=body, request_options=request_options).unwrap()
+        return unwrap(self.with_raw_response.card_reader_apdu_request(body=body, request_options=request_options))
 
     def diagnosis_request(
         self,
@@ -678,7 +687,8 @@ class AdyenClient(BaseAdyenClient[RawClient]):
 
         Args:
             body: The request body.
-            request_options: Per-call overrides for this one request, such as a timeout or extra headers.
+            request_options: Per-call overrides for this one request, such as a timeout, extra headers, or its retry
+                count and statuses.
 
         Returns:
             It conveys the result of the requested diagnosis and a possible message to display on a logical device.
@@ -686,7 +696,7 @@ class AdyenClient(BaseAdyenClient[RawClient]):
 
         Raises:
             ApiError: If the API responds with an error status code. ``error`` is ``RawError``."""
-        return self.with_raw_response.diagnosis_request(body=body, request_options=request_options).unwrap()
+        return unwrap(self.with_raw_response.diagnosis_request(body=body, request_options=request_options))
 
     def display_request(
         self,
@@ -700,7 +710,8 @@ class AdyenClient(BaseAdyenClient[RawClient]):
 
         Args:
             body: The request body.
-            request_options: Per-call overrides for this one request, such as a timeout or extra headers.
+            request_options: Per-call overrides for this one request, such as a timeout, extra headers, or its retry
+                count and statuses.
 
         Returns:
             It conveys the result of the display, parallel to the message request, except if response not required and
@@ -708,7 +719,7 @@ class AdyenClient(BaseAdyenClient[RawClient]):
 
         Raises:
             ApiError: If the API responds with an error status code. ``error`` is ``RawError``."""
-        return self.with_raw_response.display_request(body=body, request_options=request_options).unwrap()
+        return unwrap(self.with_raw_response.display_request(body=body, request_options=request_options))
 
     def enable_service_request(
         self,
@@ -721,14 +732,15 @@ class AdyenClient(BaseAdyenClient[RawClient]):
 
         Args:
             body: The request body.
-            request_options: Per-call overrides for this one request, such as a timeout or extra headers.
+            request_options: Per-call overrides for this one request, such as a timeout, extra headers, or its retry
+                count and statuses.
 
         Returns:
             It conveys the result of the Enable Service processing. Content of the Enable Service Response message.
 
         Raises:
             ApiError: If the API responds with an error status code. ``error`` is ``RawError``."""
-        return self.with_raw_response.enable_service_request(body=body, request_options=request_options).unwrap()
+        return unwrap(self.with_raw_response.enable_service_request(body=body, request_options=request_options))
 
     def get_totals_request(
         self,
@@ -741,7 +753,8 @@ class AdyenClient(BaseAdyenClient[RawClient]):
 
         Args:
             body: The request body.
-            request_options: Per-call overrides for this one request, such as a timeout or extra headers.
+            request_options: Per-call overrides for this one request, such as a timeout, extra headers, or its retry
+                count and statuses.
 
         Returns:
             Content of the Reconciliation Response message. It conveys Information related to the Reconciliation
@@ -749,7 +762,7 @@ class AdyenClient(BaseAdyenClient[RawClient]):
 
         Raises:
             ApiError: If the API responds with an error status code. ``error`` is ``RawError``."""
-        return self.with_raw_response.get_totals_request(body=body, request_options=request_options).unwrap()
+        return unwrap(self.with_raw_response.get_totals_request(body=body, request_options=request_options))
 
     def input_request(
         self,
@@ -763,7 +776,8 @@ class AdyenClient(BaseAdyenClient[RawClient]):
 
         Args:
             body: The request body.
-            request_options: Per-call overrides for this one request, such as a timeout or extra headers.
+            request_options: Per-call overrides for this one request, such as a timeout, extra headers, or its retry
+                count and statuses.
 
         Returns:
             It conveys the result of the input or the result of the outputs, parallel to the message request, except if
@@ -771,7 +785,7 @@ class AdyenClient(BaseAdyenClient[RawClient]):
 
         Raises:
             ApiError: If the API responds with an error status code. ``error`` is ``RawError``."""
-        return self.with_raw_response.input_request(body=body, request_options=request_options).unwrap()
+        return unwrap(self.with_raw_response.input_request(body=body, request_options=request_options))
 
     def login_request(
         self,
@@ -784,14 +798,15 @@ class AdyenClient(BaseAdyenClient[RawClient]):
 
         Args:
             body: The request body.
-            request_options: Per-call overrides for this one request, such as a timeout or extra headers.
+            request_options: Per-call overrides for this one request, such as a timeout, extra headers, or its retry
+                count and statuses.
 
         Returns:
             It conveys Information related to the Login to process. Content of the Login Response message.
 
         Raises:
             ApiError: If the API responds with an error status code. ``error`` is ``RawError``."""
-        return self.with_raw_response.login_request(body=body, request_options=request_options).unwrap()
+        return unwrap(self.with_raw_response.login_request(body=body, request_options=request_options))
 
     def logout_request(
         self,
@@ -803,14 +818,15 @@ class AdyenClient(BaseAdyenClient[RawClient]):
 
         Args:
             body: The request body.
-            request_options: Per-call overrides for this one request, such as a timeout or extra headers.
+            request_options: Per-call overrides for this one request, such as a timeout, extra headers, or its retry
+                count and statuses.
 
         Returns:
             It conveys the result of the Logout. Content of the Logout Response message.
 
         Raises:
             ApiError: If the API responds with an error status code. ``error`` is ``RawError``."""
-        return self.with_raw_response.logout_request(body=body, request_options=request_options).unwrap()
+        return unwrap(self.with_raw_response.logout_request(body=body, request_options=request_options))
 
     def payment_request(
         self,
@@ -823,7 +839,8 @@ class AdyenClient(BaseAdyenClient[RawClient]):
 
         Args:
             body: The request body.
-            request_options: Per-call overrides for this one request, such as a timeout or extra headers.
+            request_options: Per-call overrides for this one request, such as a timeout, extra headers, or its retry
+                count and statuses.
 
         Returns:
             It conveys Information related to the Payment transaction processed by the POI System. Content of the
@@ -831,7 +848,7 @@ class AdyenClient(BaseAdyenClient[RawClient]):
 
         Raises:
             ApiError: If the API responds with an error status code. ``error`` is ``RawError``."""
-        return self.with_raw_response.payment_request(body=body, request_options=request_options).unwrap()
+        return unwrap(self.with_raw_response.payment_request(body=body, request_options=request_options))
 
     def print_request(
         self,
@@ -843,7 +860,8 @@ class AdyenClient(BaseAdyenClient[RawClient]):
 
         Args:
             body: The request body.
-            request_options: Per-call overrides for this one request, such as a timeout or extra headers.
+            request_options: Per-call overrides for this one request, such as a timeout, extra headers, or its retry
+                count and statuses.
 
         Returns:
             It conveys the result of the print, parallel to the message request, except if response not required and
@@ -851,7 +869,7 @@ class AdyenClient(BaseAdyenClient[RawClient]):
 
         Raises:
             ApiError: If the API responds with an error status code. ``error`` is ``RawError``."""
-        return self.with_raw_response.print_request(body=body, request_options=request_options).unwrap()
+        return unwrap(self.with_raw_response.print_request(body=body, request_options=request_options))
 
     def reconciliation_request(
         self,
@@ -864,7 +882,8 @@ class AdyenClient(BaseAdyenClient[RawClient]):
 
         Args:
             body: The request body.
-            request_options: Per-call overrides for this one request, such as a timeout or extra headers.
+            request_options: Per-call overrides for this one request, such as a timeout, extra headers, or its retry
+                count and statuses.
 
         Returns:
             It conveys Information related to the Reconciliation transaction processed by the POI System. Content of the
@@ -872,7 +891,7 @@ class AdyenClient(BaseAdyenClient[RawClient]):
 
         Raises:
             ApiError: If the API responds with an error status code. ``error`` is ``RawError``."""
-        return self.with_raw_response.reconciliation_request(body=body, request_options=request_options).unwrap()
+        return unwrap(self.with_raw_response.reconciliation_request(body=body, request_options=request_options))
 
     def reversal_request(
         self,
@@ -885,7 +904,8 @@ class AdyenClient(BaseAdyenClient[RawClient]):
 
         Args:
             body: The request body.
-            request_options: Per-call overrides for this one request, such as a timeout or extra headers.
+            request_options: Per-call overrides for this one request, such as a timeout, extra headers, or its retry
+                count and statuses.
 
         Returns:
             It conveys Information related to the reversal processed by the POI System. Content of the Reversal Response
@@ -893,7 +913,7 @@ class AdyenClient(BaseAdyenClient[RawClient]):
 
         Raises:
             ApiError: If the API responds with an error status code. ``error`` is ``RawError``."""
-        return self.with_raw_response.reversal_request(body=body, request_options=request_options).unwrap()
+        return unwrap(self.with_raw_response.reversal_request(body=body, request_options=request_options))
 
     def stored_value_request(
         self,
@@ -906,7 +926,8 @@ class AdyenClient(BaseAdyenClient[RawClient]):
 
         Args:
             body: The request body.
-            request_options: Per-call overrides for this one request, such as a timeout or extra headers.
+            request_options: Per-call overrides for this one request, such as a timeout, extra headers, or its retry
+                count and statuses.
 
         Returns:
             It conveys Information related to the Stored Value transaction processed by the POI System. Content of the
@@ -914,7 +935,7 @@ class AdyenClient(BaseAdyenClient[RawClient]):
 
         Raises:
             ApiError: If the API responds with an error status code. ``error`` is ``RawError``."""
-        return self.with_raw_response.stored_value_request(body=body, request_options=request_options).unwrap()
+        return unwrap(self.with_raw_response.stored_value_request(body=body, request_options=request_options))
 
     def transaction_status_request(
         self,
@@ -927,7 +948,8 @@ class AdyenClient(BaseAdyenClient[RawClient]):
 
         Args:
             body: The request body.
-            request_options: Per-call overrides for this one request, such as a timeout or extra headers.
+            request_options: Per-call overrides for this one request, such as a timeout, extra headers, or its retry
+                count and statuses.
 
         Returns:
             Content of the TransactionStatus Response message. It conveys Information related to the status of the last
@@ -935,7 +957,7 @@ class AdyenClient(BaseAdyenClient[RawClient]):
 
         Raises:
             ApiError: If the API responds with an error status code. ``error`` is ``RawError``."""
-        return self.with_raw_response.transaction_status_request(body=body, request_options=request_options).unwrap()
+        return unwrap(self.with_raw_response.transaction_status_request(body=body, request_options=request_options))
 
     def close(self) -> None:
         self._raw_client.http_client.close()
@@ -962,7 +984,8 @@ class ApiWithRawResponse(SecuredRawResponse[RawClient, Server, AuthSchemes]):
 
         Args:
             body: The request body.
-            request_options: Per-call overrides for this one request, such as a timeout or extra headers.
+            request_options: Per-call overrides for this one request, such as a timeout, extra headers, or its retry
+                count and statuses.
 
         Returns:
             An ``ApiResult`` holding the deserialized response or the error body."""
@@ -987,7 +1010,8 @@ class ApiWithRawResponse(SecuredRawResponse[RawClient, Server, AuthSchemes]):
 
         Args:
             body: The request body.
-            request_options: Per-call overrides for this one request, such as a timeout or extra headers.
+            request_options: Per-call overrides for this one request, such as a timeout, extra headers, or its retry
+                count and statuses.
 
         Returns:
             An ``ApiResult`` holding the deserialized response or the error body."""
@@ -1013,7 +1037,8 @@ class ApiWithRawResponse(SecuredRawResponse[RawClient, Server, AuthSchemes]):
 
         Args:
             body: The request body.
-            request_options: Per-call overrides for this one request, such as a timeout or extra headers.
+            request_options: Per-call overrides for this one request, such as a timeout, extra headers, or its retry
+                count and statuses.
 
         Returns:
             An ``ApiResult`` holding the deserialized response or the error body."""
@@ -1040,7 +1065,8 @@ class ApiWithRawResponse(SecuredRawResponse[RawClient, Server, AuthSchemes]):
 
         Args:
             body: The request body.
-            request_options: Per-call overrides for this one request, such as a timeout or extra headers.
+            request_options: Per-call overrides for this one request, such as a timeout, extra headers, or its retry
+                count and statuses.
 
         Returns:
             An ``ApiResult`` holding the deserialized response or the error body."""
@@ -1066,7 +1092,8 @@ class ApiWithRawResponse(SecuredRawResponse[RawClient, Server, AuthSchemes]):
 
         Args:
             body: The request body.
-            request_options: Per-call overrides for this one request, such as a timeout or extra headers.
+            request_options: Per-call overrides for this one request, such as a timeout, extra headers, or its retry
+                count and statuses.
 
         Returns:
             An ``ApiResult`` holding the deserialized response or the error body."""
@@ -1092,7 +1119,8 @@ class ApiWithRawResponse(SecuredRawResponse[RawClient, Server, AuthSchemes]):
 
         Args:
             body: The request body.
-            request_options: Per-call overrides for this one request, such as a timeout or extra headers.
+            request_options: Per-call overrides for this one request, such as a timeout, extra headers, or its retry
+                count and statuses.
 
         Returns:
             An ``ApiResult`` holding the deserialized response or the error body."""
@@ -1119,7 +1147,8 @@ class ApiWithRawResponse(SecuredRawResponse[RawClient, Server, AuthSchemes]):
 
         Args:
             body: The request body.
-            request_options: Per-call overrides for this one request, such as a timeout or extra headers.
+            request_options: Per-call overrides for this one request, such as a timeout, extra headers, or its retry
+                count and statuses.
 
         Returns:
             An ``ApiResult`` holding the deserialized response or the error body."""
@@ -1145,7 +1174,8 @@ class ApiWithRawResponse(SecuredRawResponse[RawClient, Server, AuthSchemes]):
 
         Args:
             body: The request body.
-            request_options: Per-call overrides for this one request, such as a timeout or extra headers.
+            request_options: Per-call overrides for this one request, such as a timeout, extra headers, or its retry
+                count and statuses.
 
         Returns:
             An ``ApiResult`` holding the deserialized response or the error body."""
@@ -1171,7 +1201,8 @@ class ApiWithRawResponse(SecuredRawResponse[RawClient, Server, AuthSchemes]):
 
         Args:
             body: The request body.
-            request_options: Per-call overrides for this one request, such as a timeout or extra headers.
+            request_options: Per-call overrides for this one request, such as a timeout, extra headers, or its retry
+                count and statuses.
 
         Returns:
             An ``ApiResult`` holding the deserialized response or the error body."""
@@ -1198,7 +1229,8 @@ class ApiWithRawResponse(SecuredRawResponse[RawClient, Server, AuthSchemes]):
 
         Args:
             body: The request body.
-            request_options: Per-call overrides for this one request, such as a timeout or extra headers.
+            request_options: Per-call overrides for this one request, such as a timeout, extra headers, or its retry
+                count and statuses.
 
         Returns:
             An ``ApiResult`` holding the deserialized response or the error body."""
@@ -1224,7 +1256,8 @@ class ApiWithRawResponse(SecuredRawResponse[RawClient, Server, AuthSchemes]):
 
         Args:
             body: The request body.
-            request_options: Per-call overrides for this one request, such as a timeout or extra headers.
+            request_options: Per-call overrides for this one request, such as a timeout, extra headers, or its retry
+                count and statuses.
 
         Returns:
             An ``ApiResult`` holding the deserialized response or the error body."""
@@ -1249,7 +1282,8 @@ class ApiWithRawResponse(SecuredRawResponse[RawClient, Server, AuthSchemes]):
 
         Args:
             body: The request body.
-            request_options: Per-call overrides for this one request, such as a timeout or extra headers.
+            request_options: Per-call overrides for this one request, such as a timeout, extra headers, or its retry
+                count and statuses.
 
         Returns:
             An ``ApiResult`` holding the deserialized response or the error body."""
@@ -1275,7 +1309,8 @@ class ApiWithRawResponse(SecuredRawResponse[RawClient, Server, AuthSchemes]):
 
         Args:
             body: The request body.
-            request_options: Per-call overrides for this one request, such as a timeout or extra headers.
+            request_options: Per-call overrides for this one request, such as a timeout, extra headers, or its retry
+                count and statuses.
 
         Returns:
             An ``ApiResult`` holding the deserialized response or the error body."""
@@ -1300,7 +1335,8 @@ class ApiWithRawResponse(SecuredRawResponse[RawClient, Server, AuthSchemes]):
 
         Args:
             body: The request body.
-            request_options: Per-call overrides for this one request, such as a timeout or extra headers.
+            request_options: Per-call overrides for this one request, such as a timeout, extra headers, or its retry
+                count and statuses.
 
         Returns:
             An ``ApiResult`` holding the deserialized response or the error body."""
@@ -1326,7 +1362,8 @@ class ApiWithRawResponse(SecuredRawResponse[RawClient, Server, AuthSchemes]):
 
         Args:
             body: The request body.
-            request_options: Per-call overrides for this one request, such as a timeout or extra headers.
+            request_options: Per-call overrides for this one request, such as a timeout, extra headers, or its retry
+                count and statuses.
 
         Returns:
             An ``ApiResult`` holding the deserialized response or the error body."""
@@ -1352,7 +1389,8 @@ class ApiWithRawResponse(SecuredRawResponse[RawClient, Server, AuthSchemes]):
 
         Args:
             body: The request body.
-            request_options: Per-call overrides for this one request, such as a timeout or extra headers.
+            request_options: Per-call overrides for this one request, such as a timeout, extra headers, or its retry
+                count and statuses.
 
         Returns:
             An ``ApiResult`` holding the deserialized response or the error body."""
@@ -1378,7 +1416,8 @@ class ApiWithRawResponse(SecuredRawResponse[RawClient, Server, AuthSchemes]):
 
         Args:
             body: The request body.
-            request_options: Per-call overrides for this one request, such as a timeout or extra headers.
+            request_options: Per-call overrides for this one request, such as a timeout, extra headers, or its retry
+                count and statuses.
 
         Returns:
             An ``ApiResult`` holding the deserialized response or the error body."""
@@ -1404,7 +1443,8 @@ class ApiWithRawResponse(SecuredRawResponse[RawClient, Server, AuthSchemes]):
 
         Args:
             body: The request body.
-            request_options: Per-call overrides for this one request, such as a timeout or extra headers.
+            request_options: Per-call overrides for this one request, such as a timeout, extra headers, or its retry
+                count and statuses.
 
         Returns:
             An ``ApiResult`` holding the deserialized response or the error body."""

@@ -54,13 +54,13 @@ class Terminal(SdkBaseModel):
 
 
 class TerminalDict(TypedDict):
-    assignment: NotRequired[TerminalAssignment2 | TerminalAssignment2Dict]
+    assignment: NotRequired[TerminalAssignment2Dict]
     cloud_device_api_endpoint: NotRequired[str]
-    connectivity: NotRequired[TerminalConnectivity2 | TerminalConnectivity2Dict]
+    connectivity: NotRequired[TerminalConnectivity2Dict]
     country_code: NotRequired[str]
     firmware_version: NotRequired[str]
     id: NotRequired[str]
-    installed_apks: NotRequired[list[InstalledApks | InstalledApksDict]]
+    installed_apks: NotRequired[list[InstalledApksDict]]
     last_activity_at: NotRequired[RFC3339DateTime]
     last_transaction_at: NotRequired[RFC3339DateTime]
     model: NotRequired[str]

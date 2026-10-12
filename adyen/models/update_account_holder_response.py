@@ -50,13 +50,13 @@ class UpdateAccountHolderResponse(SdkBaseModel):
 
 class UpdateAccountHolderResponseDict(TypedDict):
     account_holder_code: NotRequired[str]
-    account_holder_details: NotRequired[AccountHolderDetails3 | AccountHolderDetails3Dict]
-    account_holder_status: NotRequired[AccountHolderStatus7 | AccountHolderStatus7Dict]
+    account_holder_details: NotRequired[AccountHolderDetails3Dict]
+    account_holder_status: NotRequired[AccountHolderStatus7Dict]
     description: NotRequired[str]
-    invalid_fields: NotRequired[list[ErrorFieldType | ErrorFieldTypeDict]]
+    invalid_fields: NotRequired[list[ErrorFieldTypeDict]]
     legal_entity: NotRequired[LegalEntity2OrStr]
     primary_currency: NotRequired[str]
     psp_reference: NotRequired[str]
     result_code: NotRequired[str]
-    verification: NotRequired[KycverificationResult1 | KycverificationResult1Dict]
+    verification: NotRequired[KycverificationResult1Dict]
     verification_profile: NotRequired[str]

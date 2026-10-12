@@ -68,4 +68,4 @@ class TransactionTotalsDict(TypedDict):
     shift_number: NotRequired[str]
     totals_group_id: NotRequired[str]
     payment_currency: NotRequired[str]
-    payment_totals: NotRequired[list[PaymentTotals | PaymentTotalsDict]]
+    payment_totals: NotRequired[list[PaymentTotalsDict]]

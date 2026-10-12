@@ -22,4 +22,4 @@ class PayByBankPlaidResponseInfo(SdkBaseModel):
 
 class PayByBankPlaidResponseInfoDict(TypedDict):
     logo: NotRequired[str]
-    transaction_description: NotRequired[TransactionDescriptionResponseInfo1 | TransactionDescriptionResponseInfo1Dict]
+    transaction_description: NotRequired[TransactionDescriptionResponseInfo1Dict]

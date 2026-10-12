@@ -11,9 +11,9 @@ Each `###` block is one operation and assumes `sdk-map.md` is loaded: blocks omi
 - **Route**: `GET /grantAccounts/{id}`
 - **Auth**: `client_key` OR `basic_auth` OR `api_key_auth`
 - **Server**: `default13`
-- **Signature**: `def get_grant_accounts_id(id: str, *, request_options: RequestOptionsOrDict | None = None)`
-  - required, positional: `id`
-- **Params**: `id` — path
+- **Signature**: `def get_grant_accounts_id(id_: str, *, request_options: RequestOptionsOrDict | None = None)`
+  - required, positional: `id_`
+- **Params**: `id_` — path `id`
 - **Returns (parsed)**: `CapitalGrantAccount`
 - **Returns (raw)**: `ApiResult[CapitalGrantAccount, GetGrantAccountsIdErrorBody]`
 - **Error**: `GetGrantAccountsIdErrorBody` — **Case A (typed)**
@@ -29,9 +29,9 @@ Each `###` block is one operation and assumes `sdk-map.md` is loaded: blocks omi
 
 - **Route**: `GET /grantAccounts/{id}`
 - **Server**: `default15`
-- **Signature**: `def get_grant_accounts_id1(id: str, *, request_options: RequestOptionsOrDict | None = None)`
-  - required, positional: `id`
-- **Params**: `id` — path
+- **Signature**: `def get_grant_accounts_id1(id_: str, *, request_options: RequestOptionsOrDict | None = None)`
+  - required, positional: `id_`
+- **Params**: `id_` — path `id`
 - **Returns (parsed)**: `GrantAccount`
 - **Returns (raw)**: `ApiResult[GrantAccount, GetGrantAccountsId1ErrorBody]`
 - **Error**: `GetGrantAccountsId1ErrorBody` — **Case A (typed)**

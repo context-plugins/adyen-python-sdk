@@ -11,9 +11,11 @@ from ..core import (
     RawClient,
     RequestOptionsOrDict,
     SecuredRawResponse,
+    async_json_decoder,
     json_body,
     json_decoder,
     param,
+    unwrap,
 )
 from ..errors.get_merchants_merchant_id_stores_reference_terminal_logos_error import (
     GetMerchantsMerchantIdStoresReferenceTerminalLogosErrorBody,
@@ -78,7 +80,8 @@ class TerminalSettingsStoreLevel:
             model: The terminal model. Possible values: E355, VX675WIFIBT, VX680, VX690, VX700, VX820, M400, MX925,
                 P400Plus, UX300, UX410, V200cPlus, V240mPlus, V400cPlus, V400m, e280, e285, e285p, S1E, S1EL, S1F2, S1L,
                 S1U, S7T.
-            request_options: Per-call overrides for this one request, such as a timeout or extra headers.
+            request_options: Per-call overrides for this one request, such as a timeout, extra headers, or its retry
+                count and statuses.
 
         Returns:
             OK - the request has succeeded.
@@ -88,9 +91,11 @@ class TerminalSettingsStoreLevel:
                 required. Forbidden - insufficient permissions to process the request. Unprocessable Entity - a request
                 validation error. Internal Server Error - the server could not process the request. ``error`` is
                 ``RestServiceError | RawError``."""
-        return self._with_raw_response.get_merchants_merchant_id_stores_reference_terminal_logos(
-            merchant_id, reference, model, request_options=request_options
-        ).unwrap()
+        return unwrap(
+            self._with_raw_response.get_merchants_merchant_id_stores_reference_terminal_logos(
+                merchant_id, reference, model, request_options=request_options
+            ),
+        )
 
     def get_merchants_merchant_id_stores_reference_terminal_settings(
         self, merchant_id: str, reference: str, *, request_options: RequestOptionsOrDict | None = None
@@ -115,7 +120,8 @@ class TerminalSettingsStoreLevel:
         Args:
             merchant_id: The unique identifier of the merchant account.
             reference: The reference that identifies the store.
-            request_options: Per-call overrides for this one request, such as a timeout or extra headers.
+            request_options: Per-call overrides for this one request, such as a timeout, extra headers, or its retry
+                count and statuses.
 
         Returns:
             OK - the request has succeeded.
@@ -125,9 +131,11 @@ class TerminalSettingsStoreLevel:
                 required. Forbidden - insufficient permissions to process the request. Unprocessable Entity - a request
                 validation error. Internal Server Error - the server could not process the request. ``error`` is
                 ``RestServiceError | RawError``."""
-        return self._with_raw_response.get_merchants_merchant_id_stores_reference_terminal_settings(
-            merchant_id, reference, request_options=request_options
-        ).unwrap()
+        return unwrap(
+            self._with_raw_response.get_merchants_merchant_id_stores_reference_terminal_settings(
+                merchant_id, reference, request_options=request_options
+            ),
+        )
 
     def get_stores_store_id_terminal_logos(
         self, store_id: str, model: str, *, request_options: RequestOptionsOrDict | None = None
@@ -150,7 +158,8 @@ class TerminalSettingsStoreLevel:
             model: The terminal model. Possible values: E355, VX675WIFIBT, VX680, VX690, VX700, VX820, M400, MX925,
                 P400Plus, UX300, UX410, V200cPlus, V240mPlus, V400cPlus, V400m, e280, e285, e285p, S1E, S1EL, S1F2, S1L,
                 S1U, S7T.
-            request_options: Per-call overrides for this one request, such as a timeout or extra headers.
+            request_options: Per-call overrides for this one request, such as a timeout, extra headers, or its retry
+                count and statuses.
 
         Returns:
             OK - the request has succeeded.
@@ -160,9 +169,9 @@ class TerminalSettingsStoreLevel:
                 required. Forbidden - insufficient permissions to process the request. Unprocessable Entity - a request
                 validation error. Internal Server Error - the server could not process the request. ``error`` is
                 ``RestServiceError | RawError``."""
-        return self._with_raw_response.get_stores_store_id_terminal_logos(
-            store_id, model, request_options=request_options
-        ).unwrap()
+        return unwrap(
+            self._with_raw_response.get_stores_store_id_terminal_logos(store_id, model, request_options=request_options)
+        )
 
     def get_stores_store_id_terminal_settings(
         self, store_id: str, *, request_options: RequestOptionsOrDict | None = None
@@ -186,7 +195,8 @@ class TerminalSettingsStoreLevel:
 
         Args:
             store_id: The unique identifier of the store.
-            request_options: Per-call overrides for this one request, such as a timeout or extra headers.
+            request_options: Per-call overrides for this one request, such as a timeout, extra headers, or its retry
+                count and statuses.
 
         Returns:
             OK - the request has succeeded.
@@ -196,9 +206,9 @@ class TerminalSettingsStoreLevel:
                 required. Forbidden - insufficient permissions to process the request. Unprocessable Entity - a request
                 validation error. Internal Server Error - the server could not process the request. ``error`` is
                 ``RestServiceError | RawError``."""
-        return self._with_raw_response.get_stores_store_id_terminal_settings(
-            store_id, request_options=request_options
-        ).unwrap()
+        return unwrap(
+            self._with_raw_response.get_stores_store_id_terminal_settings(store_id, request_options=request_options)
+        )
 
     def patch_merchants_merchant_id_stores_reference_terminal_logos(
         self,
@@ -230,7 +240,8 @@ class TerminalSettingsStoreLevel:
                 P400Plus, UX300, UX410, V200cPlus, V240mPlus, V400cPlus, V400m, e280, e285, e285p, S1E, S1EL, S1F2, S1L,
                 S1U, S7T
             body: The request body.
-            request_options: Per-call overrides for this one request, such as a timeout or extra headers.
+            request_options: Per-call overrides for this one request, such as a timeout, extra headers, or its retry
+                count and statuses.
 
         Returns:
             OK - the request has succeeded.
@@ -240,9 +251,11 @@ class TerminalSettingsStoreLevel:
                 required. Forbidden - insufficient permissions to process the request. Unprocessable Entity - a request
                 validation error. Internal Server Error - the server could not process the request. ``error`` is
                 ``RestServiceError | RawError``."""
-        return self._with_raw_response.patch_merchants_merchant_id_stores_reference_terminal_logos(
-            merchant_id, reference, model, body=body, request_options=request_options
-        ).unwrap()
+        return unwrap(
+            self._with_raw_response.patch_merchants_merchant_id_stores_reference_terminal_logos(
+                merchant_id, reference, model, body=body, request_options=request_options
+            ),
+        )
 
     def patch_merchants_merchant_id_stores_reference_terminal_settings(
         self,
@@ -277,7 +290,8 @@ class TerminalSettingsStoreLevel:
             merchant_id: The unique identifier of the merchant account.
             reference: The reference that identifies the store.
             body: The request body.
-            request_options: Per-call overrides for this one request, such as a timeout or extra headers.
+            request_options: Per-call overrides for this one request, such as a timeout, extra headers, or its retry
+                count and statuses.
 
         Returns:
             OK - the request has succeeded.
@@ -287,9 +301,11 @@ class TerminalSettingsStoreLevel:
                 required. Forbidden - insufficient permissions to process the request. Unprocessable Entity - a request
                 validation error. Internal Server Error - the server could not process the request. ``error`` is
                 ``RestServiceError | RawError``."""
-        return self._with_raw_response.patch_merchants_merchant_id_stores_reference_terminal_settings(
-            merchant_id, reference, body=body, request_options=request_options
-        ).unwrap()
+        return unwrap(
+            self._with_raw_response.patch_merchants_merchant_id_stores_reference_terminal_settings(
+                merchant_id, reference, body=body, request_options=request_options
+            ),
+        )
 
     def patch_stores_store_id_terminal_logos(
         self,
@@ -319,7 +335,8 @@ class TerminalSettingsStoreLevel:
                 P400Plus, UX300, UX410, V200cPlus, V240mPlus, V400cPlus, V400m, e280, e285, e285p, S1E, S1EL, S1F2, S1L,
                 S1U, S7T.
             body: The request body.
-            request_options: Per-call overrides for this one request, such as a timeout or extra headers.
+            request_options: Per-call overrides for this one request, such as a timeout, extra headers, or its retry
+                count and statuses.
 
         Returns:
             OK - the request has succeeded.
@@ -329,9 +346,11 @@ class TerminalSettingsStoreLevel:
                 required. Forbidden - insufficient permissions to process the request. Unprocessable Entity - a request
                 validation error. Internal Server Error - the server could not process the request. ``error`` is
                 ``RestServiceError | RawError``."""
-        return self._with_raw_response.patch_stores_store_id_terminal_logos(
-            store_id, model, body=body, request_options=request_options
-        ).unwrap()
+        return unwrap(
+            self._with_raw_response.patch_stores_store_id_terminal_logos(
+                store_id, model, body=body, request_options=request_options
+            ),
+        )
 
     def patch_stores_store_id_terminal_settings(
         self,
@@ -364,7 +383,8 @@ class TerminalSettingsStoreLevel:
         Args:
             store_id: The unique identifier of the store.
             body: The request body.
-            request_options: Per-call overrides for this one request, such as a timeout or extra headers.
+            request_options: Per-call overrides for this one request, such as a timeout, extra headers, or its retry
+                count and statuses.
 
         Returns:
             OK - the request has succeeded.
@@ -374,9 +394,11 @@ class TerminalSettingsStoreLevel:
                 required. Forbidden - insufficient permissions to process the request. Unprocessable Entity - a request
                 validation error. Internal Server Error - the server could not process the request. ``error`` is
                 ``RestServiceError | RawError``."""
-        return self._with_raw_response.patch_stores_store_id_terminal_settings(
-            store_id, body=body, request_options=request_options
-        ).unwrap()
+        return unwrap(
+            self._with_raw_response.patch_stores_store_id_terminal_settings(
+                store_id, body=body, request_options=request_options
+            ),
+        )
 
     @property
     def with_raw_response(self) -> TerminalSettingsStoreLevelWithRawResponse:
@@ -409,7 +431,8 @@ class AsyncTerminalSettingsStoreLevel:
             model: The terminal model. Possible values: E355, VX675WIFIBT, VX680, VX690, VX700, VX820, M400, MX925,
                 P400Plus, UX300, UX410, V200cPlus, V240mPlus, V400cPlus, V400m, e280, e285, e285p, S1E, S1EL, S1F2, S1L,
                 S1U, S7T.
-            request_options: Per-call overrides for this one request, such as a timeout or extra headers.
+            request_options: Per-call overrides for this one request, such as a timeout, extra headers, or its retry
+                count and statuses.
 
         Returns:
             OK - the request has succeeded.
@@ -419,11 +442,11 @@ class AsyncTerminalSettingsStoreLevel:
                 required. Forbidden - insufficient permissions to process the request. Unprocessable Entity - a request
                 validation error. Internal Server Error - the server could not process the request. ``error`` is
                 ``RestServiceError | RawError``."""
-        return (
+        return unwrap(
             await self._with_raw_response.get_merchants_merchant_id_stores_reference_terminal_logos(
                 merchant_id, reference, model, request_options=request_options
-            )
-        ).unwrap()
+            ),
+        )
 
     async def get_merchants_merchant_id_stores_reference_terminal_settings(
         self, merchant_id: str, reference: str, *, request_options: RequestOptionsOrDict | None = None
@@ -448,7 +471,8 @@ class AsyncTerminalSettingsStoreLevel:
         Args:
             merchant_id: The unique identifier of the merchant account.
             reference: The reference that identifies the store.
-            request_options: Per-call overrides for this one request, such as a timeout or extra headers.
+            request_options: Per-call overrides for this one request, such as a timeout, extra headers, or its retry
+                count and statuses.
 
         Returns:
             OK - the request has succeeded.
@@ -458,11 +482,11 @@ class AsyncTerminalSettingsStoreLevel:
                 required. Forbidden - insufficient permissions to process the request. Unprocessable Entity - a request
                 validation error. Internal Server Error - the server could not process the request. ``error`` is
                 ``RestServiceError | RawError``."""
-        return (
+        return unwrap(
             await self._with_raw_response.get_merchants_merchant_id_stores_reference_terminal_settings(
                 merchant_id, reference, request_options=request_options
-            )
-        ).unwrap()
+            ),
+        )
 
     async def get_stores_store_id_terminal_logos(
         self, store_id: str, model: str, *, request_options: RequestOptionsOrDict | None = None
@@ -485,7 +509,8 @@ class AsyncTerminalSettingsStoreLevel:
             model: The terminal model. Possible values: E355, VX675WIFIBT, VX680, VX690, VX700, VX820, M400, MX925,
                 P400Plus, UX300, UX410, V200cPlus, V240mPlus, V400cPlus, V400m, e280, e285, e285p, S1E, S1EL, S1F2, S1L,
                 S1U, S7T.
-            request_options: Per-call overrides for this one request, such as a timeout or extra headers.
+            request_options: Per-call overrides for this one request, such as a timeout, extra headers, or its retry
+                count and statuses.
 
         Returns:
             OK - the request has succeeded.
@@ -495,11 +520,11 @@ class AsyncTerminalSettingsStoreLevel:
                 required. Forbidden - insufficient permissions to process the request. Unprocessable Entity - a request
                 validation error. Internal Server Error - the server could not process the request. ``error`` is
                 ``RestServiceError | RawError``."""
-        return (
+        return unwrap(
             await self._with_raw_response.get_stores_store_id_terminal_logos(
                 store_id, model, request_options=request_options
-            )
-        ).unwrap()
+            ),
+        )
 
     async def get_stores_store_id_terminal_settings(
         self, store_id: str, *, request_options: RequestOptionsOrDict | None = None
@@ -523,7 +548,8 @@ class AsyncTerminalSettingsStoreLevel:
 
         Args:
             store_id: The unique identifier of the store.
-            request_options: Per-call overrides for this one request, such as a timeout or extra headers.
+            request_options: Per-call overrides for this one request, such as a timeout, extra headers, or its retry
+                count and statuses.
 
         Returns:
             OK - the request has succeeded.
@@ -533,11 +559,11 @@ class AsyncTerminalSettingsStoreLevel:
                 required. Forbidden - insufficient permissions to process the request. Unprocessable Entity - a request
                 validation error. Internal Server Error - the server could not process the request. ``error`` is
                 ``RestServiceError | RawError``."""
-        return (
+        return unwrap(
             await self._with_raw_response.get_stores_store_id_terminal_settings(
                 store_id, request_options=request_options
-            )
-        ).unwrap()
+            ),
+        )
 
     async def patch_merchants_merchant_id_stores_reference_terminal_logos(
         self,
@@ -569,7 +595,8 @@ class AsyncTerminalSettingsStoreLevel:
                 P400Plus, UX300, UX410, V200cPlus, V240mPlus, V400cPlus, V400m, e280, e285, e285p, S1E, S1EL, S1F2, S1L,
                 S1U, S7T
             body: The request body.
-            request_options: Per-call overrides for this one request, such as a timeout or extra headers.
+            request_options: Per-call overrides for this one request, such as a timeout, extra headers, or its retry
+                count and statuses.
 
         Returns:
             OK - the request has succeeded.
@@ -579,11 +606,11 @@ class AsyncTerminalSettingsStoreLevel:
                 required. Forbidden - insufficient permissions to process the request. Unprocessable Entity - a request
                 validation error. Internal Server Error - the server could not process the request. ``error`` is
                 ``RestServiceError | RawError``."""
-        return (
+        return unwrap(
             await self._with_raw_response.patch_merchants_merchant_id_stores_reference_terminal_logos(
                 merchant_id, reference, model, body=body, request_options=request_options
-            )
-        ).unwrap()
+            ),
+        )
 
     async def patch_merchants_merchant_id_stores_reference_terminal_settings(
         self,
@@ -618,7 +645,8 @@ class AsyncTerminalSettingsStoreLevel:
             merchant_id: The unique identifier of the merchant account.
             reference: The reference that identifies the store.
             body: The request body.
-            request_options: Per-call overrides for this one request, such as a timeout or extra headers.
+            request_options: Per-call overrides for this one request, such as a timeout, extra headers, or its retry
+                count and statuses.
 
         Returns:
             OK - the request has succeeded.
@@ -628,11 +656,11 @@ class AsyncTerminalSettingsStoreLevel:
                 required. Forbidden - insufficient permissions to process the request. Unprocessable Entity - a request
                 validation error. Internal Server Error - the server could not process the request. ``error`` is
                 ``RestServiceError | RawError``."""
-        return (
+        return unwrap(
             await self._with_raw_response.patch_merchants_merchant_id_stores_reference_terminal_settings(
                 merchant_id, reference, body=body, request_options=request_options
-            )
-        ).unwrap()
+            ),
+        )
 
     async def patch_stores_store_id_terminal_logos(
         self,
@@ -662,7 +690,8 @@ class AsyncTerminalSettingsStoreLevel:
                 P400Plus, UX300, UX410, V200cPlus, V240mPlus, V400cPlus, V400m, e280, e285, e285p, S1E, S1EL, S1F2, S1L,
                 S1U, S7T.
             body: The request body.
-            request_options: Per-call overrides for this one request, such as a timeout or extra headers.
+            request_options: Per-call overrides for this one request, such as a timeout, extra headers, or its retry
+                count and statuses.
 
         Returns:
             OK - the request has succeeded.
@@ -672,11 +701,11 @@ class AsyncTerminalSettingsStoreLevel:
                 required. Forbidden - insufficient permissions to process the request. Unprocessable Entity - a request
                 validation error. Internal Server Error - the server could not process the request. ``error`` is
                 ``RestServiceError | RawError``."""
-        return (
+        return unwrap(
             await self._with_raw_response.patch_stores_store_id_terminal_logos(
                 store_id, model, body=body, request_options=request_options
-            )
-        ).unwrap()
+            ),
+        )
 
     async def patch_stores_store_id_terminal_settings(
         self,
@@ -709,7 +738,8 @@ class AsyncTerminalSettingsStoreLevel:
         Args:
             store_id: The unique identifier of the store.
             body: The request body.
-            request_options: Per-call overrides for this one request, such as a timeout or extra headers.
+            request_options: Per-call overrides for this one request, such as a timeout, extra headers, or its retry
+                count and statuses.
 
         Returns:
             OK - the request has succeeded.
@@ -719,11 +749,11 @@ class AsyncTerminalSettingsStoreLevel:
                 required. Forbidden - insufficient permissions to process the request. Unprocessable Entity - a request
                 validation error. Internal Server Error - the server could not process the request. ``error`` is
                 ``RestServiceError | RawError``."""
-        return (
+        return unwrap(
             await self._with_raw_response.patch_stores_store_id_terminal_settings(
                 store_id, body=body, request_options=request_options
-            )
-        ).unwrap()
+            ),
+        )
 
     @property
     def with_raw_response(self) -> AsyncTerminalSettingsStoreLevelWithRawResponse:
@@ -753,7 +783,8 @@ class TerminalSettingsStoreLevelWithRawResponse(SecuredRawResponse[RawClient, Se
             model: The terminal model. Possible values: E355, VX675WIFIBT, VX680, VX690, VX700, VX820, M400, MX925,
                 P400Plus, UX300, UX410, V200cPlus, V240mPlus, V400cPlus, V400m, e280, e285, e285p, S1E, S1EL, S1F2, S1L,
                 S1U, S7T.
-            request_options: Per-call overrides for this one request, such as a timeout or extra headers.
+            request_options: Per-call overrides for this one request, such as a timeout, extra headers, or its retry
+                count and statuses.
 
         Returns:
             An ``ApiResult`` holding the deserialized response or the error body."""
@@ -791,7 +822,8 @@ class TerminalSettingsStoreLevelWithRawResponse(SecuredRawResponse[RawClient, Se
         Args:
             merchant_id: The unique identifier of the merchant account.
             reference: The reference that identifies the store.
-            request_options: Per-call overrides for this one request, such as a timeout or extra headers.
+            request_options: Per-call overrides for this one request, such as a timeout, extra headers, or its retry
+                count and statuses.
 
         Returns:
             An ``ApiResult`` holding the deserialized response or the error body."""
@@ -826,7 +858,8 @@ class TerminalSettingsStoreLevelWithRawResponse(SecuredRawResponse[RawClient, Se
             model: The terminal model. Possible values: E355, VX675WIFIBT, VX680, VX690, VX700, VX820, M400, MX925,
                 P400Plus, UX300, UX410, V200cPlus, V240mPlus, V400cPlus, V400m, e280, e285, e285p, S1E, S1EL, S1F2, S1L,
                 S1U, S7T.
-            request_options: Per-call overrides for this one request, such as a timeout or extra headers.
+            request_options: Per-call overrides for this one request, such as a timeout, extra headers, or its retry
+                count and statuses.
 
         Returns:
             An ``ApiResult`` holding the deserialized response or the error body."""
@@ -863,7 +896,8 @@ class TerminalSettingsStoreLevelWithRawResponse(SecuredRawResponse[RawClient, Se
 
         Args:
             store_id: The unique identifier of the store.
-            request_options: Per-call overrides for this one request, such as a timeout or extra headers.
+            request_options: Per-call overrides for this one request, such as a timeout, extra headers, or its retry
+                count and statuses.
 
         Returns:
             An ``ApiResult`` holding the deserialized response or the error body."""
@@ -907,7 +941,8 @@ class TerminalSettingsStoreLevelWithRawResponse(SecuredRawResponse[RawClient, Se
                 P400Plus, UX300, UX410, V200cPlus, V240mPlus, V400cPlus, V400m, e280, e285, e285p, S1E, S1EL, S1F2, S1L,
                 S1U, S7T
             body: The request body.
-            request_options: Per-call overrides for this one request, such as a timeout or extra headers.
+            request_options: Per-call overrides for this one request, such as a timeout, extra headers, or its retry
+                count and statuses.
 
         Returns:
             An ``ApiResult`` holding the deserialized response or the error body."""
@@ -957,7 +992,8 @@ class TerminalSettingsStoreLevelWithRawResponse(SecuredRawResponse[RawClient, Se
             merchant_id: The unique identifier of the merchant account.
             reference: The reference that identifies the store.
             body: The request body.
-            request_options: Per-call overrides for this one request, such as a timeout or extra headers.
+            request_options: Per-call overrides for this one request, such as a timeout, extra headers, or its retry
+                count and statuses.
 
         Returns:
             An ``ApiResult`` holding the deserialized response or the error body."""
@@ -1001,7 +1037,8 @@ class TerminalSettingsStoreLevelWithRawResponse(SecuredRawResponse[RawClient, Se
                 P400Plus, UX300, UX410, V200cPlus, V240mPlus, V400cPlus, V400m, e280, e285, e285p, S1E, S1EL, S1F2, S1L,
                 S1U, S7T.
             body: The request body.
-            request_options: Per-call overrides for this one request, such as a timeout or extra headers.
+            request_options: Per-call overrides for this one request, such as a timeout, extra headers, or its retry
+                count and statuses.
 
         Returns:
             An ``ApiResult`` holding the deserialized response or the error body."""
@@ -1049,7 +1086,8 @@ class TerminalSettingsStoreLevelWithRawResponse(SecuredRawResponse[RawClient, Se
         Args:
             store_id: The unique identifier of the store.
             body: The request body.
-            request_options: Per-call overrides for this one request, such as a timeout or extra headers.
+            request_options: Per-call overrides for this one request, such as a timeout, extra headers, or its retry
+                count and statuses.
 
         Returns:
             An ``ApiResult`` holding the deserialized response or the error body."""
@@ -1089,7 +1127,8 @@ class AsyncTerminalSettingsStoreLevelWithRawResponse(SecuredRawResponse[AsyncRaw
             model: The terminal model. Possible values: E355, VX675WIFIBT, VX680, VX690, VX700, VX820, M400, MX925,
                 P400Plus, UX300, UX410, V200cPlus, V240mPlus, V400cPlus, V400m, e280, e285, e285p, S1E, S1EL, S1F2, S1L,
                 S1U, S7T.
-            request_options: Per-call overrides for this one request, such as a timeout or extra headers.
+            request_options: Per-call overrides for this one request, such as a timeout, extra headers, or its retry
+                count and statuses.
 
         Returns:
             An ``ApiResult`` holding the deserialized response or the error body."""
@@ -1099,7 +1138,7 @@ class AsyncTerminalSettingsStoreLevelWithRawResponse(SecuredRawResponse[AsyncRaw
             path_params=[param[str]("merchantId", merchant_id), param[str]("reference", reference)],
             query_params=[param[str]("model", model)],
             auth_scheme=AsyncAnySchemes(self._auth.basic_auth, self._auth.api_key_auth),
-            decoder=json_decoder[Logo],
+            decoder=async_json_decoder[Logo],
             error_mapper=get_merchants_merchant_id_stores_reference_terminal_logos_error_mapper,
             request_options=request_options,
         )
@@ -1127,7 +1166,8 @@ class AsyncTerminalSettingsStoreLevelWithRawResponse(SecuredRawResponse[AsyncRaw
         Args:
             merchant_id: The unique identifier of the merchant account.
             reference: The reference that identifies the store.
-            request_options: Per-call overrides for this one request, such as a timeout or extra headers.
+            request_options: Per-call overrides for this one request, such as a timeout, extra headers, or its retry
+                count and statuses.
 
         Returns:
             An ``ApiResult`` holding the deserialized response or the error body."""
@@ -1136,7 +1176,7 @@ class AsyncTerminalSettingsStoreLevelWithRawResponse(SecuredRawResponse[AsyncRaw
             url_template=self._server.default9("/merchants/{merchantId}/stores/{reference}/terminalSettings"),
             path_params=[param[str]("merchantId", merchant_id), param[str]("reference", reference)],
             auth_scheme=AsyncAnySchemes(self._auth.basic_auth, self._auth.api_key_auth),
-            decoder=json_decoder[TerminalSettings],
+            decoder=async_json_decoder[TerminalSettings],
             error_mapper=get_merchants_merchant_id_stores_reference_terminal_settings_error_mapper,
             request_options=request_options,
         )
@@ -1162,7 +1202,8 @@ class AsyncTerminalSettingsStoreLevelWithRawResponse(SecuredRawResponse[AsyncRaw
             model: The terminal model. Possible values: E355, VX675WIFIBT, VX680, VX690, VX700, VX820, M400, MX925,
                 P400Plus, UX300, UX410, V200cPlus, V240mPlus, V400cPlus, V400m, e280, e285, e285p, S1E, S1EL, S1F2, S1L,
                 S1U, S7T.
-            request_options: Per-call overrides for this one request, such as a timeout or extra headers.
+            request_options: Per-call overrides for this one request, such as a timeout, extra headers, or its retry
+                count and statuses.
 
         Returns:
             An ``ApiResult`` holding the deserialized response or the error body."""
@@ -1172,7 +1213,7 @@ class AsyncTerminalSettingsStoreLevelWithRawResponse(SecuredRawResponse[AsyncRaw
             path_params=[param[str]("storeId", store_id)],
             query_params=[param[str]("model", model)],
             auth_scheme=AsyncAnySchemes(self._auth.basic_auth, self._auth.api_key_auth),
-            decoder=json_decoder[Logo],
+            decoder=async_json_decoder[Logo],
             error_mapper=get_stores_store_id_terminal_logos_error_mapper,
             request_options=request_options,
         )
@@ -1199,7 +1240,8 @@ class AsyncTerminalSettingsStoreLevelWithRawResponse(SecuredRawResponse[AsyncRaw
 
         Args:
             store_id: The unique identifier of the store.
-            request_options: Per-call overrides for this one request, such as a timeout or extra headers.
+            request_options: Per-call overrides for this one request, such as a timeout, extra headers, or its retry
+                count and statuses.
 
         Returns:
             An ``ApiResult`` holding the deserialized response or the error body."""
@@ -1208,7 +1250,7 @@ class AsyncTerminalSettingsStoreLevelWithRawResponse(SecuredRawResponse[AsyncRaw
             url_template=self._server.default9("/stores/{storeId}/terminalSettings"),
             path_params=[param[str]("storeId", store_id)],
             auth_scheme=AsyncAnySchemes(self._auth.basic_auth, self._auth.api_key_auth),
-            decoder=json_decoder[TerminalSettings],
+            decoder=async_json_decoder[TerminalSettings],
             error_mapper=get_stores_store_id_terminal_settings_error_mapper,
             request_options=request_options,
         )
@@ -1243,7 +1285,8 @@ class AsyncTerminalSettingsStoreLevelWithRawResponse(SecuredRawResponse[AsyncRaw
                 P400Plus, UX300, UX410, V200cPlus, V240mPlus, V400cPlus, V400m, e280, e285, e285p, S1E, S1EL, S1F2, S1L,
                 S1U, S7T
             body: The request body.
-            request_options: Per-call overrides for this one request, such as a timeout or extra headers.
+            request_options: Per-call overrides for this one request, such as a timeout, extra headers, or its retry
+                count and statuses.
 
         Returns:
             An ``ApiResult`` holding the deserialized response or the error body."""
@@ -1255,7 +1298,7 @@ class AsyncTerminalSettingsStoreLevelWithRawResponse(SecuredRawResponse[AsyncRaw
             headers=[param[UUID]("Idempotency-Key", uuid4())],
             body=json_body[Logo | LogoDict | None](body),
             auth_scheme=AsyncAnySchemes(self._auth.basic_auth, self._auth.api_key_auth),
-            decoder=json_decoder[Logo],
+            decoder=async_json_decoder[Logo],
             error_mapper=patch_merchants_merchant_id_stores_reference_terminal_logos_error_mapper,
             request_options=request_options,
         )
@@ -1293,7 +1336,8 @@ class AsyncTerminalSettingsStoreLevelWithRawResponse(SecuredRawResponse[AsyncRaw
             merchant_id: The unique identifier of the merchant account.
             reference: The reference that identifies the store.
             body: The request body.
-            request_options: Per-call overrides for this one request, such as a timeout or extra headers.
+            request_options: Per-call overrides for this one request, such as a timeout, extra headers, or its retry
+                count and statuses.
 
         Returns:
             An ``ApiResult`` holding the deserialized response or the error body."""
@@ -1304,7 +1348,7 @@ class AsyncTerminalSettingsStoreLevelWithRawResponse(SecuredRawResponse[AsyncRaw
             headers=[param[UUID]("Idempotency-Key", uuid4())],
             body=json_body[TerminalSettings | TerminalSettingsDict | None](body),
             auth_scheme=AsyncAnySchemes(self._auth.basic_auth, self._auth.api_key_auth),
-            decoder=json_decoder[TerminalSettings],
+            decoder=async_json_decoder[TerminalSettings],
             error_mapper=patch_merchants_merchant_id_stores_reference_terminal_settings_error_mapper,
             request_options=request_options,
         )
@@ -1337,7 +1381,8 @@ class AsyncTerminalSettingsStoreLevelWithRawResponse(SecuredRawResponse[AsyncRaw
                 P400Plus, UX300, UX410, V200cPlus, V240mPlus, V400cPlus, V400m, e280, e285, e285p, S1E, S1EL, S1F2, S1L,
                 S1U, S7T.
             body: The request body.
-            request_options: Per-call overrides for this one request, such as a timeout or extra headers.
+            request_options: Per-call overrides for this one request, such as a timeout, extra headers, or its retry
+                count and statuses.
 
         Returns:
             An ``ApiResult`` holding the deserialized response or the error body."""
@@ -1349,7 +1394,7 @@ class AsyncTerminalSettingsStoreLevelWithRawResponse(SecuredRawResponse[AsyncRaw
             headers=[param[UUID]("Idempotency-Key", uuid4())],
             body=json_body[Logo | LogoDict | None](body),
             auth_scheme=AsyncAnySchemes(self._auth.basic_auth, self._auth.api_key_auth),
-            decoder=json_decoder[Logo],
+            decoder=async_json_decoder[Logo],
             error_mapper=patch_stores_store_id_terminal_logos_error_mapper,
             request_options=request_options,
         )
@@ -1385,7 +1430,8 @@ class AsyncTerminalSettingsStoreLevelWithRawResponse(SecuredRawResponse[AsyncRaw
         Args:
             store_id: The unique identifier of the store.
             body: The request body.
-            request_options: Per-call overrides for this one request, such as a timeout or extra headers.
+            request_options: Per-call overrides for this one request, such as a timeout, extra headers, or its retry
+                count and statuses.
 
         Returns:
             An ``ApiResult`` holding the deserialized response or the error body."""
@@ -1396,7 +1442,7 @@ class AsyncTerminalSettingsStoreLevelWithRawResponse(SecuredRawResponse[AsyncRaw
             headers=[param[UUID]("Idempotency-Key", uuid4())],
             body=json_body[TerminalSettings | TerminalSettingsDict | None](body),
             auth_scheme=AsyncAnySchemes(self._auth.basic_auth, self._auth.api_key_auth),
-            decoder=json_decoder[TerminalSettings],
+            decoder=async_json_decoder[TerminalSettings],
             error_mapper=patch_stores_store_id_terminal_settings_error_mapper,
             request_options=request_options,
         )

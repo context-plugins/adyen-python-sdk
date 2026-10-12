@@ -11,9 +11,11 @@ from ..core import (
     RawClient,
     RequestOptionsOrDict,
     SecuredRawResponse,
+    async_json_decoder,
     json_body,
     json_decoder,
     param,
+    unwrap,
 )
 from ..errors.delete_transaction_rules_transaction_rule_id_error import (
     DeleteTransactionRulesTransactionRuleIdErrorBody,
@@ -45,7 +47,8 @@ class TransactionRules:
 
         Args:
             transaction_rule_id: The unique identifier of the transaction rule.
-            request_options: Per-call overrides for this one request, such as a timeout or extra headers.
+            request_options: Per-call overrides for this one request, such as a timeout, extra headers, or its retry
+                count and statuses.
 
         Returns:
             OK - the request has succeeded.
@@ -55,9 +58,11 @@ class TransactionRules:
                 required. Forbidden - insufficient permissions to process the request. Unprocessable Entity - a request
                 validation error. Internal Server Error - the server could not process the request. ``error`` is
                 ``RestServiceError | RawError``."""
-        return self._with_raw_response.delete_transaction_rules_transaction_rule_id(
-            transaction_rule_id, request_options=request_options
-        ).unwrap()
+        return unwrap(
+            self._with_raw_response.delete_transaction_rules_transaction_rule_id(
+                transaction_rule_id, request_options=request_options
+            ),
+        )
 
     def get_transaction_rules_transaction_rule_id(
         self, transaction_rule_id: str, *, request_options: RequestOptionsOrDict | None = None
@@ -66,7 +71,8 @@ class TransactionRules:
 
         Args:
             transaction_rule_id: The unique identifier of the transaction rule.
-            request_options: Per-call overrides for this one request, such as a timeout or extra headers.
+            request_options: Per-call overrides for this one request, such as a timeout, extra headers, or its retry
+                count and statuses.
 
         Returns:
             OK - the request has succeeded.
@@ -76,9 +82,11 @@ class TransactionRules:
                 required. Forbidden - insufficient permissions to process the request. Unprocessable Entity - a request
                 validation error. Internal Server Error - the server could not process the request. ``error`` is
                 ``RestServiceError | RawError``."""
-        return self._with_raw_response.get_transaction_rules_transaction_rule_id(
-            transaction_rule_id, request_options=request_options
-        ).unwrap()
+        return unwrap(
+            self._with_raw_response.get_transaction_rules_transaction_rule_id(
+                transaction_rule_id, request_options=request_options
+            ),
+        )
 
     def patch_transaction_rules_transaction_rule_id(
         self,
@@ -98,7 +106,8 @@ class TransactionRules:
         Args:
             transaction_rule_id: The unique identifier of the transaction rule.
             body: The request body.
-            request_options: Per-call overrides for this one request, such as a timeout or extra headers.
+            request_options: Per-call overrides for this one request, such as a timeout, extra headers, or its retry
+                count and statuses.
 
         Returns:
             OK - the request has succeeded.
@@ -108,9 +117,11 @@ class TransactionRules:
                 required. Forbidden - insufficient permissions to process the request. Unprocessable Entity - a request
                 validation error. Internal Server Error - the server could not process the request. ``error`` is
                 ``RestServiceError | RawError``."""
-        return self._with_raw_response.patch_transaction_rules_transaction_rule_id(
-            transaction_rule_id, body=body, request_options=request_options
-        ).unwrap()
+        return unwrap(
+            self._with_raw_response.patch_transaction_rules_transaction_rule_id(
+                transaction_rule_id, body=body, request_options=request_options
+            ),
+        )
 
     def post_transaction_rules(
         self,
@@ -126,7 +137,8 @@ class TransactionRules:
 
         Args:
             body: The request body.
-            request_options: Per-call overrides for this one request, such as a timeout or extra headers.
+            request_options: Per-call overrides for this one request, such as a timeout, extra headers, or its retry
+                count and statuses.
 
         Returns:
             OK - the request has succeeded.
@@ -136,7 +148,7 @@ class TransactionRules:
                 required. Forbidden - insufficient permissions to process the request. Unprocessable Entity - a request
                 validation error. Internal Server Error - the server could not process the request. ``error`` is
                 ``RestServiceError | RawError``."""
-        return self._with_raw_response.post_transaction_rules(body=body, request_options=request_options).unwrap()
+        return unwrap(self._with_raw_response.post_transaction_rules(body=body, request_options=request_options))
 
     @property
     def with_raw_response(self) -> TransactionRulesWithRawResponse:
@@ -154,7 +166,8 @@ class AsyncTransactionRules:
 
         Args:
             transaction_rule_id: The unique identifier of the transaction rule.
-            request_options: Per-call overrides for this one request, such as a timeout or extra headers.
+            request_options: Per-call overrides for this one request, such as a timeout, extra headers, or its retry
+                count and statuses.
 
         Returns:
             OK - the request has succeeded.
@@ -164,11 +177,11 @@ class AsyncTransactionRules:
                 required. Forbidden - insufficient permissions to process the request. Unprocessable Entity - a request
                 validation error. Internal Server Error - the server could not process the request. ``error`` is
                 ``RestServiceError | RawError``."""
-        return (
+        return unwrap(
             await self._with_raw_response.delete_transaction_rules_transaction_rule_id(
                 transaction_rule_id, request_options=request_options
-            )
-        ).unwrap()
+            ),
+        )
 
     async def get_transaction_rules_transaction_rule_id(
         self, transaction_rule_id: str, *, request_options: RequestOptionsOrDict | None = None
@@ -177,7 +190,8 @@ class AsyncTransactionRules:
 
         Args:
             transaction_rule_id: The unique identifier of the transaction rule.
-            request_options: Per-call overrides for this one request, such as a timeout or extra headers.
+            request_options: Per-call overrides for this one request, such as a timeout, extra headers, or its retry
+                count and statuses.
 
         Returns:
             OK - the request has succeeded.
@@ -187,11 +201,11 @@ class AsyncTransactionRules:
                 required. Forbidden - insufficient permissions to process the request. Unprocessable Entity - a request
                 validation error. Internal Server Error - the server could not process the request. ``error`` is
                 ``RestServiceError | RawError``."""
-        return (
+        return unwrap(
             await self._with_raw_response.get_transaction_rules_transaction_rule_id(
                 transaction_rule_id, request_options=request_options
-            )
-        ).unwrap()
+            ),
+        )
 
     async def patch_transaction_rules_transaction_rule_id(
         self,
@@ -211,7 +225,8 @@ class AsyncTransactionRules:
         Args:
             transaction_rule_id: The unique identifier of the transaction rule.
             body: The request body.
-            request_options: Per-call overrides for this one request, such as a timeout or extra headers.
+            request_options: Per-call overrides for this one request, such as a timeout, extra headers, or its retry
+                count and statuses.
 
         Returns:
             OK - the request has succeeded.
@@ -221,11 +236,11 @@ class AsyncTransactionRules:
                 required. Forbidden - insufficient permissions to process the request. Unprocessable Entity - a request
                 validation error. Internal Server Error - the server could not process the request. ``error`` is
                 ``RestServiceError | RawError``."""
-        return (
+        return unwrap(
             await self._with_raw_response.patch_transaction_rules_transaction_rule_id(
                 transaction_rule_id, body=body, request_options=request_options
-            )
-        ).unwrap()
+            ),
+        )
 
     async def post_transaction_rules(
         self,
@@ -241,7 +256,8 @@ class AsyncTransactionRules:
 
         Args:
             body: The request body.
-            request_options: Per-call overrides for this one request, such as a timeout or extra headers.
+            request_options: Per-call overrides for this one request, such as a timeout, extra headers, or its retry
+                count and statuses.
 
         Returns:
             OK - the request has succeeded.
@@ -251,9 +267,7 @@ class AsyncTransactionRules:
                 required. Forbidden - insufficient permissions to process the request. Unprocessable Entity - a request
                 validation error. Internal Server Error - the server could not process the request. ``error`` is
                 ``RestServiceError | RawError``."""
-        return (
-            await self._with_raw_response.post_transaction_rules(body=body, request_options=request_options)
-        ).unwrap()
+        return unwrap(await self._with_raw_response.post_transaction_rules(body=body, request_options=request_options))
 
     @property
     def with_raw_response(self) -> AsyncTransactionRulesWithRawResponse:
@@ -268,7 +282,8 @@ class TransactionRulesWithRawResponse(SecuredRawResponse[RawClient, Server, Auth
 
         Args:
             transaction_rule_id: The unique identifier of the transaction rule.
-            request_options: Per-call overrides for this one request, such as a timeout or extra headers.
+            request_options: Per-call overrides for this one request, such as a timeout, extra headers, or its retry
+                count and statuses.
 
         Returns:
             An ``ApiResult`` holding the deserialized response or the error body."""
@@ -290,7 +305,8 @@ class TransactionRulesWithRawResponse(SecuredRawResponse[RawClient, Server, Auth
 
         Args:
             transaction_rule_id: The unique identifier of the transaction rule.
-            request_options: Per-call overrides for this one request, such as a timeout or extra headers.
+            request_options: Per-call overrides for this one request, such as a timeout, extra headers, or its retry
+                count and statuses.
 
         Returns:
             An ``ApiResult`` holding the deserialized response or the error body."""
@@ -322,7 +338,8 @@ class TransactionRulesWithRawResponse(SecuredRawResponse[RawClient, Server, Auth
         Args:
             transaction_rule_id: The unique identifier of the transaction rule.
             body: The request body.
-            request_options: Per-call overrides for this one request, such as a timeout or extra headers.
+            request_options: Per-call overrides for this one request, such as a timeout, extra headers, or its retry
+                count and statuses.
 
         Returns:
             An ``ApiResult`` holding the deserialized response or the error body."""
@@ -352,7 +369,8 @@ class TransactionRulesWithRawResponse(SecuredRawResponse[RawClient, Server, Auth
 
         Args:
             body: The request body.
-            request_options: Per-call overrides for this one request, such as a timeout or extra headers.
+            request_options: Per-call overrides for this one request, such as a timeout, extra headers, or its retry
+                count and statuses.
 
         Returns:
             An ``ApiResult`` holding the deserialized response or the error body."""
@@ -376,7 +394,8 @@ class AsyncTransactionRulesWithRawResponse(SecuredRawResponse[AsyncRawClient, Se
 
         Args:
             transaction_rule_id: The unique identifier of the transaction rule.
-            request_options: Per-call overrides for this one request, such as a timeout or extra headers.
+            request_options: Per-call overrides for this one request, such as a timeout, extra headers, or its retry
+                count and statuses.
 
         Returns:
             An ``ApiResult`` holding the deserialized response or the error body."""
@@ -386,7 +405,7 @@ class AsyncTransactionRulesWithRawResponse(SecuredRawResponse[AsyncRawClient, Se
             path_params=[param[str]("transactionRuleId", transaction_rule_id)],
             headers=[param[UUID]("Idempotency-Key", uuid4())],
             auth_scheme=AsyncAnySchemes(self._auth.client_key, self._auth.basic_auth, self._auth.api_key_auth),
-            decoder=json_decoder[TransactionRule],
+            decoder=async_json_decoder[TransactionRule],
             error_mapper=delete_transaction_rules_transaction_rule_id_error_mapper,
             request_options=request_options,
         )
@@ -398,7 +417,8 @@ class AsyncTransactionRulesWithRawResponse(SecuredRawResponse[AsyncRawClient, Se
 
         Args:
             transaction_rule_id: The unique identifier of the transaction rule.
-            request_options: Per-call overrides for this one request, such as a timeout or extra headers.
+            request_options: Per-call overrides for this one request, such as a timeout, extra headers, or its retry
+                count and statuses.
 
         Returns:
             An ``ApiResult`` holding the deserialized response or the error body."""
@@ -407,7 +427,7 @@ class AsyncTransactionRulesWithRawResponse(SecuredRawResponse[AsyncRawClient, Se
             url_template=self._server.default13("/transactionRules/{transactionRuleId}"),
             path_params=[param[str]("transactionRuleId", transaction_rule_id)],
             auth_scheme=AsyncAnySchemes(self._auth.client_key, self._auth.basic_auth, self._auth.api_key_auth),
-            decoder=json_decoder[TransactionRuleResponse],
+            decoder=async_json_decoder[TransactionRuleResponse],
             error_mapper=get_transaction_rules_transaction_rule_id_error_mapper,
             request_options=request_options,
         )
@@ -430,7 +450,8 @@ class AsyncTransactionRulesWithRawResponse(SecuredRawResponse[AsyncRawClient, Se
         Args:
             transaction_rule_id: The unique identifier of the transaction rule.
             body: The request body.
-            request_options: Per-call overrides for this one request, such as a timeout or extra headers.
+            request_options: Per-call overrides for this one request, such as a timeout, extra headers, or its retry
+                count and statuses.
 
         Returns:
             An ``ApiResult`` holding the deserialized response or the error body."""
@@ -441,7 +462,7 @@ class AsyncTransactionRulesWithRawResponse(SecuredRawResponse[AsyncRawClient, Se
             headers=[param[UUID]("Idempotency-Key", uuid4())],
             body=json_body[TransactionRuleInfo | TransactionRuleInfoDict | None](body),
             auth_scheme=AsyncAnySchemes(self._auth.client_key, self._auth.basic_auth, self._auth.api_key_auth),
-            decoder=json_decoder[TransactionRule],
+            decoder=async_json_decoder[TransactionRule],
             error_mapper=patch_transaction_rules_transaction_rule_id_error_mapper,
             request_options=request_options,
         )
@@ -460,7 +481,8 @@ class AsyncTransactionRulesWithRawResponse(SecuredRawResponse[AsyncRawClient, Se
 
         Args:
             body: The request body.
-            request_options: Per-call overrides for this one request, such as a timeout or extra headers.
+            request_options: Per-call overrides for this one request, such as a timeout, extra headers, or its retry
+                count and statuses.
 
         Returns:
             An ``ApiResult`` holding the deserialized response or the error body."""
@@ -470,7 +492,7 @@ class AsyncTransactionRulesWithRawResponse(SecuredRawResponse[AsyncRawClient, Se
             headers=[param[UUID]("Idempotency-Key", uuid4())],
             body=json_body[TransactionRuleInfo | TransactionRuleInfoDict | None](body),
             auth_scheme=AsyncAnySchemes(self._auth.client_key, self._auth.basic_auth, self._auth.api_key_auth),
-            decoder=json_decoder[TransactionRule],
+            decoder=async_json_decoder[TransactionRule],
             error_mapper=post_transaction_rules_error_mapper,
             request_options=request_options,
         )

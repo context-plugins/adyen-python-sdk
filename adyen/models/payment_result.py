@@ -97,9 +97,9 @@ class PaymentResult(SdkBaseModel):
 class PaymentResultDict(TypedDict):
     additional_data: NotRequired[dict[str, str]]
     auth_code: NotRequired[str]
-    dcc_amount: NotRequired[Amount | AmountDict]
+    dcc_amount: NotRequired[AmountDict]
     dcc_signature: NotRequired[str]
-    fraud_result: NotRequired[FraudResult2 | FraudResult2Dict]
+    fraud_result: NotRequired[FraudResult2Dict]
     issuer_url: NotRequired[str]
     md: NotRequired[str]
     pa_request: NotRequired[str]

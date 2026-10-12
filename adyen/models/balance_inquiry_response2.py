@@ -22,6 +22,6 @@ class BalanceInquiryResponse2(SdkBaseModel):
 
 
 class BalanceInquiryResponse2Dict(TypedDict):
-    response: Response11 | Response11Dict
-    payment_account_status: NotRequired[PaymentAccountStatus2 | PaymentAccountStatus2Dict]
-    payment_receipt: NotRequired[list[PaymentReceipt | PaymentReceiptDict]]
+    response: Response11Dict
+    payment_account_status: NotRequired[PaymentAccountStatus2Dict]
+    payment_receipt: NotRequired[list[PaymentReceiptDict]]

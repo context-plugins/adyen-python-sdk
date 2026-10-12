@@ -17,4 +17,4 @@ class DisplayResponse(SdkBaseModel):
 
 
 class DisplayResponseDict(TypedDict):
-    output_result: list[OutputResult | OutputResultDict]
+    output_result: list[OutputResultDict]

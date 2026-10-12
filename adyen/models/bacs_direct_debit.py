@@ -4,7 +4,7 @@ from pydantic import Field
 from typing_extensions import NotRequired, TypedDict
 
 from ..core import UNSET, Optional, SdkBaseModel
-from .enums.type10 import Type10OrStr
+from .enums.type10 import Type10, Type10OrStr
 
 
 class BacsDirectDebit(SdkBaseModel):
@@ -33,7 +33,7 @@ class BacsDirectDebit(SdkBaseModel):
     """The unique identifier of your user's verified transfer instrument, which you can use to top up their balance
     accounts."""
 
-    type_: Optional[Type10OrStr] = Field(default=UNSET, alias="type")
+    type_: Type10OrStr = Field(default=Type10.DIRECTDEBIT_GB, alias="type")
     """**directdebit_GB**"""
 
 

@@ -21,4 +21,4 @@ class AccountTransactionList(SdkBaseModel):
 class AccountTransactionListDict(TypedDict):
     account_code: NotRequired[str]
     has_next_page: NotRequired[bool]
-    transactions: NotRequired[list[Transaction1 | Transaction1Dict]]
+    transactions: NotRequired[list[Transaction1Dict]]

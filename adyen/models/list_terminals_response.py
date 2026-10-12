@@ -23,7 +23,7 @@ class ListTerminalsResponse(SdkBaseModel):
 
 
 class ListTerminalsResponseDict(TypedDict):
-    links: NotRequired[PaginationLinks1 | PaginationLinks1Dict]
-    data: NotRequired[list[Terminal | TerminalDict]]
+    links: NotRequired[PaginationLinks1Dict]
+    data: NotRequired[list[TerminalDict]]
     items_total: int
     pages_total: int

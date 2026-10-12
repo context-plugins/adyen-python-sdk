@@ -54,4 +54,4 @@ class TransferRouteDict(TypedDict):
     country: NotRequired[str]
     currency: NotRequired[str]
     priority: NotRequired[Priority2OrStr]
-    requirements: NotRequired[list[Requirement | RequirementDict]]
+    requirements: NotRequired[list[RequirementDict]]

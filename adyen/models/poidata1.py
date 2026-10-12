@@ -18,5 +18,5 @@ class Poidata1(SdkBaseModel):
 
 
 class Poidata1Dict(TypedDict):
-    poi_transaction_id: TransactionIdtype2 | TransactionIdtype2Dict
+    poi_transaction_id: TransactionIdtype2Dict
     poi_reconciliation_id: NotRequired[int]

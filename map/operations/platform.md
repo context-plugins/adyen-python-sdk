@@ -11,9 +11,9 @@ Each `###` block is one operation and assumes `sdk-map.md` is loaded: blocks omi
 - **Route**: `GET /balancePlatforms/{id}`
 - **Auth**: `client_key` OR `basic_auth` OR `api_key_auth`
 - **Server**: `default13`
-- **Signature**: `def get_balance_platforms_id(id: str, *, request_options: RequestOptionsOrDict | None = None)`
-  - required, positional: `id`
-- **Params**: `id` — path
+- **Signature**: `def get_balance_platforms_id(id_: str, *, request_options: RequestOptionsOrDict | None = None)`
+  - required, positional: `id_`
+- **Params**: `id_` — path `id`
 - **Returns (parsed)**: `BalancePlatform`
 - **Returns (raw)**: `ApiResult[BalancePlatform, GetBalancePlatformsIdErrorBody]`
 - **Error**: `GetBalancePlatformsIdErrorBody` — **Case A (typed)**
@@ -30,9 +30,9 @@ Each `###` block is one operation and assumes `sdk-map.md` is loaded: blocks omi
 - **Route**: `GET /balancePlatforms/{id}/accountHolders`
 - **Auth**: `client_key` OR `basic_auth` OR `api_key_auth`
 - **Server**: `default13`
-- **Signature**: `def get_balance_platforms_id_account_holders(id: str, *, offset: int | None = None, limit: int | None = None, request_options: RequestOptionsOrDict | None = None)`
-  - required, positional: `id`
-- **Params**: `id` — path · `offset` — query · `limit` — query
+- **Signature**: `def get_balance_platforms_id_account_holders(id_: str, *, offset: int | None = None, limit: int | None = None, request_options: RequestOptionsOrDict | None = None)`
+  - required, positional: `id_`
+- **Params**: `id_` — path `id` · `offset` — query · `limit` — query
 - **Returns (parsed)**: `PaginatedAccountHoldersResponse`
 - **Returns (raw)**: `ApiResult[PaginatedAccountHoldersResponse, GetBalancePlatformsIdAccountHoldersErrorBody]`
 - **Error**: `GetBalancePlatformsIdAccountHoldersErrorBody` — **Case A (typed)**
@@ -49,9 +49,9 @@ Each `###` block is one operation and assumes `sdk-map.md` is loaded: blocks omi
 - **Route**: `GET /balancePlatforms/{id}/transactionRules`
 - **Auth**: `client_key` OR `basic_auth` OR `api_key_auth`
 - **Server**: `default13`
-- **Signature**: `def get_balance_platforms_id_transaction_rules(id: str, *, request_options: RequestOptionsOrDict | None = None)`
-  - required, positional: `id`
-- **Params**: `id` — path
+- **Signature**: `def get_balance_platforms_id_transaction_rules(id_: str, *, request_options: RequestOptionsOrDict | None = None)`
+  - required, positional: `id_`
+- **Params**: `id_` — path `id`
 - **Returns (parsed)**: `TransactionRulesResponse`
 - **Returns (raw)**: `ApiResult[TransactionRulesResponse, GetBalancePlatformsIdTransactionRulesErrorBody]`
 - **Error**: `GetBalancePlatformsIdTransactionRulesErrorBody` — **Case A (typed)**

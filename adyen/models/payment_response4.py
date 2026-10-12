@@ -38,9 +38,9 @@ class PaymentResponse4(SdkBaseModel):
 
 
 class PaymentResponse4Dict(TypedDict):
-    response: Response11 | Response11Dict
-    sale_data: SaleData6 | SaleData6Dict
-    poi_data: Poidata1 | Poidata1Dict
-    payment_result: NotRequired[PaymentResult11 | PaymentResult11Dict]
-    loyalty_result: NotRequired[list[LoyaltyResult | LoyaltyResultDict]]
-    payment_receipt: NotRequired[list[PaymentReceipt | PaymentReceiptDict]]
+    response: Response11Dict
+    sale_data: SaleData6Dict
+    poi_data: Poidata1Dict
+    payment_result: NotRequired[PaymentResult11Dict]
+    loyalty_result: NotRequired[list[LoyaltyResultDict]]
+    payment_receipt: NotRequired[list[PaymentReceiptDict]]

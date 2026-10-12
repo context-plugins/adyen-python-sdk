@@ -66,11 +66,11 @@ class PaymentAmountUpdateRequest(SdkBaseModel):
 class PaymentAmountUpdateRequestDict(TypedDict):
     adjust_auth_type: NotRequired[AdjustAuthTypeOrStr]
     adjust_authorisation_data: NotRequired[str]
-    amount: Amount29 | Amount29Dict
-    application_info: NotRequired[ApplicationInfo | ApplicationInfoDict]
+    amount: Amount29Dict
+    application_info: NotRequired[ApplicationInfoDict]
     industry_usage: NotRequired[IndustryUsage1OrStr]
-    line_items: NotRequired[list[LineItem | LineItemDict]]
+    line_items: NotRequired[list[LineItemDict]]
     merchant_account: str
-    mpi_data: NotRequired[ThreeDsecureData3 | ThreeDsecureData3Dict]
+    mpi_data: NotRequired[ThreeDsecureData3Dict]
     reference: NotRequired[str]
-    splits: NotRequired[list[Split | SplitDict]]
+    splits: NotRequired[list[SplitDict]]

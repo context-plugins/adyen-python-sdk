@@ -257,7 +257,7 @@ class PaymentRequest3D(SdkBaseModel):
     to `Online payments <https://docs.adyen.com/online-payments>`__ or `Classic integration
     <https://docs.adyen.com/classic-integration>`__ documentation."""
 
-    three_ds_authentication_only: Optional[bool] = Field(default=UNSET, alias="threeDSAuthenticationOnly")
+    three_ds_authentication_only: bool = Field(default=False, alias="threeDSAuthenticationOnly")
     """Required to trigger the `authentication-only flow
     <https://docs.adyen.com/online-payments/3d-secure/authentication-only/>`__. If set to **true**, you will only
     perform the 3D Secure 2 authentication, and will not proceed to the payment authorization.Default: **false**."""
@@ -271,31 +271,31 @@ class PaymentRequest3D(SdkBaseModel):
 
 
 class PaymentRequest3DDict(TypedDict):
-    account_info: NotRequired[AccountInfo | AccountInfoDict]
-    additional_amount: NotRequired[Amount | AmountDict]
+    account_info: NotRequired[AccountInfoDict]
+    additional_amount: NotRequired[AmountDict]
     additional_data: NotRequired[dict[str, str]]
-    amount: NotRequired[Amount | AmountDict]
-    application_info: NotRequired[ApplicationInfo | ApplicationInfoDict]
-    billing_address: NotRequired[Address | AddressDict]
-    browser_info: NotRequired[BrowserInfo | BrowserInfoDict]
+    amount: NotRequired[AmountDict]
+    application_info: NotRequired[ApplicationInfoDict]
+    billing_address: NotRequired[AddressDict]
+    browser_info: NotRequired[BrowserInfoDict]
     capture_delay_hours: NotRequired[int]
     date_of_birth: NotRequired[Date]
-    dcc_quote: NotRequired[ForexQuote11 | ForexQuote11Dict]
-    delivery_address: NotRequired[Address | AddressDict]
+    dcc_quote: NotRequired[ForexQuote11Dict]
+    delivery_address: NotRequired[AddressDict]
     delivery_date: NotRequired[RFC3339DateTime]
     device_fingerprint: NotRequired[str]
     fraud_offset: NotRequired[int]
-    installments: NotRequired[Installments | InstallmentsDict]
+    installments: NotRequired[InstallmentsDict]
     localized_shopper_statement: NotRequired[dict[str, str]]
     mcc: NotRequired[str]
     md: str
     merchant_account: str
     merchant_order_reference: NotRequired[str]
-    merchant_risk_indicator: NotRequired[MerchantRiskIndicator11 | MerchantRiskIndicator11Dict]
+    merchant_risk_indicator: NotRequired[MerchantRiskIndicator11Dict]
     metadata: NotRequired[dict[str, str]]
     order_reference: NotRequired[str]
     pa_response: str
-    recurring: NotRequired[Recurring | RecurringDict]
+    recurring: NotRequired[RecurringDict]
     recurring_processing_model: NotRequired[RecurringProcessingModelOrStr]
     reference: NotRequired[str]
     selected_brand: NotRequired[str]
@@ -305,14 +305,14 @@ class PaymentRequest3DDict(TypedDict):
     shopper_ip: NotRequired[str]
     shopper_interaction: NotRequired[ShopperInteractionOrStr]
     shopper_locale: NotRequired[str]
-    shopper_name: NotRequired[Name | NameDict]
+    shopper_name: NotRequired[NameDict]
     shopper_reference: NotRequired[str]
     shopper_statement: NotRequired[str]
     social_security_number: NotRequired[str]
-    splits: NotRequired[list[Split | SplitDict]]
+    splits: NotRequired[list[SplitDict]]
     store: NotRequired[str]
     telephone_number: NotRequired[str]
-    three_ds2_request_data: NotRequired[ThreeDs2RequestData11 | ThreeDs2RequestData11Dict]
+    three_ds2_request_data: NotRequired[ThreeDs2RequestData11Dict]
     three_ds_authentication_only: NotRequired[bool]
     totals_group: NotRequired[str]
     trusted_shopper: NotRequired[bool]

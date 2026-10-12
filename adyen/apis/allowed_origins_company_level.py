@@ -11,10 +11,13 @@ from ..core import (
     RawClient,
     RequestOptionsOrDict,
     SecuredRawResponse,
+    async_empty_response,
+    async_json_decoder,
     empty_response,
     json_body,
     json_decoder,
     param,
+    unwrap,
 )
 from ..errors.delete_companies_company_id_api_credentials_api_credential_id_allowed_origins_origin_id_error import (
     DeleteCompaniesCompanyIdApiCredentialsApiCredentialIdAllowedOriginsOriginIdErrorBody,
@@ -61,7 +64,8 @@ class AllowedOriginsCompanyLevel:
             company_id: The unique identifier of the company account.
             api_credential_id: Unique identifier of the API credential.
             origin_id: Unique identifier of the allowed origin.
-            request_options: Per-call overrides for this one request, such as a timeout or extra headers.
+            request_options: Per-call overrides for this one request, such as a timeout, extra headers, or its retry
+                count and statuses.
 
         Returns:
             No Content - look at the actual response code for the status of the request.
@@ -71,9 +75,11 @@ class AllowedOriginsCompanyLevel:
                 required. Forbidden - insufficient permissions to process the request. Unprocessable Entity - a request
                 validation error. Internal Server Error - the server could not process the request. ``error`` is
                 ``RestServiceError | RawError``."""
-        return self._with_raw_response.delete_companies_company_id_api_credentials_api_credential_id_allowed_origins_origin_id(
-            company_id, api_credential_id, origin_id, request_options=request_options
-        ).unwrap()
+        return unwrap(
+            self._with_raw_response.delete_companies_company_id_api_credentials_api_credential_id_allowed_origins_origin_id(
+                company_id, api_credential_id, origin_id, request_options=request_options
+            ),
+        )
 
     def get_companies_company_id_api_credentials_api_credential_id_allowed_origins(
         self, company_id: str, api_credential_id: str, *, request_options: RequestOptionsOrDict | None = None
@@ -89,7 +95,8 @@ class AllowedOriginsCompanyLevel:
         Args:
             company_id: The unique identifier of the company account.
             api_credential_id: Unique identifier of the API credential.
-            request_options: Per-call overrides for this one request, such as a timeout or extra headers.
+            request_options: Per-call overrides for this one request, such as a timeout, extra headers, or its retry
+                count and statuses.
 
         Returns:
             OK - the request has succeeded.
@@ -99,9 +106,11 @@ class AllowedOriginsCompanyLevel:
                 required. Forbidden - insufficient permissions to process the request. Unprocessable Entity - a request
                 validation error. Internal Server Error - the server could not process the request. ``error`` is
                 ``RestServiceError | RawError``."""
-        return self._with_raw_response.get_companies_company_id_api_credentials_api_credential_id_allowed_origins(
-            company_id, api_credential_id, request_options=request_options
-        ).unwrap()
+        return unwrap(
+            self._with_raw_response.get_companies_company_id_api_credentials_api_credential_id_allowed_origins(
+                company_id, api_credential_id, request_options=request_options
+            ),
+        )
 
     def get_companies_company_id_api_credentials_api_credential_id_allowed_origins_origin_id(
         self,
@@ -123,7 +132,8 @@ class AllowedOriginsCompanyLevel:
             company_id: The unique identifier of the company account.
             api_credential_id: Unique identifier of the API credential.
             origin_id: Unique identifier of the allowed origin.
-            request_options: Per-call overrides for this one request, such as a timeout or extra headers.
+            request_options: Per-call overrides for this one request, such as a timeout, extra headers, or its retry
+                count and statuses.
 
         Returns:
             OK - the request has succeeded.
@@ -133,9 +143,11 @@ class AllowedOriginsCompanyLevel:
                 required. Forbidden - insufficient permissions to process the request. Unprocessable Entity - a request
                 validation error. Internal Server Error - the server could not process the request. ``error`` is
                 ``RestServiceError | RawError``."""
-        return self._with_raw_response.get_companies_company_id_api_credentials_api_credential_id_allowed_origins_origin_id(
-            company_id, api_credential_id, origin_id, request_options=request_options
-        ).unwrap()
+        return unwrap(
+            self._with_raw_response.get_companies_company_id_api_credentials_api_credential_id_allowed_origins_origin_id(
+                company_id, api_credential_id, origin_id, request_options=request_options
+            ),
+        )
 
     def post_companies_company_id_api_credentials_api_credential_id_allowed_origins(
         self,
@@ -157,7 +169,8 @@ class AllowedOriginsCompanyLevel:
             company_id: The unique identifier of the company account.
             api_credential_id: Unique identifier of the API credential.
             body: The request body.
-            request_options: Per-call overrides for this one request, such as a timeout or extra headers.
+            request_options: Per-call overrides for this one request, such as a timeout, extra headers, or its retry
+                count and statuses.
 
         Returns:
             OK - the request has succeeded.
@@ -167,9 +180,11 @@ class AllowedOriginsCompanyLevel:
                 required. Forbidden - insufficient permissions to process the request. Unprocessable Entity - a request
                 validation error. Internal Server Error - the server could not process the request. ``error`` is
                 ``RestServiceError | RawError``."""
-        return self._with_raw_response.post_companies_company_id_api_credentials_api_credential_id_allowed_origins(
-            company_id, api_credential_id, body=body, request_options=request_options
-        ).unwrap()
+        return unwrap(
+            self._with_raw_response.post_companies_company_id_api_credentials_api_credential_id_allowed_origins(
+                company_id, api_credential_id, body=body, request_options=request_options
+            ),
+        )
 
     @property
     def with_raw_response(self) -> AllowedOriginsCompanyLevelWithRawResponse:
@@ -200,7 +215,8 @@ class AsyncAllowedOriginsCompanyLevel:
             company_id: The unique identifier of the company account.
             api_credential_id: Unique identifier of the API credential.
             origin_id: Unique identifier of the allowed origin.
-            request_options: Per-call overrides for this one request, such as a timeout or extra headers.
+            request_options: Per-call overrides for this one request, such as a timeout, extra headers, or its retry
+                count and statuses.
 
         Returns:
             No Content - look at the actual response code for the status of the request.
@@ -210,11 +226,11 @@ class AsyncAllowedOriginsCompanyLevel:
                 required. Forbidden - insufficient permissions to process the request. Unprocessable Entity - a request
                 validation error. Internal Server Error - the server could not process the request. ``error`` is
                 ``RestServiceError | RawError``."""
-        return (
+        return unwrap(
             await self._with_raw_response.delete_companies_company_id_api_credentials_api_credential_id_allowed_origins_origin_id(
                 company_id, api_credential_id, origin_id, request_options=request_options
-            )
-        ).unwrap()
+            ),
+        )
 
     async def get_companies_company_id_api_credentials_api_credential_id_allowed_origins(
         self, company_id: str, api_credential_id: str, *, request_options: RequestOptionsOrDict | None = None
@@ -230,7 +246,8 @@ class AsyncAllowedOriginsCompanyLevel:
         Args:
             company_id: The unique identifier of the company account.
             api_credential_id: Unique identifier of the API credential.
-            request_options: Per-call overrides for this one request, such as a timeout or extra headers.
+            request_options: Per-call overrides for this one request, such as a timeout, extra headers, or its retry
+                count and statuses.
 
         Returns:
             OK - the request has succeeded.
@@ -240,11 +257,11 @@ class AsyncAllowedOriginsCompanyLevel:
                 required. Forbidden - insufficient permissions to process the request. Unprocessable Entity - a request
                 validation error. Internal Server Error - the server could not process the request. ``error`` is
                 ``RestServiceError | RawError``."""
-        return (
+        return unwrap(
             await self._with_raw_response.get_companies_company_id_api_credentials_api_credential_id_allowed_origins(
                 company_id, api_credential_id, request_options=request_options
-            )
-        ).unwrap()
+            ),
+        )
 
     async def get_companies_company_id_api_credentials_api_credential_id_allowed_origins_origin_id(
         self,
@@ -266,7 +283,8 @@ class AsyncAllowedOriginsCompanyLevel:
             company_id: The unique identifier of the company account.
             api_credential_id: Unique identifier of the API credential.
             origin_id: Unique identifier of the allowed origin.
-            request_options: Per-call overrides for this one request, such as a timeout or extra headers.
+            request_options: Per-call overrides for this one request, such as a timeout, extra headers, or its retry
+                count and statuses.
 
         Returns:
             OK - the request has succeeded.
@@ -276,11 +294,11 @@ class AsyncAllowedOriginsCompanyLevel:
                 required. Forbidden - insufficient permissions to process the request. Unprocessable Entity - a request
                 validation error. Internal Server Error - the server could not process the request. ``error`` is
                 ``RestServiceError | RawError``."""
-        return (
+        return unwrap(
             await self._with_raw_response.get_companies_company_id_api_credentials_api_credential_id_allowed_origins_origin_id(
                 company_id, api_credential_id, origin_id, request_options=request_options
-            )
-        ).unwrap()
+            ),
+        )
 
     async def post_companies_company_id_api_credentials_api_credential_id_allowed_origins(
         self,
@@ -302,7 +320,8 @@ class AsyncAllowedOriginsCompanyLevel:
             company_id: The unique identifier of the company account.
             api_credential_id: Unique identifier of the API credential.
             body: The request body.
-            request_options: Per-call overrides for this one request, such as a timeout or extra headers.
+            request_options: Per-call overrides for this one request, such as a timeout, extra headers, or its retry
+                count and statuses.
 
         Returns:
             OK - the request has succeeded.
@@ -312,11 +331,11 @@ class AsyncAllowedOriginsCompanyLevel:
                 required. Forbidden - insufficient permissions to process the request. Unprocessable Entity - a request
                 validation error. Internal Server Error - the server could not process the request. ``error`` is
                 ``RestServiceError | RawError``."""
-        return (
+        return unwrap(
             await self._with_raw_response.post_companies_company_id_api_credentials_api_credential_id_allowed_origins(
                 company_id, api_credential_id, body=body, request_options=request_options
-            )
-        ).unwrap()
+            ),
+        )
 
     @property
     def with_raw_response(self) -> AsyncAllowedOriginsCompanyLevelWithRawResponse:
@@ -344,7 +363,8 @@ class AllowedOriginsCompanyLevelWithRawResponse(SecuredRawResponse[RawClient, Se
             company_id: The unique identifier of the company account.
             api_credential_id: Unique identifier of the API credential.
             origin_id: Unique identifier of the allowed origin.
-            request_options: Per-call overrides for this one request, such as a timeout or extra headers.
+            request_options: Per-call overrides for this one request, such as a timeout, extra headers, or its retry
+                count and statuses.
 
         Returns:
             An ``ApiResult`` holding the deserialized response or the error body."""
@@ -379,7 +399,8 @@ class AllowedOriginsCompanyLevelWithRawResponse(SecuredRawResponse[RawClient, Se
         Args:
             company_id: The unique identifier of the company account.
             api_credential_id: Unique identifier of the API credential.
-            request_options: Per-call overrides for this one request, such as a timeout or extra headers.
+            request_options: Per-call overrides for this one request, such as a timeout, extra headers, or its retry
+                count and statuses.
 
         Returns:
             An ``ApiResult`` holding the deserialized response or the error body."""
@@ -415,7 +436,8 @@ class AllowedOriginsCompanyLevelWithRawResponse(SecuredRawResponse[RawClient, Se
             company_id: The unique identifier of the company account.
             api_credential_id: Unique identifier of the API credential.
             origin_id: Unique identifier of the allowed origin.
-            request_options: Per-call overrides for this one request, such as a timeout or extra headers.
+            request_options: Per-call overrides for this one request, such as a timeout, extra headers, or its retry
+                count and statuses.
 
         Returns:
             An ``ApiResult`` holding the deserialized response or the error body."""
@@ -455,7 +477,8 @@ class AllowedOriginsCompanyLevelWithRawResponse(SecuredRawResponse[RawClient, Se
             company_id: The unique identifier of the company account.
             api_credential_id: Unique identifier of the API credential.
             body: The request body.
-            request_options: Per-call overrides for this one request, such as a timeout or extra headers.
+            request_options: Per-call overrides for this one request, such as a timeout, extra headers, or its retry
+                count and statuses.
 
         Returns:
             An ``ApiResult`` holding the deserialized response or the error body."""
@@ -495,7 +518,8 @@ class AsyncAllowedOriginsCompanyLevelWithRawResponse(SecuredRawResponse[AsyncRaw
             company_id: The unique identifier of the company account.
             api_credential_id: Unique identifier of the API credential.
             origin_id: Unique identifier of the allowed origin.
-            request_options: Per-call overrides for this one request, such as a timeout or extra headers.
+            request_options: Per-call overrides for this one request, such as a timeout, extra headers, or its retry
+                count and statuses.
 
         Returns:
             An ``ApiResult`` holding the deserialized response or the error body."""
@@ -511,7 +535,7 @@ class AsyncAllowedOriginsCompanyLevelWithRawResponse(SecuredRawResponse[AsyncRaw
             ],
             headers=[param[UUID]("Idempotency-Key", uuid4())],
             auth_scheme=AsyncAnySchemes(self._auth.basic_auth, self._auth.api_key_auth),
-            decoder=empty_response,
+            decoder=async_empty_response,
             error_mapper=delete_companies_company_id_api_credentials_api_credential_id_allowed_origins_origin_id_error_mapper,
             request_options=request_options,
         )
@@ -530,7 +554,8 @@ class AsyncAllowedOriginsCompanyLevelWithRawResponse(SecuredRawResponse[AsyncRaw
         Args:
             company_id: The unique identifier of the company account.
             api_credential_id: Unique identifier of the API credential.
-            request_options: Per-call overrides for this one request, such as a timeout or extra headers.
+            request_options: Per-call overrides for this one request, such as a timeout, extra headers, or its retry
+                count and statuses.
 
         Returns:
             An ``ApiResult`` holding the deserialized response or the error body."""
@@ -541,7 +566,7 @@ class AsyncAllowedOriginsCompanyLevelWithRawResponse(SecuredRawResponse[AsyncRaw
             ),
             path_params=[param[str]("companyId", company_id), param[str]("apiCredentialId", api_credential_id)],
             auth_scheme=AsyncAnySchemes(self._auth.basic_auth, self._auth.api_key_auth),
-            decoder=json_decoder[AllowedOriginsResponse],
+            decoder=async_json_decoder[AllowedOriginsResponse],
             error_mapper=get_companies_company_id_api_credentials_api_credential_id_allowed_origins_error_mapper,
             request_options=request_options,
         )
@@ -566,7 +591,8 @@ class AsyncAllowedOriginsCompanyLevelWithRawResponse(SecuredRawResponse[AsyncRaw
             company_id: The unique identifier of the company account.
             api_credential_id: Unique identifier of the API credential.
             origin_id: Unique identifier of the allowed origin.
-            request_options: Per-call overrides for this one request, such as a timeout or extra headers.
+            request_options: Per-call overrides for this one request, such as a timeout, extra headers, or its retry
+                count and statuses.
 
         Returns:
             An ``ApiResult`` holding the deserialized response or the error body."""
@@ -581,7 +607,7 @@ class AsyncAllowedOriginsCompanyLevelWithRawResponse(SecuredRawResponse[AsyncRaw
                 param[str]("originId", origin_id),
             ],
             auth_scheme=AsyncAnySchemes(self._auth.basic_auth, self._auth.api_key_auth),
-            decoder=json_decoder[AllowedOrigin],
+            decoder=async_json_decoder[AllowedOrigin],
             error_mapper=get_companies_company_id_api_credentials_api_credential_id_allowed_origins_origin_id_error_mapper,
             request_options=request_options,
         )
@@ -606,7 +632,8 @@ class AsyncAllowedOriginsCompanyLevelWithRawResponse(SecuredRawResponse[AsyncRaw
             company_id: The unique identifier of the company account.
             api_credential_id: Unique identifier of the API credential.
             body: The request body.
-            request_options: Per-call overrides for this one request, such as a timeout or extra headers.
+            request_options: Per-call overrides for this one request, such as a timeout, extra headers, or its retry
+                count and statuses.
 
         Returns:
             An ``ApiResult`` holding the deserialized response or the error body."""
@@ -619,7 +646,7 @@ class AsyncAllowedOriginsCompanyLevelWithRawResponse(SecuredRawResponse[AsyncRaw
             headers=[param[UUID]("Idempotency-Key", uuid4())],
             body=json_body[AllowedOrigin | AllowedOriginDict | None](body),
             auth_scheme=AsyncAnySchemes(self._auth.basic_auth, self._auth.api_key_auth),
-            decoder=json_decoder[AllowedOrigin],
+            decoder=async_json_decoder[AllowedOrigin],
             error_mapper=post_companies_company_id_api_credentials_api_credential_id_allowed_origins_error_mapper,
             request_options=request_options,
         )

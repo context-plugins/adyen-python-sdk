@@ -50,5 +50,5 @@ class KyccheckStatusData(SdkBaseModel):
 class KyccheckStatusDataDict(TypedDict):
     required_fields: NotRequired[list[str]]
     status: Status32OrStr
-    summary: NotRequired[KyccheckSummary2 | KyccheckSummary2Dict]
+    summary: NotRequired[KyccheckSummary2Dict]
     type_: Type211OrStr

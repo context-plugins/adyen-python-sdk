@@ -26,6 +26,6 @@ class InterchangeData(SdkBaseModel):
 
 
 class InterchangeDataDict(TypedDict):
-    interchange_amount: NotRequired[Amount17 | Amount17Dict]
+    interchange_amount: NotRequired[Amount17Dict]
     interchange_rate_indicator: NotRequired[str]
-    type_: NotRequired[Literal["interchangeData"]]
+    type_: Literal["interchangeData"]

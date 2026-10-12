@@ -13,4 +13,4 @@ class GrantOffers(SdkBaseModel):
 
 
 class GrantOffersDict(TypedDict):
-    grant_offers: list[GrantOffer | GrantOfferDict]
+    grant_offers: list[GrantOfferDict]

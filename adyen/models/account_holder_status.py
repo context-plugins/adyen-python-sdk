@@ -28,8 +28,8 @@ class AccountHolderStatus(SdkBaseModel):
 
 
 class AccountHolderStatusDict(TypedDict):
-    events: NotRequired[list[AccountEvent | AccountEventDict]]
-    payout_state: NotRequired[AccountPayoutState2 | AccountPayoutState2Dict]
-    processing_state: NotRequired[AccountProcessingState2 | AccountProcessingState2Dict]
+    events: NotRequired[list[AccountEventDict]]
+    payout_state: NotRequired[AccountPayoutState2Dict]
+    processing_state: NotRequired[AccountProcessingState2Dict]
     status: Status12OrStr
     status_reason: NotRequired[str]

@@ -27,8 +27,8 @@ class AccountHolderBalanceResponse(SdkBaseModel):
 
 
 class AccountHolderBalanceResponseDict(TypedDict):
-    balance_per_account: NotRequired[list[AccountDetailBalance | AccountDetailBalanceDict]]
-    invalid_fields: NotRequired[list[ErrorFieldType | ErrorFieldTypeDict]]
+    balance_per_account: NotRequired[list[AccountDetailBalanceDict]]
+    invalid_fields: NotRequired[list[ErrorFieldTypeDict]]
     psp_reference: NotRequired[str]
     result_code: NotRequired[str]
-    total_balance: NotRequired[DetailBalance1 | DetailBalance1Dict]
+    total_balance: NotRequired[DetailBalance1Dict]

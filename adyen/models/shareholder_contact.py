@@ -71,13 +71,13 @@ class ShareholderContact(SdkBaseModel):
 
 
 class ShareholderContactDict(TypedDict):
-    address: NotRequired[ViasAddress2 | ViasAddress2Dict]
+    address: NotRequired[ViasAddress2Dict]
     email: NotRequired[str]
     full_phone_number: NotRequired[str]
     job_title: NotRequired[str]
-    name: NotRequired[ViasName1 | ViasName1Dict]
-    personal_data: NotRequired[ViasPersonalData1 | ViasPersonalData1Dict]
-    phone_number: NotRequired[ViasPhoneNumber1 | ViasPhoneNumber1Dict]
+    name: NotRequired[ViasName1Dict]
+    personal_data: NotRequired[ViasPersonalData1Dict]
+    phone_number: NotRequired[ViasPhoneNumber1Dict]
     shareholder_code: NotRequired[str]
     shareholder_reference: NotRequired[str]
     shareholder_type: NotRequired[ShareholderTypeOrStr]

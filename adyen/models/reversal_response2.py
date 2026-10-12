@@ -30,8 +30,8 @@ class ReversalResponse2(SdkBaseModel):
 
 
 class ReversalResponse2Dict(TypedDict):
-    response: Response11 | Response11Dict
-    poi_data: NotRequired[Poidata4 | Poidata4Dict]
-    original_poi_transaction: NotRequired[OriginalPoitransaction | OriginalPoitransactionDict]
+    response: Response11Dict
+    poi_data: NotRequired[Poidata4Dict]
+    original_poi_transaction: NotRequired[OriginalPoitransactionDict]
     reversed_amount: NotRequired[float]
-    payment_receipt: NotRequired[list[PaymentReceipt | PaymentReceiptDict]]
+    payment_receipt: NotRequired[list[PaymentReceiptDict]]

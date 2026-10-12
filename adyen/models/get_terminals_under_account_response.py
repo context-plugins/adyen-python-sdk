@@ -21,4 +21,4 @@ class GetTerminalsUnderAccountResponse(SdkBaseModel):
 class GetTerminalsUnderAccountResponseDict(TypedDict):
     company_account: str
     inventory_terminals: NotRequired[list[str]]
-    merchant_accounts: NotRequired[list[MerchantAccount | MerchantAccountDict]]
+    merchant_accounts: NotRequired[list[MerchantAccountDict]]

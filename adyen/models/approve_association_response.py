@@ -13,4 +13,4 @@ class ApproveAssociationResponse(SdkBaseModel):
 
 
 class ApproveAssociationResponseDict(TypedDict):
-    sca_associations: list[Association | AssociationDict]
+    sca_associations: list[AssociationDict]

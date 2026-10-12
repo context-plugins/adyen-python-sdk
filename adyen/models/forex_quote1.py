@@ -48,12 +48,12 @@ class ForexQuote1(SdkBaseModel):
 class ForexQuote1Dict(TypedDict):
     account: NotRequired[str]
     account_type: NotRequired[str]
-    base_amount: NotRequired[Amount | AmountDict]
+    base_amount: NotRequired[AmountDict]
     base_points: int
-    buy: NotRequired[Amount | AmountDict]
-    interbank: NotRequired[Amount | AmountDict]
+    buy: NotRequired[AmountDict]
+    interbank: NotRequired[AmountDict]
     reference: NotRequired[str]
-    sell: NotRequired[Amount | AmountDict]
+    sell: NotRequired[AmountDict]
     signature: NotRequired[str]
     source: NotRequired[str]
     type_: NotRequired[str]

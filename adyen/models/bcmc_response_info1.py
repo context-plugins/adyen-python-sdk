@@ -25,4 +25,4 @@ class BcmcResponseInfo1(SdkBaseModel):
 
 class BcmcResponseInfo1Dict(TypedDict):
     enable_bcmc_mobile: NotRequired[bool]
-    transaction_description: NotRequired[TransactionDescriptionResponseInfo1 | TransactionDescriptionResponseInfo1Dict]
+    transaction_description: NotRequired[TransactionDescriptionResponseInfo1Dict]

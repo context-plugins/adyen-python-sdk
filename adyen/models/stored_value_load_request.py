@@ -49,7 +49,7 @@ class StoredValueLoadRequest(SdkBaseModel):
 
 
 class StoredValueLoadRequestDict(TypedDict):
-    amount: Amount | AmountDict
+    amount: AmountDict
     load_type: NotRequired[LoadTypeOrStr]
     merchant_account: str
     payment_method: dict[str, str]

@@ -23,6 +23,6 @@ class RecurringDetailsResult(SdkBaseModel):
 
 class RecurringDetailsResultDict(TypedDict):
     creation_date: NotRequired[RFC3339DateTime]
-    details: NotRequired[list[RecurringDetailWrapper | RecurringDetailWrapperDict]]
+    details: NotRequired[list[RecurringDetailWrapperDict]]
     last_known_shopper_email: NotRequired[str]
     shopper_reference: NotRequired[str]

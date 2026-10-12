@@ -11,9 +11,11 @@ from ..core import (
     RawClient,
     RequestOptionsOrDict,
     SecuredRawResponse,
+    async_json_decoder,
     json_body,
     json_decoder,
     param,
+    unwrap,
 )
 from ..errors.get_merchants_merchant_id_api_credentials_api_credential_id_error import (
     GetMerchantsMerchantIdApiCredentialsApiCredentialIdErrorBody,
@@ -68,7 +70,8 @@ class ApiCredentialsMerchantLevel:
             merchant_id: The unique identifier of the merchant account.
             page_number: The number of the page to fetch.
             page_size: The number of items to have on a page, maximum 100. The default is 10 items on a page.
-            request_options: Per-call overrides for this one request, such as a timeout or extra headers.
+            request_options: Per-call overrides for this one request, such as a timeout, extra headers, or its retry
+                count and statuses.
 
         Returns:
             OK - the request has succeeded.
@@ -78,9 +81,11 @@ class ApiCredentialsMerchantLevel:
                 required. Forbidden - insufficient permissions to process the request. Unprocessable Entity - a request
                 validation error. Internal Server Error - the server could not process the request. ``error`` is
                 ``RestServiceError | RawError``."""
-        return self._with_raw_response.get_merchants_merchant_id_api_credentials(
-            merchant_id, page_number=page_number, page_size=page_size, request_options=request_options
-        ).unwrap()
+        return unwrap(
+            self._with_raw_response.get_merchants_merchant_id_api_credentials(
+                merchant_id, page_number=page_number, page_size=page_size, request_options=request_options
+            ),
+        )
 
     def get_merchants_merchant_id_api_credentials_api_credential_id(
         self, merchant_id: str, api_credential_id: str, *, request_options: RequestOptionsOrDict | None = None
@@ -95,7 +100,8 @@ class ApiCredentialsMerchantLevel:
         Args:
             merchant_id: The unique identifier of the merchant account.
             api_credential_id: Unique identifier of the API credential.
-            request_options: Per-call overrides for this one request, such as a timeout or extra headers.
+            request_options: Per-call overrides for this one request, such as a timeout, extra headers, or its retry
+                count and statuses.
 
         Returns:
             OK - the request has succeeded.
@@ -105,9 +111,11 @@ class ApiCredentialsMerchantLevel:
                 required. Forbidden - insufficient permissions to process the request. Unprocessable Entity - a request
                 validation error. Internal Server Error - the server could not process the request. ``error`` is
                 ``RestServiceError | RawError``."""
-        return self._with_raw_response.get_merchants_merchant_id_api_credentials_api_credential_id(
-            merchant_id, api_credential_id, request_options=request_options
-        ).unwrap()
+        return unwrap(
+            self._with_raw_response.get_merchants_merchant_id_api_credentials_api_credential_id(
+                merchant_id, api_credential_id, request_options=request_options
+            ),
+        )
 
     def patch_merchants_merchant_id_api_credentials_api_credential_id(
         self,
@@ -129,7 +137,8 @@ class ApiCredentialsMerchantLevel:
             merchant_id: The unique identifier of the merchant account.
             api_credential_id: Unique identifier of the API credential.
             body: The request body.
-            request_options: Per-call overrides for this one request, such as a timeout or extra headers.
+            request_options: Per-call overrides for this one request, such as a timeout, extra headers, or its retry
+                count and statuses.
 
         Returns:
             OK - the request has succeeded.
@@ -139,9 +148,11 @@ class ApiCredentialsMerchantLevel:
                 required. Forbidden - insufficient permissions to process the request. Unprocessable Entity - a request
                 validation error. Internal Server Error - the server could not process the request. ``error`` is
                 ``RestServiceError | RawError``."""
-        return self._with_raw_response.patch_merchants_merchant_id_api_credentials_api_credential_id(
-            merchant_id, api_credential_id, body=body, request_options=request_options
-        ).unwrap()
+        return unwrap(
+            self._with_raw_response.patch_merchants_merchant_id_api_credentials_api_credential_id(
+                merchant_id, api_credential_id, body=body, request_options=request_options
+            ),
+        )
 
     def post_merchants_merchant_id_api_credentials(
         self,
@@ -175,7 +186,8 @@ class ApiCredentialsMerchantLevel:
         Args:
             merchant_id: The unique identifier of the merchant account.
             body: The request body.
-            request_options: Per-call overrides for this one request, such as a timeout or extra headers.
+            request_options: Per-call overrides for this one request, such as a timeout, extra headers, or its retry
+                count and statuses.
 
         Returns:
             OK - the request has succeeded.
@@ -185,9 +197,11 @@ class ApiCredentialsMerchantLevel:
                 required. Forbidden - insufficient permissions to process the request. Unprocessable Entity - a request
                 validation error. Internal Server Error - the server could not process the request. ``error`` is
                 ``RestServiceError | RawError``."""
-        return self._with_raw_response.post_merchants_merchant_id_api_credentials(
-            merchant_id, body=body, request_options=request_options
-        ).unwrap()
+        return unwrap(
+            self._with_raw_response.post_merchants_merchant_id_api_credentials(
+                merchant_id, body=body, request_options=request_options
+            ),
+        )
 
     @property
     def with_raw_response(self) -> ApiCredentialsMerchantLevelWithRawResponse:
@@ -217,7 +231,8 @@ class AsyncApiCredentialsMerchantLevel:
             merchant_id: The unique identifier of the merchant account.
             page_number: The number of the page to fetch.
             page_size: The number of items to have on a page, maximum 100. The default is 10 items on a page.
-            request_options: Per-call overrides for this one request, such as a timeout or extra headers.
+            request_options: Per-call overrides for this one request, such as a timeout, extra headers, or its retry
+                count and statuses.
 
         Returns:
             OK - the request has succeeded.
@@ -227,11 +242,11 @@ class AsyncApiCredentialsMerchantLevel:
                 required. Forbidden - insufficient permissions to process the request. Unprocessable Entity - a request
                 validation error. Internal Server Error - the server could not process the request. ``error`` is
                 ``RestServiceError | RawError``."""
-        return (
+        return unwrap(
             await self._with_raw_response.get_merchants_merchant_id_api_credentials(
                 merchant_id, page_number=page_number, page_size=page_size, request_options=request_options
-            )
-        ).unwrap()
+            ),
+        )
 
     async def get_merchants_merchant_id_api_credentials_api_credential_id(
         self, merchant_id: str, api_credential_id: str, *, request_options: RequestOptionsOrDict | None = None
@@ -246,7 +261,8 @@ class AsyncApiCredentialsMerchantLevel:
         Args:
             merchant_id: The unique identifier of the merchant account.
             api_credential_id: Unique identifier of the API credential.
-            request_options: Per-call overrides for this one request, such as a timeout or extra headers.
+            request_options: Per-call overrides for this one request, such as a timeout, extra headers, or its retry
+                count and statuses.
 
         Returns:
             OK - the request has succeeded.
@@ -256,11 +272,11 @@ class AsyncApiCredentialsMerchantLevel:
                 required. Forbidden - insufficient permissions to process the request. Unprocessable Entity - a request
                 validation error. Internal Server Error - the server could not process the request. ``error`` is
                 ``RestServiceError | RawError``."""
-        return (
+        return unwrap(
             await self._with_raw_response.get_merchants_merchant_id_api_credentials_api_credential_id(
                 merchant_id, api_credential_id, request_options=request_options
-            )
-        ).unwrap()
+            ),
+        )
 
     async def patch_merchants_merchant_id_api_credentials_api_credential_id(
         self,
@@ -282,7 +298,8 @@ class AsyncApiCredentialsMerchantLevel:
             merchant_id: The unique identifier of the merchant account.
             api_credential_id: Unique identifier of the API credential.
             body: The request body.
-            request_options: Per-call overrides for this one request, such as a timeout or extra headers.
+            request_options: Per-call overrides for this one request, such as a timeout, extra headers, or its retry
+                count and statuses.
 
         Returns:
             OK - the request has succeeded.
@@ -292,11 +309,11 @@ class AsyncApiCredentialsMerchantLevel:
                 required. Forbidden - insufficient permissions to process the request. Unprocessable Entity - a request
                 validation error. Internal Server Error - the server could not process the request. ``error`` is
                 ``RestServiceError | RawError``."""
-        return (
+        return unwrap(
             await self._with_raw_response.patch_merchants_merchant_id_api_credentials_api_credential_id(
                 merchant_id, api_credential_id, body=body, request_options=request_options
-            )
-        ).unwrap()
+            ),
+        )
 
     async def post_merchants_merchant_id_api_credentials(
         self,
@@ -330,7 +347,8 @@ class AsyncApiCredentialsMerchantLevel:
         Args:
             merchant_id: The unique identifier of the merchant account.
             body: The request body.
-            request_options: Per-call overrides for this one request, such as a timeout or extra headers.
+            request_options: Per-call overrides for this one request, such as a timeout, extra headers, or its retry
+                count and statuses.
 
         Returns:
             OK - the request has succeeded.
@@ -340,11 +358,11 @@ class AsyncApiCredentialsMerchantLevel:
                 required. Forbidden - insufficient permissions to process the request. Unprocessable Entity - a request
                 validation error. Internal Server Error - the server could not process the request. ``error`` is
                 ``RestServiceError | RawError``."""
-        return (
+        return unwrap(
             await self._with_raw_response.post_merchants_merchant_id_api_credentials(
                 merchant_id, body=body, request_options=request_options
-            )
-        ).unwrap()
+            ),
+        )
 
     @property
     def with_raw_response(self) -> AsyncApiCredentialsMerchantLevelWithRawResponse:
@@ -371,7 +389,8 @@ class ApiCredentialsMerchantLevelWithRawResponse(SecuredRawResponse[RawClient, S
             merchant_id: The unique identifier of the merchant account.
             page_number: The number of the page to fetch.
             page_size: The number of items to have on a page, maximum 100. The default is 10 items on a page.
-            request_options: Per-call overrides for this one request, such as a timeout or extra headers.
+            request_options: Per-call overrides for this one request, such as a timeout, extra headers, or its retry
+                count and statuses.
 
         Returns:
             An ``ApiResult`` holding the deserialized response or the error body."""
@@ -399,7 +418,8 @@ class ApiCredentialsMerchantLevelWithRawResponse(SecuredRawResponse[RawClient, S
         Args:
             merchant_id: The unique identifier of the merchant account.
             api_credential_id: Unique identifier of the API credential.
-            request_options: Per-call overrides for this one request, such as a timeout or extra headers.
+            request_options: Per-call overrides for this one request, such as a timeout, extra headers, or its retry
+                count and statuses.
 
         Returns:
             An ``ApiResult`` holding the deserialized response or the error body."""
@@ -433,7 +453,8 @@ class ApiCredentialsMerchantLevelWithRawResponse(SecuredRawResponse[RawClient, S
             merchant_id: The unique identifier of the merchant account.
             api_credential_id: Unique identifier of the API credential.
             body: The request body.
-            request_options: Per-call overrides for this one request, such as a timeout or extra headers.
+            request_options: Per-call overrides for this one request, such as a timeout, extra headers, or its retry
+                count and statuses.
 
         Returns:
             An ``ApiResult`` holding the deserialized response or the error body."""
@@ -481,7 +502,8 @@ class ApiCredentialsMerchantLevelWithRawResponse(SecuredRawResponse[RawClient, S
         Args:
             merchant_id: The unique identifier of the merchant account.
             body: The request body.
-            request_options: Per-call overrides for this one request, such as a timeout or extra headers.
+            request_options: Per-call overrides for this one request, such as a timeout, extra headers, or its retry
+                count and statuses.
 
         Returns:
             An ``ApiResult`` holding the deserialized response or the error body."""
@@ -518,7 +540,8 @@ class AsyncApiCredentialsMerchantLevelWithRawResponse(SecuredRawResponse[AsyncRa
             merchant_id: The unique identifier of the merchant account.
             page_number: The number of the page to fetch.
             page_size: The number of items to have on a page, maximum 100. The default is 10 items on a page.
-            request_options: Per-call overrides for this one request, such as a timeout or extra headers.
+            request_options: Per-call overrides for this one request, such as a timeout, extra headers, or its retry
+                count and statuses.
 
         Returns:
             An ``ApiResult`` holding the deserialized response or the error body."""
@@ -528,7 +551,7 @@ class AsyncApiCredentialsMerchantLevelWithRawResponse(SecuredRawResponse[AsyncRa
             path_params=[param[str]("merchantId", merchant_id)],
             query_params=[param[int | None]("pageNumber", page_number), param[int | None]("pageSize", page_size)],
             auth_scheme=AsyncAnySchemes(self._auth.basic_auth, self._auth.api_key_auth),
-            decoder=json_decoder[ListMerchantApiCredentialsResponse],
+            decoder=async_json_decoder[ListMerchantApiCredentialsResponse],
             error_mapper=get_merchants_merchant_id_api_credentials_error_mapper,
             request_options=request_options,
         )
@@ -546,7 +569,8 @@ class AsyncApiCredentialsMerchantLevelWithRawResponse(SecuredRawResponse[AsyncRa
         Args:
             merchant_id: The unique identifier of the merchant account.
             api_credential_id: Unique identifier of the API credential.
-            request_options: Per-call overrides for this one request, such as a timeout or extra headers.
+            request_options: Per-call overrides for this one request, such as a timeout, extra headers, or its retry
+                count and statuses.
 
         Returns:
             An ``ApiResult`` holding the deserialized response or the error body."""
@@ -555,7 +579,7 @@ class AsyncApiCredentialsMerchantLevelWithRawResponse(SecuredRawResponse[AsyncRa
             url_template=self._server.default9("/merchants/{merchantId}/apiCredentials/{apiCredentialId}"),
             path_params=[param[str]("merchantId", merchant_id), param[str]("apiCredentialId", api_credential_id)],
             auth_scheme=AsyncAnySchemes(self._auth.basic_auth, self._auth.api_key_auth),
-            decoder=json_decoder[ApiCredential],
+            decoder=async_json_decoder[ApiCredential],
             error_mapper=get_merchants_merchant_id_api_credentials_api_credential_id_error_mapper,
             request_options=request_options,
         )
@@ -580,7 +604,8 @@ class AsyncApiCredentialsMerchantLevelWithRawResponse(SecuredRawResponse[AsyncRa
             merchant_id: The unique identifier of the merchant account.
             api_credential_id: Unique identifier of the API credential.
             body: The request body.
-            request_options: Per-call overrides for this one request, such as a timeout or extra headers.
+            request_options: Per-call overrides for this one request, such as a timeout, extra headers, or its retry
+                count and statuses.
 
         Returns:
             An ``ApiResult`` holding the deserialized response or the error body."""
@@ -591,7 +616,7 @@ class AsyncApiCredentialsMerchantLevelWithRawResponse(SecuredRawResponse[AsyncRa
             headers=[param[UUID]("Idempotency-Key", uuid4())],
             body=json_body[UpdateMerchantApiCredentialRequest | UpdateMerchantApiCredentialRequestDict | None](body),
             auth_scheme=AsyncAnySchemes(self._auth.basic_auth, self._auth.api_key_auth),
-            decoder=json_decoder[ApiCredential],
+            decoder=async_json_decoder[ApiCredential],
             error_mapper=patch_merchants_merchant_id_api_credentials_api_credential_id_error_mapper,
             request_options=request_options,
         )
@@ -628,7 +653,8 @@ class AsyncApiCredentialsMerchantLevelWithRawResponse(SecuredRawResponse[AsyncRa
         Args:
             merchant_id: The unique identifier of the merchant account.
             body: The request body.
-            request_options: Per-call overrides for this one request, such as a timeout or extra headers.
+            request_options: Per-call overrides for this one request, such as a timeout, extra headers, or its retry
+                count and statuses.
 
         Returns:
             An ``ApiResult`` holding the deserialized response or the error body."""
@@ -639,7 +665,7 @@ class AsyncApiCredentialsMerchantLevelWithRawResponse(SecuredRawResponse[AsyncRa
             headers=[param[UUID]("Idempotency-Key", uuid4())],
             body=json_body[CreateMerchantApiCredentialRequest | CreateMerchantApiCredentialRequestDict | None](body),
             auth_scheme=AsyncAnySchemes(self._auth.basic_auth, self._auth.api_key_auth),
-            decoder=json_decoder[CreateApiCredentialResponse],
+            decoder=async_json_decoder[CreateApiCredentialResponse],
             error_mapper=post_merchants_merchant_id_api_credentials_error_mapper,
             request_options=request_options,
         )

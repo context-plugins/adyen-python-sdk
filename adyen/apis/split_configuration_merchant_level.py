@@ -11,9 +11,11 @@ from ..core import (
     RawClient,
     RequestOptionsOrDict,
     SecuredRawResponse,
+    async_json_decoder,
     json_body,
     json_decoder,
     param,
+    unwrap,
 )
 from ..errors.delete_merchants_merchant_id_split_configurations_split_configuration_id_error import (
     DeleteMerchantsMerchantIdSplitConfigurationsSplitConfigurationIdErrorBody,
@@ -85,7 +87,8 @@ class SplitConfigurationMerchantLevel:
         Args:
             merchant_id: The unique identifier of the merchant account.
             split_configuration_id: The unique identifier of the split configuration.
-            request_options: Per-call overrides for this one request, such as a timeout or extra headers.
+            request_options: Per-call overrides for this one request, such as a timeout, extra headers, or its retry
+                count and statuses.
 
         Returns:
             OK - the request has succeeded.
@@ -95,9 +98,11 @@ class SplitConfigurationMerchantLevel:
                 required. Forbidden - insufficient permissions to process the request. Unprocessable Entity - a request
                 validation error. Internal Server Error - the server could not process the request. ``error`` is
                 ``RestServiceError | RawError``."""
-        return self._with_raw_response.delete_merchants_merchant_id_split_configurations_split_configuration_id(
-            merchant_id, split_configuration_id, request_options=request_options
-        ).unwrap()
+        return unwrap(
+            self._with_raw_response.delete_merchants_merchant_id_split_configurations_split_configuration_id(
+                merchant_id, split_configuration_id, request_options=request_options
+            ),
+        )
 
     def delete_merchants_merchant_id_split_configurations_split_configuration_id_rules_rule_id(
         self,
@@ -117,7 +122,8 @@ class SplitConfigurationMerchantLevel:
             merchant_id: The unique identifier of the merchant account.
             split_configuration_id: The unique identifier of the split configuration.
             rule_id: Value sent with the request.
-            request_options: Per-call overrides for this one request, such as a timeout or extra headers.
+            request_options: Per-call overrides for this one request, such as a timeout, extra headers, or its retry
+                count and statuses.
 
         Returns:
             OK - the request has succeeded.
@@ -127,9 +133,11 @@ class SplitConfigurationMerchantLevel:
                 required. Forbidden - insufficient permissions to process the request. Unprocessable Entity - a request
                 validation error. Internal Server Error - the server could not process the request. ``error`` is
                 ``RestServiceError | RawError``."""
-        return self._with_raw_response.delete_merchants_merchant_id_split_configurations_split_configuration_id_rules_rule_id(
-            merchant_id, split_configuration_id, rule_id, request_options=request_options
-        ).unwrap()
+        return unwrap(
+            self._with_raw_response.delete_merchants_merchant_id_split_configurations_split_configuration_id_rules_rule_id(
+                merchant_id, split_configuration_id, rule_id, request_options=request_options
+            ),
+        )
 
     def get_merchants_merchant_id_split_configurations(
         self, merchant_id: str, *, request_options: RequestOptionsOrDict | None = None
@@ -142,7 +150,8 @@ class SplitConfigurationMerchantLevel:
 
         Args:
             merchant_id: The unique identifier of the merchant account.
-            request_options: Per-call overrides for this one request, such as a timeout or extra headers.
+            request_options: Per-call overrides for this one request, such as a timeout, extra headers, or its retry
+                count and statuses.
 
         Returns:
             OK - the request has succeeded.
@@ -152,9 +161,11 @@ class SplitConfigurationMerchantLevel:
                 required. Forbidden - insufficient permissions to process the request. Unprocessable Entity - a request
                 validation error. Internal Server Error - the server could not process the request. ``error`` is
                 ``RestServiceError | RawError``."""
-        return self._with_raw_response.get_merchants_merchant_id_split_configurations(
-            merchant_id, request_options=request_options
-        ).unwrap()
+        return unwrap(
+            self._with_raw_response.get_merchants_merchant_id_split_configurations(
+                merchant_id, request_options=request_options
+            ),
+        )
 
     def get_merchants_merchant_id_split_configurations_split_configuration_id(
         self, merchant_id: str, split_configuration_id: str, *, request_options: RequestOptionsOrDict | None = None
@@ -168,7 +179,8 @@ class SplitConfigurationMerchantLevel:
         Args:
             merchant_id: The unique identifier of the merchant account.
             split_configuration_id: The unique identifier of the split configuration.
-            request_options: Per-call overrides for this one request, such as a timeout or extra headers.
+            request_options: Per-call overrides for this one request, such as a timeout, extra headers, or its retry
+                count and statuses.
 
         Returns:
             OK - the request has succeeded.
@@ -178,9 +190,11 @@ class SplitConfigurationMerchantLevel:
                 required. Forbidden - insufficient permissions to process the request. Unprocessable Entity - a request
                 validation error. Internal Server Error - the server could not process the request. ``error`` is
                 ``RestServiceError | RawError``."""
-        return self._with_raw_response.get_merchants_merchant_id_split_configurations_split_configuration_id(
-            merchant_id, split_configuration_id, request_options=request_options
-        ).unwrap()
+        return unwrap(
+            self._with_raw_response.get_merchants_merchant_id_split_configurations_split_configuration_id(
+                merchant_id, split_configuration_id, request_options=request_options
+            ),
+        )
 
     def patch_merchants_merchant_id_split_configurations_split_configuration_id(
         self,
@@ -200,7 +214,8 @@ class SplitConfigurationMerchantLevel:
             merchant_id: The unique identifier of the merchant account.
             split_configuration_id: The unique identifier of the split configuration.
             body: The request body.
-            request_options: Per-call overrides for this one request, such as a timeout or extra headers.
+            request_options: Per-call overrides for this one request, such as a timeout, extra headers, or its retry
+                count and statuses.
 
         Returns:
             OK - the request has succeeded.
@@ -210,9 +225,11 @@ class SplitConfigurationMerchantLevel:
                 required. Forbidden - insufficient permissions to process the request. Unprocessable Entity - a request
                 validation error. Internal Server Error - the server could not process the request. ``error`` is
                 ``RestServiceError | RawError``."""
-        return self._with_raw_response.patch_merchants_merchant_id_split_configurations_split_configuration_id(
-            merchant_id, split_configuration_id, body=body, request_options=request_options
-        ).unwrap()
+        return unwrap(
+            self._with_raw_response.patch_merchants_merchant_id_split_configurations_split_configuration_id(
+                merchant_id, split_configuration_id, body=body, request_options=request_options
+            ),
+        )
 
     def patch_merchants_merchant_id_split_configurations_split_configuration_id_rules_rule_id(
         self,
@@ -236,7 +253,8 @@ class SplitConfigurationMerchantLevel:
             split_configuration_id: The identifier of the split configuration.
             rule_id: The unique identifier of the split configuration rule.
             body: The request body.
-            request_options: Per-call overrides for this one request, such as a timeout or extra headers.
+            request_options: Per-call overrides for this one request, such as a timeout, extra headers, or its retry
+                count and statuses.
 
         Returns:
             OK - the request has succeeded.
@@ -246,9 +264,11 @@ class SplitConfigurationMerchantLevel:
                 required. Forbidden - insufficient permissions to process the request. Unprocessable Entity - a request
                 validation error. Internal Server Error - the server could not process the request. ``error`` is
                 ``RestServiceError | RawError``."""
-        return self._with_raw_response.patch_merchants_merchant_id_split_configurations_split_configuration_id_rules_rule_id(
-            merchant_id, split_configuration_id, rule_id, body=body, request_options=request_options
-        ).unwrap()
+        return unwrap(
+            self._with_raw_response.patch_merchants_merchant_id_split_configurations_split_configuration_id_rules_rule_id(
+                merchant_id, split_configuration_id, rule_id, body=body, request_options=request_options
+            ),
+        )
 
     def patch_merchants_split_configurations_rules_split_logic(
         self,
@@ -274,7 +294,8 @@ class SplitConfigurationMerchantLevel:
             rule_id: The unique identifier of the split configuration rule.
             split_logic_id: The unique identifier of the split configuration split.
             body: The request body.
-            request_options: Per-call overrides for this one request, such as a timeout or extra headers.
+            request_options: Per-call overrides for this one request, such as a timeout, extra headers, or its retry
+                count and statuses.
 
         Returns:
             OK - the request has succeeded.
@@ -284,9 +305,11 @@ class SplitConfigurationMerchantLevel:
                 required. Forbidden - insufficient permissions to process the request. Unprocessable Entity - a request
                 validation error. Internal Server Error - the server could not process the request. ``error`` is
                 ``RestServiceError | RawError``."""
-        return self._with_raw_response.patch_merchants_split_configurations_rules_split_logic(
-            merchant_id, split_configuration_id, rule_id, split_logic_id, body=body, request_options=request_options
-        ).unwrap()
+        return unwrap(
+            self._with_raw_response.patch_merchants_split_configurations_rules_split_logic(
+                merchant_id, split_configuration_id, rule_id, split_logic_id, body=body, request_options=request_options
+            ),
+        )
 
     def post_merchants_merchant_id_split_configurations(
         self,
@@ -309,7 +332,8 @@ class SplitConfigurationMerchantLevel:
         Args:
             merchant_id: The unique identifier of the merchant account.
             body: The request body.
-            request_options: Per-call overrides for this one request, such as a timeout or extra headers.
+            request_options: Per-call overrides for this one request, such as a timeout, extra headers, or its retry
+                count and statuses.
 
         Returns:
             OK - the request has succeeded.
@@ -319,9 +343,11 @@ class SplitConfigurationMerchantLevel:
                 required. Forbidden - insufficient permissions to process the request. Unprocessable Entity - a request
                 validation error. Internal Server Error - the server could not process the request. ``error`` is
                 ``RestServiceError | RawError``."""
-        return self._with_raw_response.post_merchants_merchant_id_split_configurations(
-            merchant_id, body=body, request_options=request_options
-        ).unwrap()
+        return unwrap(
+            self._with_raw_response.post_merchants_merchant_id_split_configurations(
+                merchant_id, body=body, request_options=request_options
+            ),
+        )
 
     def post_merchants_merchant_id_split_configurations_split_configuration_id(
         self,
@@ -343,7 +369,8 @@ class SplitConfigurationMerchantLevel:
             merchant_id: The unique identifier of the merchant account.
             split_configuration_id: The unique identifier of the split configuration.
             body: The request body.
-            request_options: Per-call overrides for this one request, such as a timeout or extra headers.
+            request_options: Per-call overrides for this one request, such as a timeout, extra headers, or its retry
+                count and statuses.
 
         Returns:
             OK - the request has succeeded.
@@ -353,9 +380,11 @@ class SplitConfigurationMerchantLevel:
                 required. Forbidden - insufficient permissions to process the request. Unprocessable Entity - a request
                 validation error. Internal Server Error - the server could not process the request. ``error`` is
                 ``RestServiceError | RawError``."""
-        return self._with_raw_response.post_merchants_merchant_id_split_configurations_split_configuration_id(
-            merchant_id, split_configuration_id, body=body, request_options=request_options
-        ).unwrap()
+        return unwrap(
+            self._with_raw_response.post_merchants_merchant_id_split_configurations_split_configuration_id(
+                merchant_id, split_configuration_id, body=body, request_options=request_options
+            ),
+        )
 
     @property
     def with_raw_response(self) -> SplitConfigurationMerchantLevelWithRawResponse:
@@ -378,7 +407,8 @@ class AsyncSplitConfigurationMerchantLevel:
         Args:
             merchant_id: The unique identifier of the merchant account.
             split_configuration_id: The unique identifier of the split configuration.
-            request_options: Per-call overrides for this one request, such as a timeout or extra headers.
+            request_options: Per-call overrides for this one request, such as a timeout, extra headers, or its retry
+                count and statuses.
 
         Returns:
             OK - the request has succeeded.
@@ -388,11 +418,11 @@ class AsyncSplitConfigurationMerchantLevel:
                 required. Forbidden - insufficient permissions to process the request. Unprocessable Entity - a request
                 validation error. Internal Server Error - the server could not process the request. ``error`` is
                 ``RestServiceError | RawError``."""
-        return (
+        return unwrap(
             await self._with_raw_response.delete_merchants_merchant_id_split_configurations_split_configuration_id(
                 merchant_id, split_configuration_id, request_options=request_options
-            )
-        ).unwrap()
+            ),
+        )
 
     async def delete_merchants_merchant_id_split_configurations_split_configuration_id_rules_rule_id(
         self,
@@ -412,7 +442,8 @@ class AsyncSplitConfigurationMerchantLevel:
             merchant_id: The unique identifier of the merchant account.
             split_configuration_id: The unique identifier of the split configuration.
             rule_id: Value sent with the request.
-            request_options: Per-call overrides for this one request, such as a timeout or extra headers.
+            request_options: Per-call overrides for this one request, such as a timeout, extra headers, or its retry
+                count and statuses.
 
         Returns:
             OK - the request has succeeded.
@@ -422,11 +453,11 @@ class AsyncSplitConfigurationMerchantLevel:
                 required. Forbidden - insufficient permissions to process the request. Unprocessable Entity - a request
                 validation error. Internal Server Error - the server could not process the request. ``error`` is
                 ``RestServiceError | RawError``."""
-        return (
+        return unwrap(
             await self._with_raw_response.delete_merchants_merchant_id_split_configurations_split_configuration_id_rules_rule_id(
                 merchant_id, split_configuration_id, rule_id, request_options=request_options
-            )
-        ).unwrap()
+            ),
+        )
 
     async def get_merchants_merchant_id_split_configurations(
         self, merchant_id: str, *, request_options: RequestOptionsOrDict | None = None
@@ -439,7 +470,8 @@ class AsyncSplitConfigurationMerchantLevel:
 
         Args:
             merchant_id: The unique identifier of the merchant account.
-            request_options: Per-call overrides for this one request, such as a timeout or extra headers.
+            request_options: Per-call overrides for this one request, such as a timeout, extra headers, or its retry
+                count and statuses.
 
         Returns:
             OK - the request has succeeded.
@@ -449,11 +481,11 @@ class AsyncSplitConfigurationMerchantLevel:
                 required. Forbidden - insufficient permissions to process the request. Unprocessable Entity - a request
                 validation error. Internal Server Error - the server could not process the request. ``error`` is
                 ``RestServiceError | RawError``."""
-        return (
+        return unwrap(
             await self._with_raw_response.get_merchants_merchant_id_split_configurations(
                 merchant_id, request_options=request_options
-            )
-        ).unwrap()
+            ),
+        )
 
     async def get_merchants_merchant_id_split_configurations_split_configuration_id(
         self, merchant_id: str, split_configuration_id: str, *, request_options: RequestOptionsOrDict | None = None
@@ -467,7 +499,8 @@ class AsyncSplitConfigurationMerchantLevel:
         Args:
             merchant_id: The unique identifier of the merchant account.
             split_configuration_id: The unique identifier of the split configuration.
-            request_options: Per-call overrides for this one request, such as a timeout or extra headers.
+            request_options: Per-call overrides for this one request, such as a timeout, extra headers, or its retry
+                count and statuses.
 
         Returns:
             OK - the request has succeeded.
@@ -477,11 +510,11 @@ class AsyncSplitConfigurationMerchantLevel:
                 required. Forbidden - insufficient permissions to process the request. Unprocessable Entity - a request
                 validation error. Internal Server Error - the server could not process the request. ``error`` is
                 ``RestServiceError | RawError``."""
-        return (
+        return unwrap(
             await self._with_raw_response.get_merchants_merchant_id_split_configurations_split_configuration_id(
                 merchant_id, split_configuration_id, request_options=request_options
-            )
-        ).unwrap()
+            ),
+        )
 
     async def patch_merchants_merchant_id_split_configurations_split_configuration_id(
         self,
@@ -501,7 +534,8 @@ class AsyncSplitConfigurationMerchantLevel:
             merchant_id: The unique identifier of the merchant account.
             split_configuration_id: The unique identifier of the split configuration.
             body: The request body.
-            request_options: Per-call overrides for this one request, such as a timeout or extra headers.
+            request_options: Per-call overrides for this one request, such as a timeout, extra headers, or its retry
+                count and statuses.
 
         Returns:
             OK - the request has succeeded.
@@ -511,11 +545,11 @@ class AsyncSplitConfigurationMerchantLevel:
                 required. Forbidden - insufficient permissions to process the request. Unprocessable Entity - a request
                 validation error. Internal Server Error - the server could not process the request. ``error`` is
                 ``RestServiceError | RawError``."""
-        return (
+        return unwrap(
             await self._with_raw_response.patch_merchants_merchant_id_split_configurations_split_configuration_id(
                 merchant_id, split_configuration_id, body=body, request_options=request_options
-            )
-        ).unwrap()
+            ),
+        )
 
     async def patch_merchants_merchant_id_split_configurations_split_configuration_id_rules_rule_id(
         self,
@@ -539,7 +573,8 @@ class AsyncSplitConfigurationMerchantLevel:
             split_configuration_id: The identifier of the split configuration.
             rule_id: The unique identifier of the split configuration rule.
             body: The request body.
-            request_options: Per-call overrides for this one request, such as a timeout or extra headers.
+            request_options: Per-call overrides for this one request, such as a timeout, extra headers, or its retry
+                count and statuses.
 
         Returns:
             OK - the request has succeeded.
@@ -549,11 +584,11 @@ class AsyncSplitConfigurationMerchantLevel:
                 required. Forbidden - insufficient permissions to process the request. Unprocessable Entity - a request
                 validation error. Internal Server Error - the server could not process the request. ``error`` is
                 ``RestServiceError | RawError``."""
-        return (
+        return unwrap(
             await self._with_raw_response.patch_merchants_merchant_id_split_configurations_split_configuration_id_rules_rule_id(
                 merchant_id, split_configuration_id, rule_id, body=body, request_options=request_options
-            )
-        ).unwrap()
+            ),
+        )
 
     async def patch_merchants_split_configurations_rules_split_logic(
         self,
@@ -579,7 +614,8 @@ class AsyncSplitConfigurationMerchantLevel:
             rule_id: The unique identifier of the split configuration rule.
             split_logic_id: The unique identifier of the split configuration split.
             body: The request body.
-            request_options: Per-call overrides for this one request, such as a timeout or extra headers.
+            request_options: Per-call overrides for this one request, such as a timeout, extra headers, or its retry
+                count and statuses.
 
         Returns:
             OK - the request has succeeded.
@@ -589,11 +625,11 @@ class AsyncSplitConfigurationMerchantLevel:
                 required. Forbidden - insufficient permissions to process the request. Unprocessable Entity - a request
                 validation error. Internal Server Error - the server could not process the request. ``error`` is
                 ``RestServiceError | RawError``."""
-        return (
+        return unwrap(
             await self._with_raw_response.patch_merchants_split_configurations_rules_split_logic(
                 merchant_id, split_configuration_id, rule_id, split_logic_id, body=body, request_options=request_options
-            )
-        ).unwrap()
+            ),
+        )
 
     async def post_merchants_merchant_id_split_configurations(
         self,
@@ -616,7 +652,8 @@ class AsyncSplitConfigurationMerchantLevel:
         Args:
             merchant_id: The unique identifier of the merchant account.
             body: The request body.
-            request_options: Per-call overrides for this one request, such as a timeout or extra headers.
+            request_options: Per-call overrides for this one request, such as a timeout, extra headers, or its retry
+                count and statuses.
 
         Returns:
             OK - the request has succeeded.
@@ -626,11 +663,11 @@ class AsyncSplitConfigurationMerchantLevel:
                 required. Forbidden - insufficient permissions to process the request. Unprocessable Entity - a request
                 validation error. Internal Server Error - the server could not process the request. ``error`` is
                 ``RestServiceError | RawError``."""
-        return (
+        return unwrap(
             await self._with_raw_response.post_merchants_merchant_id_split_configurations(
                 merchant_id, body=body, request_options=request_options
-            )
-        ).unwrap()
+            ),
+        )
 
     async def post_merchants_merchant_id_split_configurations_split_configuration_id(
         self,
@@ -652,7 +689,8 @@ class AsyncSplitConfigurationMerchantLevel:
             merchant_id: The unique identifier of the merchant account.
             split_configuration_id: The unique identifier of the split configuration.
             body: The request body.
-            request_options: Per-call overrides for this one request, such as a timeout or extra headers.
+            request_options: Per-call overrides for this one request, such as a timeout, extra headers, or its retry
+                count and statuses.
 
         Returns:
             OK - the request has succeeded.
@@ -662,11 +700,11 @@ class AsyncSplitConfigurationMerchantLevel:
                 required. Forbidden - insufficient permissions to process the request. Unprocessable Entity - a request
                 validation error. Internal Server Error - the server could not process the request. ``error`` is
                 ``RestServiceError | RawError``."""
-        return (
+        return unwrap(
             await self._with_raw_response.post_merchants_merchant_id_split_configurations_split_configuration_id(
                 merchant_id, split_configuration_id, body=body, request_options=request_options
-            )
-        ).unwrap()
+            ),
+        )
 
     @property
     def with_raw_response(self) -> AsyncSplitConfigurationMerchantLevelWithRawResponse:
@@ -686,7 +724,8 @@ class SplitConfigurationMerchantLevelWithRawResponse(SecuredRawResponse[RawClien
         Args:
             merchant_id: The unique identifier of the merchant account.
             split_configuration_id: The unique identifier of the split configuration.
-            request_options: Per-call overrides for this one request, such as a timeout or extra headers.
+            request_options: Per-call overrides for this one request, such as a timeout, extra headers, or its retry
+                count and statuses.
 
         Returns:
             An ``ApiResult`` holding the deserialized response or the error body."""
@@ -723,7 +762,8 @@ class SplitConfigurationMerchantLevelWithRawResponse(SecuredRawResponse[RawClien
             merchant_id: The unique identifier of the merchant account.
             split_configuration_id: The unique identifier of the split configuration.
             rule_id: Value sent with the request.
-            request_options: Per-call overrides for this one request, such as a timeout or extra headers.
+            request_options: Per-call overrides for this one request, such as a timeout, extra headers, or its retry
+                count and statuses.
 
         Returns:
             An ``ApiResult`` holding the deserialized response or the error body."""
@@ -755,7 +795,8 @@ class SplitConfigurationMerchantLevelWithRawResponse(SecuredRawResponse[RawClien
 
         Args:
             merchant_id: The unique identifier of the merchant account.
-            request_options: Per-call overrides for this one request, such as a timeout or extra headers.
+            request_options: Per-call overrides for this one request, such as a timeout, extra headers, or its retry
+                count and statuses.
 
         Returns:
             An ``ApiResult`` holding the deserialized response or the error body."""
@@ -781,7 +822,8 @@ class SplitConfigurationMerchantLevelWithRawResponse(SecuredRawResponse[RawClien
         Args:
             merchant_id: The unique identifier of the merchant account.
             split_configuration_id: The unique identifier of the split configuration.
-            request_options: Per-call overrides for this one request, such as a timeout or extra headers.
+            request_options: Per-call overrides for this one request, such as a timeout, extra headers, or its retry
+                count and statuses.
 
         Returns:
             An ``ApiResult`` holding the deserialized response or the error body."""
@@ -815,7 +857,8 @@ class SplitConfigurationMerchantLevelWithRawResponse(SecuredRawResponse[RawClien
             merchant_id: The unique identifier of the merchant account.
             split_configuration_id: The unique identifier of the split configuration.
             body: The request body.
-            request_options: Per-call overrides for this one request, such as a timeout or extra headers.
+            request_options: Per-call overrides for this one request, such as a timeout, extra headers, or its retry
+                count and statuses.
 
         Returns:
             An ``ApiResult`` holding the deserialized response or the error body."""
@@ -857,7 +900,8 @@ class SplitConfigurationMerchantLevelWithRawResponse(SecuredRawResponse[RawClien
             split_configuration_id: The identifier of the split configuration.
             rule_id: The unique identifier of the split configuration rule.
             body: The request body.
-            request_options: Per-call overrides for this one request, such as a timeout or extra headers.
+            request_options: Per-call overrides for this one request, such as a timeout, extra headers, or its retry
+                count and statuses.
 
         Returns:
             An ``ApiResult`` holding the deserialized response or the error body."""
@@ -903,7 +947,8 @@ class SplitConfigurationMerchantLevelWithRawResponse(SecuredRawResponse[RawClien
             rule_id: The unique identifier of the split configuration rule.
             split_logic_id: The unique identifier of the split configuration split.
             body: The request body.
-            request_options: Per-call overrides for this one request, such as a timeout or extra headers.
+            request_options: Per-call overrides for this one request, such as a timeout, extra headers, or its retry
+                count and statuses.
 
         Returns:
             An ``ApiResult`` holding the deserialized response or the error body."""
@@ -949,7 +994,8 @@ class SplitConfigurationMerchantLevelWithRawResponse(SecuredRawResponse[RawClien
         Args:
             merchant_id: The unique identifier of the merchant account.
             body: The request body.
-            request_options: Per-call overrides for this one request, such as a timeout or extra headers.
+            request_options: Per-call overrides for this one request, such as a timeout, extra headers, or its retry
+                count and statuses.
 
         Returns:
             An ``ApiResult`` holding the deserialized response or the error body."""
@@ -985,7 +1031,8 @@ class SplitConfigurationMerchantLevelWithRawResponse(SecuredRawResponse[RawClien
             merchant_id: The unique identifier of the merchant account.
             split_configuration_id: The unique identifier of the split configuration.
             body: The request body.
-            request_options: Per-call overrides for this one request, such as a timeout or extra headers.
+            request_options: Per-call overrides for this one request, such as a timeout, extra headers, or its retry
+                count and statuses.
 
         Returns:
             An ``ApiResult`` holding the deserialized response or the error body."""
@@ -1017,7 +1064,8 @@ class AsyncSplitConfigurationMerchantLevelWithRawResponse(SecuredRawResponse[Asy
         Args:
             merchant_id: The unique identifier of the merchant account.
             split_configuration_id: The unique identifier of the split configuration.
-            request_options: Per-call overrides for this one request, such as a timeout or extra headers.
+            request_options: Per-call overrides for this one request, such as a timeout, extra headers, or its retry
+                count and statuses.
 
         Returns:
             An ``ApiResult`` holding the deserialized response or the error body."""
@@ -1029,7 +1077,7 @@ class AsyncSplitConfigurationMerchantLevelWithRawResponse(SecuredRawResponse[Asy
             ],
             headers=[param[UUID]("Idempotency-Key", uuid4())],
             auth_scheme=AsyncAnySchemes(self._auth.basic_auth, self._auth.api_key_auth),
-            decoder=json_decoder[SplitConfiguration],
+            decoder=async_json_decoder[SplitConfiguration],
             error_mapper=delete_merchants_merchant_id_split_configurations_split_configuration_id_error_mapper,
             request_options=request_options,
         )
@@ -1054,7 +1102,8 @@ class AsyncSplitConfigurationMerchantLevelWithRawResponse(SecuredRawResponse[Asy
             merchant_id: The unique identifier of the merchant account.
             split_configuration_id: The unique identifier of the split configuration.
             rule_id: Value sent with the request.
-            request_options: Per-call overrides for this one request, such as a timeout or extra headers.
+            request_options: Per-call overrides for this one request, such as a timeout, extra headers, or its retry
+                count and statuses.
 
         Returns:
             An ``ApiResult`` holding the deserialized response or the error body."""
@@ -1070,7 +1119,7 @@ class AsyncSplitConfigurationMerchantLevelWithRawResponse(SecuredRawResponse[Asy
             ],
             headers=[param[UUID]("Idempotency-Key", uuid4())],
             auth_scheme=AsyncAnySchemes(self._auth.basic_auth, self._auth.api_key_auth),
-            decoder=json_decoder[SplitConfiguration],
+            decoder=async_json_decoder[SplitConfiguration],
             error_mapper=delete_merchants_merchant_id_split_configurations_split_configuration_id_rules_rule_id_error_mapper,
             request_options=request_options,
         )
@@ -1086,7 +1135,8 @@ class AsyncSplitConfigurationMerchantLevelWithRawResponse(SecuredRawResponse[Asy
 
         Args:
             merchant_id: The unique identifier of the merchant account.
-            request_options: Per-call overrides for this one request, such as a timeout or extra headers.
+            request_options: Per-call overrides for this one request, such as a timeout, extra headers, or its retry
+                count and statuses.
 
         Returns:
             An ``ApiResult`` holding the deserialized response or the error body."""
@@ -1095,7 +1145,7 @@ class AsyncSplitConfigurationMerchantLevelWithRawResponse(SecuredRawResponse[Asy
             url_template=self._server.default9("/merchants/{merchantId}/splitConfigurations"),
             path_params=[param[str]("merchantId", merchant_id)],
             auth_scheme=AsyncAnySchemes(self._auth.basic_auth, self._auth.api_key_auth),
-            decoder=json_decoder[SplitConfigurationList],
+            decoder=async_json_decoder[SplitConfigurationList],
             error_mapper=get_merchants_merchant_id_split_configurations_error_mapper,
             request_options=request_options,
         )
@@ -1112,7 +1162,8 @@ class AsyncSplitConfigurationMerchantLevelWithRawResponse(SecuredRawResponse[Asy
         Args:
             merchant_id: The unique identifier of the merchant account.
             split_configuration_id: The unique identifier of the split configuration.
-            request_options: Per-call overrides for this one request, such as a timeout or extra headers.
+            request_options: Per-call overrides for this one request, such as a timeout, extra headers, or its retry
+                count and statuses.
 
         Returns:
             An ``ApiResult`` holding the deserialized response or the error body."""
@@ -1123,7 +1174,7 @@ class AsyncSplitConfigurationMerchantLevelWithRawResponse(SecuredRawResponse[Asy
                 param[str]("merchantId", merchant_id), param[str]("splitConfigurationId", split_configuration_id)
             ],
             auth_scheme=AsyncAnySchemes(self._auth.basic_auth, self._auth.api_key_auth),
-            decoder=json_decoder[SplitConfiguration],
+            decoder=async_json_decoder[SplitConfiguration],
             error_mapper=get_merchants_merchant_id_split_configurations_split_configuration_id_error_mapper,
             request_options=request_options,
         )
@@ -1146,7 +1197,8 @@ class AsyncSplitConfigurationMerchantLevelWithRawResponse(SecuredRawResponse[Asy
             merchant_id: The unique identifier of the merchant account.
             split_configuration_id: The unique identifier of the split configuration.
             body: The request body.
-            request_options: Per-call overrides for this one request, such as a timeout or extra headers.
+            request_options: Per-call overrides for this one request, such as a timeout, extra headers, or its retry
+                count and statuses.
 
         Returns:
             An ``ApiResult`` holding the deserialized response or the error body."""
@@ -1159,7 +1211,7 @@ class AsyncSplitConfigurationMerchantLevelWithRawResponse(SecuredRawResponse[Asy
             headers=[param[UUID]("Idempotency-Key", uuid4())],
             body=json_body[UpdateSplitConfigurationRequest | UpdateSplitConfigurationRequestDict | None](body),
             auth_scheme=AsyncAnySchemes(self._auth.basic_auth, self._auth.api_key_auth),
-            decoder=json_decoder[SplitConfiguration],
+            decoder=async_json_decoder[SplitConfiguration],
             error_mapper=patch_merchants_merchant_id_split_configurations_split_configuration_id_error_mapper,
             request_options=request_options,
         )
@@ -1188,7 +1240,8 @@ class AsyncSplitConfigurationMerchantLevelWithRawResponse(SecuredRawResponse[Asy
             split_configuration_id: The identifier of the split configuration.
             rule_id: The unique identifier of the split configuration rule.
             body: The request body.
-            request_options: Per-call overrides for this one request, such as a timeout or extra headers.
+            request_options: Per-call overrides for this one request, such as a timeout, extra headers, or its retry
+                count and statuses.
 
         Returns:
             An ``ApiResult`` holding the deserialized response or the error body."""
@@ -1205,7 +1258,7 @@ class AsyncSplitConfigurationMerchantLevelWithRawResponse(SecuredRawResponse[Asy
             headers=[param[UUID]("Idempotency-Key", uuid4())],
             body=json_body[UpdateSplitConfigurationRuleRequest | UpdateSplitConfigurationRuleRequestDict | None](body),
             auth_scheme=AsyncAnySchemes(self._auth.basic_auth, self._auth.api_key_auth),
-            decoder=json_decoder[SplitConfiguration],
+            decoder=async_json_decoder[SplitConfiguration],
             error_mapper=patch_merchants_merchant_id_split_configurations_split_configuration_id_rules_rule_id_error_mapper,
             request_options=request_options,
         )
@@ -1234,7 +1287,8 @@ class AsyncSplitConfigurationMerchantLevelWithRawResponse(SecuredRawResponse[Asy
             rule_id: The unique identifier of the split configuration rule.
             split_logic_id: The unique identifier of the split configuration split.
             body: The request body.
-            request_options: Per-call overrides for this one request, such as a timeout or extra headers.
+            request_options: Per-call overrides for this one request, such as a timeout, extra headers, or its retry
+                count and statuses.
 
         Returns:
             An ``ApiResult`` holding the deserialized response or the error body."""
@@ -1254,7 +1308,7 @@ class AsyncSplitConfigurationMerchantLevelWithRawResponse(SecuredRawResponse[Asy
                 body
             ),
             auth_scheme=AsyncAnySchemes(self._auth.basic_auth, self._auth.api_key_auth),
-            decoder=json_decoder[SplitConfiguration],
+            decoder=async_json_decoder[SplitConfiguration],
             error_mapper=patch_merchants_split_configurations_rules_split_logic_error_mapper,
             request_options=request_options,
         )
@@ -1280,7 +1334,8 @@ class AsyncSplitConfigurationMerchantLevelWithRawResponse(SecuredRawResponse[Asy
         Args:
             merchant_id: The unique identifier of the merchant account.
             body: The request body.
-            request_options: Per-call overrides for this one request, such as a timeout or extra headers.
+            request_options: Per-call overrides for this one request, such as a timeout, extra headers, or its retry
+                count and statuses.
 
         Returns:
             An ``ApiResult`` holding the deserialized response or the error body."""
@@ -1291,7 +1346,7 @@ class AsyncSplitConfigurationMerchantLevelWithRawResponse(SecuredRawResponse[Asy
             headers=[param[UUID]("Idempotency-Key", uuid4())],
             body=json_body[SplitConfiguration | SplitConfigurationDict | None](body),
             auth_scheme=AsyncAnySchemes(self._auth.basic_auth, self._auth.api_key_auth),
-            decoder=json_decoder[SplitConfiguration],
+            decoder=async_json_decoder[SplitConfiguration],
             error_mapper=post_merchants_merchant_id_split_configurations_error_mapper,
             request_options=request_options,
         )
@@ -1316,7 +1371,8 @@ class AsyncSplitConfigurationMerchantLevelWithRawResponse(SecuredRawResponse[Asy
             merchant_id: The unique identifier of the merchant account.
             split_configuration_id: The unique identifier of the split configuration.
             body: The request body.
-            request_options: Per-call overrides for this one request, such as a timeout or extra headers.
+            request_options: Per-call overrides for this one request, such as a timeout, extra headers, or its retry
+                count and statuses.
 
         Returns:
             An ``ApiResult`` holding the deserialized response or the error body."""
@@ -1329,7 +1385,7 @@ class AsyncSplitConfigurationMerchantLevelWithRawResponse(SecuredRawResponse[Asy
             headers=[param[UUID]("Idempotency-Key", uuid4())],
             body=json_body[SplitConfigurationRule | SplitConfigurationRuleDict | None](body),
             auth_scheme=AsyncAnySchemes(self._auth.basic_auth, self._auth.api_key_auth),
-            decoder=json_decoder[SplitConfiguration],
+            decoder=async_json_decoder[SplitConfiguration],
             error_mapper=post_merchants_merchant_id_split_configurations_split_configuration_id_error_mapper,
             request_options=request_options,
         )

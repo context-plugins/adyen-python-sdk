@@ -29,8 +29,8 @@ class WebhookLinks(SdkBaseModel):
 
 
 class WebhookLinksDict(TypedDict):
-    company: NotRequired[LinksElement15 | LinksElement15Dict]
-    generate_hmac: LinksElement16 | LinksElement16Dict
-    merchant: NotRequired[LinksElement17 | LinksElement17Dict]
-    self: LinksElement6 | LinksElement6Dict
-    test_webhook: LinksElement19 | LinksElement19Dict
+    company: NotRequired[LinksElement15Dict]
+    generate_hmac: LinksElement16Dict
+    merchant: NotRequired[LinksElement17Dict]
+    self: LinksElement6Dict
+    test_webhook: LinksElement19Dict

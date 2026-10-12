@@ -11,10 +11,13 @@ from ..core import (
     RawClient,
     RequestOptionsOrDict,
     SecuredRawResponse,
+    async_empty_response,
+    async_json_decoder,
     empty_response,
     json_body,
     json_decoder,
     param,
+    unwrap,
 )
 from ..errors.delete_merchants_merchant_id_webhooks_webhook_id_error import (
     DeleteMerchantsMerchantIdWebhooksWebhookIdErrorBody,
@@ -70,7 +73,8 @@ class WebhooksMerchantLevel:
         Args:
             merchant_id: The unique identifier of the merchant account.
             webhook_id: Unique identifier of the webhook configuration.
-            request_options: Per-call overrides for this one request, such as a timeout or extra headers.
+            request_options: Per-call overrides for this one request, such as a timeout, extra headers, or its retry
+                count and statuses.
 
         Returns:
             No Content - look at the actual response code for the status of the request.
@@ -80,9 +84,11 @@ class WebhooksMerchantLevel:
                 required. Forbidden - insufficient permissions to process the request. Unprocessable Entity - a request
                 validation error. Internal Server Error - the server could not process the request. ``error`` is
                 ``RestServiceError | RawError``."""
-        return self._with_raw_response.delete_merchants_merchant_id_webhooks_webhook_id(
-            merchant_id, webhook_id, request_options=request_options
-        ).unwrap()
+        return unwrap(
+            self._with_raw_response.delete_merchants_merchant_id_webhooks_webhook_id(
+                merchant_id, webhook_id, request_options=request_options
+            ),
+        )
 
     def get_merchants_merchant_id_webhooks(
         self,
@@ -106,7 +112,8 @@ class WebhooksMerchantLevel:
             merchant_id: The unique identifier of the merchant account.
             page_number: The number of the page to fetch.
             page_size: The number of items to have on a page, maximum 100. The default is 10 items on a page.
-            request_options: Per-call overrides for this one request, such as a timeout or extra headers.
+            request_options: Per-call overrides for this one request, such as a timeout, extra headers, or its retry
+                count and statuses.
 
         Returns:
             OK - the request has succeeded.
@@ -116,9 +123,11 @@ class WebhooksMerchantLevel:
                 required. Forbidden - insufficient permissions to process the request. Unprocessable Entity - a request
                 validation error. Internal Server Error - the server could not process the request. ``error`` is
                 ``RestServiceError | RawError``."""
-        return self._with_raw_response.get_merchants_merchant_id_webhooks(
-            merchant_id, page_number=page_number, page_size=page_size, request_options=request_options
-        ).unwrap()
+        return unwrap(
+            self._with_raw_response.get_merchants_merchant_id_webhooks(
+                merchant_id, page_number=page_number, page_size=page_size, request_options=request_options
+            ),
+        )
 
     def get_merchants_merchant_id_webhooks_webhook_id(
         self, merchant_id: str, webhook_id: str, *, request_options: RequestOptionsOrDict | None = None
@@ -133,7 +142,8 @@ class WebhooksMerchantLevel:
         Args:
             merchant_id: The unique identifier of the merchant account.
             webhook_id: Unique identifier of the webhook configuration.
-            request_options: Per-call overrides for this one request, such as a timeout or extra headers.
+            request_options: Per-call overrides for this one request, such as a timeout, extra headers, or its retry
+                count and statuses.
 
         Returns:
             OK - the request has succeeded.
@@ -143,9 +153,11 @@ class WebhooksMerchantLevel:
                 required. Forbidden - insufficient permissions to process the request. Unprocessable Entity - a request
                 validation error. Internal Server Error - the server could not process the request. ``error`` is
                 ``RestServiceError | RawError``."""
-        return self._with_raw_response.get_merchants_merchant_id_webhooks_webhook_id(
-            merchant_id, webhook_id, request_options=request_options
-        ).unwrap()
+        return unwrap(
+            self._with_raw_response.get_merchants_merchant_id_webhooks_webhook_id(
+                merchant_id, webhook_id, request_options=request_options
+            ),
+        )
 
     def patch_merchants_merchant_id_webhooks_webhook_id(
         self,
@@ -167,7 +179,8 @@ class WebhooksMerchantLevel:
             merchant_id: The unique identifier of the merchant account.
             webhook_id: Unique identifier of the webhook configuration.
             body: The request body.
-            request_options: Per-call overrides for this one request, such as a timeout or extra headers.
+            request_options: Per-call overrides for this one request, such as a timeout, extra headers, or its retry
+                count and statuses.
 
         Returns:
             OK - the request has succeeded.
@@ -177,9 +190,11 @@ class WebhooksMerchantLevel:
                 required. Forbidden - insufficient permissions to process the request. Unprocessable Entity - a request
                 validation error. Internal Server Error - the server could not process the request. ``error`` is
                 ``RestServiceError | RawError``."""
-        return self._with_raw_response.patch_merchants_merchant_id_webhooks_webhook_id(
-            merchant_id, webhook_id, body=body, request_options=request_options
-        ).unwrap()
+        return unwrap(
+            self._with_raw_response.patch_merchants_merchant_id_webhooks_webhook_id(
+                merchant_id, webhook_id, body=body, request_options=request_options
+            ),
+        )
 
     def post_merchants_merchant_id_webhooks(
         self,
@@ -198,7 +213,8 @@ class WebhooksMerchantLevel:
         Args:
             merchant_id: The unique identifier of the merchant account.
             body: The request body.
-            request_options: Per-call overrides for this one request, such as a timeout or extra headers.
+            request_options: Per-call overrides for this one request, such as a timeout, extra headers, or its retry
+                count and statuses.
 
         Returns:
             OK - the request has succeeded.
@@ -208,9 +224,11 @@ class WebhooksMerchantLevel:
                 required. Forbidden - insufficient permissions to process the request. Unprocessable Entity - a request
                 validation error. Internal Server Error - the server could not process the request. ``error`` is
                 ``RestServiceError | RawError``."""
-        return self._with_raw_response.post_merchants_merchant_id_webhooks(
-            merchant_id, body=body, request_options=request_options
-        ).unwrap()
+        return unwrap(
+            self._with_raw_response.post_merchants_merchant_id_webhooks(
+                merchant_id, body=body, request_options=request_options
+            ),
+        )
 
     def post_merchants_merchant_id_webhooks_webhook_id_generate_hmac(
         self, merchant_id: str, webhook_id: str, *, request_options: RequestOptionsOrDict | None = None
@@ -229,7 +247,8 @@ class WebhooksMerchantLevel:
         Args:
             merchant_id: The unique identifier of the merchant account.
             webhook_id: Value sent with the request.
-            request_options: Per-call overrides for this one request, such as a timeout or extra headers.
+            request_options: Per-call overrides for this one request, such as a timeout, extra headers, or its retry
+                count and statuses.
 
         Returns:
             OK - the request has succeeded.
@@ -239,9 +258,11 @@ class WebhooksMerchantLevel:
                 required. Forbidden - insufficient permissions to process the request. Unprocessable Entity - a request
                 validation error. Internal Server Error - the server could not process the request. ``error`` is
                 ``RestServiceError | RawError``."""
-        return self._with_raw_response.post_merchants_merchant_id_webhooks_webhook_id_generate_hmac(
-            merchant_id, webhook_id, request_options=request_options
-        ).unwrap()
+        return unwrap(
+            self._with_raw_response.post_merchants_merchant_id_webhooks_webhook_id_generate_hmac(
+                merchant_id, webhook_id, request_options=request_options
+            ),
+        )
 
     def post_merchants_merchant_id_webhooks_webhook_id_test(
         self,
@@ -268,7 +289,8 @@ class WebhooksMerchantLevel:
             merchant_id: The unique identifier of the merchant account.
             webhook_id: Unique identifier of the webhook configuration.
             body: The request body.
-            request_options: Per-call overrides for this one request, such as a timeout or extra headers.
+            request_options: Per-call overrides for this one request, such as a timeout, extra headers, or its retry
+                count and statuses.
 
         Returns:
             OK - the request has succeeded.
@@ -278,9 +300,11 @@ class WebhooksMerchantLevel:
                 required. Forbidden - insufficient permissions to process the request. Unprocessable Entity - a request
                 validation error. Internal Server Error - the server could not process the request. ``error`` is
                 ``RestServiceError | RawError``."""
-        return self._with_raw_response.post_merchants_merchant_id_webhooks_webhook_id_test(
-            merchant_id, webhook_id, body=body, request_options=request_options
-        ).unwrap()
+        return unwrap(
+            self._with_raw_response.post_merchants_merchant_id_webhooks_webhook_id_test(
+                merchant_id, webhook_id, body=body, request_options=request_options
+            ),
+        )
 
     @property
     def with_raw_response(self) -> WebhooksMerchantLevelWithRawResponse:
@@ -303,7 +327,8 @@ class AsyncWebhooksMerchantLevel:
         Args:
             merchant_id: The unique identifier of the merchant account.
             webhook_id: Unique identifier of the webhook configuration.
-            request_options: Per-call overrides for this one request, such as a timeout or extra headers.
+            request_options: Per-call overrides for this one request, such as a timeout, extra headers, or its retry
+                count and statuses.
 
         Returns:
             No Content - look at the actual response code for the status of the request.
@@ -313,11 +338,11 @@ class AsyncWebhooksMerchantLevel:
                 required. Forbidden - insufficient permissions to process the request. Unprocessable Entity - a request
                 validation error. Internal Server Error - the server could not process the request. ``error`` is
                 ``RestServiceError | RawError``."""
-        return (
+        return unwrap(
             await self._with_raw_response.delete_merchants_merchant_id_webhooks_webhook_id(
                 merchant_id, webhook_id, request_options=request_options
-            )
-        ).unwrap()
+            ),
+        )
 
     async def get_merchants_merchant_id_webhooks(
         self,
@@ -341,7 +366,8 @@ class AsyncWebhooksMerchantLevel:
             merchant_id: The unique identifier of the merchant account.
             page_number: The number of the page to fetch.
             page_size: The number of items to have on a page, maximum 100. The default is 10 items on a page.
-            request_options: Per-call overrides for this one request, such as a timeout or extra headers.
+            request_options: Per-call overrides for this one request, such as a timeout, extra headers, or its retry
+                count and statuses.
 
         Returns:
             OK - the request has succeeded.
@@ -351,11 +377,11 @@ class AsyncWebhooksMerchantLevel:
                 required. Forbidden - insufficient permissions to process the request. Unprocessable Entity - a request
                 validation error. Internal Server Error - the server could not process the request. ``error`` is
                 ``RestServiceError | RawError``."""
-        return (
+        return unwrap(
             await self._with_raw_response.get_merchants_merchant_id_webhooks(
                 merchant_id, page_number=page_number, page_size=page_size, request_options=request_options
-            )
-        ).unwrap()
+            ),
+        )
 
     async def get_merchants_merchant_id_webhooks_webhook_id(
         self, merchant_id: str, webhook_id: str, *, request_options: RequestOptionsOrDict | None = None
@@ -370,7 +396,8 @@ class AsyncWebhooksMerchantLevel:
         Args:
             merchant_id: The unique identifier of the merchant account.
             webhook_id: Unique identifier of the webhook configuration.
-            request_options: Per-call overrides for this one request, such as a timeout or extra headers.
+            request_options: Per-call overrides for this one request, such as a timeout, extra headers, or its retry
+                count and statuses.
 
         Returns:
             OK - the request has succeeded.
@@ -380,11 +407,11 @@ class AsyncWebhooksMerchantLevel:
                 required. Forbidden - insufficient permissions to process the request. Unprocessable Entity - a request
                 validation error. Internal Server Error - the server could not process the request. ``error`` is
                 ``RestServiceError | RawError``."""
-        return (
+        return unwrap(
             await self._with_raw_response.get_merchants_merchant_id_webhooks_webhook_id(
                 merchant_id, webhook_id, request_options=request_options
-            )
-        ).unwrap()
+            ),
+        )
 
     async def patch_merchants_merchant_id_webhooks_webhook_id(
         self,
@@ -406,7 +433,8 @@ class AsyncWebhooksMerchantLevel:
             merchant_id: The unique identifier of the merchant account.
             webhook_id: Unique identifier of the webhook configuration.
             body: The request body.
-            request_options: Per-call overrides for this one request, such as a timeout or extra headers.
+            request_options: Per-call overrides for this one request, such as a timeout, extra headers, or its retry
+                count and statuses.
 
         Returns:
             OK - the request has succeeded.
@@ -416,11 +444,11 @@ class AsyncWebhooksMerchantLevel:
                 required. Forbidden - insufficient permissions to process the request. Unprocessable Entity - a request
                 validation error. Internal Server Error - the server could not process the request. ``error`` is
                 ``RestServiceError | RawError``."""
-        return (
+        return unwrap(
             await self._with_raw_response.patch_merchants_merchant_id_webhooks_webhook_id(
                 merchant_id, webhook_id, body=body, request_options=request_options
-            )
-        ).unwrap()
+            ),
+        )
 
     async def post_merchants_merchant_id_webhooks(
         self,
@@ -439,7 +467,8 @@ class AsyncWebhooksMerchantLevel:
         Args:
             merchant_id: The unique identifier of the merchant account.
             body: The request body.
-            request_options: Per-call overrides for this one request, such as a timeout or extra headers.
+            request_options: Per-call overrides for this one request, such as a timeout, extra headers, or its retry
+                count and statuses.
 
         Returns:
             OK - the request has succeeded.
@@ -449,11 +478,11 @@ class AsyncWebhooksMerchantLevel:
                 required. Forbidden - insufficient permissions to process the request. Unprocessable Entity - a request
                 validation error. Internal Server Error - the server could not process the request. ``error`` is
                 ``RestServiceError | RawError``."""
-        return (
+        return unwrap(
             await self._with_raw_response.post_merchants_merchant_id_webhooks(
                 merchant_id, body=body, request_options=request_options
-            )
-        ).unwrap()
+            ),
+        )
 
     async def post_merchants_merchant_id_webhooks_webhook_id_generate_hmac(
         self, merchant_id: str, webhook_id: str, *, request_options: RequestOptionsOrDict | None = None
@@ -472,7 +501,8 @@ class AsyncWebhooksMerchantLevel:
         Args:
             merchant_id: The unique identifier of the merchant account.
             webhook_id: Value sent with the request.
-            request_options: Per-call overrides for this one request, such as a timeout or extra headers.
+            request_options: Per-call overrides for this one request, such as a timeout, extra headers, or its retry
+                count and statuses.
 
         Returns:
             OK - the request has succeeded.
@@ -482,11 +512,11 @@ class AsyncWebhooksMerchantLevel:
                 required. Forbidden - insufficient permissions to process the request. Unprocessable Entity - a request
                 validation error. Internal Server Error - the server could not process the request. ``error`` is
                 ``RestServiceError | RawError``."""
-        return (
+        return unwrap(
             await self._with_raw_response.post_merchants_merchant_id_webhooks_webhook_id_generate_hmac(
                 merchant_id, webhook_id, request_options=request_options
-            )
-        ).unwrap()
+            ),
+        )
 
     async def post_merchants_merchant_id_webhooks_webhook_id_test(
         self,
@@ -513,7 +543,8 @@ class AsyncWebhooksMerchantLevel:
             merchant_id: The unique identifier of the merchant account.
             webhook_id: Unique identifier of the webhook configuration.
             body: The request body.
-            request_options: Per-call overrides for this one request, such as a timeout or extra headers.
+            request_options: Per-call overrides for this one request, such as a timeout, extra headers, or its retry
+                count and statuses.
 
         Returns:
             OK - the request has succeeded.
@@ -523,11 +554,11 @@ class AsyncWebhooksMerchantLevel:
                 required. Forbidden - insufficient permissions to process the request. Unprocessable Entity - a request
                 validation error. Internal Server Error - the server could not process the request. ``error`` is
                 ``RestServiceError | RawError``."""
-        return (
+        return unwrap(
             await self._with_raw_response.post_merchants_merchant_id_webhooks_webhook_id_test(
                 merchant_id, webhook_id, body=body, request_options=request_options
-            )
-        ).unwrap()
+            ),
+        )
 
     @property
     def with_raw_response(self) -> AsyncWebhooksMerchantLevelWithRawResponse:
@@ -547,7 +578,8 @@ class WebhooksMerchantLevelWithRawResponse(SecuredRawResponse[RawClient, Server,
         Args:
             merchant_id: The unique identifier of the merchant account.
             webhook_id: Unique identifier of the webhook configuration.
-            request_options: Per-call overrides for this one request, such as a timeout or extra headers.
+            request_options: Per-call overrides for this one request, such as a timeout, extra headers, or its retry
+                count and statuses.
 
         Returns:
             An ``ApiResult`` holding the deserialized response or the error body."""
@@ -584,7 +616,8 @@ class WebhooksMerchantLevelWithRawResponse(SecuredRawResponse[RawClient, Server,
             merchant_id: The unique identifier of the merchant account.
             page_number: The number of the page to fetch.
             page_size: The number of items to have on a page, maximum 100. The default is 10 items on a page.
-            request_options: Per-call overrides for this one request, such as a timeout or extra headers.
+            request_options: Per-call overrides for this one request, such as a timeout, extra headers, or its retry
+                count and statuses.
 
         Returns:
             An ``ApiResult`` holding the deserialized response or the error body."""
@@ -612,7 +645,8 @@ class WebhooksMerchantLevelWithRawResponse(SecuredRawResponse[RawClient, Server,
         Args:
             merchant_id: The unique identifier of the merchant account.
             webhook_id: Unique identifier of the webhook configuration.
-            request_options: Per-call overrides for this one request, such as a timeout or extra headers.
+            request_options: Per-call overrides for this one request, such as a timeout, extra headers, or its retry
+                count and statuses.
 
         Returns:
             An ``ApiResult`` holding the deserialized response or the error body."""
@@ -646,7 +680,8 @@ class WebhooksMerchantLevelWithRawResponse(SecuredRawResponse[RawClient, Server,
             merchant_id: The unique identifier of the merchant account.
             webhook_id: Unique identifier of the webhook configuration.
             body: The request body.
-            request_options: Per-call overrides for this one request, such as a timeout or extra headers.
+            request_options: Per-call overrides for this one request, such as a timeout, extra headers, or its retry
+                count and statuses.
 
         Returns:
             An ``ApiResult`` holding the deserialized response or the error body."""
@@ -679,7 +714,8 @@ class WebhooksMerchantLevelWithRawResponse(SecuredRawResponse[RawClient, Server,
         Args:
             merchant_id: The unique identifier of the merchant account.
             body: The request body.
-            request_options: Per-call overrides for this one request, such as a timeout or extra headers.
+            request_options: Per-call overrides for this one request, such as a timeout, extra headers, or its retry
+                count and statuses.
 
         Returns:
             An ``ApiResult`` holding the deserialized response or the error body."""
@@ -712,7 +748,8 @@ class WebhooksMerchantLevelWithRawResponse(SecuredRawResponse[RawClient, Server,
         Args:
             merchant_id: The unique identifier of the merchant account.
             webhook_id: Value sent with the request.
-            request_options: Per-call overrides for this one request, such as a timeout or extra headers.
+            request_options: Per-call overrides for this one request, such as a timeout, extra headers, or its retry
+                count and statuses.
 
         Returns:
             An ``ApiResult`` holding the deserialized response or the error body."""
@@ -752,7 +789,8 @@ class WebhooksMerchantLevelWithRawResponse(SecuredRawResponse[RawClient, Server,
             merchant_id: The unique identifier of the merchant account.
             webhook_id: Unique identifier of the webhook configuration.
             body: The request body.
-            request_options: Per-call overrides for this one request, such as a timeout or extra headers.
+            request_options: Per-call overrides for this one request, such as a timeout, extra headers, or its retry
+                count and statuses.
 
         Returns:
             An ``ApiResult`` holding the deserialized response or the error body."""
@@ -782,7 +820,8 @@ class AsyncWebhooksMerchantLevelWithRawResponse(SecuredRawResponse[AsyncRawClien
         Args:
             merchant_id: The unique identifier of the merchant account.
             webhook_id: Unique identifier of the webhook configuration.
-            request_options: Per-call overrides for this one request, such as a timeout or extra headers.
+            request_options: Per-call overrides for this one request, such as a timeout, extra headers, or its retry
+                count and statuses.
 
         Returns:
             An ``ApiResult`` holding the deserialized response or the error body."""
@@ -792,7 +831,7 @@ class AsyncWebhooksMerchantLevelWithRawResponse(SecuredRawResponse[AsyncRawClien
             path_params=[param[str]("merchantId", merchant_id), param[str]("webhookId", webhook_id)],
             headers=[param[UUID]("Idempotency-Key", uuid4())],
             auth_scheme=AsyncAnySchemes(self._auth.basic_auth, self._auth.api_key_auth),
-            decoder=empty_response,
+            decoder=async_empty_response,
             error_mapper=delete_merchants_merchant_id_webhooks_webhook_id_error_mapper,
             request_options=request_options,
         )
@@ -819,7 +858,8 @@ class AsyncWebhooksMerchantLevelWithRawResponse(SecuredRawResponse[AsyncRawClien
             merchant_id: The unique identifier of the merchant account.
             page_number: The number of the page to fetch.
             page_size: The number of items to have on a page, maximum 100. The default is 10 items on a page.
-            request_options: Per-call overrides for this one request, such as a timeout or extra headers.
+            request_options: Per-call overrides for this one request, such as a timeout, extra headers, or its retry
+                count and statuses.
 
         Returns:
             An ``ApiResult`` holding the deserialized response or the error body."""
@@ -829,7 +869,7 @@ class AsyncWebhooksMerchantLevelWithRawResponse(SecuredRawResponse[AsyncRawClien
             path_params=[param[str]("merchantId", merchant_id)],
             query_params=[param[int | None]("pageNumber", page_number), param[int | None]("pageSize", page_size)],
             auth_scheme=AsyncAnySchemes(self._auth.basic_auth, self._auth.api_key_auth),
-            decoder=json_decoder[ListWebhooksResponse],
+            decoder=async_json_decoder[ListWebhooksResponse],
             error_mapper=get_merchants_merchant_id_webhooks_error_mapper,
             request_options=request_options,
         )
@@ -847,7 +887,8 @@ class AsyncWebhooksMerchantLevelWithRawResponse(SecuredRawResponse[AsyncRawClien
         Args:
             merchant_id: The unique identifier of the merchant account.
             webhook_id: Unique identifier of the webhook configuration.
-            request_options: Per-call overrides for this one request, such as a timeout or extra headers.
+            request_options: Per-call overrides for this one request, such as a timeout, extra headers, or its retry
+                count and statuses.
 
         Returns:
             An ``ApiResult`` holding the deserialized response or the error body."""
@@ -856,7 +897,7 @@ class AsyncWebhooksMerchantLevelWithRawResponse(SecuredRawResponse[AsyncRawClien
             url_template=self._server.default9("/merchants/{merchantId}/webhooks/{webhookId}"),
             path_params=[param[str]("merchantId", merchant_id), param[str]("webhookId", webhook_id)],
             auth_scheme=AsyncAnySchemes(self._auth.basic_auth, self._auth.api_key_auth),
-            decoder=json_decoder[Webhook],
+            decoder=async_json_decoder[Webhook],
             error_mapper=get_merchants_merchant_id_webhooks_webhook_id_error_mapper,
             request_options=request_options,
         )
@@ -881,7 +922,8 @@ class AsyncWebhooksMerchantLevelWithRawResponse(SecuredRawResponse[AsyncRawClien
             merchant_id: The unique identifier of the merchant account.
             webhook_id: Unique identifier of the webhook configuration.
             body: The request body.
-            request_options: Per-call overrides for this one request, such as a timeout or extra headers.
+            request_options: Per-call overrides for this one request, such as a timeout, extra headers, or its retry
+                count and statuses.
 
         Returns:
             An ``ApiResult`` holding the deserialized response or the error body."""
@@ -892,7 +934,7 @@ class AsyncWebhooksMerchantLevelWithRawResponse(SecuredRawResponse[AsyncRawClien
             headers=[param[UUID]("Idempotency-Key", uuid4())],
             body=json_body[UpdateMerchantWebhookRequest | UpdateMerchantWebhookRequestDict | None](body),
             auth_scheme=AsyncAnySchemes(self._auth.basic_auth, self._auth.api_key_auth),
-            decoder=json_decoder[Webhook],
+            decoder=async_json_decoder[Webhook],
             error_mapper=patch_merchants_merchant_id_webhooks_webhook_id_error_mapper,
             request_options=request_options,
         )
@@ -914,7 +956,8 @@ class AsyncWebhooksMerchantLevelWithRawResponse(SecuredRawResponse[AsyncRawClien
         Args:
             merchant_id: The unique identifier of the merchant account.
             body: The request body.
-            request_options: Per-call overrides for this one request, such as a timeout or extra headers.
+            request_options: Per-call overrides for this one request, such as a timeout, extra headers, or its retry
+                count and statuses.
 
         Returns:
             An ``ApiResult`` holding the deserialized response or the error body."""
@@ -925,7 +968,7 @@ class AsyncWebhooksMerchantLevelWithRawResponse(SecuredRawResponse[AsyncRawClien
             headers=[param[UUID]("Idempotency-Key", uuid4())],
             body=json_body[CreateMerchantWebhookRequest | CreateMerchantWebhookRequestDict | None](body),
             auth_scheme=AsyncAnySchemes(self._auth.basic_auth, self._auth.api_key_auth),
-            decoder=json_decoder[Webhook],
+            decoder=async_json_decoder[Webhook],
             error_mapper=post_merchants_merchant_id_webhooks_error_mapper,
             request_options=request_options,
         )
@@ -947,7 +990,8 @@ class AsyncWebhooksMerchantLevelWithRawResponse(SecuredRawResponse[AsyncRawClien
         Args:
             merchant_id: The unique identifier of the merchant account.
             webhook_id: Value sent with the request.
-            request_options: Per-call overrides for this one request, such as a timeout or extra headers.
+            request_options: Per-call overrides for this one request, such as a timeout, extra headers, or its retry
+                count and statuses.
 
         Returns:
             An ``ApiResult`` holding the deserialized response or the error body."""
@@ -957,7 +1001,7 @@ class AsyncWebhooksMerchantLevelWithRawResponse(SecuredRawResponse[AsyncRawClien
             path_params=[param[str]("merchantId", merchant_id), param[str]("webhookId", webhook_id)],
             headers=[param[UUID]("Idempotency-Key", uuid4())],
             auth_scheme=AsyncAnySchemes(self._auth.basic_auth, self._auth.api_key_auth),
-            decoder=json_decoder[GenerateHmacKeyResponse],
+            decoder=async_json_decoder[GenerateHmacKeyResponse],
             error_mapper=post_merchants_merchant_id_webhooks_webhook_id_generate_hmac_error_mapper,
             request_options=request_options,
         )
@@ -987,7 +1031,8 @@ class AsyncWebhooksMerchantLevelWithRawResponse(SecuredRawResponse[AsyncRawClien
             merchant_id: The unique identifier of the merchant account.
             webhook_id: Unique identifier of the webhook configuration.
             body: The request body.
-            request_options: Per-call overrides for this one request, such as a timeout or extra headers.
+            request_options: Per-call overrides for this one request, such as a timeout, extra headers, or its retry
+                count and statuses.
 
         Returns:
             An ``ApiResult`` holding the deserialized response or the error body."""
@@ -998,7 +1043,7 @@ class AsyncWebhooksMerchantLevelWithRawResponse(SecuredRawResponse[AsyncRawClien
             headers=[param[UUID]("Idempotency-Key", uuid4())],
             body=json_body[TestWebhookRequest | TestWebhookRequestDict | None](body),
             auth_scheme=AsyncAnySchemes(self._auth.basic_auth, self._auth.api_key_auth),
-            decoder=json_decoder[TestWebhookResponse],
+            decoder=async_json_decoder[TestWebhookResponse],
             error_mapper=post_merchants_merchant_id_webhooks_webhook_id_test_error_mapper,
             request_options=request_options,
         )

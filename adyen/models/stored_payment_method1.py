@@ -4,7 +4,7 @@ from pydantic import Field
 from typing_extensions import NotRequired, TypedDict
 
 from ..core import UNSET, Optional, SdkBaseModel
-from .enums.type27 import Type27OrStr
+from .enums.type27 import Type27, Type27OrStr
 
 
 class StoredPaymentMethod1(SdkBaseModel):
@@ -20,7 +20,7 @@ class StoredPaymentMethod1(SdkBaseModel):
     stored_payment_method_id: Optional[str] = Field(default=UNSET, alias="storedPaymentMethodId")
     """This is the ``recurringDetailReference`` returned in the response when you created the token."""
 
-    type_: Optional[Type27OrStr] = Field(default=UNSET, alias="type")
+    type_: Type27OrStr = Field(default=Type27.SEPADIRECTDEBIT, alias="type")
     """**sepadirectdebit**"""
 
 

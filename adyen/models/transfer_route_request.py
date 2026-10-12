@@ -59,8 +59,8 @@ class TransferRouteRequest(SdkBaseModel):
 class TransferRouteRequestDict(TypedDict):
     balance_account_id: NotRequired[str]
     balance_platform: str
-    category: NotRequired[Literal["bank"]]
-    counterparty: NotRequired[Counterparty1 | Counterparty1Dict]
+    category: Literal["bank"]
+    counterparty: NotRequired[Counterparty1Dict]
     country: NotRequired[str]
     currency: str
     priorities: NotRequired[list[Priority1OrStr]]

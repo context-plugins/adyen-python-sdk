@@ -4,7 +4,7 @@ from pydantic import Field
 from typing_extensions import NotRequired, TypedDict
 
 from ..core import UNSET, Optional, SdkBaseModel
-from .enums.type51 import Type51OrStr
+from .enums.type51 import Type51, Type51OrStr
 
 
 class SepaDirectDebit(SdkBaseModel):
@@ -33,7 +33,7 @@ class SepaDirectDebit(SdkBaseModel):
     """The unique identifier of your user's verified transfer instrument, which you can use to top up their balance
     accounts."""
 
-    type_: Optional[Type51OrStr] = Field(default=UNSET, alias="type")
+    type_: Type51OrStr = Field(default=Type51.SEPADIRECTDEBIT, alias="type")
     """**sepadirectdebit**"""
 
 

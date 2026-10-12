@@ -4,14 +4,14 @@ from pydantic import Field
 from typing_extensions import NotRequired, TypedDict
 
 from ..core import UNSET, Optional, SdkBaseModel
-from .enums.sdk_interface import SdkInterfaceOrStr
+from .enums.sdk_interface import SdkInterface, SdkInterfaceOrStr
 from .enums.sdk_ui_type import SdkUiTypeOrStr
 
 
 class DeviceRenderOptions(SdkBaseModel):
     """Display options for the 3D Secure 2 SDK. Optional and only for ``deviceChannel`` **app**."""
 
-    sdk_interface: Optional[SdkInterfaceOrStr] = Field(default=UNSET, alias="sdkInterface")
+    sdk_interface: SdkInterfaceOrStr = Field(default=SdkInterface.BOTH, alias="sdkInterface")
     """Supported SDK interface types. Allowed values:
     * native
     * html

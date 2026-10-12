@@ -21,4 +21,4 @@ class UsinstantPayoutAddressRequirement(SdkBaseModel):
 
 class UsinstantPayoutAddressRequirementDict(TypedDict):
     description: NotRequired[str]
-    type_: NotRequired[Literal["usInstantPayoutAddressRequirement"]]
+    type_: Literal["usInstantPayoutAddressRequirement"]

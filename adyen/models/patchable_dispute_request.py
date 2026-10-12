@@ -40,8 +40,8 @@ class PatchableDisputeRequest(SdkBaseModel):
 
 
 class PatchableDisputeRequestDict(TypedDict):
-    duplicate_info: NotRequired[PatchableDuplicateInfo | PatchableDuplicateInfoDict | None]
-    fraud_info: NotRequired[PatchableFraudInfo | PatchableFraudInfoDict | None]
-    not_delivered_info: NotRequired[PatchableNotDeliveredInfo | PatchableNotDeliveredInfoDict | None]
-    other_info: NotRequired[PatchableOtherInfo | PatchableOtherInfoDict | None]
+    duplicate_info: NotRequired[PatchableDuplicateInfoDict | None]
+    fraud_info: NotRequired[PatchableFraudInfoDict | None]
+    not_delivered_info: NotRequired[PatchableNotDeliveredInfoDict | None]
+    other_info: NotRequired[PatchableOtherInfoDict | None]
     status: NotRequired[DisputeStatusOrStr | None]

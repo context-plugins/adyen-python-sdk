@@ -27,4 +27,4 @@ class PrintResponse2(SdkBaseModel):
 
 class PrintResponse2Dict(TypedDict):
     document_qualifier: DocumentQualifier2OrStr
-    response: Response11 | Response11Dict
+    response: Response11Dict

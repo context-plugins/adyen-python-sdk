@@ -23,5 +23,5 @@ class LoyaltyData(SdkBaseModel):
 
 
 class LoyaltyDataDict(TypedDict):
-    card_acquisition_reference: NotRequired[TransactionIdtype3 | TransactionIdtype3Dict]
-    loyalty_account_id: NotRequired[LoyaltyAccountId1 | LoyaltyAccountId1Dict]
+    card_acquisition_reference: NotRequired[TransactionIdtype3Dict]
+    loyalty_account_id: NotRequired[LoyaltyAccountId1Dict]

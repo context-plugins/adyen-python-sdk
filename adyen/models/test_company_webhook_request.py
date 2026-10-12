@@ -58,5 +58,5 @@ class TestCompanyWebhookRequest(SdkBaseModel):
 
 class TestCompanyWebhookRequestDict(TypedDict):
     merchant_ids: NotRequired[list[str]]
-    notification: NotRequired[CustomNotification1 | CustomNotification1Dict]
+    notification: NotRequired[CustomNotification1Dict]
     types: NotRequired[list[str]]

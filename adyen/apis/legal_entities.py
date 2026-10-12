@@ -13,10 +13,12 @@ from ..core import (
     RawError,
     RequestOptionsOrDict,
     SecuredRawResponse,
+    async_json_decoder,
     json_body,
     json_decoder,
     param,
     raw_error_response,
+    unwrap,
 )
 from ..errors.get_legal_entities_id_business_lines_error import (
     GetLegalEntitiesIdBusinessLinesErrorBody,
@@ -46,7 +48,7 @@ class LegalEntities:
     def __init__(self, client: RawClient, server: Server, auth: AuthSchemes) -> None:
         self._with_raw_response = LegalEntitiesWithRawResponse(client, server, auth)
 
-    def get_legal_entities_id(self, id: str, *, request_options: RequestOptionsOrDict | None = None) -> LegalEntity3:
+    def get_legal_entities_id(self, id_: str, *, request_options: RequestOptionsOrDict | None = None) -> LegalEntity3:
         """Returns a legal entity.
 
         Requests to this endpoint are subject to rate limits:
@@ -58,8 +60,9 @@ class LegalEntities:
         - Failed requests are subject to a limit of 5 failures per 10 seconds.
 
         Args:
-            id: The unique identifier of the legal entity.
-            request_options: Per-call overrides for this one request, such as a timeout or extra headers.
+            id_: The unique identifier of the legal entity.
+            request_options: Per-call overrides for this one request, such as a timeout, extra headers, or its retry
+                count and statuses.
 
         Returns:
             OK - the request has succeeded.
@@ -69,10 +72,10 @@ class LegalEntities:
                 required. Forbidden - insufficient permissions to process the request. Unprocessable Entity - a request
                 validation error. Internal Server Error - the server could not process the request. ``error`` is
                 ``ServiceError1 | RawError``."""
-        return self._with_raw_response.get_legal_entities_id(id, request_options=request_options).unwrap()
+        return unwrap(self._with_raw_response.get_legal_entities_id(id_, request_options=request_options))
 
     def get_legal_entities_id_business_lines(
-        self, id: str, *, request_options: RequestOptionsOrDict | None = None
+        self, id_: str, *, request_options: RequestOptionsOrDict | None = None
     ) -> BusinessLines:
         """Returns the business lines owned by a legal entity.
 
@@ -85,8 +88,9 @@ class LegalEntities:
         - Failed requests are subject to a limit of 5 failures per 10 seconds.
 
         Args:
-            id: The unique identifier of the legal entity.
-            request_options: Per-call overrides for this one request, such as a timeout or extra headers.
+            id_: The unique identifier of the legal entity.
+            request_options: Per-call overrides for this one request, such as a timeout, extra headers, or its retry
+                count and statuses.
 
         Returns:
             OK - the request has succeeded.
@@ -96,13 +100,13 @@ class LegalEntities:
                 required. Forbidden - insufficient permissions to process the request. Unprocessable Entity - a request
                 validation error. Internal Server Error - the server could not process the request. ``error`` is
                 ``ServiceError1 | RawError``."""
-        return self._with_raw_response.get_legal_entities_id_business_lines(
-            id, request_options=request_options
-        ).unwrap()
+        return unwrap(
+            self._with_raw_response.get_legal_entities_id_business_lines(id_, request_options=request_options)
+        )
 
     def patch_legal_entities_id(
         self,
-        id: str,
+        id_: str,
         *,
         x_requested_verification_code: str | None = None,
         body: LegalEntityInfo | LegalEntityInfoDict | None = None,
@@ -125,12 +129,13 @@ class LegalEntities:
         - Failed requests are subject to a limit of 5 failures per 10 seconds.
 
         Args:
-            id: The unique identifier of the legal entity.
+            id_: The unique identifier of the legal entity.
             x_requested_verification_code: Use the requested verification code 0_0001 to resolve any suberrors
                 associated with the legal entity. Requested verification codes can only be used in your test
                 environment.
             body: The request body.
-            request_options: Per-call overrides for this one request, such as a timeout or extra headers.
+            request_options: Per-call overrides for this one request, such as a timeout, extra headers, or its retry
+                count and statuses.
 
         Returns:
             OK - the request has succeeded.
@@ -140,9 +145,14 @@ class LegalEntities:
                 required. Forbidden - insufficient permissions to process the request. Unprocessable Entity - a request
                 validation error. Internal Server Error - the server could not process the request. ``error`` is
                 ``ServiceError1 | RawError``."""
-        return self._with_raw_response.patch_legal_entities_id(
-            id, x_requested_verification_code=x_requested_verification_code, body=body, request_options=request_options
-        ).unwrap()
+        return unwrap(
+            self._with_raw_response.patch_legal_entities_id(
+                id_,
+                x_requested_verification_code=x_requested_verification_code,
+                body=body,
+                request_options=request_options,
+            ),
+        )
 
     def post_legal_entities(
         self,
@@ -170,7 +180,8 @@ class LegalEntities:
                 code at a time in your request header. Requested verification codes can only be used in your test
                 environment.
             body: The request body.
-            request_options: Per-call overrides for this one request, such as a timeout or extra headers.
+            request_options: Per-call overrides for this one request, such as a timeout, extra headers, or its retry
+                count and statuses.
 
         Returns:
             OK - the request has succeeded.
@@ -180,12 +191,14 @@ class LegalEntities:
                 required. Forbidden - insufficient permissions to process the request. Unprocessable Entity - a request
                 validation error. Internal Server Error - the server could not process the request. ``error`` is
                 ``ServiceError1 | RawError``."""
-        return self._with_raw_response.post_legal_entities(
-            x_requested_verification_code=x_requested_verification_code, body=body, request_options=request_options
-        ).unwrap()
+        return unwrap(
+            self._with_raw_response.post_legal_entities(
+                x_requested_verification_code=x_requested_verification_code, body=body, request_options=request_options
+            ),
+        )
 
     def post_legal_entities_id_check_verification_errors(
-        self, id: str, *, request_options: RequestOptionsOrDict | None = None
+        self, id_: str, *, request_options: RequestOptionsOrDict | None = None
     ) -> VerificationErrors:
         """Returns the verification errors for a legal entity and its supporting entities.
 
@@ -198,8 +211,9 @@ class LegalEntities:
         - Failed requests are subject to a limit of 5 failures per 10 seconds.
 
         Args:
-            id: The unique identifier of the legal entity.
-            request_options: Per-call overrides for this one request, such as a timeout or extra headers.
+            id_: The unique identifier of the legal entity.
+            request_options: Per-call overrides for this one request, such as a timeout, extra headers, or its retry
+                count and statuses.
 
         Returns:
             OK - the request has succeeded.
@@ -209,12 +223,14 @@ class LegalEntities:
                 required. Forbidden - insufficient permissions to process the request. Unprocessable Entity - a request
                 validation error. Internal Server Error - the server could not process the request. ``error`` is
                 ``ServiceError1 | RawError``."""
-        return self._with_raw_response.post_legal_entities_id_check_verification_errors(
-            id, request_options=request_options
-        ).unwrap()
+        return unwrap(
+            self._with_raw_response.post_legal_entities_id_check_verification_errors(
+                id_, request_options=request_options
+            ),
+        )
 
     def post_legal_entities_id_confirm_data_review(
-        self, id: str, *, request_options: RequestOptionsOrDict | None = None
+        self, id_: str, *, request_options: RequestOptionsOrDict | None = None
     ) -> DataReviewConfirmationResponse:
         """Confirms that your user has reviewed the data for the legal entity specified in the path. Call this endpoint
         to inform Adyen that your user reviewed and verified that the data is up-to-date. The endpoint returns the
@@ -229,8 +245,9 @@ class LegalEntities:
         - Failed requests are subject to a limit of 5 failures per 10 seconds.
 
         Args:
-            id: The unique identifier of the legal entity.
-            request_options: Per-call overrides for this one request, such as a timeout or extra headers.
+            id_: The unique identifier of the legal entity.
+            request_options: Per-call overrides for this one request, such as a timeout, extra headers, or its retry
+                count and statuses.
 
         Returns:
             OK - the request has succeeded.
@@ -240,27 +257,28 @@ class LegalEntities:
                 required. Forbidden - insufficient permissions to process the request. Unprocessable Entity - a request
                 validation error. Internal Server Error - the server could not process the request. ``error`` is
                 ``ServiceError1 | RawError``."""
-        return self._with_raw_response.post_legal_entities_id_confirm_data_review(
-            id, request_options=request_options
-        ).unwrap()
+        return unwrap(
+            self._with_raw_response.post_legal_entities_id_confirm_data_review(id_, request_options=request_options)
+        )
 
     def post_legal_entities_id_request_periodic_review(
-        self, id: str, *, request_options: RequestOptionsOrDict | None = None
+        self, id_: str, *, request_options: RequestOptionsOrDict | None = None
     ) -> Any:
         """Requests a periodic data review for the legal entity of the user specified in the path.
 
         Args:
-            id: The unique identifier of the legal entity.
-            request_options: Per-call overrides for this one request, such as a timeout or extra headers.
+            id_: The unique identifier of the legal entity.
+            request_options: Per-call overrides for this one request, such as a timeout, extra headers, or its retry
+                count and statuses.
 
         Returns:
             No Content - the request has been successfully processed, but there is no additional content.
 
         Raises:
             ApiError: If the API responds with an error status code. ``error`` is ``RawError``."""
-        return self._with_raw_response.post_legal_entities_id_request_periodic_review(
-            id, request_options=request_options
-        ).unwrap()
+        return unwrap(
+            self._with_raw_response.post_legal_entities_id_request_periodic_review(id_, request_options=request_options)
+        )
 
     @property
     def with_raw_response(self) -> LegalEntitiesWithRawResponse:
@@ -272,7 +290,7 @@ class AsyncLegalEntities:
         self._with_raw_response = AsyncLegalEntitiesWithRawResponse(client, server, auth)
 
     async def get_legal_entities_id(
-        self, id: str, *, request_options: RequestOptionsOrDict | None = None
+        self, id_: str, *, request_options: RequestOptionsOrDict | None = None
     ) -> LegalEntity3:
         """Returns a legal entity.
 
@@ -285,8 +303,9 @@ class AsyncLegalEntities:
         - Failed requests are subject to a limit of 5 failures per 10 seconds.
 
         Args:
-            id: The unique identifier of the legal entity.
-            request_options: Per-call overrides for this one request, such as a timeout or extra headers.
+            id_: The unique identifier of the legal entity.
+            request_options: Per-call overrides for this one request, such as a timeout, extra headers, or its retry
+                count and statuses.
 
         Returns:
             OK - the request has succeeded.
@@ -296,10 +315,10 @@ class AsyncLegalEntities:
                 required. Forbidden - insufficient permissions to process the request. Unprocessable Entity - a request
                 validation error. Internal Server Error - the server could not process the request. ``error`` is
                 ``ServiceError1 | RawError``."""
-        return (await self._with_raw_response.get_legal_entities_id(id, request_options=request_options)).unwrap()
+        return unwrap(await self._with_raw_response.get_legal_entities_id(id_, request_options=request_options))
 
     async def get_legal_entities_id_business_lines(
-        self, id: str, *, request_options: RequestOptionsOrDict | None = None
+        self, id_: str, *, request_options: RequestOptionsOrDict | None = None
     ) -> BusinessLines:
         """Returns the business lines owned by a legal entity.
 
@@ -312,8 +331,9 @@ class AsyncLegalEntities:
         - Failed requests are subject to a limit of 5 failures per 10 seconds.
 
         Args:
-            id: The unique identifier of the legal entity.
-            request_options: Per-call overrides for this one request, such as a timeout or extra headers.
+            id_: The unique identifier of the legal entity.
+            request_options: Per-call overrides for this one request, such as a timeout, extra headers, or its retry
+                count and statuses.
 
         Returns:
             OK - the request has succeeded.
@@ -323,13 +343,13 @@ class AsyncLegalEntities:
                 required. Forbidden - insufficient permissions to process the request. Unprocessable Entity - a request
                 validation error. Internal Server Error - the server could not process the request. ``error`` is
                 ``ServiceError1 | RawError``."""
-        return (
-            await self._with_raw_response.get_legal_entities_id_business_lines(id, request_options=request_options)
-        ).unwrap()
+        return unwrap(
+            await self._with_raw_response.get_legal_entities_id_business_lines(id_, request_options=request_options)
+        )
 
     async def patch_legal_entities_id(
         self,
-        id: str,
+        id_: str,
         *,
         x_requested_verification_code: str | None = None,
         body: LegalEntityInfo | LegalEntityInfoDict | None = None,
@@ -352,12 +372,13 @@ class AsyncLegalEntities:
         - Failed requests are subject to a limit of 5 failures per 10 seconds.
 
         Args:
-            id: The unique identifier of the legal entity.
+            id_: The unique identifier of the legal entity.
             x_requested_verification_code: Use the requested verification code 0_0001 to resolve any suberrors
                 associated with the legal entity. Requested verification codes can only be used in your test
                 environment.
             body: The request body.
-            request_options: Per-call overrides for this one request, such as a timeout or extra headers.
+            request_options: Per-call overrides for this one request, such as a timeout, extra headers, or its retry
+                count and statuses.
 
         Returns:
             OK - the request has succeeded.
@@ -367,14 +388,14 @@ class AsyncLegalEntities:
                 required. Forbidden - insufficient permissions to process the request. Unprocessable Entity - a request
                 validation error. Internal Server Error - the server could not process the request. ``error`` is
                 ``ServiceError1 | RawError``."""
-        return (
+        return unwrap(
             await self._with_raw_response.patch_legal_entities_id(
-                id,
+                id_,
                 x_requested_verification_code=x_requested_verification_code,
                 body=body,
                 request_options=request_options,
-            )
-        ).unwrap()
+            ),
+        )
 
     async def post_legal_entities(
         self,
@@ -402,7 +423,8 @@ class AsyncLegalEntities:
                 code at a time in your request header. Requested verification codes can only be used in your test
                 environment.
             body: The request body.
-            request_options: Per-call overrides for this one request, such as a timeout or extra headers.
+            request_options: Per-call overrides for this one request, such as a timeout, extra headers, or its retry
+                count and statuses.
 
         Returns:
             OK - the request has succeeded.
@@ -412,14 +434,14 @@ class AsyncLegalEntities:
                 required. Forbidden - insufficient permissions to process the request. Unprocessable Entity - a request
                 validation error. Internal Server Error - the server could not process the request. ``error`` is
                 ``ServiceError1 | RawError``."""
-        return (
+        return unwrap(
             await self._with_raw_response.post_legal_entities(
                 x_requested_verification_code=x_requested_verification_code, body=body, request_options=request_options
-            )
-        ).unwrap()
+            ),
+        )
 
     async def post_legal_entities_id_check_verification_errors(
-        self, id: str, *, request_options: RequestOptionsOrDict | None = None
+        self, id_: str, *, request_options: RequestOptionsOrDict | None = None
     ) -> VerificationErrors:
         """Returns the verification errors for a legal entity and its supporting entities.
 
@@ -432,8 +454,9 @@ class AsyncLegalEntities:
         - Failed requests are subject to a limit of 5 failures per 10 seconds.
 
         Args:
-            id: The unique identifier of the legal entity.
-            request_options: Per-call overrides for this one request, such as a timeout or extra headers.
+            id_: The unique identifier of the legal entity.
+            request_options: Per-call overrides for this one request, such as a timeout, extra headers, or its retry
+                count and statuses.
 
         Returns:
             OK - the request has succeeded.
@@ -443,14 +466,14 @@ class AsyncLegalEntities:
                 required. Forbidden - insufficient permissions to process the request. Unprocessable Entity - a request
                 validation error. Internal Server Error - the server could not process the request. ``error`` is
                 ``ServiceError1 | RawError``."""
-        return (
+        return unwrap(
             await self._with_raw_response.post_legal_entities_id_check_verification_errors(
-                id, request_options=request_options
-            )
-        ).unwrap()
+                id_, request_options=request_options
+            ),
+        )
 
     async def post_legal_entities_id_confirm_data_review(
-        self, id: str, *, request_options: RequestOptionsOrDict | None = None
+        self, id_: str, *, request_options: RequestOptionsOrDict | None = None
     ) -> DataReviewConfirmationResponse:
         """Confirms that your user has reviewed the data for the legal entity specified in the path. Call this endpoint
         to inform Adyen that your user reviewed and verified that the data is up-to-date. The endpoint returns the
@@ -465,8 +488,9 @@ class AsyncLegalEntities:
         - Failed requests are subject to a limit of 5 failures per 10 seconds.
 
         Args:
-            id: The unique identifier of the legal entity.
-            request_options: Per-call overrides for this one request, such as a timeout or extra headers.
+            id_: The unique identifier of the legal entity.
+            request_options: Per-call overrides for this one request, such as a timeout, extra headers, or its retry
+                count and statuses.
 
         Returns:
             OK - the request has succeeded.
@@ -476,31 +500,32 @@ class AsyncLegalEntities:
                 required. Forbidden - insufficient permissions to process the request. Unprocessable Entity - a request
                 validation error. Internal Server Error - the server could not process the request. ``error`` is
                 ``ServiceError1 | RawError``."""
-        return (
+        return unwrap(
             await self._with_raw_response.post_legal_entities_id_confirm_data_review(
-                id, request_options=request_options
-            )
-        ).unwrap()
+                id_, request_options=request_options
+            ),
+        )
 
     async def post_legal_entities_id_request_periodic_review(
-        self, id: str, *, request_options: RequestOptionsOrDict | None = None
+        self, id_: str, *, request_options: RequestOptionsOrDict | None = None
     ) -> Any:
         """Requests a periodic data review for the legal entity of the user specified in the path.
 
         Args:
-            id: The unique identifier of the legal entity.
-            request_options: Per-call overrides for this one request, such as a timeout or extra headers.
+            id_: The unique identifier of the legal entity.
+            request_options: Per-call overrides for this one request, such as a timeout, extra headers, or its retry
+                count and statuses.
 
         Returns:
             No Content - the request has been successfully processed, but there is no additional content.
 
         Raises:
             ApiError: If the API responds with an error status code. ``error`` is ``RawError``."""
-        return (
+        return unwrap(
             await self._with_raw_response.post_legal_entities_id_request_periodic_review(
-                id, request_options=request_options
-            )
-        ).unwrap()
+                id_, request_options=request_options
+            ),
+        )
 
     @property
     def with_raw_response(self) -> AsyncLegalEntitiesWithRawResponse:
@@ -509,7 +534,7 @@ class AsyncLegalEntities:
 
 class LegalEntitiesWithRawResponse(SecuredRawResponse[RawClient, Server, AuthSchemes]):
     def get_legal_entities_id(
-        self, id: str, *, request_options: RequestOptionsOrDict | None = None
+        self, id_: str, *, request_options: RequestOptionsOrDict | None = None
     ) -> ApiResult[LegalEntity3, GetLegalEntitiesIdErrorBody]:
         """Returns a legal entity.
 
@@ -522,15 +547,16 @@ class LegalEntitiesWithRawResponse(SecuredRawResponse[RawClient, Server, AuthSch
         - Failed requests are subject to a limit of 5 failures per 10 seconds.
 
         Args:
-            id: The unique identifier of the legal entity.
-            request_options: Per-call overrides for this one request, such as a timeout or extra headers.
+            id_: The unique identifier of the legal entity.
+            request_options: Per-call overrides for this one request, such as a timeout, extra headers, or its retry
+                count and statuses.
 
         Returns:
             An ``ApiResult`` holding the deserialized response or the error body."""
         return self._client.execute(
             http_method="GET",
             url_template=self._server.default18("/legalEntities/{id}"),
-            path_params=[param[str]("id", id)],
+            path_params=[param[str]("id", id_)],
             auth_scheme=AnySchemes(self._auth.basic_auth, self._auth.api_key_auth),
             decoder=json_decoder[LegalEntity3],
             error_mapper=get_legal_entities_id_error_mapper,
@@ -538,7 +564,7 @@ class LegalEntitiesWithRawResponse(SecuredRawResponse[RawClient, Server, AuthSch
         )
 
     def get_legal_entities_id_business_lines(
-        self, id: str, *, request_options: RequestOptionsOrDict | None = None
+        self, id_: str, *, request_options: RequestOptionsOrDict | None = None
     ) -> ApiResult[BusinessLines, GetLegalEntitiesIdBusinessLinesErrorBody]:
         """Returns the business lines owned by a legal entity.
 
@@ -551,15 +577,16 @@ class LegalEntitiesWithRawResponse(SecuredRawResponse[RawClient, Server, AuthSch
         - Failed requests are subject to a limit of 5 failures per 10 seconds.
 
         Args:
-            id: The unique identifier of the legal entity.
-            request_options: Per-call overrides for this one request, such as a timeout or extra headers.
+            id_: The unique identifier of the legal entity.
+            request_options: Per-call overrides for this one request, such as a timeout, extra headers, or its retry
+                count and statuses.
 
         Returns:
             An ``ApiResult`` holding the deserialized response or the error body."""
         return self._client.execute(
             http_method="GET",
             url_template=self._server.default18("/legalEntities/{id}/businessLines"),
-            path_params=[param[str]("id", id)],
+            path_params=[param[str]("id", id_)],
             auth_scheme=AnySchemes(self._auth.basic_auth, self._auth.api_key_auth),
             decoder=json_decoder[BusinessLines],
             error_mapper=get_legal_entities_id_business_lines_error_mapper,
@@ -568,7 +595,7 @@ class LegalEntitiesWithRawResponse(SecuredRawResponse[RawClient, Server, AuthSch
 
     def patch_legal_entities_id(
         self,
-        id: str,
+        id_: str,
         *,
         x_requested_verification_code: str | None = None,
         body: LegalEntityInfo | LegalEntityInfoDict | None = None,
@@ -591,19 +618,20 @@ class LegalEntitiesWithRawResponse(SecuredRawResponse[RawClient, Server, AuthSch
         - Failed requests are subject to a limit of 5 failures per 10 seconds.
 
         Args:
-            id: The unique identifier of the legal entity.
+            id_: The unique identifier of the legal entity.
             x_requested_verification_code: Use the requested verification code 0_0001 to resolve any suberrors
                 associated with the legal entity. Requested verification codes can only be used in your test
                 environment.
             body: The request body.
-            request_options: Per-call overrides for this one request, such as a timeout or extra headers.
+            request_options: Per-call overrides for this one request, such as a timeout, extra headers, or its retry
+                count and statuses.
 
         Returns:
             An ``ApiResult`` holding the deserialized response or the error body."""
         return self._client.execute(
             http_method="PATCH",
             url_template=self._server.default18("/legalEntities/{id}"),
-            path_params=[param[str]("id", id)],
+            path_params=[param[str]("id", id_)],
             headers=[
                 param[str | None]("x-requested-verification-code", x_requested_verification_code),
                 param[UUID]("Idempotency-Key", uuid4()),
@@ -641,7 +669,8 @@ class LegalEntitiesWithRawResponse(SecuredRawResponse[RawClient, Server, AuthSch
                 code at a time in your request header. Requested verification codes can only be used in your test
                 environment.
             body: The request body.
-            request_options: Per-call overrides for this one request, such as a timeout or extra headers.
+            request_options: Per-call overrides for this one request, such as a timeout, extra headers, or its retry
+                count and statuses.
 
         Returns:
             An ``ApiResult`` holding the deserialized response or the error body."""
@@ -660,7 +689,7 @@ class LegalEntitiesWithRawResponse(SecuredRawResponse[RawClient, Server, AuthSch
         )
 
     def post_legal_entities_id_check_verification_errors(
-        self, id: str, *, request_options: RequestOptionsOrDict | None = None
+        self, id_: str, *, request_options: RequestOptionsOrDict | None = None
     ) -> ApiResult[VerificationErrors, PostLegalEntitiesIdCheckVerificationErrorsErrorBody]:
         """Returns the verification errors for a legal entity and its supporting entities.
 
@@ -673,15 +702,16 @@ class LegalEntitiesWithRawResponse(SecuredRawResponse[RawClient, Server, AuthSch
         - Failed requests are subject to a limit of 5 failures per 10 seconds.
 
         Args:
-            id: The unique identifier of the legal entity.
-            request_options: Per-call overrides for this one request, such as a timeout or extra headers.
+            id_: The unique identifier of the legal entity.
+            request_options: Per-call overrides for this one request, such as a timeout, extra headers, or its retry
+                count and statuses.
 
         Returns:
             An ``ApiResult`` holding the deserialized response or the error body."""
         return self._client.execute(
             http_method="POST",
             url_template=self._server.default18("/legalEntities/{id}/checkVerificationErrors"),
-            path_params=[param[str]("id", id)],
+            path_params=[param[str]("id", id_)],
             headers=[param[UUID]("Idempotency-Key", uuid4())],
             auth_scheme=AnySchemes(self._auth.basic_auth, self._auth.api_key_auth),
             decoder=json_decoder[VerificationErrors],
@@ -690,7 +720,7 @@ class LegalEntitiesWithRawResponse(SecuredRawResponse[RawClient, Server, AuthSch
         )
 
     def post_legal_entities_id_confirm_data_review(
-        self, id: str, *, request_options: RequestOptionsOrDict | None = None
+        self, id_: str, *, request_options: RequestOptionsOrDict | None = None
     ) -> ApiResult[DataReviewConfirmationResponse, PostLegalEntitiesIdConfirmDataReviewErrorBody]:
         """Confirms that your user has reviewed the data for the legal entity specified in the path. Call this endpoint
         to inform Adyen that your user reviewed and verified that the data is up-to-date. The endpoint returns the
@@ -705,15 +735,16 @@ class LegalEntitiesWithRawResponse(SecuredRawResponse[RawClient, Server, AuthSch
         - Failed requests are subject to a limit of 5 failures per 10 seconds.
 
         Args:
-            id: The unique identifier of the legal entity.
-            request_options: Per-call overrides for this one request, such as a timeout or extra headers.
+            id_: The unique identifier of the legal entity.
+            request_options: Per-call overrides for this one request, such as a timeout, extra headers, or its retry
+                count and statuses.
 
         Returns:
             An ``ApiResult`` holding the deserialized response or the error body."""
         return self._client.execute(
             http_method="POST",
             url_template=self._server.default18("/legalEntities/{id}/confirmDataReview"),
-            path_params=[param[str]("id", id)],
+            path_params=[param[str]("id", id_)],
             headers=[param[UUID]("Idempotency-Key", uuid4())],
             auth_scheme=AnySchemes(self._auth.basic_auth, self._auth.api_key_auth),
             decoder=json_decoder[DataReviewConfirmationResponse],
@@ -722,20 +753,21 @@ class LegalEntitiesWithRawResponse(SecuredRawResponse[RawClient, Server, AuthSch
         )
 
     def post_legal_entities_id_request_periodic_review(
-        self, id: str, *, request_options: RequestOptionsOrDict | None = None
+        self, id_: str, *, request_options: RequestOptionsOrDict | None = None
     ) -> ApiResult[Any, RawError]:
         """Requests a periodic data review for the legal entity of the user specified in the path.
 
         Args:
-            id: The unique identifier of the legal entity.
-            request_options: Per-call overrides for this one request, such as a timeout or extra headers.
+            id_: The unique identifier of the legal entity.
+            request_options: Per-call overrides for this one request, such as a timeout, extra headers, or its retry
+                count and statuses.
 
         Returns:
             An ``ApiResult`` holding the deserialized response or the error body."""
         return self._client.execute(
             http_method="POST",
             url_template=self._server.default18("/legalEntities/{id}/requestPeriodicReview"),
-            path_params=[param[str]("id", id)],
+            path_params=[param[str]("id", id_)],
             headers=[param[UUID]("Idempotency-Key", uuid4())],
             decoder=json_decoder[Any],
             error_mapper=raw_error_response,
@@ -745,7 +777,7 @@ class LegalEntitiesWithRawResponse(SecuredRawResponse[RawClient, Server, AuthSch
 
 class AsyncLegalEntitiesWithRawResponse(SecuredRawResponse[AsyncRawClient, Server, AsyncAuthSchemes]):
     async def get_legal_entities_id(
-        self, id: str, *, request_options: RequestOptionsOrDict | None = None
+        self, id_: str, *, request_options: RequestOptionsOrDict | None = None
     ) -> ApiResult[LegalEntity3, GetLegalEntitiesIdErrorBody]:
         """Returns a legal entity.
 
@@ -758,23 +790,24 @@ class AsyncLegalEntitiesWithRawResponse(SecuredRawResponse[AsyncRawClient, Serve
         - Failed requests are subject to a limit of 5 failures per 10 seconds.
 
         Args:
-            id: The unique identifier of the legal entity.
-            request_options: Per-call overrides for this one request, such as a timeout or extra headers.
+            id_: The unique identifier of the legal entity.
+            request_options: Per-call overrides for this one request, such as a timeout, extra headers, or its retry
+                count and statuses.
 
         Returns:
             An ``ApiResult`` holding the deserialized response or the error body."""
         return await self._client.execute(
             http_method="GET",
             url_template=self._server.default18("/legalEntities/{id}"),
-            path_params=[param[str]("id", id)],
+            path_params=[param[str]("id", id_)],
             auth_scheme=AsyncAnySchemes(self._auth.basic_auth, self._auth.api_key_auth),
-            decoder=json_decoder[LegalEntity3],
+            decoder=async_json_decoder[LegalEntity3],
             error_mapper=get_legal_entities_id_error_mapper,
             request_options=request_options,
         )
 
     async def get_legal_entities_id_business_lines(
-        self, id: str, *, request_options: RequestOptionsOrDict | None = None
+        self, id_: str, *, request_options: RequestOptionsOrDict | None = None
     ) -> ApiResult[BusinessLines, GetLegalEntitiesIdBusinessLinesErrorBody]:
         """Returns the business lines owned by a legal entity.
 
@@ -787,24 +820,25 @@ class AsyncLegalEntitiesWithRawResponse(SecuredRawResponse[AsyncRawClient, Serve
         - Failed requests are subject to a limit of 5 failures per 10 seconds.
 
         Args:
-            id: The unique identifier of the legal entity.
-            request_options: Per-call overrides for this one request, such as a timeout or extra headers.
+            id_: The unique identifier of the legal entity.
+            request_options: Per-call overrides for this one request, such as a timeout, extra headers, or its retry
+                count and statuses.
 
         Returns:
             An ``ApiResult`` holding the deserialized response or the error body."""
         return await self._client.execute(
             http_method="GET",
             url_template=self._server.default18("/legalEntities/{id}/businessLines"),
-            path_params=[param[str]("id", id)],
+            path_params=[param[str]("id", id_)],
             auth_scheme=AsyncAnySchemes(self._auth.basic_auth, self._auth.api_key_auth),
-            decoder=json_decoder[BusinessLines],
+            decoder=async_json_decoder[BusinessLines],
             error_mapper=get_legal_entities_id_business_lines_error_mapper,
             request_options=request_options,
         )
 
     async def patch_legal_entities_id(
         self,
-        id: str,
+        id_: str,
         *,
         x_requested_verification_code: str | None = None,
         body: LegalEntityInfo | LegalEntityInfoDict | None = None,
@@ -827,26 +861,27 @@ class AsyncLegalEntitiesWithRawResponse(SecuredRawResponse[AsyncRawClient, Serve
         - Failed requests are subject to a limit of 5 failures per 10 seconds.
 
         Args:
-            id: The unique identifier of the legal entity.
+            id_: The unique identifier of the legal entity.
             x_requested_verification_code: Use the requested verification code 0_0001 to resolve any suberrors
                 associated with the legal entity. Requested verification codes can only be used in your test
                 environment.
             body: The request body.
-            request_options: Per-call overrides for this one request, such as a timeout or extra headers.
+            request_options: Per-call overrides for this one request, such as a timeout, extra headers, or its retry
+                count and statuses.
 
         Returns:
             An ``ApiResult`` holding the deserialized response or the error body."""
         return await self._client.execute(
             http_method="PATCH",
             url_template=self._server.default18("/legalEntities/{id}"),
-            path_params=[param[str]("id", id)],
+            path_params=[param[str]("id", id_)],
             headers=[
                 param[str | None]("x-requested-verification-code", x_requested_verification_code),
                 param[UUID]("Idempotency-Key", uuid4()),
             ],
             body=json_body[LegalEntityInfo | LegalEntityInfoDict | None](body),
             auth_scheme=AsyncAnySchemes(self._auth.basic_auth, self._auth.api_key_auth),
-            decoder=json_decoder[LegalEntity3],
+            decoder=async_json_decoder[LegalEntity3],
             error_mapper=patch_legal_entities_id_error_mapper,
             request_options=request_options,
         )
@@ -877,7 +912,8 @@ class AsyncLegalEntitiesWithRawResponse(SecuredRawResponse[AsyncRawClient, Serve
                 code at a time in your request header. Requested verification codes can only be used in your test
                 environment.
             body: The request body.
-            request_options: Per-call overrides for this one request, such as a timeout or extra headers.
+            request_options: Per-call overrides for this one request, such as a timeout, extra headers, or its retry
+                count and statuses.
 
         Returns:
             An ``ApiResult`` holding the deserialized response or the error body."""
@@ -890,13 +926,13 @@ class AsyncLegalEntitiesWithRawResponse(SecuredRawResponse[AsyncRawClient, Serve
             ],
             body=json_body[LegalEntityInfoRequiredType | LegalEntityInfoRequiredTypeDict | None](body),
             auth_scheme=AsyncAnySchemes(self._auth.basic_auth, self._auth.api_key_auth),
-            decoder=json_decoder[LegalEntity3],
+            decoder=async_json_decoder[LegalEntity3],
             error_mapper=post_legal_entities_error_mapper,
             request_options=request_options,
         )
 
     async def post_legal_entities_id_check_verification_errors(
-        self, id: str, *, request_options: RequestOptionsOrDict | None = None
+        self, id_: str, *, request_options: RequestOptionsOrDict | None = None
     ) -> ApiResult[VerificationErrors, PostLegalEntitiesIdCheckVerificationErrorsErrorBody]:
         """Returns the verification errors for a legal entity and its supporting entities.
 
@@ -909,24 +945,25 @@ class AsyncLegalEntitiesWithRawResponse(SecuredRawResponse[AsyncRawClient, Serve
         - Failed requests are subject to a limit of 5 failures per 10 seconds.
 
         Args:
-            id: The unique identifier of the legal entity.
-            request_options: Per-call overrides for this one request, such as a timeout or extra headers.
+            id_: The unique identifier of the legal entity.
+            request_options: Per-call overrides for this one request, such as a timeout, extra headers, or its retry
+                count and statuses.
 
         Returns:
             An ``ApiResult`` holding the deserialized response or the error body."""
         return await self._client.execute(
             http_method="POST",
             url_template=self._server.default18("/legalEntities/{id}/checkVerificationErrors"),
-            path_params=[param[str]("id", id)],
+            path_params=[param[str]("id", id_)],
             headers=[param[UUID]("Idempotency-Key", uuid4())],
             auth_scheme=AsyncAnySchemes(self._auth.basic_auth, self._auth.api_key_auth),
-            decoder=json_decoder[VerificationErrors],
+            decoder=async_json_decoder[VerificationErrors],
             error_mapper=post_legal_entities_id_check_verification_errors_error_mapper,
             request_options=request_options,
         )
 
     async def post_legal_entities_id_confirm_data_review(
-        self, id: str, *, request_options: RequestOptionsOrDict | None = None
+        self, id_: str, *, request_options: RequestOptionsOrDict | None = None
     ) -> ApiResult[DataReviewConfirmationResponse, PostLegalEntitiesIdConfirmDataReviewErrorBody]:
         """Confirms that your user has reviewed the data for the legal entity specified in the path. Call this endpoint
         to inform Adyen that your user reviewed and verified that the data is up-to-date. The endpoint returns the
@@ -941,39 +978,41 @@ class AsyncLegalEntitiesWithRawResponse(SecuredRawResponse[AsyncRawClient, Serve
         - Failed requests are subject to a limit of 5 failures per 10 seconds.
 
         Args:
-            id: The unique identifier of the legal entity.
-            request_options: Per-call overrides for this one request, such as a timeout or extra headers.
+            id_: The unique identifier of the legal entity.
+            request_options: Per-call overrides for this one request, such as a timeout, extra headers, or its retry
+                count and statuses.
 
         Returns:
             An ``ApiResult`` holding the deserialized response or the error body."""
         return await self._client.execute(
             http_method="POST",
             url_template=self._server.default18("/legalEntities/{id}/confirmDataReview"),
-            path_params=[param[str]("id", id)],
+            path_params=[param[str]("id", id_)],
             headers=[param[UUID]("Idempotency-Key", uuid4())],
             auth_scheme=AsyncAnySchemes(self._auth.basic_auth, self._auth.api_key_auth),
-            decoder=json_decoder[DataReviewConfirmationResponse],
+            decoder=async_json_decoder[DataReviewConfirmationResponse],
             error_mapper=post_legal_entities_id_confirm_data_review_error_mapper,
             request_options=request_options,
         )
 
     async def post_legal_entities_id_request_periodic_review(
-        self, id: str, *, request_options: RequestOptionsOrDict | None = None
+        self, id_: str, *, request_options: RequestOptionsOrDict | None = None
     ) -> ApiResult[Any, RawError]:
         """Requests a periodic data review for the legal entity of the user specified in the path.
 
         Args:
-            id: The unique identifier of the legal entity.
-            request_options: Per-call overrides for this one request, such as a timeout or extra headers.
+            id_: The unique identifier of the legal entity.
+            request_options: Per-call overrides for this one request, such as a timeout, extra headers, or its retry
+                count and statuses.
 
         Returns:
             An ``ApiResult`` holding the deserialized response or the error body."""
         return await self._client.execute(
             http_method="POST",
             url_template=self._server.default18("/legalEntities/{id}/requestPeriodicReview"),
-            path_params=[param[str]("id", id)],
+            path_params=[param[str]("id", id_)],
             headers=[param[UUID]("Idempotency-Key", uuid4())],
-            decoder=json_decoder[Any],
+            decoder=async_json_decoder[Any],
             error_mapper=raw_error_response,
             request_options=request_options,
         )

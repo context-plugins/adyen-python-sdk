@@ -33,7 +33,7 @@ class TransferNotificationCounterParty(SdkBaseModel):
 
 class TransferNotificationCounterPartyDict(TypedDict):
     balance_account_id: NotRequired[str]
-    bank_account: NotRequired[BankAccountV31 | BankAccountV31Dict]
-    card: NotRequired[Card12 | Card12Dict]
-    merchant: NotRequired[TransferNotificationMerchantData2 | TransferNotificationMerchantData2Dict]
+    bank_account: NotRequired[BankAccountV31Dict]
+    card: NotRequired[Card12Dict]
+    merchant: NotRequired[TransferNotificationMerchantData2Dict]
     transfer_instrument_id: NotRequired[str]

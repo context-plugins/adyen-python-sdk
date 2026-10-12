@@ -39,4 +39,4 @@ class VerificationErrorRecursiveDict(TypedDict):
     code: NotRequired[str]
     message: NotRequired[str]
     type_: NotRequired[Type212OrStr]
-    remediating_actions: NotRequired[list[RemediatingAction | RemediatingActionDict]]
+    remediating_actions: NotRequired[list[RemediatingActionDict]]

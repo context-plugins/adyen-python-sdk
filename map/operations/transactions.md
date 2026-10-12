@@ -31,9 +31,9 @@ Each `###` block is one operation and assumes `sdk-map.md` is loaded: blocks omi
 - **Route**: `GET /transactions/{id}`
 - **Auth**: `client_key` OR `basic_auth` OR `api_key_auth`
 - **Server**: `default14`
-- **Signature**: `def get_transactions_id(id: str, *, request_options: RequestOptionsOrDict | None = None)`
-  - required, positional: `id`
-- **Params**: `id` — path
+- **Signature**: `def get_transactions_id(id_: str, *, request_options: RequestOptionsOrDict | None = None)`
+  - required, positional: `id_`
+- **Params**: `id_` — path `id`
 - **Returns (parsed)**: `Transaction`
 - **Returns (raw)**: `ApiResult[Transaction, GetTransactionsIdErrorBody]`
 - **Error**: `GetTransactionsIdErrorBody` — **Case A (typed)**

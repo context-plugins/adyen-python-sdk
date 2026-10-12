@@ -12,4 +12,4 @@ class SubmitScaAssociationRequest(SdkBaseModel):
 
 
 class SubmitScaAssociationRequestDict(TypedDict):
-    entities: list[ScaEntity | ScaEntityDict]
+    entities: list[ScaEntityDict]

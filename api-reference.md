@@ -57,7 +57,7 @@ except ApiError as e:
 | Name | Type | Description |
 | --- | --- | --- |
 | <code>body</code> | <code>[AbortRequest](adyen/models/abort_request.py) \| [AbortRequestDict](adyen/models/abort_request.py) \| None</code> | The request body.<br>**Default**: <code>None</code> |
-| <code>request_options</code> | <code>[RequestOptionsOrDict](adyen/core/request_options.py) \| None</code> | Per-call overrides for this one request, such as a timeout or extra headers. |
+| <code>request_options</code> | <code>[RequestOptionsOrDict](adyen/core/request_options.py) \| None</code> | Per-call overrides for this one request, such as a timeout, extra headers, or its retry count and statuses. |
 
 </dd>
 </dl>
@@ -132,7 +132,7 @@ except ApiError as e:
 | Name | Type | Description |
 | --- | --- | --- |
 | <code>body</code> | <code>[AdminRequest](adyen/models/admin_request.py) \| [AdminRequestDict](adyen/models/admin_request.py) \| None</code> | The request body.<br>**Default**: <code>None</code> |
-| <code>request_options</code> | <code>[RequestOptionsOrDict](adyen/core/request_options.py) \| None</code> | Per-call overrides for this one request, such as a timeout or extra headers. |
+| <code>request_options</code> | <code>[RequestOptionsOrDict](adyen/core/request_options.py) \| None</code> | Per-call overrides for this one request, such as a timeout, extra headers, or its retry count and statuses. |
 
 </dd>
 </dl>
@@ -208,7 +208,7 @@ except ApiError as e:
 | Name | Type | Description |
 | --- | --- | --- |
 | <code>body</code> | <code>[BalanceInquiryRequest](adyen/models/balance_inquiry_request.py) \| [BalanceInquiryRequestDict](adyen/models/balance_inquiry_request.py) \| None</code> | The request body.<br>**Default**: <code>None</code> |
-| <code>request_options</code> | <code>[RequestOptionsOrDict](adyen/core/request_options.py) \| None</code> | Per-call overrides for this one request, such as a timeout or extra headers. |
+| <code>request_options</code> | <code>[RequestOptionsOrDict](adyen/core/request_options.py) \| None</code> | Per-call overrides for this one request, such as a timeout, extra headers, or its retry count and statuses. |
 
 </dd>
 </dl>
@@ -284,7 +284,7 @@ except ApiError as e:
 | Name | Type | Description |
 | --- | --- | --- |
 | <code>body</code> | <code>[CardAcquisitionRequest](adyen/models/card_acquisition_request.py) \| [CardAcquisitionRequestDict](adyen/models/card_acquisition_request.py) \| None</code> | The request body.<br>**Default**: <code>None</code> |
-| <code>request_options</code> | <code>[RequestOptionsOrDict](adyen/core/request_options.py) \| None</code> | Per-call overrides for this one request, such as a timeout or extra headers. |
+| <code>request_options</code> | <code>[RequestOptionsOrDict](adyen/core/request_options.py) \| None</code> | Per-call overrides for this one request, such as a timeout, extra headers, or its retry count and statuses. |
 
 </dd>
 </dl>
@@ -360,7 +360,7 @@ except ApiError as e:
 | Name | Type | Description |
 | --- | --- | --- |
 | <code>body</code> | <code>[CardReaderApdurequest](adyen/models/card_reader_apdurequest.py) \| [CardReaderApdurequestDict](adyen/models/card_reader_apdurequest.py) \| None</code> | The request body.<br>**Default**: <code>None</code> |
-| <code>request_options</code> | <code>[RequestOptionsOrDict](adyen/core/request_options.py) \| None</code> | Per-call overrides for this one request, such as a timeout or extra headers. |
+| <code>request_options</code> | <code>[RequestOptionsOrDict](adyen/core/request_options.py) \| None</code> | Per-call overrides for this one request, such as a timeout, extra headers, or its retry count and statuses. |
 
 </dd>
 </dl>
@@ -436,7 +436,7 @@ except ApiError as e:
 | Name | Type | Description |
 | --- | --- | --- |
 | <code>body</code> | <code>[DiagnosisRequest](adyen/models/diagnosis_request.py) \| [DiagnosisRequestDict](adyen/models/diagnosis_request.py) \| None</code> | The request body.<br>**Default**: <code>None</code> |
-| <code>request_options</code> | <code>[RequestOptionsOrDict](adyen/core/request_options.py) \| None</code> | Per-call overrides for this one request, such as a timeout or extra headers. |
+| <code>request_options</code> | <code>[RequestOptionsOrDict](adyen/core/request_options.py) \| None</code> | Per-call overrides for this one request, such as a timeout, extra headers, or its retry count and statuses. |
 
 </dd>
 </dl>
@@ -512,7 +512,7 @@ except ApiError as e:
 | Name | Type | Description |
 | --- | --- | --- |
 | <code>body</code> | <code>[DisplayRequest](adyen/models/display_request.py) \| [DisplayRequestDict](adyen/models/display_request.py) \| None</code> | The request body.<br>**Default**: <code>None</code> |
-| <code>request_options</code> | <code>[RequestOptionsOrDict](adyen/core/request_options.py) \| None</code> | Per-call overrides for this one request, such as a timeout or extra headers. |
+| <code>request_options</code> | <code>[RequestOptionsOrDict](adyen/core/request_options.py) \| None</code> | Per-call overrides for this one request, such as a timeout, extra headers, or its retry count and statuses. |
 
 </dd>
 </dl>
@@ -588,7 +588,7 @@ except ApiError as e:
 | Name | Type | Description |
 | --- | --- | --- |
 | <code>body</code> | <code>[EnableServiceRequest](adyen/models/enable_service_request.py) \| [EnableServiceRequestDict](adyen/models/enable_service_request.py) \| None</code> | The request body.<br>**Default**: <code>None</code> |
-| <code>request_options</code> | <code>[RequestOptionsOrDict](adyen/core/request_options.py) \| None</code> | Per-call overrides for this one request, such as a timeout or extra headers. |
+| <code>request_options</code> | <code>[RequestOptionsOrDict](adyen/core/request_options.py) \| None</code> | Per-call overrides for this one request, such as a timeout, extra headers, or its retry count and statuses. |
 
 </dd>
 </dl>
@@ -664,7 +664,7 @@ except ApiError as e:
 | Name | Type | Description |
 | --- | --- | --- |
 | <code>body</code> | <code>[GetTotalsRequest](adyen/models/get_totals_request.py) \| [GetTotalsRequestDict](adyen/models/get_totals_request.py) \| None</code> | The request body.<br>**Default**: <code>None</code> |
-| <code>request_options</code> | <code>[RequestOptionsOrDict](adyen/core/request_options.py) \| None</code> | Per-call overrides for this one request, such as a timeout or extra headers. |
+| <code>request_options</code> | <code>[RequestOptionsOrDict](adyen/core/request_options.py) \| None</code> | Per-call overrides for this one request, such as a timeout, extra headers, or its retry count and statuses. |
 
 </dd>
 </dl>
@@ -739,7 +739,7 @@ except ApiError as e:
 | Name | Type | Description |
 | --- | --- | --- |
 | <code>body</code> | <code>[InputRequest](adyen/models/input_request.py) \| [InputRequestDict](adyen/models/input_request.py) \| None</code> | The request body.<br>**Default**: <code>None</code> |
-| <code>request_options</code> | <code>[RequestOptionsOrDict](adyen/core/request_options.py) \| None</code> | Per-call overrides for this one request, such as a timeout or extra headers. |
+| <code>request_options</code> | <code>[RequestOptionsOrDict](adyen/core/request_options.py) \| None</code> | Per-call overrides for this one request, such as a timeout, extra headers, or its retry count and statuses. |
 
 </dd>
 </dl>
@@ -815,7 +815,7 @@ except ApiError as e:
 | Name | Type | Description |
 | --- | --- | --- |
 | <code>body</code> | <code>[LoginRequest](adyen/models/login_request.py) \| [LoginRequestDict](adyen/models/login_request.py) \| None</code> | The request body.<br>**Default**: <code>None</code> |
-| <code>request_options</code> | <code>[RequestOptionsOrDict](adyen/core/request_options.py) \| None</code> | Per-call overrides for this one request, such as a timeout or extra headers. |
+| <code>request_options</code> | <code>[RequestOptionsOrDict](adyen/core/request_options.py) \| None</code> | Per-call overrides for this one request, such as a timeout, extra headers, or its retry count and statuses. |
 
 </dd>
 </dl>
@@ -891,7 +891,7 @@ except ApiError as e:
 | Name | Type | Description |
 | --- | --- | --- |
 | <code>body</code> | <code>[LogoutRequest](adyen/models/logout_request.py) \| [LogoutRequestDict](adyen/models/logout_request.py) \| None</code> | The request body.<br>**Default**: <code>None</code> |
-| <code>request_options</code> | <code>[RequestOptionsOrDict](adyen/core/request_options.py) \| None</code> | Per-call overrides for this one request, such as a timeout or extra headers. |
+| <code>request_options</code> | <code>[RequestOptionsOrDict](adyen/core/request_options.py) \| None</code> | Per-call overrides for this one request, such as a timeout, extra headers, or its retry count and statuses. |
 
 </dd>
 </dl>
@@ -968,7 +968,7 @@ except ApiError as e:
 | Name | Type | Description |
 | --- | --- | --- |
 | <code>body</code> | <code>[PaymentRequest2](adyen/models/payment_request2.py) \| [PaymentRequest2Dict](adyen/models/payment_request2.py) \| None</code> | The request body.<br>**Default**: <code>None</code> |
-| <code>request_options</code> | <code>[RequestOptionsOrDict](adyen/core/request_options.py) \| None</code> | Per-call overrides for this one request, such as a timeout or extra headers. |
+| <code>request_options</code> | <code>[RequestOptionsOrDict](adyen/core/request_options.py) \| None</code> | Per-call overrides for this one request, such as a timeout, extra headers, or its retry count and statuses. |
 
 </dd>
 </dl>
@@ -1044,7 +1044,7 @@ except ApiError as e:
 | Name | Type | Description |
 | --- | --- | --- |
 | <code>body</code> | <code>[PrintRequest](adyen/models/print_request.py) \| [PrintRequestDict](adyen/models/print_request.py) \| None</code> | The request body.<br>**Default**: <code>None</code> |
-| <code>request_options</code> | <code>[RequestOptionsOrDict](adyen/core/request_options.py) \| None</code> | Per-call overrides for this one request, such as a timeout or extra headers. |
+| <code>request_options</code> | <code>[RequestOptionsOrDict](adyen/core/request_options.py) \| None</code> | Per-call overrides for this one request, such as a timeout, extra headers, or its retry count and statuses. |
 
 </dd>
 </dl>
@@ -1120,7 +1120,7 @@ except ApiError as e:
 | Name | Type | Description |
 | --- | --- | --- |
 | <code>body</code> | <code>[ReconciliationRequest](adyen/models/reconciliation_request.py) \| [ReconciliationRequestDict](adyen/models/reconciliation_request.py) \| None</code> | The request body.<br>**Default**: <code>None</code> |
-| <code>request_options</code> | <code>[RequestOptionsOrDict](adyen/core/request_options.py) \| None</code> | Per-call overrides for this one request, such as a timeout or extra headers. |
+| <code>request_options</code> | <code>[RequestOptionsOrDict](adyen/core/request_options.py) \| None</code> | Per-call overrides for this one request, such as a timeout, extra headers, or its retry count and statuses. |
 
 </dd>
 </dl>
@@ -1196,7 +1196,7 @@ except ApiError as e:
 | Name | Type | Description |
 | --- | --- | --- |
 | <code>body</code> | <code>[ReversalRequest](adyen/models/reversal_request.py) \| [ReversalRequestDict](adyen/models/reversal_request.py) \| None</code> | The request body.<br>**Default**: <code>None</code> |
-| <code>request_options</code> | <code>[RequestOptionsOrDict](adyen/core/request_options.py) \| None</code> | Per-call overrides for this one request, such as a timeout or extra headers. |
+| <code>request_options</code> | <code>[RequestOptionsOrDict](adyen/core/request_options.py) \| None</code> | Per-call overrides for this one request, such as a timeout, extra headers, or its retry count and statuses. |
 
 </dd>
 </dl>
@@ -1272,7 +1272,7 @@ except ApiError as e:
 | Name | Type | Description |
 | --- | --- | --- |
 | <code>body</code> | <code>[StoredValueRequest](adyen/models/stored_value_request.py) \| [StoredValueRequestDict](adyen/models/stored_value_request.py) \| None</code> | The request body.<br>**Default**: <code>None</code> |
-| <code>request_options</code> | <code>[RequestOptionsOrDict](adyen/core/request_options.py) \| None</code> | Per-call overrides for this one request, such as a timeout or extra headers. |
+| <code>request_options</code> | <code>[RequestOptionsOrDict](adyen/core/request_options.py) \| None</code> | Per-call overrides for this one request, such as a timeout, extra headers, or its retry count and statuses. |
 
 </dd>
 </dl>
@@ -1348,7 +1348,7 @@ except ApiError as e:
 | Name | Type | Description |
 | --- | --- | --- |
 | <code>body</code> | <code>[TransactionStatusRequest](adyen/models/transaction_status_request.py) \| [TransactionStatusRequestDict](adyen/models/transaction_status_request.py) \| None</code> | The request body.<br>**Default**: <code>None</code> |
-| <code>request_options</code> | <code>[RequestOptionsOrDict](adyen/core/request_options.py) \| None</code> | Per-call overrides for this one request, such as a timeout or extra headers. |
+| <code>request_options</code> | <code>[RequestOptionsOrDict](adyen/core/request_options.py) \| None</code> | Per-call overrides for this one request, such as a timeout, extra headers, or its retry count and statuses. |
 
 </dd>
 </dl>
@@ -1403,7 +1403,7 @@ To make this request, your API credential must have the following [roles](https:
 
 ```python
 try:
-    response = client.api_credentials_company_level.get_companies_company_id_api_credentials(company_id)
+    response = client.api_credentials_company_level.get_companies_company_id_api_credentials("some example string")
     # TODO: Handle 'response' of type ListCompanyApiCredentialsResponse
 except ApiError as e:
     ...  # TODO: Handle 'e.error' of type GetCompaniesCompanyIdApiCredentialsErrorBody
@@ -1413,7 +1413,9 @@ except ApiError as e:
 
 ```python
 try:
-    response = await async_client.api_credentials_company_level.get_companies_company_id_api_credentials(company_id)
+    response = await async_client.api_credentials_company_level.get_companies_company_id_api_credentials(
+        "some example string"
+    )
     # TODO: Handle 'response' of type ListCompanyApiCredentialsResponse
 except ApiError as e:
     ...  # TODO: Handle 'e.error' of type GetCompaniesCompanyIdApiCredentialsErrorBody
@@ -1432,7 +1434,7 @@ except ApiError as e:
 | <code>company_id</code> | <code>str</code> | The unique identifier of the company account. |
 | <code>page_number</code> | <code>int \| None</code> | The number of the page to fetch.<br>**Default**: <code>None</code> |
 | <code>page_size</code> | <code>int \| None</code> | The number of items to have on a page, maximum 100. The default is 10 items on a page.<br>**Default**: <code>None</code> |
-| <code>request_options</code> | <code>[RequestOptionsOrDict](adyen/core/request_options.py) \| None</code> | Per-call overrides for this one request, such as a timeout or extra headers. |
+| <code>request_options</code> | <code>[RequestOptionsOrDict](adyen/core/request_options.py) \| None</code> | Per-call overrides for this one request, such as a timeout, extra headers, or its retry count and statuses. |
 
 </dd>
 </dl>
@@ -1490,7 +1492,7 @@ To make this request, your API credential must have the following [roles](https:
 ```python
 try:
     response = client.api_credentials_company_level.get_companies_company_id_api_credentials_api_credential_id(
-        company_id, api_credential_id
+        "some example string", "some example string"
     )
     # TODO: Handle 'response' of type CompanyApiCredential
 except ApiError as e:
@@ -1502,7 +1504,7 @@ except ApiError as e:
 ```python
 try:
     response = await async_client.api_credentials_company_level.get_companies_company_id_api_credentials_api_credential_id(
-        company_id, api_credential_id
+        "some example string", "some example string"
     )
     # TODO: Handle 'response' of type CompanyApiCredential
 except ApiError as e:
@@ -1521,7 +1523,7 @@ except ApiError as e:
 | --- | --- | --- |
 | <code>company_id</code> | <code>str</code> | The unique identifier of the company account. |
 | <code>api_credential_id</code> | <code>str</code> | Unique identifier of the API credential. |
-| <code>request_options</code> | <code>[RequestOptionsOrDict](adyen/core/request_options.py) \| None</code> | Per-call overrides for this one request, such as a timeout or extra headers. |
+| <code>request_options</code> | <code>[RequestOptionsOrDict](adyen/core/request_options.py) \| None</code> | Per-call overrides for this one request, such as a timeout, extra headers, or its retry count and statuses. |
 
 </dd>
 </dl>
@@ -1579,7 +1581,7 @@ To make this request, your API credential must have the following [roles](https:
 ```python
 try:
     response = client.api_credentials_company_level.patch_companies_company_id_api_credentials_api_credential_id(
-        company_id, api_credential_id
+        "some example string", "some example string", body=UpdateCompanyApiCredentialRequest(active=True)
     )
     # TODO: Handle 'response' of type CompanyApiCredential
 except ApiError as e:
@@ -1591,7 +1593,7 @@ except ApiError as e:
 ```python
 try:
     response = await async_client.api_credentials_company_level.patch_companies_company_id_api_credentials_api_credential_id(
-        company_id, api_credential_id
+        "some example string", "some example string", body=UpdateCompanyApiCredentialRequest(active=True)
     )
     # TODO: Handle 'response' of type CompanyApiCredential
 except ApiError as e:
@@ -1611,7 +1613,7 @@ except ApiError as e:
 | <code>company_id</code> | <code>str</code> | The unique identifier of the company account. |
 | <code>api_credential_id</code> | <code>str</code> | Unique identifier of the API credential. |
 | <code>body</code> | <code>[UpdateCompanyApiCredentialRequest](adyen/models/update_company_api_credential_request.py) \| [UpdateCompanyApiCredentialRequestDict](adyen/models/update_company_api_credential_request.py) \| None</code> | The request body.<br>**Default**: <code>None</code> |
-| <code>request_options</code> | <code>[RequestOptionsOrDict](adyen/core/request_options.py) \| None</code> | Per-call overrides for this one request, such as a timeout or extra headers. |
+| <code>request_options</code> | <code>[RequestOptionsOrDict](adyen/core/request_options.py) \| None</code> | Per-call overrides for this one request, such as a timeout, extra headers, or its retry count and statuses. |
 
 </dd>
 </dl>
@@ -1677,7 +1679,16 @@ To make this request, your API credential must have the following [roles](https:
 
 ```python
 try:
-    response = client.api_credentials_company_level.post_companies_company_id_api_credentials(company_id)
+    response = client.api_credentials_company_level.post_companies_company_id_api_credentials(
+        "some example string",
+        body=CreateCompanyApiCredentialRequest(
+            allowed_origins=["https://www.mystore.com"],
+            associated_merchant_accounts=[
+                "YOUR_MERCHANT_ACCOUNT_AU", "YOUR_MERCHANT_ACCOUNT_EU", "YOUR_MERCHANT_ACCOUNT_US"
+            ],
+            roles=["Checkout webservice role"],
+        ),
+    )
     # TODO: Handle 'response' of type CreateCompanyApiCredentialResponse
 except ApiError as e:
     ...  # TODO: Handle 'e.error' of type PostCompaniesCompanyIdApiCredentialsErrorBody
@@ -1687,7 +1698,16 @@ except ApiError as e:
 
 ```python
 try:
-    response = await async_client.api_credentials_company_level.post_companies_company_id_api_credentials(company_id)
+    response = await async_client.api_credentials_company_level.post_companies_company_id_api_credentials(
+        "some example string",
+        body=CreateCompanyApiCredentialRequest(
+            allowed_origins=["https://www.mystore.com"],
+            associated_merchant_accounts=[
+                "YOUR_MERCHANT_ACCOUNT_AU", "YOUR_MERCHANT_ACCOUNT_EU", "YOUR_MERCHANT_ACCOUNT_US"
+            ],
+            roles=["Checkout webservice role"],
+        ),
+    )
     # TODO: Handle 'response' of type CreateCompanyApiCredentialResponse
 except ApiError as e:
     ...  # TODO: Handle 'e.error' of type PostCompaniesCompanyIdApiCredentialsErrorBody
@@ -1705,7 +1725,7 @@ except ApiError as e:
 | --- | --- | --- |
 | <code>company_id</code> | <code>str</code> | The unique identifier of the company account. |
 | <code>body</code> | <code>[CreateCompanyApiCredentialRequest](adyen/models/create_company_api_credential_request.py) \| [CreateCompanyApiCredentialRequestDict](adyen/models/create_company_api_credential_request.py) \| None</code> | The request body.<br>**Default**: <code>None</code> |
-| <code>request_options</code> | <code>[RequestOptionsOrDict](adyen/core/request_options.py) \| None</code> | Per-call overrides for this one request, such as a timeout or extra headers. |
+| <code>request_options</code> | <code>[RequestOptionsOrDict](adyen/core/request_options.py) \| None</code> | Per-call overrides for this one request, such as a timeout, extra headers, or its retry count and statuses. |
 
 </dd>
 </dl>
@@ -1766,7 +1786,7 @@ To make this request, your API credential must have the following [roles](https:
 
 ```python
 try:
-    response = client.api_credentials_merchant_level.get_merchants_merchant_id_api_credentials(merchant_id)
+    response = client.api_credentials_merchant_level.get_merchants_merchant_id_api_credentials("some example string")
     # TODO: Handle 'response' of type ListMerchantApiCredentialsResponse
 except ApiError as e:
     ...  # TODO: Handle 'e.error' of type GetMerchantsMerchantIdApiCredentialsErrorBody
@@ -1776,7 +1796,9 @@ except ApiError as e:
 
 ```python
 try:
-    response = await async_client.api_credentials_merchant_level.get_merchants_merchant_id_api_credentials(merchant_id)
+    response = await async_client.api_credentials_merchant_level.get_merchants_merchant_id_api_credentials(
+        "some example string"
+    )
     # TODO: Handle 'response' of type ListMerchantApiCredentialsResponse
 except ApiError as e:
     ...  # TODO: Handle 'e.error' of type GetMerchantsMerchantIdApiCredentialsErrorBody
@@ -1795,7 +1817,7 @@ except ApiError as e:
 | <code>merchant_id</code> | <code>str</code> | The unique identifier of the merchant account. |
 | <code>page_number</code> | <code>int \| None</code> | The number of the page to fetch.<br>**Default**: <code>None</code> |
 | <code>page_size</code> | <code>int \| None</code> | The number of items to have on a page, maximum 100. The default is 10 items on a page.<br>**Default**: <code>None</code> |
-| <code>request_options</code> | <code>[RequestOptionsOrDict](adyen/core/request_options.py) \| None</code> | Per-call overrides for this one request, such as a timeout or extra headers. |
+| <code>request_options</code> | <code>[RequestOptionsOrDict](adyen/core/request_options.py) \| None</code> | Per-call overrides for this one request, such as a timeout, extra headers, or its retry count and statuses. |
 
 </dd>
 </dl>
@@ -1853,7 +1875,7 @@ To make this request, your API credential must have the following [roles](https:
 ```python
 try:
     response = client.api_credentials_merchant_level.get_merchants_merchant_id_api_credentials_api_credential_id(
-        merchant_id, api_credential_id
+        "some example string", "some example string"
     )
     # TODO: Handle 'response' of type ApiCredential
 except ApiError as e:
@@ -1865,7 +1887,7 @@ except ApiError as e:
 ```python
 try:
     response = await async_client.api_credentials_merchant_level.get_merchants_merchant_id_api_credentials_api_credential_id(
-        merchant_id, api_credential_id
+        "some example string", "some example string"
     )
     # TODO: Handle 'response' of type ApiCredential
 except ApiError as e:
@@ -1884,7 +1906,7 @@ except ApiError as e:
 | --- | --- | --- |
 | <code>merchant_id</code> | <code>str</code> | The unique identifier of the merchant account. |
 | <code>api_credential_id</code> | <code>str</code> | Unique identifier of the API credential. |
-| <code>request_options</code> | <code>[RequestOptionsOrDict](adyen/core/request_options.py) \| None</code> | Per-call overrides for this one request, such as a timeout or extra headers. |
+| <code>request_options</code> | <code>[RequestOptionsOrDict](adyen/core/request_options.py) \| None</code> | Per-call overrides for this one request, such as a timeout, extra headers, or its retry count and statuses. |
 
 </dd>
 </dl>
@@ -1942,7 +1964,7 @@ To make this request, your API credential must have the following [roles](https:
 ```python
 try:
     response = client.api_credentials_merchant_level.patch_merchants_merchant_id_api_credentials_api_credential_id(
-        merchant_id, api_credential_id
+        "some example string", "some example string", body=UpdateMerchantApiCredentialRequest(active=True)
     )
     # TODO: Handle 'response' of type ApiCredential
 except ApiError as e:
@@ -1954,7 +1976,7 @@ except ApiError as e:
 ```python
 try:
     response = await async_client.api_credentials_merchant_level.patch_merchants_merchant_id_api_credentials_api_credential_id(
-        merchant_id, api_credential_id
+        "some example string", "some example string", body=UpdateMerchantApiCredentialRequest(active=True)
     )
     # TODO: Handle 'response' of type ApiCredential
 except ApiError as e:
@@ -1974,7 +1996,7 @@ except ApiError as e:
 | <code>merchant_id</code> | <code>str</code> | The unique identifier of the merchant account. |
 | <code>api_credential_id</code> | <code>str</code> | Unique identifier of the API credential. |
 | <code>body</code> | <code>[UpdateMerchantApiCredentialRequest](adyen/models/update_merchant_api_credential_request.py) \| [UpdateMerchantApiCredentialRequestDict](adyen/models/update_merchant_api_credential_request.py) \| None</code> | The request body.<br>**Default**: <code>None</code> |
-| <code>request_options</code> | <code>[RequestOptionsOrDict](adyen/core/request_options.py) \| None</code> | Per-call overrides for this one request, such as a timeout or extra headers. |
+| <code>request_options</code> | <code>[RequestOptionsOrDict](adyen/core/request_options.py) \| None</code> | Per-call overrides for this one request, such as a timeout, extra headers, or its retry count and statuses. |
 
 </dd>
 </dl>
@@ -2040,7 +2062,12 @@ To make this request, your API credential must have the following [roles](https:
 
 ```python
 try:
-    response = client.api_credentials_merchant_level.post_merchants_merchant_id_api_credentials(merchant_id)
+    response = client.api_credentials_merchant_level.post_merchants_merchant_id_api_credentials(
+        "some example string",
+        body=CreateMerchantApiCredentialRequest(
+            allowed_origins=["https://www.mystore.com"], roles=["Checkout webservice role"]
+        ),
+    )
     # TODO: Handle 'response' of type CreateApiCredentialResponse
 except ApiError as e:
     ...  # TODO: Handle 'e.error' of type PostMerchantsMerchantIdApiCredentialsErrorBody
@@ -2050,7 +2077,12 @@ except ApiError as e:
 
 ```python
 try:
-    response = await async_client.api_credentials_merchant_level.post_merchants_merchant_id_api_credentials(merchant_id)
+    response = await async_client.api_credentials_merchant_level.post_merchants_merchant_id_api_credentials(
+        "some example string",
+        body=CreateMerchantApiCredentialRequest(
+            allowed_origins=["https://www.mystore.com"], roles=["Checkout webservice role"]
+        ),
+    )
     # TODO: Handle 'response' of type CreateApiCredentialResponse
 except ApiError as e:
     ...  # TODO: Handle 'e.error' of type PostMerchantsMerchantIdApiCredentialsErrorBody
@@ -2068,7 +2100,7 @@ except ApiError as e:
 | --- | --- | --- |
 | <code>merchant_id</code> | <code>str</code> | The unique identifier of the merchant account. |
 | <code>body</code> | <code>[CreateMerchantApiCredentialRequest](adyen/models/create_merchant_api_credential_request.py) \| [CreateMerchantApiCredentialRequestDict](adyen/models/create_merchant_api_credential_request.py) \| None</code> | The request body.<br>**Default**: <code>None</code> |
-| <code>request_options</code> | <code>[RequestOptionsOrDict](adyen/core/request_options.py) \| None</code> | Per-call overrides for this one request, such as a timeout or extra headers. |
+| <code>request_options</code> | <code>[RequestOptionsOrDict](adyen/core/request_options.py) \| None</code> | Per-call overrides for this one request, such as a timeout, extra headers, or its retry count and statuses. |
 
 </dd>
 </dl>
@@ -2130,7 +2162,7 @@ To make this request, your API credential must have the following [roles](https:
 ```python
 try:
     response = client.api_key_company_level.post_companies_company_id_api_credentials_api_credential_id_generate_api_key(
-        company_id, api_credential_id
+        "some example string", "some example string"
     )
     # TODO: Handle 'response' of type GenerateApiKeyResponse
 except ApiError as e:
@@ -2142,7 +2174,7 @@ except ApiError as e:
 ```python
 try:
     response = await async_client.api_key_company_level.post_companies_company_id_api_credentials_api_credential_id_generate_api_key(
-        company_id, api_credential_id
+        "some example string", "some example string"
     )
     # TODO: Handle 'response' of type GenerateApiKeyResponse
 except ApiError as e:
@@ -2161,7 +2193,7 @@ except ApiError as e:
 | --- | --- | --- |
 | <code>company_id</code> | <code>str</code> | The unique identifier of the company account. |
 | <code>api_credential_id</code> | <code>str</code> | Unique identifier of the API credential. |
-| <code>request_options</code> | <code>[RequestOptionsOrDict](adyen/core/request_options.py) \| None</code> | Per-call overrides for this one request, such as a timeout or extra headers. |
+| <code>request_options</code> | <code>[RequestOptionsOrDict](adyen/core/request_options.py) \| None</code> | Per-call overrides for this one request, such as a timeout, extra headers, or its retry count and statuses. |
 
 </dd>
 </dl>
@@ -2223,7 +2255,7 @@ To make this request, your API credential must have the following [roles](https:
 ```python
 try:
     response = client.api_key_merchant_level.post_merchants_merchant_id_api_credentials_api_credential_id_generate_api_key(
-        merchant_id, api_credential_id
+        "some example string", "some example string"
     )
     # TODO: Handle 'response' of type GenerateApiKeyResponse
 except ApiError as e:
@@ -2235,7 +2267,7 @@ except ApiError as e:
 ```python
 try:
     response = await async_client.api_key_merchant_level.post_merchants_merchant_id_api_credentials_api_credential_id_generate_api_key(
-        merchant_id, api_credential_id
+        "some example string", "some example string"
     )
     # TODO: Handle 'response' of type GenerateApiKeyResponse
 except ApiError as e:
@@ -2254,7 +2286,7 @@ except ApiError as e:
 | --- | --- | --- |
 | <code>merchant_id</code> | <code>str</code> | The unique identifier of the merchant account. |
 | <code>api_credential_id</code> | <code>str</code> | Unique identifier of the API credential. |
-| <code>request_options</code> | <code>[RequestOptionsOrDict](adyen/core/request_options.py) \| None</code> | Per-call overrides for this one request, such as a timeout or extra headers. |
+| <code>request_options</code> | <code>[RequestOptionsOrDict](adyen/core/request_options.py) \| None</code> | Per-call overrides for this one request, such as a timeout, extra headers, or its retry count and statuses. |
 
 </dd>
 </dl>
@@ -2344,7 +2376,7 @@ except ApiError as e:
 | --- | --- | --- |
 | <code>page_number</code> | <code>int \| None</code> | The number of the page to fetch.<br>**Default**: <code>None</code> |
 | <code>page_size</code> | <code>int \| None</code> | The number of items to have on a page, maximum 100. The default is 10 items on a page.<br>**Default**: <code>None</code> |
-| <code>request_options</code> | <code>[RequestOptionsOrDict](adyen/core/request_options.py) \| None</code> | Per-call overrides for this one request, such as a timeout or extra headers. |
+| <code>request_options</code> | <code>[RequestOptionsOrDict](adyen/core/request_options.py) \| None</code> | Per-call overrides for this one request, such as a timeout, extra headers, or its retry count and statuses. |
 
 </dd>
 </dl>
@@ -2401,7 +2433,7 @@ To make this request, your API credential must have the following [roles](https:
 
 ```python
 try:
-    response = client.account_company_level.get_companies_company_id(company_id)
+    response = client.account_company_level.get_companies_company_id("some example string")
     # TODO: Handle 'response' of type Company2
 except ApiError as e:
     ...  # TODO: Handle 'e.error' of type GetCompaniesCompanyIdErrorBody
@@ -2411,7 +2443,7 @@ except ApiError as e:
 
 ```python
 try:
-    response = await async_client.account_company_level.get_companies_company_id(company_id)
+    response = await async_client.account_company_level.get_companies_company_id("some example string")
     # TODO: Handle 'response' of type Company2
 except ApiError as e:
     ...  # TODO: Handle 'e.error' of type GetCompaniesCompanyIdErrorBody
@@ -2428,7 +2460,7 @@ except ApiError as e:
 | Name | Type | Description |
 | --- | --- | --- |
 | <code>company_id</code> | <code>str</code> | The unique identifier of the company account. |
-| <code>request_options</code> | <code>[RequestOptionsOrDict](adyen/core/request_options.py) \| None</code> | Per-call overrides for this one request, such as a timeout or extra headers. |
+| <code>request_options</code> | <code>[RequestOptionsOrDict](adyen/core/request_options.py) \| None</code> | Per-call overrides for this one request, such as a timeout, extra headers, or its retry count and statuses. |
 
 </dd>
 </dl>
@@ -2485,7 +2517,7 @@ To make this request, your API credential must have the following [roles](https:
 
 ```python
 try:
-    response = client.account_company_level.get_companies_company_id_merchants(company_id)
+    response = client.account_company_level.get_companies_company_id_merchants("some example string")
     # TODO: Handle 'response' of type ListMerchantResponse
 except ApiError as e:
     ...  # TODO: Handle 'e.error' of type GetCompaniesCompanyIdMerchantsErrorBody
@@ -2495,7 +2527,7 @@ except ApiError as e:
 
 ```python
 try:
-    response = await async_client.account_company_level.get_companies_company_id_merchants(company_id)
+    response = await async_client.account_company_level.get_companies_company_id_merchants("some example string")
     # TODO: Handle 'response' of type ListMerchantResponse
 except ApiError as e:
     ...  # TODO: Handle 'e.error' of type GetCompaniesCompanyIdMerchantsErrorBody
@@ -2514,7 +2546,7 @@ except ApiError as e:
 | <code>company_id</code> | <code>str</code> | The unique identifier of the company account. |
 | <code>page_number</code> | <code>int \| None</code> | The number of the page to fetch.<br>**Default**: <code>None</code> |
 | <code>page_size</code> | <code>int \| None</code> | The number of items to have on a page, maximum 100. The default is 10 items on a page.<br>**Default**: <code>None</code> |
-| <code>request_options</code> | <code>[RequestOptionsOrDict](adyen/core/request_options.py) \| None</code> | Per-call overrides for this one request, such as a timeout or extra headers. |
+| <code>request_options</code> | <code>[RequestOptionsOrDict](adyen/core/request_options.py) \| None</code> | Per-call overrides for this one request, such as a timeout, extra headers, or its retry count and statuses. |
 
 </dd>
 </dl>
@@ -2603,7 +2635,7 @@ except ApiError as e:
 | --- | --- | --- |
 | <code>page_number</code> | <code>int \| None</code> | The number of the page to fetch.<br>**Default**: <code>None</code> |
 | <code>page_size</code> | <code>int \| None</code> | The number of items to have on a page, maximum 100. The default is 10 items on a page.<br>**Default**: <code>None</code> |
-| <code>request_options</code> | <code>[RequestOptionsOrDict](adyen/core/request_options.py) \| None</code> | Per-call overrides for this one request, such as a timeout or extra headers. |
+| <code>request_options</code> | <code>[RequestOptionsOrDict](adyen/core/request_options.py) \| None</code> | Per-call overrides for this one request, such as a timeout, extra headers, or its retry count and statuses. |
 
 </dd>
 </dl>
@@ -2660,7 +2692,7 @@ To make this request, your API credential must have the following [roles](https:
 
 ```python
 try:
-    response = client.account_merchant_level.get_merchants_merchant_id(merchant_id)
+    response = client.account_merchant_level.get_merchants_merchant_id("some example string")
     # TODO: Handle 'response' of type Merchant
 except ApiError as e:
     ...  # TODO: Handle 'e.error' of type GetMerchantsMerchantIdErrorBody
@@ -2670,7 +2702,7 @@ except ApiError as e:
 
 ```python
 try:
-    response = await async_client.account_merchant_level.get_merchants_merchant_id(merchant_id)
+    response = await async_client.account_merchant_level.get_merchants_merchant_id("some example string")
     # TODO: Handle 'response' of type Merchant
 except ApiError as e:
     ...  # TODO: Handle 'e.error' of type GetMerchantsMerchantIdErrorBody
@@ -2687,7 +2719,7 @@ except ApiError as e:
 | Name | Type | Description |
 | --- | --- | --- |
 | <code>merchant_id</code> | <code>str</code> | The unique identifier of the merchant account. |
-| <code>request_options</code> | <code>[RequestOptionsOrDict](adyen/core/request_options.py) \| None</code> | Per-call overrides for this one request, such as a timeout or extra headers. |
+| <code>request_options</code> | <code>[RequestOptionsOrDict](adyen/core/request_options.py) \| None</code> | Per-call overrides for this one request, such as a timeout, extra headers, or its retry count and statuses. |
 
 </dd>
 </dl>
@@ -2746,7 +2778,15 @@ To make this request, your API credential must have the following [roles](https:
 
 ```python
 try:
-    response = client.account_merchant_level.post_merchants()
+    response = client.account_merchant_level.post_merchants(
+        body=CreateMerchantRequest(
+            business_line_id="YOUR_BUSINESS_LINE_ID",
+            company_id="YOUR_COMPANY_ACCOUNT",
+            description="YOUR_DESCRIPTION",
+            legal_entity_id="YOUR_LEGAL_ENTITY_ID",
+            reference="YOUR_OWN_REFERENCE",
+        ),
+    )
     # TODO: Handle 'response' of type CreateMerchantResponse
 except ApiError as e:
     ...  # TODO: Handle 'e.error' of type PostMerchantsErrorBody
@@ -2756,7 +2796,15 @@ except ApiError as e:
 
 ```python
 try:
-    response = await async_client.account_merchant_level.post_merchants()
+    response = await async_client.account_merchant_level.post_merchants(
+        body=CreateMerchantRequest(
+            business_line_id="YOUR_BUSINESS_LINE_ID",
+            company_id="YOUR_COMPANY_ACCOUNT",
+            description="YOUR_DESCRIPTION",
+            legal_entity_id="YOUR_LEGAL_ENTITY_ID",
+            reference="YOUR_OWN_REFERENCE",
+        ),
+    )
     # TODO: Handle 'response' of type CreateMerchantResponse
 except ApiError as e:
     ...  # TODO: Handle 'e.error' of type PostMerchantsErrorBody
@@ -2773,7 +2821,7 @@ except ApiError as e:
 | Name | Type | Description |
 | --- | --- | --- |
 | <code>body</code> | <code>[CreateMerchantRequest](adyen/models/create_merchant_request.py) \| [CreateMerchantRequestDict](adyen/models/create_merchant_request.py) \| None</code> | The request body.<br>**Default**: <code>None</code> |
-| <code>request_options</code> | <code>[RequestOptionsOrDict](adyen/core/request_options.py) \| None</code> | Per-call overrides for this one request, such as a timeout or extra headers. |
+| <code>request_options</code> | <code>[RequestOptionsOrDict](adyen/core/request_options.py) \| None</code> | Per-call overrides for this one request, such as a timeout, extra headers, or its retry count and statuses. |
 
 </dd>
 </dl>
@@ -2834,7 +2882,7 @@ To make this request, your API credential must have the following [roles](https:
 
 ```python
 try:
-    response = client.account_merchant_level.post_merchants_merchant_id_activate(merchant_id)
+    response = client.account_merchant_level.post_merchants_merchant_id_activate("some example string")
     # TODO: Handle 'response' of type RequestActivationResponse
 except ApiError as e:
     ...  # TODO: Handle 'e.error' of type PostMerchantsMerchantIdActivateErrorBody
@@ -2844,7 +2892,7 @@ except ApiError as e:
 
 ```python
 try:
-    response = await async_client.account_merchant_level.post_merchants_merchant_id_activate(merchant_id)
+    response = await async_client.account_merchant_level.post_merchants_merchant_id_activate("some example string")
     # TODO: Handle 'response' of type RequestActivationResponse
 except ApiError as e:
     ...  # TODO: Handle 'e.error' of type PostMerchantsMerchantIdActivateErrorBody
@@ -2861,7 +2909,7 @@ except ApiError as e:
 | Name | Type | Description |
 | --- | --- | --- |
 | <code>merchant_id</code> | <code>str</code> | The unique identifier of the merchant account. |
-| <code>request_options</code> | <code>[RequestOptionsOrDict](adyen/core/request_options.py) \| None</code> | Per-call overrides for this one request, such as a timeout or extra headers. |
+| <code>request_options</code> | <code>[RequestOptionsOrDict](adyen/core/request_options.py) \| None</code> | Per-call overrides for this one request, such as a timeout, extra headers, or its retry count and statuses. |
 
 </dd>
 </dl>
@@ -2925,7 +2973,7 @@ In the live environment, requests to this endpoint are subject to [rate limits](
 
 ```python
 try:
-    response = client.account_store_level.get_merchants_merchant_id_stores(merchant_id)
+    response = client.account_store_level.get_merchants_merchant_id_stores("some example string")
     # TODO: Handle 'response' of type ListStoresResponse
 except ApiError as e:
     ...  # TODO: Handle 'e.error' of type GetMerchantsMerchantIdStoresErrorBody
@@ -2935,7 +2983,7 @@ except ApiError as e:
 
 ```python
 try:
-    response = await async_client.account_store_level.get_merchants_merchant_id_stores(merchant_id)
+    response = await async_client.account_store_level.get_merchants_merchant_id_stores("some example string")
     # TODO: Handle 'response' of type ListStoresResponse
 except ApiError as e:
     ...  # TODO: Handle 'e.error' of type GetMerchantsMerchantIdStoresErrorBody
@@ -2955,7 +3003,7 @@ except ApiError as e:
 | <code>page_number</code> | <code>int \| None</code> | The number of the page to fetch.<br>**Default**: <code>None</code> |
 | <code>page_size</code> | <code>int \| None</code> | The number of items to have on a page, maximum 100. The default is 10 items on a page.<br>**Default**: <code>None</code> |
 | <code>reference</code> | <code>str \| None</code> | The reference of the store.<br>**Default**: <code>None</code> |
-| <code>request_options</code> | <code>[RequestOptionsOrDict](adyen/core/request_options.py) \| None</code> | Per-call overrides for this one request, such as a timeout or extra headers. |
+| <code>request_options</code> | <code>[RequestOptionsOrDict](adyen/core/request_options.py) \| None</code> | Per-call overrides for this one request, such as a timeout, extra headers, or its retry count and statuses. |
 
 </dd>
 </dl>
@@ -3015,7 +3063,9 @@ In the live environment, requests to this endpoint are subject to [rate limits](
 
 ```python
 try:
-    response = client.account_store_level.get_merchants_merchant_id_stores_store_id(merchant_id, store_id)
+    response = client.account_store_level.get_merchants_merchant_id_stores_store_id(
+        "some example string", "some example string"
+    )
     # TODO: Handle 'response' of type Store
 except ApiError as e:
     ...  # TODO: Handle 'e.error' of type GetMerchantsMerchantIdStoresStoreIdErrorBody
@@ -3025,7 +3075,9 @@ except ApiError as e:
 
 ```python
 try:
-    response = await async_client.account_store_level.get_merchants_merchant_id_stores_store_id(merchant_id, store_id)
+    response = await async_client.account_store_level.get_merchants_merchant_id_stores_store_id(
+        "some example string", "some example string"
+    )
     # TODO: Handle 'response' of type Store
 except ApiError as e:
     ...  # TODO: Handle 'e.error' of type GetMerchantsMerchantIdStoresStoreIdErrorBody
@@ -3043,7 +3095,7 @@ except ApiError as e:
 | --- | --- | --- |
 | <code>merchant_id</code> | <code>str</code> | The unique identifier of the merchant account. |
 | <code>store_id</code> | <code>str</code> | The unique identifier of the store. |
-| <code>request_options</code> | <code>[RequestOptionsOrDict](adyen/core/request_options.py) \| None</code> | Per-call overrides for this one request, such as a timeout or extra headers. |
+| <code>request_options</code> | <code>[RequestOptionsOrDict](adyen/core/request_options.py) \| None</code> | Per-call overrides for this one request, such as a timeout, extra headers, or its retry count and statuses. |
 
 </dd>
 </dl>
@@ -3133,7 +3185,7 @@ except ApiError as e:
 | <code>page_size</code> | <code>int \| None</code> | The number of items to have on a page, maximum 100. The default is 10 items on a page.<br>**Default**: <code>None</code> |
 | <code>reference</code> | <code>str \| None</code> | The reference of the store.<br>**Default**: <code>None</code> |
 | <code>merchant_id</code> | <code>str \| None</code> | The unique identifier of the merchant account.<br>**Default**: <code>None</code> |
-| <code>request_options</code> | <code>[RequestOptionsOrDict](adyen/core/request_options.py) \| None</code> | Per-call overrides for this one request, such as a timeout or extra headers. |
+| <code>request_options</code> | <code>[RequestOptionsOrDict](adyen/core/request_options.py) \| None</code> | Per-call overrides for this one request, such as a timeout, extra headers, or its retry count and statuses. |
 
 </dd>
 </dl>
@@ -3193,7 +3245,7 @@ In the live environment, requests to this endpoint are subject to [rate limits](
 
 ```python
 try:
-    response = client.account_store_level.get_stores_store_id(store_id)
+    response = client.account_store_level.get_stores_store_id("some example string")
     # TODO: Handle 'response' of type Store
 except ApiError as e:
     ...  # TODO: Handle 'e.error' of type GetStoresStoreIdErrorBody
@@ -3203,7 +3255,7 @@ except ApiError as e:
 
 ```python
 try:
-    response = await async_client.account_store_level.get_stores_store_id(store_id)
+    response = await async_client.account_store_level.get_stores_store_id("some example string")
     # TODO: Handle 'response' of type Store
 except ApiError as e:
     ...  # TODO: Handle 'e.error' of type GetStoresStoreIdErrorBody
@@ -3220,7 +3272,7 @@ except ApiError as e:
 | Name | Type | Description |
 | --- | --- | --- |
 | <code>store_id</code> | <code>str</code> | The unique identifier of the store. |
-| <code>request_options</code> | <code>[RequestOptionsOrDict](adyen/core/request_options.py) \| None</code> | Per-call overrides for this one request, such as a timeout or extra headers. |
+| <code>request_options</code> | <code>[RequestOptionsOrDict](adyen/core/request_options.py) \| None</code> | Per-call overrides for this one request, such as a timeout, extra headers, or its retry count and statuses. |
 
 </dd>
 </dl>
@@ -3279,7 +3331,15 @@ In the live environment, requests to this endpoint are subject to [rate limits](
 
 ```python
 try:
-    response = client.account_store_level.patch_merchants_merchant_id_stores_store_id(merchant_id, store_id)
+    response = client.account_store_level.patch_merchants_merchant_id_stores_store_id(
+        "some example string",
+        "some example string",
+        body=UpdateStoreRequest(
+            address=UpdatableAddress1(
+                line1="1776 West Pinewood Avenue", line2="Heartland Building", line3="", postal_code="20251"
+            ),
+        ),
+    )
     # TODO: Handle 'response' of type Store
 except ApiError as e:
     ...  # TODO: Handle 'e.error' of type PatchMerchantsMerchantIdStoresStoreIdErrorBody
@@ -3289,7 +3349,15 @@ except ApiError as e:
 
 ```python
 try:
-    response = await async_client.account_store_level.patch_merchants_merchant_id_stores_store_id(merchant_id, store_id)
+    response = await async_client.account_store_level.patch_merchants_merchant_id_stores_store_id(
+        "some example string",
+        "some example string",
+        body=UpdateStoreRequest(
+            address=UpdatableAddress1(
+                line1="1776 West Pinewood Avenue", line2="Heartland Building", line3="", postal_code="20251"
+            ),
+        ),
+    )
     # TODO: Handle 'response' of type Store
 except ApiError as e:
     ...  # TODO: Handle 'e.error' of type PatchMerchantsMerchantIdStoresStoreIdErrorBody
@@ -3308,7 +3376,7 @@ except ApiError as e:
 | <code>merchant_id</code> | <code>str</code> | The unique identifier of the merchant account. |
 | <code>store_id</code> | <code>str</code> | The unique identifier of the store. |
 | <code>body</code> | <code>[UpdateStoreRequest](adyen/models/update_store_request.py) \| [UpdateStoreRequestDict](adyen/models/update_store_request.py) \| None</code> | The request body.<br>**Default**: <code>None</code> |
-| <code>request_options</code> | <code>[RequestOptionsOrDict](adyen/core/request_options.py) \| None</code> | Per-call overrides for this one request, such as a timeout or extra headers. |
+| <code>request_options</code> | <code>[RequestOptionsOrDict](adyen/core/request_options.py) \| None</code> | Per-call overrides for this one request, such as a timeout, extra headers, or its retry count and statuses. |
 
 </dd>
 </dl>
@@ -3368,7 +3436,14 @@ In the live environment, requests to this endpoint are subject to [rate limits](
 
 ```python
 try:
-    response = client.account_store_level.patch_stores_store_id(store_id)
+    response = client.account_store_level.patch_stores_store_id(
+        "some example string",
+        body=UpdateStoreRequest(
+            address=UpdatableAddress1(
+                line1="1776 West Pinewood Avenue", line2="Heartland Building", line3="", postal_code="20251"
+            ),
+        ),
+    )
     # TODO: Handle 'response' of type Store
 except ApiError as e:
     ...  # TODO: Handle 'e.error' of type PatchStoresStoreIdErrorBody
@@ -3378,7 +3453,14 @@ except ApiError as e:
 
 ```python
 try:
-    response = await async_client.account_store_level.patch_stores_store_id(store_id)
+    response = await async_client.account_store_level.patch_stores_store_id(
+        "some example string",
+        body=UpdateStoreRequest(
+            address=UpdatableAddress1(
+                line1="1776 West Pinewood Avenue", line2="Heartland Building", line3="", postal_code="20251"
+            ),
+        ),
+    )
     # TODO: Handle 'response' of type Store
 except ApiError as e:
     ...  # TODO: Handle 'e.error' of type PatchStoresStoreIdErrorBody
@@ -3396,7 +3478,7 @@ except ApiError as e:
 | --- | --- | --- |
 | <code>store_id</code> | <code>str</code> | The unique identifier of the store. |
 | <code>body</code> | <code>[UpdateStoreRequest](adyen/models/update_store_request.py) \| [UpdateStoreRequestDict](adyen/models/update_store_request.py) \| None</code> | The request body.<br>**Default**: <code>None</code> |
-| <code>request_options</code> | <code>[RequestOptionsOrDict](adyen/core/request_options.py) \| None</code> | Per-call overrides for this one request, such as a timeout or extra headers. |
+| <code>request_options</code> | <code>[RequestOptionsOrDict](adyen/core/request_options.py) \| None</code> | Per-call overrides for this one request, such as a timeout, extra headers, or its retry count and statuses. |
 
 </dd>
 </dl>
@@ -3455,7 +3537,24 @@ In the live environment, requests to this endpoint are subject to [rate limits](
 
 ```python
 try:
-    response = client.account_store_level.post_merchants_merchant_id_stores(merchant_id)
+    response = client.account_store_level.post_merchants_merchant_id_stores(
+        "some example string",
+        body=StoreCreationRequest(
+            address=StoreLocation1(
+                city="Springfield",
+                country="US",
+                line1="200 Main Street",
+                line2="Building 5A",
+                line3="Suite 3",
+                postal_code="20250",
+                state_or_province="NY",
+            ),
+            description="City centre store",
+            phone_number="13123456789",
+            reference="Spring_store_2",
+            shopper_statement="Springfield Shop",
+        ),
+    )
     # TODO: Handle 'response' of type Store
 except ApiError as e:
     ...  # TODO: Handle 'e.error' of type PostMerchantsMerchantIdStoresErrorBody
@@ -3465,7 +3564,24 @@ except ApiError as e:
 
 ```python
 try:
-    response = await async_client.account_store_level.post_merchants_merchant_id_stores(merchant_id)
+    response = await async_client.account_store_level.post_merchants_merchant_id_stores(
+        "some example string",
+        body=StoreCreationRequest(
+            address=StoreLocation1(
+                city="Springfield",
+                country="US",
+                line1="200 Main Street",
+                line2="Building 5A",
+                line3="Suite 3",
+                postal_code="20250",
+                state_or_province="NY",
+            ),
+            description="City centre store",
+            phone_number="13123456789",
+            reference="Spring_store_2",
+            shopper_statement="Springfield Shop",
+        ),
+    )
     # TODO: Handle 'response' of type Store
 except ApiError as e:
     ...  # TODO: Handle 'e.error' of type PostMerchantsMerchantIdStoresErrorBody
@@ -3483,7 +3599,7 @@ except ApiError as e:
 | --- | --- | --- |
 | <code>merchant_id</code> | <code>str</code> | The unique identifier of the merchant account. |
 | <code>body</code> | <code>[StoreCreationRequest](adyen/models/store_creation_request.py) \| [StoreCreationRequestDict](adyen/models/store_creation_request.py) \| None</code> | The request body.<br>**Default**: <code>None</code> |
-| <code>request_options</code> | <code>[RequestOptionsOrDict](adyen/core/request_options.py) \| None</code> | Per-call overrides for this one request, such as a timeout or extra headers. |
+| <code>request_options</code> | <code>[RequestOptionsOrDict](adyen/core/request_options.py) \| None</code> | Per-call overrides for this one request, such as a timeout, extra headers, or its retry count and statuses. |
 
 </dd>
 </dl>
@@ -3542,7 +3658,24 @@ In the live environment, requests to this endpoint are subject to [rate limits](
 
 ```python
 try:
-    response = client.account_store_level.post_stores()
+    response = client.account_store_level.post_stores(
+        body=StoreCreationWithMerchantCodeRequest(
+            address=StoreLocation1(
+                city="Springfield",
+                country="US",
+                line1="200 Main Street",
+                line2="Building 5A",
+                line3="Suite 3",
+                postal_code="20250",
+                state_or_province="NY",
+            ),
+            description="City centre store",
+            merchant_id="YOUR_MERCHANT_ACCOUNT_ID",
+            phone_number="+13123456789",
+            reference="Spring_store_2",
+            shopper_statement="Springfield Shop",
+        ),
+    )
     # TODO: Handle 'response' of type Store
 except ApiError as e:
     ...  # TODO: Handle 'e.error' of type PostStoresErrorBody
@@ -3552,7 +3685,24 @@ except ApiError as e:
 
 ```python
 try:
-    response = await async_client.account_store_level.post_stores()
+    response = await async_client.account_store_level.post_stores(
+        body=StoreCreationWithMerchantCodeRequest(
+            address=StoreLocation1(
+                city="Springfield",
+                country="US",
+                line1="200 Main Street",
+                line2="Building 5A",
+                line3="Suite 3",
+                postal_code="20250",
+                state_or_province="NY",
+            ),
+            description="City centre store",
+            merchant_id="YOUR_MERCHANT_ACCOUNT_ID",
+            phone_number="+13123456789",
+            reference="Spring_store_2",
+            shopper_statement="Springfield Shop",
+        ),
+    )
     # TODO: Handle 'response' of type Store
 except ApiError as e:
     ...  # TODO: Handle 'e.error' of type PostStoresErrorBody
@@ -3569,7 +3719,7 @@ except ApiError as e:
 | Name | Type | Description |
 | --- | --- | --- |
 | <code>body</code> | <code>[StoreCreationWithMerchantCodeRequest](adyen/models/store_creation_with_merchant_code_request.py) \| [StoreCreationWithMerchantCodeRequestDict](adyen/models/store_creation_with_merchant_code_request.py) \| None</code> | The request body.<br>**Default**: <code>None</code> |
-| <code>request_options</code> | <code>[RequestOptionsOrDict](adyen/core/request_options.py) \| None</code> | Per-call overrides for this one request, such as a timeout or extra headers. |
+| <code>request_options</code> | <code>[RequestOptionsOrDict](adyen/core/request_options.py) \| None</code> | Per-call overrides for this one request, such as a timeout, extra headers, or its retry count and statuses. |
 
 </dd>
 </dl>
@@ -3627,7 +3777,7 @@ Get the account verification report using a unique code from a successful open b
 
 ```python
 try:
-    response = client.account_verification.get_account_verification_reports_code(code)
+    response = client.account_verification.get_account_verification_reports_code("some example string")
     # TODO: Handle 'response' of type AccountVerificationReportResponse
 except ApiError as e:
     ...  # TODO: Handle 'e.error' of type GetAccountVerificationReportsCodeErrorBody
@@ -3637,7 +3787,7 @@ except ApiError as e:
 
 ```python
 try:
-    response = await async_client.account_verification.get_account_verification_reports_code(code)
+    response = await async_client.account_verification.get_account_verification_reports_code("some example string")
     # TODO: Handle 'response' of type AccountVerificationReportResponse
 except ApiError as e:
     ...  # TODO: Handle 'e.error' of type GetAccountVerificationReportsCodeErrorBody
@@ -3654,7 +3804,7 @@ except ApiError as e:
 | Name | Type | Description |
 | --- | --- | --- |
 | <code>code</code> | <code>str</code> | The unique code you receive after a successful open banking flow that is included as a query parameter in the `redirectUrl` callback. |
-| <code>request_options</code> | <code>[RequestOptionsOrDict](adyen/core/request_options.py) \| None</code> | Per-call overrides for this one request, such as a timeout or extra headers. |
+| <code>request_options</code> | <code>[RequestOptionsOrDict](adyen/core/request_options.py) \| None</code> | Per-call overrides for this one request, such as a timeout, extra headers, or its retry count and statuses. |
 
 </dd>
 </dl>
@@ -3708,7 +3858,14 @@ Create a list of routes for verifying bank accounts of third-party individuals. 
 
 ```python
 try:
-    response = client.account_verification.post_account_verification_routes(body)
+    response = client.account_verification.post_account_verification_routes(
+        AccountVerificationRoutesRequest(
+            country=AccountVerificationCountry2.NL,
+            locale="en-US",
+            redirect_url="https://merchanturl.example.org/redirect/url",
+            state="11a1e60a-18b0-4dda-9258-e0ae29e1e2a3",
+        ),
+    )
     # TODO: Handle 'response' of type AccountVerificationRoutesResponse
 except ApiError as e:
     ...  # TODO: Handle 'e.error' of type PostAccountVerificationRoutesErrorBody
@@ -3718,7 +3875,14 @@ except ApiError as e:
 
 ```python
 try:
-    response = await async_client.account_verification.post_account_verification_routes(body)
+    response = await async_client.account_verification.post_account_verification_routes(
+        AccountVerificationRoutesRequest(
+            country=AccountVerificationCountry2.NL,
+            locale="en-US",
+            redirect_url="https://merchanturl.example.org/redirect/url",
+            state="11a1e60a-18b0-4dda-9258-e0ae29e1e2a3",
+        ),
+    )
     # TODO: Handle 'response' of type AccountVerificationRoutesResponse
 except ApiError as e:
     ...  # TODO: Handle 'e.error' of type PostAccountVerificationRoutesErrorBody
@@ -3735,7 +3899,7 @@ except ApiError as e:
 | Name | Type | Description |
 | --- | --- | --- |
 | <code>body</code> | <code>[AccountVerificationRoutesRequest](adyen/models/account_verification_routes_request.py) \| [AccountVerificationRoutesRequestDict](adyen/models/account_verification_routes_request.py)</code> | The request body. |
-| <code>request_options</code> | <code>[RequestOptionsOrDict](adyen/core/request_options.py) \| None</code> | Per-call overrides for this one request, such as a timeout or extra headers. |
+| <code>request_options</code> | <code>[RequestOptionsOrDict](adyen/core/request_options.py) \| None</code> | Per-call overrides for this one request, such as a timeout, extra headers, or its retry count and statuses. |
 
 </dd>
 </dl>
@@ -3769,7 +3933,7 @@ Mapped in first-match order -- an earlier row wins over a later range that also 
 > Source: [AccountHolders](adyen/apis/account_holders.py)
 
 <details>
-<summary><code>def get_account_holders_id(id: str, *, request_options: RequestOptionsOrDict | None = None) -> AccountHolder</code></summary>
+<summary><code>def get_account_holders_id(id_: str, *, request_options: RequestOptionsOrDict | None = None) -> AccountHolder</code></summary>
 
 <dl>
 <dd>
@@ -3793,7 +3957,7 @@ Returns an account holder.
 
 ```python
 try:
-    response = client.account_holders.get_account_holders_id(id)
+    response = client.account_holders.get_account_holders_id("some example string")
     # TODO: Handle 'response' of type AccountHolder
 except ApiError as e:
     ...  # TODO: Handle 'e.error' of type GetAccountHoldersIdErrorBody
@@ -3803,7 +3967,7 @@ except ApiError as e:
 
 ```python
 try:
-    response = await async_client.account_holders.get_account_holders_id(id)
+    response = await async_client.account_holders.get_account_holders_id("some example string")
     # TODO: Handle 'response' of type AccountHolder
 except ApiError as e:
     ...  # TODO: Handle 'e.error' of type GetAccountHoldersIdErrorBody
@@ -3819,8 +3983,8 @@ except ApiError as e:
 
 | Name | Type | Description |
 | --- | --- | --- |
-| <code>id</code> | <code>str</code> | The unique identifier of the account holder. |
-| <code>request_options</code> | <code>[RequestOptionsOrDict](adyen/core/request_options.py) \| None</code> | Per-call overrides for this one request, such as a timeout or extra headers. |
+| <code>id_</code> | <code>str</code> | The unique identifier of the account holder. |
+| <code>request_options</code> | <code>[RequestOptionsOrDict](adyen/core/request_options.py) \| None</code> | Per-call overrides for this one request, such as a timeout, extra headers, or its retry count and statuses. |
 
 </dd>
 </dl>
@@ -3850,7 +4014,7 @@ Mapped in first-match order -- an earlier row wins over a later range that also 
 </details>
 
 <details>
-<summary><code>def get_account_holders_id_balance_accounts(id: str, *, offset: int | None = None, limit: int | None = None, request_options: RequestOptionsOrDict | None = None) -> PaginatedBalanceAccountsResponse</code></summary>
+<summary><code>def get_account_holders_id_balance_accounts(id_: str, *, offset: int | None = None, limit: int | None = None, request_options: RequestOptionsOrDict | None = None) -> PaginatedBalanceAccountsResponse</code></summary>
 
 <dl>
 <dd>
@@ -3876,7 +4040,7 @@ For example, to limit the page to 5 balance accounts and skip the first 10, use 
 
 ```python
 try:
-    response = client.account_holders.get_account_holders_id_balance_accounts(id)
+    response = client.account_holders.get_account_holders_id_balance_accounts("some example string")
     # TODO: Handle 'response' of type PaginatedBalanceAccountsResponse
 except ApiError as e:
     ...  # TODO: Handle 'e.error' of type GetAccountHoldersIdBalanceAccountsErrorBody
@@ -3886,7 +4050,7 @@ except ApiError as e:
 
 ```python
 try:
-    response = await async_client.account_holders.get_account_holders_id_balance_accounts(id)
+    response = await async_client.account_holders.get_account_holders_id_balance_accounts("some example string")
     # TODO: Handle 'response' of type PaginatedBalanceAccountsResponse
 except ApiError as e:
     ...  # TODO: Handle 'e.error' of type GetAccountHoldersIdBalanceAccountsErrorBody
@@ -3902,10 +4066,10 @@ except ApiError as e:
 
 | Name | Type | Description |
 | --- | --- | --- |
-| <code>id</code> | <code>str</code> | The unique identifier of the account holder. |
+| <code>id_</code> | <code>str</code> | The unique identifier of the account holder. |
 | <code>offset</code> | <code>int \| None</code> | The number of items that you want to skip.<br>**Default**: <code>None</code> |
 | <code>limit</code> | <code>int \| None</code> | The number of items returned per page, maximum 100 items. By default, the response returns 10 items per page.<br>**Default**: <code>None</code> |
-| <code>request_options</code> | <code>[RequestOptionsOrDict](adyen/core/request_options.py) \| None</code> | Per-call overrides for this one request, such as a timeout or extra headers. |
+| <code>request_options</code> | <code>[RequestOptionsOrDict](adyen/core/request_options.py) \| None</code> | Per-call overrides for this one request, such as a timeout, extra headers, or its retry count and statuses. |
 
 </dd>
 </dl>
@@ -3935,7 +4099,7 @@ Mapped in first-match order -- an earlier row wins over a later range that also 
 </details>
 
 <details>
-<summary><code>def get_account_holders_id_tax_form_summary(id: str, form_type: str, *, request_options: RequestOptionsOrDict | None = None) -> TaxFormSummaryResponse</code></summary>
+<summary><code>def get_account_holders_id_tax_form_summary(id_: str, form_type: str, *, request_options: RequestOptionsOrDict | None = None) -> TaxFormSummaryResponse</code></summary>
 
 <dl>
 <dd>
@@ -3959,7 +4123,9 @@ Returns a summary of all tax forms for an account holder.
 
 ```python
 try:
-    response = client.account_holders.get_account_holders_id_tax_form_summary(id, form_type)
+    response = client.account_holders.get_account_holders_id_tax_form_summary(
+        "some example string", "some example string"
+    )
     # TODO: Handle 'response' of type TaxFormSummaryResponse
 except ApiError as e:
     ...  # TODO: Handle 'e.error' of type RawError
@@ -3969,7 +4135,9 @@ except ApiError as e:
 
 ```python
 try:
-    response = await async_client.account_holders.get_account_holders_id_tax_form_summary(id, form_type)
+    response = await async_client.account_holders.get_account_holders_id_tax_form_summary(
+        "some example string", "some example string"
+    )
     # TODO: Handle 'response' of type TaxFormSummaryResponse
 except ApiError as e:
     ...  # TODO: Handle 'e.error' of type RawError
@@ -3985,9 +4153,9 @@ except ApiError as e:
 
 | Name | Type | Description |
 | --- | --- | --- |
-| <code>id</code> | <code>str</code> | The unique identifier of the account holder. |
+| <code>id_</code> | <code>str</code> | The unique identifier of the account holder. |
 | <code>form_type</code> | <code>str</code> | The type of tax form you want a summary for. Accepted values are **US1099k** and **US1099nec**. |
-| <code>request_options</code> | <code>[RequestOptionsOrDict](adyen/core/request_options.py) \| None</code> | Per-call overrides for this one request, such as a timeout or extra headers. |
+| <code>request_options</code> | <code>[RequestOptionsOrDict](adyen/core/request_options.py) \| None</code> | Per-call overrides for this one request, such as a timeout, extra headers, or its retry count and statuses. |
 
 </dd>
 </dl>
@@ -4010,7 +4178,7 @@ except ApiError as e:
 </details>
 
 <details>
-<summary><code>def get_account_holders_id_tax_forms(id: str, form_type: FormTypeOrStr, year: int, *, legal_entity_id: str | None = None, request_options: RequestOptionsOrDict | None = None) -> GetTaxFormResponse1</code></summary>
+<summary><code>def get_account_holders_id_tax_forms(id_: str, form_type: FormTypeOrStr, year: int, *, legal_entity_id: str | None = None, request_options: RequestOptionsOrDict | None = None) -> GetTaxFormResponse1</code></summary>
 
 <dl>
 <dd>
@@ -4034,7 +4202,7 @@ Generates a tax form for account holders operating in the US. For more informati
 
 ```python
 try:
-    response = client.account_holders.get_account_holders_id_tax_forms(id, form_type, year)
+    response = client.account_holders.get_account_holders_id_tax_forms("some example string", FormType.US1099K, 1)
     # TODO: Handle 'response' of type GetTaxFormResponse1
 except ApiError as e:
     ...  # TODO: Handle 'e.error' of type GetAccountHoldersIdTaxFormsErrorBody
@@ -4044,7 +4212,9 @@ except ApiError as e:
 
 ```python
 try:
-    response = await async_client.account_holders.get_account_holders_id_tax_forms(id, form_type, year)
+    response = await async_client.account_holders.get_account_holders_id_tax_forms(
+        "some example string", FormType.US1099K, 1
+    )
     # TODO: Handle 'response' of type GetTaxFormResponse1
 except ApiError as e:
     ...  # TODO: Handle 'e.error' of type GetAccountHoldersIdTaxFormsErrorBody
@@ -4060,11 +4230,11 @@ except ApiError as e:
 
 | Name | Type | Description |
 | --- | --- | --- |
-| <code>id</code> | <code>str</code> | The unique identifier of the account holder. |
+| <code>id_</code> | <code>str</code> | The unique identifier of the account holder. |
 | <code>form_type</code> | <code>[FormTypeOrStr](adyen/models/enums/form_type.py)</code> | The type of tax form you want to retrieve. Accepted values are **US1099k** and **US1099nec**. |
 | <code>year</code> | <code>int</code> | The tax year in **YYYY** format for the tax form you want to retrieve. |
 | <code>legal_entity_id</code> | <code>str \| None</code> | The legal entity reference whose tax form you want to retrieve.<br>**Default**: <code>None</code> |
-| <code>request_options</code> | <code>[RequestOptionsOrDict](adyen/core/request_options.py) \| None</code> | Per-call overrides for this one request, such as a timeout or extra headers. |
+| <code>request_options</code> | <code>[RequestOptionsOrDict](adyen/core/request_options.py) \| None</code> | Per-call overrides for this one request, such as a timeout, extra headers, or its retry count and statuses. |
 
 </dd>
 </dl>
@@ -4094,7 +4264,7 @@ Mapped in first-match order -- an earlier row wins over a later range that also 
 </details>
 
 <details>
-<summary><code>def get_account_holders_id_transaction_rules(id: str, *, request_options: RequestOptionsOrDict | None = None) -> TransactionRulesResponse</code></summary>
+<summary><code>def get_account_holders_id_transaction_rules(id_: str, *, request_options: RequestOptionsOrDict | None = None) -> TransactionRulesResponse</code></summary>
 
 <dl>
 <dd>
@@ -4118,7 +4288,7 @@ Returns a list of transaction rules associated with an account holder.
 
 ```python
 try:
-    response = client.account_holders.get_account_holders_id_transaction_rules(id)
+    response = client.account_holders.get_account_holders_id_transaction_rules("some example string")
     # TODO: Handle 'response' of type TransactionRulesResponse
 except ApiError as e:
     ...  # TODO: Handle 'e.error' of type GetAccountHoldersIdTransactionRulesErrorBody
@@ -4128,7 +4298,7 @@ except ApiError as e:
 
 ```python
 try:
-    response = await async_client.account_holders.get_account_holders_id_transaction_rules(id)
+    response = await async_client.account_holders.get_account_holders_id_transaction_rules("some example string")
     # TODO: Handle 'response' of type TransactionRulesResponse
 except ApiError as e:
     ...  # TODO: Handle 'e.error' of type GetAccountHoldersIdTransactionRulesErrorBody
@@ -4144,8 +4314,8 @@ except ApiError as e:
 
 | Name | Type | Description |
 | --- | --- | --- |
-| <code>id</code> | <code>str</code> | The unique identifier of the account holder. |
-| <code>request_options</code> | <code>[RequestOptionsOrDict](adyen/core/request_options.py) \| None</code> | Per-call overrides for this one request, such as a timeout or extra headers. |
+| <code>id_</code> | <code>str</code> | The unique identifier of the account holder. |
+| <code>request_options</code> | <code>[RequestOptionsOrDict](adyen/core/request_options.py) \| None</code> | Per-call overrides for this one request, such as a timeout, extra headers, or its retry count and statuses. |
 
 </dd>
 </dl>
@@ -4175,7 +4345,7 @@ Mapped in first-match order -- an earlier row wins over a later range that also 
 </details>
 
 <details>
-<summary><code>def patch_account_holders_id(id: str, *, body: AccountHolderUpdateRequest | AccountHolderUpdateRequestDict | None = None, request_options: RequestOptionsOrDict | None = None) -> AccountHolder</code></summary>
+<summary><code>def patch_account_holders_id(id_: str, *, body: AccountHolderUpdateRequest | AccountHolderUpdateRequestDict | None = None, request_options: RequestOptionsOrDict | None = None) -> AccountHolder</code></summary>
 
 <dl>
 <dd>
@@ -4199,7 +4369,14 @@ Updates an account holder. When updating an account holder resource, if a parame
 
 ```python
 try:
-    response = client.account_holders.patch_account_holders_id(id)
+    response = client.account_holders.patch_account_holders_id(
+        "some example string",
+        body=AccountHolderUpdateRequest(
+            capabilities={"receivePayments": AccountHolderCapability(requested=True)},
+            description="Account holder used for international payments and payouts",
+            reference="S.Eller-001",
+        ),
+    )
     # TODO: Handle 'response' of type AccountHolder
 except ApiError as e:
     ...  # TODO: Handle 'e.error' of type PatchAccountHoldersIdErrorBody
@@ -4209,7 +4386,14 @@ except ApiError as e:
 
 ```python
 try:
-    response = await async_client.account_holders.patch_account_holders_id(id)
+    response = await async_client.account_holders.patch_account_holders_id(
+        "some example string",
+        body=AccountHolderUpdateRequest(
+            capabilities={"receivePayments": AccountHolderCapability(requested=True)},
+            description="Account holder used for international payments and payouts",
+            reference="S.Eller-001",
+        ),
+    )
     # TODO: Handle 'response' of type AccountHolder
 except ApiError as e:
     ...  # TODO: Handle 'e.error' of type PatchAccountHoldersIdErrorBody
@@ -4225,9 +4409,9 @@ except ApiError as e:
 
 | Name | Type | Description |
 | --- | --- | --- |
-| <code>id</code> | <code>str</code> | The unique identifier of the account holder. |
+| <code>id_</code> | <code>str</code> | The unique identifier of the account holder. |
 | <code>body</code> | <code>[AccountHolderUpdateRequest](adyen/models/account_holder_update_request.py) \| [AccountHolderUpdateRequestDict](adyen/models/account_holder_update_request.py) \| None</code> | The request body.<br>**Default**: <code>None</code> |
-| <code>request_options</code> | <code>[RequestOptionsOrDict](adyen/core/request_options.py) \| None</code> | Per-call overrides for this one request, such as a timeout or extra headers. |
+| <code>request_options</code> | <code>[RequestOptionsOrDict](adyen/core/request_options.py) \| None</code> | Per-call overrides for this one request, such as a timeout, extra headers, or its retry count and statuses. |
 
 </dd>
 </dl>
@@ -4281,7 +4465,13 @@ Creates an account holder linked to a [legal entity](https://docs.adyen.com/api-
 
 ```python
 try:
-    response = client.account_holders.post_account_holders()
+    response = client.account_holders.post_account_holders(
+        body=AccountHolderInfo(
+            description="Account holder used for international payments and payouts",
+            legal_entity_id="LE322JV223222D5GG42KN6869",
+            reference="S.Eller-001",
+        ),
+    )
     # TODO: Handle 'response' of type AccountHolder
 except ApiError as e:
     ...  # TODO: Handle 'e.error' of type PostAccountHoldersErrorBody
@@ -4291,7 +4481,13 @@ except ApiError as e:
 
 ```python
 try:
-    response = await async_client.account_holders.post_account_holders()
+    response = await async_client.account_holders.post_account_holders(
+        body=AccountHolderInfo(
+            description="Account holder used for international payments and payouts",
+            legal_entity_id="LE322JV223222D5GG42KN6869",
+            reference="S.Eller-001",
+        ),
+    )
     # TODO: Handle 'response' of type AccountHolder
 except ApiError as e:
     ...  # TODO: Handle 'e.error' of type PostAccountHoldersErrorBody
@@ -4308,7 +4504,7 @@ except ApiError as e:
 | Name | Type | Description |
 | --- | --- | --- |
 | <code>body</code> | <code>[AccountHolderInfo](adyen/models/account_holder_info.py) \| [AccountHolderInfoDict](adyen/models/account_holder_info.py) \| None</code> | The request body.<br>**Default**: <code>None</code> |
-| <code>request_options</code> | <code>[RequestOptionsOrDict](adyen/core/request_options.py) \| None</code> | Per-call overrides for this one request, such as a timeout or extra headers. |
+| <code>request_options</code> | <code>[RequestOptionsOrDict](adyen/core/request_options.py) \| None</code> | Per-call overrides for this one request, such as a timeout, extra headers, or its retry count and statuses. |
 
 </dd>
 </dl>
@@ -4362,7 +4558,9 @@ Changes the [status of an account holder](https://docs.adyen.com/classic-platfor
 
 ```python
 try:
-    response = client.account_holders.post_close_account_holder()
+    response = client.account_holders.post_close_account_holder(
+        body=CloseAccountHolderRequest(account_holder_code="CODE_OF_ACCOUNT_HOLDER")
+    )
     # TODO: Handle 'response' of type CloseAccountHolderResponse
 except ApiError as e:
     ...  # TODO: Handle 'e.error' of type PostCloseAccountHolderErrorBody
@@ -4372,7 +4570,9 @@ except ApiError as e:
 
 ```python
 try:
-    response = await async_client.account_holders.post_close_account_holder()
+    response = await async_client.account_holders.post_close_account_holder(
+        body=CloseAccountHolderRequest(account_holder_code="CODE_OF_ACCOUNT_HOLDER")
+    )
     # TODO: Handle 'response' of type CloseAccountHolderResponse
 except ApiError as e:
     ...  # TODO: Handle 'e.error' of type PostCloseAccountHolderErrorBody
@@ -4389,7 +4589,7 @@ except ApiError as e:
 | Name | Type | Description |
 | --- | --- | --- |
 | <code>body</code> | <code>[CloseAccountHolderRequest](adyen/models/close_account_holder_request.py) \| [CloseAccountHolderRequestDict](adyen/models/close_account_holder_request.py) \| None</code> | The request body.<br>**Default**: <code>None</code> |
-| <code>request_options</code> | <code>[RequestOptionsOrDict](adyen/core/request_options.py) \| None</code> | Per-call overrides for this one request, such as a timeout or extra headers. |
+| <code>request_options</code> | <code>[RequestOptionsOrDict](adyen/core/request_options.py) \| None</code> | Per-call overrides for this one request, such as a timeout, extra headers, or its retry count and statuses. |
 
 </dd>
 </dl>
@@ -4470,7 +4670,7 @@ except ApiError as e:
 | Name | Type | Description |
 | --- | --- | --- |
 | <code>body</code> | <code>[CloseStoresRequest](adyen/models/close_stores_request.py) \| [CloseStoresRequestDict](adyen/models/close_stores_request.py) \| None</code> | The request body.<br>**Default**: <code>None</code> |
-| <code>request_options</code> | <code>[RequestOptionsOrDict](adyen/core/request_options.py) \| None</code> | Per-call overrides for this one request, such as a timeout or extra headers. |
+| <code>request_options</code> | <code>[RequestOptionsOrDict](adyen/core/request_options.py) \| None</code> | Per-call overrides for this one request, such as a timeout, extra headers, or its retry count and statuses. |
 
 </dd>
 </dl>
@@ -4524,7 +4724,22 @@ Creates an account holder that [represents the sub-merchant's entity](https://do
 
 ```python
 try:
-    response = client.account_holders.post_create_account_holder()
+    response = client.account_holders.post_create_account_holder(
+        body=CreateAccountHolderRequest(
+            account_holder_code="YOUR_UNIQUE_ACCOUNT_HOLDER_CODE",
+            account_holder_details=AccountHolderDetails1(
+                address=ViasAddress9(country="US"),
+                business_details=BusinessDetails3(
+                    doing_business_as="Real Good Restaurant",
+                    legal_business_name="Real Good Restaurant Inc.",
+                    shareholders=[ShareholderContact()],
+                ),
+                email="test@email.com",
+                web_address="https://www.your-website.com",
+            ),
+            legal_entity=LegalEntity.BUSINESS,
+        ),
+    )
     # TODO: Handle 'response' of type CreateAccountHolderResponse
 except ApiError as e:
     ...  # TODO: Handle 'e.error' of type PostCreateAccountHolderErrorBody
@@ -4534,7 +4749,22 @@ except ApiError as e:
 
 ```python
 try:
-    response = await async_client.account_holders.post_create_account_holder()
+    response = await async_client.account_holders.post_create_account_holder(
+        body=CreateAccountHolderRequest(
+            account_holder_code="YOUR_UNIQUE_ACCOUNT_HOLDER_CODE",
+            account_holder_details=AccountHolderDetails1(
+                address=ViasAddress9(country="US"),
+                business_details=BusinessDetails3(
+                    doing_business_as="Real Good Restaurant",
+                    legal_business_name="Real Good Restaurant Inc.",
+                    shareholders=[ShareholderContact()],
+                ),
+                email="test@email.com",
+                web_address="https://www.your-website.com",
+            ),
+            legal_entity=LegalEntity.BUSINESS,
+        ),
+    )
     # TODO: Handle 'response' of type CreateAccountHolderResponse
 except ApiError as e:
     ...  # TODO: Handle 'e.error' of type PostCreateAccountHolderErrorBody
@@ -4551,7 +4781,7 @@ except ApiError as e:
 | Name | Type | Description |
 | --- | --- | --- |
 | <code>body</code> | <code>[CreateAccountHolderRequest](adyen/models/create_account_holder_request.py) \| [CreateAccountHolderRequestDict](adyen/models/create_account_holder_request.py) \| None</code> | The request body.<br>**Default**: <code>None</code> |
-| <code>request_options</code> | <code>[RequestOptionsOrDict](adyen/core/request_options.py) \| None</code> | Per-call overrides for this one request, such as a timeout or extra headers. |
+| <code>request_options</code> | <code>[RequestOptionsOrDict](adyen/core/request_options.py) \| None</code> | Per-call overrides for this one request, such as a timeout, extra headers, or its retry count and statuses. |
 
 </dd>
 </dl>
@@ -4605,7 +4835,9 @@ Returns the details of an account holder.
 
 ```python
 try:
-    response = client.account_holders.post_get_account_holder()
+    response = client.account_holders.post_get_account_holder(
+        body=GetAccountHolderRequest(account_code="CODE_OF_ACCOUNT")
+    )
     # TODO: Handle 'response' of type GetAccountHolderResponse
 except ApiError as e:
     ...  # TODO: Handle 'e.error' of type PostGetAccountHolderErrorBody
@@ -4615,7 +4847,9 @@ except ApiError as e:
 
 ```python
 try:
-    response = await async_client.account_holders.post_get_account_holder()
+    response = await async_client.account_holders.post_get_account_holder(
+        body=GetAccountHolderRequest(account_code="CODE_OF_ACCOUNT")
+    )
     # TODO: Handle 'response' of type GetAccountHolderResponse
 except ApiError as e:
     ...  # TODO: Handle 'e.error' of type PostGetAccountHolderErrorBody
@@ -4632,7 +4866,7 @@ except ApiError as e:
 | Name | Type | Description |
 | --- | --- | --- |
 | <code>body</code> | <code>[GetAccountHolderRequest](adyen/models/get_account_holder_request.py) \| [GetAccountHolderRequestDict](adyen/models/get_account_holder_request.py) \| None</code> | The request body.<br>**Default**: <code>None</code> |
-| <code>request_options</code> | <code>[RequestOptionsOrDict](adyen/core/request_options.py) \| None</code> | Per-call overrides for this one request, such as a timeout or extra headers. |
+| <code>request_options</code> | <code>[RequestOptionsOrDict](adyen/core/request_options.py) \| None</code> | Per-call overrides for this one request, such as a timeout, extra headers, or its retry count and statuses. |
 
 </dd>
 </dl>
@@ -4686,7 +4920,9 @@ Generates a tax form for account holders operating in the US. For more informati
 
 ```python
 try:
-    response = client.account_holders.post_get_tax_form()
+    response = client.account_holders.post_get_tax_form(
+        body=GetTaxFormRequest(account_holder_code="CODE_OF_ACCOUNT_HOLDER", form_type="1099-K", year=2020)
+    )
     # TODO: Handle 'response' of type GetTaxFormResponse
 except ApiError as e:
     ...  # TODO: Handle 'e.error' of type PostGetTaxFormErrorBody
@@ -4696,7 +4932,9 @@ except ApiError as e:
 
 ```python
 try:
-    response = await async_client.account_holders.post_get_tax_form()
+    response = await async_client.account_holders.post_get_tax_form(
+        body=GetTaxFormRequest(account_holder_code="CODE_OF_ACCOUNT_HOLDER", form_type="1099-K", year=2020)
+    )
     # TODO: Handle 'response' of type GetTaxFormResponse
 except ApiError as e:
     ...  # TODO: Handle 'e.error' of type PostGetTaxFormErrorBody
@@ -4713,7 +4951,7 @@ except ApiError as e:
 | Name | Type | Description |
 | --- | --- | --- |
 | <code>body</code> | <code>[GetTaxFormRequest](adyen/models/get_tax_form_request.py) \| [GetTaxFormRequestDict](adyen/models/get_tax_form_request.py) \| None</code> | The request body.<br>**Default**: <code>None</code> |
-| <code>request_options</code> | <code>[RequestOptionsOrDict](adyen/core/request_options.py) \| None</code> | Per-call overrides for this one request, such as a timeout or extra headers. |
+| <code>request_options</code> | <code>[RequestOptionsOrDict](adyen/core/request_options.py) \| None</code> | Per-call overrides for this one request, such as a timeout, extra headers, or its retry count and statuses. |
 
 </dd>
 </dl>
@@ -4767,7 +5005,9 @@ Changes the [status of an account holder](https://docs.adyen.com/classic-platfor
 
 ```python
 try:
-    response = client.account_holders.post_suspend_account_holder()
+    response = client.account_holders.post_suspend_account_holder(
+        body=SuspendAccountHolderRequest(account_holder_code="CODE_OF_ACCOUNT_HOLDER")
+    )
     # TODO: Handle 'response' of type SuspendAccountHolderResponse
 except ApiError as e:
     ...  # TODO: Handle 'e.error' of type PostSuspendAccountHolderErrorBody
@@ -4777,7 +5017,9 @@ except ApiError as e:
 
 ```python
 try:
-    response = await async_client.account_holders.post_suspend_account_holder()
+    response = await async_client.account_holders.post_suspend_account_holder(
+        body=SuspendAccountHolderRequest(account_holder_code="CODE_OF_ACCOUNT_HOLDER")
+    )
     # TODO: Handle 'response' of type SuspendAccountHolderResponse
 except ApiError as e:
     ...  # TODO: Handle 'e.error' of type PostSuspendAccountHolderErrorBody
@@ -4794,7 +5036,7 @@ except ApiError as e:
 | Name | Type | Description |
 | --- | --- | --- |
 | <code>body</code> | <code>[SuspendAccountHolderRequest](adyen/models/suspend_account_holder_request.py) \| [SuspendAccountHolderRequestDict](adyen/models/suspend_account_holder_request.py) \| None</code> | The request body.<br>**Default**: <code>None</code> |
-| <code>request_options</code> | <code>[RequestOptionsOrDict](adyen/core/request_options.py) \| None</code> | Per-call overrides for this one request, such as a timeout or extra headers. |
+| <code>request_options</code> | <code>[RequestOptionsOrDict](adyen/core/request_options.py) \| None</code> | Per-call overrides for this one request, such as a timeout, extra headers, or its retry count and statuses. |
 
 </dd>
 </dl>
@@ -4851,7 +5093,9 @@ You can only unsuspend account holders if they do not have verification checks w
 
 ```python
 try:
-    response = client.account_holders.post_un_suspend_account_holder()
+    response = client.account_holders.post_un_suspend_account_holder(
+        body=UnSuspendAccountHolderRequest(account_holder_code="CODE_OF_ACCOUNT_HOLDER")
+    )
     # TODO: Handle 'response' of type UnSuspendAccountHolderResponse
 except ApiError as e:
     ...  # TODO: Handle 'e.error' of type PostUnSuspendAccountHolderErrorBody
@@ -4861,7 +5105,9 @@ except ApiError as e:
 
 ```python
 try:
-    response = await async_client.account_holders.post_un_suspend_account_holder()
+    response = await async_client.account_holders.post_un_suspend_account_holder(
+        body=UnSuspendAccountHolderRequest(account_holder_code="CODE_OF_ACCOUNT_HOLDER")
+    )
     # TODO: Handle 'response' of type UnSuspendAccountHolderResponse
 except ApiError as e:
     ...  # TODO: Handle 'e.error' of type PostUnSuspendAccountHolderErrorBody
@@ -4878,7 +5124,7 @@ except ApiError as e:
 | Name | Type | Description |
 | --- | --- | --- |
 | <code>body</code> | <code>[UnSuspendAccountHolderRequest](adyen/models/un_suspend_account_holder_request.py) \| [UnSuspendAccountHolderRequestDict](adyen/models/un_suspend_account_holder_request.py) \| None</code> | The request body.<br>**Default**: <code>None</code> |
-| <code>request_options</code> | <code>[RequestOptionsOrDict](adyen/core/request_options.py) \| None</code> | Per-call overrides for this one request, such as a timeout or extra headers. |
+| <code>request_options</code> | <code>[RequestOptionsOrDict](adyen/core/request_options.py) \| None</code> | Per-call overrides for this one request, such as a timeout, extra headers, or its retry count and statuses. |
 
 </dd>
 </dl>
@@ -4950,7 +5196,25 @@ To add a bank account or shareholder, provide the bank account or shareholder de
 
 ```python
 try:
-    response = client.account_holders.post_update_account_holder()
+    response = client.account_holders.post_update_account_holder(
+        body=UpdateAccountHolderRequest(
+            account_holder_code="YOUR_UNIQUE_ACCOUNT_HOLDER_CODE",
+            account_holder_details=AccountHolderDetails4(
+                address=ViasAddress9(
+                    city="NY",
+                    country="US",
+                    house_number_or_name="100",
+                    postal_code="12345",
+                    state_or_province="NH",
+                    street="Main Street",
+                ),
+                email="test@adyen.com",
+                full_phone_number="+31612345678",
+                merchant_category_code="7999",
+                web_address="http://www.accountholderwebsite.com",
+            ),
+        ),
+    )
     # TODO: Handle 'response' of type UpdateAccountHolderResponse
 except ApiError as e:
     ...  # TODO: Handle 'e.error' of type PostUpdateAccountHolderErrorBody
@@ -4960,7 +5224,25 @@ except ApiError as e:
 
 ```python
 try:
-    response = await async_client.account_holders.post_update_account_holder()
+    response = await async_client.account_holders.post_update_account_holder(
+        body=UpdateAccountHolderRequest(
+            account_holder_code="YOUR_UNIQUE_ACCOUNT_HOLDER_CODE",
+            account_holder_details=AccountHolderDetails4(
+                address=ViasAddress9(
+                    city="NY",
+                    country="US",
+                    house_number_or_name="100",
+                    postal_code="12345",
+                    state_or_province="NH",
+                    street="Main Street",
+                ),
+                email="test@adyen.com",
+                full_phone_number="+31612345678",
+                merchant_category_code="7999",
+                web_address="http://www.accountholderwebsite.com",
+            ),
+        ),
+    )
     # TODO: Handle 'response' of type UpdateAccountHolderResponse
 except ApiError as e:
     ...  # TODO: Handle 'e.error' of type PostUpdateAccountHolderErrorBody
@@ -4977,7 +5259,7 @@ except ApiError as e:
 | Name | Type | Description |
 | --- | --- | --- |
 | <code>body</code> | <code>[UpdateAccountHolderRequest](adyen/models/update_account_holder_request.py) \| [UpdateAccountHolderRequestDict](adyen/models/update_account_holder_request.py) \| None</code> | The request body.<br>**Default**: <code>None</code> |
-| <code>request_options</code> | <code>[RequestOptionsOrDict](adyen/core/request_options.py) \| None</code> | Per-call overrides for this one request, such as a timeout or extra headers. |
+| <code>request_options</code> | <code>[RequestOptionsOrDict](adyen/core/request_options.py) \| None</code> | Per-call overrides for this one request, such as a timeout, extra headers, or its retry count and statuses. |
 
 </dd>
 </dl>
@@ -5031,7 +5313,14 @@ Disables or enables the processing or payout state of an account holder.
 
 ```python
 try:
-    response = client.account_holders.post_update_account_holder_state()
+    response = client.account_holders.post_update_account_holder_state(
+        body=UpdateAccountHolderStateRequest(
+            account_holder_code="CODE_OF_ACCOUNT_HOLDER",
+            disable=True,
+            reason="test reason payout",
+            state_type=StateType.PAYOUT,
+        ),
+    )
     # TODO: Handle 'response' of type GetAccountHolderStatusResponse
 except ApiError as e:
     ...  # TODO: Handle 'e.error' of type PostUpdateAccountHolderStateErrorBody
@@ -5041,7 +5330,14 @@ except ApiError as e:
 
 ```python
 try:
-    response = await async_client.account_holders.post_update_account_holder_state()
+    response = await async_client.account_holders.post_update_account_holder_state(
+        body=UpdateAccountHolderStateRequest(
+            account_holder_code="CODE_OF_ACCOUNT_HOLDER",
+            disable=True,
+            reason="test reason payout",
+            state_type=StateType.PAYOUT,
+        ),
+    )
     # TODO: Handle 'response' of type GetAccountHolderStatusResponse
 except ApiError as e:
     ...  # TODO: Handle 'e.error' of type PostUpdateAccountHolderStateErrorBody
@@ -5058,7 +5354,7 @@ except ApiError as e:
 | Name | Type | Description |
 | --- | --- | --- |
 | <code>body</code> | <code>[UpdateAccountHolderStateRequest](adyen/models/update_account_holder_state_request.py) \| [UpdateAccountHolderStateRequestDict](adyen/models/update_account_holder_state_request.py) \| None</code> | The request body.<br>**Default**: <code>None</code> |
-| <code>request_options</code> | <code>[RequestOptionsOrDict](adyen/core/request_options.py) \| None</code> | Per-call overrides for this one request, such as a timeout or extra headers. |
+| <code>request_options</code> | <code>[RequestOptionsOrDict](adyen/core/request_options.py) \| None</code> | Per-call overrides for this one request, such as a timeout, extra headers, or its retry count and statuses. |
 
 </dd>
 </dl>
@@ -5116,7 +5412,7 @@ Closes an account. If an account is closed, you cannot process transactions, pay
 
 ```python
 try:
-    response = client.accounts.post_close_account()
+    response = client.accounts.post_close_account(body=CloseAccountRequest(account_code="CODE_OF_ACCOUNT"))
     # TODO: Handle 'response' of type CloseAccountResponse
 except ApiError as e:
     ...  # TODO: Handle 'e.error' of type PostCloseAccountErrorBody
@@ -5126,7 +5422,7 @@ except ApiError as e:
 
 ```python
 try:
-    response = await async_client.accounts.post_close_account()
+    response = await async_client.accounts.post_close_account(body=CloseAccountRequest(account_code="CODE_OF_ACCOUNT"))
     # TODO: Handle 'response' of type CloseAccountResponse
 except ApiError as e:
     ...  # TODO: Handle 'e.error' of type PostCloseAccountErrorBody
@@ -5143,7 +5439,7 @@ except ApiError as e:
 | Name | Type | Description |
 | --- | --- | --- |
 | <code>body</code> | <code>[CloseAccountRequest](adyen/models/close_account_request.py) \| [CloseAccountRequestDict](adyen/models/close_account_request.py) \| None</code> | The request body.<br>**Default**: <code>None</code> |
-| <code>request_options</code> | <code>[RequestOptionsOrDict](adyen/core/request_options.py) \| None</code> | Per-call overrides for this one request, such as a timeout or extra headers. |
+| <code>request_options</code> | <code>[RequestOptionsOrDict](adyen/core/request_options.py) \| None</code> | Per-call overrides for this one request, such as a timeout, extra headers, or its retry count and statuses. |
 
 </dd>
 </dl>
@@ -5197,7 +5493,9 @@ Creates an account under an account holder. An account holder can have [multiple
 
 ```python
 try:
-    response = client.accounts.post_create_account()
+    response = client.accounts.post_create_account(
+        body=CreateAccountRequest(account_holder_code="CODE_OF_ACCOUNT_HOLDER")
+    )
     # TODO: Handle 'response' of type CreateAccountResponse
 except ApiError as e:
     ...  # TODO: Handle 'e.error' of type PostCreateAccountErrorBody
@@ -5207,7 +5505,9 @@ except ApiError as e:
 
 ```python
 try:
-    response = await async_client.accounts.post_create_account()
+    response = await async_client.accounts.post_create_account(
+        body=CreateAccountRequest(account_holder_code="CODE_OF_ACCOUNT_HOLDER")
+    )
     # TODO: Handle 'response' of type CreateAccountResponse
 except ApiError as e:
     ...  # TODO: Handle 'e.error' of type PostCreateAccountErrorBody
@@ -5224,7 +5524,7 @@ except ApiError as e:
 | Name | Type | Description |
 | --- | --- | --- |
 | <code>body</code> | <code>[CreateAccountRequest](adyen/models/create_account_request.py) \| [CreateAccountRequestDict](adyen/models/create_account_request.py) \| None</code> | The request body.<br>**Default**: <code>None</code> |
-| <code>request_options</code> | <code>[RequestOptionsOrDict](adyen/core/request_options.py) \| None</code> | Per-call overrides for this one request, such as a timeout or extra headers. |
+| <code>request_options</code> | <code>[RequestOptionsOrDict](adyen/core/request_options.py) \| None</code> | Per-call overrides for this one request, such as a timeout, extra headers, or its retry count and statuses. |
 
 </dd>
 </dl>
@@ -5278,7 +5578,12 @@ Updates the description or payout schedule of an account.
 
 ```python
 try:
-    response = client.accounts.post_update_account()
+    response = client.accounts.post_update_account(
+        body=UpdateAccountRequest(
+            account_code="CODE_OF_ACCOUNT",
+            payout_schedule=UpdatePayoutScheduleRequest2(action=Action.CLOSE, schedule=Schedule1.WEEKLY),
+        ),
+    )
     # TODO: Handle 'response' of type UpdateAccountResponse
 except ApiError as e:
     ...  # TODO: Handle 'e.error' of type PostUpdateAccountErrorBody
@@ -5288,7 +5593,12 @@ except ApiError as e:
 
 ```python
 try:
-    response = await async_client.accounts.post_update_account()
+    response = await async_client.accounts.post_update_account(
+        body=UpdateAccountRequest(
+            account_code="CODE_OF_ACCOUNT",
+            payout_schedule=UpdatePayoutScheduleRequest2(action=Action.CLOSE, schedule=Schedule1.WEEKLY),
+        ),
+    )
     # TODO: Handle 'response' of type UpdateAccountResponse
 except ApiError as e:
     ...  # TODO: Handle 'e.error' of type PostUpdateAccountErrorBody
@@ -5305,7 +5615,7 @@ except ApiError as e:
 | Name | Type | Description |
 | --- | --- | --- |
 | <code>body</code> | <code>[UpdateAccountRequest](adyen/models/update_account_request.py) \| [UpdateAccountRequestDict](adyen/models/update_account_request.py) \| None</code> | The request body.<br>**Default**: <code>None</code> |
-| <code>request_options</code> | <code>[RequestOptionsOrDict](adyen/core/request_options.py) \| None</code> | Per-call overrides for this one request, such as a timeout or extra headers. |
+| <code>request_options</code> | <code>[RequestOptionsOrDict](adyen/core/request_options.py) \| None</code> | Per-call overrides for this one request, such as a timeout, extra headers, or its retry count and statuses. |
 
 </dd>
 </dl>
@@ -5367,7 +5677,7 @@ To make this request, your API credential must have the following [roles](https:
 ```python
 try:
     client.allowed_origins_company_level.delete_companies_company_id_api_credentials_api_credential_id_allowed_origins_origin_id(
-        company_id, api_credential_id, origin_id
+        "some example string", "some example string", "some example string"
     )
 except ApiError as e:
     # TODO: Handle 'e.error' of type
@@ -5380,7 +5690,7 @@ except ApiError as e:
 ```python
 try:
     await async_client.allowed_origins_company_level.delete_companies_company_id_api_credentials_api_credential_id_allowed_origins_origin_id(
-        company_id, api_credential_id, origin_id
+        "some example string", "some example string", "some example string"
     )
 except ApiError as e:
     # TODO: Handle 'e.error' of type
@@ -5401,7 +5711,7 @@ except ApiError as e:
 | <code>company_id</code> | <code>str</code> | The unique identifier of the company account. |
 | <code>api_credential_id</code> | <code>str</code> | Unique identifier of the API credential. |
 | <code>origin_id</code> | <code>str</code> | Unique identifier of the allowed origin. |
-| <code>request_options</code> | <code>[RequestOptionsOrDict](adyen/core/request_options.py) \| None</code> | Per-call overrides for this one request, such as a timeout or extra headers. |
+| <code>request_options</code> | <code>[RequestOptionsOrDict](adyen/core/request_options.py) \| None</code> | Per-call overrides for this one request, such as a timeout, extra headers, or its retry count and statuses. |
 
 </dd>
 </dl>
@@ -5459,7 +5769,7 @@ To make this request, your API credential must have the following [roles](https:
 ```python
 try:
     response = client.allowed_origins_company_level.get_companies_company_id_api_credentials_api_credential_id_allowed_origins(
-        company_id, api_credential_id
+        "some example string", "some example string"
     )
     # TODO: Handle 'response' of type AllowedOriginsResponse
 except ApiError as e:
@@ -5471,7 +5781,7 @@ except ApiError as e:
 ```python
 try:
     response = await async_client.allowed_origins_company_level.get_companies_company_id_api_credentials_api_credential_id_allowed_origins(
-        company_id, api_credential_id
+        "some example string", "some example string"
     )
     # TODO: Handle 'response' of type AllowedOriginsResponse
 except ApiError as e:
@@ -5490,7 +5800,7 @@ except ApiError as e:
 | --- | --- | --- |
 | <code>company_id</code> | <code>str</code> | The unique identifier of the company account. |
 | <code>api_credential_id</code> | <code>str</code> | Unique identifier of the API credential. |
-| <code>request_options</code> | <code>[RequestOptionsOrDict](adyen/core/request_options.py) \| None</code> | Per-call overrides for this one request, such as a timeout or extra headers. |
+| <code>request_options</code> | <code>[RequestOptionsOrDict](adyen/core/request_options.py) \| None</code> | Per-call overrides for this one request, such as a timeout, extra headers, or its retry count and statuses. |
 
 </dd>
 </dl>
@@ -5548,7 +5858,7 @@ To make this request, your API credential must have the following [roles](https:
 ```python
 try:
     response = client.allowed_origins_company_level.get_companies_company_id_api_credentials_api_credential_id_allowed_origins_origin_id(
-        company_id, api_credential_id, origin_id
+        "some example string", "some example string", "some example string"
     )
     # TODO: Handle 'response' of type AllowedOrigin
 except ApiError as e:
@@ -5561,7 +5871,7 @@ except ApiError as e:
 ```python
 try:
     response = await async_client.allowed_origins_company_level.get_companies_company_id_api_credentials_api_credential_id_allowed_origins_origin_id(
-        company_id, api_credential_id, origin_id
+        "some example string", "some example string", "some example string"
     )
     # TODO: Handle 'response' of type AllowedOrigin
 except ApiError as e:
@@ -5582,7 +5892,7 @@ except ApiError as e:
 | <code>company_id</code> | <code>str</code> | The unique identifier of the company account. |
 | <code>api_credential_id</code> | <code>str</code> | Unique identifier of the API credential. |
 | <code>origin_id</code> | <code>str</code> | Unique identifier of the allowed origin. |
-| <code>request_options</code> | <code>[RequestOptionsOrDict](adyen/core/request_options.py) \| None</code> | Per-call overrides for this one request, such as a timeout or extra headers. |
+| <code>request_options</code> | <code>[RequestOptionsOrDict](adyen/core/request_options.py) \| None</code> | Per-call overrides for this one request, such as a timeout, extra headers, or its retry count and statuses. |
 
 </dd>
 </dl>
@@ -5640,7 +5950,7 @@ To make this request, your API credential must have the following [roles](https:
 ```python
 try:
     response = client.allowed_origins_company_level.post_companies_company_id_api_credentials_api_credential_id_allowed_origins(
-        company_id, api_credential_id
+        "some example string", "some example string", body=AllowedOrigin(domain="https://www.eu.mystore.com")
     )
     # TODO: Handle 'response' of type AllowedOrigin
 except ApiError as e:
@@ -5652,7 +5962,7 @@ except ApiError as e:
 ```python
 try:
     response = await async_client.allowed_origins_company_level.post_companies_company_id_api_credentials_api_credential_id_allowed_origins(
-        company_id, api_credential_id
+        "some example string", "some example string", body=AllowedOrigin(domain="https://www.eu.mystore.com")
     )
     # TODO: Handle 'response' of type AllowedOrigin
 except ApiError as e:
@@ -5672,7 +5982,7 @@ except ApiError as e:
 | <code>company_id</code> | <code>str</code> | The unique identifier of the company account. |
 | <code>api_credential_id</code> | <code>str</code> | Unique identifier of the API credential. |
 | <code>body</code> | <code>[AllowedOrigin](adyen/models/allowed_origin.py) \| [AllowedOriginDict](adyen/models/allowed_origin.py) \| None</code> | The request body.<br>**Default**: <code>None</code> |
-| <code>request_options</code> | <code>[RequestOptionsOrDict](adyen/core/request_options.py) \| None</code> | Per-call overrides for this one request, such as a timeout or extra headers. |
+| <code>request_options</code> | <code>[RequestOptionsOrDict](adyen/core/request_options.py) \| None</code> | Per-call overrides for this one request, such as a timeout, extra headers, or its retry count and statuses. |
 
 </dd>
 </dl>
@@ -5734,7 +6044,7 @@ To make this request, your API credential must have the following [roles](https:
 ```python
 try:
     client.allowed_origins_merchant_level.delete_merchants_merchant_id_api_credentials_api_credential_id_allowed_origins_origin_id(
-        merchant_id, api_credential_id, origin_id
+        "some example string", "some example string", "some example string"
     )
 except ApiError as e:
     # TODO: Handle 'e.error' of type
@@ -5747,7 +6057,7 @@ except ApiError as e:
 ```python
 try:
     await async_client.allowed_origins_merchant_level.delete_merchants_merchant_id_api_credentials_api_credential_id_allowed_origins_origin_id(
-        merchant_id, api_credential_id, origin_id
+        "some example string", "some example string", "some example string"
     )
 except ApiError as e:
     # TODO: Handle 'e.error' of type
@@ -5768,7 +6078,7 @@ except ApiError as e:
 | <code>merchant_id</code> | <code>str</code> | The unique identifier of the merchant account. |
 | <code>api_credential_id</code> | <code>str</code> | Unique identifier of the API credential. |
 | <code>origin_id</code> | <code>str</code> | Unique identifier of the allowed origin. |
-| <code>request_options</code> | <code>[RequestOptionsOrDict](adyen/core/request_options.py) \| None</code> | Per-call overrides for this one request, such as a timeout or extra headers. |
+| <code>request_options</code> | <code>[RequestOptionsOrDict](adyen/core/request_options.py) \| None</code> | Per-call overrides for this one request, such as a timeout, extra headers, or its retry count and statuses. |
 
 </dd>
 </dl>
@@ -5826,7 +6136,7 @@ To make this request, your API credential must have the following [roles](https:
 ```python
 try:
     response = client.allowed_origins_merchant_level.get_merchants_merchant_id_api_credentials_api_credential_id_allowed_origins(
-        merchant_id, api_credential_id
+        "some example string", "some example string"
     )
     # TODO: Handle 'response' of type AllowedOriginsResponse
 except ApiError as e:
@@ -5838,7 +6148,7 @@ except ApiError as e:
 ```python
 try:
     response = await async_client.allowed_origins_merchant_level.get_merchants_merchant_id_api_credentials_api_credential_id_allowed_origins(
-        merchant_id, api_credential_id
+        "some example string", "some example string"
     )
     # TODO: Handle 'response' of type AllowedOriginsResponse
 except ApiError as e:
@@ -5857,7 +6167,7 @@ except ApiError as e:
 | --- | --- | --- |
 | <code>merchant_id</code> | <code>str</code> | The unique identifier of the merchant account. |
 | <code>api_credential_id</code> | <code>str</code> | Unique identifier of the API credential. |
-| <code>request_options</code> | <code>[RequestOptionsOrDict](adyen/core/request_options.py) \| None</code> | Per-call overrides for this one request, such as a timeout or extra headers. |
+| <code>request_options</code> | <code>[RequestOptionsOrDict](adyen/core/request_options.py) \| None</code> | Per-call overrides for this one request, such as a timeout, extra headers, or its retry count and statuses. |
 
 </dd>
 </dl>
@@ -5915,7 +6225,7 @@ To make this request, your API credential must have the following [roles](https:
 ```python
 try:
     response = client.allowed_origins_merchant_level.get_merchants_merchant_id_api_credentials_api_credential_id_allowed_origins_origin_id(
-        merchant_id, api_credential_id, origin_id
+        "some example string", "some example string", "some example string"
     )
     # TODO: Handle 'response' of type AllowedOrigin
 except ApiError as e:
@@ -5928,7 +6238,7 @@ except ApiError as e:
 ```python
 try:
     response = await async_client.allowed_origins_merchant_level.get_merchants_merchant_id_api_credentials_api_credential_id_allowed_origins_origin_id(
-        merchant_id, api_credential_id, origin_id
+        "some example string", "some example string", "some example string"
     )
     # TODO: Handle 'response' of type AllowedOrigin
 except ApiError as e:
@@ -5949,7 +6259,7 @@ except ApiError as e:
 | <code>merchant_id</code> | <code>str</code> | The unique identifier of the merchant account. |
 | <code>api_credential_id</code> | <code>str</code> | Unique identifier of the API credential. |
 | <code>origin_id</code> | <code>str</code> | Unique identifier of the allowed origin. |
-| <code>request_options</code> | <code>[RequestOptionsOrDict](adyen/core/request_options.py) \| None</code> | Per-call overrides for this one request, such as a timeout or extra headers. |
+| <code>request_options</code> | <code>[RequestOptionsOrDict](adyen/core/request_options.py) \| None</code> | Per-call overrides for this one request, such as a timeout, extra headers, or its retry count and statuses. |
 
 </dd>
 </dl>
@@ -6007,7 +6317,7 @@ To make this request, your API credential must have the following [roles](https:
 ```python
 try:
     response = client.allowed_origins_merchant_level.post_merchants_merchant_id_api_credentials_api_credential_id_allowed_origins(
-        merchant_id, api_credential_id
+        "some example string", "some example string", body=AllowedOrigin(domain="https://www.eu.mystore.com")
     )
     # TODO: Handle 'response' of type AllowedOrigin
 except ApiError as e:
@@ -6019,7 +6329,7 @@ except ApiError as e:
 ```python
 try:
     response = await async_client.allowed_origins_merchant_level.post_merchants_merchant_id_api_credentials_api_credential_id_allowed_origins(
-        merchant_id, api_credential_id
+        "some example string", "some example string", body=AllowedOrigin(domain="https://www.eu.mystore.com")
     )
     # TODO: Handle 'response' of type AllowedOrigin
 except ApiError as e:
@@ -6039,7 +6349,7 @@ except ApiError as e:
 | <code>merchant_id</code> | <code>str</code> | The unique identifier of the merchant account. |
 | <code>api_credential_id</code> | <code>str</code> | Unique identifier of the API credential. |
 | <code>body</code> | <code>[AllowedOrigin](adyen/models/allowed_origin.py) \| [AllowedOriginDict](adyen/models/allowed_origin.py) \| None</code> | The request body.<br>**Default**: <code>None</code> |
-| <code>request_options</code> | <code>[RequestOptionsOrDict](adyen/core/request_options.py) \| None</code> | Per-call overrides for this one request, such as a timeout or extra headers. |
+| <code>request_options</code> | <code>[RequestOptionsOrDict](adyen/core/request_options.py) \| None</code> | Per-call overrides for this one request, such as a timeout, extra headers, or its retry count and statuses. |
 
 </dd>
 </dl>
@@ -6106,7 +6416,7 @@ In the live environment, requests to this endpoint are subject to [rate limits](
 
 ```python
 try:
-    response = client.android_files_company_level.get_companies_company_id_android_apps(company_id)
+    response = client.android_files_company_level.get_companies_company_id_android_apps("some example string")
     # TODO: Handle 'response' of type AndroidAppsResponse
 except ApiError as e:
     ...  # TODO: Handle 'e.error' of type GetCompaniesCompanyIdAndroidAppsErrorBody
@@ -6116,7 +6426,9 @@ except ApiError as e:
 
 ```python
 try:
-    response = await async_client.android_files_company_level.get_companies_company_id_android_apps(company_id)
+    response = await async_client.android_files_company_level.get_companies_company_id_android_apps(
+        "some example string"
+    )
     # TODO: Handle 'response' of type AndroidAppsResponse
 except ApiError as e:
     ...  # TODO: Handle 'e.error' of type GetCompaniesCompanyIdAndroidAppsErrorBody
@@ -6137,7 +6449,7 @@ except ApiError as e:
 | <code>page_size</code> | <code>int \| None</code> | The number of items to have on a page, maximum 100. The default is 20 items on a page.<br>**Default**: <code>None</code> |
 | <code>package_name</code> | <code>str \| None</code> | The package name that uniquely identifies the Android app.<br>**Default**: <code>None</code> |
 | <code>version_code</code> | <code>int \| None</code> | The version number of the app.<br>**Default**: <code>None</code> |
-| <code>request_options</code> | <code>[RequestOptionsOrDict](adyen/core/request_options.py) \| None</code> | Per-call overrides for this one request, such as a timeout or extra headers. |
+| <code>request_options</code> | <code>[RequestOptionsOrDict](adyen/core/request_options.py) \| None</code> | Per-call overrides for this one request, such as a timeout, extra headers, or its retry count and statuses. |
 
 </dd>
 </dl>
@@ -6167,7 +6479,7 @@ Mapped in first-match order -- an earlier row wins over a later range that also 
 </details>
 
 <details>
-<summary><code>def get_companies_company_id_android_apps_id(company_id: str, id: str, *, request_options: RequestOptionsOrDict | None = None) -> AndroidApp</code></summary>
+<summary><code>def get_companies_company_id_android_apps_id(company_id: str, id_: str, *, request_options: RequestOptionsOrDict | None = None) -> AndroidApp</code></summary>
 
 <dl>
 <dd>
@@ -6198,7 +6510,9 @@ In the live environment, requests to this endpoint are subject to [rate limits](
 
 ```python
 try:
-    response = client.android_files_company_level.get_companies_company_id_android_apps_id(company_id, id)
+    response = client.android_files_company_level.get_companies_company_id_android_apps_id(
+        "some example string", "some example string"
+    )
     # TODO: Handle 'response' of type AndroidApp
 except ApiError as e:
     ...  # TODO: Handle 'e.error' of type GetCompaniesCompanyIdAndroidAppsIdErrorBody
@@ -6208,7 +6522,9 @@ except ApiError as e:
 
 ```python
 try:
-    response = await async_client.android_files_company_level.get_companies_company_id_android_apps_id(company_id, id)
+    response = await async_client.android_files_company_level.get_companies_company_id_android_apps_id(
+        "some example string", "some example string"
+    )
     # TODO: Handle 'response' of type AndroidApp
 except ApiError as e:
     ...  # TODO: Handle 'e.error' of type GetCompaniesCompanyIdAndroidAppsIdErrorBody
@@ -6225,8 +6541,8 @@ except ApiError as e:
 | Name | Type | Description |
 | --- | --- | --- |
 | <code>company_id</code> | <code>str</code> | The unique identifier of the company account. |
-| <code>id</code> | <code>str</code> | The unique identifier of the app. |
-| <code>request_options</code> | <code>[RequestOptionsOrDict](adyen/core/request_options.py) \| None</code> | Per-call overrides for this one request, such as a timeout or extra headers. |
+| <code>id_</code> | <code>str</code> | The unique identifier of the app. |
+| <code>request_options</code> | <code>[RequestOptionsOrDict](adyen/core/request_options.py) \| None</code> | Per-call overrides for this one request, such as a timeout, extra headers, or its retry count and statuses. |
 
 </dd>
 </dl>
@@ -6289,7 +6605,7 @@ In the live environment, requests to this endpoint are subject to [rate limits](
 
 ```python
 try:
-    response = client.android_files_company_level.get_companies_company_id_android_certificates(company_id)
+    response = client.android_files_company_level.get_companies_company_id_android_certificates("some example string")
     # TODO: Handle 'response' of type AndroidCertificatesResponse
 except ApiError as e:
     ...  # TODO: Handle 'e.error' of type GetCompaniesCompanyIdAndroidCertificatesErrorBody
@@ -6299,7 +6615,9 @@ except ApiError as e:
 
 ```python
 try:
-    response = await async_client.android_files_company_level.get_companies_company_id_android_certificates(company_id)
+    response = await async_client.android_files_company_level.get_companies_company_id_android_certificates(
+        "some example string"
+    )
     # TODO: Handle 'response' of type AndroidCertificatesResponse
 except ApiError as e:
     ...  # TODO: Handle 'e.error' of type GetCompaniesCompanyIdAndroidCertificatesErrorBody
@@ -6319,7 +6637,7 @@ except ApiError as e:
 | <code>page_number</code> | <code>int \| None</code> | The number of the page to fetch.<br>**Default**: <code>None</code> |
 | <code>page_size</code> | <code>int \| None</code> | The number of items to have on a page, maximum 100. The default is 20 items on a page.<br>**Default**: <code>None</code> |
 | <code>certificate_name</code> | <code>str \| None</code> | The name of the certificate.<br>**Default**: <code>None</code> |
-| <code>request_options</code> | <code>[RequestOptionsOrDict](adyen/core/request_options.py) \| None</code> | Per-call overrides for this one request, such as a timeout or extra headers. |
+| <code>request_options</code> | <code>[RequestOptionsOrDict](adyen/core/request_options.py) \| None</code> | Per-call overrides for this one request, such as a timeout, extra headers, or its retry count and statuses. |
 
 </dd>
 </dl>
@@ -6349,7 +6667,7 @@ Mapped in first-match order -- an earlier row wins over a later range that also 
 </details>
 
 <details>
-<summary><code>def patch_companies_company_id_android_apps_id(company_id: str, id: str, *, request_options: RequestOptionsOrDict | None = None) -> ReprocessAndroidAppResponse</code></summary>
+<summary><code>def patch_companies_company_id_android_apps_id(company_id: str, id_: str, *, request_options: RequestOptionsOrDict | None = None) -> ReprocessAndroidAppResponse</code></summary>
 
 <dl>
 <dd>
@@ -6378,7 +6696,9 @@ In the live environment, requests to this endpoint are subject to [rate limits](
 
 ```python
 try:
-    response = client.android_files_company_level.patch_companies_company_id_android_apps_id(company_id, id)
+    response = client.android_files_company_level.patch_companies_company_id_android_apps_id(
+        "some example string", "some example string"
+    )
     # TODO: Handle 'response' of type ReprocessAndroidAppResponse
 except ApiError as e:
     ...  # TODO: Handle 'e.error' of type PatchCompaniesCompanyIdAndroidAppsIdErrorBody
@@ -6388,7 +6708,9 @@ except ApiError as e:
 
 ```python
 try:
-    response = await async_client.android_files_company_level.patch_companies_company_id_android_apps_id(company_id, id)
+    response = await async_client.android_files_company_level.patch_companies_company_id_android_apps_id(
+        "some example string", "some example string"
+    )
     # TODO: Handle 'response' of type ReprocessAndroidAppResponse
 except ApiError as e:
     ...  # TODO: Handle 'e.error' of type PatchCompaniesCompanyIdAndroidAppsIdErrorBody
@@ -6405,8 +6727,8 @@ except ApiError as e:
 | Name | Type | Description |
 | --- | --- | --- |
 | <code>company_id</code> | <code>str</code> | The unique identifier of the company account. |
-| <code>id</code> | <code>str</code> | The unique identifier of the app. |
-| <code>request_options</code> | <code>[RequestOptionsOrDict](adyen/core/request_options.py) \| None</code> | Per-call overrides for this one request, such as a timeout or extra headers. |
+| <code>id_</code> | <code>str</code> | The unique identifier of the app. |
+| <code>request_options</code> | <code>[RequestOptionsOrDict](adyen/core/request_options.py) \| None</code> | Per-call overrides for this one request, such as a timeout, extra headers, or its retry count and statuses. |
 
 </dd>
 </dl>
@@ -6466,7 +6788,7 @@ In the live environment, requests to this endpoint are subject to [rate limits](
 
 ```python
 try:
-    response = client.android_files_company_level.post_companies_company_id_android_apps(company_id)
+    response = client.android_files_company_level.post_companies_company_id_android_apps("some example string")
     # TODO: Handle 'response' of type UploadAndroidAppResponse
 except ApiError as e:
     ...  # TODO: Handle 'e.error' of type PostCompaniesCompanyIdAndroidAppsErrorBody
@@ -6476,7 +6798,9 @@ except ApiError as e:
 
 ```python
 try:
-    response = await async_client.android_files_company_level.post_companies_company_id_android_apps(company_id)
+    response = await async_client.android_files_company_level.post_companies_company_id_android_apps(
+        "some example string"
+    )
     # TODO: Handle 'response' of type UploadAndroidAppResponse
 except ApiError as e:
     ...  # TODO: Handle 'e.error' of type PostCompaniesCompanyIdAndroidAppsErrorBody
@@ -6493,7 +6817,7 @@ except ApiError as e:
 | Name | Type | Description |
 | --- | --- | --- |
 | <code>company_id</code> | <code>str</code> | The unique identifier of the company account. |
-| <code>request_options</code> | <code>[RequestOptionsOrDict](adyen/core/request_options.py) \| None</code> | Per-call overrides for this one request, such as a timeout or extra headers. |
+| <code>request_options</code> | <code>[RequestOptionsOrDict](adyen/core/request_options.py) \| None</code> | Per-call overrides for this one request, such as a timeout, extra headers, or its retry count and statuses. |
 
 </dd>
 </dl>
@@ -6549,7 +6873,7 @@ In the live environment, requests to this endpoint are subject to [rate limits](
 
 ```python
 try:
-    response = client.android_files_company_level.post_companies_company_id_android_certificates(company_id)
+    response = client.android_files_company_level.post_companies_company_id_android_certificates("some example string")
     # TODO: Handle 'response' of type UploadAndroidCertificateResponse
 except ApiError as e:
     ...  # TODO: Handle 'e.error' of type PostCompaniesCompanyIdAndroidCertificatesErrorBody
@@ -6559,7 +6883,9 @@ except ApiError as e:
 
 ```python
 try:
-    response = await async_client.android_files_company_level.post_companies_company_id_android_certificates(company_id)
+    response = await async_client.android_files_company_level.post_companies_company_id_android_certificates(
+        "some example string"
+    )
     # TODO: Handle 'response' of type UploadAndroidCertificateResponse
 except ApiError as e:
     ...  # TODO: Handle 'e.error' of type PostCompaniesCompanyIdAndroidCertificatesErrorBody
@@ -6576,7 +6902,7 @@ except ApiError as e:
 | Name | Type | Description |
 | --- | --- | --- |
 | <code>company_id</code> | <code>str</code> | The unique identifier of the company account. |
-| <code>request_options</code> | <code>[RequestOptionsOrDict](adyen/core/request_options.py) \| None</code> | Per-call overrides for this one request, such as a timeout or extra headers. |
+| <code>request_options</code> | <code>[RequestOptionsOrDict](adyen/core/request_options.py) \| None</code> | Per-call overrides for this one request, such as a timeout, extra headers, or its retry count and statuses. |
 
 </dd>
 </dl>
@@ -6635,7 +6961,7 @@ Deletes the list of authorized users assigned to a card.
 ```python
 try:
     client.authorized_card_users.delete_payment_instruments_payment_instrument_id_authorised_card_users(
-        payment_instrument_id
+        "some example string"
     )
 except ApiError as e:
     ...  # TODO: Handle 'e.error' of type DeletePaymentInstrumentsPaymentInstrumentIdAuthorisedCardUsersErrorBody
@@ -6646,7 +6972,7 @@ except ApiError as e:
 ```python
 try:
     await async_client.authorized_card_users.delete_payment_instruments_payment_instrument_id_authorised_card_users(
-        payment_instrument_id
+        "some example string"
     )
 except ApiError as e:
     ...  # TODO: Handle 'e.error' of type DeletePaymentInstrumentsPaymentInstrumentIdAuthorisedCardUsersErrorBody
@@ -6663,7 +6989,7 @@ except ApiError as e:
 | Name | Type | Description |
 | --- | --- | --- |
 | <code>payment_instrument_id</code> | <code>str</code> | Value sent with the request. |
-| <code>request_options</code> | <code>[RequestOptionsOrDict](adyen/core/request_options.py) \| None</code> | Per-call overrides for this one request, such as a timeout or extra headers. |
+| <code>request_options</code> | <code>[RequestOptionsOrDict](adyen/core/request_options.py) \| None</code> | Per-call overrides for this one request, such as a timeout, extra headers, or its retry count and statuses. |
 
 </dd>
 </dl>
@@ -6718,7 +7044,7 @@ Returns the authorized users for a card.
 ```python
 try:
     response = client.authorized_card_users.get_payment_instruments_payment_instrument_id_authorised_card_users(
-        payment_instrument_id
+        "some example string"
     )
     # TODO: Handle 'response' of type AuthorisedCardUsers
 except ApiError as e:
@@ -6730,7 +7056,7 @@ except ApiError as e:
 ```python
 try:
     response = await async_client.authorized_card_users.get_payment_instruments_payment_instrument_id_authorised_card_users(
-        payment_instrument_id
+        "some example string"
     )
     # TODO: Handle 'response' of type AuthorisedCardUsers
 except ApiError as e:
@@ -6748,7 +7074,7 @@ except ApiError as e:
 | Name | Type | Description |
 | --- | --- | --- |
 | <code>payment_instrument_id</code> | <code>str</code> | Value sent with the request. |
-| <code>request_options</code> | <code>[RequestOptionsOrDict](adyen/core/request_options.py) \| None</code> | Per-call overrides for this one request, such as a timeout or extra headers. |
+| <code>request_options</code> | <code>[RequestOptionsOrDict](adyen/core/request_options.py) \| None</code> | Per-call overrides for this one request, such as a timeout, extra headers, or its retry count and statuses. |
 
 </dd>
 </dl>
@@ -6805,7 +7131,8 @@ Updates the list of authorized users for a card.
 ```python
 try:
     client.authorized_card_users.patch_payment_instruments_payment_instrument_id_authorised_card_users(
-        payment_instrument_id, body
+        "some example string",
+        AuthorisedCardUsers(legal_entity_ids=["LE328V522322685LV3KTNF35M", "LE328SW223226B5LWVWNQ8THN"]),
     )
 except ApiError as e:
     ...  # TODO: Handle 'e.error' of type PatchPaymentInstrumentsPaymentInstrumentIdAuthorisedCardUsersErrorBody
@@ -6816,7 +7143,8 @@ except ApiError as e:
 ```python
 try:
     await async_client.authorized_card_users.patch_payment_instruments_payment_instrument_id_authorised_card_users(
-        payment_instrument_id, body
+        "some example string",
+        AuthorisedCardUsers(legal_entity_ids=["LE328V522322685LV3KTNF35M", "LE328SW223226B5LWVWNQ8THN"]),
     )
 except ApiError as e:
     ...  # TODO: Handle 'e.error' of type PatchPaymentInstrumentsPaymentInstrumentIdAuthorisedCardUsersErrorBody
@@ -6834,7 +7162,7 @@ except ApiError as e:
 | --- | --- | --- |
 | <code>payment_instrument_id</code> | <code>str</code> | Value sent with the request. |
 | <code>body</code> | <code>[AuthorisedCardUsers](adyen/models/authorised_card_users.py) \| [AuthorisedCardUsersDict](adyen/models/authorised_card_users.py)</code> | The request body. |
-| <code>request_options</code> | <code>[RequestOptionsOrDict](adyen/core/request_options.py) \| None</code> | Per-call overrides for this one request, such as a timeout or extra headers. |
+| <code>request_options</code> | <code>[RequestOptionsOrDict](adyen/core/request_options.py) \| None</code> | Per-call overrides for this one request, such as a timeout, extra headers, or its retry count and statuses. |
 
 </dd>
 </dl>
@@ -6889,7 +7217,8 @@ Assigns authorized users to a card. Users must have the **authorisedPaymentInstr
 ```python
 try:
     client.authorized_card_users.post_payment_instruments_payment_instrument_id_authorised_card_users(
-        payment_instrument_id, body
+        "some example string",
+        AuthorisedCardUsers(legal_entity_ids=["LE328V522322685LV3KTNF35M", "LE328SW223226B5LWVWNQ8THN"]),
     )
 except ApiError as e:
     ...  # TODO: Handle 'e.error' of type PostPaymentInstrumentsPaymentInstrumentIdAuthorisedCardUsersErrorBody
@@ -6900,7 +7229,8 @@ except ApiError as e:
 ```python
 try:
     await async_client.authorized_card_users.post_payment_instruments_payment_instrument_id_authorised_card_users(
-        payment_instrument_id, body
+        "some example string",
+        AuthorisedCardUsers(legal_entity_ids=["LE328V522322685LV3KTNF35M", "LE328SW223226B5LWVWNQ8THN"]),
     )
 except ApiError as e:
     ...  # TODO: Handle 'e.error' of type PostPaymentInstrumentsPaymentInstrumentIdAuthorisedCardUsersErrorBody
@@ -6918,7 +7248,7 @@ except ApiError as e:
 | --- | --- | --- |
 | <code>payment_instrument_id</code> | <code>str</code> | Value sent with the request. |
 | <code>body</code> | <code>[AuthorisedCardUsers](adyen/models/authorised_card_users.py) \| [AuthorisedCardUsersDict](adyen/models/authorised_card_users.py)</code> | The request body. |
-| <code>request_options</code> | <code>[RequestOptionsOrDict](adyen/core/request_options.py) \| None</code> | Per-call overrides for this one request, such as a timeout or extra headers. |
+| <code>request_options</code> | <code>[RequestOptionsOrDict](adyen/core/request_options.py) \| None</code> | Per-call overrides for this one request, such as a timeout, extra headers, or its retry count and statuses. |
 
 </dd>
 </dl>
@@ -6952,7 +7282,7 @@ Mapped in first-match order -- an earlier row wins over a later range that also 
 > Source: [BalanceAccounts](adyen/apis/balance_accounts.py)
 
 <details>
-<summary><code>def get_balance_accounts_id(id: str, *, request_options: RequestOptionsOrDict | None = None) -> BalanceAccount</code></summary>
+<summary><code>def get_balance_accounts_id(id_: str, *, request_options: RequestOptionsOrDict | None = None) -> BalanceAccount</code></summary>
 
 <dl>
 <dd>
@@ -6976,7 +7306,7 @@ Returns a balance account and its balances for the default currency and other cu
 
 ```python
 try:
-    response = client.balance_accounts.get_balance_accounts_id(id)
+    response = client.balance_accounts.get_balance_accounts_id("some example string")
     # TODO: Handle 'response' of type BalanceAccount
 except ApiError as e:
     ...  # TODO: Handle 'e.error' of type GetBalanceAccountsIdErrorBody
@@ -6986,7 +7316,7 @@ except ApiError as e:
 
 ```python
 try:
-    response = await async_client.balance_accounts.get_balance_accounts_id(id)
+    response = await async_client.balance_accounts.get_balance_accounts_id("some example string")
     # TODO: Handle 'response' of type BalanceAccount
 except ApiError as e:
     ...  # TODO: Handle 'e.error' of type GetBalanceAccountsIdErrorBody
@@ -7002,8 +7332,8 @@ except ApiError as e:
 
 | Name | Type | Description |
 | --- | --- | --- |
-| <code>id</code> | <code>str</code> | The unique identifier of the balance account. |
-| <code>request_options</code> | <code>[RequestOptionsOrDict](adyen/core/request_options.py) \| None</code> | Per-call overrides for this one request, such as a timeout or extra headers. |
+| <code>id_</code> | <code>str</code> | The unique identifier of the balance account. |
+| <code>request_options</code> | <code>[RequestOptionsOrDict](adyen/core/request_options.py) \| None</code> | Per-call overrides for this one request, such as a timeout, extra headers, or its retry count and statuses. |
 
 </dd>
 </dl>
@@ -7033,7 +7363,7 @@ Mapped in first-match order -- an earlier row wins over a later range that also 
 </details>
 
 <details>
-<summary><code>def get_balance_accounts_id_payment_instruments(id: str, *, offset: int | None = None, limit: int | None = None, status: str | None = None, request_options: RequestOptionsOrDict | None = None) -> PaginatedPaymentInstrumentsResponse</code></summary>
+<summary><code>def get_balance_accounts_id_payment_instruments(id_: str, *, offset: int | None = None, limit: int | None = None, status: str | None = None, request_options: RequestOptionsOrDict | None = None) -> PaginatedPaymentInstrumentsResponse</code></summary>
 
 <dl>
 <dd>
@@ -7059,7 +7389,7 @@ To fetch multiple pages, use the query parameters.For example, to limit the page
 
 ```python
 try:
-    response = client.balance_accounts.get_balance_accounts_id_payment_instruments(id)
+    response = client.balance_accounts.get_balance_accounts_id_payment_instruments("some example string")
     # TODO: Handle 'response' of type PaginatedPaymentInstrumentsResponse
 except ApiError as e:
     ...  # TODO: Handle 'e.error' of type GetBalanceAccountsIdPaymentInstrumentsErrorBody
@@ -7069,7 +7399,7 @@ except ApiError as e:
 
 ```python
 try:
-    response = await async_client.balance_accounts.get_balance_accounts_id_payment_instruments(id)
+    response = await async_client.balance_accounts.get_balance_accounts_id_payment_instruments("some example string")
     # TODO: Handle 'response' of type PaginatedPaymentInstrumentsResponse
 except ApiError as e:
     ...  # TODO: Handle 'e.error' of type GetBalanceAccountsIdPaymentInstrumentsErrorBody
@@ -7085,11 +7415,11 @@ except ApiError as e:
 
 | Name | Type | Description |
 | --- | --- | --- |
-| <code>id</code> | <code>str</code> | The unique identifier of the balance account. |
+| <code>id_</code> | <code>str</code> | The unique identifier of the balance account. |
 | <code>offset</code> | <code>int \| None</code> | The number of items that you want to skip.<br>**Default**: <code>None</code> |
 | <code>limit</code> | <code>int \| None</code> | The number of items returned per page, maximum 100 items. By default, the response returns 10 items per page.<br>**Default**: <code>None</code> |
 | <code>status</code> | <code>str \| None</code> | The status of the payment instruments that you want to get. By default, the response includes payment instruments with any status.<br>**Default**: <code>None</code> |
-| <code>request_options</code> | <code>[RequestOptionsOrDict](adyen/core/request_options.py) \| None</code> | Per-call overrides for this one request, such as a timeout or extra headers. |
+| <code>request_options</code> | <code>[RequestOptionsOrDict](adyen/core/request_options.py) \| None</code> | Per-call overrides for this one request, such as a timeout, extra headers, or its retry count and statuses. |
 
 </dd>
 </dl>
@@ -7119,7 +7449,7 @@ Mapped in first-match order -- an earlier row wins over a later range that also 
 </details>
 
 <details>
-<summary><code>def get_balance_accounts_id_transaction_rules(id: str, *, request_options: RequestOptionsOrDict | None = None) -> TransactionRulesResponse</code></summary>
+<summary><code>def get_balance_accounts_id_transaction_rules(id_: str, *, request_options: RequestOptionsOrDict | None = None) -> TransactionRulesResponse</code></summary>
 
 <dl>
 <dd>
@@ -7143,7 +7473,7 @@ Returns a list of transaction rules associated with a balance account.
 
 ```python
 try:
-    response = client.balance_accounts.get_balance_accounts_id_transaction_rules(id)
+    response = client.balance_accounts.get_balance_accounts_id_transaction_rules("some example string")
     # TODO: Handle 'response' of type TransactionRulesResponse
 except ApiError as e:
     ...  # TODO: Handle 'e.error' of type GetBalanceAccountsIdTransactionRulesErrorBody
@@ -7153,7 +7483,7 @@ except ApiError as e:
 
 ```python
 try:
-    response = await async_client.balance_accounts.get_balance_accounts_id_transaction_rules(id)
+    response = await async_client.balance_accounts.get_balance_accounts_id_transaction_rules("some example string")
     # TODO: Handle 'response' of type TransactionRulesResponse
 except ApiError as e:
     ...  # TODO: Handle 'e.error' of type GetBalanceAccountsIdTransactionRulesErrorBody
@@ -7169,8 +7499,8 @@ except ApiError as e:
 
 | Name | Type | Description |
 | --- | --- | --- |
-| <code>id</code> | <code>str</code> | The unique identifier of the balance account. |
-| <code>request_options</code> | <code>[RequestOptionsOrDict](adyen/core/request_options.py) \| None</code> | Per-call overrides for this one request, such as a timeout or extra headers. |
+| <code>id_</code> | <code>str</code> | The unique identifier of the balance account. |
+| <code>request_options</code> | <code>[RequestOptionsOrDict](adyen/core/request_options.py) \| None</code> | Per-call overrides for this one request, such as a timeout, extra headers, or its retry count and statuses. |
 
 </dd>
 </dl>
@@ -7200,7 +7530,7 @@ Mapped in first-match order -- an earlier row wins over a later range that also 
 </details>
 
 <details>
-<summary><code>def patch_balance_accounts_id(id: str, *, body: BalanceAccountUpdateRequest | BalanceAccountUpdateRequestDict | None = None, request_options: RequestOptionsOrDict | None = None) -> BalanceAccount</code></summary>
+<summary><code>def patch_balance_accounts_id(id_: str, *, body: BalanceAccountUpdateRequest | BalanceAccountUpdateRequestDict | None = None, request_options: RequestOptionsOrDict | None = None) -> BalanceAccount</code></summary>
 
 <dl>
 <dd>
@@ -7224,7 +7554,9 @@ Updates a balance account.
 
 ```python
 try:
-    response = client.balance_accounts.patch_balance_accounts_id(id)
+    response = client.balance_accounts.patch_balance_accounts_id(
+        "some example string", body=BalanceAccountUpdateRequest(time_zone="Europe/Amsterdam")
+    )
     # TODO: Handle 'response' of type BalanceAccount
 except ApiError as e:
     ...  # TODO: Handle 'e.error' of type PatchBalanceAccountsIdErrorBody
@@ -7234,7 +7566,9 @@ except ApiError as e:
 
 ```python
 try:
-    response = await async_client.balance_accounts.patch_balance_accounts_id(id)
+    response = await async_client.balance_accounts.patch_balance_accounts_id(
+        "some example string", body=BalanceAccountUpdateRequest(time_zone="Europe/Amsterdam")
+    )
     # TODO: Handle 'response' of type BalanceAccount
 except ApiError as e:
     ...  # TODO: Handle 'e.error' of type PatchBalanceAccountsIdErrorBody
@@ -7250,9 +7584,9 @@ except ApiError as e:
 
 | Name | Type | Description |
 | --- | --- | --- |
-| <code>id</code> | <code>str</code> | The unique identifier of the balance account. |
+| <code>id_</code> | <code>str</code> | The unique identifier of the balance account. |
 | <code>body</code> | <code>[BalanceAccountUpdateRequest](adyen/models/balance_account_update_request.py) \| [BalanceAccountUpdateRequestDict](adyen/models/balance_account_update_request.py) \| None</code> | The request body.<br>**Default**: <code>None</code> |
-| <code>request_options</code> | <code>[RequestOptionsOrDict](adyen/core/request_options.py) \| None</code> | Per-call overrides for this one request, such as a timeout or extra headers. |
+| <code>request_options</code> | <code>[RequestOptionsOrDict](adyen/core/request_options.py) \| None</code> | Per-call overrides for this one request, such as a timeout, extra headers, or its retry count and statuses. |
 
 </dd>
 </dl>
@@ -7306,7 +7640,11 @@ Creates a balance account that holds the funds of the associated account holder.
 
 ```python
 try:
-    response = client.balance_accounts.post_balance_accounts()
+    response = client.balance_accounts.post_balance_accounts(
+        body=BalanceAccountInfo(
+            account_holder_id="AH32272223222C5GXTD343TKP", description="S.Hopper - Main balance account"
+        ),
+    )
     # TODO: Handle 'response' of type BalanceAccount
 except ApiError as e:
     ...  # TODO: Handle 'e.error' of type PostBalanceAccountsErrorBody
@@ -7316,7 +7654,11 @@ except ApiError as e:
 
 ```python
 try:
-    response = await async_client.balance_accounts.post_balance_accounts()
+    response = await async_client.balance_accounts.post_balance_accounts(
+        body=BalanceAccountInfo(
+            account_holder_id="AH32272223222C5GXTD343TKP", description="S.Hopper - Main balance account"
+        ),
+    )
     # TODO: Handle 'response' of type BalanceAccount
 except ApiError as e:
     ...  # TODO: Handle 'e.error' of type PostBalanceAccountsErrorBody
@@ -7333,7 +7675,7 @@ except ApiError as e:
 | Name | Type | Description |
 | --- | --- | --- |
 | <code>body</code> | <code>[BalanceAccountInfo](adyen/models/balance_account_info.py) \| [BalanceAccountInfoDict](adyen/models/balance_account_info.py) \| None</code> | The request body.<br>**Default**: <code>None</code> |
-| <code>request_options</code> | <code>[RequestOptionsOrDict](adyen/core/request_options.py) \| None</code> | Per-call overrides for this one request, such as a timeout or extra headers. |
+| <code>request_options</code> | <code>[RequestOptionsOrDict](adyen/core/request_options.py) \| None</code> | Per-call overrides for this one request, such as a timeout, extra headers, or its retry count and statuses. |
 
 </dd>
 </dl>
@@ -7395,7 +7737,15 @@ When sending multiple API requests with the same source and destination merchant
 
 ```python
 try:
-    response = client.balance_transfers.post_balance_transfers(body)
+    response = client.balance_transfers.post_balance_transfers(
+        BalanceTransferRequest(
+            amount=Amount17(currency="EUR", value=3000),
+            from_merchant="SOURCE_MERCHANT_ACCOUNT",
+            reference="Your reference for the balance transfer.",
+            to_merchant="DESTINATION_MERCHANT_ACCOUNT",
+            type_=BalanceTransferType2.ADJUSTMENT,
+        ),
+    )
     # TODO: Handle 'response' of type BalanceTransferResponse
 except ApiError as e:
     ...  # TODO: Handle 'e.error' of type PostBalanceTransfersErrorBody
@@ -7405,7 +7755,15 @@ except ApiError as e:
 
 ```python
 try:
-    response = await async_client.balance_transfers.post_balance_transfers(body)
+    response = await async_client.balance_transfers.post_balance_transfers(
+        BalanceTransferRequest(
+            amount=Amount17(currency="EUR", value=3000),
+            from_merchant="SOURCE_MERCHANT_ACCOUNT",
+            reference="Your reference for the balance transfer.",
+            to_merchant="DESTINATION_MERCHANT_ACCOUNT",
+            type_=BalanceTransferType2.ADJUSTMENT,
+        ),
+    )
     # TODO: Handle 'response' of type BalanceTransferResponse
 except ApiError as e:
     ...  # TODO: Handle 'e.error' of type PostBalanceTransfersErrorBody
@@ -7422,7 +7780,7 @@ except ApiError as e:
 | Name | Type | Description |
 | --- | --- | --- |
 | <code>body</code> | <code>[BalanceTransferRequest](adyen/models/balance_transfer_request.py) \| [BalanceTransferRequestDict](adyen/models/balance_transfer_request.py)</code> | The request body. |
-| <code>request_options</code> | <code>[RequestOptionsOrDict](adyen/core/request_options.py) \| None</code> | Per-call overrides for this one request, such as a timeout or extra headers. |
+| <code>request_options</code> | <code>[RequestOptionsOrDict](adyen/core/request_options.py) \| None</code> | Per-call overrides for this one request, such as a timeout, extra headers, or its retry count and statuses. |
 
 </dd>
 </dl>
@@ -7481,7 +7839,7 @@ Deletes a balance webhook setting that contains the conditions for triggering [b
 ```python
 try:
     response = client.balances.delete_balance_platforms_balance_platform_id_webhooks_webhook_id_settings_setting_id(
-        balance_platform_id, webhook_id, setting_id
+        "some example string", "some example string", "some example string"
     )
     # TODO: Handle 'response' of type Any
 except ApiError as e:
@@ -7494,7 +7852,7 @@ except ApiError as e:
 ```python
 try:
     response = await async_client.balances.delete_balance_platforms_balance_platform_id_webhooks_webhook_id_settings_setting_id(
-        balance_platform_id, webhook_id, setting_id
+        "some example string", "some example string", "some example string"
     )
     # TODO: Handle 'response' of type Any
 except ApiError as e:
@@ -7515,7 +7873,7 @@ except ApiError as e:
 | <code>balance_platform_id</code> | <code>str</code> | The unique identifier of the balance platform. |
 | <code>webhook_id</code> | <code>str</code> | The unique identifier of the balance webhook. |
 | <code>setting_id</code> | <code>str</code> | The unique identifier of the balance webhook setting. |
-| <code>request_options</code> | <code>[RequestOptionsOrDict](adyen/core/request_options.py) \| None</code> | Per-call overrides for this one request, such as a timeout or extra headers. |
+| <code>request_options</code> | <code>[RequestOptionsOrDict](adyen/core/request_options.py) \| None</code> | Per-call overrides for this one request, such as a timeout, extra headers, or its retry count and statuses. |
 
 </dd>
 </dl>
@@ -7570,7 +7928,7 @@ Returns all balance webhook settings configured for triggering [balance webhooks
 ```python
 try:
     response = client.balances.get_balance_platforms_balance_platform_id_webhooks_webhook_id_settings(
-        balance_platform_id, webhook_id
+        "some example string", "some example string"
     )
     # TODO: Handle 'response' of type WebhookSettings
 except ApiError as e:
@@ -7582,7 +7940,7 @@ except ApiError as e:
 ```python
 try:
     response = await async_client.balances.get_balance_platforms_balance_platform_id_webhooks_webhook_id_settings(
-        balance_platform_id, webhook_id
+        "some example string", "some example string"
     )
     # TODO: Handle 'response' of type WebhookSettings
 except ApiError as e:
@@ -7601,7 +7959,7 @@ except ApiError as e:
 | --- | --- | --- |
 | <code>balance_platform_id</code> | <code>str</code> | The unique identifier of the balance platform. |
 | <code>webhook_id</code> | <code>str</code> | The unique identifier of the balance webhook. |
-| <code>request_options</code> | <code>[RequestOptionsOrDict](adyen/core/request_options.py) \| None</code> | Per-call overrides for this one request, such as a timeout or extra headers. |
+| <code>request_options</code> | <code>[RequestOptionsOrDict](adyen/core/request_options.py) \| None</code> | Per-call overrides for this one request, such as a timeout, extra headers, or its retry count and statuses. |
 
 </dd>
 </dl>
@@ -7656,7 +8014,7 @@ Returns the details of a specific balance webhook setting configured for trigger
 ```python
 try:
     response = client.balances.get_balance_platforms_balance_platform_id_webhooks_webhook_id_settings_setting_id(
-        balance_platform_id, webhook_id, setting_id
+        "some example string", "some example string", "some example string"
     )
     # TODO: Handle 'response' of type WebhookSetting
 except ApiError as e:
@@ -7669,7 +8027,7 @@ except ApiError as e:
 ```python
 try:
     response = await async_client.balances.get_balance_platforms_balance_platform_id_webhooks_webhook_id_settings_setting_id(
-        balance_platform_id, webhook_id, setting_id
+        "some example string", "some example string", "some example string"
     )
     # TODO: Handle 'response' of type WebhookSetting
 except ApiError as e:
@@ -7690,7 +8048,7 @@ except ApiError as e:
 | <code>balance_platform_id</code> | <code>str</code> | The unique identifier of the balance platform. |
 | <code>webhook_id</code> | <code>str</code> | The unique identifier of the balance webhook. |
 | <code>setting_id</code> | <code>str</code> | The unique identifier of the balance webhook setting. |
-| <code>request_options</code> | <code>[RequestOptionsOrDict](adyen/core/request_options.py) \| None</code> | Per-call overrides for this one request, such as a timeout or extra headers. |
+| <code>request_options</code> | <code>[RequestOptionsOrDict](adyen/core/request_options.py) \| None</code> | Per-call overrides for this one request, such as a timeout, extra headers, or its retry count and statuses. |
 
 </dd>
 </dl>
@@ -7745,7 +8103,10 @@ Updates the conditions the balance change needs to meet for Adyen to send a [bal
 ```python
 try:
     response = client.balances.patch_balance_platforms_balance_platform_id_webhooks_webhook_id_settings_setting_id(
-        balance_platform_id, webhook_id, setting_id, body
+        "some example string",
+        "some example string",
+        "some example string",
+        BalanceWebhookSettingInfoUpdate(status=Status6.INACTIVE, type_=Type201.BALANCE),
     )
     # TODO: Handle 'response' of type WebhookSetting
 except ApiError as e:
@@ -7758,7 +8119,10 @@ except ApiError as e:
 ```python
 try:
     response = await async_client.balances.patch_balance_platforms_balance_platform_id_webhooks_webhook_id_settings_setting_id(
-        balance_platform_id, webhook_id, setting_id, body
+        "some example string",
+        "some example string",
+        "some example string",
+        BalanceWebhookSettingInfoUpdate(status=Status6.INACTIVE, type_=Type201.BALANCE),
     )
     # TODO: Handle 'response' of type WebhookSetting
 except ApiError as e:
@@ -7780,7 +8144,7 @@ except ApiError as e:
 | <code>webhook_id</code> | <code>str</code> | The unique identifier of the balance webhook. |
 | <code>setting_id</code> | <code>str</code> | The unique identifier of the balance webhook setting. |
 | <code>body</code> | <code>[BalanceWebhookSettingInfoUpdate](adyen/models/balance_webhook_setting_info_update.py) \| [BalanceWebhookSettingInfoUpdateDict](adyen/models/balance_webhook_setting_info_update.py)</code> | The request body. |
-| <code>request_options</code> | <code>[RequestOptionsOrDict](adyen/core/request_options.py) \| None</code> | Per-call overrides for this one request, such as a timeout or extra headers. |
+| <code>request_options</code> | <code>[RequestOptionsOrDict](adyen/core/request_options.py) \| None</code> | Per-call overrides for this one request, such as a timeout, extra headers, or its retry count and statuses. |
 
 </dd>
 </dl>
@@ -7843,7 +8207,16 @@ You can get notified about balance changes in your entire balance platform, in t
 ```python
 try:
     response = client.balances.post_balance_platforms_balance_platform_id_webhooks_webhook_id_settings(
-        balance_platform_id, webhook_id, body
+        "some example string",
+        "some example string",
+        BalanceWebhookSettingInfo(
+            conditions=[
+                Condition(balance_type=BalanceType.AVAILABLE, condition_type=ConditionType.LESS_THAN, value=500000)
+            ],
+            currency="USD",
+            status=Status6.ACTIVE,
+            target=Target1(id="BA00000000000000000LIABLE", type_=Type181.BALANCE_ACCOUNT),
+        ),
     )
     # TODO: Handle 'response' of type WebhookSetting
 except ApiError as e:
@@ -7855,7 +8228,16 @@ except ApiError as e:
 ```python
 try:
     response = await async_client.balances.post_balance_platforms_balance_platform_id_webhooks_webhook_id_settings(
-        balance_platform_id, webhook_id, body
+        "some example string",
+        "some example string",
+        BalanceWebhookSettingInfo(
+            conditions=[
+                Condition(balance_type=BalanceType.AVAILABLE, condition_type=ConditionType.LESS_THAN, value=500000)
+            ],
+            currency="USD",
+            status=Status6.ACTIVE,
+            target=Target1(id="BA00000000000000000LIABLE", type_=Type181.BALANCE_ACCOUNT),
+        ),
     )
     # TODO: Handle 'response' of type WebhookSetting
 except ApiError as e:
@@ -7875,7 +8257,7 @@ except ApiError as e:
 | <code>balance_platform_id</code> | <code>str</code> | The unique identifier of the balance platform. |
 | <code>webhook_id</code> | <code>str</code> | The unique identifier of the balance webhook. |
 | <code>body</code> | <code>[BalanceWebhookSettingInfo](adyen/models/balance_webhook_setting_info.py) \| [BalanceWebhookSettingInfoDict](adyen/models/balance_webhook_setting_info.py)</code> | The request body. |
-| <code>request_options</code> | <code>[RequestOptionsOrDict](adyen/core/request_options.py) \| None</code> | Per-call overrides for this one request, such as a timeout or extra headers. |
+| <code>request_options</code> | <code>[RequestOptionsOrDict](adyen/core/request_options.py) \| None</code> | Per-call overrides for this one request, such as a timeout, extra headers, or its retry count and statuses. |
 
 </dd>
 </dl>
@@ -7948,7 +8330,7 @@ Returns an array with details about the balances available for all merchant acco
 ```python
 try:
     response = client.balances_overview.get_balance_overview_companies_company_account_code_balances(
-        company_account_code, currency
+        "some example string", "some example string"
     )
     # TODO: Handle 'response' of type CompanyBalances
 except ApiError as e:
@@ -7960,7 +8342,7 @@ except ApiError as e:
 ```python
 try:
     response = await async_client.balances_overview.get_balance_overview_companies_company_account_code_balances(
-        company_account_code, currency
+        "some example string", "some example string"
     )
     # TODO: Handle 'response' of type CompanyBalances
 except ApiError as e:
@@ -7979,7 +8361,7 @@ except ApiError as e:
 | --- | --- | --- |
 | <code>company_account_code</code> | <code>str</code> | The unique identifier of your company account. |
 | <code>currency</code> | <code>str</code> | The currency for which you want a balances overview. |
-| <code>request_options</code> | <code>[RequestOptionsOrDict](adyen/core/request_options.py) \| None</code> | Per-call overrides for this one request, such as a timeout or extra headers. |
+| <code>request_options</code> | <code>[RequestOptionsOrDict](adyen/core/request_options.py) \| None</code> | Per-call overrides for this one request, such as a timeout, extra headers, or its retry count and statuses. |
 
 </dd>
 </dl>
@@ -8048,7 +8430,7 @@ Returns an overview of the different balances available for the merchant account
 ```python
 try:
     response = client.balances_overview.get_balance_overview_merchants_merchant_account_code_balances(
-        merchant_account_code, currency
+        "some example string", "some example string"
     )
     # TODO: Handle 'response' of type MerchantBalance
 except ApiError as e:
@@ -8060,7 +8442,7 @@ except ApiError as e:
 ```python
 try:
     response = await async_client.balances_overview.get_balance_overview_merchants_merchant_account_code_balances(
-        merchant_account_code, currency
+        "some example string", "some example string"
     )
     # TODO: Handle 'response' of type MerchantBalance
 except ApiError as e:
@@ -8079,7 +8461,7 @@ except ApiError as e:
 | --- | --- | --- |
 | <code>merchant_account_code</code> | <code>str</code> | The unique identifier of your merchant account. |
 | <code>currency</code> | <code>str</code> | The currency for which you want a balances overview. |
-| <code>request_options</code> | <code>[RequestOptionsOrDict](adyen/core/request_options.py) \| None</code> | Per-call overrides for this one request, such as a timeout or extra headers. |
+| <code>request_options</code> | <code>[RequestOptionsOrDict](adyen/core/request_options.py) \| None</code> | Per-call overrides for this one request, such as a timeout, extra headers, or its retry count and statuses. |
 
 </dd>
 </dl>
@@ -8162,7 +8544,7 @@ except ApiError as e:
 | Name | Type | Description |
 | --- | --- | --- |
 | <code>body</code> | <code>[BankAccountIdentificationValidationRequest](adyen/models/bank_account_identification_validation_request.py) \| [BankAccountIdentificationValidationRequestDict](adyen/models/bank_account_identification_validation_request.py) \| None</code> | The request body.<br>**Default**: <code>None</code> |
-| <code>request_options</code> | <code>[RequestOptionsOrDict](adyen/core/request_options.py) \| None</code> | Per-call overrides for this one request, such as a timeout or extra headers. |
+| <code>request_options</code> | <code>[RequestOptionsOrDict](adyen/core/request_options.py) \| None</code> | Per-call overrides for this one request, such as a timeout, extra headers, or its retry count and statuses. |
 
 </dd>
 </dl>
@@ -8196,7 +8578,7 @@ Mapped in first-match order -- an earlier row wins over a later range that also 
 > Source: [BusinessLinesApi](adyen/apis/business_lines_api.py)
 
 <details>
-<summary><code>def delete_business_lines_id(id: str, *, request_options: RequestOptionsOrDict | None = None) -> None</code></summary>
+<summary><code>def delete_business_lines_id(id_: str, *, request_options: RequestOptionsOrDict | None = None) -> None</code></summary>
 
 <dl>
 <dd>
@@ -8230,7 +8612,7 @@ Requests to this endpoint are subject to rate limits:
 
 ```python
 try:
-    client.business_lines_api.delete_business_lines_id(id)
+    client.business_lines_api.delete_business_lines_id("some example string")
 except ApiError as e:
     ...  # TODO: Handle 'e.error' of type DeleteBusinessLinesIdErrorBody
 ```
@@ -8239,7 +8621,7 @@ except ApiError as e:
 
 ```python
 try:
-    await async_client.business_lines_api.delete_business_lines_id(id)
+    await async_client.business_lines_api.delete_business_lines_id("some example string")
 except ApiError as e:
     ...  # TODO: Handle 'e.error' of type DeleteBusinessLinesIdErrorBody
 ```
@@ -8254,8 +8636,8 @@ except ApiError as e:
 
 | Name | Type | Description |
 | --- | --- | --- |
-| <code>id</code> | <code>str</code> | The unique identifier of the business line to be deleted. |
-| <code>request_options</code> | <code>[RequestOptionsOrDict](adyen/core/request_options.py) \| None</code> | Per-call overrides for this one request, such as a timeout or extra headers. |
+| <code>id_</code> | <code>str</code> | The unique identifier of the business line to be deleted. |
+| <code>request_options</code> | <code>[RequestOptionsOrDict](adyen/core/request_options.py) \| None</code> | Per-call overrides for this one request, such as a timeout, extra headers, or its retry count and statuses. |
 
 </dd>
 </dl>
@@ -8285,7 +8667,7 @@ Mapped in first-match order -- an earlier row wins over a later range that also 
 </details>
 
 <details>
-<summary><code>def get_business_lines_id(id: str, *, request_options: RequestOptionsOrDict | None = None) -> BusinessLine</code></summary>
+<summary><code>def get_business_lines_id(id_: str, *, request_options: RequestOptionsOrDict | None = None) -> BusinessLine</code></summary>
 
 <dl>
 <dd>
@@ -8317,7 +8699,7 @@ Requests to this endpoint are subject to rate limits:
 
 ```python
 try:
-    response = client.business_lines_api.get_business_lines_id(id)
+    response = client.business_lines_api.get_business_lines_id("some example string")
     # TODO: Handle 'response' of type BusinessLine
 except ApiError as e:
     ...  # TODO: Handle 'e.error' of type GetBusinessLinesIdErrorBody
@@ -8327,7 +8709,7 @@ except ApiError as e:
 
 ```python
 try:
-    response = await async_client.business_lines_api.get_business_lines_id(id)
+    response = await async_client.business_lines_api.get_business_lines_id("some example string")
     # TODO: Handle 'response' of type BusinessLine
 except ApiError as e:
     ...  # TODO: Handle 'e.error' of type GetBusinessLinesIdErrorBody
@@ -8343,8 +8725,8 @@ except ApiError as e:
 
 | Name | Type | Description |
 | --- | --- | --- |
-| <code>id</code> | <code>str</code> | The unique identifier of the business line. |
-| <code>request_options</code> | <code>[RequestOptionsOrDict](adyen/core/request_options.py) \| None</code> | Per-call overrides for this one request, such as a timeout or extra headers. |
+| <code>id_</code> | <code>str</code> | The unique identifier of the business line. |
+| <code>request_options</code> | <code>[RequestOptionsOrDict](adyen/core/request_options.py) \| None</code> | Per-call overrides for this one request, such as a timeout, extra headers, or its retry count and statuses. |
 
 </dd>
 </dl>
@@ -8374,7 +8756,7 @@ Mapped in first-match order -- an earlier row wins over a later range that also 
 </details>
 
 <details>
-<summary><code>def patch_business_lines_id(id: str, *, body: BusinessLineInfoUpdate | BusinessLineInfoUpdateDict | None = None, request_options: RequestOptionsOrDict | None = None) -> BusinessLine</code></summary>
+<summary><code>def patch_business_lines_id(id_: str, *, body: BusinessLineInfoUpdate | BusinessLineInfoUpdateDict | None = None, request_options: RequestOptionsOrDict | None = None) -> BusinessLine</code></summary>
 
 <dl>
 <dd>
@@ -8406,7 +8788,10 @@ Requests to this endpoint are subject to rate limits:
 
 ```python
 try:
-    response = client.business_lines_api.patch_business_lines_id(id)
+    response = client.business_lines_api.patch_business_lines_id(
+        "some example string",
+        body=BusinessLineInfoUpdate(industry_code="55", web_data=[WebData(web_address="https://www.example.com")]),
+    )
     # TODO: Handle 'response' of type BusinessLine
 except ApiError as e:
     ...  # TODO: Handle 'e.error' of type PatchBusinessLinesIdErrorBody
@@ -8416,7 +8801,10 @@ except ApiError as e:
 
 ```python
 try:
-    response = await async_client.business_lines_api.patch_business_lines_id(id)
+    response = await async_client.business_lines_api.patch_business_lines_id(
+        "some example string",
+        body=BusinessLineInfoUpdate(industry_code="55", web_data=[WebData(web_address="https://www.example.com")]),
+    )
     # TODO: Handle 'response' of type BusinessLine
 except ApiError as e:
     ...  # TODO: Handle 'e.error' of type PatchBusinessLinesIdErrorBody
@@ -8432,9 +8820,9 @@ except ApiError as e:
 
 | Name | Type | Description |
 | --- | --- | --- |
-| <code>id</code> | <code>str</code> | The unique identifier of the business line. |
+| <code>id_</code> | <code>str</code> | The unique identifier of the business line. |
 | <code>body</code> | <code>[BusinessLineInfoUpdate](adyen/models/business_line_info_update.py) \| [BusinessLineInfoUpdateDict](adyen/models/business_line_info_update.py) \| None</code> | The request body.<br>**Default**: <code>None</code> |
-| <code>request_options</code> | <code>[RequestOptionsOrDict](adyen/core/request_options.py) \| None</code> | Per-call overrides for this one request, such as a timeout or extra headers. |
+| <code>request_options</code> | <code>[RequestOptionsOrDict](adyen/core/request_options.py) \| None</code> | Per-call overrides for this one request, such as a timeout, extra headers, or its retry count and statuses. |
 
 </dd>
 </dl>
@@ -8500,7 +8888,20 @@ Requests to this endpoint are subject to rate limits:
 
 ```python
 try:
-    response = client.business_lines_api.post_business_lines()
+    response = client.business_lines_api.post_business_lines(
+        body=BusinessLineInfo(
+            industry_code="4531",
+            legal_entity_id="LE00000000000000000000001",
+            service=Service.BANKING,
+            source_of_funds=SourceOfFunds11(
+                adyen_processed_funds=False,
+                amount=PatchableAmountDto(currency="EUR", value=600000),
+                description="Funds from my flower shop business",
+                type_=Type74.BUSINESS,
+            ),
+            web_data=[WebData(web_address="https://www.adyen.com")],
+        ),
+    )
     # TODO: Handle 'response' of type BusinessLine
 except ApiError as e:
     ...  # TODO: Handle 'e.error' of type PostBusinessLinesErrorBody
@@ -8510,7 +8911,20 @@ except ApiError as e:
 
 ```python
 try:
-    response = await async_client.business_lines_api.post_business_lines()
+    response = await async_client.business_lines_api.post_business_lines(
+        body=BusinessLineInfo(
+            industry_code="4531",
+            legal_entity_id="LE00000000000000000000001",
+            service=Service.BANKING,
+            source_of_funds=SourceOfFunds11(
+                adyen_processed_funds=False,
+                amount=PatchableAmountDto(currency="EUR", value=600000),
+                description="Funds from my flower shop business",
+                type_=Type74.BUSINESS,
+            ),
+            web_data=[WebData(web_address="https://www.adyen.com")],
+        ),
+    )
     # TODO: Handle 'response' of type BusinessLine
 except ApiError as e:
     ...  # TODO: Handle 'e.error' of type PostBusinessLinesErrorBody
@@ -8527,7 +8941,7 @@ except ApiError as e:
 | Name | Type | Description |
 | --- | --- | --- |
 | <code>body</code> | <code>[BusinessLineInfo](adyen/models/business_line_info.py) \| [BusinessLineInfoDict](adyen/models/business_line_info.py) \| None</code> | The request body.<br>**Default**: <code>None</code> |
-| <code>request_options</code> | <code>[RequestOptionsOrDict](adyen/core/request_options.py) \| None</code> | Per-call overrides for this one request, such as a timeout or extra headers. |
+| <code>request_options</code> | <code>[RequestOptionsOrDict](adyen/core/request_options.py) \| None</code> | Per-call overrides for this one request, such as a timeout, extra headers, or its retry count and statuses. |
 
 </dd>
 </dl>
@@ -8612,7 +9026,7 @@ except ApiError as e:
 | Name | Type | Description |
 | --- | --- | --- |
 | <code>counterparty_account_holder_id</code> | <code>str \| None</code> | The counterparty account holder id.<br>**Default**: <code>None</code> |
-| <code>request_options</code> | <code>[RequestOptionsOrDict](adyen/core/request_options.py) \| None</code> | Per-call overrides for this one request, such as a timeout or extra headers. |
+| <code>request_options</code> | <code>[RequestOptionsOrDict](adyen/core/request_options.py) \| None</code> | Per-call overrides for this one request, such as a timeout, extra headers, or its retry count and statuses. |
 
 </dd>
 </dl>
@@ -8642,7 +9056,7 @@ Mapped in first-match order -- an earlier row wins over a later range that also 
 </details>
 
 <details>
-<summary><code>def get_grants_id(id: str, *, request_options: RequestOptionsOrDict | None = None) -> CapitalGrant</code></summary>
+<summary><code>def get_grants_id(id_: str, *, request_options: RequestOptionsOrDict | None = None) -> CapitalGrant</code></summary>
 
 <dl>
 <dd>
@@ -8666,7 +9080,7 @@ Returns the details of a capital account specified in the path.
 
 ```python
 try:
-    response = client.capital.get_grants_id(id)
+    response = client.capital.get_grants_id("some example string")
     # TODO: Handle 'response' of type CapitalGrant
 except ApiError as e:
     ...  # TODO: Handle 'e.error' of type GetGrantsIdErrorBody
@@ -8676,7 +9090,7 @@ except ApiError as e:
 
 ```python
 try:
-    response = await async_client.capital.get_grants_id(id)
+    response = await async_client.capital.get_grants_id("some example string")
     # TODO: Handle 'response' of type CapitalGrant
 except ApiError as e:
     ...  # TODO: Handle 'e.error' of type GetGrantsIdErrorBody
@@ -8692,8 +9106,8 @@ except ApiError as e:
 
 | Name | Type | Description |
 | --- | --- | --- |
-| <code>id</code> | <code>str</code> | The unique identifier of the grant. |
-| <code>request_options</code> | <code>[RequestOptionsOrDict](adyen/core/request_options.py) \| None</code> | Per-call overrides for this one request, such as a timeout or extra headers. |
+| <code>id_</code> | <code>str</code> | The unique identifier of the grant. |
+| <code>request_options</code> | <code>[RequestOptionsOrDict](adyen/core/request_options.py) \| None</code> | Per-call overrides for this one request, such as a timeout, extra headers, or its retry count and statuses. |
 
 </dd>
 </dl>
@@ -8747,7 +9161,14 @@ Requests the payout of the selected grant offer.
 
 ```python
 try:
-    response = client.capital.post_grants()
+    response = client.capital.post_grants(
+        idempotency_key="37ca9c97-d1d1-4c62-89e8-706891a563ed",
+        body=CapitalGrantInfo(
+            counterparty=GrantInfoCounterparty2(balance_account_id="BA00000000000000000000001"),
+            grant_account_id="CG00000000000000000000001",
+            grant_offer_id="0000000000000001",
+        ),
+    )
     # TODO: Handle 'response' of type CapitalGrant
 except ApiError as e:
     ...  # TODO: Handle 'e.error' of type PostGrantsErrorBody
@@ -8757,7 +9178,14 @@ except ApiError as e:
 
 ```python
 try:
-    response = await async_client.capital.post_grants()
+    response = await async_client.capital.post_grants(
+        idempotency_key="37ca9c97-d1d1-4c62-89e8-706891a563ed",
+        body=CapitalGrantInfo(
+            counterparty=GrantInfoCounterparty2(balance_account_id="BA00000000000000000000001"),
+            grant_account_id="CG00000000000000000000001",
+            grant_offer_id="0000000000000001",
+        ),
+    )
     # TODO: Handle 'response' of type CapitalGrant
 except ApiError as e:
     ...  # TODO: Handle 'e.error' of type PostGrantsErrorBody
@@ -8775,7 +9203,7 @@ except ApiError as e:
 | --- | --- | --- |
 | <code>idempotency_key</code> | <code>str \| None</code> | A unique identifier for the message with a maximum of 64 characters (we recommend a UUID).<br>**Default**: <code>None</code> |
 | <code>body</code> | <code>[CapitalGrantInfo](adyen/models/capital_grant_info.py) \| [CapitalGrantInfoDict](adyen/models/capital_grant_info.py) \| None</code> | The request body.<br>**Default**: <code>None</code> |
-| <code>request_options</code> | <code>[RequestOptionsOrDict](adyen/core/request_options.py) \| None</code> | Per-call overrides for this one request, such as a timeout or extra headers. |
+| <code>request_options</code> | <code>[RequestOptionsOrDict](adyen/core/request_options.py) \| None</code> | Per-call overrides for this one request, such as a timeout, extra headers, or its retry count and statuses. |
 
 </dd>
 </dl>
@@ -8809,7 +9237,7 @@ Mapped in first-match order -- an earlier row wins over a later range that also 
 > Source: [CardOrders](adyen/apis/card_orders.py)
 
 <details>
-<summary><code>def get_cardorders(*, id: str | None = None, card_manufacturing_profile_id: str | None = None, status: str | None = None, tx_variant_code: str | None = None, created_since: RFC3339DateTime | None = None, created_until: RFC3339DateTime | None = None, locked_since: RFC3339DateTime | None = None, locked_until: RFC3339DateTime | None = None, service_center: str | None = None, offset: int | None = None, limit: int | None = None, request_options: RequestOptionsOrDict | None = None) -> PaginatedGetCardOrderResponse</code></summary>
+<summary><code>def get_cardorders(*, id_: str | None = None, card_manufacturing_profile_id: str | None = None, status: str | None = None, tx_variant_code: str | None = None, created_since: RFC3339DateTime | None = None, created_until: RFC3339DateTime | None = None, locked_since: RFC3339DateTime | None = None, locked_until: RFC3339DateTime | None = None, service_center: str | None = None, offset: int | None = None, limit: int | None = None, request_options: RequestOptionsOrDict | None = None) -> PaginatedGetCardOrderResponse</code></summary>
 
 <dl>
 <dd>
@@ -8859,7 +9287,7 @@ except ApiError as e:
 
 | Name | Type | Description |
 | --- | --- | --- |
-| <code>id</code> | <code>str \| None</code> | The unique identifier of the card order.<br>**Default**: <code>None</code> |
+| <code>id_</code> | <code>str \| None</code> | The unique identifier of the card order.<br>**Default**: <code>None</code> |
 | <code>card_manufacturing_profile_id</code> | <code>str \| None</code> | The unique identifier of the card manufacturer profile.<br>**Default**: <code>None</code> |
 | <code>status</code> | <code>str \| None</code> | The status of the card order.<br>**Default**: <code>None</code> |
 | <code>tx_variant_code</code> | <code>str \| None</code> | The unique code of the card manufacturer profile.<br><br>Possible values: **mcmaestro**, **mc**, **visa**, **mcdebit**.<br>**Default**: <code>None</code> |
@@ -8870,7 +9298,7 @@ except ApiError as e:
 | <code>service_center</code> | <code>str \| None</code> | The service center at which the card is issued. The value is case-sensitive.<br>**Default**: <code>None</code> |
 | <code>offset</code> | <code>int \| None</code> | Specifies the position of an element in a list of card orders. The response includes a list of card orders that starts at the specified offset.<br><br>**Default:** 0, which means that the response contains all the elements in the list of card orders.<br>**Default**: <code>None</code> |
 | <code>limit</code> | <code>int \| None</code> | The number of card orders returned per page. **Default:** 10.<br>**Default**: <code>None</code> |
-| <code>request_options</code> | <code>[RequestOptionsOrDict](adyen/core/request_options.py) \| None</code> | Per-call overrides for this one request, such as a timeout or extra headers. |
+| <code>request_options</code> | <code>[RequestOptionsOrDict](adyen/core/request_options.py) \| None</code> | Per-call overrides for this one request, such as a timeout, extra headers, or its retry count and statuses. |
 
 </dd>
 </dl>
@@ -8900,7 +9328,7 @@ Mapped in first-match order -- an earlier row wins over a later range that also 
 </details>
 
 <details>
-<summary><code>def get_cardorders_id_items(id: str, *, offset: int | None = None, limit: int | None = None, request_options: RequestOptionsOrDict | None = None) -> PaginatedGetCardOrderItemResponse</code></summary>
+<summary><code>def get_cardorders_id_items(id_: str, *, offset: int | None = None, limit: int | None = None, request_options: RequestOptionsOrDict | None = None) -> PaginatedGetCardOrderItemResponse</code></summary>
 
 <dl>
 <dd>
@@ -8924,7 +9352,7 @@ Returns the item list of a specific card order.
 
 ```python
 try:
-    response = client.card_orders.get_cardorders_id_items(id)
+    response = client.card_orders.get_cardorders_id_items("some example string")
     # TODO: Handle 'response' of type PaginatedGetCardOrderItemResponse
 except ApiError as e:
     ...  # TODO: Handle 'e.error' of type GetCardordersIdItemsErrorBody
@@ -8934,7 +9362,7 @@ except ApiError as e:
 
 ```python
 try:
-    response = await async_client.card_orders.get_cardorders_id_items(id)
+    response = await async_client.card_orders.get_cardorders_id_items("some example string")
     # TODO: Handle 'response' of type PaginatedGetCardOrderItemResponse
 except ApiError as e:
     ...  # TODO: Handle 'e.error' of type GetCardordersIdItemsErrorBody
@@ -8950,10 +9378,10 @@ except ApiError as e:
 
 | Name | Type | Description |
 | --- | --- | --- |
-| <code>id</code> | <code>str</code> | The unique identifier of the card order. |
+| <code>id_</code> | <code>str</code> | The unique identifier of the card order. |
 | <code>offset</code> | <code>int \| None</code> | Specifies the position of an element in a list of card orders. The response includes a list of card order items that starts at the specified offset.<br><br>**Default:** 0, which means that the response contains all the elements in the list of card order items.<br>**Default**: <code>None</code> |
 | <code>limit</code> | <code>int \| None</code> | The number of card order items returned per page. **Default:** 10.<br>**Default**: <code>None</code> |
-| <code>request_options</code> | <code>[RequestOptionsOrDict](adyen/core/request_options.py) \| None</code> | Per-call overrides for this one request, such as a timeout or extra headers. |
+| <code>request_options</code> | <code>[RequestOptionsOrDict](adyen/core/request_options.py) \| None</code> | Per-call overrides for this one request, such as a timeout, extra headers, or its retry count and statuses. |
 
 </dd>
 </dl>
@@ -9011,7 +9439,16 @@ Initiates a [cashout](https://docs.adyen.com/platforms/cash-out-instantly) reque
 
 ```python
 try:
-    response = client.cash_out_api.post_cashouts(body)
+    response = client.cash_out_api.post_cashouts(
+        CashOutInfo(
+            amount=Amount17(currency="EUR", value=50000),
+            counterparty=CashOutInfoCounterparty1(transfer_instrument_id="SE00000000000000000000001"),
+            description="Cashout to bank account",
+            fee=Fee21(amount=Amount17(currency="EUR", value=500)),
+            instructing_balance_account_id="BA00000000000000000000001",
+            reference_for_beneficiary="CASHOUT-REF-001",
+        ),
+    )
     # TODO: Handle 'response' of type CashOut
 except ApiError as e:
     ...  # TODO: Handle 'e.error' of type PostCashoutsErrorBody
@@ -9021,7 +9458,16 @@ except ApiError as e:
 
 ```python
 try:
-    response = await async_client.cash_out_api.post_cashouts(body)
+    response = await async_client.cash_out_api.post_cashouts(
+        CashOutInfo(
+            amount=Amount17(currency="EUR", value=50000),
+            counterparty=CashOutInfoCounterparty1(transfer_instrument_id="SE00000000000000000000001"),
+            description="Cashout to bank account",
+            fee=Fee21(amount=Amount17(currency="EUR", value=500)),
+            instructing_balance_account_id="BA00000000000000000000001",
+            reference_for_beneficiary="CASHOUT-REF-001",
+        ),
+    )
     # TODO: Handle 'response' of type CashOut
 except ApiError as e:
     ...  # TODO: Handle 'e.error' of type PostCashoutsErrorBody
@@ -9038,7 +9484,7 @@ except ApiError as e:
 | Name | Type | Description |
 | --- | --- | --- |
 | <code>body</code> | <code>[CashOutInfo](adyen/models/cash_out_info.py) \| [CashOutInfoDict](adyen/models/cash_out_info.py)</code> | The request body. |
-| <code>request_options</code> | <code>[RequestOptionsOrDict](adyen/core/request_options.py) \| None</code> | Per-call overrides for this one request, such as a timeout or extra headers. |
+| <code>request_options</code> | <code>[RequestOptionsOrDict](adyen/core/request_options.py) \| None</code> | Per-call overrides for this one request, such as a timeout, extra headers, or its retry count and statuses. |
 
 </dd>
 </dl>
@@ -9100,7 +9546,7 @@ To make this request, your API credential must have the following [roles](https:
 ```python
 try:
     response = client.client_key_company_level.post_companies_company_id_api_credentials_api_credential_id_generate_client_key(
-        company_id, api_credential_id
+        "some example string", "some example string"
     )
     # TODO: Handle 'response' of type GenerateClientKeyResponse
 except ApiError as e:
@@ -9112,7 +9558,7 @@ except ApiError as e:
 ```python
 try:
     response = await async_client.client_key_company_level.post_companies_company_id_api_credentials_api_credential_id_generate_client_key(
-        company_id, api_credential_id
+        "some example string", "some example string"
     )
     # TODO: Handle 'response' of type GenerateClientKeyResponse
 except ApiError as e:
@@ -9131,7 +9577,7 @@ except ApiError as e:
 | --- | --- | --- |
 | <code>company_id</code> | <code>str</code> | The unique identifier of the company account. |
 | <code>api_credential_id</code> | <code>str</code> | Unique identifier of the API credential. |
-| <code>request_options</code> | <code>[RequestOptionsOrDict](adyen/core/request_options.py) \| None</code> | Per-call overrides for this one request, such as a timeout or extra headers. |
+| <code>request_options</code> | <code>[RequestOptionsOrDict](adyen/core/request_options.py) \| None</code> | Per-call overrides for this one request, such as a timeout, extra headers, or its retry count and statuses. |
 
 </dd>
 </dl>
@@ -9193,7 +9639,7 @@ To make this request, your API credential must have the following [roles](https:
 ```python
 try:
     response = client.client_key_merchant_level.post_merchants_merchant_id_api_credentials_api_credential_id_generate_client_key(
-        merchant_id, api_credential_id
+        "some example string", "some example string"
     )
     # TODO: Handle 'response' of type GenerateClientKeyResponse
 except ApiError as e:
@@ -9205,7 +9651,7 @@ except ApiError as e:
 ```python
 try:
     response = await async_client.client_key_merchant_level.post_merchants_merchant_id_api_credentials_api_credential_id_generate_client_key(
-        merchant_id, api_credential_id
+        "some example string", "some example string"
     )
     # TODO: Handle 'response' of type GenerateClientKeyResponse
 except ApiError as e:
@@ -9224,7 +9670,7 @@ except ApiError as e:
 | --- | --- | --- |
 | <code>merchant_id</code> | <code>str</code> | The unique identifier of the merchant account. |
 | <code>api_credential_id</code> | <code>str</code> | Unique identifier of the API credential. |
-| <code>request_options</code> | <code>[RequestOptionsOrDict](adyen/core/request_options.py) \| None</code> | Per-call overrides for this one request, such as a timeout or extra headers. |
+| <code>request_options</code> | <code>[RequestOptionsOrDict](adyen/core/request_options.py) \| None</code> | Per-call overrides for this one request, such as a timeout, extra headers, or its retry count and statuses. |
 
 </dd>
 </dl>
@@ -9283,7 +9729,7 @@ Deletes a sweep for a balance account.
 ```python
 try:
     client.custom_payout_schedules_sweeps.delete_balance_accounts_balance_account_id_sweeps_sweep_id(
-        balance_account_id, sweep_id
+        "some example string", "some example string"
     )
 except ApiError as e:
     ...  # TODO: Handle 'e.error' of type DeleteBalanceAccountsBalanceAccountIdSweepsSweepIdErrorBody
@@ -9294,7 +9740,7 @@ except ApiError as e:
 ```python
 try:
     await async_client.custom_payout_schedules_sweeps.delete_balance_accounts_balance_account_id_sweeps_sweep_id(
-        balance_account_id, sweep_id
+        "some example string", "some example string"
     )
 except ApiError as e:
     ...  # TODO: Handle 'e.error' of type DeleteBalanceAccountsBalanceAccountIdSweepsSweepIdErrorBody
@@ -9312,7 +9758,7 @@ except ApiError as e:
 | --- | --- | --- |
 | <code>balance_account_id</code> | <code>str</code> | The unique identifier of the balance account. |
 | <code>sweep_id</code> | <code>str</code> | The unique identifier of the sweep. |
-| <code>request_options</code> | <code>[RequestOptionsOrDict](adyen/core/request_options.py) \| None</code> | Per-call overrides for this one request, such as a timeout or extra headers. |
+| <code>request_options</code> | <code>[RequestOptionsOrDict](adyen/core/request_options.py) \| None</code> | Per-call overrides for this one request, such as a timeout, extra headers, or its retry count and statuses. |
 
 </dd>
 </dl>
@@ -9368,7 +9814,9 @@ To fetch multiple pages, use the query parameters. For example, to limit the pag
 
 ```python
 try:
-    response = client.custom_payout_schedules_sweeps.get_balance_accounts_balance_account_id_sweeps(balance_account_id)
+    response = client.custom_payout_schedules_sweeps.get_balance_accounts_balance_account_id_sweeps(
+        "some example string"
+    )
     # TODO: Handle 'response' of type BalanceSweepConfigurationsResponse
 except ApiError as e:
     ...  # TODO: Handle 'e.error' of type GetBalanceAccountsBalanceAccountIdSweepsErrorBody
@@ -9379,7 +9827,7 @@ except ApiError as e:
 ```python
 try:
     response = await async_client.custom_payout_schedules_sweeps.get_balance_accounts_balance_account_id_sweeps(
-        balance_account_id
+        "some example string"
     )
     # TODO: Handle 'response' of type BalanceSweepConfigurationsResponse
 except ApiError as e:
@@ -9399,7 +9847,7 @@ except ApiError as e:
 | <code>balance_account_id</code> | <code>str</code> | The unique identifier of the balance account. |
 | <code>offset</code> | <code>int \| None</code> | The number of items that you want to skip.<br>**Default**: <code>None</code> |
 | <code>limit</code> | <code>int \| None</code> | The number of items returned per page, maximum 100 items. By default, the response returns 10 items per page.<br>**Default**: <code>None</code> |
-| <code>request_options</code> | <code>[RequestOptionsOrDict](adyen/core/request_options.py) \| None</code> | Per-call overrides for this one request, such as a timeout or extra headers. |
+| <code>request_options</code> | <code>[RequestOptionsOrDict](adyen/core/request_options.py) \| None</code> | Per-call overrides for this one request, such as a timeout, extra headers, or its retry count and statuses. |
 
 </dd>
 </dl>
@@ -9454,7 +9902,7 @@ Returns a sweep.
 ```python
 try:
     response = client.custom_payout_schedules_sweeps.get_balance_accounts_balance_account_id_sweeps_sweep_id(
-        balance_account_id, sweep_id
+        "some example string", "some example string"
     )
     # TODO: Handle 'response' of type SweepConfigurationV2
 except ApiError as e:
@@ -9466,7 +9914,7 @@ except ApiError as e:
 ```python
 try:
     response = await async_client.custom_payout_schedules_sweeps.get_balance_accounts_balance_account_id_sweeps_sweep_id(
-        balance_account_id, sweep_id
+        "some example string", "some example string"
     )
     # TODO: Handle 'response' of type SweepConfigurationV2
 except ApiError as e:
@@ -9485,7 +9933,7 @@ except ApiError as e:
 | --- | --- | --- |
 | <code>balance_account_id</code> | <code>str</code> | The unique identifier of the balance account. |
 | <code>sweep_id</code> | <code>str</code> | The unique identifier of the sweep. |
-| <code>request_options</code> | <code>[RequestOptionsOrDict](adyen/core/request_options.py) \| None</code> | Per-call overrides for this one request, such as a timeout or extra headers. |
+| <code>request_options</code> | <code>[RequestOptionsOrDict](adyen/core/request_options.py) \| None</code> | Per-call overrides for this one request, such as a timeout, extra headers, or its retry count and statuses. |
 
 </dd>
 </dl>
@@ -9540,7 +9988,7 @@ Updates a sweep. When updating a sweep resource, note that if a request paramete
 ```python
 try:
     response = client.custom_payout_schedules_sweeps.patch_balance_accounts_balance_account_id_sweeps_sweep_id(
-        balance_account_id, sweep_id
+        "some example string", "some example string", body=UpdateSweepConfigurationV2(status=Status6.INACTIVE)
     )
     # TODO: Handle 'response' of type SweepConfigurationV2
 except ApiError as e:
@@ -9552,7 +10000,7 @@ except ApiError as e:
 ```python
 try:
     response = await async_client.custom_payout_schedules_sweeps.patch_balance_accounts_balance_account_id_sweeps_sweep_id(
-        balance_account_id, sweep_id
+        "some example string", "some example string", body=UpdateSweepConfigurationV2(status=Status6.INACTIVE)
     )
     # TODO: Handle 'response' of type SweepConfigurationV2
 except ApiError as e:
@@ -9572,7 +10020,7 @@ except ApiError as e:
 | <code>balance_account_id</code> | <code>str</code> | The unique identifier of the balance account. |
 | <code>sweep_id</code> | <code>str</code> | The unique identifier of the sweep. |
 | <code>body</code> | <code>[UpdateSweepConfigurationV2](adyen/models/update_sweep_configuration_v2.py) \| [UpdateSweepConfigurationV2Dict](adyen/models/update_sweep_configuration_v2.py) \| None</code> | The request body.<br>**Default**: <code>None</code> |
-| <code>request_options</code> | <code>[RequestOptionsOrDict](adyen/core/request_options.py) \| None</code> | Per-call overrides for this one request, such as a timeout or extra headers. |
+| <code>request_options</code> | <code>[RequestOptionsOrDict](adyen/core/request_options.py) \| None</code> | Per-call overrides for this one request, such as a timeout, extra headers, or its retry count and statuses. |
 
 </dd>
 </dl>
@@ -9628,7 +10076,17 @@ A sweep pulls in or pushes out funds based on a defined schedule, amount, curren
 
 ```python
 try:
-    response = client.custom_payout_schedules_sweeps.post_balance_accounts_balance_account_id_sweeps(balance_account_id)
+    response = client.custom_payout_schedules_sweeps.post_balance_accounts_balance_account_id_sweeps(
+        "some example string",
+        body=CreateSweepConfigurationV2(
+            counterparty=SweepCounterparty1(merchant_account="YOUR_MERCHANT_ACCOUNT"),
+            currency="EUR",
+            schedule=SweepSchedule1(type_=Type62.BALANCE),
+            status=Status6.ACTIVE,
+            trigger_amount=Amount17(currency="EUR", value=50000),
+            type_=Type72.PULL,
+        ),
+    )
     # TODO: Handle 'response' of type SweepConfigurationV2
 except ApiError as e:
     ...  # TODO: Handle 'e.error' of type PostBalanceAccountsBalanceAccountIdSweepsErrorBody
@@ -9639,7 +10097,15 @@ except ApiError as e:
 ```python
 try:
     response = await async_client.custom_payout_schedules_sweeps.post_balance_accounts_balance_account_id_sweeps(
-        balance_account_id
+        "some example string",
+        body=CreateSweepConfigurationV2(
+            counterparty=SweepCounterparty1(merchant_account="YOUR_MERCHANT_ACCOUNT"),
+            currency="EUR",
+            schedule=SweepSchedule1(type_=Type62.BALANCE),
+            status=Status6.ACTIVE,
+            trigger_amount=Amount17(currency="EUR", value=50000),
+            type_=Type72.PULL,
+        ),
     )
     # TODO: Handle 'response' of type SweepConfigurationV2
 except ApiError as e:
@@ -9658,7 +10124,7 @@ except ApiError as e:
 | --- | --- | --- |
 | <code>balance_account_id</code> | <code>str</code> | The unique identifier of the balance account. |
 | <code>body</code> | <code>[CreateSweepConfigurationV2](adyen/models/create_sweep_configuration_v2.py) \| [CreateSweepConfigurationV2Dict](adyen/models/create_sweep_configuration_v2.py) \| None</code> | The request body.<br>**Default**: <code>None</code> |
-| <code>request_options</code> | <code>[RequestOptionsOrDict](adyen/core/request_options.py) \| None</code> | Per-call overrides for this one request, such as a timeout or extra headers. |
+| <code>request_options</code> | <code>[RequestOptionsOrDict](adyen/core/request_options.py) \| None</code> | Per-call overrides for this one request, such as a timeout, extra headers, or its retry count and statuses. |
 
 </dd>
 </dl>
@@ -9745,7 +10211,7 @@ except ApiError as e:
 | <code>balance_account_id</code> | <code>str \| None</code> | The unique identifier of the balance account linked to the payment instrument.<br>**Default**: <code>None</code> |
 | <code>payment_instrument_id</code> | <code>str \| None</code> | The unique identifier of the payment instrument linked to the mandate.<br>**Default**: <code>None</code> |
 | <code>cursor</code> | <code>str \| None</code> | The pagination cursor returned in a previous GET `/mandates` request.<br>**Default**: <code>None</code> |
-| <code>request_options</code> | <code>[RequestOptionsOrDict](adyen/core/request_options.py) \| None</code> | Per-call overrides for this one request, such as a timeout or extra headers. |
+| <code>request_options</code> | <code>[RequestOptionsOrDict](adyen/core/request_options.py) \| None</code> | Per-call overrides for this one request, such as a timeout, extra headers, or its retry count and statuses. |
 
 </dd>
 </dl>
@@ -9799,7 +10265,7 @@ Returns the details of the specified [direct debit mandate](https://docs.adyen.c
 
 ```python
 try:
-    response = client.direct_debit_mandates.get_mandates_mandate_id(mandate_id)
+    response = client.direct_debit_mandates.get_mandates_mandate_id("some example string")
     # TODO: Handle 'response' of type Mandate1
 except ApiError as e:
     ...  # TODO: Handle 'e.error' of type GetMandatesMandateIdErrorBody
@@ -9809,7 +10275,7 @@ except ApiError as e:
 
 ```python
 try:
-    response = await async_client.direct_debit_mandates.get_mandates_mandate_id(mandate_id)
+    response = await async_client.direct_debit_mandates.get_mandates_mandate_id("some example string")
     # TODO: Handle 'response' of type Mandate1
 except ApiError as e:
     ...  # TODO: Handle 'e.error' of type GetMandatesMandateIdErrorBody
@@ -9826,7 +10292,7 @@ except ApiError as e:
 | Name | Type | Description |
 | --- | --- | --- |
 | <code>mandate_id</code> | <code>str</code> | The unique identifier of the mandate. |
-| <code>request_options</code> | <code>[RequestOptionsOrDict](adyen/core/request_options.py) \| None</code> | Per-call overrides for this one request, such as a timeout or extra headers. |
+| <code>request_options</code> | <code>[RequestOptionsOrDict](adyen/core/request_options.py) \| None</code> | Per-call overrides for this one request, such as a timeout, extra headers, or its retry count and statuses. |
 
 </dd>
 </dl>
@@ -9880,7 +10346,7 @@ Amend the specified [direct debit mandate](https://docs.adyen.com/business-accou
 
 ```python
 try:
-    client.direct_debit_mandates.patch_mandates_mandate_id(mandate_id, body)
+    client.direct_debit_mandates.patch_mandates_mandate_id("some example string", MandateUpdate())
 except ApiError as e:
     ...  # TODO: Handle 'e.error' of type PatchMandatesMandateIdErrorBody
 ```
@@ -9889,7 +10355,7 @@ except ApiError as e:
 
 ```python
 try:
-    await async_client.direct_debit_mandates.patch_mandates_mandate_id(mandate_id, body)
+    await async_client.direct_debit_mandates.patch_mandates_mandate_id("some example string", MandateUpdate())
 except ApiError as e:
     ...  # TODO: Handle 'e.error' of type PatchMandatesMandateIdErrorBody
 ```
@@ -9906,7 +10372,7 @@ except ApiError as e:
 | --- | --- | --- |
 | <code>mandate_id</code> | <code>str</code> | The unique identifier of the mandate. |
 | <code>body</code> | <code>[MandateUpdate](adyen/models/mandate_update.py) \| [MandateUpdateDict](adyen/models/mandate_update.py)</code> | The request body. |
-| <code>request_options</code> | <code>[RequestOptionsOrDict](adyen/core/request_options.py) \| None</code> | Per-call overrides for this one request, such as a timeout or extra headers. |
+| <code>request_options</code> | <code>[RequestOptionsOrDict](adyen/core/request_options.py) \| None</code> | Per-call overrides for this one request, such as a timeout, extra headers, or its retry count and statuses. |
 
 </dd>
 </dl>
@@ -9960,7 +10426,7 @@ Cancel a specified [direct debit mandate](https://docs.adyen.com/business-accoun
 
 ```python
 try:
-    client.direct_debit_mandates.post_mandates_mandate_id_cancel(mandate_id)
+    client.direct_debit_mandates.post_mandates_mandate_id_cancel("some example string")
 except ApiError as e:
     ...  # TODO: Handle 'e.error' of type PostMandatesMandateIdCancelErrorBody
 ```
@@ -9969,7 +10435,7 @@ except ApiError as e:
 
 ```python
 try:
-    await async_client.direct_debit_mandates.post_mandates_mandate_id_cancel(mandate_id)
+    await async_client.direct_debit_mandates.post_mandates_mandate_id_cancel("some example string")
 except ApiError as e:
     ...  # TODO: Handle 'e.error' of type PostMandatesMandateIdCancelErrorBody
 ```
@@ -9985,7 +10451,7 @@ except ApiError as e:
 | Name | Type | Description |
 | --- | --- | --- |
 | <code>mandate_id</code> | <code>str</code> | The unique identifier of the mandate. |
-| <code>request_options</code> | <code>[RequestOptionsOrDict](adyen/core/request_options.py) \| None</code> | Per-call overrides for this one request, such as a timeout or extra headers. |
+| <code>request_options</code> | <code>[RequestOptionsOrDict](adyen/core/request_options.py) \| None</code> | Per-call overrides for this one request, such as a timeout, extra headers, or its retry count and statuses. |
 
 </dd>
 </dl>
@@ -10043,7 +10509,9 @@ Removes the attachment from the raised dispute. Adyen may keep this file for com
 
 ```python
 try:
-    client.dispute_attachments.delete_disputes_dispute_id_attachments_attachment_id(dispute_id, attachment_id)
+    client.dispute_attachments.delete_disputes_dispute_id_attachments_attachment_id(
+        "some example string", "some example string"
+    )
 except ApiError as e:
     ...  # TODO: Handle 'e.error' of type DeleteDisputesDisputeIdAttachmentsAttachmentIdErrorBody
 ```
@@ -10053,7 +10521,7 @@ except ApiError as e:
 ```python
 try:
     await async_client.dispute_attachments.delete_disputes_dispute_id_attachments_attachment_id(
-        dispute_id, attachment_id
+        "some example string", "some example string"
     )
 except ApiError as e:
     ...  # TODO: Handle 'e.error' of type DeleteDisputesDisputeIdAttachmentsAttachmentIdErrorBody
@@ -10071,7 +10539,7 @@ except ApiError as e:
 | --- | --- | --- |
 | <code>dispute_id</code> | <code>str</code> | The unique identifier of the raised dispute. |
 | <code>attachment_id</code> | <code>str</code> | The unique identifier of the attachment. |
-| <code>request_options</code> | <code>[RequestOptionsOrDict](adyen/core/request_options.py) \| None</code> | Per-call overrides for this one request, such as a timeout or extra headers. |
+| <code>request_options</code> | <code>[RequestOptionsOrDict](adyen/core/request_options.py) \| None</code> | Per-call overrides for this one request, such as a timeout, extra headers, or its retry count and statuses. |
 
 </dd>
 </dl>
@@ -10125,7 +10593,7 @@ Get a list of attachments associated with a dispute ID.
 
 ```python
 try:
-    response = client.dispute_attachments.get_disputes_dispute_id_attachments(dispute_id)
+    response = client.dispute_attachments.get_disputes_dispute_id_attachments("some example string")
     # TODO: Handle 'response' of type list[DisputeAttachment]
 except ApiError as e:
     ...  # TODO: Handle 'e.error' of type GetDisputesDisputeIdAttachmentsErrorBody
@@ -10135,7 +10603,7 @@ except ApiError as e:
 
 ```python
 try:
-    response = await async_client.dispute_attachments.get_disputes_dispute_id_attachments(dispute_id)
+    response = await async_client.dispute_attachments.get_disputes_dispute_id_attachments("some example string")
     # TODO: Handle 'response' of type list[DisputeAttachment]
 except ApiError as e:
     ...  # TODO: Handle 'e.error' of type GetDisputesDisputeIdAttachmentsErrorBody
@@ -10152,7 +10620,7 @@ except ApiError as e:
 | Name | Type | Description |
 | --- | --- | --- |
 | <code>dispute_id</code> | <code>str</code> | The unique identifier of the raised dispute. |
-| <code>request_options</code> | <code>[RequestOptionsOrDict](adyen/core/request_options.py) \| None</code> | Per-call overrides for this one request, such as a timeout or extra headers. |
+| <code>request_options</code> | <code>[RequestOptionsOrDict](adyen/core/request_options.py) \| None</code> | Per-call overrides for this one request, such as a timeout, extra headers, or its retry count and statuses. |
 
 </dd>
 </dl>
@@ -10206,7 +10674,9 @@ Search for a single attachment, providing the specific dispute ID and attachment
 
 ```python
 try:
-    response = client.dispute_attachments.get_disputes_dispute_id_attachments_attachment_id(dispute_id, attachment_id)
+    response = client.dispute_attachments.get_disputes_dispute_id_attachments_attachment_id(
+        "some example string", "some example string"
+    )
     # TODO: Handle 'response' of type DisputeAttachment
 except ApiError as e:
     ...  # TODO: Handle 'e.error' of type GetDisputesDisputeIdAttachmentsAttachmentIdErrorBody
@@ -10217,7 +10687,7 @@ except ApiError as e:
 ```python
 try:
     response = await async_client.dispute_attachments.get_disputes_dispute_id_attachments_attachment_id(
-        dispute_id, attachment_id
+        "some example string", "some example string"
     )
     # TODO: Handle 'response' of type DisputeAttachment
 except ApiError as e:
@@ -10236,7 +10706,7 @@ except ApiError as e:
 | --- | --- | --- |
 | <code>dispute_id</code> | <code>str</code> | The unique identifier of the raised dispute. |
 | <code>attachment_id</code> | <code>str</code> | The unique identifier of the attachment. |
-| <code>request_options</code> | <code>[RequestOptionsOrDict](adyen/core/request_options.py) \| None</code> | Per-call overrides for this one request, such as a timeout or extra headers. |
+| <code>request_options</code> | <code>[RequestOptionsOrDict](adyen/core/request_options.py) \| None</code> | Per-call overrides for this one request, such as a timeout, extra headers, or its retry count and statuses. |
 
 </dd>
 </dl>
@@ -10290,7 +10760,12 @@ Add supporting information as an attachment for the raised dispute. Upload recei
 
 ```python
 try:
-    response = client.dispute_attachments.post_disputes_dispute_id_attachments(dispute_id, body)
+    response = client.dispute_attachments.post_disputes_dispute_id_attachments(
+        "some example string",
+        DisputeAttachment(
+            attachment_type=AttachmentType1.RECEIPT, content="some example string", file_name="some example string"
+        ),
+    )
     # TODO: Handle 'response' of type AttachDocumentResponse
 except ApiError as e:
     ...  # TODO: Handle 'e.error' of type PostDisputesDisputeIdAttachmentsErrorBody
@@ -10300,7 +10775,12 @@ except ApiError as e:
 
 ```python
 try:
-    response = await async_client.dispute_attachments.post_disputes_dispute_id_attachments(dispute_id, body)
+    response = await async_client.dispute_attachments.post_disputes_dispute_id_attachments(
+        "some example string",
+        DisputeAttachment(
+            attachment_type=AttachmentType1.RECEIPT, content="some example string", file_name="some example string"
+        ),
+    )
     # TODO: Handle 'response' of type AttachDocumentResponse
 except ApiError as e:
     ...  # TODO: Handle 'e.error' of type PostDisputesDisputeIdAttachmentsErrorBody
@@ -10318,7 +10798,7 @@ except ApiError as e:
 | --- | --- | --- |
 | <code>dispute_id</code> | <code>str</code> | The unique identifier of the raised dispute. |
 | <code>body</code> | <code>[DisputeAttachment](adyen/models/dispute_attachment.py) \| [DisputeAttachmentDict](adyen/models/dispute_attachment.py)</code> | The request body. |
-| <code>request_options</code> | <code>[RequestOptionsOrDict](adyen/core/request_options.py) \| None</code> | Per-call overrides for this one request, such as a timeout or extra headers. |
+| <code>request_options</code> | <code>[RequestOptionsOrDict](adyen/core/request_options.py) \| None</code> | Per-call overrides for this one request, such as a timeout, extra headers, or its retry count and statuses. |
 
 </dd>
 </dl>
@@ -10352,7 +10832,7 @@ Mapped in first-match order -- an earlier row wins over a later range that also 
 > Source: [Documents](adyen/apis/documents.py)
 
 <details>
-<summary><code>def delete_documents_id(id: str, *, request_options: RequestOptionsOrDict | None = None) -> None</code></summary>
+<summary><code>def delete_documents_id(id_: str, *, request_options: RequestOptionsOrDict | None = None) -> None</code></summary>
 
 <dl>
 <dd>
@@ -10384,7 +10864,7 @@ Requests to this endpoint are subject to rate limits:
 
 ```python
 try:
-    client.documents.delete_documents_id(id)
+    client.documents.delete_documents_id("some example string")
 except ApiError as e:
     ...  # TODO: Handle 'e.error' of type DeleteDocumentsIdErrorBody
 ```
@@ -10393,7 +10873,7 @@ except ApiError as e:
 
 ```python
 try:
-    await async_client.documents.delete_documents_id(id)
+    await async_client.documents.delete_documents_id("some example string")
 except ApiError as e:
     ...  # TODO: Handle 'e.error' of type DeleteDocumentsIdErrorBody
 ```
@@ -10408,8 +10888,8 @@ except ApiError as e:
 
 | Name | Type | Description |
 | --- | --- | --- |
-| <code>id</code> | <code>str</code> | The unique identifier of the document to be deleted. |
-| <code>request_options</code> | <code>[RequestOptionsOrDict](adyen/core/request_options.py) \| None</code> | Per-call overrides for this one request, such as a timeout or extra headers. |
+| <code>id_</code> | <code>str</code> | The unique identifier of the document to be deleted. |
+| <code>request_options</code> | <code>[RequestOptionsOrDict](adyen/core/request_options.py) \| None</code> | Per-call overrides for this one request, such as a timeout, extra headers, or its retry count and statuses. |
 
 </dd>
 </dl>
@@ -10439,7 +10919,7 @@ Mapped in first-match order -- an earlier row wins over a later range that also 
 </details>
 
 <details>
-<summary><code>def get_documents_id(id: str, *, skip_content: bool | None = None, request_options: RequestOptionsOrDict | None = None) -> Document</code></summary>
+<summary><code>def get_documents_id(id_: str, *, skip_content: bool | None = None, request_options: RequestOptionsOrDict | None = None) -> Document</code></summary>
 
 <dl>
 <dd>
@@ -10471,7 +10951,7 @@ Requests to this endpoint are subject to rate limits:
 
 ```python
 try:
-    response = client.documents.get_documents_id(id)
+    response = client.documents.get_documents_id("some example string")
     # TODO: Handle 'response' of type Document
 except ApiError as e:
     ...  # TODO: Handle 'e.error' of type GetDocumentsIdErrorBody
@@ -10481,7 +10961,7 @@ except ApiError as e:
 
 ```python
 try:
-    response = await async_client.documents.get_documents_id(id)
+    response = await async_client.documents.get_documents_id("some example string")
     # TODO: Handle 'response' of type Document
 except ApiError as e:
     ...  # TODO: Handle 'e.error' of type GetDocumentsIdErrorBody
@@ -10497,9 +10977,9 @@ except ApiError as e:
 
 | Name | Type | Description |
 | --- | --- | --- |
-| <code>id</code> | <code>str</code> | The unique identifier of the document. |
+| <code>id_</code> | <code>str</code> | The unique identifier of the document. |
 | <code>skip_content</code> | <code>bool \| None</code> | Do not load document content while fetching the document.<br>**Default**: <code>None</code> |
-| <code>request_options</code> | <code>[RequestOptionsOrDict](adyen/core/request_options.py) \| None</code> | Per-call overrides for this one request, such as a timeout or extra headers. |
+| <code>request_options</code> | <code>[RequestOptionsOrDict](adyen/core/request_options.py) \| None</code> | Per-call overrides for this one request, such as a timeout, extra headers, or its retry count and statuses. |
 
 </dd>
 </dl>
@@ -10529,7 +11009,7 @@ Mapped in first-match order -- an earlier row wins over a later range that also 
 </details>
 
 <details>
-<summary><code>def patch_documents_id(id: str, *, x_requested_verification_code: str | None = None, body: Document | DocumentDict | None = None, request_options: RequestOptionsOrDict | None = None) -> Document</code></summary>
+<summary><code>def patch_documents_id(id_: str, *, x_requested_verification_code: str | None = None, body: Document | DocumentDict | None = None, request_options: RequestOptionsOrDict | None = None) -> Document</code></summary>
 
 <dl>
 <dd>
@@ -10563,7 +11043,11 @@ Requests to this endpoint are subject to rate limits:
 
 ```python
 try:
-    response = client.documents.patch_documents_id(id)
+    response = client.documents.patch_documents_id(
+        "some example string",
+        x_requested_verification_code="0_0001",
+        body=Document(description="Proof of industry doc for Example Company", type_=Type84.PROOF_OF_INDUSTRY),
+    )
     # TODO: Handle 'response' of type Document
 except ApiError as e:
     ...  # TODO: Handle 'e.error' of type PatchDocumentsIdErrorBody
@@ -10573,7 +11057,11 @@ except ApiError as e:
 
 ```python
 try:
-    response = await async_client.documents.patch_documents_id(id)
+    response = await async_client.documents.patch_documents_id(
+        "some example string",
+        x_requested_verification_code="0_0001",
+        body=Document(description="Proof of industry doc for Example Company", type_=Type84.PROOF_OF_INDUSTRY),
+    )
     # TODO: Handle 'response' of type Document
 except ApiError as e:
     ...  # TODO: Handle 'e.error' of type PatchDocumentsIdErrorBody
@@ -10589,10 +11077,10 @@ except ApiError as e:
 
 | Name | Type | Description |
 | --- | --- | --- |
-| <code>id</code> | <code>str</code> | The unique identifier of the document to be updated. |
+| <code>id_</code> | <code>str</code> | The unique identifier of the document to be updated. |
 | <code>x_requested_verification_code</code> | <code>str \| None</code> | Use the requested verification code 0_0001 to resolve any suberrors associated with the document. Requested verification codes can only be used in your test environment.<br>**Default**: <code>None</code> |
 | <code>body</code> | <code>[Document](adyen/models/document.py) \| [DocumentDict](adyen/models/document.py) \| None</code> | The request body.<br>**Default**: <code>None</code> |
-| <code>request_options</code> | <code>[RequestOptionsOrDict](adyen/core/request_options.py) \| None</code> | Per-call overrides for this one request, such as a timeout or extra headers. |
+| <code>request_options</code> | <code>[RequestOptionsOrDict](adyen/core/request_options.py) \| None</code> | Per-call overrides for this one request, such as a timeout, extra headers, or its retry count and statuses. |
 
 </dd>
 </dl>
@@ -10660,7 +11148,15 @@ Requests to this endpoint are subject to rate limits:
 
 ```python
 try:
-    response = client.documents.post_documents()
+    response = client.documents.post_documents(
+        x_requested_verification_code="1_3008",
+        body=Document(
+            attachments=[Attachment(content="JVBERi0xLjQKJcOkw7zDtsOfCjIgMCBv+f/ub0j6JPRX+E3EmC==")],
+            description="Registration doc for Example Company",
+            owner=OwnerEntity2(id="LE00000000000000000000001", type_="legalEntity"),
+            type_=Type84.REGISTRATION_DOCUMENT,
+        ),
+    )
     # TODO: Handle 'response' of type Document
 except ApiError as e:
     ...  # TODO: Handle 'e.error' of type PostDocumentsErrorBody
@@ -10670,7 +11166,15 @@ except ApiError as e:
 
 ```python
 try:
-    response = await async_client.documents.post_documents()
+    response = await async_client.documents.post_documents(
+        x_requested_verification_code="1_3008",
+        body=Document(
+            attachments=[Attachment(content="JVBERi0xLjQKJcOkw7zDtsOfCjIgMCBv+f/ub0j6JPRX+E3EmC==")],
+            description="Registration doc for Example Company",
+            owner=OwnerEntity2(id="LE00000000000000000000001", type_="legalEntity"),
+            type_=Type84.REGISTRATION_DOCUMENT,
+        ),
+    )
     # TODO: Handle 'response' of type Document
 except ApiError as e:
     ...  # TODO: Handle 'e.error' of type PostDocumentsErrorBody
@@ -10688,7 +11192,7 @@ except ApiError as e:
 | --- | --- | --- |
 | <code>x_requested_verification_code</code> | <code>str \| None</code> | Use a suberror code as your requested verification code. You can include one code at a time in your request header. Requested verification codes can only be used in your test environment.<br>**Default**: <code>None</code> |
 | <code>body</code> | <code>[Document](adyen/models/document.py) \| [DocumentDict](adyen/models/document.py) \| None</code> | The request body.<br>**Default**: <code>None</code> |
-| <code>request_options</code> | <code>[RequestOptionsOrDict](adyen/core/request_options.py) \| None</code> | Per-call overrides for this one request, such as a timeout or extra headers. |
+| <code>request_options</code> | <code>[RequestOptionsOrDict](adyen/core/request_options.py) \| None</code> | Per-call overrides for this one request, such as a timeout, extra headers, or its retry count and statuses. |
 
 </dd>
 </dl>
@@ -10750,7 +11254,7 @@ To make this request, your API credential must have the following [role](https:/
 ```python
 try:
     client.donation_campaigns.delete_companies_company_id_campaign_management_donation_campaign_id(
-        company_id, donation_campaign_id
+        "some example string", "some example string"
     )
 except ApiError as e:
     ...  # TODO: Handle 'e.error' of type DeleteCompaniesCompanyIdCampaignManagementDonationCampaignIdErrorBody
@@ -10761,7 +11265,7 @@ except ApiError as e:
 ```python
 try:
     await async_client.donation_campaigns.delete_companies_company_id_campaign_management_donation_campaign_id(
-        company_id, donation_campaign_id
+        "some example string", "some example string"
     )
 except ApiError as e:
     ...  # TODO: Handle 'e.error' of type DeleteCompaniesCompanyIdCampaignManagementDonationCampaignIdErrorBody
@@ -10779,7 +11283,7 @@ except ApiError as e:
 | --- | --- | --- |
 | <code>company_id</code> | <code>str</code> | The unique identifier of the company account. |
 | <code>donation_campaign_id</code> | <code>str</code> | The unique identifier of the donation campaign to be deleted. |
-| <code>request_options</code> | <code>[RequestOptionsOrDict](adyen/core/request_options.py) \| None</code> | Per-call overrides for this one request, such as a timeout or extra headers. |
+| <code>request_options</code> | <code>[RequestOptionsOrDict](adyen/core/request_options.py) \| None</code> | Per-call overrides for this one request, such as a timeout, extra headers, or its retry count and statuses. |
 
 </dd>
 </dl>
@@ -10838,7 +11342,7 @@ To make this request, your API credential must have one of the following [roles]
 ```python
 try:
     response = client.donation_campaigns.get_companies_company_id_campaign_management_account_holders_account_holder_id(
-        company_id, account_holder_id
+        "some example string", "some example string"
     )
     # TODO: Handle 'response' of type ListDonationCampaignsResponse
 except ApiError as e:
@@ -10850,7 +11354,7 @@ except ApiError as e:
 ```python
 try:
     response = await async_client.donation_campaigns.get_companies_company_id_campaign_management_account_holders_account_holder_id(
-        company_id, account_holder_id
+        "some example string", "some example string"
     )
     # TODO: Handle 'response' of type ListDonationCampaignsResponse
 except ApiError as e:
@@ -10872,7 +11376,7 @@ except ApiError as e:
 | <code>status</code> | <code>str \| None</code> | The campaign status to return campaigns that match. Allowed values: **inactive**, **active**, or **ended**.<br>**Default**: <code>None</code> |
 | <code>page_number</code> | <code>int \| None</code> | The number of the page to fetch.<br>**Default**: <code>1</code> |
 | <code>page_size</code> | <code>int \| None</code> | The number of items to have on a page, maximum 100. The default is 10 items on a page.<br>**Default**: <code>10</code> |
-| <code>request_options</code> | <code>[RequestOptionsOrDict](adyen/core/request_options.py) \| None</code> | Per-call overrides for this one request, such as a timeout or extra headers. |
+| <code>request_options</code> | <code>[RequestOptionsOrDict](adyen/core/request_options.py) \| None</code> | Per-call overrides for this one request, such as a timeout, extra headers, or its retry count and statuses. |
 
 </dd>
 </dl>
@@ -10933,7 +11437,7 @@ To make this request, your API credential must have the following [role](https:/
 ```python
 try:
     response = client.donation_campaigns.patch_companies_company_id_campaign_management_donation_campaign_id(
-        company_id, donation_campaign_id
+        "some example string", "some example string"
     )
     # TODO: Handle 'response' of type DonationCampaign1
 except ApiError as e:
@@ -10945,7 +11449,7 @@ except ApiError as e:
 ```python
 try:
     response = await async_client.donation_campaigns.patch_companies_company_id_campaign_management_donation_campaign_id(
-        company_id, donation_campaign_id
+        "some example string", "some example string"
     )
     # TODO: Handle 'response' of type DonationCampaign1
 except ApiError as e:
@@ -10965,7 +11469,7 @@ except ApiError as e:
 | <code>company_id</code> | <code>str</code> | The unique identifier of the company account. |
 | <code>donation_campaign_id</code> | <code>str</code> | The unique identifier of the donation campaign to be updated. |
 | <code>body</code> | <code>[DonationCampaignUpdate](adyen/models/donation_campaign_update.py) \| [DonationCampaignUpdateDict](adyen/models/donation_campaign_update.py) \| None</code> | The request body.<br>**Default**: <code>None</code> |
-| <code>request_options</code> | <code>[RequestOptionsOrDict](adyen/core/request_options.py) \| None</code> | Per-call overrides for this one request, such as a timeout or extra headers. |
+| <code>request_options</code> | <code>[RequestOptionsOrDict](adyen/core/request_options.py) \| None</code> | Per-call overrides for this one request, such as a timeout, extra headers, or its retry count and statuses. |
 
 </dd>
 </dl>
@@ -11022,7 +11526,7 @@ To make this request, your API credential must have the following [role](https:/
 
 ```python
 try:
-    response = client.donation_campaigns.post_companies_company_id_campaign_management(company_id)
+    response = client.donation_campaigns.post_companies_company_id_campaign_management("some example string")
     # TODO: Handle 'response' of type DonationCampaign1
 except ApiError as e:
     ...  # TODO: Handle 'e.error' of type PostCompaniesCompanyIdCampaignManagementErrorBody
@@ -11032,7 +11536,9 @@ except ApiError as e:
 
 ```python
 try:
-    response = await async_client.donation_campaigns.post_companies_company_id_campaign_management(company_id)
+    response = await async_client.donation_campaigns.post_companies_company_id_campaign_management(
+        "some example string"
+    )
     # TODO: Handle 'response' of type DonationCampaign1
 except ApiError as e:
     ...  # TODO: Handle 'e.error' of type PostCompaniesCompanyIdCampaignManagementErrorBody
@@ -11050,7 +11556,7 @@ except ApiError as e:
 | --- | --- | --- |
 | <code>company_id</code> | <code>str</code> | The unique identifier of the company account. |
 | <code>body</code> | <code>[DonationCampaignRequest](adyen/models/donation_campaign_request.py) \| [DonationCampaignRequestDict](adyen/models/donation_campaign_request.py) \| None</code> | The request body.<br>**Default**: <code>None</code> |
-| <code>request_options</code> | <code>[RequestOptionsOrDict](adyen/core/request_options.py) \| None</code> | Per-call overrides for this one request, such as a timeout or extra headers. |
+| <code>request_options</code> | <code>[RequestOptionsOrDict](adyen/core/request_options.py) \| None</code> | Per-call overrides for this one request, such as a timeout, extra headers, or its retry count and statuses. |
 
 </dd>
 </dl>
@@ -11109,7 +11615,7 @@ To make this request, your API credential must have the following [role](https:/
 ```python
 try:
     response = client.donation_campaigns.post_companies_company_id_campaign_management_donation_campaign_id_status_status(
-        company_id, donation_campaign_id, status
+        "some example string", "some example string", CampaignStatusTransition.ACTIVATE
     )
     # TODO: Handle 'response' of type DonationCampaign1
 except ApiError as e:
@@ -11122,7 +11628,7 @@ except ApiError as e:
 ```python
 try:
     response = await async_client.donation_campaigns.post_companies_company_id_campaign_management_donation_campaign_id_status_status(
-        company_id, donation_campaign_id, status
+        "some example string", "some example string", CampaignStatusTransition.ACTIVATE
     )
     # TODO: Handle 'response' of type DonationCampaign1
 except ApiError as e:
@@ -11143,7 +11649,7 @@ except ApiError as e:
 | <code>company_id</code> | <code>str</code> | The unique identifier of the company account. |
 | <code>donation_campaign_id</code> | <code>str</code> | The unique identifier of the donation campaign to activate or end. |
 | <code>status</code> | <code>[CampaignStatusTransitionOrStr](adyen/models/enums/campaign_status_transition.py)</code> | The desired status change. Possible values: **activate** or **end**. |
-| <code>request_options</code> | <code>[RequestOptionsOrDict](adyen/core/request_options.py) \| None</code> | Per-call overrides for this one request, such as a timeout or extra headers. |
+| <code>request_options</code> | <code>[RequestOptionsOrDict](adyen/core/request_options.py) \| None</code> | Per-call overrides for this one request, such as a timeout, extra headers, or its retry count and statuses. |
 
 </dd>
 </dl>
@@ -11197,7 +11703,7 @@ Returns a list of supported nonprofit organizations to choose from when creating
 
 ```python
 try:
-    response = client.donation_campaigns.post_companies_company_id_nonprofits(company_id)
+    response = client.donation_campaigns.post_companies_company_id_nonprofits("some example string")
     # TODO: Handle 'response' of type ListNonprofitsResponse
 except ApiError as e:
     ...  # TODO: Handle 'e.error' of type PostCompaniesCompanyIdNonprofitsErrorBody
@@ -11207,7 +11713,7 @@ except ApiError as e:
 
 ```python
 try:
-    response = await async_client.donation_campaigns.post_companies_company_id_nonprofits(company_id)
+    response = await async_client.donation_campaigns.post_companies_company_id_nonprofits("some example string")
     # TODO: Handle 'response' of type ListNonprofitsResponse
 except ApiError as e:
     ...  # TODO: Handle 'e.error' of type PostCompaniesCompanyIdNonprofitsErrorBody
@@ -11229,7 +11735,7 @@ except ApiError as e:
 | <code>page_size</code> | <code>int \| None</code> | The number of items to have on a page, maximum 100. The default is 10 items on a page.<br>**Default**: <code>10</code> |
 | <code>goal</code> | <code>list&#91;str&#93; \| None</code> | One or more United Nations Sustainable Development Goals to return nonprofit organizations for. Format: `unsdg_<number>`, for example, `&goal=unsdg_6&goal=unsdg_2`.<br>**Default**: <code>None</code> |
 | <code>body</code> | <code>[ListNonprofitsRequest](adyen/models/list_nonprofits_request.py) \| [ListNonprofitsRequestDict](adyen/models/list_nonprofits_request.py) \| None</code> | The request body.<br>**Default**: <code>None</code> |
-| <code>request_options</code> | <code>[RequestOptionsOrDict](adyen/core/request_options.py) \| None</code> | Per-call overrides for this one request, such as a timeout or extra headers. |
+| <code>request_options</code> | <code>[RequestOptionsOrDict](adyen/core/request_options.py) \| None</code> | Per-call overrides for this one request, such as a timeout, extra headers, or its retry count and statuses. |
 
 </dd>
 </dl>
@@ -11287,7 +11793,10 @@ Queries the available donation campaigns for a donation based on the donation co
 
 ```python
 try:
-    response = client.donations.post_donation_campaigns()
+    response = client.donations.post_donation_campaigns(
+        idempotency_key="37ca9c97-d1d1-4c62-89e8-706891a563ed",
+        body=DonationCampaignsRequest(currency="EUR", merchant_account="YOUR_MERCHANT_ACCOUNT"),
+    )
     # TODO: Handle 'response' of type DonationCampaignsResponse
 except ApiError as e:
     ...  # TODO: Handle 'e.error' of type PostDonationCampaignsErrorBody
@@ -11297,7 +11806,10 @@ except ApiError as e:
 
 ```python
 try:
-    response = await async_client.donations.post_donation_campaigns()
+    response = await async_client.donations.post_donation_campaigns(
+        idempotency_key="37ca9c97-d1d1-4c62-89e8-706891a563ed",
+        body=DonationCampaignsRequest(currency="EUR", merchant_account="YOUR_MERCHANT_ACCOUNT"),
+    )
     # TODO: Handle 'response' of type DonationCampaignsResponse
 except ApiError as e:
     ...  # TODO: Handle 'e.error' of type PostDonationCampaignsErrorBody
@@ -11315,7 +11827,7 @@ except ApiError as e:
 | --- | --- | --- |
 | <code>idempotency_key</code> | <code>str \| None</code> | A unique identifier for the message with a maximum of 64 characters (we recommend a UUID).<br>**Default**: <code>None</code> |
 | <code>body</code> | <code>[DonationCampaignsRequest](adyen/models/donation_campaigns_request.py) \| [DonationCampaignsRequestDict](adyen/models/donation_campaigns_request.py) \| None</code> | The request body.<br>**Default**: <code>None</code> |
-| <code>request_options</code> | <code>[RequestOptionsOrDict](adyen/core/request_options.py) \| None</code> | Per-call overrides for this one request, such as a timeout or extra headers. |
+| <code>request_options</code> | <code>[RequestOptionsOrDict](adyen/core/request_options.py) \| None</code> | Per-call overrides for this one request, such as a timeout, extra headers, or its retry count and statuses. |
 
 </dd>
 </dl>
@@ -11371,7 +11883,19 @@ For more information, see [Donations](https://docs.adyen.com/online-payments/don
 
 ```python
 try:
-    response = client.donations.post_donations()
+    response = client.donations.post_donations(
+        idempotency_key="37ca9c97-d1d1-4c62-89e8-706891a563ed",
+        body=DonationPaymentRequest(
+            amount=Amount2(currency="EUR", value=1000),
+            donation_campaign_id="DONATION_CAMPAIGN_ID",
+            donation_original_psp_reference="991559660454807J",
+            donation_token="YOUR_DONATION_TOKEN",
+            merchant_account="YOUR_MERCHANT_ACCOUNT",
+            payment_method=CardDonations(type_="scheme"),
+            reference="YOUR_DONATION_REFERENCE",
+            return_url="https://your-company.example.com/...",
+        ),
+    )
     # TODO: Handle 'response' of type DonationPaymentResponse
 except ApiError as e:
     ...  # TODO: Handle 'e.error' of type PostDonationsErrorBody
@@ -11381,7 +11905,19 @@ except ApiError as e:
 
 ```python
 try:
-    response = await async_client.donations.post_donations()
+    response = await async_client.donations.post_donations(
+        idempotency_key="37ca9c97-d1d1-4c62-89e8-706891a563ed",
+        body=DonationPaymentRequest(
+            amount=Amount2(currency="EUR", value=1000),
+            donation_campaign_id="DONATION_CAMPAIGN_ID",
+            donation_original_psp_reference="991559660454807J",
+            donation_token="YOUR_DONATION_TOKEN",
+            merchant_account="YOUR_MERCHANT_ACCOUNT",
+            payment_method=CardDonations(type_="scheme"),
+            reference="YOUR_DONATION_REFERENCE",
+            return_url="https://your-company.example.com/...",
+        ),
+    )
     # TODO: Handle 'response' of type DonationPaymentResponse
 except ApiError as e:
     ...  # TODO: Handle 'e.error' of type PostDonationsErrorBody
@@ -11399,7 +11935,7 @@ except ApiError as e:
 | --- | --- | --- |
 | <code>idempotency_key</code> | <code>str \| None</code> | A unique identifier for the message with a maximum of 64 characters (we recommend a UUID).<br>**Default**: <code>None</code> |
 | <code>body</code> | <code>[DonationPaymentRequest](adyen/models/donation_payment_request.py) \| [DonationPaymentRequestDict](adyen/models/donation_payment_request.py) \| None</code> | The request body.<br>**Default**: <code>None</code> |
-| <code>request_options</code> | <code>[RequestOptionsOrDict](adyen/core/request_options.py) \| None</code> | Per-call overrides for this one request, such as a timeout or extra headers. |
+| <code>request_options</code> | <code>[RequestOptionsOrDict](adyen/core/request_options.py) \| None</code> | Per-call overrides for this one request, such as a timeout, extra headers, or its retry count and statuses. |
 
 </dd>
 </dl>
@@ -11457,7 +11993,7 @@ Returns a list of all [dynamic offers](https://docs.adyen.com/capital/get-grant-
 
 ```python
 try:
-    response = client.dynamic_offers.get_dynamic_offers(account_holder_id)
+    response = client.dynamic_offers.get_dynamic_offers("some example string")
     # TODO: Handle 'response' of type GetDynamicOffersResponse
 except ApiError as e:
     ...  # TODO: Handle 'e.error' of type GetDynamicOffersErrorBody
@@ -11467,7 +12003,7 @@ except ApiError as e:
 
 ```python
 try:
-    response = await async_client.dynamic_offers.get_dynamic_offers(account_holder_id)
+    response = await async_client.dynamic_offers.get_dynamic_offers("some example string")
     # TODO: Handle 'response' of type GetDynamicOffersResponse
 except ApiError as e:
     ...  # TODO: Handle 'e.error' of type GetDynamicOffersErrorBody
@@ -11485,7 +12021,7 @@ except ApiError as e:
 | --- | --- | --- |
 | <code>account_holder_id</code> | <code>str</code> | The unique identifier of the account holder that the dynamic offer is for. |
 | <code>financing_type</code> | <code>[FinancingTypeOrStr](adyen/models/enums/financing_type.py) \| None</code> | The type of financing that the offer is for. If the value is not specified, returns all available types.<br><br>Possible values: **businessFinancing**<br>**Default**: <code>None</code> |
-| <code>request_options</code> | <code>[RequestOptionsOrDict](adyen/core/request_options.py) \| None</code> | Per-call overrides for this one request, such as a timeout or extra headers. |
+| <code>request_options</code> | <code>[RequestOptionsOrDict](adyen/core/request_options.py) \| None</code> | Per-call overrides for this one request, such as a timeout, extra headers, or its retry count and statuses. |
 
 </dd>
 </dl>
@@ -11515,7 +12051,7 @@ Mapped in first-match order -- an earlier row wins over a later range that also 
 </details>
 
 <details>
-<summary><code>def post_dynamic_offers_id_calculate(id: str, *, body: CalculateGrantOfferRequest | CalculateGrantOfferRequestDict | None = None, request_options: RequestOptionsOrDict | None = None) -> CalculatedGrantOffer</code></summary>
+<summary><code>def post_dynamic_offers_id_calculate(id_: str, *, body: CalculateGrantOfferRequest | CalculateGrantOfferRequestDict | None = None, request_options: RequestOptionsOrDict | None = None) -> CalculatedGrantOffer</code></summary>
 
 <dl>
 <dd>
@@ -11545,7 +12081,7 @@ Requests to this endpoint are subject to rate limits:
 
 ```python
 try:
-    response = client.dynamic_offers.post_dynamic_offers_id_calculate(id)
+    response = client.dynamic_offers.post_dynamic_offers_id_calculate("some example string")
     # TODO: Handle 'response' of type CalculatedGrantOffer
 except ApiError as e:
     ...  # TODO: Handle 'e.error' of type PostDynamicOffersIdCalculateErrorBody
@@ -11555,7 +12091,7 @@ except ApiError as e:
 
 ```python
 try:
-    response = await async_client.dynamic_offers.post_dynamic_offers_id_calculate(id)
+    response = await async_client.dynamic_offers.post_dynamic_offers_id_calculate("some example string")
     # TODO: Handle 'response' of type CalculatedGrantOffer
 except ApiError as e:
     ...  # TODO: Handle 'e.error' of type PostDynamicOffersIdCalculateErrorBody
@@ -11571,9 +12107,9 @@ except ApiError as e:
 
 | Name | Type | Description |
 | --- | --- | --- |
-| <code>id</code> | <code>str</code> | The unique identifier of the dynamic offer from which the user selected the financing amount. |
+| <code>id_</code> | <code>str</code> | The unique identifier of the dynamic offer from which the user selected the financing amount. |
 | <code>body</code> | <code>[CalculateGrantOfferRequest](adyen/models/calculate_grant_offer_request.py) \| [CalculateGrantOfferRequestDict](adyen/models/calculate_grant_offer_request.py) \| None</code> | The request body.<br>**Default**: <code>None</code> |
-| <code>request_options</code> | <code>[RequestOptionsOrDict](adyen/core/request_options.py) \| None</code> | Per-call overrides for this one request, such as a timeout or extra headers. |
+| <code>request_options</code> | <code>[RequestOptionsOrDict](adyen/core/request_options.py) \| None</code> | Per-call overrides for this one request, such as a timeout, extra headers, or its retry count and statuses. |
 
 </dd>
 </dl>
@@ -11603,7 +12139,7 @@ Mapped in first-match order -- an earlier row wins over a later range that also 
 </details>
 
 <details>
-<summary><code>def post_dynamic_offers_id_grant_offer(id: str, *, body: CreateGrantOfferRequest | CreateGrantOfferRequestDict | None = None, request_options: RequestOptionsOrDict | None = None) -> GrantOffer1</code></summary>
+<summary><code>def post_dynamic_offers_id_grant_offer(id_: str, *, body: CreateGrantOfferRequest | CreateGrantOfferRequestDict | None = None, request_options: RequestOptionsOrDict | None = None) -> GrantOffer1</code></summary>
 
 <dl>
 <dd>
@@ -11633,7 +12169,7 @@ Requests to this endpoint are subject to rate limits:
 
 ```python
 try:
-    response = client.dynamic_offers.post_dynamic_offers_id_grant_offer(id)
+    response = client.dynamic_offers.post_dynamic_offers_id_grant_offer("some example string")
     # TODO: Handle 'response' of type GrantOffer1
 except ApiError as e:
     ...  # TODO: Handle 'e.error' of type PostDynamicOffersIdGrantOfferErrorBody
@@ -11643,7 +12179,7 @@ except ApiError as e:
 
 ```python
 try:
-    response = await async_client.dynamic_offers.post_dynamic_offers_id_grant_offer(id)
+    response = await async_client.dynamic_offers.post_dynamic_offers_id_grant_offer("some example string")
     # TODO: Handle 'response' of type GrantOffer1
 except ApiError as e:
     ...  # TODO: Handle 'e.error' of type PostDynamicOffersIdGrantOfferErrorBody
@@ -11659,9 +12195,9 @@ except ApiError as e:
 
 | Name | Type | Description |
 | --- | --- | --- |
-| <code>id</code> | <code>str</code> | The unique identifier of the dynamic offer from which the user selected the financing amount. |
+| <code>id_</code> | <code>str</code> | The unique identifier of the dynamic offer from which the user selected the financing amount. |
 | <code>body</code> | <code>[CreateGrantOfferRequest](adyen/models/create_grant_offer_request.py) \| [CreateGrantOfferRequestDict](adyen/models/create_grant_offer_request.py) \| None</code> | The request body.<br>**Default**: <code>None</code> |
-| <code>request_options</code> | <code>[RequestOptionsOrDict](adyen/core/request_options.py) \| None</code> | Per-call overrides for this one request, such as a timeout or extra headers. |
+| <code>request_options</code> | <code>[RequestOptionsOrDict](adyen/core/request_options.py) \| None</code> | Per-call overrides for this one request, such as a timeout, extra headers, or its retry count and statuses. |
 
 </dd>
 </dl>
@@ -11719,7 +12255,11 @@ Accepts a specific dispute.
 
 ```python
 try:
-    response = client.general.post_accept_dispute()
+    response = client.general.post_accept_dispute(
+        body=AcceptDisputeRequest(
+            dispute_psp_reference="DZ4DPSHB4WD2WN82", merchant_account_code="YOUR_MERCHANT_ACCOUNT"
+        ),
+    )
     # TODO: Handle 'response' of type AcceptDisputeResponse
 except ApiError as e:
     ...  # TODO: Handle 'e.error' of type PostAcceptDisputeErrorBody
@@ -11729,7 +12269,11 @@ except ApiError as e:
 
 ```python
 try:
-    response = await async_client.general.post_accept_dispute()
+    response = await async_client.general.post_accept_dispute(
+        body=AcceptDisputeRequest(
+            dispute_psp_reference="DZ4DPSHB4WD2WN82", merchant_account_code="YOUR_MERCHANT_ACCOUNT"
+        ),
+    )
     # TODO: Handle 'response' of type AcceptDisputeResponse
 except ApiError as e:
     ...  # TODO: Handle 'e.error' of type PostAcceptDisputeErrorBody
@@ -11746,7 +12290,7 @@ except ApiError as e:
 | Name | Type | Description |
 | --- | --- | --- |
 | <code>body</code> | <code>[AcceptDisputeRequest](adyen/models/accept_dispute_request.py) \| [AcceptDisputeRequestDict](adyen/models/accept_dispute_request.py) \| None</code> | The request body.<br>**Default**: <code>None</code> |
-| <code>request_options</code> | <code>[RequestOptionsOrDict](adyen/core/request_options.py) \| None</code> | Per-call overrides for this one request, such as a timeout or extra headers. |
+| <code>request_options</code> | <code>[RequestOptionsOrDict](adyen/core/request_options.py) \| None</code> | Per-call overrides for this one request, such as a timeout, extra headers, or its retry count and statuses. |
 
 </dd>
 </dl>
@@ -11800,7 +12344,9 @@ Returns the account balances of an account holder. An account's balances are org
 
 ```python
 try:
-    response = client.general.post_account_holder_balance()
+    response = client.general.post_account_holder_balance(
+        body=CloseAccountHolderRequest(account_holder_code="CODE_OF_ACCOUNT_HOLDER")
+    )
     # TODO: Handle 'response' of type AccountHolderBalanceResponse
 except ApiError as e:
     ...  # TODO: Handle 'e.error' of type PostAccountHolderBalanceErrorBody
@@ -11810,7 +12356,9 @@ except ApiError as e:
 
 ```python
 try:
-    response = await async_client.general.post_account_holder_balance()
+    response = await async_client.general.post_account_holder_balance(
+        body=CloseAccountHolderRequest(account_holder_code="CODE_OF_ACCOUNT_HOLDER")
+    )
     # TODO: Handle 'response' of type AccountHolderBalanceResponse
 except ApiError as e:
     ...  # TODO: Handle 'e.error' of type PostAccountHolderBalanceErrorBody
@@ -11827,7 +12375,7 @@ except ApiError as e:
 | Name | Type | Description |
 | --- | --- | --- |
 | <code>body</code> | <code>[CloseAccountHolderRequest](adyen/models/close_account_holder_request.py) \| [CloseAccountHolderRequestDict](adyen/models/close_account_holder_request.py) \| None</code> | The request body.<br>**Default**: <code>None</code> |
-| <code>request_options</code> | <code>[RequestOptionsOrDict](adyen/core/request_options.py) \| None</code> | Per-call overrides for this one request, such as a timeout or extra headers. |
+| <code>request_options</code> | <code>[RequestOptionsOrDict](adyen/core/request_options.py) \| None</code> | Per-call overrides for this one request, such as a timeout, extra headers, or its retry count and statuses. |
 
 </dd>
 </dl>
@@ -11881,7 +12429,12 @@ Returns a list of transactions for an account holder's accounts. You can specify
 
 ```python
 try:
-    response = client.general.post_account_holder_transaction_list()
+    response = client.general.post_account_holder_transaction_list(
+        body=AccountHolderTransactionListRequest(
+            account_holder_code="CODE_OF_ACCOUNT_HOLDER",
+            transaction_lists_per_account=[TransactionListForAccount(account_code="195752115", page=1)],
+        ),
+    )
     # TODO: Handle 'response' of type AccountHolderTransactionListResponse
 except ApiError as e:
     ...  # TODO: Handle 'e.error' of type PostAccountHolderTransactionListErrorBody
@@ -11891,7 +12444,12 @@ except ApiError as e:
 
 ```python
 try:
-    response = await async_client.general.post_account_holder_transaction_list()
+    response = await async_client.general.post_account_holder_transaction_list(
+        body=AccountHolderTransactionListRequest(
+            account_holder_code="CODE_OF_ACCOUNT_HOLDER",
+            transaction_lists_per_account=[TransactionListForAccount(account_code="195752115", page=1)],
+        ),
+    )
     # TODO: Handle 'response' of type AccountHolderTransactionListResponse
 except ApiError as e:
     ...  # TODO: Handle 'e.error' of type PostAccountHolderTransactionListErrorBody
@@ -11908,7 +12466,7 @@ except ApiError as e:
 | Name | Type | Description |
 | --- | --- | --- |
 | <code>body</code> | <code>[AccountHolderTransactionListRequest](adyen/models/account_holder_transaction_list_request.py) \| [AccountHolderTransactionListRequestDict](adyen/models/account_holder_transaction_list_request.py) \| None</code> | The request body.<br>**Default**: <code>None</code> |
-| <code>request_options</code> | <code>[RequestOptionsOrDict](adyen/core/request_options.py) \| None</code> | Per-call overrides for this one request, such as a timeout or extra headers. |
+| <code>request_options</code> | <code>[RequestOptionsOrDict](adyen/core/request_options.py) \| None</code> | Per-call overrides for this one request, such as a timeout, extra headers, or its retry count and statuses. |
 
 </dd>
 </dl>
@@ -11964,7 +12522,9 @@ Assigns one or more payment terminals to a merchant account or a store. You can 
 
 ```python
 try:
-    response = client.general.post_assign_terminals()
+    response = client.general.post_assign_terminals(
+        body=AssignTerminalsRequest(company_account="YOUR_COMPANY_ACCOUNT", terminals=["P400Plus-275479597"])
+    )
     # TODO: Handle 'response' of type AssignTerminalsResponse
 except ApiError as e:
     ...  # TODO: Handle 'e.error' of type PostAssignTerminalsErrorBody
@@ -11974,7 +12534,9 @@ except ApiError as e:
 
 ```python
 try:
-    response = await async_client.general.post_assign_terminals()
+    response = await async_client.general.post_assign_terminals(
+        body=AssignTerminalsRequest(company_account="YOUR_COMPANY_ACCOUNT", terminals=["P400Plus-275479597"])
+    )
     # TODO: Handle 'response' of type AssignTerminalsResponse
 except ApiError as e:
     ...  # TODO: Handle 'e.error' of type PostAssignTerminalsErrorBody
@@ -11991,7 +12553,7 @@ except ApiError as e:
 | Name | Type | Description |
 | --- | --- | --- |
 | <code>body</code> | <code>[AssignTerminalsRequest](adyen/models/assign_terminals_request.py) \| [AssignTerminalsRequestDict](adyen/models/assign_terminals_request.py) \| None</code> | The request body.<br>**Default**: <code>None</code> |
-| <code>request_options</code> | <code>[RequestOptionsOrDict](adyen/core/request_options.py) \| None</code> | Per-call overrides for this one request, such as a timeout or extra headers. |
+| <code>request_options</code> | <code>[RequestOptionsOrDict](adyen/core/request_options.py) \| None</code> | Per-call overrides for this one request, such as a timeout, extra headers, or its retry count and statuses. |
 
 </dd>
 </dl>
@@ -12072,7 +12634,7 @@ except ApiError as e:
 | Name | Type | Description |
 | --- | --- | --- |
 | <code>body</code> | <code>[StoredValueStatusChangeRequest](adyen/models/stored_value_status_change_request.py) \| [StoredValueStatusChangeRequestDict](adyen/models/stored_value_status_change_request.py) \| None</code> | The request body.<br>**Default**: <code>None</code> |
-| <code>request_options</code> | <code>[RequestOptionsOrDict](adyen/core/request_options.py) \| None</code> | Per-call overrides for this one request, such as a timeout or extra headers. |
+| <code>request_options</code> | <code>[RequestOptionsOrDict](adyen/core/request_options.py) \| None</code> | Per-call overrides for this one request, such as a timeout, extra headers, or its retry count and statuses. |
 
 </dd>
 </dl>
@@ -12153,7 +12715,7 @@ except ApiError as e:
 | Name | Type | Description |
 | --- | --- | --- |
 | <code>body</code> | <code>[StoredValueBalanceCheckRequest](adyen/models/stored_value_balance_check_request.py) \| [StoredValueBalanceCheckRequestDict](adyen/models/stored_value_balance_check_request.py) \| None</code> | The request body.<br>**Default**: <code>None</code> |
-| <code>request_options</code> | <code>[RequestOptionsOrDict](adyen/core/request_options.py) \| None</code> | Per-call overrides for this one request, such as a timeout or extra headers. |
+| <code>request_options</code> | <code>[RequestOptionsOrDict](adyen/core/request_options.py) \| None</code> | Per-call overrides for this one request, such as a timeout, extra headers, or its retry count and statuses. |
 
 </dd>
 </dl>
@@ -12207,7 +12769,23 @@ Creates a subscription to notifications informing you of events on your platform
 
 ```python
 try:
-    response = client.general.post_create_notification_configuration()
+    response = client.general.post_create_notification_configuration(
+        body=CreateNotificationConfigurationRequest(
+            configuration_details=NotificationConfigurationDetails4(
+                active=True,
+                description="Unique description 123",
+                event_configs=[
+                    NotificationEventConfiguration(
+                        event_type=EventType.ACCOUNT_HOLDER_VERIFICATION, include_mode=IncludeMode.INCLUDE
+                    ),
+                ],
+                notify_password="testPassword",
+                notify_url="https://www.adyen.com/notification-handler",
+                notify_username="testUserName",
+                ssl_protocol=SslProtocol.TL_SV13,
+            ),
+        ),
+    )
     # TODO: Handle 'response' of type GetNotificationConfigurationResponse
 except ApiError as e:
     ...  # TODO: Handle 'e.error' of type PostCreateNotificationConfigurationErrorBody
@@ -12217,7 +12795,23 @@ except ApiError as e:
 
 ```python
 try:
-    response = await async_client.general.post_create_notification_configuration()
+    response = await async_client.general.post_create_notification_configuration(
+        body=CreateNotificationConfigurationRequest(
+            configuration_details=NotificationConfigurationDetails4(
+                active=True,
+                description="Unique description 123",
+                event_configs=[
+                    NotificationEventConfiguration(
+                        event_type=EventType.ACCOUNT_HOLDER_VERIFICATION, include_mode=IncludeMode.INCLUDE
+                    ),
+                ],
+                notify_password="testPassword",
+                notify_url="https://www.adyen.com/notification-handler",
+                notify_username="testUserName",
+                ssl_protocol=SslProtocol.TL_SV13,
+            ),
+        ),
+    )
     # TODO: Handle 'response' of type GetNotificationConfigurationResponse
 except ApiError as e:
     ...  # TODO: Handle 'e.error' of type PostCreateNotificationConfigurationErrorBody
@@ -12234,7 +12828,7 @@ except ApiError as e:
 | Name | Type | Description |
 | --- | --- | --- |
 | <code>body</code> | <code>[CreateNotificationConfigurationRequest](adyen/models/create_notification_configuration_request.py) \| [CreateNotificationConfigurationRequestDict](adyen/models/create_notification_configuration_request.py) \| None</code> | The request body.<br>**Default**: <code>None</code> |
-| <code>request_options</code> | <code>[RequestOptionsOrDict](adyen/core/request_options.py) \| None</code> | Per-call overrides for this one request, such as a timeout or extra headers. |
+| <code>request_options</code> | <code>[RequestOptionsOrDict](adyen/core/request_options.py) \| None</code> | Per-call overrides for this one request, such as a timeout, extra headers, or its retry count and statuses. |
 
 </dd>
 </dl>
@@ -12315,7 +12909,7 @@ except ApiError as e:
 | Name | Type | Description |
 | --- | --- | --- |
 | <code>body</code> | <code>[CreatePermitRequest](adyen/models/create_permit_request.py) \| [CreatePermitRequestDict](adyen/models/create_permit_request.py) \| None</code> | The request body.<br>**Default**: <code>None</code> |
-| <code>request_options</code> | <code>[RequestOptionsOrDict](adyen/core/request_options.py) \| None</code> | Per-call overrides for this one request, such as a timeout or extra headers. |
+| <code>request_options</code> | <code>[RequestOptionsOrDict](adyen/core/request_options.py) \| None</code> | Per-call overrides for this one request, such as a timeout, extra headers, or its retry count and statuses. |
 
 </dd>
 </dl>
@@ -12396,7 +12990,7 @@ except ApiError as e:
 | Name | Type | Description |
 | --- | --- | --- |
 | <code>body</code> | <code>[CreateTestCardRangesRequest](adyen/models/create_test_card_ranges_request.py) \| [CreateTestCardRangesRequestDict](adyen/models/create_test_card_ranges_request.py) \| None</code> | The request body.<br>**Default**: <code>None</code> |
-| <code>request_options</code> | <code>[RequestOptionsOrDict](adyen/core/request_options.py) \| None</code> | Per-call overrides for this one request, such as a timeout or extra headers. |
+| <code>request_options</code> | <code>[RequestOptionsOrDict](adyen/core/request_options.py) \| None</code> | Per-call overrides for this one request, such as a timeout, extra headers, or its retry count and statuses. |
 
 </dd>
 </dl>
@@ -12452,7 +13046,24 @@ To learn more about direct debits, see [Top up accounts](https://docs.adyen.com/
 
 ```python
 try:
-    response = client.general.post_debit_account_holder()
+    response = client.general.post_debit_account_holder(
+        body=DebitAccountHolderRequest(
+            account_holder_code="ACCOUNT_HOLDER_CODE",
+            amount=Amount(currency="USD", value=6200),
+            bank_account_uuid="000b81aa-ae7e-4492-aa7e-72b2129dce0c",
+            description="YOUR_DESCRIPTION",
+            merchant_account="YOUR_MERCHANT_ACCOUNT",
+            splits=[
+                Split1(
+                    account="8535516988037431",
+                    amount=SplitAmount(value=6000),
+                    reference="YOUR_SPLIT_REFERENCE_1",
+                    type_=Type60.MARKET_PLACE,
+                ),
+                Split1(amount=SplitAmount(value=200), reference="YOUR_SPLIT_REFERENCE_2", type_=Type60.COMMISSION),
+            ],
+        ),
+    )
     # TODO: Handle 'response' of type DebitAccountHolderResponse
 except ApiError as e:
     ...  # TODO: Handle 'e.error' of type PostDebitAccountHolderErrorBody
@@ -12462,7 +13073,24 @@ except ApiError as e:
 
 ```python
 try:
-    response = await async_client.general.post_debit_account_holder()
+    response = await async_client.general.post_debit_account_holder(
+        body=DebitAccountHolderRequest(
+            account_holder_code="ACCOUNT_HOLDER_CODE",
+            amount=Amount(currency="USD", value=6200),
+            bank_account_uuid="000b81aa-ae7e-4492-aa7e-72b2129dce0c",
+            description="YOUR_DESCRIPTION",
+            merchant_account="YOUR_MERCHANT_ACCOUNT",
+            splits=[
+                Split1(
+                    account="8535516988037431",
+                    amount=SplitAmount(value=6000),
+                    reference="YOUR_SPLIT_REFERENCE_1",
+                    type_=Type60.MARKET_PLACE,
+                ),
+                Split1(amount=SplitAmount(value=200), reference="YOUR_SPLIT_REFERENCE_2", type_=Type60.COMMISSION),
+            ],
+        ),
+    )
     # TODO: Handle 'response' of type DebitAccountHolderResponse
 except ApiError as e:
     ...  # TODO: Handle 'e.error' of type PostDebitAccountHolderErrorBody
@@ -12479,7 +13107,7 @@ except ApiError as e:
 | Name | Type | Description |
 | --- | --- | --- |
 | <code>body</code> | <code>[DebitAccountHolderRequest](adyen/models/debit_account_holder_request.py) \| [DebitAccountHolderRequestDict](adyen/models/debit_account_holder_request.py) \| None</code> | The request body.<br>**Default**: <code>None</code> |
-| <code>request_options</code> | <code>[RequestOptionsOrDict](adyen/core/request_options.py) \| None</code> | Per-call overrides for this one request, such as a timeout or extra headers. |
+| <code>request_options</code> | <code>[RequestOptionsOrDict](adyen/core/request_options.py) \| None</code> | Per-call overrides for this one request, such as a timeout, extra headers, or its retry count and statuses. |
 
 </dd>
 </dl>
@@ -12533,7 +13161,13 @@ Defends a specific dispute.
 
 ```python
 try:
-    response = client.general.post_defend_dispute()
+    response = client.general.post_defend_dispute(
+        body=DefendDisputeRequest(
+            defense_reason_code="SupplyDefenseMaterial",
+            dispute_psp_reference="DZ4DPSHB4WD2WN82",
+            merchant_account_code="YOUR_MERCHANT_ACCOUNT",
+        ),
+    )
     # TODO: Handle 'response' of type DefendDisputeResponse
 except ApiError as e:
     ...  # TODO: Handle 'e.error' of type PostDefendDisputeErrorBody
@@ -12543,7 +13177,13 @@ except ApiError as e:
 
 ```python
 try:
-    response = await async_client.general.post_defend_dispute()
+    response = await async_client.general.post_defend_dispute(
+        body=DefendDisputeRequest(
+            defense_reason_code="SupplyDefenseMaterial",
+            dispute_psp_reference="DZ4DPSHB4WD2WN82",
+            merchant_account_code="YOUR_MERCHANT_ACCOUNT",
+        ),
+    )
     # TODO: Handle 'response' of type DefendDisputeResponse
 except ApiError as e:
     ...  # TODO: Handle 'e.error' of type PostDefendDisputeErrorBody
@@ -12560,7 +13200,7 @@ except ApiError as e:
 | Name | Type | Description |
 | --- | --- | --- |
 | <code>body</code> | <code>[DefendDisputeRequest](adyen/models/defend_dispute_request.py) \| [DefendDisputeRequestDict](adyen/models/defend_dispute_request.py) \| None</code> | The request body.<br>**Default**: <code>None</code> |
-| <code>request_options</code> | <code>[RequestOptionsOrDict](adyen/core/request_options.py) \| None</code> | Per-call overrides for this one request, such as a timeout or extra headers. |
+| <code>request_options</code> | <code>[RequestOptionsOrDict](adyen/core/request_options.py) \| None</code> | Per-call overrides for this one request, such as a timeout, extra headers, or its retry count and statuses. |
 
 </dd>
 </dl>
@@ -12614,7 +13254,13 @@ Deletes a specific dispute defense document that was supplied earlier.
 
 ```python
 try:
-    response = client.general.post_delete_dispute_defense_document()
+    response = client.general.post_delete_dispute_defense_document(
+        body=DeleteDefenseDocumentRequest(
+            defense_document_type="DefenseMaterial",
+            dispute_psp_reference="DZ4DPSHB4WD2WN82",
+            merchant_account_code="YOUR_MERCHANT_ACCOUNT",
+        ),
+    )
     # TODO: Handle 'response' of type DeleteDefenseDocumentResponse
 except ApiError as e:
     ...  # TODO: Handle 'e.error' of type PostDeleteDisputeDefenseDocumentErrorBody
@@ -12624,7 +13270,13 @@ except ApiError as e:
 
 ```python
 try:
-    response = await async_client.general.post_delete_dispute_defense_document()
+    response = await async_client.general.post_delete_dispute_defense_document(
+        body=DeleteDefenseDocumentRequest(
+            defense_document_type="DefenseMaterial",
+            dispute_psp_reference="DZ4DPSHB4WD2WN82",
+            merchant_account_code="YOUR_MERCHANT_ACCOUNT",
+        ),
+    )
     # TODO: Handle 'response' of type DeleteDefenseDocumentResponse
 except ApiError as e:
     ...  # TODO: Handle 'e.error' of type PostDeleteDisputeDefenseDocumentErrorBody
@@ -12641,7 +13293,7 @@ except ApiError as e:
 | Name | Type | Description |
 | --- | --- | --- |
 | <code>body</code> | <code>[DeleteDefenseDocumentRequest](adyen/models/delete_defense_document_request.py) \| [DeleteDefenseDocumentRequestDict](adyen/models/delete_defense_document_request.py) \| None</code> | The request body.<br>**Default**: <code>None</code> |
-| <code>request_options</code> | <code>[RequestOptionsOrDict](adyen/core/request_options.py) \| None</code> | Per-call overrides for this one request, such as a timeout or extra headers. |
+| <code>request_options</code> | <code>[RequestOptionsOrDict](adyen/core/request_options.py) \| None</code> | Per-call overrides for this one request, such as a timeout, extra headers, or its retry count and statuses. |
 
 </dd>
 </dl>
@@ -12695,7 +13347,9 @@ Deletes an existing notification subscription configuration. After the subscript
 
 ```python
 try:
-    response = client.general.post_delete_notification_configurations()
+    response = client.general.post_delete_notification_configurations(
+        body=DeleteNotificationConfigurationRequest(notification_ids=[27891])
+    )
     # TODO: Handle 'response' of type GenericResponse
 except ApiError as e:
     ...  # TODO: Handle 'e.error' of type PostDeleteNotificationConfigurationsErrorBody
@@ -12705,7 +13359,9 @@ except ApiError as e:
 
 ```python
 try:
-    response = await async_client.general.post_delete_notification_configurations()
+    response = await async_client.general.post_delete_notification_configurations(
+        body=DeleteNotificationConfigurationRequest(notification_ids=[27891])
+    )
     # TODO: Handle 'response' of type GenericResponse
 except ApiError as e:
     ...  # TODO: Handle 'e.error' of type PostDeleteNotificationConfigurationsErrorBody
@@ -12722,7 +13378,7 @@ except ApiError as e:
 | Name | Type | Description |
 | --- | --- | --- |
 | <code>body</code> | <code>[DeleteNotificationConfigurationRequest](adyen/models/delete_notification_configuration_request.py) \| [DeleteNotificationConfigurationRequestDict](adyen/models/delete_notification_configuration_request.py) \| None</code> | The request body.<br>**Default**: <code>None</code> |
-| <code>request_options</code> | <code>[RequestOptionsOrDict](adyen/core/request_options.py) \| None</code> | Per-call overrides for this one request, such as a timeout or extra headers. |
+| <code>request_options</code> | <code>[RequestOptionsOrDict](adyen/core/request_options.py) \| None</code> | Per-call overrides for this one request, such as a timeout, extra headers, or its retry count and statuses. |
 
 </dd>
 </dl>
@@ -12778,7 +13434,13 @@ For more information, refer to [Disable stored details](https://docs.adyen.com/o
 
 ```python
 try:
-    response = client.general.post_disable()
+    response = client.general.post_disable(
+        body=DisableRequest(
+            merchant_account="YOUR_MERCHANT_ACCOUNT",
+            recurring_detail_reference="8314442372419167",
+            shopper_reference="YOUR_SHOPPER_REFERENCE",
+        ),
+    )
     # TODO: Handle 'response' of type DisableResult
 except ApiError as e:
     ...  # TODO: Handle 'e.error' of type PostDisableErrorBody
@@ -12788,7 +13450,13 @@ except ApiError as e:
 
 ```python
 try:
-    response = await async_client.general.post_disable()
+    response = await async_client.general.post_disable(
+        body=DisableRequest(
+            merchant_account="YOUR_MERCHANT_ACCOUNT",
+            recurring_detail_reference="8314442372419167",
+            shopper_reference="YOUR_SHOPPER_REFERENCE",
+        ),
+    )
     # TODO: Handle 'response' of type DisableResult
 except ApiError as e:
     ...  # TODO: Handle 'e.error' of type PostDisableErrorBody
@@ -12805,7 +13473,7 @@ except ApiError as e:
 | Name | Type | Description |
 | --- | --- | --- |
 | <code>body</code> | <code>[DisableRequest](adyen/models/disable_request.py) \| [DisableRequestDict](adyen/models/disable_request.py) \| None</code> | The request body.<br>**Default**: <code>None</code> |
-| <code>request_options</code> | <code>[RequestOptionsOrDict](adyen/core/request_options.py) \| None</code> | Per-call overrides for this one request, such as a timeout or extra headers. |
+| <code>request_options</code> | <code>[RequestOptionsOrDict](adyen/core/request_options.py) \| None</code> | Per-call overrides for this one request, such as a timeout, extra headers, or its retry count and statuses. |
 
 </dd>
 </dl>
@@ -12886,7 +13554,7 @@ except ApiError as e:
 | Name | Type | Description |
 | --- | --- | --- |
 | <code>body</code> | <code>[DisablePermitRequest](adyen/models/disable_permit_request.py) \| [DisablePermitRequestDict](adyen/models/disable_permit_request.py) \| None</code> | The request body.<br>**Default**: <code>None</code> |
-| <code>request_options</code> | <code>[RequestOptionsOrDict](adyen/core/request_options.py) \| None</code> | Per-call overrides for this one request, such as a timeout or extra headers. |
+| <code>request_options</code> | <code>[RequestOptionsOrDict](adyen/core/request_options.py) \| None</code> | Per-call overrides for this one request, such as a timeout, extra headers, or its retry count and statuses. |
 
 </dd>
 </dl>
@@ -12942,7 +13610,7 @@ Returns the company account, merchant account, or store that a payment terminal 
 
 ```python
 try:
-    response = client.general.post_find_terminal()
+    response = client.general.post_find_terminal(body=FindTerminalRequest(terminal="M400-401972715"))
     # TODO: Handle 'response' of type FindTerminalResponse
 except ApiError as e:
     ...  # TODO: Handle 'e.error' of type PostFindTerminalErrorBody
@@ -12952,7 +13620,7 @@ except ApiError as e:
 
 ```python
 try:
-    response = await async_client.general.post_find_terminal()
+    response = await async_client.general.post_find_terminal(body=FindTerminalRequest(terminal="M400-401972715"))
     # TODO: Handle 'response' of type FindTerminalResponse
 except ApiError as e:
     ...  # TODO: Handle 'e.error' of type PostFindTerminalErrorBody
@@ -12969,7 +13637,7 @@ except ApiError as e:
 | Name | Type | Description |
 | --- | --- | --- |
 | <code>body</code> | <code>[FindTerminalRequest](adyen/models/find_terminal_request.py) \| [FindTerminalRequestDict](adyen/models/find_terminal_request.py) \| None</code> | The request body.<br>**Default**: <code>None</code> |
-| <code>request_options</code> | <code>[RequestOptionsOrDict](adyen/core/request_options.py) \| None</code> | Per-call overrides for this one request, such as a timeout or extra headers. |
+| <code>request_options</code> | <code>[RequestOptionsOrDict](adyen/core/request_options.py) \| None</code> | Per-call overrides for this one request, such as a timeout, extra headers, or its retry count and statuses. |
 
 </dd>
 </dl>
@@ -13025,7 +13693,9 @@ For more information, refer to [3D Secure 2](https://docs.adyen.com/online-payme
 
 ```python
 try:
-    response = client.general.post_get3ds_availability()
+    response = client.general.post_get3ds_availability(
+        body=ThreeDsavailabilityRequest(card_number="4111111111111111", merchant_account="YOUR_MERCHANT_ACCOUNT")
+    )
     # TODO: Handle 'response' of type ThreeDsavailabilityResponse
 except ApiError as e:
     ...  # TODO: Handle 'e.error' of type PostGet3DsAvailabilityErrorBody
@@ -13035,7 +13705,9 @@ except ApiError as e:
 
 ```python
 try:
-    response = await async_client.general.post_get3ds_availability()
+    response = await async_client.general.post_get3ds_availability(
+        body=ThreeDsavailabilityRequest(card_number="4111111111111111", merchant_account="YOUR_MERCHANT_ACCOUNT")
+    )
     # TODO: Handle 'response' of type ThreeDsavailabilityResponse
 except ApiError as e:
     ...  # TODO: Handle 'e.error' of type PostGet3DsAvailabilityErrorBody
@@ -13052,7 +13724,7 @@ except ApiError as e:
 | Name | Type | Description |
 | --- | --- | --- |
 | <code>body</code> | <code>[ThreeDsavailabilityRequest](adyen/models/three_dsavailability_request.py) \| [ThreeDsavailabilityRequestDict](adyen/models/three_dsavailability_request.py) \| None</code> | The request body.<br>**Default**: <code>None</code> |
-| <code>request_options</code> | <code>[RequestOptionsOrDict](adyen/core/request_options.py) \| None</code> | Per-call overrides for this one request, such as a timeout or extra headers. |
+| <code>request_options</code> | <code>[RequestOptionsOrDict](adyen/core/request_options.py) \| None</code> | Per-call overrides for this one request, such as a timeout, extra headers, or its retry count and statuses. |
 
 </dd>
 </dl>
@@ -13112,7 +13784,16 @@ To retrieve this information, make the call to the `/getCostEstimate` endpoint. 
 
 ```python
 try:
-    response = client.general.post_get_cost_estimate()
+    response = client.general.post_get_cost_estimate(
+        body=CostEstimateRequest(
+            amount=Amount(currency="EUR", value=1234),
+            assumptions=CostEstimateAssumptions1(assume3_d_secure_authenticated=True, assume_level3_data=True),
+            card_number="5101180000000007",
+            merchant_account="YOUR_MERCHANT_ACCOUNT",
+            merchant_details=MerchantDetails2(country_code="NL", enrolled_in3_d_secure=True, mcc="7411"),
+            shopper_interaction=ShopperInteraction.ECOMMERCE,
+        ),
+    )
     # TODO: Handle 'response' of type CostEstimateResponse
 except ApiError as e:
     ...  # TODO: Handle 'e.error' of type PostGetCostEstimateErrorBody
@@ -13122,7 +13803,16 @@ except ApiError as e:
 
 ```python
 try:
-    response = await async_client.general.post_get_cost_estimate()
+    response = await async_client.general.post_get_cost_estimate(
+        body=CostEstimateRequest(
+            amount=Amount(currency="EUR", value=1234),
+            assumptions=CostEstimateAssumptions1(assume3_d_secure_authenticated=True, assume_level3_data=True),
+            card_number="5101180000000007",
+            merchant_account="YOUR_MERCHANT_ACCOUNT",
+            merchant_details=MerchantDetails2(country_code="NL", enrolled_in3_d_secure=True, mcc="7411"),
+            shopper_interaction=ShopperInteraction.ECOMMERCE,
+        ),
+    )
     # TODO: Handle 'response' of type CostEstimateResponse
 except ApiError as e:
     ...  # TODO: Handle 'e.error' of type PostGetCostEstimateErrorBody
@@ -13139,7 +13829,7 @@ except ApiError as e:
 | Name | Type | Description |
 | --- | --- | --- |
 | <code>body</code> | <code>[CostEstimateRequest](adyen/models/cost_estimate_request.py) \| [CostEstimateRequestDict](adyen/models/cost_estimate_request.py) \| None</code> | The request body.<br>**Default**: <code>None</code> |
-| <code>request_options</code> | <code>[RequestOptionsOrDict](adyen/core/request_options.py) \| None</code> | Per-call overrides for this one request, such as a timeout or extra headers. |
+| <code>request_options</code> | <code>[RequestOptionsOrDict](adyen/core/request_options.py) \| None</code> | Per-call overrides for this one request, such as a timeout, extra headers, or its retry count and statuses. |
 
 </dd>
 </dl>
@@ -13193,7 +13883,9 @@ Returns the details of the configuration of a notification subscription.
 
 ```python
 try:
-    response = client.general.post_get_notification_configuration()
+    response = client.general.post_get_notification_configuration(
+        body=GetNotificationConfigurationRequest(notification_id=21259)
+    )
     # TODO: Handle 'response' of type GetNotificationConfigurationResponse
 except ApiError as e:
     ...  # TODO: Handle 'e.error' of type PostGetNotificationConfigurationErrorBody
@@ -13203,7 +13895,9 @@ except ApiError as e:
 
 ```python
 try:
-    response = await async_client.general.post_get_notification_configuration()
+    response = await async_client.general.post_get_notification_configuration(
+        body=GetNotificationConfigurationRequest(notification_id=21259)
+    )
     # TODO: Handle 'response' of type GetNotificationConfigurationResponse
 except ApiError as e:
     ...  # TODO: Handle 'e.error' of type PostGetNotificationConfigurationErrorBody
@@ -13220,7 +13914,7 @@ except ApiError as e:
 | Name | Type | Description |
 | --- | --- | --- |
 | <code>body</code> | <code>[GetNotificationConfigurationRequest](adyen/models/get_notification_configuration_request.py) \| [GetNotificationConfigurationRequestDict](adyen/models/get_notification_configuration_request.py) \| None</code> | The request body.<br>**Default**: <code>None</code> |
-| <code>request_options</code> | <code>[RequestOptionsOrDict](adyen/core/request_options.py) \| None</code> | Per-call overrides for this one request, such as a timeout or extra headers. |
+| <code>request_options</code> | <code>[RequestOptionsOrDict](adyen/core/request_options.py) \| None</code> | Per-call overrides for this one request, such as a timeout, extra headers, or its retry count and statuses. |
 
 </dd>
 </dl>
@@ -13274,7 +13968,7 @@ Returns the details of the configurations of all of the notification subscriptio
 
 ```python
 try:
-    response = client.general.post_get_notification_configuration_list()
+    response = client.general.post_get_notification_configuration_list(body={})
     # TODO: Handle 'response' of type GetNotificationConfigurationListResponse
 except ApiError as e:
     ...  # TODO: Handle 'e.error' of type PostGetNotificationConfigurationListErrorBody
@@ -13284,7 +13978,7 @@ except ApiError as e:
 
 ```python
 try:
-    response = await async_client.general.post_get_notification_configuration_list()
+    response = await async_client.general.post_get_notification_configuration_list(body={})
     # TODO: Handle 'response' of type GetNotificationConfigurationListResponse
 except ApiError as e:
     ...  # TODO: Handle 'e.error' of type PostGetNotificationConfigurationListErrorBody
@@ -13301,7 +13995,7 @@ except ApiError as e:
 | Name | Type | Description |
 | --- | --- | --- |
 | <code>body</code> | <code>Any \| None</code> | The request body.<br>**Default**: <code>None</code> |
-| <code>request_options</code> | <code>[RequestOptionsOrDict](adyen/core/request_options.py) \| None</code> | Per-call overrides for this one request, such as a timeout or extra headers. |
+| <code>request_options</code> | <code>[RequestOptionsOrDict](adyen/core/request_options.py) \| None</code> | Per-call overrides for this one request, such as a timeout, extra headers, or its retry count and statuses. |
 
 </dd>
 </dl>
@@ -13357,7 +14051,9 @@ Returns a list of stores associated with a company account or a merchant account
 
 ```python
 try:
-    response = client.general.post_get_stores_under_account()
+    response = client.general.post_get_stores_under_account(
+        body=GetStoresUnderAccountRequest(company_account="YOUR_COMPANY_ACCOUNT")
+    )
     # TODO: Handle 'response' of type GetStoresUnderAccountResponse
 except ApiError as e:
     ...  # TODO: Handle 'e.error' of type PostGetStoresUnderAccountErrorBody
@@ -13367,7 +14063,9 @@ except ApiError as e:
 
 ```python
 try:
-    response = await async_client.general.post_get_stores_under_account()
+    response = await async_client.general.post_get_stores_under_account(
+        body=GetStoresUnderAccountRequest(company_account="YOUR_COMPANY_ACCOUNT")
+    )
     # TODO: Handle 'response' of type GetStoresUnderAccountResponse
 except ApiError as e:
     ...  # TODO: Handle 'e.error' of type PostGetStoresUnderAccountErrorBody
@@ -13384,7 +14082,7 @@ except ApiError as e:
 | Name | Type | Description |
 | --- | --- | --- |
 | <code>body</code> | <code>[GetStoresUnderAccountRequest](adyen/models/get_stores_under_account_request.py) \| [GetStoresUnderAccountRequestDict](adyen/models/get_stores_under_account_request.py) \| None</code> | The request body.<br>**Default**: <code>None</code> |
-| <code>request_options</code> | <code>[RequestOptionsOrDict](adyen/core/request_options.py) \| None</code> | Per-call overrides for this one request, such as a timeout or extra headers. |
+| <code>request_options</code> | <code>[RequestOptionsOrDict](adyen/core/request_options.py) \| None</code> | Per-call overrides for this one request, such as a timeout, extra headers, or its retry count and statuses. |
 
 </dd>
 </dl>
@@ -13440,7 +14138,7 @@ Returns the details of a payment terminal, including where the terminal is assig
 
 ```python
 try:
-    response = client.general.post_get_terminal_details()
+    response = client.general.post_get_terminal_details(body=GetTerminalDetailsRequest(terminal="M400-401972715"))
     # TODO: Handle 'response' of type GetTerminalDetailsResponse
 except ApiError as e:
     ...  # TODO: Handle 'e.error' of type PostGetTerminalDetailsErrorBody
@@ -13450,7 +14148,9 @@ except ApiError as e:
 
 ```python
 try:
-    response = await async_client.general.post_get_terminal_details()
+    response = await async_client.general.post_get_terminal_details(
+        body=GetTerminalDetailsRequest(terminal="M400-401972715")
+    )
     # TODO: Handle 'response' of type GetTerminalDetailsResponse
 except ApiError as e:
     ...  # TODO: Handle 'e.error' of type PostGetTerminalDetailsErrorBody
@@ -13467,7 +14167,7 @@ except ApiError as e:
 | Name | Type | Description |
 | --- | --- | --- |
 | <code>body</code> | <code>[GetTerminalDetailsRequest](adyen/models/get_terminal_details_request.py) \| [GetTerminalDetailsRequestDict](adyen/models/get_terminal_details_request.py) \| None</code> | The request body.<br>**Default**: <code>None</code> |
-| <code>request_options</code> | <code>[RequestOptionsOrDict](adyen/core/request_options.py) \| None</code> | Per-call overrides for this one request, such as a timeout or extra headers. |
+| <code>request_options</code> | <code>[RequestOptionsOrDict](adyen/core/request_options.py) \| None</code> | Per-call overrides for this one request, such as a timeout, extra headers, or its retry count and statuses. |
 
 </dd>
 </dl>
@@ -13523,7 +14223,9 @@ Returns a list of payment terminals associated with a company account, merchant 
 
 ```python
 try:
-    response = client.general.post_get_terminals_under_account()
+    response = client.general.post_get_terminals_under_account(
+        body=GetTerminalsUnderAccountRequest(company_account="YOUR_COMPANY_ACCOUNT")
+    )
     # TODO: Handle 'response' of type GetTerminalsUnderAccountResponse
 except ApiError as e:
     ...  # TODO: Handle 'e.error' of type PostGetTerminalsUnderAccountErrorBody
@@ -13533,7 +14235,9 @@ except ApiError as e:
 
 ```python
 try:
-    response = await async_client.general.post_get_terminals_under_account()
+    response = await async_client.general.post_get_terminals_under_account(
+        body=GetTerminalsUnderAccountRequest(company_account="YOUR_COMPANY_ACCOUNT")
+    )
     # TODO: Handle 'response' of type GetTerminalsUnderAccountResponse
 except ApiError as e:
     ...  # TODO: Handle 'e.error' of type PostGetTerminalsUnderAccountErrorBody
@@ -13550,7 +14254,7 @@ except ApiError as e:
 | Name | Type | Description |
 | --- | --- | --- |
 | <code>body</code> | <code>[GetTerminalsUnderAccountRequest](adyen/models/get_terminals_under_account_request.py) \| [GetTerminalsUnderAccountRequestDict](adyen/models/get_terminals_under_account_request.py) \| None</code> | The request body.<br>**Default**: <code>None</code> |
-| <code>request_options</code> | <code>[RequestOptionsOrDict](adyen/core/request_options.py) \| None</code> | Per-call overrides for this one request, such as a timeout or extra headers. |
+| <code>request_options</code> | <code>[RequestOptionsOrDict](adyen/core/request_options.py) \| None</code> | Per-call overrides for this one request, such as a timeout, extra headers, or its retry count and statuses. |
 
 </dd>
 </dl>
@@ -13631,7 +14335,7 @@ except ApiError as e:
 | Name | Type | Description |
 | --- | --- | --- |
 | <code>body</code> | <code>[StoredValueIssueRequest](adyen/models/stored_value_issue_request.py) \| [StoredValueIssueRequestDict](adyen/models/stored_value_issue_request.py) \| None</code> | The request body.<br>**Default**: <code>None</code> |
-| <code>request_options</code> | <code>[RequestOptionsOrDict](adyen/core/request_options.py) \| None</code> | Per-call overrides for this one request, such as a timeout or extra headers. |
+| <code>request_options</code> | <code>[RequestOptionsOrDict](adyen/core/request_options.py) \| None</code> | Per-call overrides for this one request, such as a timeout, extra headers, or its retry count and statuses. |
 
 </dd>
 </dl>
@@ -13687,7 +14391,13 @@ For more information, refer to [Retrieve stored details](https://docs.adyen.com/
 
 ```python
 try:
-    response = client.general.post_list_recurring_details()
+    response = client.general.post_list_recurring_details(
+        body=RecurringDetailsRequest(
+            merchant_account="YOUR_MERCHANT_ACCOUNT",
+            recurring=Recurring(contract=Contract.RECURRING),
+            shopper_reference="YOUR_SHOPPER_REFERENCE",
+        ),
+    )
     # TODO: Handle 'response' of type RecurringDetailsResult
 except ApiError as e:
     ...  # TODO: Handle 'e.error' of type PostListRecurringDetailsErrorBody
@@ -13697,7 +14407,13 @@ except ApiError as e:
 
 ```python
 try:
-    response = await async_client.general.post_list_recurring_details()
+    response = await async_client.general.post_list_recurring_details(
+        body=RecurringDetailsRequest(
+            merchant_account="YOUR_MERCHANT_ACCOUNT",
+            recurring=Recurring(contract=Contract.RECURRING),
+            shopper_reference="YOUR_SHOPPER_REFERENCE",
+        ),
+    )
     # TODO: Handle 'response' of type RecurringDetailsResult
 except ApiError as e:
     ...  # TODO: Handle 'e.error' of type PostListRecurringDetailsErrorBody
@@ -13714,7 +14430,7 @@ except ApiError as e:
 | Name | Type | Description |
 | --- | --- | --- |
 | <code>body</code> | <code>[RecurringDetailsRequest](adyen/models/recurring_details_request.py) \| [RecurringDetailsRequestDict](adyen/models/recurring_details_request.py) \| None</code> | The request body.<br>**Default**: <code>None</code> |
-| <code>request_options</code> | <code>[RequestOptionsOrDict](adyen/core/request_options.py) \| None</code> | Per-call overrides for this one request, such as a timeout or extra headers. |
+| <code>request_options</code> | <code>[RequestOptionsOrDict](adyen/core/request_options.py) \| None</code> | Per-call overrides for this one request, such as a timeout, extra headers, or its retry count and statuses. |
 
 </dd>
 </dl>
@@ -13795,7 +14511,7 @@ except ApiError as e:
 | Name | Type | Description |
 | --- | --- | --- |
 | <code>body</code> | <code>[StoredValueLoadRequest](adyen/models/stored_value_load_request.py) \| [StoredValueLoadRequestDict](adyen/models/stored_value_load_request.py) \| None</code> | The request body.<br>**Default**: <code>None</code> |
-| <code>request_options</code> | <code>[RequestOptionsOrDict](adyen/core/request_options.py) \| None</code> | Per-call overrides for this one request, such as a timeout or extra headers. |
+| <code>request_options</code> | <code>[RequestOptionsOrDict](adyen/core/request_options.py) \| None</code> | Per-call overrides for this one request, such as a timeout, extra headers, or its retry count and statuses. |
 
 </dd>
 </dl>
@@ -13876,7 +14592,7 @@ except ApiError as e:
 | Name | Type | Description |
 | --- | --- | --- |
 | <code>body</code> | <code>[StoredValueBalanceMergeRequest](adyen/models/stored_value_balance_merge_request.py) \| [StoredValueBalanceMergeRequestDict](adyen/models/stored_value_balance_merge_request.py) \| None</code> | The request body.<br>**Default**: <code>None</code> |
-| <code>request_options</code> | <code>[RequestOptionsOrDict](adyen/core/request_options.py) \| None</code> | Per-call overrides for this one request, such as a timeout or extra headers. |
+| <code>request_options</code> | <code>[RequestOptionsOrDict](adyen/core/request_options.py) \| None</code> | Per-call overrides for this one request, such as a timeout, extra headers, or its retry count and statuses. |
 
 </dd>
 </dl>
@@ -13930,7 +14646,17 @@ Sends a request to the issuer so they can inform the shopper about the upcoming 
 
 ```python
 try:
-    response = client.general.post_notify_shopper()
+    response = client.general.post_notify_shopper(
+        body=NotifyShopperRequest(
+            amount=Amount(currency="INR", value=1000),
+            billing_date="2021-03-16",
+            displayed_reference="exampleDisplayedReference",
+            merchant_account="YOUR_MERCHANT_ACCOUNT",
+            reference="Example reference",
+            shopper_reference="YOUR_SHOPPER_REFERENCE",
+            stored_payment_method_id="8415995487234100",
+        ),
+    )
     # TODO: Handle 'response' of type NotifyShopperResult
 except ApiError as e:
     ...  # TODO: Handle 'e.error' of type PostNotifyShopperErrorBody
@@ -13940,7 +14666,17 @@ except ApiError as e:
 
 ```python
 try:
-    response = await async_client.general.post_notify_shopper()
+    response = await async_client.general.post_notify_shopper(
+        body=NotifyShopperRequest(
+            amount=Amount(currency="INR", value=1000),
+            billing_date="2021-03-16",
+            displayed_reference="exampleDisplayedReference",
+            merchant_account="YOUR_MERCHANT_ACCOUNT",
+            reference="Example reference",
+            shopper_reference="YOUR_SHOPPER_REFERENCE",
+            stored_payment_method_id="8415995487234100",
+        ),
+    )
     # TODO: Handle 'response' of type NotifyShopperResult
 except ApiError as e:
     ...  # TODO: Handle 'e.error' of type PostNotifyShopperErrorBody
@@ -13957,7 +14693,7 @@ except ApiError as e:
 | Name | Type | Description |
 | --- | --- | --- |
 | <code>body</code> | <code>[NotifyShopperRequest](adyen/models/notify_shopper_request.py) \| [NotifyShopperRequestDict](adyen/models/notify_shopper_request.py) \| None</code> | The request body.<br>**Default**: <code>None</code> |
-| <code>request_options</code> | <code>[RequestOptionsOrDict](adyen/core/request_options.py) \| None</code> | Per-call overrides for this one request, such as a timeout or extra headers. |
+| <code>request_options</code> | <code>[RequestOptionsOrDict](adyen/core/request_options.py) \| None</code> | Per-call overrides for this one request, such as a timeout, extra headers, or its retry count and statuses. |
 
 </dd>
 </dl>
@@ -14011,7 +14747,15 @@ Pays out a specified amount from an account to the bank account of account holde
 
 ```python
 try:
-    response = client.general.post_payout_account_holder()
+    response = client.general.post_payout_account_holder(
+        body=PayoutAccountHolderRequest(
+            account_code="118731451",
+            account_holder_code="CODE_OF_ACCOUNT_HOLDER",
+            amount=Amount(currency="EUR", value=99792),
+            bank_account_uuid="000b81aa-ae7e-4492-aa7e-72b2129dce0c",
+            description="12345 – Test",
+        ),
+    )
     # TODO: Handle 'response' of type PayoutAccountHolderResponse
 except ApiError as e:
     ...  # TODO: Handle 'e.error' of type PostPayoutAccountHolderErrorBody
@@ -14021,7 +14765,15 @@ except ApiError as e:
 
 ```python
 try:
-    response = await async_client.general.post_payout_account_holder()
+    response = await async_client.general.post_payout_account_holder(
+        body=PayoutAccountHolderRequest(
+            account_code="118731451",
+            account_holder_code="CODE_OF_ACCOUNT_HOLDER",
+            amount=Amount(currency="EUR", value=99792),
+            bank_account_uuid="000b81aa-ae7e-4492-aa7e-72b2129dce0c",
+            description="12345 – Test",
+        ),
+    )
     # TODO: Handle 'response' of type PayoutAccountHolderResponse
 except ApiError as e:
     ...  # TODO: Handle 'e.error' of type PostPayoutAccountHolderErrorBody
@@ -14038,7 +14790,7 @@ except ApiError as e:
 | Name | Type | Description |
 | --- | --- | --- |
 | <code>body</code> | <code>[PayoutAccountHolderRequest](adyen/models/payout_account_holder_request.py) \| [PayoutAccountHolderRequestDict](adyen/models/payout_account_holder_request.py) \| None</code> | The request body.<br>**Default**: <code>None</code> |
-| <code>request_options</code> | <code>[RequestOptionsOrDict](adyen/core/request_options.py) \| None</code> | Per-call overrides for this one request, such as a timeout or extra headers. |
+| <code>request_options</code> | <code>[RequestOptionsOrDict](adyen/core/request_options.py) \| None</code> | Per-call overrides for this one request, such as a timeout, extra headers, or its retry count and statuses. |
 
 </dd>
 </dl>
@@ -14092,7 +14844,13 @@ Refunds funds transferred from one account to another. Both accounts must be in 
 
 ```python
 try:
-    response = client.general.post_refund_funds_transfer()
+    response = client.general.post_refund_funds_transfer(
+        body=RefundFundsTransferRequest(
+            amount=Amount(currency="EUR", value=1000),
+            merchant_reference="YOUR_REFERENCE_ID",
+            original_reference="PSP_REFERENCE_OF_TRANSFER_TO_REFUND",
+        ),
+    )
     # TODO: Handle 'response' of type RefundFundsTransferResponse
 except ApiError as e:
     ...  # TODO: Handle 'e.error' of type PostRefundFundsTransferErrorBody
@@ -14102,7 +14860,13 @@ except ApiError as e:
 
 ```python
 try:
-    response = await async_client.general.post_refund_funds_transfer()
+    response = await async_client.general.post_refund_funds_transfer(
+        body=RefundFundsTransferRequest(
+            amount=Amount(currency="EUR", value=1000),
+            merchant_reference="YOUR_REFERENCE_ID",
+            original_reference="PSP_REFERENCE_OF_TRANSFER_TO_REFUND",
+        ),
+    )
     # TODO: Handle 'response' of type RefundFundsTransferResponse
 except ApiError as e:
     ...  # TODO: Handle 'e.error' of type PostRefundFundsTransferErrorBody
@@ -14119,7 +14883,7 @@ except ApiError as e:
 | Name | Type | Description |
 | --- | --- | --- |
 | <code>body</code> | <code>[RefundFundsTransferRequest](adyen/models/refund_funds_transfer_request.py) \| [RefundFundsTransferRequestDict](adyen/models/refund_funds_transfer_request.py) \| None</code> | The request body.<br>**Default**: <code>None</code> |
-| <code>request_options</code> | <code>[RequestOptionsOrDict](adyen/core/request_options.py) \| None</code> | Per-call overrides for this one request, such as a timeout or extra headers. |
+| <code>request_options</code> | <code>[RequestOptionsOrDict](adyen/core/request_options.py) \| None</code> | Per-call overrides for this one request, such as a timeout, extra headers, or its retry count and statuses. |
 
 </dd>
 </dl>
@@ -14173,7 +14937,9 @@ Refunds all the transactions of an account that have taken place since the most 
 
 ```python
 try:
-    response = client.general.post_refund_not_paid_out_transfers()
+    response = client.general.post_refund_not_paid_out_transfers(
+        body=RefundNotPaidOutTransfersRequest(account_code="189184578", account_holder_code="CODE_OF_ACCOUNT_HOLDER")
+    )
     # TODO: Handle 'response' of type GenericResponse
 except ApiError as e:
     ...  # TODO: Handle 'e.error' of type PostRefundNotPaidOutTransfersErrorBody
@@ -14183,7 +14949,9 @@ except ApiError as e:
 
 ```python
 try:
-    response = await async_client.general.post_refund_not_paid_out_transfers()
+    response = await async_client.general.post_refund_not_paid_out_transfers(
+        body=RefundNotPaidOutTransfersRequest(account_code="189184578", account_holder_code="CODE_OF_ACCOUNT_HOLDER")
+    )
     # TODO: Handle 'response' of type GenericResponse
 except ApiError as e:
     ...  # TODO: Handle 'e.error' of type PostRefundNotPaidOutTransfersErrorBody
@@ -14200,7 +14968,7 @@ except ApiError as e:
 | Name | Type | Description |
 | --- | --- | --- |
 | <code>body</code> | <code>[RefundNotPaidOutTransfersRequest](adyen/models/refund_not_paid_out_transfers_request.py) \| [RefundNotPaidOutTransfersRequestDict](adyen/models/refund_not_paid_out_transfers_request.py) \| None</code> | The request body.<br>**Default**: <code>None</code> |
-| <code>request_options</code> | <code>[RequestOptionsOrDict](adyen/core/request_options.py) \| None</code> | Per-call overrides for this one request, such as a timeout or extra headers. |
+| <code>request_options</code> | <code>[RequestOptionsOrDict](adyen/core/request_options.py) \| None</code> | Per-call overrides for this one request, such as a timeout, extra headers, or its retry count and statuses. |
 
 </dd>
 </dl>
@@ -14281,7 +15049,7 @@ except ApiError as e:
 | Name | Type | Description |
 | --- | --- | --- |
 | <code>body</code> | <code>[SubjectErasureByPspReferenceRequest](adyen/models/subject_erasure_by_psp_reference_request.py) \| [SubjectErasureByPspReferenceRequestDict](adyen/models/subject_erasure_by_psp_reference_request.py) \| None</code> | The request body.<br>**Default**: <code>None</code> |
-| <code>request_options</code> | <code>[RequestOptionsOrDict](adyen/core/request_options.py) \| None</code> | Per-call overrides for this one request, such as a timeout or extra headers. |
+| <code>request_options</code> | <code>[RequestOptionsOrDict](adyen/core/request_options.py) \| None</code> | Per-call overrides for this one request, such as a timeout, extra headers, or its retry count and statuses. |
 
 </dd>
 </dl>
@@ -14335,7 +15103,11 @@ Returns a list of all applicable defense reasons to defend a specific dispute.
 
 ```python
 try:
-    response = client.general.post_retrieve_applicable_defense_reasons()
+    response = client.general.post_retrieve_applicable_defense_reasons(
+        body=DefenseReasonsRequest(
+            dispute_psp_reference="DZ4DPSHB4WD2WN82", merchant_account_code="YOUR_MERCHANT_ACCOUNT"
+        ),
+    )
     # TODO: Handle 'response' of type DefenseReasonsResponse
 except ApiError as e:
     ...  # TODO: Handle 'e.error' of type PostRetrieveApplicableDefenseReasonsErrorBody
@@ -14345,7 +15117,11 @@ except ApiError as e:
 
 ```python
 try:
-    response = await async_client.general.post_retrieve_applicable_defense_reasons()
+    response = await async_client.general.post_retrieve_applicable_defense_reasons(
+        body=DefenseReasonsRequest(
+            dispute_psp_reference="DZ4DPSHB4WD2WN82", merchant_account_code="YOUR_MERCHANT_ACCOUNT"
+        ),
+    )
     # TODO: Handle 'response' of type DefenseReasonsResponse
 except ApiError as e:
     ...  # TODO: Handle 'e.error' of type PostRetrieveApplicableDefenseReasonsErrorBody
@@ -14362,7 +15138,7 @@ except ApiError as e:
 | Name | Type | Description |
 | --- | --- | --- |
 | <code>body</code> | <code>[DefenseReasonsRequest](adyen/models/defense_reasons_request.py) \| [DefenseReasonsRequestDict](adyen/models/defense_reasons_request.py) \| None</code> | The request body.<br>**Default**: <code>None</code> |
-| <code>request_options</code> | <code>[RequestOptionsOrDict](adyen/core/request_options.py) \| None</code> | Per-call overrides for this one request, such as a timeout or extra headers. |
+| <code>request_options</code> | <code>[RequestOptionsOrDict](adyen/core/request_options.py) \| None</code> | Per-call overrides for this one request, such as a timeout, extra headers, or its retry count and statuses. |
 
 </dd>
 </dl>
@@ -14418,7 +15194,13 @@ When making the API call, you can submit either the credit card information, or 
 
 ```python
 try:
-    response = client.general.post_schedule_account_updater()
+    response = client.general.post_schedule_account_updater(
+        body=ScheduleAccountUpdaterRequest(
+            card=Card(expiry_month="03", expiry_year="2030", holder_name="Adyen Test", number="4111111111111111"),
+            merchant_account="YOUR_MERCHANT_ACCOUNT",
+            reference="YOUR_REFERENCE",
+        ),
+    )
     # TODO: Handle 'response' of type ScheduleAccountUpdaterResult
 except ApiError as e:
     ...  # TODO: Handle 'e.error' of type PostScheduleAccountUpdaterErrorBody
@@ -14428,7 +15210,13 @@ except ApiError as e:
 
 ```python
 try:
-    response = await async_client.general.post_schedule_account_updater()
+    response = await async_client.general.post_schedule_account_updater(
+        body=ScheduleAccountUpdaterRequest(
+            card=Card(expiry_month="03", expiry_year="2030", holder_name="Adyen Test", number="4111111111111111"),
+            merchant_account="YOUR_MERCHANT_ACCOUNT",
+            reference="YOUR_REFERENCE",
+        ),
+    )
     # TODO: Handle 'response' of type ScheduleAccountUpdaterResult
 except ApiError as e:
     ...  # TODO: Handle 'e.error' of type PostScheduleAccountUpdaterErrorBody
@@ -14445,7 +15233,7 @@ except ApiError as e:
 | Name | Type | Description |
 | --- | --- | --- |
 | <code>body</code> | <code>[ScheduleAccountUpdaterRequest](adyen/models/schedule_account_updater_request.py) \| [ScheduleAccountUpdaterRequestDict](adyen/models/schedule_account_updater_request.py) \| None</code> | The request body.<br>**Default**: <code>None</code> |
-| <code>request_options</code> | <code>[RequestOptionsOrDict](adyen/core/request_options.py) \| None</code> | Per-call overrides for this one request, such as a timeout or extra headers. |
+| <code>request_options</code> | <code>[RequestOptionsOrDict](adyen/core/request_options.py) \| None</code> | Per-call overrides for this one request, such as a timeout, extra headers, or its retry count and statuses. |
 
 </dd>
 </dl>
@@ -14501,7 +15289,11 @@ The request sends a setup token that identifies the SDK and the device. The resp
 
 ```python
 try:
-    response = client.general.post_sessions3()
+    response = client.general.post_sessions3(
+        body=CreateSessionRequest(
+            merchant_account="YOUR_MERCHANT_ACCOUNT", setup_token="SETUP_TOKEN", store="YOUR_STORE_ID"
+        ),
+    )
     # TODO: Handle 'response' of type CertificateLoadingResponse
 except ApiError as e:
     ...  # TODO: Handle 'e.error' of type RawError
@@ -14511,7 +15303,11 @@ except ApiError as e:
 
 ```python
 try:
-    response = await async_client.general.post_sessions3()
+    response = await async_client.general.post_sessions3(
+        body=CreateSessionRequest(
+            merchant_account="YOUR_MERCHANT_ACCOUNT", setup_token="SETUP_TOKEN", store="YOUR_STORE_ID"
+        ),
+    )
     # TODO: Handle 'response' of type CertificateLoadingResponse
 except ApiError as e:
     ...  # TODO: Handle 'e.error' of type RawError
@@ -14528,7 +15324,7 @@ except ApiError as e:
 | Name | Type | Description |
 | --- | --- | --- |
 | <code>body</code> | <code>[CreateSessionRequest](adyen/models/create_session_request.py) \| [CreateSessionRequestDict](adyen/models/create_session_request.py) \| None</code> | The request body.<br>**Default**: <code>None</code> |
-| <code>request_options</code> | <code>[RequestOptionsOrDict](adyen/core/request_options.py) \| None</code> | Per-call overrides for this one request, such as a timeout or extra headers. |
+| <code>request_options</code> | <code>[RequestOptionsOrDict](adyen/core/request_options.py) \| None</code> | Per-call overrides for this one request, such as a timeout, extra headers, or its retry count and statuses. |
 
 </dd>
 </dl>
@@ -14575,7 +15371,13 @@ Defines a benefactor and a beneficiary relationship between two accounts. At the
 
 ```python
 try:
-    response = client.general.post_setup_beneficiary()
+    response = client.general.post_setup_beneficiary(
+        body=SetupBeneficiaryRequest(
+            destination_account_code="128952522",
+            merchant_reference="YOUR_REFERENCE_ID",
+            source_account_code="134498192",
+        ),
+    )
     # TODO: Handle 'response' of type GenericResponse
 except ApiError as e:
     ...  # TODO: Handle 'e.error' of type PostSetupBeneficiaryErrorBody
@@ -14585,7 +15387,13 @@ except ApiError as e:
 
 ```python
 try:
-    response = await async_client.general.post_setup_beneficiary()
+    response = await async_client.general.post_setup_beneficiary(
+        body=SetupBeneficiaryRequest(
+            destination_account_code="128952522",
+            merchant_reference="YOUR_REFERENCE_ID",
+            source_account_code="134498192",
+        ),
+    )
     # TODO: Handle 'response' of type GenericResponse
 except ApiError as e:
     ...  # TODO: Handle 'e.error' of type PostSetupBeneficiaryErrorBody
@@ -14602,7 +15410,7 @@ except ApiError as e:
 | Name | Type | Description |
 | --- | --- | --- |
 | <code>body</code> | <code>[SetupBeneficiaryRequest](adyen/models/setup_beneficiary_request.py) \| [SetupBeneficiaryRequestDict](adyen/models/setup_beneficiary_request.py) \| None</code> | The request body.<br>**Default**: <code>None</code> |
-| <code>request_options</code> | <code>[RequestOptionsOrDict](adyen/core/request_options.py) \| None</code> | Per-call overrides for this one request, such as a timeout or extra headers. |
+| <code>request_options</code> | <code>[RequestOptionsOrDict](adyen/core/request_options.py) \| None</code> | Per-call overrides for this one request, such as a timeout, extra headers, or its retry count and statuses. |
 
 </dd>
 </dl>
@@ -14656,7 +15464,19 @@ Supplies a specific dispute defense document.
 
 ```python
 try:
-    response = client.general.post_supply_defense_document()
+    response = client.general.post_supply_defense_document(
+        body=SupplyDefenseDocumentRequest(
+            defense_documents=[
+                DefenseDocument(
+                    content="JVBERi0xLjQKJcOkw7zDtsOfCjIgMCBv+f/ub0j6JPRX+E3EmC==",
+                    content_type="application/pdf",
+                    defense_document_type_code="DefenseMaterial",
+                ),
+            ],
+            dispute_psp_reference="DZ4DPSHB4WD2WN82",
+            merchant_account_code="YOUR_MERCHANT_ACCOUNT",
+        ),
+    )
     # TODO: Handle 'response' of type SupplyDefenseDocumentResponse
 except ApiError as e:
     ...  # TODO: Handle 'e.error' of type PostSupplyDefenseDocumentErrorBody
@@ -14666,7 +15486,19 @@ except ApiError as e:
 
 ```python
 try:
-    response = await async_client.general.post_supply_defense_document()
+    response = await async_client.general.post_supply_defense_document(
+        body=SupplyDefenseDocumentRequest(
+            defense_documents=[
+                DefenseDocument(
+                    content="JVBERi0xLjQKJcOkw7zDtsOfCjIgMCBv+f/ub0j6JPRX+E3EmC==",
+                    content_type="application/pdf",
+                    defense_document_type_code="DefenseMaterial",
+                ),
+            ],
+            dispute_psp_reference="DZ4DPSHB4WD2WN82",
+            merchant_account_code="YOUR_MERCHANT_ACCOUNT",
+        ),
+    )
     # TODO: Handle 'response' of type SupplyDefenseDocumentResponse
 except ApiError as e:
     ...  # TODO: Handle 'e.error' of type PostSupplyDefenseDocumentErrorBody
@@ -14683,7 +15515,7 @@ except ApiError as e:
 | Name | Type | Description |
 | --- | --- | --- |
 | <code>body</code> | <code>[SupplyDefenseDocumentRequest](adyen/models/supply_defense_document_request.py) \| [SupplyDefenseDocumentRequestDict](adyen/models/supply_defense_document_request.py) \| None</code> | The request body.<br>**Default**: <code>None</code> |
-| <code>request_options</code> | <code>[RequestOptionsOrDict](adyen/core/request_options.py) \| None</code> | Per-call overrides for this one request, such as a timeout or extra headers. |
+| <code>request_options</code> | <code>[RequestOptionsOrDict](adyen/core/request_options.py) \| None</code> | Per-call overrides for this one request, such as a timeout, extra headers, or its retry count and statuses. |
 
 </dd>
 </dl>
@@ -14737,7 +15569,11 @@ Tests an existing notification subscription configuration. For each event type s
 
 ```python
 try:
-    response = client.general.post_test_notification_configuration()
+    response = client.general.post_test_notification_configuration(
+        body=TestNotificationConfigurationRequest(
+            event_types=[EventType1.ACCOUNT_HOLDER_VERIFICATION], notification_id=25032
+        ),
+    )
     # TODO: Handle 'response' of type TestNotificationConfigurationResponse
 except ApiError as e:
     ...  # TODO: Handle 'e.error' of type PostTestNotificationConfigurationErrorBody
@@ -14747,7 +15583,11 @@ except ApiError as e:
 
 ```python
 try:
-    response = await async_client.general.post_test_notification_configuration()
+    response = await async_client.general.post_test_notification_configuration(
+        body=TestNotificationConfigurationRequest(
+            event_types=[EventType1.ACCOUNT_HOLDER_VERIFICATION], notification_id=25032
+        ),
+    )
     # TODO: Handle 'response' of type TestNotificationConfigurationResponse
 except ApiError as e:
     ...  # TODO: Handle 'e.error' of type PostTestNotificationConfigurationErrorBody
@@ -14764,7 +15604,7 @@ except ApiError as e:
 | Name | Type | Description |
 | --- | --- | --- |
 | <code>body</code> | <code>[TestNotificationConfigurationRequest](adyen/models/test_notification_configuration_request.py) \| [TestNotificationConfigurationRequestDict](adyen/models/test_notification_configuration_request.py) \| None</code> | The request body.<br>**Default**: <code>None</code> |
-| <code>request_options</code> | <code>[RequestOptionsOrDict](adyen/core/request_options.py) \| None</code> | Per-call overrides for this one request, such as a timeout or extra headers. |
+| <code>request_options</code> | <code>[RequestOptionsOrDict](adyen/core/request_options.py) \| None</code> | Per-call overrides for this one request, such as a timeout, extra headers, or its retry count and statuses. |
 
 </dd>
 </dl>
@@ -14818,7 +15658,14 @@ Transfers funds from one account to another account. Both accounts must be in th
 
 ```python
 try:
-    response = client.general.post_transfer_funds()
+    response = client.general.post_transfer_funds(
+        body=TransferFundsRequest(
+            amount=Amount(currency="EUR", value=2000),
+            destination_account_code="190324759",
+            source_account_code="100000000",
+            transfer_code="TransferCode_1",
+        ),
+    )
     # TODO: Handle 'response' of type TransferFundsResponse
 except ApiError as e:
     ...  # TODO: Handle 'e.error' of type PostTransferFundsErrorBody
@@ -14828,7 +15675,14 @@ except ApiError as e:
 
 ```python
 try:
-    response = await async_client.general.post_transfer_funds()
+    response = await async_client.general.post_transfer_funds(
+        body=TransferFundsRequest(
+            amount=Amount(currency="EUR", value=2000),
+            destination_account_code="190324759",
+            source_account_code="100000000",
+            transfer_code="TransferCode_1",
+        ),
+    )
     # TODO: Handle 'response' of type TransferFundsResponse
 except ApiError as e:
     ...  # TODO: Handle 'e.error' of type PostTransferFundsErrorBody
@@ -14845,7 +15699,7 @@ except ApiError as e:
 | Name | Type | Description |
 | --- | --- | --- |
 | <code>body</code> | <code>[TransferFundsRequest](adyen/models/transfer_funds_request.py) \| [TransferFundsRequestDict](adyen/models/transfer_funds_request.py) \| None</code> | The request body.<br>**Default**: <code>None</code> |
-| <code>request_options</code> | <code>[RequestOptionsOrDict](adyen/core/request_options.py) \| None</code> | Per-call overrides for this one request, such as a timeout or extra headers. |
+| <code>request_options</code> | <code>[RequestOptionsOrDict](adyen/core/request_options.py) \| None</code> | Per-call overrides for this one request, such as a timeout, extra headers, or its retry count and statuses. |
 
 </dd>
 </dl>
@@ -14899,7 +15753,27 @@ Updates an existing notification subscription configuration. If you are updating
 
 ```python
 try:
-    response = client.general.post_update_notification_configuration()
+    response = client.general.post_update_notification_configuration(
+        body=UpdateNotificationConfigurationRequest(
+            configuration_details=NotificationConfigurationDetails3(
+                active=False,
+                description="Test notif config 756",
+                event_configs=[
+                    NotificationEventConfiguration(
+                        event_type=EventType.ACCOUNT_HOLDER_CREATED, include_mode=IncludeMode.EXCLUDE
+                    ),
+                    NotificationEventConfiguration(
+                        event_type=EventType.ACCOUNT_CREATED, include_mode=IncludeMode.INCLUDE
+                    ),
+                ],
+                notification_id=21259,
+                notify_password="testPassword2",
+                notify_url="https://www.adyen.com/notification-handler",
+                notify_username="testUserName2",
+                ssl_protocol=SslProtocol.TL_SV13,
+            ),
+        ),
+    )
     # TODO: Handle 'response' of type GetNotificationConfigurationResponse
 except ApiError as e:
     ...  # TODO: Handle 'e.error' of type PostUpdateNotificationConfigurationErrorBody
@@ -14909,7 +15783,27 @@ except ApiError as e:
 
 ```python
 try:
-    response = await async_client.general.post_update_notification_configuration()
+    response = await async_client.general.post_update_notification_configuration(
+        body=UpdateNotificationConfigurationRequest(
+            configuration_details=NotificationConfigurationDetails3(
+                active=False,
+                description="Test notif config 756",
+                event_configs=[
+                    NotificationEventConfiguration(
+                        event_type=EventType.ACCOUNT_HOLDER_CREATED, include_mode=IncludeMode.EXCLUDE
+                    ),
+                    NotificationEventConfiguration(
+                        event_type=EventType.ACCOUNT_CREATED, include_mode=IncludeMode.INCLUDE
+                    ),
+                ],
+                notification_id=21259,
+                notify_password="testPassword2",
+                notify_url="https://www.adyen.com/notification-handler",
+                notify_username="testUserName2",
+                ssl_protocol=SslProtocol.TL_SV13,
+            ),
+        ),
+    )
     # TODO: Handle 'response' of type GetNotificationConfigurationResponse
 except ApiError as e:
     ...  # TODO: Handle 'e.error' of type PostUpdateNotificationConfigurationErrorBody
@@ -14926,7 +15820,7 @@ except ApiError as e:
 | Name | Type | Description |
 | --- | --- | --- |
 | <code>body</code> | <code>[UpdateNotificationConfigurationRequest](adyen/models/update_notification_configuration_request.py) \| [UpdateNotificationConfigurationRequestDict](adyen/models/update_notification_configuration_request.py) \| None</code> | The request body.<br>**Default**: <code>None</code> |
-| <code>request_options</code> | <code>[RequestOptionsOrDict](adyen/core/request_options.py) \| None</code> | Per-call overrides for this one request, such as a timeout or extra headers. |
+| <code>request_options</code> | <code>[RequestOptionsOrDict](adyen/core/request_options.py) \| None</code> | Per-call overrides for this one request, such as a timeout, extra headers, or its retry count and statuses. |
 
 </dd>
 </dl>
@@ -15007,7 +15901,7 @@ except ApiError as e:
 | Name | Type | Description |
 | --- | --- | --- |
 | <code>body</code> | <code>[StoredValueVoidRequest](adyen/models/stored_value_void_request.py) \| [StoredValueVoidRequestDict](adyen/models/stored_value_void_request.py) \| None</code> | The request body.<br>**Default**: <code>None</code> |
-| <code>request_options</code> | <code>[RequestOptionsOrDict](adyen/core/request_options.py) \| None</code> | Per-call overrides for this one request, such as a timeout or extra headers. |
+| <code>request_options</code> | <code>[RequestOptionsOrDict](adyen/core/request_options.py) \| None</code> | Per-call overrides for this one request, such as a timeout, extra headers, or its retry count and statuses. |
 
 </dd>
 </dl>
@@ -15041,7 +15935,7 @@ Mapped in first-match order -- an earlier row wins over a later range that also 
 > Source: [GrantAccounts](adyen/apis/grant_accounts.py)
 
 <details>
-<summary><code>def get_grant_accounts_id(id: str, *, request_options: RequestOptionsOrDict | None = None) -> CapitalGrantAccount</code></summary>
+<summary><code>def get_grant_accounts_id(id_: str, *, request_options: RequestOptionsOrDict | None = None) -> CapitalGrantAccount</code></summary>
 
 <dl>
 <dd>
@@ -15065,7 +15959,7 @@ Returns the details of the [grant account](https://docs.adyen.com/platforms/capi
 
 ```python
 try:
-    response = client.grant_accounts.get_grant_accounts_id(id)
+    response = client.grant_accounts.get_grant_accounts_id("some example string")
     # TODO: Handle 'response' of type CapitalGrantAccount
 except ApiError as e:
     ...  # TODO: Handle 'e.error' of type GetGrantAccountsIdErrorBody
@@ -15075,7 +15969,7 @@ except ApiError as e:
 
 ```python
 try:
-    response = await async_client.grant_accounts.get_grant_accounts_id(id)
+    response = await async_client.grant_accounts.get_grant_accounts_id("some example string")
     # TODO: Handle 'response' of type CapitalGrantAccount
 except ApiError as e:
     ...  # TODO: Handle 'e.error' of type GetGrantAccountsIdErrorBody
@@ -15091,8 +15985,8 @@ except ApiError as e:
 
 | Name | Type | Description |
 | --- | --- | --- |
-| <code>id</code> | <code>str</code> | The unique identifier of the grant account. |
-| <code>request_options</code> | <code>[RequestOptionsOrDict](adyen/core/request_options.py) \| None</code> | Per-call overrides for this one request, such as a timeout or extra headers. |
+| <code>id_</code> | <code>str</code> | The unique identifier of the grant account. |
+| <code>request_options</code> | <code>[RequestOptionsOrDict](adyen/core/request_options.py) \| None</code> | Per-call overrides for this one request, such as a timeout, extra headers, or its retry count and statuses. |
 
 </dd>
 </dl>
@@ -15122,7 +16016,7 @@ Mapped in first-match order -- an earlier row wins over a later range that also 
 </details>
 
 <details>
-<summary><code>def get_grant_accounts_id1(id: str, *, request_options: RequestOptionsOrDict | None = None) -> GrantAccount</code></summary>
+<summary><code>def get_grant_accounts_id1(id_: str, *, request_options: RequestOptionsOrDict | None = None) -> GrantAccount</code></summary>
 
 <dl>
 <dd>
@@ -15146,7 +16040,7 @@ Returns the details of the specified grant account. This account tracks existing
 
 ```python
 try:
-    response = client.grant_accounts.get_grant_accounts_id1(id)
+    response = client.grant_accounts.get_grant_accounts_id1("some example string")
     # TODO: Handle 'response' of type GrantAccount
 except ApiError as e:
     ...  # TODO: Handle 'e.error' of type GetGrantAccountsId1ErrorBody
@@ -15156,7 +16050,7 @@ except ApiError as e:
 
 ```python
 try:
-    response = await async_client.grant_accounts.get_grant_accounts_id1(id)
+    response = await async_client.grant_accounts.get_grant_accounts_id1("some example string")
     # TODO: Handle 'response' of type GrantAccount
 except ApiError as e:
     ...  # TODO: Handle 'e.error' of type GetGrantAccountsId1ErrorBody
@@ -15172,8 +16066,8 @@ except ApiError as e:
 
 | Name | Type | Description |
 | --- | --- | --- |
-| <code>id</code> | <code>str</code> | The unique identifier of the grant account. |
-| <code>request_options</code> | <code>[RequestOptionsOrDict](adyen/core/request_options.py) \| None</code> | Per-call overrides for this one request, such as a timeout or extra headers. |
+| <code>id_</code> | <code>str</code> | The unique identifier of the grant account. |
+| <code>request_options</code> | <code>[RequestOptionsOrDict](adyen/core/request_options.py) \| None</code> | Per-call overrides for this one request, such as a timeout, extra headers, or its retry count and statuses. |
 
 </dd>
 </dl>
@@ -15231,7 +16125,7 @@ Returns a list of all [grant offers](https://docs.adyen.com/platforms/capital#gr
 
 ```python
 try:
-    response = client.grant_offers_api.get_grant_offers(account_holder_id)
+    response = client.grant_offers_api.get_grant_offers("some example string")
     # TODO: Handle 'response' of type GrantOffers
 except ApiError as e:
     ...  # TODO: Handle 'e.error' of type GetGrantOffersErrorBody
@@ -15241,7 +16135,7 @@ except ApiError as e:
 
 ```python
 try:
-    response = await async_client.grant_offers_api.get_grant_offers(account_holder_id)
+    response = await async_client.grant_offers_api.get_grant_offers("some example string")
     # TODO: Handle 'response' of type GrantOffers
 except ApiError as e:
     ...  # TODO: Handle 'e.error' of type GetGrantOffersErrorBody
@@ -15258,7 +16152,7 @@ except ApiError as e:
 | Name | Type | Description |
 | --- | --- | --- |
 | <code>account_holder_id</code> | <code>str</code> | The unique identifier of the grant account. |
-| <code>request_options</code> | <code>[RequestOptionsOrDict](adyen/core/request_options.py) \| None</code> | Per-call overrides for this one request, such as a timeout or extra headers. |
+| <code>request_options</code> | <code>[RequestOptionsOrDict](adyen/core/request_options.py) \| None</code> | Per-call overrides for this one request, such as a timeout, extra headers, or its retry count and statuses. |
 
 </dd>
 </dl>
@@ -15312,7 +16206,7 @@ Returns the details of a single grant offer.
 
 ```python
 try:
-    response = client.grant_offers_api.get_grant_offers_grant_offer_id(grant_offer_id)
+    response = client.grant_offers_api.get_grant_offers_grant_offer_id("some example string")
     # TODO: Handle 'response' of type GrantOffer
 except ApiError as e:
     ...  # TODO: Handle 'e.error' of type GetGrantOffersGrantOfferIdErrorBody
@@ -15322,7 +16216,7 @@ except ApiError as e:
 
 ```python
 try:
-    response = await async_client.grant_offers_api.get_grant_offers_grant_offer_id(grant_offer_id)
+    response = await async_client.grant_offers_api.get_grant_offers_grant_offer_id("some example string")
     # TODO: Handle 'response' of type GrantOffer
 except ApiError as e:
     ...  # TODO: Handle 'e.error' of type GetGrantOffersGrantOfferIdErrorBody
@@ -15339,7 +16233,7 @@ except ApiError as e:
 | Name | Type | Description |
 | --- | --- | --- |
 | <code>grant_offer_id</code> | <code>str</code> | The unique identifier of the grant offer. |
-| <code>request_options</code> | <code>[RequestOptionsOrDict](adyen/core/request_options.py) \| None</code> | Per-call overrides for this one request, such as a timeout or extra headers. |
+| <code>request_options</code> | <code>[RequestOptionsOrDict](adyen/core/request_options.py) \| None</code> | Per-call overrides for this one request, such as a timeout, extra headers, or its retry count and statuses. |
 
 </dd>
 </dl>
@@ -15369,7 +16263,7 @@ Mapped in first-match order -- an earlier row wins over a later range that also 
 </details>
 
 <details>
-<summary><code>def get_grant_offers_id(id: str, *, request_options: RequestOptionsOrDict | None = None) -> GrantOffer1</code></summary>
+<summary><code>def get_grant_offers_id(id_: str, *, request_options: RequestOptionsOrDict | None = None) -> GrantOffer1</code></summary>
 
 <dl>
 <dd>
@@ -15393,7 +16287,7 @@ Returns the details of the specified static offer.
 
 ```python
 try:
-    response = client.grant_offers_api.get_grant_offers_id(id)
+    response = client.grant_offers_api.get_grant_offers_id("some example string")
     # TODO: Handle 'response' of type GrantOffer1
 except ApiError as e:
     ...  # TODO: Handle 'e.error' of type GetGrantOffersIdErrorBody
@@ -15403,7 +16297,7 @@ except ApiError as e:
 
 ```python
 try:
-    response = await async_client.grant_offers_api.get_grant_offers_id(id)
+    response = await async_client.grant_offers_api.get_grant_offers_id("some example string")
     # TODO: Handle 'response' of type GrantOffer1
 except ApiError as e:
     ...  # TODO: Handle 'e.error' of type GetGrantOffersIdErrorBody
@@ -15419,8 +16313,8 @@ except ApiError as e:
 
 | Name | Type | Description |
 | --- | --- | --- |
-| <code>id</code> | <code>str</code> | The unique identifier of the static offer. |
-| <code>request_options</code> | <code>[RequestOptionsOrDict](adyen/core/request_options.py) \| None</code> | Per-call overrides for this one request, such as a timeout or extra headers. |
+| <code>id_</code> | <code>str</code> | The unique identifier of the static offer. |
+| <code>request_options</code> | <code>[RequestOptionsOrDict](adyen/core/request_options.py) \| None</code> | Per-call overrides for this one request, such as a timeout, extra headers, or its retry count and statuses. |
 
 </dd>
 </dl>
@@ -15474,7 +16368,7 @@ Returns a list of all [static offers](https://docs.adyen.com/capital/get-grant-o
 
 ```python
 try:
-    response = client.grant_offers_api.get_grant_offers1(account_holder_id)
+    response = client.grant_offers_api.get_grant_offers1("some example string")
     # TODO: Handle 'response' of type GrantOffers
 except ApiError as e:
     ...  # TODO: Handle 'e.error' of type GetGrantOffers1ErrorBody
@@ -15484,7 +16378,7 @@ except ApiError as e:
 
 ```python
 try:
-    response = await async_client.grant_offers_api.get_grant_offers1(account_holder_id)
+    response = await async_client.grant_offers_api.get_grant_offers1("some example string")
     # TODO: Handle 'response' of type GrantOffers
 except ApiError as e:
     ...  # TODO: Handle 'e.error' of type GetGrantOffers1ErrorBody
@@ -15501,7 +16395,7 @@ except ApiError as e:
 | Name | Type | Description |
 | --- | --- | --- |
 | <code>account_holder_id</code> | <code>str</code> | The unique identifier of the account holder for which you want to get the available static offers. |
-| <code>request_options</code> | <code>[RequestOptionsOrDict](adyen/core/request_options.py) \| None</code> | Per-call overrides for this one request, such as a timeout or extra headers. |
+| <code>request_options</code> | <code>[RequestOptionsOrDict](adyen/core/request_options.py) \| None</code> | Per-call overrides for this one request, such as a timeout, extra headers, or its retry count and statuses. |
 
 </dd>
 </dl>
@@ -15559,7 +16453,7 @@ Returns the details of the specified grant.
 
 ```python
 try:
-    response = client.grants_api.get_grants_grant_id(grant_id)
+    response = client.grants_api.get_grants_grant_id("some example string")
     # TODO: Handle 'response' of type Grant
 except ApiError as e:
     ...  # TODO: Handle 'e.error' of type GetGrantsGrantIdErrorBody
@@ -15569,7 +16463,7 @@ except ApiError as e:
 
 ```python
 try:
-    response = await async_client.grants_api.get_grants_grant_id(grant_id)
+    response = await async_client.grants_api.get_grants_grant_id("some example string")
     # TODO: Handle 'response' of type Grant
 except ApiError as e:
     ...  # TODO: Handle 'e.error' of type GetGrantsGrantIdErrorBody
@@ -15586,7 +16480,7 @@ except ApiError as e:
 | Name | Type | Description |
 | --- | --- | --- |
 | <code>grant_id</code> | <code>str</code> | The unique identifier of the grant reference. |
-| <code>request_options</code> | <code>[RequestOptionsOrDict](adyen/core/request_options.py) \| None</code> | Per-call overrides for this one request, such as a timeout or extra headers. |
+| <code>request_options</code> | <code>[RequestOptionsOrDict](adyen/core/request_options.py) \| None</code> | Per-call overrides for this one request, such as a timeout, extra headers, or its retry count and statuses. |
 
 </dd>
 </dl>
@@ -15640,7 +16534,7 @@ Returns the disbursements of a specified grant.
 
 ```python
 try:
-    response = client.grants_api.get_grants_grant_id_disbursements(grant_id)
+    response = client.grants_api.get_grants_grant_id_disbursements("some example string")
     # TODO: Handle 'response' of type Disbursements
 except ApiError as e:
     ...  # TODO: Handle 'e.error' of type GetGrantsGrantIdDisbursementsErrorBody
@@ -15650,7 +16544,7 @@ except ApiError as e:
 
 ```python
 try:
-    response = await async_client.grants_api.get_grants_grant_id_disbursements(grant_id)
+    response = await async_client.grants_api.get_grants_grant_id_disbursements("some example string")
     # TODO: Handle 'response' of type Disbursements
 except ApiError as e:
     ...  # TODO: Handle 'e.error' of type GetGrantsGrantIdDisbursementsErrorBody
@@ -15667,7 +16561,7 @@ except ApiError as e:
 | Name | Type | Description |
 | --- | --- | --- |
 | <code>grant_id</code> | <code>str</code> | The unique identifier of the grant reference. |
-| <code>request_options</code> | <code>[RequestOptionsOrDict](adyen/core/request_options.py) \| None</code> | Per-call overrides for this one request, such as a timeout or extra headers. |
+| <code>request_options</code> | <code>[RequestOptionsOrDict](adyen/core/request_options.py) \| None</code> | Per-call overrides for this one request, such as a timeout, extra headers, or its retry count and statuses. |
 
 </dd>
 </dl>
@@ -15721,7 +16615,9 @@ Returns the details of a disbursement specified in the path.
 
 ```python
 try:
-    response = client.grants_api.get_grants_grant_id_disbursements_disbursement_id(grant_id, disbursement_id)
+    response = client.grants_api.get_grants_grant_id_disbursements_disbursement_id(
+        "some example string", "some example string"
+    )
     # TODO: Handle 'response' of type Disbursement
 except ApiError as e:
     ...  # TODO: Handle 'e.error' of type GetGrantsGrantIdDisbursementsDisbursementIdErrorBody
@@ -15732,7 +16628,7 @@ except ApiError as e:
 ```python
 try:
     response = await async_client.grants_api.get_grants_grant_id_disbursements_disbursement_id(
-        grant_id, disbursement_id
+        "some example string", "some example string"
     )
     # TODO: Handle 'response' of type Disbursement
 except ApiError as e:
@@ -15751,7 +16647,7 @@ except ApiError as e:
 | --- | --- | --- |
 | <code>grant_id</code> | <code>str</code> | The unique identifier of the grant reference. |
 | <code>disbursement_id</code> | <code>str</code> | The unique identifier of the disbursement. |
-| <code>request_options</code> | <code>[RequestOptionsOrDict](adyen/core/request_options.py) \| None</code> | Per-call overrides for this one request, such as a timeout or extra headers. |
+| <code>request_options</code> | <code>[RequestOptionsOrDict](adyen/core/request_options.py) \| None</code> | Per-call overrides for this one request, such as a timeout, extra headers, or its retry count and statuses. |
 
 </dd>
 </dl>
@@ -15805,7 +16701,7 @@ Returns a list of all the grants of a specific account holder.
 
 ```python
 try:
-    response = client.grants_api.get_grants2(counterparty_account_holder_id)
+    response = client.grants_api.get_grants2("some example string")
     # TODO: Handle 'response' of type Grants
 except ApiError as e:
     ...  # TODO: Handle 'e.error' of type GetGrants2ErrorBody
@@ -15815,7 +16711,7 @@ except ApiError as e:
 
 ```python
 try:
-    response = await async_client.grants_api.get_grants2(counterparty_account_holder_id)
+    response = await async_client.grants_api.get_grants2("some example string")
     # TODO: Handle 'response' of type Grants
 except ApiError as e:
     ...  # TODO: Handle 'e.error' of type GetGrants2ErrorBody
@@ -15832,7 +16728,7 @@ except ApiError as e:
 | Name | Type | Description |
 | --- | --- | --- |
 | <code>counterparty_account_holder_id</code> | <code>str</code> | The unique identifier of the account holder that received the grants. |
-| <code>request_options</code> | <code>[RequestOptionsOrDict](adyen/core/request_options.py) \| None</code> | Per-call overrides for this one request, such as a timeout or extra headers. |
+| <code>request_options</code> | <code>[RequestOptionsOrDict](adyen/core/request_options.py) \| None</code> | Per-call overrides for this one request, such as a timeout, extra headers, or its retry count and statuses. |
 
 </dd>
 </dl>
@@ -15886,7 +16782,9 @@ Update the percentage of your user's net income that is deducted for repaying th
 
 ```python
 try:
-    response = client.grants_api.patch_grants_grant_id_disbursements_disbursement_id(grant_id, disbursement_id, body)
+    response = client.grants_api.patch_grants_grant_id_disbursements_disbursement_id(
+        "some example string", "some example string", DisbursementInfoUpdate()
+    )
     # TODO: Handle 'response' of type Disbursement
 except ApiError as e:
     ...  # TODO: Handle 'e.error' of type PatchGrantsGrantIdDisbursementsDisbursementIdErrorBody
@@ -15897,7 +16795,7 @@ except ApiError as e:
 ```python
 try:
     response = await async_client.grants_api.patch_grants_grant_id_disbursements_disbursement_id(
-        grant_id, disbursement_id, body
+        "some example string", "some example string", DisbursementInfoUpdate()
     )
     # TODO: Handle 'response' of type Disbursement
 except ApiError as e:
@@ -15917,7 +16815,7 @@ except ApiError as e:
 | <code>grant_id</code> | <code>str</code> | The unique identifier of the grant reference. |
 | <code>disbursement_id</code> | <code>str</code> | The unique identifier of the disbursement. |
 | <code>body</code> | <code>[DisbursementInfoUpdate](adyen/models/disbursement_info_update.py) \| [DisbursementInfoUpdateDict](adyen/models/disbursement_info_update.py)</code> | The request body. |
-| <code>request_options</code> | <code>[RequestOptionsOrDict](adyen/core/request_options.py) \| None</code> | Per-call overrides for this one request, such as a timeout or extra headers. |
+| <code>request_options</code> | <code>[RequestOptionsOrDict](adyen/core/request_options.py) \| None</code> | Per-call overrides for this one request, such as a timeout, extra headers, or its retry count and statuses. |
 
 </dd>
 </dl>
@@ -15998,7 +16896,7 @@ except ApiError as e:
 | Name | Type | Description |
 | --- | --- | --- |
 | <code>body</code> | <code>[CapitalGrantInfo](adyen/models/capital_grant_info.py) \| [CapitalGrantInfoDict](adyen/models/capital_grant_info.py) \| None</code> | The request body.<br>**Default**: <code>None</code> |
-| <code>request_options</code> | <code>[RequestOptionsOrDict](adyen/core/request_options.py) \| None</code> | Per-call overrides for this one request, such as a timeout or extra headers. |
+| <code>request_options</code> | <code>[RequestOptionsOrDict](adyen/core/request_options.py) \| None</code> | Per-call overrides for this one request, such as a timeout, extra headers, or its retry count and statuses. |
 
 </dd>
 </dl>
@@ -16090,7 +16988,7 @@ except ApiError as e:
 
 | Name | Type | Description |
 | --- | --- | --- |
-| <code>request_options</code> | <code>[RequestOptionsOrDict](adyen/core/request_options.py) \| None</code> | Per-call overrides for this one request, such as a timeout or extra headers. |
+| <code>request_options</code> | <code>[RequestOptionsOrDict](adyen/core/request_options.py) \| None</code> | Per-call overrides for this one request, such as a timeout, extra headers, or its retry count and statuses. |
 
 </dd>
 </dl>
@@ -16120,7 +17018,7 @@ Mapped in first-match order -- an earlier row wins over a later range that also 
 </details>
 
 <details>
-<summary><code>def get_themes_id(id: str, *, request_options: RequestOptionsOrDict | None = None) -> OnboardingTheme</code></summary>
+<summary><code>def get_themes_id(id_: str, *, request_options: RequestOptionsOrDict | None = None) -> OnboardingTheme</code></summary>
 
 <dl>
 <dd>
@@ -16152,7 +17050,7 @@ Requests to this endpoint are subject to rate limits:
 
 ```python
 try:
-    response = client.hosted_onboarding.get_themes_id(id)
+    response = client.hosted_onboarding.get_themes_id("some example string")
     # TODO: Handle 'response' of type OnboardingTheme
 except ApiError as e:
     ...  # TODO: Handle 'e.error' of type GetThemesIdErrorBody
@@ -16162,7 +17060,7 @@ except ApiError as e:
 
 ```python
 try:
-    response = await async_client.hosted_onboarding.get_themes_id(id)
+    response = await async_client.hosted_onboarding.get_themes_id("some example string")
     # TODO: Handle 'response' of type OnboardingTheme
 except ApiError as e:
     ...  # TODO: Handle 'e.error' of type GetThemesIdErrorBody
@@ -16178,8 +17076,8 @@ except ApiError as e:
 
 | Name | Type | Description |
 | --- | --- | --- |
-| <code>id</code> | <code>str</code> | The unique identifier of the theme |
-| <code>request_options</code> | <code>[RequestOptionsOrDict](adyen/core/request_options.py) \| None</code> | Per-call overrides for this one request, such as a timeout or extra headers. |
+| <code>id_</code> | <code>str</code> | The unique identifier of the theme |
+| <code>request_options</code> | <code>[RequestOptionsOrDict](adyen/core/request_options.py) \| None</code> | Per-call overrides for this one request, such as a timeout, extra headers, or its retry count and statuses. |
 
 </dd>
 </dl>
@@ -16209,7 +17107,7 @@ Mapped in first-match order -- an earlier row wins over a later range that also 
 </details>
 
 <details>
-<summary><code>def post_legal_entities_id_onboarding_links(id: str, *, body: OnboardingLinkInfo | OnboardingLinkInfoDict | None = None, request_options: RequestOptionsOrDict | None = None) -> OnboardingLink</code></summary>
+<summary><code>def post_legal_entities_id_onboarding_links(id_: str, *, body: OnboardingLinkInfo | OnboardingLinkInfoDict | None = None, request_options: RequestOptionsOrDict | None = None) -> OnboardingLink</code></summary>
 
 <dl>
 <dd>
@@ -16241,7 +17139,12 @@ Requests to this endpoint are subject to rate limits:
 
 ```python
 try:
-    response = client.hosted_onboarding.post_legal_entities_id_onboarding_links(id)
+    response = client.hosted_onboarding.post_legal_entities_id_onboarding_links(
+        "some example string",
+        body=OnboardingLinkInfo(
+            locale="nl-NL", redirect_url="https://your-company.example.com", theme_id="YOUR_THEME_ID"
+        ),
+    )
     # TODO: Handle 'response' of type OnboardingLink
 except ApiError as e:
     ...  # TODO: Handle 'e.error' of type PostLegalEntitiesIdOnboardingLinksErrorBody
@@ -16251,7 +17154,12 @@ except ApiError as e:
 
 ```python
 try:
-    response = await async_client.hosted_onboarding.post_legal_entities_id_onboarding_links(id)
+    response = await async_client.hosted_onboarding.post_legal_entities_id_onboarding_links(
+        "some example string",
+        body=OnboardingLinkInfo(
+            locale="nl-NL", redirect_url="https://your-company.example.com", theme_id="YOUR_THEME_ID"
+        ),
+    )
     # TODO: Handle 'response' of type OnboardingLink
 except ApiError as e:
     ...  # TODO: Handle 'e.error' of type PostLegalEntitiesIdOnboardingLinksErrorBody
@@ -16267,9 +17175,9 @@ except ApiError as e:
 
 | Name | Type | Description |
 | --- | --- | --- |
-| <code>id</code> | <code>str</code> | The unique identifier of the legal entity |
+| <code>id_</code> | <code>str</code> | The unique identifier of the legal entity |
 | <code>body</code> | <code>[OnboardingLinkInfo](adyen/models/onboarding_link_info.py) \| [OnboardingLinkInfoDict](adyen/models/onboarding_link_info.py) \| None</code> | The request body.<br>**Default**: <code>None</code> |
-| <code>request_options</code> | <code>[RequestOptionsOrDict](adyen/core/request_options.py) \| None</code> | Per-call overrides for this one request, such as a timeout or extra headers. |
+| <code>request_options</code> | <code>[RequestOptionsOrDict](adyen/core/request_options.py) \| None</code> | Per-call overrides for this one request, such as a timeout, extra headers, or its retry count and statuses. |
 
 </dd>
 </dl>
@@ -16327,7 +17235,11 @@ Returns a link to an Adyen-hosted onboarding page (HOP) that you can send to you
 
 ```python
 try:
-    response = client.hosted_onboarding_page.post_get_onboarding_url()
+    response = client.hosted_onboarding_page.post_get_onboarding_url(
+        body=GetOnboardingUrlRequest(
+            account_holder_code="CODE_OF_ACCOUNT_HOLDER", return_url="https://your.return-url.com/?submerchant=123"
+        ),
+    )
     # TODO: Handle 'response' of type GetOnboardingUrlResponse
 except ApiError as e:
     ...  # TODO: Handle 'e.error' of type PostGetOnboardingUrlErrorBody
@@ -16337,7 +17249,11 @@ except ApiError as e:
 
 ```python
 try:
-    response = await async_client.hosted_onboarding_page.post_get_onboarding_url()
+    response = await async_client.hosted_onboarding_page.post_get_onboarding_url(
+        body=GetOnboardingUrlRequest(
+            account_holder_code="CODE_OF_ACCOUNT_HOLDER", return_url="https://your.return-url.com/?submerchant=123"
+        ),
+    )
     # TODO: Handle 'response' of type GetOnboardingUrlResponse
 except ApiError as e:
     ...  # TODO: Handle 'e.error' of type PostGetOnboardingUrlErrorBody
@@ -16354,7 +17270,7 @@ except ApiError as e:
 | Name | Type | Description |
 | --- | --- | --- |
 | <code>body</code> | <code>[GetOnboardingUrlRequest](adyen/models/get_onboarding_url_request.py) \| [GetOnboardingUrlRequestDict](adyen/models/get_onboarding_url_request.py) \| None</code> | The request body.<br>**Default**: <code>None</code> |
-| <code>request_options</code> | <code>[RequestOptionsOrDict](adyen/core/request_options.py) \| None</code> | Per-call overrides for this one request, such as a timeout or extra headers. |
+| <code>request_options</code> | <code>[RequestOptionsOrDict](adyen/core/request_options.py) \| None</code> | Per-call overrides for this one request, such as a timeout, extra headers, or its retry count and statuses. |
 
 </dd>
 </dl>
@@ -16450,7 +17366,7 @@ except ApiError as e:
 | Name | Type | Description |
 | --- | --- | --- |
 | <code>body</code> | <code>[StoreDetailRequest](adyen/models/store_detail_request.py) \| [StoreDetailRequestDict](adyen/models/store_detail_request.py) \| None</code> | The request body.<br>**Default**: <code>None</code> |
-| <code>request_options</code> | <code>[RequestOptionsOrDict](adyen/core/request_options.py) \| None</code> | Per-call overrides for this one request, such as a timeout or extra headers. |
+| <code>request_options</code> | <code>[RequestOptionsOrDict](adyen/core/request_options.py) \| None</code> | Per-call overrides for this one request, such as a timeout, extra headers, or its retry count and statuses. |
 
 </dd>
 </dl>
@@ -16544,7 +17460,7 @@ except ApiError as e:
 | Name | Type | Description |
 | --- | --- | --- |
 | <code>body</code> | <code>[StoreDetailAndSubmitRequest](adyen/models/store_detail_and_submit_request.py) \| [StoreDetailAndSubmitRequestDict](adyen/models/store_detail_and_submit_request.py) \| None</code> | The request body.<br>**Default**: <code>None</code> |
-| <code>request_options</code> | <code>[RequestOptionsOrDict](adyen/core/request_options.py) \| None</code> | Per-call overrides for this one request, such as a timeout or extra headers. |
+| <code>request_options</code> | <code>[RequestOptionsOrDict](adyen/core/request_options.py) \| None</code> | Per-call overrides for this one request, such as a timeout, extra headers, or its retry count and statuses. |
 
 </dd>
 </dl>
@@ -16638,7 +17554,7 @@ except ApiError as e:
 | Name | Type | Description |
 | --- | --- | --- |
 | <code>body</code> | <code>[SubmitRequest](adyen/models/submit_request.py) \| [SubmitRequestDict](adyen/models/submit_request.py) \| None</code> | The request body.<br>**Default**: <code>None</code> |
-| <code>request_options</code> | <code>[RequestOptionsOrDict](adyen/core/request_options.py) \| None</code> | Per-call overrides for this one request, such as a timeout or extra headers. |
+| <code>request_options</code> | <code>[RequestOptionsOrDict](adyen/core/request_options.py) \| None</code> | Per-call overrides for this one request, such as a timeout, extra headers, or its retry count and statuses. |
 
 </dd>
 </dl>
@@ -16707,7 +17623,23 @@ With this call, you can pay out to your customers, and funds will be made availa
 
 ```python
 try:
-    response = client.instant_payouts.post_payout()
+    response = client.instant_payouts.post_payout(
+        body=PayoutRequest(
+            amount=Amount(currency="USD", value=2500),
+            billing_address=Address(
+                city="Beverly Hills",
+                country="US",
+                house_number_or_name="121",
+                postal_code="90210",
+                state_or_province="CA",
+                street="Brannan Street",
+            ),
+            card=Card(expiry_month="03", expiry_year="2030", holder_name="John Smith", number="4111111111111111"),
+            merchant_account="YOUR_MERCHANT_ACCOUNT",
+            reference="P9999999999999999",
+            shopper_name=Name(first_name="John", last_name="Smith"),
+        ),
+    )
     # TODO: Handle 'response' of type PayoutResponse
 except ApiError as e:
     ...  # TODO: Handle 'e.error' of type PostPayoutErrorBody
@@ -16717,7 +17649,23 @@ except ApiError as e:
 
 ```python
 try:
-    response = await async_client.instant_payouts.post_payout()
+    response = await async_client.instant_payouts.post_payout(
+        body=PayoutRequest(
+            amount=Amount(currency="USD", value=2500),
+            billing_address=Address(
+                city="Beverly Hills",
+                country="US",
+                house_number_or_name="121",
+                postal_code="90210",
+                state_or_province="CA",
+                street="Brannan Street",
+            ),
+            card=Card(expiry_month="03", expiry_year="2030", holder_name="John Smith", number="4111111111111111"),
+            merchant_account="YOUR_MERCHANT_ACCOUNT",
+            reference="P9999999999999999",
+            shopper_name=Name(first_name="John", last_name="Smith"),
+        ),
+    )
     # TODO: Handle 'response' of type PayoutResponse
 except ApiError as e:
     ...  # TODO: Handle 'e.error' of type PostPayoutErrorBody
@@ -16734,7 +17682,7 @@ except ApiError as e:
 | Name | Type | Description |
 | --- | --- | --- |
 | <code>body</code> | <code>[PayoutRequest](adyen/models/payout_request.py) \| [PayoutRequestDict](adyen/models/payout_request.py) \| None</code> | The request body.<br>**Default**: <code>None</code> |
-| <code>request_options</code> | <code>[RequestOptionsOrDict](adyen/core/request_options.py) \| None</code> | Per-call overrides for this one request, such as a timeout or extra headers. |
+| <code>request_options</code> | <code>[RequestOptionsOrDict](adyen/core/request_options.py) \| None</code> | Per-call overrides for this one request, such as a timeout, extra headers, or its retry count and statuses. |
 
 </dd>
 </dl>
@@ -16768,7 +17716,7 @@ Mapped in first-match order -- an earlier row wins over a later range that also 
 > Source: [LegalEntities](adyen/apis/legal_entities.py)
 
 <details>
-<summary><code>def get_legal_entities_id(id: str, *, request_options: RequestOptionsOrDict | None = None) -> LegalEntity3</code></summary>
+<summary><code>def get_legal_entities_id(id_: str, *, request_options: RequestOptionsOrDict | None = None) -> LegalEntity3</code></summary>
 
 <dl>
 <dd>
@@ -16800,7 +17748,7 @@ Requests to this endpoint are subject to rate limits:
 
 ```python
 try:
-    response = client.legal_entities.get_legal_entities_id(id)
+    response = client.legal_entities.get_legal_entities_id("some example string")
     # TODO: Handle 'response' of type LegalEntity3
 except ApiError as e:
     ...  # TODO: Handle 'e.error' of type GetLegalEntitiesIdErrorBody
@@ -16810,7 +17758,7 @@ except ApiError as e:
 
 ```python
 try:
-    response = await async_client.legal_entities.get_legal_entities_id(id)
+    response = await async_client.legal_entities.get_legal_entities_id("some example string")
     # TODO: Handle 'response' of type LegalEntity3
 except ApiError as e:
     ...  # TODO: Handle 'e.error' of type GetLegalEntitiesIdErrorBody
@@ -16826,8 +17774,8 @@ except ApiError as e:
 
 | Name | Type | Description |
 | --- | --- | --- |
-| <code>id</code> | <code>str</code> | The unique identifier of the legal entity. |
-| <code>request_options</code> | <code>[RequestOptionsOrDict](adyen/core/request_options.py) \| None</code> | Per-call overrides for this one request, such as a timeout or extra headers. |
+| <code>id_</code> | <code>str</code> | The unique identifier of the legal entity. |
+| <code>request_options</code> | <code>[RequestOptionsOrDict](adyen/core/request_options.py) \| None</code> | Per-call overrides for this one request, such as a timeout, extra headers, or its retry count and statuses. |
 
 </dd>
 </dl>
@@ -16857,7 +17805,7 @@ Mapped in first-match order -- an earlier row wins over a later range that also 
 </details>
 
 <details>
-<summary><code>def get_legal_entities_id_business_lines(id: str, *, request_options: RequestOptionsOrDict | None = None) -> BusinessLines</code></summary>
+<summary><code>def get_legal_entities_id_business_lines(id_: str, *, request_options: RequestOptionsOrDict | None = None) -> BusinessLines</code></summary>
 
 <dl>
 <dd>
@@ -16889,7 +17837,7 @@ Requests to this endpoint are subject to rate limits:
 
 ```python
 try:
-    response = client.legal_entities.get_legal_entities_id_business_lines(id)
+    response = client.legal_entities.get_legal_entities_id_business_lines("some example string")
     # TODO: Handle 'response' of type BusinessLines
 except ApiError as e:
     ...  # TODO: Handle 'e.error' of type GetLegalEntitiesIdBusinessLinesErrorBody
@@ -16899,7 +17847,7 @@ except ApiError as e:
 
 ```python
 try:
-    response = await async_client.legal_entities.get_legal_entities_id_business_lines(id)
+    response = await async_client.legal_entities.get_legal_entities_id_business_lines("some example string")
     # TODO: Handle 'response' of type BusinessLines
 except ApiError as e:
     ...  # TODO: Handle 'e.error' of type GetLegalEntitiesIdBusinessLinesErrorBody
@@ -16915,8 +17863,8 @@ except ApiError as e:
 
 | Name | Type | Description |
 | --- | --- | --- |
-| <code>id</code> | <code>str</code> | The unique identifier of the legal entity. |
-| <code>request_options</code> | <code>[RequestOptionsOrDict](adyen/core/request_options.py) \| None</code> | Per-call overrides for this one request, such as a timeout or extra headers. |
+| <code>id_</code> | <code>str</code> | The unique identifier of the legal entity. |
+| <code>request_options</code> | <code>[RequestOptionsOrDict](adyen/core/request_options.py) \| None</code> | Per-call overrides for this one request, such as a timeout, extra headers, or its retry count and statuses. |
 
 </dd>
 </dl>
@@ -16946,7 +17894,7 @@ Mapped in first-match order -- an earlier row wins over a later range that also 
 </details>
 
 <details>
-<summary><code>def patch_legal_entities_id(id: str, *, x_requested_verification_code: str | None = None, body: LegalEntityInfo | LegalEntityInfoDict | None = None, request_options: RequestOptionsOrDict | None = None) -> LegalEntity3</code></summary>
+<summary><code>def patch_legal_entities_id(id_: str, *, x_requested_verification_code: str | None = None, body: LegalEntityInfo | LegalEntityInfoDict | None = None, request_options: RequestOptionsOrDict | None = None) -> LegalEntity3</code></summary>
 
 <dl>
 <dd>
@@ -16982,7 +17930,9 @@ Requests to this endpoint are subject to rate limits:
 
 ```python
 try:
-    response = client.legal_entities.patch_legal_entities_id(id)
+    response = client.legal_entities.patch_legal_entities_id(
+        "some example string", x_requested_verification_code="0_0001", body=LegalEntityInfo(type_=Type182.INDIVIDUAL)
+    )
     # TODO: Handle 'response' of type LegalEntity3
 except ApiError as e:
     ...  # TODO: Handle 'e.error' of type PatchLegalEntitiesIdErrorBody
@@ -16992,7 +17942,9 @@ except ApiError as e:
 
 ```python
 try:
-    response = await async_client.legal_entities.patch_legal_entities_id(id)
+    response = await async_client.legal_entities.patch_legal_entities_id(
+        "some example string", x_requested_verification_code="0_0001", body=LegalEntityInfo(type_=Type182.INDIVIDUAL)
+    )
     # TODO: Handle 'response' of type LegalEntity3
 except ApiError as e:
     ...  # TODO: Handle 'e.error' of type PatchLegalEntitiesIdErrorBody
@@ -17008,10 +17960,10 @@ except ApiError as e:
 
 | Name | Type | Description |
 | --- | --- | --- |
-| <code>id</code> | <code>str</code> | The unique identifier of the legal entity. |
+| <code>id_</code> | <code>str</code> | The unique identifier of the legal entity. |
 | <code>x_requested_verification_code</code> | <code>str \| None</code> | Use the requested verification code 0_0001 to resolve any suberrors associated with the legal entity. Requested verification codes can only be used in your test environment.<br>**Default**: <code>None</code> |
 | <code>body</code> | <code>[LegalEntityInfo](adyen/models/legal_entity_info.py) \| [LegalEntityInfoDict](adyen/models/legal_entity_info.py) \| None</code> | The request body.<br>**Default**: <code>None</code> |
-| <code>request_options</code> | <code>[RequestOptionsOrDict](adyen/core/request_options.py) \| None</code> | Per-call overrides for this one request, such as a timeout or extra headers. |
+| <code>request_options</code> | <code>[RequestOptionsOrDict](adyen/core/request_options.py) \| None</code> | Per-call overrides for this one request, such as a timeout, extra headers, or its retry count and statuses. |
 
 </dd>
 </dl>
@@ -17075,7 +18027,28 @@ Requests to this endpoint are subject to rate limits:
 
 ```python
 try:
-    response = client.legal_entities.post_legal_entities()
+    response = client.legal_entities.post_legal_entities(
+        x_requested_verification_code="1_3004",
+        body=LegalEntityInfoRequiredType(
+            individual=Individual1(
+                birth_data=BirthData1(date_of_birth="1991-01-01"),
+                email="s.hopper@example.com",
+                identification_data=IdentificationData1(
+                    card_number="112327", issuer_state="NSW", number="1234567891", type_=Type132.DRIVERS_LICENSE
+                ),
+                name=Name23(first_name="Shelly", last_name="Eller"),
+                residential_address=Address13(
+                    city="Sydney",
+                    country="AU",
+                    postal_code="1122",
+                    state_or_province="NSW",
+                    street="Winfield Avenue",
+                    street2="12",
+                ),
+            ),
+            type_=Type213.INDIVIDUAL,
+        ),
+    )
     # TODO: Handle 'response' of type LegalEntity3
 except ApiError as e:
     ...  # TODO: Handle 'e.error' of type PostLegalEntitiesErrorBody
@@ -17085,7 +18058,28 @@ except ApiError as e:
 
 ```python
 try:
-    response = await async_client.legal_entities.post_legal_entities()
+    response = await async_client.legal_entities.post_legal_entities(
+        x_requested_verification_code="1_3004",
+        body=LegalEntityInfoRequiredType(
+            individual=Individual1(
+                birth_data=BirthData1(date_of_birth="1991-01-01"),
+                email="s.hopper@example.com",
+                identification_data=IdentificationData1(
+                    card_number="112327", issuer_state="NSW", number="1234567891", type_=Type132.DRIVERS_LICENSE
+                ),
+                name=Name23(first_name="Shelly", last_name="Eller"),
+                residential_address=Address13(
+                    city="Sydney",
+                    country="AU",
+                    postal_code="1122",
+                    state_or_province="NSW",
+                    street="Winfield Avenue",
+                    street2="12",
+                ),
+            ),
+            type_=Type213.INDIVIDUAL,
+        ),
+    )
     # TODO: Handle 'response' of type LegalEntity3
 except ApiError as e:
     ...  # TODO: Handle 'e.error' of type PostLegalEntitiesErrorBody
@@ -17103,7 +18097,7 @@ except ApiError as e:
 | --- | --- | --- |
 | <code>x_requested_verification_code</code> | <code>str \| None</code> | Use a suberror code as your requested verification code. You can include one code at a time in your request header. Requested verification codes can only be used in your test environment.<br>**Default**: <code>None</code> |
 | <code>body</code> | <code>[LegalEntityInfoRequiredType](adyen/models/legal_entity_info_required_type.py) \| [LegalEntityInfoRequiredTypeDict](adyen/models/legal_entity_info_required_type.py) \| None</code> | The request body.<br>**Default**: <code>None</code> |
-| <code>request_options</code> | <code>[RequestOptionsOrDict](adyen/core/request_options.py) \| None</code> | Per-call overrides for this one request, such as a timeout or extra headers. |
+| <code>request_options</code> | <code>[RequestOptionsOrDict](adyen/core/request_options.py) \| None</code> | Per-call overrides for this one request, such as a timeout, extra headers, or its retry count and statuses. |
 
 </dd>
 </dl>
@@ -17133,7 +18127,7 @@ Mapped in first-match order -- an earlier row wins over a later range that also 
 </details>
 
 <details>
-<summary><code>def post_legal_entities_id_check_verification_errors(id: str, *, request_options: RequestOptionsOrDict | None = None) -> VerificationErrors</code></summary>
+<summary><code>def post_legal_entities_id_check_verification_errors(id_: str, *, request_options: RequestOptionsOrDict | None = None) -> VerificationErrors</code></summary>
 
 <dl>
 <dd>
@@ -17165,7 +18159,7 @@ Requests to this endpoint are subject to rate limits:
 
 ```python
 try:
-    response = client.legal_entities.post_legal_entities_id_check_verification_errors(id)
+    response = client.legal_entities.post_legal_entities_id_check_verification_errors("some example string")
     # TODO: Handle 'response' of type VerificationErrors
 except ApiError as e:
     ...  # TODO: Handle 'e.error' of type PostLegalEntitiesIdCheckVerificationErrorsErrorBody
@@ -17175,7 +18169,7 @@ except ApiError as e:
 
 ```python
 try:
-    response = await async_client.legal_entities.post_legal_entities_id_check_verification_errors(id)
+    response = await async_client.legal_entities.post_legal_entities_id_check_verification_errors("some example string")
     # TODO: Handle 'response' of type VerificationErrors
 except ApiError as e:
     ...  # TODO: Handle 'e.error' of type PostLegalEntitiesIdCheckVerificationErrorsErrorBody
@@ -17191,8 +18185,8 @@ except ApiError as e:
 
 | Name | Type | Description |
 | --- | --- | --- |
-| <code>id</code> | <code>str</code> | The unique identifier of the legal entity. |
-| <code>request_options</code> | <code>[RequestOptionsOrDict](adyen/core/request_options.py) \| None</code> | Per-call overrides for this one request, such as a timeout or extra headers. |
+| <code>id_</code> | <code>str</code> | The unique identifier of the legal entity. |
+| <code>request_options</code> | <code>[RequestOptionsOrDict](adyen/core/request_options.py) \| None</code> | Per-call overrides for this one request, such as a timeout, extra headers, or its retry count and statuses. |
 
 </dd>
 </dl>
@@ -17222,7 +18216,7 @@ Mapped in first-match order -- an earlier row wins over a later range that also 
 </details>
 
 <details>
-<summary><code>def post_legal_entities_id_confirm_data_review(id: str, *, request_options: RequestOptionsOrDict | None = None) -> DataReviewConfirmationResponse</code></summary>
+<summary><code>def post_legal_entities_id_confirm_data_review(id_: str, *, request_options: RequestOptionsOrDict | None = None) -> DataReviewConfirmationResponse</code></summary>
 
 <dl>
 <dd>
@@ -17254,7 +18248,7 @@ Requests to this endpoint are subject to rate limits:
 
 ```python
 try:
-    response = client.legal_entities.post_legal_entities_id_confirm_data_review(id)
+    response = client.legal_entities.post_legal_entities_id_confirm_data_review("some example string")
     # TODO: Handle 'response' of type DataReviewConfirmationResponse
 except ApiError as e:
     ...  # TODO: Handle 'e.error' of type PostLegalEntitiesIdConfirmDataReviewErrorBody
@@ -17264,7 +18258,7 @@ except ApiError as e:
 
 ```python
 try:
-    response = await async_client.legal_entities.post_legal_entities_id_confirm_data_review(id)
+    response = await async_client.legal_entities.post_legal_entities_id_confirm_data_review("some example string")
     # TODO: Handle 'response' of type DataReviewConfirmationResponse
 except ApiError as e:
     ...  # TODO: Handle 'e.error' of type PostLegalEntitiesIdConfirmDataReviewErrorBody
@@ -17280,8 +18274,8 @@ except ApiError as e:
 
 | Name | Type | Description |
 | --- | --- | --- |
-| <code>id</code> | <code>str</code> | The unique identifier of the legal entity. |
-| <code>request_options</code> | <code>[RequestOptionsOrDict](adyen/core/request_options.py) \| None</code> | Per-call overrides for this one request, such as a timeout or extra headers. |
+| <code>id_</code> | <code>str</code> | The unique identifier of the legal entity. |
+| <code>request_options</code> | <code>[RequestOptionsOrDict](adyen/core/request_options.py) \| None</code> | Per-call overrides for this one request, such as a timeout, extra headers, or its retry count and statuses. |
 
 </dd>
 </dl>
@@ -17311,7 +18305,7 @@ Mapped in first-match order -- an earlier row wins over a later range that also 
 </details>
 
 <details>
-<summary><code>def post_legal_entities_id_request_periodic_review(id: str, *, request_options: RequestOptionsOrDict | None = None) -> Any</code></summary>
+<summary><code>def post_legal_entities_id_request_periodic_review(id_: str, *, request_options: RequestOptionsOrDict | None = None) -> Any</code></summary>
 
 <dl>
 <dd>
@@ -17335,7 +18329,7 @@ Requests a periodic data review for the legal entity of the user specified in th
 
 ```python
 try:
-    response = client.legal_entities.post_legal_entities_id_request_periodic_review(id)
+    response = client.legal_entities.post_legal_entities_id_request_periodic_review("some example string")
     # TODO: Handle 'response' of type Any
 except ApiError as e:
     ...  # TODO: Handle 'e.error' of type RawError
@@ -17345,7 +18339,7 @@ except ApiError as e:
 
 ```python
 try:
-    response = await async_client.legal_entities.post_legal_entities_id_request_periodic_review(id)
+    response = await async_client.legal_entities.post_legal_entities_id_request_periodic_review("some example string")
     # TODO: Handle 'response' of type Any
 except ApiError as e:
     ...  # TODO: Handle 'e.error' of type RawError
@@ -17361,8 +18355,8 @@ except ApiError as e:
 
 | Name | Type | Description |
 | --- | --- | --- |
-| <code>id</code> | <code>str</code> | The unique identifier of the legal entity. |
-| <code>request_options</code> | <code>[RequestOptionsOrDict](adyen/core/request_options.py) \| None</code> | Per-call overrides for this one request, such as a timeout or extra headers. |
+| <code>id_</code> | <code>str</code> | The unique identifier of the legal entity. |
+| <code>request_options</code> | <code>[RequestOptionsOrDict](adyen/core/request_options.py) \| None</code> | Per-call overrides for this one request, such as a timeout, extra headers, or its retry count and statuses. |
 
 </dd>
 </dl>
@@ -17389,7 +18383,7 @@ except ApiError as e:
 > Source: [ManageScaDevices](adyen/apis/manage_sca_devices.py)
 
 <details>
-<summary><code>def delete_registered_devices_id(id: str, payment_instrument_id: str, *, request_options: RequestOptionsOrDict | None = None) -> None</code></summary>
+<summary><code>def delete_registered_devices_id(id_: str, payment_instrument_id: str, *, request_options: RequestOptionsOrDict | None = None) -> None</code></summary>
 
 <dl>
 <dd>
@@ -17413,7 +18407,7 @@ Deletes an SCA device from the list of registered devices of a specific payment 
 
 ```python
 try:
-    client.manage_sca_devices.delete_registered_devices_id(id, payment_instrument_id)
+    client.manage_sca_devices.delete_registered_devices_id("some example string", "some example string")
 except ApiError as e:
     ...  # TODO: Handle 'e.error' of type DeleteRegisteredDevicesIdErrorBody
 ```
@@ -17422,7 +18416,7 @@ except ApiError as e:
 
 ```python
 try:
-    await async_client.manage_sca_devices.delete_registered_devices_id(id, payment_instrument_id)
+    await async_client.manage_sca_devices.delete_registered_devices_id("some example string", "some example string")
 except ApiError as e:
     ...  # TODO: Handle 'e.error' of type DeleteRegisteredDevicesIdErrorBody
 ```
@@ -17437,9 +18431,9 @@ except ApiError as e:
 
 | Name | Type | Description |
 | --- | --- | --- |
-| <code>id</code> | <code>str</code> | The unique identifier of the SCA device. |
+| <code>id_</code> | <code>str</code> | The unique identifier of the SCA device. |
 | <code>payment_instrument_id</code> | <code>str</code> | The unique identifier of the payment instrument linked to the SCA device. |
-| <code>request_options</code> | <code>[RequestOptionsOrDict](adyen/core/request_options.py) \| None</code> | Per-call overrides for this one request, such as a timeout or extra headers. |
+| <code>request_options</code> | <code>[RequestOptionsOrDict](adyen/core/request_options.py) \| None</code> | Per-call overrides for this one request, such as a timeout, extra headers, or its retry count and statuses. |
 
 </dd>
 </dl>
@@ -17493,7 +18487,7 @@ Get a paginated list of the SCA devices you have currently registered for a spec
 
 ```python
 try:
-    response = client.manage_sca_devices.get_registered_devices(payment_instrument_id)
+    response = client.manage_sca_devices.get_registered_devices("some example string")
     # TODO: Handle 'response' of type SearchRegisteredDevicesResponse
 except ApiError as e:
     ...  # TODO: Handle 'e.error' of type GetRegisteredDevicesErrorBody
@@ -17503,7 +18497,7 @@ except ApiError as e:
 
 ```python
 try:
-    response = await async_client.manage_sca_devices.get_registered_devices(payment_instrument_id)
+    response = await async_client.manage_sca_devices.get_registered_devices("some example string")
     # TODO: Handle 'response' of type SearchRegisteredDevicesResponse
 except ApiError as e:
     ...  # TODO: Handle 'e.error' of type GetRegisteredDevicesErrorBody
@@ -17522,7 +18516,7 @@ except ApiError as e:
 | <code>payment_instrument_id</code> | <code>str</code> | The unique identifier of a payment instrument. It limits the returned list to SCA devices associated to this payment instrument. |
 | <code>page_number</code> | <code>int \| None</code> | The index of the page to retrieve. The index of the first page is 0 (zero).<br><br>Default: 0.<br>**Default**: <code>None</code> |
 | <code>page_size</code> | <code>int \| None</code> | The number of items to have on a page.<br><br>Default: 20. Maximum: 100.<br>**Default**: <code>None</code> |
-| <code>request_options</code> | <code>[RequestOptionsOrDict](adyen/core/request_options.py) \| None</code> | Per-call overrides for this one request, such as a timeout or extra headers. |
+| <code>request_options</code> | <code>[RequestOptionsOrDict](adyen/core/request_options.py) \| None</code> | Per-call overrides for this one request, such as a timeout, extra headers, or its retry count and statuses. |
 
 </dd>
 </dl>
@@ -17578,7 +18572,7 @@ To complete the association, this endpoint validates the authentication data of 
 
 ```python
 try:
-    response = client.manage_sca_devices.patch_registered_devices_device_id_associations(device_id)
+    response = client.manage_sca_devices.patch_registered_devices_device_id_associations("some example string")
     # TODO: Handle 'response' of type AssociationFinaliseResponse
 except ApiError as e:
     ...  # TODO: Handle 'e.error' of type PatchRegisteredDevicesDeviceIdAssociationsErrorBody
@@ -17588,7 +18582,9 @@ except ApiError as e:
 
 ```python
 try:
-    response = await async_client.manage_sca_devices.patch_registered_devices_device_id_associations(device_id)
+    response = await async_client.manage_sca_devices.patch_registered_devices_device_id_associations(
+        "some example string"
+    )
     # TODO: Handle 'response' of type AssociationFinaliseResponse
 except ApiError as e:
     ...  # TODO: Handle 'e.error' of type PatchRegisteredDevicesDeviceIdAssociationsErrorBody
@@ -17606,7 +18602,7 @@ except ApiError as e:
 | --- | --- | --- |
 | <code>device_id</code> | <code>str</code> | The unique identifier of the SCA device that you are associating with a resource. |
 | <code>body</code> | <code>[AssociationFinaliseRequest](adyen/models/association_finalise_request.py) \| [AssociationFinaliseRequestDict](adyen/models/association_finalise_request.py) \| None</code> | The request body.<br>**Default**: <code>None</code> |
-| <code>request_options</code> | <code>[RequestOptionsOrDict](adyen/core/request_options.py) \| None</code> | Per-call overrides for this one request, such as a timeout or extra headers. |
+| <code>request_options</code> | <code>[RequestOptionsOrDict](adyen/core/request_options.py) \| None</code> | Per-call overrides for this one request, such as a timeout, extra headers, or its retry count and statuses. |
 
 </dd>
 </dl>
@@ -17636,7 +18632,7 @@ Mapped in first-match order -- an earlier row wins over a later range that also 
 </details>
 
 <details>
-<summary><code>def patch_registered_devices_id(id: str, *, body: RegisterScarequest | RegisterScarequestDict | None = None, request_options: RequestOptionsOrDict | None = None) -> RegisterScafinalResponse</code></summary>
+<summary><code>def patch_registered_devices_id(id_: str, *, body: RegisterScarequest | RegisterScarequestDict | None = None, request_options: RequestOptionsOrDict | None = None) -> RegisterScafinalResponse</code></summary>
 
 <dl>
 <dd>
@@ -17660,7 +18656,7 @@ Completes the registration of an SCA device by validating the authentication dat
 
 ```python
 try:
-    response = client.manage_sca_devices.patch_registered_devices_id(id)
+    response = client.manage_sca_devices.patch_registered_devices_id("some example string")
     # TODO: Handle 'response' of type RegisterScafinalResponse
 except ApiError as e:
     ...  # TODO: Handle 'e.error' of type PatchRegisteredDevicesIdErrorBody
@@ -17670,7 +18666,7 @@ except ApiError as e:
 
 ```python
 try:
-    response = await async_client.manage_sca_devices.patch_registered_devices_id(id)
+    response = await async_client.manage_sca_devices.patch_registered_devices_id("some example string")
     # TODO: Handle 'response' of type RegisterScafinalResponse
 except ApiError as e:
     ...  # TODO: Handle 'e.error' of type PatchRegisteredDevicesIdErrorBody
@@ -17686,9 +18682,9 @@ except ApiError as e:
 
 | Name | Type | Description |
 | --- | --- | --- |
-| <code>id</code> | <code>str</code> | The unique identifier of the SCA device. You obtain this `id` in the response of a POST&nbsp;[/registeredDevices](https://docs.adyen.com/api-explorer/balanceplatform/2/post/registeredDevices#responses-200-id) request. |
+| <code>id_</code> | <code>str</code> | The unique identifier of the SCA device. You obtain this `id` in the response of a POST&nbsp;[/registeredDevices](https://docs.adyen.com/api-explorer/balanceplatform/2/post/registeredDevices#responses-200-id) request. |
 | <code>body</code> | <code>[RegisterScarequest](adyen/models/register_scarequest.py) \| [RegisterScarequestDict](adyen/models/register_scarequest.py) \| None</code> | The request body.<br>**Default**: <code>None</code> |
-| <code>request_options</code> | <code>[RequestOptionsOrDict](adyen/core/request_options.py) \| None</code> | Per-call overrides for this one request, such as a timeout or extra headers. |
+| <code>request_options</code> | <code>[RequestOptionsOrDict](adyen/core/request_options.py) \| None</code> | Per-call overrides for this one request, such as a timeout, extra headers, or its retry count and statuses. |
 
 </dd>
 </dl>
@@ -17771,7 +18767,7 @@ except ApiError as e:
 | Name | Type | Description |
 | --- | --- | --- |
 | <code>body</code> | <code>[RegisterScarequest](adyen/models/register_scarequest.py) \| [RegisterScarequestDict](adyen/models/register_scarequest.py) \| None</code> | The request body.<br>**Default**: <code>None</code> |
-| <code>request_options</code> | <code>[RequestOptionsOrDict](adyen/core/request_options.py) \| None</code> | Per-call overrides for this one request, such as a timeout or extra headers. |
+| <code>request_options</code> | <code>[RequestOptionsOrDict](adyen/core/request_options.py) \| None</code> | Per-call overrides for this one request, such as a timeout, extra headers, or its retry count and statuses. |
 
 </dd>
 </dl>
@@ -17825,7 +18821,7 @@ Initiates an association between a user's registered SCA device and an Adyen res
 
 ```python
 try:
-    response = client.manage_sca_devices.post_registered_devices_device_id_associations(device_id)
+    response = client.manage_sca_devices.post_registered_devices_device_id_associations("some example string")
     # TODO: Handle 'response' of type AssociationInitiateResponse
 except ApiError as e:
     ...  # TODO: Handle 'e.error' of type PostRegisteredDevicesDeviceIdAssociationsErrorBody
@@ -17835,7 +18831,9 @@ except ApiError as e:
 
 ```python
 try:
-    response = await async_client.manage_sca_devices.post_registered_devices_device_id_associations(device_id)
+    response = await async_client.manage_sca_devices.post_registered_devices_device_id_associations(
+        "some example string"
+    )
     # TODO: Handle 'response' of type AssociationInitiateResponse
 except ApiError as e:
     ...  # TODO: Handle 'e.error' of type PostRegisteredDevicesDeviceIdAssociationsErrorBody
@@ -17853,7 +18851,7 @@ except ApiError as e:
 | --- | --- | --- |
 | <code>device_id</code> | <code>str</code> | The unique identifier of the SCA device that you are associating with a resource. |
 | <code>body</code> | <code>[AssociationInitiateRequest](adyen/models/association_initiate_request.py) \| [AssociationInitiateRequestDict](adyen/models/association_initiate_request.py) \| None</code> | The request body.<br>**Default**: <code>None</code> |
-| <code>request_options</code> | <code>[RequestOptionsOrDict](adyen/core/request_options.py) \| None</code> | Per-call overrides for this one request, such as a timeout or extra headers. |
+| <code>request_options</code> | <code>[RequestOptionsOrDict](adyen/core/request_options.py) \| None</code> | Per-call overrides for this one request, such as a timeout, extra headers, or its retry count and statuses. |
 
 </dd>
 </dl>
@@ -17887,7 +18885,7 @@ Mapped in first-match order -- an earlier row wins over a later range that also 
 > Source: [ManageCardPin](adyen/apis/manage_card_pin.py)
 
 <details>
-<summary><code>def get_public_key(*, purpose: str | None = None, format: str | None = None, request_options: RequestOptionsOrDict | None = None) -> PublicKeyResponse</code></summary>
+<summary><code>def get_public_key(*, purpose: str | None = None, format_: str | None = None, request_options: RequestOptionsOrDict | None = None) -> PublicKeyResponse</code></summary>
 
 <dl>
 <dd>
@@ -17943,8 +18941,8 @@ except ApiError as e:
 | Name | Type | Description |
 | --- | --- | --- |
 | <code>purpose</code> | <code>str \| None</code> | The purpose of the public key.<br><br>Possible values: **pinChange**, **pinReveal**, **panReveal**.<br><br>Default value: **pinReveal**.<br>**Default**: <code>None</code> |
-| <code>format</code> | <code>str \| None</code> | The encoding format of public key.<br><br>Possible values: **jwk**, **pem**.<br><br>Default value: **pem**.<br>**Default**: <code>None</code> |
-| <code>request_options</code> | <code>[RequestOptionsOrDict](adyen/core/request_options.py) \| None</code> | Per-call overrides for this one request, such as a timeout or extra headers. |
+| <code>format_</code> | <code>str \| None</code> | The encoding format of public key.<br><br>Possible values: **jwk**, **pem**.<br><br>Default value: **pem**.<br>**Default**: <code>None</code> |
+| <code>request_options</code> | <code>[RequestOptionsOrDict](adyen/core/request_options.py) \| None</code> | Per-call overrides for this one request, such as a timeout, extra headers, or its retry count and statuses. |
 
 </dd>
 </dl>
@@ -18001,7 +18999,14 @@ To make this request, your API credential must have the following role:
 
 ```python
 try:
-    response = client.manage_card_pin.post_pins_change()
+    response = client.manage_card_pin.post_pins_change(
+        body=PinChangeRequest(
+            encrypted_key="75989E8881284D10153ABACF022EEA09F5...",
+            encrypted_pin_block="63E5060591EF65F48DD1D4FECD0FECD5",
+            payment_instrument_id="PI6789678967896789",
+            token="5555341244441115",
+        ),
+    )
     # TODO: Handle 'response' of type PinChangeResponse
 except ApiError as e:
     ...  # TODO: Handle 'e.error' of type PostPinsChangeErrorBody
@@ -18011,7 +19016,14 @@ except ApiError as e:
 
 ```python
 try:
-    response = await async_client.manage_card_pin.post_pins_change()
+    response = await async_client.manage_card_pin.post_pins_change(
+        body=PinChangeRequest(
+            encrypted_key="75989E8881284D10153ABACF022EEA09F5...",
+            encrypted_pin_block="63E5060591EF65F48DD1D4FECD0FECD5",
+            payment_instrument_id="PI6789678967896789",
+            token="5555341244441115",
+        ),
+    )
     # TODO: Handle 'response' of type PinChangeResponse
 except ApiError as e:
     ...  # TODO: Handle 'e.error' of type PostPinsChangeErrorBody
@@ -18028,7 +19040,7 @@ except ApiError as e:
 | Name | Type | Description |
 | --- | --- | --- |
 | <code>body</code> | <code>[PinChangeRequest](adyen/models/pin_change_request.py) \| [PinChangeRequestDict](adyen/models/pin_change_request.py) \| None</code> | The request body.<br>**Default**: <code>None</code> |
-| <code>request_options</code> | <code>[RequestOptionsOrDict](adyen/core/request_options.py) \| None</code> | Per-call overrides for this one request, such as a timeout or extra headers. |
+| <code>request_options</code> | <code>[RequestOptionsOrDict](adyen/core/request_options.py) \| None</code> | Per-call overrides for this one request, such as a timeout, extra headers, or its retry count and statuses. |
 
 </dd>
 </dl>
@@ -18085,7 +19097,11 @@ To make this request, your API credential must have the following role:
 
 ```python
 try:
-    response = client.manage_card_pin.post_pins_reveal()
+    response = client.manage_card_pin.post_pins_reveal(
+        body=RevealPinRequest(
+            encrypted_key="75989E8881284D10153ABACF022EEA09F5...", payment_instrument_id="PI3227C223222B5BPCMFXD2XG"
+        ),
+    )
     # TODO: Handle 'response' of type RevealPinResponse
 except ApiError as e:
     ...  # TODO: Handle 'e.error' of type PostPinsRevealErrorBody
@@ -18095,7 +19111,11 @@ except ApiError as e:
 
 ```python
 try:
-    response = await async_client.manage_card_pin.post_pins_reveal()
+    response = await async_client.manage_card_pin.post_pins_reveal(
+        body=RevealPinRequest(
+            encrypted_key="75989E8881284D10153ABACF022EEA09F5...", payment_instrument_id="PI3227C223222B5BPCMFXD2XG"
+        ),
+    )
     # TODO: Handle 'response' of type RevealPinResponse
 except ApiError as e:
     ...  # TODO: Handle 'e.error' of type PostPinsRevealErrorBody
@@ -18112,7 +19132,7 @@ except ApiError as e:
 | Name | Type | Description |
 | --- | --- | --- |
 | <code>body</code> | <code>[RevealPinRequest](adyen/models/reveal_pin_request.py) \| [RevealPinRequestDict](adyen/models/reveal_pin_request.py) \| None</code> | The request body.<br>**Default**: <code>None</code> |
-| <code>request_options</code> | <code>[RequestOptionsOrDict](adyen/core/request_options.py) \| None</code> | Per-call overrides for this one request, such as a timeout or extra headers. |
+| <code>request_options</code> | <code>[RequestOptionsOrDict](adyen/core/request_options.py) \| None</code> | Per-call overrides for this one request, such as a timeout, extra headers, or its retry count and statuses. |
 
 </dd>
 </dl>
@@ -18146,7 +19166,7 @@ Mapped in first-match order -- an earlier row wins over a later range that also 
 > Source: [ManagedPayoutSchedules](adyen/apis/managed_payout_schedules.py)
 
 <details>
-<summary><code>def delete_balance_accounts_balance_account_id_payout_schedules_id(balance_account_id: str, id: str, *, request_options: RequestOptionsOrDict | None = None) -> None</code></summary>
+<summary><code>def delete_balance_accounts_balance_account_id_payout_schedules_id(balance_account_id: str, id_: str, *, request_options: RequestOptionsOrDict | None = None) -> None</code></summary>
 
 <dl>
 <dd>
@@ -18171,7 +19191,7 @@ Delete a payout schedule applied to a balance account.
 ```python
 try:
     client.managed_payout_schedules.delete_balance_accounts_balance_account_id_payout_schedules_id(
-        balance_account_id, id
+        "some example string", "some example string"
     )
 except ApiError as e:
     ...  # TODO: Handle 'e.error' of type DeleteBalanceAccountsBalanceAccountIdPayoutSchedulesIdErrorBody
@@ -18182,7 +19202,7 @@ except ApiError as e:
 ```python
 try:
     await async_client.managed_payout_schedules.delete_balance_accounts_balance_account_id_payout_schedules_id(
-        balance_account_id, id
+        "some example string", "some example string"
     )
 except ApiError as e:
     ...  # TODO: Handle 'e.error' of type DeleteBalanceAccountsBalanceAccountIdPayoutSchedulesIdErrorBody
@@ -18199,8 +19219,8 @@ except ApiError as e:
 | Name | Type | Description |
 | --- | --- | --- |
 | <code>balance_account_id</code> | <code>str</code> | The unique identifier of the balance account. |
-| <code>id</code> | <code>str</code> | The unique identifier of the payout schedule applied to the balance account. |
-| <code>request_options</code> | <code>[RequestOptionsOrDict](adyen/core/request_options.py) \| None</code> | Per-call overrides for this one request, such as a timeout or extra headers. |
+| <code>id_</code> | <code>str</code> | The unique identifier of the payout schedule applied to the balance account. |
+| <code>request_options</code> | <code>[RequestOptionsOrDict](adyen/core/request_options.py) \| None</code> | Per-call overrides for this one request, such as a timeout, extra headers, or its retry count and statuses. |
 
 </dd>
 </dl>
@@ -18255,7 +19275,7 @@ Returns a list of all managed payout schedules that are configured on a balance 
 ```python
 try:
     response = client.managed_payout_schedules.get_balance_accounts_balance_account_id_payout_schedules(
-        balance_account_id
+        "some example string"
     )
     # TODO: Handle 'response' of type BalanceAccountConfigurations
 except ApiError as e:
@@ -18267,7 +19287,7 @@ except ApiError as e:
 ```python
 try:
     response = await async_client.managed_payout_schedules.get_balance_accounts_balance_account_id_payout_schedules(
-        balance_account_id
+        "some example string"
     )
     # TODO: Handle 'response' of type BalanceAccountConfigurations
 except ApiError as e:
@@ -18288,7 +19308,7 @@ except ApiError as e:
 | <code>currency</code> | <code>str \| None</code> | The three-character [ISO currency code](https://docs.adyen.com/development-resources/currency-codes) of the currency used in the payout schedule.<br>**Default**: <code>None</code> |
 | <code>cursor</code> | <code>str \| None</code> | The `cursor` returned in the links of the previous response.<br>**Default**: <code>None</code> |
 | <code>limit</code> | <code>int \| None</code> | The number of items returned per page, maximum of 100 items. By default, the response returns 10 items per page.<br>**Default**: <code>10</code> |
-| <code>request_options</code> | <code>[RequestOptionsOrDict](adyen/core/request_options.py) \| None</code> | Per-call overrides for this one request, such as a timeout or extra headers. |
+| <code>request_options</code> | <code>[RequestOptionsOrDict](adyen/core/request_options.py) \| None</code> | Per-call overrides for this one request, such as a timeout, extra headers, or its retry count and statuses. |
 
 </dd>
 </dl>
@@ -18318,7 +19338,7 @@ Mapped in first-match order -- an earlier row wins over a later range that also 
 </details>
 
 <details>
-<summary><code>def get_balance_accounts_balance_account_id_payout_schedules_id(balance_account_id: str, id: str, *, request_options: RequestOptionsOrDict | None = None) -> BalanceAccountConfiguration</code></summary>
+<summary><code>def get_balance_accounts_balance_account_id_payout_schedules_id(balance_account_id: str, id_: str, *, request_options: RequestOptionsOrDict | None = None) -> BalanceAccountConfiguration</code></summary>
 
 <dl>
 <dd>
@@ -18343,7 +19363,7 @@ Returns the specified payout schedule.
 ```python
 try:
     response = client.managed_payout_schedules.get_balance_accounts_balance_account_id_payout_schedules_id(
-        balance_account_id, id
+        "some example string", "some example string"
     )
     # TODO: Handle 'response' of type BalanceAccountConfiguration
 except ApiError as e:
@@ -18355,7 +19375,7 @@ except ApiError as e:
 ```python
 try:
     response = await async_client.managed_payout_schedules.get_balance_accounts_balance_account_id_payout_schedules_id(
-        balance_account_id, id
+        "some example string", "some example string"
     )
     # TODO: Handle 'response' of type BalanceAccountConfiguration
 except ApiError as e:
@@ -18373,8 +19393,8 @@ except ApiError as e:
 | Name | Type | Description |
 | --- | --- | --- |
 | <code>balance_account_id</code> | <code>str</code> | The unique identifier of the balance account. |
-| <code>id</code> | <code>str</code> | The unique identifier of the payout schedule for the balance account. |
-| <code>request_options</code> | <code>[RequestOptionsOrDict](adyen/core/request_options.py) \| None</code> | Per-call overrides for this one request, such as a timeout or extra headers. |
+| <code>id_</code> | <code>str</code> | The unique identifier of the payout schedule for the balance account. |
+| <code>request_options</code> | <code>[RequestOptionsOrDict](adyen/core/request_options.py) \| None</code> | Per-call overrides for this one request, such as a timeout, extra headers, or its retry count and statuses. |
 
 </dd>
 </dl>
@@ -18404,7 +19424,7 @@ Mapped in first-match order -- an earlier row wins over a later range that also 
 </details>
 
 <details>
-<summary><code>def get_balance_accounts_balance_account_id_payout_schedules_id_executions(balance_account_id: str, id: str, offset: int, *, results: list[ExecutionResultOrStr] | None = None, limit: int | None = None, request_options: RequestOptionsOrDict | None = None) -> PayoutScheduleExecutions</code></summary>
+<summary><code>def get_balance_accounts_balance_account_id_payout_schedules_id_executions(balance_account_id: str, id_: str, offset: int, *, results: list[ExecutionResultOrStr] | None = None, limit: int | None = None, request_options: RequestOptionsOrDict | None = None) -> PayoutScheduleExecutions</code></summary>
 
 <dl>
 <dd>
@@ -18429,7 +19449,7 @@ View information about the executions of a managed payout schedule on the specif
 ```python
 try:
     response = client.managed_payout_schedules.get_balance_accounts_balance_account_id_payout_schedules_id_executions(
-        balance_account_id, id, offset
+        "some example string", "some example string", 1
     )
     # TODO: Handle 'response' of type PayoutScheduleExecutions
 except ApiError as e:
@@ -18441,7 +19461,7 @@ except ApiError as e:
 ```python
 try:
     response = await async_client.managed_payout_schedules.get_balance_accounts_balance_account_id_payout_schedules_id_executions(
-        balance_account_id, id, offset
+        "some example string", "some example string", 1
     )
     # TODO: Handle 'response' of type PayoutScheduleExecutions
 except ApiError as e:
@@ -18459,11 +19479,11 @@ except ApiError as e:
 | Name | Type | Description |
 | --- | --- | --- |
 | <code>balance_account_id</code> | <code>str</code> | The unique identifier of the balance account. |
-| <code>id</code> | <code>str</code> | The unique identifier of the payout schedule on the balance account. |
+| <code>id_</code> | <code>str</code> | The unique identifier of the payout schedule on the balance account. |
 | <code>offset</code> | <code>int</code> | The page number to be returned.<br><br>Default: **1** |
 | <code>results</code> | <code>list&#91;[ExecutionResultOrStr](adyen/models/enums/execution_result.py)&#93; \| None</code> | Contains a list of payout statuses. If included, the response returns only executed payouts that currently have one of the specified statuses.<br><br>Possible statuses:<br>- **succeeded**: The payout was sent successfully.<br>- **failed**: The payout was not sent due to an error.<br>- **skipped**: The payout was not triggered as expected.<br>**Default**: <code>None</code> |
 | <code>limit</code> | <code>int \| None</code> | The number of items returned per page.<br><br>Default: **10**<br>**Default**: <code>None</code> |
-| <code>request_options</code> | <code>[RequestOptionsOrDict](adyen/core/request_options.py) \| None</code> | Per-call overrides for this one request, such as a timeout or extra headers. |
+| <code>request_options</code> | <code>[RequestOptionsOrDict](adyen/core/request_options.py) \| None</code> | Per-call overrides for this one request, such as a timeout, extra headers, or its retry count and statuses. |
 
 </dd>
 </dl>
@@ -18518,7 +19538,7 @@ Returns a list of all the payout schedules that are configured for your balance 
 ```python
 try:
     response = client.managed_payout_schedules.get_balance_platforms_balance_platform_id_payout_schedules(
-        balance_platform_id
+        "some example string"
     )
     # TODO: Handle 'response' of type BalancePlatformConfigurations
 except ApiError as e:
@@ -18530,7 +19550,7 @@ except ApiError as e:
 ```python
 try:
     response = await async_client.managed_payout_schedules.get_balance_platforms_balance_platform_id_payout_schedules(
-        balance_platform_id
+        "some example string"
     )
     # TODO: Handle 'response' of type BalancePlatformConfigurations
 except ApiError as e:
@@ -18550,7 +19570,7 @@ except ApiError as e:
 | <code>balance_platform_id</code> | <code>str</code> | The unique identifier of the balance platform. |
 | <code>country_code</code> | <code>str \| None</code> | The two-letter [ISO 3166-1 alpha-2](https://en.wikipedia.org/wiki/ISO_3166-1_alpha-2) country code of the country to which the payout configuration applies.<br>**Default**: <code>None</code> |
 | <code>currency</code> | <code>str \| None</code> | The three-character [ISO currency code](https://docs.adyen.com/development-resources/currency-codes) of the currency used in the payout configuration.<br>**Default**: <code>None</code> |
-| <code>request_options</code> | <code>[RequestOptionsOrDict](adyen/core/request_options.py) \| None</code> | Per-call overrides for this one request, such as a timeout or extra headers. |
+| <code>request_options</code> | <code>[RequestOptionsOrDict](adyen/core/request_options.py) \| None</code> | Per-call overrides for this one request, such as a timeout, extra headers, or its retry count and statuses. |
 
 </dd>
 </dl>
@@ -18580,7 +19600,7 @@ Mapped in first-match order -- an earlier row wins over a later range that also 
 </details>
 
 <details>
-<summary><code>def get_balance_platforms_balance_platform_id_payout_schedules_id(balance_platform_id: str, id: str, *, request_options: RequestOptionsOrDict | None = None) -> BalancePlatformConfiguration</code></summary>
+<summary><code>def get_balance_platforms_balance_platform_id_payout_schedules_id(balance_platform_id: str, id_: str, *, request_options: RequestOptionsOrDict | None = None) -> BalancePlatformConfiguration</code></summary>
 
 <dl>
 <dd>
@@ -18605,7 +19625,7 @@ Returns the specified managed payout schedule configured on your balance platfor
 ```python
 try:
     response = client.managed_payout_schedules.get_balance_platforms_balance_platform_id_payout_schedules_id(
-        balance_platform_id, id
+        "some example string", "some example string"
     )
     # TODO: Handle 'response' of type BalancePlatformConfiguration
 except ApiError as e:
@@ -18617,7 +19637,7 @@ except ApiError as e:
 ```python
 try:
     response = await async_client.managed_payout_schedules.get_balance_platforms_balance_platform_id_payout_schedules_id(
-        balance_platform_id, id
+        "some example string", "some example string"
     )
     # TODO: Handle 'response' of type BalancePlatformConfiguration
 except ApiError as e:
@@ -18635,8 +19655,8 @@ except ApiError as e:
 | Name | Type | Description |
 | --- | --- | --- |
 | <code>balance_platform_id</code> | <code>str</code> | The unique identifier of the balance platform. |
-| <code>id</code> | <code>str</code> | The unique identifier of the payout configuration for your balance platform. |
-| <code>request_options</code> | <code>[RequestOptionsOrDict](adyen/core/request_options.py) \| None</code> | Per-call overrides for this one request, such as a timeout or extra headers. |
+| <code>id_</code> | <code>str</code> | The unique identifier of the payout configuration for your balance platform. |
+| <code>request_options</code> | <code>[RequestOptionsOrDict](adyen/core/request_options.py) \| None</code> | Per-call overrides for this one request, such as a timeout, extra headers, or its retry count and statuses. |
 
 </dd>
 </dl>
@@ -18666,7 +19686,7 @@ Mapped in first-match order -- an earlier row wins over a later range that also 
 </details>
 
 <details>
-<summary><code>def patch_balance_accounts_balance_account_id_payout_schedules_id(balance_account_id: str, id: str, body: BalanceAccountConfigurationUpdate | BalanceAccountConfigurationUpdateDict, *, request_options: RequestOptionsOrDict | None = None) -> BalanceAccountConfiguration</code></summary>
+<summary><code>def patch_balance_accounts_balance_account_id_payout_schedules_id(balance_account_id: str, id_: str, body: BalanceAccountConfigurationUpdate | BalanceAccountConfigurationUpdateDict, *, request_options: RequestOptionsOrDict | None = None) -> BalanceAccountConfiguration</code></summary>
 
 <dl>
 <dd>
@@ -18691,7 +19711,11 @@ Update a managed payout schedule applied to a balance account. If an optional pa
 ```python
 try:
     response = client.managed_payout_schedules.patch_balance_accounts_balance_account_id_payout_schedules_id(
-        balance_account_id, id, body
+        "some example string",
+        "some example string",
+        BalanceAccountConfigurationUpdate(
+            description="Updated payout description", enabled=False, retained_amount=20000
+        ),
     )
     # TODO: Handle 'response' of type BalanceAccountConfiguration
 except ApiError as e:
@@ -18703,7 +19727,11 @@ except ApiError as e:
 ```python
 try:
     response = await async_client.managed_payout_schedules.patch_balance_accounts_balance_account_id_payout_schedules_id(
-        balance_account_id, id, body
+        "some example string",
+        "some example string",
+        BalanceAccountConfigurationUpdate(
+            description="Updated payout description", enabled=False, retained_amount=20000
+        ),
     )
     # TODO: Handle 'response' of type BalanceAccountConfiguration
 except ApiError as e:
@@ -18721,9 +19749,9 @@ except ApiError as e:
 | Name | Type | Description |
 | --- | --- | --- |
 | <code>balance_account_id</code> | <code>str</code> | The unique identifier of the balance account. |
-| <code>id</code> | <code>str</code> | The unique identifier of the payout schedule applied to the balance account. |
+| <code>id_</code> | <code>str</code> | The unique identifier of the payout schedule applied to the balance account. |
 | <code>body</code> | <code>[BalanceAccountConfigurationUpdate](adyen/models/balance_account_configuration_update.py) \| [BalanceAccountConfigurationUpdateDict](adyen/models/balance_account_configuration_update.py)</code> | The request body. |
-| <code>request_options</code> | <code>[RequestOptionsOrDict](adyen/core/request_options.py) \| None</code> | Per-call overrides for this one request, such as a timeout or extra headers. |
+| <code>request_options</code> | <code>[RequestOptionsOrDict](adyen/core/request_options.py) \| None</code> | Per-call overrides for this one request, such as a timeout, extra headers, or its retry count and statuses. |
 
 </dd>
 </dl>
@@ -18778,7 +19806,21 @@ Apply a managed payout schedule to a balance account. This payout schedule is ba
 ```python
 try:
     response = client.managed_payout_schedules.post_balance_accounts_balance_account_id_payout_schedules(
-        balance_account_id, body
+        "some example string",
+        BalanceAccountConfigurationRequest(
+            balance_platform_payout_schedule_id="PSPC00000000000000000000000001",
+            currency="EUR",
+            description="Scheduled payout to merchant bank account",
+            enabled=True,
+            frequency=Frequency1.MONTHLY,
+            frequency_value=1,
+            max_payout_amount=100000000,
+            min_payout_amount=1000,
+            reference="Monthly payout",
+            reference_for_beneficiary="PAYOUT-REF-001",
+            retained_amount=10000,
+            transfer_instrument_id="SE00000000000000000000001",
+        ),
     )
     # TODO: Handle 'response' of type BalanceAccountConfiguration
 except ApiError as e:
@@ -18790,7 +19832,21 @@ except ApiError as e:
 ```python
 try:
     response = await async_client.managed_payout_schedules.post_balance_accounts_balance_account_id_payout_schedules(
-        balance_account_id, body
+        "some example string",
+        BalanceAccountConfigurationRequest(
+            balance_platform_payout_schedule_id="PSPC00000000000000000000000001",
+            currency="EUR",
+            description="Scheduled payout to merchant bank account",
+            enabled=True,
+            frequency=Frequency1.MONTHLY,
+            frequency_value=1,
+            max_payout_amount=100000000,
+            min_payout_amount=1000,
+            reference="Monthly payout",
+            reference_for_beneficiary="PAYOUT-REF-001",
+            retained_amount=10000,
+            transfer_instrument_id="SE00000000000000000000001",
+        ),
     )
     # TODO: Handle 'response' of type BalanceAccountConfiguration
 except ApiError as e:
@@ -18809,7 +19865,7 @@ except ApiError as e:
 | --- | --- | --- |
 | <code>balance_account_id</code> | <code>str</code> | The unique identifier of the balance account. |
 | <code>body</code> | <code>[BalanceAccountConfigurationRequest](adyen/models/balance_account_configuration_request.py) \| [BalanceAccountConfigurationRequestDict](adyen/models/balance_account_configuration_request.py)</code> | The request body. |
-| <code>request_options</code> | <code>[RequestOptionsOrDict](adyen/core/request_options.py) \| None</code> | Per-call overrides for this one request, such as a timeout or extra headers. |
+| <code>request_options</code> | <code>[RequestOptionsOrDict](adyen/core/request_options.py) \| None</code> | Per-call overrides for this one request, such as a timeout, extra headers, or its retry count and statuses. |
 
 </dd>
 </dl>
@@ -18873,7 +19929,14 @@ Allows you to increase or decrease the authorised amount after the initial autho
 
 ```python
 try:
-    response = client.modifications.post_adjust_authorisation()
+    response = client.modifications.post_adjust_authorisation(
+        body=AdjustAuthorisationRequest(
+            merchant_account="YOUR_MERCHANT_ACCOUNT",
+            modification_amount=Amount(currency="USD", value=1700),
+            original_reference="COPY_PSP_REFERENCE_FROM_AUTHORISE_RESPONSE",
+            reference="YourModificationReference",
+        ),
+    )
     # TODO: Handle 'response' of type ModificationResult
 except ApiError as e:
     ...  # TODO: Handle 'e.error' of type PostAdjustAuthorisationErrorBody
@@ -18883,7 +19946,14 @@ except ApiError as e:
 
 ```python
 try:
-    response = await async_client.modifications.post_adjust_authorisation()
+    response = await async_client.modifications.post_adjust_authorisation(
+        body=AdjustAuthorisationRequest(
+            merchant_account="YOUR_MERCHANT_ACCOUNT",
+            modification_amount=Amount(currency="USD", value=1700),
+            original_reference="COPY_PSP_REFERENCE_FROM_AUTHORISE_RESPONSE",
+            reference="YourModificationReference",
+        ),
+    )
     # TODO: Handle 'response' of type ModificationResult
 except ApiError as e:
     ...  # TODO: Handle 'e.error' of type PostAdjustAuthorisationErrorBody
@@ -18900,7 +19970,7 @@ except ApiError as e:
 | Name | Type | Description |
 | --- | --- | --- |
 | <code>body</code> | <code>[AdjustAuthorisationRequest](adyen/models/adjust_authorisation_request.py) \| [AdjustAuthorisationRequestDict](adyen/models/adjust_authorisation_request.py) \| None</code> | The request body.<br>**Default**: <code>None</code> |
-| <code>request_options</code> | <code>[RequestOptionsOrDict](adyen/core/request_options.py) \| None</code> | Per-call overrides for this one request, such as a timeout or extra headers. |
+| <code>request_options</code> | <code>[RequestOptionsOrDict](adyen/core/request_options.py) \| None</code> | Per-call overrides for this one request, such as a timeout, extra headers, or its retry count and statuses. |
 
 </dd>
 </dl>
@@ -18962,7 +20032,13 @@ For more information, refer to [Cancel](https://docs.adyen.com/online-payments/c
 
 ```python
 try:
-    response = client.modifications.post_cancel()
+    response = client.modifications.post_cancel(
+        body=CancelRequest(
+            merchant_account="YOUR_MERCHANT_ACCOUNT",
+            original_reference="COPY_PSP_REFERENCE_FROM_AUTHORISE_RESPONSE",
+            reference="YourModificationReference",
+        ),
+    )
     # TODO: Handle 'response' of type ModificationResult
 except ApiError as e:
     ...  # TODO: Handle 'e.error' of type PostCancelErrorBody
@@ -18972,7 +20048,13 @@ except ApiError as e:
 
 ```python
 try:
-    response = await async_client.modifications.post_cancel()
+    response = await async_client.modifications.post_cancel(
+        body=CancelRequest(
+            merchant_account="YOUR_MERCHANT_ACCOUNT",
+            original_reference="COPY_PSP_REFERENCE_FROM_AUTHORISE_RESPONSE",
+            reference="YourModificationReference",
+        ),
+    )
     # TODO: Handle 'response' of type ModificationResult
 except ApiError as e:
     ...  # TODO: Handle 'e.error' of type PostCancelErrorBody
@@ -18989,7 +20071,7 @@ except ApiError as e:
 | Name | Type | Description |
 | --- | --- | --- |
 | <code>body</code> | <code>[CancelRequest](adyen/models/cancel_request.py) \| [CancelRequestDict](adyen/models/cancel_request.py) \| None</code> | The request body.<br>**Default**: <code>None</code> |
-| <code>request_options</code> | <code>[RequestOptionsOrDict](adyen/core/request_options.py) \| None</code> | Per-call overrides for this one request, such as a timeout or extra headers. |
+| <code>request_options</code> | <code>[RequestOptionsOrDict](adyen/core/request_options.py) \| None</code> | Per-call overrides for this one request, such as a timeout, extra headers, or its retry count and statuses. |
 
 </dd>
 </dl>
@@ -19057,7 +20139,13 @@ For more information, refer to [Cancel or refund](https://docs.adyen.com/online-
 
 ```python
 try:
-    response = client.modifications.post_cancel_or_refund()
+    response = client.modifications.post_cancel_or_refund(
+        body=CancelOrRefundRequest(
+            merchant_account="YOUR_MERCHANT_ACCOUNT",
+            original_reference="COPY_PSP_REFERENCE_FROM_AUTHORISE_RESPONSE",
+            reference="YourModificationReference",
+        ),
+    )
     # TODO: Handle 'response' of type ModificationResult
 except ApiError as e:
     ...  # TODO: Handle 'e.error' of type PostCancelOrRefundErrorBody
@@ -19067,7 +20155,13 @@ except ApiError as e:
 
 ```python
 try:
-    response = await async_client.modifications.post_cancel_or_refund()
+    response = await async_client.modifications.post_cancel_or_refund(
+        body=CancelOrRefundRequest(
+            merchant_account="YOUR_MERCHANT_ACCOUNT",
+            original_reference="COPY_PSP_REFERENCE_FROM_AUTHORISE_RESPONSE",
+            reference="YourModificationReference",
+        ),
+    )
     # TODO: Handle 'response' of type ModificationResult
 except ApiError as e:
     ...  # TODO: Handle 'e.error' of type PostCancelOrRefundErrorBody
@@ -19084,7 +20178,7 @@ except ApiError as e:
 | Name | Type | Description |
 | --- | --- | --- |
 | <code>body</code> | <code>[CancelOrRefundRequest](adyen/models/cancel_or_refund_request.py) \| [CancelOrRefundRequestDict](adyen/models/cancel_or_refund_request.py) \| None</code> | The request body.<br>**Default**: <code>None</code> |
-| <code>request_options</code> | <code>[RequestOptionsOrDict](adyen/core/request_options.py) \| None</code> | Per-call overrides for this one request, such as a timeout or extra headers. |
+| <code>request_options</code> | <code>[RequestOptionsOrDict](adyen/core/request_options.py) \| None</code> | Per-call overrides for this one request, such as a timeout, extra headers, or its retry count and statuses. |
 
 </dd>
 </dl>
@@ -19144,7 +20238,14 @@ For more information, refer to [Cancel](https://docs.adyen.com/online-payments/c
 
 ```python
 try:
-    response = client.modifications.post_cancels()
+    response = client.modifications.post_cancels(
+        idempotency_key="37ca9c97-d1d1-4c62-89e8-706891a563ed",
+        body=StandalonePaymentCancelRequest(
+            merchant_account="YOUR_MERCHANT_ACCOUNT",
+            payment_reference="YOUR_UNIQUE_REFERENCE_FOR_THE_PAYMENT",
+            reference="YOUR_UNIQUE_REFERENCE_FOR_THE_CANCELLATION",
+        ),
+    )
     # TODO: Handle 'response' of type StandalonePaymentCancelResponse
 except ApiError as e:
     ...  # TODO: Handle 'e.error' of type PostCancelsErrorBody
@@ -19154,7 +20255,14 @@ except ApiError as e:
 
 ```python
 try:
-    response = await async_client.modifications.post_cancels()
+    response = await async_client.modifications.post_cancels(
+        idempotency_key="37ca9c97-d1d1-4c62-89e8-706891a563ed",
+        body=StandalonePaymentCancelRequest(
+            merchant_account="YOUR_MERCHANT_ACCOUNT",
+            payment_reference="YOUR_UNIQUE_REFERENCE_FOR_THE_PAYMENT",
+            reference="YOUR_UNIQUE_REFERENCE_FOR_THE_CANCELLATION",
+        ),
+    )
     # TODO: Handle 'response' of type StandalonePaymentCancelResponse
 except ApiError as e:
     ...  # TODO: Handle 'e.error' of type PostCancelsErrorBody
@@ -19172,7 +20280,7 @@ except ApiError as e:
 | --- | --- | --- |
 | <code>idempotency_key</code> | <code>str \| None</code> | A unique identifier for the message with a maximum of 64 characters (we recommend a UUID).<br>**Default**: <code>None</code> |
 | <code>body</code> | <code>[StandalonePaymentCancelRequest](adyen/models/standalone_payment_cancel_request.py) \| [StandalonePaymentCancelRequestDict](adyen/models/standalone_payment_cancel_request.py) \| None</code> | The request body.<br>**Default**: <code>None</code> |
-| <code>request_options</code> | <code>[RequestOptionsOrDict](adyen/core/request_options.py) \| None</code> | Per-call overrides for this one request, such as a timeout or extra headers. |
+| <code>request_options</code> | <code>[RequestOptionsOrDict](adyen/core/request_options.py) \| None</code> | Per-call overrides for this one request, such as a timeout, extra headers, or its retry count and statuses. |
 
 </dd>
 </dl>
@@ -19236,7 +20344,14 @@ For more information refer to [Capture](https://docs.adyen.com/online-payments/c
 
 ```python
 try:
-    response = client.modifications.post_capture()
+    response = client.modifications.post_capture(
+        body=CaptureRequest(
+            merchant_account="YOUR_MERCHANT_ACCOUNT",
+            modification_amount=Amount(currency="EUR", value=500),
+            original_reference="COPY_PSP_REFERENCE_FROM_AUTHORISE_RESPONSE",
+            reference="YOUR_REFERENCE",
+        ),
+    )
     # TODO: Handle 'response' of type ModificationResult
 except ApiError as e:
     ...  # TODO: Handle 'e.error' of type PostCaptureErrorBody
@@ -19246,7 +20361,14 @@ except ApiError as e:
 
 ```python
 try:
-    response = await async_client.modifications.post_capture()
+    response = await async_client.modifications.post_capture(
+        body=CaptureRequest(
+            merchant_account="YOUR_MERCHANT_ACCOUNT",
+            modification_amount=Amount(currency="EUR", value=500),
+            original_reference="COPY_PSP_REFERENCE_FROM_AUTHORISE_RESPONSE",
+            reference="YOUR_REFERENCE",
+        ),
+    )
     # TODO: Handle 'response' of type ModificationResult
 except ApiError as e:
     ...  # TODO: Handle 'e.error' of type PostCaptureErrorBody
@@ -19263,7 +20385,7 @@ except ApiError as e:
 | Name | Type | Description |
 | --- | --- | --- |
 | <code>body</code> | <code>[CaptureRequest](adyen/models/capture_request.py) \| [CaptureRequestDict](adyen/models/capture_request.py) \| None</code> | The request body.<br>**Default**: <code>None</code> |
-| <code>request_options</code> | <code>[RequestOptionsOrDict](adyen/core/request_options.py) \| None</code> | Per-call overrides for this one request, such as a timeout or extra headers. |
+| <code>request_options</code> | <code>[RequestOptionsOrDict](adyen/core/request_options.py) \| None</code> | Per-call overrides for this one request, such as a timeout, extra headers, or its retry count and statuses. |
 
 </dd>
 </dl>
@@ -19323,7 +20445,15 @@ Schedules a new payment to be created (including a new authorisation request) fo
 
 ```python
 try:
-    response = client.modifications.post_donate()
+    response = client.modifications.post_donate(
+        body=DonationRequest(
+            donation_account="AdyenGivingDemo",
+            merchant_account="YOUR_MERCHANT_ACCOUNT",
+            modification_amount=Amount(currency="EUR", value=500),
+            original_reference="COPY_PSP_REFERENCE_FROM_AUTHORISE_RESPONSE",
+            reference="YOUR_DONATION_REFERENCE",
+        ),
+    )
     # TODO: Handle 'response' of type ModificationResult
 except ApiError as e:
     ...  # TODO: Handle 'e.error' of type PostDonateErrorBody
@@ -19333,7 +20463,15 @@ except ApiError as e:
 
 ```python
 try:
-    response = await async_client.modifications.post_donate()
+    response = await async_client.modifications.post_donate(
+        body=DonationRequest(
+            donation_account="AdyenGivingDemo",
+            merchant_account="YOUR_MERCHANT_ACCOUNT",
+            modification_amount=Amount(currency="EUR", value=500),
+            original_reference="COPY_PSP_REFERENCE_FROM_AUTHORISE_RESPONSE",
+            reference="YOUR_DONATION_REFERENCE",
+        ),
+    )
     # TODO: Handle 'response' of type ModificationResult
 except ApiError as e:
     ...  # TODO: Handle 'e.error' of type PostDonateErrorBody
@@ -19350,7 +20488,7 @@ except ApiError as e:
 | Name | Type | Description |
 | --- | --- | --- |
 | <code>body</code> | <code>[DonationRequest](adyen/models/donation_request.py) \| [DonationRequestDict](adyen/models/donation_request.py) \| None</code> | The request body.<br>**Default**: <code>None</code> |
-| <code>request_options</code> | <code>[RequestOptionsOrDict](adyen/core/request_options.py) \| None</code> | Per-call overrides for this one request, such as a timeout or extra headers. |
+| <code>request_options</code> | <code>[RequestOptionsOrDict](adyen/core/request_options.py) \| None</code> | Per-call overrides for this one request, such as a timeout, extra headers, or its retry count and statuses. |
 
 </dd>
 </dl>
@@ -19410,7 +20548,15 @@ For more information, refer to [Authorisation adjustment](https://docs.adyen.com
 
 ```python
 try:
-    response = client.modifications.post_payments_payment_psp_reference_amount_updates(payment_psp_reference)
+    response = client.modifications.post_payments_payment_psp_reference_amount_updates(
+        "some example string",
+        idempotency_key="37ca9c97-d1d1-4c62-89e8-706891a563ed",
+        body=PaymentAmountUpdateRequest(
+            amount=Amount29(currency="EUR", value=2500),
+            merchant_account="YOUR_MERCHANT_ACCOUNT",
+            reference="YOUR_UNIQUE_REFERENCE",
+        ),
+    )
     # TODO: Handle 'response' of type PaymentAmountUpdateResponse
 except ApiError as e:
     ...  # TODO: Handle 'e.error' of type PostPaymentsPaymentPspReferenceAmountUpdatesErrorBody
@@ -19421,7 +20567,13 @@ except ApiError as e:
 ```python
 try:
     response = await async_client.modifications.post_payments_payment_psp_reference_amount_updates(
-        payment_psp_reference
+        "some example string",
+        idempotency_key="37ca9c97-d1d1-4c62-89e8-706891a563ed",
+        body=PaymentAmountUpdateRequest(
+            amount=Amount29(currency="EUR", value=2500),
+            merchant_account="YOUR_MERCHANT_ACCOUNT",
+            reference="YOUR_UNIQUE_REFERENCE",
+        ),
     )
     # TODO: Handle 'response' of type PaymentAmountUpdateResponse
 except ApiError as e:
@@ -19441,7 +20593,7 @@ except ApiError as e:
 | <code>payment_psp_reference</code> | <code>str</code> | The https://docs.adyen.com/api-explorer/Checkout/latest/post/payments#responses-200-pspReference of the payment. |
 | <code>idempotency_key</code> | <code>str \| None</code> | A unique identifier for the message with a maximum of 64 characters (we recommend a UUID).<br>**Default**: <code>None</code> |
 | <code>body</code> | <code>[PaymentAmountUpdateRequest](adyen/models/payment_amount_update_request.py) \| [PaymentAmountUpdateRequestDict](adyen/models/payment_amount_update_request.py) \| None</code> | The request body.<br>**Default**: <code>None</code> |
-| <code>request_options</code> | <code>[RequestOptionsOrDict](adyen/core/request_options.py) \| None</code> | Per-call overrides for this one request, such as a timeout or extra headers. |
+| <code>request_options</code> | <code>[RequestOptionsOrDict](adyen/core/request_options.py) \| None</code> | Per-call overrides for this one request, such as a timeout, extra headers, or its retry count and statuses. |
 
 </dd>
 </dl>
@@ -19501,7 +20653,11 @@ For more information, refer to [Cancel](https://docs.adyen.com/online-payments/c
 
 ```python
 try:
-    response = client.modifications.post_payments_payment_psp_reference_cancels(payment_psp_reference)
+    response = client.modifications.post_payments_payment_psp_reference_cancels(
+        "some example string",
+        idempotency_key="37ca9c97-d1d1-4c62-89e8-706891a563ed",
+        body=PaymentCancelRequest(merchant_account="YOUR_MERCHANT_ACCOUNT", reference="YOUR_UNIQUE_REFERENCE"),
+    )
     # TODO: Handle 'response' of type PaymentCancelResponse
 except ApiError as e:
     ...  # TODO: Handle 'e.error' of type PostPaymentsPaymentPspReferenceCancelsErrorBody
@@ -19511,7 +20667,11 @@ except ApiError as e:
 
 ```python
 try:
-    response = await async_client.modifications.post_payments_payment_psp_reference_cancels(payment_psp_reference)
+    response = await async_client.modifications.post_payments_payment_psp_reference_cancels(
+        "some example string",
+        idempotency_key="37ca9c97-d1d1-4c62-89e8-706891a563ed",
+        body=PaymentCancelRequest(merchant_account="YOUR_MERCHANT_ACCOUNT", reference="YOUR_UNIQUE_REFERENCE"),
+    )
     # TODO: Handle 'response' of type PaymentCancelResponse
 except ApiError as e:
     ...  # TODO: Handle 'e.error' of type PostPaymentsPaymentPspReferenceCancelsErrorBody
@@ -19530,7 +20690,7 @@ except ApiError as e:
 | <code>payment_psp_reference</code> | <code>str</code> | The https://docs.adyen.com/api-explorer/Checkout/latest/post/payments#responses-200-pspReference of the payment that you want to cancel. |
 | <code>idempotency_key</code> | <code>str \| None</code> | A unique identifier for the message with a maximum of 64 characters (we recommend a UUID).<br>**Default**: <code>None</code> |
 | <code>body</code> | <code>[PaymentCancelRequest](adyen/models/payment_cancel_request.py) \| [PaymentCancelRequestDict](adyen/models/payment_cancel_request.py) \| None</code> | The request body.<br>**Default**: <code>None</code> |
-| <code>request_options</code> | <code>[RequestOptionsOrDict](adyen/core/request_options.py) \| None</code> | Per-call overrides for this one request, such as a timeout or extra headers. |
+| <code>request_options</code> | <code>[RequestOptionsOrDict](adyen/core/request_options.py) \| None</code> | Per-call overrides for this one request, such as a timeout, extra headers, or its retry count and statuses. |
 
 </dd>
 </dl>
@@ -19590,7 +20750,15 @@ For more information, refer to [Capture](https://docs.adyen.com/online-payments/
 
 ```python
 try:
-    response = client.modifications.post_payments_payment_psp_reference_captures(payment_psp_reference)
+    response = client.modifications.post_payments_payment_psp_reference_captures(
+        "some example string",
+        idempotency_key="37ca9c97-d1d1-4c62-89e8-706891a563ed",
+        body=PaymentCaptureRequest(
+            amount=Amount31(currency="EUR", value=2000),
+            merchant_account="YOUR_MERCHANT_ACCOUNT",
+            reference="YOUR_UNIQUE_REFERENCE",
+        ),
+    )
     # TODO: Handle 'response' of type PaymentCaptureResponse
 except ApiError as e:
     ...  # TODO: Handle 'e.error' of type PostPaymentsPaymentPspReferenceCapturesErrorBody
@@ -19600,7 +20768,15 @@ except ApiError as e:
 
 ```python
 try:
-    response = await async_client.modifications.post_payments_payment_psp_reference_captures(payment_psp_reference)
+    response = await async_client.modifications.post_payments_payment_psp_reference_captures(
+        "some example string",
+        idempotency_key="37ca9c97-d1d1-4c62-89e8-706891a563ed",
+        body=PaymentCaptureRequest(
+            amount=Amount31(currency="EUR", value=2000),
+            merchant_account="YOUR_MERCHANT_ACCOUNT",
+            reference="YOUR_UNIQUE_REFERENCE",
+        ),
+    )
     # TODO: Handle 'response' of type PaymentCaptureResponse
 except ApiError as e:
     ...  # TODO: Handle 'e.error' of type PostPaymentsPaymentPspReferenceCapturesErrorBody
@@ -19619,7 +20795,7 @@ except ApiError as e:
 | <code>payment_psp_reference</code> | <code>str</code> | The https://docs.adyen.com/api-explorer/Checkout/latest/post/payments#responses-200-pspReference of the payment that you want to capture. |
 | <code>idempotency_key</code> | <code>str \| None</code> | A unique identifier for the message with a maximum of 64 characters (we recommend a UUID).<br>**Default**: <code>None</code> |
 | <code>body</code> | <code>[PaymentCaptureRequest](adyen/models/payment_capture_request.py) \| [PaymentCaptureRequestDict](adyen/models/payment_capture_request.py) \| None</code> | The request body.<br>**Default**: <code>None</code> |
-| <code>request_options</code> | <code>[RequestOptionsOrDict](adyen/core/request_options.py) \| None</code> | Per-call overrides for this one request, such as a timeout or extra headers. |
+| <code>request_options</code> | <code>[RequestOptionsOrDict](adyen/core/request_options.py) \| None</code> | Per-call overrides for this one request, such as a timeout, extra headers, or its retry count and statuses. |
 
 </dd>
 </dl>
@@ -19681,7 +20857,15 @@ For more information, refer to [Refund](https://docs.adyen.com/online-payments/r
 
 ```python
 try:
-    response = client.modifications.post_payments_payment_psp_reference_refunds(payment_psp_reference)
+    response = client.modifications.post_payments_payment_psp_reference_refunds(
+        "some example string",
+        idempotency_key="37ca9c97-d1d1-4c62-89e8-706891a563ed",
+        body=PaymentRefundRequest(
+            amount=Amount38(currency="EUR", value=2500),
+            merchant_account="YOUR_MERCHANT_ACCOUNT",
+            reference="YOUR_UNIQUE_REFERENCE",
+        ),
+    )
     # TODO: Handle 'response' of type PaymentRefundResponse
 except ApiError as e:
     ...  # TODO: Handle 'e.error' of type PostPaymentsPaymentPspReferenceRefundsErrorBody
@@ -19691,7 +20875,15 @@ except ApiError as e:
 
 ```python
 try:
-    response = await async_client.modifications.post_payments_payment_psp_reference_refunds(payment_psp_reference)
+    response = await async_client.modifications.post_payments_payment_psp_reference_refunds(
+        "some example string",
+        idempotency_key="37ca9c97-d1d1-4c62-89e8-706891a563ed",
+        body=PaymentRefundRequest(
+            amount=Amount38(currency="EUR", value=2500),
+            merchant_account="YOUR_MERCHANT_ACCOUNT",
+            reference="YOUR_UNIQUE_REFERENCE",
+        ),
+    )
     # TODO: Handle 'response' of type PaymentRefundResponse
 except ApiError as e:
     ...  # TODO: Handle 'e.error' of type PostPaymentsPaymentPspReferenceRefundsErrorBody
@@ -19710,7 +20902,7 @@ except ApiError as e:
 | <code>payment_psp_reference</code> | <code>str</code> | The https://docs.adyen.com/api-explorer/Checkout/latest/post/payments#responses-200-pspReference of the payment that you want to refund. |
 | <code>idempotency_key</code> | <code>str \| None</code> | A unique identifier for the message with a maximum of 64 characters (we recommend a UUID).<br>**Default**: <code>None</code> |
 | <code>body</code> | <code>[PaymentRefundRequest](adyen/models/payment_refund_request.py) \| [PaymentRefundRequestDict](adyen/models/payment_refund_request.py) \| None</code> | The request body.<br>**Default**: <code>None</code> |
-| <code>request_options</code> | <code>[RequestOptionsOrDict](adyen/core/request_options.py) \| None</code> | Per-call overrides for this one request, such as a timeout or extra headers. |
+| <code>request_options</code> | <code>[RequestOptionsOrDict](adyen/core/request_options.py) \| None</code> | Per-call overrides for this one request, such as a timeout, extra headers, or its retry count and statuses. |
 
 </dd>
 </dl>
@@ -19769,7 +20961,11 @@ For more information, refer to [Reversal](https://docs.adyen.com/online-payments
 
 ```python
 try:
-    response = client.modifications.post_payments_payment_psp_reference_reversals(payment_psp_reference)
+    response = client.modifications.post_payments_payment_psp_reference_reversals(
+        "some example string",
+        idempotency_key="37ca9c97-d1d1-4c62-89e8-706891a563ed",
+        body=PaymentReversalRequest(merchant_account="YOUR_MERCHANT_ACCOUNT", reference="YOUR_UNIQUE_REFERENCE"),
+    )
     # TODO: Handle 'response' of type PaymentReversalResponse
 except ApiError as e:
     ...  # TODO: Handle 'e.error' of type PostPaymentsPaymentPspReferenceReversalsErrorBody
@@ -19779,7 +20975,11 @@ except ApiError as e:
 
 ```python
 try:
-    response = await async_client.modifications.post_payments_payment_psp_reference_reversals(payment_psp_reference)
+    response = await async_client.modifications.post_payments_payment_psp_reference_reversals(
+        "some example string",
+        idempotency_key="37ca9c97-d1d1-4c62-89e8-706891a563ed",
+        body=PaymentReversalRequest(merchant_account="YOUR_MERCHANT_ACCOUNT", reference="YOUR_UNIQUE_REFERENCE"),
+    )
     # TODO: Handle 'response' of type PaymentReversalResponse
 except ApiError as e:
     ...  # TODO: Handle 'e.error' of type PostPaymentsPaymentPspReferenceReversalsErrorBody
@@ -19798,7 +20998,7 @@ except ApiError as e:
 | <code>payment_psp_reference</code> | <code>str</code> | The https://docs.adyen.com/api-explorer/Checkout/latest/post/payments#responses-200-pspReference of the payment that you want to reverse. |
 | <code>idempotency_key</code> | <code>str \| None</code> | A unique identifier for the message with a maximum of 64 characters (we recommend a UUID).<br>**Default**: <code>None</code> |
 | <code>body</code> | <code>[PaymentReversalRequest](adyen/models/payment_reversal_request.py) \| [PaymentReversalRequestDict](adyen/models/payment_reversal_request.py) \| None</code> | The request body.<br>**Default**: <code>None</code> |
-| <code>request_options</code> | <code>[RequestOptionsOrDict](adyen/core/request_options.py) \| None</code> | Per-call overrides for this one request, such as a timeout or extra headers. |
+| <code>request_options</code> | <code>[RequestOptionsOrDict](adyen/core/request_options.py) \| None</code> | Per-call overrides for this one request, such as a timeout, extra headers, or its retry count and statuses. |
 
 </dd>
 </dl>
@@ -19863,7 +21063,14 @@ For more information, refer to [Refund](https://docs.adyen.com/online-payments/c
 
 ```python
 try:
-    response = client.modifications.post_refund()
+    response = client.modifications.post_refund(
+        body=RefundRequest(
+            merchant_account="YOUR_MERCHANT_ACCOUNT",
+            modification_amount=Amount(currency="EUR", value=500),
+            original_reference="COPY_PSP_REFERENCE_FROM_AUTHORISE_RESPONSE",
+            reference="YOUR_REFERENCE",
+        ),
+    )
     # TODO: Handle 'response' of type ModificationResult
 except ApiError as e:
     ...  # TODO: Handle 'e.error' of type PostRefundErrorBody
@@ -19873,7 +21080,14 @@ except ApiError as e:
 
 ```python
 try:
-    response = await async_client.modifications.post_refund()
+    response = await async_client.modifications.post_refund(
+        body=RefundRequest(
+            merchant_account="YOUR_MERCHANT_ACCOUNT",
+            modification_amount=Amount(currency="EUR", value=500),
+            original_reference="COPY_PSP_REFERENCE_FROM_AUTHORISE_RESPONSE",
+            reference="YOUR_REFERENCE",
+        ),
+    )
     # TODO: Handle 'response' of type ModificationResult
 except ApiError as e:
     ...  # TODO: Handle 'e.error' of type PostRefundErrorBody
@@ -19890,7 +21104,7 @@ except ApiError as e:
 | Name | Type | Description |
 | --- | --- | --- |
 | <code>body</code> | <code>[RefundRequest](adyen/models/refund_request.py) \| [RefundRequestDict](adyen/models/refund_request.py) \| None</code> | The request body.<br>**Default**: <code>None</code> |
-| <code>request_options</code> | <code>[RequestOptionsOrDict](adyen/core/request_options.py) \| None</code> | Per-call overrides for this one request, such as a timeout or extra headers. |
+| <code>request_options</code> | <code>[RequestOptionsOrDict](adyen/core/request_options.py) \| None</code> | Per-call overrides for this one request, such as a timeout, extra headers, or its retry count and statuses. |
 
 </dd>
 </dl>
@@ -19954,7 +21168,13 @@ For more information, see [Technical cancel](https://docs.adyen.com/online-payme
 
 ```python
 try:
-    response = client.modifications.post_technical_cancel()
+    response = client.modifications.post_technical_cancel(
+        body=TechnicalCancelRequest(
+            merchant_account="YOUR_MERCHANT_ACCOUNT",
+            original_merchant_reference="YOUR_MERCHANT_REFERENCE",
+            reference="YOUR_MODIFICATION_REFERENCE",
+        ),
+    )
     # TODO: Handle 'response' of type ModificationResult
 except ApiError as e:
     ...  # TODO: Handle 'e.error' of type PostTechnicalCancelErrorBody
@@ -19964,7 +21184,13 @@ except ApiError as e:
 
 ```python
 try:
-    response = await async_client.modifications.post_technical_cancel()
+    response = await async_client.modifications.post_technical_cancel(
+        body=TechnicalCancelRequest(
+            merchant_account="YOUR_MERCHANT_ACCOUNT",
+            original_merchant_reference="YOUR_MERCHANT_REFERENCE",
+            reference="YOUR_MODIFICATION_REFERENCE",
+        ),
+    )
     # TODO: Handle 'response' of type ModificationResult
 except ApiError as e:
     ...  # TODO: Handle 'e.error' of type PostTechnicalCancelErrorBody
@@ -19981,7 +21207,7 @@ except ApiError as e:
 | Name | Type | Description |
 | --- | --- | --- |
 | <code>body</code> | <code>[TechnicalCancelRequest](adyen/models/technical_cancel_request.py) \| [TechnicalCancelRequestDict](adyen/models/technical_cancel_request.py) \| None</code> | The request body.<br>**Default**: <code>None</code> |
-| <code>request_options</code> | <code>[RequestOptionsOrDict](adyen/core/request_options.py) \| None</code> | Per-call overrides for this one request, such as a timeout or extra headers. |
+| <code>request_options</code> | <code>[RequestOptionsOrDict](adyen/core/request_options.py) \| None</code> | Per-call overrides for this one request, such as a timeout, extra headers, or its retry count and statuses. |
 
 </dd>
 </dl>
@@ -20039,7 +21265,9 @@ For more information, refer to [Cancel an unreferenced refund](https://docs.adye
 
 ```python
 try:
-    response = client.modifications.post_void_pending_refund()
+    response = client.modifications.post_void_pending_refund(
+        body=VoidPendingRefundRequest(merchant_account="YOUR_MERCHANT_ACCOUNT", original_reference="9914748988390044")
+    )
     # TODO: Handle 'response' of type ModificationResult
 except ApiError as e:
     ...  # TODO: Handle 'e.error' of type PostVoidPendingRefundErrorBody
@@ -20049,7 +21277,9 @@ except ApiError as e:
 
 ```python
 try:
-    response = await async_client.modifications.post_void_pending_refund()
+    response = await async_client.modifications.post_void_pending_refund(
+        body=VoidPendingRefundRequest(merchant_account="YOUR_MERCHANT_ACCOUNT", original_reference="9914748988390044")
+    )
     # TODO: Handle 'response' of type ModificationResult
 except ApiError as e:
     ...  # TODO: Handle 'e.error' of type PostVoidPendingRefundErrorBody
@@ -20066,7 +21296,7 @@ except ApiError as e:
 | Name | Type | Description |
 | --- | --- | --- |
 | <code>body</code> | <code>[VoidPendingRefundRequest](adyen/models/void_pending_refund_request.py) \| [VoidPendingRefundRequestDict](adyen/models/void_pending_refund_request.py) \| None</code> | The request body.<br>**Default**: <code>None</code> |
-| <code>request_options</code> | <code>[RequestOptionsOrDict](adyen/core/request_options.py) \| None</code> | Per-call overrides for this one request, such as a timeout or extra headers. |
+| <code>request_options</code> | <code>[RequestOptionsOrDict](adyen/core/request_options.py) \| None</code> | Per-call overrides for this one request, such as a timeout, extra headers, or its retry count and statuses. |
 
 </dd>
 </dl>
@@ -20127,7 +21357,7 @@ You can make this request with any of the Management API roles.
 
 ```python
 try:
-    client.my_api_credential.delete_me_allowed_origins_origin_id(origin_id)
+    client.my_api_credential.delete_me_allowed_origins_origin_id("some example string")
 except ApiError as e:
     ...  # TODO: Handle 'e.error' of type DeleteMeAllowedOriginsOriginIdErrorBody
 ```
@@ -20136,7 +21366,7 @@ except ApiError as e:
 
 ```python
 try:
-    await async_client.my_api_credential.delete_me_allowed_origins_origin_id(origin_id)
+    await async_client.my_api_credential.delete_me_allowed_origins_origin_id("some example string")
 except ApiError as e:
     ...  # TODO: Handle 'e.error' of type DeleteMeAllowedOriginsOriginIdErrorBody
 ```
@@ -20152,7 +21382,7 @@ except ApiError as e:
 | Name | Type | Description |
 | --- | --- | --- |
 | <code>origin_id</code> | <code>str</code> | Unique identifier of the allowed origin. |
-| <code>request_options</code> | <code>[RequestOptionsOrDict](adyen/core/request_options.py) \| None</code> | Per-call overrides for this one request, such as a timeout or extra headers. |
+| <code>request_options</code> | <code>[RequestOptionsOrDict](adyen/core/request_options.py) \| None</code> | Per-call overrides for this one request, such as a timeout, extra headers, or its retry count and statuses. |
 
 </dd>
 </dl>
@@ -20234,7 +21464,7 @@ except ApiError as e:
 
 | Name | Type | Description |
 | --- | --- | --- |
-| <code>request_options</code> | <code>[RequestOptionsOrDict](adyen/core/request_options.py) \| None</code> | Per-call overrides for this one request, such as a timeout or extra headers. |
+| <code>request_options</code> | <code>[RequestOptionsOrDict](adyen/core/request_options.py) \| None</code> | Per-call overrides for this one request, such as a timeout, extra headers, or its retry count and statuses. |
 
 </dd>
 </dl>
@@ -20316,7 +21546,7 @@ except ApiError as e:
 
 | Name | Type | Description |
 | --- | --- | --- |
-| <code>request_options</code> | <code>[RequestOptionsOrDict](adyen/core/request_options.py) \| None</code> | Per-call overrides for this one request, such as a timeout or extra headers. |
+| <code>request_options</code> | <code>[RequestOptionsOrDict](adyen/core/request_options.py) \| None</code> | Per-call overrides for this one request, such as a timeout, extra headers, or its retry count and statuses. |
 
 </dd>
 </dl>
@@ -20373,7 +21603,7 @@ You can make this request with any of the Management API roles.
 
 ```python
 try:
-    response = client.my_api_credential.get_me_allowed_origins_origin_id(origin_id)
+    response = client.my_api_credential.get_me_allowed_origins_origin_id("some example string")
     # TODO: Handle 'response' of type AllowedOrigin
 except ApiError as e:
     ...  # TODO: Handle 'e.error' of type GetMeAllowedOriginsOriginIdErrorBody
@@ -20383,7 +21613,7 @@ except ApiError as e:
 
 ```python
 try:
-    response = await async_client.my_api_credential.get_me_allowed_origins_origin_id(origin_id)
+    response = await async_client.my_api_credential.get_me_allowed_origins_origin_id("some example string")
     # TODO: Handle 'response' of type AllowedOrigin
 except ApiError as e:
     ...  # TODO: Handle 'e.error' of type GetMeAllowedOriginsOriginIdErrorBody
@@ -20400,7 +21630,7 @@ except ApiError as e:
 | Name | Type | Description |
 | --- | --- | --- |
 | <code>origin_id</code> | <code>str</code> | Unique identifier of the allowed origin. |
-| <code>request_options</code> | <code>[RequestOptionsOrDict](adyen/core/request_options.py) \| None</code> | Per-call overrides for this one request, such as a timeout or extra headers. |
+| <code>request_options</code> | <code>[RequestOptionsOrDict](adyen/core/request_options.py) \| None</code> | Per-call overrides for this one request, such as a timeout, extra headers, or its retry count and statuses. |
 
 </dd>
 </dl>
@@ -20484,7 +21714,7 @@ except ApiError as e:
 | Name | Type | Description |
 | --- | --- | --- |
 | <code>body</code> | <code>[CreateAllowedOriginRequest](adyen/models/create_allowed_origin_request.py) \| [CreateAllowedOriginRequestDict](adyen/models/create_allowed_origin_request.py) \| None</code> | The request body.<br>**Default**: <code>None</code> |
-| <code>request_options</code> | <code>[RequestOptionsOrDict](adyen/core/request_options.py) \| None</code> | Per-call overrides for this one request, such as a timeout or extra headers. |
+| <code>request_options</code> | <code>[RequestOptionsOrDict](adyen/core/request_options.py) \| None</code> | Per-call overrides for this one request, such as a timeout, extra headers, or its retry count and statuses. |
 
 </dd>
 </dl>
@@ -20569,7 +21799,7 @@ except ApiError as e:
 
 | Name | Type | Description |
 | --- | --- | --- |
-| <code>request_options</code> | <code>[RequestOptionsOrDict](adyen/core/request_options.py) \| None</code> | Per-call overrides for this one request, such as a timeout or extra headers. |
+| <code>request_options</code> | <code>[RequestOptionsOrDict](adyen/core/request_options.py) \| None</code> | Per-call overrides for this one request, such as a timeout, extra headers, or its retry count and statuses. |
 
 </dd>
 </dl>
@@ -20627,7 +21857,7 @@ Returns the details of a network token.
 
 ```python
 try:
-    response = client.network_tokens.get_network_tokens_network_token_id(network_token_id)
+    response = client.network_tokens.get_network_tokens_network_token_id("some example string")
     # TODO: Handle 'response' of type GetNetworkTokenResponse
 except ApiError as e:
     ...  # TODO: Handle 'e.error' of type GetNetworkTokensNetworkTokenIdErrorBody
@@ -20637,7 +21867,7 @@ except ApiError as e:
 
 ```python
 try:
-    response = await async_client.network_tokens.get_network_tokens_network_token_id(network_token_id)
+    response = await async_client.network_tokens.get_network_tokens_network_token_id("some example string")
     # TODO: Handle 'response' of type GetNetworkTokenResponse
 except ApiError as e:
     ...  # TODO: Handle 'e.error' of type GetNetworkTokensNetworkTokenIdErrorBody
@@ -20654,7 +21884,7 @@ except ApiError as e:
 | Name | Type | Description |
 | --- | --- | --- |
 | <code>network_token_id</code> | <code>str</code> | The unique identifier of the network token. |
-| <code>request_options</code> | <code>[RequestOptionsOrDict](adyen/core/request_options.py) \| None</code> | Per-call overrides for this one request, such as a timeout or extra headers. |
+| <code>request_options</code> | <code>[RequestOptionsOrDict](adyen/core/request_options.py) \| None</code> | Per-call overrides for this one request, such as a timeout, extra headers, or its retry count and statuses. |
 
 </dd>
 </dl>
@@ -20708,7 +21938,7 @@ Updates the status of the network token.
 
 ```python
 try:
-    client.network_tokens.patch_network_tokens_network_token_id(network_token_id)
+    client.network_tokens.patch_network_tokens_network_token_id("some example string")
 except ApiError as e:
     ...  # TODO: Handle 'e.error' of type PatchNetworkTokensNetworkTokenIdErrorBody
 ```
@@ -20717,7 +21947,7 @@ except ApiError as e:
 
 ```python
 try:
-    await async_client.network_tokens.patch_network_tokens_network_token_id(network_token_id)
+    await async_client.network_tokens.patch_network_tokens_network_token_id("some example string")
 except ApiError as e:
     ...  # TODO: Handle 'e.error' of type PatchNetworkTokensNetworkTokenIdErrorBody
 ```
@@ -20734,7 +21964,7 @@ except ApiError as e:
 | --- | --- | --- |
 | <code>network_token_id</code> | <code>str</code> | The unique identifier of the network token. |
 | <code>body</code> | <code>[UpdateNetworkTokenRequest](adyen/models/update_network_token_request.py) \| [UpdateNetworkTokenRequestDict](adyen/models/update_network_token_request.py) \| None</code> | The request body.<br>**Default**: <code>None</code> |
-| <code>request_options</code> | <code>[RequestOptionsOrDict](adyen/core/request_options.py) \| None</code> | Per-call overrides for this one request, such as a timeout or extra headers. |
+| <code>request_options</code> | <code>[RequestOptionsOrDict](adyen/core/request_options.py) \| None</code> | Per-call overrides for this one request, such as a timeout, extra headers, or its retry count and statuses. |
 
 </dd>
 </dl>
@@ -20792,7 +22022,14 @@ Creates an order to be used for partial payments. Make a POST `/orders` call bef
 
 ```python
 try:
-    response = client.orders.post_orders()
+    response = client.orders.post_orders(
+        idempotency_key="37ca9c97-d1d1-4c62-89e8-706891a563ed",
+        body=CreateOrderRequest(
+            amount=Amount21(currency="EUR", value=2500),
+            merchant_account="YOUR_MERCHANT_ACCOUNT",
+            reference="YOUR_ORDER_REFERENCE",
+        ),
+    )
     # TODO: Handle 'response' of type CreateOrderResponse
 except ApiError as e:
     ...  # TODO: Handle 'e.error' of type PostOrdersErrorBody
@@ -20802,7 +22039,14 @@ except ApiError as e:
 
 ```python
 try:
-    response = await async_client.orders.post_orders()
+    response = await async_client.orders.post_orders(
+        idempotency_key="37ca9c97-d1d1-4c62-89e8-706891a563ed",
+        body=CreateOrderRequest(
+            amount=Amount21(currency="EUR", value=2500),
+            merchant_account="YOUR_MERCHANT_ACCOUNT",
+            reference="YOUR_ORDER_REFERENCE",
+        ),
+    )
     # TODO: Handle 'response' of type CreateOrderResponse
 except ApiError as e:
     ...  # TODO: Handle 'e.error' of type PostOrdersErrorBody
@@ -20820,7 +22064,7 @@ except ApiError as e:
 | --- | --- | --- |
 | <code>idempotency_key</code> | <code>str \| None</code> | A unique identifier for the message with a maximum of 64 characters (we recommend a UUID).<br>**Default**: <code>None</code> |
 | <code>body</code> | <code>[CreateOrderRequest](adyen/models/create_order_request.py) \| [CreateOrderRequestDict](adyen/models/create_order_request.py) \| None</code> | The request body.<br>**Default**: <code>None</code> |
-| <code>request_options</code> | <code>[RequestOptionsOrDict](adyen/core/request_options.py) \| None</code> | Per-call overrides for this one request, such as a timeout or extra headers. |
+| <code>request_options</code> | <code>[RequestOptionsOrDict](adyen/core/request_options.py) \| None</code> | Per-call overrides for this one request, such as a timeout, extra headers, or its retry count and statuses. |
 
 </dd>
 </dl>
@@ -20874,7 +22118,13 @@ Cancels an order. Cancellation of an order results in an automatic rollback of a
 
 ```python
 try:
-    response = client.orders.post_orders_cancel()
+    response = client.orders.post_orders_cancel(
+        idempotency_key="37ca9c97-d1d1-4c62-89e8-706891a563ed",
+        body=CancelOrderRequest(
+            merchant_account="YOUR_MERCHANT_ACCOUNT",
+            order=EncryptedOrderData4(order_data="823fh892f8f18f4...148f13f9f3f", psp_reference="8815517812932012"),
+        ),
+    )
     # TODO: Handle 'response' of type CancelOrderResponse
 except ApiError as e:
     ...  # TODO: Handle 'e.error' of type PostOrdersCancelErrorBody
@@ -20884,7 +22134,13 @@ except ApiError as e:
 
 ```python
 try:
-    response = await async_client.orders.post_orders_cancel()
+    response = await async_client.orders.post_orders_cancel(
+        idempotency_key="37ca9c97-d1d1-4c62-89e8-706891a563ed",
+        body=CancelOrderRequest(
+            merchant_account="YOUR_MERCHANT_ACCOUNT",
+            order=EncryptedOrderData4(order_data="823fh892f8f18f4...148f13f9f3f", psp_reference="8815517812932012"),
+        ),
+    )
     # TODO: Handle 'response' of type CancelOrderResponse
 except ApiError as e:
     ...  # TODO: Handle 'e.error' of type PostOrdersCancelErrorBody
@@ -20902,7 +22158,7 @@ except ApiError as e:
 | --- | --- | --- |
 | <code>idempotency_key</code> | <code>str \| None</code> | A unique identifier for the message with a maximum of 64 characters (we recommend a UUID).<br>**Default**: <code>None</code> |
 | <code>body</code> | <code>[CancelOrderRequest](adyen/models/cancel_order_request.py) \| [CancelOrderRequestDict](adyen/models/cancel_order_request.py) \| None</code> | The request body.<br>**Default**: <code>None</code> |
-| <code>request_options</code> | <code>[RequestOptionsOrDict](adyen/core/request_options.py) \| None</code> | Per-call overrides for this one request, such as a timeout or extra headers. |
+| <code>request_options</code> | <code>[RequestOptionsOrDict](adyen/core/request_options.py) \| None</code> | Per-call overrides for this one request, such as a timeout, extra headers, or its retry count and statuses. |
 
 </dd>
 </dl>
@@ -20956,7 +22212,14 @@ Retrieves the balance remaining on a shopper's gift card. To check a gift card's
 
 ```python
 try:
-    response = client.orders.post_payment_methods_balance()
+    response = client.orders.post_payment_methods_balance(
+        idempotency_key="37ca9c97-d1d1-4c62-89e8-706891a563ed",
+        body=BalanceCheckRequest(
+            amount=Amount2(currency="EUR", value=1000),
+            merchant_account="YOUR_MERCHANT_ACCOUNT",
+            payment_method={"type": "givex", "number": "4126491073027401", "cvc": "737"},
+        ),
+    )
     # TODO: Handle 'response' of type BalanceCheckResponse
 except ApiError as e:
     ...  # TODO: Handle 'e.error' of type PostPaymentMethodsBalanceErrorBody
@@ -20966,7 +22229,14 @@ except ApiError as e:
 
 ```python
 try:
-    response = await async_client.orders.post_payment_methods_balance()
+    response = await async_client.orders.post_payment_methods_balance(
+        idempotency_key="37ca9c97-d1d1-4c62-89e8-706891a563ed",
+        body=BalanceCheckRequest(
+            amount=Amount2(currency="EUR", value=1000),
+            merchant_account="YOUR_MERCHANT_ACCOUNT",
+            payment_method={"type": "givex", "number": "4126491073027401", "cvc": "737"},
+        ),
+    )
     # TODO: Handle 'response' of type BalanceCheckResponse
 except ApiError as e:
     ...  # TODO: Handle 'e.error' of type PostPaymentMethodsBalanceErrorBody
@@ -20984,7 +22254,7 @@ except ApiError as e:
 | --- | --- | --- |
 | <code>idempotency_key</code> | <code>str \| None</code> | A unique identifier for the message with a maximum of 64 characters (we recommend a UUID).<br>**Default**: <code>None</code> |
 | <code>body</code> | <code>[BalanceCheckRequest](adyen/models/balance_check_request.py) \| [BalanceCheckRequestDict](adyen/models/balance_check_request.py) \| None</code> | The request body.<br>**Default**: <code>None</code> |
-| <code>request_options</code> | <code>[RequestOptionsOrDict](adyen/core/request_options.py) \| None</code> | Per-call overrides for this one request, such as a timeout or extra headers. |
+| <code>request_options</code> | <code>[RequestOptionsOrDict](adyen/core/request_options.py) \| None</code> | Per-call overrides for this one request, such as a timeout, extra headers, or its retry count and statuses. |
 
 </dd>
 </dl>
@@ -21043,7 +22313,11 @@ Returns a link to a PCI compliance questionnaire that you can send to your accou
 
 ```python
 try:
-    response = client.pci_compliance_questionnaire_page.post_get_pci_questionnaire_url()
+    response = client.pci_compliance_questionnaire_page.post_get_pci_questionnaire_url(
+        body=GetPciUrlRequest(
+            account_holder_code="CODE_OF_ACCOUNT_HOLDER", return_url="https://your.return-url.com/?submerchant=123"
+        ),
+    )
     # TODO: Handle 'response' of type GetPciUrlResponse
 except ApiError as e:
     ...  # TODO: Handle 'e.error' of type PostGetPciQuestionnaireUrlErrorBody
@@ -21053,7 +22327,11 @@ except ApiError as e:
 
 ```python
 try:
-    response = await async_client.pci_compliance_questionnaire_page.post_get_pci_questionnaire_url()
+    response = await async_client.pci_compliance_questionnaire_page.post_get_pci_questionnaire_url(
+        body=GetPciUrlRequest(
+            account_holder_code="CODE_OF_ACCOUNT_HOLDER", return_url="https://your.return-url.com/?submerchant=123"
+        ),
+    )
     # TODO: Handle 'response' of type GetPciUrlResponse
 except ApiError as e:
     ...  # TODO: Handle 'e.error' of type PostGetPciQuestionnaireUrlErrorBody
@@ -21070,7 +22348,7 @@ except ApiError as e:
 | Name | Type | Description |
 | --- | --- | --- |
 | <code>body</code> | <code>[GetPciUrlRequest](adyen/models/get_pci_url_request.py) \| [GetPciUrlRequestDict](adyen/models/get_pci_url_request.py) \| None</code> | The request body.<br>**Default**: <code>None</code> |
-| <code>request_options</code> | <code>[RequestOptionsOrDict](adyen/core/request_options.py) \| None</code> | Per-call overrides for this one request, such as a timeout or extra headers. |
+| <code>request_options</code> | <code>[RequestOptionsOrDict](adyen/core/request_options.py) \| None</code> | Per-call overrides for this one request, such as a timeout, extra headers, or its retry count and statuses. |
 
 </dd>
 </dl>
@@ -21104,7 +22382,7 @@ Mapped in first-match order -- an earlier row wins over a later range that also 
 > Source: [PciQuestionnaires](adyen/apis/pci_questionnaires.py)
 
 <details>
-<summary><code>def get_legal_entities_id_pci_questionnaires(id: str, *, request_options: RequestOptionsOrDict | None = None) -> GetPciQuestionnaireInfosResponse</code></summary>
+<summary><code>def get_legal_entities_id_pci_questionnaires(id_: str, *, request_options: RequestOptionsOrDict | None = None) -> GetPciQuestionnaireInfosResponse</code></summary>
 
 <dl>
 <dd>
@@ -21136,7 +22414,7 @@ Requests to this endpoint are subject to rate limits:
 
 ```python
 try:
-    response = client.pci_questionnaires.get_legal_entities_id_pci_questionnaires(id)
+    response = client.pci_questionnaires.get_legal_entities_id_pci_questionnaires("some example string")
     # TODO: Handle 'response' of type GetPciQuestionnaireInfosResponse
 except ApiError as e:
     ...  # TODO: Handle 'e.error' of type GetLegalEntitiesIdPciQuestionnairesErrorBody
@@ -21146,7 +22424,7 @@ except ApiError as e:
 
 ```python
 try:
-    response = await async_client.pci_questionnaires.get_legal_entities_id_pci_questionnaires(id)
+    response = await async_client.pci_questionnaires.get_legal_entities_id_pci_questionnaires("some example string")
     # TODO: Handle 'response' of type GetPciQuestionnaireInfosResponse
 except ApiError as e:
     ...  # TODO: Handle 'e.error' of type GetLegalEntitiesIdPciQuestionnairesErrorBody
@@ -21162,8 +22440,8 @@ except ApiError as e:
 
 | Name | Type | Description |
 | --- | --- | --- |
-| <code>id</code> | <code>str</code> | The unique identifier of the legal entity to get PCI questionnaire information. |
-| <code>request_options</code> | <code>[RequestOptionsOrDict](adyen/core/request_options.py) \| None</code> | Per-call overrides for this one request, such as a timeout or extra headers. |
+| <code>id_</code> | <code>str</code> | The unique identifier of the legal entity to get PCI questionnaire information. |
+| <code>request_options</code> | <code>[RequestOptionsOrDict](adyen/core/request_options.py) \| None</code> | Per-call overrides for this one request, such as a timeout, extra headers, or its retry count and statuses. |
 
 </dd>
 </dl>
@@ -21193,7 +22471,7 @@ Mapped in first-match order -- an earlier row wins over a later range that also 
 </details>
 
 <details>
-<summary><code>def get_legal_entities_id_pci_questionnaires_pciid(id: str, pciid: str, *, request_options: RequestOptionsOrDict | None = None) -> GetPciQuestionnaireResponse</code></summary>
+<summary><code>def get_legal_entities_id_pci_questionnaires_pciid(id_: str, pciid: str, *, request_options: RequestOptionsOrDict | None = None) -> GetPciQuestionnaireResponse</code></summary>
 
 <dl>
 <dd>
@@ -21225,7 +22503,9 @@ Requests to this endpoint are subject to rate limits:
 
 ```python
 try:
-    response = client.pci_questionnaires.get_legal_entities_id_pci_questionnaires_pciid(id, pciid)
+    response = client.pci_questionnaires.get_legal_entities_id_pci_questionnaires_pciid(
+        "some example string", "some example string"
+    )
     # TODO: Handle 'response' of type GetPciQuestionnaireResponse
 except ApiError as e:
     ...  # TODO: Handle 'e.error' of type GetLegalEntitiesIdPciQuestionnairesPciidErrorBody
@@ -21235,7 +22515,9 @@ except ApiError as e:
 
 ```python
 try:
-    response = await async_client.pci_questionnaires.get_legal_entities_id_pci_questionnaires_pciid(id, pciid)
+    response = await async_client.pci_questionnaires.get_legal_entities_id_pci_questionnaires_pciid(
+        "some example string", "some example string"
+    )
     # TODO: Handle 'response' of type GetPciQuestionnaireResponse
 except ApiError as e:
     ...  # TODO: Handle 'e.error' of type GetLegalEntitiesIdPciQuestionnairesPciidErrorBody
@@ -21251,9 +22533,9 @@ except ApiError as e:
 
 | Name | Type | Description |
 | --- | --- | --- |
-| <code>id</code> | <code>str</code> | The legal entity ID of the individual who signed the PCI questionnaire. |
+| <code>id_</code> | <code>str</code> | The legal entity ID of the individual who signed the PCI questionnaire. |
 | <code>pciid</code> | <code>str</code> | The unique identifier of the signed PCI questionnaire. |
-| <code>request_options</code> | <code>[RequestOptionsOrDict](adyen/core/request_options.py) \| None</code> | Per-call overrides for this one request, such as a timeout or extra headers. |
+| <code>request_options</code> | <code>[RequestOptionsOrDict](adyen/core/request_options.py) \| None</code> | Per-call overrides for this one request, such as a timeout, extra headers, or its retry count and statuses. |
 
 </dd>
 </dl>
@@ -21283,7 +22565,7 @@ Mapped in first-match order -- an earlier row wins over a later range that also 
 </details>
 
 <details>
-<summary><code>def post_legal_entities_id_pci_questionnaires_generate_pci_templates(id: str, *, body: GeneratePciDescriptionRequest | GeneratePciDescriptionRequestDict | None = None, request_options: RequestOptionsOrDict | None = None) -> GeneratePciDescriptionResponse</code></summary>
+<summary><code>def post_legal_entities_id_pci_questionnaires_generate_pci_templates(id_: str, *, body: GeneratePciDescriptionRequest | GeneratePciDescriptionRequestDict | None = None, request_options: RequestOptionsOrDict | None = None) -> GeneratePciDescriptionResponse</code></summary>
 
 <dl>
 <dd>
@@ -21315,7 +22597,9 @@ Requests to this endpoint are subject to rate limits:
 
 ```python
 try:
-    response = client.pci_questionnaires.post_legal_entities_id_pci_questionnaires_generate_pci_templates(id)
+    response = client.pci_questionnaires.post_legal_entities_id_pci_questionnaires_generate_pci_templates(
+        "some example string", body=GeneratePciDescriptionRequest(language="fr")
+    )
     # TODO: Handle 'response' of type GeneratePciDescriptionResponse
 except ApiError as e:
     ...  # TODO: Handle 'e.error' of type PostLegalEntitiesIdPciQuestionnairesGeneratePciTemplatesErrorBody
@@ -21326,7 +22610,7 @@ except ApiError as e:
 ```python
 try:
     response = await async_client.pci_questionnaires.post_legal_entities_id_pci_questionnaires_generate_pci_templates(
-        id
+        "some example string", body=GeneratePciDescriptionRequest(language="fr")
     )
     # TODO: Handle 'response' of type GeneratePciDescriptionResponse
 except ApiError as e:
@@ -21343,9 +22627,9 @@ except ApiError as e:
 
 | Name | Type | Description |
 | --- | --- | --- |
-| <code>id</code> | <code>str</code> | The unique identifier of the legal entity to get PCI questionnaire information. |
+| <code>id_</code> | <code>str</code> | The unique identifier of the legal entity to get PCI questionnaire information. |
 | <code>body</code> | <code>[GeneratePciDescriptionRequest](adyen/models/generate_pci_description_request.py) \| [GeneratePciDescriptionRequestDict](adyen/models/generate_pci_description_request.py) \| None</code> | The request body.<br>**Default**: <code>None</code> |
-| <code>request_options</code> | <code>[RequestOptionsOrDict](adyen/core/request_options.py) \| None</code> | Per-call overrides for this one request, such as a timeout or extra headers. |
+| <code>request_options</code> | <code>[RequestOptionsOrDict](adyen/core/request_options.py) \| None</code> | Per-call overrides for this one request, such as a timeout, extra headers, or its retry count and statuses. |
 
 </dd>
 </dl>
@@ -21375,7 +22659,7 @@ Mapped in first-match order -- an earlier row wins over a later range that also 
 </details>
 
 <details>
-<summary><code>def post_legal_entities_id_pci_questionnaires_sign_pci_templates(id: str, *, body: PciSigningRequest | PciSigningRequestDict | None = None, request_options: RequestOptionsOrDict | None = None) -> PciSigningResponse</code></summary>
+<summary><code>def post_legal_entities_id_pci_questionnaires_sign_pci_templates(id_: str, *, body: PciSigningRequest | PciSigningRequestDict | None = None, request_options: RequestOptionsOrDict | None = None) -> PciSigningResponse</code></summary>
 
 <dl>
 <dd>
@@ -21407,7 +22691,12 @@ Requests to this endpoint are subject to rate limits:
 
 ```python
 try:
-    response = client.pci_questionnaires.post_legal_entities_id_pci_questionnaires_sign_pci_templates(id)
+    response = client.pci_questionnaires.post_legal_entities_id_pci_questionnaires_sign_pci_templates(
+        "some example string",
+        body=PciSigningRequest(
+            pci_template_references=["PCIT-T7KC6VGL", "PCIT-PKB6DKS4"], signed_by="LE00000000000000000000002"
+        ),
+    )
     # TODO: Handle 'response' of type PciSigningResponse
 except ApiError as e:
     ...  # TODO: Handle 'e.error' of type PostLegalEntitiesIdPciQuestionnairesSignPciTemplatesErrorBody
@@ -21417,7 +22706,12 @@ except ApiError as e:
 
 ```python
 try:
-    response = await async_client.pci_questionnaires.post_legal_entities_id_pci_questionnaires_sign_pci_templates(id)
+    response = await async_client.pci_questionnaires.post_legal_entities_id_pci_questionnaires_sign_pci_templates(
+        "some example string",
+        body=PciSigningRequest(
+            pci_template_references=["PCIT-T7KC6VGL", "PCIT-PKB6DKS4"], signed_by="LE00000000000000000000002"
+        ),
+    )
     # TODO: Handle 'response' of type PciSigningResponse
 except ApiError as e:
     ...  # TODO: Handle 'e.error' of type PostLegalEntitiesIdPciQuestionnairesSignPciTemplatesErrorBody
@@ -21433,9 +22727,9 @@ except ApiError as e:
 
 | Name | Type | Description |
 | --- | --- | --- |
-| <code>id</code> | <code>str</code> | The legal entity ID of the user that has a contractual relationship with your platform. |
+| <code>id_</code> | <code>str</code> | The legal entity ID of the user that has a contractual relationship with your platform. |
 | <code>body</code> | <code>[PciSigningRequest](adyen/models/pci_signing_request.py) \| [PciSigningRequestDict](adyen/models/pci_signing_request.py) \| None</code> | The request body.<br>**Default**: <code>None</code> |
-| <code>request_options</code> | <code>[RequestOptionsOrDict](adyen/core/request_options.py) \| None</code> | Per-call overrides for this one request, such as a timeout or extra headers. |
+| <code>request_options</code> | <code>[RequestOptionsOrDict](adyen/core/request_options.py) \| None</code> | Per-call overrides for this one request, such as a timeout, extra headers, or its retry count and statuses. |
 
 </dd>
 </dl>
@@ -21465,7 +22759,7 @@ Mapped in first-match order -- an earlier row wins over a later range that also 
 </details>
 
 <details>
-<summary><code>def post_legal_entities_id_pci_questionnaires_signing_required(id: str, *, body: CalculatePciStatusRequest | CalculatePciStatusRequestDict | None = None, request_options: RequestOptionsOrDict | None = None) -> CalculatePciStatusResponse</code></summary>
+<summary><code>def post_legal_entities_id_pci_questionnaires_signing_required(id_: str, *, body: CalculatePciStatusRequest | CalculatePciStatusRequestDict | None = None, request_options: RequestOptionsOrDict | None = None) -> CalculatePciStatusResponse</code></summary>
 
 <dl>
 <dd>
@@ -21497,7 +22791,9 @@ Requests to this endpoint are subject to rate limits:
 
 ```python
 try:
-    response = client.pci_questionnaires.post_legal_entities_id_pci_questionnaires_signing_required(id)
+    response = client.pci_questionnaires.post_legal_entities_id_pci_questionnaires_signing_required(
+        "some example string"
+    )
     # TODO: Handle 'response' of type CalculatePciStatusResponse
 except ApiError as e:
     ...  # TODO: Handle 'e.error' of type PostLegalEntitiesIdPciQuestionnairesSigningRequiredErrorBody
@@ -21507,7 +22803,9 @@ except ApiError as e:
 
 ```python
 try:
-    response = await async_client.pci_questionnaires.post_legal_entities_id_pci_questionnaires_signing_required(id)
+    response = await async_client.pci_questionnaires.post_legal_entities_id_pci_questionnaires_signing_required(
+        "some example string"
+    )
     # TODO: Handle 'response' of type CalculatePciStatusResponse
 except ApiError as e:
     ...  # TODO: Handle 'e.error' of type PostLegalEntitiesIdPciQuestionnairesSigningRequiredErrorBody
@@ -21523,9 +22821,9 @@ except ApiError as e:
 
 | Name | Type | Description |
 | --- | --- | --- |
-| <code>id</code> | <code>str</code> | The unique identifier of the legal entity to calculate PCI status. |
+| <code>id_</code> | <code>str</code> | The unique identifier of the legal entity to calculate PCI status. |
 | <code>body</code> | <code>[CalculatePciStatusRequest](adyen/models/calculate_pci_status_request.py) \| [CalculatePciStatusRequestDict](adyen/models/calculate_pci_status_request.py) \| None</code> | The request body.<br>**Default**: <code>None</code> |
-| <code>request_options</code> | <code>[RequestOptionsOrDict](adyen/core/request_options.py) \| None</code> | Per-call overrides for this one request, such as a timeout or extra headers. |
+| <code>request_options</code> | <code>[RequestOptionsOrDict](adyen/core/request_options.py) \| None</code> | Per-call overrides for this one request, such as a timeout, extra headers, or its retry count and statuses. |
 
 </dd>
 </dl>
@@ -21559,7 +22857,7 @@ Mapped in first-match order -- an earlier row wins over a later range that also 
 > Source: [PaymentInstrumentGroups](adyen/apis/payment_instrument_groups.py)
 
 <details>
-<summary><code>def get_payment_instrument_groups_id(id: str, *, request_options: RequestOptionsOrDict | None = None) -> PaymentInstrumentGroup</code></summary>
+<summary><code>def get_payment_instrument_groups_id(id_: str, *, request_options: RequestOptionsOrDict | None = None) -> PaymentInstrumentGroup</code></summary>
 
 <dl>
 <dd>
@@ -21583,7 +22881,7 @@ Returns the details of a payment instrument group.
 
 ```python
 try:
-    response = client.payment_instrument_groups.get_payment_instrument_groups_id(id)
+    response = client.payment_instrument_groups.get_payment_instrument_groups_id("some example string")
     # TODO: Handle 'response' of type PaymentInstrumentGroup
 except ApiError as e:
     ...  # TODO: Handle 'e.error' of type GetPaymentInstrumentGroupsIdErrorBody
@@ -21593,7 +22891,7 @@ except ApiError as e:
 
 ```python
 try:
-    response = await async_client.payment_instrument_groups.get_payment_instrument_groups_id(id)
+    response = await async_client.payment_instrument_groups.get_payment_instrument_groups_id("some example string")
     # TODO: Handle 'response' of type PaymentInstrumentGroup
 except ApiError as e:
     ...  # TODO: Handle 'e.error' of type GetPaymentInstrumentGroupsIdErrorBody
@@ -21609,8 +22907,8 @@ except ApiError as e:
 
 | Name | Type | Description |
 | --- | --- | --- |
-| <code>id</code> | <code>str</code> | The unique identifier of the payment instrument group. |
-| <code>request_options</code> | <code>[RequestOptionsOrDict](adyen/core/request_options.py) \| None</code> | Per-call overrides for this one request, such as a timeout or extra headers. |
+| <code>id_</code> | <code>str</code> | The unique identifier of the payment instrument group. |
+| <code>request_options</code> | <code>[RequestOptionsOrDict](adyen/core/request_options.py) \| None</code> | Per-call overrides for this one request, such as a timeout, extra headers, or its retry count and statuses. |
 
 </dd>
 </dl>
@@ -21640,7 +22938,7 @@ Mapped in first-match order -- an earlier row wins over a later range that also 
 </details>
 
 <details>
-<summary><code>def get_payment_instrument_groups_id_transaction_rules(id: str, *, request_options: RequestOptionsOrDict | None = None) -> TransactionRulesResponse</code></summary>
+<summary><code>def get_payment_instrument_groups_id_transaction_rules(id_: str, *, request_options: RequestOptionsOrDict | None = None) -> TransactionRulesResponse</code></summary>
 
 <dl>
 <dd>
@@ -21664,7 +22962,9 @@ Returns a list of all the transaction rules associated with a payment instrument
 
 ```python
 try:
-    response = client.payment_instrument_groups.get_payment_instrument_groups_id_transaction_rules(id)
+    response = client.payment_instrument_groups.get_payment_instrument_groups_id_transaction_rules(
+        "some example string"
+    )
     # TODO: Handle 'response' of type TransactionRulesResponse
 except ApiError as e:
     ...  # TODO: Handle 'e.error' of type GetPaymentInstrumentGroupsIdTransactionRulesErrorBody
@@ -21674,7 +22974,9 @@ except ApiError as e:
 
 ```python
 try:
-    response = await async_client.payment_instrument_groups.get_payment_instrument_groups_id_transaction_rules(id)
+    response = await async_client.payment_instrument_groups.get_payment_instrument_groups_id_transaction_rules(
+        "some example string"
+    )
     # TODO: Handle 'response' of type TransactionRulesResponse
 except ApiError as e:
     ...  # TODO: Handle 'e.error' of type GetPaymentInstrumentGroupsIdTransactionRulesErrorBody
@@ -21690,8 +22992,8 @@ except ApiError as e:
 
 | Name | Type | Description |
 | --- | --- | --- |
-| <code>id</code> | <code>str</code> | The unique identifier of the payment instrument group. |
-| <code>request_options</code> | <code>[RequestOptionsOrDict](adyen/core/request_options.py) \| None</code> | Per-call overrides for this one request, such as a timeout or extra headers. |
+| <code>id_</code> | <code>str</code> | The unique identifier of the payment instrument group. |
+| <code>request_options</code> | <code>[RequestOptionsOrDict](adyen/core/request_options.py) \| None</code> | Per-call overrides for this one request, such as a timeout, extra headers, or its retry count and statuses. |
 
 </dd>
 </dl>
@@ -21745,7 +23047,9 @@ Creates a payment instrument group to associate and group payment instrument res
 
 ```python
 try:
-    response = client.payment_instrument_groups.post_payment_instrument_groups()
+    response = client.payment_instrument_groups.post_payment_instrument_groups(
+        body=PaymentInstrumentGroupInfo(balance_platform="YOUR_BALANCE_PLATFORM", tx_variant="mc")
+    )
     # TODO: Handle 'response' of type PaymentInstrumentGroup
 except ApiError as e:
     ...  # TODO: Handle 'e.error' of type PostPaymentInstrumentGroupsErrorBody
@@ -21755,7 +23059,9 @@ except ApiError as e:
 
 ```python
 try:
-    response = await async_client.payment_instrument_groups.post_payment_instrument_groups()
+    response = await async_client.payment_instrument_groups.post_payment_instrument_groups(
+        body=PaymentInstrumentGroupInfo(balance_platform="YOUR_BALANCE_PLATFORM", tx_variant="mc")
+    )
     # TODO: Handle 'response' of type PaymentInstrumentGroup
 except ApiError as e:
     ...  # TODO: Handle 'e.error' of type PostPaymentInstrumentGroupsErrorBody
@@ -21772,7 +23078,7 @@ except ApiError as e:
 | Name | Type | Description |
 | --- | --- | --- |
 | <code>body</code> | <code>[PaymentInstrumentGroupInfo](adyen/models/payment_instrument_group_info.py) \| [PaymentInstrumentGroupInfoDict](adyen/models/payment_instrument_group_info.py) \| None</code> | The request body.<br>**Default**: <code>None</code> |
-| <code>request_options</code> | <code>[RequestOptionsOrDict](adyen/core/request_options.py) \| None</code> | Per-call overrides for this one request, such as a timeout or extra headers. |
+| <code>request_options</code> | <code>[RequestOptionsOrDict](adyen/core/request_options.py) \| None</code> | Per-call overrides for this one request, such as a timeout, extra headers, or its retry count and statuses. |
 
 </dd>
 </dl>
@@ -21806,7 +23112,7 @@ Mapped in first-match order -- an earlier row wins over a later range that also 
 > Source: [PaymentInstruments](adyen/apis/payment_instruments.py)
 
 <details>
-<summary><code>def get_payment_instruments_id(id: str, *, request_options: RequestOptionsOrDict | None = None) -> PaymentInstrument1</code></summary>
+<summary><code>def get_payment_instruments_id(id_: str, *, request_options: RequestOptionsOrDict | None = None) -> PaymentInstrument1</code></summary>
 
 <dl>
 <dd>
@@ -21830,7 +23136,7 @@ Returns the details of a payment instrument.
 
 ```python
 try:
-    response = client.payment_instruments.get_payment_instruments_id(id)
+    response = client.payment_instruments.get_payment_instruments_id("some example string")
     # TODO: Handle 'response' of type PaymentInstrument1
 except ApiError as e:
     ...  # TODO: Handle 'e.error' of type GetPaymentInstrumentsIdErrorBody
@@ -21840,7 +23146,7 @@ except ApiError as e:
 
 ```python
 try:
-    response = await async_client.payment_instruments.get_payment_instruments_id(id)
+    response = await async_client.payment_instruments.get_payment_instruments_id("some example string")
     # TODO: Handle 'response' of type PaymentInstrument1
 except ApiError as e:
     ...  # TODO: Handle 'e.error' of type GetPaymentInstrumentsIdErrorBody
@@ -21856,8 +23162,8 @@ except ApiError as e:
 
 | Name | Type | Description |
 | --- | --- | --- |
-| <code>id</code> | <code>str</code> | The unique identifier of the payment instrument. |
-| <code>request_options</code> | <code>[RequestOptionsOrDict](adyen/core/request_options.py) \| None</code> | Per-call overrides for this one request, such as a timeout or extra headers. |
+| <code>id_</code> | <code>str</code> | The unique identifier of the payment instrument. |
+| <code>request_options</code> | <code>[RequestOptionsOrDict](adyen/core/request_options.py) \| None</code> | Per-call overrides for this one request, such as a timeout, extra headers, or its retry count and statuses. |
 
 </dd>
 </dl>
@@ -21887,7 +23193,7 @@ Mapped in first-match order -- an earlier row wins over a later range that also 
 </details>
 
 <details>
-<summary><code>def get_payment_instruments_id_network_token_activation_data(id: str, *, request_options: RequestOptionsOrDict | None = None) -> NetworkTokenActivationDataResponse</code></summary>
+<summary><code>def get_payment_instruments_id_network_token_activation_data(id_: str, *, request_options: RequestOptionsOrDict | None = None) -> NetworkTokenActivationDataResponse</code></summary>
 
 <dl>
 <dd>
@@ -21911,7 +23217,9 @@ Get the network token activation data for a payment instrument.
 
 ```python
 try:
-    response = client.payment_instruments.get_payment_instruments_id_network_token_activation_data(id)
+    response = client.payment_instruments.get_payment_instruments_id_network_token_activation_data(
+        "some example string"
+    )
     # TODO: Handle 'response' of type NetworkTokenActivationDataResponse
 except ApiError as e:
     ...  # TODO: Handle 'e.error' of type GetPaymentInstrumentsIdNetworkTokenActivationDataErrorBody
@@ -21921,7 +23229,9 @@ except ApiError as e:
 
 ```python
 try:
-    response = await async_client.payment_instruments.get_payment_instruments_id_network_token_activation_data(id)
+    response = await async_client.payment_instruments.get_payment_instruments_id_network_token_activation_data(
+        "some example string"
+    )
     # TODO: Handle 'response' of type NetworkTokenActivationDataResponse
 except ApiError as e:
     ...  # TODO: Handle 'e.error' of type GetPaymentInstrumentsIdNetworkTokenActivationDataErrorBody
@@ -21937,8 +23247,8 @@ except ApiError as e:
 
 | Name | Type | Description |
 | --- | --- | --- |
-| <code>id</code> | <code>str</code> | The unique identifier of the payment instrument. |
-| <code>request_options</code> | <code>[RequestOptionsOrDict](adyen/core/request_options.py) \| None</code> | Per-call overrides for this one request, such as a timeout or extra headers. |
+| <code>id_</code> | <code>str</code> | The unique identifier of the payment instrument. |
+| <code>request_options</code> | <code>[RequestOptionsOrDict](adyen/core/request_options.py) \| None</code> | Per-call overrides for this one request, such as a timeout, extra headers, or its retry count and statuses. |
 
 </dd>
 </dl>
@@ -21968,7 +23278,7 @@ Mapped in first-match order -- an earlier row wins over a later range that also 
 </details>
 
 <details>
-<summary><code>def get_payment_instruments_id_network_tokens(id: str, *, request_options: RequestOptionsOrDict | None = None) -> ListNetworkTokensResponse</code></summary>
+<summary><code>def get_payment_instruments_id_network_tokens(id_: str, *, request_options: RequestOptionsOrDict | None = None) -> ListNetworkTokensResponse</code></summary>
 
 <dl>
 <dd>
@@ -21992,7 +23302,7 @@ List the network tokens connected to a payment instrument.
 
 ```python
 try:
-    response = client.payment_instruments.get_payment_instruments_id_network_tokens(id)
+    response = client.payment_instruments.get_payment_instruments_id_network_tokens("some example string")
     # TODO: Handle 'response' of type ListNetworkTokensResponse
 except ApiError as e:
     ...  # TODO: Handle 'e.error' of type GetPaymentInstrumentsIdNetworkTokensErrorBody
@@ -22002,7 +23312,7 @@ except ApiError as e:
 
 ```python
 try:
-    response = await async_client.payment_instruments.get_payment_instruments_id_network_tokens(id)
+    response = await async_client.payment_instruments.get_payment_instruments_id_network_tokens("some example string")
     # TODO: Handle 'response' of type ListNetworkTokensResponse
 except ApiError as e:
     ...  # TODO: Handle 'e.error' of type GetPaymentInstrumentsIdNetworkTokensErrorBody
@@ -22018,8 +23328,8 @@ except ApiError as e:
 
 | Name | Type | Description |
 | --- | --- | --- |
-| <code>id</code> | <code>str</code> | The unique identifier of the payment instrument. |
-| <code>request_options</code> | <code>[RequestOptionsOrDict](adyen/core/request_options.py) \| None</code> | Per-call overrides for this one request, such as a timeout or extra headers. |
+| <code>id_</code> | <code>str</code> | The unique identifier of the payment instrument. |
+| <code>request_options</code> | <code>[RequestOptionsOrDict](adyen/core/request_options.py) \| None</code> | Per-call overrides for this one request, such as a timeout, extra headers, or its retry count and statuses. |
 
 </dd>
 </dl>
@@ -22049,7 +23359,7 @@ Mapped in first-match order -- an earlier row wins over a later range that also 
 </details>
 
 <details>
-<summary><code>def get_payment_instruments_id_reveal(id: str, *, request_options: RequestOptionsOrDict | None = None) -> PaymentInstrumentRevealInfo</code></summary>
+<summary><code>def get_payment_instruments_id_reveal(id_: str, *, request_options: RequestOptionsOrDict | None = None) -> PaymentInstrumentRevealInfo</code></summary>
 
 <dl>
 <dd>
@@ -22077,7 +23387,7 @@ To make this request, your API credential must have the following [role](https:/
 
 ```python
 try:
-    response = client.payment_instruments.get_payment_instruments_id_reveal(id)
+    response = client.payment_instruments.get_payment_instruments_id_reveal("some example string")
     # TODO: Handle 'response' of type PaymentInstrumentRevealInfo
 except ApiError as e:
     ...  # TODO: Handle 'e.error' of type GetPaymentInstrumentsIdRevealErrorBody
@@ -22087,7 +23397,7 @@ except ApiError as e:
 
 ```python
 try:
-    response = await async_client.payment_instruments.get_payment_instruments_id_reveal(id)
+    response = await async_client.payment_instruments.get_payment_instruments_id_reveal("some example string")
     # TODO: Handle 'response' of type PaymentInstrumentRevealInfo
 except ApiError as e:
     ...  # TODO: Handle 'e.error' of type GetPaymentInstrumentsIdRevealErrorBody
@@ -22103,8 +23413,8 @@ except ApiError as e:
 
 | Name | Type | Description |
 | --- | --- | --- |
-| <code>id</code> | <code>str</code> | The unique identifier of the payment instrument. |
-| <code>request_options</code> | <code>[RequestOptionsOrDict](adyen/core/request_options.py) \| None</code> | Per-call overrides for this one request, such as a timeout or extra headers. |
+| <code>id_</code> | <code>str</code> | The unique identifier of the payment instrument. |
+| <code>request_options</code> | <code>[RequestOptionsOrDict](adyen/core/request_options.py) \| None</code> | Per-call overrides for this one request, such as a timeout, extra headers, or its retry count and statuses. |
 
 </dd>
 </dl>
@@ -22134,7 +23444,7 @@ Mapped in first-match order -- an earlier row wins over a later range that also 
 </details>
 
 <details>
-<summary><code>def get_payment_instruments_id_transaction_rules(id: str, *, request_options: RequestOptionsOrDict | None = None) -> TransactionRulesResponse</code></summary>
+<summary><code>def get_payment_instruments_id_transaction_rules(id_: str, *, request_options: RequestOptionsOrDict | None = None) -> TransactionRulesResponse</code></summary>
 
 <dl>
 <dd>
@@ -22158,7 +23468,7 @@ Returns a list of transaction rules associated with a payment instrument.
 
 ```python
 try:
-    response = client.payment_instruments.get_payment_instruments_id_transaction_rules(id)
+    response = client.payment_instruments.get_payment_instruments_id_transaction_rules("some example string")
     # TODO: Handle 'response' of type TransactionRulesResponse
 except ApiError as e:
     ...  # TODO: Handle 'e.error' of type GetPaymentInstrumentsIdTransactionRulesErrorBody
@@ -22168,7 +23478,9 @@ except ApiError as e:
 
 ```python
 try:
-    response = await async_client.payment_instruments.get_payment_instruments_id_transaction_rules(id)
+    response = await async_client.payment_instruments.get_payment_instruments_id_transaction_rules(
+        "some example string"
+    )
     # TODO: Handle 'response' of type TransactionRulesResponse
 except ApiError as e:
     ...  # TODO: Handle 'e.error' of type GetPaymentInstrumentsIdTransactionRulesErrorBody
@@ -22184,8 +23496,8 @@ except ApiError as e:
 
 | Name | Type | Description |
 | --- | --- | --- |
-| <code>id</code> | <code>str</code> | The unique identifier of the payment instrument. |
-| <code>request_options</code> | <code>[RequestOptionsOrDict](adyen/core/request_options.py) \| None</code> | Per-call overrides for this one request, such as a timeout or extra headers. |
+| <code>id_</code> | <code>str</code> | The unique identifier of the payment instrument. |
+| <code>request_options</code> | <code>[RequestOptionsOrDict](adyen/core/request_options.py) \| None</code> | Per-call overrides for this one request, such as a timeout, extra headers, or its retry count and statuses. |
 
 </dd>
 </dl>
@@ -22215,7 +23527,7 @@ Mapped in first-match order -- an earlier row wins over a later range that also 
 </details>
 
 <details>
-<summary><code>def patch_payment_instruments_id(id: str, *, body: PaymentInstrumentUpdateRequest | PaymentInstrumentUpdateRequestDict | None = None, request_options: RequestOptionsOrDict | None = None) -> UpdatePaymentInstrument</code></summary>
+<summary><code>def patch_payment_instruments_id(id_: str, *, body: PaymentInstrumentUpdateRequest | PaymentInstrumentUpdateRequestDict | None = None, request_options: RequestOptionsOrDict | None = None) -> UpdatePaymentInstrument</code></summary>
 
 <dl>
 <dd>
@@ -22239,7 +23551,9 @@ Updates a payment instrument. Once a payment instrument is already active, you c
 
 ```python
 try:
-    response = client.payment_instruments.patch_payment_instruments_id(id)
+    response = client.payment_instruments.patch_payment_instruments_id(
+        "some example string", body=PaymentInstrumentUpdateRequest(balance_account_id="BA32272223222B5CM82WL892M")
+    )
     # TODO: Handle 'response' of type UpdatePaymentInstrument
 except ApiError as e:
     ...  # TODO: Handle 'e.error' of type PatchPaymentInstrumentsIdErrorBody
@@ -22249,7 +23563,9 @@ except ApiError as e:
 
 ```python
 try:
-    response = await async_client.payment_instruments.patch_payment_instruments_id(id)
+    response = await async_client.payment_instruments.patch_payment_instruments_id(
+        "some example string", body=PaymentInstrumentUpdateRequest(balance_account_id="BA32272223222B5CM82WL892M")
+    )
     # TODO: Handle 'response' of type UpdatePaymentInstrument
 except ApiError as e:
     ...  # TODO: Handle 'e.error' of type PatchPaymentInstrumentsIdErrorBody
@@ -22265,9 +23581,9 @@ except ApiError as e:
 
 | Name | Type | Description |
 | --- | --- | --- |
-| <code>id</code> | <code>str</code> | The unique identifier of the payment instrument. |
+| <code>id_</code> | <code>str</code> | The unique identifier of the payment instrument. |
 | <code>body</code> | <code>[PaymentInstrumentUpdateRequest](adyen/models/payment_instrument_update_request.py) \| [PaymentInstrumentUpdateRequestDict](adyen/models/payment_instrument_update_request.py) \| None</code> | The request body.<br>**Default**: <code>None</code> |
-| <code>request_options</code> | <code>[RequestOptionsOrDict](adyen/core/request_options.py) \| None</code> | Per-call overrides for this one request, such as a timeout or extra headers. |
+| <code>request_options</code> | <code>[RequestOptionsOrDict](adyen/core/request_options.py) \| None</code> | Per-call overrides for this one request, such as a timeout, extra headers, or its retry count and statuses. |
 
 </dd>
 </dl>
@@ -22323,7 +23639,14 @@ For more information, refer to [Issue cards](https://docs.adyen.com/issuing/crea
 
 ```python
 try:
-    response = client.payment_instruments.post_payment_instruments()
+    response = client.payment_instruments.post_payment_instruments(
+        body=PaymentInstrumentInfo(
+            balance_account_id="BA3227C223222B5CTBLR8BWJB",
+            description="YOUR_DESCRIPTION",
+            issuing_country_code="NL",
+            type_=Type111.BANK_ACCOUNT,
+        ),
+    )
     # TODO: Handle 'response' of type PaymentInstrument1
 except ApiError as e:
     ...  # TODO: Handle 'e.error' of type PostPaymentInstrumentsErrorBody
@@ -22333,7 +23656,14 @@ except ApiError as e:
 
 ```python
 try:
-    response = await async_client.payment_instruments.post_payment_instruments()
+    response = await async_client.payment_instruments.post_payment_instruments(
+        body=PaymentInstrumentInfo(
+            balance_account_id="BA3227C223222B5CTBLR8BWJB",
+            description="YOUR_DESCRIPTION",
+            issuing_country_code="NL",
+            type_=Type111.BANK_ACCOUNT,
+        ),
+    )
     # TODO: Handle 'response' of type PaymentInstrument1
 except ApiError as e:
     ...  # TODO: Handle 'e.error' of type PostPaymentInstrumentsErrorBody
@@ -22350,7 +23680,7 @@ except ApiError as e:
 | Name | Type | Description |
 | --- | --- | --- |
 | <code>body</code> | <code>[PaymentInstrumentInfo](adyen/models/payment_instrument_info.py) \| [PaymentInstrumentInfoDict](adyen/models/payment_instrument_info.py) \| None</code> | The request body.<br>**Default**: <code>None</code> |
-| <code>request_options</code> | <code>[RequestOptionsOrDict](adyen/core/request_options.py) \| None</code> | Per-call overrides for this one request, such as a timeout or extra headers. |
+| <code>request_options</code> | <code>[RequestOptionsOrDict](adyen/core/request_options.py) \| None</code> | Per-call overrides for this one request, such as a timeout, extra headers, or its retry count and statuses. |
 
 </dd>
 </dl>
@@ -22380,7 +23710,7 @@ Mapped in first-match order -- an earlier row wins over a later range that also 
 </details>
 
 <details>
-<summary><code>def post_payment_instruments_id_network_token_activation_data(id: str, *, body: NetworkTokenActivationDataRequest | NetworkTokenActivationDataRequestDict | None = None, request_options: RequestOptionsOrDict | None = None) -> NetworkTokenActivationDataResponse</code></summary>
+<summary><code>def post_payment_instruments_id_network_token_activation_data(id_: str, *, body: NetworkTokenActivationDataRequest | NetworkTokenActivationDataRequestDict | None = None, request_options: RequestOptionsOrDict | None = None) -> NetworkTokenActivationDataResponse</code></summary>
 
 <dl>
 <dd>
@@ -22404,7 +23734,9 @@ Create provisioning data for a network token. Use the provisioning data to add a
 
 ```python
 try:
-    response = client.payment_instruments.post_payment_instruments_id_network_token_activation_data(id)
+    response = client.payment_instruments.post_payment_instruments_id_network_token_activation_data(
+        "some example string"
+    )
     # TODO: Handle 'response' of type NetworkTokenActivationDataResponse
 except ApiError as e:
     ...  # TODO: Handle 'e.error' of type PostPaymentInstrumentsIdNetworkTokenActivationDataErrorBody
@@ -22414,7 +23746,9 @@ except ApiError as e:
 
 ```python
 try:
-    response = await async_client.payment_instruments.post_payment_instruments_id_network_token_activation_data(id)
+    response = await async_client.payment_instruments.post_payment_instruments_id_network_token_activation_data(
+        "some example string"
+    )
     # TODO: Handle 'response' of type NetworkTokenActivationDataResponse
 except ApiError as e:
     ...  # TODO: Handle 'e.error' of type PostPaymentInstrumentsIdNetworkTokenActivationDataErrorBody
@@ -22430,9 +23764,9 @@ except ApiError as e:
 
 | Name | Type | Description |
 | --- | --- | --- |
-| <code>id</code> | <code>str</code> | The unique identifier of the payment instrument. |
+| <code>id_</code> | <code>str</code> | The unique identifier of the payment instrument. |
 | <code>body</code> | <code>[NetworkTokenActivationDataRequest](adyen/models/network_token_activation_data_request.py) \| [NetworkTokenActivationDataRequestDict](adyen/models/network_token_activation_data_request.py) \| None</code> | The request body.<br>**Default**: <code>None</code> |
-| <code>request_options</code> | <code>[RequestOptionsOrDict](adyen/core/request_options.py) \| None</code> | Per-call overrides for this one request, such as a timeout or extra headers. |
+| <code>request_options</code> | <code>[RequestOptionsOrDict](adyen/core/request_options.py) \| None</code> | Per-call overrides for this one request, such as a timeout, extra headers, or its retry count and statuses. |
 
 </dd>
 </dl>
@@ -22522,7 +23856,7 @@ except ApiError as e:
 | Name | Type | Description |
 | --- | --- | --- |
 | <code>body</code> | <code>[PaymentInstrumentRevealRequest](adyen/models/payment_instrument_reveal_request.py) \| [PaymentInstrumentRevealRequestDict](adyen/models/payment_instrument_reveal_request.py) \| None</code> | The request body.<br>**Default**: <code>None</code> |
-| <code>request_options</code> | <code>[RequestOptionsOrDict](adyen/core/request_options.py) \| None</code> | Per-call overrides for this one request, such as a timeout or extra headers. |
+| <code>request_options</code> | <code>[RequestOptionsOrDict](adyen/core/request_options.py) \| None</code> | Per-call overrides for this one request, such as a timeout, extra headers, or its retry count and statuses. |
 
 </dd>
 </dl>
@@ -22580,7 +23914,7 @@ Retrieves the payment link details using the payment link `id`.
 
 ```python
 try:
-    response = client.payment_links.get_payment_links_link_id(link_id)
+    response = client.payment_links.get_payment_links_link_id("some example string")
     # TODO: Handle 'response' of type PaymentLinkResponse
 except ApiError as e:
     ...  # TODO: Handle 'e.error' of type GetPaymentLinksLinkIdErrorBody
@@ -22590,7 +23924,7 @@ except ApiError as e:
 
 ```python
 try:
-    response = await async_client.payment_links.get_payment_links_link_id(link_id)
+    response = await async_client.payment_links.get_payment_links_link_id("some example string")
     # TODO: Handle 'response' of type PaymentLinkResponse
 except ApiError as e:
     ...  # TODO: Handle 'e.error' of type GetPaymentLinksLinkIdErrorBody
@@ -22607,7 +23941,7 @@ except ApiError as e:
 | Name | Type | Description |
 | --- | --- | --- |
 | <code>link_id</code> | <code>str</code> | Unique identifier of the payment link. |
-| <code>request_options</code> | <code>[RequestOptionsOrDict](adyen/core/request_options.py) \| None</code> | Per-call overrides for this one request, such as a timeout or extra headers. |
+| <code>request_options</code> | <code>[RequestOptionsOrDict](adyen/core/request_options.py) \| None</code> | Per-call overrides for this one request, such as a timeout, extra headers, or its retry count and statuses. |
 
 </dd>
 </dl>
@@ -22661,7 +23995,7 @@ Updates the status of a payment link. Use this endpoint to [force the expiry of 
 
 ```python
 try:
-    response = client.payment_links.patch_payment_links_link_id(link_id)
+    response = client.payment_links.patch_payment_links_link_id("some example string", body=UpdatePaymentLinkRequest())
     # TODO: Handle 'response' of type PaymentLinkResponse
 except ApiError as e:
     ...  # TODO: Handle 'e.error' of type PatchPaymentLinksLinkIdErrorBody
@@ -22671,7 +24005,9 @@ except ApiError as e:
 
 ```python
 try:
-    response = await async_client.payment_links.patch_payment_links_link_id(link_id)
+    response = await async_client.payment_links.patch_payment_links_link_id(
+        "some example string", body=UpdatePaymentLinkRequest()
+    )
     # TODO: Handle 'response' of type PaymentLinkResponse
 except ApiError as e:
     ...  # TODO: Handle 'e.error' of type PatchPaymentLinksLinkIdErrorBody
@@ -22689,7 +24025,7 @@ except ApiError as e:
 | --- | --- | --- |
 | <code>link_id</code> | <code>str</code> | Unique identifier of the payment link. |
 | <code>body</code> | <code>[UpdatePaymentLinkRequest](adyen/models/update_payment_link_request.py) \| [UpdatePaymentLinkRequestDict](adyen/models/update_payment_link_request.py) \| None</code> | The request body.<br>**Default**: <code>None</code> |
-| <code>request_options</code> | <code>[RequestOptionsOrDict](adyen/core/request_options.py) \| None</code> | Per-call overrides for this one request, such as a timeout or extra headers. |
+| <code>request_options</code> | <code>[RequestOptionsOrDict](adyen/core/request_options.py) \| None</code> | Per-call overrides for this one request, such as a timeout, extra headers, or its retry count and statuses. |
 
 </dd>
 </dl>
@@ -22745,7 +24081,34 @@ For more information, refer to [Pay by Link documentation](https://docs.adyen.co
 
 ```python
 try:
-    response = client.payment_links.post_payment_links()
+    response = client.payment_links.post_payment_links(
+        idempotency_key="37ca9c97-d1d1-4c62-89e8-706891a563ed",
+        body=PaymentLinkRequest(
+            amount=Amount35(currency="BRL", value=1250),
+            billing_address=Address3(
+                city="São Paulo",
+                country="BR",
+                house_number_or_name="999",
+                postal_code="59000060",
+                state_or_province="SP",
+                street="Roque Petroni Jr",
+            ),
+            country_code="BR",
+            delivery_address=Address2(
+                city="São Paulo",
+                country="BR",
+                house_number_or_name="999",
+                postal_code="59000060",
+                state_or_province="SP",
+                street="Roque Petroni Jr",
+            ),
+            merchant_account="YOUR_MERCHANT_ACCOUNT",
+            reference="YOUR_ORDER_NUMBER",
+            shopper_email="test@email.com",
+            shopper_locale="pt-BR",
+            shopper_reference="YOUR_SHOPPER_REFERENCE",
+        ),
+    )
     # TODO: Handle 'response' of type PaymentLinkResponse
 except ApiError as e:
     ...  # TODO: Handle 'e.error' of type PostPaymentLinksErrorBody
@@ -22755,7 +24118,34 @@ except ApiError as e:
 
 ```python
 try:
-    response = await async_client.payment_links.post_payment_links()
+    response = await async_client.payment_links.post_payment_links(
+        idempotency_key="37ca9c97-d1d1-4c62-89e8-706891a563ed",
+        body=PaymentLinkRequest(
+            amount=Amount35(currency="BRL", value=1250),
+            billing_address=Address3(
+                city="São Paulo",
+                country="BR",
+                house_number_or_name="999",
+                postal_code="59000060",
+                state_or_province="SP",
+                street="Roque Petroni Jr",
+            ),
+            country_code="BR",
+            delivery_address=Address2(
+                city="São Paulo",
+                country="BR",
+                house_number_or_name="999",
+                postal_code="59000060",
+                state_or_province="SP",
+                street="Roque Petroni Jr",
+            ),
+            merchant_account="YOUR_MERCHANT_ACCOUNT",
+            reference="YOUR_ORDER_NUMBER",
+            shopper_email="test@email.com",
+            shopper_locale="pt-BR",
+            shopper_reference="YOUR_SHOPPER_REFERENCE",
+        ),
+    )
     # TODO: Handle 'response' of type PaymentLinkResponse
 except ApiError as e:
     ...  # TODO: Handle 'e.error' of type PostPaymentLinksErrorBody
@@ -22773,7 +24163,7 @@ except ApiError as e:
 | --- | --- | --- |
 | <code>idempotency_key</code> | <code>str \| None</code> | A unique identifier for the message with a maximum of 64 characters (we recommend a UUID).<br>**Default**: <code>None</code> |
 | <code>body</code> | <code>[PaymentLinkRequest](adyen/models/payment_link_request.py) \| [PaymentLinkRequestDict](adyen/models/payment_link_request.py) \| None</code> | The request body.<br>**Default**: <code>None</code> |
-| <code>request_options</code> | <code>[RequestOptionsOrDict](adyen/core/request_options.py) \| None</code> | Per-call overrides for this one request, such as a timeout or extra headers. |
+| <code>request_options</code> | <code>[RequestOptionsOrDict](adyen/core/request_options.py) \| None</code> | Per-call overrides for this one request, such as a timeout, extra headers, or its retry count and statuses. |
 
 </dd>
 </dl>
@@ -22834,7 +24224,9 @@ To make this request, your API credential must have the following [role](https:/
 
 ```python
 try:
-    response = client.payment_methods_merchant_level.get_merchants_merchant_id_payment_method_settings(merchant_id)
+    response = client.payment_methods_merchant_level.get_merchants_merchant_id_payment_method_settings(
+        "some example string"
+    )
     # TODO: Handle 'response' of type PaymentMethodResponse
 except ApiError as e:
     ...  # TODO: Handle 'e.error' of type GetMerchantsMerchantIdPaymentMethodSettingsErrorBody
@@ -22845,7 +24237,7 @@ except ApiError as e:
 ```python
 try:
     response = await async_client.payment_methods_merchant_level.get_merchants_merchant_id_payment_method_settings(
-        merchant_id
+        "some example string"
     )
     # TODO: Handle 'response' of type PaymentMethodResponse
 except ApiError as e:
@@ -22867,7 +24259,7 @@ except ApiError as e:
 | <code>business_line_id</code> | <code>str \| None</code> | The unique identifier of the Business Line for which to return the payment methods.<br>**Default**: <code>None</code> |
 | <code>page_size</code> | <code>int \| None</code> | The number of items to have on a page, maximum 100. The default is 10 items on a page.<br>**Default**: <code>None</code> |
 | <code>page_number</code> | <code>int \| None</code> | The number of the page to fetch.<br>**Default**: <code>None</code> |
-| <code>request_options</code> | <code>[RequestOptionsOrDict](adyen/core/request_options.py) \| None</code> | Per-call overrides for this one request, such as a timeout or extra headers. |
+| <code>request_options</code> | <code>[RequestOptionsOrDict](adyen/core/request_options.py) \| None</code> | Per-call overrides for this one request, such as a timeout, extra headers, or its retry count and statuses. |
 
 </dd>
 </dl>
@@ -22925,7 +24317,7 @@ To make this request, your API credential must have the following [role](https:/
 ```python
 try:
     response = client.payment_methods_merchant_level.get_merchants_merchant_id_payment_method_settings_payment_method_id(
-        merchant_id, payment_method_id
+        "some example string", "some example string"
     )
     # TODO: Handle 'response' of type ManagementPaymentMethod
 except ApiError as e:
@@ -22937,7 +24329,7 @@ except ApiError as e:
 ```python
 try:
     response = await async_client.payment_methods_merchant_level.get_merchants_merchant_id_payment_method_settings_payment_method_id(
-        merchant_id, payment_method_id
+        "some example string", "some example string"
     )
     # TODO: Handle 'response' of type ManagementPaymentMethod
 except ApiError as e:
@@ -22956,7 +24348,7 @@ except ApiError as e:
 | --- | --- | --- |
 | <code>merchant_id</code> | <code>str</code> | The unique identifier of the merchant account. |
 | <code>payment_method_id</code> | <code>str</code> | The unique identifier of the payment method. |
-| <code>request_options</code> | <code>[RequestOptionsOrDict](adyen/core/request_options.py) \| None</code> | Per-call overrides for this one request, such as a timeout or extra headers. |
+| <code>request_options</code> | <code>[RequestOptionsOrDict](adyen/core/request_options.py) \| None</code> | Per-call overrides for this one request, such as a timeout, extra headers, or its retry count and statuses. |
 
 </dd>
 </dl>
@@ -23014,7 +24406,7 @@ To make this request, your API credential must have the following [role](https:/
 ```python
 try:
     response = client.payment_methods_merchant_level.get_merchants_merchant_id_payment_method_settings_payment_method_id_get_apple_pay_domains(
-        merchant_id, payment_method_id
+        "some example string", "some example string"
     )
     # TODO: Handle 'response' of type ApplePayResponseInfo
 except ApiError as e:
@@ -23028,7 +24420,7 @@ except ApiError as e:
 ```python
 try:
     response = await async_client.payment_methods_merchant_level.get_merchants_merchant_id_payment_method_settings_payment_method_id_get_apple_pay_domains(
-        merchant_id, payment_method_id
+        "some example string", "some example string"
     )
     # TODO: Handle 'response' of type ApplePayResponseInfo
 except ApiError as e:
@@ -23049,7 +24441,7 @@ except ApiError as e:
 | --- | --- | --- |
 | <code>merchant_id</code> | <code>str</code> | The unique identifier of the merchant account. |
 | <code>payment_method_id</code> | <code>str</code> | The unique identifier of the payment method. |
-| <code>request_options</code> | <code>[RequestOptionsOrDict](adyen/core/request_options.py) \| None</code> | Per-call overrides for this one request, such as a timeout or extra headers. |
+| <code>request_options</code> | <code>[RequestOptionsOrDict](adyen/core/request_options.py) \| None</code> | Per-call overrides for this one request, such as a timeout, extra headers, or its retry count and statuses. |
 
 </dd>
 </dl>
@@ -23108,7 +24500,7 @@ To make this request, your API credential must have the following [role](https:/
 ```python
 try:
     response = client.payment_methods_merchant_level.patch_merchants_merchant_id_payment_method_settings_payment_method_id(
-        merchant_id, payment_method_id
+        "some example string", "some example string", body=UpdatePaymentMethodInfo(countries=["NL"], currencies=["EUR"])
     )
     # TODO: Handle 'response' of type ManagementPaymentMethod
 except ApiError as e:
@@ -23120,7 +24512,7 @@ except ApiError as e:
 ```python
 try:
     response = await async_client.payment_methods_merchant_level.patch_merchants_merchant_id_payment_method_settings_payment_method_id(
-        merchant_id, payment_method_id
+        "some example string", "some example string", body=UpdatePaymentMethodInfo(countries=["NL"], currencies=["EUR"])
     )
     # TODO: Handle 'response' of type ManagementPaymentMethod
 except ApiError as e:
@@ -23140,7 +24532,7 @@ except ApiError as e:
 | <code>merchant_id</code> | <code>str</code> | The unique identifier of the merchant account. |
 | <code>payment_method_id</code> | <code>str</code> | The unique identifier of the payment method. |
 | <code>body</code> | <code>[UpdatePaymentMethodInfo](adyen/models/update_payment_method_info.py) \| [UpdatePaymentMethodInfoDict](adyen/models/update_payment_method_info.py) \| None</code> | The request body.<br>**Default**: <code>None</code> |
-| <code>request_options</code> | <code>[RequestOptionsOrDict](adyen/core/request_options.py) \| None</code> | Per-call overrides for this one request, such as a timeout or extra headers. |
+| <code>request_options</code> | <code>[RequestOptionsOrDict](adyen/core/request_options.py) \| None</code> | Per-call overrides for this one request, such as a timeout, extra headers, or its retry count and statuses. |
 
 </dd>
 </dl>
@@ -23198,7 +24590,9 @@ To make this request, your API credential must have the following [role](https:/
 
 ```python
 try:
-    response = client.payment_methods_merchant_level.post_merchants_merchant_id_payment_method_settings(merchant_id)
+    response = client.payment_methods_merchant_level.post_merchants_merchant_id_payment_method_settings(
+        "some example string", body=PaymentMethodSetupInfo(countries=["US"], currencies=["USD"], type_=Type59.VISA)
+    )
     # TODO: Handle 'response' of type ManagementPaymentMethod
 except ApiError as e:
     ...  # TODO: Handle 'e.error' of type PostMerchantsMerchantIdPaymentMethodSettingsErrorBody
@@ -23209,7 +24603,7 @@ except ApiError as e:
 ```python
 try:
     response = await async_client.payment_methods_merchant_level.post_merchants_merchant_id_payment_method_settings(
-        merchant_id
+        "some example string", body=PaymentMethodSetupInfo(countries=["US"], currencies=["USD"], type_=Type59.VISA)
     )
     # TODO: Handle 'response' of type ManagementPaymentMethod
 except ApiError as e:
@@ -23228,7 +24622,7 @@ except ApiError as e:
 | --- | --- | --- |
 | <code>merchant_id</code> | <code>str</code> | The unique identifier of the merchant account. |
 | <code>body</code> | <code>[PaymentMethodSetupInfo](adyen/models/payment_method_setup_info.py) \| [PaymentMethodSetupInfoDict](adyen/models/payment_method_setup_info.py) \| None</code> | The request body.<br>**Default**: <code>None</code> |
-| <code>request_options</code> | <code>[RequestOptionsOrDict](adyen/core/request_options.py) \| None</code> | Per-call overrides for this one request, such as a timeout or extra headers. |
+| <code>request_options</code> | <code>[RequestOptionsOrDict](adyen/core/request_options.py) \| None</code> | Per-call overrides for this one request, such as a timeout, extra headers, or its retry count and statuses. |
 
 </dd>
 </dl>
@@ -23286,7 +24680,7 @@ To make this request, your API credential must have the following [role](https:/
 ```python
 try:
     client.payment_methods_merchant_level.post_merchants_merchant_id_payment_method_settings_payment_method_id_add_apple_pay_domains(
-        merchant_id, payment_method_id
+        "some example string", "some example string", body=ApplePayInfo(domains=["https://example.com"])
     )
 except ApiError as e:
     # TODO: Handle 'e.error' of type
@@ -23299,7 +24693,7 @@ except ApiError as e:
 ```python
 try:
     await async_client.payment_methods_merchant_level.post_merchants_merchant_id_payment_method_settings_payment_method_id_add_apple_pay_domains(
-        merchant_id, payment_method_id
+        "some example string", "some example string", body=ApplePayInfo(domains=["https://example.com"])
     )
 except ApiError as e:
     # TODO: Handle 'e.error' of type
@@ -23320,7 +24714,7 @@ except ApiError as e:
 | <code>merchant_id</code> | <code>str</code> | The unique identifier of the merchant account. |
 | <code>payment_method_id</code> | <code>str</code> | The unique identifier of the payment method. |
 | <code>body</code> | <code>[ApplePayInfo](adyen/models/apple_pay_info.py) \| [ApplePayInfoDict](adyen/models/apple_pay_info.py) \| None</code> | The request body.<br>**Default**: <code>None</code> |
-| <code>request_options</code> | <code>[RequestOptionsOrDict](adyen/core/request_options.py) \| None</code> | Per-call overrides for this one request, such as a timeout or extra headers. |
+| <code>request_options</code> | <code>[RequestOptionsOrDict](adyen/core/request_options.py) \| None</code> | Per-call overrides for this one request, such as a timeout, extra headers, or its retry count and statuses. |
 
 </dd>
 </dl>
@@ -23378,7 +24772,7 @@ Returns the status of the payment session with the `sessionId` and `sessionResul
 
 ```python
 try:
-    response = client.payments.get_sessions_session_id(session_id, session_result)
+    response = client.payments.get_sessions_session_id("some example string", "some example string")
     # TODO: Handle 'response' of type SessionResultResponse
 except ApiError as e:
     ...  # TODO: Handle 'e.error' of type RawError
@@ -23388,7 +24782,7 @@ except ApiError as e:
 
 ```python
 try:
-    response = await async_client.payments.get_sessions_session_id(session_id, session_result)
+    response = await async_client.payments.get_sessions_session_id("some example string", "some example string")
     # TODO: Handle 'response' of type SessionResultResponse
 except ApiError as e:
     ...  # TODO: Handle 'e.error' of type RawError
@@ -23406,7 +24800,7 @@ except ApiError as e:
 | --- | --- | --- |
 | <code>session_id</code> | <code>str</code> | A unique identifier of the session. |
 | <code>session_result</code> | <code>str</code> | The `sessionResult` value from the Drop-in or Component. |
-| <code>request_options</code> | <code>[RequestOptionsOrDict](adyen/core/request_options.py) \| None</code> | Per-call overrides for this one request, such as a timeout or extra headers. |
+| <code>request_options</code> | <code>[RequestOptionsOrDict](adyen/core/request_options.py) \| None</code> | Per-call overrides for this one request, such as a timeout, extra headers, or its retry count and statuses. |
 
 </dd>
 </dl>
@@ -23459,7 +24853,40 @@ Creates a payment with a unique reference (`pspReference`) and attempts to obtai
 
 ```python
 try:
-    response = client.payments.post_authorise()
+    response = client.payments.post_authorise(
+        body=PaymentRequest1(
+            account_info=AccountInfo(account_creation_date=datetime(2019, 1, 17, 12, 42, 40, tzinfo=timezone.utc)),
+            amount=Amount(currency="USD", value=1500),
+            billing_address=Address(
+                city="New York",
+                country="US",
+                house_number_or_name="37C",
+                postal_code="10039",
+                state_or_province="NY",
+                street="Redwood Block",
+            ),
+            browser_info=BrowserInfo(
+                accept_header="text/html,application/xhtml+xml,application/xml;q=0.9,image/webp,image/apng,*/*;q=0.8",
+                color_depth=24,
+                java_enabled=False,
+                language="en",
+                screen_height=723,
+                screen_width=1536,
+                time_zone_offset=0,
+                user_agent="Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/70.0.3538.110 Safari/537.36",
+            ),
+            card=Card3(
+                cvc="737", expiry_month="03", expiry_year="2030", holder_name="John Smith", number="4917610000000000"
+            ),
+            merchant_account="YOUR_MERCHANT_ACCOUNT",
+            reference="YOUR_REFERENCE_NUMBER",
+            shopper_email="s.hopper@test.com",
+            shopper_ip="192.0.2.1",
+            three_ds2_request_data=ThreeDs2RequestData11(
+                device_channel="browser", notification_url="https://www.example.com/YOUR_3DS_NOTIFICATION_URL"
+            ),
+        ),
+    )
     # TODO: Handle 'response' of type PaymentResult
 except ApiError as e:
     ...  # TODO: Handle 'e.error' of type PostAuthoriseErrorBody
@@ -23469,7 +24896,40 @@ except ApiError as e:
 
 ```python
 try:
-    response = await async_client.payments.post_authorise()
+    response = await async_client.payments.post_authorise(
+        body=PaymentRequest1(
+            account_info=AccountInfo(account_creation_date=datetime(2019, 1, 17, 12, 42, 40, tzinfo=timezone.utc)),
+            amount=Amount(currency="USD", value=1500),
+            billing_address=Address(
+                city="New York",
+                country="US",
+                house_number_or_name="37C",
+                postal_code="10039",
+                state_or_province="NY",
+                street="Redwood Block",
+            ),
+            browser_info=BrowserInfo(
+                accept_header="text/html,application/xhtml+xml,application/xml;q=0.9,image/webp,image/apng,*/*;q=0.8",
+                color_depth=24,
+                java_enabled=False,
+                language="en",
+                screen_height=723,
+                screen_width=1536,
+                time_zone_offset=0,
+                user_agent="Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/70.0.3538.110 Safari/537.36",
+            ),
+            card=Card3(
+                cvc="737", expiry_month="03", expiry_year="2030", holder_name="John Smith", number="4917610000000000"
+            ),
+            merchant_account="YOUR_MERCHANT_ACCOUNT",
+            reference="YOUR_REFERENCE_NUMBER",
+            shopper_email="s.hopper@test.com",
+            shopper_ip="192.0.2.1",
+            three_ds2_request_data=ThreeDs2RequestData11(
+                device_channel="browser", notification_url="https://www.example.com/YOUR_3DS_NOTIFICATION_URL"
+            ),
+        ),
+    )
     # TODO: Handle 'response' of type PaymentResult
 except ApiError as e:
     ...  # TODO: Handle 'e.error' of type PostAuthoriseErrorBody
@@ -23486,7 +24946,7 @@ except ApiError as e:
 | Name | Type | Description |
 | --- | --- | --- |
 | <code>body</code> | <code>[PaymentRequest1](adyen/models/payment_request1.py) \| [PaymentRequest1Dict](adyen/models/payment_request1.py) \| None</code> | The request body.<br>**Default**: <code>None</code> |
-| <code>request_options</code> | <code>[RequestOptionsOrDict](adyen/core/request_options.py) \| None</code> | Per-call overrides for this one request, such as a timeout or extra headers. |
+| <code>request_options</code> | <code>[RequestOptionsOrDict](adyen/core/request_options.py) \| None</code> | Per-call overrides for this one request, such as a timeout, extra headers, or its retry count and statuses. |
 
 </dd>
 </dl>
@@ -23546,7 +25006,14 @@ For an authenticated 3D Secure session, completes the payment authorisation. Thi
 
 ```python
 try:
-    response = client.payments.post_authorise3d()
+    response = client.payments.post_authorise3d(
+        body=PaymentRequest3D(
+            md="31h..........vOXek7w",
+            merchant_account="YOUR_MERCHANT_ACCOUNT",
+            pa_response="eNqtmF........wGVA4Ch",
+            shopper_ip="61.294.12.12",
+        ),
+    )
     # TODO: Handle 'response' of type PaymentResult
 except ApiError as e:
     ...  # TODO: Handle 'e.error' of type PostAuthorise3DErrorBody
@@ -23556,7 +25023,14 @@ except ApiError as e:
 
 ```python
 try:
-    response = await async_client.payments.post_authorise3d()
+    response = await async_client.payments.post_authorise3d(
+        body=PaymentRequest3D(
+            md="31h..........vOXek7w",
+            merchant_account="YOUR_MERCHANT_ACCOUNT",
+            pa_response="eNqtmF........wGVA4Ch",
+            shopper_ip="61.294.12.12",
+        ),
+    )
     # TODO: Handle 'response' of type PaymentResult
 except ApiError as e:
     ...  # TODO: Handle 'e.error' of type PostAuthorise3DErrorBody
@@ -23573,7 +25047,7 @@ except ApiError as e:
 | Name | Type | Description |
 | --- | --- | --- |
 | <code>body</code> | <code>[PaymentRequest3D](adyen/models/payment_request3_d.py) \| [PaymentRequest3DDict](adyen/models/payment_request3_d.py) \| None</code> | The request body.<br>**Default**: <code>None</code> |
-| <code>request_options</code> | <code>[RequestOptionsOrDict](adyen/core/request_options.py) \| None</code> | Per-call overrides for this one request, such as a timeout or extra headers. |
+| <code>request_options</code> | <code>[RequestOptionsOrDict](adyen/core/request_options.py) \| None</code> | Per-call overrides for this one request, such as a timeout, extra headers, or its retry count and statuses. |
 
 </dd>
 </dl>
@@ -23633,7 +25107,15 @@ For an authenticated 3D Secure 2 session, completes the payment authorisation. T
 
 ```python
 try:
-    response = client.payments.post_authorise3ds2()
+    response = client.payments.post_authorise3ds2(
+        body=PaymentRequest3Ds2(
+            amount=Amount(currency="EUR", value=1000),
+            merchant_account="YOUR_MERCHANT_ACCOUNT",
+            reference="YOUR_ORDER_NUMBER",
+            three_ds2_request_data=ThreeDs2RequestData11(device_channel="app", three_ds_comp_ind="Y"),
+            three_ds2_token="— - BINARY DATA - -",
+        ),
+    )
     # TODO: Handle 'response' of type PaymentResult
 except ApiError as e:
     ...  # TODO: Handle 'e.error' of type PostAuthorise3Ds2ErrorBody
@@ -23643,7 +25125,15 @@ except ApiError as e:
 
 ```python
 try:
-    response = await async_client.payments.post_authorise3ds2()
+    response = await async_client.payments.post_authorise3ds2(
+        body=PaymentRequest3Ds2(
+            amount=Amount(currency="EUR", value=1000),
+            merchant_account="YOUR_MERCHANT_ACCOUNT",
+            reference="YOUR_ORDER_NUMBER",
+            three_ds2_request_data=ThreeDs2RequestData11(device_channel="app", three_ds_comp_ind="Y"),
+            three_ds2_token="— - BINARY DATA - -",
+        ),
+    )
     # TODO: Handle 'response' of type PaymentResult
 except ApiError as e:
     ...  # TODO: Handle 'e.error' of type PostAuthorise3Ds2ErrorBody
@@ -23660,7 +25150,7 @@ except ApiError as e:
 | Name | Type | Description |
 | --- | --- | --- |
 | <code>body</code> | <code>[PaymentRequest3Ds2](adyen/models/payment_request3_ds2.py) \| [PaymentRequest3Ds2Dict](adyen/models/payment_request3_ds2.py) \| None</code> | The request body.<br>**Default**: <code>None</code> |
-| <code>request_options</code> | <code>[RequestOptionsOrDict](adyen/core/request_options.py) \| None</code> | Per-call overrides for this one request, such as a timeout or extra headers. |
+| <code>request_options</code> | <code>[RequestOptionsOrDict](adyen/core/request_options.py) \| None</code> | Per-call overrides for this one request, such as a timeout, extra headers, or its retry count and statuses. |
 
 </dd>
 </dl>
@@ -23736,7 +25226,10 @@ BIN Lookup API is available through a Postman collection. Click the button below
 
 ```python
 try:
-    response = client.payments.post_card_details()
+    response = client.payments.post_card_details(
+        idempotency_key="37ca9c97-d1d1-4c62-89e8-706891a563ed",
+        body=CardDetailsRequest(card_number="411111", merchant_account="YOUR_MERCHANT_ACCOUNT"),
+    )
     # TODO: Handle 'response' of type CardDetailsResponse
 except ApiError as e:
     ...  # TODO: Handle 'e.error' of type RawError
@@ -23746,7 +25239,10 @@ except ApiError as e:
 
 ```python
 try:
-    response = await async_client.payments.post_card_details()
+    response = await async_client.payments.post_card_details(
+        idempotency_key="37ca9c97-d1d1-4c62-89e8-706891a563ed",
+        body=CardDetailsRequest(card_number="411111", merchant_account="YOUR_MERCHANT_ACCOUNT"),
+    )
     # TODO: Handle 'response' of type CardDetailsResponse
 except ApiError as e:
     ...  # TODO: Handle 'e.error' of type RawError
@@ -23764,7 +25260,7 @@ except ApiError as e:
 | --- | --- | --- |
 | <code>idempotency_key</code> | <code>str \| None</code> | A unique identifier for the message with a maximum of 64 characters (we recommend a UUID).<br>**Default**: <code>None</code> |
 | <code>body</code> | <code>[CardDetailsRequest](adyen/models/card_details_request.py) \| [CardDetailsRequestDict](adyen/models/card_details_request.py) \| None</code> | The request body.<br>**Default**: <code>None</code> |
-| <code>request_options</code> | <code>[RequestOptionsOrDict](adyen/core/request_options.py) \| None</code> | Per-call overrides for this one request, such as a timeout or extra headers. |
+| <code>request_options</code> | <code>[RequestOptionsOrDict](adyen/core/request_options.py) \| None</code> | Per-call overrides for this one request, such as a timeout, extra headers, or its retry count and statuses. |
 
 </dd>
 </dl>
@@ -23811,7 +25307,9 @@ Return the authentication result after doing a 3D Secure authentication only.
 
 ```python
 try:
-    response = client.payments.post_get_authentication_result()
+    response = client.payments.post_get_authentication_result(
+        body=AuthenticationResultRequest(merchant_account="YOUR_MERCHANT_ACCOUNT", psp_reference="9935272408535455")
+    )
     # TODO: Handle 'response' of type AuthenticationResultResponse
 except ApiError as e:
     ...  # TODO: Handle 'e.error' of type PostGetAuthenticationResultErrorBody
@@ -23821,7 +25319,9 @@ except ApiError as e:
 
 ```python
 try:
-    response = await async_client.payments.post_get_authentication_result()
+    response = await async_client.payments.post_get_authentication_result(
+        body=AuthenticationResultRequest(merchant_account="YOUR_MERCHANT_ACCOUNT", psp_reference="9935272408535455")
+    )
     # TODO: Handle 'response' of type AuthenticationResultResponse
 except ApiError as e:
     ...  # TODO: Handle 'e.error' of type PostGetAuthenticationResultErrorBody
@@ -23838,7 +25338,7 @@ except ApiError as e:
 | Name | Type | Description |
 | --- | --- | --- |
 | <code>body</code> | <code>[AuthenticationResultRequest](adyen/models/authentication_result_request.py) \| [AuthenticationResultRequestDict](adyen/models/authentication_result_request.py) \| None</code> | The request body.<br>**Default**: <code>None</code> |
-| <code>request_options</code> | <code>[RequestOptionsOrDict](adyen/core/request_options.py) \| None</code> | Per-call overrides for this one request, such as a timeout or extra headers. |
+| <code>request_options</code> | <code>[RequestOptionsOrDict](adyen/core/request_options.py) \| None</code> | Per-call overrides for this one request, such as a timeout, extra headers, or its retry count and statuses. |
 
 </dd>
 </dl>
@@ -23892,7 +25392,10 @@ Retrieves the list of available payment methods for the transaction, based on th
 
 ```python
 try:
-    response = client.payments.post_payment_methods()
+    response = client.payments.post_payment_methods(
+        idempotency_key="37ca9c97-d1d1-4c62-89e8-706891a563ed",
+        body=PaymentMethodsRequest(merchant_account="YOUR_MERCHANT_ACCOUNT"),
+    )
     # TODO: Handle 'response' of type PaymentMethodsResponse
 except ApiError as e:
     ...  # TODO: Handle 'e.error' of type PostPaymentMethodsErrorBody
@@ -23902,7 +25405,10 @@ except ApiError as e:
 
 ```python
 try:
-    response = await async_client.payments.post_payment_methods()
+    response = await async_client.payments.post_payment_methods(
+        idempotency_key="37ca9c97-d1d1-4c62-89e8-706891a563ed",
+        body=PaymentMethodsRequest(merchant_account="YOUR_MERCHANT_ACCOUNT"),
+    )
     # TODO: Handle 'response' of type PaymentMethodsResponse
 except ApiError as e:
     ...  # TODO: Handle 'e.error' of type PostPaymentMethodsErrorBody
@@ -23920,7 +25426,7 @@ except ApiError as e:
 | --- | --- | --- |
 | <code>idempotency_key</code> | <code>str \| None</code> | A unique identifier for the message with a maximum of 64 characters (we recommend a UUID).<br>**Default**: <code>None</code> |
 | <code>body</code> | <code>[PaymentMethodsRequest](adyen/models/payment_methods_request.py) \| [PaymentMethodsRequestDict](adyen/models/payment_methods_request.py) \| None</code> | The request body.<br>**Default**: <code>None</code> |
-| <code>request_options</code> | <code>[RequestOptionsOrDict](adyen/core/request_options.py) \| None</code> | Per-call overrides for this one request, such as a timeout or extra headers. |
+| <code>request_options</code> | <code>[RequestOptionsOrDict](adyen/core/request_options.py) \| None</code> | Per-call overrides for this one request, such as a timeout, extra headers, or its retry count and statuses. |
 
 </dd>
 </dl>
@@ -23977,7 +25483,16 @@ The response depends on the [payment flow](https://docs.adyen.com/payment-method
 
 ```python
 try:
-    response = client.payments.post_payments()
+    response = client.payments.post_payments(
+        idempotency_key="37ca9c97-d1d1-4c62-89e8-706891a563ed",
+        body=PaymentRequest(
+            amount=Amount2(currency="USD", value=1000),
+            merchant_account="YOUR_MERCHANT_ACCOUNT",
+            payment_method=ApplePayDetails(apple_pay_token="VNRWtuNlNEWkRCSm1xWndjMDFFbktkQU...", type_="applepay"),
+            reference="Your order number",
+            return_url="https://your-company.example.com/...",
+        ),
+    )
     # TODO: Handle 'response' of type PaymentResponse
 except ApiError as e:
     ...  # TODO: Handle 'e.error' of type PostPaymentsErrorBody
@@ -23987,7 +25502,16 @@ except ApiError as e:
 
 ```python
 try:
-    response = await async_client.payments.post_payments()
+    response = await async_client.payments.post_payments(
+        idempotency_key="37ca9c97-d1d1-4c62-89e8-706891a563ed",
+        body=PaymentRequest(
+            amount=Amount2(currency="USD", value=1000),
+            merchant_account="YOUR_MERCHANT_ACCOUNT",
+            payment_method=ApplePayDetails(apple_pay_token="VNRWtuNlNEWkRCSm1xWndjMDFFbktkQU...", type_="applepay"),
+            reference="Your order number",
+            return_url="https://your-company.example.com/...",
+        ),
+    )
     # TODO: Handle 'response' of type PaymentResponse
 except ApiError as e:
     ...  # TODO: Handle 'e.error' of type PostPaymentsErrorBody
@@ -24005,7 +25529,7 @@ except ApiError as e:
 | --- | --- | --- |
 | <code>idempotency_key</code> | <code>str \| None</code> | A unique identifier for the message with a maximum of 64 characters (we recommend a UUID).<br>**Default**: <code>None</code> |
 | <code>body</code> | <code>[PaymentRequest](adyen/models/payment_request.py) \| [PaymentRequestDict](adyen/models/payment_request.py) \| None</code> | The request body.<br>**Default**: <code>None</code> |
-| <code>request_options</code> | <code>[RequestOptionsOrDict](adyen/core/request_options.py) \| None</code> | Per-call overrides for this one request, such as a timeout or extra headers. |
+| <code>request_options</code> | <code>[RequestOptionsOrDict](adyen/core/request_options.py) \| None</code> | Per-call overrides for this one request, such as a timeout, extra headers, or its retry count and statuses. |
 
 </dd>
 </dl>
@@ -24059,7 +25583,7 @@ Cancels the payment. Returns a URL for user redirection.
 
 ```python
 try:
-    response = client.payments.post_payments_cancel(body)
+    response = client.payments.post_payments_cancel(CancelPaymentRequest(token="TOKEN_PLACEHOLDER"))
     # TODO: Handle 'response' of type CancelPaymentResponse
 except ApiError as e:
     ...  # TODO: Handle 'e.error' of type PostPaymentsCancelErrorBody
@@ -24069,7 +25593,7 @@ except ApiError as e:
 
 ```python
 try:
-    response = await async_client.payments.post_payments_cancel(body)
+    response = await async_client.payments.post_payments_cancel(CancelPaymentRequest(token="TOKEN_PLACEHOLDER"))
     # TODO: Handle 'response' of type CancelPaymentResponse
 except ApiError as e:
     ...  # TODO: Handle 'e.error' of type PostPaymentsCancelErrorBody
@@ -24086,7 +25610,7 @@ except ApiError as e:
 | Name | Type | Description |
 | --- | --- | --- |
 | <code>body</code> | <code>[CancelPaymentRequest](adyen/models/cancel_payment_request.py) \| [CancelPaymentRequestDict](adyen/models/cancel_payment_request.py)</code> | The request body. |
-| <code>request_options</code> | <code>[RequestOptionsOrDict](adyen/core/request_options.py) \| None</code> | Per-call overrides for this one request, such as a timeout or extra headers. |
+| <code>request_options</code> | <code>[RequestOptionsOrDict](adyen/core/request_options.py) \| None</code> | Per-call overrides for this one request, such as a timeout, extra headers, or its retry count and statuses. |
 
 </dd>
 </dl>
@@ -24148,7 +25672,10 @@ For more information, see our [documentation](https://docs.adyen.com/business-ac
 
 ```python
 try:
-    response = client.payments.post_payments_confirm(body)
+    response = client.payments.post_payments_confirm(
+        ConfirmPaymentRequest(balance_account_id="BA00000000000000000000000", token="TOKEN_PLACEHOLDER"),
+        www_authenticate="SCA realm=\"Transfer\" auth-param1=\"eyJjaGFsbGVuZ2UiOiJiVlV6ZW5wek0waFNl...\"",
+    )
     # TODO: Handle 'response' of type ConfirmPaymentResponse
 except ApiError as e:
     ...  # TODO: Handle 'e.error' of type PostPaymentsConfirmErrorBody
@@ -24158,7 +25685,10 @@ except ApiError as e:
 
 ```python
 try:
-    response = await async_client.payments.post_payments_confirm(body)
+    response = await async_client.payments.post_payments_confirm(
+        ConfirmPaymentRequest(balance_account_id="BA00000000000000000000000", token="TOKEN_PLACEHOLDER"),
+        www_authenticate="SCA realm=\"Transfer\" auth-param1=\"eyJjaGFsbGVuZ2UiOiJiVlV6ZW5wek0waFNl...\"",
+    )
     # TODO: Handle 'response' of type ConfirmPaymentResponse
 except ApiError as e:
     ...  # TODO: Handle 'e.error' of type PostPaymentsConfirmErrorBody
@@ -24176,7 +25706,7 @@ except ApiError as e:
 | --- | --- | --- |
 | <code>body</code> | <code>[ConfirmPaymentRequest](adyen/models/confirm_payment_request.py) \| [ConfirmPaymentRequestDict](adyen/models/confirm_payment_request.py)</code> | The request body. |
 | <code>www_authenticate</code> | <code>str \| None</code> | Header for authenticating through SCA: Contains information for an SCA challenge for A2A payments.<br>**Default**: <code>None</code> |
-| <code>request_options</code> | <code>[RequestOptionsOrDict](adyen/core/request_options.py) \| None</code> | Per-call overrides for this one request, such as a timeout or extra headers. |
+| <code>request_options</code> | <code>[RequestOptionsOrDict](adyen/core/request_options.py) \| None</code> | Per-call overrides for this one request, such as a timeout, extra headers, or its retry count and statuses. |
 
 </dd>
 </dl>
@@ -24230,7 +25760,10 @@ Submits details for a payment created using `/payments`. This step is only neede
 
 ```python
 try:
-    response = client.payments.post_payments_details()
+    response = client.payments.post_payments_details(
+        idempotency_key="37ca9c97-d1d1-4c62-89e8-706891a563ed",
+        body=PaymentDetailsRequest(details=PaymentCompletionDetails1(redirect_result="X6XtfGC3!Y...")),
+    )
     # TODO: Handle 'response' of type PaymentDetailsResponse
 except ApiError as e:
     ...  # TODO: Handle 'e.error' of type PostPaymentsDetailsErrorBody
@@ -24240,7 +25773,10 @@ except ApiError as e:
 
 ```python
 try:
-    response = await async_client.payments.post_payments_details()
+    response = await async_client.payments.post_payments_details(
+        idempotency_key="37ca9c97-d1d1-4c62-89e8-706891a563ed",
+        body=PaymentDetailsRequest(details=PaymentCompletionDetails1(redirect_result="X6XtfGC3!Y...")),
+    )
     # TODO: Handle 'response' of type PaymentDetailsResponse
 except ApiError as e:
     ...  # TODO: Handle 'e.error' of type PostPaymentsDetailsErrorBody
@@ -24258,7 +25794,7 @@ except ApiError as e:
 | --- | --- | --- |
 | <code>idempotency_key</code> | <code>str \| None</code> | A unique identifier for the message with a maximum of 64 characters (we recommend a UUID).<br>**Default**: <code>None</code> |
 | <code>body</code> | <code>[PaymentDetailsRequest](adyen/models/payment_details_request.py) \| [PaymentDetailsRequestDict](adyen/models/payment_details_request.py) \| None</code> | The request body.<br>**Default**: <code>None</code> |
-| <code>request_options</code> | <code>[RequestOptionsOrDict](adyen/core/request_options.py) \| None</code> | Per-call overrides for this one request, such as a timeout or extra headers. |
+| <code>request_options</code> | <code>[RequestOptionsOrDict](adyen/core/request_options.py) \| None</code> | Per-call overrides for this one request, such as a timeout, extra headers, or its retry count and statuses. |
 
 </dd>
 </dl>
@@ -24312,7 +25848,13 @@ Returns the details of an open payment, which you must show to the user. Also pr
 
 ```python
 try:
-    response = client.payments.post_payments_details1(body)
+    response = client.payments.post_payments_details1(
+        IdealPaymentDetailsRequest(
+            method="ideal",
+            payload="https://ext.tx.ideal.nl/2/AXE4R72TLPRCRN6Y4FDZX7MZHJQ?sig=BGBCQEIIA2F3CF7KR2SVLSJEDUJABL62V7TI4Y2LJPJIJBZEP6HXCHXPQCLTAEIB2FNUD3COVRNIT27TT7NFKYD5UJCUY4NMPS4NUCTKA6KIBHSRXWI",
+            source=PaymentSource2.REDIRECT,
+        ),
+    )
     # TODO: Handle 'response' of type PaymentDetailsResponse1
 except ApiError as e:
     ...  # TODO: Handle 'e.error' of type PostPaymentsDetails1ErrorBody
@@ -24322,7 +25864,13 @@ except ApiError as e:
 
 ```python
 try:
-    response = await async_client.payments.post_payments_details1(body)
+    response = await async_client.payments.post_payments_details1(
+        IdealPaymentDetailsRequest(
+            method="ideal",
+            payload="https://ext.tx.ideal.nl/2/AXE4R72TLPRCRN6Y4FDZX7MZHJQ?sig=BGBCQEIIA2F3CF7KR2SVLSJEDUJABL62V7TI4Y2LJPJIJBZEP6HXCHXPQCLTAEIB2FNUD3COVRNIT27TT7NFKYD5UJCUY4NMPS4NUCTKA6KIBHSRXWI",
+            source=PaymentSource2.REDIRECT,
+        ),
+    )
     # TODO: Handle 'response' of type PaymentDetailsResponse1
 except ApiError as e:
     ...  # TODO: Handle 'e.error' of type PostPaymentsDetails1ErrorBody
@@ -24339,7 +25887,7 @@ except ApiError as e:
 | Name | Type | Description |
 | --- | --- | --- |
 | <code>body</code> | <code>[IdealPaymentDetailsRequest](adyen/models/ideal_payment_details_request.py) \| [IdealPaymentDetailsRequestDict](adyen/models/ideal_payment_details_request.py)</code> | The request body. |
-| <code>request_options</code> | <code>[RequestOptionsOrDict](adyen/core/request_options.py) \| None</code> | Per-call overrides for this one request, such as a timeout or extra headers. |
+| <code>request_options</code> | <code>[RequestOptionsOrDict](adyen/core/request_options.py) \| None</code> | Per-call overrides for this one request, such as a timeout, extra headers, or its retry count and statuses. |
 
 </dd>
 </dl>
@@ -24393,7 +25941,9 @@ Retrieves the `threeDS2Result` after doing a 3D Secure 2 authentication only.
 
 ```python
 try:
-    response = client.payments.post_retrieve3ds2_result()
+    response = client.payments.post_retrieve3ds2_result(
+        body=ThreeDs2ResultRequest(merchant_account="YOUR_MERCHANT_ACCOUNT", psp_reference="9935272408535455")
+    )
     # TODO: Handle 'response' of type ThreeDs2ResultResponse
 except ApiError as e:
     ...  # TODO: Handle 'e.error' of type PostRetrieve3Ds2ResultErrorBody
@@ -24403,7 +25953,9 @@ except ApiError as e:
 
 ```python
 try:
-    response = await async_client.payments.post_retrieve3ds2_result()
+    response = await async_client.payments.post_retrieve3ds2_result(
+        body=ThreeDs2ResultRequest(merchant_account="YOUR_MERCHANT_ACCOUNT", psp_reference="9935272408535455")
+    )
     # TODO: Handle 'response' of type ThreeDs2ResultResponse
 except ApiError as e:
     ...  # TODO: Handle 'e.error' of type PostRetrieve3Ds2ResultErrorBody
@@ -24420,7 +25972,7 @@ except ApiError as e:
 | Name | Type | Description |
 | --- | --- | --- |
 | <code>body</code> | <code>[ThreeDs2ResultRequest](adyen/models/three_ds2_result_request.py) \| [ThreeDs2ResultRequestDict](adyen/models/three_ds2_result_request.py) \| None</code> | The request body.<br>**Default**: <code>None</code> |
-| <code>request_options</code> | <code>[RequestOptionsOrDict](adyen/core/request_options.py) \| None</code> | Per-call overrides for this one request, such as a timeout or extra headers. |
+| <code>request_options</code> | <code>[RequestOptionsOrDict](adyen/core/request_options.py) \| None</code> | Per-call overrides for this one request, such as a timeout, extra headers, or its retry count and statuses. |
 
 </dd>
 </dl>
@@ -24478,7 +26030,16 @@ You get the payment outcome asynchronously, in an [AUTHORISATION](https://docs.a
 
 ```python
 try:
-    response = client.payments.post_sessions()
+    response = client.payments.post_sessions(
+        idempotency_key="37ca9c97-d1d1-4c62-89e8-706891a563ed",
+        body=CreateCheckoutSessionRequest(
+            amount=Amount18(currency="EUR", value=100),
+            country_code="NL",
+            merchant_account="YOUR_MERCHANT_ACCOUNT",
+            reference="YOUR_PAYMENT_REFERENCE",
+            return_url="https://your-company.example.com/checkout?shopperOrder=12xy..",
+        ),
+    )
     # TODO: Handle 'response' of type CreateCheckoutSessionResponse
 except ApiError as e:
     ...  # TODO: Handle 'e.error' of type RawError
@@ -24488,7 +26049,16 @@ except ApiError as e:
 
 ```python
 try:
-    response = await async_client.payments.post_sessions()
+    response = await async_client.payments.post_sessions(
+        idempotency_key="37ca9c97-d1d1-4c62-89e8-706891a563ed",
+        body=CreateCheckoutSessionRequest(
+            amount=Amount18(currency="EUR", value=100),
+            country_code="NL",
+            merchant_account="YOUR_MERCHANT_ACCOUNT",
+            reference="YOUR_PAYMENT_REFERENCE",
+            return_url="https://your-company.example.com/checkout?shopperOrder=12xy..",
+        ),
+    )
     # TODO: Handle 'response' of type CreateCheckoutSessionResponse
 except ApiError as e:
     ...  # TODO: Handle 'e.error' of type RawError
@@ -24506,7 +26076,7 @@ except ApiError as e:
 | --- | --- | --- |
 | <code>idempotency_key</code> | <code>str \| None</code> | A unique identifier for the message with a maximum of 64 characters (we recommend a UUID).<br>**Default**: <code>None</code> |
 | <code>body</code> | <code>[CreateCheckoutSessionRequest](adyen/models/create_checkout_session_request.py) \| [CreateCheckoutSessionRequestDict](adyen/models/create_checkout_session_request.py) \| None</code> | The request body.<br>**Default**: <code>None</code> |
-| <code>request_options</code> | <code>[RequestOptionsOrDict](adyen/core/request_options.py) \| None</code> | Per-call overrides for this one request, such as a timeout or extra headers. |
+| <code>request_options</code> | <code>[RequestOptionsOrDict](adyen/core/request_options.py) \| None</code> | Per-call overrides for this one request, such as a timeout, extra headers, or its retry count and statuses. |
 
 </dd>
 </dl>
@@ -24560,7 +26130,7 @@ To make this request, your API credential must have the following [role](https:/
 
 ```python
 try:
-    response = client.payments_app.get_merchants_merchant_id_payments_apps(merchant_id)
+    response = client.payments_app.get_merchants_merchant_id_payments_apps("some example string")
     # TODO: Handle 'response' of type PaymentsAppResponse
 except ApiError as e:
     ...  # TODO: Handle 'e.error' of type GetMerchantsMerchantIdPaymentsAppsErrorBody
@@ -24570,7 +26140,7 @@ except ApiError as e:
 
 ```python
 try:
-    response = await async_client.payments_app.get_merchants_merchant_id_payments_apps(merchant_id)
+    response = await async_client.payments_app.get_merchants_merchant_id_payments_apps("some example string")
     # TODO: Handle 'response' of type PaymentsAppResponse
 except ApiError as e:
     ...  # TODO: Handle 'e.error' of type GetMerchantsMerchantIdPaymentsAppsErrorBody
@@ -24590,7 +26160,7 @@ except ApiError as e:
 | <code>statuses</code> | <code>str \| None</code> | The status of the Payments App. Comma-separated list of one or more values. If no value is provided, the list returns all statuses. <br><br>Possible values:<br><br>* **BOARDING**<br><br> * **BOARDED**<br><br> * **REVOKED**<br>**Default**: <code>None</code> |
 | <code>limit</code> | <code>int \| None</code> | The number of items to return.<br>**Default**: <code>10</code> |
 | <code>offset</code> | <code>int \| None</code> | The number of items to skip.<br>**Default**: <code>0</code> |
-| <code>request_options</code> | <code>[RequestOptionsOrDict](adyen/core/request_options.py) \| None</code> | Per-call overrides for this one request, such as a timeout or extra headers. |
+| <code>request_options</code> | <code>[RequestOptionsOrDict](adyen/core/request_options.py) \| None</code> | Per-call overrides for this one request, such as a timeout, extra headers, or its retry count and statuses. |
 
 </dd>
 </dl>
@@ -24647,7 +26217,9 @@ To make this request, your API credential must have the following [role](https:/
 
 ```python
 try:
-    response = client.payments_app.get_merchants_merchant_id_stores_store_id_payments_apps(merchant_id, store_id)
+    response = client.payments_app.get_merchants_merchant_id_stores_store_id_payments_apps(
+        "some example string", "some example string"
+    )
     # TODO: Handle 'response' of type PaymentsAppResponse
 except ApiError as e:
     ...  # TODO: Handle 'e.error' of type GetMerchantsMerchantIdStoresStoreIdPaymentsAppsErrorBody
@@ -24658,7 +26230,7 @@ except ApiError as e:
 ```python
 try:
     response = await async_client.payments_app.get_merchants_merchant_id_stores_store_id_payments_apps(
-        merchant_id, store_id
+        "some example string", "some example string"
     )
     # TODO: Handle 'response' of type PaymentsAppResponse
 except ApiError as e:
@@ -24680,7 +26252,7 @@ except ApiError as e:
 | <code>statuses</code> | <code>str \| None</code> | The status of the Payments App. Comma-separated list of one or more values. If no value is provided, the list returns all statuses. <br><br>Possible values:<br><br>* **BOARDING**<br><br> * **BOARDED**<br><br> * **REVOKED**<br>**Default**: <code>None</code> |
 | <code>limit</code> | <code>int \| None</code> | The number of items to return.<br>**Default**: <code>10</code> |
 | <code>offset</code> | <code>int \| None</code> | The number of items to skip.<br>**Default**: <code>0</code> |
-| <code>request_options</code> | <code>[RequestOptionsOrDict](adyen/core/request_options.py) \| None</code> | Per-call overrides for this one request, such as a timeout or extra headers. |
+| <code>request_options</code> | <code>[RequestOptionsOrDict](adyen/core/request_options.py) \| None</code> | Per-call overrides for this one request, such as a timeout, extra headers, or its retry count and statuses. |
 
 </dd>
 </dl>
@@ -24737,7 +26309,9 @@ To make this request, your API credential must have the following [role](https:/
 
 ```python
 try:
-    response = client.payments_app.post_merchants_merchant_id_generate_payments_app_boarding_token(merchant_id, body)
+    response = client.payments_app.post_merchants_merchant_id_generate_payments_app_boarding_token(
+        "some example string", BoardingTokenRequest(boarding_request_token="some example string")
+    )
     # TODO: Handle 'response' of type BoardingTokenResponse
 except ApiError as e:
     ...  # TODO: Handle 'e.error' of type PostMerchantsMerchantIdGeneratePaymentsAppBoardingTokenErrorBody
@@ -24748,7 +26322,7 @@ except ApiError as e:
 ```python
 try:
     response = await async_client.payments_app.post_merchants_merchant_id_generate_payments_app_boarding_token(
-        merchant_id, body
+        "some example string", BoardingTokenRequest(boarding_request_token="some example string")
     )
     # TODO: Handle 'response' of type BoardingTokenResponse
 except ApiError as e:
@@ -24767,7 +26341,7 @@ except ApiError as e:
 | --- | --- | --- |
 | <code>merchant_id</code> | <code>str</code> | The unique identifier of the merchant account. |
 | <code>body</code> | <code>[BoardingTokenRequest](adyen/models/boarding_token_request.py) \| [BoardingTokenRequestDict](adyen/models/boarding_token_request.py)</code> | The request body. |
-| <code>request_options</code> | <code>[RequestOptionsOrDict](adyen/core/request_options.py) \| None</code> | Per-call overrides for this one request, such as a timeout or extra headers. |
+| <code>request_options</code> | <code>[RequestOptionsOrDict](adyen/core/request_options.py) \| None</code> | Per-call overrides for this one request, such as a timeout, extra headers, or its retry count and statuses. |
 
 </dd>
 </dl>
@@ -24825,7 +26399,7 @@ To make this request, your API credential must have the following [role](https:/
 ```python
 try:
     response = client.payments_app.post_merchants_merchant_id_payments_apps_installation_id_revoke(
-        merchant_id, installation_id
+        "some example string", "some example string"
     )
     # TODO: Handle 'response' of type Any
 except ApiError as e:
@@ -24837,7 +26411,7 @@ except ApiError as e:
 ```python
 try:
     response = await async_client.payments_app.post_merchants_merchant_id_payments_apps_installation_id_revoke(
-        merchant_id, installation_id
+        "some example string", "some example string"
     )
     # TODO: Handle 'response' of type Any
 except ApiError as e:
@@ -24856,7 +26430,7 @@ except ApiError as e:
 | --- | --- | --- |
 | <code>merchant_id</code> | <code>str</code> | The unique identifier of the merchant account. |
 | <code>installation_id</code> | <code>str</code> | The unique identifier of the Payments App instance on a device. |
-| <code>request_options</code> | <code>[RequestOptionsOrDict](adyen/core/request_options.py) \| None</code> | Per-call overrides for this one request, such as a timeout or extra headers. |
+| <code>request_options</code> | <code>[RequestOptionsOrDict](adyen/core/request_options.py) \| None</code> | Per-call overrides for this one request, such as a timeout, extra headers, or its retry count and statuses. |
 
 </dd>
 </dl>
@@ -24914,7 +26488,7 @@ To make this request, your API credential must have the following [role](https:/
 ```python
 try:
     response = client.payments_app.post_merchants_merchant_id_stores_store_id_generate_payments_app_boarding_token(
-        merchant_id, store_id, body
+        "some example string", "some example string", BoardingTokenRequest(boarding_request_token="some example string")
     )
     # TODO: Handle 'response' of type BoardingTokenResponse
 except ApiError as e:
@@ -24926,7 +26500,7 @@ except ApiError as e:
 ```python
 try:
     response = await async_client.payments_app.post_merchants_merchant_id_stores_store_id_generate_payments_app_boarding_token(
-        merchant_id, store_id, body
+        "some example string", "some example string", BoardingTokenRequest(boarding_request_token="some example string")
     )
     # TODO: Handle 'response' of type BoardingTokenResponse
 except ApiError as e:
@@ -24946,7 +26520,7 @@ except ApiError as e:
 | <code>merchant_id</code> | <code>str</code> | The unique identifier of the merchant account. |
 | <code>store_id</code> | <code>str</code> | The unique identifier of the store. |
 | <code>body</code> | <code>[BoardingTokenRequest](adyen/models/boarding_token_request.py) \| [BoardingTokenRequestDict](adyen/models/boarding_token_request.py)</code> | The request body. |
-| <code>request_options</code> | <code>[RequestOptionsOrDict](adyen/core/request_options.py) \| None</code> | Per-call overrides for this one request, such as a timeout or extra headers. |
+| <code>request_options</code> | <code>[RequestOptionsOrDict](adyen/core/request_options.py) \| None</code> | Per-call overrides for this one request, such as a timeout, extra headers, or its retry count and statuses. |
 
 </dd>
 </dl>
@@ -25011,7 +26585,7 @@ To make this request, your API credential must have the following [roles](https:
 ```python
 try:
     client.payout_settings_merchant_level.delete_merchants_merchant_id_payout_settings_payout_settings_id(
-        merchant_id, payout_settings_id
+        "some example string", "some example string"
     )
 except ApiError as e:
     ...  # TODO: Handle 'e.error' of type DeleteMerchantsMerchantIdPayoutSettingsPayoutSettingsIdErrorBody
@@ -25022,7 +26596,7 @@ except ApiError as e:
 ```python
 try:
     await async_client.payout_settings_merchant_level.delete_merchants_merchant_id_payout_settings_payout_settings_id(
-        merchant_id, payout_settings_id
+        "some example string", "some example string"
     )
 except ApiError as e:
     ...  # TODO: Handle 'e.error' of type DeleteMerchantsMerchantIdPayoutSettingsPayoutSettingsIdErrorBody
@@ -25040,7 +26614,7 @@ except ApiError as e:
 | --- | --- | --- |
 | <code>merchant_id</code> | <code>str</code> | The unique identifier of the merchant account. |
 | <code>payout_settings_id</code> | <code>str</code> | The unique identifier of the payout setting. |
-| <code>request_options</code> | <code>[RequestOptionsOrDict](adyen/core/request_options.py) \| None</code> | Per-call overrides for this one request, such as a timeout or extra headers. |
+| <code>request_options</code> | <code>[RequestOptionsOrDict](adyen/core/request_options.py) \| None</code> | Per-call overrides for this one request, such as a timeout, extra headers, or its retry count and statuses. |
 
 </dd>
 </dl>
@@ -25099,7 +26673,7 @@ To make this request, your API credential must have the following [roles](https:
 
 ```python
 try:
-    response = client.payout_settings_merchant_level.get_merchants_merchant_id_payout_settings(merchant_id)
+    response = client.payout_settings_merchant_level.get_merchants_merchant_id_payout_settings("some example string")
     # TODO: Handle 'response' of type PayoutSettingsResponse
 except ApiError as e:
     ...  # TODO: Handle 'e.error' of type GetMerchantsMerchantIdPayoutSettingsErrorBody
@@ -25109,7 +26683,9 @@ except ApiError as e:
 
 ```python
 try:
-    response = await async_client.payout_settings_merchant_level.get_merchants_merchant_id_payout_settings(merchant_id)
+    response = await async_client.payout_settings_merchant_level.get_merchants_merchant_id_payout_settings(
+        "some example string"
+    )
     # TODO: Handle 'response' of type PayoutSettingsResponse
 except ApiError as e:
     ...  # TODO: Handle 'e.error' of type GetMerchantsMerchantIdPayoutSettingsErrorBody
@@ -25126,7 +26702,7 @@ except ApiError as e:
 | Name | Type | Description |
 | --- | --- | --- |
 | <code>merchant_id</code> | <code>str</code> | The unique identifier of the merchant account. |
-| <code>request_options</code> | <code>[RequestOptionsOrDict](adyen/core/request_options.py) \| None</code> | Per-call overrides for this one request, such as a timeout or extra headers. |
+| <code>request_options</code> | <code>[RequestOptionsOrDict](adyen/core/request_options.py) \| None</code> | Per-call overrides for this one request, such as a timeout, extra headers, or its retry count and statuses. |
 
 </dd>
 </dl>
@@ -25186,7 +26762,7 @@ To make this request, your API credential must have the following [roles](https:
 ```python
 try:
     response = client.payout_settings_merchant_level.get_merchants_merchant_id_payout_settings_payout_settings_id(
-        merchant_id, payout_settings_id
+        "some example string", "some example string"
     )
     # TODO: Handle 'response' of type PayoutSettings
 except ApiError as e:
@@ -25198,7 +26774,7 @@ except ApiError as e:
 ```python
 try:
     response = await async_client.payout_settings_merchant_level.get_merchants_merchant_id_payout_settings_payout_settings_id(
-        merchant_id, payout_settings_id
+        "some example string", "some example string"
     )
     # TODO: Handle 'response' of type PayoutSettings
 except ApiError as e:
@@ -25217,7 +26793,7 @@ except ApiError as e:
 | --- | --- | --- |
 | <code>merchant_id</code> | <code>str</code> | The unique identifier of the merchant account. |
 | <code>payout_settings_id</code> | <code>str</code> | The unique identifier of the payout setting. |
-| <code>request_options</code> | <code>[RequestOptionsOrDict](adyen/core/request_options.py) \| None</code> | Per-call overrides for this one request, such as a timeout or extra headers. |
+| <code>request_options</code> | <code>[RequestOptionsOrDict](adyen/core/request_options.py) \| None</code> | Per-call overrides for this one request, such as a timeout, extra headers, or its retry count and statuses. |
 
 </dd>
 </dl>
@@ -25278,7 +26854,7 @@ To make this request, your API credential must have the following [roles](https:
 ```python
 try:
     response = client.payout_settings_merchant_level.patch_merchants_merchant_id_payout_settings_payout_settings_id(
-        merchant_id, payout_settings_id
+        "some example string", "some example string"
     )
     # TODO: Handle 'response' of type PayoutSettings
 except ApiError as e:
@@ -25290,7 +26866,7 @@ except ApiError as e:
 ```python
 try:
     response = await async_client.payout_settings_merchant_level.patch_merchants_merchant_id_payout_settings_payout_settings_id(
-        merchant_id, payout_settings_id
+        "some example string", "some example string"
     )
     # TODO: Handle 'response' of type PayoutSettings
 except ApiError as e:
@@ -25310,7 +26886,7 @@ except ApiError as e:
 | <code>merchant_id</code> | <code>str</code> | The unique identifier of the merchant account. |
 | <code>payout_settings_id</code> | <code>str</code> | The unique identifier of the payout setting. |
 | <code>body</code> | <code>[UpdatePayoutSettingsRequest](adyen/models/update_payout_settings_request.py) \| [UpdatePayoutSettingsRequestDict](adyen/models/update_payout_settings_request.py) \| None</code> | The request body.<br>**Default**: <code>None</code> |
-| <code>request_options</code> | <code>[RequestOptionsOrDict](adyen/core/request_options.py) \| None</code> | Per-call overrides for this one request, such as a timeout or extra headers. |
+| <code>request_options</code> | <code>[RequestOptionsOrDict](adyen/core/request_options.py) \| None</code> | Per-call overrides for this one request, such as a timeout, extra headers, or its retry count and statuses. |
 
 </dd>
 </dl>
@@ -25372,7 +26948,7 @@ To make this request, your API credential must have the following [roles](https:
 
 ```python
 try:
-    response = client.payout_settings_merchant_level.post_merchants_merchant_id_payout_settings(merchant_id)
+    response = client.payout_settings_merchant_level.post_merchants_merchant_id_payout_settings("some example string")
     # TODO: Handle 'response' of type PayoutSettings
 except ApiError as e:
     ...  # TODO: Handle 'e.error' of type PostMerchantsMerchantIdPayoutSettingsErrorBody
@@ -25382,7 +26958,9 @@ except ApiError as e:
 
 ```python
 try:
-    response = await async_client.payout_settings_merchant_level.post_merchants_merchant_id_payout_settings(merchant_id)
+    response = await async_client.payout_settings_merchant_level.post_merchants_merchant_id_payout_settings(
+        "some example string"
+    )
     # TODO: Handle 'response' of type PayoutSettings
 except ApiError as e:
     ...  # TODO: Handle 'e.error' of type PostMerchantsMerchantIdPayoutSettingsErrorBody
@@ -25400,7 +26978,7 @@ except ApiError as e:
 | --- | --- | --- |
 | <code>merchant_id</code> | <code>str</code> | The unique identifier of the merchant account. |
 | <code>body</code> | <code>[PayoutSettingsRequest](adyen/models/payout_settings_request.py) \| [PayoutSettingsRequestDict](adyen/models/payout_settings_request.py) \| None</code> | The request body.<br>**Default**: <code>None</code> |
-| <code>request_options</code> | <code>[RequestOptionsOrDict](adyen/core/request_options.py) \| None</code> | Per-call overrides for this one request, such as a timeout or extra headers. |
+| <code>request_options</code> | <code>[RequestOptionsOrDict](adyen/core/request_options.py) \| None</code> | Per-call overrides for this one request, such as a timeout, extra headers, or its retry count and statuses. |
 
 </dd>
 </dl>
@@ -25434,7 +27012,7 @@ Mapped in first-match order -- an earlier row wins over a later range that also 
 > Source: [Platform](adyen/apis/platform.py)
 
 <details>
-<summary><code>def get_balance_platforms_id(id: str, *, request_options: RequestOptionsOrDict | None = None) -> BalancePlatform</code></summary>
+<summary><code>def get_balance_platforms_id(id_: str, *, request_options: RequestOptionsOrDict | None = None) -> BalancePlatform</code></summary>
 
 <dl>
 <dd>
@@ -25458,7 +27036,7 @@ Returns a balance platform.
 
 ```python
 try:
-    response = client.platform.get_balance_platforms_id(id)
+    response = client.platform.get_balance_platforms_id("some example string")
     # TODO: Handle 'response' of type BalancePlatform
 except ApiError as e:
     ...  # TODO: Handle 'e.error' of type GetBalancePlatformsIdErrorBody
@@ -25468,7 +27046,7 @@ except ApiError as e:
 
 ```python
 try:
-    response = await async_client.platform.get_balance_platforms_id(id)
+    response = await async_client.platform.get_balance_platforms_id("some example string")
     # TODO: Handle 'response' of type BalancePlatform
 except ApiError as e:
     ...  # TODO: Handle 'e.error' of type GetBalancePlatformsIdErrorBody
@@ -25484,8 +27062,8 @@ except ApiError as e:
 
 | Name | Type | Description |
 | --- | --- | --- |
-| <code>id</code> | <code>str</code> | The unique identifier of the balance platform. |
-| <code>request_options</code> | <code>[RequestOptionsOrDict](adyen/core/request_options.py) \| None</code> | Per-call overrides for this one request, such as a timeout or extra headers. |
+| <code>id_</code> | <code>str</code> | The unique identifier of the balance platform. |
+| <code>request_options</code> | <code>[RequestOptionsOrDict](adyen/core/request_options.py) \| None</code> | Per-call overrides for this one request, such as a timeout, extra headers, or its retry count and statuses. |
 
 </dd>
 </dl>
@@ -25515,7 +27093,7 @@ Mapped in first-match order -- an earlier row wins over a later range that also 
 </details>
 
 <details>
-<summary><code>def get_balance_platforms_id_account_holders(id: str, *, offset: int | None = None, limit: int | None = None, request_options: RequestOptionsOrDict | None = None) -> PaginatedAccountHoldersResponse</code></summary>
+<summary><code>def get_balance_platforms_id_account_holders(id_: str, *, offset: int | None = None, limit: int | None = None, request_options: RequestOptionsOrDict | None = None) -> PaginatedAccountHoldersResponse</code></summary>
 
 <dl>
 <dd>
@@ -25541,7 +27119,7 @@ For example, to limit the page to 5 account holders and to skip the first 20, us
 
 ```python
 try:
-    response = client.platform.get_balance_platforms_id_account_holders(id)
+    response = client.platform.get_balance_platforms_id_account_holders("some example string")
     # TODO: Handle 'response' of type PaginatedAccountHoldersResponse
 except ApiError as e:
     ...  # TODO: Handle 'e.error' of type GetBalancePlatformsIdAccountHoldersErrorBody
@@ -25551,7 +27129,7 @@ except ApiError as e:
 
 ```python
 try:
-    response = await async_client.platform.get_balance_platforms_id_account_holders(id)
+    response = await async_client.platform.get_balance_platforms_id_account_holders("some example string")
     # TODO: Handle 'response' of type PaginatedAccountHoldersResponse
 except ApiError as e:
     ...  # TODO: Handle 'e.error' of type GetBalancePlatformsIdAccountHoldersErrorBody
@@ -25567,10 +27145,10 @@ except ApiError as e:
 
 | Name | Type | Description |
 | --- | --- | --- |
-| <code>id</code> | <code>str</code> | The unique identifier of the balance platform. |
+| <code>id_</code> | <code>str</code> | The unique identifier of the balance platform. |
 | <code>offset</code> | <code>int \| None</code> | The number of items that you want to skip.<br>**Default**: <code>None</code> |
 | <code>limit</code> | <code>int \| None</code> | The number of items returned per page, maximum 100 items. By default, the response returns 10 items per page.<br>**Default**: <code>None</code> |
-| <code>request_options</code> | <code>[RequestOptionsOrDict](adyen/core/request_options.py) \| None</code> | Per-call overrides for this one request, such as a timeout or extra headers. |
+| <code>request_options</code> | <code>[RequestOptionsOrDict](adyen/core/request_options.py) \| None</code> | Per-call overrides for this one request, such as a timeout, extra headers, or its retry count and statuses. |
 
 </dd>
 </dl>
@@ -25600,7 +27178,7 @@ Mapped in first-match order -- an earlier row wins over a later range that also 
 </details>
 
 <details>
-<summary><code>def get_balance_platforms_id_transaction_rules(id: str, *, request_options: RequestOptionsOrDict | None = None) -> TransactionRulesResponse</code></summary>
+<summary><code>def get_balance_platforms_id_transaction_rules(id_: str, *, request_options: RequestOptionsOrDict | None = None) -> TransactionRulesResponse</code></summary>
 
 <dl>
 <dd>
@@ -25624,7 +27202,7 @@ Returns a list of transaction rules associated with a balance platform.
 
 ```python
 try:
-    response = client.platform.get_balance_platforms_id_transaction_rules(id)
+    response = client.platform.get_balance_platforms_id_transaction_rules("some example string")
     # TODO: Handle 'response' of type TransactionRulesResponse
 except ApiError as e:
     ...  # TODO: Handle 'e.error' of type GetBalancePlatformsIdTransactionRulesErrorBody
@@ -25634,7 +27212,7 @@ except ApiError as e:
 
 ```python
 try:
-    response = await async_client.platform.get_balance_platforms_id_transaction_rules(id)
+    response = await async_client.platform.get_balance_platforms_id_transaction_rules("some example string")
     # TODO: Handle 'response' of type TransactionRulesResponse
 except ApiError as e:
     ...  # TODO: Handle 'e.error' of type GetBalancePlatformsIdTransactionRulesErrorBody
@@ -25650,8 +27228,8 @@ except ApiError as e:
 
 | Name | Type | Description |
 | --- | --- | --- |
-| <code>id</code> | <code>str</code> | The unique identifier of the balance platform. |
-| <code>request_options</code> | <code>[RequestOptionsOrDict](adyen/core/request_options.py) \| None</code> | Per-call overrides for this one request, such as a timeout or extra headers. |
+| <code>id_</code> | <code>str</code> | The unique identifier of the balance platform. |
+| <code>request_options</code> | <code>[RequestOptionsOrDict](adyen/core/request_options.py) \| None</code> | Per-call overrides for this one request, such as a timeout, extra headers, or its retry count and statuses. |
 
 </dd>
 </dl>
@@ -25743,7 +27321,7 @@ except ApiError as e:
 | <code>created_until</code> | <code>str \| None</code> | Only include disputes that have been created on or before this point in time. The value must be in [ISO 8601](https://en.wikipedia.org/wiki/ISO_8601\) format. For example, **2021-05-30T15:07:40Z**.<br>**Default**: <code>None</code> |
 | <code>offset</code> | <code>str \| None</code> | The number of items that you want to skip.<br>**Default**: <code>None</code> |
 | <code>limit</code> | <code>str \| None</code> | The number of items returned per page, maximum of 500 items. By default, the response returns 100 items per page.<br>**Default**: <code>None</code> |
-| <code>request_options</code> | <code>[RequestOptionsOrDict](adyen/core/request_options.py) \| None</code> | Per-call overrides for this one request, such as a timeout or extra headers. |
+| <code>request_options</code> | <code>[RequestOptionsOrDict](adyen/core/request_options.py) \| None</code> | Per-call overrides for this one request, such as a timeout, extra headers, or its retry count and statuses. |
 
 </dd>
 </dl>
@@ -25773,7 +27351,7 @@ Mapped in first-match order -- an earlier row wins over a later range that also 
 </details>
 
 <details>
-<summary><code>def get_disputes_id(id: str, *, request_options: RequestOptionsOrDict | None = None) -> DisputeResponse</code></summary>
+<summary><code>def get_disputes_id(id_: str, *, request_options: RequestOptionsOrDict | None = None) -> DisputeResponse</code></summary>
 
 <dl>
 <dd>
@@ -25797,7 +27375,7 @@ Get a raised dispute by ID.
 
 ```python
 try:
-    response = client.raise_disputes.get_disputes_id(id)
+    response = client.raise_disputes.get_disputes_id("some example string")
     # TODO: Handle 'response' of type DisputeResponse
 except ApiError as e:
     ...  # TODO: Handle 'e.error' of type GetDisputesIdErrorBody
@@ -25807,7 +27385,7 @@ except ApiError as e:
 
 ```python
 try:
-    response = await async_client.raise_disputes.get_disputes_id(id)
+    response = await async_client.raise_disputes.get_disputes_id("some example string")
     # TODO: Handle 'response' of type DisputeResponse
 except ApiError as e:
     ...  # TODO: Handle 'e.error' of type GetDisputesIdErrorBody
@@ -25823,8 +27401,8 @@ except ApiError as e:
 
 | Name | Type | Description |
 | --- | --- | --- |
-| <code>id</code> | <code>str</code> | The unique identifier of the raised dispute. |
-| <code>request_options</code> | <code>[RequestOptionsOrDict](adyen/core/request_options.py) \| None</code> | Per-call overrides for this one request, such as a timeout or extra headers. |
+| <code>id_</code> | <code>str</code> | The unique identifier of the raised dispute. |
+| <code>request_options</code> | <code>[RequestOptionsOrDict](adyen/core/request_options.py) \| None</code> | Per-call overrides for this one request, such as a timeout, extra headers, or its retry count and statuses. |
 
 </dd>
 </dl>
@@ -25854,7 +27432,7 @@ Mapped in first-match order -- an earlier row wins over a later range that also 
 </details>
 
 <details>
-<summary><code>def patch_disputes_id(id: str, *, body: PatchableDisputeRequest | PatchableDisputeRequestDict | None = None, request_options: RequestOptionsOrDict | None = None) -> DisputeResponse</code></summary>
+<summary><code>def patch_disputes_id(id_: str, *, body: PatchableDisputeRequest | PatchableDisputeRequestDict | None = None, request_options: RequestOptionsOrDict | None = None) -> DisputeResponse</code></summary>
 
 <dl>
 <dd>
@@ -25880,7 +27458,7 @@ Update information related to a raised dispute, or change a dispute's status fro
 
 ```python
 try:
-    response = client.raise_disputes.patch_disputes_id(id)
+    response = client.raise_disputes.patch_disputes_id("some example string")
     # TODO: Handle 'response' of type DisputeResponse
 except ApiError as e:
     ...  # TODO: Handle 'e.error' of type PatchDisputesIdErrorBody
@@ -25890,7 +27468,7 @@ except ApiError as e:
 
 ```python
 try:
-    response = await async_client.raise_disputes.patch_disputes_id(id)
+    response = await async_client.raise_disputes.patch_disputes_id("some example string")
     # TODO: Handle 'response' of type DisputeResponse
 except ApiError as e:
     ...  # TODO: Handle 'e.error' of type PatchDisputesIdErrorBody
@@ -25906,9 +27484,9 @@ except ApiError as e:
 
 | Name | Type | Description |
 | --- | --- | --- |
-| <code>id</code> | <code>str</code> | The unique identifier of the raised dispute. |
+| <code>id_</code> | <code>str</code> | The unique identifier of the raised dispute. |
 | <code>body</code> | <code>[PatchableDisputeRequest](adyen/models/patchable_dispute_request.py) \| [PatchableDisputeRequestDict](adyen/models/patchable_dispute_request.py) \| None</code> | The request body.<br>**Default**: <code>None</code> |
-| <code>request_options</code> | <code>[RequestOptionsOrDict](adyen/core/request_options.py) \| None</code> | Per-call overrides for this one request, such as a timeout or extra headers. |
+| <code>request_options</code> | <code>[RequestOptionsOrDict](adyen/core/request_options.py) \| None</code> | Per-call overrides for this one request, such as a timeout, extra headers, or its retry count and statuses. |
 
 </dd>
 </dl>
@@ -25964,7 +27542,9 @@ Raising a dispute returns a dispute ID, which you can use to update details abou
 
 ```python
 try:
-    response = client.raise_disputes.post_disputes(body)
+    response = client.raise_disputes.post_disputes(
+        DisputeRequest(transaction_id="some example string", type_="some example string")
+    )
     # TODO: Handle 'response' of type DisputeResponse
 except ApiError as e:
     ...  # TODO: Handle 'e.error' of type PostDisputesErrorBody
@@ -25974,7 +27554,9 @@ except ApiError as e:
 
 ```python
 try:
-    response = await async_client.raise_disputes.post_disputes(body)
+    response = await async_client.raise_disputes.post_disputes(
+        DisputeRequest(transaction_id="some example string", type_="some example string")
+    )
     # TODO: Handle 'response' of type DisputeResponse
 except ApiError as e:
     ...  # TODO: Handle 'e.error' of type PostDisputesErrorBody
@@ -25991,7 +27573,7 @@ except ApiError as e:
 | Name | Type | Description |
 | --- | --- | --- |
 | <code>body</code> | <code>[DisputeRequest](adyen/models/dispute_request.py) \| [DisputeRequestDict](adyen/models/dispute_request.py)</code> | The request body. |
-| <code>request_options</code> | <code>[RequestOptionsOrDict](adyen/core/request_options.py) \| None</code> | Per-call overrides for this one request, such as a timeout or extra headers. |
+| <code>request_options</code> | <code>[RequestOptionsOrDict](adyen/core/request_options.py) \| None</code> | Per-call overrides for this one request, such as a timeout, extra headers, or its retry count and statuses. |
 
 </dd>
 </dl>
@@ -26049,7 +27631,24 @@ Returns the calculated amounts and rates required to convert the currency of a t
 
 ```python
 try:
-    response = client.rates.post_rates_calculate(body)
+    response = client.rates.post_rates_calculate(
+        CalculateRateRequest(
+            exchange_calculations=[
+                CalculateRateRequestItem(
+                    exchange_side=ExchangeSide2.BUY,
+                    source_amount=Amount19(currency="CZK", value=112300),
+                    target_currency="EUR",
+                    type_=RateType2.SPLIT_PAYMENT,
+                ),
+                CalculateRateRequestItem(
+                    exchange_side=ExchangeSide2.SELL,
+                    source_amount=Amount19(currency="CZK", value=24000),
+                    target_currency="USD",
+                    type_=RateType2.SPLIT_REFUND,
+                ),
+            ],
+        ),
+    )
     # TODO: Handle 'response' of type CalculateRateResponse
 except ApiError as e:
     ...  # TODO: Handle 'e.error' of type PostRatesCalculateErrorBody
@@ -26059,7 +27658,24 @@ except ApiError as e:
 
 ```python
 try:
-    response = await async_client.rates.post_rates_calculate(body)
+    response = await async_client.rates.post_rates_calculate(
+        CalculateRateRequest(
+            exchange_calculations=[
+                CalculateRateRequestItem(
+                    exchange_side=ExchangeSide2.BUY,
+                    source_amount=Amount19(currency="CZK", value=112300),
+                    target_currency="EUR",
+                    type_=RateType2.SPLIT_PAYMENT,
+                ),
+                CalculateRateRequestItem(
+                    exchange_side=ExchangeSide2.SELL,
+                    source_amount=Amount19(currency="CZK", value=24000),
+                    target_currency="USD",
+                    type_=RateType2.SPLIT_REFUND,
+                ),
+            ],
+        ),
+    )
     # TODO: Handle 'response' of type CalculateRateResponse
 except ApiError as e:
     ...  # TODO: Handle 'e.error' of type PostRatesCalculateErrorBody
@@ -26076,7 +27692,7 @@ except ApiError as e:
 | Name | Type | Description |
 | --- | --- | --- |
 | <code>body</code> | <code>[CalculateRateRequest](adyen/models/calculate_rate_request.py) \| [CalculateRateRequestDict](adyen/models/calculate_rate_request.py)</code> | The request body. |
-| <code>request_options</code> | <code>[RequestOptionsOrDict](adyen/core/request_options.py) \| None</code> | Per-call overrides for this one request, such as a timeout or extra headers. |
+| <code>request_options</code> | <code>[RequestOptionsOrDict](adyen/core/request_options.py) \| None</code> | Per-call overrides for this one request, such as a timeout, extra headers, or its retry count and statuses. |
 
 </dd>
 </dl>
@@ -26135,7 +27751,7 @@ Deletes the token identified in the path. The token can no longer be used with p
 ```python
 try:
     client.recurring_api.delete_stored_payment_methods_stored_payment_method_id(
-        stored_payment_method_id, shopper_reference, merchant_account
+        "some example string", "some example string", "some example string"
     )
 except ApiError as e:
     ...  # TODO: Handle 'e.error' of type RawError
@@ -26146,7 +27762,7 @@ except ApiError as e:
 ```python
 try:
     await async_client.recurring_api.delete_stored_payment_methods_stored_payment_method_id(
-        stored_payment_method_id, shopper_reference, merchant_account
+        "some example string", "some example string", "some example string"
     )
 except ApiError as e:
     ...  # TODO: Handle 'e.error' of type RawError
@@ -26165,7 +27781,7 @@ except ApiError as e:
 | <code>stored_payment_method_id</code> | <code>str</code> | The unique identifier of the token. |
 | <code>shopper_reference</code> | <code>str</code> | Your reference to uniquely identify this shopper, for example user ID or account ID. Minimum length: 3 characters.<br>> Your reference must not include personally identifiable information (PII), for example name or email address. |
 | <code>merchant_account</code> | <code>str</code> | Your merchant account. |
-| <code>request_options</code> | <code>[RequestOptionsOrDict](adyen/core/request_options.py) \| None</code> | Per-call overrides for this one request, such as a timeout or extra headers. |
+| <code>request_options</code> | <code>[RequestOptionsOrDict](adyen/core/request_options.py) \| None</code> | Per-call overrides for this one request, such as a timeout, extra headers, or its retry count and statuses. |
 
 </dd>
 </dl>
@@ -26240,7 +27856,7 @@ except ApiError as e:
 | --- | --- | --- |
 | <code>shopper_reference</code> | <code>str \| None</code> | Your reference to uniquely identify this shopper, for example user ID or account ID. Minimum length: 3 characters.<br>> Your reference must not include personally identifiable information (PII), for example name or email address.<br>**Default**: <code>None</code> |
 | <code>merchant_account</code> | <code>str \| None</code> | Your merchant account.<br>**Default**: <code>None</code> |
-| <code>request_options</code> | <code>[RequestOptionsOrDict](adyen/core/request_options.py) \| None</code> | Per-call overrides for this one request, such as a timeout or extra headers. |
+| <code>request_options</code> | <code>[RequestOptionsOrDict](adyen/core/request_options.py) \| None</code> | Per-call overrides for this one request, such as a timeout, extra headers, or its retry count and statuses. |
 
 </dd>
 </dl>
@@ -26287,7 +27903,22 @@ Forwards the payment details you stored with Adyen to a third-party that you spe
 
 ```python
 try:
-    response = client.recurring_api.post_forward()
+    response = client.recurring_api.post_forward(
+        idempotency_key="37ca9c97-d1d1-4c62-89e8-706891a563ed",
+        body=CheckoutForwardRequest(
+            base_url="http://thirdparty.example.com",
+            merchant_account="YOUR_MERCHANT_ACCOUNT",
+            request=CheckoutOutgoingForwardRequest2(
+                body="{\"amount\":{\"value\":100,\"currency\":\"USD\"},\"paymentMethod\":{\"creditCard\":{\"holderName\":\"{{holderName}}\",\"number\":\"{{number}}\",\"expiryMonth\":\"{{expiryMonth}}\",\"expiryYear\":\"{{expiryYear}}\"}}}",
+                credentials="YOUR_CREDENTIALS_FOR_THE_THIRD_PARTY",
+                headers={"Authorization": "Basic {{credentials}}"},
+                http_method=HttpMethodModel.POST,
+                url_suffix="/payments",
+            ),
+            shopper_reference="YOUR_SHOPPER_REFERENCE",
+            stored_payment_method_id="M5N7TQ4TG5PFWR50",
+        ),
+    )
     # TODO: Handle 'response' of type CheckoutForwardResponse
 except ApiError as e:
     ...  # TODO: Handle 'e.error' of type RawError
@@ -26297,7 +27928,22 @@ except ApiError as e:
 
 ```python
 try:
-    response = await async_client.recurring_api.post_forward()
+    response = await async_client.recurring_api.post_forward(
+        idempotency_key="37ca9c97-d1d1-4c62-89e8-706891a563ed",
+        body=CheckoutForwardRequest(
+            base_url="http://thirdparty.example.com",
+            merchant_account="YOUR_MERCHANT_ACCOUNT",
+            request=CheckoutOutgoingForwardRequest2(
+                body="{\"amount\":{\"value\":100,\"currency\":\"USD\"},\"paymentMethod\":{\"creditCard\":{\"holderName\":\"{{holderName}}\",\"number\":\"{{number}}\",\"expiryMonth\":\"{{expiryMonth}}\",\"expiryYear\":\"{{expiryYear}}\"}}}",
+                credentials="YOUR_CREDENTIALS_FOR_THE_THIRD_PARTY",
+                headers={"Authorization": "Basic {{credentials}}"},
+                http_method=HttpMethodModel.POST,
+                url_suffix="/payments",
+            ),
+            shopper_reference="YOUR_SHOPPER_REFERENCE",
+            stored_payment_method_id="M5N7TQ4TG5PFWR50",
+        ),
+    )
     # TODO: Handle 'response' of type CheckoutForwardResponse
 except ApiError as e:
     ...  # TODO: Handle 'e.error' of type RawError
@@ -26315,7 +27961,7 @@ except ApiError as e:
 | --- | --- | --- |
 | <code>idempotency_key</code> | <code>str \| None</code> | A unique identifier for the message with a maximum of 64 characters (we recommend a UUID).<br>**Default**: <code>None</code> |
 | <code>body</code> | <code>[CheckoutForwardRequest](adyen/models/checkout_forward_request.py) \| [CheckoutForwardRequestDict](adyen/models/checkout_forward_request.py) \| None</code> | The request body.<br>**Default**: <code>None</code> |
-| <code>request_options</code> | <code>[RequestOptionsOrDict](adyen/core/request_options.py) \| None</code> | Per-call overrides for this one request, such as a timeout or extra headers. |
+| <code>request_options</code> | <code>[RequestOptionsOrDict](adyen/core/request_options.py) \| None</code> | Per-call overrides for this one request, such as a timeout, extra headers, or its retry count and statuses. |
 
 </dd>
 </dl>
@@ -26362,7 +28008,24 @@ Creates a token to store the shopper's payment details. This token can be used f
 
 ```python
 try:
-    response = client.recurring_api.post_stored_payment_methods()
+    response = client.recurring_api.post_stored_payment_methods(
+        idempotency_key="37ca9c97-d1d1-4c62-89e8-706891a563ed",
+        body=StoredPaymentMethodRequest(
+            merchant_account="YOUR_MERCHANT_ACCOUNT",
+            payment_method=PaymentMethodToStore1(
+                encrypted_card_number="test_4111111111111111",
+                encrypted_expiry_month="test_03",
+                encrypted_expiry_year="test_2030",
+                encrypted_security_code="test_737",
+                holder_name="John Smith",
+                type_="scheme",
+            ),
+            recurring_processing_model=RecurringProcessingModel1.SUBSCRIPTION,
+            shopper_email="s.hopper@test.com",
+            shopper_ip="192.0.2.1",
+            shopper_reference="YOUR_SHOPPER_REFERENCE",
+        ),
+    )
     # TODO: Handle 'response' of type StoredPaymentMethodResource
 except ApiError as e:
     ...  # TODO: Handle 'e.error' of type RawError
@@ -26372,7 +28035,24 @@ except ApiError as e:
 
 ```python
 try:
-    response = await async_client.recurring_api.post_stored_payment_methods()
+    response = await async_client.recurring_api.post_stored_payment_methods(
+        idempotency_key="37ca9c97-d1d1-4c62-89e8-706891a563ed",
+        body=StoredPaymentMethodRequest(
+            merchant_account="YOUR_MERCHANT_ACCOUNT",
+            payment_method=PaymentMethodToStore1(
+                encrypted_card_number="test_4111111111111111",
+                encrypted_expiry_month="test_03",
+                encrypted_expiry_year="test_2030",
+                encrypted_security_code="test_737",
+                holder_name="John Smith",
+                type_="scheme",
+            ),
+            recurring_processing_model=RecurringProcessingModel1.SUBSCRIPTION,
+            shopper_email="s.hopper@test.com",
+            shopper_ip="192.0.2.1",
+            shopper_reference="YOUR_SHOPPER_REFERENCE",
+        ),
+    )
     # TODO: Handle 'response' of type StoredPaymentMethodResource
 except ApiError as e:
     ...  # TODO: Handle 'e.error' of type RawError
@@ -26390,7 +28070,7 @@ except ApiError as e:
 | --- | --- | --- |
 | <code>idempotency_key</code> | <code>str \| None</code> | A unique identifier for the message with a maximum of 64 characters (we recommend a UUID).<br>**Default**: <code>None</code> |
 | <code>body</code> | <code>[StoredPaymentMethodRequest](adyen/models/stored_payment_method_request.py) \| [StoredPaymentMethodRequestDict](adyen/models/stored_payment_method_request.py) \| None</code> | The request body.<br>**Default**: <code>None</code> |
-| <code>request_options</code> | <code>[RequestOptionsOrDict](adyen/core/request_options.py) \| None</code> | Per-call overrides for this one request, such as a timeout or extra headers. |
+| <code>request_options</code> | <code>[RequestOptionsOrDict](adyen/core/request_options.py) \| None</code> | Per-call overrides for this one request, such as a timeout, extra headers, or its retry count and statuses. |
 
 </dd>
 </dl>
@@ -26444,7 +28124,7 @@ For more information, refer to [Manage recurring top-ups](https://docs.adyen.com
 ```python
 try:
     response = client.recurring_top_ups.delete_balance_accounts_balance_account_id_recurring_top_ups_top_up_id(
-        balance_account_id, top_up_id
+        "some example string", "some example string"
     )
     # TODO: Handle 'response' of type Any
 except ApiError as e:
@@ -26456,7 +28136,7 @@ except ApiError as e:
 ```python
 try:
     response = await async_client.recurring_top_ups.delete_balance_accounts_balance_account_id_recurring_top_ups_top_up_id(
-        balance_account_id, top_up_id
+        "some example string", "some example string"
     )
     # TODO: Handle 'response' of type Any
 except ApiError as e:
@@ -26475,7 +28155,7 @@ except ApiError as e:
 | --- | --- | --- |
 | <code>balance_account_id</code> | <code>str</code> | The unique identifier of the balance account. |
 | <code>top_up_id</code> | <code>str</code> | The unique identifier of the recurring top-up you want to delete. |
-| <code>request_options</code> | <code>[RequestOptionsOrDict](adyen/core/request_options.py) \| None</code> | Per-call overrides for this one request, such as a timeout or extra headers. |
+| <code>request_options</code> | <code>[RequestOptionsOrDict](adyen/core/request_options.py) \| None</code> | Per-call overrides for this one request, such as a timeout, extra headers, or its retry count and statuses. |
 
 </dd>
 </dl>
@@ -26531,7 +28211,7 @@ For more information, refer to [Manage recurring top-ups](https://docs.adyen.com
 
 ```python
 try:
-    response = client.recurring_top_ups.get_balance_accounts_balance_account_id_recurring_top_ups(balance_account_id)
+    response = client.recurring_top_ups.get_balance_accounts_balance_account_id_recurring_top_ups("some example string")
     # TODO: Handle 'response' of type RecurringTopUpsResult
 except ApiError as e:
     ...  # TODO: Handle 'e.error' of type GetBalanceAccountsBalanceAccountIdRecurringTopUpsErrorBody
@@ -26542,7 +28222,7 @@ except ApiError as e:
 ```python
 try:
     response = await async_client.recurring_top_ups.get_balance_accounts_balance_account_id_recurring_top_ups(
-        balance_account_id
+        "some example string"
     )
     # TODO: Handle 'response' of type RecurringTopUpsResult
 except ApiError as e:
@@ -26562,7 +28242,7 @@ except ApiError as e:
 | <code>balance_account_id</code> | <code>str</code> | The unique identifier of the balance account. |
 | <code>limit</code> | <code>int \| None</code> | The number of items to return per page. Value must be between 1 and 100.<br>**Default**: <code>10</code> |
 | <code>cursor</code> | <code>str \| None</code> | The cursor used for pagination. Required if you want to see the next or previous page of results.<br>**Default**: <code>None</code> |
-| <code>request_options</code> | <code>[RequestOptionsOrDict](adyen/core/request_options.py) \| None</code> | Per-call overrides for this one request, such as a timeout or extra headers. |
+| <code>request_options</code> | <code>[RequestOptionsOrDict](adyen/core/request_options.py) \| None</code> | Per-call overrides for this one request, such as a timeout, extra headers, or its retry count and statuses. |
 
 </dd>
 </dl>
@@ -26619,7 +28299,7 @@ For more information, refer to [Manage recurring top-ups](https://docs.adyen.com
 ```python
 try:
     response = client.recurring_top_ups.patch_balance_accounts_balance_account_id_recurring_top_ups_top_up_id(
-        balance_account_id, top_up_id, body
+        "some example string", "some example string", PatchableCreateRecurringTopUp(description="new description")
     )
     # TODO: Handle 'response' of type RecurringTopUp
 except ApiError as e:
@@ -26631,7 +28311,7 @@ except ApiError as e:
 ```python
 try:
     response = await async_client.recurring_top_ups.patch_balance_accounts_balance_account_id_recurring_top_ups_top_up_id(
-        balance_account_id, top_up_id, body
+        "some example string", "some example string", PatchableCreateRecurringTopUp(description="new description")
     )
     # TODO: Handle 'response' of type RecurringTopUp
 except ApiError as e:
@@ -26651,7 +28331,7 @@ except ApiError as e:
 | <code>balance_account_id</code> | <code>str</code> | The unique identifier of the balance account. |
 | <code>top_up_id</code> | <code>str</code> | The unique identifier of the recurring top-up you want to update. |
 | <code>body</code> | <code>[PatchableCreateRecurringTopUp](adyen/models/patchable_create_recurring_top_up.py) \| [PatchableCreateRecurringTopUpDict](adyen/models/patchable_create_recurring_top_up.py)</code> | The request body. |
-| <code>request_options</code> | <code>[RequestOptionsOrDict](adyen/core/request_options.py) \| None</code> | Per-call overrides for this one request, such as a timeout or extra headers. |
+| <code>request_options</code> | <code>[RequestOptionsOrDict](adyen/core/request_options.py) \| None</code> | Per-call overrides for this one request, such as a timeout, extra headers, or its retry count and statuses. |
 
 </dd>
 </dl>
@@ -26708,7 +28388,15 @@ For more information, refer to [Create recurring top-ups](https://docs.adyen.com
 ```python
 try:
     response = client.recurring_top_ups.post_balance_accounts_balance_account_id_recurring_top_ups(
-        balance_account_id, body
+        "some example string",
+        CreateRecurringTopUp(
+            counterparty=TopUpCounterparty1(transfer_instrument_id="SE000000000000000000000001"),
+            description="My description",
+            top_up_amount=TopUpAmount1(fixed=Amount17(currency="EUR", value=1000)),
+            trigger=Trigger1(
+                schedule=Schedule21(type_=ScheduleType1.WEEKDAYS), threshold=Amount17(currency="EUR", value=100)
+            ),
+        ),
     )
     # TODO: Handle 'response' of type RecurringTopUp
 except ApiError as e:
@@ -26720,7 +28408,15 @@ except ApiError as e:
 ```python
 try:
     response = await async_client.recurring_top_ups.post_balance_accounts_balance_account_id_recurring_top_ups(
-        balance_account_id, body
+        "some example string",
+        CreateRecurringTopUp(
+            counterparty=TopUpCounterparty1(transfer_instrument_id="SE000000000000000000000001"),
+            description="My description",
+            top_up_amount=TopUpAmount1(fixed=Amount17(currency="EUR", value=1000)),
+            trigger=Trigger1(
+                schedule=Schedule21(type_=ScheduleType1.WEEKDAYS), threshold=Amount17(currency="EUR", value=100)
+            ),
+        ),
     )
     # TODO: Handle 'response' of type RecurringTopUp
 except ApiError as e:
@@ -26739,7 +28435,7 @@ except ApiError as e:
 | --- | --- | --- |
 | <code>balance_account_id</code> | <code>str</code> | The unique identifier of the balance account. |
 | <code>body</code> | <code>[CreateRecurringTopUp](adyen/models/create_recurring_top_up.py) \| [CreateRecurringTopUpDict](adyen/models/create_recurring_top_up.py)</code> | The request body. |
-| <code>request_options</code> | <code>[RequestOptionsOrDict](adyen/core/request_options.py) \| None</code> | Per-call overrides for this one request, such as a timeout or extra headers. |
+| <code>request_options</code> | <code>[RequestOptionsOrDict](adyen/core/request_options.py) \| None</code> | Per-call overrides for this one request, such as a timeout, extra headers, or its retry count and statuses. |
 
 </dd>
 </dl>
@@ -26810,7 +28506,9 @@ To cancel a payout, use the `/declineThirdParty` endpoint.
 
 ```python
 try:
-    response = client.reviewing.post_confirm_third_party()
+    response = client.reviewing.post_confirm_third_party(
+        body=ModifyRequest(merchant_account="YOUR_MERCHANT_ACCOUNT", original_reference="9913140798220028")
+    )
     # TODO: Handle 'response' of type ModifyResponse
 except ApiError as e:
     ...  # TODO: Handle 'e.error' of type PostConfirmThirdPartyErrorBody
@@ -26820,7 +28518,9 @@ except ApiError as e:
 
 ```python
 try:
-    response = await async_client.reviewing.post_confirm_third_party()
+    response = await async_client.reviewing.post_confirm_third_party(
+        body=ModifyRequest(merchant_account="YOUR_MERCHANT_ACCOUNT", original_reference="9913140798220028")
+    )
     # TODO: Handle 'response' of type ModifyResponse
 except ApiError as e:
     ...  # TODO: Handle 'e.error' of type PostConfirmThirdPartyErrorBody
@@ -26837,7 +28537,7 @@ except ApiError as e:
 | Name | Type | Description |
 | --- | --- | --- |
 | <code>body</code> | <code>[ModifyRequest](adyen/models/modify_request.py) \| [ModifyRequestDict](adyen/models/modify_request.py) \| None</code> | The request body.<br>**Default**: <code>None</code> |
-| <code>request_options</code> | <code>[RequestOptionsOrDict](adyen/core/request_options.py) \| None</code> | Per-call overrides for this one request, such as a timeout or extra headers. |
+| <code>request_options</code> | <code>[RequestOptionsOrDict](adyen/core/request_options.py) \| None</code> | Per-call overrides for this one request, such as a timeout, extra headers, or its retry count and statuses. |
 
 </dd>
 </dl>
@@ -26904,7 +28604,9 @@ To confirm and send a payout, use the `/confirmThirdParty` endpoint.
 
 ```python
 try:
-    response = client.reviewing.post_decline_third_party()
+    response = client.reviewing.post_decline_third_party(
+        body=ModifyRequest(merchant_account="YOUR_MERCHANT_ACCOUNT", original_reference="9913140798220028")
+    )
     # TODO: Handle 'response' of type ModifyResponse
 except ApiError as e:
     ...  # TODO: Handle 'e.error' of type PostDeclineThirdPartyErrorBody
@@ -26914,7 +28616,9 @@ except ApiError as e:
 
 ```python
 try:
-    response = await async_client.reviewing.post_decline_third_party()
+    response = await async_client.reviewing.post_decline_third_party(
+        body=ModifyRequest(merchant_account="YOUR_MERCHANT_ACCOUNT", original_reference="9913140798220028")
+    )
     # TODO: Handle 'response' of type ModifyResponse
 except ApiError as e:
     ...  # TODO: Handle 'e.error' of type PostDeclineThirdPartyErrorBody
@@ -26931,7 +28635,7 @@ except ApiError as e:
 | Name | Type | Description |
 | --- | --- | --- |
 | <code>body</code> | <code>[ModifyRequest](adyen/models/modify_request.py) \| [ModifyRequestDict](adyen/models/modify_request.py) \| None</code> | The request body.<br>**Default**: <code>None</code> |
-| <code>request_options</code> | <code>[RequestOptionsOrDict](adyen/core/request_options.py) \| None</code> | Per-call overrides for this one request, such as a timeout or extra headers. |
+| <code>request_options</code> | <code>[RequestOptionsOrDict](adyen/core/request_options.py) \| None</code> | Per-call overrides for this one request, such as a timeout, extra headers, or its retry count and statuses. |
 
 </dd>
 </dl>
@@ -26989,7 +28693,14 @@ Deletes one or more SCA associations for a device.
 
 ```python
 try:
-    client.sca_association_management.delete_sca_associations(www_authenticate)
+    client.sca_association_management.delete_sca_associations(
+        "some example string",
+        body=RemoveAssociationRequest(
+            entity_id="AH00000000000000000000001",
+            entity_type=ScaEntityType3.ACCOUNT_HOLDER,
+            sca_device_ids=["BSDR42XV3223223S5N6CDQDGH53M8H"],
+        ),
+    )
 except ApiError as e:
     ...  # TODO: Handle 'e.error' of type DeleteScaAssociationsErrorBody
 ```
@@ -26998,7 +28709,14 @@ except ApiError as e:
 
 ```python
 try:
-    await async_client.sca_association_management.delete_sca_associations(www_authenticate)
+    await async_client.sca_association_management.delete_sca_associations(
+        "some example string",
+        body=RemoveAssociationRequest(
+            entity_id="AH00000000000000000000001",
+            entity_type=ScaEntityType3.ACCOUNT_HOLDER,
+            sca_device_ids=["BSDR42XV3223223S5N6CDQDGH53M8H"],
+        ),
+    )
 except ApiError as e:
     ...  # TODO: Handle 'e.error' of type DeleteScaAssociationsErrorBody
 ```
@@ -27015,7 +28733,7 @@ except ApiError as e:
 | --- | --- | --- |
 | <code>www_authenticate</code> | <code>str</code> | The header for authenticating through SCA. |
 | <code>body</code> | <code>[RemoveAssociationRequest](adyen/models/remove_association_request.py) \| [RemoveAssociationRequestDict](adyen/models/remove_association_request.py) \| None</code> | The request body.<br>**Default**: <code>None</code> |
-| <code>request_options</code> | <code>[RequestOptionsOrDict](adyen/core/request_options.py) \| None</code> | Per-call overrides for this one request, such as a timeout or extra headers. |
+| <code>request_options</code> | <code>[RequestOptionsOrDict](adyen/core/request_options.py) \| None</code> | Per-call overrides for this one request, such as a timeout, extra headers, or its retry count and statuses. |
 
 </dd>
 </dl>
@@ -27069,7 +28787,9 @@ Returns a paginated list of the SCA devices associated with a specific entity.
 
 ```python
 try:
-    response = client.sca_association_management.get_sca_associations(entity_type, entity_id, page_size, page_number)
+    response = client.sca_association_management.get_sca_associations(
+        ScaEntityType.ACCOUNT_HOLDER, "some example string", 1, 1
+    )
     # TODO: Handle 'response' of type ListAssociationsResponse
 except ApiError as e:
     ...  # TODO: Handle 'e.error' of type GetScaAssociationsErrorBody
@@ -27080,7 +28800,7 @@ except ApiError as e:
 ```python
 try:
     response = await async_client.sca_association_management.get_sca_associations(
-        entity_type, entity_id, page_size, page_number
+        ScaEntityType.ACCOUNT_HOLDER, "some example string", 1, 1
     )
     # TODO: Handle 'response' of type ListAssociationsResponse
 except ApiError as e:
@@ -27101,7 +28821,7 @@ except ApiError as e:
 | <code>entity_id</code> | <code>str</code> | The unique identifier of the entity. |
 | <code>page_size</code> | <code>int</code> | The number of items to have on a page. <br><br>Default: **5**. |
 | <code>page_number</code> | <code>int</code> | The index of the page to retrieve. The index of the first page is **0** (zero). <br><br>Default:  **0**. |
-| <code>request_options</code> | <code>[RequestOptionsOrDict](adyen/core/request_options.py) \| None</code> | Per-call overrides for this one request, such as a timeout or extra headers. |
+| <code>request_options</code> | <code>[RequestOptionsOrDict](adyen/core/request_options.py) \| None</code> | Per-call overrides for this one request, such as a timeout, extra headers, or its retry count and statuses. |
 
 </dd>
 </dl>
@@ -27155,7 +28875,15 @@ Approves a previously created association that is in a pending state.
 
 ```python
 try:
-    response = client.sca_association_management.patch_sca_associations(www_authenticate)
+    response = client.sca_association_management.patch_sca_associations(
+        "some example string",
+        body=ApproveAssociationRequest(
+            entity_id="AH00000000000000000000001",
+            entity_type=ScaEntityType2.ACCOUNT_HOLDER,
+            sca_device_ids=["BSDR42XV3223223S5N6CDQDGH53M8H"],
+            status=AssociationStatus1.ACTIVE,
+        ),
+    )
     # TODO: Handle 'response' of type ApproveAssociationResponse
 except ApiError as e:
     ...  # TODO: Handle 'e.error' of type PatchScaAssociationsErrorBody
@@ -27165,7 +28893,15 @@ except ApiError as e:
 
 ```python
 try:
-    response = await async_client.sca_association_management.patch_sca_associations(www_authenticate)
+    response = await async_client.sca_association_management.patch_sca_associations(
+        "some example string",
+        body=ApproveAssociationRequest(
+            entity_id="AH00000000000000000000001",
+            entity_type=ScaEntityType2.ACCOUNT_HOLDER,
+            sca_device_ids=["BSDR42XV3223223S5N6CDQDGH53M8H"],
+            status=AssociationStatus1.ACTIVE,
+        ),
+    )
     # TODO: Handle 'response' of type ApproveAssociationResponse
 except ApiError as e:
     ...  # TODO: Handle 'e.error' of type PatchScaAssociationsErrorBody
@@ -27183,7 +28919,7 @@ except ApiError as e:
 | --- | --- | --- |
 | <code>www_authenticate</code> | <code>str</code> | The header for authenticating through SCA. |
 | <code>body</code> | <code>[ApproveAssociationRequest](adyen/models/approve_association_request.py) \| [ApproveAssociationRequestDict](adyen/models/approve_association_request.py) \| None</code> | The request body.<br>**Default**: <code>None</code> |
-| <code>request_options</code> | <code>[RequestOptionsOrDict](adyen/core/request_options.py) \| None</code> | Per-call overrides for this one request, such as a timeout or extra headers. |
+| <code>request_options</code> | <code>[RequestOptionsOrDict](adyen/core/request_options.py) \| None</code> | Per-call overrides for this one request, such as a timeout, extra headers, or its retry count and statuses. |
 
 </dd>
 </dl>
@@ -27241,7 +28977,7 @@ Deletes a Strong Customer Authentication (SCA) device.
 
 ```python
 try:
-    client.sca_device_management.delete_sca_devices_device_id(device_id)
+    client.sca_device_management.delete_sca_devices_device_id("some example string")
 except ApiError as e:
     ...  # TODO: Handle 'e.error' of type DeleteScaDevicesDeviceIdErrorBody
 ```
@@ -27250,7 +28986,7 @@ except ApiError as e:
 
 ```python
 try:
-    await async_client.sca_device_management.delete_sca_devices_device_id(device_id)
+    await async_client.sca_device_management.delete_sca_devices_device_id("some example string")
 except ApiError as e:
     ...  # TODO: Handle 'e.error' of type DeleteScaDevicesDeviceIdErrorBody
 ```
@@ -27266,7 +29002,7 @@ except ApiError as e:
 | Name | Type | Description |
 | --- | --- | --- |
 | <code>device_id</code> | <code>str</code> | The unique identifier of the SCA device to delete. |
-| <code>request_options</code> | <code>[RequestOptionsOrDict](adyen/core/request_options.py) \| None</code> | Per-call overrides for this one request, such as a timeout or extra headers. |
+| <code>request_options</code> | <code>[RequestOptionsOrDict](adyen/core/request_options.py) \| None</code> | Per-call overrides for this one request, such as a timeout, extra headers, or its retry count and statuses. |
 
 </dd>
 </dl>
@@ -27320,7 +29056,12 @@ Finishes the registration process for a new Strong Customer Authentication (SCA)
 
 ```python
 try:
-    response = client.sca_device_management.patch_sca_devices_device_id(device_id)
+    response = client.sca_device_management.patch_sca_devices_device_id(
+        "some example string",
+        body=FinishScaDeviceRegistrationRequest(
+            sdk_output="eyJjaGFsbGVuZ2UiOiJVWEZaTURONGNXWjZUVFExUlhWV2JuaEJPVzVzTm05cVVEUktUbFZtZGtrPSJ9"
+        ),
+    )
     # TODO: Handle 'response' of type FinishScaDeviceRegistrationResponse
 except ApiError as e:
     ...  # TODO: Handle 'e.error' of type PatchScaDevicesDeviceIdErrorBody
@@ -27330,7 +29071,12 @@ except ApiError as e:
 
 ```python
 try:
-    response = await async_client.sca_device_management.patch_sca_devices_device_id(device_id)
+    response = await async_client.sca_device_management.patch_sca_devices_device_id(
+        "some example string",
+        body=FinishScaDeviceRegistrationRequest(
+            sdk_output="eyJjaGFsbGVuZ2UiOiJVWEZaTURONGNXWjZUVFExUlhWV2JuaEJPVzVzTm05cVVEUktUbFZtZGtrPSJ9"
+        ),
+    )
     # TODO: Handle 'response' of type FinishScaDeviceRegistrationResponse
 except ApiError as e:
     ...  # TODO: Handle 'e.error' of type PatchScaDevicesDeviceIdErrorBody
@@ -27348,7 +29094,7 @@ except ApiError as e:
 | --- | --- | --- |
 | <code>device_id</code> | <code>str</code> | The unique identifier of the SCA device that you are associating with a resource. |
 | <code>body</code> | <code>[FinishScaDeviceRegistrationRequest](adyen/models/finish_sca_device_registration_request.py) \| [FinishScaDeviceRegistrationRequestDict](adyen/models/finish_sca_device_registration_request.py) \| None</code> | The request body.<br>**Default**: <code>None</code> |
-| <code>request_options</code> | <code>[RequestOptionsOrDict](adyen/core/request_options.py) \| None</code> | Per-call overrides for this one request, such as a timeout or extra headers. |
+| <code>request_options</code> | <code>[RequestOptionsOrDict](adyen/core/request_options.py) \| None</code> | Per-call overrides for this one request, such as a timeout, extra headers, or its retry count and statuses. |
 
 </dd>
 </dl>
@@ -27402,7 +29148,12 @@ Begins the registration process for a new Strong Customer Authentication (SCA) d
 
 ```python
 try:
-    response = client.sca_device_management.post_sca_devices()
+    response = client.sca_device_management.post_sca_devices(
+        body=BeginScaDeviceRegistrationRequest(
+            name="My Device",
+            sdk_output="eyJjaGFsbGVuZ2UiOiJVWEZaTURONGNXWjZUVFExUlhWV2JuaEJPVzVzTm05cVVEUktUbFZtZGtrPSJ9",
+        ),
+    )
     # TODO: Handle 'response' of type BeginScaDeviceRegistrationResponse
 except ApiError as e:
     ...  # TODO: Handle 'e.error' of type PostScaDevicesErrorBody
@@ -27412,7 +29163,12 @@ except ApiError as e:
 
 ```python
 try:
-    response = await async_client.sca_device_management.post_sca_devices()
+    response = await async_client.sca_device_management.post_sca_devices(
+        body=BeginScaDeviceRegistrationRequest(
+            name="My Device",
+            sdk_output="eyJjaGFsbGVuZ2UiOiJVWEZaTURONGNXWjZUVFExUlhWV2JuaEJPVzVzTm05cVVEUktUbFZtZGtrPSJ9",
+        ),
+    )
     # TODO: Handle 'response' of type BeginScaDeviceRegistrationResponse
 except ApiError as e:
     ...  # TODO: Handle 'e.error' of type PostScaDevicesErrorBody
@@ -27429,7 +29185,7 @@ except ApiError as e:
 | Name | Type | Description |
 | --- | --- | --- |
 | <code>body</code> | <code>[BeginScaDeviceRegistrationRequest](adyen/models/begin_sca_device_registration_request.py) \| [BeginScaDeviceRegistrationRequestDict](adyen/models/begin_sca_device_registration_request.py) \| None</code> | The request body.<br>**Default**: <code>None</code> |
-| <code>request_options</code> | <code>[RequestOptionsOrDict](adyen/core/request_options.py) \| None</code> | Per-call overrides for this one request, such as a timeout or extra headers. |
+| <code>request_options</code> | <code>[RequestOptionsOrDict](adyen/core/request_options.py) \| None</code> | Per-call overrides for this one request, such as a timeout, extra headers, or its retry count and statuses. |
 
 </dd>
 </dl>
@@ -27483,7 +29239,12 @@ Creates an association between an SCA-enabled device and an entity, such as an a
 
 ```python
 try:
-    response = client.sca_device_management.post_sca_devices_device_id_sca_associations(device_id)
+    response = client.sca_device_management.post_sca_devices_device_id_sca_associations(
+        "some example string",
+        body=SubmitScaAssociationRequest(
+            entities=[ScaEntity(id="AH00000000000000000000001", type_=ScaEntityType4.ACCOUNT_HOLDER)]
+        ),
+    )
     # TODO: Handle 'response' of type SubmitScaAssociationResponse
 except ApiError as e:
     ...  # TODO: Handle 'e.error' of type PostScaDevicesDeviceIdScaAssociationsErrorBody
@@ -27493,7 +29254,12 @@ except ApiError as e:
 
 ```python
 try:
-    response = await async_client.sca_device_management.post_sca_devices_device_id_sca_associations(device_id)
+    response = await async_client.sca_device_management.post_sca_devices_device_id_sca_associations(
+        "some example string",
+        body=SubmitScaAssociationRequest(
+            entities=[ScaEntity(id="AH00000000000000000000001", type_=ScaEntityType4.ACCOUNT_HOLDER)]
+        ),
+    )
     # TODO: Handle 'response' of type SubmitScaAssociationResponse
 except ApiError as e:
     ...  # TODO: Handle 'e.error' of type PostScaDevicesDeviceIdScaAssociationsErrorBody
@@ -27511,7 +29277,7 @@ except ApiError as e:
 | --- | --- | --- |
 | <code>device_id</code> | <code>str</code> | The unique identifier of the SCA device that you are associating with a resource. |
 | <code>body</code> | <code>[SubmitScaAssociationRequest](adyen/models/submit_sca_association_request.py) \| [SubmitScaAssociationRequestDict](adyen/models/submit_sca_association_request.py) \| None</code> | The request body.<br>**Default**: <code>None</code> |
-| <code>request_options</code> | <code>[RequestOptionsOrDict](adyen/core/request_options.py) \| None</code> | Per-call overrides for this one request, such as a timeout or extra headers. |
+| <code>request_options</code> | <code>[RequestOptionsOrDict](adyen/core/request_options.py) \| None</code> | Per-call overrides for this one request, such as a timeout, extra headers, or its retry count and statuses. |
 
 </dd>
 </dl>
@@ -27569,7 +29335,11 @@ Establishes a secure communication session between the Mobile SDK and the Adyen 
 
 ```python
 try:
-    response = client.session_authentication.post_auth_certificate()
+    response = client.session_authentication.post_auth_certificate(
+        body=CertificateLoadingRequest(
+            merchant_account="YOUR_MERCHANT_ACCOUNT", setup_token="SETUP_TOKEN", store="YOUR_STORE_REFERENCE"
+        ),
+    )
     # TODO: Handle 'response' of type CertificateLoadingResponse
 except ApiError as e:
     ...  # TODO: Handle 'e.error' of type PostAuthCertificateErrorBody
@@ -27579,7 +29349,11 @@ except ApiError as e:
 
 ```python
 try:
-    response = await async_client.session_authentication.post_auth_certificate()
+    response = await async_client.session_authentication.post_auth_certificate(
+        body=CertificateLoadingRequest(
+            merchant_account="YOUR_MERCHANT_ACCOUNT", setup_token="SETUP_TOKEN", store="YOUR_STORE_REFERENCE"
+        ),
+    )
     # TODO: Handle 'response' of type CertificateLoadingResponse
 except ApiError as e:
     ...  # TODO: Handle 'e.error' of type PostAuthCertificateErrorBody
@@ -27597,7 +29371,7 @@ except ApiError as e:
 | --- | --- | --- |
 | <code>x_api_key</code> | <code>str \| None</code> | The API key to authenticate API requests.<br>**Default**: <code>None</code> |
 | <code>body</code> | <code>[CertificateLoadingRequest](adyen/models/certificate_loading_request.py) \| [CertificateLoadingRequestDict](adyen/models/certificate_loading_request.py) \| None</code> | The request body.<br>**Default**: <code>None</code> |
-| <code>request_options</code> | <code>[RequestOptionsOrDict](adyen/core/request_options.py) \| None</code> | Per-call overrides for this one request, such as a timeout or extra headers. |
+| <code>request_options</code> | <code>[RequestOptionsOrDict](adyen/core/request_options.py) \| None</code> | Per-call overrides for this one request, such as a timeout, extra headers, or its retry count and statuses. |
 
 </dd>
 </dl>
@@ -27655,7 +29429,16 @@ To create a token, you must meet specific requirements. These requirements vary 
 
 ```python
 try:
-    response = client.session_authentication.post_sessions2(body)
+    response = client.session_authentication.post_sessions2(
+        AuthenticationSessionRequest(
+            allow_origin="https://www.your-website.com",
+            policy=Policy2(
+                resources=[LegalEntityResource(type_="legalEntity", legal_entity_id="LE00000000000000000000001")],
+                roles=["createTransferInstrumentComponent", "manageTransferInstrumentComponent"],
+            ),
+            product=ProductType2.ONBOARDING,
+        ),
+    )
     # TODO: Handle 'response' of type AuthenticationSessionResponse
 except ApiError as e:
     ...  # TODO: Handle 'e.error' of type PostSessions2ErrorBody
@@ -27665,7 +29448,16 @@ except ApiError as e:
 
 ```python
 try:
-    response = await async_client.session_authentication.post_sessions2(body)
+    response = await async_client.session_authentication.post_sessions2(
+        AuthenticationSessionRequest(
+            allow_origin="https://www.your-website.com",
+            policy=Policy2(
+                resources=[LegalEntityResource(type_="legalEntity", legal_entity_id="LE00000000000000000000001")],
+                roles=["createTransferInstrumentComponent", "manageTransferInstrumentComponent"],
+            ),
+            product=ProductType2.ONBOARDING,
+        ),
+    )
     # TODO: Handle 'response' of type AuthenticationSessionResponse
 except ApiError as e:
     ...  # TODO: Handle 'e.error' of type PostSessions2ErrorBody
@@ -27682,7 +29474,7 @@ except ApiError as e:
 | Name | Type | Description |
 | --- | --- | --- |
 | <code>body</code> | <code>[AuthenticationSessionRequest](adyen/models/authentication_session_request.py) \| [AuthenticationSessionRequestDict](adyen/models/authentication_session_request.py)</code> | The request body. |
-| <code>request_options</code> | <code>[RequestOptionsOrDict](adyen/core/request_options.py) \| None</code> | Per-call overrides for this one request, such as a timeout or extra headers. |
+| <code>request_options</code> | <code>[RequestOptionsOrDict](adyen/core/request_options.py) \| None</code> | Per-call overrides for this one request, such as a timeout, extra headers, or its retry count and statuses. |
 
 </dd>
 </dl>
@@ -27744,7 +29536,7 @@ To make this request, your API credential must have the following [role](https:/
 ```python
 try:
     response = client.split_configuration_merchant_level.delete_merchants_merchant_id_split_configurations_split_configuration_id(
-        merchant_id, split_configuration_id
+        "some example string", "some example string"
     )
     # TODO: Handle 'response' of type SplitConfiguration
 except ApiError as e:
@@ -27756,7 +29548,7 @@ except ApiError as e:
 ```python
 try:
     response = await async_client.split_configuration_merchant_level.delete_merchants_merchant_id_split_configurations_split_configuration_id(
-        merchant_id, split_configuration_id
+        "some example string", "some example string"
     )
     # TODO: Handle 'response' of type SplitConfiguration
 except ApiError as e:
@@ -27775,7 +29567,7 @@ except ApiError as e:
 | --- | --- | --- |
 | <code>merchant_id</code> | <code>str</code> | The unique identifier of the merchant account. |
 | <code>split_configuration_id</code> | <code>str</code> | The unique identifier of the split configuration. |
-| <code>request_options</code> | <code>[RequestOptionsOrDict](adyen/core/request_options.py) \| None</code> | Per-call overrides for this one request, such as a timeout or extra headers. |
+| <code>request_options</code> | <code>[RequestOptionsOrDict](adyen/core/request_options.py) \| None</code> | Per-call overrides for this one request, such as a timeout, extra headers, or its retry count and statuses. |
 
 </dd>
 </dl>
@@ -27833,7 +29625,7 @@ To make this request, your API credential must have the following [role](https:/
 ```python
 try:
     response = client.split_configuration_merchant_level.delete_merchants_merchant_id_split_configurations_split_configuration_id_rules_rule_id(
-        merchant_id, split_configuration_id, rule_id
+        "some example string", "some example string", "some example string"
     )
     # TODO: Handle 'response' of type SplitConfiguration
 except ApiError as e:
@@ -27847,7 +29639,7 @@ except ApiError as e:
 ```python
 try:
     response = await async_client.split_configuration_merchant_level.delete_merchants_merchant_id_split_configurations_split_configuration_id_rules_rule_id(
-        merchant_id, split_configuration_id, rule_id
+        "some example string", "some example string", "some example string"
     )
     # TODO: Handle 'response' of type SplitConfiguration
 except ApiError as e:
@@ -27869,7 +29661,7 @@ except ApiError as e:
 | <code>merchant_id</code> | <code>str</code> | The unique identifier of the merchant account. |
 | <code>split_configuration_id</code> | <code>str</code> | The unique identifier of the split configuration. |
 | <code>rule_id</code> | <code>str</code> | Value sent with the request. |
-| <code>request_options</code> | <code>[RequestOptionsOrDict](adyen/core/request_options.py) \| None</code> | Per-call overrides for this one request, such as a timeout or extra headers. |
+| <code>request_options</code> | <code>[RequestOptionsOrDict](adyen/core/request_options.py) \| None</code> | Per-call overrides for this one request, such as a timeout, extra headers, or its retry count and statuses. |
 
 </dd>
 </dl>
@@ -27926,7 +29718,9 @@ To make this request, your API credential must have the following [role](https:/
 
 ```python
 try:
-    response = client.split_configuration_merchant_level.get_merchants_merchant_id_split_configurations(merchant_id)
+    response = client.split_configuration_merchant_level.get_merchants_merchant_id_split_configurations(
+        "some example string"
+    )
     # TODO: Handle 'response' of type SplitConfigurationList
 except ApiError as e:
     ...  # TODO: Handle 'e.error' of type GetMerchantsMerchantIdSplitConfigurationsErrorBody
@@ -27937,7 +29731,7 @@ except ApiError as e:
 ```python
 try:
     response = await async_client.split_configuration_merchant_level.get_merchants_merchant_id_split_configurations(
-        merchant_id
+        "some example string"
     )
     # TODO: Handle 'response' of type SplitConfigurationList
 except ApiError as e:
@@ -27955,7 +29749,7 @@ except ApiError as e:
 | Name | Type | Description |
 | --- | --- | --- |
 | <code>merchant_id</code> | <code>str</code> | The unique identifier of the merchant account. |
-| <code>request_options</code> | <code>[RequestOptionsOrDict](adyen/core/request_options.py) \| None</code> | Per-call overrides for this one request, such as a timeout or extra headers. |
+| <code>request_options</code> | <code>[RequestOptionsOrDict](adyen/core/request_options.py) \| None</code> | Per-call overrides for this one request, such as a timeout, extra headers, or its retry count and statuses. |
 
 </dd>
 </dl>
@@ -28013,7 +29807,7 @@ To make this request, your API credential must have the following [role](https:/
 ```python
 try:
     response = client.split_configuration_merchant_level.get_merchants_merchant_id_split_configurations_split_configuration_id(
-        merchant_id, split_configuration_id
+        "some example string", "some example string"
     )
     # TODO: Handle 'response' of type SplitConfiguration
 except ApiError as e:
@@ -28025,7 +29819,7 @@ except ApiError as e:
 ```python
 try:
     response = await async_client.split_configuration_merchant_level.get_merchants_merchant_id_split_configurations_split_configuration_id(
-        merchant_id, split_configuration_id
+        "some example string", "some example string"
     )
     # TODO: Handle 'response' of type SplitConfiguration
 except ApiError as e:
@@ -28044,7 +29838,7 @@ except ApiError as e:
 | --- | --- | --- |
 | <code>merchant_id</code> | <code>str</code> | The unique identifier of the merchant account. |
 | <code>split_configuration_id</code> | <code>str</code> | The unique identifier of the split configuration. |
-| <code>request_options</code> | <code>[RequestOptionsOrDict](adyen/core/request_options.py) \| None</code> | Per-call overrides for this one request, such as a timeout or extra headers. |
+| <code>request_options</code> | <code>[RequestOptionsOrDict](adyen/core/request_options.py) \| None</code> | Per-call overrides for this one request, such as a timeout, extra headers, or its retry count and statuses. |
 
 </dd>
 </dl>
@@ -28102,7 +29896,9 @@ To make this request, your API credential must have the following [role](https:/
 ```python
 try:
     response = client.split_configuration_merchant_level.patch_merchants_merchant_id_split_configurations_split_configuration_id(
-        merchant_id, split_configuration_id
+        "some example string",
+        "some example string",
+        body=UpdateSplitConfigurationRequest(description="Updated description for the split configuration"),
     )
     # TODO: Handle 'response' of type SplitConfiguration
 except ApiError as e:
@@ -28114,7 +29910,9 @@ except ApiError as e:
 ```python
 try:
     response = await async_client.split_configuration_merchant_level.patch_merchants_merchant_id_split_configurations_split_configuration_id(
-        merchant_id, split_configuration_id
+        "some example string",
+        "some example string",
+        body=UpdateSplitConfigurationRequest(description="Updated description for the split configuration"),
     )
     # TODO: Handle 'response' of type SplitConfiguration
 except ApiError as e:
@@ -28134,7 +29932,7 @@ except ApiError as e:
 | <code>merchant_id</code> | <code>str</code> | The unique identifier of the merchant account. |
 | <code>split_configuration_id</code> | <code>str</code> | The unique identifier of the split configuration. |
 | <code>body</code> | <code>[UpdateSplitConfigurationRequest](adyen/models/update_split_configuration_request.py) \| [UpdateSplitConfigurationRequestDict](adyen/models/update_split_configuration_request.py) \| None</code> | The request body.<br>**Default**: <code>None</code> |
-| <code>request_options</code> | <code>[RequestOptionsOrDict](adyen/core/request_options.py) \| None</code> | Per-call overrides for this one request, such as a timeout or extra headers. |
+| <code>request_options</code> | <code>[RequestOptionsOrDict](adyen/core/request_options.py) \| None</code> | Per-call overrides for this one request, such as a timeout, extra headers, or its retry count and statuses. |
 
 </dd>
 </dl>
@@ -28192,7 +29990,12 @@ To make this request, your API credential must have the following [role](https:/
 ```python
 try:
     response = client.split_configuration_merchant_level.patch_merchants_merchant_id_split_configurations_split_configuration_id_rules_rule_id(
-        merchant_id, split_configuration_id, rule_id
+        "some example string",
+        "some example string",
+        "some example string",
+        body=UpdateSplitConfigurationRuleRequest(
+            currency="EUR", funding_source="ANY", payment_method="visa", shopper_interaction="ANY"
+        ),
     )
     # TODO: Handle 'response' of type SplitConfiguration
 except ApiError as e:
@@ -28205,7 +30008,12 @@ except ApiError as e:
 ```python
 try:
     response = await async_client.split_configuration_merchant_level.patch_merchants_merchant_id_split_configurations_split_configuration_id_rules_rule_id(
-        merchant_id, split_configuration_id, rule_id
+        "some example string",
+        "some example string",
+        "some example string",
+        body=UpdateSplitConfigurationRuleRequest(
+            currency="EUR", funding_source="ANY", payment_method="visa", shopper_interaction="ANY"
+        ),
     )
     # TODO: Handle 'response' of type SplitConfiguration
 except ApiError as e:
@@ -28227,7 +30035,7 @@ except ApiError as e:
 | <code>split_configuration_id</code> | <code>str</code> | The identifier of the split configuration. |
 | <code>rule_id</code> | <code>str</code> | The unique identifier of the split configuration rule. |
 | <code>body</code> | <code>[UpdateSplitConfigurationRuleRequest](adyen/models/update_split_configuration_rule_request.py) \| [UpdateSplitConfigurationRuleRequestDict](adyen/models/update_split_configuration_rule_request.py) \| None</code> | The request body.<br>**Default**: <code>None</code> |
-| <code>request_options</code> | <code>[RequestOptionsOrDict](adyen/core/request_options.py) \| None</code> | Per-call overrides for this one request, such as a timeout or extra headers. |
+| <code>request_options</code> | <code>[RequestOptionsOrDict](adyen/core/request_options.py) \| None</code> | Per-call overrides for this one request, such as a timeout, extra headers, or its retry count and statuses. |
 
 </dd>
 </dl>
@@ -28285,7 +30093,20 @@ To make this request, your API credential must have the following [role](https:/
 ```python
 try:
     response = client.split_configuration_merchant_level.patch_merchants_split_configurations_rules_split_logic(
-        merchant_id, split_configuration_id, rule_id, split_logic_id
+        "some example string",
+        "some example string",
+        "some example string",
+        "some example string",
+        body=UpdateSplitConfigurationLogicRequest(
+            additional_commission=AdditionalCommission1(
+                balance_account_id="BA3227C223222H5HQ2XX77VVH", fixed_amount=100, variable_percentage=0
+            ),
+            chargeback=Behavior.DEDUCT_FROM_LIABLE_ACCOUNT,
+            commission=Commission1(fixed_amount=100, variable_percentage=100),
+            payment_fee=PaymentFee.DEDUCT_FROM_LIABLE_ACCOUNT,
+            remainder=Remainder.ADD_TO_LIABLE_ACCOUNT,
+            tip=Tip.ADD_TO_LIABLE_ACCOUNT,
+        ),
     )
     # TODO: Handle 'response' of type SplitConfiguration
 except ApiError as e:
@@ -28297,7 +30118,20 @@ except ApiError as e:
 ```python
 try:
     response = await async_client.split_configuration_merchant_level.patch_merchants_split_configurations_rules_split_logic(
-        merchant_id, split_configuration_id, rule_id, split_logic_id
+        "some example string",
+        "some example string",
+        "some example string",
+        "some example string",
+        body=UpdateSplitConfigurationLogicRequest(
+            additional_commission=AdditionalCommission1(
+                balance_account_id="BA3227C223222H5HQ2XX77VVH", fixed_amount=100, variable_percentage=0
+            ),
+            chargeback=Behavior.DEDUCT_FROM_LIABLE_ACCOUNT,
+            commission=Commission1(fixed_amount=100, variable_percentage=100),
+            payment_fee=PaymentFee.DEDUCT_FROM_LIABLE_ACCOUNT,
+            remainder=Remainder.ADD_TO_LIABLE_ACCOUNT,
+            tip=Tip.ADD_TO_LIABLE_ACCOUNT,
+        ),
     )
     # TODO: Handle 'response' of type SplitConfiguration
 except ApiError as e:
@@ -28319,7 +30153,7 @@ except ApiError as e:
 | <code>rule_id</code> | <code>str</code> | The unique identifier of the split configuration rule. |
 | <code>split_logic_id</code> | <code>str</code> | The unique identifier of the split configuration split. |
 | <code>body</code> | <code>[UpdateSplitConfigurationLogicRequest](adyen/models/update_split_configuration_logic_request.py) \| [UpdateSplitConfigurationLogicRequestDict](adyen/models/update_split_configuration_logic_request.py) \| None</code> | The request body.<br>**Default**: <code>None</code> |
-| <code>request_options</code> | <code>[RequestOptionsOrDict](adyen/core/request_options.py) \| None</code> | Per-call overrides for this one request, such as a timeout or extra headers. |
+| <code>request_options</code> | <code>[RequestOptionsOrDict](adyen/core/request_options.py) \| None</code> | Per-call overrides for this one request, such as a timeout, extra headers, or its retry count and statuses. |
 
 </dd>
 </dl>
@@ -28376,7 +30210,28 @@ To make this request, your API credential must have the following [role](https:/
 
 ```python
 try:
-    response = client.split_configuration_merchant_level.post_merchants_merchant_id_split_configurations(merchant_id)
+    response = client.split_configuration_merchant_level.post_merchants_merchant_id_split_configurations(
+        "some example string",
+        body=SplitConfiguration(
+            description="Your description for the split configuration",
+            rules=[
+                SplitConfigurationRule(
+                    currency="ANY",
+                    funding_source=FundingSource1.ANY,
+                    payment_method="ANY",
+                    shopper_interaction=ShopperInteraction11.ANY,
+                    split_logic=SplitConfigurationLogic2(
+                        additional_commission=AdditionalCommission1(),
+                        chargeback=Behavior.DEDUCT_FROM_LIABLE_ACCOUNT,
+                        commission=Commission1(),
+                        payment_fee=PaymentFee.DEDUCT_FROM_LIABLE_ACCOUNT,
+                        remainder=Remainder.ADD_TO_ONE_BALANCE_ACCOUNT,
+                        tip=Tip.ADD_TO_ONE_BALANCE_ACCOUNT,
+                    ),
+                ),
+            ],
+        ),
+    )
     # TODO: Handle 'response' of type SplitConfiguration
 except ApiError as e:
     ...  # TODO: Handle 'e.error' of type PostMerchantsMerchantIdSplitConfigurationsErrorBody
@@ -28387,7 +30242,26 @@ except ApiError as e:
 ```python
 try:
     response = await async_client.split_configuration_merchant_level.post_merchants_merchant_id_split_configurations(
-        merchant_id
+        "some example string",
+        body=SplitConfiguration(
+            description="Your description for the split configuration",
+            rules=[
+                SplitConfigurationRule(
+                    currency="ANY",
+                    funding_source=FundingSource1.ANY,
+                    payment_method="ANY",
+                    shopper_interaction=ShopperInteraction11.ANY,
+                    split_logic=SplitConfigurationLogic2(
+                        additional_commission=AdditionalCommission1(),
+                        chargeback=Behavior.DEDUCT_FROM_LIABLE_ACCOUNT,
+                        commission=Commission1(),
+                        payment_fee=PaymentFee.DEDUCT_FROM_LIABLE_ACCOUNT,
+                        remainder=Remainder.ADD_TO_ONE_BALANCE_ACCOUNT,
+                        tip=Tip.ADD_TO_ONE_BALANCE_ACCOUNT,
+                    ),
+                ),
+            ],
+        ),
     )
     # TODO: Handle 'response' of type SplitConfiguration
 except ApiError as e:
@@ -28406,7 +30280,7 @@ except ApiError as e:
 | --- | --- | --- |
 | <code>merchant_id</code> | <code>str</code> | The unique identifier of the merchant account. |
 | <code>body</code> | <code>[SplitConfiguration](adyen/models/split_configuration.py) \| [SplitConfigurationDict](adyen/models/split_configuration.py) \| None</code> | The request body.<br>**Default**: <code>None</code> |
-| <code>request_options</code> | <code>[RequestOptionsOrDict](adyen/core/request_options.py) \| None</code> | Per-call overrides for this one request, such as a timeout or extra headers. |
+| <code>request_options</code> | <code>[RequestOptionsOrDict](adyen/core/request_options.py) \| None</code> | Per-call overrides for this one request, such as a timeout, extra headers, or its retry count and statuses. |
 
 </dd>
 </dl>
@@ -28464,7 +30338,24 @@ To make this request, your API credential must have the following [role](https:/
 ```python
 try:
     response = client.split_configuration_merchant_level.post_merchants_merchant_id_split_configurations_split_configuration_id(
-        merchant_id, split_configuration_id
+        "some example string",
+        "some example string",
+        body=SplitConfigurationRule(
+            currency="USD",
+            funding_source=FundingSource1.ANY,
+            payment_method="visa",
+            shopper_interaction=ShopperInteraction11.POS,
+            split_logic=SplitConfigurationLogic2(
+                additional_commission=AdditionalCommission1(
+                    balance_account_id="BA3227C223222H5HQ2XX77VVH", fixed_amount=10, variable_percentage=50
+                ),
+                chargeback=Behavior.DEDUCT_FROM_LIABLE_ACCOUNT,
+                commission=Commission1(fixed_amount=10, variable_percentage=100),
+                payment_fee=PaymentFee.DEDUCT_FROM_LIABLE_ACCOUNT,
+                remainder=Remainder.ADD_TO_LIABLE_ACCOUNT,
+                tip=Tip.ADD_TO_ONE_BALANCE_ACCOUNT,
+            ),
+        ),
     )
     # TODO: Handle 'response' of type SplitConfiguration
 except ApiError as e:
@@ -28476,7 +30367,24 @@ except ApiError as e:
 ```python
 try:
     response = await async_client.split_configuration_merchant_level.post_merchants_merchant_id_split_configurations_split_configuration_id(
-        merchant_id, split_configuration_id
+        "some example string",
+        "some example string",
+        body=SplitConfigurationRule(
+            currency="USD",
+            funding_source=FundingSource1.ANY,
+            payment_method="visa",
+            shopper_interaction=ShopperInteraction11.POS,
+            split_logic=SplitConfigurationLogic2(
+                additional_commission=AdditionalCommission1(
+                    balance_account_id="BA3227C223222H5HQ2XX77VVH", fixed_amount=10, variable_percentage=50
+                ),
+                chargeback=Behavior.DEDUCT_FROM_LIABLE_ACCOUNT,
+                commission=Commission1(fixed_amount=10, variable_percentage=100),
+                payment_fee=PaymentFee.DEDUCT_FROM_LIABLE_ACCOUNT,
+                remainder=Remainder.ADD_TO_LIABLE_ACCOUNT,
+                tip=Tip.ADD_TO_ONE_BALANCE_ACCOUNT,
+            ),
+        ),
     )
     # TODO: Handle 'response' of type SplitConfiguration
 except ApiError as e:
@@ -28496,7 +30404,7 @@ except ApiError as e:
 | <code>merchant_id</code> | <code>str</code> | The unique identifier of the merchant account. |
 | <code>split_configuration_id</code> | <code>str</code> | The unique identifier of the split configuration. |
 | <code>body</code> | <code>[SplitConfigurationRule](adyen/models/split_configuration_rule.py) \| [SplitConfigurationRuleDict](adyen/models/split_configuration_rule.py) \| None</code> | The request body.<br>**Default**: <code>None</code> |
-| <code>request_options</code> | <code>[RequestOptionsOrDict](adyen/core/request_options.py) \| None</code> | Per-call overrides for this one request, such as a timeout or extra headers. |
+| <code>request_options</code> | <code>[RequestOptionsOrDict](adyen/core/request_options.py) \| None</code> | Per-call overrides for this one request, such as a timeout, extra headers, or its retry count and statuses. |
 
 </dd>
 </dl>
@@ -28530,7 +30438,7 @@ Mapped in first-match order -- an earlier row wins over a later range that also 
 > Source: [TaxEDeliveryConsent](adyen/apis/tax_e_delivery_consent.py)
 
 <details>
-<summary><code>def post_legal_entities_id_check_tax_electronic_delivery_consent(id: str, *, request_options: RequestOptionsOrDict | None = None) -> CheckTaxElectronicDeliveryConsentResponse</code></summary>
+<summary><code>def post_legal_entities_id_check_tax_electronic_delivery_consent(id_: str, *, request_options: RequestOptionsOrDict | None = None) -> CheckTaxElectronicDeliveryConsentResponse</code></summary>
 
 <dl>
 <dd>
@@ -28562,7 +30470,9 @@ Requests to this endpoint are subject to rate limits:
 
 ```python
 try:
-    response = client.tax_e_delivery_consent.post_legal_entities_id_check_tax_electronic_delivery_consent(id)
+    response = client.tax_e_delivery_consent.post_legal_entities_id_check_tax_electronic_delivery_consent(
+        "some example string"
+    )
     # TODO: Handle 'response' of type CheckTaxElectronicDeliveryConsentResponse
 except ApiError as e:
     ...  # TODO: Handle 'e.error' of type PostLegalEntitiesIdCheckTaxElectronicDeliveryConsentErrorBody
@@ -28573,7 +30483,7 @@ except ApiError as e:
 ```python
 try:
     response = await async_client.tax_e_delivery_consent.post_legal_entities_id_check_tax_electronic_delivery_consent(
-        id
+        "some example string"
     )
     # TODO: Handle 'response' of type CheckTaxElectronicDeliveryConsentResponse
 except ApiError as e:
@@ -28590,8 +30500,8 @@ except ApiError as e:
 
 | Name | Type | Description |
 | --- | --- | --- |
-| <code>id</code> | <code>str</code> | The unique identifier of the legal entity. For sole proprietorships, this is the individual legal entity ID of the owner. For organizations, this is the ID of the organization. |
-| <code>request_options</code> | <code>[RequestOptionsOrDict](adyen/core/request_options.py) \| None</code> | Per-call overrides for this one request, such as a timeout or extra headers. |
+| <code>id_</code> | <code>str</code> | The unique identifier of the legal entity. For sole proprietorships, this is the individual legal entity ID of the owner. For organizations, this is the ID of the organization. |
+| <code>request_options</code> | <code>[RequestOptionsOrDict](adyen/core/request_options.py) \| None</code> | Per-call overrides for this one request, such as a timeout, extra headers, or its retry count and statuses. |
 
 </dd>
 </dl>
@@ -28621,7 +30531,7 @@ Mapped in first-match order -- an earlier row wins over a later range that also 
 </details>
 
 <details>
-<summary><code>def post_legal_entities_id_set_tax_electronic_delivery_consent(id: str, *, body: SetTaxElectronicDeliveryConsentRequest | SetTaxElectronicDeliveryConsentRequestDict | None = None, request_options: RequestOptionsOrDict | None = None) -> None</code></summary>
+<summary><code>def post_legal_entities_id_set_tax_electronic_delivery_consent(id_: str, *, body: SetTaxElectronicDeliveryConsentRequest | SetTaxElectronicDeliveryConsentRequestDict | None = None, request_options: RequestOptionsOrDict | None = None) -> None</code></summary>
 
 <dl>
 <dd>
@@ -28653,7 +30563,7 @@ Requests to this endpoint are subject to rate limits:
 
 ```python
 try:
-    client.tax_e_delivery_consent.post_legal_entities_id_set_tax_electronic_delivery_consent(id)
+    client.tax_e_delivery_consent.post_legal_entities_id_set_tax_electronic_delivery_consent("some example string")
 except ApiError as e:
     ...  # TODO: Handle 'e.error' of type PostLegalEntitiesIdSetTaxElectronicDeliveryConsentErrorBody
 ```
@@ -28662,7 +30572,9 @@ except ApiError as e:
 
 ```python
 try:
-    await async_client.tax_e_delivery_consent.post_legal_entities_id_set_tax_electronic_delivery_consent(id)
+    await async_client.tax_e_delivery_consent.post_legal_entities_id_set_tax_electronic_delivery_consent(
+        "some example string"
+    )
 except ApiError as e:
     ...  # TODO: Handle 'e.error' of type PostLegalEntitiesIdSetTaxElectronicDeliveryConsentErrorBody
 ```
@@ -28677,9 +30589,9 @@ except ApiError as e:
 
 | Name | Type | Description |
 | --- | --- | --- |
-| <code>id</code> | <code>str</code> | The unique identifier of the legal entity. For sole proprietorships, this is the individual legal entity ID of the owner. For organizations, this is the ID of the organization. |
+| <code>id_</code> | <code>str</code> | The unique identifier of the legal entity. For sole proprietorships, this is the individual legal entity ID of the owner. For organizations, this is the ID of the organization. |
 | <code>body</code> | <code>[SetTaxElectronicDeliveryConsentRequest](adyen/models/set_tax_electronic_delivery_consent_request.py) \| [SetTaxElectronicDeliveryConsentRequestDict](adyen/models/set_tax_electronic_delivery_consent_request.py) \| None</code> | The request body.<br>**Default**: <code>None</code> |
-| <code>request_options</code> | <code>[RequestOptionsOrDict](adyen/core/request_options.py) \| None</code> | Per-call overrides for this one request, such as a timeout or extra headers. |
+| <code>request_options</code> | <code>[RequestOptionsOrDict](adyen/core/request_options.py) \| None</code> | Per-call overrides for this one request, such as a timeout, extra headers, or its retry count and statuses. |
 
 </dd>
 </dl>
@@ -28742,7 +30654,7 @@ In the live environment, requests to this endpoint are subject to [rate limits](
 
 ```python
 try:
-    response = client.terminal_actions_company_level.get_companies_company_id_terminal_actions(company_id)
+    response = client.terminal_actions_company_level.get_companies_company_id_terminal_actions("some example string")
     # TODO: Handle 'response' of type ListExternalTerminalActionsResponse
 except ApiError as e:
     ...  # TODO: Handle 'e.error' of type GetCompaniesCompanyIdTerminalActionsErrorBody
@@ -28752,7 +30664,9 @@ except ApiError as e:
 
 ```python
 try:
-    response = await async_client.terminal_actions_company_level.get_companies_company_id_terminal_actions(company_id)
+    response = await async_client.terminal_actions_company_level.get_companies_company_id_terminal_actions(
+        "some example string"
+    )
     # TODO: Handle 'response' of type ListExternalTerminalActionsResponse
 except ApiError as e:
     ...  # TODO: Handle 'e.error' of type GetCompaniesCompanyIdTerminalActionsErrorBody
@@ -28773,7 +30687,7 @@ except ApiError as e:
 | <code>page_size</code> | <code>int \| None</code> | The number of items to have on a page, maximum 100. The default is 20 items on a page.<br>**Default**: <code>None</code> |
 | <code>status</code> | <code>str \| None</code> | Returns terminal actions with the specified status. <br>Allowed values: **pending**, **successful**, **failed**, **cancelled**, **tryLater**.<br>**Default**: <code>None</code> |
 | <code>type_</code> | <code>str \| None</code> | Returns terminal actions of the specified type. <br>Allowed values: **InstallAndroidApp**, **UninstallAndroidApp**, **InstallAndroidCertificate**, **UninstallAndroidCertificate**.<br>**Default**: <code>None</code> |
-| <code>request_options</code> | <code>[RequestOptionsOrDict](adyen/core/request_options.py) \| None</code> | Per-call overrides for this one request, such as a timeout or extra headers. |
+| <code>request_options</code> | <code>[RequestOptionsOrDict](adyen/core/request_options.py) \| None</code> | Per-call overrides for this one request, such as a timeout, extra headers, or its retry count and statuses. |
 
 </dd>
 </dl>
@@ -28833,7 +30747,7 @@ In the live environment, requests to this endpoint are subject to [rate limits](
 ```python
 try:
     response = client.terminal_actions_company_level.get_companies_company_id_terminal_actions_action_id(
-        company_id, action_id
+        "some example string", "some example string"
     )
     # TODO: Handle 'response' of type ExternalTerminalAction
 except ApiError as e:
@@ -28845,7 +30759,7 @@ except ApiError as e:
 ```python
 try:
     response = await async_client.terminal_actions_company_level.get_companies_company_id_terminal_actions_action_id(
-        company_id, action_id
+        "some example string", "some example string"
     )
     # TODO: Handle 'response' of type ExternalTerminalAction
 except ApiError as e:
@@ -28864,7 +30778,7 @@ except ApiError as e:
 | --- | --- | --- |
 | <code>company_id</code> | <code>str</code> | The unique identifier of the company account. |
 | <code>action_id</code> | <code>str</code> | The unique identifier of the terminal action. |
-| <code>request_options</code> | <code>[RequestOptionsOrDict](adyen/core/request_options.py) \| None</code> | Per-call overrides for this one request, such as a timeout or extra headers. |
+| <code>request_options</code> | <code>[RequestOptionsOrDict](adyen/core/request_options.py) \| None</code> | Per-call overrides for this one request, such as a timeout, extra headers, or its retry count and statuses. |
 
 </dd>
 </dl>
@@ -28959,7 +30873,7 @@ except ApiError as e:
 | Name | Type | Description |
 | --- | --- | --- |
 | <code>body</code> | <code>[ScheduleTerminalActionsRequest](adyen/models/schedule_terminal_actions_request.py) \| [ScheduleTerminalActionsRequestDict](adyen/models/schedule_terminal_actions_request.py) \| None</code> | The request body.<br>**Default**: <code>None</code> |
-| <code>request_options</code> | <code>[RequestOptionsOrDict](adyen/core/request_options.py) \| None</code> | Per-call overrides for this one request, such as a timeout or extra headers. |
+| <code>request_options</code> | <code>[RequestOptionsOrDict](adyen/core/request_options.py) \| None</code> | Per-call overrides for this one request, such as a timeout, extra headers, or its retry count and statuses. |
 
 </dd>
 </dl>
@@ -29024,7 +30938,7 @@ In the live environment, requests to this endpoint are subject to [rate limits](
 
 ```python
 try:
-    response = client.terminal_orders_company_level.get_companies_company_id_billing_entities(company_id)
+    response = client.terminal_orders_company_level.get_companies_company_id_billing_entities("some example string")
     # TODO: Handle 'response' of type BillingEntitiesResponse
 except ApiError as e:
     ...  # TODO: Handle 'e.error' of type GetCompaniesCompanyIdBillingEntitiesErrorBody
@@ -29034,7 +30948,9 @@ except ApiError as e:
 
 ```python
 try:
-    response = await async_client.terminal_orders_company_level.get_companies_company_id_billing_entities(company_id)
+    response = await async_client.terminal_orders_company_level.get_companies_company_id_billing_entities(
+        "some example string"
+    )
     # TODO: Handle 'response' of type BillingEntitiesResponse
 except ApiError as e:
     ...  # TODO: Handle 'e.error' of type GetCompaniesCompanyIdBillingEntitiesErrorBody
@@ -29052,7 +30968,7 @@ except ApiError as e:
 | --- | --- | --- |
 | <code>company_id</code> | <code>str</code> | The unique identifier of the company account. |
 | <code>name</code> | <code>str \| None</code> | The name of the billing entity.<br>**Default**: <code>None</code> |
-| <code>request_options</code> | <code>[RequestOptionsOrDict](adyen/core/request_options.py) \| None</code> | Per-call overrides for this one request, such as a timeout or extra headers. |
+| <code>request_options</code> | <code>[RequestOptionsOrDict](adyen/core/request_options.py) \| None</code> | Per-call overrides for this one request, such as a timeout, extra headers, or its retry count and statuses. |
 
 </dd>
 </dl>
@@ -29113,7 +31029,7 @@ In the live environment, requests to this endpoint are subject to [rate limits](
 
 ```python
 try:
-    response = client.terminal_orders_company_level.get_companies_company_id_shipping_locations(company_id)
+    response = client.terminal_orders_company_level.get_companies_company_id_shipping_locations("some example string")
     # TODO: Handle 'response' of type ShippingLocationsResponse
 except ApiError as e:
     ...  # TODO: Handle 'e.error' of type GetCompaniesCompanyIdShippingLocationsErrorBody
@@ -29123,7 +31039,9 @@ except ApiError as e:
 
 ```python
 try:
-    response = await async_client.terminal_orders_company_level.get_companies_company_id_shipping_locations(company_id)
+    response = await async_client.terminal_orders_company_level.get_companies_company_id_shipping_locations(
+        "some example string"
+    )
     # TODO: Handle 'response' of type ShippingLocationsResponse
 except ApiError as e:
     ...  # TODO: Handle 'e.error' of type GetCompaniesCompanyIdShippingLocationsErrorBody
@@ -29143,7 +31061,7 @@ except ApiError as e:
 | <code>name</code> | <code>str \| None</code> | The name of the shipping location.<br>**Default**: <code>None</code> |
 | <code>offset</code> | <code>int \| None</code> | The number of locations to skip.<br>**Default**: <code>None</code> |
 | <code>limit</code> | <code>int \| None</code> | The number of locations to return.<br>**Default**: <code>None</code> |
-| <code>request_options</code> | <code>[RequestOptionsOrDict](adyen/core/request_options.py) \| None</code> | Per-call overrides for this one request, such as a timeout or extra headers. |
+| <code>request_options</code> | <code>[RequestOptionsOrDict](adyen/core/request_options.py) \| None</code> | Per-call overrides for this one request, such as a timeout, extra headers, or its retry count and statuses. |
 
 </dd>
 </dl>
@@ -29204,7 +31122,7 @@ In the live environment, requests to this endpoint are subject to [rate limits](
 
 ```python
 try:
-    response = client.terminal_orders_company_level.get_companies_company_id_terminal_models(company_id)
+    response = client.terminal_orders_company_level.get_companies_company_id_terminal_models("some example string")
     # TODO: Handle 'response' of type TerminalModelsResponse
 except ApiError as e:
     ...  # TODO: Handle 'e.error' of type GetCompaniesCompanyIdTerminalModelsErrorBody
@@ -29214,7 +31132,9 @@ except ApiError as e:
 
 ```python
 try:
-    response = await async_client.terminal_orders_company_level.get_companies_company_id_terminal_models(company_id)
+    response = await async_client.terminal_orders_company_level.get_companies_company_id_terminal_models(
+        "some example string"
+    )
     # TODO: Handle 'response' of type TerminalModelsResponse
 except ApiError as e:
     ...  # TODO: Handle 'e.error' of type GetCompaniesCompanyIdTerminalModelsErrorBody
@@ -29231,7 +31151,7 @@ except ApiError as e:
 | Name | Type | Description |
 | --- | --- | --- |
 | <code>company_id</code> | <code>str</code> | The unique identifier of the company account. |
-| <code>request_options</code> | <code>[RequestOptionsOrDict](adyen/core/request_options.py) \| None</code> | Per-call overrides for this one request, such as a timeout or extra headers. |
+| <code>request_options</code> | <code>[RequestOptionsOrDict](adyen/core/request_options.py) \| None</code> | Per-call overrides for this one request, such as a timeout, extra headers, or its retry count and statuses. |
 
 </dd>
 </dl>
@@ -29292,7 +31212,7 @@ In the live environment, requests to this endpoint are subject to [rate limits](
 
 ```python
 try:
-    response = client.terminal_orders_company_level.get_companies_company_id_terminal_orders(company_id)
+    response = client.terminal_orders_company_level.get_companies_company_id_terminal_orders("some example string")
     # TODO: Handle 'response' of type TerminalOrdersResponse
 except ApiError as e:
     ...  # TODO: Handle 'e.error' of type GetCompaniesCompanyIdTerminalOrdersErrorBody
@@ -29302,7 +31222,9 @@ except ApiError as e:
 
 ```python
 try:
-    response = await async_client.terminal_orders_company_level.get_companies_company_id_terminal_orders(company_id)
+    response = await async_client.terminal_orders_company_level.get_companies_company_id_terminal_orders(
+        "some example string"
+    )
     # TODO: Handle 'response' of type TerminalOrdersResponse
 except ApiError as e:
     ...  # TODO: Handle 'e.error' of type GetCompaniesCompanyIdTerminalOrdersErrorBody
@@ -29323,7 +31245,7 @@ except ApiError as e:
 | <code>status</code> | <code>str \| None</code> | The order status. Possible values (not case-sensitive): Placed, Confirmed, Cancelled, Shipped, Delivered.<br>**Default**: <code>None</code> |
 | <code>offset</code> | <code>int \| None</code> | The number of orders to skip.<br>**Default**: <code>None</code> |
 | <code>limit</code> | <code>int \| None</code> | The number of orders to return.<br>**Default**: <code>None</code> |
-| <code>request_options</code> | <code>[RequestOptionsOrDict](adyen/core/request_options.py) \| None</code> | Per-call overrides for this one request, such as a timeout or extra headers. |
+| <code>request_options</code> | <code>[RequestOptionsOrDict](adyen/core/request_options.py) \| None</code> | Per-call overrides for this one request, such as a timeout, extra headers, or its retry count and statuses. |
 
 </dd>
 </dl>
@@ -29384,7 +31306,7 @@ In the live environment, requests to this endpoint are subject to [rate limits](
 ```python
 try:
     response = client.terminal_orders_company_level.get_companies_company_id_terminal_orders_order_id(
-        company_id, order_id
+        "some example string", "some example string"
     )
     # TODO: Handle 'response' of type TerminalOrder
 except ApiError as e:
@@ -29396,7 +31318,7 @@ except ApiError as e:
 ```python
 try:
     response = await async_client.terminal_orders_company_level.get_companies_company_id_terminal_orders_order_id(
-        company_id, order_id
+        "some example string", "some example string"
     )
     # TODO: Handle 'response' of type TerminalOrder
 except ApiError as e:
@@ -29415,7 +31337,7 @@ except ApiError as e:
 | --- | --- | --- |
 | <code>company_id</code> | <code>str</code> | The unique identifier of the company account. |
 | <code>order_id</code> | <code>str</code> | The unique identifier of the order. |
-| <code>request_options</code> | <code>[RequestOptionsOrDict](adyen/core/request_options.py) \| None</code> | Per-call overrides for this one request, such as a timeout or extra headers. |
+| <code>request_options</code> | <code>[RequestOptionsOrDict](adyen/core/request_options.py) \| None</code> | Per-call overrides for this one request, such as a timeout, extra headers, or its retry count and statuses. |
 
 </dd>
 </dl>
@@ -29475,7 +31397,9 @@ In the live environment, requests to this endpoint are subject to [rate limits](
 
 ```python
 try:
-    response = client.terminal_orders_company_level.get_companies_company_id_terminal_products(company_id, country)
+    response = client.terminal_orders_company_level.get_companies_company_id_terminal_products(
+        "some example string", "some example string"
+    )
     # TODO: Handle 'response' of type TerminalProductsResponse
 except ApiError as e:
     ...  # TODO: Handle 'e.error' of type GetCompaniesCompanyIdTerminalProductsErrorBody
@@ -29486,7 +31410,7 @@ except ApiError as e:
 ```python
 try:
     response = await async_client.terminal_orders_company_level.get_companies_company_id_terminal_products(
-        company_id, country
+        "some example string", "some example string"
     )
     # TODO: Handle 'response' of type TerminalProductsResponse
 except ApiError as e:
@@ -29508,7 +31432,7 @@ except ApiError as e:
 | <code>terminal_model_id</code> | <code>str \| None</code> | The terminal model to return products for. Use the ID returned in the https://docs.adyen.com/api-explorer/#/ManagementService/latest/get/companies/{companyId}/terminalModels response. For example, **Verifone.M400**<br>**Default**: <code>None</code> |
 | <code>offset</code> | <code>int \| None</code> | The number of products to skip.<br>**Default**: <code>None</code> |
 | <code>limit</code> | <code>int \| None</code> | The number of products to return.<br>**Default**: <code>None</code> |
-| <code>request_options</code> | <code>[RequestOptionsOrDict](adyen/core/request_options.py) \| None</code> | Per-call overrides for this one request, such as a timeout or extra headers. |
+| <code>request_options</code> | <code>[RequestOptionsOrDict](adyen/core/request_options.py) \| None</code> | Per-call overrides for this one request, such as a timeout, extra headers, or its retry count and statuses. |
 
 </dd>
 </dl>
@@ -29573,7 +31497,15 @@ In the live environment, requests to this endpoint are subject to [rate limits](
 ```python
 try:
     response = client.terminal_orders_company_level.patch_companies_company_id_terminal_orders_order_id(
-        company_id, order_id
+        "some example string",
+        "some example string",
+        body=TerminalOrderRequest(
+            items=[
+                OrderItem(id="TBOX-V400m-684-EU", name="V400m Package", quantity=1),
+                OrderItem(id="PART-175746-EU", name="Adyen Test Card", quantity=1),
+                OrderItem(id="PART-620222-EU", name="Receipt Roll", quantity=5),
+            ],
+        ),
     )
     # TODO: Handle 'response' of type TerminalOrder
 except ApiError as e:
@@ -29585,7 +31517,15 @@ except ApiError as e:
 ```python
 try:
     response = await async_client.terminal_orders_company_level.patch_companies_company_id_terminal_orders_order_id(
-        company_id, order_id
+        "some example string",
+        "some example string",
+        body=TerminalOrderRequest(
+            items=[
+                OrderItem(id="TBOX-V400m-684-EU", name="V400m Package", quantity=1),
+                OrderItem(id="PART-175746-EU", name="Adyen Test Card", quantity=1),
+                OrderItem(id="PART-620222-EU", name="Receipt Roll", quantity=5),
+            ],
+        ),
     )
     # TODO: Handle 'response' of type TerminalOrder
 except ApiError as e:
@@ -29605,7 +31545,7 @@ except ApiError as e:
 | <code>company_id</code> | <code>str</code> | The unique identifier of the company account. |
 | <code>order_id</code> | <code>str</code> | The unique identifier of the order. |
 | <code>body</code> | <code>[TerminalOrderRequest](adyen/models/terminal_order_request.py) \| [TerminalOrderRequestDict](adyen/models/terminal_order_request.py) \| None</code> | The request body.<br>**Default**: <code>None</code> |
-| <code>request_options</code> | <code>[RequestOptionsOrDict](adyen/core/request_options.py) \| None</code> | Per-call overrides for this one request, such as a timeout or extra headers. |
+| <code>request_options</code> | <code>[RequestOptionsOrDict](adyen/core/request_options.py) \| None</code> | Per-call overrides for this one request, such as a timeout, extra headers, or its retry count and statuses. |
 
 </dd>
 </dl>
@@ -29664,7 +31604,23 @@ In the live environment, requests to this endpoint are subject to [rate limits](
 
 ```python
 try:
-    response = client.terminal_orders_company_level.post_companies_company_id_shipping_locations(company_id)
+    response = client.terminal_orders_company_level.post_companies_company_id_shipping_locations(
+        "some example string",
+        body=ShippingLocation(
+            address=Address21(
+                city="Amsterdam",
+                company_name="YOUR_COMPANY",
+                country="NL",
+                postal_code="1012 KS",
+                state_or_province="",
+                street_address="Rokin 21",
+            ),
+            contact=Contact1(
+                email="Paul.Green@company.com", first_name="Paul", last_name="Green", phone_number="+31 020 1234567"
+            ),
+            name="YOUR_COMPANY Rokin depot",
+        ),
+    )
     # TODO: Handle 'response' of type ShippingLocation
 except ApiError as e:
     ...  # TODO: Handle 'e.error' of type PostCompaniesCompanyIdShippingLocationsErrorBody
@@ -29674,7 +31630,23 @@ except ApiError as e:
 
 ```python
 try:
-    response = await async_client.terminal_orders_company_level.post_companies_company_id_shipping_locations(company_id)
+    response = await async_client.terminal_orders_company_level.post_companies_company_id_shipping_locations(
+        "some example string",
+        body=ShippingLocation(
+            address=Address21(
+                city="Amsterdam",
+                company_name="YOUR_COMPANY",
+                country="NL",
+                postal_code="1012 KS",
+                state_or_province="",
+                street_address="Rokin 21",
+            ),
+            contact=Contact1(
+                email="Paul.Green@company.com", first_name="Paul", last_name="Green", phone_number="+31 020 1234567"
+            ),
+            name="YOUR_COMPANY Rokin depot",
+        ),
+    )
     # TODO: Handle 'response' of type ShippingLocation
 except ApiError as e:
     ...  # TODO: Handle 'e.error' of type PostCompaniesCompanyIdShippingLocationsErrorBody
@@ -29692,7 +31664,7 @@ except ApiError as e:
 | --- | --- | --- |
 | <code>company_id</code> | <code>str</code> | The unique identifier of the company account. |
 | <code>body</code> | <code>[ShippingLocation](adyen/models/shipping_location.py) \| [ShippingLocationDict](adyen/models/shipping_location.py) \| None</code> | The request body.<br>**Default**: <code>None</code> |
-| <code>request_options</code> | <code>[RequestOptionsOrDict](adyen/core/request_options.py) \| None</code> | Per-call overrides for this one request, such as a timeout or extra headers. |
+| <code>request_options</code> | <code>[RequestOptionsOrDict](adyen/core/request_options.py) \| None</code> | Per-call overrides for this one request, such as a timeout, extra headers, or its retry count and statuses. |
 
 </dd>
 </dl>
@@ -29752,7 +31724,18 @@ In the live environment, requests to this endpoint are subject to [rate limits](
 
 ```python
 try:
-    response = client.terminal_orders_company_level.post_companies_company_id_terminal_orders(company_id)
+    response = client.terminal_orders_company_level.post_companies_company_id_terminal_orders(
+        "some example string",
+        body=TerminalOrderRequest(
+            billing_entity_id="Company.YOUR_COMPANY",
+            customer_order_reference="YOUR_REFERENCE",
+            items=[
+                OrderItem(id="TBOX-V400m-684-EU", name="V400m Package", quantity=1),
+                OrderItem(id="PART-175746-EU", name="Adyen Test Card", quantity=1),
+            ],
+            shipping_location_id="S2-6A6C2E3432747D4F2F2C3455485E3836457D",
+        ),
+    )
     # TODO: Handle 'response' of type TerminalOrder
 except ApiError as e:
     ...  # TODO: Handle 'e.error' of type PostCompaniesCompanyIdTerminalOrdersErrorBody
@@ -29762,7 +31745,18 @@ except ApiError as e:
 
 ```python
 try:
-    response = await async_client.terminal_orders_company_level.post_companies_company_id_terminal_orders(company_id)
+    response = await async_client.terminal_orders_company_level.post_companies_company_id_terminal_orders(
+        "some example string",
+        body=TerminalOrderRequest(
+            billing_entity_id="Company.YOUR_COMPANY",
+            customer_order_reference="YOUR_REFERENCE",
+            items=[
+                OrderItem(id="TBOX-V400m-684-EU", name="V400m Package", quantity=1),
+                OrderItem(id="PART-175746-EU", name="Adyen Test Card", quantity=1),
+            ],
+            shipping_location_id="S2-6A6C2E3432747D4F2F2C3455485E3836457D",
+        ),
+    )
     # TODO: Handle 'response' of type TerminalOrder
 except ApiError as e:
     ...  # TODO: Handle 'e.error' of type PostCompaniesCompanyIdTerminalOrdersErrorBody
@@ -29780,7 +31774,7 @@ except ApiError as e:
 | --- | --- | --- |
 | <code>company_id</code> | <code>str</code> | The unique identifier of the company account. |
 | <code>body</code> | <code>[TerminalOrderRequest](adyen/models/terminal_order_request.py) \| [TerminalOrderRequestDict](adyen/models/terminal_order_request.py) \| None</code> | The request body.<br>**Default**: <code>None</code> |
-| <code>request_options</code> | <code>[RequestOptionsOrDict](adyen/core/request_options.py) \| None</code> | Per-call overrides for this one request, such as a timeout or extra headers. |
+| <code>request_options</code> | <code>[RequestOptionsOrDict](adyen/core/request_options.py) \| None</code> | Per-call overrides for this one request, such as a timeout, extra headers, or its retry count and statuses. |
 
 </dd>
 </dl>
@@ -29842,7 +31836,7 @@ In the live environment, requests to this endpoint are subject to [rate limits](
 ```python
 try:
     response = client.terminal_orders_company_level.post_companies_company_id_terminal_orders_order_id_cancel(
-        company_id, order_id
+        "some example string", "some example string"
     )
     # TODO: Handle 'response' of type TerminalOrder
 except ApiError as e:
@@ -29854,7 +31848,7 @@ except ApiError as e:
 ```python
 try:
     response = await async_client.terminal_orders_company_level.post_companies_company_id_terminal_orders_order_id_cancel(
-        company_id, order_id
+        "some example string", "some example string"
     )
     # TODO: Handle 'response' of type TerminalOrder
 except ApiError as e:
@@ -29873,7 +31867,7 @@ except ApiError as e:
 | --- | --- | --- |
 | <code>company_id</code> | <code>str</code> | The unique identifier of the company account. |
 | <code>order_id</code> | <code>str</code> | The unique identifier of the order. |
-| <code>request_options</code> | <code>[RequestOptionsOrDict](adyen/core/request_options.py) \| None</code> | Per-call overrides for this one request, such as a timeout or extra headers. |
+| <code>request_options</code> | <code>[RequestOptionsOrDict](adyen/core/request_options.py) \| None</code> | Per-call overrides for this one request, such as a timeout, extra headers, or its retry count and statuses. |
 
 </dd>
 </dl>
@@ -29938,7 +31932,7 @@ In the live environment, requests to this endpoint are subject to [rate limits](
 
 ```python
 try:
-    response = client.terminal_orders_merchant_level.get_merchants_merchant_id_billing_entities(merchant_id)
+    response = client.terminal_orders_merchant_level.get_merchants_merchant_id_billing_entities("some example string")
     # TODO: Handle 'response' of type BillingEntitiesResponse
 except ApiError as e:
     ...  # TODO: Handle 'e.error' of type GetMerchantsMerchantIdBillingEntitiesErrorBody
@@ -29948,7 +31942,9 @@ except ApiError as e:
 
 ```python
 try:
-    response = await async_client.terminal_orders_merchant_level.get_merchants_merchant_id_billing_entities(merchant_id)
+    response = await async_client.terminal_orders_merchant_level.get_merchants_merchant_id_billing_entities(
+        "some example string"
+    )
     # TODO: Handle 'response' of type BillingEntitiesResponse
 except ApiError as e:
     ...  # TODO: Handle 'e.error' of type GetMerchantsMerchantIdBillingEntitiesErrorBody
@@ -29966,7 +31962,7 @@ except ApiError as e:
 | --- | --- | --- |
 | <code>merchant_id</code> | <code>str</code> | The unique identifier of the merchant account. |
 | <code>name</code> | <code>str \| None</code> | The name of the billing entity.<br>**Default**: <code>None</code> |
-| <code>request_options</code> | <code>[RequestOptionsOrDict](adyen/core/request_options.py) \| None</code> | Per-call overrides for this one request, such as a timeout or extra headers. |
+| <code>request_options</code> | <code>[RequestOptionsOrDict](adyen/core/request_options.py) \| None</code> | Per-call overrides for this one request, such as a timeout, extra headers, or its retry count and statuses. |
 
 </dd>
 </dl>
@@ -30027,7 +32023,7 @@ In the live environment, requests to this endpoint are subject to [rate limits](
 
 ```python
 try:
-    response = client.terminal_orders_merchant_level.get_merchants_merchant_id_shipping_locations(merchant_id)
+    response = client.terminal_orders_merchant_level.get_merchants_merchant_id_shipping_locations("some example string")
     # TODO: Handle 'response' of type ShippingLocationsResponse
 except ApiError as e:
     ...  # TODO: Handle 'e.error' of type GetMerchantsMerchantIdShippingLocationsErrorBody
@@ -30038,7 +32034,7 @@ except ApiError as e:
 ```python
 try:
     response = await async_client.terminal_orders_merchant_level.get_merchants_merchant_id_shipping_locations(
-        merchant_id
+        "some example string"
     )
     # TODO: Handle 'response' of type ShippingLocationsResponse
 except ApiError as e:
@@ -30059,7 +32055,7 @@ except ApiError as e:
 | <code>name</code> | <code>str \| None</code> | The name of the shipping location.<br>**Default**: <code>None</code> |
 | <code>offset</code> | <code>int \| None</code> | The number of locations to skip.<br>**Default**: <code>None</code> |
 | <code>limit</code> | <code>int \| None</code> | The number of locations to return.<br>**Default**: <code>None</code> |
-| <code>request_options</code> | <code>[RequestOptionsOrDict](adyen/core/request_options.py) \| None</code> | Per-call overrides for this one request, such as a timeout or extra headers. |
+| <code>request_options</code> | <code>[RequestOptionsOrDict](adyen/core/request_options.py) \| None</code> | Per-call overrides for this one request, such as a timeout, extra headers, or its retry count and statuses. |
 
 </dd>
 </dl>
@@ -30119,7 +32115,7 @@ In the live environment, requests to this endpoint are subject to [rate limits](
 
 ```python
 try:
-    response = client.terminal_orders_merchant_level.get_merchants_merchant_id_terminal_models(merchant_id)
+    response = client.terminal_orders_merchant_level.get_merchants_merchant_id_terminal_models("some example string")
     # TODO: Handle 'response' of type TerminalModelsResponse
 except ApiError as e:
     ...  # TODO: Handle 'e.error' of type GetMerchantsMerchantIdTerminalModelsErrorBody
@@ -30129,7 +32125,9 @@ except ApiError as e:
 
 ```python
 try:
-    response = await async_client.terminal_orders_merchant_level.get_merchants_merchant_id_terminal_models(merchant_id)
+    response = await async_client.terminal_orders_merchant_level.get_merchants_merchant_id_terminal_models(
+        "some example string"
+    )
     # TODO: Handle 'response' of type TerminalModelsResponse
 except ApiError as e:
     ...  # TODO: Handle 'e.error' of type GetMerchantsMerchantIdTerminalModelsErrorBody
@@ -30146,7 +32144,7 @@ except ApiError as e:
 | Name | Type | Description |
 | --- | --- | --- |
 | <code>merchant_id</code> | <code>str</code> | The unique identifier of the merchant account. |
-| <code>request_options</code> | <code>[RequestOptionsOrDict](adyen/core/request_options.py) \| None</code> | Per-call overrides for this one request, such as a timeout or extra headers. |
+| <code>request_options</code> | <code>[RequestOptionsOrDict](adyen/core/request_options.py) \| None</code> | Per-call overrides for this one request, such as a timeout, extra headers, or its retry count and statuses. |
 
 </dd>
 </dl>
@@ -30206,7 +32204,7 @@ In the live environment, requests to this endpoint are subject to [rate limits](
 
 ```python
 try:
-    response = client.terminal_orders_merchant_level.get_merchants_merchant_id_terminal_orders(merchant_id)
+    response = client.terminal_orders_merchant_level.get_merchants_merchant_id_terminal_orders("some example string")
     # TODO: Handle 'response' of type TerminalOrdersResponse
 except ApiError as e:
     ...  # TODO: Handle 'e.error' of type GetMerchantsMerchantIdTerminalOrdersErrorBody
@@ -30216,7 +32214,9 @@ except ApiError as e:
 
 ```python
 try:
-    response = await async_client.terminal_orders_merchant_level.get_merchants_merchant_id_terminal_orders(merchant_id)
+    response = await async_client.terminal_orders_merchant_level.get_merchants_merchant_id_terminal_orders(
+        "some example string"
+    )
     # TODO: Handle 'response' of type TerminalOrdersResponse
 except ApiError as e:
     ...  # TODO: Handle 'e.error' of type GetMerchantsMerchantIdTerminalOrdersErrorBody
@@ -30237,7 +32237,7 @@ except ApiError as e:
 | <code>status</code> | <code>str \| None</code> | The order status. Possible values (not case-sensitive): Placed, Confirmed, Cancelled, Shipped, Delivered.<br>**Default**: <code>None</code> |
 | <code>offset</code> | <code>int \| None</code> | The number of orders to skip.<br>**Default**: <code>None</code> |
 | <code>limit</code> | <code>int \| None</code> | The number of orders to return.<br>**Default**: <code>None</code> |
-| <code>request_options</code> | <code>[RequestOptionsOrDict](adyen/core/request_options.py) \| None</code> | Per-call overrides for this one request, such as a timeout or extra headers. |
+| <code>request_options</code> | <code>[RequestOptionsOrDict](adyen/core/request_options.py) \| None</code> | Per-call overrides for this one request, such as a timeout, extra headers, or its retry count and statuses. |
 
 </dd>
 </dl>
@@ -30298,7 +32298,7 @@ In the live environment, requests to this endpoint are subject to [rate limits](
 ```python
 try:
     response = client.terminal_orders_merchant_level.get_merchants_merchant_id_terminal_orders_order_id(
-        merchant_id, order_id
+        "some example string", "some example string"
     )
     # TODO: Handle 'response' of type TerminalOrder
 except ApiError as e:
@@ -30310,7 +32310,7 @@ except ApiError as e:
 ```python
 try:
     response = await async_client.terminal_orders_merchant_level.get_merchants_merchant_id_terminal_orders_order_id(
-        merchant_id, order_id
+        "some example string", "some example string"
     )
     # TODO: Handle 'response' of type TerminalOrder
 except ApiError as e:
@@ -30329,7 +32329,7 @@ except ApiError as e:
 | --- | --- | --- |
 | <code>merchant_id</code> | <code>str</code> | The unique identifier of the merchant account. |
 | <code>order_id</code> | <code>str</code> | The unique identifier of the order. |
-| <code>request_options</code> | <code>[RequestOptionsOrDict](adyen/core/request_options.py) \| None</code> | Per-call overrides for this one request, such as a timeout or extra headers. |
+| <code>request_options</code> | <code>[RequestOptionsOrDict](adyen/core/request_options.py) \| None</code> | Per-call overrides for this one request, such as a timeout, extra headers, or its retry count and statuses. |
 
 </dd>
 </dl>
@@ -30389,7 +32389,9 @@ In the live environment, requests to this endpoint are subject to [rate limits](
 
 ```python
 try:
-    response = client.terminal_orders_merchant_level.get_merchants_merchant_id_terminal_products(merchant_id, country)
+    response = client.terminal_orders_merchant_level.get_merchants_merchant_id_terminal_products(
+        "some example string", "some example string"
+    )
     # TODO: Handle 'response' of type TerminalProductsResponse
 except ApiError as e:
     ...  # TODO: Handle 'e.error' of type GetMerchantsMerchantIdTerminalProductsErrorBody
@@ -30400,7 +32402,7 @@ except ApiError as e:
 ```python
 try:
     response = await async_client.terminal_orders_merchant_level.get_merchants_merchant_id_terminal_products(
-        merchant_id, country
+        "some example string", "some example string"
     )
     # TODO: Handle 'response' of type TerminalProductsResponse
 except ApiError as e:
@@ -30422,7 +32424,7 @@ except ApiError as e:
 | <code>terminal_model_id</code> | <code>str \| None</code> | The terminal model to return products for. Use the ID returned in the https://docs.adyen.com/api-explorer/#/ManagementService/latest/get/merchants/{merchantId}/terminalModels response. For example, **Verifone.M400**<br>**Default**: <code>None</code> |
 | <code>offset</code> | <code>int \| None</code> | The number of products to skip.<br>**Default**: <code>None</code> |
 | <code>limit</code> | <code>int \| None</code> | The number of products to return.<br>**Default**: <code>None</code> |
-| <code>request_options</code> | <code>[RequestOptionsOrDict](adyen/core/request_options.py) \| None</code> | Per-call overrides for this one request, such as a timeout or extra headers. |
+| <code>request_options</code> | <code>[RequestOptionsOrDict](adyen/core/request_options.py) \| None</code> | Per-call overrides for this one request, such as a timeout, extra headers, or its retry count and statuses. |
 
 </dd>
 </dl>
@@ -30487,7 +32489,15 @@ In the live environment, requests to this endpoint are subject to [rate limits](
 ```python
 try:
     response = client.terminal_orders_merchant_level.patch_merchants_merchant_id_terminal_orders_order_id(
-        merchant_id, order_id
+        "some example string",
+        "some example string",
+        body=TerminalOrderRequest(
+            items=[
+                OrderItem(id="TBOX-V400m-684-EU", name="V400m Package", quantity=1),
+                OrderItem(id="PART-287001-EU", name="Bluetooth Charging Base - V400m", quantity=2),
+                OrderItem(id="PART-620222-EU", name="Receipt Roll", quantity=20),
+            ],
+        ),
     )
     # TODO: Handle 'response' of type TerminalOrder
 except ApiError as e:
@@ -30499,7 +32509,15 @@ except ApiError as e:
 ```python
 try:
     response = await async_client.terminal_orders_merchant_level.patch_merchants_merchant_id_terminal_orders_order_id(
-        merchant_id, order_id
+        "some example string",
+        "some example string",
+        body=TerminalOrderRequest(
+            items=[
+                OrderItem(id="TBOX-V400m-684-EU", name="V400m Package", quantity=1),
+                OrderItem(id="PART-287001-EU", name="Bluetooth Charging Base - V400m", quantity=2),
+                OrderItem(id="PART-620222-EU", name="Receipt Roll", quantity=20),
+            ],
+        ),
     )
     # TODO: Handle 'response' of type TerminalOrder
 except ApiError as e:
@@ -30519,7 +32537,7 @@ except ApiError as e:
 | <code>merchant_id</code> | <code>str</code> | The unique identifier of the merchant account. |
 | <code>order_id</code> | <code>str</code> | The unique identifier of the order. |
 | <code>body</code> | <code>[TerminalOrderRequest](adyen/models/terminal_order_request.py) \| [TerminalOrderRequestDict](adyen/models/terminal_order_request.py) \| None</code> | The request body.<br>**Default**: <code>None</code> |
-| <code>request_options</code> | <code>[RequestOptionsOrDict](adyen/core/request_options.py) \| None</code> | Per-call overrides for this one request, such as a timeout or extra headers. |
+| <code>request_options</code> | <code>[RequestOptionsOrDict](adyen/core/request_options.py) \| None</code> | Per-call overrides for this one request, such as a timeout, extra headers, or its retry count and statuses. |
 
 </dd>
 </dl>
@@ -30578,7 +32596,26 @@ In the live environment, requests to this endpoint are subject to [rate limits](
 
 ```python
 try:
-    response = client.terminal_orders_merchant_level.post_merchants_merchant_id_shipping_locations(merchant_id)
+    response = client.terminal_orders_merchant_level.post_merchants_merchant_id_shipping_locations(
+        "some example string",
+        body=ShippingLocation(
+            address=Address21(
+                city="Barcelona",
+                company_name="YOUR_COMPANY",
+                country="ES",
+                postal_code="08012",
+                state_or_province="",
+                street_address="El quinto pino 42",
+            ),
+            contact=Contact1(
+                email="Rita.Perengano@company.com",
+                first_name="Rita",
+                last_name="Perengano",
+                phone_number="+34 93 1234567",
+            ),
+            name="YOUR_MERCHANT_ACCOUNT Barcelona depot",
+        ),
+    )
     # TODO: Handle 'response' of type ShippingLocation
 except ApiError as e:
     ...  # TODO: Handle 'e.error' of type PostMerchantsMerchantIdShippingLocationsErrorBody
@@ -30589,7 +32626,24 @@ except ApiError as e:
 ```python
 try:
     response = await async_client.terminal_orders_merchant_level.post_merchants_merchant_id_shipping_locations(
-        merchant_id
+        "some example string",
+        body=ShippingLocation(
+            address=Address21(
+                city="Barcelona",
+                company_name="YOUR_COMPANY",
+                country="ES",
+                postal_code="08012",
+                state_or_province="",
+                street_address="El quinto pino 42",
+            ),
+            contact=Contact1(
+                email="Rita.Perengano@company.com",
+                first_name="Rita",
+                last_name="Perengano",
+                phone_number="+34 93 1234567",
+            ),
+            name="YOUR_MERCHANT_ACCOUNT Barcelona depot",
+        ),
     )
     # TODO: Handle 'response' of type ShippingLocation
 except ApiError as e:
@@ -30608,7 +32662,7 @@ except ApiError as e:
 | --- | --- | --- |
 | <code>merchant_id</code> | <code>str</code> | The unique identifier of the merchant account. |
 | <code>body</code> | <code>[ShippingLocation](adyen/models/shipping_location.py) \| [ShippingLocationDict](adyen/models/shipping_location.py) \| None</code> | The request body.<br>**Default**: <code>None</code> |
-| <code>request_options</code> | <code>[RequestOptionsOrDict](adyen/core/request_options.py) \| None</code> | Per-call overrides for this one request, such as a timeout or extra headers. |
+| <code>request_options</code> | <code>[RequestOptionsOrDict](adyen/core/request_options.py) \| None</code> | Per-call overrides for this one request, such as a timeout, extra headers, or its retry count and statuses. |
 
 </dd>
 </dl>
@@ -30668,7 +32722,18 @@ In the live environment, requests to this endpoint are subject to [rate limits](
 
 ```python
 try:
-    response = client.terminal_orders_merchant_level.post_merchants_merchant_id_terminal_orders(merchant_id)
+    response = client.terminal_orders_merchant_level.post_merchants_merchant_id_terminal_orders(
+        "some example string",
+        body=TerminalOrderRequest(
+            billing_entity_id="MerchantAccount.YOUR_MERCHANT_ACCOUNT",
+            customer_order_reference="YOUR_REFERENCE",
+            items=[
+                OrderItem(id="PART-287001-EU", name="Bluetooth Charging Base - V400m", quantity=2),
+                OrderItem(id="PART-620222-EU", name="Receipt Roll", quantity=20),
+            ],
+            shipping_location_id="S2-6A6C2E3432747D4F2F2C3455485E3836457D",
+        ),
+    )
     # TODO: Handle 'response' of type TerminalOrder
 except ApiError as e:
     ...  # TODO: Handle 'e.error' of type PostMerchantsMerchantIdTerminalOrdersErrorBody
@@ -30678,7 +32743,18 @@ except ApiError as e:
 
 ```python
 try:
-    response = await async_client.terminal_orders_merchant_level.post_merchants_merchant_id_terminal_orders(merchant_id)
+    response = await async_client.terminal_orders_merchant_level.post_merchants_merchant_id_terminal_orders(
+        "some example string",
+        body=TerminalOrderRequest(
+            billing_entity_id="MerchantAccount.YOUR_MERCHANT_ACCOUNT",
+            customer_order_reference="YOUR_REFERENCE",
+            items=[
+                OrderItem(id="PART-287001-EU", name="Bluetooth Charging Base - V400m", quantity=2),
+                OrderItem(id="PART-620222-EU", name="Receipt Roll", quantity=20),
+            ],
+            shipping_location_id="S2-6A6C2E3432747D4F2F2C3455485E3836457D",
+        ),
+    )
     # TODO: Handle 'response' of type TerminalOrder
 except ApiError as e:
     ...  # TODO: Handle 'e.error' of type PostMerchantsMerchantIdTerminalOrdersErrorBody
@@ -30696,7 +32772,7 @@ except ApiError as e:
 | --- | --- | --- |
 | <code>merchant_id</code> | <code>str</code> | The unique identifier of the merchant account. |
 | <code>body</code> | <code>[TerminalOrderRequest](adyen/models/terminal_order_request.py) \| [TerminalOrderRequestDict](adyen/models/terminal_order_request.py) \| None</code> | The request body.<br>**Default**: <code>None</code> |
-| <code>request_options</code> | <code>[RequestOptionsOrDict](adyen/core/request_options.py) \| None</code> | Per-call overrides for this one request, such as a timeout or extra headers. |
+| <code>request_options</code> | <code>[RequestOptionsOrDict](adyen/core/request_options.py) \| None</code> | Per-call overrides for this one request, such as a timeout, extra headers, or its retry count and statuses. |
 
 </dd>
 </dl>
@@ -30758,7 +32834,7 @@ In the live environment, requests to this endpoint are subject to [rate limits](
 ```python
 try:
     response = client.terminal_orders_merchant_level.post_merchants_merchant_id_terminal_orders_order_id_cancel(
-        merchant_id, order_id
+        "some example string", "some example string"
     )
     # TODO: Handle 'response' of type TerminalOrder
 except ApiError as e:
@@ -30770,7 +32846,7 @@ except ApiError as e:
 ```python
 try:
     response = await async_client.terminal_orders_merchant_level.post_merchants_merchant_id_terminal_orders_order_id_cancel(
-        merchant_id, order_id
+        "some example string", "some example string"
     )
     # TODO: Handle 'response' of type TerminalOrder
 except ApiError as e:
@@ -30789,7 +32865,7 @@ except ApiError as e:
 | --- | --- | --- |
 | <code>merchant_id</code> | <code>str</code> | The unique identifier of the merchant account. |
 | <code>order_id</code> | <code>str</code> | The unique identifier of the order. |
-| <code>request_options</code> | <code>[RequestOptionsOrDict](adyen/core/request_options.py) \| None</code> | Per-call overrides for this one request, such as a timeout or extra headers. |
+| <code>request_options</code> | <code>[RequestOptionsOrDict](adyen/core/request_options.py) \| None</code> | Per-call overrides for this one request, such as a timeout, extra headers, or its retry count and statuses. |
 
 </dd>
 </dl>
@@ -30856,7 +32932,9 @@ In the live environment, requests to this endpoint are subject to [rate limits](
 
 ```python
 try:
-    response = client.terminal_settings_company_level.get_companies_company_id_terminal_logos(company_id, model)
+    response = client.terminal_settings_company_level.get_companies_company_id_terminal_logos(
+        "some example string", "some example string"
+    )
     # TODO: Handle 'response' of type Logo
 except ApiError as e:
     ...  # TODO: Handle 'e.error' of type GetCompaniesCompanyIdTerminalLogosErrorBody
@@ -30867,7 +32945,7 @@ except ApiError as e:
 ```python
 try:
     response = await async_client.terminal_settings_company_level.get_companies_company_id_terminal_logos(
-        company_id, model
+        "some example string", "some example string"
     )
     # TODO: Handle 'response' of type Logo
 except ApiError as e:
@@ -30886,7 +32964,7 @@ except ApiError as e:
 | --- | --- | --- |
 | <code>company_id</code> | <code>str</code> | The unique identifier of the company account. |
 | <code>model</code> | <code>str</code> | The terminal model. Possible values: E355, VX675WIFIBT, VX680, VX690, VX700, VX820, M400, MX925, P400Plus, UX300, UX410, V200cPlus, V240mPlus, V400cPlus, V400m, e280, e285, e285p, S1E, S1EL, S1F2, S1L, S1U, S7T. |
-| <code>request_options</code> | <code>[RequestOptionsOrDict](adyen/core/request_options.py) \| None</code> | Per-call overrides for this one request, such as a timeout or extra headers. |
+| <code>request_options</code> | <code>[RequestOptionsOrDict](adyen/core/request_options.py) \| None</code> | Per-call overrides for this one request, such as a timeout, extra headers, or its retry count and statuses. |
 
 </dd>
 </dl>
@@ -30949,7 +33027,7 @@ In the live environment, requests to this endpoint are subject to [rate limits](
 
 ```python
 try:
-    response = client.terminal_settings_company_level.get_companies_company_id_terminal_settings(company_id)
+    response = client.terminal_settings_company_level.get_companies_company_id_terminal_settings("some example string")
     # TODO: Handle 'response' of type TerminalSettings
 except ApiError as e:
     ...  # TODO: Handle 'e.error' of type GetCompaniesCompanyIdTerminalSettingsErrorBody
@@ -30959,7 +33037,9 @@ except ApiError as e:
 
 ```python
 try:
-    response = await async_client.terminal_settings_company_level.get_companies_company_id_terminal_settings(company_id)
+    response = await async_client.terminal_settings_company_level.get_companies_company_id_terminal_settings(
+        "some example string"
+    )
     # TODO: Handle 'response' of type TerminalSettings
 except ApiError as e:
     ...  # TODO: Handle 'e.error' of type GetCompaniesCompanyIdTerminalSettingsErrorBody
@@ -30976,7 +33056,7 @@ except ApiError as e:
 | Name | Type | Description |
 | --- | --- | --- |
 | <code>company_id</code> | <code>str</code> | The unique identifier of the company account. |
-| <code>request_options</code> | <code>[RequestOptionsOrDict](adyen/core/request_options.py) \| None</code> | Per-call overrides for this one request, such as a timeout or extra headers. |
+| <code>request_options</code> | <code>[RequestOptionsOrDict](adyen/core/request_options.py) \| None</code> | Per-call overrides for this one request, such as a timeout, extra headers, or its retry count and statuses. |
 
 </dd>
 </dl>
@@ -31038,7 +33118,9 @@ In the live environment, requests to this endpoint are subject to [rate limits](
 
 ```python
 try:
-    response = client.terminal_settings_company_level.patch_companies_company_id_terminal_logos(company_id, model)
+    response = client.terminal_settings_company_level.patch_companies_company_id_terminal_logos(
+        "some example string", "some example string", body=Logo(data="")
+    )
     # TODO: Handle 'response' of type Logo
 except ApiError as e:
     ...  # TODO: Handle 'e.error' of type PatchCompaniesCompanyIdTerminalLogosErrorBody
@@ -31049,7 +33131,7 @@ except ApiError as e:
 ```python
 try:
     response = await async_client.terminal_settings_company_level.patch_companies_company_id_terminal_logos(
-        company_id, model
+        "some example string", "some example string", body=Logo(data="")
     )
     # TODO: Handle 'response' of type Logo
 except ApiError as e:
@@ -31069,7 +33151,7 @@ except ApiError as e:
 | <code>company_id</code> | <code>str</code> | The unique identifier of the company account. |
 | <code>model</code> | <code>str</code> | The terminal model. Possible values: E355, VX675WIFIBT, VX680, VX690, VX700, VX820, M400, MX925, P400Plus, UX300, UX410, V200cPlus, V240mPlus, V400cPlus, V400m, e280, e285, e285p, S1E, S1EL, S1F2, S1L, S1U, S7T. |
 | <code>body</code> | <code>[Logo](adyen/models/logo.py) \| [LogoDict](adyen/models/logo.py) \| None</code> | The request body.<br>**Default**: <code>None</code> |
-| <code>request_options</code> | <code>[RequestOptionsOrDict](adyen/core/request_options.py) \| None</code> | Per-call overrides for this one request, such as a timeout or extra headers. |
+| <code>request_options</code> | <code>[RequestOptionsOrDict](adyen/core/request_options.py) \| None</code> | Per-call overrides for this one request, such as a timeout, extra headers, or its retry count and statuses. |
 
 </dd>
 </dl>
@@ -31135,7 +33217,44 @@ In the live environment, requests to this endpoint are subject to [rate limits](
 
 ```python
 try:
-    response = client.terminal_settings_company_level.patch_companies_company_id_terminal_settings(company_id)
+    response = client.terminal_settings_company_level.patch_companies_company_id_terminal_settings(
+        "some example string",
+        body=TerminalSettings(
+            wifi_profiles=WifiProfiles2(
+                profiles=[
+                    Profile(
+                        auth_type="wpa-eap",
+                        auto_wifi=False,
+                        bss_type="infra",
+                        channel=0,
+                        default_profile=True,
+                        eap="peap",
+                        eap_ca_cert=File1(),
+                        eap_identity="admin",
+                        eap_intermediate_cert=File4(),
+                        eap_pwd="EAP_PEAP_PASSWORD",
+                        hidden_ssid=False,
+                        name="Profile-eap-peap-1",
+                        ssid="your-network",
+                        wsec="ccmp",
+                    ),
+                    Profile(
+                        auth_type="wpa-psk",
+                        auto_wifi=False,
+                        bss_type="infra",
+                        channel=0,
+                        default_profile=False,
+                        hidden_ssid=False,
+                        name="Profile-guest-wifi",
+                        psk="WIFI_PASSWORD",
+                        ssid="your-network",
+                        wsec="ccmp",
+                    ),
+                ],
+                settings=Settings1(band="2.4GHz", roaming=True, timeout=5),
+            ),
+        ),
+    )
     # TODO: Handle 'response' of type TerminalSettings
 except ApiError as e:
     ...  # TODO: Handle 'e.error' of type PatchCompaniesCompanyIdTerminalSettingsErrorBody
@@ -31146,7 +33265,42 @@ except ApiError as e:
 ```python
 try:
     response = await async_client.terminal_settings_company_level.patch_companies_company_id_terminal_settings(
-        company_id
+        "some example string",
+        body=TerminalSettings(
+            wifi_profiles=WifiProfiles2(
+                profiles=[
+                    Profile(
+                        auth_type="wpa-eap",
+                        auto_wifi=False,
+                        bss_type="infra",
+                        channel=0,
+                        default_profile=True,
+                        eap="peap",
+                        eap_ca_cert=File1(),
+                        eap_identity="admin",
+                        eap_intermediate_cert=File4(),
+                        eap_pwd="EAP_PEAP_PASSWORD",
+                        hidden_ssid=False,
+                        name="Profile-eap-peap-1",
+                        ssid="your-network",
+                        wsec="ccmp",
+                    ),
+                    Profile(
+                        auth_type="wpa-psk",
+                        auto_wifi=False,
+                        bss_type="infra",
+                        channel=0,
+                        default_profile=False,
+                        hidden_ssid=False,
+                        name="Profile-guest-wifi",
+                        psk="WIFI_PASSWORD",
+                        ssid="your-network",
+                        wsec="ccmp",
+                    ),
+                ],
+                settings=Settings1(band="2.4GHz", roaming=True, timeout=5),
+            ),
+        ),
     )
     # TODO: Handle 'response' of type TerminalSettings
 except ApiError as e:
@@ -31165,7 +33319,7 @@ except ApiError as e:
 | --- | --- | --- |
 | <code>company_id</code> | <code>str</code> | The unique identifier of the company account. |
 | <code>body</code> | <code>[TerminalSettings](adyen/models/terminal_settings.py) \| [TerminalSettingsDict](adyen/models/terminal_settings.py) \| None</code> | The request body.<br>**Default**: <code>None</code> |
-| <code>request_options</code> | <code>[RequestOptionsOrDict](adyen/core/request_options.py) \| None</code> | Per-call overrides for this one request, such as a timeout or extra headers. |
+| <code>request_options</code> | <code>[RequestOptionsOrDict](adyen/core/request_options.py) \| None</code> | Per-call overrides for this one request, such as a timeout, extra headers, or its retry count and statuses. |
 
 </dd>
 </dl>
@@ -31231,7 +33385,9 @@ In the live environment, requests to this endpoint are subject to [rate limits](
 
 ```python
 try:
-    response = client.terminal_settings_merchant_level.get_merchants_merchant_id_terminal_logos(merchant_id, model)
+    response = client.terminal_settings_merchant_level.get_merchants_merchant_id_terminal_logos(
+        "some example string", "some example string"
+    )
     # TODO: Handle 'response' of type Logo
 except ApiError as e:
     ...  # TODO: Handle 'e.error' of type GetMerchantsMerchantIdTerminalLogosErrorBody
@@ -31242,7 +33398,7 @@ except ApiError as e:
 ```python
 try:
     response = await async_client.terminal_settings_merchant_level.get_merchants_merchant_id_terminal_logos(
-        merchant_id, model
+        "some example string", "some example string"
     )
     # TODO: Handle 'response' of type Logo
 except ApiError as e:
@@ -31261,7 +33417,7 @@ except ApiError as e:
 | --- | --- | --- |
 | <code>merchant_id</code> | <code>str</code> | The unique identifier of the merchant account. |
 | <code>model</code> | <code>str</code> | The terminal model. Possible values: E355, VX675WIFIBT, VX680, VX690, VX700, VX820, M400, MX925, P400Plus, UX300, UX410, V200cPlus, V240mPlus, V400cPlus, V400m, e280, e285, e285p, S1E, S1EL, S1F2, S1L, S1U, S7T. |
-| <code>request_options</code> | <code>[RequestOptionsOrDict](adyen/core/request_options.py) \| None</code> | Per-call overrides for this one request, such as a timeout or extra headers. |
+| <code>request_options</code> | <code>[RequestOptionsOrDict](adyen/core/request_options.py) \| None</code> | Per-call overrides for this one request, such as a timeout, extra headers, or its retry count and statuses. |
 
 </dd>
 </dl>
@@ -31324,7 +33480,9 @@ In the live environment, requests to this endpoint are subject to [rate limits](
 
 ```python
 try:
-    response = client.terminal_settings_merchant_level.get_merchants_merchant_id_terminal_settings(merchant_id)
+    response = client.terminal_settings_merchant_level.get_merchants_merchant_id_terminal_settings(
+        "some example string"
+    )
     # TODO: Handle 'response' of type TerminalSettings
 except ApiError as e:
     ...  # TODO: Handle 'e.error' of type GetMerchantsMerchantIdTerminalSettingsErrorBody
@@ -31335,7 +33493,7 @@ except ApiError as e:
 ```python
 try:
     response = await async_client.terminal_settings_merchant_level.get_merchants_merchant_id_terminal_settings(
-        merchant_id
+        "some example string"
     )
     # TODO: Handle 'response' of type TerminalSettings
 except ApiError as e:
@@ -31353,7 +33511,7 @@ except ApiError as e:
 | Name | Type | Description |
 | --- | --- | --- |
 | <code>merchant_id</code> | <code>str</code> | The unique identifier of the merchant account. |
-| <code>request_options</code> | <code>[RequestOptionsOrDict](adyen/core/request_options.py) \| None</code> | Per-call overrides for this one request, such as a timeout or extra headers. |
+| <code>request_options</code> | <code>[RequestOptionsOrDict](adyen/core/request_options.py) \| None</code> | Per-call overrides for this one request, such as a timeout, extra headers, or its retry count and statuses. |
 
 </dd>
 </dl>
@@ -31416,7 +33574,9 @@ In the live environment, requests to this endpoint are subject to [rate limits](
 
 ```python
 try:
-    response = client.terminal_settings_merchant_level.patch_merchants_merchant_id_terminal_logos(merchant_id, model)
+    response = client.terminal_settings_merchant_level.patch_merchants_merchant_id_terminal_logos(
+        "some example string", "some example string", body=Logo(data="")
+    )
     # TODO: Handle 'response' of type Logo
 except ApiError as e:
     ...  # TODO: Handle 'e.error' of type PatchMerchantsMerchantIdTerminalLogosErrorBody
@@ -31427,7 +33587,7 @@ except ApiError as e:
 ```python
 try:
     response = await async_client.terminal_settings_merchant_level.patch_merchants_merchant_id_terminal_logos(
-        merchant_id, model
+        "some example string", "some example string", body=Logo(data="")
     )
     # TODO: Handle 'response' of type Logo
 except ApiError as e:
@@ -31447,7 +33607,7 @@ except ApiError as e:
 | <code>merchant_id</code> | <code>str</code> | The unique identifier of the merchant account. |
 | <code>model</code> | <code>str</code> | The terminal model. Allowed values: E355, VX675WIFIBT, VX680, VX690, VX700, VX820, M400, MX925, P400Plus, UX300, UX410, V200cPlus, V240mPlus, V400cPlus, V400m, e280, e285, e285p, S1E, S1EL, S1F2, S1L, S1U, S7T. |
 | <code>body</code> | <code>[Logo](adyen/models/logo.py) \| [LogoDict](adyen/models/logo.py) \| None</code> | The request body.<br>**Default**: <code>None</code> |
-| <code>request_options</code> | <code>[RequestOptionsOrDict](adyen/core/request_options.py) \| None</code> | Per-call overrides for this one request, such as a timeout or extra headers. |
+| <code>request_options</code> | <code>[RequestOptionsOrDict](adyen/core/request_options.py) \| None</code> | Per-call overrides for this one request, such as a timeout, extra headers, or its retry count and statuses. |
 
 </dd>
 </dl>
@@ -31516,7 +33676,44 @@ In the live environment, requests to this endpoint are subject to [rate limits](
 
 ```python
 try:
-    response = client.terminal_settings_merchant_level.patch_merchants_merchant_id_terminal_settings(merchant_id)
+    response = client.terminal_settings_merchant_level.patch_merchants_merchant_id_terminal_settings(
+        "some example string",
+        body=TerminalSettings(
+            wifi_profiles=WifiProfiles2(
+                profiles=[
+                    Profile(
+                        auth_type="wpa-eap",
+                        auto_wifi=False,
+                        bss_type="infra",
+                        channel=0,
+                        default_profile=True,
+                        eap="peap",
+                        eap_ca_cert=File1(),
+                        eap_identity="admin",
+                        eap_intermediate_cert=File4(),
+                        eap_pwd="EAP_PEAP_PASSWORD",
+                        hidden_ssid=False,
+                        name="Profile-eap-peap-1",
+                        ssid="your-network",
+                        wsec="ccmp",
+                    ),
+                    Profile(
+                        auth_type="wpa-psk",
+                        auto_wifi=False,
+                        bss_type="infra",
+                        channel=0,
+                        default_profile=False,
+                        hidden_ssid=False,
+                        name="Profile-guest-wifi",
+                        psk="WIFI_PASSWORD",
+                        ssid="your-network",
+                        wsec="ccmp",
+                    ),
+                ],
+                settings=Settings1(band="2.4GHz", roaming=True, timeout=5),
+            ),
+        ),
+    )
     # TODO: Handle 'response' of type TerminalSettings
 except ApiError as e:
     ...  # TODO: Handle 'e.error' of type PatchMerchantsMerchantIdTerminalSettingsErrorBody
@@ -31527,7 +33724,42 @@ except ApiError as e:
 ```python
 try:
     response = await async_client.terminal_settings_merchant_level.patch_merchants_merchant_id_terminal_settings(
-        merchant_id
+        "some example string",
+        body=TerminalSettings(
+            wifi_profiles=WifiProfiles2(
+                profiles=[
+                    Profile(
+                        auth_type="wpa-eap",
+                        auto_wifi=False,
+                        bss_type="infra",
+                        channel=0,
+                        default_profile=True,
+                        eap="peap",
+                        eap_ca_cert=File1(),
+                        eap_identity="admin",
+                        eap_intermediate_cert=File4(),
+                        eap_pwd="EAP_PEAP_PASSWORD",
+                        hidden_ssid=False,
+                        name="Profile-eap-peap-1",
+                        ssid="your-network",
+                        wsec="ccmp",
+                    ),
+                    Profile(
+                        auth_type="wpa-psk",
+                        auto_wifi=False,
+                        bss_type="infra",
+                        channel=0,
+                        default_profile=False,
+                        hidden_ssid=False,
+                        name="Profile-guest-wifi",
+                        psk="WIFI_PASSWORD",
+                        ssid="your-network",
+                        wsec="ccmp",
+                    ),
+                ],
+                settings=Settings1(band="2.4GHz", roaming=True, timeout=5),
+            ),
+        ),
     )
     # TODO: Handle 'response' of type TerminalSettings
 except ApiError as e:
@@ -31546,7 +33778,7 @@ except ApiError as e:
 | --- | --- | --- |
 | <code>merchant_id</code> | <code>str</code> | The unique identifier of the merchant account. |
 | <code>body</code> | <code>[TerminalSettings](adyen/models/terminal_settings.py) \| [TerminalSettingsDict](adyen/models/terminal_settings.py) \| None</code> | The request body.<br>**Default**: <code>None</code> |
-| <code>request_options</code> | <code>[RequestOptionsOrDict](adyen/core/request_options.py) \| None</code> | Per-call overrides for this one request, such as a timeout or extra headers. |
+| <code>request_options</code> | <code>[RequestOptionsOrDict](adyen/core/request_options.py) \| None</code> | Per-call overrides for this one request, such as a timeout, extra headers, or its retry count and statuses. |
 
 </dd>
 </dl>
@@ -31613,7 +33845,7 @@ In the live environment, requests to this endpoint are subject to [rate limits](
 ```python
 try:
     response = client.terminal_settings_store_level.get_merchants_merchant_id_stores_reference_terminal_logos(
-        merchant_id, reference, model
+        "some example string", "some example string", "some example string"
     )
     # TODO: Handle 'response' of type Logo
 except ApiError as e:
@@ -31625,7 +33857,7 @@ except ApiError as e:
 ```python
 try:
     response = await async_client.terminal_settings_store_level.get_merchants_merchant_id_stores_reference_terminal_logos(
-        merchant_id, reference, model
+        "some example string", "some example string", "some example string"
     )
     # TODO: Handle 'response' of type Logo
 except ApiError as e:
@@ -31645,7 +33877,7 @@ except ApiError as e:
 | <code>merchant_id</code> | <code>str</code> | The unique identifier of the merchant account. |
 | <code>reference</code> | <code>str</code> | The reference that identifies the store. |
 | <code>model</code> | <code>str</code> | The terminal model. Possible values: E355, VX675WIFIBT, VX680, VX690, VX700, VX820, M400, MX925, P400Plus, UX300, UX410, V200cPlus, V240mPlus, V400cPlus, V400m, e280, e285, e285p, S1E, S1EL, S1F2, S1L, S1U, S7T. |
-| <code>request_options</code> | <code>[RequestOptionsOrDict](adyen/core/request_options.py) \| None</code> | Per-call overrides for this one request, such as a timeout or extra headers. |
+| <code>request_options</code> | <code>[RequestOptionsOrDict](adyen/core/request_options.py) \| None</code> | Per-call overrides for this one request, such as a timeout, extra headers, or its retry count and statuses. |
 
 </dd>
 </dl>
@@ -31709,7 +33941,7 @@ In the live environment, requests to this endpoint are subject to [rate limits](
 ```python
 try:
     response = client.terminal_settings_store_level.get_merchants_merchant_id_stores_reference_terminal_settings(
-        merchant_id, reference
+        "some example string", "some example string"
     )
     # TODO: Handle 'response' of type TerminalSettings
 except ApiError as e:
@@ -31721,7 +33953,7 @@ except ApiError as e:
 ```python
 try:
     response = await async_client.terminal_settings_store_level.get_merchants_merchant_id_stores_reference_terminal_settings(
-        merchant_id, reference
+        "some example string", "some example string"
     )
     # TODO: Handle 'response' of type TerminalSettings
 except ApiError as e:
@@ -31740,7 +33972,7 @@ except ApiError as e:
 | --- | --- | --- |
 | <code>merchant_id</code> | <code>str</code> | The unique identifier of the merchant account. |
 | <code>reference</code> | <code>str</code> | The reference that identifies the store. |
-| <code>request_options</code> | <code>[RequestOptionsOrDict](adyen/core/request_options.py) \| None</code> | Per-call overrides for this one request, such as a timeout or extra headers. |
+| <code>request_options</code> | <code>[RequestOptionsOrDict](adyen/core/request_options.py) \| None</code> | Per-call overrides for this one request, such as a timeout, extra headers, or its retry count and statuses. |
 
 </dd>
 </dl>
@@ -31802,7 +34034,9 @@ In the live environment, requests to this endpoint are subject to [rate limits](
 
 ```python
 try:
-    response = client.terminal_settings_store_level.get_stores_store_id_terminal_logos(store_id, model)
+    response = client.terminal_settings_store_level.get_stores_store_id_terminal_logos(
+        "some example string", "some example string"
+    )
     # TODO: Handle 'response' of type Logo
 except ApiError as e:
     ...  # TODO: Handle 'e.error' of type GetStoresStoreIdTerminalLogosErrorBody
@@ -31812,7 +34046,9 @@ except ApiError as e:
 
 ```python
 try:
-    response = await async_client.terminal_settings_store_level.get_stores_store_id_terminal_logos(store_id, model)
+    response = await async_client.terminal_settings_store_level.get_stores_store_id_terminal_logos(
+        "some example string", "some example string"
+    )
     # TODO: Handle 'response' of type Logo
 except ApiError as e:
     ...  # TODO: Handle 'e.error' of type GetStoresStoreIdTerminalLogosErrorBody
@@ -31830,7 +34066,7 @@ except ApiError as e:
 | --- | --- | --- |
 | <code>store_id</code> | <code>str</code> | The unique identifier of the store. |
 | <code>model</code> | <code>str</code> | The terminal model. Possible values: E355, VX675WIFIBT, VX680, VX690, VX700, VX820, M400, MX925, P400Plus, UX300, UX410, V200cPlus, V240mPlus, V400cPlus, V400m, e280, e285, e285p, S1E, S1EL, S1F2, S1L, S1U, S7T. |
-| <code>request_options</code> | <code>[RequestOptionsOrDict](adyen/core/request_options.py) \| None</code> | Per-call overrides for this one request, such as a timeout or extra headers. |
+| <code>request_options</code> | <code>[RequestOptionsOrDict](adyen/core/request_options.py) \| None</code> | Per-call overrides for this one request, such as a timeout, extra headers, or its retry count and statuses. |
 
 </dd>
 </dl>
@@ -31893,7 +34129,7 @@ In the live environment, requests to this endpoint are subject to [rate limits](
 
 ```python
 try:
-    response = client.terminal_settings_store_level.get_stores_store_id_terminal_settings(store_id)
+    response = client.terminal_settings_store_level.get_stores_store_id_terminal_settings("some example string")
     # TODO: Handle 'response' of type TerminalSettings
 except ApiError as e:
     ...  # TODO: Handle 'e.error' of type GetStoresStoreIdTerminalSettingsErrorBody
@@ -31903,7 +34139,9 @@ except ApiError as e:
 
 ```python
 try:
-    response = await async_client.terminal_settings_store_level.get_stores_store_id_terminal_settings(store_id)
+    response = await async_client.terminal_settings_store_level.get_stores_store_id_terminal_settings(
+        "some example string"
+    )
     # TODO: Handle 'response' of type TerminalSettings
 except ApiError as e:
     ...  # TODO: Handle 'e.error' of type GetStoresStoreIdTerminalSettingsErrorBody
@@ -31920,7 +34158,7 @@ except ApiError as e:
 | Name | Type | Description |
 | --- | --- | --- |
 | <code>store_id</code> | <code>str</code> | The unique identifier of the store. |
-| <code>request_options</code> | <code>[RequestOptionsOrDict](adyen/core/request_options.py) \| None</code> | Per-call overrides for this one request, such as a timeout or extra headers. |
+| <code>request_options</code> | <code>[RequestOptionsOrDict](adyen/core/request_options.py) \| None</code> | Per-call overrides for this one request, such as a timeout, extra headers, or its retry count and statuses. |
 
 </dd>
 </dl>
@@ -31984,7 +34222,7 @@ In the live environment, requests to this endpoint are subject to [rate limits](
 ```python
 try:
     response = client.terminal_settings_store_level.patch_merchants_merchant_id_stores_reference_terminal_logos(
-        merchant_id, reference, model
+        "some example string", "some example string", "some example string", body=Logo(data="")
     )
     # TODO: Handle 'response' of type Logo
 except ApiError as e:
@@ -31996,7 +34234,7 @@ except ApiError as e:
 ```python
 try:
     response = await async_client.terminal_settings_store_level.patch_merchants_merchant_id_stores_reference_terminal_logos(
-        merchant_id, reference, model
+        "some example string", "some example string", "some example string", body=Logo(data="")
     )
     # TODO: Handle 'response' of type Logo
 except ApiError as e:
@@ -32017,7 +34255,7 @@ except ApiError as e:
 | <code>reference</code> | <code>str</code> | The reference that identifies the store. |
 | <code>model</code> | <code>str</code> | The terminal model. Possible values: E355, VX675WIFIBT, VX680, VX690, VX700, VX820, M400, MX925, P400Plus, UX300, UX410, V200cPlus, V240mPlus, V400cPlus, V400m, e280, e285, e285p, S1E, S1EL, S1F2, S1L, S1U, S7T |
 | <code>body</code> | <code>[Logo](adyen/models/logo.py) \| [LogoDict](adyen/models/logo.py) \| None</code> | The request body.<br>**Default**: <code>None</code> |
-| <code>request_options</code> | <code>[RequestOptionsOrDict](adyen/core/request_options.py) \| None</code> | Per-call overrides for this one request, such as a timeout or extra headers. |
+| <code>request_options</code> | <code>[RequestOptionsOrDict](adyen/core/request_options.py) \| None</code> | Per-call overrides for this one request, such as a timeout, extra headers, or its retry count and statuses. |
 
 </dd>
 </dl>
@@ -32084,7 +34322,41 @@ In the live environment, requests to this endpoint are subject to [rate limits](
 ```python
 try:
     response = client.terminal_settings_store_level.patch_merchants_merchant_id_stores_reference_terminal_settings(
-        merchant_id, reference
+        "some example string",
+        "some example string",
+        body=TerminalSettings(
+            wifi_profiles=WifiProfiles2(
+                profiles=[
+                    Profile(
+                        auth_type="wpa-eap",
+                        auto_wifi=False,
+                        bss_type="infra",
+                        channel=0,
+                        default_profile=True,
+                        eap="peap",
+                        eap_ca_cert=File1(),
+                        eap_identity="admin",
+                        eap_intermediate_cert=File4(),
+                        eap_pwd="EAP_PEAP_PASSWORD",
+                        name="Profile-eap-peap-1",
+                        ssid="your-network",
+                        wsec="ccmp",
+                    ),
+                    Profile(
+                        auth_type="wpa-psk",
+                        auto_wifi=False,
+                        bss_type="infra",
+                        channel=0,
+                        default_profile=False,
+                        name="Profile-guest-wifi",
+                        psk="WIFI_PASSWORD",
+                        ssid="your-network",
+                        wsec="ccmp",
+                    ),
+                ],
+                settings=Settings1(band="2.4GHz", roaming=True, timeout=5),
+            ),
+        ),
     )
     # TODO: Handle 'response' of type TerminalSettings
 except ApiError as e:
@@ -32096,7 +34368,41 @@ except ApiError as e:
 ```python
 try:
     response = await async_client.terminal_settings_store_level.patch_merchants_merchant_id_stores_reference_terminal_settings(
-        merchant_id, reference
+        "some example string",
+        "some example string",
+        body=TerminalSettings(
+            wifi_profiles=WifiProfiles2(
+                profiles=[
+                    Profile(
+                        auth_type="wpa-eap",
+                        auto_wifi=False,
+                        bss_type="infra",
+                        channel=0,
+                        default_profile=True,
+                        eap="peap",
+                        eap_ca_cert=File1(),
+                        eap_identity="admin",
+                        eap_intermediate_cert=File4(),
+                        eap_pwd="EAP_PEAP_PASSWORD",
+                        name="Profile-eap-peap-1",
+                        ssid="your-network",
+                        wsec="ccmp",
+                    ),
+                    Profile(
+                        auth_type="wpa-psk",
+                        auto_wifi=False,
+                        bss_type="infra",
+                        channel=0,
+                        default_profile=False,
+                        name="Profile-guest-wifi",
+                        psk="WIFI_PASSWORD",
+                        ssid="your-network",
+                        wsec="ccmp",
+                    ),
+                ],
+                settings=Settings1(band="2.4GHz", roaming=True, timeout=5),
+            ),
+        ),
     )
     # TODO: Handle 'response' of type TerminalSettings
 except ApiError as e:
@@ -32116,7 +34422,7 @@ except ApiError as e:
 | <code>merchant_id</code> | <code>str</code> | The unique identifier of the merchant account. |
 | <code>reference</code> | <code>str</code> | The reference that identifies the store. |
 | <code>body</code> | <code>[TerminalSettings](adyen/models/terminal_settings.py) \| [TerminalSettingsDict](adyen/models/terminal_settings.py) \| None</code> | The request body.<br>**Default**: <code>None</code> |
-| <code>request_options</code> | <code>[RequestOptionsOrDict](adyen/core/request_options.py) \| None</code> | Per-call overrides for this one request, such as a timeout or extra headers. |
+| <code>request_options</code> | <code>[RequestOptionsOrDict](adyen/core/request_options.py) \| None</code> | Per-call overrides for this one request, such as a timeout, extra headers, or its retry count and statuses. |
 
 </dd>
 </dl>
@@ -32179,7 +34485,9 @@ In the live environment, requests to this endpoint are subject to [rate limits](
 
 ```python
 try:
-    response = client.terminal_settings_store_level.patch_stores_store_id_terminal_logos(store_id, model)
+    response = client.terminal_settings_store_level.patch_stores_store_id_terminal_logos(
+        "some example string", "some example string", body=Logo(data="")
+    )
     # TODO: Handle 'response' of type Logo
 except ApiError as e:
     ...  # TODO: Handle 'e.error' of type PatchStoresStoreIdTerminalLogosErrorBody
@@ -32189,7 +34497,9 @@ except ApiError as e:
 
 ```python
 try:
-    response = await async_client.terminal_settings_store_level.patch_stores_store_id_terminal_logos(store_id, model)
+    response = await async_client.terminal_settings_store_level.patch_stores_store_id_terminal_logos(
+        "some example string", "some example string", body=Logo(data="")
+    )
     # TODO: Handle 'response' of type Logo
 except ApiError as e:
     ...  # TODO: Handle 'e.error' of type PatchStoresStoreIdTerminalLogosErrorBody
@@ -32208,7 +34518,7 @@ except ApiError as e:
 | <code>store_id</code> | <code>str</code> | The unique identifier of the store. |
 | <code>model</code> | <code>str</code> | The terminal model. Possible values: E355, VX675WIFIBT, VX680, VX690, VX700, VX820, M400, MX925, P400Plus, UX300, UX410, V200cPlus, V240mPlus, V400cPlus, V400m, e280, e285, e285p, S1E, S1EL, S1F2, S1L, S1U, S7T. |
 | <code>body</code> | <code>[Logo](adyen/models/logo.py) \| [LogoDict](adyen/models/logo.py) \| None</code> | The request body.<br>**Default**: <code>None</code> |
-| <code>request_options</code> | <code>[RequestOptionsOrDict](adyen/core/request_options.py) \| None</code> | Per-call overrides for this one request, such as a timeout or extra headers. |
+| <code>request_options</code> | <code>[RequestOptionsOrDict](adyen/core/request_options.py) \| None</code> | Per-call overrides for this one request, such as a timeout, extra headers, or its retry count and statuses. |
 
 </dd>
 </dl>
@@ -32274,7 +34584,44 @@ In the live environment, requests to this endpoint are subject to [rate limits](
 
 ```python
 try:
-    response = client.terminal_settings_store_level.patch_stores_store_id_terminal_settings(store_id)
+    response = client.terminal_settings_store_level.patch_stores_store_id_terminal_settings(
+        "some example string",
+        body=TerminalSettings(
+            wifi_profiles=WifiProfiles2(
+                profiles=[
+                    Profile(
+                        auth_type="wpa-eap",
+                        auto_wifi=False,
+                        bss_type="infra",
+                        channel=0,
+                        default_profile=True,
+                        eap="peap",
+                        eap_ca_cert=File1(),
+                        eap_identity="admin",
+                        eap_intermediate_cert=File4(),
+                        eap_pwd="EAP_PEAP_PASSWORD",
+                        hidden_ssid=False,
+                        name="Profile-eap-peap-1",
+                        ssid="your-network",
+                        wsec="ccmp",
+                    ),
+                    Profile(
+                        auth_type="wpa-psk",
+                        auto_wifi=False,
+                        bss_type="infra",
+                        channel=0,
+                        default_profile=False,
+                        hidden_ssid=False,
+                        name="Profile-guest-wifi",
+                        psk="WIFI_PASSWORD",
+                        ssid="your-network",
+                        wsec="ccmp",
+                    ),
+                ],
+                settings=Settings1(band="2.4GHz", roaming=True, timeout=5),
+            ),
+        ),
+    )
     # TODO: Handle 'response' of type TerminalSettings
 except ApiError as e:
     ...  # TODO: Handle 'e.error' of type PatchStoresStoreIdTerminalSettingsErrorBody
@@ -32284,7 +34631,44 @@ except ApiError as e:
 
 ```python
 try:
-    response = await async_client.terminal_settings_store_level.patch_stores_store_id_terminal_settings(store_id)
+    response = await async_client.terminal_settings_store_level.patch_stores_store_id_terminal_settings(
+        "some example string",
+        body=TerminalSettings(
+            wifi_profiles=WifiProfiles2(
+                profiles=[
+                    Profile(
+                        auth_type="wpa-eap",
+                        auto_wifi=False,
+                        bss_type="infra",
+                        channel=0,
+                        default_profile=True,
+                        eap="peap",
+                        eap_ca_cert=File1(),
+                        eap_identity="admin",
+                        eap_intermediate_cert=File4(),
+                        eap_pwd="EAP_PEAP_PASSWORD",
+                        hidden_ssid=False,
+                        name="Profile-eap-peap-1",
+                        ssid="your-network",
+                        wsec="ccmp",
+                    ),
+                    Profile(
+                        auth_type="wpa-psk",
+                        auto_wifi=False,
+                        bss_type="infra",
+                        channel=0,
+                        default_profile=False,
+                        hidden_ssid=False,
+                        name="Profile-guest-wifi",
+                        psk="WIFI_PASSWORD",
+                        ssid="your-network",
+                        wsec="ccmp",
+                    ),
+                ],
+                settings=Settings1(band="2.4GHz", roaming=True, timeout=5),
+            ),
+        ),
+    )
     # TODO: Handle 'response' of type TerminalSettings
 except ApiError as e:
     ...  # TODO: Handle 'e.error' of type PatchStoresStoreIdTerminalSettingsErrorBody
@@ -32302,7 +34686,7 @@ except ApiError as e:
 | --- | --- | --- |
 | <code>store_id</code> | <code>str</code> | The unique identifier of the store. |
 | <code>body</code> | <code>[TerminalSettings](adyen/models/terminal_settings.py) \| [TerminalSettingsDict](adyen/models/terminal_settings.py) \| None</code> | The request body.<br>**Default**: <code>None</code> |
-| <code>request_options</code> | <code>[RequestOptionsOrDict](adyen/core/request_options.py) \| None</code> | Per-call overrides for this one request, such as a timeout or extra headers. |
+| <code>request_options</code> | <code>[RequestOptionsOrDict](adyen/core/request_options.py) \| None</code> | Per-call overrides for this one request, such as a timeout, extra headers, or its retry count and statuses. |
 
 </dd>
 </dl>
@@ -32367,7 +34751,7 @@ In the live environment, requests to this endpoint are subject to [rate limits](
 
 ```python
 try:
-    response = client.terminal_settings_terminal_level.get_terminals_terminal_id_terminal_logos(terminal_id)
+    response = client.terminal_settings_terminal_level.get_terminals_terminal_id_terminal_logos("some example string")
     # TODO: Handle 'response' of type Logo
 except ApiError as e:
     ...  # TODO: Handle 'e.error' of type GetTerminalsTerminalIdTerminalLogosErrorBody
@@ -32377,7 +34761,9 @@ except ApiError as e:
 
 ```python
 try:
-    response = await async_client.terminal_settings_terminal_level.get_terminals_terminal_id_terminal_logos(terminal_id)
+    response = await async_client.terminal_settings_terminal_level.get_terminals_terminal_id_terminal_logos(
+        "some example string"
+    )
     # TODO: Handle 'response' of type Logo
 except ApiError as e:
     ...  # TODO: Handle 'e.error' of type GetTerminalsTerminalIdTerminalLogosErrorBody
@@ -32394,7 +34780,7 @@ except ApiError as e:
 | Name | Type | Description |
 | --- | --- | --- |
 | <code>terminal_id</code> | <code>str</code> | The unique identifier of the payment terminal. |
-| <code>request_options</code> | <code>[RequestOptionsOrDict](adyen/core/request_options.py) \| None</code> | Per-call overrides for this one request, such as a timeout or extra headers. |
+| <code>request_options</code> | <code>[RequestOptionsOrDict](adyen/core/request_options.py) \| None</code> | Per-call overrides for this one request, such as a timeout, extra headers, or its retry count and statuses. |
 
 </dd>
 </dl>
@@ -32457,7 +34843,9 @@ In the live environment, requests to this endpoint are subject to [rate limits](
 
 ```python
 try:
-    response = client.terminal_settings_terminal_level.get_terminals_terminal_id_terminal_settings(terminal_id)
+    response = client.terminal_settings_terminal_level.get_terminals_terminal_id_terminal_settings(
+        "some example string"
+    )
     # TODO: Handle 'response' of type TerminalSettings
 except ApiError as e:
     ...  # TODO: Handle 'e.error' of type GetTerminalsTerminalIdTerminalSettingsErrorBody
@@ -32468,7 +34856,7 @@ except ApiError as e:
 ```python
 try:
     response = await async_client.terminal_settings_terminal_level.get_terminals_terminal_id_terminal_settings(
-        terminal_id
+        "some example string"
     )
     # TODO: Handle 'response' of type TerminalSettings
 except ApiError as e:
@@ -32486,7 +34874,7 @@ except ApiError as e:
 | Name | Type | Description |
 | --- | --- | --- |
 | <code>terminal_id</code> | <code>str</code> | The unique identifier of the payment terminal. |
-| <code>request_options</code> | <code>[RequestOptionsOrDict](adyen/core/request_options.py) \| None</code> | Per-call overrides for this one request, such as a timeout or extra headers. |
+| <code>request_options</code> | <code>[RequestOptionsOrDict](adyen/core/request_options.py) \| None</code> | Per-call overrides for this one request, such as a timeout, extra headers, or its retry count and statuses. |
 
 </dd>
 </dl>
@@ -32548,7 +34936,9 @@ In the live environment, requests to this endpoint are subject to [rate limits](
 
 ```python
 try:
-    response = client.terminal_settings_terminal_level.patch_terminals_terminal_id_terminal_logos(terminal_id)
+    response = client.terminal_settings_terminal_level.patch_terminals_terminal_id_terminal_logos(
+        "some example string", body=Logo(data="")
+    )
     # TODO: Handle 'response' of type Logo
 except ApiError as e:
     ...  # TODO: Handle 'e.error' of type PatchTerminalsTerminalIdTerminalLogosErrorBody
@@ -32559,7 +34949,7 @@ except ApiError as e:
 ```python
 try:
     response = await async_client.terminal_settings_terminal_level.patch_terminals_terminal_id_terminal_logos(
-        terminal_id
+        "some example string", body=Logo(data="")
     )
     # TODO: Handle 'response' of type Logo
 except ApiError as e:
@@ -32578,7 +34968,7 @@ except ApiError as e:
 | --- | --- | --- |
 | <code>terminal_id</code> | <code>str</code> | The unique identifier of the payment terminal. |
 | <code>body</code> | <code>[Logo](adyen/models/logo.py) \| [LogoDict](adyen/models/logo.py) \| None</code> | The request body.<br>**Default**: <code>None</code> |
-| <code>request_options</code> | <code>[RequestOptionsOrDict](adyen/core/request_options.py) \| None</code> | Per-call overrides for this one request, such as a timeout or extra headers. |
+| <code>request_options</code> | <code>[RequestOptionsOrDict](adyen/core/request_options.py) \| None</code> | Per-call overrides for this one request, such as a timeout, extra headers, or its retry count and statuses. |
 
 </dd>
 </dl>
@@ -32644,7 +35034,44 @@ In the live environment, requests to this endpoint are subject to [rate limits](
 
 ```python
 try:
-    response = client.terminal_settings_terminal_level.patch_terminals_terminal_id_terminal_settings(terminal_id)
+    response = client.terminal_settings_terminal_level.patch_terminals_terminal_id_terminal_settings(
+        "some example string",
+        body=TerminalSettings(
+            wifi_profiles=WifiProfiles2(
+                profiles=[
+                    Profile(
+                        auth_type="wpa-eap",
+                        auto_wifi=False,
+                        bss_type="infra",
+                        channel=0,
+                        default_profile=True,
+                        eap="peap",
+                        eap_ca_cert=File1(),
+                        eap_identity="admin",
+                        eap_intermediate_cert=File4(),
+                        eap_pwd="EAP_PEAP_PASSWORD",
+                        hidden_ssid=False,
+                        name="Profile-eap-peap-1",
+                        ssid="your-network",
+                        wsec="ccmp",
+                    ),
+                    Profile(
+                        auth_type="wpa-psk",
+                        auto_wifi=False,
+                        bss_type="infra",
+                        channel=0,
+                        default_profile=False,
+                        hidden_ssid=False,
+                        name="Profile-guest-wifi",
+                        psk="WIFI_PASSWORD",
+                        ssid="your-network",
+                        wsec="ccmp",
+                    ),
+                ],
+                settings=Settings1(band="2.4GHz", roaming=True, timeout=5),
+            ),
+        ),
+    )
     # TODO: Handle 'response' of type TerminalSettings
 except ApiError as e:
     ...  # TODO: Handle 'e.error' of type PatchTerminalsTerminalIdTerminalSettingsErrorBody
@@ -32655,7 +35082,42 @@ except ApiError as e:
 ```python
 try:
     response = await async_client.terminal_settings_terminal_level.patch_terminals_terminal_id_terminal_settings(
-        terminal_id
+        "some example string",
+        body=TerminalSettings(
+            wifi_profiles=WifiProfiles2(
+                profiles=[
+                    Profile(
+                        auth_type="wpa-eap",
+                        auto_wifi=False,
+                        bss_type="infra",
+                        channel=0,
+                        default_profile=True,
+                        eap="peap",
+                        eap_ca_cert=File1(),
+                        eap_identity="admin",
+                        eap_intermediate_cert=File4(),
+                        eap_pwd="EAP_PEAP_PASSWORD",
+                        hidden_ssid=False,
+                        name="Profile-eap-peap-1",
+                        ssid="your-network",
+                        wsec="ccmp",
+                    ),
+                    Profile(
+                        auth_type="wpa-psk",
+                        auto_wifi=False,
+                        bss_type="infra",
+                        channel=0,
+                        default_profile=False,
+                        hidden_ssid=False,
+                        name="Profile-guest-wifi",
+                        psk="WIFI_PASSWORD",
+                        ssid="your-network",
+                        wsec="ccmp",
+                    ),
+                ],
+                settings=Settings1(band="2.4GHz", roaming=True, timeout=5),
+            ),
+        ),
     )
     # TODO: Handle 'response' of type TerminalSettings
 except ApiError as e:
@@ -32674,7 +35136,7 @@ except ApiError as e:
 | --- | --- | --- |
 | <code>terminal_id</code> | <code>str</code> | The unique identifier of the payment terminal. |
 | <code>body</code> | <code>[TerminalSettings](adyen/models/terminal_settings.py) \| [TerminalSettingsDict](adyen/models/terminal_settings.py) \| None</code> | The request body.<br>**Default**: <code>None</code> |
-| <code>request_options</code> | <code>[RequestOptionsOrDict](adyen/core/request_options.py) \| None</code> | Per-call overrides for this one request, such as a timeout or extra headers. |
+| <code>request_options</code> | <code>[RequestOptionsOrDict](adyen/core/request_options.py) \| None</code> | Per-call overrides for this one request, such as a timeout, extra headers, or its retry count and statuses. |
 
 </dd>
 </dl>
@@ -32770,7 +35232,7 @@ except ApiError as e:
 | <code>brand_models</code> | <code>str \| None</code> | Returns terminals of the [models](https://docs.adyen.com/api-explorer/#/ManagementService/latest/get/companies/{companyId}/terminalModels) specified in the format *brand.model*.<br>**Default**: <code>None</code> |
 | <code>page_number</code> | <code>int \| None</code> | The number of the page to fetch.<br>**Default**: <code>None</code> |
 | <code>page_size</code> | <code>int \| None</code> | The number of items to have on a page, maximum 100. The default is 20 items on a page.<br>**Default**: <code>None</code> |
-| <code>request_options</code> | <code>[RequestOptionsOrDict](adyen/core/request_options.py) \| None</code> | Per-call overrides for this one request, such as a timeout or extra headers. |
+| <code>request_options</code> | <code>[RequestOptionsOrDict](adyen/core/request_options.py) \| None</code> | Per-call overrides for this one request, such as a timeout, extra headers, or its retry count and statuses. |
 
 </dd>
 </dl>
@@ -32829,7 +35291,9 @@ In the live environment, requests to this endpoint are subject to [rate limits](
 
 ```python
 try:
-    client.terminals_terminal_level.post_terminals_terminal_id_reassign(terminal_id)
+    client.terminals_terminal_level.post_terminals_terminal_id_reassign(
+        "some example string", body=TerminalReassignmentRequest(inventory=False, merchant_id="YOUR_MERCHANT_ID")
+    )
 except ApiError as e:
     ...  # TODO: Handle 'e.error' of type PostTerminalsTerminalIdReassignErrorBody
 ```
@@ -32838,7 +35302,9 @@ except ApiError as e:
 
 ```python
 try:
-    await async_client.terminals_terminal_level.post_terminals_terminal_id_reassign(terminal_id)
+    await async_client.terminals_terminal_level.post_terminals_terminal_id_reassign(
+        "some example string", body=TerminalReassignmentRequest(inventory=False, merchant_id="YOUR_MERCHANT_ID")
+    )
 except ApiError as e:
     ...  # TODO: Handle 'e.error' of type PostTerminalsTerminalIdReassignErrorBody
 ```
@@ -32855,7 +35321,7 @@ except ApiError as e:
 | --- | --- | --- |
 | <code>terminal_id</code> | <code>str</code> | The unique identifier of the payment terminal. |
 | <code>body</code> | <code>[TerminalReassignmentRequest](adyen/models/terminal_reassignment_request.py) \| [TerminalReassignmentRequestDict](adyen/models/terminal_reassignment_request.py) \| None</code> | The request body.<br>**Default**: <code>None</code> |
-| <code>request_options</code> | <code>[RequestOptionsOrDict](adyen/core/request_options.py) \| None</code> | Per-call overrides for this one request, such as a timeout or extra headers. |
+| <code>request_options</code> | <code>[RequestOptionsOrDict](adyen/core/request_options.py) \| None</code> | Per-call overrides for this one request, such as a timeout, extra headers, or its retry count and statuses. |
 
 </dd>
 </dl>
@@ -32889,7 +35355,7 @@ Mapped in first-match order -- an earlier row wins over a later range that also 
 > Source: [TermsOfService](adyen/apis/terms_of_service.py)
 
 <details>
-<summary><code>def get_legal_entities_id_accepted_terms_of_service_document_termsofserviceacceptancereference(id: str, termsofserviceacceptancereference: str, *, terms_of_service_document_format: str | None = None, request_options: RequestOptionsOrDict | None = None) -> GetAcceptedTermsOfServiceDocumentResponse</code></summary>
+<summary><code>def get_legal_entities_id_accepted_terms_of_service_document_termsofserviceacceptancereference(id_: str, termsofserviceacceptancereference: str, *, terms_of_service_document_format: str | None = None, request_options: RequestOptionsOrDict | None = None) -> GetAcceptedTermsOfServiceDocumentResponse</code></summary>
 
 <dl>
 <dd>
@@ -32922,7 +35388,7 @@ Requests to this endpoint are subject to rate limits:
 ```python
 try:
     response = client.terms_of_service.get_legal_entities_id_accepted_terms_of_service_document_termsofserviceacceptancereference(
-        id, termsofserviceacceptancereference
+        "some example string", "some example string"
     )
     # TODO: Handle 'response' of type GetAcceptedTermsOfServiceDocumentResponse
 except ApiError as e:
@@ -32936,7 +35402,7 @@ except ApiError as e:
 ```python
 try:
     response = await async_client.terms_of_service.get_legal_entities_id_accepted_terms_of_service_document_termsofserviceacceptancereference(
-        id, termsofserviceacceptancereference
+        "some example string", "some example string"
     )
     # TODO: Handle 'response' of type GetAcceptedTermsOfServiceDocumentResponse
 except ApiError as e:
@@ -32955,10 +35421,10 @@ except ApiError as e:
 
 | Name | Type | Description |
 | --- | --- | --- |
-| <code>id</code> | <code>str</code> | The unique identifier of the legal entity. For sole proprietorship, this is the individual legal entity ID of the owner. For organizations, this is the ID of the organization. |
+| <code>id_</code> | <code>str</code> | The unique identifier of the legal entity. For sole proprietorship, this is the individual legal entity ID of the owner. For organizations, this is the ID of the organization. |
 | <code>termsofserviceacceptancereference</code> | <code>str</code> | An Adyen-generated reference for the accepted Terms of Service. |
 | <code>terms_of_service_document_format</code> | <code>str \| None</code> | The format of the Terms of Service document. Possible values: **JSON**, **PDF**, or **TXT**<br>**Default**: <code>None</code> |
-| <code>request_options</code> | <code>[RequestOptionsOrDict](adyen/core/request_options.py) \| None</code> | Per-call overrides for this one request, such as a timeout or extra headers. |
+| <code>request_options</code> | <code>[RequestOptionsOrDict](adyen/core/request_options.py) \| None</code> | Per-call overrides for this one request, such as a timeout, extra headers, or its retry count and statuses. |
 
 </dd>
 </dl>
@@ -32988,7 +35454,7 @@ Mapped in first-match order -- an earlier row wins over a later range that also 
 </details>
 
 <details>
-<summary><code>def get_legal_entities_id_terms_of_service_acceptance_infos(id: str, *, request_options: RequestOptionsOrDict | None = None) -> GetTermsOfServiceAcceptanceInfosResponse</code></summary>
+<summary><code>def get_legal_entities_id_terms_of_service_acceptance_infos(id_: str, *, request_options: RequestOptionsOrDict | None = None) -> GetTermsOfServiceAcceptanceInfosResponse</code></summary>
 
 <dl>
 <dd>
@@ -33020,7 +35486,7 @@ Requests to this endpoint are subject to rate limits:
 
 ```python
 try:
-    response = client.terms_of_service.get_legal_entities_id_terms_of_service_acceptance_infos(id)
+    response = client.terms_of_service.get_legal_entities_id_terms_of_service_acceptance_infos("some example string")
     # TODO: Handle 'response' of type GetTermsOfServiceAcceptanceInfosResponse
 except ApiError as e:
     ...  # TODO: Handle 'e.error' of type GetLegalEntitiesIdTermsOfServiceAcceptanceInfosErrorBody
@@ -33030,7 +35496,9 @@ except ApiError as e:
 
 ```python
 try:
-    response = await async_client.terms_of_service.get_legal_entities_id_terms_of_service_acceptance_infos(id)
+    response = await async_client.terms_of_service.get_legal_entities_id_terms_of_service_acceptance_infos(
+        "some example string"
+    )
     # TODO: Handle 'response' of type GetTermsOfServiceAcceptanceInfosResponse
 except ApiError as e:
     ...  # TODO: Handle 'e.error' of type GetLegalEntitiesIdTermsOfServiceAcceptanceInfosErrorBody
@@ -33046,8 +35514,8 @@ except ApiError as e:
 
 | Name | Type | Description |
 | --- | --- | --- |
-| <code>id</code> | <code>str</code> | The unique identifier of the legal entity. For sole proprietorships, this is the individual legal entity ID of the owner. For organizations, this is the ID of the organization. |
-| <code>request_options</code> | <code>[RequestOptionsOrDict](adyen/core/request_options.py) \| None</code> | Per-call overrides for this one request, such as a timeout or extra headers. |
+| <code>id_</code> | <code>str</code> | The unique identifier of the legal entity. For sole proprietorships, this is the individual legal entity ID of the owner. For organizations, this is the ID of the organization. |
+| <code>request_options</code> | <code>[RequestOptionsOrDict](adyen/core/request_options.py) \| None</code> | Per-call overrides for this one request, such as a timeout, extra headers, or its retry count and statuses. |
 
 </dd>
 </dl>
@@ -33077,7 +35545,7 @@ Mapped in first-match order -- an earlier row wins over a later range that also 
 </details>
 
 <details>
-<summary><code>def get_legal_entities_id_terms_of_service_status(id: str, *, request_options: RequestOptionsOrDict | None = None) -> CalculateTermsOfServiceStatusResponse</code></summary>
+<summary><code>def get_legal_entities_id_terms_of_service_status(id_: str, *, request_options: RequestOptionsOrDict | None = None) -> CalculateTermsOfServiceStatusResponse</code></summary>
 
 <dl>
 <dd>
@@ -33109,7 +35577,7 @@ Requests to this endpoint are subject to rate limits:
 
 ```python
 try:
-    response = client.terms_of_service.get_legal_entities_id_terms_of_service_status(id)
+    response = client.terms_of_service.get_legal_entities_id_terms_of_service_status("some example string")
     # TODO: Handle 'response' of type CalculateTermsOfServiceStatusResponse
 except ApiError as e:
     ...  # TODO: Handle 'e.error' of type GetLegalEntitiesIdTermsOfServiceStatusErrorBody
@@ -33119,7 +35587,7 @@ except ApiError as e:
 
 ```python
 try:
-    response = await async_client.terms_of_service.get_legal_entities_id_terms_of_service_status(id)
+    response = await async_client.terms_of_service.get_legal_entities_id_terms_of_service_status("some example string")
     # TODO: Handle 'response' of type CalculateTermsOfServiceStatusResponse
 except ApiError as e:
     ...  # TODO: Handle 'e.error' of type GetLegalEntitiesIdTermsOfServiceStatusErrorBody
@@ -33135,8 +35603,8 @@ except ApiError as e:
 
 | Name | Type | Description |
 | --- | --- | --- |
-| <code>id</code> | <code>str</code> | The unique identifier of the legal entity. For sole proprietorships, this is the individual legal entity ID of the owner. For organizations, this is the ID of the organization. |
-| <code>request_options</code> | <code>[RequestOptionsOrDict](adyen/core/request_options.py) \| None</code> | Per-call overrides for this one request, such as a timeout or extra headers. |
+| <code>id_</code> | <code>str</code> | The unique identifier of the legal entity. For sole proprietorships, this is the individual legal entity ID of the owner. For organizations, this is the ID of the organization. |
+| <code>request_options</code> | <code>[RequestOptionsOrDict](adyen/core/request_options.py) \| None</code> | Per-call overrides for this one request, such as a timeout, extra headers, or its retry count and statuses. |
 
 </dd>
 </dl>
@@ -33166,7 +35634,7 @@ Mapped in first-match order -- an earlier row wins over a later range that also 
 </details>
 
 <details>
-<summary><code>def patch_legal_entities_id_terms_of_service_termsofservicedocumentid(id: str, termsofservicedocumentid: str, *, body: AcceptTermsOfServiceRequest | AcceptTermsOfServiceRequestDict | None = None, request_options: RequestOptionsOrDict | None = None) -> AcceptTermsOfServiceResponse</code></summary>
+<summary><code>def patch_legal_entities_id_terms_of_service_termsofservicedocumentid(id_: str, termsofservicedocumentid: str, *, body: AcceptTermsOfServiceRequest | AcceptTermsOfServiceRequestDict | None = None, request_options: RequestOptionsOrDict | None = None) -> AcceptTermsOfServiceResponse</code></summary>
 
 <dl>
 <dd>
@@ -33199,7 +35667,9 @@ Requests to this endpoint are subject to rate limits:
 ```python
 try:
     response = client.terms_of_service.patch_legal_entities_id_terms_of_service_termsofservicedocumentid(
-        id, termsofservicedocumentid
+        "some example string",
+        "some example string",
+        body=AcceptTermsOfServiceRequest(accepted_by="LE00000000000000000000002"),
     )
     # TODO: Handle 'response' of type AcceptTermsOfServiceResponse
 except ApiError as e:
@@ -33211,7 +35681,9 @@ except ApiError as e:
 ```python
 try:
     response = await async_client.terms_of_service.patch_legal_entities_id_terms_of_service_termsofservicedocumentid(
-        id, termsofservicedocumentid
+        "some example string",
+        "some example string",
+        body=AcceptTermsOfServiceRequest(accepted_by="LE00000000000000000000002"),
     )
     # TODO: Handle 'response' of type AcceptTermsOfServiceResponse
 except ApiError as e:
@@ -33228,10 +35700,10 @@ except ApiError as e:
 
 | Name | Type | Description |
 | --- | --- | --- |
-| <code>id</code> | <code>str</code> | The unique identifier of the legal entity.<br><br>For sole proprietorships, this is the individual legal entity ID of the owner.<br><br>For organizations, this is the ID of the organization.<br><br>For legal representatives of individuals, this is the ID of the individual. |
+| <code>id_</code> | <code>str</code> | The unique identifier of the legal entity.<br><br>For sole proprietorships, this is the individual legal entity ID of the owner.<br><br>For organizations, this is the ID of the organization.<br><br>For legal representatives of individuals, this is the ID of the individual. |
 | <code>termsofservicedocumentid</code> | <code>str</code> | The unique identifier of the Terms of Service document. |
 | <code>body</code> | <code>[AcceptTermsOfServiceRequest](adyen/models/accept_terms_of_service_request.py) \| [AcceptTermsOfServiceRequestDict](adyen/models/accept_terms_of_service_request.py) \| None</code> | The request body.<br>**Default**: <code>None</code> |
-| <code>request_options</code> | <code>[RequestOptionsOrDict](adyen/core/request_options.py) \| None</code> | Per-call overrides for this one request, such as a timeout or extra headers. |
+| <code>request_options</code> | <code>[RequestOptionsOrDict](adyen/core/request_options.py) \| None</code> | Per-call overrides for this one request, such as a timeout, extra headers, or its retry count and statuses. |
 
 </dd>
 </dl>
@@ -33261,7 +35733,7 @@ Mapped in first-match order -- an earlier row wins over a later range that also 
 </details>
 
 <details>
-<summary><code>def post_legal_entities_id_terms_of_service(id: str, *, body: GetTermsOfServiceDocumentRequest | GetTermsOfServiceDocumentRequestDict | None = None, request_options: RequestOptionsOrDict | None = None) -> GetTermsOfServiceDocumentResponse</code></summary>
+<summary><code>def post_legal_entities_id_terms_of_service(id_: str, *, body: GetTermsOfServiceDocumentRequest | GetTermsOfServiceDocumentRequestDict | None = None, request_options: RequestOptionsOrDict | None = None) -> GetTermsOfServiceDocumentResponse</code></summary>
 
 <dl>
 <dd>
@@ -33293,7 +35765,9 @@ Requests to this endpoint are subject to rate limits:
 
 ```python
 try:
-    response = client.terms_of_service.post_legal_entities_id_terms_of_service(id)
+    response = client.terms_of_service.post_legal_entities_id_terms_of_service(
+        "some example string", body=GetTermsOfServiceDocumentRequest(language="en", type_=Type64.ADYEN_ISSUING)
+    )
     # TODO: Handle 'response' of type GetTermsOfServiceDocumentResponse
 except ApiError as e:
     ...  # TODO: Handle 'e.error' of type PostLegalEntitiesIdTermsOfServiceErrorBody
@@ -33303,7 +35777,9 @@ except ApiError as e:
 
 ```python
 try:
-    response = await async_client.terms_of_service.post_legal_entities_id_terms_of_service(id)
+    response = await async_client.terms_of_service.post_legal_entities_id_terms_of_service(
+        "some example string", body=GetTermsOfServiceDocumentRequest(language="en", type_=Type64.ADYEN_ISSUING)
+    )
     # TODO: Handle 'response' of type GetTermsOfServiceDocumentResponse
 except ApiError as e:
     ...  # TODO: Handle 'e.error' of type PostLegalEntitiesIdTermsOfServiceErrorBody
@@ -33319,9 +35795,9 @@ except ApiError as e:
 
 | Name | Type | Description |
 | --- | --- | --- |
-| <code>id</code> | <code>str</code> | The unique identifier of the legal entity. For sole proprietorships, this is the individual legal entity ID of the owner. For organizations, this is the ID of the organization. |
+| <code>id_</code> | <code>str</code> | The unique identifier of the legal entity. For sole proprietorships, this is the individual legal entity ID of the owner. For organizations, this is the ID of the organization. |
 | <code>body</code> | <code>[GetTermsOfServiceDocumentRequest](adyen/models/get_terms_of_service_document_request.py) \| [GetTermsOfServiceDocumentRequestDict](adyen/models/get_terms_of_service_document_request.py) \| None</code> | The request body.<br>**Default**: <code>None</code> |
-| <code>request_options</code> | <code>[RequestOptionsOrDict](adyen/core/request_options.py) \| None</code> | Per-call overrides for this one request, such as a timeout or extra headers. |
+| <code>request_options</code> | <code>[RequestOptionsOrDict](adyen/core/request_options.py) \| None</code> | Per-call overrides for this one request, such as a timeout, extra headers, or its retry count and statuses. |
 
 </dd>
 </dl>
@@ -33379,7 +35855,7 @@ Deletes a transaction rule.
 
 ```python
 try:
-    response = client.transaction_rules.delete_transaction_rules_transaction_rule_id(transaction_rule_id)
+    response = client.transaction_rules.delete_transaction_rules_transaction_rule_id("some example string")
     # TODO: Handle 'response' of type TransactionRule
 except ApiError as e:
     ...  # TODO: Handle 'e.error' of type DeleteTransactionRulesTransactionRuleIdErrorBody
@@ -33389,7 +35865,7 @@ except ApiError as e:
 
 ```python
 try:
-    response = await async_client.transaction_rules.delete_transaction_rules_transaction_rule_id(transaction_rule_id)
+    response = await async_client.transaction_rules.delete_transaction_rules_transaction_rule_id("some example string")
     # TODO: Handle 'response' of type TransactionRule
 except ApiError as e:
     ...  # TODO: Handle 'e.error' of type DeleteTransactionRulesTransactionRuleIdErrorBody
@@ -33406,7 +35882,7 @@ except ApiError as e:
 | Name | Type | Description |
 | --- | --- | --- |
 | <code>transaction_rule_id</code> | <code>str</code> | The unique identifier of the transaction rule. |
-| <code>request_options</code> | <code>[RequestOptionsOrDict](adyen/core/request_options.py) \| None</code> | Per-call overrides for this one request, such as a timeout or extra headers. |
+| <code>request_options</code> | <code>[RequestOptionsOrDict](adyen/core/request_options.py) \| None</code> | Per-call overrides for this one request, such as a timeout, extra headers, or its retry count and statuses. |
 
 </dd>
 </dl>
@@ -33460,7 +35936,7 @@ Returns the details of a transaction rule.
 
 ```python
 try:
-    response = client.transaction_rules.get_transaction_rules_transaction_rule_id(transaction_rule_id)
+    response = client.transaction_rules.get_transaction_rules_transaction_rule_id("some example string")
     # TODO: Handle 'response' of type TransactionRuleResponse
 except ApiError as e:
     ...  # TODO: Handle 'e.error' of type GetTransactionRulesTransactionRuleIdErrorBody
@@ -33470,7 +35946,7 @@ except ApiError as e:
 
 ```python
 try:
-    response = await async_client.transaction_rules.get_transaction_rules_transaction_rule_id(transaction_rule_id)
+    response = await async_client.transaction_rules.get_transaction_rules_transaction_rule_id("some example string")
     # TODO: Handle 'response' of type TransactionRuleResponse
 except ApiError as e:
     ...  # TODO: Handle 'e.error' of type GetTransactionRulesTransactionRuleIdErrorBody
@@ -33487,7 +35963,7 @@ except ApiError as e:
 | Name | Type | Description |
 | --- | --- | --- |
 | <code>transaction_rule_id</code> | <code>str</code> | The unique identifier of the transaction rule. |
-| <code>request_options</code> | <code>[RequestOptionsOrDict](adyen/core/request_options.py) \| None</code> | Per-call overrides for this one request, such as a timeout or extra headers. |
+| <code>request_options</code> | <code>[RequestOptionsOrDict](adyen/core/request_options.py) \| None</code> | Per-call overrides for this one request, such as a timeout, extra headers, or its retry count and statuses. |
 
 </dd>
 </dl>
@@ -33545,7 +36021,22 @@ Updates a transaction rule.
 
 ```python
 try:
-    response = client.transaction_rules.patch_transaction_rules_transaction_rule_id(transaction_rule_id)
+    response = client.transaction_rules.patch_transaction_rules_transaction_rule_id(
+        "some example string",
+        body=TransactionRuleInfo(
+            description="Allow only point-of-sale transactions",
+            entity_key=TransactionRuleEntityKey2(
+                entity_reference="PI3227C223222B5FG88SB8BHR", entity_type="paymentInstrument"
+            ),
+            interval=TransactionRuleInterval1(type_=Type131.WEEKLY),
+            reference="YOUR_REFERENCE_4F7346",
+            rule_restrictions=TransactionRuleRestrictions1(
+                processing_types=ProcessingTypesRestriction1(operation="noneMatch", value=[Value4.POS])
+            ),
+            status=Status6.INACTIVE,
+            type_=Type141.BLOCK_LIST,
+        ),
+    )
     # TODO: Handle 'response' of type TransactionRule
 except ApiError as e:
     ...  # TODO: Handle 'e.error' of type PatchTransactionRulesTransactionRuleIdErrorBody
@@ -33555,7 +36046,22 @@ except ApiError as e:
 
 ```python
 try:
-    response = await async_client.transaction_rules.patch_transaction_rules_transaction_rule_id(transaction_rule_id)
+    response = await async_client.transaction_rules.patch_transaction_rules_transaction_rule_id(
+        "some example string",
+        body=TransactionRuleInfo(
+            description="Allow only point-of-sale transactions",
+            entity_key=TransactionRuleEntityKey2(
+                entity_reference="PI3227C223222B5FG88SB8BHR", entity_type="paymentInstrument"
+            ),
+            interval=TransactionRuleInterval1(type_=Type131.WEEKLY),
+            reference="YOUR_REFERENCE_4F7346",
+            rule_restrictions=TransactionRuleRestrictions1(
+                processing_types=ProcessingTypesRestriction1(operation="noneMatch", value=[Value4.POS])
+            ),
+            status=Status6.INACTIVE,
+            type_=Type141.BLOCK_LIST,
+        ),
+    )
     # TODO: Handle 'response' of type TransactionRule
 except ApiError as e:
     ...  # TODO: Handle 'e.error' of type PatchTransactionRulesTransactionRuleIdErrorBody
@@ -33573,7 +36079,7 @@ except ApiError as e:
 | --- | --- | --- |
 | <code>transaction_rule_id</code> | <code>str</code> | The unique identifier of the transaction rule. |
 | <code>body</code> | <code>[TransactionRuleInfo](adyen/models/transaction_rule_info.py) \| [TransactionRuleInfoDict](adyen/models/transaction_rule_info.py) \| None</code> | The request body.<br>**Default**: <code>None</code> |
-| <code>request_options</code> | <code>[RequestOptionsOrDict](adyen/core/request_options.py) \| None</code> | Per-call overrides for this one request, such as a timeout or extra headers. |
+| <code>request_options</code> | <code>[RequestOptionsOrDict](adyen/core/request_options.py) \| None</code> | Per-call overrides for this one request, such as a timeout, extra headers, or its retry count and statuses. |
 
 </dd>
 </dl>
@@ -33627,7 +36133,21 @@ Creates a [transaction rule](https://docs.adyen.com/issuing/transaction-rules). 
 
 ```python
 try:
-    response = client.transaction_rules.post_transaction_rules()
+    response = client.transaction_rules.post_transaction_rules(
+        body=TransactionRuleInfo(
+            description="Allow only point-of-sale transactions",
+            entity_key=TransactionRuleEntityKey2(
+                entity_reference="PI3227C223222B5FG88SB8BHR", entity_type="paymentInstrument"
+            ),
+            interval=TransactionRuleInterval1(type_=Type131.PER_TRANSACTION),
+            reference="YOUR_REFERENCE_4F7346",
+            rule_restrictions=TransactionRuleRestrictions1(
+                processing_types=ProcessingTypesRestriction1(operation="noneMatch", value=[Value4.POS])
+            ),
+            status=Status6.ACTIVE,
+            type_=Type141.BLOCK_LIST,
+        ),
+    )
     # TODO: Handle 'response' of type TransactionRule
 except ApiError as e:
     ...  # TODO: Handle 'e.error' of type PostTransactionRulesErrorBody
@@ -33637,7 +36157,21 @@ except ApiError as e:
 
 ```python
 try:
-    response = await async_client.transaction_rules.post_transaction_rules()
+    response = await async_client.transaction_rules.post_transaction_rules(
+        body=TransactionRuleInfo(
+            description="Allow only point-of-sale transactions",
+            entity_key=TransactionRuleEntityKey2(
+                entity_reference="PI3227C223222B5FG88SB8BHR", entity_type="paymentInstrument"
+            ),
+            interval=TransactionRuleInterval1(type_=Type131.PER_TRANSACTION),
+            reference="YOUR_REFERENCE_4F7346",
+            rule_restrictions=TransactionRuleRestrictions1(
+                processing_types=ProcessingTypesRestriction1(operation="noneMatch", value=[Value4.POS])
+            ),
+            status=Status6.ACTIVE,
+            type_=Type141.BLOCK_LIST,
+        ),
+    )
     # TODO: Handle 'response' of type TransactionRule
 except ApiError as e:
     ...  # TODO: Handle 'e.error' of type PostTransactionRulesErrorBody
@@ -33654,7 +36188,7 @@ except ApiError as e:
 | Name | Type | Description |
 | --- | --- | --- |
 | <code>body</code> | <code>[TransactionRuleInfo](adyen/models/transaction_rule_info.py) \| [TransactionRuleInfoDict](adyen/models/transaction_rule_info.py) \| None</code> | The request body.<br>**Default**: <code>None</code> |
-| <code>request_options</code> | <code>[RequestOptionsOrDict](adyen/core/request_options.py) \| None</code> | Per-call overrides for this one request, such as a timeout or extra headers. |
+| <code>request_options</code> | <code>[RequestOptionsOrDict](adyen/core/request_options.py) \| None</code> | Per-call overrides for this one request, such as a timeout, extra headers, or its retry count and statuses. |
 
 </dd>
 </dl>
@@ -33721,7 +36255,9 @@ This endpoint supports cursor-based pagination. The response returns the first p
 
 ```python
 try:
-    response = client.transactions.get_transactions(created_since, created_until)
+    response = client.transactions.get_transactions(
+        datetime(2024, 1, 15, 9, 30, 0, tzinfo=timezone.utc), datetime(2024, 1, 15, 9, 30, 0, tzinfo=timezone.utc)
+    )
     # TODO: Handle 'response' of type TransactionSearchResponse
 except ApiError as e:
     ...  # TODO: Handle 'e.error' of type GetTransactionsErrorBody
@@ -33731,7 +36267,9 @@ except ApiError as e:
 
 ```python
 try:
-    response = await async_client.transactions.get_transactions(created_since, created_until)
+    response = await async_client.transactions.get_transactions(
+        datetime(2024, 1, 15, 9, 30, 0, tzinfo=timezone.utc), datetime(2024, 1, 15, 9, 30, 0, tzinfo=timezone.utc)
+    )
     # TODO: Handle 'response' of type TransactionSearchResponse
 except ApiError as e:
     ...  # TODO: Handle 'e.error' of type GetTransactionsErrorBody
@@ -33756,7 +36294,7 @@ except ApiError as e:
 | <code>cursor</code> | <code>str \| None</code> | The `cursor` returned in the links of the previous response.<br>**Default**: <code>None</code> |
 | <code>sort_order</code> | <code>[SortOrderOrStr](adyen/models/enums/sort_order.py) \| None</code> | Determines the sort order of the returned transactions. The sort order is based on the creation date of the transaction.<br><br>Possible values:<br><br> - **asc**: Ascending order, from oldest to most recent.<br><br>- **desc**: Descending order, from most recent to oldest.<br><br>Default value: **asc**.<br>**Default**: <code>None</code> |
 | <code>limit</code> | <code>int \| None</code> | The number of items returned per page, maximum of 100 items. By default, the response returns 10 items per page.<br>**Default**: <code>None</code> |
-| <code>request_options</code> | <code>[RequestOptionsOrDict](adyen/core/request_options.py) \| None</code> | Per-call overrides for this one request, such as a timeout or extra headers. |
+| <code>request_options</code> | <code>[RequestOptionsOrDict](adyen/core/request_options.py) \| None</code> | Per-call overrides for this one request, such as a timeout, extra headers, or its retry count and statuses. |
 
 </dd>
 </dl>
@@ -33786,7 +36324,7 @@ Mapped in first-match order -- an earlier row wins over a later range that also 
 </details>
 
 <details>
-<summary><code>def get_transactions_id(id: str, *, request_options: RequestOptionsOrDict | None = None) -> Transaction</code></summary>
+<summary><code>def get_transactions_id(id_: str, *, request_options: RequestOptionsOrDict | None = None) -> Transaction</code></summary>
 
 <dl>
 <dd>
@@ -33812,7 +36350,7 @@ Returns a transaction.
 
 ```python
 try:
-    response = client.transactions.get_transactions_id(id)
+    response = client.transactions.get_transactions_id("some example string")
     # TODO: Handle 'response' of type Transaction
 except ApiError as e:
     ...  # TODO: Handle 'e.error' of type GetTransactionsIdErrorBody
@@ -33822,7 +36360,7 @@ except ApiError as e:
 
 ```python
 try:
-    response = await async_client.transactions.get_transactions_id(id)
+    response = await async_client.transactions.get_transactions_id("some example string")
     # TODO: Handle 'response' of type Transaction
 except ApiError as e:
     ...  # TODO: Handle 'e.error' of type GetTransactionsIdErrorBody
@@ -33838,8 +36376,8 @@ except ApiError as e:
 
 | Name | Type | Description |
 | --- | --- | --- |
-| <code>id</code> | <code>str</code> | The unique identifier of the transaction. |
-| <code>request_options</code> | <code>[RequestOptionsOrDict](adyen/core/request_options.py) \| None</code> | Per-call overrides for this one request, such as a timeout or extra headers. |
+| <code>id_</code> | <code>str</code> | The unique identifier of the transaction. |
+| <code>request_options</code> | <code>[RequestOptionsOrDict](adyen/core/request_options.py) \| None</code> | Per-call overrides for this one request, such as a timeout, extra headers, or its retry count and statuses. |
 
 </dd>
 </dl>
@@ -33873,7 +36411,7 @@ Mapped in first-match order -- an earlier row wins over a later range that also 
 > Source: [TransferInstruments](adyen/apis/transfer_instruments.py)
 
 <details>
-<summary><code>def delete_transfer_instruments_id(id: str, *, request_options: RequestOptionsOrDict | None = None) -> None</code></summary>
+<summary><code>def delete_transfer_instruments_id(id_: str, *, request_options: RequestOptionsOrDict | None = None) -> None</code></summary>
 
 <dl>
 <dd>
@@ -33905,7 +36443,7 @@ Requests to this endpoint are subject to rate limits:
 
 ```python
 try:
-    client.transfer_instruments.delete_transfer_instruments_id(id)
+    client.transfer_instruments.delete_transfer_instruments_id("some example string")
 except ApiError as e:
     ...  # TODO: Handle 'e.error' of type DeleteTransferInstrumentsIdErrorBody
 ```
@@ -33914,7 +36452,7 @@ except ApiError as e:
 
 ```python
 try:
-    await async_client.transfer_instruments.delete_transfer_instruments_id(id)
+    await async_client.transfer_instruments.delete_transfer_instruments_id("some example string")
 except ApiError as e:
     ...  # TODO: Handle 'e.error' of type DeleteTransferInstrumentsIdErrorBody
 ```
@@ -33929,8 +36467,8 @@ except ApiError as e:
 
 | Name | Type | Description |
 | --- | --- | --- |
-| <code>id</code> | <code>str</code> | The unique identifier of the transfer instrument to be deleted. |
-| <code>request_options</code> | <code>[RequestOptionsOrDict](adyen/core/request_options.py) \| None</code> | Per-call overrides for this one request, such as a timeout or extra headers. |
+| <code>id_</code> | <code>str</code> | The unique identifier of the transfer instrument to be deleted. |
+| <code>request_options</code> | <code>[RequestOptionsOrDict](adyen/core/request_options.py) \| None</code> | Per-call overrides for this one request, such as a timeout, extra headers, or its retry count and statuses. |
 
 </dd>
 </dl>
@@ -33960,7 +36498,7 @@ Mapped in first-match order -- an earlier row wins over a later range that also 
 </details>
 
 <details>
-<summary><code>def get_transfer_instruments_id(id: str, *, request_options: RequestOptionsOrDict | None = None) -> TransferInstrument</code></summary>
+<summary><code>def get_transfer_instruments_id(id_: str, *, request_options: RequestOptionsOrDict | None = None) -> TransferInstrument</code></summary>
 
 <dl>
 <dd>
@@ -33992,7 +36530,7 @@ Requests to this endpoint are subject to rate limits:
 
 ```python
 try:
-    response = client.transfer_instruments.get_transfer_instruments_id(id)
+    response = client.transfer_instruments.get_transfer_instruments_id("some example string")
     # TODO: Handle 'response' of type TransferInstrument
 except ApiError as e:
     ...  # TODO: Handle 'e.error' of type GetTransferInstrumentsIdErrorBody
@@ -34002,7 +36540,7 @@ except ApiError as e:
 
 ```python
 try:
-    response = await async_client.transfer_instruments.get_transfer_instruments_id(id)
+    response = await async_client.transfer_instruments.get_transfer_instruments_id("some example string")
     # TODO: Handle 'response' of type TransferInstrument
 except ApiError as e:
     ...  # TODO: Handle 'e.error' of type GetTransferInstrumentsIdErrorBody
@@ -34018,8 +36556,8 @@ except ApiError as e:
 
 | Name | Type | Description |
 | --- | --- | --- |
-| <code>id</code> | <code>str</code> | The unique identifier of the transfer instrument. |
-| <code>request_options</code> | <code>[RequestOptionsOrDict](adyen/core/request_options.py) \| None</code> | Per-call overrides for this one request, such as a timeout or extra headers. |
+| <code>id_</code> | <code>str</code> | The unique identifier of the transfer instrument. |
+| <code>request_options</code> | <code>[RequestOptionsOrDict](adyen/core/request_options.py) \| None</code> | Per-call overrides for this one request, such as a timeout, extra headers, or its retry count and statuses. |
 
 </dd>
 </dl>
@@ -34049,7 +36587,7 @@ Mapped in first-match order -- an earlier row wins over a later range that also 
 </details>
 
 <details>
-<summary><code>def patch_transfer_instruments_id(id: str, *, x_requested_verification_code: str | None = None, body: TransferInstrumentInfo | TransferInstrumentInfoDict | None = None, request_options: RequestOptionsOrDict | None = None) -> TransferInstrument</code></summary>
+<summary><code>def patch_transfer_instruments_id(id_: str, *, x_requested_verification_code: str | None = None, body: TransferInstrumentInfo | TransferInstrumentInfoDict | None = None, request_options: RequestOptionsOrDict | None = None) -> TransferInstrument</code></summary>
 
 <dl>
 <dd>
@@ -34081,7 +36619,15 @@ Requests to this endpoint are subject to rate limits:
 
 ```python
 try:
-    response = client.transfer_instruments.patch_transfer_instruments_id(id)
+    response = client.transfer_instruments.patch_transfer_instruments_id(
+        "some example string",
+        x_requested_verification_code="0_0001",
+        body=TransferInstrumentInfo(
+            bank_account=BankAccountInfo1(account_identification=IbanAccountIdentification(iban="NL02ABNA0123456789")),
+            legal_entity_id="LE00000000000000000000001",
+            type_=Type221.BANK_ACCOUNT,
+        ),
+    )
     # TODO: Handle 'response' of type TransferInstrument
 except ApiError as e:
     ...  # TODO: Handle 'e.error' of type PatchTransferInstrumentsIdErrorBody
@@ -34091,7 +36637,15 @@ except ApiError as e:
 
 ```python
 try:
-    response = await async_client.transfer_instruments.patch_transfer_instruments_id(id)
+    response = await async_client.transfer_instruments.patch_transfer_instruments_id(
+        "some example string",
+        x_requested_verification_code="0_0001",
+        body=TransferInstrumentInfo(
+            bank_account=BankAccountInfo1(account_identification=IbanAccountIdentification(iban="NL02ABNA0123456789")),
+            legal_entity_id="LE00000000000000000000001",
+            type_=Type221.BANK_ACCOUNT,
+        ),
+    )
     # TODO: Handle 'response' of type TransferInstrument
 except ApiError as e:
     ...  # TODO: Handle 'e.error' of type PatchTransferInstrumentsIdErrorBody
@@ -34107,10 +36661,10 @@ except ApiError as e:
 
 | Name | Type | Description |
 | --- | --- | --- |
-| <code>id</code> | <code>str</code> | The unique identifier of the transfer instrument. |
+| <code>id_</code> | <code>str</code> | The unique identifier of the transfer instrument. |
 | <code>x_requested_verification_code</code> | <code>str \| None</code> | Use the requested verification code 0_0001 to resolve any suberrors associated with the transfer instrument. Requested verification codes can only be used in your test environment.<br>**Default**: <code>None</code> |
 | <code>body</code> | <code>[TransferInstrumentInfo](adyen/models/transfer_instrument_info.py) \| [TransferInstrumentInfoDict](adyen/models/transfer_instrument_info.py) \| None</code> | The request body.<br>**Default**: <code>None</code> |
-| <code>request_options</code> | <code>[RequestOptionsOrDict](adyen/core/request_options.py) \| None</code> | Per-call overrides for this one request, such as a timeout or extra headers. |
+| <code>request_options</code> | <code>[RequestOptionsOrDict](adyen/core/request_options.py) \| None</code> | Per-call overrides for this one request, such as a timeout, extra headers, or its retry count and statuses. |
 
 </dd>
 </dl>
@@ -34176,7 +36730,14 @@ Requests to this endpoint are subject to rate limits:
 
 ```python
 try:
-    response = client.transfer_instruments.post_transfer_instruments()
+    response = client.transfer_instruments.post_transfer_instruments(
+        x_requested_verification_code="1_7002",
+        body=TransferInstrumentInfo(
+            bank_account=BankAccountInfo1(account_identification=IbanAccountIdentification(iban="NL62ABNA0000000123")),
+            legal_entity_id="LE00000000000000000000001",
+            type_=Type221.BANK_ACCOUNT,
+        ),
+    )
     # TODO: Handle 'response' of type TransferInstrument
 except ApiError as e:
     ...  # TODO: Handle 'e.error' of type PostTransferInstrumentsErrorBody
@@ -34186,7 +36747,14 @@ except ApiError as e:
 
 ```python
 try:
-    response = await async_client.transfer_instruments.post_transfer_instruments()
+    response = await async_client.transfer_instruments.post_transfer_instruments(
+        x_requested_verification_code="1_7002",
+        body=TransferInstrumentInfo(
+            bank_account=BankAccountInfo1(account_identification=IbanAccountIdentification(iban="NL62ABNA0000000123")),
+            legal_entity_id="LE00000000000000000000001",
+            type_=Type221.BANK_ACCOUNT,
+        ),
+    )
     # TODO: Handle 'response' of type TransferInstrument
 except ApiError as e:
     ...  # TODO: Handle 'e.error' of type PostTransferInstrumentsErrorBody
@@ -34204,7 +36772,7 @@ except ApiError as e:
 | --- | --- | --- |
 | <code>x_requested_verification_code</code> | <code>str \| None</code> | Use a suberror code as your requested verification code. You can include one code at a time in your request header. Requested verification codes can only be used in your test environment.<br>**Default**: <code>None</code> |
 | <code>body</code> | <code>[TransferInstrumentInfo](adyen/models/transfer_instrument_info.py) \| [TransferInstrumentInfoDict](adyen/models/transfer_instrument_info.py) \| None</code> | The request body.<br>**Default**: <code>None</code> |
-| <code>request_options</code> | <code>[RequestOptionsOrDict](adyen/core/request_options.py) \| None</code> | Per-call overrides for this one request, such as a timeout or extra headers. |
+| <code>request_options</code> | <code>[RequestOptionsOrDict](adyen/core/request_options.py) \| None</code> | Per-call overrides for this one request, such as a timeout, extra headers, or its retry count and statuses. |
 
 </dd>
 </dl>
@@ -34238,7 +36806,7 @@ Mapped in first-match order -- an earlier row wins over a later range that also 
 > Source: [TransferLimitsBalanceAccountLevel](adyen/apis/transfer_limits_balance_account_level.py)
 
 <details>
-<summary><code>def delete_balance_accounts_id_transfer_limits_transfer_limit_id(id: str, transfer_limit_id: str, *, request_options: RequestOptionsOrDict | None = None) -> None</code></summary>
+<summary><code>def delete_balance_accounts_id_transfer_limits_transfer_limit_id(id_: str, transfer_limit_id: str, *, request_options: RequestOptionsOrDict | None = None) -> None</code></summary>
 
 <dl>
 <dd>
@@ -34263,7 +36831,7 @@ Delete a scheduled or pending transfer limit using its unique `transferLimitId`.
 ```python
 try:
     client.transfer_limits_balance_account_level.delete_balance_accounts_id_transfer_limits_transfer_limit_id(
-        id, transfer_limit_id
+        "some example string", "some example string"
     )
 except ApiError as e:
     ...  # TODO: Handle 'e.error' of type DeleteBalanceAccountsIdTransferLimitsTransferLimitIdErrorBody
@@ -34274,7 +36842,7 @@ except ApiError as e:
 ```python
 try:
     await async_client.transfer_limits_balance_account_level.delete_balance_accounts_id_transfer_limits_transfer_limit_id(
-        id, transfer_limit_id
+        "some example string", "some example string"
     )
 except ApiError as e:
     ...  # TODO: Handle 'e.error' of type DeleteBalanceAccountsIdTransferLimitsTransferLimitIdErrorBody
@@ -34290,9 +36858,9 @@ except ApiError as e:
 
 | Name | Type | Description |
 | --- | --- | --- |
-| <code>id</code> | <code>str</code> | The unique identifier of the balance account. |
+| <code>id_</code> | <code>str</code> | The unique identifier of the balance account. |
 | <code>transfer_limit_id</code> | <code>str</code> | The unique identifier of the transfer limit. |
-| <code>request_options</code> | <code>[RequestOptionsOrDict](adyen/core/request_options.py) \| None</code> | Per-call overrides for this one request, such as a timeout or extra headers. |
+| <code>request_options</code> | <code>[RequestOptionsOrDict](adyen/core/request_options.py) \| None</code> | Per-call overrides for this one request, such as a timeout, extra headers, or its retry count and statuses. |
 
 </dd>
 </dl>
@@ -34322,7 +36890,7 @@ Mapped in first-match order -- an earlier row wins over a later range that also 
 </details>
 
 <details>
-<summary><code>def get_balance_accounts_id_transfer_limits(id: str, *, scope: ScopeOrStr | None = None, transfer_type: TransferTypeOrStr | None = None, status: LimitStatusOrStr | None = None, request_options: RequestOptionsOrDict | None = None) -> TransferLimitListResponse</code></summary>
+<summary><code>def get_balance_accounts_id_transfer_limits(id_: str, *, scope: ScopeOrStr | None = None, transfer_type: TransferTypeOrStr | None = None, status: LimitStatusOrStr | None = None, request_options: RequestOptionsOrDict | None = None) -> TransferLimitListResponse</code></summary>
 
 <dl>
 <dd>
@@ -34346,7 +36914,9 @@ Filter and view the transfer limits configured for a balance account using the b
 
 ```python
 try:
-    response = client.transfer_limits_balance_account_level.get_balance_accounts_id_transfer_limits(id)
+    response = client.transfer_limits_balance_account_level.get_balance_accounts_id_transfer_limits(
+        "some example string"
+    )
     # TODO: Handle 'response' of type TransferLimitListResponse
 except ApiError as e:
     ...  # TODO: Handle 'e.error' of type GetBalanceAccountsIdTransferLimitsErrorBody
@@ -34356,7 +36926,9 @@ except ApiError as e:
 
 ```python
 try:
-    response = await async_client.transfer_limits_balance_account_level.get_balance_accounts_id_transfer_limits(id)
+    response = await async_client.transfer_limits_balance_account_level.get_balance_accounts_id_transfer_limits(
+        "some example string"
+    )
     # TODO: Handle 'response' of type TransferLimitListResponse
 except ApiError as e:
     ...  # TODO: Handle 'e.error' of type GetBalanceAccountsIdTransferLimitsErrorBody
@@ -34372,11 +36944,11 @@ except ApiError as e:
 
 | Name | Type | Description |
 | --- | --- | --- |
-| <code>id</code> | <code>str</code> | The unique identifier of the balance account. |
+| <code>id_</code> | <code>str</code> | The unique identifier of the balance account. |
 | <code>scope</code> | <code>[ScopeOrStr](adyen/models/enums/scope.py) \| None</code> | The scope to which the transfer limit applies. Possible values:<br>* **perTransaction**: you set a maximum amount for each transfer made from the balance account or balance platform.<br>* **perDay**: you set a maximum total amount for all transfers made from the balance account or balance platform in a day.<br>**Default**: <code>None</code> |
 | <code>transfer_type</code> | <code>[TransferTypeOrStr](adyen/models/enums/transfer_type.py) \| None</code> | The type of transfer to which the limit applies. Possible values:<br>* **instant**: the limit applies to transfers with an **instant** priority.<br>* **all**: the limit applies to all transfers, regardless of priority.<br>**Default**: <code>None</code> |
 | <code>status</code> | <code>[LimitStatusOrStr](adyen/models/enums/limit_status.py) \| None</code> | The status of the transfer limit. Possible values:   <br>* **active**: the limit is currently active.<br>* **inactive**: the limit is currently inactive.<br>* **pendingSCA**: the limit is pending until your user performs SCA.<br>* **scheduled**: the limit is scheduled to become active at a future date.<br>**Default**: <code>None</code> |
-| <code>request_options</code> | <code>[RequestOptionsOrDict](adyen/core/request_options.py) \| None</code> | Per-call overrides for this one request, such as a timeout or extra headers. |
+| <code>request_options</code> | <code>[RequestOptionsOrDict](adyen/core/request_options.py) \| None</code> | Per-call overrides for this one request, such as a timeout, extra headers, or its retry count and statuses. |
 
 </dd>
 </dl>
@@ -34406,7 +36978,7 @@ Mapped in first-match order -- an earlier row wins over a later range that also 
 </details>
 
 <details>
-<summary><code>def get_balance_accounts_id_transfer_limits_current(id: str, *, scope: ScopeOrStr | None = None, transfer_type: TransferTypeOrStr | None = None, request_options: RequestOptionsOrDict | None = None) -> TransferLimitListResponse</code></summary>
+<summary><code>def get_balance_accounts_id_transfer_limits_current(id_: str, *, scope: ScopeOrStr | None = None, transfer_type: TransferTypeOrStr | None = None, request_options: RequestOptionsOrDict | None = None) -> TransferLimitListResponse</code></summary>
 
 <dl>
 <dd>
@@ -34430,7 +37002,9 @@ Get all transfer limits that currently apply to a balance account using the uniq
 
 ```python
 try:
-    response = client.transfer_limits_balance_account_level.get_balance_accounts_id_transfer_limits_current(id)
+    response = client.transfer_limits_balance_account_level.get_balance_accounts_id_transfer_limits_current(
+        "some example string"
+    )
     # TODO: Handle 'response' of type TransferLimitListResponse
 except ApiError as e:
     ...  # TODO: Handle 'e.error' of type GetBalanceAccountsIdTransferLimitsCurrentErrorBody
@@ -34441,7 +37015,7 @@ except ApiError as e:
 ```python
 try:
     response = await async_client.transfer_limits_balance_account_level.get_balance_accounts_id_transfer_limits_current(
-        id
+        "some example string"
     )
     # TODO: Handle 'response' of type TransferLimitListResponse
 except ApiError as e:
@@ -34458,10 +37032,10 @@ except ApiError as e:
 
 | Name | Type | Description |
 | --- | --- | --- |
-| <code>id</code> | <code>str</code> | The unique identifier of the balance account. |
+| <code>id_</code> | <code>str</code> | The unique identifier of the balance account. |
 | <code>scope</code> | <code>[ScopeOrStr](adyen/models/enums/scope.py) \| None</code> | The scope to which the transfer limit applies. Possible values:<br>* **perTransaction**: you set a maximum amount for each transfer made from the balance account or balance platform.<br>* **perDay**: you set a maximum total amount for all transfers made from the balance account or balance platform in a day.<br>**Default**: <code>None</code> |
 | <code>transfer_type</code> | <code>[TransferTypeOrStr](adyen/models/enums/transfer_type.py) \| None</code> | The type of transfer to which the limit applies. Possible values:<br>* **instant**: the limit applies to transfers with an **instant** priority.<br>* **all**: the limit applies to all transfers, regardless of priority.<br>**Default**: <code>None</code> |
-| <code>request_options</code> | <code>[RequestOptionsOrDict](adyen/core/request_options.py) \| None</code> | Per-call overrides for this one request, such as a timeout or extra headers. |
+| <code>request_options</code> | <code>[RequestOptionsOrDict](adyen/core/request_options.py) \| None</code> | Per-call overrides for this one request, such as a timeout, extra headers, or its retry count and statuses. |
 
 </dd>
 </dl>
@@ -34491,7 +37065,7 @@ Mapped in first-match order -- an earlier row wins over a later range that also 
 </details>
 
 <details>
-<summary><code>def get_balance_accounts_id_transfer_limits_transfer_limit_id(id: str, transfer_limit_id: str, *, request_options: RequestOptionsOrDict | None = None) -> TransferLimit</code></summary>
+<summary><code>def get_balance_accounts_id_transfer_limits_transfer_limit_id(id_: str, transfer_limit_id: str, *, request_options: RequestOptionsOrDict | None = None) -> TransferLimit</code></summary>
 
 <dl>
 <dd>
@@ -34516,7 +37090,7 @@ Get the details of a transfer limit using its unique `transferLimitId`.
 ```python
 try:
     response = client.transfer_limits_balance_account_level.get_balance_accounts_id_transfer_limits_transfer_limit_id(
-        id, transfer_limit_id
+        "some example string", "some example string"
     )
     # TODO: Handle 'response' of type TransferLimit
 except ApiError as e:
@@ -34528,7 +37102,7 @@ except ApiError as e:
 ```python
 try:
     response = await async_client.transfer_limits_balance_account_level.get_balance_accounts_id_transfer_limits_transfer_limit_id(
-        id, transfer_limit_id
+        "some example string", "some example string"
     )
     # TODO: Handle 'response' of type TransferLimit
 except ApiError as e:
@@ -34545,9 +37119,9 @@ except ApiError as e:
 
 | Name | Type | Description |
 | --- | --- | --- |
-| <code>id</code> | <code>str</code> | The unique identifier of the balance account. |
+| <code>id_</code> | <code>str</code> | The unique identifier of the balance account. |
 | <code>transfer_limit_id</code> | <code>str</code> | The unique identifier of the transfer limit. |
-| <code>request_options</code> | <code>[RequestOptionsOrDict](adyen/core/request_options.py) \| None</code> | Per-call overrides for this one request, such as a timeout or extra headers. |
+| <code>request_options</code> | <code>[RequestOptionsOrDict](adyen/core/request_options.py) \| None</code> | Per-call overrides for this one request, such as a timeout, extra headers, or its retry count and statuses. |
 
 </dd>
 </dl>
@@ -34577,7 +37151,7 @@ Mapped in first-match order -- an earlier row wins over a later range that also 
 </details>
 
 <details>
-<summary><code>def post_balance_accounts_id_transfer_limits(id: str, body: CreateTransferLimitRequest | CreateTransferLimitRequestDict, *, www_authenticate: str | None = None, request_options: RequestOptionsOrDict | None = None) -> TransferLimit</code></summary>
+<summary><code>def post_balance_accounts_id_transfer_limits(id_: str, body: CreateTransferLimitRequest | CreateTransferLimitRequestDict, *, www_authenticate: str | None = None, request_options: RequestOptionsOrDict | None = None) -> TransferLimit</code></summary>
 
 <dl>
 <dd>
@@ -34601,7 +37175,19 @@ Create a transfer limit for your balance account using the unique `id` of your b
 
 ```python
 try:
-    response = client.transfer_limits_balance_account_level.post_balance_accounts_id_transfer_limits(id, body)
+    response = client.transfer_limits_balance_account_level.post_balance_accounts_id_transfer_limits(
+        "some example string",
+        CreateTransferLimitRequest(
+            amount=Amount17(currency="EUR", value=10000),
+            ends_at=datetime(2026, 8, 13, 23, 0, 0, tzinfo=timezone.utc),
+            reference="Your reference for the transfer limit",
+            sca_information=CreateScaInformation1(sca_on_approval=True),
+            scope=Scope.PER_TRANSACTION,
+            starts_at=datetime(2025, 8, 15, 5, 36, 20, tzinfo=timezone.utc),
+            transfer_type=TransferType.ALL,
+        ),
+        www_authenticate="SCA realm=\"TransferLimit\" auth-param1=\"eyJjaGFsbGVuZ2UiOiJiVlV6ZW5wek0waFNl...\"",
+    )
     # TODO: Handle 'response' of type TransferLimit
 except ApiError as e:
     ...  # TODO: Handle 'e.error' of type PostBalanceAccountsIdTransferLimitsErrorBody
@@ -34612,7 +37198,17 @@ except ApiError as e:
 ```python
 try:
     response = await async_client.transfer_limits_balance_account_level.post_balance_accounts_id_transfer_limits(
-        id, body
+        "some example string",
+        CreateTransferLimitRequest(
+            amount=Amount17(currency="EUR", value=10000),
+            ends_at=datetime(2026, 8, 13, 23, 0, 0, tzinfo=timezone.utc),
+            reference="Your reference for the transfer limit",
+            sca_information=CreateScaInformation1(sca_on_approval=True),
+            scope=Scope.PER_TRANSACTION,
+            starts_at=datetime(2025, 8, 15, 5, 36, 20, tzinfo=timezone.utc),
+            transfer_type=TransferType.ALL,
+        ),
+        www_authenticate="SCA realm=\"TransferLimit\" auth-param1=\"eyJjaGFsbGVuZ2UiOiJiVlV6ZW5wek0waFNl...\"",
     )
     # TODO: Handle 'response' of type TransferLimit
 except ApiError as e:
@@ -34629,10 +37225,10 @@ except ApiError as e:
 
 | Name | Type | Description |
 | --- | --- | --- |
-| <code>id</code> | <code>str</code> | The unique identifier of the balance account. |
+| <code>id_</code> | <code>str</code> | The unique identifier of the balance account. |
 | <code>body</code> | <code>[CreateTransferLimitRequest](adyen/models/create_transfer_limit_request.py) \| [CreateTransferLimitRequestDict](adyen/models/create_transfer_limit_request.py)</code> | The request body. |
 | <code>www_authenticate</code> | <code>str \| None</code> | Header for authenticating through SCA<br>**Default**: <code>None</code> |
-| <code>request_options</code> | <code>[RequestOptionsOrDict](adyen/core/request_options.py) \| None</code> | Per-call overrides for this one request, such as a timeout or extra headers. |
+| <code>request_options</code> | <code>[RequestOptionsOrDict](adyen/core/request_options.py) \| None</code> | Per-call overrides for this one request, such as a timeout, extra headers, or its retry count and statuses. |
 
 </dd>
 </dl>
@@ -34662,7 +37258,7 @@ Mapped in first-match order -- an earlier row wins over a later range that also 
 </details>
 
 <details>
-<summary><code>def post_balance_accounts_id_transfer_limits_approve(id: str, body: ApproveTransferLimitRequest | ApproveTransferLimitRequestDict, *, www_authenticate: str | None = None, request_options: RequestOptionsOrDict | None = None) -> None</code></summary>
+<summary><code>def post_balance_accounts_id_transfer_limits_approve(id_: str, body: ApproveTransferLimitRequest | ApproveTransferLimitRequestDict, *, www_authenticate: str | None = None, request_options: RequestOptionsOrDict | None = None) -> None</code></summary>
 
 <dl>
 <dd>
@@ -34686,7 +37282,13 @@ Approve transfer limits that are pending SCA authentication.
 
 ```python
 try:
-    client.transfer_limits_balance_account_level.post_balance_accounts_id_transfer_limits_approve(id, body)
+    client.transfer_limits_balance_account_level.post_balance_accounts_id_transfer_limits_approve(
+        "some example string",
+        ApproveTransferLimitRequest(
+            transfer_limit_ids=["TRLI00000000000000000000000001", "TRLI00000000000000000000000002"]
+        ),
+        www_authenticate="SCA realm=\"TransferLimit\" auth-param1=\"eyJjaGFsbGVuZ2UiOiJiVlV6ZW5wek0waFNl...\"",
+    )
 except ApiError as e:
     ...  # TODO: Handle 'e.error' of type PostBalanceAccountsIdTransferLimitsApproveErrorBody
 ```
@@ -34695,7 +37297,13 @@ except ApiError as e:
 
 ```python
 try:
-    await async_client.transfer_limits_balance_account_level.post_balance_accounts_id_transfer_limits_approve(id, body)
+    await async_client.transfer_limits_balance_account_level.post_balance_accounts_id_transfer_limits_approve(
+        "some example string",
+        ApproveTransferLimitRequest(
+            transfer_limit_ids=["TRLI00000000000000000000000001", "TRLI00000000000000000000000002"]
+        ),
+        www_authenticate="SCA realm=\"TransferLimit\" auth-param1=\"eyJjaGFsbGVuZ2UiOiJiVlV6ZW5wek0waFNl...\"",
+    )
 except ApiError as e:
     ...  # TODO: Handle 'e.error' of type PostBalanceAccountsIdTransferLimitsApproveErrorBody
 ```
@@ -34710,10 +37318,10 @@ except ApiError as e:
 
 | Name | Type | Description |
 | --- | --- | --- |
-| <code>id</code> | <code>str</code> | The unique identifier of the balance account. |
+| <code>id_</code> | <code>str</code> | The unique identifier of the balance account. |
 | <code>body</code> | <code>[ApproveTransferLimitRequest](adyen/models/approve_transfer_limit_request.py) \| [ApproveTransferLimitRequestDict](adyen/models/approve_transfer_limit_request.py)</code> | The request body. |
 | <code>www_authenticate</code> | <code>str \| None</code> | Header for authenticating using SCA.<br>**Default**: <code>None</code> |
-| <code>request_options</code> | <code>[RequestOptionsOrDict](adyen/core/request_options.py) \| None</code> | Per-call overrides for this one request, such as a timeout or extra headers. |
+| <code>request_options</code> | <code>[RequestOptionsOrDict](adyen/core/request_options.py) \| None</code> | Per-call overrides for this one request, such as a timeout, extra headers, or its retry count and statuses. |
 
 </dd>
 </dl>
@@ -34747,7 +37355,7 @@ Mapped in first-match order -- an earlier row wins over a later range that also 
 > Source: [TransferLimitsBalancePlatformLevel](adyen/apis/transfer_limits_balance_platform_level.py)
 
 <details>
-<summary><code>def delete_balance_platforms_id_transfer_limits_transfer_limit_id(id: str, transfer_limit_id: str, *, request_options: RequestOptionsOrDict | None = None) -> None</code></summary>
+<summary><code>def delete_balance_platforms_id_transfer_limits_transfer_limit_id(id_: str, transfer_limit_id: str, *, request_options: RequestOptionsOrDict | None = None) -> None</code></summary>
 
 <dl>
 <dd>
@@ -34772,7 +37380,7 @@ Delete a scheduled or pending transfer limit using its unique `transferLimitId`.
 ```python
 try:
     client.transfer_limits_balance_platform_level.delete_balance_platforms_id_transfer_limits_transfer_limit_id(
-        id, transfer_limit_id
+        "some example string", "some example string"
     )
 except ApiError as e:
     ...  # TODO: Handle 'e.error' of type DeleteBalancePlatformsIdTransferLimitsTransferLimitIdErrorBody
@@ -34783,7 +37391,7 @@ except ApiError as e:
 ```python
 try:
     await async_client.transfer_limits_balance_platform_level.delete_balance_platforms_id_transfer_limits_transfer_limit_id(
-        id, transfer_limit_id
+        "some example string", "some example string"
     )
 except ApiError as e:
     ...  # TODO: Handle 'e.error' of type DeleteBalancePlatformsIdTransferLimitsTransferLimitIdErrorBody
@@ -34799,9 +37407,9 @@ except ApiError as e:
 
 | Name | Type | Description |
 | --- | --- | --- |
-| <code>id</code> | <code>str</code> | The unique identifier of the balance platform. |
+| <code>id_</code> | <code>str</code> | The unique identifier of the balance platform. |
 | <code>transfer_limit_id</code> | <code>str</code> | The unique identifier of the transfer limit. |
-| <code>request_options</code> | <code>[RequestOptionsOrDict](adyen/core/request_options.py) \| None</code> | Per-call overrides for this one request, such as a timeout or extra headers. |
+| <code>request_options</code> | <code>[RequestOptionsOrDict](adyen/core/request_options.py) \| None</code> | Per-call overrides for this one request, such as a timeout, extra headers, or its retry count and statuses. |
 
 </dd>
 </dl>
@@ -34831,7 +37439,7 @@ Mapped in first-match order -- an earlier row wins over a later range that also 
 </details>
 
 <details>
-<summary><code>def get_balance_platforms_id_transfer_limits(id: str, *, scope: ScopeOrStr | None = None, transfer_type: TransferTypeOrStr | None = None, status: LimitStatusOrStr | None = None, request_options: RequestOptionsOrDict | None = None) -> TransferLimitListResponse</code></summary>
+<summary><code>def get_balance_platforms_id_transfer_limits(id_: str, *, scope: ScopeOrStr | None = None, transfer_type: TransferTypeOrStr | None = None, status: LimitStatusOrStr | None = None, request_options: RequestOptionsOrDict | None = None) -> TransferLimitListResponse</code></summary>
 
 <dl>
 <dd>
@@ -34855,7 +37463,9 @@ Filter and view the transfer limits configured for your balance platform using t
 
 ```python
 try:
-    response = client.transfer_limits_balance_platform_level.get_balance_platforms_id_transfer_limits(id)
+    response = client.transfer_limits_balance_platform_level.get_balance_platforms_id_transfer_limits(
+        "some example string"
+    )
     # TODO: Handle 'response' of type TransferLimitListResponse
 except ApiError as e:
     ...  # TODO: Handle 'e.error' of type GetBalancePlatformsIdTransferLimitsErrorBody
@@ -34865,7 +37475,9 @@ except ApiError as e:
 
 ```python
 try:
-    response = await async_client.transfer_limits_balance_platform_level.get_balance_platforms_id_transfer_limits(id)
+    response = await async_client.transfer_limits_balance_platform_level.get_balance_platforms_id_transfer_limits(
+        "some example string"
+    )
     # TODO: Handle 'response' of type TransferLimitListResponse
 except ApiError as e:
     ...  # TODO: Handle 'e.error' of type GetBalancePlatformsIdTransferLimitsErrorBody
@@ -34881,11 +37493,11 @@ except ApiError as e:
 
 | Name | Type | Description |
 | --- | --- | --- |
-| <code>id</code> | <code>str</code> | The unique identifier of the balance platform. |
+| <code>id_</code> | <code>str</code> | The unique identifier of the balance platform. |
 | <code>scope</code> | <code>[ScopeOrStr](adyen/models/enums/scope.py) \| None</code> | The scope to which the transfer limit applies. Possible values:<br>* **perTransaction**: you set a maximum amount for each transfer made from the balance account or balance platform.<br>* **perDay**: you set a maximum total amount for all transfers made from the balance account or balance platform in a day.<br>**Default**: <code>None</code> |
 | <code>transfer_type</code> | <code>[TransferTypeOrStr](adyen/models/enums/transfer_type.py) \| None</code> | The type of transfer to which the limit applies. Possible values:<br>* **instant**: the limit applies to transfers with an **instant** priority.<br>* **all**: the limit applies to all transfers, regardless of priority.<br>**Default**: <code>None</code> |
 | <code>status</code> | <code>[LimitStatusOrStr](adyen/models/enums/limit_status.py) \| None</code> | The status of the transfer limit. Possible values:   <br>* **active**: the limit is currently active.<br>* **inactive**: the limit is currently inactive.<br>* **pendingSCA**: the limit is pending until your user performs SCA.<br>* **scheduled**: the limit is scheduled to become active at a future date.<br>**Default**: <code>None</code> |
-| <code>request_options</code> | <code>[RequestOptionsOrDict](adyen/core/request_options.py) \| None</code> | Per-call overrides for this one request, such as a timeout or extra headers. |
+| <code>request_options</code> | <code>[RequestOptionsOrDict](adyen/core/request_options.py) \| None</code> | Per-call overrides for this one request, such as a timeout, extra headers, or its retry count and statuses. |
 
 </dd>
 </dl>
@@ -34915,7 +37527,7 @@ Mapped in first-match order -- an earlier row wins over a later range that also 
 </details>
 
 <details>
-<summary><code>def get_balance_platforms_id_transfer_limits_transfer_limit_id(id: str, transfer_limit_id: str, *, request_options: RequestOptionsOrDict | None = None) -> TransferLimit</code></summary>
+<summary><code>def get_balance_platforms_id_transfer_limits_transfer_limit_id(id_: str, transfer_limit_id: str, *, request_options: RequestOptionsOrDict | None = None) -> TransferLimit</code></summary>
 
 <dl>
 <dd>
@@ -34940,7 +37552,7 @@ Get the details of a transfer limit using its unique `transferLimitId`.
 ```python
 try:
     response = client.transfer_limits_balance_platform_level.get_balance_platforms_id_transfer_limits_transfer_limit_id(
-        id, transfer_limit_id
+        "some example string", "some example string"
     )
     # TODO: Handle 'response' of type TransferLimit
 except ApiError as e:
@@ -34952,7 +37564,7 @@ except ApiError as e:
 ```python
 try:
     response = await async_client.transfer_limits_balance_platform_level.get_balance_platforms_id_transfer_limits_transfer_limit_id(
-        id, transfer_limit_id
+        "some example string", "some example string"
     )
     # TODO: Handle 'response' of type TransferLimit
 except ApiError as e:
@@ -34969,9 +37581,9 @@ except ApiError as e:
 
 | Name | Type | Description |
 | --- | --- | --- |
-| <code>id</code> | <code>str</code> | The unique identifier of the balance platform. |
+| <code>id_</code> | <code>str</code> | The unique identifier of the balance platform. |
 | <code>transfer_limit_id</code> | <code>str</code> | The unique identifier of the transfer limit. |
-| <code>request_options</code> | <code>[RequestOptionsOrDict](adyen/core/request_options.py) \| None</code> | Per-call overrides for this one request, such as a timeout or extra headers. |
+| <code>request_options</code> | <code>[RequestOptionsOrDict](adyen/core/request_options.py) \| None</code> | Per-call overrides for this one request, such as a timeout, extra headers, or its retry count and statuses. |
 
 </dd>
 </dl>
@@ -35001,7 +37613,7 @@ Mapped in first-match order -- an earlier row wins over a later range that also 
 </details>
 
 <details>
-<summary><code>def post_balance_platforms_id_transfer_limits(id: str, body: CreateTransferLimitRequest | CreateTransferLimitRequestDict, *, request_options: RequestOptionsOrDict | None = None) -> TransferLimit</code></summary>
+<summary><code>def post_balance_platforms_id_transfer_limits(id_: str, body: CreateTransferLimitRequest | CreateTransferLimitRequestDict, *, request_options: RequestOptionsOrDict | None = None) -> TransferLimit</code></summary>
 
 <dl>
 <dd>
@@ -35025,7 +37637,18 @@ Create a transfer limit for your balance platform using the unique `id` of your 
 
 ```python
 try:
-    response = client.transfer_limits_balance_platform_level.post_balance_platforms_id_transfer_limits(id, body)
+    response = client.transfer_limits_balance_platform_level.post_balance_platforms_id_transfer_limits(
+        "some example string",
+        CreateTransferLimitRequest(
+            amount=Amount17(currency="EUR", value=10000),
+            ends_at=datetime(2026, 8, 13, 23, 0, 0, tzinfo=timezone.utc),
+            reference="Your reference for the transfer limit",
+            sca_information=CreateScaInformation1(sca_on_approval=True),
+            scope=Scope.PER_TRANSACTION,
+            starts_at=datetime(2025, 8, 15, 5, 36, 20, tzinfo=timezone.utc),
+            transfer_type=TransferType.ALL,
+        ),
+    )
     # TODO: Handle 'response' of type TransferLimit
 except ApiError as e:
     ...  # TODO: Handle 'e.error' of type PostBalancePlatformsIdTransferLimitsErrorBody
@@ -35036,7 +37659,16 @@ except ApiError as e:
 ```python
 try:
     response = await async_client.transfer_limits_balance_platform_level.post_balance_platforms_id_transfer_limits(
-        id, body
+        "some example string",
+        CreateTransferLimitRequest(
+            amount=Amount17(currency="EUR", value=10000),
+            ends_at=datetime(2026, 8, 13, 23, 0, 0, tzinfo=timezone.utc),
+            reference="Your reference for the transfer limit",
+            sca_information=CreateScaInformation1(sca_on_approval=True),
+            scope=Scope.PER_TRANSACTION,
+            starts_at=datetime(2025, 8, 15, 5, 36, 20, tzinfo=timezone.utc),
+            transfer_type=TransferType.ALL,
+        ),
     )
     # TODO: Handle 'response' of type TransferLimit
 except ApiError as e:
@@ -35053,9 +37685,9 @@ except ApiError as e:
 
 | Name | Type | Description |
 | --- | --- | --- |
-| <code>id</code> | <code>str</code> | The unique identifier of the balance platform. |
+| <code>id_</code> | <code>str</code> | The unique identifier of the balance platform. |
 | <code>body</code> | <code>[CreateTransferLimitRequest](adyen/models/create_transfer_limit_request.py) \| [CreateTransferLimitRequestDict](adyen/models/create_transfer_limit_request.py)</code> | The request body. |
-| <code>request_options</code> | <code>[RequestOptionsOrDict](adyen/core/request_options.py) \| None</code> | Per-call overrides for this one request, such as a timeout or extra headers. |
+| <code>request_options</code> | <code>[RequestOptionsOrDict](adyen/core/request_options.py) \| None</code> | Per-call overrides for this one request, such as a timeout, extra headers, or its retry count and statuses. |
 
 </dd>
 </dl>
@@ -35113,7 +37745,13 @@ Returns available transfer routes based on a combination of transfer `country`, 
 
 ```python
 try:
-    response = client.transfer_routes.post_transfer_routes_calculate()
+    response = client.transfer_routes.post_transfer_routes_calculate(
+        body=TransferRouteRequest(
+            balance_platform="YOUR_BALANCE_PLATFORM",
+            counterparty=Counterparty1(bank_account=BankAccount11(account_identification=IbanAccountIdentification())),
+            currency="USD",
+        ),
+    )
     # TODO: Handle 'response' of type TransferRouteResponse
 except ApiError as e:
     ...  # TODO: Handle 'e.error' of type PostTransferRoutesCalculateErrorBody
@@ -35123,7 +37761,13 @@ except ApiError as e:
 
 ```python
 try:
-    response = await async_client.transfer_routes.post_transfer_routes_calculate()
+    response = await async_client.transfer_routes.post_transfer_routes_calculate(
+        body=TransferRouteRequest(
+            balance_platform="YOUR_BALANCE_PLATFORM",
+            counterparty=Counterparty1(bank_account=BankAccount11(account_identification=IbanAccountIdentification())),
+            currency="USD",
+        ),
+    )
     # TODO: Handle 'response' of type TransferRouteResponse
 except ApiError as e:
     ...  # TODO: Handle 'e.error' of type PostTransferRoutesCalculateErrorBody
@@ -35140,7 +37784,7 @@ except ApiError as e:
 | Name | Type | Description |
 | --- | --- | --- |
 | <code>body</code> | <code>[TransferRouteRequest](adyen/models/transfer_route_request.py) \| [TransferRouteRequestDict](adyen/models/transfer_route_request.py) \| None</code> | The request body.<br>**Default**: <code>None</code> |
-| <code>request_options</code> | <code>[RequestOptionsOrDict](adyen/core/request_options.py) \| None</code> | Per-call overrides for this one request, such as a timeout or extra headers. |
+| <code>request_options</code> | <code>[RequestOptionsOrDict](adyen/core/request_options.py) \| None</code> | Per-call overrides for this one request, such as a timeout, extra headers, or its retry count and statuses. |
 
 </dd>
 </dl>
@@ -35205,7 +37849,9 @@ This endpoint supports cursor-based pagination. The response returns the first p
 
 ```python
 try:
-    response = client.transfers.get_transfers(created_since, created_until)
+    response = client.transfers.get_transfers(
+        datetime(2024, 1, 15, 9, 30, 0, tzinfo=timezone.utc), datetime(2024, 1, 15, 9, 30, 0, tzinfo=timezone.utc)
+    )
     # TODO: Handle 'response' of type FindTransfersResponse
 except ApiError as e:
     ...  # TODO: Handle 'e.error' of type GetTransfersErrorBody
@@ -35215,7 +37861,9 @@ except ApiError as e:
 
 ```python
 try:
-    response = await async_client.transfers.get_transfers(created_since, created_until)
+    response = await async_client.transfers.get_transfers(
+        datetime(2024, 1, 15, 9, 30, 0, tzinfo=timezone.utc), datetime(2024, 1, 15, 9, 30, 0, tzinfo=timezone.utc)
+    )
     # TODO: Handle 'response' of type FindTransfersResponse
 except ApiError as e:
     ...  # TODO: Handle 'e.error' of type GetTransfersErrorBody
@@ -35242,7 +37890,7 @@ except ApiError as e:
 | <code>sort_order</code> | <code>[SortOrderOrStr](adyen/models/enums/sort_order.py) \| None</code> | Determines the sort order of the returned transfers. The sort order is based on the creation date of the transfers.<br><br>Possible values:<br><br> - **asc**: Ascending order, from oldest to most recent.<br><br>- **desc**: Descending order, from most recent to oldest.<br><br>Default value: **asc**.<br>**Default**: <code>None</code> |
 | <code>cursor</code> | <code>str \| None</code> | The `cursor` returned in the links of the previous response.<br>**Default**: <code>None</code> |
 | <code>limit</code> | <code>int \| None</code> | The number of items returned per page, maximum of 100 items. By default, the response returns 10 items per page.<br>**Default**: <code>None</code> |
-| <code>request_options</code> | <code>[RequestOptionsOrDict](adyen/core/request_options.py) \| None</code> | Per-call overrides for this one request, such as a timeout or extra headers. |
+| <code>request_options</code> | <code>[RequestOptionsOrDict](adyen/core/request_options.py) \| None</code> | Per-call overrides for this one request, such as a timeout, extra headers, or its retry count and statuses. |
 
 </dd>
 </dl>
@@ -35272,7 +37920,7 @@ Mapped in first-match order -- an earlier row wins over a later range that also 
 </details>
 
 <details>
-<summary><code>def get_transfers_id(id: str, *, request_options: RequestOptionsOrDict | None = None) -> TransferData</code></summary>
+<summary><code>def get_transfers_id(id_: str, *, request_options: RequestOptionsOrDict | None = None) -> TransferData</code></summary>
 
 <dl>
 <dd>
@@ -35296,7 +37944,7 @@ Returns the details of a specified transfer.
 
 ```python
 try:
-    response = client.transfers.get_transfers_id(id)
+    response = client.transfers.get_transfers_id("some example string")
     # TODO: Handle 'response' of type TransferData
 except ApiError as e:
     ...  # TODO: Handle 'e.error' of type GetTransfersIdErrorBody
@@ -35306,7 +37954,7 @@ except ApiError as e:
 
 ```python
 try:
-    response = await async_client.transfers.get_transfers_id(id)
+    response = await async_client.transfers.get_transfers_id("some example string")
     # TODO: Handle 'response' of type TransferData
 except ApiError as e:
     ...  # TODO: Handle 'e.error' of type GetTransfersIdErrorBody
@@ -35322,8 +37970,8 @@ except ApiError as e:
 
 | Name | Type | Description |
 | --- | --- | --- |
-| <code>id</code> | <code>str</code> | Unique identifier of the transfer. |
-| <code>request_options</code> | <code>[RequestOptionsOrDict](adyen/core/request_options.py) \| None</code> | Per-call overrides for this one request, such as a timeout or extra headers. |
+| <code>id_</code> | <code>str</code> | Unique identifier of the transfer. |
+| <code>request_options</code> | <code>[RequestOptionsOrDict](adyen/core/request_options.py) \| None</code> | Per-call overrides for this one request, such as a timeout, extra headers, or its retry count and statuses. |
 
 </dd>
 </dl>
@@ -35391,7 +38039,24 @@ Reach out to your Adyen contact to set up these permissions.
 
 ```python
 try:
-    response = client.transfers.post_transfers()
+    response = client.transfers.post_transfers(
+        idempotency_key="37ca9c97-d1d1-4c62-89e8-706891a563ed",
+        www_authenticate="SCA realm=\"Transfer\" auth-param1=\"eyJjaGFsbGVuZ2UiOiJiVlV6ZW5wek0waFNl...\"",
+        body=TransferInfo(
+            amount=Amount17(currency="EUR", value=110000),
+            balance_account_id="BAB8B2C3D4E5F6G7H8D9J6GD4",
+            category=Category3.BANK,
+            counterparty=CounterpartyInfoV31(
+                bank_account=BankAccountV31(
+                    account_holder=PartyIdentification3(), account_identification=NumberAndBicAccountIdentification()
+                ),
+            ),
+            description="Your description for the transfer",
+            priority=Priority1.CROSS_BORDER,
+            reference="Your internal reference for the transfer",
+            reference_for_beneficiary="Your-reference-sent-to-the-beneficiary",
+        ),
+    )
     # TODO: Handle 'response' of type Transfer
 except ApiError as e:
     ...  # TODO: Handle 'e.error' of type PostTransfersErrorBody
@@ -35401,7 +38066,24 @@ except ApiError as e:
 
 ```python
 try:
-    response = await async_client.transfers.post_transfers()
+    response = await async_client.transfers.post_transfers(
+        idempotency_key="37ca9c97-d1d1-4c62-89e8-706891a563ed",
+        www_authenticate="SCA realm=\"Transfer\" auth-param1=\"eyJjaGFsbGVuZ2UiOiJiVlV6ZW5wek0waFNl...\"",
+        body=TransferInfo(
+            amount=Amount17(currency="EUR", value=110000),
+            balance_account_id="BAB8B2C3D4E5F6G7H8D9J6GD4",
+            category=Category3.BANK,
+            counterparty=CounterpartyInfoV31(
+                bank_account=BankAccountV31(
+                    account_holder=PartyIdentification3(), account_identification=NumberAndBicAccountIdentification()
+                ),
+            ),
+            description="Your description for the transfer",
+            priority=Priority1.CROSS_BORDER,
+            reference="Your internal reference for the transfer",
+            reference_for_beneficiary="Your-reference-sent-to-the-beneficiary",
+        ),
+    )
     # TODO: Handle 'response' of type Transfer
 except ApiError as e:
     ...  # TODO: Handle 'e.error' of type PostTransfersErrorBody
@@ -35420,7 +38102,7 @@ except ApiError as e:
 | <code>idempotency_key</code> | <code>str \| None</code> | A unique identifier for the message with a maximum of 64 characters (we recommend a UUID).<br>**Default**: <code>None</code> |
 | <code>www_authenticate</code> | <code>str \| None</code> | Header for authenticating through SCA<br>**Default**: <code>None</code> |
 | <code>body</code> | <code>[TransferInfo](adyen/models/transfer_info.py) \| [TransferInfoDict](adyen/models/transfer_info.py) \| None</code> | The request body.<br>**Default**: <code>None</code> |
-| <code>request_options</code> | <code>[RequestOptionsOrDict](adyen/core/request_options.py) \| None</code> | Per-call overrides for this one request, such as a timeout or extra headers. |
+| <code>request_options</code> | <code>[RequestOptionsOrDict](adyen/core/request_options.py) \| None</code> | Per-call overrides for this one request, such as a timeout, extra headers, or its retry count and statuses. |
 
 </dd>
 </dl>
@@ -35481,7 +38163,11 @@ Reach out to your Adyen contact to set up these permissions.
 
 ```python
 try:
-    response = client.transfers.post_transfers_approve()
+    response = client.transfers.post_transfers_approve(
+        idempotency_key="37ca9c97-d1d1-4c62-89e8-706891a563ed",
+        www_authenticate="SCA realm=\"ApproveTransfers\" auth-param1=\"eyJjaGFsbGVuZ2UiOiJiVlV6ZW5wek0waFNl...\"",
+        body=ApproveTransfersRequest(transfer_ids=["APUFHASUDF4AS", "407ASFPUAHSFA"]),
+    )
     # TODO: Handle 'response' of type Any
 except ApiError as e:
     ...  # TODO: Handle 'e.error' of type PostTransfersApproveErrorBody
@@ -35491,7 +38177,11 @@ except ApiError as e:
 
 ```python
 try:
-    response = await async_client.transfers.post_transfers_approve()
+    response = await async_client.transfers.post_transfers_approve(
+        idempotency_key="37ca9c97-d1d1-4c62-89e8-706891a563ed",
+        www_authenticate="SCA realm=\"ApproveTransfers\" auth-param1=\"eyJjaGFsbGVuZ2UiOiJiVlV6ZW5wek0waFNl...\"",
+        body=ApproveTransfersRequest(transfer_ids=["APUFHASUDF4AS", "407ASFPUAHSFA"]),
+    )
     # TODO: Handle 'response' of type Any
 except ApiError as e:
     ...  # TODO: Handle 'e.error' of type PostTransfersApproveErrorBody
@@ -35510,7 +38200,7 @@ except ApiError as e:
 | <code>idempotency_key</code> | <code>str \| None</code> | A unique identifier for the message with a maximum of 64 characters (we recommend a UUID).<br>**Default**: <code>None</code> |
 | <code>www_authenticate</code> | <code>str \| None</code> | Header for authenticating through SCA<br>**Default**: <code>None</code> |
 | <code>body</code> | <code>[ApproveTransfersRequest](adyen/models/approve_transfers_request.py) \| [ApproveTransfersRequestDict](adyen/models/approve_transfers_request.py) \| None</code> | The request body.<br>**Default**: <code>None</code> |
-| <code>request_options</code> | <code>[RequestOptionsOrDict](adyen/core/request_options.py) \| None</code> | Per-call overrides for this one request, such as a timeout or extra headers. |
+| <code>request_options</code> | <code>[RequestOptionsOrDict](adyen/core/request_options.py) \| None</code> | Per-call overrides for this one request, such as a timeout, extra headers, or its retry count and statuses. |
 
 </dd>
 </dl>
@@ -35571,7 +38261,10 @@ Reach out to your Adyen contact to set up these permissions.
 
 ```python
 try:
-    response = client.transfers.post_transfers_cancel()
+    response = client.transfers.post_transfers_cancel(
+        idempotency_key="37ca9c97-d1d1-4c62-89e8-706891a563ed",
+        body=CancelTransfersRequest(transfer_ids=["APUFHASUDF4AS", "407ASFPUAHSFA"]),
+    )
     # TODO: Handle 'response' of type Any
 except ApiError as e:
     ...  # TODO: Handle 'e.error' of type PostTransfersCancelErrorBody
@@ -35581,7 +38274,10 @@ except ApiError as e:
 
 ```python
 try:
-    response = await async_client.transfers.post_transfers_cancel()
+    response = await async_client.transfers.post_transfers_cancel(
+        idempotency_key="37ca9c97-d1d1-4c62-89e8-706891a563ed",
+        body=CancelTransfersRequest(transfer_ids=["APUFHASUDF4AS", "407ASFPUAHSFA"]),
+    )
     # TODO: Handle 'response' of type Any
 except ApiError as e:
     ...  # TODO: Handle 'e.error' of type PostTransfersCancelErrorBody
@@ -35599,7 +38295,7 @@ except ApiError as e:
 | --- | --- | --- |
 | <code>idempotency_key</code> | <code>str \| None</code> | A unique identifier for the message with a maximum of 64 characters (we recommend a UUID).<br>**Default**: <code>None</code> |
 | <code>body</code> | <code>[CancelTransfersRequest](adyen/models/cancel_transfers_request.py) \| [CancelTransfersRequestDict](adyen/models/cancel_transfers_request.py) \| None</code> | The request body.<br>**Default**: <code>None</code> |
-| <code>request_options</code> | <code>[RequestOptionsOrDict](adyen/core/request_options.py) \| None</code> | Per-call overrides for this one request, such as a timeout or extra headers. |
+| <code>request_options</code> | <code>[RequestOptionsOrDict](adyen/core/request_options.py) \| None</code> | Per-call overrides for this one request, such as a timeout, extra headers, or its retry count and statuses. |
 
 </dd>
 </dl>
@@ -35653,7 +38349,13 @@ Initiates the return of previously transferred funds without creating a new `tra
 
 ```python
 try:
-    response = client.transfers.post_transfers_transfer_id_returns(transfer_id)
+    response = client.transfers.post_transfers_transfer_id_returns(
+        "some example string",
+        idempotency_key="37ca9c97-d1d1-4c62-89e8-706891a563ed",
+        body=ReturnTransferRequest(
+            amount=Amount17(currency="EUR", value=189), reference="Your internal reference for the return"
+        ),
+    )
     # TODO: Handle 'response' of type ReturnTransferResponse
 except ApiError as e:
     ...  # TODO: Handle 'e.error' of type PostTransfersTransferIdReturnsErrorBody
@@ -35663,7 +38365,13 @@ except ApiError as e:
 
 ```python
 try:
-    response = await async_client.transfers.post_transfers_transfer_id_returns(transfer_id)
+    response = await async_client.transfers.post_transfers_transfer_id_returns(
+        "some example string",
+        idempotency_key="37ca9c97-d1d1-4c62-89e8-706891a563ed",
+        body=ReturnTransferRequest(
+            amount=Amount17(currency="EUR", value=189), reference="Your internal reference for the return"
+        ),
+    )
     # TODO: Handle 'response' of type ReturnTransferResponse
 except ApiError as e:
     ...  # TODO: Handle 'e.error' of type PostTransfersTransferIdReturnsErrorBody
@@ -35682,7 +38390,7 @@ except ApiError as e:
 | <code>transfer_id</code> | <code>str</code> | The unique identifier of the transfer to be returned. |
 | <code>idempotency_key</code> | <code>str \| None</code> | A unique identifier for the message with a maximum of 64 characters (we recommend a UUID).<br>**Default**: <code>None</code> |
 | <code>body</code> | <code>[ReturnTransferRequest](adyen/models/return_transfer_request.py) \| [ReturnTransferRequestDict](adyen/models/return_transfer_request.py) \| None</code> | The request body.<br>**Default**: <code>None</code> |
-| <code>request_options</code> | <code>[RequestOptionsOrDict](adyen/core/request_options.py) \| None</code> | Per-call overrides for this one request, such as a timeout or extra headers. |
+| <code>request_options</code> | <code>[RequestOptionsOrDict](adyen/core/request_options.py) \| None</code> | Per-call overrides for this one request, such as a timeout, extra headers, or its retry count and statuses. |
 
 </dd>
 </dl>
@@ -35743,7 +38451,7 @@ To make this request, your API credential must have the following [role](https:/
 
 ```python
 try:
-    response = client.users_company_level.get_companies_company_id_users(company_id)
+    response = client.users_company_level.get_companies_company_id_users("some example string")
     # TODO: Handle 'response' of type ListCompanyUsersResponse
 except ApiError as e:
     ...  # TODO: Handle 'e.error' of type GetCompaniesCompanyIdUsersErrorBody
@@ -35753,7 +38461,7 @@ except ApiError as e:
 
 ```python
 try:
-    response = await async_client.users_company_level.get_companies_company_id_users(company_id)
+    response = await async_client.users_company_level.get_companies_company_id_users("some example string")
     # TODO: Handle 'response' of type ListCompanyUsersResponse
 except ApiError as e:
     ...  # TODO: Handle 'e.error' of type GetCompaniesCompanyIdUsersErrorBody
@@ -35773,7 +38481,7 @@ except ApiError as e:
 | <code>page_number</code> | <code>int \| None</code> | The number of the page to return.<br>**Default**: <code>None</code> |
 | <code>page_size</code> | <code>int \| None</code> | The number of items to have on a page. Maximum value is **100**. The default is **10** items on a page.<br>**Default**: <code>None</code> |
 | <code>username</code> | <code>str \| None</code> | The partial or complete username to select all users that match.<br>**Default**: <code>None</code> |
-| <code>request_options</code> | <code>[RequestOptionsOrDict](adyen/core/request_options.py) \| None</code> | Per-call overrides for this one request, such as a timeout or extra headers. |
+| <code>request_options</code> | <code>[RequestOptionsOrDict](adyen/core/request_options.py) \| None</code> | Per-call overrides for this one request, such as a timeout, extra headers, or its retry count and statuses. |
 
 </dd>
 </dl>
@@ -35830,7 +38538,9 @@ To make this request, your API credential must have the following [role](https:/
 
 ```python
 try:
-    response = client.users_company_level.get_companies_company_id_users_user_id(company_id, user_id)
+    response = client.users_company_level.get_companies_company_id_users_user_id(
+        "some example string", "some example string"
+    )
     # TODO: Handle 'response' of type CompanyUser
 except ApiError as e:
     ...  # TODO: Handle 'e.error' of type GetCompaniesCompanyIdUsersUserIdErrorBody
@@ -35840,7 +38550,9 @@ except ApiError as e:
 
 ```python
 try:
-    response = await async_client.users_company_level.get_companies_company_id_users_user_id(company_id, user_id)
+    response = await async_client.users_company_level.get_companies_company_id_users_user_id(
+        "some example string", "some example string"
+    )
     # TODO: Handle 'response' of type CompanyUser
 except ApiError as e:
     ...  # TODO: Handle 'e.error' of type GetCompaniesCompanyIdUsersUserIdErrorBody
@@ -35858,7 +38570,7 @@ except ApiError as e:
 | --- | --- | --- |
 | <code>company_id</code> | <code>str</code> | The unique identifier of the company account. |
 | <code>user_id</code> | <code>str</code> | The unique identifier of the user. |
-| <code>request_options</code> | <code>[RequestOptionsOrDict](adyen/core/request_options.py) \| None</code> | Per-call overrides for this one request, such as a timeout or extra headers. |
+| <code>request_options</code> | <code>[RequestOptionsOrDict](adyen/core/request_options.py) \| None</code> | Per-call overrides for this one request, such as a timeout, extra headers, or its retry count and statuses. |
 
 </dd>
 </dl>
@@ -35915,7 +38627,9 @@ To make this request, your API credential must have the following [role](https:/
 
 ```python
 try:
-    response = client.users_company_level.patch_companies_company_id_users_user_id(company_id, user_id)
+    response = client.users_company_level.patch_companies_company_id_users_user_id(
+        "some example string", "some example string"
+    )
     # TODO: Handle 'response' of type CompanyUser
 except ApiError as e:
     ...  # TODO: Handle 'e.error' of type PatchCompaniesCompanyIdUsersUserIdErrorBody
@@ -35925,7 +38639,9 @@ except ApiError as e:
 
 ```python
 try:
-    response = await async_client.users_company_level.patch_companies_company_id_users_user_id(company_id, user_id)
+    response = await async_client.users_company_level.patch_companies_company_id_users_user_id(
+        "some example string", "some example string"
+    )
     # TODO: Handle 'response' of type CompanyUser
 except ApiError as e:
     ...  # TODO: Handle 'e.error' of type PatchCompaniesCompanyIdUsersUserIdErrorBody
@@ -35944,7 +38660,7 @@ except ApiError as e:
 | <code>company_id</code> | <code>str</code> | The unique identifier of the company account. |
 | <code>user_id</code> | <code>str</code> | The unique identifier of the user. |
 | <code>body</code> | <code>[UpdateCompanyUserRequest](adyen/models/update_company_user_request.py) \| [UpdateCompanyUserRequestDict](adyen/models/update_company_user_request.py) \| None</code> | The request body.<br>**Default**: <code>None</code> |
-| <code>request_options</code> | <code>[RequestOptionsOrDict](adyen/core/request_options.py) \| None</code> | Per-call overrides for this one request, such as a timeout or extra headers. |
+| <code>request_options</code> | <code>[RequestOptionsOrDict](adyen/core/request_options.py) \| None</code> | Per-call overrides for this one request, such as a timeout, extra headers, or its retry count and statuses. |
 
 </dd>
 </dl>
@@ -36001,7 +38717,18 @@ To make this request, your API credential must have the following [role](https:/
 
 ```python
 try:
-    response = client.users_company_level.post_companies_company_id_users(company_id)
+    response = client.users_company_level.post_companies_company_id_users(
+        "some example string",
+        body=CreateCompanyUserRequest(
+            associated_merchant_accounts=["YOUR_MERCHANT_ACCOUNT"],
+            email="john.smith@example.com",
+            login_method="Email",
+            name=Name(first_name="John", last_name="Smith"),
+            roles=["Merchant standard role", "Merchant admin"],
+            time_zone_code="Europe/Amsterdam",
+            username="johnsmith",
+        ),
+    )
     # TODO: Handle 'response' of type CreateCompanyUserResponse
 except ApiError as e:
     ...  # TODO: Handle 'e.error' of type PostCompaniesCompanyIdUsersErrorBody
@@ -36011,7 +38738,18 @@ except ApiError as e:
 
 ```python
 try:
-    response = await async_client.users_company_level.post_companies_company_id_users(company_id)
+    response = await async_client.users_company_level.post_companies_company_id_users(
+        "some example string",
+        body=CreateCompanyUserRequest(
+            associated_merchant_accounts=["YOUR_MERCHANT_ACCOUNT"],
+            email="john.smith@example.com",
+            login_method="Email",
+            name=Name(first_name="John", last_name="Smith"),
+            roles=["Merchant standard role", "Merchant admin"],
+            time_zone_code="Europe/Amsterdam",
+            username="johnsmith",
+        ),
+    )
     # TODO: Handle 'response' of type CreateCompanyUserResponse
 except ApiError as e:
     ...  # TODO: Handle 'e.error' of type PostCompaniesCompanyIdUsersErrorBody
@@ -36029,7 +38767,7 @@ except ApiError as e:
 | --- | --- | --- |
 | <code>company_id</code> | <code>str</code> | The unique identifier of the company account. |
 | <code>body</code> | <code>[CreateCompanyUserRequest](adyen/models/create_company_user_request.py) \| [CreateCompanyUserRequestDict](adyen/models/create_company_user_request.py) \| None</code> | The request body.<br>**Default**: <code>None</code> |
-| <code>request_options</code> | <code>[RequestOptionsOrDict](adyen/core/request_options.py) \| None</code> | Per-call overrides for this one request, such as a timeout or extra headers. |
+| <code>request_options</code> | <code>[RequestOptionsOrDict](adyen/core/request_options.py) \| None</code> | Per-call overrides for this one request, such as a timeout, extra headers, or its retry count and statuses. |
 
 </dd>
 </dl>
@@ -36090,7 +38828,7 @@ To make this request, your API credential must have the following [role](https:/
 
 ```python
 try:
-    response = client.users_merchant_level.get_merchants_merchant_id_users(merchant_id)
+    response = client.users_merchant_level.get_merchants_merchant_id_users("some example string")
     # TODO: Handle 'response' of type ListMerchantUsersResponse
 except ApiError as e:
     ...  # TODO: Handle 'e.error' of type GetMerchantsMerchantIdUsersErrorBody
@@ -36100,7 +38838,7 @@ except ApiError as e:
 
 ```python
 try:
-    response = await async_client.users_merchant_level.get_merchants_merchant_id_users(merchant_id)
+    response = await async_client.users_merchant_level.get_merchants_merchant_id_users("some example string")
     # TODO: Handle 'response' of type ListMerchantUsersResponse
 except ApiError as e:
     ...  # TODO: Handle 'e.error' of type GetMerchantsMerchantIdUsersErrorBody
@@ -36120,7 +38858,7 @@ except ApiError as e:
 | <code>page_number</code> | <code>int \| None</code> | The number of the page to fetch.<br>**Default**: <code>None</code> |
 | <code>page_size</code> | <code>int \| None</code> | The number of items to have on a page. Maximum value is **100**. The default is **10** items on a page.<br>**Default**: <code>None</code> |
 | <code>username</code> | <code>str \| None</code> | The partial or complete username to select all users that match.<br>**Default**: <code>None</code> |
-| <code>request_options</code> | <code>[RequestOptionsOrDict](adyen/core/request_options.py) \| None</code> | Per-call overrides for this one request, such as a timeout or extra headers. |
+| <code>request_options</code> | <code>[RequestOptionsOrDict](adyen/core/request_options.py) \| None</code> | Per-call overrides for this one request, such as a timeout, extra headers, or its retry count and statuses. |
 
 </dd>
 </dl>
@@ -36177,7 +38915,9 @@ To make this request, your API credential must have the following [role](https:/
 
 ```python
 try:
-    response = client.users_merchant_level.get_merchants_merchant_id_users_user_id(merchant_id, user_id)
+    response = client.users_merchant_level.get_merchants_merchant_id_users_user_id(
+        "some example string", "some example string"
+    )
     # TODO: Handle 'response' of type User
 except ApiError as e:
     ...  # TODO: Handle 'e.error' of type GetMerchantsMerchantIdUsersUserIdErrorBody
@@ -36187,7 +38927,9 @@ except ApiError as e:
 
 ```python
 try:
-    response = await async_client.users_merchant_level.get_merchants_merchant_id_users_user_id(merchant_id, user_id)
+    response = await async_client.users_merchant_level.get_merchants_merchant_id_users_user_id(
+        "some example string", "some example string"
+    )
     # TODO: Handle 'response' of type User
 except ApiError as e:
     ...  # TODO: Handle 'e.error' of type GetMerchantsMerchantIdUsersUserIdErrorBody
@@ -36205,7 +38947,7 @@ except ApiError as e:
 | --- | --- | --- |
 | <code>merchant_id</code> | <code>str</code> | Unique identifier of the merchant. |
 | <code>user_id</code> | <code>str</code> | Unique identifier of the user. |
-| <code>request_options</code> | <code>[RequestOptionsOrDict](adyen/core/request_options.py) \| None</code> | Per-call overrides for this one request, such as a timeout or extra headers. |
+| <code>request_options</code> | <code>[RequestOptionsOrDict](adyen/core/request_options.py) \| None</code> | Per-call overrides for this one request, such as a timeout, extra headers, or its retry count and statuses. |
 
 </dd>
 </dl>
@@ -36262,7 +39004,9 @@ To make this request, your API credential must have the following [role](https:/
 
 ```python
 try:
-    response = client.users_merchant_level.patch_merchants_merchant_id_users_user_id(merchant_id, user_id)
+    response = client.users_merchant_level.patch_merchants_merchant_id_users_user_id(
+        "some example string", "some example string"
+    )
     # TODO: Handle 'response' of type User
 except ApiError as e:
     ...  # TODO: Handle 'e.error' of type PatchMerchantsMerchantIdUsersUserIdErrorBody
@@ -36272,7 +39016,9 @@ except ApiError as e:
 
 ```python
 try:
-    response = await async_client.users_merchant_level.patch_merchants_merchant_id_users_user_id(merchant_id, user_id)
+    response = await async_client.users_merchant_level.patch_merchants_merchant_id_users_user_id(
+        "some example string", "some example string"
+    )
     # TODO: Handle 'response' of type User
 except ApiError as e:
     ...  # TODO: Handle 'e.error' of type PatchMerchantsMerchantIdUsersUserIdErrorBody
@@ -36291,7 +39037,7 @@ except ApiError as e:
 | <code>merchant_id</code> | <code>str</code> | Unique identifier of the merchant. |
 | <code>user_id</code> | <code>str</code> | Unique identifier of the user. |
 | <code>body</code> | <code>[UpdateMerchantUserRequest](adyen/models/update_merchant_user_request.py) \| [UpdateMerchantUserRequestDict](adyen/models/update_merchant_user_request.py) \| None</code> | The request body.<br>**Default**: <code>None</code> |
-| <code>request_options</code> | <code>[RequestOptionsOrDict](adyen/core/request_options.py) \| None</code> | Per-call overrides for this one request, such as a timeout or extra headers. |
+| <code>request_options</code> | <code>[RequestOptionsOrDict](adyen/core/request_options.py) \| None</code> | Per-call overrides for this one request, such as a timeout, extra headers, or its retry count and statuses. |
 
 </dd>
 </dl>
@@ -36348,7 +39094,17 @@ To make this request, your API credential must have the following [role](https:/
 
 ```python
 try:
-    response = client.users_merchant_level.post_merchants_merchant_id_users(merchant_id)
+    response = client.users_merchant_level.post_merchants_merchant_id_users(
+        "some example string",
+        body=CreateMerchantUserRequest(
+            email="john.smith@example.com",
+            login_method="Email",
+            name=Name(first_name="John", last_name="Smith"),
+            roles=["Merchant standard role"],
+            time_zone_code="Europe/Amsterdam",
+            username="johnsmith",
+        ),
+    )
     # TODO: Handle 'response' of type CreateUserResponse
 except ApiError as e:
     ...  # TODO: Handle 'e.error' of type PostMerchantsMerchantIdUsersErrorBody
@@ -36358,7 +39114,17 @@ except ApiError as e:
 
 ```python
 try:
-    response = await async_client.users_merchant_level.post_merchants_merchant_id_users(merchant_id)
+    response = await async_client.users_merchant_level.post_merchants_merchant_id_users(
+        "some example string",
+        body=CreateMerchantUserRequest(
+            email="john.smith@example.com",
+            login_method="Email",
+            name=Name(first_name="John", last_name="Smith"),
+            roles=["Merchant standard role"],
+            time_zone_code="Europe/Amsterdam",
+            username="johnsmith",
+        ),
+    )
     # TODO: Handle 'response' of type CreateUserResponse
 except ApiError as e:
     ...  # TODO: Handle 'e.error' of type PostMerchantsMerchantIdUsersErrorBody
@@ -36376,7 +39142,7 @@ except ApiError as e:
 | --- | --- | --- |
 | <code>merchant_id</code> | <code>str</code> | Unique identifier of the merchant. |
 | <code>body</code> | <code>[CreateMerchantUserRequest](adyen/models/create_merchant_user_request.py) \| [CreateMerchantUserRequestDict](adyen/models/create_merchant_user_request.py) \| None</code> | The request body.<br>**Default**: <code>None</code> |
-| <code>request_options</code> | <code>[RequestOptionsOrDict](adyen/core/request_options.py) \| None</code> | Per-call overrides for this one request, such as a timeout or extra headers. |
+| <code>request_options</code> | <code>[RequestOptionsOrDict](adyen/core/request_options.py) \| None</code> | Per-call overrides for this one request, such as a timeout, extra headers, or its retry count and statuses. |
 
 </dd>
 </dl>
@@ -36436,7 +39202,12 @@ The endpoint returns the Apple Pay session data which you need to complete the [
 
 ```python
 try:
-    response = client.utility.post_apple_pay_sessions()
+    response = client.utility.post_apple_pay_sessions(
+        idempotency_key="37ca9c97-d1d1-4c62-89e8-706891a563ed",
+        body=ApplePaySessionRequest(
+            display_name="YOUR_MERCHANT_NAME", domain_name="YOUR_DOMAIN_NAME", merchant_identifier="YOUR_MERCHANT_ID"
+        ),
+    )
     # TODO: Handle 'response' of type ApplePaySessionResponse
 except ApiError as e:
     ...  # TODO: Handle 'e.error' of type RawError
@@ -36446,7 +39217,12 @@ except ApiError as e:
 
 ```python
 try:
-    response = await async_client.utility.post_apple_pay_sessions()
+    response = await async_client.utility.post_apple_pay_sessions(
+        idempotency_key="37ca9c97-d1d1-4c62-89e8-706891a563ed",
+        body=ApplePaySessionRequest(
+            display_name="YOUR_MERCHANT_NAME", domain_name="YOUR_DOMAIN_NAME", merchant_identifier="YOUR_MERCHANT_ID"
+        ),
+    )
     # TODO: Handle 'response' of type ApplePaySessionResponse
 except ApiError as e:
     ...  # TODO: Handle 'e.error' of type RawError
@@ -36464,7 +39240,7 @@ except ApiError as e:
 | --- | --- | --- |
 | <code>idempotency_key</code> | <code>str \| None</code> | A unique identifier for the message with a maximum of 64 characters (we recommend a UUID).<br>**Default**: <code>None</code> |
 | <code>body</code> | <code>[ApplePaySessionRequest](adyen/models/apple_pay_session_request.py) \| [ApplePaySessionRequestDict](adyen/models/apple_pay_session_request.py) \| None</code> | The request body.<br>**Default**: <code>None</code> |
-| <code>request_options</code> | <code>[RequestOptionsOrDict](adyen/core/request_options.py) \| None</code> | Per-call overrides for this one request, such as a timeout or extra headers. |
+| <code>request_options</code> | <code>[RequestOptionsOrDict](adyen/core/request_options.py) \| None</code> | Per-call overrides for this one request, such as a timeout, extra headers, or its retry count and statuses. |
 
 </dd>
 </dl>
@@ -36512,7 +39288,14 @@ This operation takes the origin domains and returns a JSON object containing the
 
 ```python
 try:
-    response = client.utility.post_origin_keys()
+    response = client.utility.post_origin_keys(
+        idempotency_key="37ca9c97-d1d1-4c62-89e8-706891a563ed",
+        body=UtilityRequest(
+            origin_domains=[
+                "https://www.your-domain1.com", "https://www.your-domain2.com", "https://www.your-domain3.com"
+            ],
+        ),
+    )
     # TODO: Handle 'response' of type UtilityResponse
 except ApiError as e:
     ...  # TODO: Handle 'e.error' of type PostOriginKeysErrorBody
@@ -36522,7 +39305,14 @@ except ApiError as e:
 
 ```python
 try:
-    response = await async_client.utility.post_origin_keys()
+    response = await async_client.utility.post_origin_keys(
+        idempotency_key="37ca9c97-d1d1-4c62-89e8-706891a563ed",
+        body=UtilityRequest(
+            origin_domains=[
+                "https://www.your-domain1.com", "https://www.your-domain2.com", "https://www.your-domain3.com"
+            ],
+        ),
+    )
     # TODO: Handle 'response' of type UtilityResponse
 except ApiError as e:
     ...  # TODO: Handle 'e.error' of type PostOriginKeysErrorBody
@@ -36540,7 +39330,7 @@ except ApiError as e:
 | --- | --- | --- |
 | <code>idempotency_key</code> | <code>str \| None</code> | A unique identifier for the message with a maximum of 64 characters (we recommend a UUID).<br>**Default**: <code>None</code> |
 | <code>body</code> | <code>[UtilityRequest](adyen/models/utility_request.py) \| [UtilityRequestDict](adyen/models/utility_request.py) \| None</code> | The request body.<br>**Default**: <code>None</code> |
-| <code>request_options</code> | <code>[RequestOptionsOrDict](adyen/core/request_options.py) \| None</code> | Per-call overrides for this one request, such as a timeout or extra headers. |
+| <code>request_options</code> | <code>[RequestOptionsOrDict](adyen/core/request_options.py) \| None</code> | Per-call overrides for this one request, such as a timeout, extra headers, or its retry count and statuses. |
 
 </dd>
 </dl>
@@ -36594,7 +39384,30 @@ Updates the order for PayPal Express Checkout. This can be used to update the Pa
 
 ```python
 try:
-    response = client.utility.post_paypal_update_order()
+    response = client.utility.post_paypal_update_order(
+        idempotency_key="37ca9c97-d1d1-4c62-89e8-706891a563ed",
+        body=PaypalUpdateOrderRequest(
+            amount=Amount44(currency="EUR", value=12000),
+            delivery_methods=[
+                DeliveryMethod(
+                    amount=Amount24(currency="EUR", value=1000),
+                    description="Express Shipping",
+                    reference="1",
+                    selected=True,
+                    type_=Type21.SHIPPING,
+                ),
+                DeliveryMethod(
+                    amount=Amount24(currency="EUR", value=500),
+                    description="Standard Ground",
+                    reference="2",
+                    selected=False,
+                    type_=Type21.SHIPPING,
+                ),
+            ],
+            payment_data="po7XZ...",
+            psp_reference="DZ4DPSHB4WD2WN82",
+        ),
+    )
     # TODO: Handle 'response' of type PaypalUpdateOrderResponse
 except ApiError as e:
     ...  # TODO: Handle 'e.error' of type PostPaypalUpdateOrderErrorBody
@@ -36604,7 +39417,30 @@ except ApiError as e:
 
 ```python
 try:
-    response = await async_client.utility.post_paypal_update_order()
+    response = await async_client.utility.post_paypal_update_order(
+        idempotency_key="37ca9c97-d1d1-4c62-89e8-706891a563ed",
+        body=PaypalUpdateOrderRequest(
+            amount=Amount44(currency="EUR", value=12000),
+            delivery_methods=[
+                DeliveryMethod(
+                    amount=Amount24(currency="EUR", value=1000),
+                    description="Express Shipping",
+                    reference="1",
+                    selected=True,
+                    type_=Type21.SHIPPING,
+                ),
+                DeliveryMethod(
+                    amount=Amount24(currency="EUR", value=500),
+                    description="Standard Ground",
+                    reference="2",
+                    selected=False,
+                    type_=Type21.SHIPPING,
+                ),
+            ],
+            payment_data="po7XZ...",
+            psp_reference="DZ4DPSHB4WD2WN82",
+        ),
+    )
     # TODO: Handle 'response' of type PaypalUpdateOrderResponse
 except ApiError as e:
     ...  # TODO: Handle 'e.error' of type PostPaypalUpdateOrderErrorBody
@@ -36622,7 +39458,7 @@ except ApiError as e:
 | --- | --- | --- |
 | <code>idempotency_key</code> | <code>str \| None</code> | A unique identifier for the message with a maximum of 64 characters (we recommend a UUID).<br>**Default**: <code>None</code> |
 | <code>body</code> | <code>[PaypalUpdateOrderRequest](adyen/models/paypal_update_order_request.py) \| [PaypalUpdateOrderRequestDict](adyen/models/paypal_update_order_request.py) \| None</code> | The request body.<br>**Default**: <code>None</code> |
-| <code>request_options</code> | <code>[RequestOptionsOrDict](adyen/core/request_options.py) \| None</code> | Per-call overrides for this one request, such as a timeout or extra headers. |
+| <code>request_options</code> | <code>[RequestOptionsOrDict](adyen/core/request_options.py) \| None</code> | Per-call overrides for this one request, such as a timeout, extra headers, or its retry count and statuses. |
 
 </dd>
 </dl>
@@ -36676,7 +39512,9 @@ Validates the shopperId.
 
 ```python
 try:
-    response = client.utility.post_validate_shopper_id(body)
+    response = client.utility.post_validate_shopper_id(
+        ValidateShopperIdRequest(merchant_account="some example string", payment_method=ShopperIdPaymentMethod1())
+    )
     # TODO: Handle 'response' of type ValidateShopperIdResponse
 except ApiError as e:
     ...  # TODO: Handle 'e.error' of type PostValidateShopperIdErrorBody
@@ -36686,7 +39524,9 @@ except ApiError as e:
 
 ```python
 try:
-    response = await async_client.utility.post_validate_shopper_id(body)
+    response = await async_client.utility.post_validate_shopper_id(
+        ValidateShopperIdRequest(merchant_account="some example string", payment_method=ShopperIdPaymentMethod1())
+    )
     # TODO: Handle 'response' of type ValidateShopperIdResponse
 except ApiError as e:
     ...  # TODO: Handle 'e.error' of type PostValidateShopperIdErrorBody
@@ -36703,7 +39543,7 @@ except ApiError as e:
 | Name | Type | Description |
 | --- | --- | --- |
 | <code>body</code> | <code>[ValidateShopperIdRequest](adyen/models/validate_shopper_id_request.py) \| [ValidateShopperIdRequestDict](adyen/models/validate_shopper_id_request.py)</code> | The request body. |
-| <code>request_options</code> | <code>[RequestOptionsOrDict](adyen/core/request_options.py) \| None</code> | Per-call overrides for this one request, such as a timeout or extra headers. |
+| <code>request_options</code> | <code>[RequestOptionsOrDict](adyen/core/request_options.py) \| None</code> | Per-call overrides for this one request, such as a timeout, extra headers, or its retry count and statuses. |
 
 </dd>
 </dl>
@@ -36761,7 +39601,11 @@ Triggers the verification of an account holder even if the checks are not yet re
 
 ```python
 try:
-    response = client.verification.post_check_account_holder()
+    response = client.verification.post_check_account_holder(
+        body=PerformVerificationRequest(
+            account_holder_code="CODE_OF_ACCOUNT_HOLDER", account_state_type=AccountStateType.PROCESSING, tier=2
+        ),
+    )
     # TODO: Handle 'response' of type GenericResponse
 except ApiError as e:
     ...  # TODO: Handle 'e.error' of type PostCheckAccountHolderErrorBody
@@ -36771,7 +39615,11 @@ except ApiError as e:
 
 ```python
 try:
-    response = await async_client.verification.post_check_account_holder()
+    response = await async_client.verification.post_check_account_holder(
+        body=PerformVerificationRequest(
+            account_holder_code="CODE_OF_ACCOUNT_HOLDER", account_state_type=AccountStateType.PROCESSING, tier=2
+        ),
+    )
     # TODO: Handle 'response' of type GenericResponse
 except ApiError as e:
     ...  # TODO: Handle 'e.error' of type PostCheckAccountHolderErrorBody
@@ -36788,7 +39636,7 @@ except ApiError as e:
 | Name | Type | Description |
 | --- | --- | --- |
 | <code>body</code> | <code>[PerformVerificationRequest](adyen/models/perform_verification_request.py) \| [PerformVerificationRequestDict](adyen/models/perform_verification_request.py) \| None</code> | The request body.<br>**Default**: <code>None</code> |
-| <code>request_options</code> | <code>[RequestOptionsOrDict](adyen/core/request_options.py) \| None</code> | Per-call overrides for this one request, such as a timeout or extra headers. |
+| <code>request_options</code> | <code>[RequestOptionsOrDict](adyen/core/request_options.py) \| None</code> | Per-call overrides for this one request, such as a timeout, extra headers, or its retry count and statuses. |
 
 </dd>
 </dl>
@@ -36842,7 +39690,11 @@ Deletes bank accounts associated with an account holder.
 
 ```python
 try:
-    response = client.verification.post_delete_bank_accounts()
+    response = client.verification.post_delete_bank_accounts(
+        body=DeleteBankAccountRequest(
+            account_holder_code="CODE_OF_ACCOUNT_HOLDER", bank_account_uuids=["eeb6ed22-3bae-483c-83b9-bc2097a75d40"]
+        ),
+    )
     # TODO: Handle 'response' of type GenericResponse
 except ApiError as e:
     ...  # TODO: Handle 'e.error' of type PostDeleteBankAccountsErrorBody
@@ -36852,7 +39704,11 @@ except ApiError as e:
 
 ```python
 try:
-    response = await async_client.verification.post_delete_bank_accounts()
+    response = await async_client.verification.post_delete_bank_accounts(
+        body=DeleteBankAccountRequest(
+            account_holder_code="CODE_OF_ACCOUNT_HOLDER", bank_account_uuids=["eeb6ed22-3bae-483c-83b9-bc2097a75d40"]
+        ),
+    )
     # TODO: Handle 'response' of type GenericResponse
 except ApiError as e:
     ...  # TODO: Handle 'e.error' of type PostDeleteBankAccountsErrorBody
@@ -36869,7 +39725,7 @@ except ApiError as e:
 | Name | Type | Description |
 | --- | --- | --- |
 | <code>body</code> | <code>[DeleteBankAccountRequest](adyen/models/delete_bank_account_request.py) \| [DeleteBankAccountRequestDict](adyen/models/delete_bank_account_request.py) \| None</code> | The request body.<br>**Default**: <code>None</code> |
-| <code>request_options</code> | <code>[RequestOptionsOrDict](adyen/core/request_options.py) \| None</code> | Per-call overrides for this one request, such as a timeout or extra headers. |
+| <code>request_options</code> | <code>[RequestOptionsOrDict](adyen/core/request_options.py) \| None</code> | Per-call overrides for this one request, such as a timeout, extra headers, or its retry count and statuses. |
 
 </dd>
 </dl>
@@ -36923,7 +39779,12 @@ Deletes legal arrangements and/or legal arrangement entities associated with an 
 
 ```python
 try:
-    response = client.verification.post_delete_legal_arrangements()
+    response = client.verification.post_delete_legal_arrangements(
+        body=DeleteLegalArrangementRequest(
+            account_holder_code="CODE_OF_ACCOUNT_HOLDER",
+            legal_arrangements=[LegalArrangementRequest(legal_arrangement_code="cdf92f5a-a114-4ce6-8f19-c3f6ec83141c")],
+        ),
+    )
     # TODO: Handle 'response' of type GenericResponse
 except ApiError as e:
     ...  # TODO: Handle 'e.error' of type PostDeleteLegalArrangementsErrorBody
@@ -36933,7 +39794,12 @@ except ApiError as e:
 
 ```python
 try:
-    response = await async_client.verification.post_delete_legal_arrangements()
+    response = await async_client.verification.post_delete_legal_arrangements(
+        body=DeleteLegalArrangementRequest(
+            account_holder_code="CODE_OF_ACCOUNT_HOLDER",
+            legal_arrangements=[LegalArrangementRequest(legal_arrangement_code="cdf92f5a-a114-4ce6-8f19-c3f6ec83141c")],
+        ),
+    )
     # TODO: Handle 'response' of type GenericResponse
 except ApiError as e:
     ...  # TODO: Handle 'e.error' of type PostDeleteLegalArrangementsErrorBody
@@ -36950,7 +39816,7 @@ except ApiError as e:
 | Name | Type | Description |
 | --- | --- | --- |
 | <code>body</code> | <code>[DeleteLegalArrangementRequest](adyen/models/delete_legal_arrangement_request.py) \| [DeleteLegalArrangementRequestDict](adyen/models/delete_legal_arrangement_request.py) \| None</code> | The request body.<br>**Default**: <code>None</code> |
-| <code>request_options</code> | <code>[RequestOptionsOrDict](adyen/core/request_options.py) \| None</code> | Per-call overrides for this one request, such as a timeout or extra headers. |
+| <code>request_options</code> | <code>[RequestOptionsOrDict](adyen/core/request_options.py) \| None</code> | Per-call overrides for this one request, such as a timeout, extra headers, or its retry count and statuses. |
 
 </dd>
 </dl>
@@ -37004,7 +39870,11 @@ Deletes payout methods associated with an account holder.
 
 ```python
 try:
-    response = client.verification.post_delete_payout_methods()
+    response = client.verification.post_delete_payout_methods(
+        body=DeletePayoutMethodRequest(
+            account_holder_code="CODE_OF_ACCOUNT_HOLDER", payout_method_codes=["34b6ed22-3bae-483c-83b9-bc2097a75d40"]
+        ),
+    )
     # TODO: Handle 'response' of type GenericResponse
 except ApiError as e:
     ...  # TODO: Handle 'e.error' of type PostDeletePayoutMethodsErrorBody
@@ -37014,7 +39884,11 @@ except ApiError as e:
 
 ```python
 try:
-    response = await async_client.verification.post_delete_payout_methods()
+    response = await async_client.verification.post_delete_payout_methods(
+        body=DeletePayoutMethodRequest(
+            account_holder_code="CODE_OF_ACCOUNT_HOLDER", payout_method_codes=["34b6ed22-3bae-483c-83b9-bc2097a75d40"]
+        ),
+    )
     # TODO: Handle 'response' of type GenericResponse
 except ApiError as e:
     ...  # TODO: Handle 'e.error' of type PostDeletePayoutMethodsErrorBody
@@ -37031,7 +39905,7 @@ except ApiError as e:
 | Name | Type | Description |
 | --- | --- | --- |
 | <code>body</code> | <code>[DeletePayoutMethodRequest](adyen/models/delete_payout_method_request.py) \| [DeletePayoutMethodRequestDict](adyen/models/delete_payout_method_request.py) \| None</code> | The request body.<br>**Default**: <code>None</code> |
-| <code>request_options</code> | <code>[RequestOptionsOrDict](adyen/core/request_options.py) \| None</code> | Per-call overrides for this one request, such as a timeout or extra headers. |
+| <code>request_options</code> | <code>[RequestOptionsOrDict](adyen/core/request_options.py) \| None</code> | Per-call overrides for this one request, such as a timeout, extra headers, or its retry count and statuses. |
 
 </dd>
 </dl>
@@ -37085,7 +39959,11 @@ Deletes shareholders associated with an account holder.
 
 ```python
 try:
-    response = client.verification.post_delete_shareholders()
+    response = client.verification.post_delete_shareholders(
+        body=DeleteShareholderRequest(
+            account_holder_code="CODE_OF_ACCOUNT_HOLDER", shareholder_codes=["9188218c-576e-4cbe-8e86-72722f453920"]
+        ),
+    )
     # TODO: Handle 'response' of type GenericResponse
 except ApiError as e:
     ...  # TODO: Handle 'e.error' of type PostDeleteShareholdersErrorBody
@@ -37095,7 +39973,11 @@ except ApiError as e:
 
 ```python
 try:
-    response = await async_client.verification.post_delete_shareholders()
+    response = await async_client.verification.post_delete_shareholders(
+        body=DeleteShareholderRequest(
+            account_holder_code="CODE_OF_ACCOUNT_HOLDER", shareholder_codes=["9188218c-576e-4cbe-8e86-72722f453920"]
+        ),
+    )
     # TODO: Handle 'response' of type GenericResponse
 except ApiError as e:
     ...  # TODO: Handle 'e.error' of type PostDeleteShareholdersErrorBody
@@ -37112,7 +39994,7 @@ except ApiError as e:
 | Name | Type | Description |
 | --- | --- | --- |
 | <code>body</code> | <code>[DeleteShareholderRequest](adyen/models/delete_shareholder_request.py) \| [DeleteShareholderRequestDict](adyen/models/delete_shareholder_request.py) \| None</code> | The request body.<br>**Default**: <code>None</code> |
-| <code>request_options</code> | <code>[RequestOptionsOrDict](adyen/core/request_options.py) \| None</code> | Per-call overrides for this one request, such as a timeout or extra headers. |
+| <code>request_options</code> | <code>[RequestOptionsOrDict](adyen/core/request_options.py) \| None</code> | Per-call overrides for this one request, such as a timeout, extra headers, or its retry count and statuses. |
 
 </dd>
 </dl>
@@ -37193,7 +40075,7 @@ except ApiError as e:
 | Name | Type | Description |
 | --- | --- | --- |
 | <code>body</code> | <code>[DeleteSignatoriesRequest](adyen/models/delete_signatories_request.py) \| [DeleteSignatoriesRequestDict](adyen/models/delete_signatories_request.py) \| None</code> | The request body.<br>**Default**: <code>None</code> |
-| <code>request_options</code> | <code>[RequestOptionsOrDict](adyen/core/request_options.py) \| None</code> | Per-call overrides for this one request, such as a timeout or extra headers. |
+| <code>request_options</code> | <code>[RequestOptionsOrDict](adyen/core/request_options.py) \| None</code> | Per-call overrides for this one request, such as a timeout, extra headers, or its retry count and statuses. |
 
 </dd>
 </dl>
@@ -37247,7 +40129,9 @@ Returns documents that were previously uploaded for an account holder. Adyen use
 
 ```python
 try:
-    response = client.verification.post_get_uploaded_documents()
+    response = client.verification.post_get_uploaded_documents(
+        body=GetUploadedDocumentsRequest(account_holder_code="CODE_OF_ACCOUNT_HOLDER", bank_account_uuid="EXAMPLE_UUID")
+    )
     # TODO: Handle 'response' of type GetUploadedDocumentsResponse
 except ApiError as e:
     ...  # TODO: Handle 'e.error' of type PostGetUploadedDocumentsErrorBody
@@ -37257,7 +40141,9 @@ except ApiError as e:
 
 ```python
 try:
-    response = await async_client.verification.post_get_uploaded_documents()
+    response = await async_client.verification.post_get_uploaded_documents(
+        body=GetUploadedDocumentsRequest(account_holder_code="CODE_OF_ACCOUNT_HOLDER", bank_account_uuid="EXAMPLE_UUID")
+    )
     # TODO: Handle 'response' of type GetUploadedDocumentsResponse
 except ApiError as e:
     ...  # TODO: Handle 'e.error' of type PostGetUploadedDocumentsErrorBody
@@ -37274,7 +40160,7 @@ except ApiError as e:
 | Name | Type | Description |
 | --- | --- | --- |
 | <code>body</code> | <code>[GetUploadedDocumentsRequest](adyen/models/get_uploaded_documents_request.py) \| [GetUploadedDocumentsRequestDict](adyen/models/get_uploaded_documents_request.py) \| None</code> | The request body.<br>**Default**: <code>None</code> |
-| <code>request_options</code> | <code>[RequestOptionsOrDict](adyen/core/request_options.py) \| None</code> | Per-call overrides for this one request, such as a timeout or extra headers. |
+| <code>request_options</code> | <code>[RequestOptionsOrDict](adyen/core/request_options.py) \| None</code> | Per-call overrides for this one request, such as a timeout, extra headers, or its retry count and statuses. |
 
 </dd>
 </dl>
@@ -37328,7 +40214,17 @@ Uploads a document for an account holder. Adyen uses the documents during the [v
 
 ```python
 try:
-    response = client.verification.post_upload_document()
+    response = client.verification.post_upload_document(
+        body=UploadDocumentRequest(
+            document_content="dGVzdCBkb2N1bWVudCBjb250ZW50",
+            document_detail=DocumentDetail1(
+                account_holder_code="CODE_OF_ACCOUNT_HOLDER",
+                description="test passport description",
+                document_type=DocumentType.PASSPORT,
+                filename="passport.png",
+            ),
+        ),
+    )
     # TODO: Handle 'response' of type UpdateAccountHolderResponse
 except ApiError as e:
     ...  # TODO: Handle 'e.error' of type PostUploadDocumentErrorBody
@@ -37338,7 +40234,17 @@ except ApiError as e:
 
 ```python
 try:
-    response = await async_client.verification.post_upload_document()
+    response = await async_client.verification.post_upload_document(
+        body=UploadDocumentRequest(
+            document_content="dGVzdCBkb2N1bWVudCBjb250ZW50",
+            document_detail=DocumentDetail1(
+                account_holder_code="CODE_OF_ACCOUNT_HOLDER",
+                description="test passport description",
+                document_type=DocumentType.PASSPORT,
+                filename="passport.png",
+            ),
+        ),
+    )
     # TODO: Handle 'response' of type UpdateAccountHolderResponse
 except ApiError as e:
     ...  # TODO: Handle 'e.error' of type PostUploadDocumentErrorBody
@@ -37355,7 +40261,7 @@ except ApiError as e:
 | Name | Type | Description |
 | --- | --- | --- |
 | <code>body</code> | <code>[UploadDocumentRequest](adyen/models/upload_document_request.py) \| [UploadDocumentRequestDict](adyen/models/upload_document_request.py) \| None</code> | The request body.<br>**Default**: <code>None</code> |
-| <code>request_options</code> | <code>[RequestOptionsOrDict](adyen/core/request_options.py) \| None</code> | Per-call overrides for this one request, such as a timeout or extra headers. |
+| <code>request_options</code> | <code>[RequestOptionsOrDict](adyen/core/request_options.py) \| None</code> | Per-call overrides for this one request, such as a timeout, extra headers, or its retry count and statuses. |
 
 </dd>
 </dl>
@@ -37416,7 +40322,9 @@ To make this request, your API credential must have the following [roles](https:
 
 ```python
 try:
-    client.webhooks_company_level.delete_companies_company_id_webhooks_webhook_id(company_id, webhook_id)
+    client.webhooks_company_level.delete_companies_company_id_webhooks_webhook_id(
+        "some example string", "some example string"
+    )
 except ApiError as e:
     ...  # TODO: Handle 'e.error' of type DeleteCompaniesCompanyIdWebhooksWebhookIdErrorBody
 ```
@@ -37425,7 +40333,9 @@ except ApiError as e:
 
 ```python
 try:
-    await async_client.webhooks_company_level.delete_companies_company_id_webhooks_webhook_id(company_id, webhook_id)
+    await async_client.webhooks_company_level.delete_companies_company_id_webhooks_webhook_id(
+        "some example string", "some example string"
+    )
 except ApiError as e:
     ...  # TODO: Handle 'e.error' of type DeleteCompaniesCompanyIdWebhooksWebhookIdErrorBody
 ```
@@ -37442,7 +40352,7 @@ except ApiError as e:
 | --- | --- | --- |
 | <code>company_id</code> | <code>str</code> | The unique identifier of the company account. |
 | <code>webhook_id</code> | <code>str</code> | Unique identifier of the webhook configuration. |
-| <code>request_options</code> | <code>[RequestOptionsOrDict](adyen/core/request_options.py) \| None</code> | Per-call overrides for this one request, such as a timeout or extra headers. |
+| <code>request_options</code> | <code>[RequestOptionsOrDict](adyen/core/request_options.py) \| None</code> | Per-call overrides for this one request, such as a timeout, extra headers, or its retry count and statuses. |
 
 </dd>
 </dl>
@@ -37500,7 +40410,7 @@ To make this request, your API credential must have one of the following [roles]
 
 ```python
 try:
-    response = client.webhooks_company_level.get_companies_company_id_webhooks(company_id)
+    response = client.webhooks_company_level.get_companies_company_id_webhooks("some example string")
     # TODO: Handle 'response' of type ListWebhooksResponse
 except ApiError as e:
     ...  # TODO: Handle 'e.error' of type GetCompaniesCompanyIdWebhooksErrorBody
@@ -37510,7 +40420,7 @@ except ApiError as e:
 
 ```python
 try:
-    response = await async_client.webhooks_company_level.get_companies_company_id_webhooks(company_id)
+    response = await async_client.webhooks_company_level.get_companies_company_id_webhooks("some example string")
     # TODO: Handle 'response' of type ListWebhooksResponse
 except ApiError as e:
     ...  # TODO: Handle 'e.error' of type GetCompaniesCompanyIdWebhooksErrorBody
@@ -37529,7 +40439,7 @@ except ApiError as e:
 | <code>company_id</code> | <code>str</code> | Unique identifier of the [company account](https://docs.adyen.com/account/account-structure#company-account). |
 | <code>page_number</code> | <code>int \| None</code> | The number of the page to fetch.<br>**Default**: <code>None</code> |
 | <code>page_size</code> | <code>int \| None</code> | The number of items to have on a page, maximum 100. The default is 10 items on a page.<br>**Default**: <code>None</code> |
-| <code>request_options</code> | <code>[RequestOptionsOrDict](adyen/core/request_options.py) \| None</code> | Per-call overrides for this one request, such as a timeout or extra headers. |
+| <code>request_options</code> | <code>[RequestOptionsOrDict](adyen/core/request_options.py) \| None</code> | Per-call overrides for this one request, such as a timeout, extra headers, or its retry count and statuses. |
 
 </dd>
 </dl>
@@ -37587,7 +40497,9 @@ To make this request, your API credential must have one of the following [roles]
 
 ```python
 try:
-    response = client.webhooks_company_level.get_companies_company_id_webhooks_webhook_id(company_id, webhook_id)
+    response = client.webhooks_company_level.get_companies_company_id_webhooks_webhook_id(
+        "some example string", "some example string"
+    )
     # TODO: Handle 'response' of type Webhook
 except ApiError as e:
     ...  # TODO: Handle 'e.error' of type GetCompaniesCompanyIdWebhooksWebhookIdErrorBody
@@ -37598,7 +40510,7 @@ except ApiError as e:
 ```python
 try:
     response = await async_client.webhooks_company_level.get_companies_company_id_webhooks_webhook_id(
-        company_id, webhook_id
+        "some example string", "some example string"
     )
     # TODO: Handle 'response' of type Webhook
 except ApiError as e:
@@ -37617,7 +40529,7 @@ except ApiError as e:
 | --- | --- | --- |
 | <code>company_id</code> | <code>str</code> | Unique identifier of the [company account](https://docs.adyen.com/account/account-structure#company-account). |
 | <code>webhook_id</code> | <code>str</code> | Unique identifier of the webhook configuration. |
-| <code>request_options</code> | <code>[RequestOptionsOrDict](adyen/core/request_options.py) \| None</code> | Per-call overrides for this one request, such as a timeout or extra headers. |
+| <code>request_options</code> | <code>[RequestOptionsOrDict](adyen/core/request_options.py) \| None</code> | Per-call overrides for this one request, such as a timeout, extra headers, or its retry count and statuses. |
 
 </dd>
 </dl>
@@ -37674,7 +40586,9 @@ To make this request, your API credential must have the following [roles](https:
 
 ```python
 try:
-    response = client.webhooks_company_level.patch_companies_company_id_webhooks_webhook_id(company_id, webhook_id)
+    response = client.webhooks_company_level.patch_companies_company_id_webhooks_webhook_id(
+        "some example string", "some example string", body=UpdateCompanyWebhookRequest(active=True)
+    )
     # TODO: Handle 'response' of type Webhook
 except ApiError as e:
     ...  # TODO: Handle 'e.error' of type PatchCompaniesCompanyIdWebhooksWebhookIdErrorBody
@@ -37685,7 +40599,7 @@ except ApiError as e:
 ```python
 try:
     response = await async_client.webhooks_company_level.patch_companies_company_id_webhooks_webhook_id(
-        company_id, webhook_id
+        "some example string", "some example string", body=UpdateCompanyWebhookRequest(active=True)
     )
     # TODO: Handle 'response' of type Webhook
 except ApiError as e:
@@ -37705,7 +40619,7 @@ except ApiError as e:
 | <code>company_id</code> | <code>str</code> | The unique identifier of the company account. |
 | <code>webhook_id</code> | <code>str</code> | Unique identifier of the webhook configuration. |
 | <code>body</code> | <code>[UpdateCompanyWebhookRequest](adyen/models/update_company_webhook_request.py) \| [UpdateCompanyWebhookRequestDict](adyen/models/update_company_webhook_request.py) \| None</code> | The request body.<br>**Default**: <code>None</code> |
-| <code>request_options</code> | <code>[RequestOptionsOrDict](adyen/core/request_options.py) \| None</code> | Per-call overrides for this one request, such as a timeout or extra headers. |
+| <code>request_options</code> | <code>[RequestOptionsOrDict](adyen/core/request_options.py) \| None</code> | Per-call overrides for this one request, such as a timeout, extra headers, or its retry count and statuses. |
 
 </dd>
 </dl>
@@ -37762,7 +40676,23 @@ To make this request, your API credential must have the following [roles](https:
 
 ```python
 try:
-    response = client.webhooks_company_level.post_companies_company_id_webhooks(company_id)
+    response = client.webhooks_company_level.post_companies_company_id_webhooks(
+        "some example string",
+        body=CreateCompanyWebhookRequest(
+            accepts_expired_certificate=False,
+            accepts_self_signed_certificate=True,
+            accepts_untrusted_root_certificate=True,
+            active=True,
+            communication_format=CommunicationFormat.SOAP,
+            filter_merchant_account_type=FilterMerchantAccountType.INCLUDE_ACCOUNTS,
+            filter_merchant_accounts=["YOUR_MERCHANT_ACCOUNT"],
+            password="YOUR_PASSWORD",
+            populate_soap_action_header=False,
+            type_="standard",
+            url="YOUR_WEBHOOK_URL",
+            username="YOUR_USER",
+        ),
+    )
     # TODO: Handle 'response' of type Webhook
 except ApiError as e:
     ...  # TODO: Handle 'e.error' of type PostCompaniesCompanyIdWebhooksErrorBody
@@ -37772,7 +40702,23 @@ except ApiError as e:
 
 ```python
 try:
-    response = await async_client.webhooks_company_level.post_companies_company_id_webhooks(company_id)
+    response = await async_client.webhooks_company_level.post_companies_company_id_webhooks(
+        "some example string",
+        body=CreateCompanyWebhookRequest(
+            accepts_expired_certificate=False,
+            accepts_self_signed_certificate=True,
+            accepts_untrusted_root_certificate=True,
+            active=True,
+            communication_format=CommunicationFormat.SOAP,
+            filter_merchant_account_type=FilterMerchantAccountType.INCLUDE_ACCOUNTS,
+            filter_merchant_accounts=["YOUR_MERCHANT_ACCOUNT"],
+            password="YOUR_PASSWORD",
+            populate_soap_action_header=False,
+            type_="standard",
+            url="YOUR_WEBHOOK_URL",
+            username="YOUR_USER",
+        ),
+    )
     # TODO: Handle 'response' of type Webhook
 except ApiError as e:
     ...  # TODO: Handle 'e.error' of type PostCompaniesCompanyIdWebhooksErrorBody
@@ -37790,7 +40736,7 @@ except ApiError as e:
 | --- | --- | --- |
 | <code>company_id</code> | <code>str</code> | Unique identifier of the [company account](https://docs.adyen.com/account/account-structure#company-account). |
 | <code>body</code> | <code>[CreateCompanyWebhookRequest](adyen/models/create_company_webhook_request.py) \| [CreateCompanyWebhookRequestDict](adyen/models/create_company_webhook_request.py) \| None</code> | The request body.<br>**Default**: <code>None</code> |
-| <code>request_options</code> | <code>[RequestOptionsOrDict](adyen/core/request_options.py) \| None</code> | Per-call overrides for this one request, such as a timeout or extra headers. |
+| <code>request_options</code> | <code>[RequestOptionsOrDict](adyen/core/request_options.py) \| None</code> | Per-call overrides for this one request, such as a timeout, extra headers, or its retry count and statuses. |
 
 </dd>
 </dl>
@@ -37848,7 +40794,7 @@ To make this request, your API credential must have the following [roles](https:
 ```python
 try:
     response = client.webhooks_company_level.post_companies_company_id_webhooks_webhook_id_generate_hmac(
-        company_id, webhook_id
+        "some example string", "some example string"
     )
     # TODO: Handle 'response' of type GenerateHmacKeyResponse
 except ApiError as e:
@@ -37860,7 +40806,7 @@ except ApiError as e:
 ```python
 try:
     response = await async_client.webhooks_company_level.post_companies_company_id_webhooks_webhook_id_generate_hmac(
-        company_id, webhook_id
+        "some example string", "some example string"
     )
     # TODO: Handle 'response' of type GenerateHmacKeyResponse
 except ApiError as e:
@@ -37879,7 +40825,7 @@ except ApiError as e:
 | --- | --- | --- |
 | <code>company_id</code> | <code>str</code> | The unique identifier of the company account. |
 | <code>webhook_id</code> | <code>str</code> | Unique identifier of the webhook configuration. |
-| <code>request_options</code> | <code>[RequestOptionsOrDict](adyen/core/request_options.py) \| None</code> | Per-call overrides for this one request, such as a timeout or extra headers. |
+| <code>request_options</code> | <code>[RequestOptionsOrDict](adyen/core/request_options.py) \| None</code> | Per-call overrides for this one request, such as a timeout, extra headers, or its retry count and statuses. |
 
 </dd>
 </dl>
@@ -37942,7 +40888,11 @@ To make this request, your API credential must have the following [roles](https:
 
 ```python
 try:
-    response = client.webhooks_company_level.post_companies_company_id_webhooks_webhook_id_test(company_id, webhook_id)
+    response = client.webhooks_company_level.post_companies_company_id_webhooks_webhook_id_test(
+        "some example string",
+        "some example string",
+        body=TestCompanyWebhookRequest(merchant_ids=["YOUR_MERCHANT_ACCOUNT"], types=["AUTHORISATION"]),
+    )
     # TODO: Handle 'response' of type TestWebhookResponse
 except ApiError as e:
     ...  # TODO: Handle 'e.error' of type PostCompaniesCompanyIdWebhooksWebhookIdTestErrorBody
@@ -37953,7 +40903,9 @@ except ApiError as e:
 ```python
 try:
     response = await async_client.webhooks_company_level.post_companies_company_id_webhooks_webhook_id_test(
-        company_id, webhook_id
+        "some example string",
+        "some example string",
+        body=TestCompanyWebhookRequest(merchant_ids=["YOUR_MERCHANT_ACCOUNT"], types=["AUTHORISATION"]),
     )
     # TODO: Handle 'response' of type TestWebhookResponse
 except ApiError as e:
@@ -37973,7 +40925,7 @@ except ApiError as e:
 | <code>company_id</code> | <code>str</code> | The unique identifier of the company account. |
 | <code>webhook_id</code> | <code>str</code> | Unique identifier of the webhook configuration. |
 | <code>body</code> | <code>[TestCompanyWebhookRequest](adyen/models/test_company_webhook_request.py) \| [TestCompanyWebhookRequestDict](adyen/models/test_company_webhook_request.py) \| None</code> | The request body.<br>**Default**: <code>None</code> |
-| <code>request_options</code> | <code>[RequestOptionsOrDict](adyen/core/request_options.py) \| None</code> | Per-call overrides for this one request, such as a timeout or extra headers. |
+| <code>request_options</code> | <code>[RequestOptionsOrDict](adyen/core/request_options.py) \| None</code> | Per-call overrides for this one request, such as a timeout, extra headers, or its retry count and statuses. |
 
 </dd>
 </dl>
@@ -38034,7 +40986,9 @@ To make this request, your API credential must have the following [roles](https:
 
 ```python
 try:
-    client.webhooks_merchant_level.delete_merchants_merchant_id_webhooks_webhook_id(merchant_id, webhook_id)
+    client.webhooks_merchant_level.delete_merchants_merchant_id_webhooks_webhook_id(
+        "some example string", "some example string"
+    )
 except ApiError as e:
     ...  # TODO: Handle 'e.error' of type DeleteMerchantsMerchantIdWebhooksWebhookIdErrorBody
 ```
@@ -38043,7 +40997,9 @@ except ApiError as e:
 
 ```python
 try:
-    await async_client.webhooks_merchant_level.delete_merchants_merchant_id_webhooks_webhook_id(merchant_id, webhook_id)
+    await async_client.webhooks_merchant_level.delete_merchants_merchant_id_webhooks_webhook_id(
+        "some example string", "some example string"
+    )
 except ApiError as e:
     ...  # TODO: Handle 'e.error' of type DeleteMerchantsMerchantIdWebhooksWebhookIdErrorBody
 ```
@@ -38060,7 +41016,7 @@ except ApiError as e:
 | --- | --- | --- |
 | <code>merchant_id</code> | <code>str</code> | The unique identifier of the merchant account. |
 | <code>webhook_id</code> | <code>str</code> | Unique identifier of the webhook configuration. |
-| <code>request_options</code> | <code>[RequestOptionsOrDict](adyen/core/request_options.py) \| None</code> | Per-call overrides for this one request, such as a timeout or extra headers. |
+| <code>request_options</code> | <code>[RequestOptionsOrDict](adyen/core/request_options.py) \| None</code> | Per-call overrides for this one request, such as a timeout, extra headers, or its retry count and statuses. |
 
 </dd>
 </dl>
@@ -38120,7 +41076,7 @@ To make this request, your API credential must have one of the following [roles]
 
 ```python
 try:
-    response = client.webhooks_merchant_level.get_merchants_merchant_id_webhooks(merchant_id)
+    response = client.webhooks_merchant_level.get_merchants_merchant_id_webhooks("some example string")
     # TODO: Handle 'response' of type ListWebhooksResponse
 except ApiError as e:
     ...  # TODO: Handle 'e.error' of type GetMerchantsMerchantIdWebhooksErrorBody
@@ -38130,7 +41086,7 @@ except ApiError as e:
 
 ```python
 try:
-    response = await async_client.webhooks_merchant_level.get_merchants_merchant_id_webhooks(merchant_id)
+    response = await async_client.webhooks_merchant_level.get_merchants_merchant_id_webhooks("some example string")
     # TODO: Handle 'response' of type ListWebhooksResponse
 except ApiError as e:
     ...  # TODO: Handle 'e.error' of type GetMerchantsMerchantIdWebhooksErrorBody
@@ -38149,7 +41105,7 @@ except ApiError as e:
 | <code>merchant_id</code> | <code>str</code> | The unique identifier of the merchant account. |
 | <code>page_number</code> | <code>int \| None</code> | The number of the page to fetch.<br>**Default**: <code>None</code> |
 | <code>page_size</code> | <code>int \| None</code> | The number of items to have on a page, maximum 100. The default is 10 items on a page.<br>**Default**: <code>None</code> |
-| <code>request_options</code> | <code>[RequestOptionsOrDict](adyen/core/request_options.py) \| None</code> | Per-call overrides for this one request, such as a timeout or extra headers. |
+| <code>request_options</code> | <code>[RequestOptionsOrDict](adyen/core/request_options.py) \| None</code> | Per-call overrides for this one request, such as a timeout, extra headers, or its retry count and statuses. |
 
 </dd>
 </dl>
@@ -38207,7 +41163,9 @@ To make this request, your API credential must have one of the following [roles]
 
 ```python
 try:
-    response = client.webhooks_merchant_level.get_merchants_merchant_id_webhooks_webhook_id(merchant_id, webhook_id)
+    response = client.webhooks_merchant_level.get_merchants_merchant_id_webhooks_webhook_id(
+        "some example string", "some example string"
+    )
     # TODO: Handle 'response' of type Webhook
 except ApiError as e:
     ...  # TODO: Handle 'e.error' of type GetMerchantsMerchantIdWebhooksWebhookIdErrorBody
@@ -38218,7 +41176,7 @@ except ApiError as e:
 ```python
 try:
     response = await async_client.webhooks_merchant_level.get_merchants_merchant_id_webhooks_webhook_id(
-        merchant_id, webhook_id
+        "some example string", "some example string"
     )
     # TODO: Handle 'response' of type Webhook
 except ApiError as e:
@@ -38237,7 +41195,7 @@ except ApiError as e:
 | --- | --- | --- |
 | <code>merchant_id</code> | <code>str</code> | The unique identifier of the merchant account. |
 | <code>webhook_id</code> | <code>str</code> | Unique identifier of the webhook configuration. |
-| <code>request_options</code> | <code>[RequestOptionsOrDict](adyen/core/request_options.py) \| None</code> | Per-call overrides for this one request, such as a timeout or extra headers. |
+| <code>request_options</code> | <code>[RequestOptionsOrDict](adyen/core/request_options.py) \| None</code> | Per-call overrides for this one request, such as a timeout, extra headers, or its retry count and statuses. |
 
 </dd>
 </dl>
@@ -38294,7 +41252,9 @@ To make this request, your API credential must have the following [roles](https:
 
 ```python
 try:
-    response = client.webhooks_merchant_level.patch_merchants_merchant_id_webhooks_webhook_id(merchant_id, webhook_id)
+    response = client.webhooks_merchant_level.patch_merchants_merchant_id_webhooks_webhook_id(
+        "some example string", "some example string", body=UpdateMerchantWebhookRequest(active=True)
+    )
     # TODO: Handle 'response' of type Webhook
 except ApiError as e:
     ...  # TODO: Handle 'e.error' of type PatchMerchantsMerchantIdWebhooksWebhookIdErrorBody
@@ -38305,7 +41265,7 @@ except ApiError as e:
 ```python
 try:
     response = await async_client.webhooks_merchant_level.patch_merchants_merchant_id_webhooks_webhook_id(
-        merchant_id, webhook_id
+        "some example string", "some example string", body=UpdateMerchantWebhookRequest(active=True)
     )
     # TODO: Handle 'response' of type Webhook
 except ApiError as e:
@@ -38325,7 +41285,7 @@ except ApiError as e:
 | <code>merchant_id</code> | <code>str</code> | The unique identifier of the merchant account. |
 | <code>webhook_id</code> | <code>str</code> | Unique identifier of the webhook configuration. |
 | <code>body</code> | <code>[UpdateMerchantWebhookRequest](adyen/models/update_merchant_webhook_request.py) \| [UpdateMerchantWebhookRequestDict](adyen/models/update_merchant_webhook_request.py) \| None</code> | The request body.<br>**Default**: <code>None</code> |
-| <code>request_options</code> | <code>[RequestOptionsOrDict](adyen/core/request_options.py) \| None</code> | Per-call overrides for this one request, such as a timeout or extra headers. |
+| <code>request_options</code> | <code>[RequestOptionsOrDict](adyen/core/request_options.py) \| None</code> | Per-call overrides for this one request, such as a timeout, extra headers, or its retry count and statuses. |
 
 </dd>
 </dl>
@@ -38382,7 +41342,21 @@ To make this request, your API credential must have the following [roles](https:
 
 ```python
 try:
-    response = client.webhooks_merchant_level.post_merchants_merchant_id_webhooks(merchant_id)
+    response = client.webhooks_merchant_level.post_merchants_merchant_id_webhooks(
+        "some example string",
+        body=CreateMerchantWebhookRequest(
+            accepts_expired_certificate=False,
+            accepts_self_signed_certificate=True,
+            accepts_untrusted_root_certificate=True,
+            active=True,
+            communication_format=CommunicationFormat.JSON,
+            password="YOUR_PASSWORD",
+            populate_soap_action_header=False,
+            type_="standard",
+            url="YOUR_WEBHOOK_URL",
+            username="YOUR_USER",
+        ),
+    )
     # TODO: Handle 'response' of type Webhook
 except ApiError as e:
     ...  # TODO: Handle 'e.error' of type PostMerchantsMerchantIdWebhooksErrorBody
@@ -38392,7 +41366,21 @@ except ApiError as e:
 
 ```python
 try:
-    response = await async_client.webhooks_merchant_level.post_merchants_merchant_id_webhooks(merchant_id)
+    response = await async_client.webhooks_merchant_level.post_merchants_merchant_id_webhooks(
+        "some example string",
+        body=CreateMerchantWebhookRequest(
+            accepts_expired_certificate=False,
+            accepts_self_signed_certificate=True,
+            accepts_untrusted_root_certificate=True,
+            active=True,
+            communication_format=CommunicationFormat.JSON,
+            password="YOUR_PASSWORD",
+            populate_soap_action_header=False,
+            type_="standard",
+            url="YOUR_WEBHOOK_URL",
+            username="YOUR_USER",
+        ),
+    )
     # TODO: Handle 'response' of type Webhook
 except ApiError as e:
     ...  # TODO: Handle 'e.error' of type PostMerchantsMerchantIdWebhooksErrorBody
@@ -38410,7 +41398,7 @@ except ApiError as e:
 | --- | --- | --- |
 | <code>merchant_id</code> | <code>str</code> | The unique identifier of the merchant account. |
 | <code>body</code> | <code>[CreateMerchantWebhookRequest](adyen/models/create_merchant_webhook_request.py) \| [CreateMerchantWebhookRequestDict](adyen/models/create_merchant_webhook_request.py) \| None</code> | The request body.<br>**Default**: <code>None</code> |
-| <code>request_options</code> | <code>[RequestOptionsOrDict](adyen/core/request_options.py) \| None</code> | Per-call overrides for this one request, such as a timeout or extra headers. |
+| <code>request_options</code> | <code>[RequestOptionsOrDict](adyen/core/request_options.py) \| None</code> | Per-call overrides for this one request, such as a timeout, extra headers, or its retry count and statuses. |
 
 </dd>
 </dl>
@@ -38468,7 +41456,7 @@ To make this request, your API credential must have the following [roles](https:
 ```python
 try:
     response = client.webhooks_merchant_level.post_merchants_merchant_id_webhooks_webhook_id_generate_hmac(
-        merchant_id, webhook_id
+        "some example string", "some example string"
     )
     # TODO: Handle 'response' of type GenerateHmacKeyResponse
 except ApiError as e:
@@ -38480,7 +41468,7 @@ except ApiError as e:
 ```python
 try:
     response = await async_client.webhooks_merchant_level.post_merchants_merchant_id_webhooks_webhook_id_generate_hmac(
-        merchant_id, webhook_id
+        "some example string", "some example string"
     )
     # TODO: Handle 'response' of type GenerateHmacKeyResponse
 except ApiError as e:
@@ -38499,7 +41487,7 @@ except ApiError as e:
 | --- | --- | --- |
 | <code>merchant_id</code> | <code>str</code> | The unique identifier of the merchant account. |
 | <code>webhook_id</code> | <code>str</code> | Value sent with the request. |
-| <code>request_options</code> | <code>[RequestOptionsOrDict](adyen/core/request_options.py) \| None</code> | Per-call overrides for this one request, such as a timeout or extra headers. |
+| <code>request_options</code> | <code>[RequestOptionsOrDict](adyen/core/request_options.py) \| None</code> | Per-call overrides for this one request, such as a timeout, extra headers, or its retry count and statuses. |
 
 </dd>
 </dl>
@@ -38561,7 +41549,7 @@ To make this request, your API credential must have the following [roles](https:
 ```python
 try:
     response = client.webhooks_merchant_level.post_merchants_merchant_id_webhooks_webhook_id_test(
-        merchant_id, webhook_id
+        "some example string", "some example string", body=TestWebhookRequest(types=["AUTHORISATION"])
     )
     # TODO: Handle 'response' of type TestWebhookResponse
 except ApiError as e:
@@ -38573,7 +41561,7 @@ except ApiError as e:
 ```python
 try:
     response = await async_client.webhooks_merchant_level.post_merchants_merchant_id_webhooks_webhook_id_test(
-        merchant_id, webhook_id
+        "some example string", "some example string", body=TestWebhookRequest(types=["AUTHORISATION"])
     )
     # TODO: Handle 'response' of type TestWebhookResponse
 except ApiError as e:
@@ -38593,7 +41581,7 @@ except ApiError as e:
 | <code>merchant_id</code> | <code>str</code> | The unique identifier of the merchant account. |
 | <code>webhook_id</code> | <code>str</code> | Unique identifier of the webhook configuration. |
 | <code>body</code> | <code>[TestWebhookRequest](adyen/models/test_webhook_request.py) \| [TestWebhookRequestDict](adyen/models/test_webhook_request.py) \| None</code> | The request body.<br>**Default**: <code>None</code> |
-| <code>request_options</code> | <code>[RequestOptionsOrDict](adyen/core/request_options.py) \| None</code> | Per-call overrides for this one request, such as a timeout or extra headers. |
+| <code>request_options</code> | <code>[RequestOptionsOrDict](adyen/core/request_options.py) \| None</code> | Per-call overrides for this one request, such as a timeout, extra headers, or its retry count and statuses. |
 
 </dd>
 </dl>
@@ -38651,7 +41639,9 @@ Manage an already registered iDEAL profile. Generates a redirection URL to manag
 
 ```python
 try:
-    response = client.i_deal_profiles.post_ideal_profile_auth_link(body)
+    response = client.i_deal_profiles.post_ideal_profile_auth_link(
+        IdealAuthLinkRequest(account_holder_id="AH00000000000000000000000")
+    )
     # TODO: Handle 'response' of type IdealAuthLinkResponse
 except ApiError as e:
     ...  # TODO: Handle 'e.error' of type PostIdealProfileAuthLinkErrorBody
@@ -38661,7 +41651,9 @@ except ApiError as e:
 
 ```python
 try:
-    response = await async_client.i_deal_profiles.post_ideal_profile_auth_link(body)
+    response = await async_client.i_deal_profiles.post_ideal_profile_auth_link(
+        IdealAuthLinkRequest(account_holder_id="AH00000000000000000000000")
+    )
     # TODO: Handle 'response' of type IdealAuthLinkResponse
 except ApiError as e:
     ...  # TODO: Handle 'e.error' of type PostIdealProfileAuthLinkErrorBody
@@ -38678,7 +41670,7 @@ except ApiError as e:
 | Name | Type | Description |
 | --- | --- | --- |
 | <code>body</code> | <code>[IdealAuthLinkRequest](adyen/models/ideal_auth_link_request.py) \| [IdealAuthLinkRequestDict](adyen/models/ideal_auth_link_request.py)</code> | The request body. |
-| <code>request_options</code> | <code>[RequestOptionsOrDict](adyen/core/request_options.py) \| None</code> | Per-call overrides for this one request, such as a timeout or extra headers. |
+| <code>request_options</code> | <code>[RequestOptionsOrDict](adyen/core/request_options.py) \| None</code> | Per-call overrides for this one request, such as a timeout, extra headers, or its retry count and statuses. |
 
 </dd>
 </dl>
@@ -38732,7 +41724,11 @@ Generates an redirection URL to finish the authentication flow when requested by
 
 ```python
 try:
-    response = client.i_deal_profiles.post_ideal_profile_authenticate(body)
+    response = client.i_deal_profiles.post_ideal_profile_authenticate(
+        IdealAuthenticateRequest(
+            account_holder_id="AH00000000000000000000000", payload="https://ideal.auth/somePayload"
+        ),
+    )
     # TODO: Handle 'response' of type IdealAuthenticateResponse
 except ApiError as e:
     ...  # TODO: Handle 'e.error' of type PostIdealProfileAuthenticateErrorBody
@@ -38742,7 +41738,11 @@ except ApiError as e:
 
 ```python
 try:
-    response = await async_client.i_deal_profiles.post_ideal_profile_authenticate(body)
+    response = await async_client.i_deal_profiles.post_ideal_profile_authenticate(
+        IdealAuthenticateRequest(
+            account_holder_id="AH00000000000000000000000", payload="https://ideal.auth/somePayload"
+        ),
+    )
     # TODO: Handle 'response' of type IdealAuthenticateResponse
 except ApiError as e:
     ...  # TODO: Handle 'e.error' of type PostIdealProfileAuthenticateErrorBody
@@ -38759,7 +41759,7 @@ except ApiError as e:
 | Name | Type | Description |
 | --- | --- | --- |
 | <code>body</code> | <code>[IdealAuthenticateRequest](adyen/models/ideal_authenticate_request.py) \| [IdealAuthenticateRequestDict](adyen/models/ideal_authenticate_request.py)</code> | The request body. |
-| <code>request_options</code> | <code>[RequestOptionsOrDict](adyen/core/request_options.py) \| None</code> | Per-call overrides for this one request, such as a timeout or extra headers. |
+| <code>request_options</code> | <code>[RequestOptionsOrDict](adyen/core/request_options.py) \| None</code> | Per-call overrides for this one request, such as a timeout, extra headers, or its retry count and statuses. |
 
 </dd>
 </dl>
@@ -38813,7 +41813,12 @@ Register a new iDEAL profile. The profile is linked to the account holder and pa
 
 ```python
 try:
-    response = client.i_deal_profiles.post_ideal_profile_register(body)
+    response = client.i_deal_profiles.post_ideal_profile_register(
+        ProfileRegistrationRequest(
+            account_holder_id="AH00000000000000000000000",
+            payment_instrument_ids=["PI00000000000000000000000", "PI11111111111111111111111"],
+        ),
+    )
     # TODO: Handle 'response' of type ProfileRegistrationResponse
 except ApiError as e:
     ...  # TODO: Handle 'e.error' of type PostIdealProfileRegisterErrorBody
@@ -38823,7 +41828,12 @@ except ApiError as e:
 
 ```python
 try:
-    response = await async_client.i_deal_profiles.post_ideal_profile_register(body)
+    response = await async_client.i_deal_profiles.post_ideal_profile_register(
+        ProfileRegistrationRequest(
+            account_holder_id="AH00000000000000000000000",
+            payment_instrument_ids=["PI00000000000000000000000", "PI11111111111111111111111"],
+        ),
+    )
     # TODO: Handle 'response' of type ProfileRegistrationResponse
 except ApiError as e:
     ...  # TODO: Handle 'e.error' of type PostIdealProfileRegisterErrorBody
@@ -38840,7 +41850,7 @@ except ApiError as e:
 | Name | Type | Description |
 | --- | --- | --- |
 | <code>body</code> | <code>[ProfileRegistrationRequest](adyen/models/profile_registration_request.py) \| [ProfileRegistrationRequestDict](adyen/models/profile_registration_request.py)</code> | The request body. |
-| <code>request_options</code> | <code>[RequestOptionsOrDict](adyen/core/request_options.py) \| None</code> | Per-call overrides for this one request, such as a timeout or extra headers. |
+| <code>request_options</code> | <code>[RequestOptionsOrDict](adyen/core/request_options.py) \| None</code> | Per-call overrides for this one request, such as a timeout, extra headers, or its retry count and statuses. |
 
 </dd>
 </dl>

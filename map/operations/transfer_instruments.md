@@ -11,9 +11,9 @@ Each `###` block is one operation and assumes `sdk-map.md` is loaded: blocks omi
 - **Route**: `DELETE /transferInstruments/{id}`
 - **Auth**: `basic_auth` OR `api_key_auth`
 - **Server**: `default18`
-- **Signature**: `def delete_transfer_instruments_id(id: str, *, request_options: RequestOptionsOrDict | None = None)`
-  - required, positional: `id`
-- **Params**: `id` — path
+- **Signature**: `def delete_transfer_instruments_id(id_: str, *, request_options: RequestOptionsOrDict | None = None)`
+  - required, positional: `id_`
+- **Params**: `id_` — path `id`
 - **Returns (parsed)**: `None`
 - **Returns (raw)**: `ApiResult[None, DeleteTransferInstrumentsIdErrorBody]`
 - **Error**: `DeleteTransferInstrumentsIdErrorBody` — **Case A (typed)**
@@ -29,9 +29,9 @@ Each `###` block is one operation and assumes `sdk-map.md` is loaded: blocks omi
 - **Route**: `GET /transferInstruments/{id}`
 - **Auth**: `basic_auth` OR `api_key_auth`
 - **Server**: `default18`
-- **Signature**: `def get_transfer_instruments_id(id: str, *, request_options: RequestOptionsOrDict | None = None)`
-  - required, positional: `id`
-- **Params**: `id` — path
+- **Signature**: `def get_transfer_instruments_id(id_: str, *, request_options: RequestOptionsOrDict | None = None)`
+  - required, positional: `id_`
+- **Params**: `id_` — path `id`
 - **Returns (parsed)**: `TransferInstrument`
 - **Returns (raw)**: `ApiResult[TransferInstrument, GetTransferInstrumentsIdErrorBody]`
 - **Error**: `GetTransferInstrumentsIdErrorBody` — **Case A (typed)**
@@ -48,9 +48,9 @@ Each `###` block is one operation and assumes `sdk-map.md` is loaded: blocks omi
 - **Route**: `PATCH /transferInstruments/{id}`
 - **Auth**: `basic_auth` OR `api_key_auth`
 - **Server**: `default18`
-- **Signature**: `def patch_transfer_instruments_id(id: str, *, x_requested_verification_code: str | None = None, body: TransferInstrumentInfo | TransferInstrumentInfoDict | None = None, request_options: RequestOptionsOrDict | None = None)`
-  - required, positional: `id`
-- **Params**: `id` — path · `x_requested_verification_code` — header `x-requested-verification-code` · `body` — JSON body
+- **Signature**: `def patch_transfer_instruments_id(id_: str, *, x_requested_verification_code: str | None = None, body: TransferInstrumentInfo | TransferInstrumentInfoDict | None = None, request_options: RequestOptionsOrDict | None = None)`
+  - required, positional: `id_`
+- **Params**: `id_` — path `id` · `x_requested_verification_code` — header `x-requested-verification-code` · `body` — JSON body
 - **Returns (parsed)**: `TransferInstrument`
 - **Returns (raw)**: `ApiResult[TransferInstrument, PatchTransferInstrumentsIdErrorBody]`
 - **Error**: `PatchTransferInstrumentsIdErrorBody` — **Case A (typed)**

@@ -16,4 +16,4 @@ class AccelUpdateInfo(SdkBaseModel):
 
 
 class AccelUpdateInfoDict(TypedDict):
-    transaction_description: NotRequired[TransactionDescriptionInfo1 | TransactionDescriptionInfo1Dict]
+    transaction_description: NotRequired[TransactionDescriptionInfo1Dict]

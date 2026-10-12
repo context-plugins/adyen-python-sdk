@@ -40,7 +40,7 @@ class DefaultErrorResponseEntityDict(TypedDict):
     detail: NotRequired[str]
     error_code: NotRequired[str]
     instance: NotRequired[str]
-    invalid_fields: NotRequired[list[InvalidField | InvalidFieldDict]]
+    invalid_fields: NotRequired[list[InvalidFieldDict]]
     request_id: NotRequired[str]
     status: NotRequired[int]
     title: NotRequired[str]

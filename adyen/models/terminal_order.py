@@ -36,11 +36,11 @@ class TerminalOrder(SdkBaseModel):
 
 
 class TerminalOrderDict(TypedDict):
-    billing_entity: NotRequired[BillingEntity1 | BillingEntity1Dict]
+    billing_entity: NotRequired[BillingEntity1Dict]
     customer_order_reference: NotRequired[str]
     id: NotRequired[str]
-    items: NotRequired[list[OrderItem | OrderItemDict]]
+    items: NotRequired[list[OrderItemDict]]
     order_date: NotRequired[str]
-    shipping_location: NotRequired[ShippingLocation1 | ShippingLocation1Dict]
+    shipping_location: NotRequired[ShippingLocation1Dict]
     status: NotRequired[str]
     tracking_url: NotRequired[str]

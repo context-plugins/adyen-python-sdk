@@ -11,9 +11,9 @@ Each `###` block is one operation and assumes `sdk-map.md` is loaded: blocks omi
 - **Route**: `POST /legalEntities/{id}/checkTaxElectronicDeliveryConsent`
 - **Auth**: `basic_auth` OR `api_key_auth`
 - **Server**: `default18`
-- **Signature**: `def post_legal_entities_id_check_tax_electronic_delivery_consent(id: str, *, request_options: RequestOptionsOrDict | None = None)`
-  - required, positional: `id`
-- **Params**: `id` — path
+- **Signature**: `def post_legal_entities_id_check_tax_electronic_delivery_consent(id_: str, *, request_options: RequestOptionsOrDict | None = None)`
+  - required, positional: `id_`
+- **Params**: `id_` — path `id`
 - **Returns (parsed)**: `CheckTaxElectronicDeliveryConsentResponse`
 - **Returns (raw)**: `ApiResult[CheckTaxElectronicDeliveryConsentResponse, PostLegalEntitiesIdCheckTaxElectronicDeliveryConsentErrorBody]`
 - **Error**: `PostLegalEntitiesIdCheckTaxElectronicDeliveryConsentErrorBody` — **Case A (typed)**
@@ -30,9 +30,9 @@ Each `###` block is one operation and assumes `sdk-map.md` is loaded: blocks omi
 - **Route**: `POST /legalEntities/{id}/setTaxElectronicDeliveryConsent`
 - **Auth**: `basic_auth` OR `api_key_auth`
 - **Server**: `default18`
-- **Signature**: `def post_legal_entities_id_set_tax_electronic_delivery_consent(id: str, *, body: SetTaxElectronicDeliveryConsentRequest | SetTaxElectronicDeliveryConsentRequestDict | None = None, request_options: RequestOptionsOrDict | None = None)`
-  - required, positional: `id`
-- **Params**: `id` — path · `body` — JSON body
+- **Signature**: `def post_legal_entities_id_set_tax_electronic_delivery_consent(id_: str, *, body: SetTaxElectronicDeliveryConsentRequest | SetTaxElectronicDeliveryConsentRequestDict | None = None, request_options: RequestOptionsOrDict | None = None)`
+  - required, positional: `id_`
+- **Params**: `id_` — path `id` · `body` — JSON body
 - **Returns (parsed)**: `None`
 - **Returns (raw)**: `ApiResult[None, PostLegalEntitiesIdSetTaxElectronicDeliveryConsentErrorBody]`
 - **Error**: `PostLegalEntitiesIdSetTaxElectronicDeliveryConsentErrorBody` — **Case A (typed)**

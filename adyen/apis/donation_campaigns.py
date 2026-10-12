@@ -11,10 +11,13 @@ from ..core import (
     RawClient,
     RequestOptionsOrDict,
     SecuredRawResponse,
+    async_empty_response,
+    async_json_decoder,
     empty_response,
     json_body,
     json_decoder,
     param,
+    unwrap,
 )
 from ..errors.delete_companies_company_id_campaign_management_donation_campaign_id_error import (
     DeleteCompaniesCompanyIdCampaignManagementDonationCampaignIdErrorBody,
@@ -67,7 +70,8 @@ class DonationCampaigns:
         Args:
             company_id: The unique identifier of the company account.
             donation_campaign_id: The unique identifier of the donation campaign to be deleted.
-            request_options: Per-call overrides for this one request, such as a timeout or extra headers.
+            request_options: Per-call overrides for this one request, such as a timeout, extra headers, or its retry
+                count and statuses.
 
         Returns:
             No Content - the request has been successfully processed, but there is no additional content.
@@ -77,9 +81,11 @@ class DonationCampaigns:
                 required. Forbidden - insufficient permissions to process the request. Unprocessable Entity - a request
                 validation error. Internal Server Error - the server could not process the request. ``error`` is
                 ``DefaultErrorResponseEntity | RawError``."""
-        return self._with_raw_response.delete_companies_company_id_campaign_management_donation_campaign_id(
-            company_id, donation_campaign_id, request_options=request_options
-        ).unwrap()
+        return unwrap(
+            self._with_raw_response.delete_companies_company_id_campaign_management_donation_campaign_id(
+                company_id, donation_campaign_id, request_options=request_options
+            ),
+        )
 
     def get_companies_company_id_campaign_management_account_holders_account_holder_id(
         self,
@@ -106,7 +112,8 @@ class DonationCampaigns:
                 **ended**.
             page_number: The number of the page to fetch.
             page_size: The number of items to have on a page, maximum 100. The default is 10 items on a page.
-            request_options: Per-call overrides for this one request, such as a timeout or extra headers.
+            request_options: Per-call overrides for this one request, such as a timeout, extra headers, or its retry
+                count and statuses.
 
         Returns:
             OK - the request has succeeded.
@@ -116,14 +123,16 @@ class DonationCampaigns:
                 required. Forbidden - insufficient permissions to process the request. Unprocessable Entity - a request
                 validation error. Internal Server Error - the server could not process the request. ``error`` is
                 ``DefaultErrorResponseEntity | RawError``."""
-        return self._with_raw_response.get_companies_company_id_campaign_management_account_holders_account_holder_id(
-            company_id,
-            account_holder_id,
-            status=status,
-            page_number=page_number,
-            page_size=page_size,
-            request_options=request_options,
-        ).unwrap()
+        return unwrap(
+            self._with_raw_response.get_companies_company_id_campaign_management_account_holders_account_holder_id(
+                company_id,
+                account_holder_id,
+                status=status,
+                page_number=page_number,
+                page_size=page_size,
+                request_options=request_options,
+            ),
+        )
 
     def patch_companies_company_id_campaign_management_donation_campaign_id(
         self,
@@ -147,7 +156,8 @@ class DonationCampaigns:
             company_id: The unique identifier of the company account.
             donation_campaign_id: The unique identifier of the donation campaign to be updated.
             body: The request body.
-            request_options: Per-call overrides for this one request, such as a timeout or extra headers.
+            request_options: Per-call overrides for this one request, such as a timeout, extra headers, or its retry
+                count and statuses.
 
         Returns:
             OK - the request has succeeded.
@@ -157,9 +167,11 @@ class DonationCampaigns:
                 required. Forbidden - insufficient permissions to process the request. Unprocessable Entity - a request
                 validation error. Internal Server Error - the server could not process the request. ``error`` is
                 ``DefaultErrorResponseEntity | RawError``."""
-        return self._with_raw_response.patch_companies_company_id_campaign_management_donation_campaign_id(
-            company_id, donation_campaign_id, body=body, request_options=request_options
-        ).unwrap()
+        return unwrap(
+            self._with_raw_response.patch_companies_company_id_campaign_management_donation_campaign_id(
+                company_id, donation_campaign_id, body=body, request_options=request_options
+            ),
+        )
 
     def post_companies_company_id_campaign_management(
         self,
@@ -179,7 +191,8 @@ class DonationCampaigns:
         Args:
             company_id: The unique identifier of the company account.
             body: The request body.
-            request_options: Per-call overrides for this one request, such as a timeout or extra headers.
+            request_options: Per-call overrides for this one request, such as a timeout, extra headers, or its retry
+                count and statuses.
 
         Returns:
             OK - the request has succeeded.
@@ -189,9 +202,11 @@ class DonationCampaigns:
                 required. Forbidden - insufficient permissions to process the request. Unprocessable Entity - a request
                 validation error. Internal Server Error - the server could not process the request. ``error`` is
                 ``DefaultErrorResponseEntity | RawError``."""
-        return self._with_raw_response.post_companies_company_id_campaign_management(
-            company_id, body=body, request_options=request_options
-        ).unwrap()
+        return unwrap(
+            self._with_raw_response.post_companies_company_id_campaign_management(
+                company_id, body=body, request_options=request_options
+            ),
+        )
 
     def post_companies_company_id_campaign_management_donation_campaign_id_status_status(
         self,
@@ -213,7 +228,8 @@ class DonationCampaigns:
             company_id: The unique identifier of the company account.
             donation_campaign_id: The unique identifier of the donation campaign to activate or end.
             status: The desired status change. Possible values: **activate** or **end**.
-            request_options: Per-call overrides for this one request, such as a timeout or extra headers.
+            request_options: Per-call overrides for this one request, such as a timeout, extra headers, or its retry
+                count and statuses.
 
         Returns:
             OK - the request has succeeded.
@@ -223,9 +239,11 @@ class DonationCampaigns:
                 required. Forbidden - insufficient permissions to process the request. Unprocessable Entity - a request
                 validation error. Internal Server Error - the server could not process the request. ``error`` is
                 ``DefaultErrorResponseEntity | RawError``."""
-        return self._with_raw_response.post_companies_company_id_campaign_management_donation_campaign_id_status_status(
-            company_id, donation_campaign_id, status, request_options=request_options
-        ).unwrap()
+        return unwrap(
+            self._with_raw_response.post_companies_company_id_campaign_management_donation_campaign_id_status_status(
+                company_id, donation_campaign_id, status, request_options=request_options
+            ),
+        )
 
     def post_companies_company_id_nonprofits(
         self,
@@ -250,7 +268,8 @@ class DonationCampaigns:
             goal: One or more United Nations Sustainable Development Goals to return nonprofit organizations for.
                 Format: ``unsdg_<number>``, for example, ``&goal=unsdg_6&goal=unsdg_2``.
             body: The request body.
-            request_options: Per-call overrides for this one request, such as a timeout or extra headers.
+            request_options: Per-call overrides for this one request, such as a timeout, extra headers, or its retry
+                count and statuses.
 
         Returns:
             OK - the request has succeeded.
@@ -260,15 +279,17 @@ class DonationCampaigns:
                 required. Forbidden - insufficient permissions to process the request. Unprocessable Entity - a request
                 validation error. Internal Server Error - the server could not process the request. ``error`` is
                 ``DefaultErrorResponseEntity | RawError``."""
-        return self._with_raw_response.post_companies_company_id_nonprofits(
-            company_id,
-            search_term=search_term,
-            page_number=page_number,
-            page_size=page_size,
-            goal=goal,
-            body=body,
-            request_options=request_options,
-        ).unwrap()
+        return unwrap(
+            self._with_raw_response.post_companies_company_id_nonprofits(
+                company_id,
+                search_term=search_term,
+                page_number=page_number,
+                page_size=page_size,
+                goal=goal,
+                body=body,
+                request_options=request_options,
+            ),
+        )
 
     @property
     def with_raw_response(self) -> DonationCampaignsWithRawResponse:
@@ -292,7 +313,8 @@ class AsyncDonationCampaigns:
         Args:
             company_id: The unique identifier of the company account.
             donation_campaign_id: The unique identifier of the donation campaign to be deleted.
-            request_options: Per-call overrides for this one request, such as a timeout or extra headers.
+            request_options: Per-call overrides for this one request, such as a timeout, extra headers, or its retry
+                count and statuses.
 
         Returns:
             No Content - the request has been successfully processed, but there is no additional content.
@@ -302,11 +324,11 @@ class AsyncDonationCampaigns:
                 required. Forbidden - insufficient permissions to process the request. Unprocessable Entity - a request
                 validation error. Internal Server Error - the server could not process the request. ``error`` is
                 ``DefaultErrorResponseEntity | RawError``."""
-        return (
+        return unwrap(
             await self._with_raw_response.delete_companies_company_id_campaign_management_donation_campaign_id(
                 company_id, donation_campaign_id, request_options=request_options
-            )
-        ).unwrap()
+            ),
+        )
 
     async def get_companies_company_id_campaign_management_account_holders_account_holder_id(
         self,
@@ -333,7 +355,8 @@ class AsyncDonationCampaigns:
                 **ended**.
             page_number: The number of the page to fetch.
             page_size: The number of items to have on a page, maximum 100. The default is 10 items on a page.
-            request_options: Per-call overrides for this one request, such as a timeout or extra headers.
+            request_options: Per-call overrides for this one request, such as a timeout, extra headers, or its retry
+                count and statuses.
 
         Returns:
             OK - the request has succeeded.
@@ -343,7 +366,7 @@ class AsyncDonationCampaigns:
                 required. Forbidden - insufficient permissions to process the request. Unprocessable Entity - a request
                 validation error. Internal Server Error - the server could not process the request. ``error`` is
                 ``DefaultErrorResponseEntity | RawError``."""
-        return (
+        return unwrap(
             await self._with_raw_response.get_companies_company_id_campaign_management_account_holders_account_holder_id(
                 company_id,
                 account_holder_id,
@@ -351,8 +374,8 @@ class AsyncDonationCampaigns:
                 page_number=page_number,
                 page_size=page_size,
                 request_options=request_options,
-            )
-        ).unwrap()
+            ),
+        )
 
     async def patch_companies_company_id_campaign_management_donation_campaign_id(
         self,
@@ -376,7 +399,8 @@ class AsyncDonationCampaigns:
             company_id: The unique identifier of the company account.
             donation_campaign_id: The unique identifier of the donation campaign to be updated.
             body: The request body.
-            request_options: Per-call overrides for this one request, such as a timeout or extra headers.
+            request_options: Per-call overrides for this one request, such as a timeout, extra headers, or its retry
+                count and statuses.
 
         Returns:
             OK - the request has succeeded.
@@ -386,11 +410,11 @@ class AsyncDonationCampaigns:
                 required. Forbidden - insufficient permissions to process the request. Unprocessable Entity - a request
                 validation error. Internal Server Error - the server could not process the request. ``error`` is
                 ``DefaultErrorResponseEntity | RawError``."""
-        return (
+        return unwrap(
             await self._with_raw_response.patch_companies_company_id_campaign_management_donation_campaign_id(
                 company_id, donation_campaign_id, body=body, request_options=request_options
-            )
-        ).unwrap()
+            ),
+        )
 
     async def post_companies_company_id_campaign_management(
         self,
@@ -410,7 +434,8 @@ class AsyncDonationCampaigns:
         Args:
             company_id: The unique identifier of the company account.
             body: The request body.
-            request_options: Per-call overrides for this one request, such as a timeout or extra headers.
+            request_options: Per-call overrides for this one request, such as a timeout, extra headers, or its retry
+                count and statuses.
 
         Returns:
             OK - the request has succeeded.
@@ -420,11 +445,11 @@ class AsyncDonationCampaigns:
                 required. Forbidden - insufficient permissions to process the request. Unprocessable Entity - a request
                 validation error. Internal Server Error - the server could not process the request. ``error`` is
                 ``DefaultErrorResponseEntity | RawError``."""
-        return (
+        return unwrap(
             await self._with_raw_response.post_companies_company_id_campaign_management(
                 company_id, body=body, request_options=request_options
-            )
-        ).unwrap()
+            ),
+        )
 
     async def post_companies_company_id_campaign_management_donation_campaign_id_status_status(
         self,
@@ -446,7 +471,8 @@ class AsyncDonationCampaigns:
             company_id: The unique identifier of the company account.
             donation_campaign_id: The unique identifier of the donation campaign to activate or end.
             status: The desired status change. Possible values: **activate** or **end**.
-            request_options: Per-call overrides for this one request, such as a timeout or extra headers.
+            request_options: Per-call overrides for this one request, such as a timeout, extra headers, or its retry
+                count and statuses.
 
         Returns:
             OK - the request has succeeded.
@@ -456,11 +482,11 @@ class AsyncDonationCampaigns:
                 required. Forbidden - insufficient permissions to process the request. Unprocessable Entity - a request
                 validation error. Internal Server Error - the server could not process the request. ``error`` is
                 ``DefaultErrorResponseEntity | RawError``."""
-        return (
+        return unwrap(
             await self._with_raw_response.post_companies_company_id_campaign_management_donation_campaign_id_status_status(
                 company_id, donation_campaign_id, status, request_options=request_options
-            )
-        ).unwrap()
+            ),
+        )
 
     async def post_companies_company_id_nonprofits(
         self,
@@ -485,7 +511,8 @@ class AsyncDonationCampaigns:
             goal: One or more United Nations Sustainable Development Goals to return nonprofit organizations for.
                 Format: ``unsdg_<number>``, for example, ``&goal=unsdg_6&goal=unsdg_2``.
             body: The request body.
-            request_options: Per-call overrides for this one request, such as a timeout or extra headers.
+            request_options: Per-call overrides for this one request, such as a timeout, extra headers, or its retry
+                count and statuses.
 
         Returns:
             OK - the request has succeeded.
@@ -495,7 +522,7 @@ class AsyncDonationCampaigns:
                 required. Forbidden - insufficient permissions to process the request. Unprocessable Entity - a request
                 validation error. Internal Server Error - the server could not process the request. ``error`` is
                 ``DefaultErrorResponseEntity | RawError``."""
-        return (
+        return unwrap(
             await self._with_raw_response.post_companies_company_id_nonprofits(
                 company_id,
                 search_term=search_term,
@@ -504,8 +531,8 @@ class AsyncDonationCampaigns:
                 goal=goal,
                 body=body,
                 request_options=request_options,
-            )
-        ).unwrap()
+            ),
+        )
 
     @property
     def with_raw_response(self) -> AsyncDonationCampaignsWithRawResponse:
@@ -526,7 +553,8 @@ class DonationCampaignsWithRawResponse(SecuredRawResponse[RawClient, Server, Aut
         Args:
             company_id: The unique identifier of the company account.
             donation_campaign_id: The unique identifier of the donation campaign to be deleted.
-            request_options: Per-call overrides for this one request, such as a timeout or extra headers.
+            request_options: Per-call overrides for this one request, such as a timeout, extra headers, or its retry
+                count and statuses.
 
         Returns:
             An ``ApiResult`` holding the deserialized response or the error body."""
@@ -568,7 +596,8 @@ class DonationCampaignsWithRawResponse(SecuredRawResponse[RawClient, Server, Aut
                 **ended**.
             page_number: The number of the page to fetch.
             page_size: The number of items to have on a page, maximum 100. The default is 10 items on a page.
-            request_options: Per-call overrides for this one request, such as a timeout or extra headers.
+            request_options: Per-call overrides for this one request, such as a timeout, extra headers, or its retry
+                count and statuses.
 
         Returns:
             An ``ApiResult`` holding the deserialized response or the error body."""
@@ -611,7 +640,8 @@ class DonationCampaignsWithRawResponse(SecuredRawResponse[RawClient, Server, Aut
             company_id: The unique identifier of the company account.
             donation_campaign_id: The unique identifier of the donation campaign to be updated.
             body: The request body.
-            request_options: Per-call overrides for this one request, such as a timeout or extra headers.
+            request_options: Per-call overrides for this one request, such as a timeout, extra headers, or its retry
+                count and statuses.
 
         Returns:
             An ``ApiResult`` holding the deserialized response or the error body."""
@@ -645,7 +675,8 @@ class DonationCampaignsWithRawResponse(SecuredRawResponse[RawClient, Server, Aut
         Args:
             company_id: The unique identifier of the company account.
             body: The request body.
-            request_options: Per-call overrides for this one request, such as a timeout or extra headers.
+            request_options: Per-call overrides for this one request, such as a timeout, extra headers, or its retry
+                count and statuses.
 
         Returns:
             An ``ApiResult`` holding the deserialized response or the error body."""
@@ -681,7 +712,8 @@ class DonationCampaignsWithRawResponse(SecuredRawResponse[RawClient, Server, Aut
             company_id: The unique identifier of the company account.
             donation_campaign_id: The unique identifier of the donation campaign to activate or end.
             status: The desired status change. Possible values: **activate** or **end**.
-            request_options: Per-call overrides for this one request, such as a timeout or extra headers.
+            request_options: Per-call overrides for this one request, such as a timeout, extra headers, or its retry
+                count and statuses.
 
         Returns:
             An ``ApiResult`` holding the deserialized response or the error body."""
@@ -725,7 +757,8 @@ class DonationCampaignsWithRawResponse(SecuredRawResponse[RawClient, Server, Aut
             goal: One or more United Nations Sustainable Development Goals to return nonprofit organizations for.
                 Format: ``unsdg_<number>``, for example, ``&goal=unsdg_6&goal=unsdg_2``.
             body: The request body.
-            request_options: Per-call overrides for this one request, such as a timeout or extra headers.
+            request_options: Per-call overrides for this one request, such as a timeout, extra headers, or its retry
+                count and statuses.
 
         Returns:
             An ``ApiResult`` holding the deserialized response or the error body."""
@@ -762,7 +795,8 @@ class AsyncDonationCampaignsWithRawResponse(SecuredRawResponse[AsyncRawClient, S
         Args:
             company_id: The unique identifier of the company account.
             donation_campaign_id: The unique identifier of the donation campaign to be deleted.
-            request_options: Per-call overrides for this one request, such as a timeout or extra headers.
+            request_options: Per-call overrides for this one request, such as a timeout, extra headers, or its retry
+                count and statuses.
 
         Returns:
             An ``ApiResult`` holding the deserialized response or the error body."""
@@ -772,7 +806,7 @@ class AsyncDonationCampaignsWithRawResponse(SecuredRawResponse[AsyncRawClient, S
             path_params=[param[str]("companyId", company_id), param[str]("donationCampaignId", donation_campaign_id)],
             headers=[param[UUID]("Idempotency-Key", uuid4())],
             auth_scheme=AsyncAnySchemes(self._auth.basic_auth, self._auth.api_key_auth),
-            decoder=empty_response,
+            decoder=async_empty_response,
             error_mapper=delete_companies_company_id_campaign_management_donation_campaign_id_error_mapper,
             request_options=request_options,
         )
@@ -804,7 +838,8 @@ class AsyncDonationCampaignsWithRawResponse(SecuredRawResponse[AsyncRawClient, S
                 **ended**.
             page_number: The number of the page to fetch.
             page_size: The number of items to have on a page, maximum 100. The default is 10 items on a page.
-            request_options: Per-call overrides for this one request, such as a timeout or extra headers.
+            request_options: Per-call overrides for this one request, such as a timeout, extra headers, or its retry
+                count and statuses.
 
         Returns:
             An ``ApiResult`` holding the deserialized response or the error body."""
@@ -820,7 +855,7 @@ class AsyncDonationCampaignsWithRawResponse(SecuredRawResponse[AsyncRawClient, S
                 param[int | None]("pageSize", page_size),
             ],
             auth_scheme=AsyncAnySchemes(self._auth.basic_auth, self._auth.api_key_auth),
-            decoder=json_decoder[ListDonationCampaignsResponse],
+            decoder=async_json_decoder[ListDonationCampaignsResponse],
             error_mapper=get_companies_company_id_campaign_management_account_holders_account_holder_id_error_mapper,
             request_options=request_options,
         )
@@ -847,7 +882,8 @@ class AsyncDonationCampaignsWithRawResponse(SecuredRawResponse[AsyncRawClient, S
             company_id: The unique identifier of the company account.
             donation_campaign_id: The unique identifier of the donation campaign to be updated.
             body: The request body.
-            request_options: Per-call overrides for this one request, such as a timeout or extra headers.
+            request_options: Per-call overrides for this one request, such as a timeout, extra headers, or its retry
+                count and statuses.
 
         Returns:
             An ``ApiResult`` holding the deserialized response or the error body."""
@@ -858,7 +894,7 @@ class AsyncDonationCampaignsWithRawResponse(SecuredRawResponse[AsyncRawClient, S
             headers=[param[UUID]("Idempotency-Key", uuid4())],
             body=json_body[DonationCampaignUpdate | DonationCampaignUpdateDict | None](body),
             auth_scheme=AsyncAnySchemes(self._auth.basic_auth, self._auth.api_key_auth),
-            decoder=json_decoder[DonationCampaign1],
+            decoder=async_json_decoder[DonationCampaign1],
             error_mapper=patch_companies_company_id_campaign_management_donation_campaign_id_error_mapper,
             request_options=request_options,
         )
@@ -881,7 +917,8 @@ class AsyncDonationCampaignsWithRawResponse(SecuredRawResponse[AsyncRawClient, S
         Args:
             company_id: The unique identifier of the company account.
             body: The request body.
-            request_options: Per-call overrides for this one request, such as a timeout or extra headers.
+            request_options: Per-call overrides for this one request, such as a timeout, extra headers, or its retry
+                count and statuses.
 
         Returns:
             An ``ApiResult`` holding the deserialized response or the error body."""
@@ -892,7 +929,7 @@ class AsyncDonationCampaignsWithRawResponse(SecuredRawResponse[AsyncRawClient, S
             headers=[param[UUID]("Idempotency-Key", uuid4())],
             body=json_body[DonationCampaignRequest | DonationCampaignRequestDict | None](body),
             auth_scheme=AsyncAnySchemes(self._auth.basic_auth, self._auth.api_key_auth),
-            decoder=json_decoder[DonationCampaign1],
+            decoder=async_json_decoder[DonationCampaign1],
             error_mapper=post_companies_company_id_campaign_management_error_mapper,
             request_options=request_options,
         )
@@ -917,7 +954,8 @@ class AsyncDonationCampaignsWithRawResponse(SecuredRawResponse[AsyncRawClient, S
             company_id: The unique identifier of the company account.
             donation_campaign_id: The unique identifier of the donation campaign to activate or end.
             status: The desired status change. Possible values: **activate** or **end**.
-            request_options: Per-call overrides for this one request, such as a timeout or extra headers.
+            request_options: Per-call overrides for this one request, such as a timeout, extra headers, or its retry
+                count and statuses.
 
         Returns:
             An ``ApiResult`` holding the deserialized response or the error body."""
@@ -933,7 +971,7 @@ class AsyncDonationCampaignsWithRawResponse(SecuredRawResponse[AsyncRawClient, S
             ],
             headers=[param[UUID]("Idempotency-Key", uuid4())],
             auth_scheme=AsyncAnySchemes(self._auth.basic_auth, self._auth.api_key_auth),
-            decoder=json_decoder[DonationCampaign1],
+            decoder=async_json_decoder[DonationCampaign1],
             error_mapper=post_companies_company_id_campaign_management_donation_campaign_id_status_status_error_mapper,
             request_options=request_options,
         )
@@ -961,7 +999,8 @@ class AsyncDonationCampaignsWithRawResponse(SecuredRawResponse[AsyncRawClient, S
             goal: One or more United Nations Sustainable Development Goals to return nonprofit organizations for.
                 Format: ``unsdg_<number>``, for example, ``&goal=unsdg_6&goal=unsdg_2``.
             body: The request body.
-            request_options: Per-call overrides for this one request, such as a timeout or extra headers.
+            request_options: Per-call overrides for this one request, such as a timeout, extra headers, or its retry
+                count and statuses.
 
         Returns:
             An ``ApiResult`` holding the deserialized response or the error body."""
@@ -978,7 +1017,7 @@ class AsyncDonationCampaignsWithRawResponse(SecuredRawResponse[AsyncRawClient, S
             headers=[param[UUID]("Idempotency-Key", uuid4())],
             body=json_body[ListNonprofitsRequest | ListNonprofitsRequestDict | None](body),
             auth_scheme=AsyncAnySchemes(self._auth.basic_auth, self._auth.api_key_auth),
-            decoder=json_decoder[ListNonprofitsResponse],
+            decoder=async_json_decoder[ListNonprofitsResponse],
             error_mapper=post_companies_company_id_nonprofits_error_mapper,
             request_options=request_options,
         )

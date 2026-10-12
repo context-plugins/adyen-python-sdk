@@ -16,4 +16,4 @@ class DisplayRequest2(SdkBaseModel):
 
 
 class DisplayRequest2Dict(TypedDict):
-    display_output: list[DisplayOutput | DisplayOutputDict]
+    display_output: list[DisplayOutputDict]

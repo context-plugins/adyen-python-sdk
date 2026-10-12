@@ -13,4 +13,4 @@ class IdealAuthLinkResponse(SdkBaseModel):
 
 
 class IdealAuthLinkResponseDict(TypedDict):
-    redirect_url: NotRequired[Href3 | Href3Dict]
+    redirect_url: NotRequired[Href3Dict]

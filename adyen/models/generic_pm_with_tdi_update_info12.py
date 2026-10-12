@@ -18,4 +18,4 @@ class GenericPmWithTdiUpdateInfo12(SdkBaseModel):
 
 
 class GenericPmWithTdiUpdateInfo12Dict(TypedDict):
-    transaction_description: NotRequired[TransactionDescriptionInfo1 | TransactionDescriptionInfo1Dict]
+    transaction_description: NotRequired[TransactionDescriptionInfo1Dict]

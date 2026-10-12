@@ -11,10 +11,13 @@ from ..core import (
     RawClient,
     RequestOptionsOrDict,
     SecuredRawResponse,
+    async_empty_response,
+    async_json_decoder,
     empty_response,
     json_body,
     json_decoder,
     param,
+    unwrap,
 )
 from ..errors.post_legal_entities_id_check_tax_electronic_delivery_consent_error import (
     PostLegalEntitiesIdCheckTaxElectronicDeliveryConsentErrorBody,
@@ -37,7 +40,7 @@ class TaxEDeliveryConsent:
         self._with_raw_response = TaxEDeliveryConsentWithRawResponse(client, server, auth)
 
     def post_legal_entities_id_check_tax_electronic_delivery_consent(
-        self, id: str, *, request_options: RequestOptionsOrDict | None = None
+        self, id_: str, *, request_options: RequestOptionsOrDict | None = None
     ) -> CheckTaxElectronicDeliveryConsentResponse:
         """Returns the consent status for electronic delivery of tax forms.
 
@@ -50,9 +53,10 @@ class TaxEDeliveryConsent:
         - Failed requests are subject to a limit of 5 failures per 10 seconds.
 
         Args:
-            id: The unique identifier of the legal entity. For sole proprietorships, this is the individual legal entity
-                ID of the owner. For organizations, this is the ID of the organization.
-            request_options: Per-call overrides for this one request, such as a timeout or extra headers.
+            id_: The unique identifier of the legal entity. For sole proprietorships, this is the individual legal
+                entity ID of the owner. For organizations, this is the ID of the organization.
+            request_options: Per-call overrides for this one request, such as a timeout, extra headers, or its retry
+                count and statuses.
 
         Returns:
             OK - the request has succeeded.
@@ -62,13 +66,15 @@ class TaxEDeliveryConsent:
                 required. Forbidden - insufficient permissions to process the request. Unprocessable Entity - a request
                 validation error. Internal Server Error - the server could not process the request. ``error`` is
                 ``ServiceError1 | RawError``."""
-        return self._with_raw_response.post_legal_entities_id_check_tax_electronic_delivery_consent(
-            id, request_options=request_options
-        ).unwrap()
+        return unwrap(
+            self._with_raw_response.post_legal_entities_id_check_tax_electronic_delivery_consent(
+                id_, request_options=request_options
+            ),
+        )
 
     def post_legal_entities_id_set_tax_electronic_delivery_consent(
         self,
-        id: str,
+        id_: str,
         *,
         body: SetTaxElectronicDeliveryConsentRequest | SetTaxElectronicDeliveryConsentRequestDict | None = None,
         request_options: RequestOptionsOrDict | None = None,
@@ -84,10 +90,11 @@ class TaxEDeliveryConsent:
         - Failed requests are subject to a limit of 5 failures per 10 seconds.
 
         Args:
-            id: The unique identifier of the legal entity. For sole proprietorships, this is the individual legal entity
-                ID of the owner. For organizations, this is the ID of the organization.
+            id_: The unique identifier of the legal entity. For sole proprietorships, this is the individual legal
+                entity ID of the owner. For organizations, this is the ID of the organization.
             body: The request body.
-            request_options: Per-call overrides for this one request, such as a timeout or extra headers.
+            request_options: Per-call overrides for this one request, such as a timeout, extra headers, or its retry
+                count and statuses.
 
         Returns:
             No Content - look at the actual response code for the status of the request.
@@ -97,9 +104,11 @@ class TaxEDeliveryConsent:
                 required. Forbidden - insufficient permissions to process the request. Unprocessable Entity - a request
                 validation error. Internal Server Error - the server could not process the request. ``error`` is
                 ``ServiceError1 | RawError``."""
-        return self._with_raw_response.post_legal_entities_id_set_tax_electronic_delivery_consent(
-            id, body=body, request_options=request_options
-        ).unwrap()
+        return unwrap(
+            self._with_raw_response.post_legal_entities_id_set_tax_electronic_delivery_consent(
+                id_, body=body, request_options=request_options
+            ),
+        )
 
     @property
     def with_raw_response(self) -> TaxEDeliveryConsentWithRawResponse:
@@ -111,7 +120,7 @@ class AsyncTaxEDeliveryConsent:
         self._with_raw_response = AsyncTaxEDeliveryConsentWithRawResponse(client, server, auth)
 
     async def post_legal_entities_id_check_tax_electronic_delivery_consent(
-        self, id: str, *, request_options: RequestOptionsOrDict | None = None
+        self, id_: str, *, request_options: RequestOptionsOrDict | None = None
     ) -> CheckTaxElectronicDeliveryConsentResponse:
         """Returns the consent status for electronic delivery of tax forms.
 
@@ -124,9 +133,10 @@ class AsyncTaxEDeliveryConsent:
         - Failed requests are subject to a limit of 5 failures per 10 seconds.
 
         Args:
-            id: The unique identifier of the legal entity. For sole proprietorships, this is the individual legal entity
-                ID of the owner. For organizations, this is the ID of the organization.
-            request_options: Per-call overrides for this one request, such as a timeout or extra headers.
+            id_: The unique identifier of the legal entity. For sole proprietorships, this is the individual legal
+                entity ID of the owner. For organizations, this is the ID of the organization.
+            request_options: Per-call overrides for this one request, such as a timeout, extra headers, or its retry
+                count and statuses.
 
         Returns:
             OK - the request has succeeded.
@@ -136,15 +146,15 @@ class AsyncTaxEDeliveryConsent:
                 required. Forbidden - insufficient permissions to process the request. Unprocessable Entity - a request
                 validation error. Internal Server Error - the server could not process the request. ``error`` is
                 ``ServiceError1 | RawError``."""
-        return (
+        return unwrap(
             await self._with_raw_response.post_legal_entities_id_check_tax_electronic_delivery_consent(
-                id, request_options=request_options
-            )
-        ).unwrap()
+                id_, request_options=request_options
+            ),
+        )
 
     async def post_legal_entities_id_set_tax_electronic_delivery_consent(
         self,
-        id: str,
+        id_: str,
         *,
         body: SetTaxElectronicDeliveryConsentRequest | SetTaxElectronicDeliveryConsentRequestDict | None = None,
         request_options: RequestOptionsOrDict | None = None,
@@ -160,10 +170,11 @@ class AsyncTaxEDeliveryConsent:
         - Failed requests are subject to a limit of 5 failures per 10 seconds.
 
         Args:
-            id: The unique identifier of the legal entity. For sole proprietorships, this is the individual legal entity
-                ID of the owner. For organizations, this is the ID of the organization.
+            id_: The unique identifier of the legal entity. For sole proprietorships, this is the individual legal
+                entity ID of the owner. For organizations, this is the ID of the organization.
             body: The request body.
-            request_options: Per-call overrides for this one request, such as a timeout or extra headers.
+            request_options: Per-call overrides for this one request, such as a timeout, extra headers, or its retry
+                count and statuses.
 
         Returns:
             No Content - look at the actual response code for the status of the request.
@@ -173,11 +184,11 @@ class AsyncTaxEDeliveryConsent:
                 required. Forbidden - insufficient permissions to process the request. Unprocessable Entity - a request
                 validation error. Internal Server Error - the server could not process the request. ``error`` is
                 ``ServiceError1 | RawError``."""
-        return (
+        return unwrap(
             await self._with_raw_response.post_legal_entities_id_set_tax_electronic_delivery_consent(
-                id, body=body, request_options=request_options
-            )
-        ).unwrap()
+                id_, body=body, request_options=request_options
+            ),
+        )
 
     @property
     def with_raw_response(self) -> AsyncTaxEDeliveryConsentWithRawResponse:
@@ -186,7 +197,7 @@ class AsyncTaxEDeliveryConsent:
 
 class TaxEDeliveryConsentWithRawResponse(SecuredRawResponse[RawClient, Server, AuthSchemes]):
     def post_legal_entities_id_check_tax_electronic_delivery_consent(
-        self, id: str, *, request_options: RequestOptionsOrDict | None = None
+        self, id_: str, *, request_options: RequestOptionsOrDict | None = None
     ) -> ApiResult[
         CheckTaxElectronicDeliveryConsentResponse, PostLegalEntitiesIdCheckTaxElectronicDeliveryConsentErrorBody
     ]:
@@ -201,16 +212,17 @@ class TaxEDeliveryConsentWithRawResponse(SecuredRawResponse[RawClient, Server, A
         - Failed requests are subject to a limit of 5 failures per 10 seconds.
 
         Args:
-            id: The unique identifier of the legal entity. For sole proprietorships, this is the individual legal entity
-                ID of the owner. For organizations, this is the ID of the organization.
-            request_options: Per-call overrides for this one request, such as a timeout or extra headers.
+            id_: The unique identifier of the legal entity. For sole proprietorships, this is the individual legal
+                entity ID of the owner. For organizations, this is the ID of the organization.
+            request_options: Per-call overrides for this one request, such as a timeout, extra headers, or its retry
+                count and statuses.
 
         Returns:
             An ``ApiResult`` holding the deserialized response or the error body."""
         return self._client.execute(
             http_method="POST",
             url_template=self._server.default18("/legalEntities/{id}/checkTaxElectronicDeliveryConsent"),
-            path_params=[param[str]("id", id)],
+            path_params=[param[str]("id", id_)],
             headers=[param[UUID]("Idempotency-Key", uuid4())],
             auth_scheme=AnySchemes(self._auth.basic_auth, self._auth.api_key_auth),
             decoder=json_decoder[CheckTaxElectronicDeliveryConsentResponse],
@@ -220,7 +232,7 @@ class TaxEDeliveryConsentWithRawResponse(SecuredRawResponse[RawClient, Server, A
 
     def post_legal_entities_id_set_tax_electronic_delivery_consent(
         self,
-        id: str,
+        id_: str,
         *,
         body: SetTaxElectronicDeliveryConsentRequest | SetTaxElectronicDeliveryConsentRequestDict | None = None,
         request_options: RequestOptionsOrDict | None = None,
@@ -236,17 +248,18 @@ class TaxEDeliveryConsentWithRawResponse(SecuredRawResponse[RawClient, Server, A
         - Failed requests are subject to a limit of 5 failures per 10 seconds.
 
         Args:
-            id: The unique identifier of the legal entity. For sole proprietorships, this is the individual legal entity
-                ID of the owner. For organizations, this is the ID of the organization.
+            id_: The unique identifier of the legal entity. For sole proprietorships, this is the individual legal
+                entity ID of the owner. For organizations, this is the ID of the organization.
             body: The request body.
-            request_options: Per-call overrides for this one request, such as a timeout or extra headers.
+            request_options: Per-call overrides for this one request, such as a timeout, extra headers, or its retry
+                count and statuses.
 
         Returns:
             An ``ApiResult`` holding the deserialized response or the error body."""
         return self._client.execute(
             http_method="POST",
             url_template=self._server.default18("/legalEntities/{id}/setTaxElectronicDeliveryConsent"),
-            path_params=[param[str]("id", id)],
+            path_params=[param[str]("id", id_)],
             headers=[param[UUID]("Idempotency-Key", uuid4())],
             body=json_body[SetTaxElectronicDeliveryConsentRequest | SetTaxElectronicDeliveryConsentRequestDict | None](
                 body
@@ -260,7 +273,7 @@ class TaxEDeliveryConsentWithRawResponse(SecuredRawResponse[RawClient, Server, A
 
 class AsyncTaxEDeliveryConsentWithRawResponse(SecuredRawResponse[AsyncRawClient, Server, AsyncAuthSchemes]):
     async def post_legal_entities_id_check_tax_electronic_delivery_consent(
-        self, id: str, *, request_options: RequestOptionsOrDict | None = None
+        self, id_: str, *, request_options: RequestOptionsOrDict | None = None
     ) -> ApiResult[
         CheckTaxElectronicDeliveryConsentResponse, PostLegalEntitiesIdCheckTaxElectronicDeliveryConsentErrorBody
     ]:
@@ -275,26 +288,27 @@ class AsyncTaxEDeliveryConsentWithRawResponse(SecuredRawResponse[AsyncRawClient,
         - Failed requests are subject to a limit of 5 failures per 10 seconds.
 
         Args:
-            id: The unique identifier of the legal entity. For sole proprietorships, this is the individual legal entity
-                ID of the owner. For organizations, this is the ID of the organization.
-            request_options: Per-call overrides for this one request, such as a timeout or extra headers.
+            id_: The unique identifier of the legal entity. For sole proprietorships, this is the individual legal
+                entity ID of the owner. For organizations, this is the ID of the organization.
+            request_options: Per-call overrides for this one request, such as a timeout, extra headers, or its retry
+                count and statuses.
 
         Returns:
             An ``ApiResult`` holding the deserialized response or the error body."""
         return await self._client.execute(
             http_method="POST",
             url_template=self._server.default18("/legalEntities/{id}/checkTaxElectronicDeliveryConsent"),
-            path_params=[param[str]("id", id)],
+            path_params=[param[str]("id", id_)],
             headers=[param[UUID]("Idempotency-Key", uuid4())],
             auth_scheme=AsyncAnySchemes(self._auth.basic_auth, self._auth.api_key_auth),
-            decoder=json_decoder[CheckTaxElectronicDeliveryConsentResponse],
+            decoder=async_json_decoder[CheckTaxElectronicDeliveryConsentResponse],
             error_mapper=post_legal_entities_id_check_tax_electronic_delivery_consent_error_mapper,
             request_options=request_options,
         )
 
     async def post_legal_entities_id_set_tax_electronic_delivery_consent(
         self,
-        id: str,
+        id_: str,
         *,
         body: SetTaxElectronicDeliveryConsentRequest | SetTaxElectronicDeliveryConsentRequestDict | None = None,
         request_options: RequestOptionsOrDict | None = None,
@@ -310,23 +324,24 @@ class AsyncTaxEDeliveryConsentWithRawResponse(SecuredRawResponse[AsyncRawClient,
         - Failed requests are subject to a limit of 5 failures per 10 seconds.
 
         Args:
-            id: The unique identifier of the legal entity. For sole proprietorships, this is the individual legal entity
-                ID of the owner. For organizations, this is the ID of the organization.
+            id_: The unique identifier of the legal entity. For sole proprietorships, this is the individual legal
+                entity ID of the owner. For organizations, this is the ID of the organization.
             body: The request body.
-            request_options: Per-call overrides for this one request, such as a timeout or extra headers.
+            request_options: Per-call overrides for this one request, such as a timeout, extra headers, or its retry
+                count and statuses.
 
         Returns:
             An ``ApiResult`` holding the deserialized response or the error body."""
         return await self._client.execute(
             http_method="POST",
             url_template=self._server.default18("/legalEntities/{id}/setTaxElectronicDeliveryConsent"),
-            path_params=[param[str]("id", id)],
+            path_params=[param[str]("id", id_)],
             headers=[param[UUID]("Idempotency-Key", uuid4())],
             body=json_body[SetTaxElectronicDeliveryConsentRequest | SetTaxElectronicDeliveryConsentRequestDict | None](
                 body
             ),
             auth_scheme=AsyncAnySchemes(self._auth.basic_auth, self._auth.api_key_auth),
-            decoder=empty_response,
+            decoder=async_empty_response,
             error_mapper=post_legal_entities_id_set_tax_electronic_delivery_consent_error_mapper,
             request_options=request_options,
         )

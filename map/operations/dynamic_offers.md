@@ -29,9 +29,9 @@ Each `###` block is one operation and assumes `sdk-map.md` is loaded: blocks omi
 
 - **Route**: `POST /dynamicOffers/{id}/calculate`
 - **Server**: `default15`
-- **Signature**: `def post_dynamic_offers_id_calculate(id: str, *, body: CalculateGrantOfferRequest | CalculateGrantOfferRequestDict | None = None, request_options: RequestOptionsOrDict | None = None)`
-  - required, positional: `id`
-- **Params**: `id` — path · `body` — JSON body
+- **Signature**: `def post_dynamic_offers_id_calculate(id_: str, *, body: CalculateGrantOfferRequest | CalculateGrantOfferRequestDict | None = None, request_options: RequestOptionsOrDict | None = None)`
+  - required, positional: `id_`
+- **Params**: `id_` — path `id` · `body` — JSON body
 - **Returns (parsed)**: `CalculatedGrantOffer`
 - **Returns (raw)**: `ApiResult[CalculatedGrantOffer, PostDynamicOffersIdCalculateErrorBody]`
 - **Error**: `PostDynamicOffersIdCalculateErrorBody` — **Case A (typed)**
@@ -49,9 +49,9 @@ Each `###` block is one operation and assumes `sdk-map.md` is loaded: blocks omi
 
 - **Route**: `POST /dynamicOffers/{id}/grantOffer`
 - **Server**: `default15`
-- **Signature**: `def post_dynamic_offers_id_grant_offer(id: str, *, body: CreateGrantOfferRequest | CreateGrantOfferRequestDict | None = None, request_options: RequestOptionsOrDict | None = None)`
-  - required, positional: `id`
-- **Params**: `id` — path · `body` — JSON body
+- **Signature**: `def post_dynamic_offers_id_grant_offer(id_: str, *, body: CreateGrantOfferRequest | CreateGrantOfferRequestDict | None = None, request_options: RequestOptionsOrDict | None = None)`
+  - required, positional: `id_`
+- **Params**: `id_` — path `id` · `body` — JSON body
 - **Returns (parsed)**: `GrantOffer1`
 - **Returns (raw)**: `ApiResult[GrantOffer1, PostDynamicOffersIdGrantOfferErrorBody]`
 - **Error**: `PostDynamicOffersIdGrantOfferErrorBody` — **Case A (typed)**

@@ -21,7 +21,7 @@ class ValidateShopperIdRequest(SdkBaseModel):
 
 class ValidateShopperIdRequestDict(TypedDict):
     merchant_account: str
-    payment_method: ShopperIdPaymentMethod1 | ShopperIdPaymentMethod1Dict
+    payment_method: ShopperIdPaymentMethod1Dict
     shopper_email: NotRequired[str]
     shopper_ip: NotRequired[str]
     shopper_reference: NotRequired[str]

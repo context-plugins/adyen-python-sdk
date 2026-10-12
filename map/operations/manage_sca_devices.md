@@ -11,9 +11,9 @@ Each `###` block is one operation and assumes `sdk-map.md` is loaded: blocks omi
 - **Route**: `DELETE /registeredDevices/{id}`
 - **Auth**: `client_key` OR `basic_auth` OR `api_key_auth`
 - **Server**: `default13`
-- **Signature**: `def delete_registered_devices_id(id: str, payment_instrument_id: str, *, request_options: RequestOptionsOrDict | None = None)`
-  - required, positional: `id`, `payment_instrument_id`
-- **Params**: `id` — path · `payment_instrument_id` — query `paymentInstrumentId`
+- **Signature**: `def delete_registered_devices_id(id_: str, payment_instrument_id: str, *, request_options: RequestOptionsOrDict | None = None)`
+  - required, positional: `id_`, `payment_instrument_id`
+- **Params**: `id_` — path `id` · `payment_instrument_id` — query `paymentInstrumentId`
 - **Returns (parsed)**: `None`
 - **Returns (raw)**: `ApiResult[None, DeleteRegisteredDevicesIdErrorBody]`
 - **Error**: `DeleteRegisteredDevicesIdErrorBody` — **Case A (typed)**
@@ -69,9 +69,9 @@ Each `###` block is one operation and assumes `sdk-map.md` is loaded: blocks omi
 - **Route**: `PATCH /registeredDevices/{id}`
 - **Auth**: `client_key` OR `basic_auth` OR `api_key_auth`
 - **Server**: `default13`
-- **Signature**: `def patch_registered_devices_id(id: str, *, body: RegisterScarequest | RegisterScarequestDict | None = None, request_options: RequestOptionsOrDict | None = None)`
-  - required, positional: `id`
-- **Params**: `id` — path · `body` — JSON body
+- **Signature**: `def patch_registered_devices_id(id_: str, *, body: RegisterScarequest | RegisterScarequestDict | None = None, request_options: RequestOptionsOrDict | None = None)`
+  - required, positional: `id_`
+- **Params**: `id_` — path `id` · `body` — JSON body
 - **Returns (parsed)**: `RegisterScafinalResponse`
 - **Returns (raw)**: `ApiResult[RegisterScafinalResponse, PatchRegisteredDevicesIdErrorBody]`
 - **Error**: `PatchRegisteredDevicesIdErrorBody` — **Case A (typed)**

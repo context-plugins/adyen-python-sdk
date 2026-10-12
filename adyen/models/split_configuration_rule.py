@@ -80,4 +80,4 @@ class SplitConfigurationRuleDict(TypedDict):
     payment_method: str
     rule_id: NotRequired[str]
     shopper_interaction: ShopperInteraction11OrStr
-    split_logic: SplitConfigurationLogic2 | SplitConfigurationLogic2Dict
+    split_logic: SplitConfigurationLogic2Dict

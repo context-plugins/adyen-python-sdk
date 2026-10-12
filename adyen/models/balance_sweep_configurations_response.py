@@ -21,4 +21,4 @@ class BalanceSweepConfigurationsResponse(SdkBaseModel):
 class BalanceSweepConfigurationsResponseDict(TypedDict):
     has_next: bool
     has_previous: bool
-    sweeps: list[SweepConfigurationV2 | SweepConfigurationV2Dict]
+    sweeps: list[SweepConfigurationV2Dict]

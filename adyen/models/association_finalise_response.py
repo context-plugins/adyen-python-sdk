@@ -22,4 +22,4 @@ class AssociationFinaliseResponse(SdkBaseModel):
 class AssociationFinaliseResponseDict(TypedDict):
     device_id: NotRequired[str]
     ids: NotRequired[list[str]]
-    type_: NotRequired[Literal["PAYMENT_INSTRUMENT"]]
+    type_: Literal["PAYMENT_INSTRUMENT"]

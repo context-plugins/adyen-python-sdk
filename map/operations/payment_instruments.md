@@ -11,9 +11,9 @@ Each `###` block is one operation and assumes `sdk-map.md` is loaded: blocks omi
 - **Route**: `GET /paymentInstruments/{id}`
 - **Auth**: `client_key` OR `basic_auth` OR `api_key_auth`
 - **Server**: `default13`
-- **Signature**: `def get_payment_instruments_id(id: str, *, request_options: RequestOptionsOrDict | None = None)`
-  - required, positional: `id`
-- **Params**: `id` — path
+- **Signature**: `def get_payment_instruments_id(id_: str, *, request_options: RequestOptionsOrDict | None = None)`
+  - required, positional: `id_`
+- **Params**: `id_` — path `id`
 - **Returns (parsed)**: `PaymentInstrument1`
 - **Returns (raw)**: `ApiResult[PaymentInstrument1, GetPaymentInstrumentsIdErrorBody]`
 - **Error**: `GetPaymentInstrumentsIdErrorBody` — **Case A (typed)**
@@ -30,9 +30,9 @@ Each `###` block is one operation and assumes `sdk-map.md` is loaded: blocks omi
 - **Route**: `GET /paymentInstruments/{id}/networkTokenActivationData`
 - **Auth**: `client_key` OR `basic_auth` OR `api_key_auth`
 - **Server**: `default13`
-- **Signature**: `def get_payment_instruments_id_network_token_activation_data(id: str, *, request_options: RequestOptionsOrDict | None = None)`
-  - required, positional: `id`
-- **Params**: `id` — path
+- **Signature**: `def get_payment_instruments_id_network_token_activation_data(id_: str, *, request_options: RequestOptionsOrDict | None = None)`
+  - required, positional: `id_`
+- **Params**: `id_` — path `id`
 - **Returns (parsed)**: `NetworkTokenActivationDataResponse`
 - **Returns (raw)**: `ApiResult[NetworkTokenActivationDataResponse, GetPaymentInstrumentsIdNetworkTokenActivationDataErrorBody]`
 - **Error**: `GetPaymentInstrumentsIdNetworkTokenActivationDataErrorBody` — **Case A (typed)**
@@ -49,9 +49,9 @@ Each `###` block is one operation and assumes `sdk-map.md` is loaded: blocks omi
 - **Route**: `GET /paymentInstruments/{id}/networkTokens`
 - **Auth**: `client_key` OR `basic_auth` OR `api_key_auth`
 - **Server**: `default13`
-- **Signature**: `def get_payment_instruments_id_network_tokens(id: str, *, request_options: RequestOptionsOrDict | None = None)`
-  - required, positional: `id`
-- **Params**: `id` — path
+- **Signature**: `def get_payment_instruments_id_network_tokens(id_: str, *, request_options: RequestOptionsOrDict | None = None)`
+  - required, positional: `id_`
+- **Params**: `id_` — path `id`
 - **Returns (parsed)**: `ListNetworkTokensResponse`
 - **Returns (raw)**: `ApiResult[ListNetworkTokensResponse, GetPaymentInstrumentsIdNetworkTokensErrorBody]`
 - **Error**: `GetPaymentInstrumentsIdNetworkTokensErrorBody` — **Case A (typed)**
@@ -68,9 +68,9 @@ Each `###` block is one operation and assumes `sdk-map.md` is loaded: blocks omi
 - **Route**: `GET /paymentInstruments/{id}/reveal`
 - **Auth**: `client_key` OR `basic_auth` OR `api_key_auth`
 - **Server**: `default13`
-- **Signature**: `def get_payment_instruments_id_reveal(id: str, *, request_options: RequestOptionsOrDict | None = None)`
-  - required, positional: `id`
-- **Params**: `id` — path
+- **Signature**: `def get_payment_instruments_id_reveal(id_: str, *, request_options: RequestOptionsOrDict | None = None)`
+  - required, positional: `id_`
+- **Params**: `id_` — path `id`
 - **Returns (parsed)**: `PaymentInstrumentRevealInfo`
 - **Returns (raw)**: `ApiResult[PaymentInstrumentRevealInfo, GetPaymentInstrumentsIdRevealErrorBody]`
 - **Error**: `GetPaymentInstrumentsIdRevealErrorBody` — **Case A (typed)**
@@ -87,9 +87,9 @@ Each `###` block is one operation and assumes `sdk-map.md` is loaded: blocks omi
 - **Route**: `GET /paymentInstruments/{id}/transactionRules`
 - **Auth**: `client_key` OR `basic_auth` OR `api_key_auth`
 - **Server**: `default13`
-- **Signature**: `def get_payment_instruments_id_transaction_rules(id: str, *, request_options: RequestOptionsOrDict | None = None)`
-  - required, positional: `id`
-- **Params**: `id` — path
+- **Signature**: `def get_payment_instruments_id_transaction_rules(id_: str, *, request_options: RequestOptionsOrDict | None = None)`
+  - required, positional: `id_`
+- **Params**: `id_` — path `id`
 - **Returns (parsed)**: `TransactionRulesResponse`
 - **Returns (raw)**: `ApiResult[TransactionRulesResponse, GetPaymentInstrumentsIdTransactionRulesErrorBody]`
 - **Error**: `GetPaymentInstrumentsIdTransactionRulesErrorBody` — **Case A (typed)**
@@ -106,9 +106,9 @@ Each `###` block is one operation and assumes `sdk-map.md` is loaded: blocks omi
 - **Route**: `PATCH /paymentInstruments/{id}`
 - **Auth**: `client_key` OR `basic_auth` OR `api_key_auth`
 - **Server**: `default13`
-- **Signature**: `def patch_payment_instruments_id(id: str, *, body: PaymentInstrumentUpdateRequest | PaymentInstrumentUpdateRequestDict | None = None, request_options: RequestOptionsOrDict | None = None)`
-  - required, positional: `id`
-- **Params**: `id` — path · `body` — JSON body
+- **Signature**: `def patch_payment_instruments_id(id_: str, *, body: PaymentInstrumentUpdateRequest | PaymentInstrumentUpdateRequestDict | None = None, request_options: RequestOptionsOrDict | None = None)`
+  - required, positional: `id_`
+- **Params**: `id_` — path `id` · `body` — JSON body
 - **Returns (parsed)**: `UpdatePaymentInstrument`
 - **Returns (raw)**: `ApiResult[UpdatePaymentInstrument, PatchPaymentInstrumentsIdErrorBody]`
 - **Error**: `PatchPaymentInstrumentsIdErrorBody` — **Case A (typed)**
@@ -147,9 +147,9 @@ Each `###` block is one operation and assumes `sdk-map.md` is loaded: blocks omi
 - **Route**: `POST /paymentInstruments/{id}/networkTokenActivationData`
 - **Auth**: `client_key` OR `basic_auth` OR `api_key_auth`
 - **Server**: `default13`
-- **Signature**: `def post_payment_instruments_id_network_token_activation_data(id: str, *, body: NetworkTokenActivationDataRequest | NetworkTokenActivationDataRequestDict | None = None, request_options: RequestOptionsOrDict | None = None)`
-  - required, positional: `id`
-- **Params**: `id` — path · `body` — JSON body
+- **Signature**: `def post_payment_instruments_id_network_token_activation_data(id_: str, *, body: NetworkTokenActivationDataRequest | NetworkTokenActivationDataRequestDict | None = None, request_options: RequestOptionsOrDict | None = None)`
+  - required, positional: `id_`
+- **Params**: `id_` — path `id` · `body` — JSON body
 - **Returns (parsed)**: `NetworkTokenActivationDataResponse`
 - **Returns (raw)**: `ApiResult[NetworkTokenActivationDataResponse, PostPaymentInstrumentsIdNetworkTokenActivationDataErrorBody]`
 - **Error**: `PostPaymentInstrumentsIdNetworkTokenActivationDataErrorBody` — **Case A (typed)**

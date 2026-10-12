@@ -46,7 +46,7 @@ class StoredValueIssueResponse(SdkBaseModel):
 
 class StoredValueIssueResponseDict(TypedDict):
     auth_code: NotRequired[str]
-    current_balance: NotRequired[Amount | AmountDict]
+    current_balance: NotRequired[AmountDict]
     payment_method: NotRequired[dict[str, str]]
     psp_reference: NotRequired[str]
     refusal_reason: NotRequired[str]

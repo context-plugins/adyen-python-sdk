@@ -5,15 +5,15 @@ from typing import Literal
 from pydantic import Field
 from typing_extensions import NotRequired, TypedDict
 
-from ..core import UNSET, Optional, SdkBaseModel
-from .enums.account_type2 import AccountType2OrStr
+from ..core import SdkBaseModel
+from .enums.account_type2 import AccountType2, AccountType2OrStr
 
 
 class UslocalAccountIdentification(SdkBaseModel):
     account_number: str = Field(alias="accountNumber")
     """The bank account number, without separators or whitespace."""
 
-    account_type: Optional[AccountType2OrStr] = Field(default=UNSET, alias="accountType")
+    account_type: AccountType2OrStr = Field(default=AccountType2.CHECKING, alias="accountType")
     """The bank account type.
 
     Possible values: **checking** or **savings**. Defaults to **checking**."""
@@ -30,4 +30,4 @@ class UslocalAccountIdentificationDict(TypedDict):
     account_number: str
     account_type: NotRequired[AccountType2OrStr]
     routing_number: str
-    type_: NotRequired[Literal["usLocal"]]
+    type_: Literal["usLocal"]

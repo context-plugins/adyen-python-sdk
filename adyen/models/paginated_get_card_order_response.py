@@ -19,6 +19,6 @@ class PaginatedGetCardOrderResponse(SdkBaseModel):
 
 
 class PaginatedGetCardOrderResponseDict(TypedDict):
-    card_orders: NotRequired[list[CardOrder | CardOrderDict]]
+    card_orders: NotRequired[list[CardOrderDict]]
     has_next: bool
     has_previous: bool

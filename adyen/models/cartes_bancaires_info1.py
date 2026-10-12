@@ -22,4 +22,4 @@ class CartesBancairesInfo1(SdkBaseModel):
 
 class CartesBancairesInfo1Dict(TypedDict):
     siret: str
-    transaction_description: NotRequired[TransactionDescriptionInfo1 | TransactionDescriptionInfo1Dict]
+    transaction_description: NotRequired[TransactionDescriptionInfo1Dict]

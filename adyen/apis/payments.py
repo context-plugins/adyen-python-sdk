@@ -12,10 +12,12 @@ from ..core import (
     RawError,
     RequestOptionsOrDict,
     SecuredRawResponse,
+    async_json_decoder,
     json_body,
     json_decoder,
     param,
     raw_error_response,
+    unwrap,
 )
 from ..errors.post_authorise3_d_error import PostAuthorise3DErrorBody, post_authorise3_d_error_mapper
 from ..errors.post_authorise3_ds2_error import PostAuthorise3Ds2ErrorBody, post_authorise3_ds2_error_mapper
@@ -74,16 +76,17 @@ class Payments:
         Args:
             session_id: A unique identifier of the session.
             session_result: The ``sessionResult`` value from the Drop-in or Component.
-            request_options: Per-call overrides for this one request, such as a timeout or extra headers.
+            request_options: Per-call overrides for this one request, such as a timeout, extra headers, or its retry
+                count and statuses.
 
         Returns:
             OK - the request has succeeded.
 
         Raises:
             ApiError: If the API responds with an error status code. ``error`` is ``RawError``."""
-        return self._with_raw_response.get_sessions_session_id(
-            session_id, session_result, request_options=request_options
-        ).unwrap()
+        return unwrap(
+            self._with_raw_response.get_sessions_session_id(session_id, session_result, request_options=request_options)
+        )
 
     def post_authorise(
         self,
@@ -108,7 +111,8 @@ class Payments:
 
         Args:
             body: The request body.
-            request_options: Per-call overrides for this one request, such as a timeout or extra headers.
+            request_options: Per-call overrides for this one request, such as a timeout, extra headers, or its retry
+                count and statuses.
 
         Returns:
             OK - the request has succeeded.
@@ -118,7 +122,7 @@ class Payments:
                 required. Forbidden - insufficient permissions to process the request. Unprocessable Entity - a request
                 validation error. Internal Server Error - the server could not process the request. ``error`` is
                 ``ServiceError | RawError``."""
-        return self._with_raw_response.post_authorise(body=body, request_options=request_options).unwrap()
+        return unwrap(self._with_raw_response.post_authorise(body=body, request_options=request_options))
 
     def post_authorise3d(
         self,
@@ -142,7 +146,8 @@ class Payments:
 
         Args:
             body: The request body.
-            request_options: Per-call overrides for this one request, such as a timeout or extra headers.
+            request_options: Per-call overrides for this one request, such as a timeout, extra headers, or its retry
+                count and statuses.
 
         Returns:
             OK - the request has succeeded.
@@ -152,7 +157,7 @@ class Payments:
                 required. Forbidden - insufficient permissions to process the request. Unprocessable Entity - a request
                 validation error. Internal Server Error - the server could not process the request. ``error`` is
                 ``ServiceError | RawError``."""
-        return self._with_raw_response.post_authorise3d(body=body, request_options=request_options).unwrap()
+        return unwrap(self._with_raw_response.post_authorise3d(body=body, request_options=request_options))
 
     def post_authorise3ds2(
         self,
@@ -176,7 +181,8 @@ class Payments:
 
         Args:
             body: The request body.
-            request_options: Per-call overrides for this one request, such as a timeout or extra headers.
+            request_options: Per-call overrides for this one request, such as a timeout, extra headers, or its retry
+                count and statuses.
 
         Returns:
             OK - the request has succeeded.
@@ -186,7 +192,7 @@ class Payments:
                 required. Forbidden - insufficient permissions to process the request. Unprocessable Entity - a request
                 validation error. Internal Server Error - the server could not process the request. ``error`` is
                 ``ServiceError | RawError``."""
-        return self._with_raw_response.post_authorise3ds2(body=body, request_options=request_options).unwrap()
+        return unwrap(self._with_raw_response.post_authorise3ds2(body=body, request_options=request_options))
 
     def post_card_details(
         self,
@@ -230,16 +236,19 @@ class Payments:
         Args:
             idempotency_key: A unique identifier for the message with a maximum of 64 characters (we recommend a UUID).
             body: The request body.
-            request_options: Per-call overrides for this one request, such as a timeout or extra headers.
+            request_options: Per-call overrides for this one request, such as a timeout, extra headers, or its retry
+                count and statuses.
 
         Returns:
             OK - the request has succeeded.
 
         Raises:
             ApiError: If the API responds with an error status code. ``error`` is ``RawError``."""
-        return self._with_raw_response.post_card_details(
-            idempotency_key=idempotency_key, body=body, request_options=request_options
-        ).unwrap()
+        return unwrap(
+            self._with_raw_response.post_card_details(
+                idempotency_key=idempotency_key, body=body, request_options=request_options
+            ),
+        )
 
     def post_get_authentication_result(
         self,
@@ -251,7 +260,8 @@ class Payments:
 
         Args:
             body: The request body.
-            request_options: Per-call overrides for this one request, such as a timeout or extra headers.
+            request_options: Per-call overrides for this one request, such as a timeout, extra headers, or its retry
+                count and statuses.
 
         Returns:
             OK - the request has succeeded.
@@ -261,9 +271,9 @@ class Payments:
                 required. Forbidden - insufficient permissions to process the request. Unprocessable Entity - a request
                 validation error. Internal Server Error - the server could not process the request. ``error`` is
                 ``ServiceError | RawError``."""
-        return self._with_raw_response.post_get_authentication_result(
-            body=body, request_options=request_options
-        ).unwrap()
+        return unwrap(
+            self._with_raw_response.post_get_authentication_result(body=body, request_options=request_options)
+        )
 
     def post_payment_methods(
         self,
@@ -278,7 +288,8 @@ class Payments:
         Args:
             idempotency_key: A unique identifier for the message with a maximum of 64 characters (we recommend a UUID).
             body: The request body.
-            request_options: Per-call overrides for this one request, such as a timeout or extra headers.
+            request_options: Per-call overrides for this one request, such as a timeout, extra headers, or its retry
+                count and statuses.
 
         Returns:
             OK - the request has succeeded.
@@ -288,9 +299,11 @@ class Payments:
                 required. Forbidden - insufficient permissions to process the request. Unprocessable Entity - a request
                 validation error. Internal Server Error - the server could not process the request. ``error`` is
                 ``ServiceError | RawError``."""
-        return self._with_raw_response.post_payment_methods(
-            idempotency_key=idempotency_key, body=body, request_options=request_options
-        ).unwrap()
+        return unwrap(
+            self._with_raw_response.post_payment_methods(
+                idempotency_key=idempotency_key, body=body, request_options=request_options
+            ),
+        )
 
     def post_payments(
         self,
@@ -310,7 +323,8 @@ class Payments:
         Args:
             idempotency_key: A unique identifier for the message with a maximum of 64 characters (we recommend a UUID).
             body: The request body.
-            request_options: Per-call overrides for this one request, such as a timeout or extra headers.
+            request_options: Per-call overrides for this one request, such as a timeout, extra headers, or its retry
+                count and statuses.
 
         Returns:
             OK - the request has succeeded.
@@ -320,9 +334,11 @@ class Payments:
                 required. Forbidden - insufficient permissions to process the request. Unprocessable Entity - a request
                 validation error. Internal Server Error - the server could not process the request. ``error`` is
                 ``ServiceError | RawError``."""
-        return self._with_raw_response.post_payments(
-            idempotency_key=idempotency_key, body=body, request_options=request_options
-        ).unwrap()
+        return unwrap(
+            self._with_raw_response.post_payments(
+                idempotency_key=idempotency_key, body=body, request_options=request_options
+            ),
+        )
 
     def post_payments_cancel(
         self,
@@ -334,7 +350,8 @@ class Payments:
 
         Args:
             body: The request body.
-            request_options: Per-call overrides for this one request, such as a timeout or extra headers.
+            request_options: Per-call overrides for this one request, such as a timeout, extra headers, or its retry
+                count and statuses.
 
         Returns:
             OK - The request has succeeded.
@@ -343,7 +360,7 @@ class Payments:
             ApiError: Bad Request - The request is malformed or is not the expected format. Unprocessable Entity - A
                 request validation error. Internal Service Error - An unrecoverable error occurred while trying to
                 perform the request. ``error`` is ``DefaultErrorResponseEntity | RawError``."""
-        return self._with_raw_response.post_payments_cancel(body, request_options=request_options).unwrap()
+        return unwrap(self._with_raw_response.post_payments_cancel(body, request_options=request_options))
 
     def post_payments_confirm(
         self,
@@ -368,7 +385,8 @@ class Payments:
             body: The request body.
             www_authenticate: Header for authenticating through SCA: Contains information for an SCA challenge for A2A
                 payments.
-            request_options: Per-call overrides for this one request, such as a timeout or extra headers.
+            request_options: Per-call overrides for this one request, such as a timeout, extra headers, or its retry
+                count and statuses.
 
         Returns:
             OK - The request has succeeded.
@@ -378,9 +396,11 @@ class Payments:
                 credential used in the request is invalid or does not have the right permissions. Unprocessable Entity -
                 A request validation error. Internal Service Error - An unrecoverable error occurred while trying to
                 perform the request. ``error`` is ``DefaultErrorResponseEntity | RawError``."""
-        return self._with_raw_response.post_payments_confirm(
-            body, www_authenticate=www_authenticate, request_options=request_options
-        ).unwrap()
+        return unwrap(
+            self._with_raw_response.post_payments_confirm(
+                body, www_authenticate=www_authenticate, request_options=request_options
+            ),
+        )
 
     def post_payments_details(
         self,
@@ -396,7 +416,8 @@ class Payments:
         Args:
             idempotency_key: A unique identifier for the message with a maximum of 64 characters (we recommend a UUID).
             body: The request body.
-            request_options: Per-call overrides for this one request, such as a timeout or extra headers.
+            request_options: Per-call overrides for this one request, such as a timeout, extra headers, or its retry
+                count and statuses.
 
         Returns:
             OK - the request has succeeded.
@@ -406,9 +427,11 @@ class Payments:
                 required. Forbidden - insufficient permissions to process the request. Unprocessable Entity - a request
                 validation error. Internal Server Error - the server could not process the request. ``error`` is
                 ``ServiceError | RawError``."""
-        return self._with_raw_response.post_payments_details(
-            idempotency_key=idempotency_key, body=body, request_options=request_options
-        ).unwrap()
+        return unwrap(
+            self._with_raw_response.post_payments_details(
+                idempotency_key=idempotency_key, body=body, request_options=request_options
+            ),
+        )
 
     def post_payments_details1(
         self,
@@ -422,7 +445,8 @@ class Payments:
 
         Args:
             body: The request body.
-            request_options: Per-call overrides for this one request, such as a timeout or extra headers.
+            request_options: Per-call overrides for this one request, such as a timeout, extra headers, or its retry
+                count and statuses.
 
         Returns:
             OK - The request has succeeded.
@@ -431,7 +455,7 @@ class Payments:
             ApiError: Bad Request - The request is malformed or is not the expected format. Unprocessable Entity - A
                 request validation error. Internal Service Error - An unrecoverable error occurred while trying to
                 perform the request. ``error`` is ``DefaultErrorResponseEntity | RawError``."""
-        return self._with_raw_response.post_payments_details1(body, request_options=request_options).unwrap()
+        return unwrap(self._with_raw_response.post_payments_details1(body, request_options=request_options))
 
     def post_retrieve3ds2_result(
         self,
@@ -443,7 +467,8 @@ class Payments:
 
         Args:
             body: The request body.
-            request_options: Per-call overrides for this one request, such as a timeout or extra headers.
+            request_options: Per-call overrides for this one request, such as a timeout, extra headers, or its retry
+                count and statuses.
 
         Returns:
             OK - the request has succeeded.
@@ -453,7 +478,7 @@ class Payments:
                 required. Forbidden - insufficient permissions to process the request. Unprocessable Entity - a request
                 validation error. Internal Server Error - the server could not process the request. ``error`` is
                 ``ServiceError | RawError``."""
-        return self._with_raw_response.post_retrieve3ds2_result(body=body, request_options=request_options).unwrap()
+        return unwrap(self._with_raw_response.post_retrieve3ds2_result(body=body, request_options=request_options))
 
     def post_sessions(
         self,
@@ -479,16 +504,19 @@ class Payments:
         Args:
             idempotency_key: A unique identifier for the message with a maximum of 64 characters (we recommend a UUID).
             body: The request body.
-            request_options: Per-call overrides for this one request, such as a timeout or extra headers.
+            request_options: Per-call overrides for this one request, such as a timeout, extra headers, or its retry
+                count and statuses.
 
         Returns:
             Created - the request has been fulfilled and has resulted in one or more new resources being created.
 
         Raises:
             ApiError: If the API responds with an error status code. ``error`` is ``RawError``."""
-        return self._with_raw_response.post_sessions(
-            idempotency_key=idempotency_key, body=body, request_options=request_options
-        ).unwrap()
+        return unwrap(
+            self._with_raw_response.post_sessions(
+                idempotency_key=idempotency_key, body=body, request_options=request_options
+            ),
+        )
 
     @property
     def with_raw_response(self) -> PaymentsWithRawResponse:
@@ -507,18 +535,19 @@ class AsyncPayments:
         Args:
             session_id: A unique identifier of the session.
             session_result: The ``sessionResult`` value from the Drop-in or Component.
-            request_options: Per-call overrides for this one request, such as a timeout or extra headers.
+            request_options: Per-call overrides for this one request, such as a timeout, extra headers, or its retry
+                count and statuses.
 
         Returns:
             OK - the request has succeeded.
 
         Raises:
             ApiError: If the API responds with an error status code. ``error`` is ``RawError``."""
-        return (
+        return unwrap(
             await self._with_raw_response.get_sessions_session_id(
                 session_id, session_result, request_options=request_options
-            )
-        ).unwrap()
+            ),
+        )
 
     async def post_authorise(
         self,
@@ -543,7 +572,8 @@ class AsyncPayments:
 
         Args:
             body: The request body.
-            request_options: Per-call overrides for this one request, such as a timeout or extra headers.
+            request_options: Per-call overrides for this one request, such as a timeout, extra headers, or its retry
+                count and statuses.
 
         Returns:
             OK - the request has succeeded.
@@ -553,7 +583,7 @@ class AsyncPayments:
                 required. Forbidden - insufficient permissions to process the request. Unprocessable Entity - a request
                 validation error. Internal Server Error - the server could not process the request. ``error`` is
                 ``ServiceError | RawError``."""
-        return (await self._with_raw_response.post_authorise(body=body, request_options=request_options)).unwrap()
+        return unwrap(await self._with_raw_response.post_authorise(body=body, request_options=request_options))
 
     async def post_authorise3d(
         self,
@@ -577,7 +607,8 @@ class AsyncPayments:
 
         Args:
             body: The request body.
-            request_options: Per-call overrides for this one request, such as a timeout or extra headers.
+            request_options: Per-call overrides for this one request, such as a timeout, extra headers, or its retry
+                count and statuses.
 
         Returns:
             OK - the request has succeeded.
@@ -587,7 +618,7 @@ class AsyncPayments:
                 required. Forbidden - insufficient permissions to process the request. Unprocessable Entity - a request
                 validation error. Internal Server Error - the server could not process the request. ``error`` is
                 ``ServiceError | RawError``."""
-        return (await self._with_raw_response.post_authorise3d(body=body, request_options=request_options)).unwrap()
+        return unwrap(await self._with_raw_response.post_authorise3d(body=body, request_options=request_options))
 
     async def post_authorise3ds2(
         self,
@@ -611,7 +642,8 @@ class AsyncPayments:
 
         Args:
             body: The request body.
-            request_options: Per-call overrides for this one request, such as a timeout or extra headers.
+            request_options: Per-call overrides for this one request, such as a timeout, extra headers, or its retry
+                count and statuses.
 
         Returns:
             OK - the request has succeeded.
@@ -621,7 +653,7 @@ class AsyncPayments:
                 required. Forbidden - insufficient permissions to process the request. Unprocessable Entity - a request
                 validation error. Internal Server Error - the server could not process the request. ``error`` is
                 ``ServiceError | RawError``."""
-        return (await self._with_raw_response.post_authorise3ds2(body=body, request_options=request_options)).unwrap()
+        return unwrap(await self._with_raw_response.post_authorise3ds2(body=body, request_options=request_options))
 
     async def post_card_details(
         self,
@@ -665,18 +697,19 @@ class AsyncPayments:
         Args:
             idempotency_key: A unique identifier for the message with a maximum of 64 characters (we recommend a UUID).
             body: The request body.
-            request_options: Per-call overrides for this one request, such as a timeout or extra headers.
+            request_options: Per-call overrides for this one request, such as a timeout, extra headers, or its retry
+                count and statuses.
 
         Returns:
             OK - the request has succeeded.
 
         Raises:
             ApiError: If the API responds with an error status code. ``error`` is ``RawError``."""
-        return (
+        return unwrap(
             await self._with_raw_response.post_card_details(
                 idempotency_key=idempotency_key, body=body, request_options=request_options
-            )
-        ).unwrap()
+            ),
+        )
 
     async def post_get_authentication_result(
         self,
@@ -688,7 +721,8 @@ class AsyncPayments:
 
         Args:
             body: The request body.
-            request_options: Per-call overrides for this one request, such as a timeout or extra headers.
+            request_options: Per-call overrides for this one request, such as a timeout, extra headers, or its retry
+                count and statuses.
 
         Returns:
             OK - the request has succeeded.
@@ -698,9 +732,9 @@ class AsyncPayments:
                 required. Forbidden - insufficient permissions to process the request. Unprocessable Entity - a request
                 validation error. Internal Server Error - the server could not process the request. ``error`` is
                 ``ServiceError | RawError``."""
-        return (
+        return unwrap(
             await self._with_raw_response.post_get_authentication_result(body=body, request_options=request_options)
-        ).unwrap()
+        )
 
     async def post_payment_methods(
         self,
@@ -715,7 +749,8 @@ class AsyncPayments:
         Args:
             idempotency_key: A unique identifier for the message with a maximum of 64 characters (we recommend a UUID).
             body: The request body.
-            request_options: Per-call overrides for this one request, such as a timeout or extra headers.
+            request_options: Per-call overrides for this one request, such as a timeout, extra headers, or its retry
+                count and statuses.
 
         Returns:
             OK - the request has succeeded.
@@ -725,11 +760,11 @@ class AsyncPayments:
                 required. Forbidden - insufficient permissions to process the request. Unprocessable Entity - a request
                 validation error. Internal Server Error - the server could not process the request. ``error`` is
                 ``ServiceError | RawError``."""
-        return (
+        return unwrap(
             await self._with_raw_response.post_payment_methods(
                 idempotency_key=idempotency_key, body=body, request_options=request_options
-            )
-        ).unwrap()
+            ),
+        )
 
     async def post_payments(
         self,
@@ -749,7 +784,8 @@ class AsyncPayments:
         Args:
             idempotency_key: A unique identifier for the message with a maximum of 64 characters (we recommend a UUID).
             body: The request body.
-            request_options: Per-call overrides for this one request, such as a timeout or extra headers.
+            request_options: Per-call overrides for this one request, such as a timeout, extra headers, or its retry
+                count and statuses.
 
         Returns:
             OK - the request has succeeded.
@@ -759,11 +795,11 @@ class AsyncPayments:
                 required. Forbidden - insufficient permissions to process the request. Unprocessable Entity - a request
                 validation error. Internal Server Error - the server could not process the request. ``error`` is
                 ``ServiceError | RawError``."""
-        return (
+        return unwrap(
             await self._with_raw_response.post_payments(
                 idempotency_key=idempotency_key, body=body, request_options=request_options
-            )
-        ).unwrap()
+            ),
+        )
 
     async def post_payments_cancel(
         self,
@@ -775,7 +811,8 @@ class AsyncPayments:
 
         Args:
             body: The request body.
-            request_options: Per-call overrides for this one request, such as a timeout or extra headers.
+            request_options: Per-call overrides for this one request, such as a timeout, extra headers, or its retry
+                count and statuses.
 
         Returns:
             OK - The request has succeeded.
@@ -784,7 +821,7 @@ class AsyncPayments:
             ApiError: Bad Request - The request is malformed or is not the expected format. Unprocessable Entity - A
                 request validation error. Internal Service Error - An unrecoverable error occurred while trying to
                 perform the request. ``error`` is ``DefaultErrorResponseEntity | RawError``."""
-        return (await self._with_raw_response.post_payments_cancel(body, request_options=request_options)).unwrap()
+        return unwrap(await self._with_raw_response.post_payments_cancel(body, request_options=request_options))
 
     async def post_payments_confirm(
         self,
@@ -809,7 +846,8 @@ class AsyncPayments:
             body: The request body.
             www_authenticate: Header for authenticating through SCA: Contains information for an SCA challenge for A2A
                 payments.
-            request_options: Per-call overrides for this one request, such as a timeout or extra headers.
+            request_options: Per-call overrides for this one request, such as a timeout, extra headers, or its retry
+                count and statuses.
 
         Returns:
             OK - The request has succeeded.
@@ -819,11 +857,11 @@ class AsyncPayments:
                 credential used in the request is invalid or does not have the right permissions. Unprocessable Entity -
                 A request validation error. Internal Service Error - An unrecoverable error occurred while trying to
                 perform the request. ``error`` is ``DefaultErrorResponseEntity | RawError``."""
-        return (
+        return unwrap(
             await self._with_raw_response.post_payments_confirm(
                 body, www_authenticate=www_authenticate, request_options=request_options
-            )
-        ).unwrap()
+            ),
+        )
 
     async def post_payments_details(
         self,
@@ -839,7 +877,8 @@ class AsyncPayments:
         Args:
             idempotency_key: A unique identifier for the message with a maximum of 64 characters (we recommend a UUID).
             body: The request body.
-            request_options: Per-call overrides for this one request, such as a timeout or extra headers.
+            request_options: Per-call overrides for this one request, such as a timeout, extra headers, or its retry
+                count and statuses.
 
         Returns:
             OK - the request has succeeded.
@@ -849,11 +888,11 @@ class AsyncPayments:
                 required. Forbidden - insufficient permissions to process the request. Unprocessable Entity - a request
                 validation error. Internal Server Error - the server could not process the request. ``error`` is
                 ``ServiceError | RawError``."""
-        return (
+        return unwrap(
             await self._with_raw_response.post_payments_details(
                 idempotency_key=idempotency_key, body=body, request_options=request_options
-            )
-        ).unwrap()
+            ),
+        )
 
     async def post_payments_details1(
         self,
@@ -867,7 +906,8 @@ class AsyncPayments:
 
         Args:
             body: The request body.
-            request_options: Per-call overrides for this one request, such as a timeout or extra headers.
+            request_options: Per-call overrides for this one request, such as a timeout, extra headers, or its retry
+                count and statuses.
 
         Returns:
             OK - The request has succeeded.
@@ -876,7 +916,7 @@ class AsyncPayments:
             ApiError: Bad Request - The request is malformed or is not the expected format. Unprocessable Entity - A
                 request validation error. Internal Service Error - An unrecoverable error occurred while trying to
                 perform the request. ``error`` is ``DefaultErrorResponseEntity | RawError``."""
-        return (await self._with_raw_response.post_payments_details1(body, request_options=request_options)).unwrap()
+        return unwrap(await self._with_raw_response.post_payments_details1(body, request_options=request_options))
 
     async def post_retrieve3ds2_result(
         self,
@@ -888,7 +928,8 @@ class AsyncPayments:
 
         Args:
             body: The request body.
-            request_options: Per-call overrides for this one request, such as a timeout or extra headers.
+            request_options: Per-call overrides for this one request, such as a timeout, extra headers, or its retry
+                count and statuses.
 
         Returns:
             OK - the request has succeeded.
@@ -898,9 +939,9 @@ class AsyncPayments:
                 required. Forbidden - insufficient permissions to process the request. Unprocessable Entity - a request
                 validation error. Internal Server Error - the server could not process the request. ``error`` is
                 ``ServiceError | RawError``."""
-        return (
+        return unwrap(
             await self._with_raw_response.post_retrieve3ds2_result(body=body, request_options=request_options)
-        ).unwrap()
+        )
 
     async def post_sessions(
         self,
@@ -926,18 +967,19 @@ class AsyncPayments:
         Args:
             idempotency_key: A unique identifier for the message with a maximum of 64 characters (we recommend a UUID).
             body: The request body.
-            request_options: Per-call overrides for this one request, such as a timeout or extra headers.
+            request_options: Per-call overrides for this one request, such as a timeout, extra headers, or its retry
+                count and statuses.
 
         Returns:
             Created - the request has been fulfilled and has resulted in one or more new resources being created.
 
         Raises:
             ApiError: If the API responds with an error status code. ``error`` is ``RawError``."""
-        return (
+        return unwrap(
             await self._with_raw_response.post_sessions(
                 idempotency_key=idempotency_key, body=body, request_options=request_options
-            )
-        ).unwrap()
+            ),
+        )
 
     @property
     def with_raw_response(self) -> AsyncPaymentsWithRawResponse:
@@ -953,7 +995,8 @@ class PaymentsWithRawResponse(SecuredRawResponse[RawClient, Server, AuthSchemes]
         Args:
             session_id: A unique identifier of the session.
             session_result: The ``sessionResult`` value from the Drop-in or Component.
-            request_options: Per-call overrides for this one request, such as a timeout or extra headers.
+            request_options: Per-call overrides for this one request, such as a timeout, extra headers, or its retry
+                count and statuses.
 
         Returns:
             An ``ApiResult`` holding the deserialized response or the error body."""
@@ -991,7 +1034,8 @@ class PaymentsWithRawResponse(SecuredRawResponse[RawClient, Server, AuthSchemes]
 
         Args:
             body: The request body.
-            request_options: Per-call overrides for this one request, such as a timeout or extra headers.
+            request_options: Per-call overrides for this one request, such as a timeout, extra headers, or its retry
+                count and statuses.
 
         Returns:
             An ``ApiResult`` holding the deserialized response or the error body."""
@@ -1028,7 +1072,8 @@ class PaymentsWithRawResponse(SecuredRawResponse[RawClient, Server, AuthSchemes]
 
         Args:
             body: The request body.
-            request_options: Per-call overrides for this one request, such as a timeout or extra headers.
+            request_options: Per-call overrides for this one request, such as a timeout, extra headers, or its retry
+                count and statuses.
 
         Returns:
             An ``ApiResult`` holding the deserialized response or the error body."""
@@ -1065,7 +1110,8 @@ class PaymentsWithRawResponse(SecuredRawResponse[RawClient, Server, AuthSchemes]
 
         Args:
             body: The request body.
-            request_options: Per-call overrides for this one request, such as a timeout or extra headers.
+            request_options: Per-call overrides for this one request, such as a timeout, extra headers, or its retry
+                count and statuses.
 
         Returns:
             An ``ApiResult`` holding the deserialized response or the error body."""
@@ -1122,7 +1168,8 @@ class PaymentsWithRawResponse(SecuredRawResponse[RawClient, Server, AuthSchemes]
         Args:
             idempotency_key: A unique identifier for the message with a maximum of 64 characters (we recommend a UUID).
             body: The request body.
-            request_options: Per-call overrides for this one request, such as a timeout or extra headers.
+            request_options: Per-call overrides for this one request, such as a timeout, extra headers, or its retry
+                count and statuses.
 
         Returns:
             An ``ApiResult`` holding the deserialized response or the error body."""
@@ -1147,7 +1194,8 @@ class PaymentsWithRawResponse(SecuredRawResponse[RawClient, Server, AuthSchemes]
 
         Args:
             body: The request body.
-            request_options: Per-call overrides for this one request, such as a timeout or extra headers.
+            request_options: Per-call overrides for this one request, such as a timeout, extra headers, or its retry
+                count and statuses.
 
         Returns:
             An ``ApiResult`` holding the deserialized response or the error body."""
@@ -1175,7 +1223,8 @@ class PaymentsWithRawResponse(SecuredRawResponse[RawClient, Server, AuthSchemes]
         Args:
             idempotency_key: A unique identifier for the message with a maximum of 64 characters (we recommend a UUID).
             body: The request body.
-            request_options: Per-call overrides for this one request, such as a timeout or extra headers.
+            request_options: Per-call overrides for this one request, such as a timeout, extra headers, or its retry
+                count and statuses.
 
         Returns:
             An ``ApiResult`` holding the deserialized response or the error body."""
@@ -1208,7 +1257,8 @@ class PaymentsWithRawResponse(SecuredRawResponse[RawClient, Server, AuthSchemes]
         Args:
             idempotency_key: A unique identifier for the message with a maximum of 64 characters (we recommend a UUID).
             body: The request body.
-            request_options: Per-call overrides for this one request, such as a timeout or extra headers.
+            request_options: Per-call overrides for this one request, such as a timeout, extra headers, or its retry
+                count and statuses.
 
         Returns:
             An ``ApiResult`` holding the deserialized response or the error body."""
@@ -1233,7 +1283,8 @@ class PaymentsWithRawResponse(SecuredRawResponse[RawClient, Server, AuthSchemes]
 
         Args:
             body: The request body.
-            request_options: Per-call overrides for this one request, such as a timeout or extra headers.
+            request_options: Per-call overrides for this one request, such as a timeout, extra headers, or its retry
+                count and statuses.
 
         Returns:
             An ``ApiResult`` holding the deserialized response or the error body."""
@@ -1270,7 +1321,8 @@ class PaymentsWithRawResponse(SecuredRawResponse[RawClient, Server, AuthSchemes]
             body: The request body.
             www_authenticate: Header for authenticating through SCA: Contains information for an SCA challenge for A2A
                 payments.
-            request_options: Per-call overrides for this one request, such as a timeout or extra headers.
+            request_options: Per-call overrides for this one request, such as a timeout, extra headers, or its retry
+                count and statuses.
 
         Returns:
             An ``ApiResult`` holding the deserialized response or the error body."""
@@ -1298,7 +1350,8 @@ class PaymentsWithRawResponse(SecuredRawResponse[RawClient, Server, AuthSchemes]
         Args:
             idempotency_key: A unique identifier for the message with a maximum of 64 characters (we recommend a UUID).
             body: The request body.
-            request_options: Per-call overrides for this one request, such as a timeout or extra headers.
+            request_options: Per-call overrides for this one request, such as a timeout, extra headers, or its retry
+                count and statuses.
 
         Returns:
             An ``ApiResult`` holding the deserialized response or the error body."""
@@ -1325,7 +1378,8 @@ class PaymentsWithRawResponse(SecuredRawResponse[RawClient, Server, AuthSchemes]
 
         Args:
             body: The request body.
-            request_options: Per-call overrides for this one request, such as a timeout or extra headers.
+            request_options: Per-call overrides for this one request, such as a timeout, extra headers, or its retry
+                count and statuses.
 
         Returns:
             An ``ApiResult`` holding the deserialized response or the error body."""
@@ -1349,7 +1403,8 @@ class PaymentsWithRawResponse(SecuredRawResponse[RawClient, Server, AuthSchemes]
 
         Args:
             body: The request body.
-            request_options: Per-call overrides for this one request, such as a timeout or extra headers.
+            request_options: Per-call overrides for this one request, such as a timeout, extra headers, or its retry
+                count and statuses.
 
         Returns:
             An ``ApiResult`` holding the deserialized response or the error body."""
@@ -1388,7 +1443,8 @@ class PaymentsWithRawResponse(SecuredRawResponse[RawClient, Server, AuthSchemes]
         Args:
             idempotency_key: A unique identifier for the message with a maximum of 64 characters (we recommend a UUID).
             body: The request body.
-            request_options: Per-call overrides for this one request, such as a timeout or extra headers.
+            request_options: Per-call overrides for this one request, such as a timeout, extra headers, or its retry
+                count and statuses.
 
         Returns:
             An ``ApiResult`` holding the deserialized response or the error body."""
@@ -1413,7 +1469,8 @@ class AsyncPaymentsWithRawResponse(SecuredRawResponse[AsyncRawClient, Server, As
         Args:
             session_id: A unique identifier of the session.
             session_result: The ``sessionResult`` value from the Drop-in or Component.
-            request_options: Per-call overrides for this one request, such as a timeout or extra headers.
+            request_options: Per-call overrides for this one request, such as a timeout, extra headers, or its retry
+                count and statuses.
 
         Returns:
             An ``ApiResult`` holding the deserialized response or the error body."""
@@ -1423,7 +1480,7 @@ class AsyncPaymentsWithRawResponse(SecuredRawResponse[AsyncRawClient, Server, As
             path_params=[param[str]("sessionId", session_id)],
             query_params=[param[str]("sessionResult", session_result)],
             auth_scheme=AsyncAnySchemes(self._auth.basic_auth, self._auth.api_key_auth),
-            decoder=json_decoder[SessionResultResponse],
+            decoder=async_json_decoder[SessionResultResponse],
             error_mapper=raw_error_response,
             request_options=request_options,
         )
@@ -1451,7 +1508,8 @@ class AsyncPaymentsWithRawResponse(SecuredRawResponse[AsyncRawClient, Server, As
 
         Args:
             body: The request body.
-            request_options: Per-call overrides for this one request, such as a timeout or extra headers.
+            request_options: Per-call overrides for this one request, such as a timeout, extra headers, or its retry
+                count and statuses.
 
         Returns:
             An ``ApiResult`` holding the deserialized response or the error body."""
@@ -1461,7 +1519,7 @@ class AsyncPaymentsWithRawResponse(SecuredRawResponse[AsyncRawClient, Server, As
             headers=[param[UUID]("Idempotency-Key", uuid4())],
             body=json_body[PaymentRequest1 | PaymentRequest1Dict | None](body),
             auth_scheme=AsyncAnySchemes(self._auth.basic_auth, self._auth.api_key_auth),
-            decoder=json_decoder[PaymentResult],
+            decoder=async_json_decoder[PaymentResult],
             error_mapper=post_authorise_error_mapper,
             request_options=request_options,
         )
@@ -1488,7 +1546,8 @@ class AsyncPaymentsWithRawResponse(SecuredRawResponse[AsyncRawClient, Server, As
 
         Args:
             body: The request body.
-            request_options: Per-call overrides for this one request, such as a timeout or extra headers.
+            request_options: Per-call overrides for this one request, such as a timeout, extra headers, or its retry
+                count and statuses.
 
         Returns:
             An ``ApiResult`` holding the deserialized response or the error body."""
@@ -1498,7 +1557,7 @@ class AsyncPaymentsWithRawResponse(SecuredRawResponse[AsyncRawClient, Server, As
             headers=[param[UUID]("Idempotency-Key", uuid4())],
             body=json_body[PaymentRequest3D | PaymentRequest3DDict | None](body),
             auth_scheme=AsyncAnySchemes(self._auth.basic_auth, self._auth.api_key_auth),
-            decoder=json_decoder[PaymentResult],
+            decoder=async_json_decoder[PaymentResult],
             error_mapper=post_authorise3_d_error_mapper,
             request_options=request_options,
         )
@@ -1525,7 +1584,8 @@ class AsyncPaymentsWithRawResponse(SecuredRawResponse[AsyncRawClient, Server, As
 
         Args:
             body: The request body.
-            request_options: Per-call overrides for this one request, such as a timeout or extra headers.
+            request_options: Per-call overrides for this one request, such as a timeout, extra headers, or its retry
+                count and statuses.
 
         Returns:
             An ``ApiResult`` holding the deserialized response or the error body."""
@@ -1535,7 +1595,7 @@ class AsyncPaymentsWithRawResponse(SecuredRawResponse[AsyncRawClient, Server, As
             headers=[param[UUID]("Idempotency-Key", uuid4())],
             body=json_body[PaymentRequest3Ds2 | PaymentRequest3Ds2Dict | None](body),
             auth_scheme=AsyncAnySchemes(self._auth.basic_auth, self._auth.api_key_auth),
-            decoder=json_decoder[PaymentResult],
+            decoder=async_json_decoder[PaymentResult],
             error_mapper=post_authorise3_ds2_error_mapper,
             request_options=request_options,
         )
@@ -1582,7 +1642,8 @@ class AsyncPaymentsWithRawResponse(SecuredRawResponse[AsyncRawClient, Server, As
         Args:
             idempotency_key: A unique identifier for the message with a maximum of 64 characters (we recommend a UUID).
             body: The request body.
-            request_options: Per-call overrides for this one request, such as a timeout or extra headers.
+            request_options: Per-call overrides for this one request, such as a timeout, extra headers, or its retry
+                count and statuses.
 
         Returns:
             An ``ApiResult`` holding the deserialized response or the error body."""
@@ -1592,7 +1653,7 @@ class AsyncPaymentsWithRawResponse(SecuredRawResponse[AsyncRawClient, Server, As
             headers=[param[str | None]("Idempotency-Key", idempotency_key)],
             body=json_body[CardDetailsRequest | CardDetailsRequestDict | None](body),
             auth_scheme=AsyncAnySchemes(self._auth.basic_auth, self._auth.api_key_auth),
-            decoder=json_decoder[CardDetailsResponse],
+            decoder=async_json_decoder[CardDetailsResponse],
             error_mapper=raw_error_response,
             request_options=request_options,
         )
@@ -1607,7 +1668,8 @@ class AsyncPaymentsWithRawResponse(SecuredRawResponse[AsyncRawClient, Server, As
 
         Args:
             body: The request body.
-            request_options: Per-call overrides for this one request, such as a timeout or extra headers.
+            request_options: Per-call overrides for this one request, such as a timeout, extra headers, or its retry
+                count and statuses.
 
         Returns:
             An ``ApiResult`` holding the deserialized response or the error body."""
@@ -1617,7 +1679,7 @@ class AsyncPaymentsWithRawResponse(SecuredRawResponse[AsyncRawClient, Server, As
             headers=[param[UUID]("Idempotency-Key", uuid4())],
             body=json_body[AuthenticationResultRequest | AuthenticationResultRequestDict | None](body),
             auth_scheme=AsyncAnySchemes(self._auth.basic_auth, self._auth.api_key_auth),
-            decoder=json_decoder[AuthenticationResultResponse],
+            decoder=async_json_decoder[AuthenticationResultResponse],
             error_mapper=post_get_authentication_result_error_mapper,
             request_options=request_options,
         )
@@ -1635,7 +1697,8 @@ class AsyncPaymentsWithRawResponse(SecuredRawResponse[AsyncRawClient, Server, As
         Args:
             idempotency_key: A unique identifier for the message with a maximum of 64 characters (we recommend a UUID).
             body: The request body.
-            request_options: Per-call overrides for this one request, such as a timeout or extra headers.
+            request_options: Per-call overrides for this one request, such as a timeout, extra headers, or its retry
+                count and statuses.
 
         Returns:
             An ``ApiResult`` holding the deserialized response or the error body."""
@@ -1645,7 +1708,7 @@ class AsyncPaymentsWithRawResponse(SecuredRawResponse[AsyncRawClient, Server, As
             headers=[param[str | None]("Idempotency-Key", idempotency_key)],
             body=json_body[PaymentMethodsRequest | PaymentMethodsRequestDict | None](body),
             auth_scheme=AsyncAnySchemes(self._auth.basic_auth, self._auth.api_key_auth),
-            decoder=json_decoder[PaymentMethodsResponse],
+            decoder=async_json_decoder[PaymentMethodsResponse],
             error_mapper=post_payment_methods_error_mapper,
             request_options=request_options,
         )
@@ -1668,7 +1731,8 @@ class AsyncPaymentsWithRawResponse(SecuredRawResponse[AsyncRawClient, Server, As
         Args:
             idempotency_key: A unique identifier for the message with a maximum of 64 characters (we recommend a UUID).
             body: The request body.
-            request_options: Per-call overrides for this one request, such as a timeout or extra headers.
+            request_options: Per-call overrides for this one request, such as a timeout, extra headers, or its retry
+                count and statuses.
 
         Returns:
             An ``ApiResult`` holding the deserialized response or the error body."""
@@ -1678,7 +1742,7 @@ class AsyncPaymentsWithRawResponse(SecuredRawResponse[AsyncRawClient, Server, As
             headers=[param[str | None]("Idempotency-Key", idempotency_key)],
             body=json_body[PaymentRequest | PaymentRequestDict | None](body),
             auth_scheme=AsyncAnySchemes(self._auth.basic_auth, self._auth.api_key_auth),
-            decoder=json_decoder[PaymentResponse],
+            decoder=async_json_decoder[PaymentResponse],
             error_mapper=post_payments_error_mapper,
             request_options=request_options,
         )
@@ -1693,7 +1757,8 @@ class AsyncPaymentsWithRawResponse(SecuredRawResponse[AsyncRawClient, Server, As
 
         Args:
             body: The request body.
-            request_options: Per-call overrides for this one request, such as a timeout or extra headers.
+            request_options: Per-call overrides for this one request, such as a timeout, extra headers, or its retry
+                count and statuses.
 
         Returns:
             An ``ApiResult`` holding the deserialized response or the error body."""
@@ -1702,7 +1767,7 @@ class AsyncPaymentsWithRawResponse(SecuredRawResponse[AsyncRawClient, Server, As
             url_template=self._server.default20("/payments/cancel"),
             headers=[param[UUID]("Idempotency-Key", uuid4())],
             body=json_body[CancelPaymentRequest | CancelPaymentRequestDict](body),
-            decoder=json_decoder[CancelPaymentResponse],
+            decoder=async_json_decoder[CancelPaymentResponse],
             error_mapper=post_payments_cancel_error_mapper,
             request_options=request_options,
         )
@@ -1730,7 +1795,8 @@ class AsyncPaymentsWithRawResponse(SecuredRawResponse[AsyncRawClient, Server, As
             body: The request body.
             www_authenticate: Header for authenticating through SCA: Contains information for an SCA challenge for A2A
                 payments.
-            request_options: Per-call overrides for this one request, such as a timeout or extra headers.
+            request_options: Per-call overrides for this one request, such as a timeout, extra headers, or its retry
+                count and statuses.
 
         Returns:
             An ``ApiResult`` holding the deserialized response or the error body."""
@@ -1739,7 +1805,7 @@ class AsyncPaymentsWithRawResponse(SecuredRawResponse[AsyncRawClient, Server, As
             url_template=self._server.default20("/payments/confirm"),
             headers=[param[str | None]("WWW-Authenticate", www_authenticate), param[UUID]("Idempotency-Key", uuid4())],
             body=json_body[ConfirmPaymentRequest | ConfirmPaymentRequestDict](body),
-            decoder=json_decoder[ConfirmPaymentResponse],
+            decoder=async_json_decoder[ConfirmPaymentResponse],
             error_mapper=post_payments_confirm_error_mapper,
             request_options=request_options,
         )
@@ -1758,7 +1824,8 @@ class AsyncPaymentsWithRawResponse(SecuredRawResponse[AsyncRawClient, Server, As
         Args:
             idempotency_key: A unique identifier for the message with a maximum of 64 characters (we recommend a UUID).
             body: The request body.
-            request_options: Per-call overrides for this one request, such as a timeout or extra headers.
+            request_options: Per-call overrides for this one request, such as a timeout, extra headers, or its retry
+                count and statuses.
 
         Returns:
             An ``ApiResult`` holding the deserialized response or the error body."""
@@ -1768,7 +1835,7 @@ class AsyncPaymentsWithRawResponse(SecuredRawResponse[AsyncRawClient, Server, As
             headers=[param[str | None]("Idempotency-Key", idempotency_key)],
             body=json_body[PaymentDetailsRequest | PaymentDetailsRequestDict | None](body),
             auth_scheme=AsyncAnySchemes(self._auth.basic_auth, self._auth.api_key_auth),
-            decoder=json_decoder[PaymentDetailsResponse],
+            decoder=async_json_decoder[PaymentDetailsResponse],
             error_mapper=post_payments_details_error_mapper,
             request_options=request_options,
         )
@@ -1785,7 +1852,8 @@ class AsyncPaymentsWithRawResponse(SecuredRawResponse[AsyncRawClient, Server, As
 
         Args:
             body: The request body.
-            request_options: Per-call overrides for this one request, such as a timeout or extra headers.
+            request_options: Per-call overrides for this one request, such as a timeout, extra headers, or its retry
+                count and statuses.
 
         Returns:
             An ``ApiResult`` holding the deserialized response or the error body."""
@@ -1794,7 +1862,7 @@ class AsyncPaymentsWithRawResponse(SecuredRawResponse[AsyncRawClient, Server, As
             url_template=self._server.default20("/payments/details"),
             headers=[param[UUID]("Idempotency-Key", uuid4())],
             body=json_body[IdealPaymentDetailsRequest | IdealPaymentDetailsRequestDict](body),
-            decoder=json_decoder[PaymentDetailsResponse1],
+            decoder=async_json_decoder[PaymentDetailsResponse1],
             error_mapper=post_payments_details1_error_mapper,
             request_options=request_options,
         )
@@ -1809,7 +1877,8 @@ class AsyncPaymentsWithRawResponse(SecuredRawResponse[AsyncRawClient, Server, As
 
         Args:
             body: The request body.
-            request_options: Per-call overrides for this one request, such as a timeout or extra headers.
+            request_options: Per-call overrides for this one request, such as a timeout, extra headers, or its retry
+                count and statuses.
 
         Returns:
             An ``ApiResult`` holding the deserialized response or the error body."""
@@ -1819,7 +1888,7 @@ class AsyncPaymentsWithRawResponse(SecuredRawResponse[AsyncRawClient, Server, As
             headers=[param[UUID]("Idempotency-Key", uuid4())],
             body=json_body[ThreeDs2ResultRequest | ThreeDs2ResultRequestDict | None](body),
             auth_scheme=AsyncAnySchemes(self._auth.basic_auth, self._auth.api_key_auth),
-            decoder=json_decoder[ThreeDs2ResultResponse],
+            decoder=async_json_decoder[ThreeDs2ResultResponse],
             error_mapper=post_retrieve3_ds2_result_error_mapper,
             request_options=request_options,
         )
@@ -1848,7 +1917,8 @@ class AsyncPaymentsWithRawResponse(SecuredRawResponse[AsyncRawClient, Server, As
         Args:
             idempotency_key: A unique identifier for the message with a maximum of 64 characters (we recommend a UUID).
             body: The request body.
-            request_options: Per-call overrides for this one request, such as a timeout or extra headers.
+            request_options: Per-call overrides for this one request, such as a timeout, extra headers, or its retry
+                count and statuses.
 
         Returns:
             An ``ApiResult`` holding the deserialized response or the error body."""
@@ -1858,7 +1928,7 @@ class AsyncPaymentsWithRawResponse(SecuredRawResponse[AsyncRawClient, Server, As
             headers=[param[str | None]("Idempotency-Key", idempotency_key)],
             body=json_body[CreateCheckoutSessionRequest | CreateCheckoutSessionRequestDict | None](body),
             auth_scheme=AsyncAnySchemes(self._auth.basic_auth, self._auth.api_key_auth),
-            decoder=json_decoder[CreateCheckoutSessionResponse],
+            decoder=async_json_decoder[CreateCheckoutSessionResponse],
             error_mapper=raw_error_response,
             request_options=request_options,
         )

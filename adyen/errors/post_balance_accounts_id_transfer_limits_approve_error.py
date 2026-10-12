@@ -3,7 +3,7 @@ from __future__ import annotations
 from dataclasses import dataclass
 from typing import Final, TypeAlias
 
-from ..core import ErrorMapper, HttpResponse, RawError, decode_json
+from ..core import ErrorMapper, RawError, decode_json
 from ..models.default_error_response_entity import DefaultErrorResponseEntity
 
 PostBalanceAccountsIdTransferLimitsApproveErrorBody: TypeAlias = DefaultErrorResponseEntity | RawError
@@ -11,12 +11,12 @@ PostBalanceAccountsIdTransferLimitsApproveErrorBody: TypeAlias = DefaultErrorRes
 
 @dataclass(frozen=True, slots=True)
 class _PostBalanceAccountsIdTransferLimitsApproveError:
-    def map(self, response: HttpResponse) -> PostBalanceAccountsIdTransferLimitsApproveErrorBody:
-        match response.status_code:
+    def map(self, status_code: int, content: bytes) -> PostBalanceAccountsIdTransferLimitsApproveErrorBody:
+        match status_code:
             case 401 | 404 | 422:
-                return decode_json[DefaultErrorResponseEntity](response)
+                return decode_json[DefaultErrorResponseEntity](content)
             case _:
-                return RawError(response)
+                return RawError(status_code, content)
 
 
 post_balance_accounts_id_transfer_limits_approve_error_mapper: Final[

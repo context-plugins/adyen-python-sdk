@@ -24,7 +24,7 @@ class LoginRequest2(SdkBaseModel):
     """Information related to the software and hardware feature of the Sale Terminal. Present if the login involve a
     Sale Terminal."""
 
-    training_mode_flag: Optional[bool] = Field(default=UNSET, alias="TrainingModeFlag")
+    training_mode_flag: bool = Field(default=False, alias="TrainingModeFlag")
     """Training mode. This flag indicates to the POI that the entire session will be not used to make real transaction,
     but is used for test of system or operator training."""
 
@@ -62,8 +62,8 @@ class LoginRequest2(SdkBaseModel):
 
 class LoginRequest2Dict(TypedDict):
     date_time: RFC3339DateTime
-    sale_software: SaleSoftware1 | SaleSoftware1Dict
-    sale_terminal_data: NotRequired[SaleTerminalData2 | SaleTerminalData2Dict]
+    sale_software: SaleSoftware1Dict
+    sale_terminal_data: NotRequired[SaleTerminalData2Dict]
     training_mode_flag: NotRequired[bool]
     operator_language: str
     operator_id: NotRequired[str]

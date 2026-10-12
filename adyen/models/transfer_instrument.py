@@ -39,10 +39,10 @@ class TransferInstrument(SdkBaseModel):
 
 
 class TransferInstrumentDict(TypedDict):
-    bank_account: BankAccountInfo1 | BankAccountInfo1Dict
-    capabilities: NotRequired[dict[str, SupportingEntityCapability | SupportingEntityCapabilityDict]]
-    document_details: NotRequired[list[DocumentReference | DocumentReferenceDict]]
+    bank_account: BankAccountInfo1Dict
+    capabilities: NotRequired[dict[str, SupportingEntityCapabilityDict]]
+    document_details: NotRequired[list[DocumentReferenceDict]]
     id: str
     legal_entity_id: str
-    problems: NotRequired[list[CapabilityProblem1 | CapabilityProblem1Dict]]
+    problems: NotRequired[list[CapabilityProblem1Dict]]
     type_: Type221OrStr

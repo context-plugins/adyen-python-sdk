@@ -20,4 +20,4 @@ class UsinternationalAchAddressRequirement(SdkBaseModel):
 
 class UsinternationalAchAddressRequirementDict(TypedDict):
     description: NotRequired[str]
-    type_: NotRequired[Literal["usInternationalAchAddressRequirement"]]
+    type_: Literal["usInternationalAchAddressRequirement"]

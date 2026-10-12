@@ -34,6 +34,6 @@ class MobileData1Dict(TypedDict):
     mobile_country_code: NotRequired[int]
     mobile_network_code: NotRequired[int]
     masked_msisdn: NotRequired[int]
-    geolocation: NotRequired[Geolocation1 | Geolocation1Dict]
+    geolocation: NotRequired[Geolocation1Dict]
     protected_mobile_data: NotRequired[str]
-    sensitive_mobile_data: NotRequired[SensitiveMobileData1 | SensitiveMobileData1Dict]
+    sensitive_mobile_data: NotRequired[SensitiveMobileData1Dict]

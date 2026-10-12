@@ -20,4 +20,4 @@ class CounterpartyBankRestriction1(SdkBaseModel):
 
 class CounterpartyBankRestriction1Dict(TypedDict):
     operation: str
-    value: NotRequired[list[BankIdentification | BankIdentificationDict]]
+    value: NotRequired[list[BankIdentificationDict]]

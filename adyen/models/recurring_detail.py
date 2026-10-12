@@ -79,9 +79,9 @@ class RecurringDetailDict(TypedDict):
     additional_data: NotRequired[dict[str, str]]
     alias: NotRequired[str]
     alias_type: NotRequired[str]
-    bank: NotRequired[BankAccount | BankAccountDict]
-    billing_address: NotRequired[Address | AddressDict]
-    card: NotRequired[Card | CardDict]
+    bank: NotRequired[BankAccountDict]
+    billing_address: NotRequired[AddressDict]
+    card: NotRequired[CardDict]
     contract_types: NotRequired[list[str]]
     creation_date: NotRequired[RFC3339DateTime]
     first_psp_reference: NotRequired[str]
@@ -89,8 +89,8 @@ class RecurringDetailDict(TypedDict):
     network_tx_reference: NotRequired[str]
     payment_method_variant: NotRequired[str]
     recurring_detail_reference: str
-    shopper_name: NotRequired[Name | NameDict]
+    shopper_name: NotRequired[NameDict]
     social_security_number: NotRequired[str]
-    token_details: NotRequired[TokenDetails | TokenDetailsDict]
+    token_details: NotRequired[TokenDetailsDict]
     transaction_link_id: NotRequired[str]
     variant: str

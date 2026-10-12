@@ -1,6 +1,16 @@
 from __future__ import annotations
 
-from ..core import ApiResult, AsyncRawClient, BaseRawResponse, RawClient, RequestOptionsOrDict, json_decoder, param
+from ..core import (
+    ApiResult,
+    AsyncRawClient,
+    BaseRawResponse,
+    RawClient,
+    RequestOptionsOrDict,
+    async_json_decoder,
+    json_decoder,
+    param,
+    unwrap,
+)
 from ..errors.get_balance_overview_companies_company_account_code_balances_error import (
     GetBalanceOverviewCompaniesCompanyAccountCodeBalancesErrorBody,
     get_balance_overview_companies_company_account_code_balances_error_mapper,
@@ -42,7 +52,8 @@ class BalancesOverview:
         Args:
             company_account_code: The unique identifier of your company account.
             currency: The currency for which you want a balances overview.
-            request_options: Per-call overrides for this one request, such as a timeout or extra headers.
+            request_options: Per-call overrides for this one request, such as a timeout, extra headers, or its retry
+                count and statuses.
 
         Returns:
             OK - The request has succeeded.
@@ -51,9 +62,11 @@ class BalancesOverview:
             ApiError: Unauthorized - Authentication required. Forbidden - insufficient permissions to process the
                 request. Unprocessable Content - A request validation error. ``error`` is ``DefaultErrorResponseEntity |
                 RawError``."""
-        return self._with_raw_response.get_balance_overview_companies_company_account_code_balances(
-            company_account_code, currency, request_options=request_options
-        ).unwrap()
+        return unwrap(
+            self._with_raw_response.get_balance_overview_companies_company_account_code_balances(
+                company_account_code, currency, request_options=request_options
+            ),
+        )
 
     def get_balance_overview_merchants_merchant_account_code_balances(
         self, merchant_account_code: str, currency: str, *, request_options: RequestOptionsOrDict | None = None
@@ -79,7 +92,8 @@ class BalancesOverview:
         Args:
             merchant_account_code: The unique identifier of your merchant account.
             currency: The currency for which you want a balances overview.
-            request_options: Per-call overrides for this one request, such as a timeout or extra headers.
+            request_options: Per-call overrides for this one request, such as a timeout, extra headers, or its retry
+                count and statuses.
 
         Returns:
             OK - The request has succeeded.
@@ -88,9 +102,11 @@ class BalancesOverview:
             ApiError: Unauthorized - Authentication required. Forbidden - insufficient permissions to process the
                 request. Unprocessable Content - A request validation error. ``error`` is ``DefaultErrorResponseEntity |
                 RawError``."""
-        return self._with_raw_response.get_balance_overview_merchants_merchant_account_code_balances(
-            merchant_account_code, currency, request_options=request_options
-        ).unwrap()
+        return unwrap(
+            self._with_raw_response.get_balance_overview_merchants_merchant_account_code_balances(
+                merchant_account_code, currency, request_options=request_options
+            ),
+        )
 
     @property
     def with_raw_response(self) -> BalancesOverviewWithRawResponse:
@@ -125,7 +141,8 @@ class AsyncBalancesOverview:
         Args:
             company_account_code: The unique identifier of your company account.
             currency: The currency for which you want a balances overview.
-            request_options: Per-call overrides for this one request, such as a timeout or extra headers.
+            request_options: Per-call overrides for this one request, such as a timeout, extra headers, or its retry
+                count and statuses.
 
         Returns:
             OK - The request has succeeded.
@@ -134,11 +151,11 @@ class AsyncBalancesOverview:
             ApiError: Unauthorized - Authentication required. Forbidden - insufficient permissions to process the
                 request. Unprocessable Content - A request validation error. ``error`` is ``DefaultErrorResponseEntity |
                 RawError``."""
-        return (
+        return unwrap(
             await self._with_raw_response.get_balance_overview_companies_company_account_code_balances(
                 company_account_code, currency, request_options=request_options
-            )
-        ).unwrap()
+            ),
+        )
 
     async def get_balance_overview_merchants_merchant_account_code_balances(
         self, merchant_account_code: str, currency: str, *, request_options: RequestOptionsOrDict | None = None
@@ -164,7 +181,8 @@ class AsyncBalancesOverview:
         Args:
             merchant_account_code: The unique identifier of your merchant account.
             currency: The currency for which you want a balances overview.
-            request_options: Per-call overrides for this one request, such as a timeout or extra headers.
+            request_options: Per-call overrides for this one request, such as a timeout, extra headers, or its retry
+                count and statuses.
 
         Returns:
             OK - The request has succeeded.
@@ -173,11 +191,11 @@ class AsyncBalancesOverview:
             ApiError: Unauthorized - Authentication required. Forbidden - insufficient permissions to process the
                 request. Unprocessable Content - A request validation error. ``error`` is ``DefaultErrorResponseEntity |
                 RawError``."""
-        return (
+        return unwrap(
             await self._with_raw_response.get_balance_overview_merchants_merchant_account_code_balances(
                 merchant_account_code, currency, request_options=request_options
-            )
-        ).unwrap()
+            ),
+        )
 
     @property
     def with_raw_response(self) -> AsyncBalancesOverviewWithRawResponse:
@@ -209,7 +227,8 @@ class BalancesOverviewWithRawResponse(BaseRawResponse[RawClient, Server]):
         Args:
             company_account_code: The unique identifier of your company account.
             currency: The currency for which you want a balances overview.
-            request_options: Per-call overrides for this one request, such as a timeout or extra headers.
+            request_options: Per-call overrides for this one request, such as a timeout, extra headers, or its retry
+                count and statuses.
 
         Returns:
             An ``ApiResult`` holding the deserialized response or the error body."""
@@ -247,7 +266,8 @@ class BalancesOverviewWithRawResponse(BaseRawResponse[RawClient, Server]):
         Args:
             merchant_account_code: The unique identifier of your merchant account.
             currency: The currency for which you want a balances overview.
-            request_options: Per-call overrides for this one request, such as a timeout or extra headers.
+            request_options: Per-call overrides for this one request, such as a timeout, extra headers, or its retry
+                count and statuses.
 
         Returns:
             An ``ApiResult`` holding the deserialized response or the error body."""
@@ -287,7 +307,8 @@ class AsyncBalancesOverviewWithRawResponse(BaseRawResponse[AsyncRawClient, Serve
         Args:
             company_account_code: The unique identifier of your company account.
             currency: The currency for which you want a balances overview.
-            request_options: Per-call overrides for this one request, such as a timeout or extra headers.
+            request_options: Per-call overrides for this one request, such as a timeout, extra headers, or its retry
+                count and statuses.
 
         Returns:
             An ``ApiResult`` holding the deserialized response or the error body."""
@@ -296,7 +317,7 @@ class AsyncBalancesOverviewWithRawResponse(BaseRawResponse[AsyncRawClient, Serve
             url_template=self._server.default11("/balanceOverview/companies/{companyAccountCode}/balances"),
             path_params=[param[str]("companyAccountCode", company_account_code)],
             query_params=[param[str]("currency", currency)],
-            decoder=json_decoder[CompanyBalances],
+            decoder=async_json_decoder[CompanyBalances],
             error_mapper=get_balance_overview_companies_company_account_code_balances_error_mapper,
             request_options=request_options,
         )
@@ -325,7 +346,8 @@ class AsyncBalancesOverviewWithRawResponse(BaseRawResponse[AsyncRawClient, Serve
         Args:
             merchant_account_code: The unique identifier of your merchant account.
             currency: The currency for which you want a balances overview.
-            request_options: Per-call overrides for this one request, such as a timeout or extra headers.
+            request_options: Per-call overrides for this one request, such as a timeout, extra headers, or its retry
+                count and statuses.
 
         Returns:
             An ``ApiResult`` holding the deserialized response or the error body."""
@@ -334,7 +356,7 @@ class AsyncBalancesOverviewWithRawResponse(BaseRawResponse[AsyncRawClient, Serve
             url_template=self._server.default11("/balanceOverview/merchants/{merchantAccountCode}/balances"),
             path_params=[param[str]("merchantAccountCode", merchant_account_code)],
             query_params=[param[str]("currency", currency)],
-            decoder=json_decoder[MerchantBalance],
+            decoder=async_json_decoder[MerchantBalance],
             error_mapper=get_balance_overview_merchants_merchant_account_code_balances_error_mapper,
             request_options=request_options,
         )

@@ -45,12 +45,12 @@ class CheckoutForwardRequest(SdkBaseModel):
 
 
 class CheckoutForwardRequestDict(TypedDict):
-    amount: NotRequired[Amount11 | Amount11Dict]
+    amount: NotRequired[Amount11Dict]
     base_url: str
     merchant_account: str
     merchant_reference: NotRequired[str]
-    options: NotRequired[CheckoutForwardRequestOptions2 | CheckoutForwardRequestOptions2Dict]
-    payment_method: NotRequired[CheckoutForwardRequestCard2 | CheckoutForwardRequestCard2Dict]
-    request: CheckoutOutgoingForwardRequest2 | CheckoutOutgoingForwardRequest2Dict
+    options: NotRequired[CheckoutForwardRequestOptions2Dict]
+    payment_method: NotRequired[CheckoutForwardRequestCard2Dict]
+    request: CheckoutOutgoingForwardRequest2Dict
     shopper_reference: str
     stored_payment_method_id: NotRequired[str]

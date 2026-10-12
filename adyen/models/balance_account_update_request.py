@@ -48,7 +48,7 @@ class BalanceAccountUpdateRequestDict(TypedDict):
     account_holder_id: NotRequired[str]
     description: NotRequired[str]
     metadata: NotRequired[dict[str, str]]
-    platform_payment_configuration: NotRequired[PlatformPaymentConfiguration1 | PlatformPaymentConfiguration1Dict]
+    platform_payment_configuration: NotRequired[PlatformPaymentConfiguration1Dict]
     reference: NotRequired[str]
     status: NotRequired[Status43OrStr]
     time_zone: NotRequired[str]

@@ -20,4 +20,4 @@ class CupResponseInfo1(SdkBaseModel):
 
 
 class CupResponseInfo1Dict(TypedDict):
-    transaction_description: NotRequired[TransactionDescriptionResponseInfo1 | TransactionDescriptionResponseInfo1Dict]
+    transaction_description: NotRequired[TransactionDescriptionResponseInfo1Dict]

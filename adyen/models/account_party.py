@@ -16,5 +16,5 @@ class AccountParty(SdkBaseModel):
 
 
 class AccountPartyDict(TypedDict):
-    identity: Identity2 | Identity2Dict
+    identity: Identity2Dict
     role: PartyRole2OrStr

@@ -111,5 +111,5 @@ class BalancePlatformConfigurationDict(TypedDict):
     retained_amount: NotRequired[int]
     updated_at: NotRequired[RFC3339DateTime]
     user_settlement_delay: int
-    user_settlement_time: LocalTime2 | LocalTime2Dict
+    user_settlement_time: LocalTime2Dict
     user_settlement_time_zone: str

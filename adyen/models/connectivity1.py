@@ -26,4 +26,4 @@ class Connectivity1(SdkBaseModel):
 
 class Connectivity1Dict(TypedDict):
     simcard_status: NotRequired[SimcardStatusOrStr]
-    terminal_ip_address_url: NotRequired[EventUrl3 | EventUrl3Dict]
+    terminal_ip_address_url: NotRequired[EventUrl3Dict]

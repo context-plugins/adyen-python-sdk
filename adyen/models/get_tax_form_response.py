@@ -27,6 +27,6 @@ class GetTaxFormResponse(SdkBaseModel):
 class GetTaxFormResponseDict(TypedDict):
     content: NotRequired[str]
     content_type: NotRequired[str]
-    invalid_fields: NotRequired[list[ErrorFieldType | ErrorFieldTypeDict]]
+    invalid_fields: NotRequired[list[ErrorFieldTypeDict]]
     psp_reference: NotRequired[str]
     result_code: NotRequired[str]

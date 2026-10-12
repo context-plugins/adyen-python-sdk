@@ -25,5 +25,5 @@ class CheckoutAwaitAction(SdkBaseModel):
 class CheckoutAwaitActionDict(TypedDict):
     payment_data: NotRequired[str]
     payment_method_type: NotRequired[str]
-    type_: NotRequired[Literal["await"]]
+    type_: Literal["await"]
     url: NotRequired[str]

@@ -10,8 +10,10 @@ from ..core import (
     RequestOptionsOrDict,
     RFC3339DateTime,
     SecuredRawResponse,
+    async_json_decoder,
     json_decoder,
     param,
+    unwrap,
 )
 from ..errors.get_cardorders_error import GetCardordersErrorBody, get_cardorders_error_mapper
 from ..errors.get_cardorders_id_items_error import GetCardordersIdItemsErrorBody, get_cardorders_id_items_error_mapper
@@ -27,7 +29,7 @@ class CardOrders:
     def get_cardorders(
         self,
         *,
-        id: str | None = None,
+        id_: str | None = None,
         card_manufacturing_profile_id: str | None = None,
         status: str | None = None,
         tx_variant_code: str | None = None,
@@ -43,7 +45,7 @@ class CardOrders:
         """Returns a paginated list of card orders.
 
         Args:
-            id: The unique identifier of the card order.
+            id_: The unique identifier of the card order.
             card_manufacturing_profile_id: The unique identifier of the card manufacturer profile.
             status: The status of the card order.
             tx_variant_code: The unique code of the card manufacturer profile. Possible values: **mcmaestro**, **mc**,
@@ -61,7 +63,8 @@ class CardOrders:
                 orders that starts at the specified offset. **Default:** 0, which means that the response contains all
                 the elements in the list of card orders.
             limit: The number of card orders returned per page. **Default:** 10.
-            request_options: Per-call overrides for this one request, such as a timeout or extra headers.
+            request_options: Per-call overrides for this one request, such as a timeout, extra headers, or its retry
+                count and statuses.
 
         Returns:
             OK - the request has succeeded.
@@ -70,24 +73,26 @@ class CardOrders:
             ApiError: Unauthorized - authentication required. Forbidden - insufficient permissions to process the
                 request. Unprocessable Entity - a request validation error. Internal Server Error - the server could not
                 process the request. ``error`` is ``RestServiceError | RawError``."""
-        return self._with_raw_response.get_cardorders(
-            id=id,
-            card_manufacturing_profile_id=card_manufacturing_profile_id,
-            status=status,
-            tx_variant_code=tx_variant_code,
-            created_since=created_since,
-            created_until=created_until,
-            locked_since=locked_since,
-            locked_until=locked_until,
-            service_center=service_center,
-            offset=offset,
-            limit=limit,
-            request_options=request_options,
-        ).unwrap()
+        return unwrap(
+            self._with_raw_response.get_cardorders(
+                id_=id_,
+                card_manufacturing_profile_id=card_manufacturing_profile_id,
+                status=status,
+                tx_variant_code=tx_variant_code,
+                created_since=created_since,
+                created_until=created_until,
+                locked_since=locked_since,
+                locked_until=locked_until,
+                service_center=service_center,
+                offset=offset,
+                limit=limit,
+                request_options=request_options,
+            ),
+        )
 
     def get_cardorders_id_items(
         self,
-        id: str,
+        id_: str,
         *,
         offset: int | None = None,
         limit: int | None = None,
@@ -96,12 +101,13 @@ class CardOrders:
         """Returns the item list of a specific card order.
 
         Args:
-            id: The unique identifier of the card order.
+            id_: The unique identifier of the card order.
             offset: Specifies the position of an element in a list of card orders. The response includes a list of card
                 order items that starts at the specified offset. **Default:** 0, which means that the response contains
                 all the elements in the list of card order items.
             limit: The number of card order items returned per page. **Default:** 10.
-            request_options: Per-call overrides for this one request, such as a timeout or extra headers.
+            request_options: Per-call overrides for this one request, such as a timeout, extra headers, or its retry
+                count and statuses.
 
         Returns:
             OK - the request has succeeded.
@@ -110,9 +116,11 @@ class CardOrders:
             ApiError: Unauthorized - authentication required. Forbidden - insufficient permissions to process the
                 request. Unprocessable Entity - a request validation error. Internal Server Error - the server could not
                 process the request. ``error`` is ``RestServiceError | RawError``."""
-        return self._with_raw_response.get_cardorders_id_items(
-            id, offset=offset, limit=limit, request_options=request_options
-        ).unwrap()
+        return unwrap(
+            self._with_raw_response.get_cardorders_id_items(
+                id_, offset=offset, limit=limit, request_options=request_options
+            ),
+        )
 
     @property
     def with_raw_response(self) -> CardOrdersWithRawResponse:
@@ -126,7 +134,7 @@ class AsyncCardOrders:
     async def get_cardorders(
         self,
         *,
-        id: str | None = None,
+        id_: str | None = None,
         card_manufacturing_profile_id: str | None = None,
         status: str | None = None,
         tx_variant_code: str | None = None,
@@ -142,7 +150,7 @@ class AsyncCardOrders:
         """Returns a paginated list of card orders.
 
         Args:
-            id: The unique identifier of the card order.
+            id_: The unique identifier of the card order.
             card_manufacturing_profile_id: The unique identifier of the card manufacturer profile.
             status: The status of the card order.
             tx_variant_code: The unique code of the card manufacturer profile. Possible values: **mcmaestro**, **mc**,
@@ -160,7 +168,8 @@ class AsyncCardOrders:
                 orders that starts at the specified offset. **Default:** 0, which means that the response contains all
                 the elements in the list of card orders.
             limit: The number of card orders returned per page. **Default:** 10.
-            request_options: Per-call overrides for this one request, such as a timeout or extra headers.
+            request_options: Per-call overrides for this one request, such as a timeout, extra headers, or its retry
+                count and statuses.
 
         Returns:
             OK - the request has succeeded.
@@ -169,9 +178,9 @@ class AsyncCardOrders:
             ApiError: Unauthorized - authentication required. Forbidden - insufficient permissions to process the
                 request. Unprocessable Entity - a request validation error. Internal Server Error - the server could not
                 process the request. ``error`` is ``RestServiceError | RawError``."""
-        return (
+        return unwrap(
             await self._with_raw_response.get_cardorders(
-                id=id,
+                id_=id_,
                 card_manufacturing_profile_id=card_manufacturing_profile_id,
                 status=status,
                 tx_variant_code=tx_variant_code,
@@ -183,12 +192,12 @@ class AsyncCardOrders:
                 offset=offset,
                 limit=limit,
                 request_options=request_options,
-            )
-        ).unwrap()
+            ),
+        )
 
     async def get_cardorders_id_items(
         self,
-        id: str,
+        id_: str,
         *,
         offset: int | None = None,
         limit: int | None = None,
@@ -197,12 +206,13 @@ class AsyncCardOrders:
         """Returns the item list of a specific card order.
 
         Args:
-            id: The unique identifier of the card order.
+            id_: The unique identifier of the card order.
             offset: Specifies the position of an element in a list of card orders. The response includes a list of card
                 order items that starts at the specified offset. **Default:** 0, which means that the response contains
                 all the elements in the list of card order items.
             limit: The number of card order items returned per page. **Default:** 10.
-            request_options: Per-call overrides for this one request, such as a timeout or extra headers.
+            request_options: Per-call overrides for this one request, such as a timeout, extra headers, or its retry
+                count and statuses.
 
         Returns:
             OK - the request has succeeded.
@@ -211,11 +221,11 @@ class AsyncCardOrders:
             ApiError: Unauthorized - authentication required. Forbidden - insufficient permissions to process the
                 request. Unprocessable Entity - a request validation error. Internal Server Error - the server could not
                 process the request. ``error`` is ``RestServiceError | RawError``."""
-        return (
+        return unwrap(
             await self._with_raw_response.get_cardorders_id_items(
-                id, offset=offset, limit=limit, request_options=request_options
-            )
-        ).unwrap()
+                id_, offset=offset, limit=limit, request_options=request_options
+            ),
+        )
 
     @property
     def with_raw_response(self) -> AsyncCardOrdersWithRawResponse:
@@ -226,7 +236,7 @@ class CardOrdersWithRawResponse(SecuredRawResponse[RawClient, Server, AuthScheme
     def get_cardorders(
         self,
         *,
-        id: str | None = None,
+        id_: str | None = None,
         card_manufacturing_profile_id: str | None = None,
         status: str | None = None,
         tx_variant_code: str | None = None,
@@ -242,7 +252,7 @@ class CardOrdersWithRawResponse(SecuredRawResponse[RawClient, Server, AuthScheme
         """Returns a paginated list of card orders.
 
         Args:
-            id: The unique identifier of the card order.
+            id_: The unique identifier of the card order.
             card_manufacturing_profile_id: The unique identifier of the card manufacturer profile.
             status: The status of the card order.
             tx_variant_code: The unique code of the card manufacturer profile. Possible values: **mcmaestro**, **mc**,
@@ -260,7 +270,8 @@ class CardOrdersWithRawResponse(SecuredRawResponse[RawClient, Server, AuthScheme
                 orders that starts at the specified offset. **Default:** 0, which means that the response contains all
                 the elements in the list of card orders.
             limit: The number of card orders returned per page. **Default:** 10.
-            request_options: Per-call overrides for this one request, such as a timeout or extra headers.
+            request_options: Per-call overrides for this one request, such as a timeout, extra headers, or its retry
+                count and statuses.
 
         Returns:
             An ``ApiResult`` holding the deserialized response or the error body."""
@@ -268,7 +279,7 @@ class CardOrdersWithRawResponse(SecuredRawResponse[RawClient, Server, AuthScheme
             http_method="GET",
             url_template=self._server.default13("/cardorders"),
             query_params=[
-                param[str | None]("id", id),
+                param[str | None]("id", id_),
                 param[str | None]("cardManufacturingProfileId", card_manufacturing_profile_id),
                 param[str | None]("status", status),
                 param[str | None]("txVariantCode", tx_variant_code),
@@ -288,7 +299,7 @@ class CardOrdersWithRawResponse(SecuredRawResponse[RawClient, Server, AuthScheme
 
     def get_cardorders_id_items(
         self,
-        id: str,
+        id_: str,
         *,
         offset: int | None = None,
         limit: int | None = None,
@@ -297,19 +308,20 @@ class CardOrdersWithRawResponse(SecuredRawResponse[RawClient, Server, AuthScheme
         """Returns the item list of a specific card order.
 
         Args:
-            id: The unique identifier of the card order.
+            id_: The unique identifier of the card order.
             offset: Specifies the position of an element in a list of card orders. The response includes a list of card
                 order items that starts at the specified offset. **Default:** 0, which means that the response contains
                 all the elements in the list of card order items.
             limit: The number of card order items returned per page. **Default:** 10.
-            request_options: Per-call overrides for this one request, such as a timeout or extra headers.
+            request_options: Per-call overrides for this one request, such as a timeout, extra headers, or its retry
+                count and statuses.
 
         Returns:
             An ``ApiResult`` holding the deserialized response or the error body."""
         return self._client.execute(
             http_method="GET",
             url_template=self._server.default13("/cardorders/{id}/items"),
-            path_params=[param[str]("id", id)],
+            path_params=[param[str]("id", id_)],
             query_params=[param[int | None]("offset", offset), param[int | None]("limit", limit)],
             auth_scheme=AnySchemes(self._auth.client_key, self._auth.basic_auth, self._auth.api_key_auth),
             decoder=json_decoder[PaginatedGetCardOrderItemResponse],
@@ -322,7 +334,7 @@ class AsyncCardOrdersWithRawResponse(SecuredRawResponse[AsyncRawClient, Server, 
     async def get_cardorders(
         self,
         *,
-        id: str | None = None,
+        id_: str | None = None,
         card_manufacturing_profile_id: str | None = None,
         status: str | None = None,
         tx_variant_code: str | None = None,
@@ -338,7 +350,7 @@ class AsyncCardOrdersWithRawResponse(SecuredRawResponse[AsyncRawClient, Server, 
         """Returns a paginated list of card orders.
 
         Args:
-            id: The unique identifier of the card order.
+            id_: The unique identifier of the card order.
             card_manufacturing_profile_id: The unique identifier of the card manufacturer profile.
             status: The status of the card order.
             tx_variant_code: The unique code of the card manufacturer profile. Possible values: **mcmaestro**, **mc**,
@@ -356,7 +368,8 @@ class AsyncCardOrdersWithRawResponse(SecuredRawResponse[AsyncRawClient, Server, 
                 orders that starts at the specified offset. **Default:** 0, which means that the response contains all
                 the elements in the list of card orders.
             limit: The number of card orders returned per page. **Default:** 10.
-            request_options: Per-call overrides for this one request, such as a timeout or extra headers.
+            request_options: Per-call overrides for this one request, such as a timeout, extra headers, or its retry
+                count and statuses.
 
         Returns:
             An ``ApiResult`` holding the deserialized response or the error body."""
@@ -364,7 +377,7 @@ class AsyncCardOrdersWithRawResponse(SecuredRawResponse[AsyncRawClient, Server, 
             http_method="GET",
             url_template=self._server.default13("/cardorders"),
             query_params=[
-                param[str | None]("id", id),
+                param[str | None]("id", id_),
                 param[str | None]("cardManufacturingProfileId", card_manufacturing_profile_id),
                 param[str | None]("status", status),
                 param[str | None]("txVariantCode", tx_variant_code),
@@ -377,14 +390,14 @@ class AsyncCardOrdersWithRawResponse(SecuredRawResponse[AsyncRawClient, Server, 
                 param[int | None]("limit", limit),
             ],
             auth_scheme=AsyncAnySchemes(self._auth.client_key, self._auth.basic_auth, self._auth.api_key_auth),
-            decoder=json_decoder[PaginatedGetCardOrderResponse],
+            decoder=async_json_decoder[PaginatedGetCardOrderResponse],
             error_mapper=get_cardorders_error_mapper,
             request_options=request_options,
         )
 
     async def get_cardorders_id_items(
         self,
-        id: str,
+        id_: str,
         *,
         offset: int | None = None,
         limit: int | None = None,
@@ -393,22 +406,23 @@ class AsyncCardOrdersWithRawResponse(SecuredRawResponse[AsyncRawClient, Server, 
         """Returns the item list of a specific card order.
 
         Args:
-            id: The unique identifier of the card order.
+            id_: The unique identifier of the card order.
             offset: Specifies the position of an element in a list of card orders. The response includes a list of card
                 order items that starts at the specified offset. **Default:** 0, which means that the response contains
                 all the elements in the list of card order items.
             limit: The number of card order items returned per page. **Default:** 10.
-            request_options: Per-call overrides for this one request, such as a timeout or extra headers.
+            request_options: Per-call overrides for this one request, such as a timeout, extra headers, or its retry
+                count and statuses.
 
         Returns:
             An ``ApiResult`` holding the deserialized response or the error body."""
         return await self._client.execute(
             http_method="GET",
             url_template=self._server.default13("/cardorders/{id}/items"),
-            path_params=[param[str]("id", id)],
+            path_params=[param[str]("id", id_)],
             query_params=[param[int | None]("offset", offset), param[int | None]("limit", limit)],
             auth_scheme=AsyncAnySchemes(self._auth.client_key, self._auth.basic_auth, self._auth.api_key_auth),
-            decoder=json_decoder[PaginatedGetCardOrderItemResponse],
+            decoder=async_json_decoder[PaginatedGetCardOrderItemResponse],
             error_mapper=get_cardorders_id_items_error_mapper,
             request_options=request_options,
         )

@@ -25,7 +25,7 @@ class CreateOrderRequest(SdkBaseModel):
 
 
 class CreateOrderRequestDict(TypedDict):
-    amount: Amount21 | Amount21Dict
+    amount: Amount21Dict
     expires_at: NotRequired[str]
     merchant_account: str
     reference: str

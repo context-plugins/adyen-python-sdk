@@ -28,7 +28,7 @@ class StoredPaymentMethod4(SdkBaseModel):
 
 class StoredPaymentMethod4Dict(TypedDict):
     checkout_attempt_id: NotRequired[str]
-    pix_recurring: NotRequired[PixRecurring | PixRecurringDict]
+    pix_recurring: NotRequired[PixRecurringDict]
     recurring_detail_reference: NotRequired[str]
     sdk_data: NotRequired[str]
     stored_payment_method_id: NotRequired[str]

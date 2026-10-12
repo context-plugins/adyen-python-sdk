@@ -22,4 +22,4 @@ class CartesBancairesResponseInfo(SdkBaseModel):
 
 class CartesBancairesResponseInfoDict(TypedDict):
     siret: NotRequired[str]
-    transaction_description: NotRequired[TransactionDescriptionResponseInfo1 | TransactionDescriptionResponseInfo1Dict]
+    transaction_description: NotRequired[TransactionDescriptionResponseInfo1Dict]

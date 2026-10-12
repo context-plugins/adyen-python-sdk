@@ -31,9 +31,9 @@ class CheckoutOrderResponse1(SdkBaseModel):
 
 
 class CheckoutOrderResponse1Dict(TypedDict):
-    amount: NotRequired[Amount12 | Amount12Dict]
+    amount: NotRequired[Amount12Dict]
     expires_at: NotRequired[str]
     order_data: NotRequired[str]
     psp_reference: str
     reference: NotRequired[str]
-    remaining_amount: NotRequired[Amount13 | Amount13Dict]
+    remaining_amount: NotRequired[Amount13Dict]

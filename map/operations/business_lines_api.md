@@ -11,9 +11,9 @@ Each `###` block is one operation and assumes `sdk-map.md` is loaded: blocks omi
 - **Route**: `DELETE /businessLines/{id}`
 - **Auth**: `basic_auth` OR `api_key_auth`
 - **Server**: `default18`
-- **Signature**: `def delete_business_lines_id(id: str, *, request_options: RequestOptionsOrDict | None = None)`
-  - required, positional: `id`
-- **Params**: `id` — path
+- **Signature**: `def delete_business_lines_id(id_: str, *, request_options: RequestOptionsOrDict | None = None)`
+  - required, positional: `id_`
+- **Params**: `id_` — path `id`
 - **Returns (parsed)**: `None`
 - **Returns (raw)**: `ApiResult[None, DeleteBusinessLinesIdErrorBody]`
 - **Error**: `DeleteBusinessLinesIdErrorBody` — **Case A (typed)**
@@ -29,9 +29,9 @@ Each `###` block is one operation and assumes `sdk-map.md` is loaded: blocks omi
 - **Route**: `GET /businessLines/{id}`
 - **Auth**: `basic_auth` OR `api_key_auth`
 - **Server**: `default18`
-- **Signature**: `def get_business_lines_id(id: str, *, request_options: RequestOptionsOrDict | None = None)`
-  - required, positional: `id`
-- **Params**: `id` — path
+- **Signature**: `def get_business_lines_id(id_: str, *, request_options: RequestOptionsOrDict | None = None)`
+  - required, positional: `id_`
+- **Params**: `id_` — path `id`
 - **Returns (parsed)**: `BusinessLine`
 - **Returns (raw)**: `ApiResult[BusinessLine, GetBusinessLinesIdErrorBody]`
 - **Error**: `GetBusinessLinesIdErrorBody` — **Case A (typed)**
@@ -48,9 +48,9 @@ Each `###` block is one operation and assumes `sdk-map.md` is loaded: blocks omi
 - **Route**: `PATCH /businessLines/{id}`
 - **Auth**: `basic_auth` OR `api_key_auth`
 - **Server**: `default18`
-- **Signature**: `def patch_business_lines_id(id: str, *, body: BusinessLineInfoUpdate | BusinessLineInfoUpdateDict | None = None, request_options: RequestOptionsOrDict | None = None)`
-  - required, positional: `id`
-- **Params**: `id` — path · `body` — JSON body
+- **Signature**: `def patch_business_lines_id(id_: str, *, body: BusinessLineInfoUpdate | BusinessLineInfoUpdateDict | None = None, request_options: RequestOptionsOrDict | None = None)`
+  - required, positional: `id_`
+- **Params**: `id_` — path `id` · `body` — JSON body
 - **Returns (parsed)**: `BusinessLine`
 - **Returns (raw)**: `ApiResult[BusinessLine, PatchBusinessLinesIdErrorBody]`
 - **Error**: `PatchBusinessLinesIdErrorBody` — **Case A (typed)**

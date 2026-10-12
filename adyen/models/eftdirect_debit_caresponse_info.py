@@ -18,4 +18,4 @@ class EftdirectDebitCaresponseInfo(SdkBaseModel):
 
 
 class EftdirectDebitCaresponseInfoDict(TypedDict):
-    transaction_description: NotRequired[TransactionDescriptionResponseInfo1 | TransactionDescriptionResponseInfo1Dict]
+    transaction_description: NotRequired[TransactionDescriptionResponseInfo1Dict]

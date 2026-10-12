@@ -21,4 +21,4 @@ class UsinternationalAchPriorityRequirement(SdkBaseModel):
 
 class UsinternationalAchPriorityRequirementDict(TypedDict):
     description: NotRequired[str]
-    type_: NotRequired[Literal["usInternationalAchPriorityRequirement"]]
+    type_: Literal["usInternationalAchPriorityRequirement"]

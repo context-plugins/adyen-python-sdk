@@ -38,5 +38,5 @@ class PayUDict(TypedDict):
     sdk_data: NotRequired[str]
     shopper_notification_reference: NotRequired[str]
     stored_payment_method_id: NotRequired[str]
-    type_: NotRequired[Literal["payu_IN_upi"]]
+    type_: Literal["payu_IN_upi"]
     virtual_payment_address: NotRequired[str]

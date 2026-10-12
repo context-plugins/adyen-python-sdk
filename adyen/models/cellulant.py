@@ -4,7 +4,7 @@ from pydantic import Field
 from typing_extensions import NotRequired, TypedDict
 
 from ..core import UNSET, Optional, SdkBaseModel
-from .enums.type17 import Type17OrStr
+from .enums.type17 import Type17, Type17OrStr
 
 
 class Cellulant(SdkBaseModel):
@@ -17,7 +17,7 @@ class Cellulant(SdkBaseModel):
     sdk_data: Optional[str] = Field(default=UNSET, alias="sdkData")
     """Base64-encoded JSON object containing SDK related parameters required by the SDK"""
 
-    type_: Optional[Type17OrStr] = Field(default=UNSET, alias="type")
+    type_: Type17OrStr = Field(default=Type17.CELLULANT, alias="type")
     """**Cellulant**"""
 
 

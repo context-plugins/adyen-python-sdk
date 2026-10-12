@@ -19,5 +19,5 @@ class FundsCollection(SdkBaseModel):
 
 
 class FundsCollectionDict(TypedDict):
-    account_identification: NotRequired[BankAccountIdentification1 | BankAccountIdentification1Dict]
+    account_identification: NotRequired[BankAccountIdentification1Dict]
     funds_collection_type: NotRequired[FundsCollectionType2OrStr]

@@ -17,9 +17,9 @@ class MerchantBalance(SdkBaseModel):
 
 
 class MerchantBalanceDict(TypedDict):
-    available_fund: NotRequired[Amount17 | Amount17Dict]
-    deposit: NotRequired[Amount17 | Amount17Dict]
+    available_fund: NotRequired[Amount17Dict]
+    deposit: NotRequired[Amount17Dict]
     merchant_account: NotRequired[str]
-    next_payout: NotRequired[Amount17 | Amount17Dict]
-    pending_balance: NotRequired[Amount17 | Amount17Dict]
-    reserve: NotRequired[Amount17 | Amount17Dict]
+    next_payout: NotRequired[Amount17Dict]
+    pending_balance: NotRequired[Amount17Dict]
+    reserve: NotRequired[Amount17Dict]

@@ -18,7 +18,7 @@ class CompanyLinks(SdkBaseModel):
 
 
 class CompanyLinksDict(TypedDict):
-    api_credentials: NotRequired[LinksElement | LinksElementDict]
-    self: LinksElement6 | LinksElement6Dict
-    users: NotRequired[LinksElement | LinksElementDict]
-    webhooks: NotRequired[LinksElement | LinksElementDict]
+    api_credentials: NotRequired[LinksElementDict]
+    self: LinksElement6Dict
+    users: NotRequired[LinksElementDict]
+    webhooks: NotRequired[LinksElementDict]

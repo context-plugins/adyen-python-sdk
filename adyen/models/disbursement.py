@@ -42,11 +42,11 @@ class Disbursement(SdkBaseModel):
 
 class DisbursementDict(TypedDict):
     account_holder_id: str
-    amount: Amount17 | Amount17Dict
+    amount: Amount17Dict
     balance_account_id: str
-    balances: CapitalBalance | CapitalBalanceDict
-    fee: Fee22 | Fee22Dict
-    funds_collections: NotRequired[list[FundsCollection | FundsCollectionDict]]
+    balances: CapitalBalanceDict
+    fee: Fee22Dict
+    funds_collections: NotRequired[list[FundsCollectionDict]]
     grant_id: str
     id: str
-    repayment: DisbursementRepayment2 | DisbursementRepayment2Dict
+    repayment: DisbursementRepayment2Dict

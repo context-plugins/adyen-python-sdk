@@ -5,7 +5,7 @@ from typing_extensions import NotRequired, TypedDict
 
 from ..core import UNSET, Date, Optional, SdkBaseModel
 from .address12 import Address12, Address12Dict
-from .enums.type112 import Type112OrStr
+from .enums.type112 import Type112, Type112OrStr
 
 
 class PartyIdentification1(SdkBaseModel):
@@ -54,7 +54,7 @@ class PartyIdentification1(SdkBaseModel):
 
     Required when you include ``cardIdentification.storedPaymentMethodId``."""
 
-    type_: Optional[Type112OrStr] = Field(default=UNSET, alias="type")
+    type_: Type112OrStr = Field(default=Type112.UNKNOWN, alias="type")
     """The type of entity that owns the bank account or card.
 
     Possible values: **individual**, **organization**, or **unknown**.
@@ -66,7 +66,7 @@ class PartyIdentification1(SdkBaseModel):
 
 
 class PartyIdentification1Dict(TypedDict):
-    address: NotRequired[Address12 | Address12Dict]
+    address: NotRequired[Address12Dict]
     date_of_birth: NotRequired[Date]
     email: NotRequired[str]
     first_name: NotRequired[str]

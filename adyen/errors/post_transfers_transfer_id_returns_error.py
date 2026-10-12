@@ -3,7 +3,7 @@ from __future__ import annotations
 from dataclasses import dataclass
 from typing import Final, TypeAlias
 
-from ..core import ErrorMapper, HttpResponse, RawError, decode_json
+from ..core import ErrorMapper, RawError, decode_json
 from ..models.transfer_service_rest_service_error import TransferServiceRestServiceError
 
 PostTransfersTransferIdReturnsErrorBody: TypeAlias = TransferServiceRestServiceError | RawError
@@ -11,12 +11,12 @@ PostTransfersTransferIdReturnsErrorBody: TypeAlias = TransferServiceRestServiceE
 
 @dataclass(frozen=True, slots=True)
 class _PostTransfersTransferIdReturnsError:
-    def map(self, response: HttpResponse) -> PostTransfersTransferIdReturnsErrorBody:
-        match response.status_code:
+    def map(self, status_code: int, content: bytes) -> PostTransfersTransferIdReturnsErrorBody:
+        match status_code:
             case 401 | 403 | 422 | 500:
-                return decode_json[TransferServiceRestServiceError](response)
+                return decode_json[TransferServiceRestServiceError](content)
             case _:
-                return RawError(response)
+                return RawError(status_code, content)
 
 
 post_transfers_transfer_id_returns_error_mapper: Final[

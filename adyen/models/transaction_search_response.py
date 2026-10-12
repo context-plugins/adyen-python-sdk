@@ -17,5 +17,5 @@ class TransactionSearchResponse(SdkBaseModel):
 
 
 class TransactionSearchResponseDict(TypedDict):
-    links: NotRequired[Links21 | Links21Dict]
-    data: NotRequired[list[Transaction | TransactionDict]]
+    links: NotRequired[Links21Dict]
+    data: NotRequired[list[TransactionDict]]

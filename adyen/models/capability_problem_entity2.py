@@ -32,5 +32,5 @@ class CapabilityProblemEntity2(SdkBaseModel):
 class CapabilityProblemEntity2Dict(TypedDict):
     documents: NotRequired[list[str]]
     id: NotRequired[str]
-    owner: NotRequired[CapabilityProblemEntityRecursive2 | CapabilityProblemEntityRecursive2Dict]
+    owner: NotRequired[CapabilityProblemEntityRecursive2Dict]
     type_: NotRequired[Type33OrStr]

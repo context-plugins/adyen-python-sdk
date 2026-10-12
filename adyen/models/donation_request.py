@@ -36,7 +36,7 @@ class DonationRequest(SdkBaseModel):
 class DonationRequestDict(TypedDict):
     donation_account: str
     merchant_account: str
-    modification_amount: Amount | AmountDict
+    modification_amount: AmountDict
     original_reference: NotRequired[str]
-    platform_chargeback_logic: NotRequired[PlatformChargebackLogic | PlatformChargebackLogicDict]
+    platform_chargeback_logic: NotRequired[PlatformChargebackLogicDict]
     reference: NotRequired[str]

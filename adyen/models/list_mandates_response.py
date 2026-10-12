@@ -16,5 +16,5 @@ class ListMandatesResponse(SdkBaseModel):
 
 
 class ListMandatesResponseDict(TypedDict):
-    link: Link2 | Link2Dict
-    mandates: list[Mandate1 | Mandate1Dict]
+    link: Link2Dict
+    mandates: list[Mandate1Dict]

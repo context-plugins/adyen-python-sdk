@@ -35,7 +35,7 @@ class Payment(SdkBaseModel):
 
 
 class PaymentDict(TypedDict):
-    amount: NotRequired[Amount26 | Amount26Dict]
-    payment_method: NotRequired[PaymentResponse3 | PaymentResponse3Dict]
+    amount: NotRequired[Amount26Dict]
+    payment_method: NotRequired[PaymentResponse3Dict]
     psp_reference: NotRequired[str]
     result_code: NotRequired[ResultCode2OrStr]

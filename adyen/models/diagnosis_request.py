@@ -13,7 +13,7 @@ class DiagnosisRequest(SdkBaseModel):
     poiid: Optional[str] = Field(default=UNSET, alias="POIID")
     """Identification of a POI System or a POI Terminal for the Sale to POI protocol. MessageHeader.POIID."""
 
-    host_diagnosis_flag: Optional[bool] = Field(default=UNSET, alias="HostDiagnosisFlag")
+    host_diagnosis_flag: bool = Field(default=False, alias="HostDiagnosisFlag")
     """Indicates if Host Diagnosis are required."""
 
     acquirer_id: Optional[list[int]] = Field(default=UNSET, alias="AcquirerID")

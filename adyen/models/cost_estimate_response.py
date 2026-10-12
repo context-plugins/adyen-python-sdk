@@ -24,7 +24,7 @@ class CostEstimateResponse(SdkBaseModel):
 
 
 class CostEstimateResponseDict(TypedDict):
-    card_bin: NotRequired[CardBin1 | CardBin1Dict]
-    cost_estimate_amount: NotRequired[Amount | AmountDict]
+    card_bin: NotRequired[CardBin1Dict]
+    cost_estimate_amount: NotRequired[AmountDict]
     cost_estimate_reference: NotRequired[str]
     result_code: NotRequired[str]

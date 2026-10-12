@@ -46,10 +46,10 @@ class CancelOrRefundRequest(SdkBaseModel):
 class CancelOrRefundRequestDict(TypedDict):
     additional_data: NotRequired[dict[str, str]]
     merchant_account: str
-    mpi_data: NotRequired[ThreeDsecureData | ThreeDsecureDataDict]
+    mpi_data: NotRequired[ThreeDsecureDataDict]
     original_merchant_reference: NotRequired[str]
     original_reference: str
-    platform_chargeback_logic: NotRequired[PlatformChargebackLogic | PlatformChargebackLogicDict]
+    platform_chargeback_logic: NotRequired[PlatformChargebackLogicDict]
     reference: NotRequired[str]
     tender_reference: NotRequired[str]
     unique_terminal_id: NotRequired[str]

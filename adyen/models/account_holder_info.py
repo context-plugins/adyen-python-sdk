@@ -51,8 +51,8 @@ class AccountHolderInfo(SdkBaseModel):
 
 class AccountHolderInfoDict(TypedDict):
     balance_platform: NotRequired[str]
-    capabilities: NotRequired[dict[str, AccountHolderCapability | AccountHolderCapabilityDict]]
-    contact_details: NotRequired[ContactDetails1 | ContactDetails1Dict]
+    capabilities: NotRequired[dict[str, AccountHolderCapabilityDict]]
+    contact_details: NotRequired[ContactDetails1Dict]
     description: NotRequired[str]
     legal_entity_id: str
     metadata: NotRequired[dict[str, str]]

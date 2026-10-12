@@ -30,9 +30,9 @@ Each `###` block is one operation and assumes `sdk-map.md` is loaded: blocks omi
 - **Route**: `GET /companies/{companyId}/androidApps/{id}`
 - **Auth**: `basic_auth` OR `api_key_auth`
 - **Server**: `default9`
-- **Signature**: `def get_companies_company_id_android_apps_id(company_id: str, id: str, *, request_options: RequestOptionsOrDict | None = None)`
-  - required, positional: `company_id`, `id`
-- **Params**: `company_id` — path `companyId` · `id` — path
+- **Signature**: `def get_companies_company_id_android_apps_id(company_id: str, id_: str, *, request_options: RequestOptionsOrDict | None = None)`
+  - required, positional: `company_id`, `id_`
+- **Params**: `company_id` — path `companyId` · `id_` — path `id`
 - **Returns (parsed)**: `AndroidApp`
 - **Returns (raw)**: `ApiResult[AndroidApp, GetCompaniesCompanyIdAndroidAppsIdErrorBody]`
 - **Error**: `GetCompaniesCompanyIdAndroidAppsIdErrorBody` — **Case A (typed)**
@@ -68,9 +68,9 @@ Each `###` block is one operation and assumes `sdk-map.md` is loaded: blocks omi
 - **Route**: `PATCH /companies/{companyId}/androidApps/{id}`
 - **Auth**: `basic_auth` OR `api_key_auth`
 - **Server**: `default9`
-- **Signature**: `def patch_companies_company_id_android_apps_id(company_id: str, id: str, *, request_options: RequestOptionsOrDict | None = None)`
-  - required, positional: `company_id`, `id`
-- **Params**: `company_id` — path `companyId` · `id` — path
+- **Signature**: `def patch_companies_company_id_android_apps_id(company_id: str, id_: str, *, request_options: RequestOptionsOrDict | None = None)`
+  - required, positional: `company_id`, `id_`
+- **Params**: `company_id` — path `companyId` · `id_` — path `id`
 - **Returns (parsed)**: `ReprocessAndroidAppResponse`
 - **Returns (raw)**: `ApiResult[ReprocessAndroidAppResponse, PatchCompaniesCompanyIdAndroidAppsIdErrorBody]`
 - **Error**: `PatchCompaniesCompanyIdAndroidAppsIdErrorBody` — **Case A (typed)**

@@ -39,4 +39,4 @@ class KlarnaNetworkDict(TypedDict):
     recurring_detail_reference: NotRequired[str]
     sdk_data: NotRequired[str]
     stored_payment_method_id: NotRequired[str]
-    type_: NotRequired[Literal["klarna_network"]]
+    type_: Literal["klarna_network"]

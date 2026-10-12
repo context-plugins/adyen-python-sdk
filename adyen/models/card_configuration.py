@@ -84,7 +84,7 @@ class CardConfiguration(SdkBaseModel):
 class CardConfigurationDict(TypedDict):
     activation: NotRequired[str]
     activation_url: NotRequired[str]
-    bulk_address: NotRequired[BulkAddress1 | BulkAddress1Dict]
+    bulk_address: NotRequired[BulkAddress1Dict]
     card_image_id: NotRequired[str]
     carrier: NotRequired[str]
     carrier_image_id: NotRequired[str]

@@ -8,10 +8,13 @@ from ..core import (
     BaseRawResponse,
     RawClient,
     RequestOptionsOrDict,
+    async_empty_response,
+    async_json_decoder,
     empty_response,
     json_body,
     json_decoder,
     param,
+    unwrap,
 )
 from ..errors.get_mandates_error import GetMandatesErrorBody, get_mandates_error_mapper
 from ..errors.get_mandates_mandate_id_error import GetMandatesMandateIdErrorBody, get_mandates_mandate_id_error_mapper
@@ -48,7 +51,8 @@ class DirectDebitMandates:
             balance_account_id: The unique identifier of the balance account linked to the payment instrument.
             payment_instrument_id: The unique identifier of the payment instrument linked to the mandate.
             cursor: The pagination cursor returned in a previous GET ``/mandates`` request.
-            request_options: Per-call overrides for this one request, such as a timeout or extra headers.
+            request_options: Per-call overrides for this one request, such as a timeout, extra headers, or its retry
+                count and statuses.
 
         Returns:
             OK - The request has succeeded
@@ -57,12 +61,14 @@ class DirectDebitMandates:
             ApiError: Unauthorized - authentication required. Forbidden - insufficient permissions to process the
                 request. Unprocessable Entity - a request validation error. Internal Server Error - the server could not
                 process the request. ``error`` is ``DefaultErrorResponseEntity | RawError``."""
-        return self._with_raw_response.get_mandates(
-            balance_account_id=balance_account_id,
-            payment_instrument_id=payment_instrument_id,
-            cursor=cursor,
-            request_options=request_options,
-        ).unwrap()
+        return unwrap(
+            self._with_raw_response.get_mandates(
+                balance_account_id=balance_account_id,
+                payment_instrument_id=payment_instrument_id,
+                cursor=cursor,
+                request_options=request_options,
+            ),
+        )
 
     def get_mandates_mandate_id(
         self, mandate_id: str, *, request_options: RequestOptionsOrDict | None = None
@@ -72,7 +78,8 @@ class DirectDebitMandates:
 
         Args:
             mandate_id: The unique identifier of the mandate.
-            request_options: Per-call overrides for this one request, such as a timeout or extra headers.
+            request_options: Per-call overrides for this one request, such as a timeout, extra headers, or its retry
+                count and statuses.
 
         Returns:
             OK - The request has succeeded
@@ -82,7 +89,7 @@ class DirectDebitMandates:
                 request. The mandate was not found. Unprocessable Entity - a request validation error. Internal Server
                 Error - the server could not process the request. ``error`` is ``DefaultErrorResponseEntity |
                 RawError``."""
-        return self._with_raw_response.get_mandates_mandate_id(mandate_id, request_options=request_options).unwrap()
+        return unwrap(self._with_raw_response.get_mandates_mandate_id(mandate_id, request_options=request_options))
 
     def patch_mandates_mandate_id(
         self,
@@ -97,7 +104,8 @@ class DirectDebitMandates:
         Args:
             mandate_id: The unique identifier of the mandate.
             body: The request body.
-            request_options: Per-call overrides for this one request, such as a timeout or extra headers.
+            request_options: Per-call overrides for this one request, such as a timeout, extra headers, or its retry
+                count and statuses.
 
         Returns:
             Accepted - The request has been accepted
@@ -107,9 +115,9 @@ class DirectDebitMandates:
                 request. The mandate was not found Unprocessable Entity - a request validation error. Internal Server
                 Error - the server could not process the request. ``error`` is ``DefaultErrorResponseEntity |
                 RawError``."""
-        return self._with_raw_response.patch_mandates_mandate_id(
-            mandate_id, body, request_options=request_options
-        ).unwrap()
+        return unwrap(
+            self._with_raw_response.patch_mandates_mandate_id(mandate_id, body, request_options=request_options)
+        )
 
     def post_mandates_mandate_id_cancel(
         self, mandate_id: str, *, request_options: RequestOptionsOrDict | None = None
@@ -119,7 +127,8 @@ class DirectDebitMandates:
 
         Args:
             mandate_id: The unique identifier of the mandate.
-            request_options: Per-call overrides for this one request, such as a timeout or extra headers.
+            request_options: Per-call overrides for this one request, such as a timeout, extra headers, or its retry
+                count and statuses.
 
         Returns:
             Accepted - The request has been accepted
@@ -129,9 +138,9 @@ class DirectDebitMandates:
                 request. The mandate was not found. Unprocessable Entity - a request validation error. Internal Server
                 Error - the server could not process the request. ``error`` is ``DefaultErrorResponseEntity |
                 RawError``."""
-        return self._with_raw_response.post_mandates_mandate_id_cancel(
-            mandate_id, request_options=request_options
-        ).unwrap()
+        return unwrap(
+            self._with_raw_response.post_mandates_mandate_id_cancel(mandate_id, request_options=request_options)
+        )
 
     @property
     def with_raw_response(self) -> DirectDebitMandatesWithRawResponse:
@@ -157,7 +166,8 @@ class AsyncDirectDebitMandates:
             balance_account_id: The unique identifier of the balance account linked to the payment instrument.
             payment_instrument_id: The unique identifier of the payment instrument linked to the mandate.
             cursor: The pagination cursor returned in a previous GET ``/mandates`` request.
-            request_options: Per-call overrides for this one request, such as a timeout or extra headers.
+            request_options: Per-call overrides for this one request, such as a timeout, extra headers, or its retry
+                count and statuses.
 
         Returns:
             OK - The request has succeeded
@@ -166,14 +176,14 @@ class AsyncDirectDebitMandates:
             ApiError: Unauthorized - authentication required. Forbidden - insufficient permissions to process the
                 request. Unprocessable Entity - a request validation error. Internal Server Error - the server could not
                 process the request. ``error`` is ``DefaultErrorResponseEntity | RawError``."""
-        return (
+        return unwrap(
             await self._with_raw_response.get_mandates(
                 balance_account_id=balance_account_id,
                 payment_instrument_id=payment_instrument_id,
                 cursor=cursor,
                 request_options=request_options,
-            )
-        ).unwrap()
+            ),
+        )
 
     async def get_mandates_mandate_id(
         self, mandate_id: str, *, request_options: RequestOptionsOrDict | None = None
@@ -183,7 +193,8 @@ class AsyncDirectDebitMandates:
 
         Args:
             mandate_id: The unique identifier of the mandate.
-            request_options: Per-call overrides for this one request, such as a timeout or extra headers.
+            request_options: Per-call overrides for this one request, such as a timeout, extra headers, or its retry
+                count and statuses.
 
         Returns:
             OK - The request has succeeded
@@ -193,9 +204,9 @@ class AsyncDirectDebitMandates:
                 request. The mandate was not found. Unprocessable Entity - a request validation error. Internal Server
                 Error - the server could not process the request. ``error`` is ``DefaultErrorResponseEntity |
                 RawError``."""
-        return (
+        return unwrap(
             await self._with_raw_response.get_mandates_mandate_id(mandate_id, request_options=request_options)
-        ).unwrap()
+        )
 
     async def patch_mandates_mandate_id(
         self,
@@ -210,7 +221,8 @@ class AsyncDirectDebitMandates:
         Args:
             mandate_id: The unique identifier of the mandate.
             body: The request body.
-            request_options: Per-call overrides for this one request, such as a timeout or extra headers.
+            request_options: Per-call overrides for this one request, such as a timeout, extra headers, or its retry
+                count and statuses.
 
         Returns:
             Accepted - The request has been accepted
@@ -220,9 +232,9 @@ class AsyncDirectDebitMandates:
                 request. The mandate was not found Unprocessable Entity - a request validation error. Internal Server
                 Error - the server could not process the request. ``error`` is ``DefaultErrorResponseEntity |
                 RawError``."""
-        return (
+        return unwrap(
             await self._with_raw_response.patch_mandates_mandate_id(mandate_id, body, request_options=request_options)
-        ).unwrap()
+        )
 
     async def post_mandates_mandate_id_cancel(
         self, mandate_id: str, *, request_options: RequestOptionsOrDict | None = None
@@ -232,7 +244,8 @@ class AsyncDirectDebitMandates:
 
         Args:
             mandate_id: The unique identifier of the mandate.
-            request_options: Per-call overrides for this one request, such as a timeout or extra headers.
+            request_options: Per-call overrides for this one request, such as a timeout, extra headers, or its retry
+                count and statuses.
 
         Returns:
             Accepted - The request has been accepted
@@ -242,9 +255,9 @@ class AsyncDirectDebitMandates:
                 request. The mandate was not found. Unprocessable Entity - a request validation error. Internal Server
                 Error - the server could not process the request. ``error`` is ``DefaultErrorResponseEntity |
                 RawError``."""
-        return (
+        return unwrap(
             await self._with_raw_response.post_mandates_mandate_id_cancel(mandate_id, request_options=request_options)
-        ).unwrap()
+        )
 
     @property
     def with_raw_response(self) -> AsyncDirectDebitMandatesWithRawResponse:
@@ -267,7 +280,8 @@ class DirectDebitMandatesWithRawResponse(BaseRawResponse[RawClient, Server]):
             balance_account_id: The unique identifier of the balance account linked to the payment instrument.
             payment_instrument_id: The unique identifier of the payment instrument linked to the mandate.
             cursor: The pagination cursor returned in a previous GET ``/mandates`` request.
-            request_options: Per-call overrides for this one request, such as a timeout or extra headers.
+            request_options: Per-call overrides for this one request, such as a timeout, extra headers, or its retry
+                count and statuses.
 
         Returns:
             An ``ApiResult`` holding the deserialized response or the error body."""
@@ -292,7 +306,8 @@ class DirectDebitMandatesWithRawResponse(BaseRawResponse[RawClient, Server]):
 
         Args:
             mandate_id: The unique identifier of the mandate.
-            request_options: Per-call overrides for this one request, such as a timeout or extra headers.
+            request_options: Per-call overrides for this one request, such as a timeout, extra headers, or its retry
+                count and statuses.
 
         Returns:
             An ``ApiResult`` holding the deserialized response or the error body."""
@@ -318,7 +333,8 @@ class DirectDebitMandatesWithRawResponse(BaseRawResponse[RawClient, Server]):
         Args:
             mandate_id: The unique identifier of the mandate.
             body: The request body.
-            request_options: Per-call overrides for this one request, such as a timeout or extra headers.
+            request_options: Per-call overrides for this one request, such as a timeout, extra headers, or its retry
+                count and statuses.
 
         Returns:
             An ``ApiResult`` holding the deserialized response or the error body."""
@@ -341,7 +357,8 @@ class DirectDebitMandatesWithRawResponse(BaseRawResponse[RawClient, Server]):
 
         Args:
             mandate_id: The unique identifier of the mandate.
-            request_options: Per-call overrides for this one request, such as a timeout or extra headers.
+            request_options: Per-call overrides for this one request, such as a timeout, extra headers, or its retry
+                count and statuses.
 
         Returns:
             An ``ApiResult`` holding the deserialized response or the error body."""
@@ -372,7 +389,8 @@ class AsyncDirectDebitMandatesWithRawResponse(BaseRawResponse[AsyncRawClient, Se
             balance_account_id: The unique identifier of the balance account linked to the payment instrument.
             payment_instrument_id: The unique identifier of the payment instrument linked to the mandate.
             cursor: The pagination cursor returned in a previous GET ``/mandates`` request.
-            request_options: Per-call overrides for this one request, such as a timeout or extra headers.
+            request_options: Per-call overrides for this one request, such as a timeout, extra headers, or its retry
+                count and statuses.
 
         Returns:
             An ``ApiResult`` holding the deserialized response or the error body."""
@@ -384,7 +402,7 @@ class AsyncDirectDebitMandatesWithRawResponse(BaseRawResponse[AsyncRawClient, Se
                 param[str | None]("paymentInstrumentId", payment_instrument_id),
                 param[str | None]("cursor", cursor),
             ],
-            decoder=json_decoder[ListMandatesResponse],
+            decoder=async_json_decoder[ListMandatesResponse],
             error_mapper=get_mandates_error_mapper,
             request_options=request_options,
         )
@@ -397,7 +415,8 @@ class AsyncDirectDebitMandatesWithRawResponse(BaseRawResponse[AsyncRawClient, Se
 
         Args:
             mandate_id: The unique identifier of the mandate.
-            request_options: Per-call overrides for this one request, such as a timeout or extra headers.
+            request_options: Per-call overrides for this one request, such as a timeout, extra headers, or its retry
+                count and statuses.
 
         Returns:
             An ``ApiResult`` holding the deserialized response or the error body."""
@@ -405,7 +424,7 @@ class AsyncDirectDebitMandatesWithRawResponse(BaseRawResponse[AsyncRawClient, Se
             http_method="GET",
             url_template=self._server.default13("/mandates/{mandateId}"),
             path_params=[param[str]("mandateId", mandate_id)],
-            decoder=json_decoder[Mandate1],
+            decoder=async_json_decoder[Mandate1],
             error_mapper=get_mandates_mandate_id_error_mapper,
             request_options=request_options,
         )
@@ -423,7 +442,8 @@ class AsyncDirectDebitMandatesWithRawResponse(BaseRawResponse[AsyncRawClient, Se
         Args:
             mandate_id: The unique identifier of the mandate.
             body: The request body.
-            request_options: Per-call overrides for this one request, such as a timeout or extra headers.
+            request_options: Per-call overrides for this one request, such as a timeout, extra headers, or its retry
+                count and statuses.
 
         Returns:
             An ``ApiResult`` holding the deserialized response or the error body."""
@@ -433,7 +453,7 @@ class AsyncDirectDebitMandatesWithRawResponse(BaseRawResponse[AsyncRawClient, Se
             path_params=[param[str]("mandateId", mandate_id)],
             headers=[param[UUID]("Idempotency-Key", uuid4())],
             body=json_body[MandateUpdate | MandateUpdateDict](body),
-            decoder=empty_response,
+            decoder=async_empty_response,
             error_mapper=patch_mandates_mandate_id_error_mapper,
             request_options=request_options,
         )
@@ -446,7 +466,8 @@ class AsyncDirectDebitMandatesWithRawResponse(BaseRawResponse[AsyncRawClient, Se
 
         Args:
             mandate_id: The unique identifier of the mandate.
-            request_options: Per-call overrides for this one request, such as a timeout or extra headers.
+            request_options: Per-call overrides for this one request, such as a timeout, extra headers, or its retry
+                count and statuses.
 
         Returns:
             An ``ApiResult`` holding the deserialized response or the error body."""
@@ -455,7 +476,7 @@ class AsyncDirectDebitMandatesWithRawResponse(BaseRawResponse[AsyncRawClient, Se
             url_template=self._server.default13("/mandates/{mandateId}/cancel"),
             path_params=[param[str]("mandateId", mandate_id)],
             headers=[param[UUID]("Idempotency-Key", uuid4())],
-            decoder=empty_response,
+            decoder=async_empty_response,
             error_mapper=post_mandates_mandate_id_cancel_error_mapper,
             request_options=request_options,
         )

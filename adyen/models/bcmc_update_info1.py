@@ -18,4 +18,4 @@ class BcmcUpdateInfo1(SdkBaseModel):
 
 
 class BcmcUpdateInfo1Dict(TypedDict):
-    transaction_description: NotRequired[TransactionDescriptionInfo1 | TransactionDescriptionInfo1Dict]
+    transaction_description: NotRequired[TransactionDescriptionInfo1Dict]

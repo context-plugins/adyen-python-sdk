@@ -42,6 +42,6 @@ class VerificationErrorDict(TypedDict):
     capabilities: NotRequired[list[CapabilityOrStr]]
     code: NotRequired[str]
     message: NotRequired[str]
-    remediating_actions: NotRequired[list[RemediatingAction | RemediatingActionDict]]
-    sub_errors: NotRequired[list[VerificationErrorRecursive | VerificationErrorRecursiveDict]]
+    remediating_actions: NotRequired[list[RemediatingActionDict]]
+    sub_errors: NotRequired[list[VerificationErrorRecursiveDict]]
     type_: NotRequired[Type212OrStr]

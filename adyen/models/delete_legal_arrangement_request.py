@@ -17,4 +17,4 @@ class DeleteLegalArrangementRequest(SdkBaseModel):
 
 class DeleteLegalArrangementRequestDict(TypedDict):
     account_holder_code: str
-    legal_arrangements: list[LegalArrangementRequest | LegalArrangementRequestDict]
+    legal_arrangements: list[LegalArrangementRequestDict]

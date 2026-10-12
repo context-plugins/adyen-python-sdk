@@ -2,8 +2,9 @@ from __future__ import annotations
 
 from typing import Annotated, TypeAlias
 
-from pydantic import Field
+from pydantic import Tag
 
+from ...core import WireDiscriminator
 from ..apple_pay_donations import ApplePayDonations, ApplePayDonationsDict
 from ..card_donations import CardDonations, CardDonationsDict
 from ..google_pay_donations import GooglePayDonations, GooglePayDonationsDict
@@ -13,14 +14,16 @@ from ..stored_payment_method1 import StoredPaymentMethod1, StoredPaymentMethod1D
 
 PaymentMethod1: TypeAlias = Annotated[
     (
-        ApplePayDonations
-        | CardDonations
-        | GooglePayDonations
-        | IdealDonations
-        | PayWithGoogleDonations
-        | StoredPaymentMethod1
+        Annotated[ApplePayDonations, Tag("applepay")]
+        | Annotated[CardDonations, Tag("scheme")]
+        | Annotated[CardDonations, Tag("networkToken")]
+        | Annotated[CardDonations, Tag("card")]
+        | Annotated[GooglePayDonations, Tag("googlepay")]
+        | Annotated[IdealDonations, Tag("ideal")]
+        | Annotated[PayWithGoogleDonations, Tag("paywithgoogle")]
+        | Annotated[StoredPaymentMethod1, Tag("sepadirectdebit")]
     ),
-    Field(discriminator="type_"),
+    WireDiscriminator("type"),
 ]
 """The type and required details of a payment method to use.
 

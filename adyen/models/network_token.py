@@ -44,10 +44,10 @@ class NetworkToken(SdkBaseModel):
 class NetworkTokenDict(TypedDict):
     brand_variant: NotRequired[str]
     creation_date: NotRequired[RFC3339DateTime]
-    device: NotRequired[DeviceInfo1 | DeviceInfo1Dict]
+    device: NotRequired[DeviceInfo1Dict]
     id: NotRequired[str]
     payment_instrument_id: NotRequired[str]
     status: NotRequired[Status91OrStr]
     token_last_four: NotRequired[str]
-    token_requestor: NotRequired[Item | ItemDict]
+    token_requestor: NotRequired[ItemDict]
     type_: NotRequired[str]

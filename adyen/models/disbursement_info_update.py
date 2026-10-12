@@ -12,4 +12,4 @@ class DisbursementInfoUpdate(SdkBaseModel):
 
 
 class DisbursementInfoUpdateDict(TypedDict):
-    repayment: NotRequired[DisbursementRepaymentInfoUpdate2 | DisbursementRepaymentInfoUpdate2Dict]
+    repayment: NotRequired[DisbursementRepaymentInfoUpdate2Dict]

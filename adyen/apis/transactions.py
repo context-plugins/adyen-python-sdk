@@ -10,8 +10,10 @@ from ..core import (
     RequestOptionsOrDict,
     RFC3339DateTime,
     SecuredRawResponse,
+    async_json_decoder,
     json_decoder,
     param,
+    unwrap,
 )
 from ..errors.get_transactions_error import GetTransactionsErrorBody, get_transactions_error_mapper
 from ..errors.get_transactions_id_error import GetTransactionsIdErrorBody, get_transactions_id_error_mapper
@@ -79,7 +81,8 @@ class Transactions:
                 **desc**: Descending order, from most recent to oldest. Default value: **asc**.
             limit: The number of items returned per page, maximum of 100 items. By default, the response returns 10
                 items per page.
-            request_options: Per-call overrides for this one request, such as a timeout or extra headers.
+            request_options: Per-call overrides for this one request, such as a timeout, extra headers, or its retry
+                count and statuses.
 
         Returns:
             OK - the request has succeeded.
@@ -88,28 +91,31 @@ class Transactions:
             ApiError: Unauthorized - authentication required. Forbidden - insufficient permissions to process the
                 request. Unprocessable Entity - a request validation error. Internal Server Error - the server could not
                 process the request. ``error`` is ``RestServiceError | RawError``."""
-        return self._with_raw_response.get_transactions(
-            created_since,
-            created_until,
-            balance_platform=balance_platform,
-            payment_instrument_id=payment_instrument_id,
-            account_holder_id=account_holder_id,
-            balance_account_id=balance_account_id,
-            cursor=cursor,
-            sort_order=sort_order,
-            limit=limit,
-            request_options=request_options,
-        ).unwrap()
+        return unwrap(
+            self._with_raw_response.get_transactions(
+                created_since,
+                created_until,
+                balance_platform=balance_platform,
+                payment_instrument_id=payment_instrument_id,
+                account_holder_id=account_holder_id,
+                balance_account_id=balance_account_id,
+                cursor=cursor,
+                sort_order=sort_order,
+                limit=limit,
+                request_options=request_options,
+            ),
+        )
 
-    def get_transactions_id(self, id: str, *, request_options: RequestOptionsOrDict | None = None) -> Transaction:
+    def get_transactions_id(self, id_: str, *, request_options: RequestOptionsOrDict | None = None) -> Transaction:
         """>Versions 1 and 2 of the Transfers API are deprecated. If you are just starting your implementation, use the
         latest version.
 
         Returns a transaction.
 
         Args:
-            id: The unique identifier of the transaction.
-            request_options: Per-call overrides for this one request, such as a timeout or extra headers.
+            id_: The unique identifier of the transaction.
+            request_options: Per-call overrides for this one request, such as a timeout, extra headers, or its retry
+                count and statuses.
 
         Returns:
             OK - the request has succeeded.
@@ -118,7 +124,7 @@ class Transactions:
             ApiError: Unauthorized - authentication required. Forbidden - insufficient permissions to process the
                 request. Unprocessable Entity - a request validation error. Internal Server Error - the server could not
                 process the request. ``error`` is ``RestServiceError | RawError``."""
-        return self._with_raw_response.get_transactions_id(id, request_options=request_options).unwrap()
+        return unwrap(self._with_raw_response.get_transactions_id(id_, request_options=request_options))
 
     @property
     def with_raw_response(self) -> TransactionsWithRawResponse:
@@ -183,7 +189,8 @@ class AsyncTransactions:
                 **desc**: Descending order, from most recent to oldest. Default value: **asc**.
             limit: The number of items returned per page, maximum of 100 items. By default, the response returns 10
                 items per page.
-            request_options: Per-call overrides for this one request, such as a timeout or extra headers.
+            request_options: Per-call overrides for this one request, such as a timeout, extra headers, or its retry
+                count and statuses.
 
         Returns:
             OK - the request has succeeded.
@@ -192,7 +199,7 @@ class AsyncTransactions:
             ApiError: Unauthorized - authentication required. Forbidden - insufficient permissions to process the
                 request. Unprocessable Entity - a request validation error. Internal Server Error - the server could not
                 process the request. ``error`` is ``RestServiceError | RawError``."""
-        return (
+        return unwrap(
             await self._with_raw_response.get_transactions(
                 created_since,
                 created_until,
@@ -204,18 +211,21 @@ class AsyncTransactions:
                 sort_order=sort_order,
                 limit=limit,
                 request_options=request_options,
-            )
-        ).unwrap()
+            ),
+        )
 
-    async def get_transactions_id(self, id: str, *, request_options: RequestOptionsOrDict | None = None) -> Transaction:
+    async def get_transactions_id(
+        self, id_: str, *, request_options: RequestOptionsOrDict | None = None
+    ) -> Transaction:
         """>Versions 1 and 2 of the Transfers API are deprecated. If you are just starting your implementation, use the
         latest version.
 
         Returns a transaction.
 
         Args:
-            id: The unique identifier of the transaction.
-            request_options: Per-call overrides for this one request, such as a timeout or extra headers.
+            id_: The unique identifier of the transaction.
+            request_options: Per-call overrides for this one request, such as a timeout, extra headers, or its retry
+                count and statuses.
 
         Returns:
             OK - the request has succeeded.
@@ -224,7 +234,7 @@ class AsyncTransactions:
             ApiError: Unauthorized - authentication required. Forbidden - insufficient permissions to process the
                 request. Unprocessable Entity - a request validation error. Internal Server Error - the server could not
                 process the request. ``error`` is ``RestServiceError | RawError``."""
-        return (await self._with_raw_response.get_transactions_id(id, request_options=request_options)).unwrap()
+        return unwrap(await self._with_raw_response.get_transactions_id(id_, request_options=request_options))
 
     @property
     def with_raw_response(self) -> AsyncTransactionsWithRawResponse:
@@ -286,7 +296,8 @@ class TransactionsWithRawResponse(SecuredRawResponse[RawClient, Server, AuthSche
                 **desc**: Descending order, from most recent to oldest. Default value: **asc**.
             limit: The number of items returned per page, maximum of 100 items. By default, the response returns 10
                 items per page.
-            request_options: Per-call overrides for this one request, such as a timeout or extra headers.
+            request_options: Per-call overrides for this one request, such as a timeout, extra headers, or its retry
+                count and statuses.
 
         Returns:
             An ``ApiResult`` holding the deserialized response or the error body."""
@@ -311,7 +322,7 @@ class TransactionsWithRawResponse(SecuredRawResponse[RawClient, Server, AuthSche
         )
 
     def get_transactions_id(
-        self, id: str, *, request_options: RequestOptionsOrDict | None = None
+        self, id_: str, *, request_options: RequestOptionsOrDict | None = None
     ) -> ApiResult[Transaction, GetTransactionsIdErrorBody]:
         """>Versions 1 and 2 of the Transfers API are deprecated. If you are just starting your implementation, use the
         latest version.
@@ -319,15 +330,16 @@ class TransactionsWithRawResponse(SecuredRawResponse[RawClient, Server, AuthSche
         Returns a transaction.
 
         Args:
-            id: The unique identifier of the transaction.
-            request_options: Per-call overrides for this one request, such as a timeout or extra headers.
+            id_: The unique identifier of the transaction.
+            request_options: Per-call overrides for this one request, such as a timeout, extra headers, or its retry
+                count and statuses.
 
         Returns:
             An ``ApiResult`` holding the deserialized response or the error body."""
         return self._client.execute(
             http_method="GET",
             url_template=self._server.default14("/transactions/{id}"),
-            path_params=[param[str]("id", id)],
+            path_params=[param[str]("id", id_)],
             auth_scheme=AnySchemes(self._auth.client_key, self._auth.basic_auth, self._auth.api_key_auth),
             decoder=json_decoder[Transaction],
             error_mapper=get_transactions_id_error_mapper,
@@ -390,7 +402,8 @@ class AsyncTransactionsWithRawResponse(SecuredRawResponse[AsyncRawClient, Server
                 **desc**: Descending order, from most recent to oldest. Default value: **asc**.
             limit: The number of items returned per page, maximum of 100 items. By default, the response returns 10
                 items per page.
-            request_options: Per-call overrides for this one request, such as a timeout or extra headers.
+            request_options: Per-call overrides for this one request, such as a timeout, extra headers, or its retry
+                count and statuses.
 
         Returns:
             An ``ApiResult`` holding the deserialized response or the error body."""
@@ -409,13 +422,13 @@ class AsyncTransactionsWithRawResponse(SecuredRawResponse[AsyncRawClient, Server
                 param[int | None]("limit", limit),
             ],
             auth_scheme=AsyncAnySchemes(self._auth.client_key, self._auth.basic_auth, self._auth.api_key_auth),
-            decoder=json_decoder[TransactionSearchResponse],
+            decoder=async_json_decoder[TransactionSearchResponse],
             error_mapper=get_transactions_error_mapper,
             request_options=request_options,
         )
 
     async def get_transactions_id(
-        self, id: str, *, request_options: RequestOptionsOrDict | None = None
+        self, id_: str, *, request_options: RequestOptionsOrDict | None = None
     ) -> ApiResult[Transaction, GetTransactionsIdErrorBody]:
         """>Versions 1 and 2 of the Transfers API are deprecated. If you are just starting your implementation, use the
         latest version.
@@ -423,17 +436,18 @@ class AsyncTransactionsWithRawResponse(SecuredRawResponse[AsyncRawClient, Server
         Returns a transaction.
 
         Args:
-            id: The unique identifier of the transaction.
-            request_options: Per-call overrides for this one request, such as a timeout or extra headers.
+            id_: The unique identifier of the transaction.
+            request_options: Per-call overrides for this one request, such as a timeout, extra headers, or its retry
+                count and statuses.
 
         Returns:
             An ``ApiResult`` holding the deserialized response or the error body."""
         return await self._client.execute(
             http_method="GET",
             url_template=self._server.default14("/transactions/{id}"),
-            path_params=[param[str]("id", id)],
+            path_params=[param[str]("id", id_)],
             auth_scheme=AsyncAnySchemes(self._auth.client_key, self._auth.basic_auth, self._auth.api_key_auth),
-            decoder=json_decoder[Transaction],
+            decoder=async_json_decoder[Transaction],
             error_mapper=get_transactions_id_error_mapper,
             request_options=request_options,
         )

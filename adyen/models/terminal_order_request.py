@@ -32,7 +32,7 @@ class TerminalOrderRequest(SdkBaseModel):
 class TerminalOrderRequestDict(TypedDict):
     billing_entity_id: NotRequired[str]
     customer_order_reference: NotRequired[str]
-    items: NotRequired[list[OrderItem | OrderItemDict]]
+    items: NotRequired[list[OrderItemDict]]
     order_type: NotRequired[str]
     shipping_location_id: NotRequired[str]
     tax_id: NotRequired[str]

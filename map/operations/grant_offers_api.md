@@ -48,9 +48,9 @@ Each `###` block is one operation and assumes `sdk-map.md` is loaded: blocks omi
 
 - **Route**: `GET /grantOffers/{id}`
 - **Server**: `default15`
-- **Signature**: `def get_grant_offers_id(id: str, *, request_options: RequestOptionsOrDict | None = None)`
-  - required, positional: `id`
-- **Params**: `id` — path
+- **Signature**: `def get_grant_offers_id(id_: str, *, request_options: RequestOptionsOrDict | None = None)`
+  - required, positional: `id_`
+- **Params**: `id_` — path `id`
 - **Returns (parsed)**: `GrantOffer1`
 - **Returns (raw)**: `ApiResult[GrantOffer1, GetGrantOffersIdErrorBody]`
 - **Error**: `GetGrantOffersIdErrorBody` — **Case A (typed)**

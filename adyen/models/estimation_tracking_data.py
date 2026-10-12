@@ -3,7 +3,7 @@ from __future__ import annotations
 from typing import Literal
 
 from pydantic import Field
-from typing_extensions import NotRequired, TypedDict
+from typing_extensions import TypedDict
 
 from ..core import RFC3339DateTime, SdkBaseModel
 
@@ -22,4 +22,4 @@ class EstimationTrackingData(SdkBaseModel):
 
 class EstimationTrackingDataDict(TypedDict):
     estimated_arrival_time: RFC3339DateTime
-    type_: NotRequired[Literal["estimation"]]
+    type_: Literal["estimation"]

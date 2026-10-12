@@ -22,4 +22,4 @@ class IssuingTransactionData(SdkBaseModel):
 
 class IssuingTransactionDataDict(TypedDict):
     capture_cycle_id: NotRequired[str]
-    type_: NotRequired[Literal["issuingTransactionData"]]
+    type_: Literal["issuingTransactionData"]

@@ -23,7 +23,7 @@ class TransferFundsResponse(SdkBaseModel):
 
 
 class TransferFundsResponseDict(TypedDict):
-    invalid_fields: NotRequired[list[ErrorFieldType | ErrorFieldTypeDict]]
+    invalid_fields: NotRequired[list[ErrorFieldTypeDict]]
     merchant_reference: NotRequired[str]
     psp_reference: NotRequired[str]
     result_code: NotRequired[str]

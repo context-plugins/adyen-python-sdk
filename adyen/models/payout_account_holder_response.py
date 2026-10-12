@@ -4,7 +4,7 @@ from pydantic import Field
 from typing_extensions import NotRequired, TypedDict
 
 from ..core import UNSET, Optional, SdkBaseModel
-from .enums.payout_speed import PayoutSpeedOrStr
+from .enums.payout_speed import PayoutSpeed, PayoutSpeedOrStr
 from .error_field_type import ErrorFieldType, ErrorFieldTypeDict
 
 
@@ -19,7 +19,7 @@ class PayoutAccountHolderResponse(SdkBaseModel):
     """The value supplied by the executing user when initiating the transfer; may be used to link multiple
     transactions."""
 
-    payout_speed: Optional[PayoutSpeedOrStr] = Field(default=UNSET, alias="payoutSpeed")
+    payout_speed: PayoutSpeedOrStr = Field(default=PayoutSpeed.STANDARD, alias="payoutSpeed")
     """Speed with which payouts for this account are processed. Permitted values: ``STANDARD``, ``SAME_DAY``."""
 
     psp_reference: Optional[str] = Field(default=UNSET, alias="pspReference")
@@ -31,7 +31,7 @@ class PayoutAccountHolderResponse(SdkBaseModel):
 
 class PayoutAccountHolderResponseDict(TypedDict):
     bank_account_uuid: NotRequired[str]
-    invalid_fields: NotRequired[list[ErrorFieldType | ErrorFieldTypeDict]]
+    invalid_fields: NotRequired[list[ErrorFieldTypeDict]]
     merchant_reference: NotRequired[str]
     payout_speed: NotRequired[PayoutSpeedOrStr]
     psp_reference: NotRequired[str]

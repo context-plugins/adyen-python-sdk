@@ -26,4 +26,4 @@ class AmountMinMaxRequirementDict(TypedDict):
     description: NotRequired[str]
     max: NotRequired[int]
     min: NotRequired[int]
-    type_: NotRequired[Literal["amountMinMaxRequirement"]]
+    type_: Literal["amountMinMaxRequirement"]

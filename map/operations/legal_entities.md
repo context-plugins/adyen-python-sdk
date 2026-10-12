@@ -11,9 +11,9 @@ Each `###` block is one operation and assumes `sdk-map.md` is loaded: blocks omi
 - **Route**: `GET /legalEntities/{id}`
 - **Auth**: `basic_auth` OR `api_key_auth`
 - **Server**: `default18`
-- **Signature**: `def get_legal_entities_id(id: str, *, request_options: RequestOptionsOrDict | None = None)`
-  - required, positional: `id`
-- **Params**: `id` — path
+- **Signature**: `def get_legal_entities_id(id_: str, *, request_options: RequestOptionsOrDict | None = None)`
+  - required, positional: `id_`
+- **Params**: `id_` — path `id`
 - **Returns (parsed)**: `LegalEntity3`
 - **Returns (raw)**: `ApiResult[LegalEntity3, GetLegalEntitiesIdErrorBody]`
 - **Error**: `GetLegalEntitiesIdErrorBody` — **Case A (typed)**
@@ -30,9 +30,9 @@ Each `###` block is one operation and assumes `sdk-map.md` is loaded: blocks omi
 - **Route**: `GET /legalEntities/{id}/businessLines`
 - **Auth**: `basic_auth` OR `api_key_auth`
 - **Server**: `default18`
-- **Signature**: `def get_legal_entities_id_business_lines(id: str, *, request_options: RequestOptionsOrDict | None = None)`
-  - required, positional: `id`
-- **Params**: `id` — path
+- **Signature**: `def get_legal_entities_id_business_lines(id_: str, *, request_options: RequestOptionsOrDict | None = None)`
+  - required, positional: `id_`
+- **Params**: `id_` — path `id`
 - **Returns (parsed)**: `BusinessLines`
 - **Returns (raw)**: `ApiResult[BusinessLines, GetLegalEntitiesIdBusinessLinesErrorBody]`
 - **Error**: `GetLegalEntitiesIdBusinessLinesErrorBody` — **Case A (typed)**
@@ -49,9 +49,9 @@ Each `###` block is one operation and assumes `sdk-map.md` is loaded: blocks omi
 - **Route**: `PATCH /legalEntities/{id}`
 - **Auth**: `basic_auth` OR `api_key_auth`
 - **Server**: `default18`
-- **Signature**: `def patch_legal_entities_id(id: str, *, x_requested_verification_code: str | None = None, body: LegalEntityInfo | LegalEntityInfoDict | None = None, request_options: RequestOptionsOrDict | None = None)`
-  - required, positional: `id`
-- **Params**: `id` — path · `x_requested_verification_code` — header `x-requested-verification-code` · `body` — JSON body
+- **Signature**: `def patch_legal_entities_id(id_: str, *, x_requested_verification_code: str | None = None, body: LegalEntityInfo | LegalEntityInfoDict | None = None, request_options: RequestOptionsOrDict | None = None)`
+  - required, positional: `id_`
+- **Params**: `id_` — path `id` · `x_requested_verification_code` — header `x-requested-verification-code` · `body` — JSON body
 - **Returns (parsed)**: `LegalEntity3`
 - **Returns (raw)**: `ApiResult[LegalEntity3, PatchLegalEntitiesIdErrorBody]`
 - **Error**: `PatchLegalEntitiesIdErrorBody` — **Case A (typed)**
@@ -90,9 +90,9 @@ Each `###` block is one operation and assumes `sdk-map.md` is loaded: blocks omi
 - **Route**: `POST /legalEntities/{id}/checkVerificationErrors`
 - **Auth**: `basic_auth` OR `api_key_auth`
 - **Server**: `default18`
-- **Signature**: `def post_legal_entities_id_check_verification_errors(id: str, *, request_options: RequestOptionsOrDict | None = None)`
-  - required, positional: `id`
-- **Params**: `id` — path
+- **Signature**: `def post_legal_entities_id_check_verification_errors(id_: str, *, request_options: RequestOptionsOrDict | None = None)`
+  - required, positional: `id_`
+- **Params**: `id_` — path `id`
 - **Returns (parsed)**: `VerificationErrors`
 - **Returns (raw)**: `ApiResult[VerificationErrors, PostLegalEntitiesIdCheckVerificationErrorsErrorBody]`
 - **Error**: `PostLegalEntitiesIdCheckVerificationErrorsErrorBody` — **Case A (typed)**
@@ -109,9 +109,9 @@ Each `###` block is one operation and assumes `sdk-map.md` is loaded: blocks omi
 - **Route**: `POST /legalEntities/{id}/confirmDataReview`
 - **Auth**: `basic_auth` OR `api_key_auth`
 - **Server**: `default18`
-- **Signature**: `def post_legal_entities_id_confirm_data_review(id: str, *, request_options: RequestOptionsOrDict | None = None)`
-  - required, positional: `id`
-- **Params**: `id` — path
+- **Signature**: `def post_legal_entities_id_confirm_data_review(id_: str, *, request_options: RequestOptionsOrDict | None = None)`
+  - required, positional: `id_`
+- **Params**: `id_` — path `id`
 - **Returns (parsed)**: `DataReviewConfirmationResponse`
 - **Returns (raw)**: `ApiResult[DataReviewConfirmationResponse, PostLegalEntitiesIdConfirmDataReviewErrorBody]`
 - **Error**: `PostLegalEntitiesIdConfirmDataReviewErrorBody` — **Case A (typed)**
@@ -127,9 +127,9 @@ Each `###` block is one operation and assumes `sdk-map.md` is loaded: blocks omi
 
 - **Route**: `POST /legalEntities/{id}/requestPeriodicReview`
 - **Server**: `default18`
-- **Signature**: `def post_legal_entities_id_request_periodic_review(id: str, *, request_options: RequestOptionsOrDict | None = None)`
-  - required, positional: `id`
-- **Params**: `id` — path
+- **Signature**: `def post_legal_entities_id_request_periodic_review(id_: str, *, request_options: RequestOptionsOrDict | None = None)`
+  - required, positional: `id_`
+- **Params**: `id_` — path `id`
 - **Returns (parsed)**: `Any`
 - **Returns (raw)**: `ApiResult[Any, RawError]`
 - **Error**: `RawError` — **Case B**

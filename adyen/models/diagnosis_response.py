@@ -24,6 +24,6 @@ class DiagnosisResponse(SdkBaseModel):
 
 
 class DiagnosisResponseDict(TypedDict):
-    response: Response11 | Response11Dict
-    poi_status: NotRequired[Poistatus1 | Poistatus1Dict]
-    host_status: NotRequired[list[HostStatus | HostStatusDict]]
+    response: Response11Dict
+    poi_status: NotRequired[Poistatus1Dict]
+    host_status: NotRequired[list[HostStatusDict]]

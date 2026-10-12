@@ -72,13 +72,13 @@ class PaymentRefundRequest(SdkBaseModel):
 
 
 class PaymentRefundRequestDict(TypedDict):
-    amount: Amount38 | Amount38Dict
-    application_info: NotRequired[ApplicationInfo | ApplicationInfoDict]
+    amount: Amount38Dict
+    application_info: NotRequired[ApplicationInfoDict]
     capture_psp_reference: NotRequired[str]
-    enhanced_scheme_data: NotRequired[EnhancedSchemeData1 | EnhancedSchemeData1Dict]
-    line_items: NotRequired[list[LineItem | LineItemDict]]
+    enhanced_scheme_data: NotRequired[EnhancedSchemeData1Dict]
+    line_items: NotRequired[list[LineItemDict]]
     merchant_account: str
     merchant_refund_reason: NotRequired[MerchantRefundReasonOrStr | None]
     reference: NotRequired[str]
-    splits: NotRequired[list[Split | SplitDict]]
+    splits: NotRequired[list[SplitDict]]
     store: NotRequired[str]

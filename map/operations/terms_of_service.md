@@ -11,9 +11,9 @@ Each `###` block is one operation and assumes `sdk-map.md` is loaded: blocks omi
 - **Route**: `GET /legalEntities/{id}/acceptedTermsOfServiceDocument/{termsofserviceacceptancereference}`
 - **Auth**: `basic_auth` OR `api_key_auth`
 - **Server**: `default18`
-- **Signature**: `def get_legal_entities_id_accepted_terms_of_service_document_termsofserviceacceptancereference(id: str, termsofserviceacceptancereference: str, *, terms_of_service_document_format: str | None = None, request_options: RequestOptionsOrDict | None = None)`
-  - required, positional: `id`, `termsofserviceacceptancereference`
-- **Params**: `id` — path · `termsofserviceacceptancereference` — path · `terms_of_service_document_format` — query `termsOfServiceDocumentFormat`
+- **Signature**: `def get_legal_entities_id_accepted_terms_of_service_document_termsofserviceacceptancereference(id_: str, termsofserviceacceptancereference: str, *, terms_of_service_document_format: str | None = None, request_options: RequestOptionsOrDict | None = None)`
+  - required, positional: `id_`, `termsofserviceacceptancereference`
+- **Params**: `id_` — path `id` · `termsofserviceacceptancereference` — path · `terms_of_service_document_format` — query `termsOfServiceDocumentFormat`
 - **Returns (parsed)**: `GetAcceptedTermsOfServiceDocumentResponse`
 - **Returns (raw)**: `ApiResult[GetAcceptedTermsOfServiceDocumentResponse, GetLegalEntitiesIdAcceptedTermsOfServiceDocumentTermsofserviceacceptancereferenceErrorBody]`
 - **Error**: `GetLegalEntitiesIdAcceptedTermsOfServiceDocumentTermsofserviceacceptancereferenceErrorBody` — **Case A (typed)**
@@ -30,9 +30,9 @@ Each `###` block is one operation and assumes `sdk-map.md` is loaded: blocks omi
 - **Route**: `GET /legalEntities/{id}/termsOfServiceAcceptanceInfos`
 - **Auth**: `basic_auth` OR `api_key_auth`
 - **Server**: `default18`
-- **Signature**: `def get_legal_entities_id_terms_of_service_acceptance_infos(id: str, *, request_options: RequestOptionsOrDict | None = None)`
-  - required, positional: `id`
-- **Params**: `id` — path
+- **Signature**: `def get_legal_entities_id_terms_of_service_acceptance_infos(id_: str, *, request_options: RequestOptionsOrDict | None = None)`
+  - required, positional: `id_`
+- **Params**: `id_` — path `id`
 - **Returns (parsed)**: `GetTermsOfServiceAcceptanceInfosResponse`
 - **Returns (raw)**: `ApiResult[GetTermsOfServiceAcceptanceInfosResponse, GetLegalEntitiesIdTermsOfServiceAcceptanceInfosErrorBody]`
 - **Error**: `GetLegalEntitiesIdTermsOfServiceAcceptanceInfosErrorBody` — **Case A (typed)**
@@ -49,9 +49,9 @@ Each `###` block is one operation and assumes `sdk-map.md` is loaded: blocks omi
 - **Route**: `GET /legalEntities/{id}/termsOfServiceStatus`
 - **Auth**: `basic_auth` OR `api_key_auth`
 - **Server**: `default18`
-- **Signature**: `def get_legal_entities_id_terms_of_service_status(id: str, *, request_options: RequestOptionsOrDict | None = None)`
-  - required, positional: `id`
-- **Params**: `id` — path
+- **Signature**: `def get_legal_entities_id_terms_of_service_status(id_: str, *, request_options: RequestOptionsOrDict | None = None)`
+  - required, positional: `id_`
+- **Params**: `id_` — path `id`
 - **Returns (parsed)**: `CalculateTermsOfServiceStatusResponse`
 - **Returns (raw)**: `ApiResult[CalculateTermsOfServiceStatusResponse, GetLegalEntitiesIdTermsOfServiceStatusErrorBody]`
 - **Error**: `GetLegalEntitiesIdTermsOfServiceStatusErrorBody` — **Case A (typed)**
@@ -68,9 +68,9 @@ Each `###` block is one operation and assumes `sdk-map.md` is loaded: blocks omi
 - **Route**: `PATCH /legalEntities/{id}/termsOfService/{termsofservicedocumentid}`
 - **Auth**: `basic_auth` OR `api_key_auth`
 - **Server**: `default18`
-- **Signature**: `def patch_legal_entities_id_terms_of_service_termsofservicedocumentid(id: str, termsofservicedocumentid: str, *, body: AcceptTermsOfServiceRequest | AcceptTermsOfServiceRequestDict | None = None, request_options: RequestOptionsOrDict | None = None)`
-  - required, positional: `id`, `termsofservicedocumentid`
-- **Params**: `id` — path · `termsofservicedocumentid` — path · `body` — JSON body
+- **Signature**: `def patch_legal_entities_id_terms_of_service_termsofservicedocumentid(id_: str, termsofservicedocumentid: str, *, body: AcceptTermsOfServiceRequest | AcceptTermsOfServiceRequestDict | None = None, request_options: RequestOptionsOrDict | None = None)`
+  - required, positional: `id_`, `termsofservicedocumentid`
+- **Params**: `id_` — path `id` · `termsofservicedocumentid` — path · `body` — JSON body
 - **Returns (parsed)**: `AcceptTermsOfServiceResponse`
 - **Returns (raw)**: `ApiResult[AcceptTermsOfServiceResponse, PatchLegalEntitiesIdTermsOfServiceTermsofservicedocumentidErrorBody]`
 - **Error**: `PatchLegalEntitiesIdTermsOfServiceTermsofservicedocumentidErrorBody` — **Case A (typed)**
@@ -89,9 +89,9 @@ Each `###` block is one operation and assumes `sdk-map.md` is loaded: blocks omi
 - **Route**: `POST /legalEntities/{id}/termsOfService`
 - **Auth**: `basic_auth` OR `api_key_auth`
 - **Server**: `default18`
-- **Signature**: `def post_legal_entities_id_terms_of_service(id: str, *, body: GetTermsOfServiceDocumentRequest | GetTermsOfServiceDocumentRequestDict | None = None, request_options: RequestOptionsOrDict | None = None)`
-  - required, positional: `id`
-- **Params**: `id` — path · `body` — JSON body
+- **Signature**: `def post_legal_entities_id_terms_of_service(id_: str, *, body: GetTermsOfServiceDocumentRequest | GetTermsOfServiceDocumentRequestDict | None = None, request_options: RequestOptionsOrDict | None = None)`
+  - required, positional: `id_`
+- **Params**: `id_` — path `id` · `body` — JSON body
 - **Returns (parsed)**: `GetTermsOfServiceDocumentResponse`
 - **Returns (raw)**: `ApiResult[GetTermsOfServiceDocumentResponse, PostLegalEntitiesIdTermsOfServiceErrorBody]`
 - **Error**: `PostLegalEntitiesIdTermsOfServiceErrorBody` — **Case A (typed)**

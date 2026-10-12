@@ -21,6 +21,6 @@ class CardReaderApduresponse2(SdkBaseModel):
 
 
 class CardReaderApduresponse2Dict(TypedDict):
-    response: Response11 | Response11Dict
+    response: Response11Dict
     apdu_data: NotRequired[str]
     card_status_words: str

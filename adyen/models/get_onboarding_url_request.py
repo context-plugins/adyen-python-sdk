@@ -49,10 +49,10 @@ class GetOnboardingUrlRequest(SdkBaseModel):
 
 class GetOnboardingUrlRequestDict(TypedDict):
     account_holder_code: str
-    collect_information: NotRequired[CollectInformation1 | CollectInformation1Dict]
+    collect_information: NotRequired[CollectInformation1Dict]
     edit_mode: NotRequired[bool]
     mobile_o_auth_callback_url: NotRequired[str]
     platform_name: NotRequired[str]
     return_url: NotRequired[str]
     shopper_locale: NotRequired[str]
-    show_pages: NotRequired[ShowPages2 | ShowPages2Dict]
+    show_pages: NotRequired[ShowPages2Dict]

@@ -25,4 +25,4 @@ class ListStoredPaymentMethodsResponse(SdkBaseModel):
 class ListStoredPaymentMethodsResponseDict(TypedDict):
     merchant_account: NotRequired[str]
     shopper_reference: NotRequired[str]
-    stored_payment_methods: NotRequired[list[StoredPaymentMethodResource | StoredPaymentMethodResourceDict]]
+    stored_payment_methods: NotRequired[list[StoredPaymentMethodResourceDict]]

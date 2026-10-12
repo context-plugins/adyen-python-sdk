@@ -5,7 +5,7 @@ from typing_extensions import NotRequired, TypedDict
 
 from ..core import UNSET, Optional, SdkBaseModel
 from .enums.funding_source import FundingSourceOrStr
-from .enums.type35 import Type35OrStr
+from .enums.type35 import Type35, Type35OrStr
 
 
 class Masterpass(SdkBaseModel):
@@ -22,7 +22,7 @@ class Masterpass(SdkBaseModel):
     sdk_data: Optional[str] = Field(default=UNSET, alias="sdkData")
     """Base64-encoded JSON object containing SDK related parameters required by the SDK"""
 
-    type_: Optional[Type35OrStr] = Field(default=UNSET, alias="type")
+    type_: Type35OrStr = Field(default=Type35.MASTERPASS, alias="type")
     """**masterpass**"""
 
 

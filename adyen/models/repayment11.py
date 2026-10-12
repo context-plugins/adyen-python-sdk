@@ -24,5 +24,5 @@ class Repayment11(SdkBaseModel):
 
 class Repayment11Dict(TypedDict):
     basis_points: int
-    term: NotRequired[RepaymentTerm | RepaymentTermDict]
-    threshold: NotRequired[ThresholdRepayment21 | ThresholdRepayment21Dict]
+    term: NotRequired[RepaymentTermDict]
+    threshold: NotRequired[ThresholdRepayment21Dict]

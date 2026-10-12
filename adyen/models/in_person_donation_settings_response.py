@@ -51,7 +51,7 @@ class InPersonDonationSettingsResponse(SdkBaseModel):
 
 
 class InPersonDonationSettingsResponseDict(TypedDict):
-    amounts: NotRequired[list[DonationAmount | DonationAmountDict]]
+    amounts: NotRequired[list[DonationAmountDict]]
     default_currency: NotRequired[str]
     display_text_field: NotRequired[DisplayTextField1OrStr]
     donation_flow: NotRequired[DonationFlow4OrStr]

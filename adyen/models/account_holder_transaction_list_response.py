@@ -25,7 +25,7 @@ class AccountHolderTransactionListResponse(SdkBaseModel):
 
 
 class AccountHolderTransactionListResponseDict(TypedDict):
-    account_transaction_lists: NotRequired[list[AccountTransactionList | AccountTransactionListDict]]
-    invalid_fields: NotRequired[list[ErrorFieldType | ErrorFieldTypeDict]]
+    account_transaction_lists: NotRequired[list[AccountTransactionListDict]]
+    invalid_fields: NotRequired[list[ErrorFieldTypeDict]]
     psp_reference: NotRequired[str]
     result_code: NotRequired[str]

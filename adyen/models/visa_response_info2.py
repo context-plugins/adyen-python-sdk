@@ -20,4 +20,4 @@ class VisaResponseInfo2(SdkBaseModel):
 
 
 class VisaResponseInfo2Dict(TypedDict):
-    transaction_description: NotRequired[TransactionDescriptionResponseInfo1 | TransactionDescriptionResponseInfo1Dict]
+    transaction_description: NotRequired[TransactionDescriptionResponseInfo1Dict]

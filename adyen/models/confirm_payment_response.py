@@ -13,4 +13,4 @@ class ConfirmPaymentResponse(SdkBaseModel):
 
 
 class ConfirmPaymentResponseDict(TypedDict):
-    links: Links11 | Links11Dict
+    links: Links11Dict

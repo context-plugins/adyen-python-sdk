@@ -64,8 +64,8 @@ class Transaction1(SdkBaseModel):
 
 
 class Transaction1Dict(TypedDict):
-    amount: NotRequired[Amount | AmountDict]
-    bank_account_detail: NotRequired[BankAccountDetail | BankAccountDetailDict]
+    amount: NotRequired[AmountDict]
+    bank_account_detail: NotRequired[BankAccountDetailDict]
     capture_merchant_reference: NotRequired[str]
     capture_psp_reference: NotRequired[str]
     creation_date: NotRequired[RFC3339DateTime]

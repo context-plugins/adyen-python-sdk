@@ -72,15 +72,15 @@ class Card2(SdkBaseModel):
 
 
 class Card2Dict(TypedDict):
-    authentication: NotRequired[Authentication1 | Authentication1Dict]
+    authentication: NotRequired[Authentication1Dict]
     bin: NotRequired[str]
     brand: str
     brand_variant: str
     cardholder_name: str
-    configuration: NotRequired[CardConfiguration2 | CardConfiguration2Dict]
+    configuration: NotRequired[CardConfiguration2Dict]
     cvc: NotRequired[str]
-    delivery_contact: NotRequired[DeliveryContact1 | DeliveryContact1Dict]
-    expiration: NotRequired[Expiry2 | Expiry2Dict]
+    delivery_contact: NotRequired[DeliveryContact1Dict]
+    expiration: NotRequired[Expiry2Dict]
     form_factor: FormFactor1OrStr
     last_four: NotRequired[str]
     number: NotRequired[str]

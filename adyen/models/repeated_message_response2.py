@@ -19,5 +19,5 @@ class RepeatedMessageResponse2(SdkBaseModel):
 
 
 class RepeatedMessageResponse2Dict(TypedDict):
-    message_header: MessageHeader | MessageHeaderDict
-    repeated_response_message_body: RepeatedResponseMessageBody | RepeatedResponseMessageBodyDict
+    message_header: MessageHeaderDict
+    repeated_response_message_body: RepeatedResponseMessageBodyDict

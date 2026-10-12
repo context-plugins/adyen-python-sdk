@@ -18,4 +18,4 @@ class CancelOrderRequest(SdkBaseModel):
 
 class CancelOrderRequestDict(TypedDict):
     merchant_account: str
-    order: EncryptedOrderData4 | EncryptedOrderData4Dict
+    order: EncryptedOrderData4Dict

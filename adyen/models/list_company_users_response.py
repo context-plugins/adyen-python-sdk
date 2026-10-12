@@ -23,7 +23,7 @@ class ListCompanyUsersResponse(SdkBaseModel):
 
 
 class ListCompanyUsersResponseDict(TypedDict):
-    links: NotRequired[PaginationLinks1 | PaginationLinks1Dict]
-    data: NotRequired[list[CompanyUser | CompanyUserDict]]
+    links: NotRequired[PaginationLinks1Dict]
+    data: NotRequired[list[CompanyUserDict]]
     items_total: int
     pages_total: int

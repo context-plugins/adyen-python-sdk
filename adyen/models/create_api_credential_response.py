@@ -56,10 +56,10 @@ class CreateApiCredentialResponse(SdkBaseModel):
 
 
 class CreateApiCredentialResponseDict(TypedDict):
-    links: NotRequired[ApiCredentialLinks2 | ApiCredentialLinks2Dict]
+    links: NotRequired[ApiCredentialLinks2Dict]
     active: bool
     allowed_ip_addresses: list[str]
-    allowed_origins: NotRequired[list[AllowedOrigin | AllowedOriginDict]]
+    allowed_origins: NotRequired[list[AllowedOriginDict]]
     api_key: str
     client_key: str
     description: NotRequired[str]

@@ -59,7 +59,7 @@ class CustomNotification(SdkBaseModel):
 
 
 class CustomNotificationDict(TypedDict):
-    amount: NotRequired[Amount | AmountDict]
+    amount: NotRequired[AmountDict]
     event_code: NotRequired[str]
     event_date: NotRequired[RFC3339DateTime]
     merchant_reference: NotRequired[str]

@@ -48,5 +48,5 @@ class InputResult2(SdkBaseModel):
 class InputResult2Dict(TypedDict):
     device: Device4OrStr
     info_qualify: InfoQualify2OrStr
-    response: Response1 | Response1Dict
-    input: NotRequired[Input2 | Input2Dict]
+    response: Response1Dict
+    input: NotRequired[Input2Dict]

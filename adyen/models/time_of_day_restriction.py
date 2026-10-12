@@ -15,4 +15,4 @@ class TimeOfDayRestriction(SdkBaseModel):
 
 class TimeOfDayRestrictionDict(TypedDict):
     operation: str
-    value: NotRequired[TimeOfDay | TimeOfDayDict]
+    value: NotRequired[TimeOfDayDict]

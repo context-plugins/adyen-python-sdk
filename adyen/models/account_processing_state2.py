@@ -31,6 +31,6 @@ class AccountProcessingState2(SdkBaseModel):
 class AccountProcessingState2Dict(TypedDict):
     disable_reason: NotRequired[str]
     disabled: NotRequired[bool]
-    processed_from: NotRequired[Amount | AmountDict]
-    processed_to: NotRequired[Amount | AmountDict]
+    processed_from: NotRequired[AmountDict]
+    processed_to: NotRequired[AmountDict]
     tier_number: NotRequired[int]

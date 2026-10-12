@@ -11,9 +11,11 @@ from ..core import (
     RawClient,
     RequestOptionsOrDict,
     SecuredRawResponse,
+    async_json_decoder,
     json_body,
     json_decoder,
     param,
+    unwrap,
 )
 from ..errors.post_transfer_routes_calculate_error import (
     PostTransferRoutesCalculateErrorBody,
@@ -41,7 +43,8 @@ class TransferRoutes:
 
         Args:
             body: The request body.
-            request_options: Per-call overrides for this one request, such as a timeout or extra headers.
+            request_options: Per-call overrides for this one request, such as a timeout, extra headers, or its retry
+                count and statuses.
 
         Returns:
             OK - the request has succeeded.
@@ -50,9 +53,9 @@ class TransferRoutes:
             ApiError: Unauthorized - authentication required. Forbidden - insufficient permissions to process the
                 request. Unprocessable Entity - a request validation error. Internal Server Error - the server could not
                 process the request. ``error`` is ``RestServiceError | RawError``."""
-        return self._with_raw_response.post_transfer_routes_calculate(
-            body=body, request_options=request_options
-        ).unwrap()
+        return unwrap(
+            self._with_raw_response.post_transfer_routes_calculate(body=body, request_options=request_options)
+        )
 
     @property
     def with_raw_response(self) -> TransferRoutesWithRawResponse:
@@ -76,7 +79,8 @@ class AsyncTransferRoutes:
 
         Args:
             body: The request body.
-            request_options: Per-call overrides for this one request, such as a timeout or extra headers.
+            request_options: Per-call overrides for this one request, such as a timeout, extra headers, or its retry
+                count and statuses.
 
         Returns:
             OK - the request has succeeded.
@@ -85,9 +89,9 @@ class AsyncTransferRoutes:
             ApiError: Unauthorized - authentication required. Forbidden - insufficient permissions to process the
                 request. Unprocessable Entity - a request validation error. Internal Server Error - the server could not
                 process the request. ``error`` is ``RestServiceError | RawError``."""
-        return (
+        return unwrap(
             await self._with_raw_response.post_transfer_routes_calculate(body=body, request_options=request_options)
-        ).unwrap()
+        )
 
     @property
     def with_raw_response(self) -> AsyncTransferRoutesWithRawResponse:
@@ -108,7 +112,8 @@ class TransferRoutesWithRawResponse(SecuredRawResponse[RawClient, Server, AuthSc
 
         Args:
             body: The request body.
-            request_options: Per-call overrides for this one request, such as a timeout or extra headers.
+            request_options: Per-call overrides for this one request, such as a timeout, extra headers, or its retry
+                count and statuses.
 
         Returns:
             An ``ApiResult`` holding the deserialized response or the error body."""
@@ -138,7 +143,8 @@ class AsyncTransferRoutesWithRawResponse(SecuredRawResponse[AsyncRawClient, Serv
 
         Args:
             body: The request body.
-            request_options: Per-call overrides for this one request, such as a timeout or extra headers.
+            request_options: Per-call overrides for this one request, such as a timeout, extra headers, or its retry
+                count and statuses.
 
         Returns:
             An ``ApiResult`` holding the deserialized response or the error body."""
@@ -148,7 +154,7 @@ class AsyncTransferRoutesWithRawResponse(SecuredRawResponse[AsyncRawClient, Serv
             headers=[param[UUID]("Idempotency-Key", uuid4())],
             body=json_body[TransferRouteRequest | TransferRouteRequestDict | None](body),
             auth_scheme=AsyncAnySchemes(self._auth.client_key, self._auth.basic_auth, self._auth.api_key_auth),
-            decoder=json_decoder[TransferRouteResponse],
+            decoder=async_json_decoder[TransferRouteResponse],
             error_mapper=post_transfer_routes_calculate_error_mapper,
             request_options=request_options,
         )

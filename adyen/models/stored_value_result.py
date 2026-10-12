@@ -51,5 +51,5 @@ class StoredValueResultDict(TypedDict):
     ean_upc: NotRequired[int]
     item_amount: NotRequired[float]
     currency: NotRequired[str]
-    stored_value_account_status: NotRequired[StoredValueAccountStatus1 | StoredValueAccountStatus1Dict]
-    host_transaction_id: NotRequired[TransactionIdtype7 | TransactionIdtype7Dict]
+    stored_value_account_status: NotRequired[StoredValueAccountStatus1Dict]
+    host_transaction_id: NotRequired[TransactionIdtype7Dict]

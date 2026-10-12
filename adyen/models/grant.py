@@ -30,9 +30,9 @@ class Grant(SdkBaseModel):
 
 
 class GrantDict(TypedDict):
-    balances: CapitalBalance | CapitalBalanceDict
-    counterparty: NotRequired[GrantCounterparty | GrantCounterpartyDict]
+    balances: CapitalBalanceDict
+    counterparty: NotRequired[GrantCounterpartyDict]
     grant_account_id: str
     grant_offer_id: str
     id: str
-    status: Status25 | Status25Dict
+    status: Status25Dict

@@ -23,6 +23,6 @@ class GetTotalsResponse(SdkBaseModel):
 
 
 class GetTotalsResponseDict(TypedDict):
-    response: Response11 | Response11Dict
+    response: Response11Dict
     poi_reconciliation_id: int
-    transaction_totals: NotRequired[list[TransactionTotals | TransactionTotalsDict]]
+    transaction_totals: NotRequired[list[TransactionTotalsDict]]

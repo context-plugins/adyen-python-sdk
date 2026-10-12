@@ -3,8 +3,8 @@ from __future__ import annotations
 from pydantic import Field
 from typing_extensions import NotRequired, TypedDict
 
-from ..core import UNSET, Optional, SdkBaseModel
-from .enums.type82 import Type82OrStr
+from ..core import SdkBaseModel
+from .enums.type82 import Type82, Type82OrStr
 
 
 class SglocalAccountIdentification(SdkBaseModel):
@@ -14,7 +14,7 @@ class SglocalAccountIdentification(SdkBaseModel):
     bic: str
     """The bank's 8- or 11-character BIC or SWIFT code."""
 
-    type_: Optional[Type82OrStr] = Field(default=UNSET, alias="type")
+    type_: Type82OrStr = Field(default=Type82.SG_LOCAL, alias="type")
     """**sgLocal**"""
 
 

@@ -22,5 +22,5 @@ class ViasPersonalData(SdkBaseModel):
 
 class ViasPersonalDataDict(TypedDict):
     date_of_birth: NotRequired[str]
-    document_data: NotRequired[list[PersonalDocumentData | PersonalDocumentDataDict]]
+    document_data: NotRequired[list[PersonalDocumentDataDict]]
     nationality: NotRequired[str]

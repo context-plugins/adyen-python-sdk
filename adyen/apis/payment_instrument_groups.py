@@ -11,9 +11,11 @@ from ..core import (
     RawClient,
     RequestOptionsOrDict,
     SecuredRawResponse,
+    async_json_decoder,
     json_body,
     json_decoder,
     param,
+    unwrap,
 )
 from ..errors.get_payment_instrument_groups_id_error import (
     GetPaymentInstrumentGroupsIdErrorBody,
@@ -38,13 +40,14 @@ class PaymentInstrumentGroups:
         self._with_raw_response = PaymentInstrumentGroupsWithRawResponse(client, server, auth)
 
     def get_payment_instrument_groups_id(
-        self, id: str, *, request_options: RequestOptionsOrDict | None = None
+        self, id_: str, *, request_options: RequestOptionsOrDict | None = None
     ) -> PaymentInstrumentGroup:
         """Returns the details of a payment instrument group.
 
         Args:
-            id: The unique identifier of the payment instrument group.
-            request_options: Per-call overrides for this one request, such as a timeout or extra headers.
+            id_: The unique identifier of the payment instrument group.
+            request_options: Per-call overrides for this one request, such as a timeout, extra headers, or its retry
+                count and statuses.
 
         Returns:
             OK - the request has succeeded.
@@ -54,16 +57,17 @@ class PaymentInstrumentGroups:
                 required. Forbidden - insufficient permissions to process the request. Unprocessable Entity - a request
                 validation error. Internal Server Error - the server could not process the request. ``error`` is
                 ``RestServiceError | RawError``."""
-        return self._with_raw_response.get_payment_instrument_groups_id(id, request_options=request_options).unwrap()
+        return unwrap(self._with_raw_response.get_payment_instrument_groups_id(id_, request_options=request_options))
 
     def get_payment_instrument_groups_id_transaction_rules(
-        self, id: str, *, request_options: RequestOptionsOrDict | None = None
+        self, id_: str, *, request_options: RequestOptionsOrDict | None = None
     ) -> TransactionRulesResponse:
         """Returns a list of all the transaction rules associated with a payment instrument group.
 
         Args:
-            id: The unique identifier of the payment instrument group.
-            request_options: Per-call overrides for this one request, such as a timeout or extra headers.
+            id_: The unique identifier of the payment instrument group.
+            request_options: Per-call overrides for this one request, such as a timeout, extra headers, or its retry
+                count and statuses.
 
         Returns:
             OK - the request has succeeded.
@@ -73,9 +77,11 @@ class PaymentInstrumentGroups:
                 required. Forbidden - insufficient permissions to process the request. Unprocessable Entity - a request
                 validation error. Internal Server Error - the server could not process the request. ``error`` is
                 ``RestServiceError | RawError``."""
-        return self._with_raw_response.get_payment_instrument_groups_id_transaction_rules(
-            id, request_options=request_options
-        ).unwrap()
+        return unwrap(
+            self._with_raw_response.get_payment_instrument_groups_id_transaction_rules(
+                id_, request_options=request_options
+            ),
+        )
 
     def post_payment_instrument_groups(
         self,
@@ -88,7 +94,8 @@ class PaymentInstrumentGroups:
 
         Args:
             body: The request body.
-            request_options: Per-call overrides for this one request, such as a timeout or extra headers.
+            request_options: Per-call overrides for this one request, such as a timeout, extra headers, or its retry
+                count and statuses.
 
         Returns:
             OK - the request has succeeded.
@@ -98,9 +105,9 @@ class PaymentInstrumentGroups:
                 required. Forbidden - insufficient permissions to process the request. Unprocessable Entity - a request
                 validation error. Internal Server Error - the server could not process the request. ``error`` is
                 ``RestServiceError | RawError``."""
-        return self._with_raw_response.post_payment_instrument_groups(
-            body=body, request_options=request_options
-        ).unwrap()
+        return unwrap(
+            self._with_raw_response.post_payment_instrument_groups(body=body, request_options=request_options)
+        )
 
     @property
     def with_raw_response(self) -> PaymentInstrumentGroupsWithRawResponse:
@@ -112,13 +119,14 @@ class AsyncPaymentInstrumentGroups:
         self._with_raw_response = AsyncPaymentInstrumentGroupsWithRawResponse(client, server, auth)
 
     async def get_payment_instrument_groups_id(
-        self, id: str, *, request_options: RequestOptionsOrDict | None = None
+        self, id_: str, *, request_options: RequestOptionsOrDict | None = None
     ) -> PaymentInstrumentGroup:
         """Returns the details of a payment instrument group.
 
         Args:
-            id: The unique identifier of the payment instrument group.
-            request_options: Per-call overrides for this one request, such as a timeout or extra headers.
+            id_: The unique identifier of the payment instrument group.
+            request_options: Per-call overrides for this one request, such as a timeout, extra headers, or its retry
+                count and statuses.
 
         Returns:
             OK - the request has succeeded.
@@ -128,18 +136,19 @@ class AsyncPaymentInstrumentGroups:
                 required. Forbidden - insufficient permissions to process the request. Unprocessable Entity - a request
                 validation error. Internal Server Error - the server could not process the request. ``error`` is
                 ``RestServiceError | RawError``."""
-        return (
-            await self._with_raw_response.get_payment_instrument_groups_id(id, request_options=request_options)
-        ).unwrap()
+        return unwrap(
+            await self._with_raw_response.get_payment_instrument_groups_id(id_, request_options=request_options)
+        )
 
     async def get_payment_instrument_groups_id_transaction_rules(
-        self, id: str, *, request_options: RequestOptionsOrDict | None = None
+        self, id_: str, *, request_options: RequestOptionsOrDict | None = None
     ) -> TransactionRulesResponse:
         """Returns a list of all the transaction rules associated with a payment instrument group.
 
         Args:
-            id: The unique identifier of the payment instrument group.
-            request_options: Per-call overrides for this one request, such as a timeout or extra headers.
+            id_: The unique identifier of the payment instrument group.
+            request_options: Per-call overrides for this one request, such as a timeout, extra headers, or its retry
+                count and statuses.
 
         Returns:
             OK - the request has succeeded.
@@ -149,11 +158,11 @@ class AsyncPaymentInstrumentGroups:
                 required. Forbidden - insufficient permissions to process the request. Unprocessable Entity - a request
                 validation error. Internal Server Error - the server could not process the request. ``error`` is
                 ``RestServiceError | RawError``."""
-        return (
+        return unwrap(
             await self._with_raw_response.get_payment_instrument_groups_id_transaction_rules(
-                id, request_options=request_options
-            )
-        ).unwrap()
+                id_, request_options=request_options
+            ),
+        )
 
     async def post_payment_instrument_groups(
         self,
@@ -166,7 +175,8 @@ class AsyncPaymentInstrumentGroups:
 
         Args:
             body: The request body.
-            request_options: Per-call overrides for this one request, such as a timeout or extra headers.
+            request_options: Per-call overrides for this one request, such as a timeout, extra headers, or its retry
+                count and statuses.
 
         Returns:
             OK - the request has succeeded.
@@ -176,9 +186,9 @@ class AsyncPaymentInstrumentGroups:
                 required. Forbidden - insufficient permissions to process the request. Unprocessable Entity - a request
                 validation error. Internal Server Error - the server could not process the request. ``error`` is
                 ``RestServiceError | RawError``."""
-        return (
+        return unwrap(
             await self._with_raw_response.post_payment_instrument_groups(body=body, request_options=request_options)
-        ).unwrap()
+        )
 
     @property
     def with_raw_response(self) -> AsyncPaymentInstrumentGroupsWithRawResponse:
@@ -187,20 +197,21 @@ class AsyncPaymentInstrumentGroups:
 
 class PaymentInstrumentGroupsWithRawResponse(SecuredRawResponse[RawClient, Server, AuthSchemes]):
     def get_payment_instrument_groups_id(
-        self, id: str, *, request_options: RequestOptionsOrDict | None = None
+        self, id_: str, *, request_options: RequestOptionsOrDict | None = None
     ) -> ApiResult[PaymentInstrumentGroup, GetPaymentInstrumentGroupsIdErrorBody]:
         """Returns the details of a payment instrument group.
 
         Args:
-            id: The unique identifier of the payment instrument group.
-            request_options: Per-call overrides for this one request, such as a timeout or extra headers.
+            id_: The unique identifier of the payment instrument group.
+            request_options: Per-call overrides for this one request, such as a timeout, extra headers, or its retry
+                count and statuses.
 
         Returns:
             An ``ApiResult`` holding the deserialized response or the error body."""
         return self._client.execute(
             http_method="GET",
             url_template=self._server.default13("/paymentInstrumentGroups/{id}"),
-            path_params=[param[str]("id", id)],
+            path_params=[param[str]("id", id_)],
             auth_scheme=AnySchemes(self._auth.client_key, self._auth.basic_auth, self._auth.api_key_auth),
             decoder=json_decoder[PaymentInstrumentGroup],
             error_mapper=get_payment_instrument_groups_id_error_mapper,
@@ -208,20 +219,21 @@ class PaymentInstrumentGroupsWithRawResponse(SecuredRawResponse[RawClient, Serve
         )
 
     def get_payment_instrument_groups_id_transaction_rules(
-        self, id: str, *, request_options: RequestOptionsOrDict | None = None
+        self, id_: str, *, request_options: RequestOptionsOrDict | None = None
     ) -> ApiResult[TransactionRulesResponse, GetPaymentInstrumentGroupsIdTransactionRulesErrorBody]:
         """Returns a list of all the transaction rules associated with a payment instrument group.
 
         Args:
-            id: The unique identifier of the payment instrument group.
-            request_options: Per-call overrides for this one request, such as a timeout or extra headers.
+            id_: The unique identifier of the payment instrument group.
+            request_options: Per-call overrides for this one request, such as a timeout, extra headers, or its retry
+                count and statuses.
 
         Returns:
             An ``ApiResult`` holding the deserialized response or the error body."""
         return self._client.execute(
             http_method="GET",
             url_template=self._server.default13("/paymentInstrumentGroups/{id}/transactionRules"),
-            path_params=[param[str]("id", id)],
+            path_params=[param[str]("id", id_)],
             auth_scheme=AnySchemes(self._auth.client_key, self._auth.basic_auth, self._auth.api_key_auth),
             decoder=json_decoder[TransactionRulesResponse],
             error_mapper=get_payment_instrument_groups_id_transaction_rules_error_mapper,
@@ -239,7 +251,8 @@ class PaymentInstrumentGroupsWithRawResponse(SecuredRawResponse[RawClient, Serve
 
         Args:
             body: The request body.
-            request_options: Per-call overrides for this one request, such as a timeout or extra headers.
+            request_options: Per-call overrides for this one request, such as a timeout, extra headers, or its retry
+                count and statuses.
 
         Returns:
             An ``ApiResult`` holding the deserialized response or the error body."""
@@ -257,43 +270,45 @@ class PaymentInstrumentGroupsWithRawResponse(SecuredRawResponse[RawClient, Serve
 
 class AsyncPaymentInstrumentGroupsWithRawResponse(SecuredRawResponse[AsyncRawClient, Server, AsyncAuthSchemes]):
     async def get_payment_instrument_groups_id(
-        self, id: str, *, request_options: RequestOptionsOrDict | None = None
+        self, id_: str, *, request_options: RequestOptionsOrDict | None = None
     ) -> ApiResult[PaymentInstrumentGroup, GetPaymentInstrumentGroupsIdErrorBody]:
         """Returns the details of a payment instrument group.
 
         Args:
-            id: The unique identifier of the payment instrument group.
-            request_options: Per-call overrides for this one request, such as a timeout or extra headers.
+            id_: The unique identifier of the payment instrument group.
+            request_options: Per-call overrides for this one request, such as a timeout, extra headers, or its retry
+                count and statuses.
 
         Returns:
             An ``ApiResult`` holding the deserialized response or the error body."""
         return await self._client.execute(
             http_method="GET",
             url_template=self._server.default13("/paymentInstrumentGroups/{id}"),
-            path_params=[param[str]("id", id)],
+            path_params=[param[str]("id", id_)],
             auth_scheme=AsyncAnySchemes(self._auth.client_key, self._auth.basic_auth, self._auth.api_key_auth),
-            decoder=json_decoder[PaymentInstrumentGroup],
+            decoder=async_json_decoder[PaymentInstrumentGroup],
             error_mapper=get_payment_instrument_groups_id_error_mapper,
             request_options=request_options,
         )
 
     async def get_payment_instrument_groups_id_transaction_rules(
-        self, id: str, *, request_options: RequestOptionsOrDict | None = None
+        self, id_: str, *, request_options: RequestOptionsOrDict | None = None
     ) -> ApiResult[TransactionRulesResponse, GetPaymentInstrumentGroupsIdTransactionRulesErrorBody]:
         """Returns a list of all the transaction rules associated with a payment instrument group.
 
         Args:
-            id: The unique identifier of the payment instrument group.
-            request_options: Per-call overrides for this one request, such as a timeout or extra headers.
+            id_: The unique identifier of the payment instrument group.
+            request_options: Per-call overrides for this one request, such as a timeout, extra headers, or its retry
+                count and statuses.
 
         Returns:
             An ``ApiResult`` holding the deserialized response or the error body."""
         return await self._client.execute(
             http_method="GET",
             url_template=self._server.default13("/paymentInstrumentGroups/{id}/transactionRules"),
-            path_params=[param[str]("id", id)],
+            path_params=[param[str]("id", id_)],
             auth_scheme=AsyncAnySchemes(self._auth.client_key, self._auth.basic_auth, self._auth.api_key_auth),
-            decoder=json_decoder[TransactionRulesResponse],
+            decoder=async_json_decoder[TransactionRulesResponse],
             error_mapper=get_payment_instrument_groups_id_transaction_rules_error_mapper,
             request_options=request_options,
         )
@@ -309,7 +324,8 @@ class AsyncPaymentInstrumentGroupsWithRawResponse(SecuredRawResponse[AsyncRawCli
 
         Args:
             body: The request body.
-            request_options: Per-call overrides for this one request, such as a timeout or extra headers.
+            request_options: Per-call overrides for this one request, such as a timeout, extra headers, or its retry
+                count and statuses.
 
         Returns:
             An ``ApiResult`` holding the deserialized response or the error body."""
@@ -319,7 +335,7 @@ class AsyncPaymentInstrumentGroupsWithRawResponse(SecuredRawResponse[AsyncRawCli
             headers=[param[UUID]("Idempotency-Key", uuid4())],
             body=json_body[PaymentInstrumentGroupInfo | PaymentInstrumentGroupInfoDict | None](body),
             auth_scheme=AsyncAnySchemes(self._auth.client_key, self._auth.basic_auth, self._auth.api_key_auth),
-            decoder=json_decoder[PaymentInstrumentGroup],
+            decoder=async_json_decoder[PaymentInstrumentGroup],
             error_mapper=post_payment_instrument_groups_error_mapper,
             request_options=request_options,
         )

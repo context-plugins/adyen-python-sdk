@@ -21,4 +21,4 @@ class ErrorFieldType(SdkBaseModel):
 class ErrorFieldTypeDict(TypedDict):
     error_code: NotRequired[int]
     error_description: NotRequired[str]
-    field_type: NotRequired[FieldType | FieldTypeDict]
+    field_type: NotRequired[FieldTypeDict]

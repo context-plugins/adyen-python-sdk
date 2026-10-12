@@ -16,5 +16,5 @@ class BeginScaDeviceRegistrationResponse(SdkBaseModel):
 
 
 class BeginScaDeviceRegistrationResponseDict(TypedDict):
-    sca_device: NotRequired[ScaDevice | ScaDeviceDict]
+    sca_device: NotRequired[ScaDeviceDict]
     sdk_input: NotRequired[str]

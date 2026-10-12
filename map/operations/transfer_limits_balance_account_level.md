@@ -10,9 +10,9 @@ Each `###` block is one operation and assumes `sdk-map.md` is loaded: blocks omi
 
 - **Route**: `DELETE /balanceAccounts/{id}/transferLimits/{transferLimitId}`
 - **Server**: `default13`
-- **Signature**: `def delete_balance_accounts_id_transfer_limits_transfer_limit_id(id: str, transfer_limit_id: str, *, request_options: RequestOptionsOrDict | None = None)`
-  - required, positional: `id`, `transfer_limit_id`
-- **Params**: `id` — path · `transfer_limit_id` — path `transferLimitId`
+- **Signature**: `def delete_balance_accounts_id_transfer_limits_transfer_limit_id(id_: str, transfer_limit_id: str, *, request_options: RequestOptionsOrDict | None = None)`
+  - required, positional: `id_`, `transfer_limit_id`
+- **Params**: `id_` — path `id` · `transfer_limit_id` — path `transferLimitId`
 - **Returns (parsed)**: `None`
 - **Returns (raw)**: `ApiResult[None, DeleteBalanceAccountsIdTransferLimitsTransferLimitIdErrorBody]`
 - **Error**: `DeleteBalanceAccountsIdTransferLimitsTransferLimitIdErrorBody` — **Case A (typed)**
@@ -27,9 +27,9 @@ Each `###` block is one operation and assumes `sdk-map.md` is loaded: blocks omi
 
 - **Route**: `GET /balanceAccounts/{id}/transferLimits`
 - **Server**: `default13`
-- **Signature**: `def get_balance_accounts_id_transfer_limits(id: str, *, scope: ScopeOrStr | None = None, transfer_type: TransferTypeOrStr | None = None, status: LimitStatusOrStr | None = None, request_options: RequestOptionsOrDict | None = None)`
-  - required, positional: `id`
-- **Params**: `id` — path · `scope` — query · `transfer_type` — query `transferType` · `status` — query
+- **Signature**: `def get_balance_accounts_id_transfer_limits(id_: str, *, scope: ScopeOrStr | None = None, transfer_type: TransferTypeOrStr | None = None, status: LimitStatusOrStr | None = None, request_options: RequestOptionsOrDict | None = None)`
+  - required, positional: `id_`
+- **Params**: `id_` — path `id` · `scope` — query · `transfer_type` — query `transferType` · `status` — query
 - **Returns (parsed)**: `TransferLimitListResponse`
 - **Returns (raw)**: `ApiResult[TransferLimitListResponse, GetBalanceAccountsIdTransferLimitsErrorBody]`
 - **Error**: `GetBalanceAccountsIdTransferLimitsErrorBody` — **Case A (typed)**
@@ -48,9 +48,9 @@ Each `###` block is one operation and assumes `sdk-map.md` is loaded: blocks omi
 
 - **Route**: `GET /balanceAccounts/{id}/transferLimits/current`
 - **Server**: `default13`
-- **Signature**: `def get_balance_accounts_id_transfer_limits_current(id: str, *, scope: ScopeOrStr | None = None, transfer_type: TransferTypeOrStr | None = None, request_options: RequestOptionsOrDict | None = None)`
-  - required, positional: `id`
-- **Params**: `id` — path · `scope` — query · `transfer_type` — query `transferType`
+- **Signature**: `def get_balance_accounts_id_transfer_limits_current(id_: str, *, scope: ScopeOrStr | None = None, transfer_type: TransferTypeOrStr | None = None, request_options: RequestOptionsOrDict | None = None)`
+  - required, positional: `id_`
+- **Params**: `id_` — path `id` · `scope` — query · `transfer_type` — query `transferType`
 - **Returns (parsed)**: `TransferLimitListResponse`
 - **Returns (raw)**: `ApiResult[TransferLimitListResponse, GetBalanceAccountsIdTransferLimitsCurrentErrorBody]`
 - **Error**: `GetBalanceAccountsIdTransferLimitsCurrentErrorBody` — **Case A (typed)**
@@ -68,9 +68,9 @@ Each `###` block is one operation and assumes `sdk-map.md` is loaded: blocks omi
 
 - **Route**: `GET /balanceAccounts/{id}/transferLimits/{transferLimitId}`
 - **Server**: `default13`
-- **Signature**: `def get_balance_accounts_id_transfer_limits_transfer_limit_id(id: str, transfer_limit_id: str, *, request_options: RequestOptionsOrDict | None = None)`
-  - required, positional: `id`, `transfer_limit_id`
-- **Params**: `id` — path · `transfer_limit_id` — path `transferLimitId`
+- **Signature**: `def get_balance_accounts_id_transfer_limits_transfer_limit_id(id_: str, transfer_limit_id: str, *, request_options: RequestOptionsOrDict | None = None)`
+  - required, positional: `id_`, `transfer_limit_id`
+- **Params**: `id_` — path `id` · `transfer_limit_id` — path `transferLimitId`
 - **Returns (parsed)**: `TransferLimit`
 - **Returns (raw)**: `ApiResult[TransferLimit, GetBalanceAccountsIdTransferLimitsTransferLimitIdErrorBody]`
 - **Error**: `GetBalanceAccountsIdTransferLimitsTransferLimitIdErrorBody` — **Case A (typed)**
@@ -86,9 +86,9 @@ Each `###` block is one operation and assumes `sdk-map.md` is loaded: blocks omi
 
 - **Route**: `POST /balanceAccounts/{id}/transferLimits`
 - **Server**: `default13`
-- **Signature**: `def post_balance_accounts_id_transfer_limits(id: str, body: CreateTransferLimitRequest | CreateTransferLimitRequestDict, *, www_authenticate: str | None = None, request_options: RequestOptionsOrDict | None = None)`
-  - required, positional: `id`, `body`
-- **Params**: `id` — path · `www_authenticate` — header `WWW-Authenticate` · `body` — JSON body
+- **Signature**: `def post_balance_accounts_id_transfer_limits(id_: str, body: CreateTransferLimitRequest | CreateTransferLimitRequestDict, *, www_authenticate: str | None = None, request_options: RequestOptionsOrDict | None = None)`
+  - required, positional: `id_`, `body`
+- **Params**: `id_` — path `id` · `www_authenticate` — header `WWW-Authenticate` · `body` — JSON body
 - **Returns (parsed)**: `TransferLimit`
 - **Returns (raw)**: `ApiResult[TransferLimit, PostBalanceAccountsIdTransferLimitsErrorBody]`
 - **Error**: `PostBalanceAccountsIdTransferLimitsErrorBody` — **Case A (typed)**
@@ -106,9 +106,9 @@ Each `###` block is one operation and assumes `sdk-map.md` is loaded: blocks omi
 
 - **Route**: `POST /balanceAccounts/{id}/transferLimits/approve`
 - **Server**: `default13`
-- **Signature**: `def post_balance_accounts_id_transfer_limits_approve(id: str, body: ApproveTransferLimitRequest | ApproveTransferLimitRequestDict, *, www_authenticate: str | None = None, request_options: RequestOptionsOrDict | None = None)`
-  - required, positional: `id`, `body`
-- **Params**: `id` — path · `www_authenticate` — header `WWW-Authenticate` · `body` — JSON body
+- **Signature**: `def post_balance_accounts_id_transfer_limits_approve(id_: str, body: ApproveTransferLimitRequest | ApproveTransferLimitRequestDict, *, www_authenticate: str | None = None, request_options: RequestOptionsOrDict | None = None)`
+  - required, positional: `id_`, `body`
+- **Params**: `id_` — path `id` · `www_authenticate` — header `WWW-Authenticate` · `body` — JSON body
 - **Returns (parsed)**: `None`
 - **Returns (raw)**: `ApiResult[None, PostBalanceAccountsIdTransferLimitsApproveErrorBody]`
 - **Error**: `PostBalanceAccountsIdTransferLimitsApproveErrorBody` — **Case A (typed)**

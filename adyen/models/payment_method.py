@@ -47,14 +47,14 @@ class PaymentMethod(SdkBaseModel):
 
 
 class PaymentMethodDict(TypedDict):
-    apps: NotRequired[list[PaymentMethodUpiapps | PaymentMethodUpiappsDict]]
+    apps: NotRequired[list[PaymentMethodUpiappsDict]]
     brand: NotRequired[str]
     brands: NotRequired[list[str]]
     configuration: NotRequired[dict[str, str]]
     funding_source: NotRequired[FundingSource9OrStr]
-    group: NotRequired[PaymentMethodGroup2 | PaymentMethodGroup2Dict]
-    input_details: NotRequired[list[InputDetail | InputDetailDict]]
-    issuers: NotRequired[list[PaymentMethodIssuer | PaymentMethodIssuerDict]]
+    group: NotRequired[PaymentMethodGroup2Dict]
+    input_details: NotRequired[list[InputDetailDict]]
+    issuers: NotRequired[list[PaymentMethodIssuerDict]]
     name: NotRequired[str]
     promoted: NotRequired[bool]
     type_: NotRequired[str]

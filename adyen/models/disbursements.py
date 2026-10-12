@@ -12,4 +12,4 @@ class Disbursements(SdkBaseModel):
 
 
 class DisbursementsDict(TypedDict):
-    disbursements: list[Disbursement | DisbursementDict]
+    disbursements: list[DisbursementDict]

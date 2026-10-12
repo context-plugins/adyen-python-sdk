@@ -20,4 +20,4 @@ class OnboardingThemes(SdkBaseModel):
 class OnboardingThemesDict(TypedDict):
     next: NotRequired[str]
     previous: NotRequired[str]
-    themes: list[OnboardingTheme | OnboardingThemeDict]
+    themes: list[OnboardingThemeDict]

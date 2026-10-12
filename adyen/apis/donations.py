@@ -9,9 +9,11 @@ from ..core import (
     RawClient,
     RequestOptionsOrDict,
     SecuredRawResponse,
+    async_json_decoder,
     json_body,
     json_decoder,
     param,
+    unwrap,
 )
 from ..errors.post_donation_campaigns_error import PostDonationCampaignsErrorBody, post_donation_campaigns_error_mapper
 from ..errors.post_donations_error import PostDonationsErrorBody, post_donations_error_mapper
@@ -39,7 +41,8 @@ class Donations:
         Args:
             idempotency_key: A unique identifier for the message with a maximum of 64 characters (we recommend a UUID).
             body: The request body.
-            request_options: Per-call overrides for this one request, such as a timeout or extra headers.
+            request_options: Per-call overrides for this one request, such as a timeout, extra headers, or its retry
+                count and statuses.
 
         Returns:
             OK - the request has succeeded.
@@ -49,9 +52,11 @@ class Donations:
                 required. Forbidden - insufficient permissions to process the request. Unprocessable Entity - a request
                 validation error. Internal Server Error - the server could not process the request. ``error`` is
                 ``ServiceError | RawError``."""
-        return self._with_raw_response.post_donation_campaigns(
-            idempotency_key=idempotency_key, body=body, request_options=request_options
-        ).unwrap()
+        return unwrap(
+            self._with_raw_response.post_donation_campaigns(
+                idempotency_key=idempotency_key, body=body, request_options=request_options
+            ),
+        )
 
     def post_donations(
         self,
@@ -67,7 +72,8 @@ class Donations:
         Args:
             idempotency_key: A unique identifier for the message with a maximum of 64 characters (we recommend a UUID).
             body: The request body.
-            request_options: Per-call overrides for this one request, such as a timeout or extra headers.
+            request_options: Per-call overrides for this one request, such as a timeout, extra headers, or its retry
+                count and statuses.
 
         Returns:
             OK - the request has succeeded.
@@ -77,9 +83,11 @@ class Donations:
                 required. Forbidden - insufficient permissions to process the request. Unprocessable Entity - a request
                 validation error. Internal Server Error - the server could not process the request. ``error`` is
                 ``ServiceError | RawError``."""
-        return self._with_raw_response.post_donations(
-            idempotency_key=idempotency_key, body=body, request_options=request_options
-        ).unwrap()
+        return unwrap(
+            self._with_raw_response.post_donations(
+                idempotency_key=idempotency_key, body=body, request_options=request_options
+            ),
+        )
 
     @property
     def with_raw_response(self) -> DonationsWithRawResponse:
@@ -103,7 +111,8 @@ class AsyncDonations:
         Args:
             idempotency_key: A unique identifier for the message with a maximum of 64 characters (we recommend a UUID).
             body: The request body.
-            request_options: Per-call overrides for this one request, such as a timeout or extra headers.
+            request_options: Per-call overrides for this one request, such as a timeout, extra headers, or its retry
+                count and statuses.
 
         Returns:
             OK - the request has succeeded.
@@ -113,11 +122,11 @@ class AsyncDonations:
                 required. Forbidden - insufficient permissions to process the request. Unprocessable Entity - a request
                 validation error. Internal Server Error - the server could not process the request. ``error`` is
                 ``ServiceError | RawError``."""
-        return (
+        return unwrap(
             await self._with_raw_response.post_donation_campaigns(
                 idempotency_key=idempotency_key, body=body, request_options=request_options
-            )
-        ).unwrap()
+            ),
+        )
 
     async def post_donations(
         self,
@@ -133,7 +142,8 @@ class AsyncDonations:
         Args:
             idempotency_key: A unique identifier for the message with a maximum of 64 characters (we recommend a UUID).
             body: The request body.
-            request_options: Per-call overrides for this one request, such as a timeout or extra headers.
+            request_options: Per-call overrides for this one request, such as a timeout, extra headers, or its retry
+                count and statuses.
 
         Returns:
             OK - the request has succeeded.
@@ -143,11 +153,11 @@ class AsyncDonations:
                 required. Forbidden - insufficient permissions to process the request. Unprocessable Entity - a request
                 validation error. Internal Server Error - the server could not process the request. ``error`` is
                 ``ServiceError | RawError``."""
-        return (
+        return unwrap(
             await self._with_raw_response.post_donations(
                 idempotency_key=idempotency_key, body=body, request_options=request_options
-            )
-        ).unwrap()
+            ),
+        )
 
     @property
     def with_raw_response(self) -> AsyncDonationsWithRawResponse:
@@ -168,7 +178,8 @@ class DonationsWithRawResponse(SecuredRawResponse[RawClient, Server, AuthSchemes
         Args:
             idempotency_key: A unique identifier for the message with a maximum of 64 characters (we recommend a UUID).
             body: The request body.
-            request_options: Per-call overrides for this one request, such as a timeout or extra headers.
+            request_options: Per-call overrides for this one request, such as a timeout, extra headers, or its retry
+                count and statuses.
 
         Returns:
             An ``ApiResult`` holding the deserialized response or the error body."""
@@ -197,7 +208,8 @@ class DonationsWithRawResponse(SecuredRawResponse[RawClient, Server, AuthSchemes
         Args:
             idempotency_key: A unique identifier for the message with a maximum of 64 characters (we recommend a UUID).
             body: The request body.
-            request_options: Per-call overrides for this one request, such as a timeout or extra headers.
+            request_options: Per-call overrides for this one request, such as a timeout, extra headers, or its retry
+                count and statuses.
 
         Returns:
             An ``ApiResult`` holding the deserialized response or the error body."""
@@ -227,7 +239,8 @@ class AsyncDonationsWithRawResponse(SecuredRawResponse[AsyncRawClient, Server, A
         Args:
             idempotency_key: A unique identifier for the message with a maximum of 64 characters (we recommend a UUID).
             body: The request body.
-            request_options: Per-call overrides for this one request, such as a timeout or extra headers.
+            request_options: Per-call overrides for this one request, such as a timeout, extra headers, or its retry
+                count and statuses.
 
         Returns:
             An ``ApiResult`` holding the deserialized response or the error body."""
@@ -237,7 +250,7 @@ class AsyncDonationsWithRawResponse(SecuredRawResponse[AsyncRawClient, Server, A
             headers=[param[str | None]("Idempotency-Key", idempotency_key)],
             body=json_body[DonationCampaignsRequest | DonationCampaignsRequestDict | None](body),
             auth_scheme=AsyncAnySchemes(self._auth.basic_auth, self._auth.api_key_auth),
-            decoder=json_decoder[DonationCampaignsResponse],
+            decoder=async_json_decoder[DonationCampaignsResponse],
             error_mapper=post_donation_campaigns_error_mapper,
             request_options=request_options,
         )
@@ -256,7 +269,8 @@ class AsyncDonationsWithRawResponse(SecuredRawResponse[AsyncRawClient, Server, A
         Args:
             idempotency_key: A unique identifier for the message with a maximum of 64 characters (we recommend a UUID).
             body: The request body.
-            request_options: Per-call overrides for this one request, such as a timeout or extra headers.
+            request_options: Per-call overrides for this one request, such as a timeout, extra headers, or its retry
+                count and statuses.
 
         Returns:
             An ``ApiResult`` holding the deserialized response or the error body."""
@@ -266,7 +280,7 @@ class AsyncDonationsWithRawResponse(SecuredRawResponse[AsyncRawClient, Server, A
             headers=[param[str | None]("Idempotency-Key", idempotency_key)],
             body=json_body[DonationPaymentRequest | DonationPaymentRequestDict | None](body),
             auth_scheme=AsyncAnySchemes(self._auth.basic_auth, self._auth.api_key_auth),
-            decoder=json_decoder[DonationPaymentResponse],
+            decoder=async_json_decoder[DonationPaymentResponse],
             error_mapper=post_donations_error_mapper,
             request_options=request_options,
         )

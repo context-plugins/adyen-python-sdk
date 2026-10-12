@@ -16,4 +16,4 @@ class TerminalApiresponse(SdkBaseModel):
 
 
 class TerminalApiresponseDict(TypedDict):
-    sale_to_poi_response: SaleToPoiresponse | SaleToPoiresponseDict
+    sale_to_poi_response: SaleToPoiresponseDict

@@ -11,8 +11,8 @@ Each `###` block is one operation and assumes `sdk-map.md` is loaded: blocks omi
 - **Route**: `GET /cardorders`
 - **Auth**: `client_key` OR `basic_auth` OR `api_key_auth`
 - **Server**: `default13`
-- **Signature**: `def get_cardorders(*, id: str | None = None, card_manufacturing_profile_id: str | None = None, status: str | None = None, tx_variant_code: str | None = None, created_since: RFC3339DateTime | None = None, created_until: RFC3339DateTime | None = None, locked_since: RFC3339DateTime | None = None, locked_until: RFC3339DateTime | None = None, service_center: str | None = None, offset: int | None = None, limit: int | None = None, request_options: RequestOptionsOrDict | None = None)`
-- **Params**: `id` — query · `card_manufacturing_profile_id` — query `cardManufacturingProfileId` · `status` — query · `tx_variant_code` — query `txVariantCode` · `created_since` — query `createdSince` · `created_until` — query `createdUntil` · `locked_since` — query `lockedSince` · `locked_until` — query `lockedUntil` · `service_center` — query `serviceCenter` · `offset` — query · `limit` — query
+- **Signature**: `def get_cardorders(*, id_: str | None = None, card_manufacturing_profile_id: str | None = None, status: str | None = None, tx_variant_code: str | None = None, created_since: RFC3339DateTime | None = None, created_until: RFC3339DateTime | None = None, locked_since: RFC3339DateTime | None = None, locked_until: RFC3339DateTime | None = None, service_center: str | None = None, offset: int | None = None, limit: int | None = None, request_options: RequestOptionsOrDict | None = None)`
+- **Params**: `id_` — query `id` · `card_manufacturing_profile_id` — query `cardManufacturingProfileId` · `status` — query · `tx_variant_code` — query `txVariantCode` · `created_since` — query `createdSince` · `created_until` — query `createdUntil` · `locked_since` — query `lockedSince` · `locked_until` — query `lockedUntil` · `service_center` — query `serviceCenter` · `offset` — query · `limit` — query
 - **Returns (parsed)**: `PaginatedGetCardOrderResponse`
 - **Returns (raw)**: `ApiResult[PaginatedGetCardOrderResponse, GetCardordersErrorBody]`
 - **Error**: `GetCardordersErrorBody` — **Case A (typed)**
@@ -29,9 +29,9 @@ Each `###` block is one operation and assumes `sdk-map.md` is loaded: blocks omi
 - **Route**: `GET /cardorders/{id}/items`
 - **Auth**: `client_key` OR `basic_auth` OR `api_key_auth`
 - **Server**: `default13`
-- **Signature**: `def get_cardorders_id_items(id: str, *, offset: int | None = None, limit: int | None = None, request_options: RequestOptionsOrDict | None = None)`
-  - required, positional: `id`
-- **Params**: `id` — path · `offset` — query · `limit` — query
+- **Signature**: `def get_cardorders_id_items(id_: str, *, offset: int | None = None, limit: int | None = None, request_options: RequestOptionsOrDict | None = None)`
+  - required, positional: `id_`
+- **Params**: `id_` — path `id` · `offset` — query · `limit` — query
 - **Returns (parsed)**: `PaginatedGetCardOrderItemResponse`
 - **Returns (raw)**: `ApiResult[PaginatedGetCardOrderItemResponse, GetCardordersIdItemsErrorBody]`
 - **Error**: `GetCardordersIdItemsErrorBody` — **Case A (typed)**

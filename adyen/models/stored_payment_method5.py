@@ -4,7 +4,7 @@ from pydantic import Field
 from typing_extensions import NotRequired, TypedDict
 
 from ..core import UNSET, Optional, SdkBaseModel
-from .enums.type45 import Type45OrStr
+from .enums.type45 import Type45, Type45OrStr
 from .pix_pay_by_bank_risk_signals import PixPayByBankRiskSignals, PixPayByBankRiskSignalsDict
 
 
@@ -24,7 +24,7 @@ class StoredPaymentMethod5(SdkBaseModel):
     stored_payment_method_id: Optional[str] = Field(default=UNSET, alias="storedPaymentMethodId")
     """This is the ``recurringDetailReference`` returned in the response when you created the token."""
 
-    type_: Optional[Type45OrStr] = Field(default=UNSET, alias="type")
+    type_: Type45OrStr = Field(default=Type45.PAYBYBANK_PIX, alias="type")
     """**paybybank_pix**"""
 
 
@@ -33,7 +33,7 @@ class StoredPaymentMethod5Dict(TypedDict):
     device_id: NotRequired[str]
     issuer: NotRequired[str]
     recurring_detail_reference: NotRequired[str]
-    risk_signals: NotRequired[PixPayByBankRiskSignals | PixPayByBankRiskSignalsDict]
+    risk_signals: NotRequired[PixPayByBankRiskSignalsDict]
     sdk_data: NotRequired[str]
     stored_payment_method_id: NotRequired[str]
     type_: NotRequired[Type45OrStr]

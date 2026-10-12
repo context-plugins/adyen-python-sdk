@@ -3,7 +3,7 @@ from __future__ import annotations
 from dataclasses import dataclass
 from typing import Final, TypeAlias
 
-from ..core import ErrorMapper, HttpResponse, RawError, decode_json
+from ..core import ErrorMapper, RawError, decode_json
 from ..models.default_error_response_entity import DefaultErrorResponseEntity
 
 PostPaymentInstrumentsPaymentInstrumentIdAuthorisedCardUsersErrorBody: TypeAlias = DefaultErrorResponseEntity | RawError
@@ -11,12 +11,14 @@ PostPaymentInstrumentsPaymentInstrumentIdAuthorisedCardUsersErrorBody: TypeAlias
 
 @dataclass(frozen=True, slots=True)
 class _PostPaymentInstrumentsPaymentInstrumentIdAuthorisedCardUsersError:
-    def map(self, response: HttpResponse) -> PostPaymentInstrumentsPaymentInstrumentIdAuthorisedCardUsersErrorBody:
-        match response.status_code:
+    def map(
+        self, status_code: int, content: bytes
+    ) -> PostPaymentInstrumentsPaymentInstrumentIdAuthorisedCardUsersErrorBody:
+        match status_code:
             case 400 | 401 | 403 | 422:
-                return decode_json[DefaultErrorResponseEntity](response)
+                return decode_json[DefaultErrorResponseEntity](content)
             case _:
-                return RawError(response)
+                return RawError(status_code, content)
 
 
 post_payment_instruments_payment_instrument_id_authorised_card_users_error_mapper: Final[

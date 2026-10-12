@@ -69,6 +69,6 @@ class CheckoutBankTransferActionDict(TypedDict):
     routing_number: NotRequired[str]
     shopper_email: NotRequired[str]
     sort_code: NotRequired[str]
-    total_amount: NotRequired[Amount10 | Amount10Dict]
-    type_: NotRequired[Literal["bankTransfer"]]
+    total_amount: NotRequired[Amount10Dict]
+    type_: Literal["bankTransfer"]
     url: NotRequired[str]

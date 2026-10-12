@@ -21,6 +21,6 @@ class DetailBalance1(SdkBaseModel):
 
 
 class DetailBalance1Dict(TypedDict):
-    balance: NotRequired[list[Amount | AmountDict]]
-    on_hold_balance: NotRequired[list[Amount | AmountDict]]
-    pending_balance: NotRequired[list[Amount | AmountDict]]
+    balance: NotRequired[list[AmountDict]]
+    on_hold_balance: NotRequired[list[AmountDict]]
+    pending_balance: NotRequired[list[AmountDict]]

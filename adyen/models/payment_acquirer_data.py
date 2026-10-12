@@ -34,6 +34,6 @@ class PaymentAcquirerDataDict(TypedDict):
     acquirer_id: NotRequired[int]
     merchant_id: str
     acquirer_poiid: str
-    acquirer_transaction_id: NotRequired[TransactionIdtype6 | TransactionIdtype6Dict]
+    acquirer_transaction_id: NotRequired[TransactionIdtype6Dict]
     approval_code: NotRequired[str]
     host_reconciliation_id: NotRequired[str]

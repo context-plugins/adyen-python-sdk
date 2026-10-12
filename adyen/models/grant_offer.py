@@ -38,10 +38,10 @@ class GrantOffer(SdkBaseModel):
 
 class GrantOfferDict(TypedDict):
     account_holder_id: str
-    amount: NotRequired[Amount17 | Amount17Dict]
+    amount: NotRequired[Amount17Dict]
     contract_type: NotRequired[ContractTypeOrStr]
     expires_at: NotRequired[RFC3339DateTime]
-    fee: NotRequired[Fee1 | Fee1Dict]
+    fee: NotRequired[Fee1Dict]
     id: NotRequired[str]
-    repayment: NotRequired[Repayment2 | Repayment2Dict]
+    repayment: NotRequired[Repayment2Dict]
     starts_at: NotRequired[RFC3339DateTime]

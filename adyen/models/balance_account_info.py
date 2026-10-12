@@ -52,6 +52,6 @@ class BalanceAccountInfoDict(TypedDict):
     description: NotRequired[str]
     metadata: NotRequired[dict[str, str]]
     migrated_account_code: NotRequired[str]
-    platform_payment_configuration: NotRequired[PlatformPaymentConfiguration1 | PlatformPaymentConfiguration1Dict]
+    platform_payment_configuration: NotRequired[PlatformPaymentConfiguration1Dict]
     reference: NotRequired[str]
     time_zone: NotRequired[str]

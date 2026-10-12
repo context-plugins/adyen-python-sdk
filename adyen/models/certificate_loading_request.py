@@ -31,4 +31,4 @@ class CertificateLoadingRequestDict(TypedDict):
     merchant_account: str
     setup_token: str
     store: NotRequired[str]
-    sub_merchant_data: NotRequired[SubMerchantData21 | SubMerchantData21Dict]
+    sub_merchant_data: NotRequired[SubMerchantData21Dict]

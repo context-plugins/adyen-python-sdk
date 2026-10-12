@@ -78,17 +78,17 @@ class Store(SdkBaseModel):
 
 
 class StoreDict(TypedDict):
-    links: NotRequired[Links7 | Links7Dict]
-    address: NotRequired[StoreLocation1 | StoreLocation1Dict]
+    links: NotRequired[Links7Dict]
+    address: NotRequired[StoreLocation1Dict]
     business_line_ids: NotRequired[list[str]]
     description: NotRequired[str]
     external_reference_id: NotRequired[str]
     id: NotRequired[str]
-    localized_information: NotRequired[LocalizedInformation4 | LocalizedInformation4Dict]
+    localized_information: NotRequired[LocalizedInformation4Dict]
     merchant_id: NotRequired[str]
     phone_number: NotRequired[str]
     reference: NotRequired[str]
     shopper_statement: NotRequired[str]
-    split_configuration: NotRequired[StoreSplitConfiguration1 | StoreSplitConfiguration1Dict]
+    split_configuration: NotRequired[StoreSplitConfiguration1Dict]
     status: NotRequired[Status11OrStr]
-    sub_merchant_data: NotRequired[SubMerchantData1 | SubMerchantData1Dict]
+    sub_merchant_data: NotRequired[SubMerchantData1Dict]

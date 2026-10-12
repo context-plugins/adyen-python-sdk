@@ -17,5 +17,5 @@ class AuthenticationResultResponse(SdkBaseModel):
 
 
 class AuthenticationResultResponseDict(TypedDict):
-    three_ds1_result: NotRequired[ThreeDs1Result2 | ThreeDs1Result2Dict]
-    three_ds2_result: NotRequired[ThreeDs2Result | ThreeDs2ResultDict]
+    three_ds1_result: NotRequired[ThreeDs1Result2Dict]
+    three_ds2_result: NotRequired[ThreeDs2ResultDict]

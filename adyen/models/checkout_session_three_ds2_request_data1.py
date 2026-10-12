@@ -45,7 +45,7 @@ class CheckoutSessionThreeDs2RequestData1(SdkBaseModel):
 
 
 class CheckoutSessionThreeDs2RequestData1Dict(TypedDict):
-    home_phone: NotRequired[Phone3 | Phone3Dict]
-    mobile_phone: NotRequired[Phone1 | Phone1Dict]
+    home_phone: NotRequired[Phone3Dict]
+    mobile_phone: NotRequired[Phone1Dict]
     three_ds_requestor_challenge_ind: NotRequired[ThreeDsrequestorChallengeIndOrStr]
-    work_phone: NotRequired[Phone2 | Phone2Dict]
+    work_phone: NotRequired[Phone2Dict]

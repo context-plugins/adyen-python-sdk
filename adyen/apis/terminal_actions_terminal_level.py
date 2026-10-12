@@ -11,9 +11,11 @@ from ..core import (
     RawClient,
     RequestOptionsOrDict,
     SecuredRawResponse,
+    async_json_decoder,
     json_body,
     json_decoder,
     param,
+    unwrap,
 )
 from ..errors.post_terminals_schedule_actions_error import (
     PostTerminalsScheduleActionsErrorBody,
@@ -58,7 +60,8 @@ class TerminalActionsTerminalLevel:
 
         Args:
             body: The request body.
-            request_options: Per-call overrides for this one request, such as a timeout or extra headers.
+            request_options: Per-call overrides for this one request, such as a timeout, extra headers, or its retry
+                count and statuses.
 
         Returns:
             OK - the request has succeeded.
@@ -68,9 +71,9 @@ class TerminalActionsTerminalLevel:
                 required. Forbidden - insufficient permissions to process the request. Unprocessable Entity - a request
                 validation error. Internal Server Error - the server could not process the request. ``error`` is
                 ``RestServiceError | RawError``."""
-        return self._with_raw_response.post_terminals_schedule_actions(
-            body=body, request_options=request_options
-        ).unwrap()
+        return unwrap(
+            self._with_raw_response.post_terminals_schedule_actions(body=body, request_options=request_options)
+        )
 
     @property
     def with_raw_response(self) -> TerminalActionsTerminalLevelWithRawResponse:
@@ -108,7 +111,8 @@ class AsyncTerminalActionsTerminalLevel:
 
         Args:
             body: The request body.
-            request_options: Per-call overrides for this one request, such as a timeout or extra headers.
+            request_options: Per-call overrides for this one request, such as a timeout, extra headers, or its retry
+                count and statuses.
 
         Returns:
             OK - the request has succeeded.
@@ -118,9 +122,9 @@ class AsyncTerminalActionsTerminalLevel:
                 required. Forbidden - insufficient permissions to process the request. Unprocessable Entity - a request
                 validation error. Internal Server Error - the server could not process the request. ``error`` is
                 ``RestServiceError | RawError``."""
-        return (
+        return unwrap(
             await self._with_raw_response.post_terminals_schedule_actions(body=body, request_options=request_options)
-        ).unwrap()
+        )
 
     @property
     def with_raw_response(self) -> AsyncTerminalActionsTerminalLevelWithRawResponse:
@@ -155,7 +159,8 @@ class TerminalActionsTerminalLevelWithRawResponse(SecuredRawResponse[RawClient, 
 
         Args:
             body: The request body.
-            request_options: Per-call overrides for this one request, such as a timeout or extra headers.
+            request_options: Per-call overrides for this one request, such as a timeout, extra headers, or its retry
+                count and statuses.
 
         Returns:
             An ``ApiResult`` holding the deserialized response or the error body."""
@@ -199,7 +204,8 @@ class AsyncTerminalActionsTerminalLevelWithRawResponse(SecuredRawResponse[AsyncR
 
         Args:
             body: The request body.
-            request_options: Per-call overrides for this one request, such as a timeout or extra headers.
+            request_options: Per-call overrides for this one request, such as a timeout, extra headers, or its retry
+                count and statuses.
 
         Returns:
             An ``ApiResult`` holding the deserialized response or the error body."""
@@ -209,7 +215,7 @@ class AsyncTerminalActionsTerminalLevelWithRawResponse(SecuredRawResponse[AsyncR
             headers=[param[UUID]("Idempotency-Key", uuid4())],
             body=json_body[ScheduleTerminalActionsRequest | ScheduleTerminalActionsRequestDict | None](body),
             auth_scheme=AsyncAnySchemes(self._auth.basic_auth, self._auth.api_key_auth),
-            decoder=json_decoder[ScheduleTerminalActionsResponse],
+            decoder=async_json_decoder[ScheduleTerminalActionsResponse],
             error_mapper=post_terminals_schedule_actions_error_mapper,
             request_options=request_options,
         )

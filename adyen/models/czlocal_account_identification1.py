@@ -1,9 +1,7 @@
 from __future__ import annotations
 
-from typing import Literal
-
 from pydantic import Field
-from typing_extensions import NotRequired, TypedDict
+from typing_extensions import TypedDict
 
 from ..core import SdkBaseModel
 
@@ -11,7 +9,8 @@ from ..core import SdkBaseModel
 class CzlocalAccountIdentification1(SdkBaseModel):
     """All Of BankAccountIdentification, CZLocalAccountIdentification1."""
 
-    type_: Literal["czLocal"] = Field(default="czLocal", alias="type")
+    type_: str = Field(default="czLocal", alias="type")
+    """**czLocal**"""
 
     account_number: str = Field(alias="accountNumber")
     """The 2- to 16-digit bank account number (Číslo účtu) in the following format:
@@ -35,6 +34,6 @@ class CzlocalAccountIdentification1(SdkBaseModel):
 
 
 class CzlocalAccountIdentification1Dict(TypedDict):
-    type_: NotRequired[Literal["czLocal"]]
+    type_: str
     account_number: str
     bank_code: str

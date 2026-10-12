@@ -115,7 +115,7 @@ class CreateCompanyWebhookRequestDict(TypedDict):
     accepts_self_signed_certificate: NotRequired[bool]
     accepts_untrusted_root_certificate: NotRequired[bool]
     active: bool
-    additional_settings: NotRequired[AdditionalSettings1 | AdditionalSettings1Dict]
+    additional_settings: NotRequired[AdditionalSettings1Dict]
     communication_format: CommunicationFormatOrStr
     description: NotRequired[str]
     encryption_protocol: NotRequired[EncryptionProtocolOrStr]

@@ -4,7 +4,7 @@ from pydantic import Field
 from typing_extensions import NotRequired, TypedDict
 
 from ..core import UNSET, Optional, SdkBaseModel
-from .enums.type39 import Type39OrStr
+from .enums.type39 import Type39, Type39OrStr
 
 
 class OpenInvoice(SdkBaseModel):
@@ -29,7 +29,7 @@ class OpenInvoice(SdkBaseModel):
     stored_payment_method_id: Optional[str] = Field(default=UNSET, alias="storedPaymentMethodId")
     """This is the ``recurringDetailReference`` returned in the response when you created the token."""
 
-    type_: Optional[Type39OrStr] = Field(default=UNSET, alias="type")
+    type_: Type39OrStr = Field(default=Type39.OPENINVOICE, alias="type")
     """**openinvoice**"""
 
 

@@ -42,8 +42,8 @@ class ScheduleTerminalActionsResponse(SdkBaseModel):
 
 
 class ScheduleTerminalActionsResponseDict(TypedDict):
-    action_details: NotRequired[ActionDetails | ActionDetailsDict]
-    items: NotRequired[list[TerminalActionScheduleDetail | TerminalActionScheduleDetailDict]]
+    action_details: NotRequired[ActionDetailsDict]
+    items: NotRequired[list[TerminalActionScheduleDetailDict]]
     scheduled_at: NotRequired[str]
     store_id: NotRequired[str]
     terminals_with_errors: NotRequired[dict[str, Any]]

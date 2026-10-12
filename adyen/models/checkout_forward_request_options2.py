@@ -36,7 +36,7 @@ class CheckoutForwardRequestOptions2(SdkBaseModel):
 class CheckoutForwardRequestOptions2Dict(TypedDict):
     account_update: NotRequired[bool]
     dry_run: NotRequired[bool]
-    network_token: NotRequired[CheckoutNetworkTokenOption2 | CheckoutNetworkTokenOption2Dict]
+    network_token: NotRequired[CheckoutNetworkTokenOption2Dict]
     network_tx_reference_paths: NotRequired[list[str]]
     tokenize: NotRequired[bool]
     transaction_link_id_paths: NotRequired[list[str]]

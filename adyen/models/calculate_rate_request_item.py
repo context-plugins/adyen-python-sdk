@@ -31,6 +31,6 @@ class CalculateRateRequestItem(SdkBaseModel):
 
 class CalculateRateRequestItemDict(TypedDict):
     exchange_side: ExchangeSide2OrStr
-    source_amount: Amount19 | Amount19Dict
+    source_amount: Amount19Dict
     target_currency: str
     type_: RateType2OrStr

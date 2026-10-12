@@ -140,24 +140,24 @@ class Transfer(SdkBaseModel):
 
 
 class TransferDict(TypedDict):
-    account_holder: NotRequired[ResourceReference5 | ResourceReference5Dict]
-    amount: Amount17 | Amount17Dict
-    balance_account: NotRequired[ResourceReference1 | ResourceReference1Dict]
+    account_holder: NotRequired[ResourceReference5Dict]
+    amount: Amount17Dict
+    balance_account: NotRequired[ResourceReference1Dict]
     category: Category3OrStr
-    category_data: NotRequired[CategoryData | CategoryDataDict]
-    counterparty: CounterpartyV31 | CounterpartyV31Dict
+    category_data: NotRequired[CategoryDataDict]
+    counterparty: CounterpartyV31Dict
     created_at: NotRequired[RFC3339DateTime]
     creation_date: NotRequired[RFC3339DateTime]
     description: NotRequired[str]
-    direct_debit_information: NotRequired[DirectDebitInformation1 | DirectDebitInformation1Dict]
+    direct_debit_information: NotRequired[DirectDebitInformation1Dict]
     direction: NotRequired[DirectionOrStr]
-    execution_date: NotRequired[ExecutionDate1 | ExecutionDate1Dict]
+    execution_date: NotRequired[ExecutionDate1Dict]
     id: NotRequired[str]
-    payment_instrument: NotRequired[PaymentInstrument3 | PaymentInstrument3Dict]
+    payment_instrument: NotRequired[PaymentInstrument3Dict]
     reason: NotRequired[Reason2OrStr]
     reference: NotRequired[str]
     reference_for_beneficiary: NotRequired[str]
-    review: NotRequired[TransferReview1 | TransferReview1Dict]
+    review: NotRequired[TransferReview1Dict]
     status: Status51OrStr
     type_: NotRequired[Type83OrStr]
-    ultimate_party: NotRequired[UltimatePartyIdentification1 | UltimatePartyIdentification1Dict]
+    ultimate_party: NotRequired[UltimatePartyIdentification1Dict]

@@ -20,4 +20,4 @@ class CarnetResponseInfo1(SdkBaseModel):
 
 
 class CarnetResponseInfo1Dict(TypedDict):
-    transaction_description: NotRequired[TransactionDescriptionResponseInfo1 | TransactionDescriptionResponseInfo1Dict]
+    transaction_description: NotRequired[TransactionDescriptionResponseInfo1Dict]

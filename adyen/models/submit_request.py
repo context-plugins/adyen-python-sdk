@@ -83,17 +83,17 @@ class SubmitRequest(SdkBaseModel):
 
 class SubmitRequestDict(TypedDict):
     additional_data: NotRequired[dict[str, str]]
-    amount: Amount | AmountDict
+    amount: AmountDict
     date_of_birth: NotRequired[Date]
     entity_type: NotRequired[EntityType2OrStr]
     fraud_offset: NotRequired[int]
     merchant_account: str
     nationality: NotRequired[str]
-    recurring: Recurring | RecurringDict
+    recurring: RecurringDict
     reference: str
     selected_recurring_detail_reference: str
     shopper_email: str
-    shopper_name: NotRequired[Name | NameDict]
+    shopper_name: NotRequired[NameDict]
     shopper_reference: str
     shopper_statement: NotRequired[str]
     social_security_number: NotRequired[str]

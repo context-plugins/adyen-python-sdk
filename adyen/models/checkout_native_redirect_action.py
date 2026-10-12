@@ -34,5 +34,5 @@ class CheckoutNativeRedirectActionDict(TypedDict):
     method: NotRequired[str]
     native_redirect_data: NotRequired[str]
     payment_method_type: NotRequired[str]
-    type_: NotRequired[Literal["nativeRedirect"]]
+    type_: Literal["nativeRedirect"]
     url: NotRequired[str]

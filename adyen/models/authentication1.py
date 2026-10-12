@@ -39,4 +39,4 @@ class Authentication1(SdkBaseModel):
 class Authentication1Dict(TypedDict):
     email: NotRequired[str]
     password: NotRequired[str]
-    phone: NotRequired[Phone11 | Phone11Dict]
+    phone: NotRequired[Phone11Dict]

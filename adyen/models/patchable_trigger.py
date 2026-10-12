@@ -16,5 +16,5 @@ class PatchableTrigger(SdkBaseModel):
 
 
 class PatchableTriggerDict(TypedDict):
-    schedule: NotRequired[PatchableSchedule | PatchableScheduleDict | None]
-    threshold: NotRequired[PatchableAmountDto1 | PatchableAmountDto1Dict]
+    schedule: NotRequired[PatchableScheduleDict | None]
+    threshold: NotRequired[PatchableAmountDto1Dict]

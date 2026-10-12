@@ -5,7 +5,7 @@ from typing_extensions import NotRequired, TypedDict
 
 from ..core import UNSET, Optional, SdkBaseModel
 from .enums.funding_source import FundingSourceOrStr
-from .enums.type55 import Type55OrStr
+from .enums.type55 import Type55, Type55OrStr
 
 
 class VisaCheckout(SdkBaseModel):
@@ -19,7 +19,7 @@ class VisaCheckout(SdkBaseModel):
     sdk_data: Optional[str] = Field(default=UNSET, alias="sdkData")
     """Base64-encoded JSON object containing SDK related parameters required by the SDK"""
 
-    type_: Optional[Type55OrStr] = Field(default=UNSET, alias="type")
+    type_: Type55OrStr = Field(default=Type55.VISACHECKOUT, alias="type")
     """**visacheckout**"""
 
     visa_checkout_call_id: str = Field(alias="visaCheckoutCallId")

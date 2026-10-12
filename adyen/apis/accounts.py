@@ -11,9 +11,11 @@ from ..core import (
     RawClient,
     RequestOptionsOrDict,
     SecuredRawResponse,
+    async_json_decoder,
     json_body,
     json_decoder,
     param,
+    unwrap,
 )
 from ..errors.post_close_account_error import PostCloseAccountErrorBody, post_close_account_error_mapper
 from ..errors.post_create_account_error import PostCreateAccountErrorBody, post_create_account_error_mapper
@@ -42,7 +44,8 @@ class Accounts:
 
         Args:
             body: The request body.
-            request_options: Per-call overrides for this one request, such as a timeout or extra headers.
+            request_options: Per-call overrides for this one request, such as a timeout, extra headers, or its retry
+                count and statuses.
 
         Returns:
             OK - the request has succeeded.
@@ -52,7 +55,7 @@ class Accounts:
                 required. Forbidden - insufficient permissions to process the request. Unprocessable Entity - a request
                 validation error. Internal Server Error - the server could not process the request. ``error`` is
                 ``ServiceError1 | RawError``."""
-        return self._with_raw_response.post_close_account(body=body, request_options=request_options).unwrap()
+        return unwrap(self._with_raw_response.post_close_account(body=body, request_options=request_options))
 
     def post_create_account(
         self,
@@ -65,7 +68,8 @@ class Accounts:
 
         Args:
             body: The request body.
-            request_options: Per-call overrides for this one request, such as a timeout or extra headers.
+            request_options: Per-call overrides for this one request, such as a timeout, extra headers, or its retry
+                count and statuses.
 
         Returns:
             OK - the request has succeeded.
@@ -75,7 +79,7 @@ class Accounts:
                 required. Forbidden - insufficient permissions to process the request. Unprocessable Entity - a request
                 validation error. Internal Server Error - the server could not process the request. ``error`` is
                 ``ServiceError1 | RawError``."""
-        return self._with_raw_response.post_create_account(body=body, request_options=request_options).unwrap()
+        return unwrap(self._with_raw_response.post_create_account(body=body, request_options=request_options))
 
     def post_update_account(
         self,
@@ -87,7 +91,8 @@ class Accounts:
 
         Args:
             body: The request body.
-            request_options: Per-call overrides for this one request, such as a timeout or extra headers.
+            request_options: Per-call overrides for this one request, such as a timeout, extra headers, or its retry
+                count and statuses.
 
         Returns:
             OK - the request has succeeded.
@@ -97,7 +102,7 @@ class Accounts:
                 required. Forbidden - insufficient permissions to process the request. Unprocessable Entity - a request
                 validation error. Internal Server Error - the server could not process the request. ``error`` is
                 ``ServiceError1 | RawError``."""
-        return self._with_raw_response.post_update_account(body=body, request_options=request_options).unwrap()
+        return unwrap(self._with_raw_response.post_update_account(body=body, request_options=request_options))
 
     @property
     def with_raw_response(self) -> AccountsWithRawResponse:
@@ -119,7 +124,8 @@ class AsyncAccounts:
 
         Args:
             body: The request body.
-            request_options: Per-call overrides for this one request, such as a timeout or extra headers.
+            request_options: Per-call overrides for this one request, such as a timeout, extra headers, or its retry
+                count and statuses.
 
         Returns:
             OK - the request has succeeded.
@@ -129,7 +135,7 @@ class AsyncAccounts:
                 required. Forbidden - insufficient permissions to process the request. Unprocessable Entity - a request
                 validation error. Internal Server Error - the server could not process the request. ``error`` is
                 ``ServiceError1 | RawError``."""
-        return (await self._with_raw_response.post_close_account(body=body, request_options=request_options)).unwrap()
+        return unwrap(await self._with_raw_response.post_close_account(body=body, request_options=request_options))
 
     async def post_create_account(
         self,
@@ -142,7 +148,8 @@ class AsyncAccounts:
 
         Args:
             body: The request body.
-            request_options: Per-call overrides for this one request, such as a timeout or extra headers.
+            request_options: Per-call overrides for this one request, such as a timeout, extra headers, or its retry
+                count and statuses.
 
         Returns:
             OK - the request has succeeded.
@@ -152,7 +159,7 @@ class AsyncAccounts:
                 required. Forbidden - insufficient permissions to process the request. Unprocessable Entity - a request
                 validation error. Internal Server Error - the server could not process the request. ``error`` is
                 ``ServiceError1 | RawError``."""
-        return (await self._with_raw_response.post_create_account(body=body, request_options=request_options)).unwrap()
+        return unwrap(await self._with_raw_response.post_create_account(body=body, request_options=request_options))
 
     async def post_update_account(
         self,
@@ -164,7 +171,8 @@ class AsyncAccounts:
 
         Args:
             body: The request body.
-            request_options: Per-call overrides for this one request, such as a timeout or extra headers.
+            request_options: Per-call overrides for this one request, such as a timeout, extra headers, or its retry
+                count and statuses.
 
         Returns:
             OK - the request has succeeded.
@@ -174,7 +182,7 @@ class AsyncAccounts:
                 required. Forbidden - insufficient permissions to process the request. Unprocessable Entity - a request
                 validation error. Internal Server Error - the server could not process the request. ``error`` is
                 ``ServiceError1 | RawError``."""
-        return (await self._with_raw_response.post_update_account(body=body, request_options=request_options)).unwrap()
+        return unwrap(await self._with_raw_response.post_update_account(body=body, request_options=request_options))
 
     @property
     def with_raw_response(self) -> AsyncAccountsWithRawResponse:
@@ -193,7 +201,8 @@ class AccountsWithRawResponse(SecuredRawResponse[RawClient, Server, AuthSchemes]
 
         Args:
             body: The request body.
-            request_options: Per-call overrides for this one request, such as a timeout or extra headers.
+            request_options: Per-call overrides for this one request, such as a timeout, extra headers, or its retry
+                count and statuses.
 
         Returns:
             An ``ApiResult`` holding the deserialized response or the error body."""
@@ -219,7 +228,8 @@ class AccountsWithRawResponse(SecuredRawResponse[RawClient, Server, AuthSchemes]
 
         Args:
             body: The request body.
-            request_options: Per-call overrides for this one request, such as a timeout or extra headers.
+            request_options: Per-call overrides for this one request, such as a timeout, extra headers, or its retry
+                count and statuses.
 
         Returns:
             An ``ApiResult`` holding the deserialized response or the error body."""
@@ -244,7 +254,8 @@ class AccountsWithRawResponse(SecuredRawResponse[RawClient, Server, AuthSchemes]
 
         Args:
             body: The request body.
-            request_options: Per-call overrides for this one request, such as a timeout or extra headers.
+            request_options: Per-call overrides for this one request, such as a timeout, extra headers, or its retry
+                count and statuses.
 
         Returns:
             An ``ApiResult`` holding the deserialized response or the error body."""
@@ -272,7 +283,8 @@ class AsyncAccountsWithRawResponse(SecuredRawResponse[AsyncRawClient, Server, As
 
         Args:
             body: The request body.
-            request_options: Per-call overrides for this one request, such as a timeout or extra headers.
+            request_options: Per-call overrides for this one request, such as a timeout, extra headers, or its retry
+                count and statuses.
 
         Returns:
             An ``ApiResult`` holding the deserialized response or the error body."""
@@ -282,7 +294,7 @@ class AsyncAccountsWithRawResponse(SecuredRawResponse[AsyncRawClient, Server, As
             headers=[param[UUID]("Idempotency-Key", uuid4())],
             body=json_body[CloseAccountRequest | CloseAccountRequestDict | None](body),
             auth_scheme=AsyncAnySchemes(self._auth.basic_auth, self._auth.api_key_auth),
-            decoder=json_decoder[CloseAccountResponse],
+            decoder=async_json_decoder[CloseAccountResponse],
             error_mapper=post_close_account_error_mapper,
             request_options=request_options,
         )
@@ -298,7 +310,8 @@ class AsyncAccountsWithRawResponse(SecuredRawResponse[AsyncRawClient, Server, As
 
         Args:
             body: The request body.
-            request_options: Per-call overrides for this one request, such as a timeout or extra headers.
+            request_options: Per-call overrides for this one request, such as a timeout, extra headers, or its retry
+                count and statuses.
 
         Returns:
             An ``ApiResult`` holding the deserialized response or the error body."""
@@ -308,7 +321,7 @@ class AsyncAccountsWithRawResponse(SecuredRawResponse[AsyncRawClient, Server, As
             headers=[param[UUID]("Idempotency-Key", uuid4())],
             body=json_body[CreateAccountRequest | CreateAccountRequestDict | None](body),
             auth_scheme=AsyncAnySchemes(self._auth.basic_auth, self._auth.api_key_auth),
-            decoder=json_decoder[CreateAccountResponse],
+            decoder=async_json_decoder[CreateAccountResponse],
             error_mapper=post_create_account_error_mapper,
             request_options=request_options,
         )
@@ -323,7 +336,8 @@ class AsyncAccountsWithRawResponse(SecuredRawResponse[AsyncRawClient, Server, As
 
         Args:
             body: The request body.
-            request_options: Per-call overrides for this one request, such as a timeout or extra headers.
+            request_options: Per-call overrides for this one request, such as a timeout, extra headers, or its retry
+                count and statuses.
 
         Returns:
             An ``ApiResult`` holding the deserialized response or the error body."""
@@ -333,7 +347,7 @@ class AsyncAccountsWithRawResponse(SecuredRawResponse[AsyncRawClient, Server, As
             headers=[param[UUID]("Idempotency-Key", uuid4())],
             body=json_body[UpdateAccountRequest | UpdateAccountRequestDict | None](body),
             auth_scheme=AsyncAnySchemes(self._auth.basic_auth, self._auth.api_key_auth),
-            decoder=json_decoder[UpdateAccountResponse],
+            decoder=async_json_decoder[UpdateAccountResponse],
             error_mapper=post_update_account_error_mapper,
             request_options=request_options,
         )

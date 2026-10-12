@@ -16,10 +16,10 @@ from .enums.recurring_processing_model import RecurringProcessingModelOrStr
 from .enums.shopper_interaction3 import ShopperInteraction3OrStr
 from .line_item import LineItem, LineItemDict
 from .merchant_risk_indicator1 import MerchantRiskIndicator1, MerchantRiskIndicator1Dict
-from .payment_method import PaymentMethod, PaymentMethodDict
 from .shopper_name2 import ShopperName2, ShopperName2Dict
 from .three_ds2_request_fields1 import ThreeDs2RequestFields1, ThreeDs2RequestFields1Dict
 from .three_dsecure_data import ThreeDsecureData, ThreeDsecureDataDict
+from .unions.payment_method1 import PaymentMethod1, PaymentMethod1Dict
 
 
 class DonationPaymentRequest(SdkBaseModel):
@@ -122,7 +122,7 @@ class DonationPaymentRequest(SdkBaseModel):
     """> Required for browser-based (``channel`` **Web**) 3D Secure 2 transactions.Set this to the origin URL of the
         page where you are rendering the Drop-in/Component. Do not include subdirectories and a trailing slash."""
 
-    payment_method: Optional[PaymentMethod] = Field(default=UNSET, alias="paymentMethod")
+    payment_method: Optional[PaymentMethod1] = Field(default=UNSET, alias="paymentMethod")
     """The type and required details of a payment method to use.
 
     When ``donationToken`` is provided, the payment method is derived from the token and this field becomes optional.
@@ -247,29 +247,29 @@ class DonationPaymentRequest(SdkBaseModel):
 
 
 class DonationPaymentRequestDict(TypedDict):
-    account_info: NotRequired[AccountInfo | AccountInfoDict]
-    amount: Amount2 | Amount2Dict
-    application_info: NotRequired[ApplicationInfo | ApplicationInfoDict]
-    authentication_data: NotRequired[AuthenticationData3 | AuthenticationData3Dict]
-    billing_address: NotRequired[BillingAddress3 | BillingAddress3Dict]
-    browser_info: NotRequired[BrowserInfo | BrowserInfoDict]
+    account_info: NotRequired[AccountInfoDict]
+    amount: Amount2Dict
+    application_info: NotRequired[ApplicationInfoDict]
+    authentication_data: NotRequired[AuthenticationData3Dict]
+    billing_address: NotRequired[BillingAddress3Dict]
+    browser_info: NotRequired[BrowserInfoDict]
     channel: NotRequired[Channel2OrStr]
     checkout_attempt_id: NotRequired[str]
     country_code: NotRequired[str]
     date_of_birth: NotRequired[RFC3339DateTime]
-    delivery_address: NotRequired[DeliveryAddress1 | DeliveryAddress1Dict]
+    delivery_address: NotRequired[DeliveryAddress1Dict]
     device_fingerprint: NotRequired[str]
     donation_account: NotRequired[str]
     donation_campaign_id: NotRequired[str]
     donation_original_psp_reference: NotRequired[str]
     donation_token: NotRequired[str]
-    line_items: NotRequired[list[LineItem | LineItemDict]]
+    line_items: NotRequired[list[LineItemDict]]
     merchant_account: str
-    merchant_risk_indicator: NotRequired[MerchantRiskIndicator1 | MerchantRiskIndicator1Dict]
+    merchant_risk_indicator: NotRequired[MerchantRiskIndicator1Dict]
     metadata: NotRequired[dict[str, str]]
-    mpi_data: NotRequired[ThreeDsecureData | ThreeDsecureDataDict]
+    mpi_data: NotRequired[ThreeDsecureDataDict]
     origin: NotRequired[str]
-    payment_method: NotRequired[PaymentMethod | PaymentMethodDict]
+    payment_method: NotRequired[PaymentMethod1Dict]
     recurring_processing_model: NotRequired[RecurringProcessingModelOrStr]
     redirect_from_issuer_method: NotRequired[str]
     redirect_to_issuer_method: NotRequired[str]
@@ -280,9 +280,9 @@ class DonationPaymentRequestDict(TypedDict):
     shopper_ip: NotRequired[str]
     shopper_interaction: NotRequired[ShopperInteraction3OrStr]
     shopper_locale: NotRequired[str]
-    shopper_name: NotRequired[ShopperName2 | ShopperName2Dict]
+    shopper_name: NotRequired[ShopperName2Dict]
     shopper_reference: NotRequired[str]
     social_security_number: NotRequired[str]
     store: NotRequired[str]
     telephone_number: NotRequired[str]
-    three_ds2_request_data: NotRequired[ThreeDs2RequestFields1 | ThreeDs2RequestFields1Dict]
+    three_ds2_request_data: NotRequired[ThreeDs2RequestFields1Dict]

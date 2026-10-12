@@ -11,9 +11,11 @@ from ..core import (
     RawClient,
     RequestOptionsOrDict,
     SecuredRawResponse,
+    async_json_decoder,
     json_body,
     json_decoder,
     param,
+    unwrap,
 )
 from ..errors.post_payout_error import PostPayoutErrorBody, post_payout_error_mapper
 from ..models.payout_request import PayoutRequest, PayoutRequestDict
@@ -51,7 +53,8 @@ class InstantPayouts:
 
         Args:
             body: The request body.
-            request_options: Per-call overrides for this one request, such as a timeout or extra headers.
+            request_options: Per-call overrides for this one request, such as a timeout, extra headers, or its retry
+                count and statuses.
 
         Returns:
             OK - the request has succeeded.
@@ -61,7 +64,7 @@ class InstantPayouts:
                 required. Forbidden - insufficient permissions to process the request. Unprocessable Entity - a request
                 validation error. Internal Server Error - the server could not process the request. ``error`` is
                 ``ServiceError | RawError``."""
-        return self._with_raw_response.post_payout(body=body, request_options=request_options).unwrap()
+        return unwrap(self._with_raw_response.post_payout(body=body, request_options=request_options))
 
     @property
     def with_raw_response(self) -> InstantPayoutsWithRawResponse:
@@ -98,7 +101,8 @@ class AsyncInstantPayouts:
 
         Args:
             body: The request body.
-            request_options: Per-call overrides for this one request, such as a timeout or extra headers.
+            request_options: Per-call overrides for this one request, such as a timeout, extra headers, or its retry
+                count and statuses.
 
         Returns:
             OK - the request has succeeded.
@@ -108,7 +112,7 @@ class AsyncInstantPayouts:
                 required. Forbidden - insufficient permissions to process the request. Unprocessable Entity - a request
                 validation error. Internal Server Error - the server could not process the request. ``error`` is
                 ``ServiceError | RawError``."""
-        return (await self._with_raw_response.post_payout(body=body, request_options=request_options)).unwrap()
+        return unwrap(await self._with_raw_response.post_payout(body=body, request_options=request_options))
 
     @property
     def with_raw_response(self) -> AsyncInstantPayoutsWithRawResponse:
@@ -142,7 +146,8 @@ class InstantPayoutsWithRawResponse(SecuredRawResponse[RawClient, Server, AuthSc
 
         Args:
             body: The request body.
-            request_options: Per-call overrides for this one request, such as a timeout or extra headers.
+            request_options: Per-call overrides for this one request, such as a timeout, extra headers, or its retry
+                count and statuses.
 
         Returns:
             An ``ApiResult`` holding the deserialized response or the error body."""
@@ -185,7 +190,8 @@ class AsyncInstantPayoutsWithRawResponse(SecuredRawResponse[AsyncRawClient, Serv
 
         Args:
             body: The request body.
-            request_options: Per-call overrides for this one request, such as a timeout or extra headers.
+            request_options: Per-call overrides for this one request, such as a timeout, extra headers, or its retry
+                count and statuses.
 
         Returns:
             An ``ApiResult`` holding the deserialized response or the error body."""
@@ -195,7 +201,7 @@ class AsyncInstantPayoutsWithRawResponse(SecuredRawResponse[AsyncRawClient, Serv
             headers=[param[UUID]("Idempotency-Key", uuid4())],
             body=json_body[PayoutRequest | PayoutRequestDict | None](body),
             auth_scheme=AsyncAnySchemes(self._auth.basic_auth, self._auth.api_key_auth),
-            decoder=json_decoder[PayoutResponse],
+            decoder=async_json_decoder[PayoutResponse],
             error_mapper=post_payout_error_mapper,
             request_options=request_options,
         )

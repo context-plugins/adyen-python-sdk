@@ -38,6 +38,6 @@ class TerminalAssignment2(SdkBaseModel):
 class TerminalAssignment2Dict(TypedDict):
     company_id: str
     merchant_id: NotRequired[str]
-    reassignment_target: NotRequired[TerminalReassignmentTarget2 | TerminalReassignmentTarget2Dict]
+    reassignment_target: NotRequired[TerminalReassignmentTarget2Dict]
     status: Status21OrStr
     store_id: NotRequired[str]

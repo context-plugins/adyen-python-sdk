@@ -4,7 +4,7 @@ from pydantic import Field
 from typing_extensions import NotRequired, TypedDict
 
 from ..core import UNSET, Optional, SdkBaseModel
-from .enums.type25 import Type25OrStr
+from .enums.type25 import Type25, Type25OrStr
 
 
 class IdealDonations(SdkBaseModel):
@@ -24,7 +24,7 @@ class IdealDonations(SdkBaseModel):
     stored_payment_method_id: Optional[str] = Field(default=UNSET, alias="storedPaymentMethodId")
     """This is the ``recurringDetailReference`` returned in the response when you created the token."""
 
-    type_: Optional[Type25OrStr] = Field(default=UNSET, alias="type")
+    type_: Type25OrStr = Field(default=Type25.IDEAL, alias="type")
     """**ideal**"""
 
 

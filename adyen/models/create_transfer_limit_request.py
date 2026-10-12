@@ -46,10 +46,10 @@ class CreateTransferLimitRequest(SdkBaseModel):
 
 
 class CreateTransferLimitRequestDict(TypedDict):
-    amount: Amount17 | Amount17Dict
+    amount: Amount17Dict
     ends_at: NotRequired[RFC3339DateTime]
     reference: NotRequired[str]
-    sca_information: NotRequired[CreateScaInformation1 | CreateScaInformation1Dict]
+    sca_information: NotRequired[CreateScaInformation1Dict]
     scope: ScopeOrStr
     starts_at: NotRequired[RFC3339DateTime]
     transfer_type: TransferTypeOrStr

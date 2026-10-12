@@ -96,7 +96,7 @@ class Airline1(SdkBaseModel):
 
 
 class Airline1Dict(TypedDict):
-    agency: NotRequired[Agency | AgencyDict]
+    agency: NotRequired[AgencyDict]
     boarding_fee: NotRequired[int]
     code: NotRequired[str]
     computerized_reservation_system: NotRequired[str]
@@ -104,8 +104,8 @@ class Airline1Dict(TypedDict):
     designator_code: NotRequired[str]
     document_type: NotRequired[str]
     flight_date: NotRequired[RFC3339DateTime]
-    legs: NotRequired[list[Leg | LegDict]]
+    legs: NotRequired[list[LegDict]]
     passenger_name: str
-    passengers: NotRequired[list[Passenger | PassengerDict]]
-    ticket: NotRequired[Ticket | TicketDict]
-    travel_agency: NotRequired[TravelAgency | TravelAgencyDict]
+    passengers: NotRequired[list[PassengerDict]]
+    ticket: NotRequired[TicketDict]
+    travel_agency: NotRequired[TravelAgencyDict]

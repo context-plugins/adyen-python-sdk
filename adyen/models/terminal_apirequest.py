@@ -16,4 +16,4 @@ class TerminalApirequest(SdkBaseModel):
 
 
 class TerminalApirequestDict(TypedDict):
-    sale_to_poi_request: SaleToPoirequest | SaleToPoirequestDict
+    sale_to_poi_request: SaleToPoirequestDict

@@ -5,7 +5,7 @@ from typing_extensions import NotRequired, TypedDict
 
 from ..core import UNSET, Optional, SdkBaseModel
 from .enums.platform_payment_type import PlatformPaymentTypeOrStr
-from .enums.type63 import Type63OrStr
+from .enums.type63 import Type63, Type63OrStr
 
 
 class PlatformPayment(SdkBaseModel):
@@ -63,7 +63,7 @@ class PlatformPayment(SdkBaseModel):
     psp_payment_reference: Optional[str] = Field(default=UNSET, alias="pspPaymentReference")
     """The payment reference included in the transfer."""
 
-    type_: Optional[Type63OrStr] = Field(default=UNSET, alias="type")
+    type_: Type63OrStr = Field(default=Type63.PLATFORM_PAYMENT, alias="type")
     """**platformPayment**"""
 
 

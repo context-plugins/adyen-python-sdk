@@ -12,10 +12,12 @@ from ..core import (
     RawError,
     RequestOptionsOrDict,
     SecuredRawResponse,
+    async_json_decoder,
     json_body,
     json_decoder,
     param,
     raw_error_response,
+    unwrap,
 )
 from ..errors.get_account_holders_id_balance_accounts_error import (
     GetAccountHoldersIdBalanceAccountsErrorBody,
@@ -98,12 +100,13 @@ class AccountHolders:
     def __init__(self, client: RawClient, server: Server, auth: AuthSchemes) -> None:
         self._with_raw_response = AccountHoldersWithRawResponse(client, server, auth)
 
-    def get_account_holders_id(self, id: str, *, request_options: RequestOptionsOrDict | None = None) -> AccountHolder:
+    def get_account_holders_id(self, id_: str, *, request_options: RequestOptionsOrDict | None = None) -> AccountHolder:
         """Returns an account holder.
 
         Args:
-            id: The unique identifier of the account holder.
-            request_options: Per-call overrides for this one request, such as a timeout or extra headers.
+            id_: The unique identifier of the account holder.
+            request_options: Per-call overrides for this one request, such as a timeout, extra headers, or its retry
+                count and statuses.
 
         Returns:
             OK - the request has succeeded.
@@ -113,11 +116,11 @@ class AccountHolders:
                 required. Forbidden - insufficient permissions to process the request. Unprocessable Entity - a request
                 validation error. Internal Server Error - the server could not process the request. ``error`` is
                 ``RestServiceError | RawError``."""
-        return self._with_raw_response.get_account_holders_id(id, request_options=request_options).unwrap()
+        return unwrap(self._with_raw_response.get_account_holders_id(id_, request_options=request_options))
 
     def get_account_holders_id_balance_accounts(
         self,
-        id: str,
+        id_: str,
         *,
         offset: int | None = None,
         limit: int | None = None,
@@ -130,11 +133,12 @@ class AccountHolders:
         ``/accountHolders/{id}/balanceAccounts?limit=5&offset=10``.
 
         Args:
-            id: The unique identifier of the account holder.
+            id_: The unique identifier of the account holder.
             offset: The number of items that you want to skip.
             limit: The number of items returned per page, maximum 100 items. By default, the response returns 10 items
                 per page.
-            request_options: Per-call overrides for this one request, such as a timeout or extra headers.
+            request_options: Per-call overrides for this one request, such as a timeout, extra headers, or its retry
+                count and statuses.
 
         Returns:
             OK - the request has succeeded.
@@ -144,32 +148,37 @@ class AccountHolders:
                 required. Forbidden - insufficient permissions to process the request. Unprocessable Entity - a request
                 validation error. Internal Server Error - the server could not process the request. ``error`` is
                 ``RestServiceError | RawError``."""
-        return self._with_raw_response.get_account_holders_id_balance_accounts(
-            id, offset=offset, limit=limit, request_options=request_options
-        ).unwrap()
+        return unwrap(
+            self._with_raw_response.get_account_holders_id_balance_accounts(
+                id_, offset=offset, limit=limit, request_options=request_options
+            ),
+        )
 
     def get_account_holders_id_tax_form_summary(
-        self, id: str, form_type: str, *, request_options: RequestOptionsOrDict | None = None
+        self, id_: str, form_type: str, *, request_options: RequestOptionsOrDict | None = None
     ) -> TaxFormSummaryResponse:
         """Returns a summary of all tax forms for an account holder.
 
         Args:
-            id: The unique identifier of the account holder.
+            id_: The unique identifier of the account holder.
             form_type: The type of tax form you want a summary for. Accepted values are **US1099k** and **US1099nec**.
-            request_options: Per-call overrides for this one request, such as a timeout or extra headers.
+            request_options: Per-call overrides for this one request, such as a timeout, extra headers, or its retry
+                count and statuses.
 
         Returns:
             OK - the request has succeeded.
 
         Raises:
             ApiError: If the API responds with an error status code. ``error`` is ``RawError``."""
-        return self._with_raw_response.get_account_holders_id_tax_form_summary(
-            id, form_type, request_options=request_options
-        ).unwrap()
+        return unwrap(
+            self._with_raw_response.get_account_holders_id_tax_form_summary(
+                id_, form_type, request_options=request_options
+            ),
+        )
 
     def get_account_holders_id_tax_forms(
         self,
-        id: str,
+        id_: str,
         form_type: FormTypeOrStr,
         year: int,
         *,
@@ -181,11 +190,12 @@ class AccountHolders:
         <https://docs.adyen.com/platforms/us-tax-forms/>`__ .
 
         Args:
-            id: The unique identifier of the account holder.
+            id_: The unique identifier of the account holder.
             form_type: The type of tax form you want to retrieve. Accepted values are **US1099k** and **US1099nec**.
             year: The tax year in **YYYY** format for the tax form you want to retrieve.
             legal_entity_id: The legal entity reference whose tax form you want to retrieve.
-            request_options: Per-call overrides for this one request, such as a timeout or extra headers.
+            request_options: Per-call overrides for this one request, such as a timeout, extra headers, or its retry
+                count and statuses.
 
         Returns:
             OK - the request has succeeded.
@@ -195,18 +205,21 @@ class AccountHolders:
                 required. Forbidden - insufficient permissions to process the request. The requested tax form was not
                 available. Unprocessable Entity - a request validation error. Internal Server Error - the server could
                 not process the request. ``error`` is ``RestServiceError | RawError``."""
-        return self._with_raw_response.get_account_holders_id_tax_forms(
-            id, form_type, year, legal_entity_id=legal_entity_id, request_options=request_options
-        ).unwrap()
+        return unwrap(
+            self._with_raw_response.get_account_holders_id_tax_forms(
+                id_, form_type, year, legal_entity_id=legal_entity_id, request_options=request_options
+            ),
+        )
 
     def get_account_holders_id_transaction_rules(
-        self, id: str, *, request_options: RequestOptionsOrDict | None = None
+        self, id_: str, *, request_options: RequestOptionsOrDict | None = None
     ) -> TransactionRulesResponse:
         """Returns a list of transaction rules associated with an account holder.
 
         Args:
-            id: The unique identifier of the account holder.
-            request_options: Per-call overrides for this one request, such as a timeout or extra headers.
+            id_: The unique identifier of the account holder.
+            request_options: Per-call overrides for this one request, such as a timeout, extra headers, or its retry
+                count and statuses.
 
         Returns:
             OK - the request has succeeded.
@@ -216,13 +229,13 @@ class AccountHolders:
                 required. Forbidden - insufficient permissions to process the request. Unprocessable Entity - a request
                 validation error. Internal Server Error - the server could not process the request. ``error`` is
                 ``RestServiceError | RawError``."""
-        return self._with_raw_response.get_account_holders_id_transaction_rules(
-            id, request_options=request_options
-        ).unwrap()
+        return unwrap(
+            self._with_raw_response.get_account_holders_id_transaction_rules(id_, request_options=request_options)
+        )
 
     def patch_account_holders_id(
         self,
-        id: str,
+        id_: str,
         *,
         body: AccountHolderUpdateRequest | AccountHolderUpdateRequestDict | None = None,
         request_options: RequestOptionsOrDict | None = None,
@@ -231,9 +244,10 @@ class AccountHolders:
         request, it is left unchanged.
 
         Args:
-            id: The unique identifier of the account holder.
+            id_: The unique identifier of the account holder.
             body: The request body.
-            request_options: Per-call overrides for this one request, such as a timeout or extra headers.
+            request_options: Per-call overrides for this one request, such as a timeout, extra headers, or its retry
+                count and statuses.
 
         Returns:
             OK - the request has succeeded.
@@ -243,7 +257,7 @@ class AccountHolders:
                 required. Forbidden - insufficient permissions to process the request. Unprocessable Entity - a request
                 validation error. Internal Server Error - the server could not process the request. ``error`` is
                 ``RestServiceError | RawError``."""
-        return self._with_raw_response.patch_account_holders_id(id, body=body, request_options=request_options).unwrap()
+        return unwrap(self._with_raw_response.patch_account_holders_id(id_, body=body, request_options=request_options))
 
     def post_account_holders(
         self,
@@ -256,7 +270,8 @@ class AccountHolders:
 
         Args:
             body: The request body.
-            request_options: Per-call overrides for this one request, such as a timeout or extra headers.
+            request_options: Per-call overrides for this one request, such as a timeout, extra headers, or its retry
+                count and statuses.
 
         Returns:
             OK - the request has succeeded.
@@ -266,7 +281,7 @@ class AccountHolders:
                 required. Forbidden - insufficient permissions to process the request. Unprocessable Entity - a request
                 validation error. Internal Server Error - the server could not process the request. ``error`` is
                 ``RestServiceError | RawError``."""
-        return self._with_raw_response.post_account_holders(body=body, request_options=request_options).unwrap()
+        return unwrap(self._with_raw_response.post_account_holders(body=body, request_options=request_options))
 
     def post_close_account_holder(
         self,
@@ -283,7 +298,8 @@ class AccountHolders:
 
         Args:
             body: The request body.
-            request_options: Per-call overrides for this one request, such as a timeout or extra headers.
+            request_options: Per-call overrides for this one request, such as a timeout, extra headers, or its retry
+                count and statuses.
 
         Returns:
             OK - the request has succeeded.
@@ -293,7 +309,7 @@ class AccountHolders:
                 required. Forbidden - insufficient permissions to process the request. Unprocessable Entity - a request
                 validation error. Internal Server Error - the server could not process the request. ``error`` is
                 ``ServiceError1 | RawError``."""
-        return self._with_raw_response.post_close_account_holder(body=body, request_options=request_options).unwrap()
+        return unwrap(self._with_raw_response.post_close_account_holder(body=body, request_options=request_options))
 
     def post_close_stores(
         self,
@@ -305,7 +321,8 @@ class AccountHolders:
 
         Args:
             body: The request body.
-            request_options: Per-call overrides for this one request, such as a timeout or extra headers.
+            request_options: Per-call overrides for this one request, such as a timeout, extra headers, or its retry
+                count and statuses.
 
         Returns:
             OK - the request has succeeded.
@@ -315,7 +332,7 @@ class AccountHolders:
                 required. Forbidden - insufficient permissions to process the request. Unprocessable Entity - a request
                 validation error. Internal Server Error - the server could not process the request. ``error`` is
                 ``ServiceError1 | RawError``."""
-        return self._with_raw_response.post_close_stores(body=body, request_options=request_options).unwrap()
+        return unwrap(self._with_raw_response.post_close_stores(body=body, request_options=request_options))
 
     def post_create_account_holder(
         self,
@@ -331,7 +348,8 @@ class AccountHolders:
 
         Args:
             body: The request body.
-            request_options: Per-call overrides for this one request, such as a timeout or extra headers.
+            request_options: Per-call overrides for this one request, such as a timeout, extra headers, or its retry
+                count and statuses.
 
         Returns:
             OK - the request has succeeded.
@@ -341,7 +359,7 @@ class AccountHolders:
                 required. Forbidden - insufficient permissions to process the request. Unprocessable Entity - a request
                 validation error. Internal Server Error - the server could not process the request. ``error`` is
                 ``ServiceError1 | RawError``."""
-        return self._with_raw_response.post_create_account_holder(body=body, request_options=request_options).unwrap()
+        return unwrap(self._with_raw_response.post_create_account_holder(body=body, request_options=request_options))
 
     def post_get_account_holder(
         self,
@@ -353,7 +371,8 @@ class AccountHolders:
 
         Args:
             body: The request body.
-            request_options: Per-call overrides for this one request, such as a timeout or extra headers.
+            request_options: Per-call overrides for this one request, such as a timeout, extra headers, or its retry
+                count and statuses.
 
         Returns:
             OK - the request has succeeded.
@@ -363,7 +382,7 @@ class AccountHolders:
                 required. Forbidden - insufficient permissions to process the request. Unprocessable Entity - a request
                 validation error. Internal Server Error - the server could not process the request. ``error`` is
                 ``ServiceError1 | RawError``."""
-        return self._with_raw_response.post_get_account_holder(body=body, request_options=request_options).unwrap()
+        return unwrap(self._with_raw_response.post_get_account_holder(body=body, request_options=request_options))
 
     def post_get_tax_form(
         self,
@@ -376,7 +395,8 @@ class AccountHolders:
 
         Args:
             body: The request body.
-            request_options: Per-call overrides for this one request, such as a timeout or extra headers.
+            request_options: Per-call overrides for this one request, such as a timeout, extra headers, or its retry
+                count and statuses.
 
         Returns:
             OK - the request has succeeded.
@@ -386,7 +406,7 @@ class AccountHolders:
                 required. Forbidden - insufficient permissions to process the request. Unprocessable Entity - a request
                 validation error. Internal Server Error - the server could not process the request. ``error`` is
                 ``ServiceError1 | RawError``."""
-        return self._with_raw_response.post_get_tax_form(body=body, request_options=request_options).unwrap()
+        return unwrap(self._with_raw_response.post_get_tax_form(body=body, request_options=request_options))
 
     def post_suspend_account_holder(
         self,
@@ -400,7 +420,8 @@ class AccountHolders:
 
         Args:
             body: The request body.
-            request_options: Per-call overrides for this one request, such as a timeout or extra headers.
+            request_options: Per-call overrides for this one request, such as a timeout, extra headers, or its retry
+                count and statuses.
 
         Returns:
             OK - the request has succeeded.
@@ -410,7 +431,7 @@ class AccountHolders:
                 required. Forbidden - insufficient permissions to process the request. Unprocessable Entity - a request
                 validation error. Internal Server Error - the server could not process the request. ``error`` is
                 ``ServiceError1 | RawError``."""
-        return self._with_raw_response.post_suspend_account_holder(body=body, request_options=request_options).unwrap()
+        return unwrap(self._with_raw_response.post_suspend_account_holder(body=body, request_options=request_options))
 
     def post_un_suspend_account_holder(
         self,
@@ -430,7 +451,8 @@ class AccountHolders:
 
         Args:
             body: The request body.
-            request_options: Per-call overrides for this one request, such as a timeout or extra headers.
+            request_options: Per-call overrides for this one request, such as a timeout, extra headers, or its retry
+                count and statuses.
 
         Returns:
             OK - the request has succeeded.
@@ -440,9 +462,9 @@ class AccountHolders:
                 required. Forbidden - insufficient permissions to process the request. Unprocessable Entity - a request
                 validation error. Internal Server Error - the server could not process the request. ``error`` is
                 ``ServiceError1 | RawError``."""
-        return self._with_raw_response.post_un_suspend_account_holder(
-            body=body, request_options=request_options
-        ).unwrap()
+        return unwrap(
+            self._with_raw_response.post_un_suspend_account_holder(body=body, request_options=request_options)
+        )
 
     def post_update_account_holder(
         self,
@@ -477,7 +499,8 @@ class AccountHolders:
 
         Args:
             body: The request body.
-            request_options: Per-call overrides for this one request, such as a timeout or extra headers.
+            request_options: Per-call overrides for this one request, such as a timeout, extra headers, or its retry
+                count and statuses.
 
         Returns:
             OK - the request has succeeded.
@@ -487,7 +510,7 @@ class AccountHolders:
                 required. Forbidden - insufficient permissions to process the request. Unprocessable Entity - a request
                 validation error. Internal Server Error - the server could not process the request. ``error`` is
                 ``ServiceError1 | RawError``."""
-        return self._with_raw_response.post_update_account_holder(body=body, request_options=request_options).unwrap()
+        return unwrap(self._with_raw_response.post_update_account_holder(body=body, request_options=request_options))
 
     def post_update_account_holder_state(
         self,
@@ -499,7 +522,8 @@ class AccountHolders:
 
         Args:
             body: The request body.
-            request_options: Per-call overrides for this one request, such as a timeout or extra headers.
+            request_options: Per-call overrides for this one request, such as a timeout, extra headers, or its retry
+                count and statuses.
 
         Returns:
             OK - the request has succeeded.
@@ -509,9 +533,9 @@ class AccountHolders:
                 required. Forbidden - insufficient permissions to process the request. Unprocessable Entity - a request
                 validation error. Internal Server Error - the server could not process the request. ``error`` is
                 ``ServiceError1 | RawError``."""
-        return self._with_raw_response.post_update_account_holder_state(
-            body=body, request_options=request_options
-        ).unwrap()
+        return unwrap(
+            self._with_raw_response.post_update_account_holder_state(body=body, request_options=request_options)
+        )
 
     @property
     def with_raw_response(self) -> AccountHoldersWithRawResponse:
@@ -523,13 +547,14 @@ class AsyncAccountHolders:
         self._with_raw_response = AsyncAccountHoldersWithRawResponse(client, server, auth)
 
     async def get_account_holders_id(
-        self, id: str, *, request_options: RequestOptionsOrDict | None = None
+        self, id_: str, *, request_options: RequestOptionsOrDict | None = None
     ) -> AccountHolder:
         """Returns an account holder.
 
         Args:
-            id: The unique identifier of the account holder.
-            request_options: Per-call overrides for this one request, such as a timeout or extra headers.
+            id_: The unique identifier of the account holder.
+            request_options: Per-call overrides for this one request, such as a timeout, extra headers, or its retry
+                count and statuses.
 
         Returns:
             OK - the request has succeeded.
@@ -539,11 +564,11 @@ class AsyncAccountHolders:
                 required. Forbidden - insufficient permissions to process the request. Unprocessable Entity - a request
                 validation error. Internal Server Error - the server could not process the request. ``error`` is
                 ``RestServiceError | RawError``."""
-        return (await self._with_raw_response.get_account_holders_id(id, request_options=request_options)).unwrap()
+        return unwrap(await self._with_raw_response.get_account_holders_id(id_, request_options=request_options))
 
     async def get_account_holders_id_balance_accounts(
         self,
-        id: str,
+        id_: str,
         *,
         offset: int | None = None,
         limit: int | None = None,
@@ -556,11 +581,12 @@ class AsyncAccountHolders:
         ``/accountHolders/{id}/balanceAccounts?limit=5&offset=10``.
 
         Args:
-            id: The unique identifier of the account holder.
+            id_: The unique identifier of the account holder.
             offset: The number of items that you want to skip.
             limit: The number of items returned per page, maximum 100 items. By default, the response returns 10 items
                 per page.
-            request_options: Per-call overrides for this one request, such as a timeout or extra headers.
+            request_options: Per-call overrides for this one request, such as a timeout, extra headers, or its retry
+                count and statuses.
 
         Returns:
             OK - the request has succeeded.
@@ -570,36 +596,37 @@ class AsyncAccountHolders:
                 required. Forbidden - insufficient permissions to process the request. Unprocessable Entity - a request
                 validation error. Internal Server Error - the server could not process the request. ``error`` is
                 ``RestServiceError | RawError``."""
-        return (
+        return unwrap(
             await self._with_raw_response.get_account_holders_id_balance_accounts(
-                id, offset=offset, limit=limit, request_options=request_options
-            )
-        ).unwrap()
+                id_, offset=offset, limit=limit, request_options=request_options
+            ),
+        )
 
     async def get_account_holders_id_tax_form_summary(
-        self, id: str, form_type: str, *, request_options: RequestOptionsOrDict | None = None
+        self, id_: str, form_type: str, *, request_options: RequestOptionsOrDict | None = None
     ) -> TaxFormSummaryResponse:
         """Returns a summary of all tax forms for an account holder.
 
         Args:
-            id: The unique identifier of the account holder.
+            id_: The unique identifier of the account holder.
             form_type: The type of tax form you want a summary for. Accepted values are **US1099k** and **US1099nec**.
-            request_options: Per-call overrides for this one request, such as a timeout or extra headers.
+            request_options: Per-call overrides for this one request, such as a timeout, extra headers, or its retry
+                count and statuses.
 
         Returns:
             OK - the request has succeeded.
 
         Raises:
             ApiError: If the API responds with an error status code. ``error`` is ``RawError``."""
-        return (
+        return unwrap(
             await self._with_raw_response.get_account_holders_id_tax_form_summary(
-                id, form_type, request_options=request_options
-            )
-        ).unwrap()
+                id_, form_type, request_options=request_options
+            ),
+        )
 
     async def get_account_holders_id_tax_forms(
         self,
-        id: str,
+        id_: str,
         form_type: FormTypeOrStr,
         year: int,
         *,
@@ -611,11 +638,12 @@ class AsyncAccountHolders:
         <https://docs.adyen.com/platforms/us-tax-forms/>`__ .
 
         Args:
-            id: The unique identifier of the account holder.
+            id_: The unique identifier of the account holder.
             form_type: The type of tax form you want to retrieve. Accepted values are **US1099k** and **US1099nec**.
             year: The tax year in **YYYY** format for the tax form you want to retrieve.
             legal_entity_id: The legal entity reference whose tax form you want to retrieve.
-            request_options: Per-call overrides for this one request, such as a timeout or extra headers.
+            request_options: Per-call overrides for this one request, such as a timeout, extra headers, or its retry
+                count and statuses.
 
         Returns:
             OK - the request has succeeded.
@@ -625,20 +653,21 @@ class AsyncAccountHolders:
                 required. Forbidden - insufficient permissions to process the request. The requested tax form was not
                 available. Unprocessable Entity - a request validation error. Internal Server Error - the server could
                 not process the request. ``error`` is ``RestServiceError | RawError``."""
-        return (
+        return unwrap(
             await self._with_raw_response.get_account_holders_id_tax_forms(
-                id, form_type, year, legal_entity_id=legal_entity_id, request_options=request_options
-            )
-        ).unwrap()
+                id_, form_type, year, legal_entity_id=legal_entity_id, request_options=request_options
+            ),
+        )
 
     async def get_account_holders_id_transaction_rules(
-        self, id: str, *, request_options: RequestOptionsOrDict | None = None
+        self, id_: str, *, request_options: RequestOptionsOrDict | None = None
     ) -> TransactionRulesResponse:
         """Returns a list of transaction rules associated with an account holder.
 
         Args:
-            id: The unique identifier of the account holder.
-            request_options: Per-call overrides for this one request, such as a timeout or extra headers.
+            id_: The unique identifier of the account holder.
+            request_options: Per-call overrides for this one request, such as a timeout, extra headers, or its retry
+                count and statuses.
 
         Returns:
             OK - the request has succeeded.
@@ -648,13 +677,13 @@ class AsyncAccountHolders:
                 required. Forbidden - insufficient permissions to process the request. Unprocessable Entity - a request
                 validation error. Internal Server Error - the server could not process the request. ``error`` is
                 ``RestServiceError | RawError``."""
-        return (
-            await self._with_raw_response.get_account_holders_id_transaction_rules(id, request_options=request_options)
-        ).unwrap()
+        return unwrap(
+            await self._with_raw_response.get_account_holders_id_transaction_rules(id_, request_options=request_options)
+        )
 
     async def patch_account_holders_id(
         self,
-        id: str,
+        id_: str,
         *,
         body: AccountHolderUpdateRequest | AccountHolderUpdateRequestDict | None = None,
         request_options: RequestOptionsOrDict | None = None,
@@ -663,9 +692,10 @@ class AsyncAccountHolders:
         request, it is left unchanged.
 
         Args:
-            id: The unique identifier of the account holder.
+            id_: The unique identifier of the account holder.
             body: The request body.
-            request_options: Per-call overrides for this one request, such as a timeout or extra headers.
+            request_options: Per-call overrides for this one request, such as a timeout, extra headers, or its retry
+                count and statuses.
 
         Returns:
             OK - the request has succeeded.
@@ -675,9 +705,9 @@ class AsyncAccountHolders:
                 required. Forbidden - insufficient permissions to process the request. Unprocessable Entity - a request
                 validation error. Internal Server Error - the server could not process the request. ``error`` is
                 ``RestServiceError | RawError``."""
-        return (
-            await self._with_raw_response.patch_account_holders_id(id, body=body, request_options=request_options)
-        ).unwrap()
+        return unwrap(
+            await self._with_raw_response.patch_account_holders_id(id_, body=body, request_options=request_options)
+        )
 
     async def post_account_holders(
         self,
@@ -690,7 +720,8 @@ class AsyncAccountHolders:
 
         Args:
             body: The request body.
-            request_options: Per-call overrides for this one request, such as a timeout or extra headers.
+            request_options: Per-call overrides for this one request, such as a timeout, extra headers, or its retry
+                count and statuses.
 
         Returns:
             OK - the request has succeeded.
@@ -700,7 +731,7 @@ class AsyncAccountHolders:
                 required. Forbidden - insufficient permissions to process the request. Unprocessable Entity - a request
                 validation error. Internal Server Error - the server could not process the request. ``error`` is
                 ``RestServiceError | RawError``."""
-        return (await self._with_raw_response.post_account_holders(body=body, request_options=request_options)).unwrap()
+        return unwrap(await self._with_raw_response.post_account_holders(body=body, request_options=request_options))
 
     async def post_close_account_holder(
         self,
@@ -717,7 +748,8 @@ class AsyncAccountHolders:
 
         Args:
             body: The request body.
-            request_options: Per-call overrides for this one request, such as a timeout or extra headers.
+            request_options: Per-call overrides for this one request, such as a timeout, extra headers, or its retry
+                count and statuses.
 
         Returns:
             OK - the request has succeeded.
@@ -727,9 +759,9 @@ class AsyncAccountHolders:
                 required. Forbidden - insufficient permissions to process the request. Unprocessable Entity - a request
                 validation error. Internal Server Error - the server could not process the request. ``error`` is
                 ``ServiceError1 | RawError``."""
-        return (
+        return unwrap(
             await self._with_raw_response.post_close_account_holder(body=body, request_options=request_options)
-        ).unwrap()
+        )
 
     async def post_close_stores(
         self,
@@ -741,7 +773,8 @@ class AsyncAccountHolders:
 
         Args:
             body: The request body.
-            request_options: Per-call overrides for this one request, such as a timeout or extra headers.
+            request_options: Per-call overrides for this one request, such as a timeout, extra headers, or its retry
+                count and statuses.
 
         Returns:
             OK - the request has succeeded.
@@ -751,7 +784,7 @@ class AsyncAccountHolders:
                 required. Forbidden - insufficient permissions to process the request. Unprocessable Entity - a request
                 validation error. Internal Server Error - the server could not process the request. ``error`` is
                 ``ServiceError1 | RawError``."""
-        return (await self._with_raw_response.post_close_stores(body=body, request_options=request_options)).unwrap()
+        return unwrap(await self._with_raw_response.post_close_stores(body=body, request_options=request_options))
 
     async def post_create_account_holder(
         self,
@@ -767,7 +800,8 @@ class AsyncAccountHolders:
 
         Args:
             body: The request body.
-            request_options: Per-call overrides for this one request, such as a timeout or extra headers.
+            request_options: Per-call overrides for this one request, such as a timeout, extra headers, or its retry
+                count and statuses.
 
         Returns:
             OK - the request has succeeded.
@@ -777,9 +811,9 @@ class AsyncAccountHolders:
                 required. Forbidden - insufficient permissions to process the request. Unprocessable Entity - a request
                 validation error. Internal Server Error - the server could not process the request. ``error`` is
                 ``ServiceError1 | RawError``."""
-        return (
+        return unwrap(
             await self._with_raw_response.post_create_account_holder(body=body, request_options=request_options)
-        ).unwrap()
+        )
 
     async def post_get_account_holder(
         self,
@@ -791,7 +825,8 @@ class AsyncAccountHolders:
 
         Args:
             body: The request body.
-            request_options: Per-call overrides for this one request, such as a timeout or extra headers.
+            request_options: Per-call overrides for this one request, such as a timeout, extra headers, or its retry
+                count and statuses.
 
         Returns:
             OK - the request has succeeded.
@@ -801,9 +836,7 @@ class AsyncAccountHolders:
                 required. Forbidden - insufficient permissions to process the request. Unprocessable Entity - a request
                 validation error. Internal Server Error - the server could not process the request. ``error`` is
                 ``ServiceError1 | RawError``."""
-        return (
-            await self._with_raw_response.post_get_account_holder(body=body, request_options=request_options)
-        ).unwrap()
+        return unwrap(await self._with_raw_response.post_get_account_holder(body=body, request_options=request_options))
 
     async def post_get_tax_form(
         self,
@@ -816,7 +849,8 @@ class AsyncAccountHolders:
 
         Args:
             body: The request body.
-            request_options: Per-call overrides for this one request, such as a timeout or extra headers.
+            request_options: Per-call overrides for this one request, such as a timeout, extra headers, or its retry
+                count and statuses.
 
         Returns:
             OK - the request has succeeded.
@@ -826,7 +860,7 @@ class AsyncAccountHolders:
                 required. Forbidden - insufficient permissions to process the request. Unprocessable Entity - a request
                 validation error. Internal Server Error - the server could not process the request. ``error`` is
                 ``ServiceError1 | RawError``."""
-        return (await self._with_raw_response.post_get_tax_form(body=body, request_options=request_options)).unwrap()
+        return unwrap(await self._with_raw_response.post_get_tax_form(body=body, request_options=request_options))
 
     async def post_suspend_account_holder(
         self,
@@ -840,7 +874,8 @@ class AsyncAccountHolders:
 
         Args:
             body: The request body.
-            request_options: Per-call overrides for this one request, such as a timeout or extra headers.
+            request_options: Per-call overrides for this one request, such as a timeout, extra headers, or its retry
+                count and statuses.
 
         Returns:
             OK - the request has succeeded.
@@ -850,9 +885,9 @@ class AsyncAccountHolders:
                 required. Forbidden - insufficient permissions to process the request. Unprocessable Entity - a request
                 validation error. Internal Server Error - the server could not process the request. ``error`` is
                 ``ServiceError1 | RawError``."""
-        return (
+        return unwrap(
             await self._with_raw_response.post_suspend_account_holder(body=body, request_options=request_options)
-        ).unwrap()
+        )
 
     async def post_un_suspend_account_holder(
         self,
@@ -872,7 +907,8 @@ class AsyncAccountHolders:
 
         Args:
             body: The request body.
-            request_options: Per-call overrides for this one request, such as a timeout or extra headers.
+            request_options: Per-call overrides for this one request, such as a timeout, extra headers, or its retry
+                count and statuses.
 
         Returns:
             OK - the request has succeeded.
@@ -882,9 +918,9 @@ class AsyncAccountHolders:
                 required. Forbidden - insufficient permissions to process the request. Unprocessable Entity - a request
                 validation error. Internal Server Error - the server could not process the request. ``error`` is
                 ``ServiceError1 | RawError``."""
-        return (
+        return unwrap(
             await self._with_raw_response.post_un_suspend_account_holder(body=body, request_options=request_options)
-        ).unwrap()
+        )
 
     async def post_update_account_holder(
         self,
@@ -919,7 +955,8 @@ class AsyncAccountHolders:
 
         Args:
             body: The request body.
-            request_options: Per-call overrides for this one request, such as a timeout or extra headers.
+            request_options: Per-call overrides for this one request, such as a timeout, extra headers, or its retry
+                count and statuses.
 
         Returns:
             OK - the request has succeeded.
@@ -929,9 +966,9 @@ class AsyncAccountHolders:
                 required. Forbidden - insufficient permissions to process the request. Unprocessable Entity - a request
                 validation error. Internal Server Error - the server could not process the request. ``error`` is
                 ``ServiceError1 | RawError``."""
-        return (
+        return unwrap(
             await self._with_raw_response.post_update_account_holder(body=body, request_options=request_options)
-        ).unwrap()
+        )
 
     async def post_update_account_holder_state(
         self,
@@ -943,7 +980,8 @@ class AsyncAccountHolders:
 
         Args:
             body: The request body.
-            request_options: Per-call overrides for this one request, such as a timeout or extra headers.
+            request_options: Per-call overrides for this one request, such as a timeout, extra headers, or its retry
+                count and statuses.
 
         Returns:
             OK - the request has succeeded.
@@ -953,9 +991,9 @@ class AsyncAccountHolders:
                 required. Forbidden - insufficient permissions to process the request. Unprocessable Entity - a request
                 validation error. Internal Server Error - the server could not process the request. ``error`` is
                 ``ServiceError1 | RawError``."""
-        return (
+        return unwrap(
             await self._with_raw_response.post_update_account_holder_state(body=body, request_options=request_options)
-        ).unwrap()
+        )
 
     @property
     def with_raw_response(self) -> AsyncAccountHoldersWithRawResponse:
@@ -964,20 +1002,21 @@ class AsyncAccountHolders:
 
 class AccountHoldersWithRawResponse(SecuredRawResponse[RawClient, Server, AuthSchemes]):
     def get_account_holders_id(
-        self, id: str, *, request_options: RequestOptionsOrDict | None = None
+        self, id_: str, *, request_options: RequestOptionsOrDict | None = None
     ) -> ApiResult[AccountHolder, GetAccountHoldersIdErrorBody]:
         """Returns an account holder.
 
         Args:
-            id: The unique identifier of the account holder.
-            request_options: Per-call overrides for this one request, such as a timeout or extra headers.
+            id_: The unique identifier of the account holder.
+            request_options: Per-call overrides for this one request, such as a timeout, extra headers, or its retry
+                count and statuses.
 
         Returns:
             An ``ApiResult`` holding the deserialized response or the error body."""
         return self._client.execute(
             http_method="GET",
             url_template=self._server.default13("/accountHolders/{id}"),
-            path_params=[param[str]("id", id)],
+            path_params=[param[str]("id", id_)],
             auth_scheme=AnySchemes(self._auth.client_key, self._auth.basic_auth, self._auth.api_key_auth),
             decoder=json_decoder[AccountHolder],
             error_mapper=get_account_holders_id_error_mapper,
@@ -986,7 +1025,7 @@ class AccountHoldersWithRawResponse(SecuredRawResponse[RawClient, Server, AuthSc
 
     def get_account_holders_id_balance_accounts(
         self,
-        id: str,
+        id_: str,
         *,
         offset: int | None = None,
         limit: int | None = None,
@@ -999,18 +1038,19 @@ class AccountHoldersWithRawResponse(SecuredRawResponse[RawClient, Server, AuthSc
         ``/accountHolders/{id}/balanceAccounts?limit=5&offset=10``.
 
         Args:
-            id: The unique identifier of the account holder.
+            id_: The unique identifier of the account holder.
             offset: The number of items that you want to skip.
             limit: The number of items returned per page, maximum 100 items. By default, the response returns 10 items
                 per page.
-            request_options: Per-call overrides for this one request, such as a timeout or extra headers.
+            request_options: Per-call overrides for this one request, such as a timeout, extra headers, or its retry
+                count and statuses.
 
         Returns:
             An ``ApiResult`` holding the deserialized response or the error body."""
         return self._client.execute(
             http_method="GET",
             url_template=self._server.default13("/accountHolders/{id}/balanceAccounts"),
-            path_params=[param[str]("id", id)],
+            path_params=[param[str]("id", id_)],
             query_params=[param[int | None]("offset", offset), param[int | None]("limit", limit)],
             auth_scheme=AnySchemes(self._auth.client_key, self._auth.basic_auth, self._auth.api_key_auth),
             decoder=json_decoder[PaginatedBalanceAccountsResponse],
@@ -1019,21 +1059,22 @@ class AccountHoldersWithRawResponse(SecuredRawResponse[RawClient, Server, AuthSc
         )
 
     def get_account_holders_id_tax_form_summary(
-        self, id: str, form_type: str, *, request_options: RequestOptionsOrDict | None = None
+        self, id_: str, form_type: str, *, request_options: RequestOptionsOrDict | None = None
     ) -> ApiResult[TaxFormSummaryResponse, RawError]:
         """Returns a summary of all tax forms for an account holder.
 
         Args:
-            id: The unique identifier of the account holder.
+            id_: The unique identifier of the account holder.
             form_type: The type of tax form you want a summary for. Accepted values are **US1099k** and **US1099nec**.
-            request_options: Per-call overrides for this one request, such as a timeout or extra headers.
+            request_options: Per-call overrides for this one request, such as a timeout, extra headers, or its retry
+                count and statuses.
 
         Returns:
             An ``ApiResult`` holding the deserialized response or the error body."""
         return self._client.execute(
             http_method="GET",
             url_template=self._server.default13("/accountHolders/{id}/taxFormSummary"),
-            path_params=[param[str]("id", id)],
+            path_params=[param[str]("id", id_)],
             query_params=[param[str]("formType", form_type)],
             decoder=json_decoder[TaxFormSummaryResponse],
             error_mapper=raw_error_response,
@@ -1042,7 +1083,7 @@ class AccountHoldersWithRawResponse(SecuredRawResponse[RawClient, Server, AuthSc
 
     def get_account_holders_id_tax_forms(
         self,
-        id: str,
+        id_: str,
         form_type: FormTypeOrStr,
         year: int,
         *,
@@ -1054,18 +1095,19 @@ class AccountHoldersWithRawResponse(SecuredRawResponse[RawClient, Server, AuthSc
         <https://docs.adyen.com/platforms/us-tax-forms/>`__ .
 
         Args:
-            id: The unique identifier of the account holder.
+            id_: The unique identifier of the account holder.
             form_type: The type of tax form you want to retrieve. Accepted values are **US1099k** and **US1099nec**.
             year: The tax year in **YYYY** format for the tax form you want to retrieve.
             legal_entity_id: The legal entity reference whose tax form you want to retrieve.
-            request_options: Per-call overrides for this one request, such as a timeout or extra headers.
+            request_options: Per-call overrides for this one request, such as a timeout, extra headers, or its retry
+                count and statuses.
 
         Returns:
             An ``ApiResult`` holding the deserialized response or the error body."""
         return self._client.execute(
             http_method="GET",
             url_template=self._server.default13("/accountHolders/{id}/taxForms"),
-            path_params=[param[str]("id", id)],
+            path_params=[param[str]("id", id_)],
             query_params=[
                 param[FormTypeOrStr]("formType", form_type),
                 param[int]("year", year),
@@ -1078,20 +1120,21 @@ class AccountHoldersWithRawResponse(SecuredRawResponse[RawClient, Server, AuthSc
         )
 
     def get_account_holders_id_transaction_rules(
-        self, id: str, *, request_options: RequestOptionsOrDict | None = None
+        self, id_: str, *, request_options: RequestOptionsOrDict | None = None
     ) -> ApiResult[TransactionRulesResponse, GetAccountHoldersIdTransactionRulesErrorBody]:
         """Returns a list of transaction rules associated with an account holder.
 
         Args:
-            id: The unique identifier of the account holder.
-            request_options: Per-call overrides for this one request, such as a timeout or extra headers.
+            id_: The unique identifier of the account holder.
+            request_options: Per-call overrides for this one request, such as a timeout, extra headers, or its retry
+                count and statuses.
 
         Returns:
             An ``ApiResult`` holding the deserialized response or the error body."""
         return self._client.execute(
             http_method="GET",
             url_template=self._server.default13("/accountHolders/{id}/transactionRules"),
-            path_params=[param[str]("id", id)],
+            path_params=[param[str]("id", id_)],
             auth_scheme=AnySchemes(self._auth.client_key, self._auth.basic_auth, self._auth.api_key_auth),
             decoder=json_decoder[TransactionRulesResponse],
             error_mapper=get_account_holders_id_transaction_rules_error_mapper,
@@ -1100,7 +1143,7 @@ class AccountHoldersWithRawResponse(SecuredRawResponse[RawClient, Server, AuthSc
 
     def patch_account_holders_id(
         self,
-        id: str,
+        id_: str,
         *,
         body: AccountHolderUpdateRequest | AccountHolderUpdateRequestDict | None = None,
         request_options: RequestOptionsOrDict | None = None,
@@ -1109,16 +1152,17 @@ class AccountHoldersWithRawResponse(SecuredRawResponse[RawClient, Server, AuthSc
         request, it is left unchanged.
 
         Args:
-            id: The unique identifier of the account holder.
+            id_: The unique identifier of the account holder.
             body: The request body.
-            request_options: Per-call overrides for this one request, such as a timeout or extra headers.
+            request_options: Per-call overrides for this one request, such as a timeout, extra headers, or its retry
+                count and statuses.
 
         Returns:
             An ``ApiResult`` holding the deserialized response or the error body."""
         return self._client.execute(
             http_method="PATCH",
             url_template=self._server.default13("/accountHolders/{id}"),
-            path_params=[param[str]("id", id)],
+            path_params=[param[str]("id", id_)],
             headers=[param[UUID]("Idempotency-Key", uuid4())],
             body=json_body[AccountHolderUpdateRequest | AccountHolderUpdateRequestDict | None](body),
             auth_scheme=AnySchemes(self._auth.client_key, self._auth.basic_auth, self._auth.api_key_auth),
@@ -1138,7 +1182,8 @@ class AccountHoldersWithRawResponse(SecuredRawResponse[RawClient, Server, AuthSc
 
         Args:
             body: The request body.
-            request_options: Per-call overrides for this one request, such as a timeout or extra headers.
+            request_options: Per-call overrides for this one request, such as a timeout, extra headers, or its retry
+                count and statuses.
 
         Returns:
             An ``ApiResult`` holding the deserialized response or the error body."""
@@ -1168,7 +1213,8 @@ class AccountHoldersWithRawResponse(SecuredRawResponse[RawClient, Server, AuthSc
 
         Args:
             body: The request body.
-            request_options: Per-call overrides for this one request, such as a timeout or extra headers.
+            request_options: Per-call overrides for this one request, such as a timeout, extra headers, or its retry
+                count and statuses.
 
         Returns:
             An ``ApiResult`` holding the deserialized response or the error body."""
@@ -1193,7 +1239,8 @@ class AccountHoldersWithRawResponse(SecuredRawResponse[RawClient, Server, AuthSc
 
         Args:
             body: The request body.
-            request_options: Per-call overrides for this one request, such as a timeout or extra headers.
+            request_options: Per-call overrides for this one request, such as a timeout, extra headers, or its retry
+                count and statuses.
 
         Returns:
             An ``ApiResult`` holding the deserialized response or the error body."""
@@ -1222,7 +1269,8 @@ class AccountHoldersWithRawResponse(SecuredRawResponse[RawClient, Server, AuthSc
 
         Args:
             body: The request body.
-            request_options: Per-call overrides for this one request, such as a timeout or extra headers.
+            request_options: Per-call overrides for this one request, such as a timeout, extra headers, or its retry
+                count and statuses.
 
         Returns:
             An ``ApiResult`` holding the deserialized response or the error body."""
@@ -1247,7 +1295,8 @@ class AccountHoldersWithRawResponse(SecuredRawResponse[RawClient, Server, AuthSc
 
         Args:
             body: The request body.
-            request_options: Per-call overrides for this one request, such as a timeout or extra headers.
+            request_options: Per-call overrides for this one request, such as a timeout, extra headers, or its retry
+                count and statuses.
 
         Returns:
             An ``ApiResult`` holding the deserialized response or the error body."""
@@ -1273,7 +1322,8 @@ class AccountHoldersWithRawResponse(SecuredRawResponse[RawClient, Server, AuthSc
 
         Args:
             body: The request body.
-            request_options: Per-call overrides for this one request, such as a timeout or extra headers.
+            request_options: Per-call overrides for this one request, such as a timeout, extra headers, or its retry
+                count and statuses.
 
         Returns:
             An ``ApiResult`` holding the deserialized response or the error body."""
@@ -1300,7 +1350,8 @@ class AccountHoldersWithRawResponse(SecuredRawResponse[RawClient, Server, AuthSc
 
         Args:
             body: The request body.
-            request_options: Per-call overrides for this one request, such as a timeout or extra headers.
+            request_options: Per-call overrides for this one request, such as a timeout, extra headers, or its retry
+                count and statuses.
 
         Returns:
             An ``ApiResult`` holding the deserialized response or the error body."""
@@ -1333,7 +1384,8 @@ class AccountHoldersWithRawResponse(SecuredRawResponse[RawClient, Server, AuthSc
 
         Args:
             body: The request body.
-            request_options: Per-call overrides for this one request, such as a timeout or extra headers.
+            request_options: Per-call overrides for this one request, such as a timeout, extra headers, or its retry
+                count and statuses.
 
         Returns:
             An ``ApiResult`` holding the deserialized response or the error body."""
@@ -1381,7 +1433,8 @@ class AccountHoldersWithRawResponse(SecuredRawResponse[RawClient, Server, AuthSc
 
         Args:
             body: The request body.
-            request_options: Per-call overrides for this one request, such as a timeout or extra headers.
+            request_options: Per-call overrides for this one request, such as a timeout, extra headers, or its retry
+                count and statuses.
 
         Returns:
             An ``ApiResult`` holding the deserialized response or the error body."""
@@ -1406,7 +1459,8 @@ class AccountHoldersWithRawResponse(SecuredRawResponse[RawClient, Server, AuthSc
 
         Args:
             body: The request body.
-            request_options: Per-call overrides for this one request, such as a timeout or extra headers.
+            request_options: Per-call overrides for this one request, such as a timeout, extra headers, or its retry
+                count and statuses.
 
         Returns:
             An ``ApiResult`` holding the deserialized response or the error body."""
@@ -1424,29 +1478,30 @@ class AccountHoldersWithRawResponse(SecuredRawResponse[RawClient, Server, AuthSc
 
 class AsyncAccountHoldersWithRawResponse(SecuredRawResponse[AsyncRawClient, Server, AsyncAuthSchemes]):
     async def get_account_holders_id(
-        self, id: str, *, request_options: RequestOptionsOrDict | None = None
+        self, id_: str, *, request_options: RequestOptionsOrDict | None = None
     ) -> ApiResult[AccountHolder, GetAccountHoldersIdErrorBody]:
         """Returns an account holder.
 
         Args:
-            id: The unique identifier of the account holder.
-            request_options: Per-call overrides for this one request, such as a timeout or extra headers.
+            id_: The unique identifier of the account holder.
+            request_options: Per-call overrides for this one request, such as a timeout, extra headers, or its retry
+                count and statuses.
 
         Returns:
             An ``ApiResult`` holding the deserialized response or the error body."""
         return await self._client.execute(
             http_method="GET",
             url_template=self._server.default13("/accountHolders/{id}"),
-            path_params=[param[str]("id", id)],
+            path_params=[param[str]("id", id_)],
             auth_scheme=AsyncAnySchemes(self._auth.client_key, self._auth.basic_auth, self._auth.api_key_auth),
-            decoder=json_decoder[AccountHolder],
+            decoder=async_json_decoder[AccountHolder],
             error_mapper=get_account_holders_id_error_mapper,
             request_options=request_options,
         )
 
     async def get_account_holders_id_balance_accounts(
         self,
-        id: str,
+        id_: str,
         *,
         offset: int | None = None,
         limit: int | None = None,
@@ -1459,50 +1514,52 @@ class AsyncAccountHoldersWithRawResponse(SecuredRawResponse[AsyncRawClient, Serv
         ``/accountHolders/{id}/balanceAccounts?limit=5&offset=10``.
 
         Args:
-            id: The unique identifier of the account holder.
+            id_: The unique identifier of the account holder.
             offset: The number of items that you want to skip.
             limit: The number of items returned per page, maximum 100 items. By default, the response returns 10 items
                 per page.
-            request_options: Per-call overrides for this one request, such as a timeout or extra headers.
+            request_options: Per-call overrides for this one request, such as a timeout, extra headers, or its retry
+                count and statuses.
 
         Returns:
             An ``ApiResult`` holding the deserialized response or the error body."""
         return await self._client.execute(
             http_method="GET",
             url_template=self._server.default13("/accountHolders/{id}/balanceAccounts"),
-            path_params=[param[str]("id", id)],
+            path_params=[param[str]("id", id_)],
             query_params=[param[int | None]("offset", offset), param[int | None]("limit", limit)],
             auth_scheme=AsyncAnySchemes(self._auth.client_key, self._auth.basic_auth, self._auth.api_key_auth),
-            decoder=json_decoder[PaginatedBalanceAccountsResponse],
+            decoder=async_json_decoder[PaginatedBalanceAccountsResponse],
             error_mapper=get_account_holders_id_balance_accounts_error_mapper,
             request_options=request_options,
         )
 
     async def get_account_holders_id_tax_form_summary(
-        self, id: str, form_type: str, *, request_options: RequestOptionsOrDict | None = None
+        self, id_: str, form_type: str, *, request_options: RequestOptionsOrDict | None = None
     ) -> ApiResult[TaxFormSummaryResponse, RawError]:
         """Returns a summary of all tax forms for an account holder.
 
         Args:
-            id: The unique identifier of the account holder.
+            id_: The unique identifier of the account holder.
             form_type: The type of tax form you want a summary for. Accepted values are **US1099k** and **US1099nec**.
-            request_options: Per-call overrides for this one request, such as a timeout or extra headers.
+            request_options: Per-call overrides for this one request, such as a timeout, extra headers, or its retry
+                count and statuses.
 
         Returns:
             An ``ApiResult`` holding the deserialized response or the error body."""
         return await self._client.execute(
             http_method="GET",
             url_template=self._server.default13("/accountHolders/{id}/taxFormSummary"),
-            path_params=[param[str]("id", id)],
+            path_params=[param[str]("id", id_)],
             query_params=[param[str]("formType", form_type)],
-            decoder=json_decoder[TaxFormSummaryResponse],
+            decoder=async_json_decoder[TaxFormSummaryResponse],
             error_mapper=raw_error_response,
             request_options=request_options,
         )
 
     async def get_account_holders_id_tax_forms(
         self,
-        id: str,
+        id_: str,
         form_type: FormTypeOrStr,
         year: int,
         *,
@@ -1514,53 +1571,55 @@ class AsyncAccountHoldersWithRawResponse(SecuredRawResponse[AsyncRawClient, Serv
         <https://docs.adyen.com/platforms/us-tax-forms/>`__ .
 
         Args:
-            id: The unique identifier of the account holder.
+            id_: The unique identifier of the account holder.
             form_type: The type of tax form you want to retrieve. Accepted values are **US1099k** and **US1099nec**.
             year: The tax year in **YYYY** format for the tax form you want to retrieve.
             legal_entity_id: The legal entity reference whose tax form you want to retrieve.
-            request_options: Per-call overrides for this one request, such as a timeout or extra headers.
+            request_options: Per-call overrides for this one request, such as a timeout, extra headers, or its retry
+                count and statuses.
 
         Returns:
             An ``ApiResult`` holding the deserialized response or the error body."""
         return await self._client.execute(
             http_method="GET",
             url_template=self._server.default13("/accountHolders/{id}/taxForms"),
-            path_params=[param[str]("id", id)],
+            path_params=[param[str]("id", id_)],
             query_params=[
                 param[FormTypeOrStr]("formType", form_type),
                 param[int]("year", year),
                 param[str | None]("legalEntityId", legal_entity_id),
             ],
             auth_scheme=AsyncAnySchemes(self._auth.client_key, self._auth.basic_auth, self._auth.api_key_auth),
-            decoder=json_decoder[GetTaxFormResponse1],
+            decoder=async_json_decoder[GetTaxFormResponse1],
             error_mapper=get_account_holders_id_tax_forms_error_mapper,
             request_options=request_options,
         )
 
     async def get_account_holders_id_transaction_rules(
-        self, id: str, *, request_options: RequestOptionsOrDict | None = None
+        self, id_: str, *, request_options: RequestOptionsOrDict | None = None
     ) -> ApiResult[TransactionRulesResponse, GetAccountHoldersIdTransactionRulesErrorBody]:
         """Returns a list of transaction rules associated with an account holder.
 
         Args:
-            id: The unique identifier of the account holder.
-            request_options: Per-call overrides for this one request, such as a timeout or extra headers.
+            id_: The unique identifier of the account holder.
+            request_options: Per-call overrides for this one request, such as a timeout, extra headers, or its retry
+                count and statuses.
 
         Returns:
             An ``ApiResult`` holding the deserialized response or the error body."""
         return await self._client.execute(
             http_method="GET",
             url_template=self._server.default13("/accountHolders/{id}/transactionRules"),
-            path_params=[param[str]("id", id)],
+            path_params=[param[str]("id", id_)],
             auth_scheme=AsyncAnySchemes(self._auth.client_key, self._auth.basic_auth, self._auth.api_key_auth),
-            decoder=json_decoder[TransactionRulesResponse],
+            decoder=async_json_decoder[TransactionRulesResponse],
             error_mapper=get_account_holders_id_transaction_rules_error_mapper,
             request_options=request_options,
         )
 
     async def patch_account_holders_id(
         self,
-        id: str,
+        id_: str,
         *,
         body: AccountHolderUpdateRequest | AccountHolderUpdateRequestDict | None = None,
         request_options: RequestOptionsOrDict | None = None,
@@ -1569,20 +1628,21 @@ class AsyncAccountHoldersWithRawResponse(SecuredRawResponse[AsyncRawClient, Serv
         request, it is left unchanged.
 
         Args:
-            id: The unique identifier of the account holder.
+            id_: The unique identifier of the account holder.
             body: The request body.
-            request_options: Per-call overrides for this one request, such as a timeout or extra headers.
+            request_options: Per-call overrides for this one request, such as a timeout, extra headers, or its retry
+                count and statuses.
 
         Returns:
             An ``ApiResult`` holding the deserialized response or the error body."""
         return await self._client.execute(
             http_method="PATCH",
             url_template=self._server.default13("/accountHolders/{id}"),
-            path_params=[param[str]("id", id)],
+            path_params=[param[str]("id", id_)],
             headers=[param[UUID]("Idempotency-Key", uuid4())],
             body=json_body[AccountHolderUpdateRequest | AccountHolderUpdateRequestDict | None](body),
             auth_scheme=AsyncAnySchemes(self._auth.client_key, self._auth.basic_auth, self._auth.api_key_auth),
-            decoder=json_decoder[AccountHolder],
+            decoder=async_json_decoder[AccountHolder],
             error_mapper=patch_account_holders_id_error_mapper,
             request_options=request_options,
         )
@@ -1598,7 +1658,8 @@ class AsyncAccountHoldersWithRawResponse(SecuredRawResponse[AsyncRawClient, Serv
 
         Args:
             body: The request body.
-            request_options: Per-call overrides for this one request, such as a timeout or extra headers.
+            request_options: Per-call overrides for this one request, such as a timeout, extra headers, or its retry
+                count and statuses.
 
         Returns:
             An ``ApiResult`` holding the deserialized response or the error body."""
@@ -1608,7 +1669,7 @@ class AsyncAccountHoldersWithRawResponse(SecuredRawResponse[AsyncRawClient, Serv
             headers=[param[UUID]("Idempotency-Key", uuid4())],
             body=json_body[AccountHolderInfo | AccountHolderInfoDict | None](body),
             auth_scheme=AsyncAnySchemes(self._auth.client_key, self._auth.basic_auth, self._auth.api_key_auth),
-            decoder=json_decoder[AccountHolder],
+            decoder=async_json_decoder[AccountHolder],
             error_mapper=post_account_holders_error_mapper,
             request_options=request_options,
         )
@@ -1628,7 +1689,8 @@ class AsyncAccountHoldersWithRawResponse(SecuredRawResponse[AsyncRawClient, Serv
 
         Args:
             body: The request body.
-            request_options: Per-call overrides for this one request, such as a timeout or extra headers.
+            request_options: Per-call overrides for this one request, such as a timeout, extra headers, or its retry
+                count and statuses.
 
         Returns:
             An ``ApiResult`` holding the deserialized response or the error body."""
@@ -1638,7 +1700,7 @@ class AsyncAccountHoldersWithRawResponse(SecuredRawResponse[AsyncRawClient, Serv
             headers=[param[UUID]("Idempotency-Key", uuid4())],
             body=json_body[CloseAccountHolderRequest | CloseAccountHolderRequestDict | None](body),
             auth_scheme=AsyncAnySchemes(self._auth.basic_auth, self._auth.api_key_auth),
-            decoder=json_decoder[CloseAccountHolderResponse],
+            decoder=async_json_decoder[CloseAccountHolderResponse],
             error_mapper=post_close_account_holder_error_mapper,
             request_options=request_options,
         )
@@ -1653,7 +1715,8 @@ class AsyncAccountHoldersWithRawResponse(SecuredRawResponse[AsyncRawClient, Serv
 
         Args:
             body: The request body.
-            request_options: Per-call overrides for this one request, such as a timeout or extra headers.
+            request_options: Per-call overrides for this one request, such as a timeout, extra headers, or its retry
+                count and statuses.
 
         Returns:
             An ``ApiResult`` holding the deserialized response or the error body."""
@@ -1663,7 +1726,7 @@ class AsyncAccountHoldersWithRawResponse(SecuredRawResponse[AsyncRawClient, Serv
             headers=[param[UUID]("Idempotency-Key", uuid4())],
             body=json_body[CloseStoresRequest | CloseStoresRequestDict | None](body),
             auth_scheme=AsyncAnySchemes(self._auth.basic_auth, self._auth.api_key_auth),
-            decoder=json_decoder[GenericResponse],
+            decoder=async_json_decoder[GenericResponse],
             error_mapper=post_close_stores_error_mapper,
             request_options=request_options,
         )
@@ -1682,7 +1745,8 @@ class AsyncAccountHoldersWithRawResponse(SecuredRawResponse[AsyncRawClient, Serv
 
         Args:
             body: The request body.
-            request_options: Per-call overrides for this one request, such as a timeout or extra headers.
+            request_options: Per-call overrides for this one request, such as a timeout, extra headers, or its retry
+                count and statuses.
 
         Returns:
             An ``ApiResult`` holding the deserialized response or the error body."""
@@ -1692,7 +1756,7 @@ class AsyncAccountHoldersWithRawResponse(SecuredRawResponse[AsyncRawClient, Serv
             headers=[param[UUID]("Idempotency-Key", uuid4())],
             body=json_body[CreateAccountHolderRequest | CreateAccountHolderRequestDict | None](body),
             auth_scheme=AsyncAnySchemes(self._auth.basic_auth, self._auth.api_key_auth),
-            decoder=json_decoder[CreateAccountHolderResponse],
+            decoder=async_json_decoder[CreateAccountHolderResponse],
             error_mapper=post_create_account_holder_error_mapper,
             request_options=request_options,
         )
@@ -1707,7 +1771,8 @@ class AsyncAccountHoldersWithRawResponse(SecuredRawResponse[AsyncRawClient, Serv
 
         Args:
             body: The request body.
-            request_options: Per-call overrides for this one request, such as a timeout or extra headers.
+            request_options: Per-call overrides for this one request, such as a timeout, extra headers, or its retry
+                count and statuses.
 
         Returns:
             An ``ApiResult`` holding the deserialized response or the error body."""
@@ -1717,7 +1782,7 @@ class AsyncAccountHoldersWithRawResponse(SecuredRawResponse[AsyncRawClient, Serv
             headers=[param[UUID]("Idempotency-Key", uuid4())],
             body=json_body[GetAccountHolderRequest | GetAccountHolderRequestDict | None](body),
             auth_scheme=AsyncAnySchemes(self._auth.basic_auth, self._auth.api_key_auth),
-            decoder=json_decoder[GetAccountHolderResponse],
+            decoder=async_json_decoder[GetAccountHolderResponse],
             error_mapper=post_get_account_holder_error_mapper,
             request_options=request_options,
         )
@@ -1733,7 +1798,8 @@ class AsyncAccountHoldersWithRawResponse(SecuredRawResponse[AsyncRawClient, Serv
 
         Args:
             body: The request body.
-            request_options: Per-call overrides for this one request, such as a timeout or extra headers.
+            request_options: Per-call overrides for this one request, such as a timeout, extra headers, or its retry
+                count and statuses.
 
         Returns:
             An ``ApiResult`` holding the deserialized response or the error body."""
@@ -1743,7 +1809,7 @@ class AsyncAccountHoldersWithRawResponse(SecuredRawResponse[AsyncRawClient, Serv
             headers=[param[UUID]("Idempotency-Key", uuid4())],
             body=json_body[GetTaxFormRequest | GetTaxFormRequestDict | None](body),
             auth_scheme=AsyncAnySchemes(self._auth.basic_auth, self._auth.api_key_auth),
-            decoder=json_decoder[GetTaxFormResponse],
+            decoder=async_json_decoder[GetTaxFormResponse],
             error_mapper=post_get_tax_form_error_mapper,
             request_options=request_options,
         )
@@ -1760,7 +1826,8 @@ class AsyncAccountHoldersWithRawResponse(SecuredRawResponse[AsyncRawClient, Serv
 
         Args:
             body: The request body.
-            request_options: Per-call overrides for this one request, such as a timeout or extra headers.
+            request_options: Per-call overrides for this one request, such as a timeout, extra headers, or its retry
+                count and statuses.
 
         Returns:
             An ``ApiResult`` holding the deserialized response or the error body."""
@@ -1770,7 +1837,7 @@ class AsyncAccountHoldersWithRawResponse(SecuredRawResponse[AsyncRawClient, Serv
             headers=[param[UUID]("Idempotency-Key", uuid4())],
             body=json_body[SuspendAccountHolderRequest | SuspendAccountHolderRequestDict | None](body),
             auth_scheme=AsyncAnySchemes(self._auth.basic_auth, self._auth.api_key_auth),
-            decoder=json_decoder[SuspendAccountHolderResponse],
+            decoder=async_json_decoder[SuspendAccountHolderResponse],
             error_mapper=post_suspend_account_holder_error_mapper,
             request_options=request_options,
         )
@@ -1793,7 +1860,8 @@ class AsyncAccountHoldersWithRawResponse(SecuredRawResponse[AsyncRawClient, Serv
 
         Args:
             body: The request body.
-            request_options: Per-call overrides for this one request, such as a timeout or extra headers.
+            request_options: Per-call overrides for this one request, such as a timeout, extra headers, or its retry
+                count and statuses.
 
         Returns:
             An ``ApiResult`` holding the deserialized response or the error body."""
@@ -1803,7 +1871,7 @@ class AsyncAccountHoldersWithRawResponse(SecuredRawResponse[AsyncRawClient, Serv
             headers=[param[UUID]("Idempotency-Key", uuid4())],
             body=json_body[UnSuspendAccountHolderRequest | UnSuspendAccountHolderRequestDict | None](body),
             auth_scheme=AsyncAnySchemes(self._auth.basic_auth, self._auth.api_key_auth),
-            decoder=json_decoder[UnSuspendAccountHolderResponse],
+            decoder=async_json_decoder[UnSuspendAccountHolderResponse],
             error_mapper=post_un_suspend_account_holder_error_mapper,
             request_options=request_options,
         )
@@ -1841,7 +1909,8 @@ class AsyncAccountHoldersWithRawResponse(SecuredRawResponse[AsyncRawClient, Serv
 
         Args:
             body: The request body.
-            request_options: Per-call overrides for this one request, such as a timeout or extra headers.
+            request_options: Per-call overrides for this one request, such as a timeout, extra headers, or its retry
+                count and statuses.
 
         Returns:
             An ``ApiResult`` holding the deserialized response or the error body."""
@@ -1851,7 +1920,7 @@ class AsyncAccountHoldersWithRawResponse(SecuredRawResponse[AsyncRawClient, Serv
             headers=[param[UUID]("Idempotency-Key", uuid4())],
             body=json_body[UpdateAccountHolderRequest | UpdateAccountHolderRequestDict | None](body),
             auth_scheme=AsyncAnySchemes(self._auth.basic_auth, self._auth.api_key_auth),
-            decoder=json_decoder[UpdateAccountHolderResponse],
+            decoder=async_json_decoder[UpdateAccountHolderResponse],
             error_mapper=post_update_account_holder_error_mapper,
             request_options=request_options,
         )
@@ -1866,7 +1935,8 @@ class AsyncAccountHoldersWithRawResponse(SecuredRawResponse[AsyncRawClient, Serv
 
         Args:
             body: The request body.
-            request_options: Per-call overrides for this one request, such as a timeout or extra headers.
+            request_options: Per-call overrides for this one request, such as a timeout, extra headers, or its retry
+                count and statuses.
 
         Returns:
             An ``ApiResult`` holding the deserialized response or the error body."""
@@ -1876,7 +1946,7 @@ class AsyncAccountHoldersWithRawResponse(SecuredRawResponse[AsyncRawClient, Serv
             headers=[param[UUID]("Idempotency-Key", uuid4())],
             body=json_body[UpdateAccountHolderStateRequest | UpdateAccountHolderStateRequestDict | None](body),
             auth_scheme=AsyncAnySchemes(self._auth.basic_auth, self._auth.api_key_auth),
-            decoder=json_decoder[GetAccountHolderStatusResponse],
+            decoder=async_json_decoder[GetAccountHolderStatusResponse],
             error_mapper=post_update_account_holder_state_error_mapper,
             request_options=request_options,
         )

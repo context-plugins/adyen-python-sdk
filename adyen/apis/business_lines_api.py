@@ -11,10 +11,13 @@ from ..core import (
     RawClient,
     RequestOptionsOrDict,
     SecuredRawResponse,
+    async_empty_response,
+    async_json_decoder,
     empty_response,
     json_body,
     json_decoder,
     param,
+    unwrap,
 )
 from ..errors.delete_business_lines_id_error import (
     DeleteBusinessLinesIdErrorBody,
@@ -33,7 +36,7 @@ class BusinessLinesApi:
     def __init__(self, client: RawClient, server: Server, auth: AuthSchemes) -> None:
         self._with_raw_response = BusinessLinesApiWithRawResponse(client, server, auth)
 
-    def delete_business_lines_id(self, id: str, *, request_options: RequestOptionsOrDict | None = None) -> None:
+    def delete_business_lines_id(self, id_: str, *, request_options: RequestOptionsOrDict | None = None) -> None:
         """Deletes a business line.
 
         >If you delete a business line linked to a `payment method
@@ -51,8 +54,9 @@ class BusinessLinesApi:
         - Failed requests are subject to a limit of 5 failures per 10 seconds.
 
         Args:
-            id: The unique identifier of the business line to be deleted.
-            request_options: Per-call overrides for this one request, such as a timeout or extra headers.
+            id_: The unique identifier of the business line to be deleted.
+            request_options: Per-call overrides for this one request, such as a timeout, extra headers, or its retry
+                count and statuses.
 
         Returns:
             No Content - look at the actual response code for the status of the request.
@@ -62,9 +66,9 @@ class BusinessLinesApi:
                 required. Forbidden - insufficient permissions to process the request. Unprocessable Entity - a request
                 validation error. Internal Server Error - the server could not process the request. ``error`` is
                 ``ServiceError1 | RawError``."""
-        return self._with_raw_response.delete_business_lines_id(id, request_options=request_options).unwrap()
+        return unwrap(self._with_raw_response.delete_business_lines_id(id_, request_options=request_options))
 
-    def get_business_lines_id(self, id: str, *, request_options: RequestOptionsOrDict | None = None) -> BusinessLine:
+    def get_business_lines_id(self, id_: str, *, request_options: RequestOptionsOrDict | None = None) -> BusinessLine:
         """Returns the detail of a business line.
 
         Requests to this endpoint are subject to rate limits:
@@ -76,8 +80,9 @@ class BusinessLinesApi:
         - Failed requests are subject to a limit of 5 failures per 10 seconds.
 
         Args:
-            id: The unique identifier of the business line.
-            request_options: Per-call overrides for this one request, such as a timeout or extra headers.
+            id_: The unique identifier of the business line.
+            request_options: Per-call overrides for this one request, such as a timeout, extra headers, or its retry
+                count and statuses.
 
         Returns:
             OK - the request has succeeded.
@@ -87,11 +92,11 @@ class BusinessLinesApi:
                 required. Forbidden - insufficient permissions to process the request. Unprocessable Entity - a request
                 validation error. Internal Server Error - the server could not process the request. ``error`` is
                 ``ServiceError1 | RawError``."""
-        return self._with_raw_response.get_business_lines_id(id, request_options=request_options).unwrap()
+        return unwrap(self._with_raw_response.get_business_lines_id(id_, request_options=request_options))
 
     def patch_business_lines_id(
         self,
-        id: str,
+        id_: str,
         *,
         body: BusinessLineInfoUpdate | BusinessLineInfoUpdateDict | None = None,
         request_options: RequestOptionsOrDict | None = None,
@@ -107,9 +112,10 @@ class BusinessLinesApi:
         - Failed requests are subject to a limit of 5 failures per 10 seconds.
 
         Args:
-            id: The unique identifier of the business line.
+            id_: The unique identifier of the business line.
             body: The request body.
-            request_options: Per-call overrides for this one request, such as a timeout or extra headers.
+            request_options: Per-call overrides for this one request, such as a timeout, extra headers, or its retry
+                count and statuses.
 
         Returns:
             OK - the request has succeeded.
@@ -119,7 +125,7 @@ class BusinessLinesApi:
                 required. Forbidden - insufficient permissions to process the request. Unprocessable Entity - a request
                 validation error. Internal Server Error - the server could not process the request. ``error`` is
                 ``ServiceError1 | RawError``."""
-        return self._with_raw_response.patch_business_lines_id(id, body=body, request_options=request_options).unwrap()
+        return unwrap(self._with_raw_response.patch_business_lines_id(id_, body=body, request_options=request_options))
 
     def post_business_lines(
         self,
@@ -145,7 +151,8 @@ class BusinessLinesApi:
 
         Args:
             body: The request body.
-            request_options: Per-call overrides for this one request, such as a timeout or extra headers.
+            request_options: Per-call overrides for this one request, such as a timeout, extra headers, or its retry
+                count and statuses.
 
         Returns:
             OK - the request has succeeded.
@@ -155,7 +162,7 @@ class BusinessLinesApi:
                 required. Forbidden - insufficient permissions to process the request. Unprocessable Entity - a request
                 validation error. Internal Server Error - the server could not process the request. ``error`` is
                 ``ServiceError1 | RawError``."""
-        return self._with_raw_response.post_business_lines(body=body, request_options=request_options).unwrap()
+        return unwrap(self._with_raw_response.post_business_lines(body=body, request_options=request_options))
 
     @property
     def with_raw_response(self) -> BusinessLinesApiWithRawResponse:
@@ -166,7 +173,7 @@ class AsyncBusinessLinesApi:
     def __init__(self, client: AsyncRawClient, server: Server, auth: AsyncAuthSchemes) -> None:
         self._with_raw_response = AsyncBusinessLinesApiWithRawResponse(client, server, auth)
 
-    async def delete_business_lines_id(self, id: str, *, request_options: RequestOptionsOrDict | None = None) -> None:
+    async def delete_business_lines_id(self, id_: str, *, request_options: RequestOptionsOrDict | None = None) -> None:
         """Deletes a business line.
 
         >If you delete a business line linked to a `payment method
@@ -184,8 +191,9 @@ class AsyncBusinessLinesApi:
         - Failed requests are subject to a limit of 5 failures per 10 seconds.
 
         Args:
-            id: The unique identifier of the business line to be deleted.
-            request_options: Per-call overrides for this one request, such as a timeout or extra headers.
+            id_: The unique identifier of the business line to be deleted.
+            request_options: Per-call overrides for this one request, such as a timeout, extra headers, or its retry
+                count and statuses.
 
         Returns:
             No Content - look at the actual response code for the status of the request.
@@ -195,10 +203,10 @@ class AsyncBusinessLinesApi:
                 required. Forbidden - insufficient permissions to process the request. Unprocessable Entity - a request
                 validation error. Internal Server Error - the server could not process the request. ``error`` is
                 ``ServiceError1 | RawError``."""
-        return (await self._with_raw_response.delete_business_lines_id(id, request_options=request_options)).unwrap()
+        return unwrap(await self._with_raw_response.delete_business_lines_id(id_, request_options=request_options))
 
     async def get_business_lines_id(
-        self, id: str, *, request_options: RequestOptionsOrDict | None = None
+        self, id_: str, *, request_options: RequestOptionsOrDict | None = None
     ) -> BusinessLine:
         """Returns the detail of a business line.
 
@@ -211,8 +219,9 @@ class AsyncBusinessLinesApi:
         - Failed requests are subject to a limit of 5 failures per 10 seconds.
 
         Args:
-            id: The unique identifier of the business line.
-            request_options: Per-call overrides for this one request, such as a timeout or extra headers.
+            id_: The unique identifier of the business line.
+            request_options: Per-call overrides for this one request, such as a timeout, extra headers, or its retry
+                count and statuses.
 
         Returns:
             OK - the request has succeeded.
@@ -222,11 +231,11 @@ class AsyncBusinessLinesApi:
                 required. Forbidden - insufficient permissions to process the request. Unprocessable Entity - a request
                 validation error. Internal Server Error - the server could not process the request. ``error`` is
                 ``ServiceError1 | RawError``."""
-        return (await self._with_raw_response.get_business_lines_id(id, request_options=request_options)).unwrap()
+        return unwrap(await self._with_raw_response.get_business_lines_id(id_, request_options=request_options))
 
     async def patch_business_lines_id(
         self,
-        id: str,
+        id_: str,
         *,
         body: BusinessLineInfoUpdate | BusinessLineInfoUpdateDict | None = None,
         request_options: RequestOptionsOrDict | None = None,
@@ -242,9 +251,10 @@ class AsyncBusinessLinesApi:
         - Failed requests are subject to a limit of 5 failures per 10 seconds.
 
         Args:
-            id: The unique identifier of the business line.
+            id_: The unique identifier of the business line.
             body: The request body.
-            request_options: Per-call overrides for this one request, such as a timeout or extra headers.
+            request_options: Per-call overrides for this one request, such as a timeout, extra headers, or its retry
+                count and statuses.
 
         Returns:
             OK - the request has succeeded.
@@ -254,9 +264,9 @@ class AsyncBusinessLinesApi:
                 required. Forbidden - insufficient permissions to process the request. Unprocessable Entity - a request
                 validation error. Internal Server Error - the server could not process the request. ``error`` is
                 ``ServiceError1 | RawError``."""
-        return (
-            await self._with_raw_response.patch_business_lines_id(id, body=body, request_options=request_options)
-        ).unwrap()
+        return unwrap(
+            await self._with_raw_response.patch_business_lines_id(id_, body=body, request_options=request_options)
+        )
 
     async def post_business_lines(
         self,
@@ -282,7 +292,8 @@ class AsyncBusinessLinesApi:
 
         Args:
             body: The request body.
-            request_options: Per-call overrides for this one request, such as a timeout or extra headers.
+            request_options: Per-call overrides for this one request, such as a timeout, extra headers, or its retry
+                count and statuses.
 
         Returns:
             OK - the request has succeeded.
@@ -292,7 +303,7 @@ class AsyncBusinessLinesApi:
                 required. Forbidden - insufficient permissions to process the request. Unprocessable Entity - a request
                 validation error. Internal Server Error - the server could not process the request. ``error`` is
                 ``ServiceError1 | RawError``."""
-        return (await self._with_raw_response.post_business_lines(body=body, request_options=request_options)).unwrap()
+        return unwrap(await self._with_raw_response.post_business_lines(body=body, request_options=request_options))
 
     @property
     def with_raw_response(self) -> AsyncBusinessLinesApiWithRawResponse:
@@ -301,7 +312,7 @@ class AsyncBusinessLinesApi:
 
 class BusinessLinesApiWithRawResponse(SecuredRawResponse[RawClient, Server, AuthSchemes]):
     def delete_business_lines_id(
-        self, id: str, *, request_options: RequestOptionsOrDict | None = None
+        self, id_: str, *, request_options: RequestOptionsOrDict | None = None
     ) -> ApiResult[None, DeleteBusinessLinesIdErrorBody]:
         """Deletes a business line.
 
@@ -320,15 +331,16 @@ class BusinessLinesApiWithRawResponse(SecuredRawResponse[RawClient, Server, Auth
         - Failed requests are subject to a limit of 5 failures per 10 seconds.
 
         Args:
-            id: The unique identifier of the business line to be deleted.
-            request_options: Per-call overrides for this one request, such as a timeout or extra headers.
+            id_: The unique identifier of the business line to be deleted.
+            request_options: Per-call overrides for this one request, such as a timeout, extra headers, or its retry
+                count and statuses.
 
         Returns:
             An ``ApiResult`` holding the deserialized response or the error body."""
         return self._client.execute(
             http_method="DELETE",
             url_template=self._server.default18("/businessLines/{id}"),
-            path_params=[param[str]("id", id)],
+            path_params=[param[str]("id", id_)],
             headers=[param[UUID]("Idempotency-Key", uuid4())],
             auth_scheme=AnySchemes(self._auth.basic_auth, self._auth.api_key_auth),
             decoder=empty_response,
@@ -337,7 +349,7 @@ class BusinessLinesApiWithRawResponse(SecuredRawResponse[RawClient, Server, Auth
         )
 
     def get_business_lines_id(
-        self, id: str, *, request_options: RequestOptionsOrDict | None = None
+        self, id_: str, *, request_options: RequestOptionsOrDict | None = None
     ) -> ApiResult[BusinessLine, GetBusinessLinesIdErrorBody]:
         """Returns the detail of a business line.
 
@@ -350,15 +362,16 @@ class BusinessLinesApiWithRawResponse(SecuredRawResponse[RawClient, Server, Auth
         - Failed requests are subject to a limit of 5 failures per 10 seconds.
 
         Args:
-            id: The unique identifier of the business line.
-            request_options: Per-call overrides for this one request, such as a timeout or extra headers.
+            id_: The unique identifier of the business line.
+            request_options: Per-call overrides for this one request, such as a timeout, extra headers, or its retry
+                count and statuses.
 
         Returns:
             An ``ApiResult`` holding the deserialized response or the error body."""
         return self._client.execute(
             http_method="GET",
             url_template=self._server.default18("/businessLines/{id}"),
-            path_params=[param[str]("id", id)],
+            path_params=[param[str]("id", id_)],
             auth_scheme=AnySchemes(self._auth.basic_auth, self._auth.api_key_auth),
             decoder=json_decoder[BusinessLine],
             error_mapper=get_business_lines_id_error_mapper,
@@ -367,7 +380,7 @@ class BusinessLinesApiWithRawResponse(SecuredRawResponse[RawClient, Server, Auth
 
     def patch_business_lines_id(
         self,
-        id: str,
+        id_: str,
         *,
         body: BusinessLineInfoUpdate | BusinessLineInfoUpdateDict | None = None,
         request_options: RequestOptionsOrDict | None = None,
@@ -383,16 +396,17 @@ class BusinessLinesApiWithRawResponse(SecuredRawResponse[RawClient, Server, Auth
         - Failed requests are subject to a limit of 5 failures per 10 seconds.
 
         Args:
-            id: The unique identifier of the business line.
+            id_: The unique identifier of the business line.
             body: The request body.
-            request_options: Per-call overrides for this one request, such as a timeout or extra headers.
+            request_options: Per-call overrides for this one request, such as a timeout, extra headers, or its retry
+                count and statuses.
 
         Returns:
             An ``ApiResult`` holding the deserialized response or the error body."""
         return self._client.execute(
             http_method="PATCH",
             url_template=self._server.default18("/businessLines/{id}"),
-            path_params=[param[str]("id", id)],
+            path_params=[param[str]("id", id_)],
             headers=[param[UUID]("Idempotency-Key", uuid4())],
             body=json_body[BusinessLineInfoUpdate | BusinessLineInfoUpdateDict | None](body),
             auth_scheme=AnySchemes(self._auth.basic_auth, self._auth.api_key_auth),
@@ -425,7 +439,8 @@ class BusinessLinesApiWithRawResponse(SecuredRawResponse[RawClient, Server, Auth
 
         Args:
             body: The request body.
-            request_options: Per-call overrides for this one request, such as a timeout or extra headers.
+            request_options: Per-call overrides for this one request, such as a timeout, extra headers, or its retry
+                count and statuses.
 
         Returns:
             An ``ApiResult`` holding the deserialized response or the error body."""
@@ -443,7 +458,7 @@ class BusinessLinesApiWithRawResponse(SecuredRawResponse[RawClient, Server, Auth
 
 class AsyncBusinessLinesApiWithRawResponse(SecuredRawResponse[AsyncRawClient, Server, AsyncAuthSchemes]):
     async def delete_business_lines_id(
-        self, id: str, *, request_options: RequestOptionsOrDict | None = None
+        self, id_: str, *, request_options: RequestOptionsOrDict | None = None
     ) -> ApiResult[None, DeleteBusinessLinesIdErrorBody]:
         """Deletes a business line.
 
@@ -462,24 +477,25 @@ class AsyncBusinessLinesApiWithRawResponse(SecuredRawResponse[AsyncRawClient, Se
         - Failed requests are subject to a limit of 5 failures per 10 seconds.
 
         Args:
-            id: The unique identifier of the business line to be deleted.
-            request_options: Per-call overrides for this one request, such as a timeout or extra headers.
+            id_: The unique identifier of the business line to be deleted.
+            request_options: Per-call overrides for this one request, such as a timeout, extra headers, or its retry
+                count and statuses.
 
         Returns:
             An ``ApiResult`` holding the deserialized response or the error body."""
         return await self._client.execute(
             http_method="DELETE",
             url_template=self._server.default18("/businessLines/{id}"),
-            path_params=[param[str]("id", id)],
+            path_params=[param[str]("id", id_)],
             headers=[param[UUID]("Idempotency-Key", uuid4())],
             auth_scheme=AsyncAnySchemes(self._auth.basic_auth, self._auth.api_key_auth),
-            decoder=empty_response,
+            decoder=async_empty_response,
             error_mapper=delete_business_lines_id_error_mapper,
             request_options=request_options,
         )
 
     async def get_business_lines_id(
-        self, id: str, *, request_options: RequestOptionsOrDict | None = None
+        self, id_: str, *, request_options: RequestOptionsOrDict | None = None
     ) -> ApiResult[BusinessLine, GetBusinessLinesIdErrorBody]:
         """Returns the detail of a business line.
 
@@ -492,24 +508,25 @@ class AsyncBusinessLinesApiWithRawResponse(SecuredRawResponse[AsyncRawClient, Se
         - Failed requests are subject to a limit of 5 failures per 10 seconds.
 
         Args:
-            id: The unique identifier of the business line.
-            request_options: Per-call overrides for this one request, such as a timeout or extra headers.
+            id_: The unique identifier of the business line.
+            request_options: Per-call overrides for this one request, such as a timeout, extra headers, or its retry
+                count and statuses.
 
         Returns:
             An ``ApiResult`` holding the deserialized response or the error body."""
         return await self._client.execute(
             http_method="GET",
             url_template=self._server.default18("/businessLines/{id}"),
-            path_params=[param[str]("id", id)],
+            path_params=[param[str]("id", id_)],
             auth_scheme=AsyncAnySchemes(self._auth.basic_auth, self._auth.api_key_auth),
-            decoder=json_decoder[BusinessLine],
+            decoder=async_json_decoder[BusinessLine],
             error_mapper=get_business_lines_id_error_mapper,
             request_options=request_options,
         )
 
     async def patch_business_lines_id(
         self,
-        id: str,
+        id_: str,
         *,
         body: BusinessLineInfoUpdate | BusinessLineInfoUpdateDict | None = None,
         request_options: RequestOptionsOrDict | None = None,
@@ -525,20 +542,21 @@ class AsyncBusinessLinesApiWithRawResponse(SecuredRawResponse[AsyncRawClient, Se
         - Failed requests are subject to a limit of 5 failures per 10 seconds.
 
         Args:
-            id: The unique identifier of the business line.
+            id_: The unique identifier of the business line.
             body: The request body.
-            request_options: Per-call overrides for this one request, such as a timeout or extra headers.
+            request_options: Per-call overrides for this one request, such as a timeout, extra headers, or its retry
+                count and statuses.
 
         Returns:
             An ``ApiResult`` holding the deserialized response or the error body."""
         return await self._client.execute(
             http_method="PATCH",
             url_template=self._server.default18("/businessLines/{id}"),
-            path_params=[param[str]("id", id)],
+            path_params=[param[str]("id", id_)],
             headers=[param[UUID]("Idempotency-Key", uuid4())],
             body=json_body[BusinessLineInfoUpdate | BusinessLineInfoUpdateDict | None](body),
             auth_scheme=AsyncAnySchemes(self._auth.basic_auth, self._auth.api_key_auth),
-            decoder=json_decoder[BusinessLine],
+            decoder=async_json_decoder[BusinessLine],
             error_mapper=patch_business_lines_id_error_mapper,
             request_options=request_options,
         )
@@ -567,7 +585,8 @@ class AsyncBusinessLinesApiWithRawResponse(SecuredRawResponse[AsyncRawClient, Se
 
         Args:
             body: The request body.
-            request_options: Per-call overrides for this one request, such as a timeout or extra headers.
+            request_options: Per-call overrides for this one request, such as a timeout, extra headers, or its retry
+                count and statuses.
 
         Returns:
             An ``ApiResult`` holding the deserialized response or the error body."""
@@ -577,7 +596,7 @@ class AsyncBusinessLinesApiWithRawResponse(SecuredRawResponse[AsyncRawClient, Se
             headers=[param[UUID]("Idempotency-Key", uuid4())],
             body=json_body[BusinessLineInfo | BusinessLineInfoDict | None](body),
             auth_scheme=AsyncAnySchemes(self._auth.basic_auth, self._auth.api_key_auth),
-            decoder=json_decoder[BusinessLine],
+            decoder=async_json_decoder[BusinessLine],
             error_mapper=post_business_lines_error_mapper,
             request_options=request_options,
         )

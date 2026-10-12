@@ -60,13 +60,13 @@ class SignatoryContact(SdkBaseModel):
 
 
 class SignatoryContactDict(TypedDict):
-    address: NotRequired[ViasAddress2 | ViasAddress2Dict]
+    address: NotRequired[ViasAddress2Dict]
     email: NotRequired[str]
     full_phone_number: NotRequired[str]
     job_title: NotRequired[str]
-    name: NotRequired[ViasName1 | ViasName1Dict]
-    personal_data: NotRequired[ViasPersonalData1 | ViasPersonalData1Dict]
-    phone_number: NotRequired[ViasPhoneNumber1 | ViasPhoneNumber1Dict]
+    name: NotRequired[ViasName1Dict]
+    personal_data: NotRequired[ViasPersonalData1Dict]
+    phone_number: NotRequired[ViasPhoneNumber1Dict]
     signatory_code: NotRequired[str]
     signatory_reference: NotRequired[str]
     web_address: NotRequired[str]

@@ -11,10 +11,13 @@ from ..core import (
     RawClient,
     RequestOptionsOrDict,
     SecuredRawResponse,
+    async_empty_response,
+    async_json_decoder,
     empty_response,
     json_body,
     json_decoder,
     param,
+    unwrap,
 )
 from ..errors.delete_balance_accounts_balance_account_id_sweeps_sweep_id_error import (
     DeleteBalanceAccountsBalanceAccountIdSweepsSweepIdErrorBody,
@@ -55,7 +58,8 @@ class CustomPayoutSchedulesSweeps:
         Args:
             balance_account_id: The unique identifier of the balance account.
             sweep_id: The unique identifier of the sweep.
-            request_options: Per-call overrides for this one request, such as a timeout or extra headers.
+            request_options: Per-call overrides for this one request, such as a timeout, extra headers, or its retry
+                count and statuses.
 
         Returns:
             No Content - look at the actual response code for the status of the request.
@@ -65,9 +69,11 @@ class CustomPayoutSchedulesSweeps:
                 required. Forbidden - insufficient permissions to process the request. Unprocessable Entity - a request
                 validation error. Internal Server Error - the server could not process the request. ``error`` is
                 ``RestServiceError | RawError``."""
-        return self._with_raw_response.delete_balance_accounts_balance_account_id_sweeps_sweep_id(
-            balance_account_id, sweep_id, request_options=request_options
-        ).unwrap()
+        return unwrap(
+            self._with_raw_response.delete_balance_accounts_balance_account_id_sweeps_sweep_id(
+                balance_account_id, sweep_id, request_options=request_options
+            ),
+        )
 
     def get_balance_accounts_balance_account_id_sweeps(
         self,
@@ -87,7 +93,8 @@ class CustomPayoutSchedulesSweeps:
             offset: The number of items that you want to skip.
             limit: The number of items returned per page, maximum 100 items. By default, the response returns 10 items
                 per page.
-            request_options: Per-call overrides for this one request, such as a timeout or extra headers.
+            request_options: Per-call overrides for this one request, such as a timeout, extra headers, or its retry
+                count and statuses.
 
         Returns:
             OK - the request has succeeded.
@@ -97,9 +104,11 @@ class CustomPayoutSchedulesSweeps:
                 required. Forbidden - insufficient permissions to process the request. Unprocessable Entity - a request
                 validation error. Internal Server Error - the server could not process the request. ``error`` is
                 ``RestServiceError | RawError``."""
-        return self._with_raw_response.get_balance_accounts_balance_account_id_sweeps(
-            balance_account_id, offset=offset, limit=limit, request_options=request_options
-        ).unwrap()
+        return unwrap(
+            self._with_raw_response.get_balance_accounts_balance_account_id_sweeps(
+                balance_account_id, offset=offset, limit=limit, request_options=request_options
+            ),
+        )
 
     def get_balance_accounts_balance_account_id_sweeps_sweep_id(
         self, balance_account_id: str, sweep_id: str, *, request_options: RequestOptionsOrDict | None = None
@@ -109,7 +118,8 @@ class CustomPayoutSchedulesSweeps:
         Args:
             balance_account_id: The unique identifier of the balance account.
             sweep_id: The unique identifier of the sweep.
-            request_options: Per-call overrides for this one request, such as a timeout or extra headers.
+            request_options: Per-call overrides for this one request, such as a timeout, extra headers, or its retry
+                count and statuses.
 
         Returns:
             OK - the request has succeeded.
@@ -119,9 +129,11 @@ class CustomPayoutSchedulesSweeps:
                 required. Forbidden - insufficient permissions to process the request. Unprocessable Entity - a request
                 validation error. Internal Server Error - the server could not process the request. ``error`` is
                 ``RestServiceError | RawError``."""
-        return self._with_raw_response.get_balance_accounts_balance_account_id_sweeps_sweep_id(
-            balance_account_id, sweep_id, request_options=request_options
-        ).unwrap()
+        return unwrap(
+            self._with_raw_response.get_balance_accounts_balance_account_id_sweeps_sweep_id(
+                balance_account_id, sweep_id, request_options=request_options
+            ),
+        )
 
     def patch_balance_accounts_balance_account_id_sweeps_sweep_id(
         self,
@@ -138,7 +150,8 @@ class CustomPayoutSchedulesSweeps:
             balance_account_id: The unique identifier of the balance account.
             sweep_id: The unique identifier of the sweep.
             body: The request body.
-            request_options: Per-call overrides for this one request, such as a timeout or extra headers.
+            request_options: Per-call overrides for this one request, such as a timeout, extra headers, or its retry
+                count and statuses.
 
         Returns:
             OK - the request has succeeded.
@@ -148,9 +161,11 @@ class CustomPayoutSchedulesSweeps:
                 required. Forbidden - insufficient permissions to process the request. Unprocessable Entity - a request
                 validation error. Internal Server Error - the server could not process the request. ``error`` is
                 ``RestServiceError | RawError``."""
-        return self._with_raw_response.patch_balance_accounts_balance_account_id_sweeps_sweep_id(
-            balance_account_id, sweep_id, body=body, request_options=request_options
-        ).unwrap()
+        return unwrap(
+            self._with_raw_response.patch_balance_accounts_balance_account_id_sweeps_sweep_id(
+                balance_account_id, sweep_id, body=body, request_options=request_options
+            ),
+        )
 
     def post_balance_accounts_balance_account_id_sweeps(
         self,
@@ -167,7 +182,8 @@ class CustomPayoutSchedulesSweeps:
         Args:
             balance_account_id: The unique identifier of the balance account.
             body: The request body.
-            request_options: Per-call overrides for this one request, such as a timeout or extra headers.
+            request_options: Per-call overrides for this one request, such as a timeout, extra headers, or its retry
+                count and statuses.
 
         Returns:
             OK - the request has succeeded.
@@ -177,9 +193,11 @@ class CustomPayoutSchedulesSweeps:
                 required. Forbidden - insufficient permissions to process the request. Unprocessable Entity - a request
                 validation error. Internal Server Error - the server could not process the request. ``error`` is
                 ``RestServiceError | RawError``."""
-        return self._with_raw_response.post_balance_accounts_balance_account_id_sweeps(
-            balance_account_id, body=body, request_options=request_options
-        ).unwrap()
+        return unwrap(
+            self._with_raw_response.post_balance_accounts_balance_account_id_sweeps(
+                balance_account_id, body=body, request_options=request_options
+            ),
+        )
 
     @property
     def with_raw_response(self) -> CustomPayoutSchedulesSweepsWithRawResponse:
@@ -198,7 +216,8 @@ class AsyncCustomPayoutSchedulesSweeps:
         Args:
             balance_account_id: The unique identifier of the balance account.
             sweep_id: The unique identifier of the sweep.
-            request_options: Per-call overrides for this one request, such as a timeout or extra headers.
+            request_options: Per-call overrides for this one request, such as a timeout, extra headers, or its retry
+                count and statuses.
 
         Returns:
             No Content - look at the actual response code for the status of the request.
@@ -208,11 +227,11 @@ class AsyncCustomPayoutSchedulesSweeps:
                 required. Forbidden - insufficient permissions to process the request. Unprocessable Entity - a request
                 validation error. Internal Server Error - the server could not process the request. ``error`` is
                 ``RestServiceError | RawError``."""
-        return (
+        return unwrap(
             await self._with_raw_response.delete_balance_accounts_balance_account_id_sweeps_sweep_id(
                 balance_account_id, sweep_id, request_options=request_options
-            )
-        ).unwrap()
+            ),
+        )
 
     async def get_balance_accounts_balance_account_id_sweeps(
         self,
@@ -232,7 +251,8 @@ class AsyncCustomPayoutSchedulesSweeps:
             offset: The number of items that you want to skip.
             limit: The number of items returned per page, maximum 100 items. By default, the response returns 10 items
                 per page.
-            request_options: Per-call overrides for this one request, such as a timeout or extra headers.
+            request_options: Per-call overrides for this one request, such as a timeout, extra headers, or its retry
+                count and statuses.
 
         Returns:
             OK - the request has succeeded.
@@ -242,11 +262,11 @@ class AsyncCustomPayoutSchedulesSweeps:
                 required. Forbidden - insufficient permissions to process the request. Unprocessable Entity - a request
                 validation error. Internal Server Error - the server could not process the request. ``error`` is
                 ``RestServiceError | RawError``."""
-        return (
+        return unwrap(
             await self._with_raw_response.get_balance_accounts_balance_account_id_sweeps(
                 balance_account_id, offset=offset, limit=limit, request_options=request_options
-            )
-        ).unwrap()
+            ),
+        )
 
     async def get_balance_accounts_balance_account_id_sweeps_sweep_id(
         self, balance_account_id: str, sweep_id: str, *, request_options: RequestOptionsOrDict | None = None
@@ -256,7 +276,8 @@ class AsyncCustomPayoutSchedulesSweeps:
         Args:
             balance_account_id: The unique identifier of the balance account.
             sweep_id: The unique identifier of the sweep.
-            request_options: Per-call overrides for this one request, such as a timeout or extra headers.
+            request_options: Per-call overrides for this one request, such as a timeout, extra headers, or its retry
+                count and statuses.
 
         Returns:
             OK - the request has succeeded.
@@ -266,11 +287,11 @@ class AsyncCustomPayoutSchedulesSweeps:
                 required. Forbidden - insufficient permissions to process the request. Unprocessable Entity - a request
                 validation error. Internal Server Error - the server could not process the request. ``error`` is
                 ``RestServiceError | RawError``."""
-        return (
+        return unwrap(
             await self._with_raw_response.get_balance_accounts_balance_account_id_sweeps_sweep_id(
                 balance_account_id, sweep_id, request_options=request_options
-            )
-        ).unwrap()
+            ),
+        )
 
     async def patch_balance_accounts_balance_account_id_sweeps_sweep_id(
         self,
@@ -287,7 +308,8 @@ class AsyncCustomPayoutSchedulesSweeps:
             balance_account_id: The unique identifier of the balance account.
             sweep_id: The unique identifier of the sweep.
             body: The request body.
-            request_options: Per-call overrides for this one request, such as a timeout or extra headers.
+            request_options: Per-call overrides for this one request, such as a timeout, extra headers, or its retry
+                count and statuses.
 
         Returns:
             OK - the request has succeeded.
@@ -297,11 +319,11 @@ class AsyncCustomPayoutSchedulesSweeps:
                 required. Forbidden - insufficient permissions to process the request. Unprocessable Entity - a request
                 validation error. Internal Server Error - the server could not process the request. ``error`` is
                 ``RestServiceError | RawError``."""
-        return (
+        return unwrap(
             await self._with_raw_response.patch_balance_accounts_balance_account_id_sweeps_sweep_id(
                 balance_account_id, sweep_id, body=body, request_options=request_options
-            )
-        ).unwrap()
+            ),
+        )
 
     async def post_balance_accounts_balance_account_id_sweeps(
         self,
@@ -318,7 +340,8 @@ class AsyncCustomPayoutSchedulesSweeps:
         Args:
             balance_account_id: The unique identifier of the balance account.
             body: The request body.
-            request_options: Per-call overrides for this one request, such as a timeout or extra headers.
+            request_options: Per-call overrides for this one request, such as a timeout, extra headers, or its retry
+                count and statuses.
 
         Returns:
             OK - the request has succeeded.
@@ -328,11 +351,11 @@ class AsyncCustomPayoutSchedulesSweeps:
                 required. Forbidden - insufficient permissions to process the request. Unprocessable Entity - a request
                 validation error. Internal Server Error - the server could not process the request. ``error`` is
                 ``RestServiceError | RawError``."""
-        return (
+        return unwrap(
             await self._with_raw_response.post_balance_accounts_balance_account_id_sweeps(
                 balance_account_id, body=body, request_options=request_options
-            )
-        ).unwrap()
+            ),
+        )
 
     @property
     def with_raw_response(self) -> AsyncCustomPayoutSchedulesSweepsWithRawResponse:
@@ -348,7 +371,8 @@ class CustomPayoutSchedulesSweepsWithRawResponse(SecuredRawResponse[RawClient, S
         Args:
             balance_account_id: The unique identifier of the balance account.
             sweep_id: The unique identifier of the sweep.
-            request_options: Per-call overrides for this one request, such as a timeout or extra headers.
+            request_options: Per-call overrides for this one request, such as a timeout, extra headers, or its retry
+                count and statuses.
 
         Returns:
             An ``ApiResult`` holding the deserialized response or the error body."""
@@ -381,7 +405,8 @@ class CustomPayoutSchedulesSweepsWithRawResponse(SecuredRawResponse[RawClient, S
             offset: The number of items that you want to skip.
             limit: The number of items returned per page, maximum 100 items. By default, the response returns 10 items
                 per page.
-            request_options: Per-call overrides for this one request, such as a timeout or extra headers.
+            request_options: Per-call overrides for this one request, such as a timeout, extra headers, or its retry
+                count and statuses.
 
         Returns:
             An ``ApiResult`` holding the deserialized response or the error body."""
@@ -404,7 +429,8 @@ class CustomPayoutSchedulesSweepsWithRawResponse(SecuredRawResponse[RawClient, S
         Args:
             balance_account_id: The unique identifier of the balance account.
             sweep_id: The unique identifier of the sweep.
-            request_options: Per-call overrides for this one request, such as a timeout or extra headers.
+            request_options: Per-call overrides for this one request, such as a timeout, extra headers, or its retry
+                count and statuses.
 
         Returns:
             An ``ApiResult`` holding the deserialized response or the error body."""
@@ -433,7 +459,8 @@ class CustomPayoutSchedulesSweepsWithRawResponse(SecuredRawResponse[RawClient, S
             balance_account_id: The unique identifier of the balance account.
             sweep_id: The unique identifier of the sweep.
             body: The request body.
-            request_options: Per-call overrides for this one request, such as a timeout or extra headers.
+            request_options: Per-call overrides for this one request, such as a timeout, extra headers, or its retry
+                count and statuses.
 
         Returns:
             An ``ApiResult`` holding the deserialized response or the error body."""
@@ -464,7 +491,8 @@ class CustomPayoutSchedulesSweepsWithRawResponse(SecuredRawResponse[RawClient, S
         Args:
             balance_account_id: The unique identifier of the balance account.
             body: The request body.
-            request_options: Per-call overrides for this one request, such as a timeout or extra headers.
+            request_options: Per-call overrides for this one request, such as a timeout, extra headers, or its retry
+                count and statuses.
 
         Returns:
             An ``ApiResult`` holding the deserialized response or the error body."""
@@ -490,7 +518,8 @@ class AsyncCustomPayoutSchedulesSweepsWithRawResponse(SecuredRawResponse[AsyncRa
         Args:
             balance_account_id: The unique identifier of the balance account.
             sweep_id: The unique identifier of the sweep.
-            request_options: Per-call overrides for this one request, such as a timeout or extra headers.
+            request_options: Per-call overrides for this one request, such as a timeout, extra headers, or its retry
+                count and statuses.
 
         Returns:
             An ``ApiResult`` holding the deserialized response or the error body."""
@@ -500,7 +529,7 @@ class AsyncCustomPayoutSchedulesSweepsWithRawResponse(SecuredRawResponse[AsyncRa
             path_params=[param[str]("balanceAccountId", balance_account_id), param[str]("sweepId", sweep_id)],
             headers=[param[UUID]("Idempotency-Key", uuid4())],
             auth_scheme=AsyncAnySchemes(self._auth.client_key, self._auth.basic_auth, self._auth.api_key_auth),
-            decoder=empty_response,
+            decoder=async_empty_response,
             error_mapper=delete_balance_accounts_balance_account_id_sweeps_sweep_id_error_mapper,
             request_options=request_options,
         )
@@ -523,7 +552,8 @@ class AsyncCustomPayoutSchedulesSweepsWithRawResponse(SecuredRawResponse[AsyncRa
             offset: The number of items that you want to skip.
             limit: The number of items returned per page, maximum 100 items. By default, the response returns 10 items
                 per page.
-            request_options: Per-call overrides for this one request, such as a timeout or extra headers.
+            request_options: Per-call overrides for this one request, such as a timeout, extra headers, or its retry
+                count and statuses.
 
         Returns:
             An ``ApiResult`` holding the deserialized response or the error body."""
@@ -533,7 +563,7 @@ class AsyncCustomPayoutSchedulesSweepsWithRawResponse(SecuredRawResponse[AsyncRa
             path_params=[param[str]("balanceAccountId", balance_account_id)],
             query_params=[param[int | None]("offset", offset), param[int | None]("limit", limit)],
             auth_scheme=AsyncAnySchemes(self._auth.client_key, self._auth.basic_auth, self._auth.api_key_auth),
-            decoder=json_decoder[BalanceSweepConfigurationsResponse],
+            decoder=async_json_decoder[BalanceSweepConfigurationsResponse],
             error_mapper=get_balance_accounts_balance_account_id_sweeps_error_mapper,
             request_options=request_options,
         )
@@ -546,7 +576,8 @@ class AsyncCustomPayoutSchedulesSweepsWithRawResponse(SecuredRawResponse[AsyncRa
         Args:
             balance_account_id: The unique identifier of the balance account.
             sweep_id: The unique identifier of the sweep.
-            request_options: Per-call overrides for this one request, such as a timeout or extra headers.
+            request_options: Per-call overrides for this one request, such as a timeout, extra headers, or its retry
+                count and statuses.
 
         Returns:
             An ``ApiResult`` holding the deserialized response or the error body."""
@@ -555,7 +586,7 @@ class AsyncCustomPayoutSchedulesSweepsWithRawResponse(SecuredRawResponse[AsyncRa
             url_template=self._server.default13("/balanceAccounts/{balanceAccountId}/sweeps/{sweepId}"),
             path_params=[param[str]("balanceAccountId", balance_account_id), param[str]("sweepId", sweep_id)],
             auth_scheme=AsyncAnySchemes(self._auth.client_key, self._auth.basic_auth, self._auth.api_key_auth),
-            decoder=json_decoder[SweepConfigurationV2],
+            decoder=async_json_decoder[SweepConfigurationV2],
             error_mapper=get_balance_accounts_balance_account_id_sweeps_sweep_id_error_mapper,
             request_options=request_options,
         )
@@ -575,7 +606,8 @@ class AsyncCustomPayoutSchedulesSweepsWithRawResponse(SecuredRawResponse[AsyncRa
             balance_account_id: The unique identifier of the balance account.
             sweep_id: The unique identifier of the sweep.
             body: The request body.
-            request_options: Per-call overrides for this one request, such as a timeout or extra headers.
+            request_options: Per-call overrides for this one request, such as a timeout, extra headers, or its retry
+                count and statuses.
 
         Returns:
             An ``ApiResult`` holding the deserialized response or the error body."""
@@ -586,7 +618,7 @@ class AsyncCustomPayoutSchedulesSweepsWithRawResponse(SecuredRawResponse[AsyncRa
             headers=[param[UUID]("Idempotency-Key", uuid4())],
             body=json_body[UpdateSweepConfigurationV2 | UpdateSweepConfigurationV2Dict | None](body),
             auth_scheme=AsyncAnySchemes(self._auth.client_key, self._auth.basic_auth, self._auth.api_key_auth),
-            decoder=json_decoder[SweepConfigurationV2],
+            decoder=async_json_decoder[SweepConfigurationV2],
             error_mapper=patch_balance_accounts_balance_account_id_sweeps_sweep_id_error_mapper,
             request_options=request_options,
         )
@@ -606,7 +638,8 @@ class AsyncCustomPayoutSchedulesSweepsWithRawResponse(SecuredRawResponse[AsyncRa
         Args:
             balance_account_id: The unique identifier of the balance account.
             body: The request body.
-            request_options: Per-call overrides for this one request, such as a timeout or extra headers.
+            request_options: Per-call overrides for this one request, such as a timeout, extra headers, or its retry
+                count and statuses.
 
         Returns:
             An ``ApiResult`` holding the deserialized response or the error body."""
@@ -617,7 +650,7 @@ class AsyncCustomPayoutSchedulesSweepsWithRawResponse(SecuredRawResponse[AsyncRa
             headers=[param[UUID]("Idempotency-Key", uuid4())],
             body=json_body[CreateSweepConfigurationV2 | CreateSweepConfigurationV2Dict | None](body),
             auth_scheme=AsyncAnySchemes(self._auth.client_key, self._auth.basic_auth, self._auth.api_key_auth),
-            decoder=json_decoder[SweepConfigurationV2],
+            decoder=async_json_decoder[SweepConfigurationV2],
             error_mapper=post_balance_accounts_balance_account_id_sweeps_error_mapper,
             request_options=request_options,
         )

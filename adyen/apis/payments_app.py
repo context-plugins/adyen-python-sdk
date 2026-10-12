@@ -9,9 +9,11 @@ from ..core import (
     BaseRawResponse,
     RawClient,
     RequestOptionsOrDict,
+    async_json_decoder,
     json_body,
     json_decoder,
     param,
+    unwrap,
 )
 from ..errors.get_merchants_merchant_id_payments_apps_error import (
     GetMerchantsMerchantIdPaymentsAppsErrorBody,
@@ -64,7 +66,8 @@ class PaymentsApp:
                 provided, the list returns all statuses. Possible values: * **BOARDING** * **BOARDED** * **REVOKED**
             limit: The number of items to return.
             offset: The number of items to skip.
-            request_options: Per-call overrides for this one request, such as a timeout or extra headers.
+            request_options: Per-call overrides for this one request, such as a timeout, extra headers, or its retry
+                count and statuses.
 
         Returns:
             OK - the request has succeeded.
@@ -74,9 +77,11 @@ class PaymentsApp:
                 required. Forbidden - insufficient permissions to process the request. Unprocessable Entity - a request
                 validation error. Internal Server Error - the server could not process the request. ``error`` is
                 ``DefaultErrorResponseEntity | RawError``."""
-        return self._with_raw_response.get_merchants_merchant_id_payments_apps(
-            merchant_id, statuses=statuses, limit=limit, offset=offset, request_options=request_options
-        ).unwrap()
+        return unwrap(
+            self._with_raw_response.get_merchants_merchant_id_payments_apps(
+                merchant_id, statuses=statuses, limit=limit, offset=offset, request_options=request_options
+            ),
+        )
 
     def get_merchants_merchant_id_stores_store_id_payments_apps(
         self,
@@ -101,7 +106,8 @@ class PaymentsApp:
                 provided, the list returns all statuses. Possible values: * **BOARDING** * **BOARDED** * **REVOKED**
             limit: The number of items to return.
             offset: The number of items to skip.
-            request_options: Per-call overrides for this one request, such as a timeout or extra headers.
+            request_options: Per-call overrides for this one request, such as a timeout, extra headers, or its retry
+                count and statuses.
 
         Returns:
             OK - the request has succeeded.
@@ -111,9 +117,11 @@ class PaymentsApp:
                 required. Forbidden - insufficient permissions to process the request. Unprocessable Entity - a request
                 validation error. Internal Server Error - the server could not process the request. ``error`` is
                 ``DefaultErrorResponseEntity | RawError``."""
-        return self._with_raw_response.get_merchants_merchant_id_stores_store_id_payments_apps(
-            merchant_id, store_id, statuses=statuses, limit=limit, offset=offset, request_options=request_options
-        ).unwrap()
+        return unwrap(
+            self._with_raw_response.get_merchants_merchant_id_stores_store_id_payments_apps(
+                merchant_id, store_id, statuses=statuses, limit=limit, offset=offset, request_options=request_options
+            ),
+        )
 
     def post_merchants_merchant_id_generate_payments_app_boarding_token(
         self,
@@ -133,7 +141,8 @@ class PaymentsApp:
         Args:
             merchant_id: The unique identifier of the merchant account.
             body: The request body.
-            request_options: Per-call overrides for this one request, such as a timeout or extra headers.
+            request_options: Per-call overrides for this one request, such as a timeout, extra headers, or its retry
+                count and statuses.
 
         Returns:
             OK - the request has succeeded.
@@ -143,9 +152,11 @@ class PaymentsApp:
                 required. Forbidden - insufficient permissions to process the request. Unprocessable Entity - a request
                 validation error. Internal Server Error - the server could not process the request. ``error`` is
                 ``DefaultErrorResponseEntity | RawError``."""
-        return self._with_raw_response.post_merchants_merchant_id_generate_payments_app_boarding_token(
-            merchant_id, body, request_options=request_options
-        ).unwrap()
+        return unwrap(
+            self._with_raw_response.post_merchants_merchant_id_generate_payments_app_boarding_token(
+                merchant_id, body, request_options=request_options
+            ),
+        )
 
     def post_merchants_merchant_id_payments_apps_installation_id_revoke(
         self, merchant_id: str, installation_id: str, *, request_options: RequestOptionsOrDict | None = None
@@ -161,7 +172,8 @@ class PaymentsApp:
         Args:
             merchant_id: The unique identifier of the merchant account.
             installation_id: The unique identifier of the Payments App instance on a device.
-            request_options: Per-call overrides for this one request, such as a timeout or extra headers.
+            request_options: Per-call overrides for this one request, such as a timeout, extra headers, or its retry
+                count and statuses.
 
         Returns:
             OK - the request has succeeded.
@@ -170,9 +182,11 @@ class PaymentsApp:
             ApiError: Bad Request - a problem reading or understanding the request. Unauthorized - authentication
                 required. Internal Server Error - the server could not process the request. ``error`` is
                 ``DefaultErrorResponseEntity | RawError``."""
-        return self._with_raw_response.post_merchants_merchant_id_payments_apps_installation_id_revoke(
-            merchant_id, installation_id, request_options=request_options
-        ).unwrap()
+        return unwrap(
+            self._with_raw_response.post_merchants_merchant_id_payments_apps_installation_id_revoke(
+                merchant_id, installation_id, request_options=request_options
+            ),
+        )
 
     def post_merchants_merchant_id_stores_store_id_generate_payments_app_boarding_token(
         self,
@@ -194,7 +208,8 @@ class PaymentsApp:
             merchant_id: The unique identifier of the merchant account.
             store_id: The unique identifier of the store.
             body: The request body.
-            request_options: Per-call overrides for this one request, such as a timeout or extra headers.
+            request_options: Per-call overrides for this one request, such as a timeout, extra headers, or its retry
+                count and statuses.
 
         Returns:
             OK - the request has succeeded.
@@ -204,9 +219,11 @@ class PaymentsApp:
                 required. Forbidden - insufficient permissions to process the request. Unprocessable Entity - a request
                 validation error. Internal Server Error - the server could not process the request. ``error`` is
                 ``DefaultErrorResponseEntity | RawError``."""
-        return self._with_raw_response.post_merchants_merchant_id_stores_store_id_generate_payments_app_boarding_token(
-            merchant_id, store_id, body, request_options=request_options
-        ).unwrap()
+        return unwrap(
+            self._with_raw_response.post_merchants_merchant_id_stores_store_id_generate_payments_app_boarding_token(
+                merchant_id, store_id, body, request_options=request_options
+            ),
+        )
 
     @property
     def with_raw_response(self) -> PaymentsAppWithRawResponse:
@@ -238,7 +255,8 @@ class AsyncPaymentsApp:
                 provided, the list returns all statuses. Possible values: * **BOARDING** * **BOARDED** * **REVOKED**
             limit: The number of items to return.
             offset: The number of items to skip.
-            request_options: Per-call overrides for this one request, such as a timeout or extra headers.
+            request_options: Per-call overrides for this one request, such as a timeout, extra headers, or its retry
+                count and statuses.
 
         Returns:
             OK - the request has succeeded.
@@ -248,11 +266,11 @@ class AsyncPaymentsApp:
                 required. Forbidden - insufficient permissions to process the request. Unprocessable Entity - a request
                 validation error. Internal Server Error - the server could not process the request. ``error`` is
                 ``DefaultErrorResponseEntity | RawError``."""
-        return (
+        return unwrap(
             await self._with_raw_response.get_merchants_merchant_id_payments_apps(
                 merchant_id, statuses=statuses, limit=limit, offset=offset, request_options=request_options
-            )
-        ).unwrap()
+            ),
+        )
 
     async def get_merchants_merchant_id_stores_store_id_payments_apps(
         self,
@@ -277,7 +295,8 @@ class AsyncPaymentsApp:
                 provided, the list returns all statuses. Possible values: * **BOARDING** * **BOARDED** * **REVOKED**
             limit: The number of items to return.
             offset: The number of items to skip.
-            request_options: Per-call overrides for this one request, such as a timeout or extra headers.
+            request_options: Per-call overrides for this one request, such as a timeout, extra headers, or its retry
+                count and statuses.
 
         Returns:
             OK - the request has succeeded.
@@ -287,11 +306,11 @@ class AsyncPaymentsApp:
                 required. Forbidden - insufficient permissions to process the request. Unprocessable Entity - a request
                 validation error. Internal Server Error - the server could not process the request. ``error`` is
                 ``DefaultErrorResponseEntity | RawError``."""
-        return (
+        return unwrap(
             await self._with_raw_response.get_merchants_merchant_id_stores_store_id_payments_apps(
                 merchant_id, store_id, statuses=statuses, limit=limit, offset=offset, request_options=request_options
-            )
-        ).unwrap()
+            ),
+        )
 
     async def post_merchants_merchant_id_generate_payments_app_boarding_token(
         self,
@@ -311,7 +330,8 @@ class AsyncPaymentsApp:
         Args:
             merchant_id: The unique identifier of the merchant account.
             body: The request body.
-            request_options: Per-call overrides for this one request, such as a timeout or extra headers.
+            request_options: Per-call overrides for this one request, such as a timeout, extra headers, or its retry
+                count and statuses.
 
         Returns:
             OK - the request has succeeded.
@@ -321,11 +341,11 @@ class AsyncPaymentsApp:
                 required. Forbidden - insufficient permissions to process the request. Unprocessable Entity - a request
                 validation error. Internal Server Error - the server could not process the request. ``error`` is
                 ``DefaultErrorResponseEntity | RawError``."""
-        return (
+        return unwrap(
             await self._with_raw_response.post_merchants_merchant_id_generate_payments_app_boarding_token(
                 merchant_id, body, request_options=request_options
-            )
-        ).unwrap()
+            ),
+        )
 
     async def post_merchants_merchant_id_payments_apps_installation_id_revoke(
         self, merchant_id: str, installation_id: str, *, request_options: RequestOptionsOrDict | None = None
@@ -341,7 +361,8 @@ class AsyncPaymentsApp:
         Args:
             merchant_id: The unique identifier of the merchant account.
             installation_id: The unique identifier of the Payments App instance on a device.
-            request_options: Per-call overrides for this one request, such as a timeout or extra headers.
+            request_options: Per-call overrides for this one request, such as a timeout, extra headers, or its retry
+                count and statuses.
 
         Returns:
             OK - the request has succeeded.
@@ -350,11 +371,11 @@ class AsyncPaymentsApp:
             ApiError: Bad Request - a problem reading or understanding the request. Unauthorized - authentication
                 required. Internal Server Error - the server could not process the request. ``error`` is
                 ``DefaultErrorResponseEntity | RawError``."""
-        return (
+        return unwrap(
             await self._with_raw_response.post_merchants_merchant_id_payments_apps_installation_id_revoke(
                 merchant_id, installation_id, request_options=request_options
-            )
-        ).unwrap()
+            ),
+        )
 
     async def post_merchants_merchant_id_stores_store_id_generate_payments_app_boarding_token(
         self,
@@ -376,7 +397,8 @@ class AsyncPaymentsApp:
             merchant_id: The unique identifier of the merchant account.
             store_id: The unique identifier of the store.
             body: The request body.
-            request_options: Per-call overrides for this one request, such as a timeout or extra headers.
+            request_options: Per-call overrides for this one request, such as a timeout, extra headers, or its retry
+                count and statuses.
 
         Returns:
             OK - the request has succeeded.
@@ -386,11 +408,11 @@ class AsyncPaymentsApp:
                 required. Forbidden - insufficient permissions to process the request. Unprocessable Entity - a request
                 validation error. Internal Server Error - the server could not process the request. ``error`` is
                 ``DefaultErrorResponseEntity | RawError``."""
-        return (
+        return unwrap(
             await self._with_raw_response.post_merchants_merchant_id_stores_store_id_generate_payments_app_boarding_token(
                 merchant_id, store_id, body, request_options=request_options
-            )
-        ).unwrap()
+            ),
+        )
 
     @property
     def with_raw_response(self) -> AsyncPaymentsAppWithRawResponse:
@@ -419,7 +441,8 @@ class PaymentsAppWithRawResponse(BaseRawResponse[RawClient, Server]):
                 provided, the list returns all statuses. Possible values: * **BOARDING** * **BOARDED** * **REVOKED**
             limit: The number of items to return.
             offset: The number of items to skip.
-            request_options: Per-call overrides for this one request, such as a timeout or extra headers.
+            request_options: Per-call overrides for this one request, such as a timeout, extra headers, or its retry
+                count and statuses.
 
         Returns:
             An ``ApiResult`` holding the deserialized response or the error body."""
@@ -460,7 +483,8 @@ class PaymentsAppWithRawResponse(BaseRawResponse[RawClient, Server]):
                 provided, the list returns all statuses. Possible values: * **BOARDING** * **BOARDED** * **REVOKED**
             limit: The number of items to return.
             offset: The number of items to skip.
-            request_options: Per-call overrides for this one request, such as a timeout or extra headers.
+            request_options: Per-call overrides for this one request, such as a timeout, extra headers, or its retry
+                count and statuses.
 
         Returns:
             An ``ApiResult`` holding the deserialized response or the error body."""
@@ -496,7 +520,8 @@ class PaymentsAppWithRawResponse(BaseRawResponse[RawClient, Server]):
         Args:
             merchant_id: The unique identifier of the merchant account.
             body: The request body.
-            request_options: Per-call overrides for this one request, such as a timeout or extra headers.
+            request_options: Per-call overrides for this one request, such as a timeout, extra headers, or its retry
+                count and statuses.
 
         Returns:
             An ``ApiResult`` holding the deserialized response or the error body."""
@@ -525,7 +550,8 @@ class PaymentsAppWithRawResponse(BaseRawResponse[RawClient, Server]):
         Args:
             merchant_id: The unique identifier of the merchant account.
             installation_id: The unique identifier of the Payments App instance on a device.
-            request_options: Per-call overrides for this one request, such as a timeout or extra headers.
+            request_options: Per-call overrides for this one request, such as a timeout, extra headers, or its retry
+                count and statuses.
 
         Returns:
             An ``ApiResult`` holding the deserialized response or the error body."""
@@ -561,7 +587,8 @@ class PaymentsAppWithRawResponse(BaseRawResponse[RawClient, Server]):
             merchant_id: The unique identifier of the merchant account.
             store_id: The unique identifier of the store.
             body: The request body.
-            request_options: Per-call overrides for this one request, such as a timeout or extra headers.
+            request_options: Per-call overrides for this one request, such as a timeout, extra headers, or its retry
+                count and statuses.
 
         Returns:
             An ``ApiResult`` holding the deserialized response or the error body."""
@@ -601,7 +628,8 @@ class AsyncPaymentsAppWithRawResponse(BaseRawResponse[AsyncRawClient, Server]):
                 provided, the list returns all statuses. Possible values: * **BOARDING** * **BOARDED** * **REVOKED**
             limit: The number of items to return.
             offset: The number of items to skip.
-            request_options: Per-call overrides for this one request, such as a timeout or extra headers.
+            request_options: Per-call overrides for this one request, such as a timeout, extra headers, or its retry
+                count and statuses.
 
         Returns:
             An ``ApiResult`` holding the deserialized response or the error body."""
@@ -614,7 +642,7 @@ class AsyncPaymentsAppWithRawResponse(BaseRawResponse[AsyncRawClient, Server]):
                 param[int | None]("limit", limit),
                 param[int | None]("offset", offset),
             ],
-            decoder=json_decoder[PaymentsAppResponse],
+            decoder=async_json_decoder[PaymentsAppResponse],
             error_mapper=get_merchants_merchant_id_payments_apps_error_mapper,
             request_options=request_options,
         )
@@ -642,7 +670,8 @@ class AsyncPaymentsAppWithRawResponse(BaseRawResponse[AsyncRawClient, Server]):
                 provided, the list returns all statuses. Possible values: * **BOARDING** * **BOARDED** * **REVOKED**
             limit: The number of items to return.
             offset: The number of items to skip.
-            request_options: Per-call overrides for this one request, such as a timeout or extra headers.
+            request_options: Per-call overrides for this one request, such as a timeout, extra headers, or its retry
+                count and statuses.
 
         Returns:
             An ``ApiResult`` holding the deserialized response or the error body."""
@@ -655,7 +684,7 @@ class AsyncPaymentsAppWithRawResponse(BaseRawResponse[AsyncRawClient, Server]):
                 param[int | None]("limit", limit),
                 param[int | None]("offset", offset),
             ],
-            decoder=json_decoder[PaymentsAppResponse],
+            decoder=async_json_decoder[PaymentsAppResponse],
             error_mapper=get_merchants_merchant_id_stores_store_id_payments_apps_error_mapper,
             request_options=request_options,
         )
@@ -678,7 +707,8 @@ class AsyncPaymentsAppWithRawResponse(BaseRawResponse[AsyncRawClient, Server]):
         Args:
             merchant_id: The unique identifier of the merchant account.
             body: The request body.
-            request_options: Per-call overrides for this one request, such as a timeout or extra headers.
+            request_options: Per-call overrides for this one request, such as a timeout, extra headers, or its retry
+                count and statuses.
 
         Returns:
             An ``ApiResult`` holding the deserialized response or the error body."""
@@ -688,7 +718,7 @@ class AsyncPaymentsAppWithRawResponse(BaseRawResponse[AsyncRawClient, Server]):
             path_params=[param[str]("merchantId", merchant_id)],
             headers=[param[UUID]("Idempotency-Key", uuid4())],
             body=json_body[BoardingTokenRequest | BoardingTokenRequestDict](body),
-            decoder=json_decoder[BoardingTokenResponse],
+            decoder=async_json_decoder[BoardingTokenResponse],
             error_mapper=post_merchants_merchant_id_generate_payments_app_boarding_token_error_mapper,
             request_options=request_options,
         )
@@ -707,7 +737,8 @@ class AsyncPaymentsAppWithRawResponse(BaseRawResponse[AsyncRawClient, Server]):
         Args:
             merchant_id: The unique identifier of the merchant account.
             installation_id: The unique identifier of the Payments App instance on a device.
-            request_options: Per-call overrides for this one request, such as a timeout or extra headers.
+            request_options: Per-call overrides for this one request, such as a timeout, extra headers, or its retry
+                count and statuses.
 
         Returns:
             An ``ApiResult`` holding the deserialized response or the error body."""
@@ -716,7 +747,7 @@ class AsyncPaymentsAppWithRawResponse(BaseRawResponse[AsyncRawClient, Server]):
             url_template=self._server.default26("/merchants/{merchantId}/paymentsApps/{installationId}/revoke"),
             path_params=[param[str]("merchantId", merchant_id), param[str]("installationId", installation_id)],
             headers=[param[UUID]("Idempotency-Key", uuid4())],
-            decoder=json_decoder[Any],
+            decoder=async_json_decoder[Any],
             error_mapper=post_merchants_merchant_id_payments_apps_installation_id_revoke_error_mapper,
             request_options=request_options,
         )
@@ -743,7 +774,8 @@ class AsyncPaymentsAppWithRawResponse(BaseRawResponse[AsyncRawClient, Server]):
             merchant_id: The unique identifier of the merchant account.
             store_id: The unique identifier of the store.
             body: The request body.
-            request_options: Per-call overrides for this one request, such as a timeout or extra headers.
+            request_options: Per-call overrides for this one request, such as a timeout, extra headers, or its retry
+                count and statuses.
 
         Returns:
             An ``ApiResult`` holding the deserialized response or the error body."""
@@ -755,7 +787,7 @@ class AsyncPaymentsAppWithRawResponse(BaseRawResponse[AsyncRawClient, Server]):
             path_params=[param[str]("merchantId", merchant_id), param[str]("storeId", store_id)],
             headers=[param[UUID]("Idempotency-Key", uuid4())],
             body=json_body[BoardingTokenRequest | BoardingTokenRequestDict](body),
-            decoder=json_decoder[BoardingTokenResponse],
+            decoder=async_json_decoder[BoardingTokenResponse],
             error_mapper=post_merchants_merchant_id_stores_store_id_generate_payments_app_boarding_token_error_mapper,
             request_options=request_options,
         )

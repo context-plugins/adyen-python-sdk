@@ -30,7 +30,7 @@ class OnlineDonationSettings(SdkBaseModel):
 
 
 class OnlineDonationSettingsDict(TypedDict):
-    default_amount: NotRequired[DonationAmount1 | DonationAmount1Dict]
+    default_amount: NotRequired[DonationAmount1Dict]
     donation_type: NotRequired[DonationType1OrStr]
     merchant_accounts: NotRequired[list[str]]
     store_ids: NotRequired[list[str]]

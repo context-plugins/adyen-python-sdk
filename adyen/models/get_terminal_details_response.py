@@ -132,7 +132,7 @@ class GetTerminalDetailsResponseDict(TypedDict):
     serial_number: NotRequired[str]
     sim_status: NotRequired[str | None]
     store: NotRequired[str]
-    store_details: NotRequired[Store11 | Store11Dict]
+    store_details: NotRequired[Store11Dict]
     terminal: str
     terminal_status: NotRequired[TerminalStatusOrStr]
     wifi_ip: NotRequired[str]

@@ -22,6 +22,6 @@ class TransferView2(SdkBaseModel):
 
 
 class TransferView2Dict(TypedDict):
-    category_data: NotRequired[CategoryData | CategoryDataDict]
+    category_data: NotRequired[CategoryDataDict]
     id: NotRequired[str]
     reference: str

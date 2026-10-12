@@ -45,12 +45,12 @@ class CapitalGrant(SdkBaseModel):
 
 
 class CapitalGrantDict(TypedDict):
-    amount: NotRequired[Amount17 | Amount17Dict]
-    balances: CapitalBalance | CapitalBalanceDict
-    counterparty: NotRequired[GrantCounterparty2 | GrantCounterparty2Dict]
-    fee: NotRequired[Fee4 | Fee4Dict]
+    amount: NotRequired[Amount17Dict]
+    balances: CapitalBalanceDict
+    counterparty: NotRequired[GrantCounterparty2Dict]
+    fee: NotRequired[Fee4Dict]
     grant_account_id: str
     grant_offer_id: str
     id: str
-    repayment: NotRequired[Repayment | RepaymentDict]
+    repayment: NotRequired[RepaymentDict]
     status: Status14OrStr

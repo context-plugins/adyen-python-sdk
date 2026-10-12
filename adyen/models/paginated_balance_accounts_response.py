@@ -19,6 +19,6 @@ class PaginatedBalanceAccountsResponse(SdkBaseModel):
 
 
 class PaginatedBalanceAccountsResponseDict(TypedDict):
-    balance_accounts: list[BalanceAccountBase | BalanceAccountBaseDict]
+    balance_accounts: list[BalanceAccountBaseDict]
     has_next: bool
     has_previous: bool

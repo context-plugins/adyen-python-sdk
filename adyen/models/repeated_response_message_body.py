@@ -39,9 +39,9 @@ class RepeatedResponseMessageBody(SdkBaseModel):
 
 
 class RepeatedResponseMessageBodyDict(TypedDict):
-    loyalty_response: NotRequired[LoyaltyResponse | LoyaltyResponseDict]
-    payment_response: NotRequired[PaymentResponse4 | PaymentResponse4Dict]
-    reversal_response: NotRequired[ReversalResponse | ReversalResponseDict]
-    stored_value_response: NotRequired[StoredValueResponse | StoredValueResponseDict]
-    card_acquisition_response: NotRequired[CardAcquisitionResponse | CardAcquisitionResponseDict]
-    card_reader_apdu_response: NotRequired[CardReaderApduresponse | CardReaderApduresponseDict]
+    loyalty_response: NotRequired[LoyaltyResponseDict]
+    payment_response: NotRequired[PaymentResponse4Dict]
+    reversal_response: NotRequired[ReversalResponseDict]
+    stored_value_response: NotRequired[StoredValueResponseDict]
+    card_acquisition_response: NotRequired[CardAcquisitionResponseDict]
+    card_reader_apdu_response: NotRequired[CardReaderApduresponseDict]

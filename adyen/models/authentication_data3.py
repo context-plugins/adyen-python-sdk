@@ -21,7 +21,7 @@ class AuthenticationData3(SdkBaseModel):
     * **never**: Don't perform 3D Secure authentication. If PSD2 SCA or other national regulations require
         authentication, the transaction gets declined."""
 
-    authentication_only: Optional[bool] = Field(default=UNSET, alias="authenticationOnly")
+    authentication_only: bool = Field(default=False, alias="authenticationOnly")
     """Required to trigger the `authentication-only flow
     <https://docs.adyen.com/online-payments/3d-secure/authentication-only/>`__. If set to **true**, you will only
     perform the 3D Secure 2 authentication, and will not proceed to the payment authorization. Default: **false**."""
@@ -33,4 +33,4 @@ class AuthenticationData3(SdkBaseModel):
 class AuthenticationData3Dict(TypedDict):
     attempt_authentication: NotRequired[AttemptAuthenticationOrStr]
     authentication_only: NotRequired[bool]
-    three_ds_request_data: NotRequired[ThreeDsrequestData2 | ThreeDsrequestData2Dict]
+    three_ds_request_data: NotRequired[ThreeDsrequestData2Dict]

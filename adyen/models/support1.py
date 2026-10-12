@@ -18,4 +18,4 @@ class Support1(SdkBaseModel):
 
 class Support1Dict(TypedDict):
     email: NotRequired[str]
-    phone: NotRequired[PhoneNumber1 | PhoneNumber1Dict]
+    phone: NotRequired[PhoneNumber1Dict]

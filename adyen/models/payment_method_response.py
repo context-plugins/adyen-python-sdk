@@ -27,8 +27,8 @@ class PaymentMethodResponse(SdkBaseModel):
 
 
 class PaymentMethodResponseDict(TypedDict):
-    links: NotRequired[PaginationLinks1 | PaginationLinks1Dict]
-    data: NotRequired[list[ManagementPaymentMethod | ManagementPaymentMethodDict]]
+    links: NotRequired[PaginationLinks1Dict]
+    data: NotRequired[list[ManagementPaymentMethodDict]]
     items_total: int
     pages_total: int
     types_with_errors: NotRequired[list[TypesWithErrorOrStr]]

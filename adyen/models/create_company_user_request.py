@@ -46,7 +46,7 @@ class CreateCompanyUserRequestDict(TypedDict):
     associated_merchant_accounts: NotRequired[list[str]]
     email: str
     login_method: NotRequired[str]
-    name: Name | NameDict
+    name: NameDict
     roles: NotRequired[list[str]]
     time_zone_code: NotRequired[str]
     username: str

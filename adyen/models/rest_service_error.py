@@ -42,7 +42,7 @@ class RestServiceErrorDict(TypedDict):
     detail: str
     error_code: str
     instance: NotRequired[str]
-    invalid_fields: NotRequired[list[InvalidField | InvalidFieldDict]]
+    invalid_fields: NotRequired[list[InvalidFieldDict]]
     request_id: NotRequired[str]
     response: NotRequired[Any]
     status: int

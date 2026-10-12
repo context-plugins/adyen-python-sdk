@@ -14,5 +14,5 @@ class RecurringTopUpsResult(SdkBaseModel):
 
 
 class RecurringTopUpsResultDict(TypedDict):
-    link: Link | LinkDict
-    recurring_top_ups: list[RecurringTopUp | RecurringTopUpDict]
+    link: LinkDict
+    recurring_top_ups: list[RecurringTopUpDict]

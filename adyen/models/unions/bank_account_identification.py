@@ -2,8 +2,9 @@ from __future__ import annotations
 
 from typing import Annotated, TypeAlias
 
-from pydantic import Field
+from pydantic import Tag
 
+from ...core import WireDiscriminator
 from ..aulocal_account_identification1 import AulocalAccountIdentification1, AulocalAccountIdentification1Dict
 from ..brlocal_account_identification1 import BrlocalAccountIdentification1, BrlocalAccountIdentification1Dict
 from ..calocal_account_identification1 import CalocalAccountIdentification1, CalocalAccountIdentification1Dict
@@ -26,24 +27,24 @@ from ..uslocal_account_identification1 import UslocalAccountIdentification1, Usl
 
 BankAccountIdentification: TypeAlias = Annotated[
     (
-        AulocalAccountIdentification1
-        | BrlocalAccountIdentification1
-        | CalocalAccountIdentification1
-        | CzlocalAccountIdentification1
-        | DklocalAccountIdentification1
-        | HklocalAccountIdentification1
-        | HulocalAccountIdentification1
-        | IbanAccountIdentification1
-        | NolocalAccountIdentification1
-        | NzlocalAccountIdentification1
-        | NumberAndBicAccountIdentification1
-        | PllocalAccountIdentification1
-        | SelocalAccountIdentification1
-        | SglocalAccountIdentification1
-        | UklocalAccountIdentification1
-        | UslocalAccountIdentification1
+        Annotated[AulocalAccountIdentification1, Tag("auLocal")]
+        | Annotated[BrlocalAccountIdentification1, Tag("brLocal")]
+        | Annotated[CalocalAccountIdentification1, Tag("caLocal")]
+        | Annotated[CzlocalAccountIdentification1, Tag("czLocal")]
+        | Annotated[DklocalAccountIdentification1, Tag("dkLocal")]
+        | Annotated[HklocalAccountIdentification1, Tag("hkLocal")]
+        | Annotated[HulocalAccountIdentification1, Tag("huLocal")]
+        | Annotated[IbanAccountIdentification1, Tag("iban")]
+        | Annotated[NolocalAccountIdentification1, Tag("noLocal")]
+        | Annotated[NzlocalAccountIdentification1, Tag("nzLocal")]
+        | Annotated[NumberAndBicAccountIdentification1, Tag("numberAndBic")]
+        | Annotated[PllocalAccountIdentification1, Tag("plLocal")]
+        | Annotated[SelocalAccountIdentification1, Tag("seLocal")]
+        | Annotated[SglocalAccountIdentification1, Tag("sgLocal")]
+        | Annotated[UklocalAccountIdentification1, Tag("ukLocal")]
+        | Annotated[UslocalAccountIdentification1, Tag("usLocal")]
     ),
-    Field(discriminator="type_"),
+    WireDiscriminator("type"),
 ]
 
 BankAccountIdentificationDict: TypeAlias = (

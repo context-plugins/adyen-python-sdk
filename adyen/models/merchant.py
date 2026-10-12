@@ -79,10 +79,10 @@ class Merchant(SdkBaseModel):
 
 
 class MerchantDict(TypedDict):
-    links: NotRequired[MerchantLinks2 | MerchantLinks2Dict]
+    links: NotRequired[MerchantLinks2Dict]
     capture_delay: NotRequired[str]
     company_id: NotRequired[str]
-    data_centers: NotRequired[list[DataCenter | DataCenterDict]]
+    data_centers: NotRequired[list[DataCenterDict]]
     default_shopper_interaction: NotRequired[str]
     description: NotRequired[str]
     id: NotRequired[str]

@@ -11,10 +11,13 @@ from ..core import (
     RawClient,
     RequestOptionsOrDict,
     SecuredRawResponse,
+    async_empty_response,
+    async_json_decoder,
     empty_response,
     json_body,
     json_decoder,
     param,
+    unwrap,
 )
 from ..errors.delete_companies_company_id_webhooks_webhook_id_error import (
     DeleteCompaniesCompanyIdWebhooksWebhookIdErrorBody,
@@ -70,7 +73,8 @@ class WebhooksCompanyLevel:
         Args:
             company_id: The unique identifier of the company account.
             webhook_id: Unique identifier of the webhook configuration.
-            request_options: Per-call overrides for this one request, such as a timeout or extra headers.
+            request_options: Per-call overrides for this one request, such as a timeout, extra headers, or its retry
+                count and statuses.
 
         Returns:
             No Content - look at the actual response code for the status of the request.
@@ -80,9 +84,11 @@ class WebhooksCompanyLevel:
                 required. Forbidden - insufficient permissions to process the request. Unprocessable Entity - a request
                 validation error. Internal Server Error - the server could not process the request. ``error`` is
                 ``RestServiceError | RawError``."""
-        return self._with_raw_response.delete_companies_company_id_webhooks_webhook_id(
-            company_id, webhook_id, request_options=request_options
-        ).unwrap()
+        return unwrap(
+            self._with_raw_response.delete_companies_company_id_webhooks_webhook_id(
+                company_id, webhook_id, request_options=request_options
+            ),
+        )
 
     def get_companies_company_id_webhooks(
         self,
@@ -104,7 +110,8 @@ class WebhooksCompanyLevel:
                 <https://docs.adyen.com/account/account-structure#company-account>`__.
             page_number: The number of the page to fetch.
             page_size: The number of items to have on a page, maximum 100. The default is 10 items on a page.
-            request_options: Per-call overrides for this one request, such as a timeout or extra headers.
+            request_options: Per-call overrides for this one request, such as a timeout, extra headers, or its retry
+                count and statuses.
 
         Returns:
             OK - the request has succeeded.
@@ -114,9 +121,11 @@ class WebhooksCompanyLevel:
                 required. Forbidden - insufficient permissions to process the request. Unprocessable Entity - a request
                 validation error. Internal Server Error - the server could not process the request. ``error`` is
                 ``RestServiceError | RawError``."""
-        return self._with_raw_response.get_companies_company_id_webhooks(
-            company_id, page_number=page_number, page_size=page_size, request_options=request_options
-        ).unwrap()
+        return unwrap(
+            self._with_raw_response.get_companies_company_id_webhooks(
+                company_id, page_number=page_number, page_size=page_size, request_options=request_options
+            ),
+        )
 
     def get_companies_company_id_webhooks_webhook_id(
         self, company_id: str, webhook_id: str, *, request_options: RequestOptionsOrDict | None = None
@@ -132,7 +141,8 @@ class WebhooksCompanyLevel:
             company_id: Unique identifier of the `company account
                 <https://docs.adyen.com/account/account-structure#company-account>`__.
             webhook_id: Unique identifier of the webhook configuration.
-            request_options: Per-call overrides for this one request, such as a timeout or extra headers.
+            request_options: Per-call overrides for this one request, such as a timeout, extra headers, or its retry
+                count and statuses.
 
         Returns:
             OK - the request has succeeded.
@@ -142,9 +152,11 @@ class WebhooksCompanyLevel:
                 required. Forbidden - insufficient permissions to process the request. Unprocessable Entity - a request
                 validation error. Internal Server Error - the server could not process the request. ``error`` is
                 ``RestServiceError | RawError``."""
-        return self._with_raw_response.get_companies_company_id_webhooks_webhook_id(
-            company_id, webhook_id, request_options=request_options
-        ).unwrap()
+        return unwrap(
+            self._with_raw_response.get_companies_company_id_webhooks_webhook_id(
+                company_id, webhook_id, request_options=request_options
+            ),
+        )
 
     def patch_companies_company_id_webhooks_webhook_id(
         self,
@@ -166,7 +178,8 @@ class WebhooksCompanyLevel:
             company_id: The unique identifier of the company account.
             webhook_id: Unique identifier of the webhook configuration.
             body: The request body.
-            request_options: Per-call overrides for this one request, such as a timeout or extra headers.
+            request_options: Per-call overrides for this one request, such as a timeout, extra headers, or its retry
+                count and statuses.
 
         Returns:
             OK - the request has succeeded.
@@ -176,9 +189,11 @@ class WebhooksCompanyLevel:
                 required. Forbidden - insufficient permissions to process the request. Unprocessable Entity - a request
                 validation error. Internal Server Error - the server could not process the request. ``error`` is
                 ``RestServiceError | RawError``."""
-        return self._with_raw_response.patch_companies_company_id_webhooks_webhook_id(
-            company_id, webhook_id, body=body, request_options=request_options
-        ).unwrap()
+        return unwrap(
+            self._with_raw_response.patch_companies_company_id_webhooks_webhook_id(
+                company_id, webhook_id, body=body, request_options=request_options
+            ),
+        )
 
     def post_companies_company_id_webhooks(
         self,
@@ -198,7 +213,8 @@ class WebhooksCompanyLevel:
             company_id: Unique identifier of the `company account
                 <https://docs.adyen.com/account/account-structure#company-account>`__.
             body: The request body.
-            request_options: Per-call overrides for this one request, such as a timeout or extra headers.
+            request_options: Per-call overrides for this one request, such as a timeout, extra headers, or its retry
+                count and statuses.
 
         Returns:
             OK - the request has succeeded.
@@ -208,9 +224,11 @@ class WebhooksCompanyLevel:
                 required. Forbidden - insufficient permissions to process the request. Unprocessable Entity - a request
                 validation error. Internal Server Error - the server could not process the request. ``error`` is
                 ``RestServiceError | RawError``."""
-        return self._with_raw_response.post_companies_company_id_webhooks(
-            company_id, body=body, request_options=request_options
-        ).unwrap()
+        return unwrap(
+            self._with_raw_response.post_companies_company_id_webhooks(
+                company_id, body=body, request_options=request_options
+            ),
+        )
 
     def post_companies_company_id_webhooks_webhook_id_generate_hmac(
         self, company_id: str, webhook_id: str, *, request_options: RequestOptionsOrDict | None = None
@@ -229,7 +247,8 @@ class WebhooksCompanyLevel:
         Args:
             company_id: The unique identifier of the company account.
             webhook_id: Unique identifier of the webhook configuration.
-            request_options: Per-call overrides for this one request, such as a timeout or extra headers.
+            request_options: Per-call overrides for this one request, such as a timeout, extra headers, or its retry
+                count and statuses.
 
         Returns:
             OK - the request has succeeded.
@@ -239,9 +258,11 @@ class WebhooksCompanyLevel:
                 required. Forbidden - insufficient permissions to process the request. Unprocessable Entity - a request
                 validation error. Internal Server Error - the server could not process the request. ``error`` is
                 ``RestServiceError | RawError``."""
-        return self._with_raw_response.post_companies_company_id_webhooks_webhook_id_generate_hmac(
-            company_id, webhook_id, request_options=request_options
-        ).unwrap()
+        return unwrap(
+            self._with_raw_response.post_companies_company_id_webhooks_webhook_id_generate_hmac(
+                company_id, webhook_id, request_options=request_options
+            ),
+        )
 
     def post_companies_company_id_webhooks_webhook_id_test(
         self,
@@ -272,7 +293,8 @@ class WebhooksCompanyLevel:
             company_id: The unique identifier of the company account.
             webhook_id: Unique identifier of the webhook configuration.
             body: The request body.
-            request_options: Per-call overrides for this one request, such as a timeout or extra headers.
+            request_options: Per-call overrides for this one request, such as a timeout, extra headers, or its retry
+                count and statuses.
 
         Returns:
             OK - the request has succeeded.
@@ -282,9 +304,11 @@ class WebhooksCompanyLevel:
                 required. Forbidden - insufficient permissions to process the request. Unprocessable Entity - a request
                 validation error. Internal Server Error - the server could not process the request. ``error`` is
                 ``RestServiceError | RawError``."""
-        return self._with_raw_response.post_companies_company_id_webhooks_webhook_id_test(
-            company_id, webhook_id, body=body, request_options=request_options
-        ).unwrap()
+        return unwrap(
+            self._with_raw_response.post_companies_company_id_webhooks_webhook_id_test(
+                company_id, webhook_id, body=body, request_options=request_options
+            ),
+        )
 
     @property
     def with_raw_response(self) -> WebhooksCompanyLevelWithRawResponse:
@@ -307,7 +331,8 @@ class AsyncWebhooksCompanyLevel:
         Args:
             company_id: The unique identifier of the company account.
             webhook_id: Unique identifier of the webhook configuration.
-            request_options: Per-call overrides for this one request, such as a timeout or extra headers.
+            request_options: Per-call overrides for this one request, such as a timeout, extra headers, or its retry
+                count and statuses.
 
         Returns:
             No Content - look at the actual response code for the status of the request.
@@ -317,11 +342,11 @@ class AsyncWebhooksCompanyLevel:
                 required. Forbidden - insufficient permissions to process the request. Unprocessable Entity - a request
                 validation error. Internal Server Error - the server could not process the request. ``error`` is
                 ``RestServiceError | RawError``."""
-        return (
+        return unwrap(
             await self._with_raw_response.delete_companies_company_id_webhooks_webhook_id(
                 company_id, webhook_id, request_options=request_options
-            )
-        ).unwrap()
+            ),
+        )
 
     async def get_companies_company_id_webhooks(
         self,
@@ -343,7 +368,8 @@ class AsyncWebhooksCompanyLevel:
                 <https://docs.adyen.com/account/account-structure#company-account>`__.
             page_number: The number of the page to fetch.
             page_size: The number of items to have on a page, maximum 100. The default is 10 items on a page.
-            request_options: Per-call overrides for this one request, such as a timeout or extra headers.
+            request_options: Per-call overrides for this one request, such as a timeout, extra headers, or its retry
+                count and statuses.
 
         Returns:
             OK - the request has succeeded.
@@ -353,11 +379,11 @@ class AsyncWebhooksCompanyLevel:
                 required. Forbidden - insufficient permissions to process the request. Unprocessable Entity - a request
                 validation error. Internal Server Error - the server could not process the request. ``error`` is
                 ``RestServiceError | RawError``."""
-        return (
+        return unwrap(
             await self._with_raw_response.get_companies_company_id_webhooks(
                 company_id, page_number=page_number, page_size=page_size, request_options=request_options
-            )
-        ).unwrap()
+            ),
+        )
 
     async def get_companies_company_id_webhooks_webhook_id(
         self, company_id: str, webhook_id: str, *, request_options: RequestOptionsOrDict | None = None
@@ -373,7 +399,8 @@ class AsyncWebhooksCompanyLevel:
             company_id: Unique identifier of the `company account
                 <https://docs.adyen.com/account/account-structure#company-account>`__.
             webhook_id: Unique identifier of the webhook configuration.
-            request_options: Per-call overrides for this one request, such as a timeout or extra headers.
+            request_options: Per-call overrides for this one request, such as a timeout, extra headers, or its retry
+                count and statuses.
 
         Returns:
             OK - the request has succeeded.
@@ -383,11 +410,11 @@ class AsyncWebhooksCompanyLevel:
                 required. Forbidden - insufficient permissions to process the request. Unprocessable Entity - a request
                 validation error. Internal Server Error - the server could not process the request. ``error`` is
                 ``RestServiceError | RawError``."""
-        return (
+        return unwrap(
             await self._with_raw_response.get_companies_company_id_webhooks_webhook_id(
                 company_id, webhook_id, request_options=request_options
-            )
-        ).unwrap()
+            ),
+        )
 
     async def patch_companies_company_id_webhooks_webhook_id(
         self,
@@ -409,7 +436,8 @@ class AsyncWebhooksCompanyLevel:
             company_id: The unique identifier of the company account.
             webhook_id: Unique identifier of the webhook configuration.
             body: The request body.
-            request_options: Per-call overrides for this one request, such as a timeout or extra headers.
+            request_options: Per-call overrides for this one request, such as a timeout, extra headers, or its retry
+                count and statuses.
 
         Returns:
             OK - the request has succeeded.
@@ -419,11 +447,11 @@ class AsyncWebhooksCompanyLevel:
                 required. Forbidden - insufficient permissions to process the request. Unprocessable Entity - a request
                 validation error. Internal Server Error - the server could not process the request. ``error`` is
                 ``RestServiceError | RawError``."""
-        return (
+        return unwrap(
             await self._with_raw_response.patch_companies_company_id_webhooks_webhook_id(
                 company_id, webhook_id, body=body, request_options=request_options
-            )
-        ).unwrap()
+            ),
+        )
 
     async def post_companies_company_id_webhooks(
         self,
@@ -443,7 +471,8 @@ class AsyncWebhooksCompanyLevel:
             company_id: Unique identifier of the `company account
                 <https://docs.adyen.com/account/account-structure#company-account>`__.
             body: The request body.
-            request_options: Per-call overrides for this one request, such as a timeout or extra headers.
+            request_options: Per-call overrides for this one request, such as a timeout, extra headers, or its retry
+                count and statuses.
 
         Returns:
             OK - the request has succeeded.
@@ -453,11 +482,11 @@ class AsyncWebhooksCompanyLevel:
                 required. Forbidden - insufficient permissions to process the request. Unprocessable Entity - a request
                 validation error. Internal Server Error - the server could not process the request. ``error`` is
                 ``RestServiceError | RawError``."""
-        return (
+        return unwrap(
             await self._with_raw_response.post_companies_company_id_webhooks(
                 company_id, body=body, request_options=request_options
-            )
-        ).unwrap()
+            ),
+        )
 
     async def post_companies_company_id_webhooks_webhook_id_generate_hmac(
         self, company_id: str, webhook_id: str, *, request_options: RequestOptionsOrDict | None = None
@@ -476,7 +505,8 @@ class AsyncWebhooksCompanyLevel:
         Args:
             company_id: The unique identifier of the company account.
             webhook_id: Unique identifier of the webhook configuration.
-            request_options: Per-call overrides for this one request, such as a timeout or extra headers.
+            request_options: Per-call overrides for this one request, such as a timeout, extra headers, or its retry
+                count and statuses.
 
         Returns:
             OK - the request has succeeded.
@@ -486,11 +516,11 @@ class AsyncWebhooksCompanyLevel:
                 required. Forbidden - insufficient permissions to process the request. Unprocessable Entity - a request
                 validation error. Internal Server Error - the server could not process the request. ``error`` is
                 ``RestServiceError | RawError``."""
-        return (
+        return unwrap(
             await self._with_raw_response.post_companies_company_id_webhooks_webhook_id_generate_hmac(
                 company_id, webhook_id, request_options=request_options
-            )
-        ).unwrap()
+            ),
+        )
 
     async def post_companies_company_id_webhooks_webhook_id_test(
         self,
@@ -521,7 +551,8 @@ class AsyncWebhooksCompanyLevel:
             company_id: The unique identifier of the company account.
             webhook_id: Unique identifier of the webhook configuration.
             body: The request body.
-            request_options: Per-call overrides for this one request, such as a timeout or extra headers.
+            request_options: Per-call overrides for this one request, such as a timeout, extra headers, or its retry
+                count and statuses.
 
         Returns:
             OK - the request has succeeded.
@@ -531,11 +562,11 @@ class AsyncWebhooksCompanyLevel:
                 required. Forbidden - insufficient permissions to process the request. Unprocessable Entity - a request
                 validation error. Internal Server Error - the server could not process the request. ``error`` is
                 ``RestServiceError | RawError``."""
-        return (
+        return unwrap(
             await self._with_raw_response.post_companies_company_id_webhooks_webhook_id_test(
                 company_id, webhook_id, body=body, request_options=request_options
-            )
-        ).unwrap()
+            ),
+        )
 
     @property
     def with_raw_response(self) -> AsyncWebhooksCompanyLevelWithRawResponse:
@@ -555,7 +586,8 @@ class WebhooksCompanyLevelWithRawResponse(SecuredRawResponse[RawClient, Server, 
         Args:
             company_id: The unique identifier of the company account.
             webhook_id: Unique identifier of the webhook configuration.
-            request_options: Per-call overrides for this one request, such as a timeout or extra headers.
+            request_options: Per-call overrides for this one request, such as a timeout, extra headers, or its retry
+                count and statuses.
 
         Returns:
             An ``ApiResult`` holding the deserialized response or the error body."""
@@ -590,7 +622,8 @@ class WebhooksCompanyLevelWithRawResponse(SecuredRawResponse[RawClient, Server, 
                 <https://docs.adyen.com/account/account-structure#company-account>`__.
             page_number: The number of the page to fetch.
             page_size: The number of items to have on a page, maximum 100. The default is 10 items on a page.
-            request_options: Per-call overrides for this one request, such as a timeout or extra headers.
+            request_options: Per-call overrides for this one request, such as a timeout, extra headers, or its retry
+                count and statuses.
 
         Returns:
             An ``ApiResult`` holding the deserialized response or the error body."""
@@ -619,7 +652,8 @@ class WebhooksCompanyLevelWithRawResponse(SecuredRawResponse[RawClient, Server, 
             company_id: Unique identifier of the `company account
                 <https://docs.adyen.com/account/account-structure#company-account>`__.
             webhook_id: Unique identifier of the webhook configuration.
-            request_options: Per-call overrides for this one request, such as a timeout or extra headers.
+            request_options: Per-call overrides for this one request, such as a timeout, extra headers, or its retry
+                count and statuses.
 
         Returns:
             An ``ApiResult`` holding the deserialized response or the error body."""
@@ -653,7 +687,8 @@ class WebhooksCompanyLevelWithRawResponse(SecuredRawResponse[RawClient, Server, 
             company_id: The unique identifier of the company account.
             webhook_id: Unique identifier of the webhook configuration.
             body: The request body.
-            request_options: Per-call overrides for this one request, such as a timeout or extra headers.
+            request_options: Per-call overrides for this one request, such as a timeout, extra headers, or its retry
+                count and statuses.
 
         Returns:
             An ``ApiResult`` holding the deserialized response or the error body."""
@@ -687,7 +722,8 @@ class WebhooksCompanyLevelWithRawResponse(SecuredRawResponse[RawClient, Server, 
             company_id: Unique identifier of the `company account
                 <https://docs.adyen.com/account/account-structure#company-account>`__.
             body: The request body.
-            request_options: Per-call overrides for this one request, such as a timeout or extra headers.
+            request_options: Per-call overrides for this one request, such as a timeout, extra headers, or its retry
+                count and statuses.
 
         Returns:
             An ``ApiResult`` holding the deserialized response or the error body."""
@@ -720,7 +756,8 @@ class WebhooksCompanyLevelWithRawResponse(SecuredRawResponse[RawClient, Server, 
         Args:
             company_id: The unique identifier of the company account.
             webhook_id: Unique identifier of the webhook configuration.
-            request_options: Per-call overrides for this one request, such as a timeout or extra headers.
+            request_options: Per-call overrides for this one request, such as a timeout, extra headers, or its retry
+                count and statuses.
 
         Returns:
             An ``ApiResult`` holding the deserialized response or the error body."""
@@ -764,7 +801,8 @@ class WebhooksCompanyLevelWithRawResponse(SecuredRawResponse[RawClient, Server, 
             company_id: The unique identifier of the company account.
             webhook_id: Unique identifier of the webhook configuration.
             body: The request body.
-            request_options: Per-call overrides for this one request, such as a timeout or extra headers.
+            request_options: Per-call overrides for this one request, such as a timeout, extra headers, or its retry
+                count and statuses.
 
         Returns:
             An ``ApiResult`` holding the deserialized response or the error body."""
@@ -794,7 +832,8 @@ class AsyncWebhooksCompanyLevelWithRawResponse(SecuredRawResponse[AsyncRawClient
         Args:
             company_id: The unique identifier of the company account.
             webhook_id: Unique identifier of the webhook configuration.
-            request_options: Per-call overrides for this one request, such as a timeout or extra headers.
+            request_options: Per-call overrides for this one request, such as a timeout, extra headers, or its retry
+                count and statuses.
 
         Returns:
             An ``ApiResult`` holding the deserialized response or the error body."""
@@ -804,7 +843,7 @@ class AsyncWebhooksCompanyLevelWithRawResponse(SecuredRawResponse[AsyncRawClient
             path_params=[param[str]("companyId", company_id), param[str]("webhookId", webhook_id)],
             headers=[param[UUID]("Idempotency-Key", uuid4())],
             auth_scheme=AsyncAnySchemes(self._auth.basic_auth, self._auth.api_key_auth),
-            decoder=empty_response,
+            decoder=async_empty_response,
             error_mapper=delete_companies_company_id_webhooks_webhook_id_error_mapper,
             request_options=request_options,
         )
@@ -829,7 +868,8 @@ class AsyncWebhooksCompanyLevelWithRawResponse(SecuredRawResponse[AsyncRawClient
                 <https://docs.adyen.com/account/account-structure#company-account>`__.
             page_number: The number of the page to fetch.
             page_size: The number of items to have on a page, maximum 100. The default is 10 items on a page.
-            request_options: Per-call overrides for this one request, such as a timeout or extra headers.
+            request_options: Per-call overrides for this one request, such as a timeout, extra headers, or its retry
+                count and statuses.
 
         Returns:
             An ``ApiResult`` holding the deserialized response or the error body."""
@@ -839,7 +879,7 @@ class AsyncWebhooksCompanyLevelWithRawResponse(SecuredRawResponse[AsyncRawClient
             path_params=[param[str]("companyId", company_id)],
             query_params=[param[int | None]("pageNumber", page_number), param[int | None]("pageSize", page_size)],
             auth_scheme=AsyncAnySchemes(self._auth.basic_auth, self._auth.api_key_auth),
-            decoder=json_decoder[ListWebhooksResponse],
+            decoder=async_json_decoder[ListWebhooksResponse],
             error_mapper=get_companies_company_id_webhooks_error_mapper,
             request_options=request_options,
         )
@@ -858,7 +898,8 @@ class AsyncWebhooksCompanyLevelWithRawResponse(SecuredRawResponse[AsyncRawClient
             company_id: Unique identifier of the `company account
                 <https://docs.adyen.com/account/account-structure#company-account>`__.
             webhook_id: Unique identifier of the webhook configuration.
-            request_options: Per-call overrides for this one request, such as a timeout or extra headers.
+            request_options: Per-call overrides for this one request, such as a timeout, extra headers, or its retry
+                count and statuses.
 
         Returns:
             An ``ApiResult`` holding the deserialized response or the error body."""
@@ -867,7 +908,7 @@ class AsyncWebhooksCompanyLevelWithRawResponse(SecuredRawResponse[AsyncRawClient
             url_template=self._server.default9("/companies/{companyId}/webhooks/{webhookId}"),
             path_params=[param[str]("companyId", company_id), param[str]("webhookId", webhook_id)],
             auth_scheme=AsyncAnySchemes(self._auth.basic_auth, self._auth.api_key_auth),
-            decoder=json_decoder[Webhook],
+            decoder=async_json_decoder[Webhook],
             error_mapper=get_companies_company_id_webhooks_webhook_id_error_mapper,
             request_options=request_options,
         )
@@ -892,7 +933,8 @@ class AsyncWebhooksCompanyLevelWithRawResponse(SecuredRawResponse[AsyncRawClient
             company_id: The unique identifier of the company account.
             webhook_id: Unique identifier of the webhook configuration.
             body: The request body.
-            request_options: Per-call overrides for this one request, such as a timeout or extra headers.
+            request_options: Per-call overrides for this one request, such as a timeout, extra headers, or its retry
+                count and statuses.
 
         Returns:
             An ``ApiResult`` holding the deserialized response or the error body."""
@@ -903,7 +945,7 @@ class AsyncWebhooksCompanyLevelWithRawResponse(SecuredRawResponse[AsyncRawClient
             headers=[param[UUID]("Idempotency-Key", uuid4())],
             body=json_body[UpdateCompanyWebhookRequest | UpdateCompanyWebhookRequestDict | None](body),
             auth_scheme=AsyncAnySchemes(self._auth.basic_auth, self._auth.api_key_auth),
-            decoder=json_decoder[Webhook],
+            decoder=async_json_decoder[Webhook],
             error_mapper=patch_companies_company_id_webhooks_webhook_id_error_mapper,
             request_options=request_options,
         )
@@ -926,7 +968,8 @@ class AsyncWebhooksCompanyLevelWithRawResponse(SecuredRawResponse[AsyncRawClient
             company_id: Unique identifier of the `company account
                 <https://docs.adyen.com/account/account-structure#company-account>`__.
             body: The request body.
-            request_options: Per-call overrides for this one request, such as a timeout or extra headers.
+            request_options: Per-call overrides for this one request, such as a timeout, extra headers, or its retry
+                count and statuses.
 
         Returns:
             An ``ApiResult`` holding the deserialized response or the error body."""
@@ -937,7 +980,7 @@ class AsyncWebhooksCompanyLevelWithRawResponse(SecuredRawResponse[AsyncRawClient
             headers=[param[UUID]("Idempotency-Key", uuid4())],
             body=json_body[CreateCompanyWebhookRequest | CreateCompanyWebhookRequestDict | None](body),
             auth_scheme=AsyncAnySchemes(self._auth.basic_auth, self._auth.api_key_auth),
-            decoder=json_decoder[Webhook],
+            decoder=async_json_decoder[Webhook],
             error_mapper=post_companies_company_id_webhooks_error_mapper,
             request_options=request_options,
         )
@@ -959,7 +1002,8 @@ class AsyncWebhooksCompanyLevelWithRawResponse(SecuredRawResponse[AsyncRawClient
         Args:
             company_id: The unique identifier of the company account.
             webhook_id: Unique identifier of the webhook configuration.
-            request_options: Per-call overrides for this one request, such as a timeout or extra headers.
+            request_options: Per-call overrides for this one request, such as a timeout, extra headers, or its retry
+                count and statuses.
 
         Returns:
             An ``ApiResult`` holding the deserialized response or the error body."""
@@ -969,7 +1013,7 @@ class AsyncWebhooksCompanyLevelWithRawResponse(SecuredRawResponse[AsyncRawClient
             path_params=[param[str]("companyId", company_id), param[str]("webhookId", webhook_id)],
             headers=[param[UUID]("Idempotency-Key", uuid4())],
             auth_scheme=AsyncAnySchemes(self._auth.basic_auth, self._auth.api_key_auth),
-            decoder=json_decoder[GenerateHmacKeyResponse],
+            decoder=async_json_decoder[GenerateHmacKeyResponse],
             error_mapper=post_companies_company_id_webhooks_webhook_id_generate_hmac_error_mapper,
             request_options=request_options,
         )
@@ -1003,7 +1047,8 @@ class AsyncWebhooksCompanyLevelWithRawResponse(SecuredRawResponse[AsyncRawClient
             company_id: The unique identifier of the company account.
             webhook_id: Unique identifier of the webhook configuration.
             body: The request body.
-            request_options: Per-call overrides for this one request, such as a timeout or extra headers.
+            request_options: Per-call overrides for this one request, such as a timeout, extra headers, or its retry
+                count and statuses.
 
         Returns:
             An ``ApiResult`` holding the deserialized response or the error body."""
@@ -1014,7 +1059,7 @@ class AsyncWebhooksCompanyLevelWithRawResponse(SecuredRawResponse[AsyncRawClient
             headers=[param[UUID]("Idempotency-Key", uuid4())],
             body=json_body[TestCompanyWebhookRequest | TestCompanyWebhookRequestDict | None](body),
             auth_scheme=AsyncAnySchemes(self._auth.basic_auth, self._auth.api_key_auth),
-            decoder=json_decoder[TestWebhookResponse],
+            decoder=async_json_decoder[TestWebhookResponse],
             error_mapper=post_companies_company_id_webhooks_webhook_id_test_error_mapper,
             request_options=request_options,
         )

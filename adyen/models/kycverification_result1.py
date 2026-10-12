@@ -49,14 +49,10 @@ class KycverificationResult1(SdkBaseModel):
 
 
 class KycverificationResult1Dict(TypedDict):
-    account_holder: NotRequired[KyccheckResult2 | KyccheckResult2Dict]
-    legal_arrangements: NotRequired[list[KyclegalArrangementCheckResult | KyclegalArrangementCheckResultDict]]
-    legal_arrangements_entities: NotRequired[
-        list[KyclegalArrangementEntityCheckResult | KyclegalArrangementEntityCheckResultDict]
-    ]
-    payout_methods: NotRequired[list[KycpayoutMethodCheckResult | KycpayoutMethodCheckResultDict]]
-    shareholders: NotRequired[list[KycshareholderCheckResult | KycshareholderCheckResultDict]]
-    signatories: NotRequired[list[KycsignatoryCheckResult | KycsignatoryCheckResultDict]]
-    ultimate_parent_company: NotRequired[
-        list[KycultimateParentCompanyCheckResult | KycultimateParentCompanyCheckResultDict]
-    ]
+    account_holder: NotRequired[KyccheckResult2Dict]
+    legal_arrangements: NotRequired[list[KyclegalArrangementCheckResultDict]]
+    legal_arrangements_entities: NotRequired[list[KyclegalArrangementEntityCheckResultDict]]
+    payout_methods: NotRequired[list[KycpayoutMethodCheckResultDict]]
+    shareholders: NotRequired[list[KycshareholderCheckResultDict]]
+    signatories: NotRequired[list[KycsignatoryCheckResultDict]]
+    ultimate_parent_company: NotRequired[list[KycultimateParentCompanyCheckResultDict]]

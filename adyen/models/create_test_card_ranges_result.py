@@ -13,4 +13,4 @@ class CreateTestCardRangesResult(SdkBaseModel):
 
 
 class CreateTestCardRangesResultDict(TypedDict):
-    range_creation_results: list[TestCardRangeCreationResult | TestCardRangeCreationResultDict]
+    range_creation_results: list[TestCardRangeCreationResultDict]

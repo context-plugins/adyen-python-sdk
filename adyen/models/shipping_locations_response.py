@@ -12,4 +12,4 @@ class ShippingLocationsResponse(SdkBaseModel):
 
 
 class ShippingLocationsResponseDict(TypedDict):
-    data: NotRequired[list[ShippingLocation | ShippingLocationDict]]
+    data: NotRequired[list[ShippingLocationDict]]

@@ -26,7 +26,7 @@ class GetNotificationConfigurationResponse(SdkBaseModel):
 
 
 class GetNotificationConfigurationResponseDict(TypedDict):
-    configuration_details: NotificationConfigurationDetails2 | NotificationConfigurationDetails2Dict
-    invalid_fields: NotRequired[list[ErrorFieldType | ErrorFieldTypeDict]]
+    configuration_details: NotificationConfigurationDetails2Dict
+    invalid_fields: NotRequired[list[ErrorFieldTypeDict]]
     psp_reference: NotRequired[str]
     result_code: NotRequired[str]

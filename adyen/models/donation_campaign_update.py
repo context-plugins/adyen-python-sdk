@@ -9,7 +9,7 @@ from .online_donation_settings_update import OnlineDonationSettingsUpdate, Onlin
 
 
 class DonationCampaignUpdate(SdkBaseModel):
-    account_holder_ids: Optional[list[str | None]] = Field(default=UNSET, alias="accountHolderIds")
+    account_holder_ids: OptionalNullable[list[str]] = Field(default=UNSET, alias="accountHolderIds")
     """The unique identifiers of the account holders associated with the donation campaign."""
 
     in_person: OptionalNullable[InPersonDonationSettingsUpdate] = Field(default=UNSET, alias="inPerson")
@@ -23,7 +23,7 @@ class DonationCampaignUpdate(SdkBaseModel):
 
 
 class DonationCampaignUpdateDict(TypedDict):
-    account_holder_ids: NotRequired[list[str | None]]
-    in_person: NotRequired[InPersonDonationSettingsUpdate | InPersonDonationSettingsUpdateDict | None]
+    account_holder_ids: NotRequired[list[str] | None]
+    in_person: NotRequired[InPersonDonationSettingsUpdateDict | None]
     name: NotRequired[str]
-    online: NotRequired[OnlineDonationSettingsUpdate | OnlineDonationSettingsUpdateDict | None]
+    online: NotRequired[OnlineDonationSettingsUpdateDict | None]

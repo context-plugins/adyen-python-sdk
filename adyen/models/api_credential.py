@@ -50,10 +50,10 @@ class ApiCredential(SdkBaseModel):
 
 
 class ApiCredentialDict(TypedDict):
-    links: NotRequired[ApiCredentialLinks2 | ApiCredentialLinks2Dict]
+    links: NotRequired[ApiCredentialLinks2Dict]
     active: bool
     allowed_ip_addresses: list[str]
-    allowed_origins: NotRequired[list[AllowedOrigin | AllowedOriginDict]]
+    allowed_origins: NotRequired[list[AllowedOriginDict]]
     client_key: str
     description: NotRequired[str]
     id: str

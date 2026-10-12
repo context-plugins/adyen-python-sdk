@@ -18,7 +18,7 @@ from .checkout_session_three_ds2_request_data1 import (
 from .company1 import Company1, Company1Dict
 from .delivery_address1 import DeliveryAddress1, DeliveryAddress1Dict
 from .enums.channel import ChannelOrStr
-from .enums.mode import ModeOrStr
+from .enums.mode import Mode, ModeOrStr
 from .enums.recurring_processing_model1 import RecurringProcessingModel1OrStr
 from .enums.shopper_interaction import ShopperInteractionOrStr
 from .enums.store_filtration_mode import StoreFiltrationModeOrStr
@@ -171,7 +171,7 @@ class CreateCheckoutSessionResponse(SdkBaseModel):
     * Maximum 20 characters per key.
     * Maximum 80 characters per value."""
 
-    mode: Optional[ModeOrStr] = UNSET
+    mode: ModeOrStr = Mode.EMBEDDED
     """Indicates the type of front end integration. Possible values:
     * **embedded** (default): Drop-in or Components integration
     * **hosted**: Hosted Checkout integration"""
@@ -290,7 +290,7 @@ class CreateCheckoutSessionResponse(SdkBaseModel):
     social_security_number: Optional[str] = Field(default=UNSET, alias="socialSecurityNumber")
     """The shopper's social security number."""
 
-    split_card_funding_sources: Optional[bool] = Field(default=UNSET, alias="splitCardFundingSources")
+    split_card_funding_sources: bool = Field(default=False, alias="splitCardFundingSources")
     """Boolean value indicating whether the card payment method should be split into separate debit and credit
     options."""
 
@@ -353,7 +353,7 @@ class CreateCheckoutSessionResponse(SdkBaseModel):
     """Request fields for 3D Secure 2. To check if any of the following fields are required for your integration, refer
     to `Online payments <https://docs.adyen.com/online-payments>`__."""
 
-    three_ds_authentication_only: Optional[bool] = Field(default=UNSET, alias="threeDSAuthenticationOnly")
+    three_ds_authentication_only: bool = Field(default=False, alias="threeDSAuthenticationOnly")
     """Required to trigger the `authentication-only flow
     <https://docs.adyen.com/online-payments/3d-secure/authentication-only/>`__. If set to **true**, you will only
     perform the 3D Secure 2 authentication, and will not proceed to the payment authorization.Default: **false**."""
@@ -366,39 +366,39 @@ class CreateCheckoutSessionResponse(SdkBaseModel):
 
 
 class CreateCheckoutSessionResponseDict(TypedDict):
-    account_info: NotRequired[AccountInfo | AccountInfoDict]
-    additional_amount: NotRequired[Amount1 | Amount1Dict]
+    account_info: NotRequired[AccountInfoDict]
+    additional_amount: NotRequired[Amount1Dict]
     additional_data: NotRequired[dict[str, str]]
     allowed_payment_methods: NotRequired[list[str]]
-    amount: Amount18 | Amount18Dict
-    application_info: NotRequired[ApplicationInfo | ApplicationInfoDict]
-    authentication_data: NotRequired[AuthenticationData1 | AuthenticationData1Dict]
-    billing_address: NotRequired[BillingAddress1 | BillingAddress1Dict]
+    amount: Amount18Dict
+    application_info: NotRequired[ApplicationInfoDict]
+    authentication_data: NotRequired[AuthenticationData1Dict]
+    billing_address: NotRequired[BillingAddress1Dict]
     blocked_payment_methods: NotRequired[list[str]]
     capture_delay_hours: NotRequired[int]
     channel: NotRequired[ChannelOrStr]
-    company: NotRequired[Company1 | Company1Dict]
+    company: NotRequired[Company1Dict]
     country_code: NotRequired[str]
     date_of_birth: NotRequired[RFC3339DateTime]
     deliver_at: NotRequired[RFC3339DateTime]
-    delivery_address: NotRequired[DeliveryAddress1 | DeliveryAddress1Dict]
+    delivery_address: NotRequired[DeliveryAddress1Dict]
     enable_one_click: NotRequired[bool]
     enable_pay_out: NotRequired[bool]
     enable_recurring: NotRequired[bool]
     expires_at: RFC3339DateTime
-    fund_origin: NotRequired[FundOrigin1 | FundOrigin1Dict]
-    fund_recipient: NotRequired[FundRecipient1 | FundRecipient1Dict]
+    fund_origin: NotRequired[FundOrigin1Dict]
+    fund_recipient: NotRequired[FundRecipient1Dict]
     id: str
-    installment_options: NotRequired[dict[str, CheckoutSessionInstallmentOption | CheckoutSessionInstallmentOptionDict]]
-    line_items: NotRequired[list[LineItem | LineItemDict]]
-    mandate: NotRequired[Mandate | MandateDict]
+    installment_options: NotRequired[dict[str, CheckoutSessionInstallmentOptionDict]]
+    line_items: NotRequired[list[LineItemDict]]
+    mandate: NotRequired[MandateDict]
     mcc: NotRequired[str]
     merchant_account: str
     merchant_order_reference: NotRequired[str]
     metadata: NotRequired[dict[str, str]]
     mode: NotRequired[ModeOrStr]
-    mpi_data: NotRequired[ThreeDsecureData | ThreeDsecureDataDict]
-    platform_chargeback_logic: NotRequired[PlatformChargebackLogic | PlatformChargebackLogicDict]
+    mpi_data: NotRequired[ThreeDsecureDataDict]
+    platform_chargeback_logic: NotRequired[PlatformChargebackLogicDict]
     recurring_expiry: NotRequired[str]
     recurring_frequency: NotRequired[str]
     recurring_processing_model: NotRequired[RecurringProcessingModel1OrStr]
@@ -406,28 +406,28 @@ class CreateCheckoutSessionResponseDict(TypedDict):
     redirect_to_issuer_method: NotRequired[str]
     reference: str
     return_url: str
-    risk_data: NotRequired[RiskData1 | RiskData1Dict]
+    risk_data: NotRequired[RiskData1Dict]
     session_data: NotRequired[str]
     shopper_email: NotRequired[str]
     shopper_ip: NotRequired[str]
     shopper_interaction: NotRequired[ShopperInteractionOrStr]
     shopper_locale: NotRequired[str]
-    shopper_name: NotRequired[ShopperName1 | ShopperName1Dict]
+    shopper_name: NotRequired[ShopperName1Dict]
     shopper_reference: NotRequired[str]
     shopper_statement: NotRequired[str]
     show_installment_amount: NotRequired[bool]
     show_remove_payment_method_button: NotRequired[bool]
     social_security_number: NotRequired[str]
     split_card_funding_sources: NotRequired[bool]
-    splits: NotRequired[list[Split | SplitDict]]
+    splits: NotRequired[list[SplitDict]]
     store: NotRequired[str]
     store_filtration_mode: NotRequired[StoreFiltrationModeOrStr]
     store_payment_method: NotRequired[bool]
     store_payment_method_mode: NotRequired[StorePaymentMethodModeOrStr]
     telephone_number: NotRequired[str]
     theme_id: NotRequired[str]
-    third_party_token_redundancy_info: NotRequired[ThirdPartyTokenRedundancyInfo1 | ThirdPartyTokenRedundancyInfo1Dict]
-    three_ds2_request_data: NotRequired[CheckoutSessionThreeDs2RequestData1 | CheckoutSessionThreeDs2RequestData1Dict]
+    third_party_token_redundancy_info: NotRequired[ThirdPartyTokenRedundancyInfo1Dict]
+    three_ds2_request_data: NotRequired[CheckoutSessionThreeDs2RequestData1Dict]
     three_ds_authentication_only: NotRequired[bool]
     trusted_shopper: NotRequired[bool]
     url: NotRequired[str]

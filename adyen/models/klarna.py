@@ -4,7 +4,7 @@ from pydantic import Field
 from typing_extensions import NotRequired, TypedDict
 
 from ..core import UNSET, Optional, SdkBaseModel
-from .enums.type34 import Type34OrStr
+from .enums.type34 import Type34, Type34OrStr
 
 
 class Klarna(SdkBaseModel):
@@ -35,7 +35,7 @@ class Klarna(SdkBaseModel):
     subtype: Optional[str] = UNSET
     """The type of flow to initiate."""
 
-    type_: Type34OrStr = Field(alias="type")
+    type_: Type34OrStr = Field(default=Type34.KLARNA, alias="type")
     """**klarna**"""
 
 

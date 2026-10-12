@@ -12,10 +12,12 @@ from ..core import (
     RawError,
     RequestOptionsOrDict,
     SecuredRawResponse,
+    async_json_decoder,
     json_body,
     json_decoder,
     param,
     raw_error_response,
+    unwrap,
 )
 from ..errors.post_origin_keys_error import PostOriginKeysErrorBody, post_origin_keys_error_mapper
 from ..errors.post_paypal_update_order_error import (
@@ -57,16 +59,19 @@ class Utility:
         Args:
             idempotency_key: A unique identifier for the message with a maximum of 64 characters (we recommend a UUID).
             body: The request body.
-            request_options: Per-call overrides for this one request, such as a timeout or extra headers.
+            request_options: Per-call overrides for this one request, such as a timeout, extra headers, or its retry
+                count and statuses.
 
         Returns:
             OK - the request has succeeded.
 
         Raises:
             ApiError: If the API responds with an error status code. ``error`` is ``RawError``."""
-        return self._with_raw_response.post_apple_pay_sessions(
-            idempotency_key=idempotency_key, body=body, request_options=request_options
-        ).unwrap()
+        return unwrap(
+            self._with_raw_response.post_apple_pay_sessions(
+                idempotency_key=idempotency_key, body=body, request_options=request_options
+            ),
+        )
 
     def post_origin_keys(
         self,
@@ -86,7 +91,8 @@ class Utility:
         Args:
             idempotency_key: A unique identifier for the message with a maximum of 64 characters (we recommend a UUID).
             body: The request body.
-            request_options: Per-call overrides for this one request, such as a timeout or extra headers.
+            request_options: Per-call overrides for this one request, such as a timeout, extra headers, or its retry
+                count and statuses.
 
         Returns:
             OK - the request has succeeded.
@@ -96,9 +102,11 @@ class Utility:
                 required. Forbidden - insufficient permissions to process the request. Unprocessable Entity - a request
                 validation error. Internal Server Error - the server could not process the request. ``error`` is
                 ``ServiceError | RawError``."""
-        return self._with_raw_response.post_origin_keys(
-            idempotency_key=idempotency_key, body=body, request_options=request_options
-        ).unwrap()
+        return unwrap(
+            self._with_raw_response.post_origin_keys(
+                idempotency_key=idempotency_key, body=body, request_options=request_options
+            ),
+        )
 
     def post_paypal_update_order(
         self,
@@ -113,7 +121,8 @@ class Utility:
         Args:
             idempotency_key: A unique identifier for the message with a maximum of 64 characters (we recommend a UUID).
             body: The request body.
-            request_options: Per-call overrides for this one request, such as a timeout or extra headers.
+            request_options: Per-call overrides for this one request, such as a timeout, extra headers, or its retry
+                count and statuses.
 
         Returns:
             OK - the request has succeeded.
@@ -123,9 +132,11 @@ class Utility:
                 required. Forbidden - insufficient permissions to process the request. Unprocessable Entity - a request
                 validation error. Internal Server Error - the server could not process the request. ``error`` is
                 ``ServiceError | RawError``."""
-        return self._with_raw_response.post_paypal_update_order(
-            idempotency_key=idempotency_key, body=body, request_options=request_options
-        ).unwrap()
+        return unwrap(
+            self._with_raw_response.post_paypal_update_order(
+                idempotency_key=idempotency_key, body=body, request_options=request_options
+            ),
+        )
 
     def post_validate_shopper_id(
         self,
@@ -137,7 +148,8 @@ class Utility:
 
         Args:
             body: The request body.
-            request_options: Per-call overrides for this one request, such as a timeout or extra headers.
+            request_options: Per-call overrides for this one request, such as a timeout, extra headers, or its retry
+                count and statuses.
 
         Returns:
             OK - the request has succeeded.
@@ -147,7 +159,7 @@ class Utility:
                 required. Forbidden - insufficient permissions to process the request. Unprocessable Entity - a request
                 validation error. Internal Server Error - the server could not process the request. ``error`` is
                 ``CheckoutErrorResponseEntity | RawError``."""
-        return self._with_raw_response.post_validate_shopper_id(body, request_options=request_options).unwrap()
+        return unwrap(self._with_raw_response.post_validate_shopper_id(body, request_options=request_options))
 
     @property
     def with_raw_response(self) -> UtilityWithRawResponse:
@@ -174,18 +186,19 @@ class AsyncUtility:
         Args:
             idempotency_key: A unique identifier for the message with a maximum of 64 characters (we recommend a UUID).
             body: The request body.
-            request_options: Per-call overrides for this one request, such as a timeout or extra headers.
+            request_options: Per-call overrides for this one request, such as a timeout, extra headers, or its retry
+                count and statuses.
 
         Returns:
             OK - the request has succeeded.
 
         Raises:
             ApiError: If the API responds with an error status code. ``error`` is ``RawError``."""
-        return (
+        return unwrap(
             await self._with_raw_response.post_apple_pay_sessions(
                 idempotency_key=idempotency_key, body=body, request_options=request_options
-            )
-        ).unwrap()
+            ),
+        )
 
     async def post_origin_keys(
         self,
@@ -205,7 +218,8 @@ class AsyncUtility:
         Args:
             idempotency_key: A unique identifier for the message with a maximum of 64 characters (we recommend a UUID).
             body: The request body.
-            request_options: Per-call overrides for this one request, such as a timeout or extra headers.
+            request_options: Per-call overrides for this one request, such as a timeout, extra headers, or its retry
+                count and statuses.
 
         Returns:
             OK - the request has succeeded.
@@ -215,11 +229,11 @@ class AsyncUtility:
                 required. Forbidden - insufficient permissions to process the request. Unprocessable Entity - a request
                 validation error. Internal Server Error - the server could not process the request. ``error`` is
                 ``ServiceError | RawError``."""
-        return (
+        return unwrap(
             await self._with_raw_response.post_origin_keys(
                 idempotency_key=idempotency_key, body=body, request_options=request_options
-            )
-        ).unwrap()
+            ),
+        )
 
     async def post_paypal_update_order(
         self,
@@ -234,7 +248,8 @@ class AsyncUtility:
         Args:
             idempotency_key: A unique identifier for the message with a maximum of 64 characters (we recommend a UUID).
             body: The request body.
-            request_options: Per-call overrides for this one request, such as a timeout or extra headers.
+            request_options: Per-call overrides for this one request, such as a timeout, extra headers, or its retry
+                count and statuses.
 
         Returns:
             OK - the request has succeeded.
@@ -244,11 +259,11 @@ class AsyncUtility:
                 required. Forbidden - insufficient permissions to process the request. Unprocessable Entity - a request
                 validation error. Internal Server Error - the server could not process the request. ``error`` is
                 ``ServiceError | RawError``."""
-        return (
+        return unwrap(
             await self._with_raw_response.post_paypal_update_order(
                 idempotency_key=idempotency_key, body=body, request_options=request_options
-            )
-        ).unwrap()
+            ),
+        )
 
     async def post_validate_shopper_id(
         self,
@@ -260,7 +275,8 @@ class AsyncUtility:
 
         Args:
             body: The request body.
-            request_options: Per-call overrides for this one request, such as a timeout or extra headers.
+            request_options: Per-call overrides for this one request, such as a timeout, extra headers, or its retry
+                count and statuses.
 
         Returns:
             OK - the request has succeeded.
@@ -270,7 +286,7 @@ class AsyncUtility:
                 required. Forbidden - insufficient permissions to process the request. Unprocessable Entity - a request
                 validation error. Internal Server Error - the server could not process the request. ``error`` is
                 ``CheckoutErrorResponseEntity | RawError``."""
-        return (await self._with_raw_response.post_validate_shopper_id(body, request_options=request_options)).unwrap()
+        return unwrap(await self._with_raw_response.post_validate_shopper_id(body, request_options=request_options))
 
     @property
     def with_raw_response(self) -> AsyncUtilityWithRawResponse:
@@ -294,7 +310,8 @@ class UtilityWithRawResponse(SecuredRawResponse[RawClient, Server, AuthSchemes])
         Args:
             idempotency_key: A unique identifier for the message with a maximum of 64 characters (we recommend a UUID).
             body: The request body.
-            request_options: Per-call overrides for this one request, such as a timeout or extra headers.
+            request_options: Per-call overrides for this one request, such as a timeout, extra headers, or its retry
+                count and statuses.
 
         Returns:
             An ``ApiResult`` holding the deserialized response or the error body."""
@@ -327,7 +344,8 @@ class UtilityWithRawResponse(SecuredRawResponse[RawClient, Server, AuthSchemes])
         Args:
             idempotency_key: A unique identifier for the message with a maximum of 64 characters (we recommend a UUID).
             body: The request body.
-            request_options: Per-call overrides for this one request, such as a timeout or extra headers.
+            request_options: Per-call overrides for this one request, such as a timeout, extra headers, or its retry
+                count and statuses.
 
         Returns:
             An ``ApiResult`` holding the deserialized response or the error body."""
@@ -355,7 +373,8 @@ class UtilityWithRawResponse(SecuredRawResponse[RawClient, Server, AuthSchemes])
         Args:
             idempotency_key: A unique identifier for the message with a maximum of 64 characters (we recommend a UUID).
             body: The request body.
-            request_options: Per-call overrides for this one request, such as a timeout or extra headers.
+            request_options: Per-call overrides for this one request, such as a timeout, extra headers, or its retry
+                count and statuses.
 
         Returns:
             An ``ApiResult`` holding the deserialized response or the error body."""
@@ -380,7 +399,8 @@ class UtilityWithRawResponse(SecuredRawResponse[RawClient, Server, AuthSchemes])
 
         Args:
             body: The request body.
-            request_options: Per-call overrides for this one request, such as a timeout or extra headers.
+            request_options: Per-call overrides for this one request, such as a timeout, extra headers, or its retry
+                count and statuses.
 
         Returns:
             An ``ApiResult`` holding the deserialized response or the error body."""
@@ -412,7 +432,8 @@ class AsyncUtilityWithRawResponse(SecuredRawResponse[AsyncRawClient, Server, Asy
         Args:
             idempotency_key: A unique identifier for the message with a maximum of 64 characters (we recommend a UUID).
             body: The request body.
-            request_options: Per-call overrides for this one request, such as a timeout or extra headers.
+            request_options: Per-call overrides for this one request, such as a timeout, extra headers, or its retry
+                count and statuses.
 
         Returns:
             An ``ApiResult`` holding the deserialized response or the error body."""
@@ -422,7 +443,7 @@ class AsyncUtilityWithRawResponse(SecuredRawResponse[AsyncRawClient, Server, Asy
             headers=[param[str | None]("Idempotency-Key", idempotency_key)],
             body=json_body[ApplePaySessionRequest | ApplePaySessionRequestDict | None](body),
             auth_scheme=AsyncAnySchemes(self._auth.basic_auth, self._auth.api_key_auth),
-            decoder=json_decoder[ApplePaySessionResponse],
+            decoder=async_json_decoder[ApplePaySessionResponse],
             error_mapper=raw_error_response,
             request_options=request_options,
         )
@@ -445,7 +466,8 @@ class AsyncUtilityWithRawResponse(SecuredRawResponse[AsyncRawClient, Server, Asy
         Args:
             idempotency_key: A unique identifier for the message with a maximum of 64 characters (we recommend a UUID).
             body: The request body.
-            request_options: Per-call overrides for this one request, such as a timeout or extra headers.
+            request_options: Per-call overrides for this one request, such as a timeout, extra headers, or its retry
+                count and statuses.
 
         Returns:
             An ``ApiResult`` holding the deserialized response or the error body."""
@@ -455,7 +477,7 @@ class AsyncUtilityWithRawResponse(SecuredRawResponse[AsyncRawClient, Server, Asy
             headers=[param[str | None]("Idempotency-Key", idempotency_key)],
             body=json_body[UtilityRequest | UtilityRequestDict | None](body),
             auth_scheme=AsyncAnySchemes(self._auth.basic_auth, self._auth.api_key_auth),
-            decoder=json_decoder[UtilityResponse],
+            decoder=async_json_decoder[UtilityResponse],
             error_mapper=post_origin_keys_error_mapper,
             request_options=request_options,
         )
@@ -473,7 +495,8 @@ class AsyncUtilityWithRawResponse(SecuredRawResponse[AsyncRawClient, Server, Asy
         Args:
             idempotency_key: A unique identifier for the message with a maximum of 64 characters (we recommend a UUID).
             body: The request body.
-            request_options: Per-call overrides for this one request, such as a timeout or extra headers.
+            request_options: Per-call overrides for this one request, such as a timeout, extra headers, or its retry
+                count and statuses.
 
         Returns:
             An ``ApiResult`` holding the deserialized response or the error body."""
@@ -483,7 +506,7 @@ class AsyncUtilityWithRawResponse(SecuredRawResponse[AsyncRawClient, Server, Asy
             headers=[param[str | None]("Idempotency-Key", idempotency_key)],
             body=json_body[PaypalUpdateOrderRequest | PaypalUpdateOrderRequestDict | None](body),
             auth_scheme=AsyncAnySchemes(self._auth.basic_auth, self._auth.api_key_auth),
-            decoder=json_decoder[PaypalUpdateOrderResponse],
+            decoder=async_json_decoder[PaypalUpdateOrderResponse],
             error_mapper=post_paypal_update_order_error_mapper,
             request_options=request_options,
         )
@@ -498,7 +521,8 @@ class AsyncUtilityWithRawResponse(SecuredRawResponse[AsyncRawClient, Server, Asy
 
         Args:
             body: The request body.
-            request_options: Per-call overrides for this one request, such as a timeout or extra headers.
+            request_options: Per-call overrides for this one request, such as a timeout, extra headers, or its retry
+                count and statuses.
 
         Returns:
             An ``ApiResult`` holding the deserialized response or the error body."""
@@ -507,7 +531,7 @@ class AsyncUtilityWithRawResponse(SecuredRawResponse[AsyncRawClient, Server, Asy
             url_template=self._server.default("/validateShopperId"),
             headers=[param[UUID]("Idempotency-Key", uuid4())],
             body=json_body[ValidateShopperIdRequest | ValidateShopperIdRequestDict](body),
-            decoder=json_decoder[ValidateShopperIdResponse],
+            decoder=async_json_decoder[ValidateShopperIdResponse],
             error_mapper=post_validate_shopper_id_error_mapper,
             request_options=request_options,
         )

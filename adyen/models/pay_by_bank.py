@@ -26,4 +26,4 @@ class PayByBankDict(TypedDict):
     checkout_attempt_id: NotRequired[str]
     issuer: NotRequired[str]
     sdk_data: NotRequired[str]
-    type_: NotRequired[Literal["paybybank"]]
+    type_: Literal["paybybank"]

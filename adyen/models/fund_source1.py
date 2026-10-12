@@ -35,8 +35,8 @@ class FundSource1(SdkBaseModel):
 
 class FundSource1Dict(TypedDict):
     additional_data: NotRequired[dict[str, str]]
-    billing_address: NotRequired[Address | AddressDict]
-    card: NotRequired[Card1 | Card1Dict]
+    billing_address: NotRequired[AddressDict]
+    card: NotRequired[Card1Dict]
     shopper_email: NotRequired[str]
-    shopper_name: NotRequired[Name | NameDict]
+    shopper_name: NotRequired[NameDict]
     telephone_number: NotRequired[str]

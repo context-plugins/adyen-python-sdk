@@ -35,10 +35,10 @@ class DeliveryContact(SdkBaseModel):
 
 
 class DeliveryContactDict(TypedDict):
-    address: StoreLocation | StoreLocationDict
+    address: StoreLocationDict
     company: NotRequired[str]
     email: NotRequired[str]
     full_phone_number: NotRequired[str]
-    name: Name | NameDict
-    phone_number: NotRequired[ViasPhoneNumber | ViasPhoneNumberDict]
+    name: NameDict
+    phone_number: NotRequired[ViasPhoneNumberDict]
     web_address: NotRequired[str]

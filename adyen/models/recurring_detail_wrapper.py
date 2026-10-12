@@ -12,4 +12,4 @@ class RecurringDetailWrapper(SdkBaseModel):
 
 
 class RecurringDetailWrapperDict(TypedDict):
-    recurring_detail: NotRequired[RecurringDetail | RecurringDetailDict]
+    recurring_detail: NotRequired[RecurringDetailDict]

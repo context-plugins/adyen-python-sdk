@@ -6,19 +6,19 @@ from typing_extensions import NotRequired, TypedDict
 from ..core import UNSET, Optional, SdkBaseModel
 from .amount26 import Amount26, Amount26Dict
 from .checkout_order_response1 import CheckoutOrderResponse1, CheckoutOrderResponse1Dict
-from .enums.action import ActionOrStr
 from .enums.result_code1 import ResultCode1OrStr
 from .fraud_result1 import FraudResult1, FraudResult1Dict
 from .payment_response1 import PaymentResponse1, PaymentResponse1Dict
 from .payment_response2 import PaymentResponse2, PaymentResponse2Dict
 from .three_ds2_response_data1 import ThreeDs2ResponseData1, ThreeDs2ResponseData1Dict
 from .three_ds2_result1 import ThreeDs2Result1, ThreeDs2Result1Dict
+from .unions.action11 import Action11, Action11Dict
 
 
 class PaymentResponse9(SdkBaseModel):
     """Action to be taken for completing the payment."""
 
-    action: Optional[ActionOrStr] = UNSET
+    action: Optional[Action11] = UNSET
     """Action to be taken for completing the payment."""
 
     additional_data: Optional[dict[str, str]] = Field(default=UNSET, alias="additionalData")
@@ -115,19 +115,19 @@ class PaymentResponse9(SdkBaseModel):
 
 
 class PaymentResponse9Dict(TypedDict):
-    action: NotRequired[ActionOrStr]
+    action: NotRequired[Action11Dict]
     additional_data: NotRequired[dict[str, str]]
-    amount: NotRequired[Amount26 | Amount26Dict]
+    amount: NotRequired[Amount26Dict]
     donation_token: NotRequired[str]
-    fraud_result: NotRequired[FraudResult1 | FraudResult1Dict]
+    fraud_result: NotRequired[FraudResult1Dict]
     merchant_reference: NotRequired[str]
-    order: NotRequired[CheckoutOrderResponse1 | CheckoutOrderResponse1Dict]
-    payment_method: NotRequired[PaymentResponse1 | PaymentResponse1Dict]
-    payment_validations: NotRequired[PaymentResponse2 | PaymentResponse2Dict]
+    order: NotRequired[CheckoutOrderResponse1Dict]
+    payment_method: NotRequired[PaymentResponse1Dict]
+    payment_validations: NotRequired[PaymentResponse2Dict]
     psp_reference: NotRequired[str]
     refusal_reason: NotRequired[str]
     refusal_reason_code: NotRequired[str]
     result_code: NotRequired[ResultCode1OrStr]
-    three_ds2_response_data: NotRequired[ThreeDs2ResponseData1 | ThreeDs2ResponseData1Dict]
-    three_ds2_result: NotRequired[ThreeDs2Result1 | ThreeDs2Result1Dict]
+    three_ds2_response_data: NotRequired[ThreeDs2ResponseData1Dict]
+    three_ds2_result: NotRequired[ThreeDs2Result1Dict]
     three_ds_payment_data: NotRequired[str]

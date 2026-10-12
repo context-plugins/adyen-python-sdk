@@ -17,5 +17,5 @@ class PaymentMethodsResponse(SdkBaseModel):
 
 
 class PaymentMethodsResponseDict(TypedDict):
-    payment_methods: NotRequired[list[PaymentMethod | PaymentMethodDict]]
-    stored_payment_methods: NotRequired[list[StoredPaymentMethod3 | StoredPaymentMethod3Dict]]
+    payment_methods: NotRequired[list[PaymentMethodDict]]
+    stored_payment_methods: NotRequired[list[StoredPaymentMethod3Dict]]

@@ -33,8 +33,8 @@ class DebitAccountHolderRequest(SdkBaseModel):
 
 class DebitAccountHolderRequestDict(TypedDict):
     account_holder_code: str
-    amount: Amount | AmountDict
+    amount: AmountDict
     bank_account_uuid: str
     description: NotRequired[str]
     merchant_account: str
-    splits: list[Split1 | Split1Dict]
+    splits: list[Split1Dict]

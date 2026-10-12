@@ -42,8 +42,8 @@ class Company2(SdkBaseModel):
 
 
 class Company2Dict(TypedDict):
-    links: NotRequired[CompanyLinks2 | CompanyLinks2Dict]
-    data_centers: NotRequired[list[DataCenter | DataCenterDict]]
+    links: NotRequired[CompanyLinks2Dict]
+    data_centers: NotRequired[list[DataCenterDict]]
     description: NotRequired[str]
     id: NotRequired[str]
     name: NotRequired[str]

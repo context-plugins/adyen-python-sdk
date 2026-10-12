@@ -3,7 +3,7 @@ from __future__ import annotations
 from typing import Literal
 
 from pydantic import Field
-from typing_extensions import NotRequired, TypedDict
+from typing_extensions import TypedDict
 
 from ..core import SdkBaseModel
 from .enums.status15 import Status15OrStr
@@ -28,4 +28,4 @@ class ConfirmationTrackingData(SdkBaseModel):
 
 class ConfirmationTrackingDataDict(TypedDict):
     status: Status15OrStr
-    type_: NotRequired[Literal["confirmation"]]
+    type_: Literal["confirmation"]

@@ -13,4 +13,4 @@ class ProfileRegistrationResponse(SdkBaseModel):
 
 
 class ProfileRegistrationResponseDict(TypedDict):
-    redirect_url: NotRequired[Href5 | Href5Dict]
+    redirect_url: NotRequired[Href5Dict]

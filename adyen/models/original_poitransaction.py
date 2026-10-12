@@ -23,7 +23,7 @@ class OriginalPoitransaction(SdkBaseModel):
     """Unique identification of a POI transaction for a POI. Absent if SaleReferenceID is sufficient to identify the
     transaction."""
 
-    reuse_card_data_flag: Optional[bool] = Field(default=UNSET, alias="ReuseCardDataFlag")
+    reuse_card_data_flag: bool = Field(default=True, alias="ReuseCardDataFlag")
     """Indicates if the card data has to be retrieved from a previous transaction."""
 
     approval_code: Optional[str] = Field(default=UNSET, alias="ApprovalCode")
@@ -43,9 +43,9 @@ class OriginalPoitransaction(SdkBaseModel):
 class OriginalPoitransactionDict(TypedDict):
     sale_id: NotRequired[str]
     poiid: NotRequired[str]
-    poi_transaction_id: NotRequired[TransactionIdtype4 | TransactionIdtype4Dict]
+    poi_transaction_id: NotRequired[TransactionIdtype4Dict]
     reuse_card_data_flag: NotRequired[bool]
     approval_code: NotRequired[str]
     acquirer_id: NotRequired[int]
     amount_value: NotRequired[float]
-    host_transaction_id: NotRequired[TransactionIdtype5 | TransactionIdtype5Dict]
+    host_transaction_id: NotRequired[TransactionIdtype5Dict]

@@ -54,7 +54,7 @@ class ThreeDs2RequestFields(SdkBaseModel):
     * **Y** — Shipping Address matches Billing Address.
     * **N** — Shipping Address does not match Billing Address."""
 
-    authentication_only: Optional[bool] = Field(default=UNSET, alias="authenticationOnly")
+    authentication_only: bool = Field(default=False, alias="authenticationOnly")
     """If set to true, you will only perform the `3D Secure 2 authentication
     <https://docs.adyen.com/online-payments/3d-secure/other-3ds-flows/authentication-only>`__, and not the payment
     authorisation."""
@@ -124,7 +124,7 @@ class ThreeDs2RequestFields(SdkBaseModel):
     sdk_ephem_pub_key: Optional[SdkephemPubKey1] = Field(default=UNSET, alias="sdkEphemPubKey")
     """The ``sdkEphemPubKey`` value as received from the 3D Secure 2 SDK."""
 
-    sdk_max_timeout: Optional[int] = Field(default=UNSET, alias="sdkMaxTimeout")
+    sdk_max_timeout: int = Field(default=60, alias="sdkMaxTimeout")
     """The maximum amount of time in minutes for the 3D Secure 2 authentication process. Optional and only for
     ``deviceChannel`` set to **app**. Defaults to **60** minutes."""
 
@@ -200,19 +200,19 @@ class ThreeDs2RequestFields(SdkBaseModel):
 
 
 class ThreeDs2RequestFieldsDict(TypedDict):
-    acct_info: NotRequired[AcctInfo | AcctInfoDict]
+    acct_info: NotRequired[AcctInfoDict]
     acct_type: NotRequired[AcctTypeOrStr]
     acquirer_bin: NotRequired[str]
     acquirer_merchant_id: NotRequired[str]
     addr_match: NotRequired[AddrMatch1OrStr]
     authentication_only: NotRequired[bool]
     challenge_indicator: NotRequired[ChallengeIndicatorOrStr]
-    device_render_options: NotRequired[DeviceRenderOptions | DeviceRenderOptionsDict]
-    home_phone: NotRequired[Phone3 | Phone3Dict]
+    device_render_options: NotRequired[DeviceRenderOptionsDict]
+    home_phone: NotRequired[Phone3Dict]
     mcc: NotRequired[str]
     merchant_name: NotRequired[str]
     message_version: NotRequired[str]
-    mobile_phone: NotRequired[Phone1 | Phone1Dict]
+    mobile_phone: NotRequired[Phone1Dict]
     notification_url: NotRequired[str]
     pay_token_ind: NotRequired[bool]
     payment_authentication_use_case: NotRequired[str]
@@ -220,23 +220,19 @@ class ThreeDs2RequestFieldsDict(TypedDict):
     recurring_expiry: NotRequired[str]
     recurring_frequency: NotRequired[str]
     sdk_app_id: NotRequired[str]
-    sdk_ephem_pub_key: NotRequired[SdkephemPubKey1 | SdkephemPubKey1Dict]
+    sdk_ephem_pub_key: NotRequired[SdkephemPubKey1Dict]
     sdk_max_timeout: NotRequired[int]
     sdk_reference_number: NotRequired[str]
     sdk_trans_id: NotRequired[str]
     three_ds_comp_ind: NotRequired[str]
     three_ds_requestor_authentication_ind: NotRequired[str]
-    three_ds_requestor_authentication_info: NotRequired[
-        ThreeDsrequestorAuthenticationInfo | ThreeDsrequestorAuthenticationInfoDict
-    ]
+    three_ds_requestor_authentication_info: NotRequired[ThreeDsrequestorAuthenticationInfoDict]
     three_ds_requestor_challenge_ind: NotRequired[ThreeDsrequestorChallengeIndOrStr]
     three_ds_requestor_id: NotRequired[str]
     three_ds_requestor_name: NotRequired[str]
-    three_ds_requestor_prior_authentication_info: NotRequired[
-        ThreeDsrequestorPriorAuthenticationInfo | ThreeDsrequestorPriorAuthenticationInfoDict
-    ]
+    three_ds_requestor_prior_authentication_info: NotRequired[ThreeDsrequestorPriorAuthenticationInfoDict]
     three_ds_requestor_url: NotRequired[str]
     trans_type: NotRequired[TransTypeOrStr]
     transaction_type: NotRequired[TransactionTypeOrStr]
     white_list_status: NotRequired[str]
-    work_phone: NotRequired[Phone2 | Phone2Dict]
+    work_phone: NotRequired[Phone2Dict]

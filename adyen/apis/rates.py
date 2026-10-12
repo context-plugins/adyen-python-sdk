@@ -8,9 +8,11 @@ from ..core import (
     BaseRawResponse,
     RawClient,
     RequestOptionsOrDict,
+    async_json_decoder,
     json_body,
     json_decoder,
     param,
+    unwrap,
 )
 from ..errors.post_rates_calculate_error import PostRatesCalculateErrorBody, post_rates_calculate_error_mapper
 from ..models.calculate_rate_request import CalculateRateRequest, CalculateRateRequestDict
@@ -32,7 +34,8 @@ class Rates:
 
         Args:
             body: The request body.
-            request_options: Per-call overrides for this one request, such as a timeout or extra headers.
+            request_options: Per-call overrides for this one request, such as a timeout, extra headers, or its retry
+                count and statuses.
 
         Returns:
             Successful operation
@@ -40,7 +43,7 @@ class Rates:
         Raises:
             ApiError: Unauthorized Forbidden Unprocessable Entity - a request validation error. ``error`` is
                 ``DefaultErrorResponseEntity | RawError``."""
-        return self._with_raw_response.post_rates_calculate(body, request_options=request_options).unwrap()
+        return unwrap(self._with_raw_response.post_rates_calculate(body, request_options=request_options))
 
     @property
     def with_raw_response(self) -> RatesWithRawResponse:
@@ -61,7 +64,8 @@ class AsyncRates:
 
         Args:
             body: The request body.
-            request_options: Per-call overrides for this one request, such as a timeout or extra headers.
+            request_options: Per-call overrides for this one request, such as a timeout, extra headers, or its retry
+                count and statuses.
 
         Returns:
             Successful operation
@@ -69,7 +73,7 @@ class AsyncRates:
         Raises:
             ApiError: Unauthorized Forbidden Unprocessable Entity - a request validation error. ``error`` is
                 ``DefaultErrorResponseEntity | RawError``."""
-        return (await self._with_raw_response.post_rates_calculate(body, request_options=request_options)).unwrap()
+        return unwrap(await self._with_raw_response.post_rates_calculate(body, request_options=request_options))
 
     @property
     def with_raw_response(self) -> AsyncRatesWithRawResponse:
@@ -87,7 +91,8 @@ class RatesWithRawResponse(BaseRawResponse[RawClient, Server]):
 
         Args:
             body: The request body.
-            request_options: Per-call overrides for this one request, such as a timeout or extra headers.
+            request_options: Per-call overrides for this one request, such as a timeout, extra headers, or its retry
+                count and statuses.
 
         Returns:
             An ``ApiResult`` holding the deserialized response or the error body."""
@@ -113,7 +118,8 @@ class AsyncRatesWithRawResponse(BaseRawResponse[AsyncRawClient, Server]):
 
         Args:
             body: The request body.
-            request_options: Per-call overrides for this one request, such as a timeout or extra headers.
+            request_options: Per-call overrides for this one request, such as a timeout, extra headers, or its retry
+                count and statuses.
 
         Returns:
             An ``ApiResult`` holding the deserialized response or the error body."""
@@ -122,7 +128,7 @@ class AsyncRatesWithRawResponse(BaseRawResponse[AsyncRawClient, Server]):
             url_template=self._server.default7("/rates/calculate"),
             headers=[param[UUID]("Idempotency-Key", uuid4())],
             body=json_body[CalculateRateRequest | CalculateRateRequestDict](body),
-            decoder=json_decoder[CalculateRateResponse],
+            decoder=async_json_decoder[CalculateRateResponse],
             error_mapper=post_rates_calculate_error_mapper,
             request_options=request_options,
         )

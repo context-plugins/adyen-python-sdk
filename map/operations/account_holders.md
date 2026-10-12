@@ -11,9 +11,9 @@ Each `###` block is one operation and assumes `sdk-map.md` is loaded: blocks omi
 - **Route**: `GET /accountHolders/{id}`
 - **Auth**: `client_key` OR `basic_auth` OR `api_key_auth`
 - **Server**: `default13`
-- **Signature**: `def get_account_holders_id(id: str, *, request_options: RequestOptionsOrDict | None = None)`
-  - required, positional: `id`
-- **Params**: `id` — path
+- **Signature**: `def get_account_holders_id(id_: str, *, request_options: RequestOptionsOrDict | None = None)`
+  - required, positional: `id_`
+- **Params**: `id_` — path `id`
 - **Returns (parsed)**: `AccountHolder`
 - **Returns (raw)**: `ApiResult[AccountHolder, GetAccountHoldersIdErrorBody]`
 - **Error**: `GetAccountHoldersIdErrorBody` — **Case A (typed)**
@@ -30,9 +30,9 @@ Each `###` block is one operation and assumes `sdk-map.md` is loaded: blocks omi
 - **Route**: `GET /accountHolders/{id}/balanceAccounts`
 - **Auth**: `client_key` OR `basic_auth` OR `api_key_auth`
 - **Server**: `default13`
-- **Signature**: `def get_account_holders_id_balance_accounts(id: str, *, offset: int | None = None, limit: int | None = None, request_options: RequestOptionsOrDict | None = None)`
-  - required, positional: `id`
-- **Params**: `id` — path · `offset` — query · `limit` — query
+- **Signature**: `def get_account_holders_id_balance_accounts(id_: str, *, offset: int | None = None, limit: int | None = None, request_options: RequestOptionsOrDict | None = None)`
+  - required, positional: `id_`
+- **Params**: `id_` — path `id` · `offset` — query · `limit` — query
 - **Returns (parsed)**: `PaginatedBalanceAccountsResponse`
 - **Returns (raw)**: `ApiResult[PaginatedBalanceAccountsResponse, GetAccountHoldersIdBalanceAccountsErrorBody]`
 - **Error**: `GetAccountHoldersIdBalanceAccountsErrorBody` — **Case A (typed)**
@@ -48,9 +48,9 @@ Each `###` block is one operation and assumes `sdk-map.md` is loaded: blocks omi
 
 - **Route**: `GET /accountHolders/{id}/taxFormSummary`
 - **Server**: `default13`
-- **Signature**: `def get_account_holders_id_tax_form_summary(id: str, form_type: str, *, request_options: RequestOptionsOrDict | None = None)`
-  - required, positional: `id`, `form_type`
-- **Params**: `id` — path · `form_type` — query `formType`
+- **Signature**: `def get_account_holders_id_tax_form_summary(id_: str, form_type: str, *, request_options: RequestOptionsOrDict | None = None)`
+  - required, positional: `id_`, `form_type`
+- **Params**: `id_` — path `id` · `form_type` — query `formType`
 - **Returns (parsed)**: `TaxFormSummaryResponse`
 - **Returns (raw)**: `ApiResult[TaxFormSummaryResponse, RawError]`
 - **Error**: `RawError` — **Case B**
@@ -64,9 +64,9 @@ Each `###` block is one operation and assumes `sdk-map.md` is loaded: blocks omi
 - **Route**: `GET /accountHolders/{id}/taxForms`
 - **Auth**: `client_key` OR `basic_auth` OR `api_key_auth`
 - **Server**: `default13`
-- **Signature**: `def get_account_holders_id_tax_forms(id: str, form_type: FormTypeOrStr, year: int, *, legal_entity_id: str | None = None, request_options: RequestOptionsOrDict | None = None)`
-  - required, positional: `id`, `form_type`, `year`
-- **Params**: `id` — path · `form_type` — query `formType` · `year` — query · `legal_entity_id` — query `legalEntityId`
+- **Signature**: `def get_account_holders_id_tax_forms(id_: str, form_type: FormTypeOrStr, year: int, *, legal_entity_id: str | None = None, request_options: RequestOptionsOrDict | None = None)`
+  - required, positional: `id_`, `form_type`, `year`
+- **Params**: `id_` — path `id` · `form_type` — query `formType` · `year` — query · `legal_entity_id` — query `legalEntityId`
 - **Returns (parsed)**: `GetTaxFormResponse1`
 - **Returns (raw)**: `ApiResult[GetTaxFormResponse1, GetAccountHoldersIdTaxFormsErrorBody]`
 - **Error**: `GetAccountHoldersIdTaxFormsErrorBody` — **Case A (typed)**
@@ -84,9 +84,9 @@ Each `###` block is one operation and assumes `sdk-map.md` is loaded: blocks omi
 - **Route**: `GET /accountHolders/{id}/transactionRules`
 - **Auth**: `client_key` OR `basic_auth` OR `api_key_auth`
 - **Server**: `default13`
-- **Signature**: `def get_account_holders_id_transaction_rules(id: str, *, request_options: RequestOptionsOrDict | None = None)`
-  - required, positional: `id`
-- **Params**: `id` — path
+- **Signature**: `def get_account_holders_id_transaction_rules(id_: str, *, request_options: RequestOptionsOrDict | None = None)`
+  - required, positional: `id_`
+- **Params**: `id_` — path `id`
 - **Returns (parsed)**: `TransactionRulesResponse`
 - **Returns (raw)**: `ApiResult[TransactionRulesResponse, GetAccountHoldersIdTransactionRulesErrorBody]`
 - **Error**: `GetAccountHoldersIdTransactionRulesErrorBody` — **Case A (typed)**
@@ -103,9 +103,9 @@ Each `###` block is one operation and assumes `sdk-map.md` is loaded: blocks omi
 - **Route**: `PATCH /accountHolders/{id}`
 - **Auth**: `client_key` OR `basic_auth` OR `api_key_auth`
 - **Server**: `default13`
-- **Signature**: `def patch_account_holders_id(id: str, *, body: AccountHolderUpdateRequest | AccountHolderUpdateRequestDict | None = None, request_options: RequestOptionsOrDict | None = None)`
-  - required, positional: `id`
-- **Params**: `id` — path · `body` — JSON body
+- **Signature**: `def patch_account_holders_id(id_: str, *, body: AccountHolderUpdateRequest | AccountHolderUpdateRequestDict | None = None, request_options: RequestOptionsOrDict | None = None)`
+  - required, positional: `id_`
+- **Params**: `id_` — path `id` · `body` — JSON body
 - **Returns (parsed)**: `AccountHolder`
 - **Returns (raw)**: `ApiResult[AccountHolder, PatchAccountHoldersIdErrorBody]`
 - **Error**: `PatchAccountHoldersIdErrorBody` — **Case A (typed)**

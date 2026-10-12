@@ -17,5 +17,5 @@ class Card4(SdkBaseModel):
 
 
 class Card4Dict(TypedDict):
-    card_holder: PartyIdentification1 | PartyIdentification1Dict
-    card_identification: CardIdentification3 | CardIdentification3Dict
+    card_holder: PartyIdentification1Dict
+    card_identification: CardIdentification3Dict

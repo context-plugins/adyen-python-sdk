@@ -32,4 +32,4 @@ class JcbresponseInfo1Dict(TypedDict):
     mid_number: NotRequired[str]
     reuse_mid_number: NotRequired[bool]
     service_level: NotRequired[str]
-    transaction_description: NotRequired[TransactionDescriptionResponseInfo1 | TransactionDescriptionResponseInfo1Dict]
+    transaction_description: NotRequired[TransactionDescriptionResponseInfo1Dict]

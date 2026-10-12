@@ -4,7 +4,7 @@ from pydantic import Field
 from typing_extensions import NotRequired, TypedDict
 
 from ..core import UNSET, Optional, SdkBaseModel
-from .enums.type36 import Type36OrStr
+from .enums.type36 import Type36, Type36OrStr
 
 
 class Mbway(SdkBaseModel):
@@ -16,7 +16,7 @@ class Mbway(SdkBaseModel):
 
     shopper_email: str = Field(alias="shopperEmail")
     telephone_number: str = Field(alias="telephoneNumber")
-    type_: Optional[Type36OrStr] = Field(default=UNSET, alias="type")
+    type_: Type36OrStr = Field(default=Type36.MBWAY, alias="type")
     """**mbway**"""
 
 

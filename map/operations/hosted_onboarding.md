@@ -28,9 +28,9 @@ Each `###` block is one operation and assumes `sdk-map.md` is loaded: blocks omi
 - **Route**: `GET /themes/{id}`
 - **Auth**: `basic_auth` OR `api_key_auth`
 - **Server**: `default18`
-- **Signature**: `def get_themes_id(id: str, *, request_options: RequestOptionsOrDict | None = None)`
-  - required, positional: `id`
-- **Params**: `id` — path
+- **Signature**: `def get_themes_id(id_: str, *, request_options: RequestOptionsOrDict | None = None)`
+  - required, positional: `id_`
+- **Params**: `id_` — path `id`
 - **Returns (parsed)**: `OnboardingTheme`
 - **Returns (raw)**: `ApiResult[OnboardingTheme, GetThemesIdErrorBody]`
 - **Error**: `GetThemesIdErrorBody` — **Case A (typed)**
@@ -47,9 +47,9 @@ Each `###` block is one operation and assumes `sdk-map.md` is loaded: blocks omi
 - **Route**: `POST /legalEntities/{id}/onboardingLinks`
 - **Auth**: `basic_auth` OR `api_key_auth`
 - **Server**: `default18`
-- **Signature**: `def post_legal_entities_id_onboarding_links(id: str, *, body: OnboardingLinkInfo | OnboardingLinkInfoDict | None = None, request_options: RequestOptionsOrDict | None = None)`
-  - required, positional: `id`
-- **Params**: `id` — path · `body` — JSON body
+- **Signature**: `def post_legal_entities_id_onboarding_links(id_: str, *, body: OnboardingLinkInfo | OnboardingLinkInfoDict | None = None, request_options: RequestOptionsOrDict | None = None)`
+  - required, positional: `id_`
+- **Params**: `id_` — path `id` · `body` — JSON body
 - **Returns (parsed)**: `OnboardingLink`
 - **Returns (raw)**: `ApiResult[OnboardingLink, PostLegalEntitiesIdOnboardingLinksErrorBody]`
 - **Error**: `PostLegalEntitiesIdOnboardingLinksErrorBody` — **Case A (typed)**

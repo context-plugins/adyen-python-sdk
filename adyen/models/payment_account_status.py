@@ -24,7 +24,7 @@ class PaymentAccountStatus(SdkBaseModel):
 
 
 class PaymentAccountStatusDict(TypedDict):
-    payment_instrument_data: NotRequired[PaymentInstrumentData | PaymentInstrumentDataDict]
+    payment_instrument_data: NotRequired[PaymentInstrumentDataDict]
     current_balance: NotRequired[float]
     currency: NotRequired[str]
-    payment_acquirer_data: NotRequired[PaymentAcquirerData | PaymentAcquirerDataDict]
+    payment_acquirer_data: NotRequired[PaymentAcquirerDataDict]

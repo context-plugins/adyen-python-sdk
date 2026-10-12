@@ -31,7 +31,7 @@ class ReconciliationResponse2(SdkBaseModel):
 
 
 class ReconciliationResponse2Dict(TypedDict):
-    response: Response11 | Response11Dict
+    response: Response11Dict
     reconciliation_type: ReconciliationType1OrStr
     poi_reconciliation_id: NotRequired[int]
-    transaction_totals: NotRequired[list[TransactionTotals | TransactionTotalsDict]]
+    transaction_totals: NotRequired[list[TransactionTotalsDict]]

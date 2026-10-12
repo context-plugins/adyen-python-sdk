@@ -21,7 +21,7 @@ class MenuEntry(SdkBaseModel):
     * **Selectable**
     * **SubMenu**"""
 
-    default_selected_flag: Optional[bool] = Field(default=UNSET, alias="DefaultSelectedFlag")
+    default_selected_flag: bool = Field(default=False, alias="DefaultSelectedFlag")
     """Selection of a menu entry to be displayed. In Input request message, it allows selection of one or several menu
     entries before any user action."""
 
@@ -49,6 +49,6 @@ class MenuEntryDict(TypedDict):
     menu_entry_tag: NotRequired[MenuEntryTag1OrStr]
     default_selected_flag: NotRequired[bool]
     output_format: OutputFormat2OrStr
-    predefined_content: NotRequired[PredefinedContent | PredefinedContentDict]
-    output_text: NotRequired[list[OutputText | OutputTextDict]]
+    predefined_content: NotRequired[PredefinedContentDict]
+    output_text: NotRequired[list[OutputTextDict]]
     output_xhtml: NotRequired[str]

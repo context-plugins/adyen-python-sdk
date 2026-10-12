@@ -11,9 +11,11 @@ from ..core import (
     RawClient,
     RequestOptionsOrDict,
     SecuredRawResponse,
+    async_json_decoder,
     json_body,
     json_decoder,
     param,
+    unwrap,
 )
 from ..errors.get_terminals_terminal_id_terminal_logos_error import (
     GetTerminalsTerminalIdTerminalLogosErrorBody,
@@ -56,7 +58,8 @@ class TerminalSettingsTerminalLevel:
 
         Args:
             terminal_id: The unique identifier of the payment terminal.
-            request_options: Per-call overrides for this one request, such as a timeout or extra headers.
+            request_options: Per-call overrides for this one request, such as a timeout, extra headers, or its retry
+                count and statuses.
 
         Returns:
             OK - the request has succeeded.
@@ -66,9 +69,11 @@ class TerminalSettingsTerminalLevel:
                 required. Forbidden - insufficient permissions to process the request. Unprocessable Entity - a request
                 validation error. Internal Server Error - the server could not process the request. ``error`` is
                 ``RestServiceError | RawError``."""
-        return self._with_raw_response.get_terminals_terminal_id_terminal_logos(
-            terminal_id, request_options=request_options
-        ).unwrap()
+        return unwrap(
+            self._with_raw_response.get_terminals_terminal_id_terminal_logos(
+                terminal_id, request_options=request_options
+            ),
+        )
 
     def get_terminals_terminal_id_terminal_settings(
         self, terminal_id: str, *, request_options: RequestOptionsOrDict | None = None
@@ -90,7 +95,8 @@ class TerminalSettingsTerminalLevel:
 
         Args:
             terminal_id: The unique identifier of the payment terminal.
-            request_options: Per-call overrides for this one request, such as a timeout or extra headers.
+            request_options: Per-call overrides for this one request, such as a timeout, extra headers, or its retry
+                count and statuses.
 
         Returns:
             OK - the request has succeeded.
@@ -100,9 +106,11 @@ class TerminalSettingsTerminalLevel:
                 required. Forbidden - insufficient permissions to process the request. Unprocessable Entity - a request
                 validation error. Internal Server Error - the server could not process the request. ``error`` is
                 ``RestServiceError | RawError``."""
-        return self._with_raw_response.get_terminals_terminal_id_terminal_settings(
-            terminal_id, request_options=request_options
-        ).unwrap()
+        return unwrap(
+            self._with_raw_response.get_terminals_terminal_id_terminal_settings(
+                terminal_id, request_options=request_options
+            ),
+        )
 
     def patch_terminals_terminal_id_terminal_logos(
         self,
@@ -127,7 +135,8 @@ class TerminalSettingsTerminalLevel:
         Args:
             terminal_id: The unique identifier of the payment terminal.
             body: The request body.
-            request_options: Per-call overrides for this one request, such as a timeout or extra headers.
+            request_options: Per-call overrides for this one request, such as a timeout, extra headers, or its retry
+                count and statuses.
 
         Returns:
             OK - the request has succeeded.
@@ -137,9 +146,11 @@ class TerminalSettingsTerminalLevel:
                 required. Forbidden - insufficient permissions to process the request. Unprocessable Entity - a request
                 validation error. Internal Server Error - the server could not process the request. ``error`` is
                 ``RestServiceError | RawError``."""
-        return self._with_raw_response.patch_terminals_terminal_id_terminal_logos(
-            terminal_id, body=body, request_options=request_options
-        ).unwrap()
+        return unwrap(
+            self._with_raw_response.patch_terminals_terminal_id_terminal_logos(
+                terminal_id, body=body, request_options=request_options
+            ),
+        )
 
     def patch_terminals_terminal_id_terminal_settings(
         self,
@@ -171,7 +182,8 @@ class TerminalSettingsTerminalLevel:
         Args:
             terminal_id: The unique identifier of the payment terminal.
             body: The request body.
-            request_options: Per-call overrides for this one request, such as a timeout or extra headers.
+            request_options: Per-call overrides for this one request, such as a timeout, extra headers, or its retry
+                count and statuses.
 
         Returns:
             OK - the request has succeeded.
@@ -181,9 +193,11 @@ class TerminalSettingsTerminalLevel:
                 required. Forbidden - insufficient permissions to process the request. Unprocessable Entity - a request
                 validation error. Internal Server Error - the server could not process the request. ``error`` is
                 ``RestServiceError | RawError``."""
-        return self._with_raw_response.patch_terminals_terminal_id_terminal_settings(
-            terminal_id, body=body, request_options=request_options
-        ).unwrap()
+        return unwrap(
+            self._with_raw_response.patch_terminals_terminal_id_terminal_settings(
+                terminal_id, body=body, request_options=request_options
+            ),
+        )
 
     @property
     def with_raw_response(self) -> TerminalSettingsTerminalLevelWithRawResponse:
@@ -210,7 +224,8 @@ class AsyncTerminalSettingsTerminalLevel:
 
         Args:
             terminal_id: The unique identifier of the payment terminal.
-            request_options: Per-call overrides for this one request, such as a timeout or extra headers.
+            request_options: Per-call overrides for this one request, such as a timeout, extra headers, or its retry
+                count and statuses.
 
         Returns:
             OK - the request has succeeded.
@@ -220,11 +235,11 @@ class AsyncTerminalSettingsTerminalLevel:
                 required. Forbidden - insufficient permissions to process the request. Unprocessable Entity - a request
                 validation error. Internal Server Error - the server could not process the request. ``error`` is
                 ``RestServiceError | RawError``."""
-        return (
+        return unwrap(
             await self._with_raw_response.get_terminals_terminal_id_terminal_logos(
                 terminal_id, request_options=request_options
-            )
-        ).unwrap()
+            ),
+        )
 
     async def get_terminals_terminal_id_terminal_settings(
         self, terminal_id: str, *, request_options: RequestOptionsOrDict | None = None
@@ -246,7 +261,8 @@ class AsyncTerminalSettingsTerminalLevel:
 
         Args:
             terminal_id: The unique identifier of the payment terminal.
-            request_options: Per-call overrides for this one request, such as a timeout or extra headers.
+            request_options: Per-call overrides for this one request, such as a timeout, extra headers, or its retry
+                count and statuses.
 
         Returns:
             OK - the request has succeeded.
@@ -256,11 +272,11 @@ class AsyncTerminalSettingsTerminalLevel:
                 required. Forbidden - insufficient permissions to process the request. Unprocessable Entity - a request
                 validation error. Internal Server Error - the server could not process the request. ``error`` is
                 ``RestServiceError | RawError``."""
-        return (
+        return unwrap(
             await self._with_raw_response.get_terminals_terminal_id_terminal_settings(
                 terminal_id, request_options=request_options
-            )
-        ).unwrap()
+            ),
+        )
 
     async def patch_terminals_terminal_id_terminal_logos(
         self,
@@ -285,7 +301,8 @@ class AsyncTerminalSettingsTerminalLevel:
         Args:
             terminal_id: The unique identifier of the payment terminal.
             body: The request body.
-            request_options: Per-call overrides for this one request, such as a timeout or extra headers.
+            request_options: Per-call overrides for this one request, such as a timeout, extra headers, or its retry
+                count and statuses.
 
         Returns:
             OK - the request has succeeded.
@@ -295,11 +312,11 @@ class AsyncTerminalSettingsTerminalLevel:
                 required. Forbidden - insufficient permissions to process the request. Unprocessable Entity - a request
                 validation error. Internal Server Error - the server could not process the request. ``error`` is
                 ``RestServiceError | RawError``."""
-        return (
+        return unwrap(
             await self._with_raw_response.patch_terminals_terminal_id_terminal_logos(
                 terminal_id, body=body, request_options=request_options
-            )
-        ).unwrap()
+            ),
+        )
 
     async def patch_terminals_terminal_id_terminal_settings(
         self,
@@ -331,7 +348,8 @@ class AsyncTerminalSettingsTerminalLevel:
         Args:
             terminal_id: The unique identifier of the payment terminal.
             body: The request body.
-            request_options: Per-call overrides for this one request, such as a timeout or extra headers.
+            request_options: Per-call overrides for this one request, such as a timeout, extra headers, or its retry
+                count and statuses.
 
         Returns:
             OK - the request has succeeded.
@@ -341,11 +359,11 @@ class AsyncTerminalSettingsTerminalLevel:
                 required. Forbidden - insufficient permissions to process the request. Unprocessable Entity - a request
                 validation error. Internal Server Error - the server could not process the request. ``error`` is
                 ``RestServiceError | RawError``."""
-        return (
+        return unwrap(
             await self._with_raw_response.patch_terminals_terminal_id_terminal_settings(
                 terminal_id, body=body, request_options=request_options
-            )
-        ).unwrap()
+            ),
+        )
 
     @property
     def with_raw_response(self) -> AsyncTerminalSettingsTerminalLevelWithRawResponse:
@@ -369,7 +387,8 @@ class TerminalSettingsTerminalLevelWithRawResponse(SecuredRawResponse[RawClient,
 
         Args:
             terminal_id: The unique identifier of the payment terminal.
-            request_options: Per-call overrides for this one request, such as a timeout or extra headers.
+            request_options: Per-call overrides for this one request, such as a timeout, extra headers, or its retry
+                count and statuses.
 
         Returns:
             An ``ApiResult`` holding the deserialized response or the error body."""
@@ -403,7 +422,8 @@ class TerminalSettingsTerminalLevelWithRawResponse(SecuredRawResponse[RawClient,
 
         Args:
             terminal_id: The unique identifier of the payment terminal.
-            request_options: Per-call overrides for this one request, such as a timeout or extra headers.
+            request_options: Per-call overrides for this one request, such as a timeout, extra headers, or its retry
+                count and statuses.
 
         Returns:
             An ``ApiResult`` holding the deserialized response or the error body."""
@@ -440,7 +460,8 @@ class TerminalSettingsTerminalLevelWithRawResponse(SecuredRawResponse[RawClient,
         Args:
             terminal_id: The unique identifier of the payment terminal.
             body: The request body.
-            request_options: Per-call overrides for this one request, such as a timeout or extra headers.
+            request_options: Per-call overrides for this one request, such as a timeout, extra headers, or its retry
+                count and statuses.
 
         Returns:
             An ``ApiResult`` holding the deserialized response or the error body."""
@@ -486,7 +507,8 @@ class TerminalSettingsTerminalLevelWithRawResponse(SecuredRawResponse[RawClient,
         Args:
             terminal_id: The unique identifier of the payment terminal.
             body: The request body.
-            request_options: Per-call overrides for this one request, such as a timeout or extra headers.
+            request_options: Per-call overrides for this one request, such as a timeout, extra headers, or its retry
+                count and statuses.
 
         Returns:
             An ``ApiResult`` holding the deserialized response or the error body."""
@@ -520,7 +542,8 @@ class AsyncTerminalSettingsTerminalLevelWithRawResponse(SecuredRawResponse[Async
 
         Args:
             terminal_id: The unique identifier of the payment terminal.
-            request_options: Per-call overrides for this one request, such as a timeout or extra headers.
+            request_options: Per-call overrides for this one request, such as a timeout, extra headers, or its retry
+                count and statuses.
 
         Returns:
             An ``ApiResult`` holding the deserialized response or the error body."""
@@ -529,7 +552,7 @@ class AsyncTerminalSettingsTerminalLevelWithRawResponse(SecuredRawResponse[Async
             url_template=self._server.default9("/terminals/{terminalId}/terminalLogos"),
             path_params=[param[str]("terminalId", terminal_id)],
             auth_scheme=AsyncAnySchemes(self._auth.basic_auth, self._auth.api_key_auth),
-            decoder=json_decoder[Logo],
+            decoder=async_json_decoder[Logo],
             error_mapper=get_terminals_terminal_id_terminal_logos_error_mapper,
             request_options=request_options,
         )
@@ -554,7 +577,8 @@ class AsyncTerminalSettingsTerminalLevelWithRawResponse(SecuredRawResponse[Async
 
         Args:
             terminal_id: The unique identifier of the payment terminal.
-            request_options: Per-call overrides for this one request, such as a timeout or extra headers.
+            request_options: Per-call overrides for this one request, such as a timeout, extra headers, or its retry
+                count and statuses.
 
         Returns:
             An ``ApiResult`` holding the deserialized response or the error body."""
@@ -563,7 +587,7 @@ class AsyncTerminalSettingsTerminalLevelWithRawResponse(SecuredRawResponse[Async
             url_template=self._server.default9("/terminals/{terminalId}/terminalSettings"),
             path_params=[param[str]("terminalId", terminal_id)],
             auth_scheme=AsyncAnySchemes(self._auth.basic_auth, self._auth.api_key_auth),
-            decoder=json_decoder[TerminalSettings],
+            decoder=async_json_decoder[TerminalSettings],
             error_mapper=get_terminals_terminal_id_terminal_settings_error_mapper,
             request_options=request_options,
         )
@@ -591,7 +615,8 @@ class AsyncTerminalSettingsTerminalLevelWithRawResponse(SecuredRawResponse[Async
         Args:
             terminal_id: The unique identifier of the payment terminal.
             body: The request body.
-            request_options: Per-call overrides for this one request, such as a timeout or extra headers.
+            request_options: Per-call overrides for this one request, such as a timeout, extra headers, or its retry
+                count and statuses.
 
         Returns:
             An ``ApiResult`` holding the deserialized response or the error body."""
@@ -602,7 +627,7 @@ class AsyncTerminalSettingsTerminalLevelWithRawResponse(SecuredRawResponse[Async
             headers=[param[UUID]("Idempotency-Key", uuid4())],
             body=json_body[Logo | LogoDict | None](body),
             auth_scheme=AsyncAnySchemes(self._auth.basic_auth, self._auth.api_key_auth),
-            decoder=json_decoder[Logo],
+            decoder=async_json_decoder[Logo],
             error_mapper=patch_terminals_terminal_id_terminal_logos_error_mapper,
             request_options=request_options,
         )
@@ -637,7 +662,8 @@ class AsyncTerminalSettingsTerminalLevelWithRawResponse(SecuredRawResponse[Async
         Args:
             terminal_id: The unique identifier of the payment terminal.
             body: The request body.
-            request_options: Per-call overrides for this one request, such as a timeout or extra headers.
+            request_options: Per-call overrides for this one request, such as a timeout, extra headers, or its retry
+                count and statuses.
 
         Returns:
             An ``ApiResult`` holding the deserialized response or the error body."""
@@ -648,7 +674,7 @@ class AsyncTerminalSettingsTerminalLevelWithRawResponse(SecuredRawResponse[Async
             headers=[param[UUID]("Idempotency-Key", uuid4())],
             body=json_body[TerminalSettings | TerminalSettingsDict | None](body),
             auth_scheme=AsyncAnySchemes(self._auth.basic_auth, self._auth.api_key_auth),
-            decoder=json_decoder[TerminalSettings],
+            decoder=async_json_decoder[TerminalSettings],
             error_mapper=patch_terminals_terminal_id_terminal_settings_error_mapper,
             request_options=request_options,
         )

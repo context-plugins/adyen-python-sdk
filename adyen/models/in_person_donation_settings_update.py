@@ -34,7 +34,7 @@ class InPersonDonationSettingsUpdate(SdkBaseModel):
 
     - **fixedAmountsRoundup**: Round up, or choose a fixed amount."""
 
-    merchant_accounts: Optional[list[str | None]] = Field(default=UNSET, alias="merchantAccounts")
+    merchant_accounts: OptionalNullable[list[str]] = Field(default=UNSET, alias="merchantAccounts")
     """The merchant accounts for this sales channel that are associated with the donation campaign."""
 
     present_card_timeout_ms: OptionalNullable[int] = Field(default=UNSET, alias="presentCardTimeoutMs")
@@ -45,17 +45,17 @@ class InPersonDonationSettingsUpdate(SdkBaseModel):
     """The time, in milliseconds, that the terminal waits for the shopper to make a selection on the donation screen.
     Defaults to **10000** (10 seconds). Range: 5000 to 15000."""
 
-    store_ids: Optional[list[str | None]] = Field(default=UNSET, alias="storeIds")
+    store_ids: OptionalNullable[list[str]] = Field(default=UNSET, alias="storeIds")
     """The Adyen-generated unique identifiers of stores for this sales channel that are associated with the donation
     campaign."""
 
 
 class InPersonDonationSettingsUpdateDict(TypedDict):
-    default_amount: NotRequired[DonationAmountUpdate | DonationAmountUpdateDict | None]
+    default_amount: NotRequired[DonationAmountUpdateDict | None]
     display_text_field: NotRequired[DisplayTextField2OrStr]
     donation_flow: NotRequired[DonationFlow1OrStr]
     donation_type: NotRequired[DonationTypeOrStr | None]
-    merchant_accounts: NotRequired[list[str | None]]
+    merchant_accounts: NotRequired[list[str] | None]
     present_card_timeout_ms: NotRequired[int | None]
     prompt_timeout_ms: NotRequired[int | None]
-    store_ids: NotRequired[list[str | None]]
+    store_ids: NotRequired[list[str] | None]

@@ -5,7 +5,7 @@ from typing_extensions import NotRequired, TypedDict
 
 from ..core import UNSET, Optional, SdkBaseModel
 from .enums.funding_source import FundingSourceOrStr
-from .enums.type50 import Type50OrStr
+from .enums.type50 import Type50, Type50OrStr
 
 
 class SamsungPay(SdkBaseModel):
@@ -28,7 +28,7 @@ class SamsungPay(SdkBaseModel):
     stored_payment_method_id: Optional[str] = Field(default=UNSET, alias="storedPaymentMethodId")
     """This is the ``recurringDetailReference`` returned in the response when you created the token."""
 
-    type_: Optional[Type50OrStr] = Field(default=UNSET, alias="type")
+    type_: Type50OrStr = Field(default=Type50.SAMSUNGPAY, alias="type")
     """**samsungpay**"""
 
 

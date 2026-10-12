@@ -68,12 +68,12 @@ class DisputeResponse(SdkBaseModel):
 class DisputeResponseDict(TypedDict):
     arn: NotRequired[str]
     description: NotRequired[str]
-    disputed_amount: NotRequired[Amount17 | Amount17Dict]
-    duplicate_info: NotRequired[DuplicateInfo1 | DuplicateInfo1Dict]
-    fraud_info: NotRequired[FraudInfo1 | FraudInfo1Dict]
+    disputed_amount: NotRequired[Amount17Dict]
+    duplicate_info: NotRequired[DuplicateInfo1Dict]
+    fraud_info: NotRequired[FraudInfo1Dict]
     id: NotRequired[str]
-    not_delivered_info: NotRequired[NotDeliveredInfo1 | NotDeliveredInfo1Dict]
-    other_info: NotRequired[OtherInfo1 | OtherInfo1Dict]
+    not_delivered_info: NotRequired[NotDeliveredInfo1Dict]
+    other_info: NotRequired[OtherInfo1Dict]
     status: NotRequired[DisputeStatus1OrStr]
     transaction_id: str
     type_: str

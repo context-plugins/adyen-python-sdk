@@ -11,9 +11,11 @@ from ..core import (
     RawClient,
     RequestOptionsOrDict,
     SecuredRawResponse,
+    async_json_decoder,
     json_body,
     json_decoder,
     param,
+    unwrap,
 )
 from ..errors.get_merchants_merchant_id_stores_error import (
     GetMerchantsMerchantIdStoresErrorBody,
@@ -75,7 +77,8 @@ class AccountStoreLevel:
             page_number: The number of the page to fetch.
             page_size: The number of items to have on a page, maximum 100. The default is 10 items on a page.
             reference: The reference of the store.
-            request_options: Per-call overrides for this one request, such as a timeout or extra headers.
+            request_options: Per-call overrides for this one request, such as a timeout, extra headers, or its retry
+                count and statuses.
 
         Returns:
             OK - the request has succeeded.
@@ -85,13 +88,15 @@ class AccountStoreLevel:
                 required. Forbidden - insufficient permissions to process the request. Unprocessable Entity - a request
                 validation error. Internal Server Error - the server could not process the request. ``error`` is
                 ``RestServiceError | RawError``."""
-        return self._with_raw_response.get_merchants_merchant_id_stores(
-            merchant_id,
-            page_number=page_number,
-            page_size=page_size,
-            reference=reference,
-            request_options=request_options,
-        ).unwrap()
+        return unwrap(
+            self._with_raw_response.get_merchants_merchant_id_stores(
+                merchant_id,
+                page_number=page_number,
+                page_size=page_size,
+                reference=reference,
+                request_options=request_options,
+            ),
+        )
 
     def get_merchants_merchant_id_stores_store_id(
         self, merchant_id: str, store_id: str, *, request_options: RequestOptionsOrDict | None = None
@@ -109,7 +114,8 @@ class AccountStoreLevel:
         Args:
             merchant_id: The unique identifier of the merchant account.
             store_id: The unique identifier of the store.
-            request_options: Per-call overrides for this one request, such as a timeout or extra headers.
+            request_options: Per-call overrides for this one request, such as a timeout, extra headers, or its retry
+                count and statuses.
 
         Returns:
             OK - the request has succeeded.
@@ -119,9 +125,11 @@ class AccountStoreLevel:
                 required. Forbidden - insufficient permissions to process the request. Unprocessable Entity - a request
                 validation error. Internal Server Error - the server could not process the request. ``error`` is
                 ``RestServiceError | RawError``."""
-        return self._with_raw_response.get_merchants_merchant_id_stores_store_id(
-            merchant_id, store_id, request_options=request_options
-        ).unwrap()
+        return unwrap(
+            self._with_raw_response.get_merchants_merchant_id_stores_store_id(
+                merchant_id, store_id, request_options=request_options
+            ),
+        )
 
     def get_stores(
         self,
@@ -147,7 +155,8 @@ class AccountStoreLevel:
             page_size: The number of items to have on a page, maximum 100. The default is 10 items on a page.
             reference: The reference of the store.
             merchant_id: The unique identifier of the merchant account.
-            request_options: Per-call overrides for this one request, such as a timeout or extra headers.
+            request_options: Per-call overrides for this one request, such as a timeout, extra headers, or its retry
+                count and statuses.
 
         Returns:
             OK - the request has succeeded.
@@ -157,13 +166,15 @@ class AccountStoreLevel:
                 required. Forbidden - insufficient permissions to process the request. Unprocessable Entity - a request
                 validation error. Internal Server Error - the server could not process the request. ``error`` is
                 ``RestServiceError | RawError``."""
-        return self._with_raw_response.get_stores(
-            page_number=page_number,
-            page_size=page_size,
-            reference=reference,
-            merchant_id=merchant_id,
-            request_options=request_options,
-        ).unwrap()
+        return unwrap(
+            self._with_raw_response.get_stores(
+                page_number=page_number,
+                page_size=page_size,
+                reference=reference,
+                merchant_id=merchant_id,
+                request_options=request_options,
+            ),
+        )
 
     def get_stores_store_id(self, store_id: str, *, request_options: RequestOptionsOrDict | None = None) -> Store:
         """Returns the details of the store identified in the path.
@@ -178,7 +189,8 @@ class AccountStoreLevel:
 
         Args:
             store_id: The unique identifier of the store.
-            request_options: Per-call overrides for this one request, such as a timeout or extra headers.
+            request_options: Per-call overrides for this one request, such as a timeout, extra headers, or its retry
+                count and statuses.
 
         Returns:
             OK - the request has succeeded.
@@ -188,7 +200,7 @@ class AccountStoreLevel:
                 required. Forbidden - insufficient permissions to process the request. Unprocessable Entity - a request
                 validation error. Internal Server Error - the server could not process the request. ``error`` is
                 ``RestServiceError | RawError``."""
-        return self._with_raw_response.get_stores_store_id(store_id, request_options=request_options).unwrap()
+        return unwrap(self._with_raw_response.get_stores_store_id(store_id, request_options=request_options))
 
     def patch_merchants_merchant_id_stores_store_id(
         self,
@@ -211,7 +223,8 @@ class AccountStoreLevel:
             merchant_id: The unique identifier of the merchant account.
             store_id: The unique identifier of the store.
             body: The request body.
-            request_options: Per-call overrides for this one request, such as a timeout or extra headers.
+            request_options: Per-call overrides for this one request, such as a timeout, extra headers, or its retry
+                count and statuses.
 
         Returns:
             OK - the request has succeeded.
@@ -221,9 +234,11 @@ class AccountStoreLevel:
                 required. Forbidden - insufficient permissions to process the request. Unprocessable Entity - a request
                 validation error. Internal Server Error - the server could not process the request. ``error`` is
                 ``RestServiceError | RawError``."""
-        return self._with_raw_response.patch_merchants_merchant_id_stores_store_id(
-            merchant_id, store_id, body=body, request_options=request_options
-        ).unwrap()
+        return unwrap(
+            self._with_raw_response.patch_merchants_merchant_id_stores_store_id(
+                merchant_id, store_id, body=body, request_options=request_options
+            ),
+        )
 
     def patch_stores_store_id(
         self,
@@ -244,7 +259,8 @@ class AccountStoreLevel:
         Args:
             store_id: The unique identifier of the store.
             body: The request body.
-            request_options: Per-call overrides for this one request, such as a timeout or extra headers.
+            request_options: Per-call overrides for this one request, such as a timeout, extra headers, or its retry
+                count and statuses.
 
         Returns:
             OK - the request has succeeded.
@@ -254,9 +270,9 @@ class AccountStoreLevel:
                 required. Forbidden - insufficient permissions to process the request. Unprocessable Entity - a request
                 validation error. Internal Server Error - the server could not process the request. ``error`` is
                 ``RestServiceError | RawError``."""
-        return self._with_raw_response.patch_stores_store_id(
-            store_id, body=body, request_options=request_options
-        ).unwrap()
+        return unwrap(
+            self._with_raw_response.patch_stores_store_id(store_id, body=body, request_options=request_options)
+        )
 
     def post_merchants_merchant_id_stores(
         self,
@@ -277,7 +293,8 @@ class AccountStoreLevel:
         Args:
             merchant_id: The unique identifier of the merchant account.
             body: The request body.
-            request_options: Per-call overrides for this one request, such as a timeout or extra headers.
+            request_options: Per-call overrides for this one request, such as a timeout, extra headers, or its retry
+                count and statuses.
 
         Returns:
             OK - the request has succeeded.
@@ -287,9 +304,11 @@ class AccountStoreLevel:
                 required. Forbidden - insufficient permissions to process the request. Unprocessable Entity - a request
                 validation error. Internal Server Error - the server could not process the request. ``error`` is
                 ``RestServiceError | RawError``."""
-        return self._with_raw_response.post_merchants_merchant_id_stores(
-            merchant_id, body=body, request_options=request_options
-        ).unwrap()
+        return unwrap(
+            self._with_raw_response.post_merchants_merchant_id_stores(
+                merchant_id, body=body, request_options=request_options
+            ),
+        )
 
     def post_stores(
         self,
@@ -308,7 +327,8 @@ class AccountStoreLevel:
 
         Args:
             body: The request body.
-            request_options: Per-call overrides for this one request, such as a timeout or extra headers.
+            request_options: Per-call overrides for this one request, such as a timeout, extra headers, or its retry
+                count and statuses.
 
         Returns:
             OK - the request has succeeded.
@@ -318,7 +338,7 @@ class AccountStoreLevel:
                 required. Forbidden - insufficient permissions to process the request. Unprocessable Entity - a request
                 validation error. Internal Server Error - the server could not process the request. ``error`` is
                 ``RestServiceError | RawError``."""
-        return self._with_raw_response.post_stores(body=body, request_options=request_options).unwrap()
+        return unwrap(self._with_raw_response.post_stores(body=body, request_options=request_options))
 
     @property
     def with_raw_response(self) -> AccountStoreLevelWithRawResponse:
@@ -354,7 +374,8 @@ class AsyncAccountStoreLevel:
             page_number: The number of the page to fetch.
             page_size: The number of items to have on a page, maximum 100. The default is 10 items on a page.
             reference: The reference of the store.
-            request_options: Per-call overrides for this one request, such as a timeout or extra headers.
+            request_options: Per-call overrides for this one request, such as a timeout, extra headers, or its retry
+                count and statuses.
 
         Returns:
             OK - the request has succeeded.
@@ -364,15 +385,15 @@ class AsyncAccountStoreLevel:
                 required. Forbidden - insufficient permissions to process the request. Unprocessable Entity - a request
                 validation error. Internal Server Error - the server could not process the request. ``error`` is
                 ``RestServiceError | RawError``."""
-        return (
+        return unwrap(
             await self._with_raw_response.get_merchants_merchant_id_stores(
                 merchant_id,
                 page_number=page_number,
                 page_size=page_size,
                 reference=reference,
                 request_options=request_options,
-            )
-        ).unwrap()
+            ),
+        )
 
     async def get_merchants_merchant_id_stores_store_id(
         self, merchant_id: str, store_id: str, *, request_options: RequestOptionsOrDict | None = None
@@ -390,7 +411,8 @@ class AsyncAccountStoreLevel:
         Args:
             merchant_id: The unique identifier of the merchant account.
             store_id: The unique identifier of the store.
-            request_options: Per-call overrides for this one request, such as a timeout or extra headers.
+            request_options: Per-call overrides for this one request, such as a timeout, extra headers, or its retry
+                count and statuses.
 
         Returns:
             OK - the request has succeeded.
@@ -400,11 +422,11 @@ class AsyncAccountStoreLevel:
                 required. Forbidden - insufficient permissions to process the request. Unprocessable Entity - a request
                 validation error. Internal Server Error - the server could not process the request. ``error`` is
                 ``RestServiceError | RawError``."""
-        return (
+        return unwrap(
             await self._with_raw_response.get_merchants_merchant_id_stores_store_id(
                 merchant_id, store_id, request_options=request_options
-            )
-        ).unwrap()
+            ),
+        )
 
     async def get_stores(
         self,
@@ -430,7 +452,8 @@ class AsyncAccountStoreLevel:
             page_size: The number of items to have on a page, maximum 100. The default is 10 items on a page.
             reference: The reference of the store.
             merchant_id: The unique identifier of the merchant account.
-            request_options: Per-call overrides for this one request, such as a timeout or extra headers.
+            request_options: Per-call overrides for this one request, such as a timeout, extra headers, or its retry
+                count and statuses.
 
         Returns:
             OK - the request has succeeded.
@@ -440,15 +463,15 @@ class AsyncAccountStoreLevel:
                 required. Forbidden - insufficient permissions to process the request. Unprocessable Entity - a request
                 validation error. Internal Server Error - the server could not process the request. ``error`` is
                 ``RestServiceError | RawError``."""
-        return (
+        return unwrap(
             await self._with_raw_response.get_stores(
                 page_number=page_number,
                 page_size=page_size,
                 reference=reference,
                 merchant_id=merchant_id,
                 request_options=request_options,
-            )
-        ).unwrap()
+            ),
+        )
 
     async def get_stores_store_id(self, store_id: str, *, request_options: RequestOptionsOrDict | None = None) -> Store:
         """Returns the details of the store identified in the path.
@@ -463,7 +486,8 @@ class AsyncAccountStoreLevel:
 
         Args:
             store_id: The unique identifier of the store.
-            request_options: Per-call overrides for this one request, such as a timeout or extra headers.
+            request_options: Per-call overrides for this one request, such as a timeout, extra headers, or its retry
+                count and statuses.
 
         Returns:
             OK - the request has succeeded.
@@ -473,7 +497,7 @@ class AsyncAccountStoreLevel:
                 required. Forbidden - insufficient permissions to process the request. Unprocessable Entity - a request
                 validation error. Internal Server Error - the server could not process the request. ``error`` is
                 ``RestServiceError | RawError``."""
-        return (await self._with_raw_response.get_stores_store_id(store_id, request_options=request_options)).unwrap()
+        return unwrap(await self._with_raw_response.get_stores_store_id(store_id, request_options=request_options))
 
     async def patch_merchants_merchant_id_stores_store_id(
         self,
@@ -496,7 +520,8 @@ class AsyncAccountStoreLevel:
             merchant_id: The unique identifier of the merchant account.
             store_id: The unique identifier of the store.
             body: The request body.
-            request_options: Per-call overrides for this one request, such as a timeout or extra headers.
+            request_options: Per-call overrides for this one request, such as a timeout, extra headers, or its retry
+                count and statuses.
 
         Returns:
             OK - the request has succeeded.
@@ -506,11 +531,11 @@ class AsyncAccountStoreLevel:
                 required. Forbidden - insufficient permissions to process the request. Unprocessable Entity - a request
                 validation error. Internal Server Error - the server could not process the request. ``error`` is
                 ``RestServiceError | RawError``."""
-        return (
+        return unwrap(
             await self._with_raw_response.patch_merchants_merchant_id_stores_store_id(
                 merchant_id, store_id, body=body, request_options=request_options
-            )
-        ).unwrap()
+            ),
+        )
 
     async def patch_stores_store_id(
         self,
@@ -531,7 +556,8 @@ class AsyncAccountStoreLevel:
         Args:
             store_id: The unique identifier of the store.
             body: The request body.
-            request_options: Per-call overrides for this one request, such as a timeout or extra headers.
+            request_options: Per-call overrides for this one request, such as a timeout, extra headers, or its retry
+                count and statuses.
 
         Returns:
             OK - the request has succeeded.
@@ -541,9 +567,9 @@ class AsyncAccountStoreLevel:
                 required. Forbidden - insufficient permissions to process the request. Unprocessable Entity - a request
                 validation error. Internal Server Error - the server could not process the request. ``error`` is
                 ``RestServiceError | RawError``."""
-        return (
+        return unwrap(
             await self._with_raw_response.patch_stores_store_id(store_id, body=body, request_options=request_options)
-        ).unwrap()
+        )
 
     async def post_merchants_merchant_id_stores(
         self,
@@ -564,7 +590,8 @@ class AsyncAccountStoreLevel:
         Args:
             merchant_id: The unique identifier of the merchant account.
             body: The request body.
-            request_options: Per-call overrides for this one request, such as a timeout or extra headers.
+            request_options: Per-call overrides for this one request, such as a timeout, extra headers, or its retry
+                count and statuses.
 
         Returns:
             OK - the request has succeeded.
@@ -574,11 +601,11 @@ class AsyncAccountStoreLevel:
                 required. Forbidden - insufficient permissions to process the request. Unprocessable Entity - a request
                 validation error. Internal Server Error - the server could not process the request. ``error`` is
                 ``RestServiceError | RawError``."""
-        return (
+        return unwrap(
             await self._with_raw_response.post_merchants_merchant_id_stores(
                 merchant_id, body=body, request_options=request_options
-            )
-        ).unwrap()
+            ),
+        )
 
     async def post_stores(
         self,
@@ -597,7 +624,8 @@ class AsyncAccountStoreLevel:
 
         Args:
             body: The request body.
-            request_options: Per-call overrides for this one request, such as a timeout or extra headers.
+            request_options: Per-call overrides for this one request, such as a timeout, extra headers, or its retry
+                count and statuses.
 
         Returns:
             OK - the request has succeeded.
@@ -607,7 +635,7 @@ class AsyncAccountStoreLevel:
                 required. Forbidden - insufficient permissions to process the request. Unprocessable Entity - a request
                 validation error. Internal Server Error - the server could not process the request. ``error`` is
                 ``RestServiceError | RawError``."""
-        return (await self._with_raw_response.post_stores(body=body, request_options=request_options)).unwrap()
+        return unwrap(await self._with_raw_response.post_stores(body=body, request_options=request_options))
 
     @property
     def with_raw_response(self) -> AsyncAccountStoreLevelWithRawResponse:
@@ -640,7 +668,8 @@ class AccountStoreLevelWithRawResponse(SecuredRawResponse[RawClient, Server, Aut
             page_number: The number of the page to fetch.
             page_size: The number of items to have on a page, maximum 100. The default is 10 items on a page.
             reference: The reference of the store.
-            request_options: Per-call overrides for this one request, such as a timeout or extra headers.
+            request_options: Per-call overrides for this one request, such as a timeout, extra headers, or its retry
+                count and statuses.
 
         Returns:
             An ``ApiResult`` holding the deserialized response or the error body."""
@@ -675,7 +704,8 @@ class AccountStoreLevelWithRawResponse(SecuredRawResponse[RawClient, Server, Aut
         Args:
             merchant_id: The unique identifier of the merchant account.
             store_id: The unique identifier of the store.
-            request_options: Per-call overrides for this one request, such as a timeout or extra headers.
+            request_options: Per-call overrides for this one request, such as a timeout, extra headers, or its retry
+                count and statuses.
 
         Returns:
             An ``ApiResult`` holding the deserialized response or the error body."""
@@ -713,7 +743,8 @@ class AccountStoreLevelWithRawResponse(SecuredRawResponse[RawClient, Server, Aut
             page_size: The number of items to have on a page, maximum 100. The default is 10 items on a page.
             reference: The reference of the store.
             merchant_id: The unique identifier of the merchant account.
-            request_options: Per-call overrides for this one request, such as a timeout or extra headers.
+            request_options: Per-call overrides for this one request, such as a timeout, extra headers, or its retry
+                count and statuses.
 
         Returns:
             An ``ApiResult`` holding the deserialized response or the error body."""
@@ -747,7 +778,8 @@ class AccountStoreLevelWithRawResponse(SecuredRawResponse[RawClient, Server, Aut
 
         Args:
             store_id: The unique identifier of the store.
-            request_options: Per-call overrides for this one request, such as a timeout or extra headers.
+            request_options: Per-call overrides for this one request, such as a timeout, extra headers, or its retry
+                count and statuses.
 
         Returns:
             An ``ApiResult`` holding the deserialized response or the error body."""
@@ -782,7 +814,8 @@ class AccountStoreLevelWithRawResponse(SecuredRawResponse[RawClient, Server, Aut
             merchant_id: The unique identifier of the merchant account.
             store_id: The unique identifier of the store.
             body: The request body.
-            request_options: Per-call overrides for this one request, such as a timeout or extra headers.
+            request_options: Per-call overrides for this one request, such as a timeout, extra headers, or its retry
+                count and statuses.
 
         Returns:
             An ``ApiResult`` holding the deserialized response or the error body."""
@@ -817,7 +850,8 @@ class AccountStoreLevelWithRawResponse(SecuredRawResponse[RawClient, Server, Aut
         Args:
             store_id: The unique identifier of the store.
             body: The request body.
-            request_options: Per-call overrides for this one request, such as a timeout or extra headers.
+            request_options: Per-call overrides for this one request, such as a timeout, extra headers, or its retry
+                count and statuses.
 
         Returns:
             An ``ApiResult`` holding the deserialized response or the error body."""
@@ -852,7 +886,8 @@ class AccountStoreLevelWithRawResponse(SecuredRawResponse[RawClient, Server, Aut
         Args:
             merchant_id: The unique identifier of the merchant account.
             body: The request body.
-            request_options: Per-call overrides for this one request, such as a timeout or extra headers.
+            request_options: Per-call overrides for this one request, such as a timeout, extra headers, or its retry
+                count and statuses.
 
         Returns:
             An ``ApiResult`` holding the deserialized response or the error body."""
@@ -885,7 +920,8 @@ class AccountStoreLevelWithRawResponse(SecuredRawResponse[RawClient, Server, Aut
 
         Args:
             body: The request body.
-            request_options: Per-call overrides for this one request, such as a timeout or extra headers.
+            request_options: Per-call overrides for this one request, such as a timeout, extra headers, or its retry
+                count and statuses.
 
         Returns:
             An ``ApiResult`` holding the deserialized response or the error body."""
@@ -929,7 +965,8 @@ class AsyncAccountStoreLevelWithRawResponse(SecuredRawResponse[AsyncRawClient, S
             page_number: The number of the page to fetch.
             page_size: The number of items to have on a page, maximum 100. The default is 10 items on a page.
             reference: The reference of the store.
-            request_options: Per-call overrides for this one request, such as a timeout or extra headers.
+            request_options: Per-call overrides for this one request, such as a timeout, extra headers, or its retry
+                count and statuses.
 
         Returns:
             An ``ApiResult`` holding the deserialized response or the error body."""
@@ -943,7 +980,7 @@ class AsyncAccountStoreLevelWithRawResponse(SecuredRawResponse[AsyncRawClient, S
                 param[str | None]("reference", reference),
             ],
             auth_scheme=AsyncAnySchemes(self._auth.basic_auth, self._auth.api_key_auth),
-            decoder=json_decoder[ListStoresResponse],
+            decoder=async_json_decoder[ListStoresResponse],
             error_mapper=get_merchants_merchant_id_stores_error_mapper,
             request_options=request_options,
         )
@@ -964,7 +1001,8 @@ class AsyncAccountStoreLevelWithRawResponse(SecuredRawResponse[AsyncRawClient, S
         Args:
             merchant_id: The unique identifier of the merchant account.
             store_id: The unique identifier of the store.
-            request_options: Per-call overrides for this one request, such as a timeout or extra headers.
+            request_options: Per-call overrides for this one request, such as a timeout, extra headers, or its retry
+                count and statuses.
 
         Returns:
             An ``ApiResult`` holding the deserialized response or the error body."""
@@ -973,7 +1011,7 @@ class AsyncAccountStoreLevelWithRawResponse(SecuredRawResponse[AsyncRawClient, S
             url_template=self._server.default9("/merchants/{merchantId}/stores/{storeId}"),
             path_params=[param[str]("merchantId", merchant_id), param[str]("storeId", store_id)],
             auth_scheme=AsyncAnySchemes(self._auth.basic_auth, self._auth.api_key_auth),
-            decoder=json_decoder[Store],
+            decoder=async_json_decoder[Store],
             error_mapper=get_merchants_merchant_id_stores_store_id_error_mapper,
             request_options=request_options,
         )
@@ -1002,7 +1040,8 @@ class AsyncAccountStoreLevelWithRawResponse(SecuredRawResponse[AsyncRawClient, S
             page_size: The number of items to have on a page, maximum 100. The default is 10 items on a page.
             reference: The reference of the store.
             merchant_id: The unique identifier of the merchant account.
-            request_options: Per-call overrides for this one request, such as a timeout or extra headers.
+            request_options: Per-call overrides for this one request, such as a timeout, extra headers, or its retry
+                count and statuses.
 
         Returns:
             An ``ApiResult`` holding the deserialized response or the error body."""
@@ -1016,7 +1055,7 @@ class AsyncAccountStoreLevelWithRawResponse(SecuredRawResponse[AsyncRawClient, S
                 param[str | None]("merchantId", merchant_id),
             ],
             auth_scheme=AsyncAnySchemes(self._auth.basic_auth, self._auth.api_key_auth),
-            decoder=json_decoder[ListStoresResponse],
+            decoder=async_json_decoder[ListStoresResponse],
             error_mapper=get_stores_error_mapper,
             request_options=request_options,
         )
@@ -1036,7 +1075,8 @@ class AsyncAccountStoreLevelWithRawResponse(SecuredRawResponse[AsyncRawClient, S
 
         Args:
             store_id: The unique identifier of the store.
-            request_options: Per-call overrides for this one request, such as a timeout or extra headers.
+            request_options: Per-call overrides for this one request, such as a timeout, extra headers, or its retry
+                count and statuses.
 
         Returns:
             An ``ApiResult`` holding the deserialized response or the error body."""
@@ -1045,7 +1085,7 @@ class AsyncAccountStoreLevelWithRawResponse(SecuredRawResponse[AsyncRawClient, S
             url_template=self._server.default9("/stores/{storeId}"),
             path_params=[param[str]("storeId", store_id)],
             auth_scheme=AsyncAnySchemes(self._auth.basic_auth, self._auth.api_key_auth),
-            decoder=json_decoder[Store],
+            decoder=async_json_decoder[Store],
             error_mapper=get_stores_store_id_error_mapper,
             request_options=request_options,
         )
@@ -1071,7 +1111,8 @@ class AsyncAccountStoreLevelWithRawResponse(SecuredRawResponse[AsyncRawClient, S
             merchant_id: The unique identifier of the merchant account.
             store_id: The unique identifier of the store.
             body: The request body.
-            request_options: Per-call overrides for this one request, such as a timeout or extra headers.
+            request_options: Per-call overrides for this one request, such as a timeout, extra headers, or its retry
+                count and statuses.
 
         Returns:
             An ``ApiResult`` holding the deserialized response or the error body."""
@@ -1082,7 +1123,7 @@ class AsyncAccountStoreLevelWithRawResponse(SecuredRawResponse[AsyncRawClient, S
             headers=[param[UUID]("Idempotency-Key", uuid4())],
             body=json_body[UpdateStoreRequest | UpdateStoreRequestDict | None](body),
             auth_scheme=AsyncAnySchemes(self._auth.basic_auth, self._auth.api_key_auth),
-            decoder=json_decoder[Store],
+            decoder=async_json_decoder[Store],
             error_mapper=patch_merchants_merchant_id_stores_store_id_error_mapper,
             request_options=request_options,
         )
@@ -1106,7 +1147,8 @@ class AsyncAccountStoreLevelWithRawResponse(SecuredRawResponse[AsyncRawClient, S
         Args:
             store_id: The unique identifier of the store.
             body: The request body.
-            request_options: Per-call overrides for this one request, such as a timeout or extra headers.
+            request_options: Per-call overrides for this one request, such as a timeout, extra headers, or its retry
+                count and statuses.
 
         Returns:
             An ``ApiResult`` holding the deserialized response or the error body."""
@@ -1117,7 +1159,7 @@ class AsyncAccountStoreLevelWithRawResponse(SecuredRawResponse[AsyncRawClient, S
             headers=[param[UUID]("Idempotency-Key", uuid4())],
             body=json_body[UpdateStoreRequest | UpdateStoreRequestDict | None](body),
             auth_scheme=AsyncAnySchemes(self._auth.basic_auth, self._auth.api_key_auth),
-            decoder=json_decoder[Store],
+            decoder=async_json_decoder[Store],
             error_mapper=patch_stores_store_id_error_mapper,
             request_options=request_options,
         )
@@ -1141,7 +1183,8 @@ class AsyncAccountStoreLevelWithRawResponse(SecuredRawResponse[AsyncRawClient, S
         Args:
             merchant_id: The unique identifier of the merchant account.
             body: The request body.
-            request_options: Per-call overrides for this one request, such as a timeout or extra headers.
+            request_options: Per-call overrides for this one request, such as a timeout, extra headers, or its retry
+                count and statuses.
 
         Returns:
             An ``ApiResult`` holding the deserialized response or the error body."""
@@ -1152,7 +1195,7 @@ class AsyncAccountStoreLevelWithRawResponse(SecuredRawResponse[AsyncRawClient, S
             headers=[param[UUID]("Idempotency-Key", uuid4())],
             body=json_body[StoreCreationRequest | StoreCreationRequestDict | None](body),
             auth_scheme=AsyncAnySchemes(self._auth.basic_auth, self._auth.api_key_auth),
-            decoder=json_decoder[Store],
+            decoder=async_json_decoder[Store],
             error_mapper=post_merchants_merchant_id_stores_error_mapper,
             request_options=request_options,
         )
@@ -1174,7 +1217,8 @@ class AsyncAccountStoreLevelWithRawResponse(SecuredRawResponse[AsyncRawClient, S
 
         Args:
             body: The request body.
-            request_options: Per-call overrides for this one request, such as a timeout or extra headers.
+            request_options: Per-call overrides for this one request, such as a timeout, extra headers, or its retry
+                count and statuses.
 
         Returns:
             An ``ApiResult`` holding the deserialized response or the error body."""
@@ -1186,7 +1230,7 @@ class AsyncAccountStoreLevelWithRawResponse(SecuredRawResponse[AsyncRawClient, S
                 body
             ),
             auth_scheme=AsyncAnySchemes(self._auth.basic_auth, self._auth.api_key_auth),
-            decoder=json_decoder[Store],
+            decoder=async_json_decoder[Store],
             error_mapper=post_stores_error_mapper,
             request_options=request_options,
         )

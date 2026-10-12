@@ -18,5 +18,5 @@ class MandateBankAccount(SdkBaseModel):
 
 
 class MandateBankAccountDict(TypedDict):
-    account_holder: MandatePartyIdentification2 | MandatePartyIdentification2Dict
-    account_identification: MandateAccountIdentification2 | MandateAccountIdentification2Dict
+    account_holder: MandatePartyIdentification2Dict
+    account_identification: MandateAccountIdentification2Dict

@@ -27,7 +27,7 @@ class PaymentDetails1(SdkBaseModel):
 
 
 class PaymentDetails1Dict(TypedDict):
-    amount: Amount110 | Amount110Dict
-    counterparty: Counterparty11 | Counterparty11Dict
+    amount: Amount110Dict
+    counterparty: Counterparty11Dict
     description: str
     expires_at: RFC3339DateTime

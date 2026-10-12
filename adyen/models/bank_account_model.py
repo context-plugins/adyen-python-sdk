@@ -3,12 +3,12 @@ from __future__ import annotations
 from pydantic import Field
 from typing_extensions import NotRequired, TypedDict
 
-from ..core import UNSET, OptionalNullable, SdkBaseModel
-from .enums.form_factor import FormFactorOrStr
+from ..core import SdkBaseModel
+from .enums.form_factor import FormFactor, FormFactorOrStr
 
 
 class BankAccountModel(SdkBaseModel):
-    form_factor: OptionalNullable[FormFactorOrStr] = Field(default=UNSET, alias="formFactor")
+    form_factor: FormFactorOrStr | None = Field(default=FormFactor.PHYSICAL, alias="formFactor")
     """Business accounts with a ``formFactor`` value of **physical** are business accounts issued under the central bank
     of that country. The default value is **physical** for NL, US, and UK business accounts.
 

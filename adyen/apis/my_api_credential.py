@@ -11,10 +11,13 @@ from ..core import (
     RawClient,
     RequestOptionsOrDict,
     SecuredRawResponse,
+    async_empty_response,
+    async_json_decoder,
     empty_response,
     json_body,
     json_decoder,
     param,
+    unwrap,
 )
 from ..errors.delete_me_allowed_origins_origin_id_error import (
     DeleteMeAllowedOriginsOriginIdErrorBody,
@@ -55,7 +58,8 @@ class MyApiCredential:
 
         Args:
             origin_id: Unique identifier of the allowed origin.
-            request_options: Per-call overrides for this one request, such as a timeout or extra headers.
+            request_options: Per-call overrides for this one request, such as a timeout, extra headers, or its retry
+                count and statuses.
 
         Returns:
             No Content - look at the actual response code for the status of the request.
@@ -65,9 +69,9 @@ class MyApiCredential:
                 required. Forbidden - insufficient permissions to process the request. Unprocessable Entity - a request
                 validation error. Internal Server Error - the server could not process the request. ``error`` is
                 ``RestServiceError | RawError``."""
-        return self._with_raw_response.delete_me_allowed_origins_origin_id(
-            origin_id, request_options=request_options
-        ).unwrap()
+        return unwrap(
+            self._with_raw_response.delete_me_allowed_origins_origin_id(origin_id, request_options=request_options)
+        )
 
     def get_me(self, *, request_options: RequestOptionsOrDict | None = None) -> MeApiCredential:
         """Returns your `API credential <https://docs.adyen.com/development-resources/api-credentials>`__ details based
@@ -76,7 +80,8 @@ class MyApiCredential:
         You can make this request with any of the Management API roles.
 
         Args:
-            request_options: Per-call overrides for this one request, such as a timeout or extra headers.
+            request_options: Per-call overrides for this one request, such as a timeout, extra headers, or its retry
+                count and statuses.
 
         Returns:
             OK - the request has succeeded.
@@ -86,7 +91,7 @@ class MyApiCredential:
                 required. Forbidden - insufficient permissions to process the request. Unprocessable Entity - a request
                 validation error. Internal Server Error - the server could not process the request. ``error`` is
                 ``RestServiceError | RawError``."""
-        return self._with_raw_response.get_me(request_options=request_options).unwrap()
+        return unwrap(self._with_raw_response.get_me(request_options=request_options))
 
     def get_me_allowed_origins(self, *, request_options: RequestOptionsOrDict | None = None) -> AllowedOriginsResponse:
         """Returns the list of `allowed origins
@@ -97,7 +102,8 @@ class MyApiCredential:
         You can make this request with any of the Management API roles.
 
         Args:
-            request_options: Per-call overrides for this one request, such as a timeout or extra headers.
+            request_options: Per-call overrides for this one request, such as a timeout, extra headers, or its retry
+                count and statuses.
 
         Returns:
             OK - the request has succeeded.
@@ -107,7 +113,7 @@ class MyApiCredential:
                 required. Forbidden - insufficient permissions to process the request. Unprocessable Entity - a request
                 validation error. Internal Server Error - the server could not process the request. ``error`` is
                 ``RestServiceError | RawError``."""
-        return self._with_raw_response.get_me_allowed_origins(request_options=request_options).unwrap()
+        return unwrap(self._with_raw_response.get_me_allowed_origins(request_options=request_options))
 
     def get_me_allowed_origins_origin_id(
         self, origin_id: str, *, request_options: RequestOptionsOrDict | None = None
@@ -121,7 +127,8 @@ class MyApiCredential:
 
         Args:
             origin_id: Unique identifier of the allowed origin.
-            request_options: Per-call overrides for this one request, such as a timeout or extra headers.
+            request_options: Per-call overrides for this one request, such as a timeout, extra headers, or its retry
+                count and statuses.
 
         Returns:
             OK - the request has succeeded.
@@ -131,9 +138,9 @@ class MyApiCredential:
                 required. Forbidden - insufficient permissions to process the request. Unprocessable Entity - a request
                 validation error. Internal Server Error - the server could not process the request. ``error`` is
                 ``RestServiceError | RawError``."""
-        return self._with_raw_response.get_me_allowed_origins_origin_id(
-            origin_id, request_options=request_options
-        ).unwrap()
+        return unwrap(
+            self._with_raw_response.get_me_allowed_origins_origin_id(origin_id, request_options=request_options)
+        )
 
     def post_me_allowed_origins(
         self,
@@ -150,7 +157,8 @@ class MyApiCredential:
 
         Args:
             body: The request body.
-            request_options: Per-call overrides for this one request, such as a timeout or extra headers.
+            request_options: Per-call overrides for this one request, such as a timeout, extra headers, or its retry
+                count and statuses.
 
         Returns:
             OK - the request has succeeded.
@@ -160,7 +168,7 @@ class MyApiCredential:
                 required. Forbidden - insufficient permissions to process the request. Unprocessable Entity - a request
                 validation error. Internal Server Error - the server could not process the request. ``error`` is
                 ``RestServiceError | RawError``."""
-        return self._with_raw_response.post_me_allowed_origins(body=body, request_options=request_options).unwrap()
+        return unwrap(self._with_raw_response.post_me_allowed_origins(body=body, request_options=request_options))
 
     def post_me_generate_client_key(
         self, *, request_options: RequestOptionsOrDict | None = None
@@ -174,7 +182,8 @@ class MyApiCredential:
         * Management API—API credentials read and write
 
         Args:
-            request_options: Per-call overrides for this one request, such as a timeout or extra headers.
+            request_options: Per-call overrides for this one request, such as a timeout, extra headers, or its retry
+                count and statuses.
 
         Returns:
             OK - the request has succeeded.
@@ -184,7 +193,7 @@ class MyApiCredential:
                 required. Forbidden - insufficient permissions to process the request. Unprocessable Entity - a request
                 validation error. Internal Server Error - the server could not process the request. ``error`` is
                 ``RestServiceError | RawError``."""
-        return self._with_raw_response.post_me_generate_client_key(request_options=request_options).unwrap()
+        return unwrap(self._with_raw_response.post_me_generate_client_key(request_options=request_options))
 
     @property
     def with_raw_response(self) -> MyApiCredentialWithRawResponse:
@@ -207,7 +216,8 @@ class AsyncMyApiCredential:
 
         Args:
             origin_id: Unique identifier of the allowed origin.
-            request_options: Per-call overrides for this one request, such as a timeout or extra headers.
+            request_options: Per-call overrides for this one request, such as a timeout, extra headers, or its retry
+                count and statuses.
 
         Returns:
             No Content - look at the actual response code for the status of the request.
@@ -217,11 +227,11 @@ class AsyncMyApiCredential:
                 required. Forbidden - insufficient permissions to process the request. Unprocessable Entity - a request
                 validation error. Internal Server Error - the server could not process the request. ``error`` is
                 ``RestServiceError | RawError``."""
-        return (
+        return unwrap(
             await self._with_raw_response.delete_me_allowed_origins_origin_id(
                 origin_id, request_options=request_options
-            )
-        ).unwrap()
+            ),
+        )
 
     async def get_me(self, *, request_options: RequestOptionsOrDict | None = None) -> MeApiCredential:
         """Returns your `API credential <https://docs.adyen.com/development-resources/api-credentials>`__ details based
@@ -230,7 +240,8 @@ class AsyncMyApiCredential:
         You can make this request with any of the Management API roles.
 
         Args:
-            request_options: Per-call overrides for this one request, such as a timeout or extra headers.
+            request_options: Per-call overrides for this one request, such as a timeout, extra headers, or its retry
+                count and statuses.
 
         Returns:
             OK - the request has succeeded.
@@ -240,7 +251,7 @@ class AsyncMyApiCredential:
                 required. Forbidden - insufficient permissions to process the request. Unprocessable Entity - a request
                 validation error. Internal Server Error - the server could not process the request. ``error`` is
                 ``RestServiceError | RawError``."""
-        return (await self._with_raw_response.get_me(request_options=request_options)).unwrap()
+        return unwrap(await self._with_raw_response.get_me(request_options=request_options))
 
     async def get_me_allowed_origins(
         self, *, request_options: RequestOptionsOrDict | None = None
@@ -253,7 +264,8 @@ class AsyncMyApiCredential:
         You can make this request with any of the Management API roles.
 
         Args:
-            request_options: Per-call overrides for this one request, such as a timeout or extra headers.
+            request_options: Per-call overrides for this one request, such as a timeout, extra headers, or its retry
+                count and statuses.
 
         Returns:
             OK - the request has succeeded.
@@ -263,7 +275,7 @@ class AsyncMyApiCredential:
                 required. Forbidden - insufficient permissions to process the request. Unprocessable Entity - a request
                 validation error. Internal Server Error - the server could not process the request. ``error`` is
                 ``RestServiceError | RawError``."""
-        return (await self._with_raw_response.get_me_allowed_origins(request_options=request_options)).unwrap()
+        return unwrap(await self._with_raw_response.get_me_allowed_origins(request_options=request_options))
 
     async def get_me_allowed_origins_origin_id(
         self, origin_id: str, *, request_options: RequestOptionsOrDict | None = None
@@ -277,7 +289,8 @@ class AsyncMyApiCredential:
 
         Args:
             origin_id: Unique identifier of the allowed origin.
-            request_options: Per-call overrides for this one request, such as a timeout or extra headers.
+            request_options: Per-call overrides for this one request, such as a timeout, extra headers, or its retry
+                count and statuses.
 
         Returns:
             OK - the request has succeeded.
@@ -287,9 +300,9 @@ class AsyncMyApiCredential:
                 required. Forbidden - insufficient permissions to process the request. Unprocessable Entity - a request
                 validation error. Internal Server Error - the server could not process the request. ``error`` is
                 ``RestServiceError | RawError``."""
-        return (
+        return unwrap(
             await self._with_raw_response.get_me_allowed_origins_origin_id(origin_id, request_options=request_options)
-        ).unwrap()
+        )
 
     async def post_me_allowed_origins(
         self,
@@ -306,7 +319,8 @@ class AsyncMyApiCredential:
 
         Args:
             body: The request body.
-            request_options: Per-call overrides for this one request, such as a timeout or extra headers.
+            request_options: Per-call overrides for this one request, such as a timeout, extra headers, or its retry
+                count and statuses.
 
         Returns:
             OK - the request has succeeded.
@@ -316,9 +330,7 @@ class AsyncMyApiCredential:
                 required. Forbidden - insufficient permissions to process the request. Unprocessable Entity - a request
                 validation error. Internal Server Error - the server could not process the request. ``error`` is
                 ``RestServiceError | RawError``."""
-        return (
-            await self._with_raw_response.post_me_allowed_origins(body=body, request_options=request_options)
-        ).unwrap()
+        return unwrap(await self._with_raw_response.post_me_allowed_origins(body=body, request_options=request_options))
 
     async def post_me_generate_client_key(
         self, *, request_options: RequestOptionsOrDict | None = None
@@ -332,7 +344,8 @@ class AsyncMyApiCredential:
         * Management API—API credentials read and write
 
         Args:
-            request_options: Per-call overrides for this one request, such as a timeout or extra headers.
+            request_options: Per-call overrides for this one request, such as a timeout, extra headers, or its retry
+                count and statuses.
 
         Returns:
             OK - the request has succeeded.
@@ -342,7 +355,7 @@ class AsyncMyApiCredential:
                 required. Forbidden - insufficient permissions to process the request. Unprocessable Entity - a request
                 validation error. Internal Server Error - the server could not process the request. ``error`` is
                 ``RestServiceError | RawError``."""
-        return (await self._with_raw_response.post_me_generate_client_key(request_options=request_options)).unwrap()
+        return unwrap(await self._with_raw_response.post_me_generate_client_key(request_options=request_options))
 
     @property
     def with_raw_response(self) -> AsyncMyApiCredentialWithRawResponse:
@@ -362,7 +375,8 @@ class MyApiCredentialWithRawResponse(SecuredRawResponse[RawClient, Server, AuthS
 
         Args:
             origin_id: Unique identifier of the allowed origin.
-            request_options: Per-call overrides for this one request, such as a timeout or extra headers.
+            request_options: Per-call overrides for this one request, such as a timeout, extra headers, or its retry
+                count and statuses.
 
         Returns:
             An ``ApiResult`` holding the deserialized response or the error body."""
@@ -386,7 +400,8 @@ class MyApiCredentialWithRawResponse(SecuredRawResponse[RawClient, Server, AuthS
         You can make this request with any of the Management API roles.
 
         Args:
-            request_options: Per-call overrides for this one request, such as a timeout or extra headers.
+            request_options: Per-call overrides for this one request, such as a timeout, extra headers, or its retry
+                count and statuses.
 
         Returns:
             An ``ApiResult`` holding the deserialized response or the error body."""
@@ -410,7 +425,8 @@ class MyApiCredentialWithRawResponse(SecuredRawResponse[RawClient, Server, AuthS
         You can make this request with any of the Management API roles.
 
         Args:
-            request_options: Per-call overrides for this one request, such as a timeout or extra headers.
+            request_options: Per-call overrides for this one request, such as a timeout, extra headers, or its retry
+                count and statuses.
 
         Returns:
             An ``ApiResult`` holding the deserialized response or the error body."""
@@ -435,7 +451,8 @@ class MyApiCredentialWithRawResponse(SecuredRawResponse[RawClient, Server, AuthS
 
         Args:
             origin_id: Unique identifier of the allowed origin.
-            request_options: Per-call overrides for this one request, such as a timeout or extra headers.
+            request_options: Per-call overrides for this one request, such as a timeout, extra headers, or its retry
+                count and statuses.
 
         Returns:
             An ``ApiResult`` holding the deserialized response or the error body."""
@@ -464,7 +481,8 @@ class MyApiCredentialWithRawResponse(SecuredRawResponse[RawClient, Server, AuthS
 
         Args:
             body: The request body.
-            request_options: Per-call overrides for this one request, such as a timeout or extra headers.
+            request_options: Per-call overrides for this one request, such as a timeout, extra headers, or its retry
+                count and statuses.
 
         Returns:
             An ``ApiResult`` holding the deserialized response or the error body."""
@@ -491,7 +509,8 @@ class MyApiCredentialWithRawResponse(SecuredRawResponse[RawClient, Server, AuthS
         * Management API—API credentials read and write
 
         Args:
-            request_options: Per-call overrides for this one request, such as a timeout or extra headers.
+            request_options: Per-call overrides for this one request, such as a timeout, extra headers, or its retry
+                count and statuses.
 
         Returns:
             An ``ApiResult`` holding the deserialized response or the error body."""
@@ -519,7 +538,8 @@ class AsyncMyApiCredentialWithRawResponse(SecuredRawResponse[AsyncRawClient, Ser
 
         Args:
             origin_id: Unique identifier of the allowed origin.
-            request_options: Per-call overrides for this one request, such as a timeout or extra headers.
+            request_options: Per-call overrides for this one request, such as a timeout, extra headers, or its retry
+                count and statuses.
 
         Returns:
             An ``ApiResult`` holding the deserialized response or the error body."""
@@ -529,7 +549,7 @@ class AsyncMyApiCredentialWithRawResponse(SecuredRawResponse[AsyncRawClient, Ser
             path_params=[param[str]("originId", origin_id)],
             headers=[param[UUID]("Idempotency-Key", uuid4())],
             auth_scheme=AsyncAnySchemes(self._auth.basic_auth, self._auth.api_key_auth),
-            decoder=empty_response,
+            decoder=async_empty_response,
             error_mapper=delete_me_allowed_origins_origin_id_error_mapper,
             request_options=request_options,
         )
@@ -543,7 +563,8 @@ class AsyncMyApiCredentialWithRawResponse(SecuredRawResponse[AsyncRawClient, Ser
         You can make this request with any of the Management API roles.
 
         Args:
-            request_options: Per-call overrides for this one request, such as a timeout or extra headers.
+            request_options: Per-call overrides for this one request, such as a timeout, extra headers, or its retry
+                count and statuses.
 
         Returns:
             An ``ApiResult`` holding the deserialized response or the error body."""
@@ -551,7 +572,7 @@ class AsyncMyApiCredentialWithRawResponse(SecuredRawResponse[AsyncRawClient, Ser
             http_method="GET",
             url_template=self._server.default9("/me"),
             auth_scheme=AsyncAnySchemes(self._auth.basic_auth, self._auth.api_key_auth),
-            decoder=json_decoder[MeApiCredential],
+            decoder=async_json_decoder[MeApiCredential],
             error_mapper=get_me_error_mapper,
             request_options=request_options,
         )
@@ -567,7 +588,8 @@ class AsyncMyApiCredentialWithRawResponse(SecuredRawResponse[AsyncRawClient, Ser
         You can make this request with any of the Management API roles.
 
         Args:
-            request_options: Per-call overrides for this one request, such as a timeout or extra headers.
+            request_options: Per-call overrides for this one request, such as a timeout, extra headers, or its retry
+                count and statuses.
 
         Returns:
             An ``ApiResult`` holding the deserialized response or the error body."""
@@ -575,7 +597,7 @@ class AsyncMyApiCredentialWithRawResponse(SecuredRawResponse[AsyncRawClient, Ser
             http_method="GET",
             url_template=self._server.default9("/me/allowedOrigins"),
             auth_scheme=AsyncAnySchemes(self._auth.basic_auth, self._auth.api_key_auth),
-            decoder=json_decoder[AllowedOriginsResponse],
+            decoder=async_json_decoder[AllowedOriginsResponse],
             error_mapper=get_me_allowed_origins_error_mapper,
             request_options=request_options,
         )
@@ -592,7 +614,8 @@ class AsyncMyApiCredentialWithRawResponse(SecuredRawResponse[AsyncRawClient, Ser
 
         Args:
             origin_id: Unique identifier of the allowed origin.
-            request_options: Per-call overrides for this one request, such as a timeout or extra headers.
+            request_options: Per-call overrides for this one request, such as a timeout, extra headers, or its retry
+                count and statuses.
 
         Returns:
             An ``ApiResult`` holding the deserialized response or the error body."""
@@ -601,7 +624,7 @@ class AsyncMyApiCredentialWithRawResponse(SecuredRawResponse[AsyncRawClient, Ser
             url_template=self._server.default9("/me/allowedOrigins/{originId}"),
             path_params=[param[str]("originId", origin_id)],
             auth_scheme=AsyncAnySchemes(self._auth.basic_auth, self._auth.api_key_auth),
-            decoder=json_decoder[AllowedOrigin],
+            decoder=async_json_decoder[AllowedOrigin],
             error_mapper=get_me_allowed_origins_origin_id_error_mapper,
             request_options=request_options,
         )
@@ -621,7 +644,8 @@ class AsyncMyApiCredentialWithRawResponse(SecuredRawResponse[AsyncRawClient, Ser
 
         Args:
             body: The request body.
-            request_options: Per-call overrides for this one request, such as a timeout or extra headers.
+            request_options: Per-call overrides for this one request, such as a timeout, extra headers, or its retry
+                count and statuses.
 
         Returns:
             An ``ApiResult`` holding the deserialized response or the error body."""
@@ -631,7 +655,7 @@ class AsyncMyApiCredentialWithRawResponse(SecuredRawResponse[AsyncRawClient, Ser
             headers=[param[UUID]("Idempotency-Key", uuid4())],
             body=json_body[CreateAllowedOriginRequest | CreateAllowedOriginRequestDict | None](body),
             auth_scheme=AsyncAnySchemes(self._auth.basic_auth, self._auth.api_key_auth),
-            decoder=json_decoder[AllowedOrigin],
+            decoder=async_json_decoder[AllowedOrigin],
             error_mapper=post_me_allowed_origins_error_mapper,
             request_options=request_options,
         )
@@ -648,7 +672,8 @@ class AsyncMyApiCredentialWithRawResponse(SecuredRawResponse[AsyncRawClient, Ser
         * Management API—API credentials read and write
 
         Args:
-            request_options: Per-call overrides for this one request, such as a timeout or extra headers.
+            request_options: Per-call overrides for this one request, such as a timeout, extra headers, or its retry
+                count and statuses.
 
         Returns:
             An ``ApiResult`` holding the deserialized response or the error body."""
@@ -657,7 +682,7 @@ class AsyncMyApiCredentialWithRawResponse(SecuredRawResponse[AsyncRawClient, Ser
             url_template=self._server.default9("/me/generateClientKey"),
             headers=[param[UUID]("Idempotency-Key", uuid4())],
             auth_scheme=AsyncAnySchemes(self._auth.basic_auth, self._auth.api_key_auth),
-            decoder=json_decoder[GenerateClientKeyResponse],
+            decoder=async_json_decoder[GenerateClientKeyResponse],
             error_mapper=post_me_generate_client_key_error_mapper,
             request_options=request_options,
         )

@@ -12,4 +12,4 @@ class Fee(SdkBaseModel):
 
 
 class FeeDict(TypedDict):
-    amount: Amount17 | Amount17Dict
+    amount: Amount17Dict

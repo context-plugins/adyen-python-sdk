@@ -11,10 +11,13 @@ from ..core import (
     RawClient,
     RequestOptionsOrDict,
     SecuredRawResponse,
+    async_empty_response,
+    async_json_decoder,
     empty_response,
     json_body,
     json_decoder,
     param,
+    unwrap,
 )
 from ..errors.get_merchants_merchant_id_payment_method_settings_error import (
     GetMerchantsMerchantIdPaymentMethodSettingsErrorBody,
@@ -75,7 +78,8 @@ class PaymentMethodsMerchantLevel:
             business_line_id: The unique identifier of the Business Line for which to return the payment methods.
             page_size: The number of items to have on a page, maximum 100. The default is 10 items on a page.
             page_number: The number of the page to fetch.
-            request_options: Per-call overrides for this one request, such as a timeout or extra headers.
+            request_options: Per-call overrides for this one request, such as a timeout, extra headers, or its retry
+                count and statuses.
 
         Returns:
             OK - the request has succeeded.
@@ -85,14 +89,16 @@ class PaymentMethodsMerchantLevel:
                 required. Forbidden - insufficient permissions to process the request. Unprocessable Entity - a request
                 validation error. Internal Server Error - the server could not process the request. ``error`` is
                 ``RestServiceError | RawError``."""
-        return self._with_raw_response.get_merchants_merchant_id_payment_method_settings(
-            merchant_id,
-            store_id=store_id,
-            business_line_id=business_line_id,
-            page_size=page_size,
-            page_number=page_number,
-            request_options=request_options,
-        ).unwrap()
+        return unwrap(
+            self._with_raw_response.get_merchants_merchant_id_payment_method_settings(
+                merchant_id,
+                store_id=store_id,
+                business_line_id=business_line_id,
+                page_size=page_size,
+                page_number=page_number,
+                request_options=request_options,
+            ),
+        )
 
     def get_merchants_merchant_id_payment_method_settings_payment_method_id(
         self, merchant_id: str, payment_method_id: str, *, request_options: RequestOptionsOrDict | None = None
@@ -106,7 +112,8 @@ class PaymentMethodsMerchantLevel:
         Args:
             merchant_id: The unique identifier of the merchant account.
             payment_method_id: The unique identifier of the payment method.
-            request_options: Per-call overrides for this one request, such as a timeout or extra headers.
+            request_options: Per-call overrides for this one request, such as a timeout, extra headers, or its retry
+                count and statuses.
 
         Returns:
             OK - the request has succeeded.
@@ -116,9 +123,11 @@ class PaymentMethodsMerchantLevel:
                 required. Forbidden - insufficient permissions to process the request. Unprocessable Entity - a request
                 validation error. Internal Server Error - the server could not process the request. ``error`` is
                 ``RestServiceError | RawError``."""
-        return self._with_raw_response.get_merchants_merchant_id_payment_method_settings_payment_method_id(
-            merchant_id, payment_method_id, request_options=request_options
-        ).unwrap()
+        return unwrap(
+            self._with_raw_response.get_merchants_merchant_id_payment_method_settings_payment_method_id(
+                merchant_id, payment_method_id, request_options=request_options
+            ),
+        )
 
     def get_merchants_merchant_id_payment_method_settings_payment_method_id_get_apple_pay_domains(
         self, merchant_id: str, payment_method_id: str, *, request_options: RequestOptionsOrDict | None = None
@@ -134,7 +143,8 @@ class PaymentMethodsMerchantLevel:
         Args:
             merchant_id: The unique identifier of the merchant account.
             payment_method_id: The unique identifier of the payment method.
-            request_options: Per-call overrides for this one request, such as a timeout or extra headers.
+            request_options: Per-call overrides for this one request, such as a timeout, extra headers, or its retry
+                count and statuses.
 
         Returns:
             OK - the request has succeeded.
@@ -144,9 +154,11 @@ class PaymentMethodsMerchantLevel:
                 required. Forbidden - insufficient permissions to process the request. Unprocessable Entity - a request
                 validation error. Internal Server Error - the server could not process the request. ``error`` is
                 ``RestServiceError | RawError``."""
-        return self._with_raw_response.get_merchants_merchant_id_payment_method_settings_payment_method_id_get_apple_pay_domains(
-            merchant_id, payment_method_id, request_options=request_options
-        ).unwrap()
+        return unwrap(
+            self._with_raw_response.get_merchants_merchant_id_payment_method_settings_payment_method_id_get_apple_pay_domains(
+                merchant_id, payment_method_id, request_options=request_options
+            ),
+        )
 
     def patch_merchants_merchant_id_payment_method_settings_payment_method_id(
         self,
@@ -169,7 +181,8 @@ class PaymentMethodsMerchantLevel:
             merchant_id: The unique identifier of the merchant account.
             payment_method_id: The unique identifier of the payment method.
             body: The request body.
-            request_options: Per-call overrides for this one request, such as a timeout or extra headers.
+            request_options: Per-call overrides for this one request, such as a timeout, extra headers, or its retry
+                count and statuses.
 
         Returns:
             OK - the request has succeeded.
@@ -179,9 +192,11 @@ class PaymentMethodsMerchantLevel:
                 required. Forbidden - insufficient permissions to process the request. Unprocessable Entity - a request
                 validation error. Internal Server Error - the server could not process the request. ``error`` is
                 ``RestServiceError | RawError``."""
-        return self._with_raw_response.patch_merchants_merchant_id_payment_method_settings_payment_method_id(
-            merchant_id, payment_method_id, body=body, request_options=request_options
-        ).unwrap()
+        return unwrap(
+            self._with_raw_response.patch_merchants_merchant_id_payment_method_settings_payment_method_id(
+                merchant_id, payment_method_id, body=body, request_options=request_options
+            ),
+        )
 
     def post_merchants_merchant_id_payment_method_settings(
         self,
@@ -202,7 +217,8 @@ class PaymentMethodsMerchantLevel:
         Args:
             merchant_id: The unique identifier of the merchant account.
             body: The request body.
-            request_options: Per-call overrides for this one request, such as a timeout or extra headers.
+            request_options: Per-call overrides for this one request, such as a timeout, extra headers, or its retry
+                count and statuses.
 
         Returns:
             OK - the request has succeeded.
@@ -212,9 +228,11 @@ class PaymentMethodsMerchantLevel:
                 required. Forbidden - insufficient permissions to process the request. Unprocessable Entity - a request
                 validation error. Internal Server Error - the server could not process the request. ``error`` is
                 ``RestServiceError | RawError``."""
-        return self._with_raw_response.post_merchants_merchant_id_payment_method_settings(
-            merchant_id, body=body, request_options=request_options
-        ).unwrap()
+        return unwrap(
+            self._with_raw_response.post_merchants_merchant_id_payment_method_settings(
+                merchant_id, body=body, request_options=request_options
+            ),
+        )
 
     def post_merchants_merchant_id_payment_method_settings_payment_method_id_add_apple_pay_domains(
         self,
@@ -236,7 +254,8 @@ class PaymentMethodsMerchantLevel:
             merchant_id: The unique identifier of the merchant account.
             payment_method_id: The unique identifier of the payment method.
             body: The request body.
-            request_options: Per-call overrides for this one request, such as a timeout or extra headers.
+            request_options: Per-call overrides for this one request, such as a timeout, extra headers, or its retry
+                count and statuses.
 
         Returns:
             No Content - look at the actual response code for the status of the request.
@@ -246,9 +265,11 @@ class PaymentMethodsMerchantLevel:
                 required. Forbidden - insufficient permissions to process the request. Unprocessable Entity - a request
                 validation error. Internal Server Error - the server could not process the request. ``error`` is
                 ``RestServiceError | RawError``."""
-        return self._with_raw_response.post_merchants_merchant_id_payment_method_settings_payment_method_id_add_apple_pay_domains(
-            merchant_id, payment_method_id, body=body, request_options=request_options
-        ).unwrap()
+        return unwrap(
+            self._with_raw_response.post_merchants_merchant_id_payment_method_settings_payment_method_id_add_apple_pay_domains(
+                merchant_id, payment_method_id, body=body, request_options=request_options
+            ),
+        )
 
     @property
     def with_raw_response(self) -> PaymentMethodsMerchantLevelWithRawResponse:
@@ -281,7 +302,8 @@ class AsyncPaymentMethodsMerchantLevel:
             business_line_id: The unique identifier of the Business Line for which to return the payment methods.
             page_size: The number of items to have on a page, maximum 100. The default is 10 items on a page.
             page_number: The number of the page to fetch.
-            request_options: Per-call overrides for this one request, such as a timeout or extra headers.
+            request_options: Per-call overrides for this one request, such as a timeout, extra headers, or its retry
+                count and statuses.
 
         Returns:
             OK - the request has succeeded.
@@ -291,7 +313,7 @@ class AsyncPaymentMethodsMerchantLevel:
                 required. Forbidden - insufficient permissions to process the request. Unprocessable Entity - a request
                 validation error. Internal Server Error - the server could not process the request. ``error`` is
                 ``RestServiceError | RawError``."""
-        return (
+        return unwrap(
             await self._with_raw_response.get_merchants_merchant_id_payment_method_settings(
                 merchant_id,
                 store_id=store_id,
@@ -299,8 +321,8 @@ class AsyncPaymentMethodsMerchantLevel:
                 page_size=page_size,
                 page_number=page_number,
                 request_options=request_options,
-            )
-        ).unwrap()
+            ),
+        )
 
     async def get_merchants_merchant_id_payment_method_settings_payment_method_id(
         self, merchant_id: str, payment_method_id: str, *, request_options: RequestOptionsOrDict | None = None
@@ -314,7 +336,8 @@ class AsyncPaymentMethodsMerchantLevel:
         Args:
             merchant_id: The unique identifier of the merchant account.
             payment_method_id: The unique identifier of the payment method.
-            request_options: Per-call overrides for this one request, such as a timeout or extra headers.
+            request_options: Per-call overrides for this one request, such as a timeout, extra headers, or its retry
+                count and statuses.
 
         Returns:
             OK - the request has succeeded.
@@ -324,11 +347,11 @@ class AsyncPaymentMethodsMerchantLevel:
                 required. Forbidden - insufficient permissions to process the request. Unprocessable Entity - a request
                 validation error. Internal Server Error - the server could not process the request. ``error`` is
                 ``RestServiceError | RawError``."""
-        return (
+        return unwrap(
             await self._with_raw_response.get_merchants_merchant_id_payment_method_settings_payment_method_id(
                 merchant_id, payment_method_id, request_options=request_options
-            )
-        ).unwrap()
+            ),
+        )
 
     async def get_merchants_merchant_id_payment_method_settings_payment_method_id_get_apple_pay_domains(
         self, merchant_id: str, payment_method_id: str, *, request_options: RequestOptionsOrDict | None = None
@@ -344,7 +367,8 @@ class AsyncPaymentMethodsMerchantLevel:
         Args:
             merchant_id: The unique identifier of the merchant account.
             payment_method_id: The unique identifier of the payment method.
-            request_options: Per-call overrides for this one request, such as a timeout or extra headers.
+            request_options: Per-call overrides for this one request, such as a timeout, extra headers, or its retry
+                count and statuses.
 
         Returns:
             OK - the request has succeeded.
@@ -354,11 +378,11 @@ class AsyncPaymentMethodsMerchantLevel:
                 required. Forbidden - insufficient permissions to process the request. Unprocessable Entity - a request
                 validation error. Internal Server Error - the server could not process the request. ``error`` is
                 ``RestServiceError | RawError``."""
-        return (
+        return unwrap(
             await self._with_raw_response.get_merchants_merchant_id_payment_method_settings_payment_method_id_get_apple_pay_domains(
                 merchant_id, payment_method_id, request_options=request_options
-            )
-        ).unwrap()
+            ),
+        )
 
     async def patch_merchants_merchant_id_payment_method_settings_payment_method_id(
         self,
@@ -381,7 +405,8 @@ class AsyncPaymentMethodsMerchantLevel:
             merchant_id: The unique identifier of the merchant account.
             payment_method_id: The unique identifier of the payment method.
             body: The request body.
-            request_options: Per-call overrides for this one request, such as a timeout or extra headers.
+            request_options: Per-call overrides for this one request, such as a timeout, extra headers, or its retry
+                count and statuses.
 
         Returns:
             OK - the request has succeeded.
@@ -391,11 +416,11 @@ class AsyncPaymentMethodsMerchantLevel:
                 required. Forbidden - insufficient permissions to process the request. Unprocessable Entity - a request
                 validation error. Internal Server Error - the server could not process the request. ``error`` is
                 ``RestServiceError | RawError``."""
-        return (
+        return unwrap(
             await self._with_raw_response.patch_merchants_merchant_id_payment_method_settings_payment_method_id(
                 merchant_id, payment_method_id, body=body, request_options=request_options
-            )
-        ).unwrap()
+            ),
+        )
 
     async def post_merchants_merchant_id_payment_method_settings(
         self,
@@ -416,7 +441,8 @@ class AsyncPaymentMethodsMerchantLevel:
         Args:
             merchant_id: The unique identifier of the merchant account.
             body: The request body.
-            request_options: Per-call overrides for this one request, such as a timeout or extra headers.
+            request_options: Per-call overrides for this one request, such as a timeout, extra headers, or its retry
+                count and statuses.
 
         Returns:
             OK - the request has succeeded.
@@ -426,11 +452,11 @@ class AsyncPaymentMethodsMerchantLevel:
                 required. Forbidden - insufficient permissions to process the request. Unprocessable Entity - a request
                 validation error. Internal Server Error - the server could not process the request. ``error`` is
                 ``RestServiceError | RawError``."""
-        return (
+        return unwrap(
             await self._with_raw_response.post_merchants_merchant_id_payment_method_settings(
                 merchant_id, body=body, request_options=request_options
-            )
-        ).unwrap()
+            ),
+        )
 
     async def post_merchants_merchant_id_payment_method_settings_payment_method_id_add_apple_pay_domains(
         self,
@@ -452,7 +478,8 @@ class AsyncPaymentMethodsMerchantLevel:
             merchant_id: The unique identifier of the merchant account.
             payment_method_id: The unique identifier of the payment method.
             body: The request body.
-            request_options: Per-call overrides for this one request, such as a timeout or extra headers.
+            request_options: Per-call overrides for this one request, such as a timeout, extra headers, or its retry
+                count and statuses.
 
         Returns:
             No Content - look at the actual response code for the status of the request.
@@ -462,11 +489,11 @@ class AsyncPaymentMethodsMerchantLevel:
                 required. Forbidden - insufficient permissions to process the request. Unprocessable Entity - a request
                 validation error. Internal Server Error - the server could not process the request. ``error`` is
                 ``RestServiceError | RawError``."""
-        return (
+        return unwrap(
             await self._with_raw_response.post_merchants_merchant_id_payment_method_settings_payment_method_id_add_apple_pay_domains(
                 merchant_id, payment_method_id, body=body, request_options=request_options
-            )
-        ).unwrap()
+            ),
+        )
 
     @property
     def with_raw_response(self) -> AsyncPaymentMethodsMerchantLevelWithRawResponse:
@@ -496,7 +523,8 @@ class PaymentMethodsMerchantLevelWithRawResponse(SecuredRawResponse[RawClient, S
             business_line_id: The unique identifier of the Business Line for which to return the payment methods.
             page_size: The number of items to have on a page, maximum 100. The default is 10 items on a page.
             page_number: The number of the page to fetch.
-            request_options: Per-call overrides for this one request, such as a timeout or extra headers.
+            request_options: Per-call overrides for this one request, such as a timeout, extra headers, or its retry
+                count and statuses.
 
         Returns:
             An ``ApiResult`` holding the deserialized response or the error body."""
@@ -528,7 +556,8 @@ class PaymentMethodsMerchantLevelWithRawResponse(SecuredRawResponse[RawClient, S
         Args:
             merchant_id: The unique identifier of the merchant account.
             payment_method_id: The unique identifier of the payment method.
-            request_options: Per-call overrides for this one request, such as a timeout or extra headers.
+            request_options: Per-call overrides for this one request, such as a timeout, extra headers, or its retry
+                count and statuses.
 
         Returns:
             An ``ApiResult`` holding the deserialized response or the error body."""
@@ -558,7 +587,8 @@ class PaymentMethodsMerchantLevelWithRawResponse(SecuredRawResponse[RawClient, S
         Args:
             merchant_id: The unique identifier of the merchant account.
             payment_method_id: The unique identifier of the payment method.
-            request_options: Per-call overrides for this one request, such as a timeout or extra headers.
+            request_options: Per-call overrides for this one request, such as a timeout, extra headers, or its retry
+                count and statuses.
 
         Returns:
             An ``ApiResult`` holding the deserialized response or the error body."""
@@ -595,7 +625,8 @@ class PaymentMethodsMerchantLevelWithRawResponse(SecuredRawResponse[RawClient, S
             merchant_id: The unique identifier of the merchant account.
             payment_method_id: The unique identifier of the payment method.
             body: The request body.
-            request_options: Per-call overrides for this one request, such as a timeout or extra headers.
+            request_options: Per-call overrides for this one request, such as a timeout, extra headers, or its retry
+                count and statuses.
 
         Returns:
             An ``ApiResult`` holding the deserialized response or the error body."""
@@ -630,7 +661,8 @@ class PaymentMethodsMerchantLevelWithRawResponse(SecuredRawResponse[RawClient, S
         Args:
             merchant_id: The unique identifier of the merchant account.
             body: The request body.
-            request_options: Per-call overrides for this one request, such as a timeout or extra headers.
+            request_options: Per-call overrides for this one request, such as a timeout, extra headers, or its retry
+                count and statuses.
 
         Returns:
             An ``ApiResult`` holding the deserialized response or the error body."""
@@ -666,7 +698,8 @@ class PaymentMethodsMerchantLevelWithRawResponse(SecuredRawResponse[RawClient, S
             merchant_id: The unique identifier of the merchant account.
             payment_method_id: The unique identifier of the payment method.
             body: The request body.
-            request_options: Per-call overrides for this one request, such as a timeout or extra headers.
+            request_options: Per-call overrides for this one request, such as a timeout, extra headers, or its retry
+                count and statuses.
 
         Returns:
             An ``ApiResult`` holding the deserialized response or the error body."""
@@ -708,7 +741,8 @@ class AsyncPaymentMethodsMerchantLevelWithRawResponse(SecuredRawResponse[AsyncRa
             business_line_id: The unique identifier of the Business Line for which to return the payment methods.
             page_size: The number of items to have on a page, maximum 100. The default is 10 items on a page.
             page_number: The number of the page to fetch.
-            request_options: Per-call overrides for this one request, such as a timeout or extra headers.
+            request_options: Per-call overrides for this one request, such as a timeout, extra headers, or its retry
+                count and statuses.
 
         Returns:
             An ``ApiResult`` holding the deserialized response or the error body."""
@@ -723,7 +757,7 @@ class AsyncPaymentMethodsMerchantLevelWithRawResponse(SecuredRawResponse[AsyncRa
                 param[int | None]("pageNumber", page_number),
             ],
             auth_scheme=AsyncAnySchemes(self._auth.basic_auth, self._auth.api_key_auth),
-            decoder=json_decoder[PaymentMethodResponse],
+            decoder=async_json_decoder[PaymentMethodResponse],
             error_mapper=get_merchants_merchant_id_payment_method_settings_error_mapper,
             request_options=request_options,
         )
@@ -740,7 +774,8 @@ class AsyncPaymentMethodsMerchantLevelWithRawResponse(SecuredRawResponse[AsyncRa
         Args:
             merchant_id: The unique identifier of the merchant account.
             payment_method_id: The unique identifier of the payment method.
-            request_options: Per-call overrides for this one request, such as a timeout or extra headers.
+            request_options: Per-call overrides for this one request, such as a timeout, extra headers, or its retry
+                count and statuses.
 
         Returns:
             An ``ApiResult`` holding the deserialized response or the error body."""
@@ -749,7 +784,7 @@ class AsyncPaymentMethodsMerchantLevelWithRawResponse(SecuredRawResponse[AsyncRa
             url_template=self._server.default9("/merchants/{merchantId}/paymentMethodSettings/{paymentMethodId}"),
             path_params=[param[str]("merchantId", merchant_id), param[str]("paymentMethodId", payment_method_id)],
             auth_scheme=AsyncAnySchemes(self._auth.basic_auth, self._auth.api_key_auth),
-            decoder=json_decoder[ManagementPaymentMethod],
+            decoder=async_json_decoder[ManagementPaymentMethod],
             error_mapper=get_merchants_merchant_id_payment_method_settings_payment_method_id_error_mapper,
             request_options=request_options,
         )
@@ -770,7 +805,8 @@ class AsyncPaymentMethodsMerchantLevelWithRawResponse(SecuredRawResponse[AsyncRa
         Args:
             merchant_id: The unique identifier of the merchant account.
             payment_method_id: The unique identifier of the payment method.
-            request_options: Per-call overrides for this one request, such as a timeout or extra headers.
+            request_options: Per-call overrides for this one request, such as a timeout, extra headers, or its retry
+                count and statuses.
 
         Returns:
             An ``ApiResult`` holding the deserialized response or the error body."""
@@ -781,7 +817,7 @@ class AsyncPaymentMethodsMerchantLevelWithRawResponse(SecuredRawResponse[AsyncRa
             ),
             path_params=[param[str]("merchantId", merchant_id), param[str]("paymentMethodId", payment_method_id)],
             auth_scheme=AsyncAnySchemes(self._auth.basic_auth, self._auth.api_key_auth),
-            decoder=json_decoder[ApplePayResponseInfo],
+            decoder=async_json_decoder[ApplePayResponseInfo],
             error_mapper=get_merchants_merchant_id_payment_method_settings_payment_method_id_get_apple_pay_domains_error_mapper,
             request_options=request_options,
         )
@@ -807,7 +843,8 @@ class AsyncPaymentMethodsMerchantLevelWithRawResponse(SecuredRawResponse[AsyncRa
             merchant_id: The unique identifier of the merchant account.
             payment_method_id: The unique identifier of the payment method.
             body: The request body.
-            request_options: Per-call overrides for this one request, such as a timeout or extra headers.
+            request_options: Per-call overrides for this one request, such as a timeout, extra headers, or its retry
+                count and statuses.
 
         Returns:
             An ``ApiResult`` holding the deserialized response or the error body."""
@@ -818,7 +855,7 @@ class AsyncPaymentMethodsMerchantLevelWithRawResponse(SecuredRawResponse[AsyncRa
             headers=[param[UUID]("Idempotency-Key", uuid4())],
             body=json_body[UpdatePaymentMethodInfo | UpdatePaymentMethodInfoDict | None](body),
             auth_scheme=AsyncAnySchemes(self._auth.basic_auth, self._auth.api_key_auth),
-            decoder=json_decoder[ManagementPaymentMethod],
+            decoder=async_json_decoder[ManagementPaymentMethod],
             error_mapper=patch_merchants_merchant_id_payment_method_settings_payment_method_id_error_mapper,
             request_options=request_options,
         )
@@ -842,7 +879,8 @@ class AsyncPaymentMethodsMerchantLevelWithRawResponse(SecuredRawResponse[AsyncRa
         Args:
             merchant_id: The unique identifier of the merchant account.
             body: The request body.
-            request_options: Per-call overrides for this one request, such as a timeout or extra headers.
+            request_options: Per-call overrides for this one request, such as a timeout, extra headers, or its retry
+                count and statuses.
 
         Returns:
             An ``ApiResult`` holding the deserialized response or the error body."""
@@ -853,7 +891,7 @@ class AsyncPaymentMethodsMerchantLevelWithRawResponse(SecuredRawResponse[AsyncRa
             headers=[param[UUID]("Idempotency-Key", uuid4())],
             body=json_body[PaymentMethodSetupInfo | PaymentMethodSetupInfoDict | None](body),
             auth_scheme=AsyncAnySchemes(self._auth.basic_auth, self._auth.api_key_auth),
-            decoder=json_decoder[ManagementPaymentMethod],
+            decoder=async_json_decoder[ManagementPaymentMethod],
             error_mapper=post_merchants_merchant_id_payment_method_settings_error_mapper,
             request_options=request_options,
         )
@@ -878,7 +916,8 @@ class AsyncPaymentMethodsMerchantLevelWithRawResponse(SecuredRawResponse[AsyncRa
             merchant_id: The unique identifier of the merchant account.
             payment_method_id: The unique identifier of the payment method.
             body: The request body.
-            request_options: Per-call overrides for this one request, such as a timeout or extra headers.
+            request_options: Per-call overrides for this one request, such as a timeout, extra headers, or its retry
+                count and statuses.
 
         Returns:
             An ``ApiResult`` holding the deserialized response or the error body."""
@@ -891,7 +930,7 @@ class AsyncPaymentMethodsMerchantLevelWithRawResponse(SecuredRawResponse[AsyncRa
             headers=[param[UUID]("Idempotency-Key", uuid4())],
             body=json_body[ApplePayInfo | ApplePayInfoDict | None](body),
             auth_scheme=AsyncAnySchemes(self._auth.basic_auth, self._auth.api_key_auth),
-            decoder=empty_response,
+            decoder=async_empty_response,
             error_mapper=post_merchants_merchant_id_payment_method_settings_payment_method_id_add_apple_pay_domains_error_mapper,
             request_options=request_options,
         )

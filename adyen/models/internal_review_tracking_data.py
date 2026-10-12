@@ -39,4 +39,4 @@ class InternalReviewTrackingData(SdkBaseModel):
 class InternalReviewTrackingDataDict(TypedDict):
     reason: NotRequired[Reason11OrStr]
     status: Status44OrStr
-    type_: NotRequired[Literal["internalReview"]]
+    type_: Literal["internalReview"]

@@ -49,8 +49,8 @@ class DonationCampaign1Dict(TypedDict):
     activated_at: NotRequired[RFC3339DateTime]
     ended_at: NotRequired[RFC3339DateTime]
     id: str
-    in_person: NotRequired[InPersonDonationSettingsResponse2 | InPersonDonationSettingsResponse2Dict]
+    in_person: NotRequired[InPersonDonationSettingsResponse2Dict]
     name: str
-    nonprofit_cause: DonationCampaignNonprofitCause2 | DonationCampaignNonprofitCause2Dict
-    online: NotRequired[OnlineDonationSettingsResponse2 | OnlineDonationSettingsResponse2Dict]
+    nonprofit_cause: DonationCampaignNonprofitCause2Dict
+    online: NotRequired[OnlineDonationSettingsResponse2Dict]
     status: DonationCampaignStatus2OrStr

@@ -40,6 +40,6 @@ class UpdateMerchantUserRequestDict(TypedDict):
     active: NotRequired[bool]
     email: NotRequired[str]
     login_method: NotRequired[str]
-    name: NotRequired[Name22 | Name22Dict]
+    name: NotRequired[Name22Dict]
     roles: NotRequired[list[str]]
     time_zone_code: NotRequired[str]

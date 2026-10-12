@@ -17,5 +17,5 @@ class Counterparty(SdkBaseModel):
 
 
 class CounterpartyDict(TypedDict):
-    bank_account: NotRequired[BankAccount11 | BankAccount11Dict]
+    bank_account: NotRequired[BankAccount11Dict]
     transfer_instrument_id: NotRequired[str]

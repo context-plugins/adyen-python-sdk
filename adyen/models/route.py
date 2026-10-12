@@ -18,4 +18,4 @@ class Route(SdkBaseModel):
 
 class RouteDict(TypedDict):
     link: str
-    provider: Provider2 | Provider2Dict
+    provider: Provider2Dict

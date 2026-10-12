@@ -44,4 +44,4 @@ class UpiIntentDict(TypedDict):
     sdk_data: NotRequired[str]
     shopper_notification_reference: NotRequired[str]
     stored_payment_method_id: NotRequired[str]
-    type_: NotRequired[Literal["upi_intent"]]
+    type_: Literal["upi_intent"]

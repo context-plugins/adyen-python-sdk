@@ -18,5 +18,5 @@ class Airline11(SdkBaseModel):
 
 
 class Airline11Dict(TypedDict):
-    legs: NotRequired[list[Leg1 | Leg1Dict]]
+    legs: NotRequired[list[Leg1Dict]]
     ticket_number: NotRequired[str]

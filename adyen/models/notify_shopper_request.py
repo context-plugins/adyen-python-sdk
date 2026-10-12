@@ -40,7 +40,7 @@ class NotifyShopperRequest(SdkBaseModel):
 
 
 class NotifyShopperRequestDict(TypedDict):
-    amount: Amount | AmountDict
+    amount: AmountDict
     billing_date: NotRequired[str]
     billing_sequence_number: NotRequired[str]
     displayed_reference: NotRequired[str]

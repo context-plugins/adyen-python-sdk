@@ -23,7 +23,7 @@ class ContactDetails(SdkBaseModel):
 
 
 class ContactDetailsDict(TypedDict):
-    address: Address | AddressDict
+    address: AddressDict
     email: str
-    phone: Phone31 | Phone31Dict
+    phone: Phone31Dict
     web_address: NotRequired[str]

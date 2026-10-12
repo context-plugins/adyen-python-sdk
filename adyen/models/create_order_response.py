@@ -52,12 +52,12 @@ class CreateOrderResponse(SdkBaseModel):
 
 class CreateOrderResponseDict(TypedDict):
     additional_data: NotRequired[dict[str, str]]
-    amount: Amount12 | Amount12Dict
+    amount: Amount12Dict
     expires_at: str
-    fraud_result: NotRequired[FraudResult1 | FraudResult1Dict]
+    fraud_result: NotRequired[FraudResult1Dict]
     order_data: str
     psp_reference: NotRequired[str]
     reference: NotRequired[str]
     refusal_reason: NotRequired[str]
-    remaining_amount: Amount23 | Amount23Dict
-    result_code: NotRequired[Literal["Success"]]
+    remaining_amount: Amount23Dict
+    result_code: Literal["Success"]

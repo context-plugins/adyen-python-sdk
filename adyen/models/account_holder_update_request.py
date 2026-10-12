@@ -70,8 +70,8 @@ class AccountHolderUpdateRequest(SdkBaseModel):
 
 class AccountHolderUpdateRequestDict(TypedDict):
     balance_platform: NotRequired[str]
-    capabilities: NotRequired[dict[str, AccountHolderCapability | AccountHolderCapabilityDict]]
-    contact_details: NotRequired[ContactDetails1 | ContactDetails1Dict]
+    capabilities: NotRequired[dict[str, AccountHolderCapabilityDict]]
+    contact_details: NotRequired[ContactDetails1Dict]
     description: NotRequired[str]
     metadata: NotRequired[dict[str, str]]
     migrated_account_holder_code: NotRequired[str]
@@ -79,4 +79,4 @@ class AccountHolderUpdateRequestDict(TypedDict):
     reference: NotRequired[str]
     status: NotRequired[Status9OrStr]
     time_zone: NotRequired[str]
-    verification_deadlines: NotRequired[list[VerificationDeadline | VerificationDeadlineDict]]
+    verification_deadlines: NotRequired[list[VerificationDeadlineDict]]

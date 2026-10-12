@@ -3,7 +3,7 @@ from __future__ import annotations
 from pydantic import Field
 from typing_extensions import NotRequired, TypedDict
 
-from ..core import UNSET, Optional, SdkBaseModel
+from ..core import UNSET, Optional, OptionalNullable, SdkBaseModel
 from .cardholder_receipt1 import CardholderReceipt1, CardholderReceipt1Dict
 from .connectivity1 import Connectivity1, Connectivity1Dict
 from .dcc1 import Dcc1, Dcc1Dict
@@ -42,7 +42,7 @@ class TerminalSettings(SdkBaseModel):
     dcc: Optional[Dcc1] = UNSET
     """Settings for Dynamic Currency Conversion (DCC)."""
 
-    gratuities: Optional[list[Gratuity | None]] = UNSET
+    gratuities: OptionalNullable[list[Gratuity]] = UNSET
     """Settings for tipping with or without predefined options to choose from. The maximum number of predefined options
     is four, or three plus the option to enter a custom tip."""
 
@@ -119,29 +119,29 @@ class TerminalSettings(SdkBaseModel):
 
 
 class TerminalSettingsDict(TypedDict):
-    cardholder_receipt: NotRequired[CardholderReceipt1 | CardholderReceipt1Dict]
-    connectivity: NotRequired[Connectivity1 | Connectivity1Dict]
-    dcc: NotRequired[Dcc1 | Dcc1Dict]
-    gratuities: NotRequired[list[Gratuity | GratuityDict | None]]
-    hardware: NotRequired[Hardware1 | Hardware1Dict]
-    home_screen: NotRequired[HomeScreenSettings1 | HomeScreenSettings1Dict]
-    kiosk_mode: NotRequired[KioskModeSettings1 | KioskModeSettings1Dict]
-    localization: NotRequired[Localization1 | Localization1Dict]
-    moto: NotRequired[Moto1 | Moto1Dict]
-    nexo: NotRequired[Nexo1 | Nexo1Dict]
-    offline_processing: NotRequired[OfflineProcessing1 | OfflineProcessing1Dict]
-    opi: NotRequired[Opi1 | Opi1Dict]
-    passcodes: NotRequired[Passcodes1 | Passcodes1Dict]
-    pay_at_table: NotRequired[PayAtTable1 | PayAtTable1Dict]
-    payment: NotRequired[Payment11 | Payment11Dict]
-    receipt_options: NotRequired[ReceiptOptions1 | ReceiptOptions1Dict]
-    receipt_printing: NotRequired[ReceiptPrinting1 | ReceiptPrinting1Dict]
-    refunds: NotRequired[Refunds1 | Refunds1Dict]
-    signature: NotRequired[Signature1 | Signature1Dict]
-    standalone: NotRequired[Standalone1 | Standalone1Dict]
-    store_and_forward: NotRequired[StoreAndForward1 | StoreAndForward1Dict]
-    surcharge: NotRequired[Surcharge21 | Surcharge21Dict]
-    tap_to_pay: NotRequired[TapToPay1 | TapToPay1Dict]
-    terminal_instructions: NotRequired[TerminalInstructions1 | TerminalInstructions1Dict]
-    timeouts: NotRequired[Timeouts2 | Timeouts2Dict]
-    wifi_profiles: NotRequired[WifiProfiles2 | WifiProfiles2Dict]
+    cardholder_receipt: NotRequired[CardholderReceipt1Dict]
+    connectivity: NotRequired[Connectivity1Dict]
+    dcc: NotRequired[Dcc1Dict]
+    gratuities: NotRequired[list[GratuityDict] | None]
+    hardware: NotRequired[Hardware1Dict]
+    home_screen: NotRequired[HomeScreenSettings1Dict]
+    kiosk_mode: NotRequired[KioskModeSettings1Dict]
+    localization: NotRequired[Localization1Dict]
+    moto: NotRequired[Moto1Dict]
+    nexo: NotRequired[Nexo1Dict]
+    offline_processing: NotRequired[OfflineProcessing1Dict]
+    opi: NotRequired[Opi1Dict]
+    passcodes: NotRequired[Passcodes1Dict]
+    pay_at_table: NotRequired[PayAtTable1Dict]
+    payment: NotRequired[Payment11Dict]
+    receipt_options: NotRequired[ReceiptOptions1Dict]
+    receipt_printing: NotRequired[ReceiptPrinting1Dict]
+    refunds: NotRequired[Refunds1Dict]
+    signature: NotRequired[Signature1Dict]
+    standalone: NotRequired[Standalone1Dict]
+    store_and_forward: NotRequired[StoreAndForward1Dict]
+    surcharge: NotRequired[Surcharge21Dict]
+    tap_to_pay: NotRequired[TapToPay1Dict]
+    terminal_instructions: NotRequired[TerminalInstructions1Dict]
+    timeouts: NotRequired[Timeouts2Dict]
+    wifi_profiles: NotRequired[WifiProfiles2Dict]

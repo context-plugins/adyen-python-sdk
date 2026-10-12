@@ -56,13 +56,13 @@ class LegalEntityInfo(SdkBaseModel):
 
 
 class LegalEntityInfoDict(TypedDict):
-    capabilities: NotRequired[dict[str, LegalEntityCapability | LegalEntityCapabilityDict]]
-    entity_associations: NotRequired[list[LegalEntityAssociation | LegalEntityAssociationDict]]
-    individual: NotRequired[Individual1 | Individual1Dict]
-    organization: NotRequired[Organization1 | Organization1Dict]
+    capabilities: NotRequired[dict[str, LegalEntityCapabilityDict]]
+    entity_associations: NotRequired[list[LegalEntityAssociationDict]]
+    individual: NotRequired[Individual1Dict]
+    organization: NotRequired[Organization1Dict]
     reference: NotRequired[str]
-    sole_proprietorship: NotRequired[SoleProprietorship1 | SoleProprietorship1Dict]
-    trust: NotRequired[Trust1 | Trust1Dict]
+    sole_proprietorship: NotRequired[SoleProprietorship1Dict]
+    trust: NotRequired[Trust1Dict]
     type_: NotRequired[Type182OrStr]
-    unincorporated_partnership: NotRequired[UnincorporatedPartnership1 | UnincorporatedPartnership1Dict]
+    unincorporated_partnership: NotRequired[UnincorporatedPartnership1Dict]
     verification_plan: NotRequired[str]

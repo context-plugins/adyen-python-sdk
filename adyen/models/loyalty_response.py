@@ -31,8 +31,8 @@ class LoyaltyResponse(SdkBaseModel):
 
 
 class LoyaltyResponseDict(TypedDict):
-    response: Response11 | Response11Dict
-    sale_data: SaleData1 | SaleData1Dict
-    poi_data: Poidata1 | Poidata1Dict
-    loyalty_result: NotRequired[list[LoyaltyResult | LoyaltyResultDict]]
-    payment_receipt: NotRequired[list[PaymentReceipt | PaymentReceiptDict]]
+    response: Response11Dict
+    sale_data: SaleData1Dict
+    poi_data: Poidata1Dict
+    loyalty_result: NotRequired[list[LoyaltyResultDict]]
+    payment_receipt: NotRequired[list[PaymentReceiptDict]]

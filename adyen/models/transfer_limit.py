@@ -59,12 +59,12 @@ class TransferLimit(SdkBaseModel):
 
 
 class TransferLimitDict(TypedDict):
-    amount: Amount17 | Amount17Dict
+    amount: Amount17Dict
     ends_at: NotRequired[RFC3339DateTime]
     id: str
     limit_status: LimitStatusOrStr
     reference: NotRequired[str]
-    sca_information: NotRequired[ScaInformation1 | ScaInformation1Dict]
+    sca_information: NotRequired[ScaInformation1Dict]
     scope: ScopeOrStr
     starts_at: RFC3339DateTime
     transfer_type: TransferTypeOrStr

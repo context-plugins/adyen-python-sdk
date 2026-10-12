@@ -36,5 +36,5 @@ class DocumentReferenceDict(TypedDict):
     file_name: NotRequired[str]
     id: NotRequired[str]
     modification_date: NotRequired[RFC3339DateTime]
-    pages: NotRequired[list[DocumentPage | DocumentPageDict]]
+    pages: NotRequired[list[DocumentPageDict]]
     type_: NotRequired[str]

@@ -2,7 +2,7 @@ from __future__ import annotations
 
 from typing import Literal
 
-from typing_extensions import NotRequired, TypedDict
+from typing_extensions import TypedDict
 
 from ..core import SdkBaseModel
 
@@ -14,4 +14,4 @@ class UpdatePaymentLinkRequest(SdkBaseModel):
 
 
 class UpdatePaymentLinkRequestDict(TypedDict):
-    status: NotRequired[Literal["expired"]]
+    status: Literal["expired"]

@@ -8,9 +8,11 @@ from ..core import (
     BaseRawResponse,
     RawClient,
     RequestOptionsOrDict,
+    async_json_decoder,
     json_body,
     json_decoder,
     param,
+    unwrap,
 )
 from ..errors.post_ideal_profile_auth_link_error import (
     PostIdealProfileAuthLinkErrorBody,
@@ -48,7 +50,8 @@ class IDealProfiles:
 
         Args:
             body: The request body.
-            request_options: Per-call overrides for this one request, such as a timeout or extra headers.
+            request_options: Per-call overrides for this one request, such as a timeout, extra headers, or its retry
+                count and statuses.
 
         Returns:
             OK - The request has succeeded.
@@ -57,7 +60,7 @@ class IDealProfiles:
             ApiError: Bad Request - The request is malformed or is not the expected format. Unprocessable Entity - A
                 request validation error. Internal Service Error - An unrecoverable error occurred while trying to
                 perform the request. ``error`` is ``DefaultErrorResponseEntity | RawError``."""
-        return self._with_raw_response.post_ideal_profile_auth_link(body, request_options=request_options).unwrap()
+        return unwrap(self._with_raw_response.post_ideal_profile_auth_link(body, request_options=request_options))
 
     def post_ideal_profile_authenticate(
         self,
@@ -70,7 +73,8 @@ class IDealProfiles:
 
         Args:
             body: The request body.
-            request_options: Per-call overrides for this one request, such as a timeout or extra headers.
+            request_options: Per-call overrides for this one request, such as a timeout, extra headers, or its retry
+                count and statuses.
 
         Returns:
             OK - The request has succeeded.
@@ -79,7 +83,7 @@ class IDealProfiles:
             ApiError: Bad Request - The request is malformed or is not the expected format. Unprocessable Entity - A
                 request validation error. Internal Service Error - An unrecoverable error occurred while trying to
                 perform the request. ``error`` is ``DefaultErrorResponseEntity | RawError``."""
-        return self._with_raw_response.post_ideal_profile_authenticate(body, request_options=request_options).unwrap()
+        return unwrap(self._with_raw_response.post_ideal_profile_authenticate(body, request_options=request_options))
 
     def post_ideal_profile_register(
         self,
@@ -92,7 +96,8 @@ class IDealProfiles:
 
         Args:
             body: The request body.
-            request_options: Per-call overrides for this one request, such as a timeout or extra headers.
+            request_options: Per-call overrides for this one request, such as a timeout, extra headers, or its retry
+                count and statuses.
 
         Returns:
             OK - The request has succeeded.
@@ -101,7 +106,7 @@ class IDealProfiles:
             ApiError: Bad Request - The request is malformed or is not the expected format. Unprocessable Entity - A
                 request validation error. Internal Service Error - An unrecoverable error occurred while trying to
                 perform the request. ``error`` is ``DefaultErrorResponseEntity | RawError``."""
-        return self._with_raw_response.post_ideal_profile_register(body, request_options=request_options).unwrap()
+        return unwrap(self._with_raw_response.post_ideal_profile_register(body, request_options=request_options))
 
     @property
     def with_raw_response(self) -> IDealProfilesWithRawResponse:
@@ -123,7 +128,8 @@ class AsyncIDealProfiles:
 
         Args:
             body: The request body.
-            request_options: Per-call overrides for this one request, such as a timeout or extra headers.
+            request_options: Per-call overrides for this one request, such as a timeout, extra headers, or its retry
+                count and statuses.
 
         Returns:
             OK - The request has succeeded.
@@ -132,9 +138,7 @@ class AsyncIDealProfiles:
             ApiError: Bad Request - The request is malformed or is not the expected format. Unprocessable Entity - A
                 request validation error. Internal Service Error - An unrecoverable error occurred while trying to
                 perform the request. ``error`` is ``DefaultErrorResponseEntity | RawError``."""
-        return (
-            await self._with_raw_response.post_ideal_profile_auth_link(body, request_options=request_options)
-        ).unwrap()
+        return unwrap(await self._with_raw_response.post_ideal_profile_auth_link(body, request_options=request_options))
 
     async def post_ideal_profile_authenticate(
         self,
@@ -147,7 +151,8 @@ class AsyncIDealProfiles:
 
         Args:
             body: The request body.
-            request_options: Per-call overrides for this one request, such as a timeout or extra headers.
+            request_options: Per-call overrides for this one request, such as a timeout, extra headers, or its retry
+                count and statuses.
 
         Returns:
             OK - The request has succeeded.
@@ -156,9 +161,9 @@ class AsyncIDealProfiles:
             ApiError: Bad Request - The request is malformed or is not the expected format. Unprocessable Entity - A
                 request validation error. Internal Service Error - An unrecoverable error occurred while trying to
                 perform the request. ``error`` is ``DefaultErrorResponseEntity | RawError``."""
-        return (
+        return unwrap(
             await self._with_raw_response.post_ideal_profile_authenticate(body, request_options=request_options)
-        ).unwrap()
+        )
 
     async def post_ideal_profile_register(
         self,
@@ -171,7 +176,8 @@ class AsyncIDealProfiles:
 
         Args:
             body: The request body.
-            request_options: Per-call overrides for this one request, such as a timeout or extra headers.
+            request_options: Per-call overrides for this one request, such as a timeout, extra headers, or its retry
+                count and statuses.
 
         Returns:
             OK - The request has succeeded.
@@ -180,9 +186,7 @@ class AsyncIDealProfiles:
             ApiError: Bad Request - The request is malformed or is not the expected format. Unprocessable Entity - A
                 request validation error. Internal Service Error - An unrecoverable error occurred while trying to
                 perform the request. ``error`` is ``DefaultErrorResponseEntity | RawError``."""
-        return (
-            await self._with_raw_response.post_ideal_profile_register(body, request_options=request_options)
-        ).unwrap()
+        return unwrap(await self._with_raw_response.post_ideal_profile_register(body, request_options=request_options))
 
     @property
     def with_raw_response(self) -> AsyncIDealProfilesWithRawResponse:
@@ -201,7 +205,8 @@ class IDealProfilesWithRawResponse(BaseRawResponse[RawClient, Server]):
 
         Args:
             body: The request body.
-            request_options: Per-call overrides for this one request, such as a timeout or extra headers.
+            request_options: Per-call overrides for this one request, such as a timeout, extra headers, or its retry
+                count and statuses.
 
         Returns:
             An ``ApiResult`` holding the deserialized response or the error body."""
@@ -226,7 +231,8 @@ class IDealProfilesWithRawResponse(BaseRawResponse[RawClient, Server]):
 
         Args:
             body: The request body.
-            request_options: Per-call overrides for this one request, such as a timeout or extra headers.
+            request_options: Per-call overrides for this one request, such as a timeout, extra headers, or its retry
+                count and statuses.
 
         Returns:
             An ``ApiResult`` holding the deserialized response or the error body."""
@@ -251,7 +257,8 @@ class IDealProfilesWithRawResponse(BaseRawResponse[RawClient, Server]):
 
         Args:
             body: The request body.
-            request_options: Per-call overrides for this one request, such as a timeout or extra headers.
+            request_options: Per-call overrides for this one request, such as a timeout, extra headers, or its retry
+                count and statuses.
 
         Returns:
             An ``ApiResult`` holding the deserialized response or the error body."""
@@ -278,7 +285,8 @@ class AsyncIDealProfilesWithRawResponse(BaseRawResponse[AsyncRawClient, Server])
 
         Args:
             body: The request body.
-            request_options: Per-call overrides for this one request, such as a timeout or extra headers.
+            request_options: Per-call overrides for this one request, such as a timeout, extra headers, or its retry
+                count and statuses.
 
         Returns:
             An ``ApiResult`` holding the deserialized response or the error body."""
@@ -287,7 +295,7 @@ class AsyncIDealProfilesWithRawResponse(BaseRawResponse[AsyncRawClient, Server])
             url_template=self._server.default20("/ideal/profile/auth-link"),
             headers=[param[UUID]("Idempotency-Key", uuid4())],
             body=json_body[IdealAuthLinkRequest | IdealAuthLinkRequestDict](body),
-            decoder=json_decoder[IdealAuthLinkResponse],
+            decoder=async_json_decoder[IdealAuthLinkResponse],
             error_mapper=post_ideal_profile_auth_link_error_mapper,
             request_options=request_options,
         )
@@ -303,7 +311,8 @@ class AsyncIDealProfilesWithRawResponse(BaseRawResponse[AsyncRawClient, Server])
 
         Args:
             body: The request body.
-            request_options: Per-call overrides for this one request, such as a timeout or extra headers.
+            request_options: Per-call overrides for this one request, such as a timeout, extra headers, or its retry
+                count and statuses.
 
         Returns:
             An ``ApiResult`` holding the deserialized response or the error body."""
@@ -312,7 +321,7 @@ class AsyncIDealProfilesWithRawResponse(BaseRawResponse[AsyncRawClient, Server])
             url_template=self._server.default20("/ideal/profile/authenticate"),
             headers=[param[UUID]("Idempotency-Key", uuid4())],
             body=json_body[IdealAuthenticateRequest | IdealAuthenticateRequestDict](body),
-            decoder=json_decoder[IdealAuthenticateResponse],
+            decoder=async_json_decoder[IdealAuthenticateResponse],
             error_mapper=post_ideal_profile_authenticate_error_mapper,
             request_options=request_options,
         )
@@ -328,7 +337,8 @@ class AsyncIDealProfilesWithRawResponse(BaseRawResponse[AsyncRawClient, Server])
 
         Args:
             body: The request body.
-            request_options: Per-call overrides for this one request, such as a timeout or extra headers.
+            request_options: Per-call overrides for this one request, such as a timeout, extra headers, or its retry
+                count and statuses.
 
         Returns:
             An ``ApiResult`` holding the deserialized response or the error body."""
@@ -337,7 +347,7 @@ class AsyncIDealProfilesWithRawResponse(BaseRawResponse[AsyncRawClient, Server])
             url_template=self._server.default20("/ideal/profile/register"),
             headers=[param[UUID]("Idempotency-Key", uuid4())],
             body=json_body[ProfileRegistrationRequest | ProfileRegistrationRequestDict](body),
-            decoder=json_decoder[ProfileRegistrationResponse],
+            decoder=async_json_decoder[ProfileRegistrationResponse],
             error_mapper=post_ideal_profile_register_error_mapper,
             request_options=request_options,
         )

@@ -23,6 +23,6 @@ class LoyaltyResult(SdkBaseModel):
 
 
 class LoyaltyResultDict(TypedDict):
-    loyalty_account: LoyaltyAccount1 | LoyaltyAccount1Dict
+    loyalty_account: LoyaltyAccount1Dict
     current_balance: NotRequired[float]
-    loyalty_acquirer_data: NotRequired[LoyaltyAcquirerData1 | LoyaltyAcquirerData1Dict]
+    loyalty_acquirer_data: NotRequired[LoyaltyAcquirerData1Dict]

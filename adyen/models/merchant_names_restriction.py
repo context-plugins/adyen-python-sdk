@@ -15,4 +15,4 @@ class MerchantNamesRestriction(SdkBaseModel):
 
 class MerchantNamesRestrictionDict(TypedDict):
     operation: str
-    value: NotRequired[list[StringMatch | StringMatchDict]]
+    value: NotRequired[list[StringMatchDict]]

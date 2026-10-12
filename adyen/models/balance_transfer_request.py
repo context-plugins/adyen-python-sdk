@@ -27,7 +27,7 @@ class BalanceTransferRequest(SdkBaseModel):
 
 
 class BalanceTransferRequestDict(TypedDict):
-    amount: Amount17 | Amount17Dict
+    amount: Amount17Dict
     from_merchant: str
     reference: NotRequired[str]
     to_merchant: str

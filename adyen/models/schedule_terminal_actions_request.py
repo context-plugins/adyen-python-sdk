@@ -29,7 +29,7 @@ class ScheduleTerminalActionsRequest(SdkBaseModel):
 
 
 class ScheduleTerminalActionsRequestDict(TypedDict):
-    action_details: NotRequired[ActionDetails | ActionDetailsDict]
+    action_details: NotRequired[ActionDetailsDict]
     scheduled_at: NotRequired[str]
     store_id: NotRequired[str]
     terminal_ids: NotRequired[list[str]]

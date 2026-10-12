@@ -40,10 +40,10 @@ class CardOrderItem(SdkBaseModel):
 
 class CardOrderItemDict(TypedDict):
     balance_platform: NotRequired[str]
-    card: NotRequired[CardOrderItemDeliveryStatus3 | CardOrderItemDeliveryStatus3Dict]
+    card: NotRequired[CardOrderItemDeliveryStatus3Dict]
     card_order_item_id: NotRequired[str]
     creation_date: NotRequired[RFC3339DateTime]
     id: NotRequired[str]
     payment_instrument_id: NotRequired[str]
-    pin: NotRequired[CardOrderItemDeliveryStatus1 | CardOrderItemDeliveryStatus1Dict]
+    pin: NotRequired[CardOrderItemDeliveryStatus1Dict]
     shipping_method: NotRequired[str]

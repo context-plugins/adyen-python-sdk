@@ -4,7 +4,7 @@ from pydantic import Field
 from typing_extensions import NotRequired, TypedDict
 
 from ..core import UNSET, Optional, SdkBaseModel
-from .enums.type16 import Type16OrStr
+from .enums.type16 import Type16, Type16OrStr
 
 
 class StoredPaymentMethod(SdkBaseModel):
@@ -38,7 +38,7 @@ class StoredPaymentMethod(SdkBaseModel):
     subtype: Optional[str] = UNSET
     """The payment method subtype."""
 
-    type_: Optional[Type16OrStr] = Field(default=UNSET, alias="type")
+    type_: Type16OrStr = Field(default=Type16.CASHAPP, alias="type")
     """cashapp"""
 
 

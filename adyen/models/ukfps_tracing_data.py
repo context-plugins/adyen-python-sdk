@@ -3,7 +3,7 @@ from __future__ import annotations
 from typing import Literal
 
 from pydantic import Field
-from typing_extensions import NotRequired, TypedDict
+from typing_extensions import TypedDict
 
 from ..core import SdkBaseModel
 
@@ -19,4 +19,4 @@ class UkfpsTracingData(SdkBaseModel):
 
 class UkfpsTracingDataDict(TypedDict):
     fpid: str
-    type_: NotRequired[Literal["ukFps"]]
+    type_: Literal["ukFps"]

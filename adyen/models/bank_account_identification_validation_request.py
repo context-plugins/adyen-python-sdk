@@ -4,13 +4,13 @@ from pydantic import Field
 from typing_extensions import TypedDict
 
 from ..core import SdkBaseModel
-from .account_identification1 import AccountIdentification1, AccountIdentification1Dict
+from .unions.account_identification11 import AccountIdentification11, AccountIdentification11Dict
 
 
 class BankAccountIdentificationValidationRequest(SdkBaseModel):
-    account_identification: AccountIdentification1 = Field(alias="accountIdentification")
+    account_identification: AccountIdentification11 = Field(alias="accountIdentification")
     """Bank account identification."""
 
 
 class BankAccountIdentificationValidationRequestDict(TypedDict):
-    account_identification: AccountIdentification1 | AccountIdentification1Dict
+    account_identification: AccountIdentification11Dict

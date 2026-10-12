@@ -6,7 +6,7 @@ from typing_extensions import NotRequired, TypedDict
 from ..core import UNSET, Optional, SdkBaseModel
 from .enums.account_holder_type import AccountHolderTypeOrStr
 from .enums.bank_account_type import BankAccountTypeOrStr
-from .enums.type import TypeOrStr
+from .enums.type import Type, TypeOrStr
 
 
 class AchDirectDebit(SdkBaseModel):
@@ -59,7 +59,7 @@ class AchDirectDebit(SdkBaseModel):
     """The unique identifier of your user's verified transfer instrument, which you can use to top up their balance
     accounts."""
 
-    type_: Optional[TypeOrStr] = Field(default=UNSET, alias="type")
+    type_: TypeOrStr = Field(default=Type.ACH, alias="type")
     """**ach**"""
 
 

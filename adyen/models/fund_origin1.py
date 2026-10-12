@@ -28,8 +28,8 @@ class FundOrigin1(SdkBaseModel):
 
 
 class FundOrigin1Dict(TypedDict):
-    billing_address: NotRequired[Address3 | Address3Dict]
+    billing_address: NotRequired[Address3Dict]
     shopper_email: NotRequired[str]
-    shopper_name: NotRequired[Name1 | Name1Dict]
+    shopper_name: NotRequired[Name1Dict]
     telephone_number: NotRequired[str]
     wallet_identifier: NotRequired[str]

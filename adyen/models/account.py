@@ -55,6 +55,6 @@ class AccountDict(TypedDict):
     description: NotRequired[str]
     metadata: NotRequired[dict[str, str]]
     payout_method_code: NotRequired[str]
-    payout_schedule: NotRequired[PayoutScheduleResponse4 | PayoutScheduleResponse4Dict]
+    payout_schedule: NotRequired[PayoutScheduleResponse4Dict]
     payout_speed: NotRequired[PayoutSpeedOrStr]
     status: NotRequired[str]

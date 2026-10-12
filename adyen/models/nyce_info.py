@@ -27,4 +27,4 @@ class NyceInfo(SdkBaseModel):
 
 class NyceInfoDict(TypedDict):
     processing_type: ProcessingTypeOrStr
-    transaction_description: NotRequired[TransactionDescriptionInfo1 | TransactionDescriptionInfo1Dict]
+    transaction_description: NotRequired[TransactionDescriptionInfo1Dict]

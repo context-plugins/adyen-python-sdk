@@ -29,7 +29,7 @@ class SubInputDetail(SdkBaseModel):
 
 class SubInputDetailDict(TypedDict):
     configuration: NotRequired[dict[str, str]]
-    items: NotRequired[list[Item | ItemDict]]
+    items: NotRequired[list[ItemDict]]
     key: NotRequired[str]
     optional: NotRequired[bool]
     type_: NotRequired[str]

@@ -19,5 +19,5 @@ class PaymentInstrumentRevealInfo(SdkBaseModel):
 
 class PaymentInstrumentRevealInfoDict(TypedDict):
     cvc: str
-    expiration: Expiry2 | Expiry2Dict
+    expiration: Expiry2Dict
     pan: str

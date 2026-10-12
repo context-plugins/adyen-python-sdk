@@ -56,9 +56,9 @@ class LegalEntityCapability(SdkBaseModel):
 class LegalEntityCapabilityDict(TypedDict):
     allowed: NotRequired[bool]
     allowed_level: NotRequired[AllowedLevelOrStr]
-    allowed_settings: NotRequired[CapabilitySettings11 | CapabilitySettings11Dict]
+    allowed_settings: NotRequired[CapabilitySettings11Dict]
     requested: NotRequired[bool]
     requested_level: NotRequired[AllowedLevelOrStr]
-    requested_settings: NotRequired[CapabilitySettings21 | CapabilitySettings21Dict]
-    transfer_instruments: NotRequired[list[SupportingEntityCapability | SupportingEntityCapabilityDict]]
+    requested_settings: NotRequired[CapabilitySettings21Dict]
+    transfer_instruments: NotRequired[list[SupportingEntityCapabilityDict]]
     verification_status: NotRequired[str]

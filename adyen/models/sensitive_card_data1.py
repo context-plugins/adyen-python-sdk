@@ -28,4 +28,4 @@ class SensitiveCardData1Dict(TypedDict):
     pan: NotRequired[int]
     card_seq_numb: NotRequired[int]
     expiry_date: NotRequired[int]
-    track_data: NotRequired[list[TrackData | TrackDataDict]]
+    track_data: NotRequired[list[TrackDataDict]]

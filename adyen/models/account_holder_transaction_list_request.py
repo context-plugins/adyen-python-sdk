@@ -35,5 +35,5 @@ class AccountHolderTransactionListRequest(SdkBaseModel):
 
 class AccountHolderTransactionListRequestDict(TypedDict):
     account_holder_code: str
-    transaction_lists_per_account: NotRequired[list[TransactionListForAccount | TransactionListForAccountDict]]
+    transaction_lists_per_account: NotRequired[list[TransactionListForAccountDict]]
     transaction_statuses: NotRequired[list[TransactionStatusOrStr]]

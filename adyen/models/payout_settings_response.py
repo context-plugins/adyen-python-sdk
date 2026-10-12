@@ -12,4 +12,4 @@ class PayoutSettingsResponse(SdkBaseModel):
 
 
 class PayoutSettingsResponseDict(TypedDict):
-    data: NotRequired[list[PayoutSettings | PayoutSettingsDict]]
+    data: NotRequired[list[PayoutSettingsDict]]

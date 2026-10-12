@@ -13,4 +13,4 @@ class GetDynamicOffersResponse(SdkBaseModel):
 
 
 class GetDynamicOffersResponseDict(TypedDict):
-    dynamic_offers: list[DynamicOffer | DynamicOfferDict]
+    dynamic_offers: list[DynamicOfferDict]

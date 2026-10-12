@@ -13,4 +13,4 @@ class BusinessLines(SdkBaseModel):
 
 
 class BusinessLinesDict(TypedDict):
-    business_lines: list[BusinessLine | BusinessLineDict]
+    business_lines: list[BusinessLineDict]

@@ -8,9 +8,11 @@ from ..core import (
     BaseRawResponse,
     RawClient,
     RequestOptionsOrDict,
+    async_json_decoder,
     json_body,
     json_decoder,
     param,
+    unwrap,
 )
 from ..errors.post_auth_certificate_error import PostAuthCertificateErrorBody, post_auth_certificate_error_mapper
 from ..errors.post_sessions2_error import PostSessions2ErrorBody, post_sessions2_error_mapper
@@ -40,7 +42,8 @@ class SessionAuthentication:
         Args:
             x_api_key: The API key to authenticate API requests.
             body: The request body.
-            request_options: Per-call overrides for this one request, such as a timeout or extra headers.
+            request_options: Per-call overrides for this one request, such as a timeout, extra headers, or its retry
+                count and statuses.
 
         Returns:
             OK - the request has succeeded.
@@ -49,9 +52,11 @@ class SessionAuthentication:
             ApiError: Bad request - validation failed. Unauthorized - authentication required. Unprocessable entity -
                 session request could not be processed. Internal server error. ``error`` is ``DefaultErrorResponseEntity
                 | RawError``."""
-        return self._with_raw_response.post_auth_certificate(
-            x_api_key=x_api_key, body=body, request_options=request_options
-        ).unwrap()
+        return unwrap(
+            self._with_raw_response.post_auth_certificate(
+                x_api_key=x_api_key, body=body, request_options=request_options
+            ),
+        )
 
     def post_sessions2(
         self,
@@ -72,14 +77,15 @@ class SessionAuthentication:
 
         Args:
             body: The request body.
-            request_options: Per-call overrides for this one request, such as a timeout or extra headers.
+            request_options: Per-call overrides for this one request, such as a timeout, extra headers, or its retry
+                count and statuses.
 
         Returns:
             Successful operation
 
         Raises:
             ApiError: Bad request Unauthorized Forbidden ``error`` is ``DefaultErrorResponseEntity | RawError``."""
-        return self._with_raw_response.post_sessions2(body, request_options=request_options).unwrap()
+        return unwrap(self._with_raw_response.post_sessions2(body, request_options=request_options))
 
     @property
     def with_raw_response(self) -> SessionAuthenticationWithRawResponse:
@@ -105,7 +111,8 @@ class AsyncSessionAuthentication:
         Args:
             x_api_key: The API key to authenticate API requests.
             body: The request body.
-            request_options: Per-call overrides for this one request, such as a timeout or extra headers.
+            request_options: Per-call overrides for this one request, such as a timeout, extra headers, or its retry
+                count and statuses.
 
         Returns:
             OK - the request has succeeded.
@@ -114,11 +121,11 @@ class AsyncSessionAuthentication:
             ApiError: Bad request - validation failed. Unauthorized - authentication required. Unprocessable entity -
                 session request could not be processed. Internal server error. ``error`` is ``DefaultErrorResponseEntity
                 | RawError``."""
-        return (
+        return unwrap(
             await self._with_raw_response.post_auth_certificate(
                 x_api_key=x_api_key, body=body, request_options=request_options
-            )
-        ).unwrap()
+            ),
+        )
 
     async def post_sessions2(
         self,
@@ -139,14 +146,15 @@ class AsyncSessionAuthentication:
 
         Args:
             body: The request body.
-            request_options: Per-call overrides for this one request, such as a timeout or extra headers.
+            request_options: Per-call overrides for this one request, such as a timeout, extra headers, or its retry
+                count and statuses.
 
         Returns:
             Successful operation
 
         Raises:
             ApiError: Bad request Unauthorized Forbidden ``error`` is ``DefaultErrorResponseEntity | RawError``."""
-        return (await self._with_raw_response.post_sessions2(body, request_options=request_options)).unwrap()
+        return unwrap(await self._with_raw_response.post_sessions2(body, request_options=request_options))
 
     @property
     def with_raw_response(self) -> AsyncSessionAuthenticationWithRawResponse:
@@ -169,7 +177,8 @@ class SessionAuthenticationWithRawResponse(BaseRawResponse[RawClient, Server]):
         Args:
             x_api_key: The API key to authenticate API requests.
             body: The request body.
-            request_options: Per-call overrides for this one request, such as a timeout or extra headers.
+            request_options: Per-call overrides for this one request, such as a timeout, extra headers, or its retry
+                count and statuses.
 
         Returns:
             An ``ApiResult`` holding the deserialized response or the error body."""
@@ -202,7 +211,8 @@ class SessionAuthenticationWithRawResponse(BaseRawResponse[RawClient, Server]):
 
         Args:
             body: The request body.
-            request_options: Per-call overrides for this one request, such as a timeout or extra headers.
+            request_options: Per-call overrides for this one request, such as a timeout, extra headers, or its retry
+                count and statuses.
 
         Returns:
             An ``ApiResult`` holding the deserialized response or the error body."""
@@ -233,7 +243,8 @@ class AsyncSessionAuthenticationWithRawResponse(BaseRawResponse[AsyncRawClient, 
         Args:
             x_api_key: The API key to authenticate API requests.
             body: The request body.
-            request_options: Per-call overrides for this one request, such as a timeout or extra headers.
+            request_options: Per-call overrides for this one request, such as a timeout, extra headers, or its retry
+                count and statuses.
 
         Returns:
             An ``ApiResult`` holding the deserialized response or the error body."""
@@ -242,7 +253,7 @@ class AsyncSessionAuthenticationWithRawResponse(BaseRawResponse[AsyncRawClient, 
             url_template=self._server.default25("/auth/certificate"),
             headers=[param[str | None]("X-API-Key", x_api_key), param[UUID]("Idempotency-Key", uuid4())],
             body=json_body[CertificateLoadingRequest | CertificateLoadingRequestDict | None](body),
-            decoder=json_decoder[CertificateLoadingResponse],
+            decoder=async_json_decoder[CertificateLoadingResponse],
             error_mapper=post_auth_certificate_error_mapper,
             request_options=request_options,
         )
@@ -266,7 +277,8 @@ class AsyncSessionAuthenticationWithRawResponse(BaseRawResponse[AsyncRawClient, 
 
         Args:
             body: The request body.
-            request_options: Per-call overrides for this one request, such as a timeout or extra headers.
+            request_options: Per-call overrides for this one request, such as a timeout, extra headers, or its retry
+                count and statuses.
 
         Returns:
             An ``ApiResult`` holding the deserialized response or the error body."""
@@ -275,7 +287,7 @@ class AsyncSessionAuthenticationWithRawResponse(BaseRawResponse[AsyncRawClient, 
             url_template=self._server.default17("/sessions"),
             headers=[param[UUID]("Idempotency-Key", uuid4())],
             body=json_body[AuthenticationSessionRequest | AuthenticationSessionRequestDict](body),
-            decoder=json_decoder[AuthenticationSessionResponse],
+            decoder=async_json_decoder[AuthenticationSessionResponse],
             error_mapper=post_sessions2_error_mapper,
             request_options=request_options,
         )

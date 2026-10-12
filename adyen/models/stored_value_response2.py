@@ -31,8 +31,8 @@ class StoredValueResponse2(SdkBaseModel):
 
 
 class StoredValueResponse2Dict(TypedDict):
-    response: Response11 | Response11Dict
-    sale_data: SaleData1 | SaleData1Dict
-    poi_data: Poidata1 | Poidata1Dict
-    stored_value_result: NotRequired[list[StoredValueResult | StoredValueResultDict]]
-    payment_receipt: NotRequired[list[PaymentReceipt | PaymentReceiptDict]]
+    response: Response11Dict
+    sale_data: SaleData1Dict
+    poi_data: Poidata1Dict
+    stored_value_result: NotRequired[list[StoredValueResultDict]]
+    payment_receipt: NotRequired[list[PaymentReceiptDict]]

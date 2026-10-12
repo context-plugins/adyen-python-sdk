@@ -17,5 +17,5 @@ class FindTransfersResponse(SdkBaseModel):
 
 
 class FindTransfersResponseDict(TypedDict):
-    links: NotRequired[Links21 | Links21Dict]
-    data: NotRequired[list[TransferData | TransferDataDict]]
+    links: NotRequired[Links21Dict]
+    data: NotRequired[list[TransferDataDict]]

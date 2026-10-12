@@ -20,4 +20,4 @@ class InteracCardResponseInfo1(SdkBaseModel):
 
 
 class InteracCardResponseInfo1Dict(TypedDict):
-    transaction_description: NotRequired[TransactionDescriptionResponseInfo1 | TransactionDescriptionResponseInfo1Dict]
+    transaction_description: NotRequired[TransactionDescriptionResponseInfo1Dict]

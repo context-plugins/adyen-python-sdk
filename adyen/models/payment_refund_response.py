@@ -62,14 +62,14 @@ class PaymentRefundResponse(SdkBaseModel):
 
 
 class PaymentRefundResponseDict(TypedDict):
-    amount: Amount39 | Amount39Dict
+    amount: Amount39Dict
     capture_psp_reference: NotRequired[str]
-    line_items: NotRequired[list[LineItem | LineItemDict]]
+    line_items: NotRequired[list[LineItemDict]]
     merchant_account: str
     merchant_refund_reason: NotRequired[MerchantRefundReason1OrStr | None]
     payment_psp_reference: str
     psp_reference: str
     reference: NotRequired[str]
-    splits: NotRequired[list[Split | SplitDict]]
-    status: NotRequired[Literal["received"]]
+    splits: NotRequired[list[SplitDict]]
+    status: Literal["received"]
     store: NotRequired[str]

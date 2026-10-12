@@ -79,18 +79,18 @@ class StoreDetailRequest(SdkBaseModel):
 
 class StoreDetailRequestDict(TypedDict):
     additional_data: NotRequired[dict[str, str]]
-    bank: NotRequired[BankAccount | BankAccountDict]
-    billing_address: NotRequired[Address | AddressDict]
-    card: NotRequired[Card | CardDict]
+    bank: NotRequired[BankAccountDict]
+    billing_address: NotRequired[AddressDict]
+    card: NotRequired[CardDict]
     date_of_birth: Date
     entity_type: EntityType1OrStr
     fraud_offset: NotRequired[int]
     merchant_account: str
     nationality: str
-    recurring: Recurring | RecurringDict
+    recurring: RecurringDict
     selected_brand: NotRequired[str]
     shopper_email: str
-    shopper_name: NotRequired[Name | NameDict]
+    shopper_name: NotRequired[NameDict]
     shopper_reference: str
     social_security_number: NotRequired[str]
     telephone_number: NotRequired[str]

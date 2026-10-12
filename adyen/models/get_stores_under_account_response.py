@@ -13,4 +13,4 @@ class GetStoresUnderAccountResponse(SdkBaseModel):
 
 
 class GetStoresUnderAccountResponseDict(TypedDict):
-    stores: NotRequired[list[Store1 | Store1Dict]]
+    stores: NotRequired[list[Store1Dict]]

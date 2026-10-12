@@ -57,7 +57,7 @@ class NotificationConfigurationDetailsDict(TypedDict):
     active: NotRequired[bool]
     api_version: NotRequired[int]
     description: NotRequired[str]
-    event_configs: NotRequired[list[NotificationEventConfiguration | NotificationEventConfigurationDict]]
+    event_configs: NotRequired[list[NotificationEventConfigurationDict]]
     hmac_signature_key: NotRequired[str]
     notification_id: NotRequired[int]
     notify_password: NotRequired[str]

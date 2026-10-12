@@ -29,4 +29,4 @@ class GetTotalsRequest(SdkBaseModel):
 
 class GetTotalsRequestDict(TypedDict):
     total_details: NotRequired[list[TotalDetailOrStr]]
-    total_filter: NotRequired[TotalFilter2 | TotalFilter2Dict]
+    total_filter: NotRequired[TotalFilter2Dict]

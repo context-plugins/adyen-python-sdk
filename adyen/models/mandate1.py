@@ -39,7 +39,7 @@ class Mandate1(SdkBaseModel):
 
 class Mandate1Dict(TypedDict):
     balance_account_id: NotRequired[str]
-    counterparty: NotRequired[MandateBankAccount2 | MandateBankAccount2Dict]
+    counterparty: NotRequired[MandateBankAccount2Dict]
     created_at: NotRequired[RFC3339DateTime]
     id: NotRequired[str]
     payment_instrument_id: NotRequired[str]

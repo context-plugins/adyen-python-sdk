@@ -5,7 +5,7 @@ from typing_extensions import NotRequired, TypedDict
 
 from ..core import UNSET, Optional, SdkBaseModel
 from .enums.priority1 import Priority1OrStr
-from .enums.type310 import Type310OrStr
+from .enums.type310 import Type310, Type310OrStr
 
 
 class BankCategoryData(SdkBaseModel):
@@ -30,7 +30,7 @@ class BankCategoryData(SdkBaseModel):
 
     * **internal**: For transfers to an Adyen-issued business bank account (by bank account number/IBAN)."""
 
-    type_: Optional[Type310OrStr] = Field(default=UNSET, alias="type")
+    type_: Type310OrStr = Field(default=Type310.BANK, alias="type")
     """**bank**"""
 
 

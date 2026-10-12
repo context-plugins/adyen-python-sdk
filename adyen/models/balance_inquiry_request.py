@@ -20,5 +20,5 @@ class BalanceInquiryRequest(SdkBaseModel):
 
 
 class BalanceInquiryRequestDict(TypedDict):
-    payment_account_req: NotRequired[PaymentAccountReq2 | PaymentAccountReq2Dict]
-    loyalty_account_req: NotRequired[LoyaltyAccountReq2 | LoyaltyAccountReq2Dict]
+    payment_account_req: NotRequired[PaymentAccountReq2Dict]
+    loyalty_account_req: NotRequired[LoyaltyAccountReq2Dict]

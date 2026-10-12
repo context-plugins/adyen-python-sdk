@@ -31,4 +31,4 @@ class PaymentReversalResponseDict(TypedDict):
     payment_psp_reference: str
     psp_reference: str
     reference: NotRequired[str]
-    status: NotRequired[Literal["received"]]
+    status: Literal["received"]

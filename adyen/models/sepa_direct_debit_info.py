@@ -20,4 +20,4 @@ class SepaDirectDebitInfo(SdkBaseModel):
 
 class SepaDirectDebitInfoDict(TypedDict):
     creditor_id: NotRequired[str]
-    transaction_description: NotRequired[TransactionDescriptionInfo1 | TransactionDescriptionInfo1Dict]
+    transaction_description: NotRequired[TransactionDescriptionInfo1Dict]

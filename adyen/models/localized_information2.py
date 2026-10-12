@@ -17,4 +17,4 @@ class LocalizedInformation2(SdkBaseModel):
 
 
 class LocalizedInformation2Dict(TypedDict):
-    local_shopper_statement: list[LocalShopperStatement | LocalShopperStatementDict]
+    local_shopper_statement: list[LocalShopperStatementDict]

@@ -51,7 +51,7 @@ class InPersonDonationSettings(SdkBaseModel):
 
 
 class InPersonDonationSettingsDict(TypedDict):
-    default_amount: NotRequired[DonationAmount1 | DonationAmount1Dict]
+    default_amount: NotRequired[DonationAmount1Dict]
     display_text_field: DisplayTextField2OrStr
     donation_flow: DonationFlow1OrStr
     donation_type: NotRequired[DonationType1OrStr]

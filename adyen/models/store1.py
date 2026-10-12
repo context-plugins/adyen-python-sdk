@@ -39,7 +39,7 @@ class Store1(SdkBaseModel):
 
 
 class Store1Dict(TypedDict):
-    address: NotRequired[Address14 | Address14Dict]
+    address: NotRequired[Address14Dict]
     description: NotRequired[str]
     in_store_terminals: NotRequired[list[str]]
     merchant_account_code: NotRequired[str]

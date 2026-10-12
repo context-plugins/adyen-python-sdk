@@ -13,4 +13,4 @@ class DonationCampaignsResponse(SdkBaseModel):
 
 
 class DonationCampaignsResponseDict(TypedDict):
-    donation_campaigns: NotRequired[list[DonationCampaign | DonationCampaignDict]]
+    donation_campaigns: NotRequired[list[DonationCampaignDict]]

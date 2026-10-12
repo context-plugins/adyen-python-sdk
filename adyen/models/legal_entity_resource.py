@@ -1,18 +1,15 @@
 from __future__ import annotations
 
-from typing import Literal
-
 from pydantic import Field
 from typing_extensions import NotRequired, TypedDict
 
-from ..core import SdkBaseModel
+from ..core import UNSET, Optional, SdkBaseModel
 
 
 class LegalEntityResource(SdkBaseModel):
     """All Of Resource, LegalEntityResource."""
 
-    type_: Literal["legalEntity"] = Field(default="legalEntity", alias="type")
-
+    type_: Optional[str] = Field(default=UNSET, alias="type")
     legal_entity_id: str = Field(alias="legalEntityId")
     """The unique identifier of the resource connected to the component. For `Onboarding components
     <https://docs.adyen.com/platforms/onboard-users/components>`__, this is the legal entity that has a contractual
@@ -22,5 +19,5 @@ class LegalEntityResource(SdkBaseModel):
 
 
 class LegalEntityResourceDict(TypedDict):
-    type_: NotRequired[Literal["legalEntity"]]
+    type_: NotRequired[str]
     legal_entity_id: str

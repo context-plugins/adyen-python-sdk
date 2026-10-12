@@ -84,19 +84,19 @@ class AccountHolderDetails3(SdkBaseModel):
 
 
 class AccountHolderDetails3Dict(TypedDict):
-    address: ViasAddress9 | ViasAddress9Dict
-    bank_account_details: NotRequired[list[BankAccountDetail | BankAccountDetailDict]]
+    address: ViasAddress9Dict
+    bank_account_details: NotRequired[list[BankAccountDetailDict]]
     bank_aggregator_data_reference: NotRequired[str]
-    business_details: NotRequired[BusinessDetails3 | BusinessDetails3Dict]
+    business_details: NotRequired[BusinessDetails3Dict]
     email: NotRequired[str]
     full_phone_number: NotRequired[str]
-    individual_details: NotRequired[IndividualDetails3 | IndividualDetails3Dict]
+    individual_details: NotRequired[IndividualDetails3Dict]
     last_review_date: NotRequired[str]
-    legal_arrangements: NotRequired[list[LegalArrangementDetail | LegalArrangementDetailDict]]
+    legal_arrangements: NotRequired[list[LegalArrangementDetailDict]]
     merchant_category_code: NotRequired[str]
     metadata: NotRequired[dict[str, str]]
-    payout_methods: NotRequired[list[PayoutMethod | PayoutMethodDict]]
-    phone_number: NotRequired[ViasPhoneNumber3 | ViasPhoneNumber3Dict]
-    principal_business_address: NotRequired[ViasAddress6 | ViasAddress6Dict]
-    store_details: NotRequired[list[StoreDetail | StoreDetailDict]]
+    payout_methods: NotRequired[list[PayoutMethodDict]]
+    phone_number: NotRequired[ViasPhoneNumber3Dict]
+    principal_business_address: NotRequired[ViasAddress6Dict]
+    store_details: NotRequired[list[StoreDetailDict]]
     web_address: NotRequired[str]

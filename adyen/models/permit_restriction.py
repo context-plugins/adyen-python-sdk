@@ -19,6 +19,6 @@ class PermitRestriction(SdkBaseModel):
 
 
 class PermitRestrictionDict(TypedDict):
-    max_amount: NotRequired[Amount | AmountDict]
-    single_transaction_limit: NotRequired[Amount | AmountDict]
+    max_amount: NotRequired[AmountDict]
+    single_transaction_limit: NotRequired[AmountDict]
     single_use: NotRequired[bool]

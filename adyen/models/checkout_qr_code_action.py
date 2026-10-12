@@ -33,5 +33,5 @@ class CheckoutQrCodeActionDict(TypedDict):
     payment_data: NotRequired[str]
     payment_method_type: NotRequired[str]
     qr_code_data: NotRequired[str]
-    type_: NotRequired[Literal["qrCode"]]
+    type_: Literal["qrCode"]
     url: NotRequired[str]

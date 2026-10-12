@@ -52,11 +52,11 @@ class CancelRequest(SdkBaseModel):
 class CancelRequestDict(TypedDict):
     additional_data: NotRequired[dict[str, str]]
     merchant_account: str
-    mpi_data: NotRequired[ThreeDsecureData | ThreeDsecureDataDict]
+    mpi_data: NotRequired[ThreeDsecureDataDict]
     original_merchant_reference: NotRequired[str]
     original_reference: str
-    platform_chargeback_logic: NotRequired[PlatformChargebackLogic | PlatformChargebackLogicDict]
+    platform_chargeback_logic: NotRequired[PlatformChargebackLogicDict]
     reference: NotRequired[str]
-    splits: NotRequired[list[Split | SplitDict]]
+    splits: NotRequired[list[SplitDict]]
     tender_reference: NotRequired[str]
     unique_terminal_id: NotRequired[str]

@@ -43,5 +43,5 @@ class AccountPayoutState2Dict(TypedDict):
     disable_reason: NotRequired[str]
     disabled: NotRequired[bool]
     not_allowed_reason: NotRequired[str]
-    payout_limit: NotRequired[Amount | AmountDict]
+    payout_limit: NotRequired[AmountDict]
     tier_number: NotRequired[int]

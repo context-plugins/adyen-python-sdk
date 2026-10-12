@@ -20,6 +20,6 @@ class RefundFundsTransferRequest(SdkBaseModel):
 
 
 class RefundFundsTransferRequestDict(TypedDict):
-    amount: Amount | AmountDict
+    amount: AmountDict
     merchant_reference: NotRequired[str]
     original_reference: str

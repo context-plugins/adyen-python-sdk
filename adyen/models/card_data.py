@@ -70,5 +70,5 @@ class CardDataDict(TypedDict):
     entry_mode: NotRequired[list[EntryModeOrStr]]
     card_country_code: NotRequired[int]
     protected_card_data: NotRequired[str]
-    sensitive_card_data: NotRequired[SensitiveCardData1 | SensitiveCardData1Dict]
-    payment_token: NotRequired[PaymentToken1 | PaymentToken1Dict]
+    sensitive_card_data: NotRequired[SensitiveCardData1Dict]
+    payment_token: NotRequired[PaymentToken1Dict]

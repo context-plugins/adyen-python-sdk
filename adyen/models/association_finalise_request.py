@@ -3,7 +3,7 @@ from __future__ import annotations
 from typing import Literal
 
 from pydantic import Field
-from typing_extensions import NotRequired, TypedDict
+from typing_extensions import TypedDict
 
 from ..core import SdkBaseModel
 from .association_delegated_authentication_data1 import (
@@ -31,7 +31,5 @@ class AssociationFinaliseRequest(SdkBaseModel):
 
 class AssociationFinaliseRequestDict(TypedDict):
     ids: list[str]
-    strong_customer_authentication: (
-        AssociationDelegatedAuthenticationData1 | AssociationDelegatedAuthenticationData1Dict
-    )
-    type_: NotRequired[Literal["PaymentInstrument"]]
+    strong_customer_authentication: AssociationDelegatedAuthenticationData1Dict
+    type_: Literal["PaymentInstrument"]

@@ -23,7 +23,7 @@ class GetPciUrlResponse(SdkBaseModel):
 
 
 class GetPciUrlResponseDict(TypedDict):
-    invalid_fields: NotRequired[list[ErrorFieldType | ErrorFieldTypeDict]]
+    invalid_fields: NotRequired[list[ErrorFieldTypeDict]]
     psp_reference: NotRequired[str]
     redirect_url: NotRequired[str]
     result_code: NotRequired[str]

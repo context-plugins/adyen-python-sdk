@@ -13,4 +13,4 @@ class TaxFormSummaryResponse(SdkBaseModel):
 
 
 class TaxFormSummaryResponseDict(TypedDict):
-    data: list[Summary | SummaryDict]
+    data: list[SummaryDict]

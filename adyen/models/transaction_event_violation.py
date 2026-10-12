@@ -21,5 +21,5 @@ class TransactionEventViolation(SdkBaseModel):
 
 class TransactionEventViolationDict(TypedDict):
     reason: NotRequired[str]
-    transaction_rule: NotRequired[TransactionRuleReference2 | TransactionRuleReference2Dict]
-    transaction_rule_source: NotRequired[TransactionRuleSource2 | TransactionRuleSource2Dict]
+    transaction_rule: NotRequired[TransactionRuleReference2Dict]
+    transaction_rule_source: NotRequired[TransactionRuleSource2Dict]

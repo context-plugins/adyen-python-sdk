@@ -31,5 +31,5 @@ class OnboardingLinkInfo(SdkBaseModel):
 class OnboardingLinkInfoDict(TypedDict):
     locale: NotRequired[str]
     redirect_url: NotRequired[str]
-    settings: NotRequired[OnboardingLinkSettings2 | OnboardingLinkSettings2Dict]
+    settings: NotRequired[OnboardingLinkSettings2Dict]
     theme_id: NotRequired[str]

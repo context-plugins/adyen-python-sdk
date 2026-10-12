@@ -26,8 +26,8 @@ class Link1(SdkBaseModel):
 
 
 class Link1Dict(TypedDict):
-    first: NotRequired[LinksElement | LinksElementDict]
-    last: NotRequired[LinksElement | LinksElementDict]
-    next: NotRequired[LinksElement | LinksElementDict]
-    previous: NotRequired[LinksElement | LinksElementDict]
-    self: NotRequired[LinksElement | LinksElementDict]
+    first: NotRequired[LinksElementDict]
+    last: NotRequired[LinksElementDict]
+    next: NotRequired[LinksElementDict]
+    previous: NotRequired[LinksElementDict]
+    self: NotRequired[LinksElementDict]

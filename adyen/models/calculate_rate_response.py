@@ -18,4 +18,4 @@ class CalculateRateResponse(SdkBaseModel):
 
 
 class CalculateRateResponseDict(TypedDict):
-    exchange_calculations: NotRequired[list[CalculateRateResponseItem | CalculateRateResponseItemDict]]
+    exchange_calculations: NotRequired[list[CalculateRateResponseItemDict]]

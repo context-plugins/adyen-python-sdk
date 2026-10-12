@@ -43,7 +43,7 @@ class EventNotification(SdkBaseModel):
     rejected_message: Optional[str] = Field(default=UNSET, alias="RejectedMessage")
     """Message request rejected by the receiver. Mandatory if EventToNotify is Reject, absent in other cases."""
 
-    maintenance_required_flag: Optional[bool] = Field(default=UNSET, alias="MaintenanceRequiredFlag")
+    maintenance_required_flag: bool = Field(default=False, alias="MaintenanceRequiredFlag")
     """Indicates if the occurred event requires maintenance call or action."""
 
     display_output: Optional[list[DisplayOutput]] = Field(default=UNSET, alias="DisplayOutput")
@@ -56,4 +56,4 @@ class EventNotificationDict(TypedDict):
     event_details: NotRequired[str]
     rejected_message: NotRequired[str]
     maintenance_required_flag: NotRequired[bool]
-    display_output: NotRequired[list[DisplayOutput | DisplayOutputDict]]
+    display_output: NotRequired[list[DisplayOutputDict]]

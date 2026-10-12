@@ -30,5 +30,5 @@ class PayoutScheduleExecution(SdkBaseModel):
 class PayoutScheduleExecutionDict(TypedDict):
     id: NotRequired[str]
     result: NotRequired[ExecutionResult1OrStr]
-    result_details: NotRequired[PayoutScheduleExecutionDetails2 | PayoutScheduleExecutionDetails2Dict]
+    result_details: NotRequired[PayoutScheduleExecutionDetails2Dict]
     triggered_at: NotRequired[RFC3339DateTime]

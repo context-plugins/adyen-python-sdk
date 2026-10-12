@@ -16,5 +16,5 @@ class KyclegalArrangementCheckResult(SdkBaseModel):
 
 
 class KyclegalArrangementCheckResultDict(TypedDict):
-    checks: NotRequired[list[KyccheckStatusData | KyccheckStatusDataDict]]
+    checks: NotRequired[list[KyccheckStatusDataDict]]
     legal_arrangement_code: NotRequired[str]

@@ -28,8 +28,8 @@ class Nexo(SdkBaseModel):
 
 
 class NexoDict(TypedDict):
-    display_urls: NotRequired[NotificationUrl2 | NotificationUrl2Dict]
-    encryption_key: NotRequired[Key1 | Key1Dict]
-    event_urls: NotRequired[EventUrl2 | EventUrl2Dict]
+    display_urls: NotRequired[NotificationUrl2Dict]
+    encryption_key: NotRequired[Key1Dict]
+    event_urls: NotRequired[EventUrl2Dict]
     nexo_event_urls: NotRequired[list[str]]
-    notification: NotRequired[Notification2 | Notification2Dict]
+    notification: NotRequired[Notification2Dict]

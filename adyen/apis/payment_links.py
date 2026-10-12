@@ -11,9 +11,11 @@ from ..core import (
     RawClient,
     RequestOptionsOrDict,
     SecuredRawResponse,
+    async_json_decoder,
     json_body,
     json_decoder,
     param,
+    unwrap,
 )
 from ..errors.get_payment_links_link_id_error import (
     GetPaymentLinksLinkIdErrorBody,
@@ -41,7 +43,8 @@ class PaymentLinks:
 
         Args:
             link_id: Unique identifier of the payment link.
-            request_options: Per-call overrides for this one request, such as a timeout or extra headers.
+            request_options: Per-call overrides for this one request, such as a timeout, extra headers, or its retry
+                count and statuses.
 
         Returns:
             OK - the request has succeeded.
@@ -51,7 +54,7 @@ class PaymentLinks:
                 required. Forbidden - insufficient permissions to process the request. Unprocessable Entity - a request
                 validation error. Internal Server Error - the server could not process the request. ``error`` is
                 ``ServiceError | RawError``."""
-        return self._with_raw_response.get_payment_links_link_id(link_id, request_options=request_options).unwrap()
+        return unwrap(self._with_raw_response.get_payment_links_link_id(link_id, request_options=request_options))
 
     def patch_payment_links_link_id(
         self,
@@ -66,7 +69,8 @@ class PaymentLinks:
         Args:
             link_id: Unique identifier of the payment link.
             body: The request body.
-            request_options: Per-call overrides for this one request, such as a timeout or extra headers.
+            request_options: Per-call overrides for this one request, such as a timeout, extra headers, or its retry
+                count and statuses.
 
         Returns:
             OK - the request has succeeded.
@@ -76,9 +80,9 @@ class PaymentLinks:
                 required. Forbidden - insufficient permissions to process the request. Unprocessable Entity - a request
                 validation error. Internal Server Error - the server could not process the request. ``error`` is
                 ``ServiceError | RawError``."""
-        return self._with_raw_response.patch_payment_links_link_id(
-            link_id, body=body, request_options=request_options
-        ).unwrap()
+        return unwrap(
+            self._with_raw_response.patch_payment_links_link_id(link_id, body=body, request_options=request_options)
+        )
 
     def post_payment_links(
         self,
@@ -97,7 +101,8 @@ class PaymentLinks:
         Args:
             idempotency_key: A unique identifier for the message with a maximum of 64 characters (we recommend a UUID).
             body: The request body.
-            request_options: Per-call overrides for this one request, such as a timeout or extra headers.
+            request_options: Per-call overrides for this one request, such as a timeout, extra headers, or its retry
+                count and statuses.
 
         Returns:
             Created - the request has succeeded.
@@ -107,9 +112,11 @@ class PaymentLinks:
                 required. Forbidden - insufficient permissions to process the request. Unprocessable Entity - a request
                 validation error. Internal Server Error - the server could not process the request. ``error`` is
                 ``ServiceError | RawError``."""
-        return self._with_raw_response.post_payment_links(
-            idempotency_key=idempotency_key, body=body, request_options=request_options
-        ).unwrap()
+        return unwrap(
+            self._with_raw_response.post_payment_links(
+                idempotency_key=idempotency_key, body=body, request_options=request_options
+            ),
+        )
 
     @property
     def with_raw_response(self) -> PaymentLinksWithRawResponse:
@@ -127,7 +134,8 @@ class AsyncPaymentLinks:
 
         Args:
             link_id: Unique identifier of the payment link.
-            request_options: Per-call overrides for this one request, such as a timeout or extra headers.
+            request_options: Per-call overrides for this one request, such as a timeout, extra headers, or its retry
+                count and statuses.
 
         Returns:
             OK - the request has succeeded.
@@ -137,9 +145,7 @@ class AsyncPaymentLinks:
                 required. Forbidden - insufficient permissions to process the request. Unprocessable Entity - a request
                 validation error. Internal Server Error - the server could not process the request. ``error`` is
                 ``ServiceError | RawError``."""
-        return (
-            await self._with_raw_response.get_payment_links_link_id(link_id, request_options=request_options)
-        ).unwrap()
+        return unwrap(await self._with_raw_response.get_payment_links_link_id(link_id, request_options=request_options))
 
     async def patch_payment_links_link_id(
         self,
@@ -154,7 +160,8 @@ class AsyncPaymentLinks:
         Args:
             link_id: Unique identifier of the payment link.
             body: The request body.
-            request_options: Per-call overrides for this one request, such as a timeout or extra headers.
+            request_options: Per-call overrides for this one request, such as a timeout, extra headers, or its retry
+                count and statuses.
 
         Returns:
             OK - the request has succeeded.
@@ -164,11 +171,11 @@ class AsyncPaymentLinks:
                 required. Forbidden - insufficient permissions to process the request. Unprocessable Entity - a request
                 validation error. Internal Server Error - the server could not process the request. ``error`` is
                 ``ServiceError | RawError``."""
-        return (
+        return unwrap(
             await self._with_raw_response.patch_payment_links_link_id(
                 link_id, body=body, request_options=request_options
-            )
-        ).unwrap()
+            ),
+        )
 
     async def post_payment_links(
         self,
@@ -187,7 +194,8 @@ class AsyncPaymentLinks:
         Args:
             idempotency_key: A unique identifier for the message with a maximum of 64 characters (we recommend a UUID).
             body: The request body.
-            request_options: Per-call overrides for this one request, such as a timeout or extra headers.
+            request_options: Per-call overrides for this one request, such as a timeout, extra headers, or its retry
+                count and statuses.
 
         Returns:
             Created - the request has succeeded.
@@ -197,11 +205,11 @@ class AsyncPaymentLinks:
                 required. Forbidden - insufficient permissions to process the request. Unprocessable Entity - a request
                 validation error. Internal Server Error - the server could not process the request. ``error`` is
                 ``ServiceError | RawError``."""
-        return (
+        return unwrap(
             await self._with_raw_response.post_payment_links(
                 idempotency_key=idempotency_key, body=body, request_options=request_options
-            )
-        ).unwrap()
+            ),
+        )
 
     @property
     def with_raw_response(self) -> AsyncPaymentLinksWithRawResponse:
@@ -216,7 +224,8 @@ class PaymentLinksWithRawResponse(SecuredRawResponse[RawClient, Server, AuthSche
 
         Args:
             link_id: Unique identifier of the payment link.
-            request_options: Per-call overrides for this one request, such as a timeout or extra headers.
+            request_options: Per-call overrides for this one request, such as a timeout, extra headers, or its retry
+                count and statuses.
 
         Returns:
             An ``ApiResult`` holding the deserialized response or the error body."""
@@ -243,7 +252,8 @@ class PaymentLinksWithRawResponse(SecuredRawResponse[RawClient, Server, AuthSche
         Args:
             link_id: Unique identifier of the payment link.
             body: The request body.
-            request_options: Per-call overrides for this one request, such as a timeout or extra headers.
+            request_options: Per-call overrides for this one request, such as a timeout, extra headers, or its retry
+                count and statuses.
 
         Returns:
             An ``ApiResult`` holding the deserialized response or the error body."""
@@ -276,7 +286,8 @@ class PaymentLinksWithRawResponse(SecuredRawResponse[RawClient, Server, AuthSche
         Args:
             idempotency_key: A unique identifier for the message with a maximum of 64 characters (we recommend a UUID).
             body: The request body.
-            request_options: Per-call overrides for this one request, such as a timeout or extra headers.
+            request_options: Per-call overrides for this one request, such as a timeout, extra headers, or its retry
+                count and statuses.
 
         Returns:
             An ``ApiResult`` holding the deserialized response or the error body."""
@@ -300,7 +311,8 @@ class AsyncPaymentLinksWithRawResponse(SecuredRawResponse[AsyncRawClient, Server
 
         Args:
             link_id: Unique identifier of the payment link.
-            request_options: Per-call overrides for this one request, such as a timeout or extra headers.
+            request_options: Per-call overrides for this one request, such as a timeout, extra headers, or its retry
+                count and statuses.
 
         Returns:
             An ``ApiResult`` holding the deserialized response or the error body."""
@@ -309,7 +321,7 @@ class AsyncPaymentLinksWithRawResponse(SecuredRawResponse[AsyncRawClient, Server
             url_template=self._server.default("/paymentLinks/{linkId}"),
             path_params=[param[str]("linkId", link_id)],
             auth_scheme=AsyncAnySchemes(self._auth.basic_auth, self._auth.api_key_auth),
-            decoder=json_decoder[PaymentLinkResponse],
+            decoder=async_json_decoder[PaymentLinkResponse],
             error_mapper=get_payment_links_link_id_error_mapper,
             request_options=request_options,
         )
@@ -327,7 +339,8 @@ class AsyncPaymentLinksWithRawResponse(SecuredRawResponse[AsyncRawClient, Server
         Args:
             link_id: Unique identifier of the payment link.
             body: The request body.
-            request_options: Per-call overrides for this one request, such as a timeout or extra headers.
+            request_options: Per-call overrides for this one request, such as a timeout, extra headers, or its retry
+                count and statuses.
 
         Returns:
             An ``ApiResult`` holding the deserialized response or the error body."""
@@ -338,7 +351,7 @@ class AsyncPaymentLinksWithRawResponse(SecuredRawResponse[AsyncRawClient, Server
             headers=[param[UUID]("Idempotency-Key", uuid4())],
             body=json_body[UpdatePaymentLinkRequest | UpdatePaymentLinkRequestDict | None](body),
             auth_scheme=AsyncAnySchemes(self._auth.basic_auth, self._auth.api_key_auth),
-            decoder=json_decoder[PaymentLinkResponse],
+            decoder=async_json_decoder[PaymentLinkResponse],
             error_mapper=patch_payment_links_link_id_error_mapper,
             request_options=request_options,
         )
@@ -360,7 +373,8 @@ class AsyncPaymentLinksWithRawResponse(SecuredRawResponse[AsyncRawClient, Server
         Args:
             idempotency_key: A unique identifier for the message with a maximum of 64 characters (we recommend a UUID).
             body: The request body.
-            request_options: Per-call overrides for this one request, such as a timeout or extra headers.
+            request_options: Per-call overrides for this one request, such as a timeout, extra headers, or its retry
+                count and statuses.
 
         Returns:
             An ``ApiResult`` holding the deserialized response or the error body."""
@@ -370,7 +384,7 @@ class AsyncPaymentLinksWithRawResponse(SecuredRawResponse[AsyncRawClient, Server
             headers=[param[str | None]("Idempotency-Key", idempotency_key)],
             body=json_body[PaymentLinkRequest | PaymentLinkRequestDict | None](body),
             auth_scheme=AsyncAnySchemes(self._auth.basic_auth, self._auth.api_key_auth),
-            decoder=json_decoder[PaymentLinkResponse],
+            decoder=async_json_decoder[PaymentLinkResponse],
             error_mapper=post_payment_links_error_mapper,
             request_options=request_options,
         )

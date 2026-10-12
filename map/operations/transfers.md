@@ -32,9 +32,9 @@ Each `###` block is one operation and assumes `sdk-map.md` is loaded: blocks omi
 - **Route**: `GET /transfers/{id}`
 - **Auth**: `client_key` OR `basic_auth` OR `api_key_auth`
 - **Server**: `default14`
-- **Signature**: `def get_transfers_id(id: str, *, request_options: RequestOptionsOrDict | None = None)`
-  - required, positional: `id`
-- **Params**: `id` — path
+- **Signature**: `def get_transfers_id(id_: str, *, request_options: RequestOptionsOrDict | None = None)`
+  - required, positional: `id_`
+- **Params**: `id_` — path `id`
 - **Returns (parsed)**: `TransferData`
 - **Returns (raw)**: `ApiResult[TransferData, GetTransfersIdErrorBody]`
 - **Error**: `GetTransfersIdErrorBody` — **Case A (typed)**

@@ -27,4 +27,4 @@ class TransactionRulesResultDict(TypedDict):
     advice: NotRequired[str]
     all_hard_block_rules_passed: NotRequired[bool]
     score: NotRequired[int]
-    triggered_transaction_rules: NotRequired[list[TransactionEventViolation | TransactionEventViolationDict]]
+    triggered_transaction_rules: NotRequired[list[TransactionEventViolationDict]]

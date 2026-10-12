@@ -12,4 +12,4 @@ class KyccheckResult(SdkBaseModel):
 
 
 class KyccheckResultDict(TypedDict):
-    checks: NotRequired[list[KyccheckStatusData | KyccheckStatusDataDict]]
+    checks: NotRequired[list[KyccheckStatusDataDict]]

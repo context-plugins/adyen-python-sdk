@@ -11,9 +11,9 @@ Each `###` block is one operation and assumes `sdk-map.md` is loaded: blocks omi
 - **Route**: `GET /balanceAccounts/{id}`
 - **Auth**: `client_key` OR `basic_auth` OR `api_key_auth`
 - **Server**: `default13`
-- **Signature**: `def get_balance_accounts_id(id: str, *, request_options: RequestOptionsOrDict | None = None)`
-  - required, positional: `id`
-- **Params**: `id` — path
+- **Signature**: `def get_balance_accounts_id(id_: str, *, request_options: RequestOptionsOrDict | None = None)`
+  - required, positional: `id_`
+- **Params**: `id_` — path `id`
 - **Returns (parsed)**: `BalanceAccount`
 - **Returns (raw)**: `ApiResult[BalanceAccount, GetBalanceAccountsIdErrorBody]`
 - **Error**: `GetBalanceAccountsIdErrorBody` — **Case A (typed)**
@@ -30,9 +30,9 @@ Each `###` block is one operation and assumes `sdk-map.md` is loaded: blocks omi
 - **Route**: `GET /balanceAccounts/{id}/paymentInstruments`
 - **Auth**: `client_key` OR `basic_auth` OR `api_key_auth`
 - **Server**: `default13`
-- **Signature**: `def get_balance_accounts_id_payment_instruments(id: str, *, offset: int | None = None, limit: int | None = None, status: str | None = None, request_options: RequestOptionsOrDict | None = None)`
-  - required, positional: `id`
-- **Params**: `id` — path · `offset` — query · `limit` — query · `status` — query
+- **Signature**: `def get_balance_accounts_id_payment_instruments(id_: str, *, offset: int | None = None, limit: int | None = None, status: str | None = None, request_options: RequestOptionsOrDict | None = None)`
+  - required, positional: `id_`
+- **Params**: `id_` — path `id` · `offset` — query · `limit` — query · `status` — query
 - **Returns (parsed)**: `PaginatedPaymentInstrumentsResponse`
 - **Returns (raw)**: `ApiResult[PaginatedPaymentInstrumentsResponse, GetBalanceAccountsIdPaymentInstrumentsErrorBody]`
 - **Error**: `GetBalanceAccountsIdPaymentInstrumentsErrorBody` — **Case A (typed)**
@@ -49,9 +49,9 @@ Each `###` block is one operation and assumes `sdk-map.md` is loaded: blocks omi
 - **Route**: `GET /balanceAccounts/{id}/transactionRules`
 - **Auth**: `client_key` OR `basic_auth` OR `api_key_auth`
 - **Server**: `default13`
-- **Signature**: `def get_balance_accounts_id_transaction_rules(id: str, *, request_options: RequestOptionsOrDict | None = None)`
-  - required, positional: `id`
-- **Params**: `id` — path
+- **Signature**: `def get_balance_accounts_id_transaction_rules(id_: str, *, request_options: RequestOptionsOrDict | None = None)`
+  - required, positional: `id_`
+- **Params**: `id_` — path `id`
 - **Returns (parsed)**: `TransactionRulesResponse`
 - **Returns (raw)**: `ApiResult[TransactionRulesResponse, GetBalanceAccountsIdTransactionRulesErrorBody]`
 - **Error**: `GetBalanceAccountsIdTransactionRulesErrorBody` — **Case A (typed)**
@@ -68,9 +68,9 @@ Each `###` block is one operation and assumes `sdk-map.md` is loaded: blocks omi
 - **Route**: `PATCH /balanceAccounts/{id}`
 - **Auth**: `client_key` OR `basic_auth` OR `api_key_auth`
 - **Server**: `default13`
-- **Signature**: `def patch_balance_accounts_id(id: str, *, body: BalanceAccountUpdateRequest | BalanceAccountUpdateRequestDict | None = None, request_options: RequestOptionsOrDict | None = None)`
-  - required, positional: `id`
-- **Params**: `id` — path · `body` — JSON body
+- **Signature**: `def patch_balance_accounts_id(id_: str, *, body: BalanceAccountUpdateRequest | BalanceAccountUpdateRequestDict | None = None, request_options: RequestOptionsOrDict | None = None)`
+  - required, positional: `id_`
+- **Params**: `id_` — path `id` · `body` — JSON body
 - **Returns (parsed)**: `BalanceAccount`
 - **Returns (raw)**: `ApiResult[BalanceAccount, PatchBalanceAccountsIdErrorBody]`
 - **Error**: `PatchBalanceAccountsIdErrorBody` — **Case A (typed)**

@@ -13,4 +13,4 @@ class TransactionRulesResponse(SdkBaseModel):
 
 
 class TransactionRulesResponseDict(TypedDict):
-    transaction_rules: NotRequired[list[TransactionRule | TransactionRuleDict]]
+    transaction_rules: NotRequired[list[TransactionRuleDict]]

@@ -21,4 +21,4 @@ class PaginatedPaymentInstrumentsResponse(SdkBaseModel):
 class PaginatedPaymentInstrumentsResponseDict(TypedDict):
     has_next: bool
     has_previous: bool
-    payment_instruments: list[PaymentInstrument1 | PaymentInstrument1Dict]
+    payment_instruments: list[PaymentInstrument1Dict]

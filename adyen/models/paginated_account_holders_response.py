@@ -19,6 +19,6 @@ class PaginatedAccountHoldersResponse(SdkBaseModel):
 
 
 class PaginatedAccountHoldersResponseDict(TypedDict):
-    account_holders: list[AccountHolder | AccountHolderDict]
+    account_holders: list[AccountHolderDict]
     has_next: bool
     has_previous: bool

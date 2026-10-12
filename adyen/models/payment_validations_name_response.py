@@ -29,6 +29,6 @@ class PaymentValidationsNameResponse(SdkBaseModel):
 
 
 class PaymentValidationsNameResponseDict(TypedDict):
-    raw_response: NotRequired[PaymentValidationsNameResultRawResponse2 | PaymentValidationsNameResultRawResponse2Dict]
-    result: NotRequired[PaymentValidationsNameResultResponse2 | PaymentValidationsNameResultResponse2Dict]
+    raw_response: NotRequired[PaymentValidationsNameResultRawResponse2Dict]
+    result: NotRequired[PaymentValidationsNameResultResponse2Dict]
     status: NotRequired[StatusOrStr]

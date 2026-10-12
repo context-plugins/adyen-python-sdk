@@ -13,4 +13,4 @@ class PayoutScheduleExecutions(SdkBaseModel):
 
 
 class PayoutScheduleExecutionsDict(TypedDict):
-    payout_schedule_executions: list[PayoutScheduleExecution | PayoutScheduleExecutionDict]
+    payout_schedule_executions: list[PayoutScheduleExecutionDict]

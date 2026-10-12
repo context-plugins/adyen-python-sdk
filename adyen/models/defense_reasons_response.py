@@ -17,5 +17,5 @@ class DefenseReasonsResponse(SdkBaseModel):
 
 
 class DefenseReasonsResponseDict(TypedDict):
-    defense_reasons: NotRequired[list[DefenseReason | DefenseReasonDict]]
-    dispute_service_result: DisputeServiceResult1 | DisputeServiceResult1Dict
+    defense_reasons: NotRequired[list[DefenseReasonDict]]
+    dispute_service_result: DisputeServiceResult1Dict

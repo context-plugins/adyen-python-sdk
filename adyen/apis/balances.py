@@ -9,9 +9,11 @@ from ..core import (
     BaseRawResponse,
     RawClient,
     RequestOptionsOrDict,
+    async_json_decoder,
     json_body,
     json_decoder,
     param,
+    unwrap,
 )
 from ..errors.delete_balance_platforms_balance_platform_id_webhooks_webhook_id_settings_setting_id_error import (
     DeleteBalancePlatformsBalancePlatformIdWebhooksWebhookIdSettingsSettingIdErrorBody,
@@ -62,7 +64,8 @@ class Balances:
             balance_platform_id: The unique identifier of the balance platform.
             webhook_id: The unique identifier of the balance webhook.
             setting_id: The unique identifier of the balance webhook setting.
-            request_options: Per-call overrides for this one request, such as a timeout or extra headers.
+            request_options: Per-call overrides for this one request, such as a timeout, extra headers, or its retry
+                count and statuses.
 
         Returns:
             No Content - the request has been successfully processed, but there is no additional content.
@@ -72,9 +75,11 @@ class Balances:
                 required. Forbidden - insufficient permissions to process the request. Not Found - the payment was not
                 found Unprocessable Entity - a request validation error. Internal Server Error - the server could not
                 process the request. ``error`` is ``DefaultErrorResponseEntity | RawError``."""
-        return self._with_raw_response.delete_balance_platforms_balance_platform_id_webhooks_webhook_id_settings_setting_id(
-            balance_platform_id, webhook_id, setting_id, request_options=request_options
-        ).unwrap()
+        return unwrap(
+            self._with_raw_response.delete_balance_platforms_balance_platform_id_webhooks_webhook_id_settings_setting_id(
+                balance_platform_id, webhook_id, setting_id, request_options=request_options
+            ),
+        )
 
     def get_balance_platforms_balance_platform_id_webhooks_webhook_id_settings(
         self, balance_platform_id: str, webhook_id: str, *, request_options: RequestOptionsOrDict | None = None
@@ -85,7 +90,8 @@ class Balances:
         Args:
             balance_platform_id: The unique identifier of the balance platform.
             webhook_id: The unique identifier of the balance webhook.
-            request_options: Per-call overrides for this one request, such as a timeout or extra headers.
+            request_options: Per-call overrides for this one request, such as a timeout, extra headers, or its retry
+                count and statuses.
 
         Returns:
             OK - the request has succeeded.
@@ -95,9 +101,11 @@ class Balances:
                 required. Forbidden - insufficient permissions to process the request. Not Found - the payment was not
                 found Unprocessable Entity - a request validation error. Internal Server Error - the server could not
                 process the request. ``error`` is ``DefaultErrorResponseEntity | RawError``."""
-        return self._with_raw_response.get_balance_platforms_balance_platform_id_webhooks_webhook_id_settings(
-            balance_platform_id, webhook_id, request_options=request_options
-        ).unwrap()
+        return unwrap(
+            self._with_raw_response.get_balance_platforms_balance_platform_id_webhooks_webhook_id_settings(
+                balance_platform_id, webhook_id, request_options=request_options
+            ),
+        )
 
     def get_balance_platforms_balance_platform_id_webhooks_webhook_id_settings_setting_id(
         self,
@@ -114,7 +122,8 @@ class Balances:
             balance_platform_id: The unique identifier of the balance platform.
             webhook_id: The unique identifier of the balance webhook.
             setting_id: The unique identifier of the balance webhook setting.
-            request_options: Per-call overrides for this one request, such as a timeout or extra headers.
+            request_options: Per-call overrides for this one request, such as a timeout, extra headers, or its retry
+                count and statuses.
 
         Returns:
             OK - the request has succeeded.
@@ -124,9 +133,11 @@ class Balances:
                 required. Forbidden - insufficient permissions to process the request. Not Found - the payment was not
                 found Unprocessable Entity - a request validation error. Internal Server Error - the server could not
                 process the request. ``error`` is ``DefaultErrorResponseEntity | RawError``."""
-        return self._with_raw_response.get_balance_platforms_balance_platform_id_webhooks_webhook_id_settings_setting_id(
-            balance_platform_id, webhook_id, setting_id, request_options=request_options
-        ).unwrap()
+        return unwrap(
+            self._with_raw_response.get_balance_platforms_balance_platform_id_webhooks_webhook_id_settings_setting_id(
+                balance_platform_id, webhook_id, setting_id, request_options=request_options
+            ),
+        )
 
     def patch_balance_platforms_balance_platform_id_webhooks_webhook_id_settings_setting_id(
         self,
@@ -145,7 +156,8 @@ class Balances:
             webhook_id: The unique identifier of the balance webhook.
             setting_id: The unique identifier of the balance webhook setting.
             body: The request body.
-            request_options: Per-call overrides for this one request, such as a timeout or extra headers.
+            request_options: Per-call overrides for this one request, such as a timeout, extra headers, or its retry
+                count and statuses.
 
         Returns:
             OK - the request has succeeded.
@@ -155,9 +167,11 @@ class Balances:
                 required. Forbidden - insufficient permissions to process the request. Not Found - the payment was not
                 found Unprocessable Entity - a request validation error. Internal Server Error - the server could not
                 process the request. ``error`` is ``DefaultErrorResponseEntity | RawError``."""
-        return self._with_raw_response.patch_balance_platforms_balance_platform_id_webhooks_webhook_id_settings_setting_id(
-            balance_platform_id, webhook_id, setting_id, body, request_options=request_options
-        ).unwrap()
+        return unwrap(
+            self._with_raw_response.patch_balance_platforms_balance_platform_id_webhooks_webhook_id_settings_setting_id(
+                balance_platform_id, webhook_id, setting_id, body, request_options=request_options
+            ),
+        )
 
     def post_balance_platforms_balance_platform_id_webhooks_webhook_id_settings(
         self,
@@ -187,7 +201,8 @@ class Balances:
             balance_platform_id: The unique identifier of the balance platform.
             webhook_id: The unique identifier of the balance webhook.
             body: The request body.
-            request_options: Per-call overrides for this one request, such as a timeout or extra headers.
+            request_options: Per-call overrides for this one request, such as a timeout, extra headers, or its retry
+                count and statuses.
 
         Returns:
             OK - the request has succeeded.
@@ -197,9 +212,11 @@ class Balances:
                 required. Forbidden - insufficient permissions to process the request. Not Found - the payment was not
                 found Unprocessable Entity - a request validation error. Internal Server Error - the server could not
                 process the request. ``error`` is ``DefaultErrorResponseEntity | RawError``."""
-        return self._with_raw_response.post_balance_platforms_balance_platform_id_webhooks_webhook_id_settings(
-            balance_platform_id, webhook_id, body, request_options=request_options
-        ).unwrap()
+        return unwrap(
+            self._with_raw_response.post_balance_platforms_balance_platform_id_webhooks_webhook_id_settings(
+                balance_platform_id, webhook_id, body, request_options=request_options
+            ),
+        )
 
     @property
     def with_raw_response(self) -> BalancesWithRawResponse:
@@ -225,7 +242,8 @@ class AsyncBalances:
             balance_platform_id: The unique identifier of the balance platform.
             webhook_id: The unique identifier of the balance webhook.
             setting_id: The unique identifier of the balance webhook setting.
-            request_options: Per-call overrides for this one request, such as a timeout or extra headers.
+            request_options: Per-call overrides for this one request, such as a timeout, extra headers, or its retry
+                count and statuses.
 
         Returns:
             No Content - the request has been successfully processed, but there is no additional content.
@@ -235,11 +253,11 @@ class AsyncBalances:
                 required. Forbidden - insufficient permissions to process the request. Not Found - the payment was not
                 found Unprocessable Entity - a request validation error. Internal Server Error - the server could not
                 process the request. ``error`` is ``DefaultErrorResponseEntity | RawError``."""
-        return (
+        return unwrap(
             await self._with_raw_response.delete_balance_platforms_balance_platform_id_webhooks_webhook_id_settings_setting_id(
                 balance_platform_id, webhook_id, setting_id, request_options=request_options
-            )
-        ).unwrap()
+            ),
+        )
 
     async def get_balance_platforms_balance_platform_id_webhooks_webhook_id_settings(
         self, balance_platform_id: str, webhook_id: str, *, request_options: RequestOptionsOrDict | None = None
@@ -250,7 +268,8 @@ class AsyncBalances:
         Args:
             balance_platform_id: The unique identifier of the balance platform.
             webhook_id: The unique identifier of the balance webhook.
-            request_options: Per-call overrides for this one request, such as a timeout or extra headers.
+            request_options: Per-call overrides for this one request, such as a timeout, extra headers, or its retry
+                count and statuses.
 
         Returns:
             OK - the request has succeeded.
@@ -260,11 +279,11 @@ class AsyncBalances:
                 required. Forbidden - insufficient permissions to process the request. Not Found - the payment was not
                 found Unprocessable Entity - a request validation error. Internal Server Error - the server could not
                 process the request. ``error`` is ``DefaultErrorResponseEntity | RawError``."""
-        return (
+        return unwrap(
             await self._with_raw_response.get_balance_platforms_balance_platform_id_webhooks_webhook_id_settings(
                 balance_platform_id, webhook_id, request_options=request_options
-            )
-        ).unwrap()
+            ),
+        )
 
     async def get_balance_platforms_balance_platform_id_webhooks_webhook_id_settings_setting_id(
         self,
@@ -281,7 +300,8 @@ class AsyncBalances:
             balance_platform_id: The unique identifier of the balance platform.
             webhook_id: The unique identifier of the balance webhook.
             setting_id: The unique identifier of the balance webhook setting.
-            request_options: Per-call overrides for this one request, such as a timeout or extra headers.
+            request_options: Per-call overrides for this one request, such as a timeout, extra headers, or its retry
+                count and statuses.
 
         Returns:
             OK - the request has succeeded.
@@ -291,11 +311,11 @@ class AsyncBalances:
                 required. Forbidden - insufficient permissions to process the request. Not Found - the payment was not
                 found Unprocessable Entity - a request validation error. Internal Server Error - the server could not
                 process the request. ``error`` is ``DefaultErrorResponseEntity | RawError``."""
-        return (
+        return unwrap(
             await self._with_raw_response.get_balance_platforms_balance_platform_id_webhooks_webhook_id_settings_setting_id(
                 balance_platform_id, webhook_id, setting_id, request_options=request_options
-            )
-        ).unwrap()
+            ),
+        )
 
     async def patch_balance_platforms_balance_platform_id_webhooks_webhook_id_settings_setting_id(
         self,
@@ -314,7 +334,8 @@ class AsyncBalances:
             webhook_id: The unique identifier of the balance webhook.
             setting_id: The unique identifier of the balance webhook setting.
             body: The request body.
-            request_options: Per-call overrides for this one request, such as a timeout or extra headers.
+            request_options: Per-call overrides for this one request, such as a timeout, extra headers, or its retry
+                count and statuses.
 
         Returns:
             OK - the request has succeeded.
@@ -324,11 +345,11 @@ class AsyncBalances:
                 required. Forbidden - insufficient permissions to process the request. Not Found - the payment was not
                 found Unprocessable Entity - a request validation error. Internal Server Error - the server could not
                 process the request. ``error`` is ``DefaultErrorResponseEntity | RawError``."""
-        return (
+        return unwrap(
             await self._with_raw_response.patch_balance_platforms_balance_platform_id_webhooks_webhook_id_settings_setting_id(
                 balance_platform_id, webhook_id, setting_id, body, request_options=request_options
-            )
-        ).unwrap()
+            ),
+        )
 
     async def post_balance_platforms_balance_platform_id_webhooks_webhook_id_settings(
         self,
@@ -358,7 +379,8 @@ class AsyncBalances:
             balance_platform_id: The unique identifier of the balance platform.
             webhook_id: The unique identifier of the balance webhook.
             body: The request body.
-            request_options: Per-call overrides for this one request, such as a timeout or extra headers.
+            request_options: Per-call overrides for this one request, such as a timeout, extra headers, or its retry
+                count and statuses.
 
         Returns:
             OK - the request has succeeded.
@@ -368,11 +390,11 @@ class AsyncBalances:
                 required. Forbidden - insufficient permissions to process the request. Not Found - the payment was not
                 found Unprocessable Entity - a request validation error. Internal Server Error - the server could not
                 process the request. ``error`` is ``DefaultErrorResponseEntity | RawError``."""
-        return (
+        return unwrap(
             await self._with_raw_response.post_balance_platforms_balance_platform_id_webhooks_webhook_id_settings(
                 balance_platform_id, webhook_id, body, request_options=request_options
-            )
-        ).unwrap()
+            ),
+        )
 
     @property
     def with_raw_response(self) -> AsyncBalancesWithRawResponse:
@@ -395,7 +417,8 @@ class BalancesWithRawResponse(BaseRawResponse[RawClient, Server]):
             balance_platform_id: The unique identifier of the balance platform.
             webhook_id: The unique identifier of the balance webhook.
             setting_id: The unique identifier of the balance webhook setting.
-            request_options: Per-call overrides for this one request, such as a timeout or extra headers.
+            request_options: Per-call overrides for this one request, such as a timeout, extra headers, or its retry
+                count and statuses.
 
         Returns:
             An ``ApiResult`` holding the deserialized response or the error body."""
@@ -424,7 +447,8 @@ class BalancesWithRawResponse(BaseRawResponse[RawClient, Server]):
         Args:
             balance_platform_id: The unique identifier of the balance platform.
             webhook_id: The unique identifier of the balance webhook.
-            request_options: Per-call overrides for this one request, such as a timeout or extra headers.
+            request_options: Per-call overrides for this one request, such as a timeout, extra headers, or its retry
+                count and statuses.
 
         Returns:
             An ``ApiResult`` holding the deserialized response or the error body."""
@@ -452,7 +476,8 @@ class BalancesWithRawResponse(BaseRawResponse[RawClient, Server]):
             balance_platform_id: The unique identifier of the balance platform.
             webhook_id: The unique identifier of the balance webhook.
             setting_id: The unique identifier of the balance webhook setting.
-            request_options: Per-call overrides for this one request, such as a timeout or extra headers.
+            request_options: Per-call overrides for this one request, such as a timeout, extra headers, or its retry
+                count and statuses.
 
         Returns:
             An ``ApiResult`` holding the deserialized response or the error body."""
@@ -488,7 +513,8 @@ class BalancesWithRawResponse(BaseRawResponse[RawClient, Server]):
             webhook_id: The unique identifier of the balance webhook.
             setting_id: The unique identifier of the balance webhook setting.
             body: The request body.
-            request_options: Per-call overrides for this one request, such as a timeout or extra headers.
+            request_options: Per-call overrides for this one request, such as a timeout, extra headers, or its retry
+                count and statuses.
 
         Returns:
             An ``ApiResult`` holding the deserialized response or the error body."""
@@ -537,7 +563,8 @@ class BalancesWithRawResponse(BaseRawResponse[RawClient, Server]):
             balance_platform_id: The unique identifier of the balance platform.
             webhook_id: The unique identifier of the balance webhook.
             body: The request body.
-            request_options: Per-call overrides for this one request, such as a timeout or extra headers.
+            request_options: Per-call overrides for this one request, such as a timeout, extra headers, or its retry
+                count and statuses.
 
         Returns:
             An ``ApiResult`` holding the deserialized response or the error body."""
@@ -569,7 +596,8 @@ class AsyncBalancesWithRawResponse(BaseRawResponse[AsyncRawClient, Server]):
             balance_platform_id: The unique identifier of the balance platform.
             webhook_id: The unique identifier of the balance webhook.
             setting_id: The unique identifier of the balance webhook setting.
-            request_options: Per-call overrides for this one request, such as a timeout or extra headers.
+            request_options: Per-call overrides for this one request, such as a timeout, extra headers, or its retry
+                count and statuses.
 
         Returns:
             An ``ApiResult`` holding the deserialized response or the error body."""
@@ -584,7 +612,7 @@ class AsyncBalancesWithRawResponse(BaseRawResponse[AsyncRawClient, Server]):
                 param[str]("settingId", setting_id),
             ],
             headers=[param[UUID]("Idempotency-Key", uuid4())],
-            decoder=json_decoder[Any],
+            decoder=async_json_decoder[Any],
             error_mapper=delete_balance_platforms_balance_platform_id_webhooks_webhook_id_settings_setting_id_error_mapper,
             request_options=request_options,
         )
@@ -598,7 +626,8 @@ class AsyncBalancesWithRawResponse(BaseRawResponse[AsyncRawClient, Server]):
         Args:
             balance_platform_id: The unique identifier of the balance platform.
             webhook_id: The unique identifier of the balance webhook.
-            request_options: Per-call overrides for this one request, such as a timeout or extra headers.
+            request_options: Per-call overrides for this one request, such as a timeout, extra headers, or its retry
+                count and statuses.
 
         Returns:
             An ``ApiResult`` holding the deserialized response or the error body."""
@@ -606,7 +635,7 @@ class AsyncBalancesWithRawResponse(BaseRawResponse[AsyncRawClient, Server]):
             http_method="GET",
             url_template=self._server.default13("/balancePlatforms/{balancePlatformId}/webhooks/{webhookId}/settings"),
             path_params=[param[str]("balancePlatformId", balance_platform_id), param[str]("webhookId", webhook_id)],
-            decoder=json_decoder[WebhookSettings],
+            decoder=async_json_decoder[WebhookSettings],
             error_mapper=get_balance_platforms_balance_platform_id_webhooks_webhook_id_settings_error_mapper,
             request_options=request_options,
         )
@@ -626,7 +655,8 @@ class AsyncBalancesWithRawResponse(BaseRawResponse[AsyncRawClient, Server]):
             balance_platform_id: The unique identifier of the balance platform.
             webhook_id: The unique identifier of the balance webhook.
             setting_id: The unique identifier of the balance webhook setting.
-            request_options: Per-call overrides for this one request, such as a timeout or extra headers.
+            request_options: Per-call overrides for this one request, such as a timeout, extra headers, or its retry
+                count and statuses.
 
         Returns:
             An ``ApiResult`` holding the deserialized response or the error body."""
@@ -640,7 +670,7 @@ class AsyncBalancesWithRawResponse(BaseRawResponse[AsyncRawClient, Server]):
                 param[str]("webhookId", webhook_id),
                 param[str]("settingId", setting_id),
             ],
-            decoder=json_decoder[WebhookSetting],
+            decoder=async_json_decoder[WebhookSetting],
             error_mapper=get_balance_platforms_balance_platform_id_webhooks_webhook_id_settings_setting_id_error_mapper,
             request_options=request_options,
         )
@@ -662,7 +692,8 @@ class AsyncBalancesWithRawResponse(BaseRawResponse[AsyncRawClient, Server]):
             webhook_id: The unique identifier of the balance webhook.
             setting_id: The unique identifier of the balance webhook setting.
             body: The request body.
-            request_options: Per-call overrides for this one request, such as a timeout or extra headers.
+            request_options: Per-call overrides for this one request, such as a timeout, extra headers, or its retry
+                count and statuses.
 
         Returns:
             An ``ApiResult`` holding the deserialized response or the error body."""
@@ -678,7 +709,7 @@ class AsyncBalancesWithRawResponse(BaseRawResponse[AsyncRawClient, Server]):
             ],
             headers=[param[UUID]("Idempotency-Key", uuid4())],
             body=json_body[BalanceWebhookSettingInfoUpdate | BalanceWebhookSettingInfoUpdateDict](body),
-            decoder=json_decoder[WebhookSetting],
+            decoder=async_json_decoder[WebhookSetting],
             error_mapper=patch_balance_platforms_balance_platform_id_webhooks_webhook_id_settings_setting_id_error_mapper,
             request_options=request_options,
         )
@@ -711,7 +742,8 @@ class AsyncBalancesWithRawResponse(BaseRawResponse[AsyncRawClient, Server]):
             balance_platform_id: The unique identifier of the balance platform.
             webhook_id: The unique identifier of the balance webhook.
             body: The request body.
-            request_options: Per-call overrides for this one request, such as a timeout or extra headers.
+            request_options: Per-call overrides for this one request, such as a timeout, extra headers, or its retry
+                count and statuses.
 
         Returns:
             An ``ApiResult`` holding the deserialized response or the error body."""
@@ -721,7 +753,7 @@ class AsyncBalancesWithRawResponse(BaseRawResponse[AsyncRawClient, Server]):
             path_params=[param[str]("balancePlatformId", balance_platform_id), param[str]("webhookId", webhook_id)],
             headers=[param[UUID]("Idempotency-Key", uuid4())],
             body=json_body[BalanceWebhookSettingInfo | BalanceWebhookSettingInfoDict](body),
-            decoder=json_decoder[WebhookSetting],
+            decoder=async_json_decoder[WebhookSetting],
             error_mapper=post_balance_platforms_balance_platform_id_webhooks_webhook_id_settings_error_mapper,
             request_options=request_options,
         )

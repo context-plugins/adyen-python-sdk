@@ -4,7 +4,7 @@ from pydantic import Field
 from typing_extensions import NotRequired, TypedDict
 
 from ..core import UNSET, Optional, SdkBaseModel
-from .enums.type411 import Type411OrStr
+from .enums.type411 import Type411, Type411OrStr
 
 
 class InternalCategoryData(SdkBaseModel):
@@ -14,7 +14,7 @@ class InternalCategoryData(SdkBaseModel):
     modification_psp_reference: Optional[str] = Field(default=UNSET, alias="modificationPspReference")
     """The capture reference included in the transfer."""
 
-    type_: Optional[Type411OrStr] = Field(default=UNSET, alias="type")
+    type_: Type411OrStr = Field(default=Type411.INTERNAL, alias="type")
     """**internal**"""
 
 

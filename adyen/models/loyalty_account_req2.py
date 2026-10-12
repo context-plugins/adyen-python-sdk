@@ -21,5 +21,5 @@ class LoyaltyAccountReq2(SdkBaseModel):
 
 
 class LoyaltyAccountReq2Dict(TypedDict):
-    card_acquisition_reference: NotRequired[TransactionIdtype | TransactionIdtypeDict]
-    loyalty_account_id: NotRequired[LoyaltyAccountId | LoyaltyAccountIdDict]
+    card_acquisition_reference: NotRequired[TransactionIdtypeDict]
+    loyalty_account_id: NotRequired[LoyaltyAccountIdDict]

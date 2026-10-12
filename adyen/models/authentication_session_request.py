@@ -28,5 +28,5 @@ class AuthenticationSessionRequest(SdkBaseModel):
 
 class AuthenticationSessionRequestDict(TypedDict):
     allow_origin: str
-    policy: Policy2 | Policy2Dict
+    policy: Policy2Dict
     product: ProductType2OrStr

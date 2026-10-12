@@ -44,11 +44,11 @@ class DonationCampaign(SdkBaseModel):
 
 
 class DonationCampaignDict(TypedDict):
-    amounts: NotRequired[Amounts1 | Amounts1Dict]
+    amounts: NotRequired[Amounts1Dict]
     banner_url: NotRequired[str]
     campaign_name: NotRequired[str]
     cause_name: NotRequired[str]
-    donation: NotRequired[Donation1 | Donation1Dict]
+    donation: NotRequired[Donation1Dict]
     id: NotRequired[str]
     logo_url: NotRequired[str]
     nonprofit_description: NotRequired[str]

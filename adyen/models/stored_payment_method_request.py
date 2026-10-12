@@ -37,7 +37,7 @@ class StoredPaymentMethodRequest(SdkBaseModel):
 
 class StoredPaymentMethodRequestDict(TypedDict):
     merchant_account: str
-    payment_method: PaymentMethodToStore1 | PaymentMethodToStore1Dict
+    payment_method: PaymentMethodToStore1Dict
     recurring_processing_model: RecurringProcessingModel1OrStr
     shopper_email: NotRequired[str]
     shopper_ip: NotRequired[str]

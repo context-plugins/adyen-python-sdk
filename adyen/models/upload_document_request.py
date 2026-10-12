@@ -20,4 +20,4 @@ class UploadDocumentRequest(SdkBaseModel):
 
 class UploadDocumentRequestDict(TypedDict):
     document_content: str
-    document_detail: DocumentDetail1 | DocumentDetail1Dict
+    document_detail: DocumentDetail1Dict

@@ -12,4 +12,4 @@ class AndroidCertificatesResponse(SdkBaseModel):
 
 
 class AndroidCertificatesResponseDict(TypedDict):
-    data: NotRequired[list[AndroidCertificate | AndroidCertificateDict]]
+    data: NotRequired[list[AndroidCertificateDict]]

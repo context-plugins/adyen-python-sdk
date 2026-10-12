@@ -23,5 +23,5 @@ class PoisystemData(SdkBaseModel):
 
 class PoisystemDataDict(TypedDict):
     date_time: RFC3339DateTime
-    poi_software: Poisoftware | PoisoftwareDict
-    poi_status: NotRequired[Poistatus | PoistatusDict]
+    poi_software: PoisoftwareDict
+    poi_status: NotRequired[PoistatusDict]

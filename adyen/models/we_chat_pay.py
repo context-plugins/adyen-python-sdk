@@ -4,7 +4,7 @@ from pydantic import Field
 from typing_extensions import NotRequired, TypedDict
 
 from ..core import UNSET, Optional, SdkBaseModel
-from .enums.type56 import Type56OrStr
+from .enums.type56 import Type56, Type56OrStr
 
 
 class WeChatPay(SdkBaseModel):
@@ -14,7 +14,7 @@ class WeChatPay(SdkBaseModel):
     sdk_data: Optional[str] = Field(default=UNSET, alias="sdkData")
     """Base64-encoded JSON object containing SDK related parameters required by the SDK"""
 
-    type_: Optional[Type56OrStr] = Field(default=UNSET, alias="type")
+    type_: Type56OrStr = Field(default=Type56.WECHATPAY, alias="type")
     """**wechatpay**"""
 
 

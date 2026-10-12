@@ -11,9 +11,11 @@ from ..core import (
     RawClient,
     RequestOptionsOrDict,
     SecuredRawResponse,
+    async_json_decoder,
     json_body,
     json_decoder,
     param,
+    unwrap,
 )
 from ..errors.get_companies_company_id_billing_entities_error import (
     GetCompaniesCompanyIdBillingEntitiesErrorBody,
@@ -88,7 +90,8 @@ class TerminalOrdersCompanyLevel:
         Args:
             company_id: The unique identifier of the company account.
             name: The name of the billing entity.
-            request_options: Per-call overrides for this one request, such as a timeout or extra headers.
+            request_options: Per-call overrides for this one request, such as a timeout, extra headers, or its retry
+                count and statuses.
 
         Returns:
             OK - the request has succeeded.
@@ -98,9 +101,11 @@ class TerminalOrdersCompanyLevel:
                 required. Forbidden - insufficient permissions to process the request. Unprocessable Entity - a request
                 validation error. Internal Server Error - the server could not process the request. ``error`` is
                 ``RestServiceError | RawError``."""
-        return self._with_raw_response.get_companies_company_id_billing_entities(
-            company_id, name=name, request_options=request_options
-        ).unwrap()
+        return unwrap(
+            self._with_raw_response.get_companies_company_id_billing_entities(
+                company_id, name=name, request_options=request_options
+            ),
+        )
 
     def get_companies_company_id_shipping_locations(
         self,
@@ -128,7 +133,8 @@ class TerminalOrdersCompanyLevel:
             name: The name of the shipping location.
             offset: The number of locations to skip.
             limit: The number of locations to return.
-            request_options: Per-call overrides for this one request, such as a timeout or extra headers.
+            request_options: Per-call overrides for this one request, such as a timeout, extra headers, or its retry
+                count and statuses.
 
         Returns:
             OK - the request has succeeded.
@@ -138,9 +144,11 @@ class TerminalOrdersCompanyLevel:
                 required. Forbidden - insufficient permissions to process the request. Unprocessable Entity - a request
                 validation error. Internal Server Error - the server could not process the request. ``error`` is
                 ``RestServiceError | RawError``."""
-        return self._with_raw_response.get_companies_company_id_shipping_locations(
-            company_id, name=name, offset=offset, limit=limit, request_options=request_options
-        ).unwrap()
+        return unwrap(
+            self._with_raw_response.get_companies_company_id_shipping_locations(
+                company_id, name=name, offset=offset, limit=limit, request_options=request_options
+            ),
+        )
 
     def get_companies_company_id_terminal_models(
         self, company_id: str, *, request_options: RequestOptionsOrDict | None = None
@@ -159,7 +167,8 @@ class TerminalOrdersCompanyLevel:
 
         Args:
             company_id: The unique identifier of the company account.
-            request_options: Per-call overrides for this one request, such as a timeout or extra headers.
+            request_options: Per-call overrides for this one request, such as a timeout, extra headers, or its retry
+                count and statuses.
 
         Returns:
             OK - the request has succeeded.
@@ -169,9 +178,11 @@ class TerminalOrdersCompanyLevel:
                 required. Forbidden - insufficient permissions to process the request. Unprocessable Entity - a request
                 validation error. Internal Server Error - the server could not process the request. ``error`` is
                 ``RestServiceError | RawError``."""
-        return self._with_raw_response.get_companies_company_id_terminal_models(
-            company_id, request_options=request_options
-        ).unwrap()
+        return unwrap(
+            self._with_raw_response.get_companies_company_id_terminal_models(
+                company_id, request_options=request_options
+            ),
+        )
 
     def get_companies_company_id_terminal_orders(
         self,
@@ -201,7 +212,8 @@ class TerminalOrdersCompanyLevel:
                 Delivered.
             offset: The number of orders to skip.
             limit: The number of orders to return.
-            request_options: Per-call overrides for this one request, such as a timeout or extra headers.
+            request_options: Per-call overrides for this one request, such as a timeout, extra headers, or its retry
+                count and statuses.
 
         Returns:
             OK - the request has succeeded.
@@ -211,14 +223,16 @@ class TerminalOrdersCompanyLevel:
                 required. Forbidden - insufficient permissions to process the request. Unprocessable Entity - a request
                 validation error. Internal Server Error - the server could not process the request. ``error`` is
                 ``RestServiceError | RawError``."""
-        return self._with_raw_response.get_companies_company_id_terminal_orders(
-            company_id,
-            customer_order_reference=customer_order_reference,
-            status=status,
-            offset=offset,
-            limit=limit,
-            request_options=request_options,
-        ).unwrap()
+        return unwrap(
+            self._with_raw_response.get_companies_company_id_terminal_orders(
+                company_id,
+                customer_order_reference=customer_order_reference,
+                status=status,
+                offset=offset,
+                limit=limit,
+                request_options=request_options,
+            ),
+        )
 
     def get_companies_company_id_terminal_orders_order_id(
         self, company_id: str, order_id: str, *, request_options: RequestOptionsOrDict | None = None
@@ -236,7 +250,8 @@ class TerminalOrdersCompanyLevel:
         Args:
             company_id: The unique identifier of the company account.
             order_id: The unique identifier of the order.
-            request_options: Per-call overrides for this one request, such as a timeout or extra headers.
+            request_options: Per-call overrides for this one request, such as a timeout, extra headers, or its retry
+                count and statuses.
 
         Returns:
             OK - the request has succeeded.
@@ -246,9 +261,11 @@ class TerminalOrdersCompanyLevel:
                 required. Forbidden - insufficient permissions to process the request. Unprocessable Entity - a request
                 validation error. Internal Server Error - the server could not process the request. ``error`` is
                 ``RestServiceError | RawError``."""
-        return self._with_raw_response.get_companies_company_id_terminal_orders_order_id(
-            company_id, order_id, request_options=request_options
-        ).unwrap()
+        return unwrap(
+            self._with_raw_response.get_companies_company_id_terminal_orders_order_id(
+                company_id, order_id, request_options=request_options
+            ),
+        )
 
     def get_companies_company_id_terminal_products(
         self,
@@ -280,7 +297,8 @@ class TerminalOrdersCompanyLevel:
                 response. For example, **Verifone.M400**
             offset: The number of products to skip.
             limit: The number of products to return.
-            request_options: Per-call overrides for this one request, such as a timeout or extra headers.
+            request_options: Per-call overrides for this one request, such as a timeout, extra headers, or its retry
+                count and statuses.
 
         Returns:
             OK - the request has succeeded.
@@ -290,14 +308,16 @@ class TerminalOrdersCompanyLevel:
                 required. Forbidden - insufficient permissions to process the request. Unprocessable Entity - a request
                 validation error. Internal Server Error - the server could not process the request. ``error`` is
                 ``RestServiceError | RawError``."""
-        return self._with_raw_response.get_companies_company_id_terminal_products(
-            company_id,
-            country,
-            terminal_model_id=terminal_model_id,
-            offset=offset,
-            limit=limit,
-            request_options=request_options,
-        ).unwrap()
+        return unwrap(
+            self._with_raw_response.get_companies_company_id_terminal_products(
+                company_id,
+                country,
+                terminal_model_id=terminal_model_id,
+                offset=offset,
+                limit=limit,
+                request_options=request_options,
+            ),
+        )
 
     def patch_companies_company_id_terminal_orders_order_id(
         self,
@@ -326,7 +346,8 @@ class TerminalOrdersCompanyLevel:
             company_id: The unique identifier of the company account.
             order_id: The unique identifier of the order.
             body: The request body.
-            request_options: Per-call overrides for this one request, such as a timeout or extra headers.
+            request_options: Per-call overrides for this one request, such as a timeout, extra headers, or its retry
+                count and statuses.
 
         Returns:
             OK - the request has succeeded.
@@ -336,9 +357,11 @@ class TerminalOrdersCompanyLevel:
                 required. Forbidden - insufficient permissions to process the request. Unprocessable Entity - a request
                 validation error. Internal Server Error - the server could not process the request. ``error`` is
                 ``RestServiceError | RawError``."""
-        return self._with_raw_response.patch_companies_company_id_terminal_orders_order_id(
-            company_id, order_id, body=body, request_options=request_options
-        ).unwrap()
+        return unwrap(
+            self._with_raw_response.patch_companies_company_id_terminal_orders_order_id(
+                company_id, order_id, body=body, request_options=request_options
+            ),
+        )
 
     def post_companies_company_id_shipping_locations(
         self,
@@ -360,7 +383,8 @@ class TerminalOrdersCompanyLevel:
         Args:
             company_id: The unique identifier of the company account.
             body: The request body.
-            request_options: Per-call overrides for this one request, such as a timeout or extra headers.
+            request_options: Per-call overrides for this one request, such as a timeout, extra headers, or its retry
+                count and statuses.
 
         Returns:
             OK - the request has succeeded.
@@ -370,9 +394,11 @@ class TerminalOrdersCompanyLevel:
                 required. Forbidden - insufficient permissions to process the request. Unprocessable Entity - a request
                 validation error. Internal Server Error - the server could not process the request. ``error`` is
                 ``RestServiceError | RawError``."""
-        return self._with_raw_response.post_companies_company_id_shipping_locations(
-            company_id, body=body, request_options=request_options
-        ).unwrap()
+        return unwrap(
+            self._with_raw_response.post_companies_company_id_shipping_locations(
+                company_id, body=body, request_options=request_options
+            ),
+        )
 
     def post_companies_company_id_terminal_orders(
         self,
@@ -397,7 +423,8 @@ class TerminalOrdersCompanyLevel:
         Args:
             company_id: The unique identifier of the company account.
             body: The request body.
-            request_options: Per-call overrides for this one request, such as a timeout or extra headers.
+            request_options: Per-call overrides for this one request, such as a timeout, extra headers, or its retry
+                count and statuses.
 
         Returns:
             OK - the request has succeeded.
@@ -407,9 +434,11 @@ class TerminalOrdersCompanyLevel:
                 required. Forbidden - insufficient permissions to process the request. Unprocessable Entity - a request
                 validation error. Internal Server Error - the server could not process the request. ``error`` is
                 ``RestServiceError | RawError``."""
-        return self._with_raw_response.post_companies_company_id_terminal_orders(
-            company_id, body=body, request_options=request_options
-        ).unwrap()
+        return unwrap(
+            self._with_raw_response.post_companies_company_id_terminal_orders(
+                company_id, body=body, request_options=request_options
+            ),
+        )
 
     def post_companies_company_id_terminal_orders_order_id_cancel(
         self, company_id: str, order_id: str, *, request_options: RequestOptionsOrDict | None = None
@@ -428,7 +457,8 @@ class TerminalOrdersCompanyLevel:
         Args:
             company_id: The unique identifier of the company account.
             order_id: The unique identifier of the order.
-            request_options: Per-call overrides for this one request, such as a timeout or extra headers.
+            request_options: Per-call overrides for this one request, such as a timeout, extra headers, or its retry
+                count and statuses.
 
         Returns:
             OK - the request has succeeded.
@@ -438,9 +468,11 @@ class TerminalOrdersCompanyLevel:
                 required. Forbidden - insufficient permissions to process the request. Unprocessable Entity - a request
                 validation error. Internal Server Error - the server could not process the request. ``error`` is
                 ``RestServiceError | RawError``."""
-        return self._with_raw_response.post_companies_company_id_terminal_orders_order_id_cancel(
-            company_id, order_id, request_options=request_options
-        ).unwrap()
+        return unwrap(
+            self._with_raw_response.post_companies_company_id_terminal_orders_order_id_cancel(
+                company_id, order_id, request_options=request_options
+            ),
+        )
 
     @property
     def with_raw_response(self) -> TerminalOrdersCompanyLevelWithRawResponse:
@@ -469,7 +501,8 @@ class AsyncTerminalOrdersCompanyLevel:
         Args:
             company_id: The unique identifier of the company account.
             name: The name of the billing entity.
-            request_options: Per-call overrides for this one request, such as a timeout or extra headers.
+            request_options: Per-call overrides for this one request, such as a timeout, extra headers, or its retry
+                count and statuses.
 
         Returns:
             OK - the request has succeeded.
@@ -479,11 +512,11 @@ class AsyncTerminalOrdersCompanyLevel:
                 required. Forbidden - insufficient permissions to process the request. Unprocessable Entity - a request
                 validation error. Internal Server Error - the server could not process the request. ``error`` is
                 ``RestServiceError | RawError``."""
-        return (
+        return unwrap(
             await self._with_raw_response.get_companies_company_id_billing_entities(
                 company_id, name=name, request_options=request_options
-            )
-        ).unwrap()
+            ),
+        )
 
     async def get_companies_company_id_shipping_locations(
         self,
@@ -511,7 +544,8 @@ class AsyncTerminalOrdersCompanyLevel:
             name: The name of the shipping location.
             offset: The number of locations to skip.
             limit: The number of locations to return.
-            request_options: Per-call overrides for this one request, such as a timeout or extra headers.
+            request_options: Per-call overrides for this one request, such as a timeout, extra headers, or its retry
+                count and statuses.
 
         Returns:
             OK - the request has succeeded.
@@ -521,11 +555,11 @@ class AsyncTerminalOrdersCompanyLevel:
                 required. Forbidden - insufficient permissions to process the request. Unprocessable Entity - a request
                 validation error. Internal Server Error - the server could not process the request. ``error`` is
                 ``RestServiceError | RawError``."""
-        return (
+        return unwrap(
             await self._with_raw_response.get_companies_company_id_shipping_locations(
                 company_id, name=name, offset=offset, limit=limit, request_options=request_options
-            )
-        ).unwrap()
+            ),
+        )
 
     async def get_companies_company_id_terminal_models(
         self, company_id: str, *, request_options: RequestOptionsOrDict | None = None
@@ -544,7 +578,8 @@ class AsyncTerminalOrdersCompanyLevel:
 
         Args:
             company_id: The unique identifier of the company account.
-            request_options: Per-call overrides for this one request, such as a timeout or extra headers.
+            request_options: Per-call overrides for this one request, such as a timeout, extra headers, or its retry
+                count and statuses.
 
         Returns:
             OK - the request has succeeded.
@@ -554,11 +589,11 @@ class AsyncTerminalOrdersCompanyLevel:
                 required. Forbidden - insufficient permissions to process the request. Unprocessable Entity - a request
                 validation error. Internal Server Error - the server could not process the request. ``error`` is
                 ``RestServiceError | RawError``."""
-        return (
+        return unwrap(
             await self._with_raw_response.get_companies_company_id_terminal_models(
                 company_id, request_options=request_options
-            )
-        ).unwrap()
+            ),
+        )
 
     async def get_companies_company_id_terminal_orders(
         self,
@@ -588,7 +623,8 @@ class AsyncTerminalOrdersCompanyLevel:
                 Delivered.
             offset: The number of orders to skip.
             limit: The number of orders to return.
-            request_options: Per-call overrides for this one request, such as a timeout or extra headers.
+            request_options: Per-call overrides for this one request, such as a timeout, extra headers, or its retry
+                count and statuses.
 
         Returns:
             OK - the request has succeeded.
@@ -598,7 +634,7 @@ class AsyncTerminalOrdersCompanyLevel:
                 required. Forbidden - insufficient permissions to process the request. Unprocessable Entity - a request
                 validation error. Internal Server Error - the server could not process the request. ``error`` is
                 ``RestServiceError | RawError``."""
-        return (
+        return unwrap(
             await self._with_raw_response.get_companies_company_id_terminal_orders(
                 company_id,
                 customer_order_reference=customer_order_reference,
@@ -606,8 +642,8 @@ class AsyncTerminalOrdersCompanyLevel:
                 offset=offset,
                 limit=limit,
                 request_options=request_options,
-            )
-        ).unwrap()
+            ),
+        )
 
     async def get_companies_company_id_terminal_orders_order_id(
         self, company_id: str, order_id: str, *, request_options: RequestOptionsOrDict | None = None
@@ -625,7 +661,8 @@ class AsyncTerminalOrdersCompanyLevel:
         Args:
             company_id: The unique identifier of the company account.
             order_id: The unique identifier of the order.
-            request_options: Per-call overrides for this one request, such as a timeout or extra headers.
+            request_options: Per-call overrides for this one request, such as a timeout, extra headers, or its retry
+                count and statuses.
 
         Returns:
             OK - the request has succeeded.
@@ -635,11 +672,11 @@ class AsyncTerminalOrdersCompanyLevel:
                 required. Forbidden - insufficient permissions to process the request. Unprocessable Entity - a request
                 validation error. Internal Server Error - the server could not process the request. ``error`` is
                 ``RestServiceError | RawError``."""
-        return (
+        return unwrap(
             await self._with_raw_response.get_companies_company_id_terminal_orders_order_id(
                 company_id, order_id, request_options=request_options
-            )
-        ).unwrap()
+            ),
+        )
 
     async def get_companies_company_id_terminal_products(
         self,
@@ -671,7 +708,8 @@ class AsyncTerminalOrdersCompanyLevel:
                 response. For example, **Verifone.M400**
             offset: The number of products to skip.
             limit: The number of products to return.
-            request_options: Per-call overrides for this one request, such as a timeout or extra headers.
+            request_options: Per-call overrides for this one request, such as a timeout, extra headers, or its retry
+                count and statuses.
 
         Returns:
             OK - the request has succeeded.
@@ -681,7 +719,7 @@ class AsyncTerminalOrdersCompanyLevel:
                 required. Forbidden - insufficient permissions to process the request. Unprocessable Entity - a request
                 validation error. Internal Server Error - the server could not process the request. ``error`` is
                 ``RestServiceError | RawError``."""
-        return (
+        return unwrap(
             await self._with_raw_response.get_companies_company_id_terminal_products(
                 company_id,
                 country,
@@ -689,8 +727,8 @@ class AsyncTerminalOrdersCompanyLevel:
                 offset=offset,
                 limit=limit,
                 request_options=request_options,
-            )
-        ).unwrap()
+            ),
+        )
 
     async def patch_companies_company_id_terminal_orders_order_id(
         self,
@@ -719,7 +757,8 @@ class AsyncTerminalOrdersCompanyLevel:
             company_id: The unique identifier of the company account.
             order_id: The unique identifier of the order.
             body: The request body.
-            request_options: Per-call overrides for this one request, such as a timeout or extra headers.
+            request_options: Per-call overrides for this one request, such as a timeout, extra headers, or its retry
+                count and statuses.
 
         Returns:
             OK - the request has succeeded.
@@ -729,11 +768,11 @@ class AsyncTerminalOrdersCompanyLevel:
                 required. Forbidden - insufficient permissions to process the request. Unprocessable Entity - a request
                 validation error. Internal Server Error - the server could not process the request. ``error`` is
                 ``RestServiceError | RawError``."""
-        return (
+        return unwrap(
             await self._with_raw_response.patch_companies_company_id_terminal_orders_order_id(
                 company_id, order_id, body=body, request_options=request_options
-            )
-        ).unwrap()
+            ),
+        )
 
     async def post_companies_company_id_shipping_locations(
         self,
@@ -755,7 +794,8 @@ class AsyncTerminalOrdersCompanyLevel:
         Args:
             company_id: The unique identifier of the company account.
             body: The request body.
-            request_options: Per-call overrides for this one request, such as a timeout or extra headers.
+            request_options: Per-call overrides for this one request, such as a timeout, extra headers, or its retry
+                count and statuses.
 
         Returns:
             OK - the request has succeeded.
@@ -765,11 +805,11 @@ class AsyncTerminalOrdersCompanyLevel:
                 required. Forbidden - insufficient permissions to process the request. Unprocessable Entity - a request
                 validation error. Internal Server Error - the server could not process the request. ``error`` is
                 ``RestServiceError | RawError``."""
-        return (
+        return unwrap(
             await self._with_raw_response.post_companies_company_id_shipping_locations(
                 company_id, body=body, request_options=request_options
-            )
-        ).unwrap()
+            ),
+        )
 
     async def post_companies_company_id_terminal_orders(
         self,
@@ -794,7 +834,8 @@ class AsyncTerminalOrdersCompanyLevel:
         Args:
             company_id: The unique identifier of the company account.
             body: The request body.
-            request_options: Per-call overrides for this one request, such as a timeout or extra headers.
+            request_options: Per-call overrides for this one request, such as a timeout, extra headers, or its retry
+                count and statuses.
 
         Returns:
             OK - the request has succeeded.
@@ -804,11 +845,11 @@ class AsyncTerminalOrdersCompanyLevel:
                 required. Forbidden - insufficient permissions to process the request. Unprocessable Entity - a request
                 validation error. Internal Server Error - the server could not process the request. ``error`` is
                 ``RestServiceError | RawError``."""
-        return (
+        return unwrap(
             await self._with_raw_response.post_companies_company_id_terminal_orders(
                 company_id, body=body, request_options=request_options
-            )
-        ).unwrap()
+            ),
+        )
 
     async def post_companies_company_id_terminal_orders_order_id_cancel(
         self, company_id: str, order_id: str, *, request_options: RequestOptionsOrDict | None = None
@@ -827,7 +868,8 @@ class AsyncTerminalOrdersCompanyLevel:
         Args:
             company_id: The unique identifier of the company account.
             order_id: The unique identifier of the order.
-            request_options: Per-call overrides for this one request, such as a timeout or extra headers.
+            request_options: Per-call overrides for this one request, such as a timeout, extra headers, or its retry
+                count and statuses.
 
         Returns:
             OK - the request has succeeded.
@@ -837,11 +879,11 @@ class AsyncTerminalOrdersCompanyLevel:
                 required. Forbidden - insufficient permissions to process the request. Unprocessable Entity - a request
                 validation error. Internal Server Error - the server could not process the request. ``error`` is
                 ``RestServiceError | RawError``."""
-        return (
+        return unwrap(
             await self._with_raw_response.post_companies_company_id_terminal_orders_order_id_cancel(
                 company_id, order_id, request_options=request_options
-            )
-        ).unwrap()
+            ),
+        )
 
     @property
     def with_raw_response(self) -> AsyncTerminalOrdersCompanyLevelWithRawResponse:
@@ -867,7 +909,8 @@ class TerminalOrdersCompanyLevelWithRawResponse(SecuredRawResponse[RawClient, Se
         Args:
             company_id: The unique identifier of the company account.
             name: The name of the billing entity.
-            request_options: Per-call overrides for this one request, such as a timeout or extra headers.
+            request_options: Per-call overrides for this one request, such as a timeout, extra headers, or its retry
+                count and statuses.
 
         Returns:
             An ``ApiResult`` holding the deserialized response or the error body."""
@@ -908,7 +951,8 @@ class TerminalOrdersCompanyLevelWithRawResponse(SecuredRawResponse[RawClient, Se
             name: The name of the shipping location.
             offset: The number of locations to skip.
             limit: The number of locations to return.
-            request_options: Per-call overrides for this one request, such as a timeout or extra headers.
+            request_options: Per-call overrides for this one request, such as a timeout, extra headers, or its retry
+                count and statuses.
 
         Returns:
             An ``ApiResult`` holding the deserialized response or the error body."""
@@ -942,7 +986,8 @@ class TerminalOrdersCompanyLevelWithRawResponse(SecuredRawResponse[RawClient, Se
 
         Args:
             company_id: The unique identifier of the company account.
-            request_options: Per-call overrides for this one request, such as a timeout or extra headers.
+            request_options: Per-call overrides for this one request, such as a timeout, extra headers, or its retry
+                count and statuses.
 
         Returns:
             An ``ApiResult`` holding the deserialized response or the error body."""
@@ -984,7 +1029,8 @@ class TerminalOrdersCompanyLevelWithRawResponse(SecuredRawResponse[RawClient, Se
                 Delivered.
             offset: The number of orders to skip.
             limit: The number of orders to return.
-            request_options: Per-call overrides for this one request, such as a timeout or extra headers.
+            request_options: Per-call overrides for this one request, such as a timeout, extra headers, or its retry
+                count and statuses.
 
         Returns:
             An ``ApiResult`` holding the deserialized response or the error body."""
@@ -1020,7 +1066,8 @@ class TerminalOrdersCompanyLevelWithRawResponse(SecuredRawResponse[RawClient, Se
         Args:
             company_id: The unique identifier of the company account.
             order_id: The unique identifier of the order.
-            request_options: Per-call overrides for this one request, such as a timeout or extra headers.
+            request_options: Per-call overrides for this one request, such as a timeout, extra headers, or its retry
+                count and statuses.
 
         Returns:
             An ``ApiResult`` holding the deserialized response or the error body."""
@@ -1064,7 +1111,8 @@ class TerminalOrdersCompanyLevelWithRawResponse(SecuredRawResponse[RawClient, Se
                 response. For example, **Verifone.M400**
             offset: The number of products to skip.
             limit: The number of products to return.
-            request_options: Per-call overrides for this one request, such as a timeout or extra headers.
+            request_options: Per-call overrides for this one request, such as a timeout, extra headers, or its retry
+                count and statuses.
 
         Returns:
             An ``ApiResult`` holding the deserialized response or the error body."""
@@ -1111,7 +1159,8 @@ class TerminalOrdersCompanyLevelWithRawResponse(SecuredRawResponse[RawClient, Se
             company_id: The unique identifier of the company account.
             order_id: The unique identifier of the order.
             body: The request body.
-            request_options: Per-call overrides for this one request, such as a timeout or extra headers.
+            request_options: Per-call overrides for this one request, such as a timeout, extra headers, or its retry
+                count and statuses.
 
         Returns:
             An ``ApiResult`` holding the deserialized response or the error body."""
@@ -1147,7 +1196,8 @@ class TerminalOrdersCompanyLevelWithRawResponse(SecuredRawResponse[RawClient, Se
         Args:
             company_id: The unique identifier of the company account.
             body: The request body.
-            request_options: Per-call overrides for this one request, such as a timeout or extra headers.
+            request_options: Per-call overrides for this one request, such as a timeout, extra headers, or its retry
+                count and statuses.
 
         Returns:
             An ``ApiResult`` holding the deserialized response or the error body."""
@@ -1186,7 +1236,8 @@ class TerminalOrdersCompanyLevelWithRawResponse(SecuredRawResponse[RawClient, Se
         Args:
             company_id: The unique identifier of the company account.
             body: The request body.
-            request_options: Per-call overrides for this one request, such as a timeout or extra headers.
+            request_options: Per-call overrides for this one request, such as a timeout, extra headers, or its retry
+                count and statuses.
 
         Returns:
             An ``ApiResult`` holding the deserialized response or the error body."""
@@ -1219,7 +1270,8 @@ class TerminalOrdersCompanyLevelWithRawResponse(SecuredRawResponse[RawClient, Se
         Args:
             company_id: The unique identifier of the company account.
             order_id: The unique identifier of the order.
-            request_options: Per-call overrides for this one request, such as a timeout or extra headers.
+            request_options: Per-call overrides for this one request, such as a timeout, extra headers, or its retry
+                count and statuses.
 
         Returns:
             An ``ApiResult`` holding the deserialized response or the error body."""
@@ -1254,7 +1306,8 @@ class AsyncTerminalOrdersCompanyLevelWithRawResponse(SecuredRawResponse[AsyncRaw
         Args:
             company_id: The unique identifier of the company account.
             name: The name of the billing entity.
-            request_options: Per-call overrides for this one request, such as a timeout or extra headers.
+            request_options: Per-call overrides for this one request, such as a timeout, extra headers, or its retry
+                count and statuses.
 
         Returns:
             An ``ApiResult`` holding the deserialized response or the error body."""
@@ -1264,7 +1317,7 @@ class AsyncTerminalOrdersCompanyLevelWithRawResponse(SecuredRawResponse[AsyncRaw
             path_params=[param[str]("companyId", company_id)],
             query_params=[param[str | None]("name", name)],
             auth_scheme=AsyncAnySchemes(self._auth.basic_auth, self._auth.api_key_auth),
-            decoder=json_decoder[BillingEntitiesResponse],
+            decoder=async_json_decoder[BillingEntitiesResponse],
             error_mapper=get_companies_company_id_billing_entities_error_mapper,
             request_options=request_options,
         )
@@ -1295,7 +1348,8 @@ class AsyncTerminalOrdersCompanyLevelWithRawResponse(SecuredRawResponse[AsyncRaw
             name: The name of the shipping location.
             offset: The number of locations to skip.
             limit: The number of locations to return.
-            request_options: Per-call overrides for this one request, such as a timeout or extra headers.
+            request_options: Per-call overrides for this one request, such as a timeout, extra headers, or its retry
+                count and statuses.
 
         Returns:
             An ``ApiResult`` holding the deserialized response or the error body."""
@@ -1307,7 +1361,7 @@ class AsyncTerminalOrdersCompanyLevelWithRawResponse(SecuredRawResponse[AsyncRaw
                 param[str | None]("name", name), param[int | None]("offset", offset), param[int | None]("limit", limit)
             ],
             auth_scheme=AsyncAnySchemes(self._auth.basic_auth, self._auth.api_key_auth),
-            decoder=json_decoder[ShippingLocationsResponse],
+            decoder=async_json_decoder[ShippingLocationsResponse],
             error_mapper=get_companies_company_id_shipping_locations_error_mapper,
             request_options=request_options,
         )
@@ -1329,7 +1383,8 @@ class AsyncTerminalOrdersCompanyLevelWithRawResponse(SecuredRawResponse[AsyncRaw
 
         Args:
             company_id: The unique identifier of the company account.
-            request_options: Per-call overrides for this one request, such as a timeout or extra headers.
+            request_options: Per-call overrides for this one request, such as a timeout, extra headers, or its retry
+                count and statuses.
 
         Returns:
             An ``ApiResult`` holding the deserialized response or the error body."""
@@ -1338,7 +1393,7 @@ class AsyncTerminalOrdersCompanyLevelWithRawResponse(SecuredRawResponse[AsyncRaw
             url_template=self._server.default9("/companies/{companyId}/terminalModels"),
             path_params=[param[str]("companyId", company_id)],
             auth_scheme=AsyncAnySchemes(self._auth.basic_auth, self._auth.api_key_auth),
-            decoder=json_decoder[TerminalModelsResponse],
+            decoder=async_json_decoder[TerminalModelsResponse],
             error_mapper=get_companies_company_id_terminal_models_error_mapper,
             request_options=request_options,
         )
@@ -1371,7 +1426,8 @@ class AsyncTerminalOrdersCompanyLevelWithRawResponse(SecuredRawResponse[AsyncRaw
                 Delivered.
             offset: The number of orders to skip.
             limit: The number of orders to return.
-            request_options: Per-call overrides for this one request, such as a timeout or extra headers.
+            request_options: Per-call overrides for this one request, such as a timeout, extra headers, or its retry
+                count and statuses.
 
         Returns:
             An ``ApiResult`` holding the deserialized response or the error body."""
@@ -1386,7 +1442,7 @@ class AsyncTerminalOrdersCompanyLevelWithRawResponse(SecuredRawResponse[AsyncRaw
                 param[int | None]("limit", limit),
             ],
             auth_scheme=AsyncAnySchemes(self._auth.basic_auth, self._auth.api_key_auth),
-            decoder=json_decoder[TerminalOrdersResponse],
+            decoder=async_json_decoder[TerminalOrdersResponse],
             error_mapper=get_companies_company_id_terminal_orders_error_mapper,
             request_options=request_options,
         )
@@ -1407,7 +1463,8 @@ class AsyncTerminalOrdersCompanyLevelWithRawResponse(SecuredRawResponse[AsyncRaw
         Args:
             company_id: The unique identifier of the company account.
             order_id: The unique identifier of the order.
-            request_options: Per-call overrides for this one request, such as a timeout or extra headers.
+            request_options: Per-call overrides for this one request, such as a timeout, extra headers, or its retry
+                count and statuses.
 
         Returns:
             An ``ApiResult`` holding the deserialized response or the error body."""
@@ -1416,7 +1473,7 @@ class AsyncTerminalOrdersCompanyLevelWithRawResponse(SecuredRawResponse[AsyncRaw
             url_template=self._server.default9("/companies/{companyId}/terminalOrders/{orderId}"),
             path_params=[param[str]("companyId", company_id), param[str]("orderId", order_id)],
             auth_scheme=AsyncAnySchemes(self._auth.basic_auth, self._auth.api_key_auth),
-            decoder=json_decoder[TerminalOrder],
+            decoder=async_json_decoder[TerminalOrder],
             error_mapper=get_companies_company_id_terminal_orders_order_id_error_mapper,
             request_options=request_options,
         )
@@ -1451,7 +1508,8 @@ class AsyncTerminalOrdersCompanyLevelWithRawResponse(SecuredRawResponse[AsyncRaw
                 response. For example, **Verifone.M400**
             offset: The number of products to skip.
             limit: The number of products to return.
-            request_options: Per-call overrides for this one request, such as a timeout or extra headers.
+            request_options: Per-call overrides for this one request, such as a timeout, extra headers, or its retry
+                count and statuses.
 
         Returns:
             An ``ApiResult`` holding the deserialized response or the error body."""
@@ -1466,7 +1524,7 @@ class AsyncTerminalOrdersCompanyLevelWithRawResponse(SecuredRawResponse[AsyncRaw
                 param[int | None]("limit", limit),
             ],
             auth_scheme=AsyncAnySchemes(self._auth.basic_auth, self._auth.api_key_auth),
-            decoder=json_decoder[TerminalProductsResponse],
+            decoder=async_json_decoder[TerminalProductsResponse],
             error_mapper=get_companies_company_id_terminal_products_error_mapper,
             request_options=request_options,
         )
@@ -1498,7 +1556,8 @@ class AsyncTerminalOrdersCompanyLevelWithRawResponse(SecuredRawResponse[AsyncRaw
             company_id: The unique identifier of the company account.
             order_id: The unique identifier of the order.
             body: The request body.
-            request_options: Per-call overrides for this one request, such as a timeout or extra headers.
+            request_options: Per-call overrides for this one request, such as a timeout, extra headers, or its retry
+                count and statuses.
 
         Returns:
             An ``ApiResult`` holding the deserialized response or the error body."""
@@ -1509,7 +1568,7 @@ class AsyncTerminalOrdersCompanyLevelWithRawResponse(SecuredRawResponse[AsyncRaw
             headers=[param[UUID]("Idempotency-Key", uuid4())],
             body=json_body[TerminalOrderRequest | TerminalOrderRequestDict | None](body),
             auth_scheme=AsyncAnySchemes(self._auth.basic_auth, self._auth.api_key_auth),
-            decoder=json_decoder[TerminalOrder],
+            decoder=async_json_decoder[TerminalOrder],
             error_mapper=patch_companies_company_id_terminal_orders_order_id_error_mapper,
             request_options=request_options,
         )
@@ -1534,7 +1593,8 @@ class AsyncTerminalOrdersCompanyLevelWithRawResponse(SecuredRawResponse[AsyncRaw
         Args:
             company_id: The unique identifier of the company account.
             body: The request body.
-            request_options: Per-call overrides for this one request, such as a timeout or extra headers.
+            request_options: Per-call overrides for this one request, such as a timeout, extra headers, or its retry
+                count and statuses.
 
         Returns:
             An ``ApiResult`` holding the deserialized response or the error body."""
@@ -1545,7 +1605,7 @@ class AsyncTerminalOrdersCompanyLevelWithRawResponse(SecuredRawResponse[AsyncRaw
             headers=[param[UUID]("Idempotency-Key", uuid4())],
             body=json_body[ShippingLocation | ShippingLocationDict | None](body),
             auth_scheme=AsyncAnySchemes(self._auth.basic_auth, self._auth.api_key_auth),
-            decoder=json_decoder[ShippingLocation],
+            decoder=async_json_decoder[ShippingLocation],
             error_mapper=post_companies_company_id_shipping_locations_error_mapper,
             request_options=request_options,
         )
@@ -1573,7 +1633,8 @@ class AsyncTerminalOrdersCompanyLevelWithRawResponse(SecuredRawResponse[AsyncRaw
         Args:
             company_id: The unique identifier of the company account.
             body: The request body.
-            request_options: Per-call overrides for this one request, such as a timeout or extra headers.
+            request_options: Per-call overrides for this one request, such as a timeout, extra headers, or its retry
+                count and statuses.
 
         Returns:
             An ``ApiResult`` holding the deserialized response or the error body."""
@@ -1584,7 +1645,7 @@ class AsyncTerminalOrdersCompanyLevelWithRawResponse(SecuredRawResponse[AsyncRaw
             headers=[param[UUID]("Idempotency-Key", uuid4())],
             body=json_body[TerminalOrderRequest | TerminalOrderRequestDict | None](body),
             auth_scheme=AsyncAnySchemes(self._auth.basic_auth, self._auth.api_key_auth),
-            decoder=json_decoder[TerminalOrder],
+            decoder=async_json_decoder[TerminalOrder],
             error_mapper=post_companies_company_id_terminal_orders_error_mapper,
             request_options=request_options,
         )
@@ -1606,7 +1667,8 @@ class AsyncTerminalOrdersCompanyLevelWithRawResponse(SecuredRawResponse[AsyncRaw
         Args:
             company_id: The unique identifier of the company account.
             order_id: The unique identifier of the order.
-            request_options: Per-call overrides for this one request, such as a timeout or extra headers.
+            request_options: Per-call overrides for this one request, such as a timeout, extra headers, or its retry
+                count and statuses.
 
         Returns:
             An ``ApiResult`` holding the deserialized response or the error body."""
@@ -1616,7 +1678,7 @@ class AsyncTerminalOrdersCompanyLevelWithRawResponse(SecuredRawResponse[AsyncRaw
             path_params=[param[str]("companyId", company_id), param[str]("orderId", order_id)],
             headers=[param[UUID]("Idempotency-Key", uuid4())],
             auth_scheme=AsyncAnySchemes(self._auth.basic_auth, self._auth.api_key_auth),
-            decoder=json_decoder[TerminalOrder],
+            decoder=async_json_decoder[TerminalOrder],
             error_mapper=post_companies_company_id_terminal_orders_order_id_cancel_error_mapper,
             request_options=request_options,
         )

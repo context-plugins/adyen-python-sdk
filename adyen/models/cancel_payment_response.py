@@ -13,4 +13,4 @@ class CancelPaymentResponse(SdkBaseModel):
 
 
 class CancelPaymentResponseDict(TypedDict):
-    links: Links11 | Links11Dict
+    links: Links11Dict

@@ -28,4 +28,4 @@ class BankAccountIdentificationTypeRequirement(SdkBaseModel):
 class BankAccountIdentificationTypeRequirementDict(TypedDict):
     bank_account_identification_types: NotRequired[list[BankAccountIdentificationTypeOrStr]]
     description: NotRequired[str]
-    type_: NotRequired[Literal["bankAccountIdentificationTypeRequirement"]]
+    type_: Literal["bankAccountIdentificationTypeRequirement"]

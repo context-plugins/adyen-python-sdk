@@ -16,4 +16,4 @@ class PaymentResponse2(SdkBaseModel):
 
 
 class PaymentResponse2Dict(TypedDict):
-    name: NotRequired[PaymentValidationsNameResponse2 | PaymentValidationsNameResponse2Dict]
+    name: NotRequired[PaymentValidationsNameResponse2Dict]

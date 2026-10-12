@@ -77,13 +77,13 @@ class StoreDetail(SdkBaseModel):
 
 
 class StoreDetailDict(TypedDict):
-    address: ViasAddress7 | ViasAddress7Dict
+    address: ViasAddress7Dict
     full_phone_number: NotRequired[str]
     logo: NotRequired[str]
     merchant_account: str
     merchant_category_code: str
     merchant_house_number: NotRequired[str]
-    phone_number: NotRequired[ViasPhoneNumber4 | ViasPhoneNumber4Dict]
+    phone_number: NotRequired[ViasPhoneNumber4Dict]
     shopper_interaction: NotRequired[PaymentFlowOrStr]
     split_configuration_uuid: NotRequired[str]
     status: NotRequired[Status8OrStr]

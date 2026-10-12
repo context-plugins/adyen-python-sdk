@@ -23,7 +23,7 @@ class ListMerchantUsersResponse(SdkBaseModel):
 
 
 class ListMerchantUsersResponseDict(TypedDict):
-    links: NotRequired[PaginationLinks1 | PaginationLinks1Dict]
-    data: NotRequired[list[User | UserDict]]
+    links: NotRequired[PaginationLinks1Dict]
+    data: NotRequired[list[UserDict]]
     items_total: int
     pages_total: int

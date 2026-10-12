@@ -11,9 +11,11 @@ from ..core import (
     RawClient,
     RequestOptionsOrDict,
     SecuredRawResponse,
+    async_json_decoder,
     json_body,
     json_decoder,
     param,
+    unwrap,
 )
 from ..errors.post_store_detail_and_submit_third_party_error import (
     PostStoreDetailAndSubmitThirdPartyErrorBody,
@@ -59,7 +61,8 @@ class Initialization:
 
         Args:
             body: The request body.
-            request_options: Per-call overrides for this one request, such as a timeout or extra headers.
+            request_options: Per-call overrides for this one request, such as a timeout, extra headers, or its retry
+                count and statuses.
 
         Returns:
             OK - the request has succeeded.
@@ -69,7 +72,7 @@ class Initialization:
                 required. Forbidden - insufficient permissions to process the request. Unprocessable Entity - a request
                 validation error. Internal Server Error - the server could not process the request. ``error`` is
                 ``ServiceError | RawError``."""
-        return self._with_raw_response.post_store_detail(body=body, request_options=request_options).unwrap()
+        return unwrap(self._with_raw_response.post_store_detail(body=body, request_options=request_options))
 
     def post_store_detail_and_submit_third_party(
         self,
@@ -98,7 +101,8 @@ class Initialization:
 
         Args:
             body: The request body.
-            request_options: Per-call overrides for this one request, such as a timeout or extra headers.
+            request_options: Per-call overrides for this one request, such as a timeout, extra headers, or its retry
+                count and statuses.
 
         Returns:
             OK - the request has succeeded.
@@ -108,9 +112,9 @@ class Initialization:
                 required. Forbidden - insufficient permissions to process the request. Unprocessable Entity - a request
                 validation error. Internal Server Error - the server could not process the request. ``error`` is
                 ``ServiceError | RawError``."""
-        return self._with_raw_response.post_store_detail_and_submit_third_party(
-            body=body, request_options=request_options
-        ).unwrap()
+        return unwrap(
+            self._with_raw_response.post_store_detail_and_submit_third_party(body=body, request_options=request_options)
+        )
 
     def post_submit_third_party(
         self,
@@ -140,7 +144,8 @@ class Initialization:
 
         Args:
             body: The request body.
-            request_options: Per-call overrides for this one request, such as a timeout or extra headers.
+            request_options: Per-call overrides for this one request, such as a timeout, extra headers, or its retry
+                count and statuses.
 
         Returns:
             OK - the request has succeeded.
@@ -150,7 +155,7 @@ class Initialization:
                 required. Forbidden - insufficient permissions to process the request. Unprocessable Entity - a request
                 validation error. Internal Server Error - the server could not process the request. ``error`` is
                 ``ServiceError | RawError``."""
-        return self._with_raw_response.post_submit_third_party(body=body, request_options=request_options).unwrap()
+        return unwrap(self._with_raw_response.post_submit_third_party(body=body, request_options=request_options))
 
     @property
     def with_raw_response(self) -> InitializationWithRawResponse:
@@ -186,7 +191,8 @@ class AsyncInitialization:
 
         Args:
             body: The request body.
-            request_options: Per-call overrides for this one request, such as a timeout or extra headers.
+            request_options: Per-call overrides for this one request, such as a timeout, extra headers, or its retry
+                count and statuses.
 
         Returns:
             OK - the request has succeeded.
@@ -196,7 +202,7 @@ class AsyncInitialization:
                 required. Forbidden - insufficient permissions to process the request. Unprocessable Entity - a request
                 validation error. Internal Server Error - the server could not process the request. ``error`` is
                 ``ServiceError | RawError``."""
-        return (await self._with_raw_response.post_store_detail(body=body, request_options=request_options)).unwrap()
+        return unwrap(await self._with_raw_response.post_store_detail(body=body, request_options=request_options))
 
     async def post_store_detail_and_submit_third_party(
         self,
@@ -225,7 +231,8 @@ class AsyncInitialization:
 
         Args:
             body: The request body.
-            request_options: Per-call overrides for this one request, such as a timeout or extra headers.
+            request_options: Per-call overrides for this one request, such as a timeout, extra headers, or its retry
+                count and statuses.
 
         Returns:
             OK - the request has succeeded.
@@ -235,11 +242,11 @@ class AsyncInitialization:
                 required. Forbidden - insufficient permissions to process the request. Unprocessable Entity - a request
                 validation error. Internal Server Error - the server could not process the request. ``error`` is
                 ``ServiceError | RawError``."""
-        return (
+        return unwrap(
             await self._with_raw_response.post_store_detail_and_submit_third_party(
                 body=body, request_options=request_options
-            )
-        ).unwrap()
+            ),
+        )
 
     async def post_submit_third_party(
         self,
@@ -269,7 +276,8 @@ class AsyncInitialization:
 
         Args:
             body: The request body.
-            request_options: Per-call overrides for this one request, such as a timeout or extra headers.
+            request_options: Per-call overrides for this one request, such as a timeout, extra headers, or its retry
+                count and statuses.
 
         Returns:
             OK - the request has succeeded.
@@ -279,9 +287,7 @@ class AsyncInitialization:
                 required. Forbidden - insufficient permissions to process the request. Unprocessable Entity - a request
                 validation error. Internal Server Error - the server could not process the request. ``error`` is
                 ``ServiceError | RawError``."""
-        return (
-            await self._with_raw_response.post_submit_third_party(body=body, request_options=request_options)
-        ).unwrap()
+        return unwrap(await self._with_raw_response.post_submit_third_party(body=body, request_options=request_options))
 
     @property
     def with_raw_response(self) -> AsyncInitializationWithRawResponse:
@@ -314,7 +320,8 @@ class InitializationWithRawResponse(SecuredRawResponse[RawClient, Server, AuthSc
 
         Args:
             body: The request body.
-            request_options: Per-call overrides for this one request, such as a timeout or extra headers.
+            request_options: Per-call overrides for this one request, such as a timeout, extra headers, or its retry
+                count and statuses.
 
         Returns:
             An ``ApiResult`` holding the deserialized response or the error body."""
@@ -356,7 +363,8 @@ class InitializationWithRawResponse(SecuredRawResponse[RawClient, Server, AuthSc
 
         Args:
             body: The request body.
-            request_options: Per-call overrides for this one request, such as a timeout or extra headers.
+            request_options: Per-call overrides for this one request, such as a timeout, extra headers, or its retry
+                count and statuses.
 
         Returns:
             An ``ApiResult`` holding the deserialized response or the error body."""
@@ -399,7 +407,8 @@ class InitializationWithRawResponse(SecuredRawResponse[RawClient, Server, AuthSc
 
         Args:
             body: The request body.
-            request_options: Per-call overrides for this one request, such as a timeout or extra headers.
+            request_options: Per-call overrides for this one request, such as a timeout, extra headers, or its retry
+                count and statuses.
 
         Returns:
             An ``ApiResult`` holding the deserialized response or the error body."""
@@ -441,7 +450,8 @@ class AsyncInitializationWithRawResponse(SecuredRawResponse[AsyncRawClient, Serv
 
         Args:
             body: The request body.
-            request_options: Per-call overrides for this one request, such as a timeout or extra headers.
+            request_options: Per-call overrides for this one request, such as a timeout, extra headers, or its retry
+                count and statuses.
 
         Returns:
             An ``ApiResult`` holding the deserialized response or the error body."""
@@ -451,7 +461,7 @@ class AsyncInitializationWithRawResponse(SecuredRawResponse[AsyncRawClient, Serv
             headers=[param[UUID]("Idempotency-Key", uuid4())],
             body=json_body[StoreDetailRequest | StoreDetailRequestDict | None](body),
             auth_scheme=AsyncAnySchemes(self._auth.basic_auth, self._auth.api_key_auth),
-            decoder=json_decoder[StoreDetailResponse],
+            decoder=async_json_decoder[StoreDetailResponse],
             error_mapper=post_store_detail_error_mapper,
             request_options=request_options,
         )
@@ -483,7 +493,8 @@ class AsyncInitializationWithRawResponse(SecuredRawResponse[AsyncRawClient, Serv
 
         Args:
             body: The request body.
-            request_options: Per-call overrides for this one request, such as a timeout or extra headers.
+            request_options: Per-call overrides for this one request, such as a timeout, extra headers, or its retry
+                count and statuses.
 
         Returns:
             An ``ApiResult`` holding the deserialized response or the error body."""
@@ -493,7 +504,7 @@ class AsyncInitializationWithRawResponse(SecuredRawResponse[AsyncRawClient, Serv
             headers=[param[UUID]("Idempotency-Key", uuid4())],
             body=json_body[StoreDetailAndSubmitRequest | StoreDetailAndSubmitRequestDict | None](body),
             auth_scheme=AsyncAnySchemes(self._auth.basic_auth, self._auth.api_key_auth),
-            decoder=json_decoder[StoreDetailAndSubmitResponse],
+            decoder=async_json_decoder[StoreDetailAndSubmitResponse],
             error_mapper=post_store_detail_and_submit_third_party_error_mapper,
             request_options=request_options,
         )
@@ -526,7 +537,8 @@ class AsyncInitializationWithRawResponse(SecuredRawResponse[AsyncRawClient, Serv
 
         Args:
             body: The request body.
-            request_options: Per-call overrides for this one request, such as a timeout or extra headers.
+            request_options: Per-call overrides for this one request, such as a timeout, extra headers, or its retry
+                count and statuses.
 
         Returns:
             An ``ApiResult`` holding the deserialized response or the error body."""
@@ -536,7 +548,7 @@ class AsyncInitializationWithRawResponse(SecuredRawResponse[AsyncRawClient, Serv
             headers=[param[UUID]("Idempotency-Key", uuid4())],
             body=json_body[SubmitRequest | SubmitRequestDict | None](body),
             auth_scheme=AsyncAnySchemes(self._auth.basic_auth, self._auth.api_key_auth),
-            decoder=json_decoder[SubmitResponse],
+            decoder=async_json_decoder[SubmitResponse],
             error_mapper=post_submit_third_party_error_mapper,
             request_options=request_options,
         )

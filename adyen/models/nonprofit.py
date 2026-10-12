@@ -42,7 +42,7 @@ class Nonprofit(SdkBaseModel):
 
 
 class NonprofitDict(TypedDict):
-    causes: list[NonprofitCause | NonprofitCauseDict]
+    causes: list[NonprofitCauseDict]
     description: str
     goals: list[str]
     id: NotRequired[str]

@@ -19,6 +19,6 @@ class AllowedOrigin(SdkBaseModel):
 
 
 class AllowedOriginDict(TypedDict):
-    links: NotRequired[Links2 | Links2Dict]
+    links: NotRequired[Links2Dict]
     domain: str
     id: NotRequired[str]

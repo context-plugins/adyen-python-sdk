@@ -17,4 +17,4 @@ class AccountDetailBalance(SdkBaseModel):
 
 class AccountDetailBalanceDict(TypedDict):
     account_code: NotRequired[str]
-    detail_balance: NotRequired[DetailBalance3 | DetailBalance3Dict]
+    detail_balance: NotRequired[DetailBalance3Dict]

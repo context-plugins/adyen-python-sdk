@@ -25,5 +25,5 @@ class RecurringDetailsRequest(SdkBaseModel):
 
 class RecurringDetailsRequestDict(TypedDict):
     merchant_account: str
-    recurring: NotRequired[Recurring | RecurringDict]
+    recurring: NotRequired[RecurringDict]
     shopper_reference: str

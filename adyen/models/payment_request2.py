@@ -29,7 +29,7 @@ class PaymentRequest2(SdkBaseModel):
 
 
 class PaymentRequest2Dict(TypedDict):
-    sale_data: SaleData1 | SaleData1Dict
-    payment_transaction: PaymentTransaction1 | PaymentTransaction1Dict
-    payment_data: NotRequired[PaymentData1 | PaymentData1Dict]
-    loyalty_data: NotRequired[list[LoyaltyData | LoyaltyDataDict]]
+    sale_data: SaleData1Dict
+    payment_transaction: PaymentTransaction1Dict
+    payment_data: NotRequired[PaymentData1Dict]
+    loyalty_data: NotRequired[list[LoyaltyDataDict]]

@@ -15,5 +15,5 @@ class Links3(SdkBaseModel):
 
 
 class Links3Dict(TypedDict):
-    next: NotRequired[LinksElement | LinksElementDict]
-    prev: NotRequired[LinksElement | LinksElementDict]
+    next: NotRequired[LinksElementDict]
+    prev: NotRequired[LinksElementDict]

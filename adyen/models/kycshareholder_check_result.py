@@ -22,7 +22,7 @@ class KycshareholderCheckResult(SdkBaseModel):
 
 
 class KycshareholderCheckResultDict(TypedDict):
-    checks: NotRequired[list[KyccheckStatusData | KyccheckStatusDataDict]]
+    checks: NotRequired[list[KyccheckStatusDataDict]]
     legal_arrangement_code: NotRequired[str]
     legal_arrangement_entity_code: NotRequired[str]
     shareholder_code: NotRequired[str]

@@ -12,4 +12,4 @@ class GetPciQuestionnaireInfosResponse(SdkBaseModel):
 
 
 class GetPciQuestionnaireInfosResponseDict(TypedDict):
-    data: NotRequired[list[PciDocumentInfo | PciDocumentInfoDict]]
+    data: NotRequired[list[PciDocumentInfoDict]]

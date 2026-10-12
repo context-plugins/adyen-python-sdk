@@ -13,4 +13,4 @@ class FinishScaDeviceRegistrationResponse(SdkBaseModel):
 
 
 class FinishScaDeviceRegistrationResponseDict(TypedDict):
-    sca_device: NotRequired[ScaDevice | ScaDeviceDict]
+    sca_device: NotRequired[ScaDeviceDict]

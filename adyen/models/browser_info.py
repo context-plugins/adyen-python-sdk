@@ -3,7 +3,7 @@ from __future__ import annotations
 from pydantic import Field
 from typing_extensions import NotRequired, TypedDict
 
-from ..core import UNSET, Optional, SdkBaseModel
+from ..core import SdkBaseModel
 
 
 class BrowserInfo(SdkBaseModel):
@@ -22,7 +22,7 @@ class BrowserInfo(SdkBaseModel):
     java_enabled: bool = Field(alias="javaEnabled")
     """Boolean value indicating if the shopper's browser is able to execute Java."""
 
-    java_script_enabled: Optional[bool] = Field(default=UNSET, alias="javaScriptEnabled")
+    java_script_enabled: bool = Field(default=True, alias="javaScriptEnabled")
     """Boolean value indicating if the shopper's browser is able to execute JavaScript. A default 'true' value is
     assumed if the field is not present."""
 

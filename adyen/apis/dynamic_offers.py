@@ -8,9 +8,11 @@ from ..core import (
     BaseRawResponse,
     RawClient,
     RequestOptionsOrDict,
+    async_json_decoder,
     json_body,
     json_decoder,
     param,
+    unwrap,
 )
 from ..errors.get_dynamic_offers_error import GetDynamicOffersErrorBody, get_dynamic_offers_error_mapper
 from ..errors.post_dynamic_offers_id_calculate_error import (
@@ -48,7 +50,8 @@ class DynamicOffers:
             account_holder_id: The unique identifier of the account holder that the dynamic offer is for.
             financing_type: The type of financing that the offer is for. If the value is not specified, returns all
                 available types. Possible values: **businessFinancing**
-            request_options: Per-call overrides for this one request, such as a timeout or extra headers.
+            request_options: Per-call overrides for this one request, such as a timeout, extra headers, or its retry
+                count and statuses.
 
         Returns:
             OK - The request has succeeded.
@@ -56,13 +59,15 @@ class DynamicOffers:
         Raises:
             ApiError: Unprocessable Entity - A request validation error. ``error`` is ``DefaultErrorResponseEntity |
                 RawError``."""
-        return self._with_raw_response.get_dynamic_offers(
-            account_holder_id, financing_type=financing_type, request_options=request_options
-        ).unwrap()
+        return unwrap(
+            self._with_raw_response.get_dynamic_offers(
+                account_holder_id, financing_type=financing_type, request_options=request_options
+            ),
+        )
 
     def post_dynamic_offers_id_calculate(
         self,
-        id: str,
+        id_: str,
         *,
         body: CalculateGrantOfferRequest | CalculateGrantOfferRequestDict | None = None,
         request_options: RequestOptionsOrDict | None = None,
@@ -78,9 +83,10 @@ class DynamicOffers:
         - Test environments: 120 requests per minute.
 
         Args:
-            id: The unique identifier of the dynamic offer from which the user selected the financing amount.
+            id_: The unique identifier of the dynamic offer from which the user selected the financing amount.
             body: The request body.
-            request_options: Per-call overrides for this one request, such as a timeout or extra headers.
+            request_options: Per-call overrides for this one request, such as a timeout, extra headers, or its retry
+                count and statuses.
 
         Returns:
             OK - The request has succeeded.
@@ -88,13 +94,13 @@ class DynamicOffers:
         Raises:
             ApiError: Unprocessable Entity - A request validation error. ``error`` is ``DefaultErrorResponseEntity |
                 RawError``."""
-        return self._with_raw_response.post_dynamic_offers_id_calculate(
-            id, body=body, request_options=request_options
-        ).unwrap()
+        return unwrap(
+            self._with_raw_response.post_dynamic_offers_id_calculate(id_, body=body, request_options=request_options)
+        )
 
     def post_dynamic_offers_id_grant_offer(
         self,
-        id: str,
+        id_: str,
         *,
         body: CreateGrantOfferRequest | CreateGrantOfferRequestDict | None = None,
         request_options: RequestOptionsOrDict | None = None,
@@ -109,9 +115,10 @@ class DynamicOffers:
         - Test environments: 30 requests per minute.
 
         Args:
-            id: The unique identifier of the dynamic offer from which the user selected the financing amount.
+            id_: The unique identifier of the dynamic offer from which the user selected the financing amount.
             body: The request body.
-            request_options: Per-call overrides for this one request, such as a timeout or extra headers.
+            request_options: Per-call overrides for this one request, such as a timeout, extra headers, or its retry
+                count and statuses.
 
         Returns:
             OK - The request has succeeded.
@@ -119,9 +126,9 @@ class DynamicOffers:
         Raises:
             ApiError: Unprocessable Entity - A request validation error. ``error`` is ``DefaultErrorResponseEntity |
                 RawError``."""
-        return self._with_raw_response.post_dynamic_offers_id_grant_offer(
-            id, body=body, request_options=request_options
-        ).unwrap()
+        return unwrap(
+            self._with_raw_response.post_dynamic_offers_id_grant_offer(id_, body=body, request_options=request_options)
+        )
 
     @property
     def with_raw_response(self) -> DynamicOffersWithRawResponse:
@@ -146,7 +153,8 @@ class AsyncDynamicOffers:
             account_holder_id: The unique identifier of the account holder that the dynamic offer is for.
             financing_type: The type of financing that the offer is for. If the value is not specified, returns all
                 available types. Possible values: **businessFinancing**
-            request_options: Per-call overrides for this one request, such as a timeout or extra headers.
+            request_options: Per-call overrides for this one request, such as a timeout, extra headers, or its retry
+                count and statuses.
 
         Returns:
             OK - The request has succeeded.
@@ -154,15 +162,15 @@ class AsyncDynamicOffers:
         Raises:
             ApiError: Unprocessable Entity - A request validation error. ``error`` is ``DefaultErrorResponseEntity |
                 RawError``."""
-        return (
+        return unwrap(
             await self._with_raw_response.get_dynamic_offers(
                 account_holder_id, financing_type=financing_type, request_options=request_options
-            )
-        ).unwrap()
+            ),
+        )
 
     async def post_dynamic_offers_id_calculate(
         self,
-        id: str,
+        id_: str,
         *,
         body: CalculateGrantOfferRequest | CalculateGrantOfferRequestDict | None = None,
         request_options: RequestOptionsOrDict | None = None,
@@ -178,9 +186,10 @@ class AsyncDynamicOffers:
         - Test environments: 120 requests per minute.
 
         Args:
-            id: The unique identifier of the dynamic offer from which the user selected the financing amount.
+            id_: The unique identifier of the dynamic offer from which the user selected the financing amount.
             body: The request body.
-            request_options: Per-call overrides for this one request, such as a timeout or extra headers.
+            request_options: Per-call overrides for this one request, such as a timeout, extra headers, or its retry
+                count and statuses.
 
         Returns:
             OK - The request has succeeded.
@@ -188,15 +197,15 @@ class AsyncDynamicOffers:
         Raises:
             ApiError: Unprocessable Entity - A request validation error. ``error`` is ``DefaultErrorResponseEntity |
                 RawError``."""
-        return (
+        return unwrap(
             await self._with_raw_response.post_dynamic_offers_id_calculate(
-                id, body=body, request_options=request_options
-            )
-        ).unwrap()
+                id_, body=body, request_options=request_options
+            ),
+        )
 
     async def post_dynamic_offers_id_grant_offer(
         self,
-        id: str,
+        id_: str,
         *,
         body: CreateGrantOfferRequest | CreateGrantOfferRequestDict | None = None,
         request_options: RequestOptionsOrDict | None = None,
@@ -211,9 +220,10 @@ class AsyncDynamicOffers:
         - Test environments: 30 requests per minute.
 
         Args:
-            id: The unique identifier of the dynamic offer from which the user selected the financing amount.
+            id_: The unique identifier of the dynamic offer from which the user selected the financing amount.
             body: The request body.
-            request_options: Per-call overrides for this one request, such as a timeout or extra headers.
+            request_options: Per-call overrides for this one request, such as a timeout, extra headers, or its retry
+                count and statuses.
 
         Returns:
             OK - The request has succeeded.
@@ -221,11 +231,11 @@ class AsyncDynamicOffers:
         Raises:
             ApiError: Unprocessable Entity - A request validation error. ``error`` is ``DefaultErrorResponseEntity |
                 RawError``."""
-        return (
+        return unwrap(
             await self._with_raw_response.post_dynamic_offers_id_grant_offer(
-                id, body=body, request_options=request_options
-            )
-        ).unwrap()
+                id_, body=body, request_options=request_options
+            ),
+        )
 
     @property
     def with_raw_response(self) -> AsyncDynamicOffersWithRawResponse:
@@ -247,7 +257,8 @@ class DynamicOffersWithRawResponse(BaseRawResponse[RawClient, Server]):
             account_holder_id: The unique identifier of the account holder that the dynamic offer is for.
             financing_type: The type of financing that the offer is for. If the value is not specified, returns all
                 available types. Possible values: **businessFinancing**
-            request_options: Per-call overrides for this one request, such as a timeout or extra headers.
+            request_options: Per-call overrides for this one request, such as a timeout, extra headers, or its retry
+                count and statuses.
 
         Returns:
             An ``ApiResult`` holding the deserialized response or the error body."""
@@ -265,7 +276,7 @@ class DynamicOffersWithRawResponse(BaseRawResponse[RawClient, Server]):
 
     def post_dynamic_offers_id_calculate(
         self,
-        id: str,
+        id_: str,
         *,
         body: CalculateGrantOfferRequest | CalculateGrantOfferRequestDict | None = None,
         request_options: RequestOptionsOrDict | None = None,
@@ -281,16 +292,17 @@ class DynamicOffersWithRawResponse(BaseRawResponse[RawClient, Server]):
         - Test environments: 120 requests per minute.
 
         Args:
-            id: The unique identifier of the dynamic offer from which the user selected the financing amount.
+            id_: The unique identifier of the dynamic offer from which the user selected the financing amount.
             body: The request body.
-            request_options: Per-call overrides for this one request, such as a timeout or extra headers.
+            request_options: Per-call overrides for this one request, such as a timeout, extra headers, or its retry
+                count and statuses.
 
         Returns:
             An ``ApiResult`` holding the deserialized response or the error body."""
         return self._client.execute(
             http_method="POST",
             url_template=self._server.default15("/dynamicOffers/{id}/calculate"),
-            path_params=[param[str]("id", id)],
+            path_params=[param[str]("id", id_)],
             headers=[param[UUID]("Idempotency-Key", uuid4())],
             body=json_body[CalculateGrantOfferRequest | CalculateGrantOfferRequestDict | None](body),
             decoder=json_decoder[CalculatedGrantOffer],
@@ -300,7 +312,7 @@ class DynamicOffersWithRawResponse(BaseRawResponse[RawClient, Server]):
 
     def post_dynamic_offers_id_grant_offer(
         self,
-        id: str,
+        id_: str,
         *,
         body: CreateGrantOfferRequest | CreateGrantOfferRequestDict | None = None,
         request_options: RequestOptionsOrDict | None = None,
@@ -315,16 +327,17 @@ class DynamicOffersWithRawResponse(BaseRawResponse[RawClient, Server]):
         - Test environments: 30 requests per minute.
 
         Args:
-            id: The unique identifier of the dynamic offer from which the user selected the financing amount.
+            id_: The unique identifier of the dynamic offer from which the user selected the financing amount.
             body: The request body.
-            request_options: Per-call overrides for this one request, such as a timeout or extra headers.
+            request_options: Per-call overrides for this one request, such as a timeout, extra headers, or its retry
+                count and statuses.
 
         Returns:
             An ``ApiResult`` holding the deserialized response or the error body."""
         return self._client.execute(
             http_method="POST",
             url_template=self._server.default15("/dynamicOffers/{id}/grantOffer"),
-            path_params=[param[str]("id", id)],
+            path_params=[param[str]("id", id_)],
             headers=[param[UUID]("Idempotency-Key", uuid4())],
             body=json_body[CreateGrantOfferRequest | CreateGrantOfferRequestDict | None](body),
             decoder=json_decoder[GrantOffer1],
@@ -348,7 +361,8 @@ class AsyncDynamicOffersWithRawResponse(BaseRawResponse[AsyncRawClient, Server])
             account_holder_id: The unique identifier of the account holder that the dynamic offer is for.
             financing_type: The type of financing that the offer is for. If the value is not specified, returns all
                 available types. Possible values: **businessFinancing**
-            request_options: Per-call overrides for this one request, such as a timeout or extra headers.
+            request_options: Per-call overrides for this one request, such as a timeout, extra headers, or its retry
+                count and statuses.
 
         Returns:
             An ``ApiResult`` holding the deserialized response or the error body."""
@@ -359,14 +373,14 @@ class AsyncDynamicOffersWithRawResponse(BaseRawResponse[AsyncRawClient, Server])
                 param[str]("accountHolderId", account_holder_id),
                 param[FinancingTypeOrStr | None]("financingType", financing_type),
             ],
-            decoder=json_decoder[GetDynamicOffersResponse],
+            decoder=async_json_decoder[GetDynamicOffersResponse],
             error_mapper=get_dynamic_offers_error_mapper,
             request_options=request_options,
         )
 
     async def post_dynamic_offers_id_calculate(
         self,
-        id: str,
+        id_: str,
         *,
         body: CalculateGrantOfferRequest | CalculateGrantOfferRequestDict | None = None,
         request_options: RequestOptionsOrDict | None = None,
@@ -382,26 +396,27 @@ class AsyncDynamicOffersWithRawResponse(BaseRawResponse[AsyncRawClient, Server])
         - Test environments: 120 requests per minute.
 
         Args:
-            id: The unique identifier of the dynamic offer from which the user selected the financing amount.
+            id_: The unique identifier of the dynamic offer from which the user selected the financing amount.
             body: The request body.
-            request_options: Per-call overrides for this one request, such as a timeout or extra headers.
+            request_options: Per-call overrides for this one request, such as a timeout, extra headers, or its retry
+                count and statuses.
 
         Returns:
             An ``ApiResult`` holding the deserialized response or the error body."""
         return await self._client.execute(
             http_method="POST",
             url_template=self._server.default15("/dynamicOffers/{id}/calculate"),
-            path_params=[param[str]("id", id)],
+            path_params=[param[str]("id", id_)],
             headers=[param[UUID]("Idempotency-Key", uuid4())],
             body=json_body[CalculateGrantOfferRequest | CalculateGrantOfferRequestDict | None](body),
-            decoder=json_decoder[CalculatedGrantOffer],
+            decoder=async_json_decoder[CalculatedGrantOffer],
             error_mapper=post_dynamic_offers_id_calculate_error_mapper,
             request_options=request_options,
         )
 
     async def post_dynamic_offers_id_grant_offer(
         self,
-        id: str,
+        id_: str,
         *,
         body: CreateGrantOfferRequest | CreateGrantOfferRequestDict | None = None,
         request_options: RequestOptionsOrDict | None = None,
@@ -416,19 +431,20 @@ class AsyncDynamicOffersWithRawResponse(BaseRawResponse[AsyncRawClient, Server])
         - Test environments: 30 requests per minute.
 
         Args:
-            id: The unique identifier of the dynamic offer from which the user selected the financing amount.
+            id_: The unique identifier of the dynamic offer from which the user selected the financing amount.
             body: The request body.
-            request_options: Per-call overrides for this one request, such as a timeout or extra headers.
+            request_options: Per-call overrides for this one request, such as a timeout, extra headers, or its retry
+                count and statuses.
 
         Returns:
             An ``ApiResult`` holding the deserialized response or the error body."""
         return await self._client.execute(
             http_method="POST",
             url_template=self._server.default15("/dynamicOffers/{id}/grantOffer"),
-            path_params=[param[str]("id", id)],
+            path_params=[param[str]("id", id_)],
             headers=[param[UUID]("Idempotency-Key", uuid4())],
             body=json_body[CreateGrantOfferRequest | CreateGrantOfferRequestDict | None](body),
-            decoder=json_decoder[GrantOffer1],
+            decoder=async_json_decoder[GrantOffer1],
             error_mapper=post_dynamic_offers_id_grant_offer_error_mapper,
             request_options=request_options,
         )

@@ -45,5 +45,5 @@ class DetailsOfTokensThatAreNotStoredWithAdyenDict(TypedDict):
     holder_name: NotRequired[str]
     number: NotRequired[str]
     stored_payment_method_id: str
-    subtype: NotRequired[Literal["hilton"]]
-    type_: NotRequired[Literal["externalToken"]]
+    subtype: Literal["hilton"]
+    type_: Literal["externalToken"]

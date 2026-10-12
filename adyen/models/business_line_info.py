@@ -61,6 +61,6 @@ class BusinessLineInfoDict(TypedDict):
     legal_entity_id: str
     sales_channels: NotRequired[list[str]]
     service: ServiceOrStr
-    source_of_funds: NotRequired[SourceOfFunds11 | SourceOfFunds11Dict]
-    web_data: NotRequired[list[WebData | WebDataDict]]
-    web_data_exemption: NotRequired[WebDataExemption1 | WebDataExemption1Dict]
+    source_of_funds: NotRequired[SourceOfFunds11Dict]
+    web_data: NotRequired[list[WebDataDict]]
+    web_data_exemption: NotRequired[WebDataExemption1Dict]

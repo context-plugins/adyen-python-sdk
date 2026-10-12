@@ -20,4 +20,4 @@ class MaestroResponseInfo1(SdkBaseModel):
 
 
 class MaestroResponseInfo1Dict(TypedDict):
-    transaction_description: NotRequired[TransactionDescriptionResponseInfo1 | TransactionDescriptionResponseInfo1Dict]
+    transaction_description: NotRequired[TransactionDescriptionResponseInfo1Dict]

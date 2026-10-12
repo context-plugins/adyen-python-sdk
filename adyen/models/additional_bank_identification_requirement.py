@@ -38,4 +38,4 @@ class AdditionalBankIdentificationRequirement(SdkBaseModel):
 class AdditionalBankIdentificationRequirementDict(TypedDict):
     additional_bank_identification_type: NotRequired[AdditionalBankIdentificationTypeOrStr]
     description: NotRequired[str]
-    type_: NotRequired[Literal["additionalBankIdentificationRequirement"]]
+    type_: Literal["additionalBankIdentificationRequirement"]

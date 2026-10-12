@@ -12,4 +12,4 @@ class ListExternalTerminalActionsResponse(SdkBaseModel):
 
 
 class ListExternalTerminalActionsResponseDict(TypedDict):
-    data: NotRequired[list[ExternalTerminalAction | ExternalTerminalActionDict]]
+    data: NotRequired[list[ExternalTerminalActionDict]]

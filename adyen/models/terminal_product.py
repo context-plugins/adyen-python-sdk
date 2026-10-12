@@ -29,4 +29,4 @@ class TerminalProductDict(TypedDict):
     id: NotRequired[str]
     items_included: NotRequired[list[str]]
     name: NotRequired[str]
-    price: NotRequired[TerminalProductPrice2 | TerminalProductPrice2Dict]
+    price: NotRequired[TerminalProductPrice2Dict]

@@ -16,4 +16,4 @@ class PulseUpdateInfo(SdkBaseModel):
 
 
 class PulseUpdateInfoDict(TypedDict):
-    transaction_description: NotRequired[TransactionDescriptionInfo1 | TransactionDescriptionInfo1Dict]
+    transaction_description: NotRequired[TransactionDescriptionInfo1Dict]

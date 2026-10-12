@@ -43,7 +43,7 @@ class StoredValueStatusChangeResponse(SdkBaseModel):
 
 class StoredValueStatusChangeResponseDict(TypedDict):
     auth_code: NotRequired[str]
-    current_balance: NotRequired[Amount | AmountDict]
+    current_balance: NotRequired[AmountDict]
     psp_reference: NotRequired[str]
     refusal_reason: NotRequired[str]
     result_code: NotRequired[ResultCode3OrStr]

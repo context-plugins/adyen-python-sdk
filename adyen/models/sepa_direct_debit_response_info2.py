@@ -24,4 +24,4 @@ class SepaDirectDebitResponseInfo2(SdkBaseModel):
 
 class SepaDirectDebitResponseInfo2Dict(TypedDict):
     creditor_id: NotRequired[str]
-    transaction_description: NotRequired[TransactionDescriptionResponseInfo1 | TransactionDescriptionResponseInfo1Dict]
+    transaction_description: NotRequired[TransactionDescriptionResponseInfo1Dict]

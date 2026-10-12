@@ -15,4 +15,4 @@ class PrintRequest2(SdkBaseModel):
 
 
 class PrintRequest2Dict(TypedDict):
-    print_output: PrintOutput2 | PrintOutput2Dict
+    print_output: PrintOutput2Dict

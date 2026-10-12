@@ -19,5 +19,5 @@ class GrantOfferFee1(SdkBaseModel):
 
 
 class GrantOfferFee1Dict(TypedDict):
-    amount: Amount17 | Amount17Dict
+    amount: Amount17Dict
     apr_basis_points: NotRequired[int]

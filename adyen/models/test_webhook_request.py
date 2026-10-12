@@ -48,5 +48,5 @@ class TestWebhookRequest(SdkBaseModel):
 
 
 class TestWebhookRequestDict(TypedDict):
-    notification: NotRequired[CustomNotification1 | CustomNotification1Dict]
+    notification: NotRequired[CustomNotification1Dict]
     types: NotRequired[list[str]]

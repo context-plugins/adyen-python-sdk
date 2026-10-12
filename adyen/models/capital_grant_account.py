@@ -23,7 +23,7 @@ class CapitalGrantAccount(SdkBaseModel):
 
 
 class CapitalGrantAccountDict(TypedDict):
-    balances: NotRequired[list[CapitalBalance | CapitalBalanceDict]]
+    balances: NotRequired[list[CapitalBalanceDict]]
     funding_balance_account_id: NotRequired[str]
     id: NotRequired[str]
-    limits: NotRequired[list[GrantLimit | GrantLimitDict]]
+    limits: NotRequired[list[GrantLimitDict]]

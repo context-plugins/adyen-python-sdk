@@ -39,7 +39,7 @@ class CheckData1Dict(TypedDict):
     bank_id: NotRequired[str]
     account_number: NotRequired[str]
     check_number: NotRequired[str]
-    track_data: NotRequired[TrackData1 | TrackData1Dict]
+    track_data: NotRequired[TrackData1Dict]
     check_card_number: NotRequired[str]
     type_code: NotRequired[TypeCode1OrStr]
     country: NotRequired[str]

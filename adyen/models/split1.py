@@ -72,7 +72,7 @@ class Split1(SdkBaseModel):
 
 class Split1Dict(TypedDict):
     account: NotRequired[str]
-    amount: NotRequired[SplitAmount | SplitAmountDict]
+    amount: NotRequired[SplitAmountDict]
     description: NotRequired[str]
     reference: NotRequired[str]
     type_: Type60OrStr

@@ -20,11 +20,11 @@ class PixPayByBankRiskSignals(SdkBaseModel):
 
 
 class PixPayByBankRiskSignalsDict(TypedDict):
-    confidence_score: NotRequired[ConfidenceScore | ConfidenceScoreDict]
+    confidence_score: NotRequired[ConfidenceScoreDict]
     elapsed_time_since_boot: NotRequired[int]
     is_rooted_device: NotRequired[bool]
     language: NotRequired[str]
     os_version: NotRequired[str]
     screen_brightness: NotRequired[int]
-    screen_dimensions: NotRequired[ScreenDimensions | ScreenDimensionsDict]
+    screen_dimensions: NotRequired[ScreenDimensionsDict]
     user_time_zone_offset: NotRequired[int]

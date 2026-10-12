@@ -31,7 +31,7 @@ class FundingInstrument2(SdkBaseModel):
 
 
 class FundingInstrument2Dict(TypedDict):
-    card_identification: NotRequired[CardIdentification2 | CardIdentification2Dict]
+    card_identification: NotRequired[CardIdentification2Dict]
     network_payment_reference: NotRequired[str]
     reference: NotRequired[str]
     source_of_funds: NotRequired[SourceOfFundsOrStr]

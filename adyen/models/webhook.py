@@ -129,13 +129,13 @@ class Webhook(SdkBaseModel):
 
 
 class WebhookDict(TypedDict):
-    links: NotRequired[WebhookLinks2 | WebhookLinks2Dict]
+    links: NotRequired[WebhookLinks2Dict]
     accepts_expired_certificate: NotRequired[bool]
     accepts_self_signed_certificate: NotRequired[bool]
     accepts_untrusted_root_certificate: NotRequired[bool]
     account_reference: NotRequired[str]
     active: bool
-    additional_settings: NotRequired[AdditionalSettingsResponse1 | AdditionalSettingsResponse1Dict]
+    additional_settings: NotRequired[AdditionalSettingsResponse1Dict]
     certificate_alias: NotRequired[str]
     communication_format: CommunicationFormatOrStr
     description: NotRequired[str]

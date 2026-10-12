@@ -29,9 +29,9 @@ class InputUpdate(SdkBaseModel):
 
 
 class InputUpdateDict(TypedDict):
-    message_reference: MessageReference | MessageReferenceDict
-    output_content: OutputContent | OutputContentDict
-    menu_entry: NotRequired[list[MenuEntry | MenuEntryDict]]
+    message_reference: MessageReferenceDict
+    output_content: OutputContentDict
+    menu_entry: NotRequired[list[MenuEntryDict]]
     output_signature: NotRequired[str]
     min_length: NotRequired[int]
     max_length: NotRequired[int]

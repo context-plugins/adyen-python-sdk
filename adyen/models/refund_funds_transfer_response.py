@@ -29,7 +29,7 @@ class RefundFundsTransferResponse(SdkBaseModel):
 
 
 class RefundFundsTransferResponseDict(TypedDict):
-    invalid_fields: NotRequired[list[ErrorFieldType | ErrorFieldTypeDict]]
+    invalid_fields: NotRequired[list[ErrorFieldTypeDict]]
     merchant_reference: NotRequired[str]
     message: NotRequired[str]
     original_reference: NotRequired[str]

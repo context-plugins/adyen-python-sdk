@@ -47,14 +47,14 @@ class CreateCompanyUserResponse(SdkBaseModel):
 
 
 class CreateCompanyUserResponseDict(TypedDict):
-    links: NotRequired[Links1 | Links1Dict]
+    links: NotRequired[Links1Dict]
     account_groups: NotRequired[list[str]]
     active: NotRequired[bool]
     apps: NotRequired[list[str]]
     associated_merchant_accounts: NotRequired[list[str]]
     email: str
     id: str
-    name: NotRequired[Name | NameDict]
+    name: NotRequired[NameDict]
     roles: list[str]
     time_zone_code: str
     username: str

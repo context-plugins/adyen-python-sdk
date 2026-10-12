@@ -19,6 +19,6 @@ class PaymentMethodUpiapps(SdkBaseModel):
 
 
 class PaymentMethodUpiappsDict(TypedDict):
-    app_identifier_info: NotRequired[AppIdentifierInfo1 | AppIdentifierInfo1Dict]
+    app_identifier_info: NotRequired[AppIdentifierInfo1Dict]
     id: str
     name: str

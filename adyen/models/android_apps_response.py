@@ -12,4 +12,4 @@ class AndroidAppsResponse(SdkBaseModel):
 
 
 class AndroidAppsResponseDict(TypedDict):
-    data: NotRequired[list[AndroidApp | AndroidAppDict]]
+    data: NotRequired[list[AndroidAppDict]]

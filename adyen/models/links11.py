@@ -19,5 +19,5 @@ class Links11(SdkBaseModel):
 
 
 class Links11Dict(TypedDict):
-    cancel: NotRequired[Href6 | Href6Dict]
-    success: NotRequired[Href1 | Href1Dict]
+    cancel: NotRequired[Href6Dict]
+    success: NotRequired[Href1Dict]

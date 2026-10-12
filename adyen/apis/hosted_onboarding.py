@@ -11,9 +11,11 @@ from ..core import (
     RawClient,
     RequestOptionsOrDict,
     SecuredRawResponse,
+    async_json_decoder,
     json_body,
     json_decoder,
     param,
+    unwrap,
 )
 from ..errors.get_themes_error import GetThemesErrorBody, get_themes_error_mapper
 from ..errors.get_themes_id_error import GetThemesIdErrorBody, get_themes_id_error_mapper
@@ -44,7 +46,8 @@ class HostedOnboarding:
         - Failed requests are subject to a limit of 5 failures per 10 seconds.
 
         Args:
-            request_options: Per-call overrides for this one request, such as a timeout or extra headers.
+            request_options: Per-call overrides for this one request, such as a timeout, extra headers, or its retry
+                count and statuses.
 
         Returns:
             OK - the request has succeeded.
@@ -54,9 +57,9 @@ class HostedOnboarding:
                 required. Forbidden - insufficient permissions to process the request. Unprocessable Entity - a request
                 validation error. Internal Server Error - the server could not process the request. ``error`` is
                 ``ServiceError1 | RawError``."""
-        return self._with_raw_response.get_themes(request_options=request_options).unwrap()
+        return unwrap(self._with_raw_response.get_themes(request_options=request_options))
 
-    def get_themes_id(self, id: str, *, request_options: RequestOptionsOrDict | None = None) -> OnboardingTheme:
+    def get_themes_id(self, id_: str, *, request_options: RequestOptionsOrDict | None = None) -> OnboardingTheme:
         """Returns the details of the theme identified in the path.
 
         Requests to this endpoint are subject to rate limits:
@@ -68,8 +71,9 @@ class HostedOnboarding:
         - Failed requests are subject to a limit of 5 failures per 10 seconds.
 
         Args:
-            id: The unique identifier of the theme
-            request_options: Per-call overrides for this one request, such as a timeout or extra headers.
+            id_: The unique identifier of the theme
+            request_options: Per-call overrides for this one request, such as a timeout, extra headers, or its retry
+                count and statuses.
 
         Returns:
             OK - the request has succeeded.
@@ -79,11 +83,11 @@ class HostedOnboarding:
                 required. Forbidden - insufficient permissions to process the request. Unprocessable Entity - a request
                 validation error. Internal Server Error - the server could not process the request. ``error`` is
                 ``ServiceError1 | RawError``."""
-        return self._with_raw_response.get_themes_id(id, request_options=request_options).unwrap()
+        return unwrap(self._with_raw_response.get_themes_id(id_, request_options=request_options))
 
     def post_legal_entities_id_onboarding_links(
         self,
-        id: str,
+        id_: str,
         *,
         body: OnboardingLinkInfo | OnboardingLinkInfoDict | None = None,
         request_options: RequestOptionsOrDict | None = None,
@@ -99,9 +103,10 @@ class HostedOnboarding:
         - Failed requests are subject to a limit of 5 failures per 10 seconds.
 
         Args:
-            id: The unique identifier of the legal entity
+            id_: The unique identifier of the legal entity
             body: The request body.
-            request_options: Per-call overrides for this one request, such as a timeout or extra headers.
+            request_options: Per-call overrides for this one request, such as a timeout, extra headers, or its retry
+                count and statuses.
 
         Returns:
             OK - the request has succeeded.
@@ -111,9 +116,11 @@ class HostedOnboarding:
                 required. Forbidden - insufficient permissions to process the request. Unprocessable Entity - a request
                 validation error. Internal Server Error - the server could not process the request. ``error`` is
                 ``ServiceError1 | RawError``."""
-        return self._with_raw_response.post_legal_entities_id_onboarding_links(
-            id, body=body, request_options=request_options
-        ).unwrap()
+        return unwrap(
+            self._with_raw_response.post_legal_entities_id_onboarding_links(
+                id_, body=body, request_options=request_options
+            ),
+        )
 
     @property
     def with_raw_response(self) -> HostedOnboardingWithRawResponse:
@@ -136,7 +143,8 @@ class AsyncHostedOnboarding:
         - Failed requests are subject to a limit of 5 failures per 10 seconds.
 
         Args:
-            request_options: Per-call overrides for this one request, such as a timeout or extra headers.
+            request_options: Per-call overrides for this one request, such as a timeout, extra headers, or its retry
+                count and statuses.
 
         Returns:
             OK - the request has succeeded.
@@ -146,9 +154,9 @@ class AsyncHostedOnboarding:
                 required. Forbidden - insufficient permissions to process the request. Unprocessable Entity - a request
                 validation error. Internal Server Error - the server could not process the request. ``error`` is
                 ``ServiceError1 | RawError``."""
-        return (await self._with_raw_response.get_themes(request_options=request_options)).unwrap()
+        return unwrap(await self._with_raw_response.get_themes(request_options=request_options))
 
-    async def get_themes_id(self, id: str, *, request_options: RequestOptionsOrDict | None = None) -> OnboardingTheme:
+    async def get_themes_id(self, id_: str, *, request_options: RequestOptionsOrDict | None = None) -> OnboardingTheme:
         """Returns the details of the theme identified in the path.
 
         Requests to this endpoint are subject to rate limits:
@@ -160,8 +168,9 @@ class AsyncHostedOnboarding:
         - Failed requests are subject to a limit of 5 failures per 10 seconds.
 
         Args:
-            id: The unique identifier of the theme
-            request_options: Per-call overrides for this one request, such as a timeout or extra headers.
+            id_: The unique identifier of the theme
+            request_options: Per-call overrides for this one request, such as a timeout, extra headers, or its retry
+                count and statuses.
 
         Returns:
             OK - the request has succeeded.
@@ -171,11 +180,11 @@ class AsyncHostedOnboarding:
                 required. Forbidden - insufficient permissions to process the request. Unprocessable Entity - a request
                 validation error. Internal Server Error - the server could not process the request. ``error`` is
                 ``ServiceError1 | RawError``."""
-        return (await self._with_raw_response.get_themes_id(id, request_options=request_options)).unwrap()
+        return unwrap(await self._with_raw_response.get_themes_id(id_, request_options=request_options))
 
     async def post_legal_entities_id_onboarding_links(
         self,
-        id: str,
+        id_: str,
         *,
         body: OnboardingLinkInfo | OnboardingLinkInfoDict | None = None,
         request_options: RequestOptionsOrDict | None = None,
@@ -191,9 +200,10 @@ class AsyncHostedOnboarding:
         - Failed requests are subject to a limit of 5 failures per 10 seconds.
 
         Args:
-            id: The unique identifier of the legal entity
+            id_: The unique identifier of the legal entity
             body: The request body.
-            request_options: Per-call overrides for this one request, such as a timeout or extra headers.
+            request_options: Per-call overrides for this one request, such as a timeout, extra headers, or its retry
+                count and statuses.
 
         Returns:
             OK - the request has succeeded.
@@ -203,11 +213,11 @@ class AsyncHostedOnboarding:
                 required. Forbidden - insufficient permissions to process the request. Unprocessable Entity - a request
                 validation error. Internal Server Error - the server could not process the request. ``error`` is
                 ``ServiceError1 | RawError``."""
-        return (
+        return unwrap(
             await self._with_raw_response.post_legal_entities_id_onboarding_links(
-                id, body=body, request_options=request_options
-            )
-        ).unwrap()
+                id_, body=body, request_options=request_options
+            ),
+        )
 
     @property
     def with_raw_response(self) -> AsyncHostedOnboardingWithRawResponse:
@@ -229,7 +239,8 @@ class HostedOnboardingWithRawResponse(SecuredRawResponse[RawClient, Server, Auth
         - Failed requests are subject to a limit of 5 failures per 10 seconds.
 
         Args:
-            request_options: Per-call overrides for this one request, such as a timeout or extra headers.
+            request_options: Per-call overrides for this one request, such as a timeout, extra headers, or its retry
+                count and statuses.
 
         Returns:
             An ``ApiResult`` holding the deserialized response or the error body."""
@@ -243,7 +254,7 @@ class HostedOnboardingWithRawResponse(SecuredRawResponse[RawClient, Server, Auth
         )
 
     def get_themes_id(
-        self, id: str, *, request_options: RequestOptionsOrDict | None = None
+        self, id_: str, *, request_options: RequestOptionsOrDict | None = None
     ) -> ApiResult[OnboardingTheme, GetThemesIdErrorBody]:
         """Returns the details of the theme identified in the path.
 
@@ -256,15 +267,16 @@ class HostedOnboardingWithRawResponse(SecuredRawResponse[RawClient, Server, Auth
         - Failed requests are subject to a limit of 5 failures per 10 seconds.
 
         Args:
-            id: The unique identifier of the theme
-            request_options: Per-call overrides for this one request, such as a timeout or extra headers.
+            id_: The unique identifier of the theme
+            request_options: Per-call overrides for this one request, such as a timeout, extra headers, or its retry
+                count and statuses.
 
         Returns:
             An ``ApiResult`` holding the deserialized response or the error body."""
         return self._client.execute(
             http_method="GET",
             url_template=self._server.default18("/themes/{id}"),
-            path_params=[param[str]("id", id)],
+            path_params=[param[str]("id", id_)],
             auth_scheme=AnySchemes(self._auth.basic_auth, self._auth.api_key_auth),
             decoder=json_decoder[OnboardingTheme],
             error_mapper=get_themes_id_error_mapper,
@@ -273,7 +285,7 @@ class HostedOnboardingWithRawResponse(SecuredRawResponse[RawClient, Server, Auth
 
     def post_legal_entities_id_onboarding_links(
         self,
-        id: str,
+        id_: str,
         *,
         body: OnboardingLinkInfo | OnboardingLinkInfoDict | None = None,
         request_options: RequestOptionsOrDict | None = None,
@@ -289,16 +301,17 @@ class HostedOnboardingWithRawResponse(SecuredRawResponse[RawClient, Server, Auth
         - Failed requests are subject to a limit of 5 failures per 10 seconds.
 
         Args:
-            id: The unique identifier of the legal entity
+            id_: The unique identifier of the legal entity
             body: The request body.
-            request_options: Per-call overrides for this one request, such as a timeout or extra headers.
+            request_options: Per-call overrides for this one request, such as a timeout, extra headers, or its retry
+                count and statuses.
 
         Returns:
             An ``ApiResult`` holding the deserialized response or the error body."""
         return self._client.execute(
             http_method="POST",
             url_template=self._server.default18("/legalEntities/{id}/onboardingLinks"),
-            path_params=[param[str]("id", id)],
+            path_params=[param[str]("id", id_)],
             headers=[param[UUID]("Idempotency-Key", uuid4())],
             body=json_body[OnboardingLinkInfo | OnboardingLinkInfoDict | None](body),
             auth_scheme=AnySchemes(self._auth.basic_auth, self._auth.api_key_auth),
@@ -323,7 +336,8 @@ class AsyncHostedOnboardingWithRawResponse(SecuredRawResponse[AsyncRawClient, Se
         - Failed requests are subject to a limit of 5 failures per 10 seconds.
 
         Args:
-            request_options: Per-call overrides for this one request, such as a timeout or extra headers.
+            request_options: Per-call overrides for this one request, such as a timeout, extra headers, or its retry
+                count and statuses.
 
         Returns:
             An ``ApiResult`` holding the deserialized response or the error body."""
@@ -331,13 +345,13 @@ class AsyncHostedOnboardingWithRawResponse(SecuredRawResponse[AsyncRawClient, Se
             http_method="GET",
             url_template=self._server.default18("/themes"),
             auth_scheme=AsyncAnySchemes(self._auth.basic_auth, self._auth.api_key_auth),
-            decoder=json_decoder[OnboardingThemes],
+            decoder=async_json_decoder[OnboardingThemes],
             error_mapper=get_themes_error_mapper,
             request_options=request_options,
         )
 
     async def get_themes_id(
-        self, id: str, *, request_options: RequestOptionsOrDict | None = None
+        self, id_: str, *, request_options: RequestOptionsOrDict | None = None
     ) -> ApiResult[OnboardingTheme, GetThemesIdErrorBody]:
         """Returns the details of the theme identified in the path.
 
@@ -350,24 +364,25 @@ class AsyncHostedOnboardingWithRawResponse(SecuredRawResponse[AsyncRawClient, Se
         - Failed requests are subject to a limit of 5 failures per 10 seconds.
 
         Args:
-            id: The unique identifier of the theme
-            request_options: Per-call overrides for this one request, such as a timeout or extra headers.
+            id_: The unique identifier of the theme
+            request_options: Per-call overrides for this one request, such as a timeout, extra headers, or its retry
+                count and statuses.
 
         Returns:
             An ``ApiResult`` holding the deserialized response or the error body."""
         return await self._client.execute(
             http_method="GET",
             url_template=self._server.default18("/themes/{id}"),
-            path_params=[param[str]("id", id)],
+            path_params=[param[str]("id", id_)],
             auth_scheme=AsyncAnySchemes(self._auth.basic_auth, self._auth.api_key_auth),
-            decoder=json_decoder[OnboardingTheme],
+            decoder=async_json_decoder[OnboardingTheme],
             error_mapper=get_themes_id_error_mapper,
             request_options=request_options,
         )
 
     async def post_legal_entities_id_onboarding_links(
         self,
-        id: str,
+        id_: str,
         *,
         body: OnboardingLinkInfo | OnboardingLinkInfoDict | None = None,
         request_options: RequestOptionsOrDict | None = None,
@@ -383,20 +398,21 @@ class AsyncHostedOnboardingWithRawResponse(SecuredRawResponse[AsyncRawClient, Se
         - Failed requests are subject to a limit of 5 failures per 10 seconds.
 
         Args:
-            id: The unique identifier of the legal entity
+            id_: The unique identifier of the legal entity
             body: The request body.
-            request_options: Per-call overrides for this one request, such as a timeout or extra headers.
+            request_options: Per-call overrides for this one request, such as a timeout, extra headers, or its retry
+                count and statuses.
 
         Returns:
             An ``ApiResult`` holding the deserialized response or the error body."""
         return await self._client.execute(
             http_method="POST",
             url_template=self._server.default18("/legalEntities/{id}/onboardingLinks"),
-            path_params=[param[str]("id", id)],
+            path_params=[param[str]("id", id_)],
             headers=[param[UUID]("Idempotency-Key", uuid4())],
             body=json_body[OnboardingLinkInfo | OnboardingLinkInfoDict | None](body),
             auth_scheme=AsyncAnySchemes(self._auth.basic_auth, self._auth.api_key_auth),
-            decoder=json_decoder[OnboardingLink],
+            decoder=async_json_decoder[OnboardingLink],
             error_mapper=post_legal_entities_id_onboarding_links_error_mapper,
             request_options=request_options,
         )

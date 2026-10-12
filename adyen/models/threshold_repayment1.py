@@ -12,4 +12,4 @@ class ThresholdRepayment1(SdkBaseModel):
 
 
 class ThresholdRepayment1Dict(TypedDict):
-    amount: Amount17 | Amount17Dict
+    amount: Amount17Dict

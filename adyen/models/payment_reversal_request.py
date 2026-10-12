@@ -20,6 +20,6 @@ class PaymentReversalRequest(SdkBaseModel):
 
 
 class PaymentReversalRequestDict(TypedDict):
-    application_info: NotRequired[ApplicationInfo | ApplicationInfoDict]
+    application_info: NotRequired[ApplicationInfoDict]
     merchant_account: str
     reference: NotRequired[str]

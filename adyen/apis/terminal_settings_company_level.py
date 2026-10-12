@@ -11,9 +11,11 @@ from ..core import (
     RawClient,
     RequestOptionsOrDict,
     SecuredRawResponse,
+    async_json_decoder,
     json_body,
     json_decoder,
     param,
+    unwrap,
 )
 from ..errors.get_companies_company_id_terminal_logos_error import (
     GetCompaniesCompanyIdTerminalLogosErrorBody,
@@ -63,7 +65,8 @@ class TerminalSettingsCompanyLevel:
             model: The terminal model. Possible values: E355, VX675WIFIBT, VX680, VX690, VX700, VX820, M400, MX925,
                 P400Plus, UX300, UX410, V200cPlus, V240mPlus, V400cPlus, V400m, e280, e285, e285p, S1E, S1EL, S1F2, S1L,
                 S1U, S7T.
-            request_options: Per-call overrides for this one request, such as a timeout or extra headers.
+            request_options: Per-call overrides for this one request, such as a timeout, extra headers, or its retry
+                count and statuses.
 
         Returns:
             OK - the request has succeeded.
@@ -73,9 +76,11 @@ class TerminalSettingsCompanyLevel:
                 required. Forbidden - insufficient permissions to process the request. Unprocessable Entity - a request
                 validation error. Internal Server Error - the server could not process the request. ``error`` is
                 ``RestServiceError | RawError``."""
-        return self._with_raw_response.get_companies_company_id_terminal_logos(
-            company_id, model, request_options=request_options
-        ).unwrap()
+        return unwrap(
+            self._with_raw_response.get_companies_company_id_terminal_logos(
+                company_id, model, request_options=request_options
+            ),
+        )
 
     def get_companies_company_id_terminal_settings(
         self, company_id: str, *, request_options: RequestOptionsOrDict | None = None
@@ -99,7 +104,8 @@ class TerminalSettingsCompanyLevel:
 
         Args:
             company_id: The unique identifier of the company account.
-            request_options: Per-call overrides for this one request, such as a timeout or extra headers.
+            request_options: Per-call overrides for this one request, such as a timeout, extra headers, or its retry
+                count and statuses.
 
         Returns:
             OK - the request has succeeded.
@@ -109,9 +115,11 @@ class TerminalSettingsCompanyLevel:
                 required. Forbidden - insufficient permissions to process the request. Unprocessable Entity - a request
                 validation error. Internal Server Error - the server could not process the request. ``error`` is
                 ``RestServiceError | RawError``."""
-        return self._with_raw_response.get_companies_company_id_terminal_settings(
-            company_id, request_options=request_options
-        ).unwrap()
+        return unwrap(
+            self._with_raw_response.get_companies_company_id_terminal_settings(
+                company_id, request_options=request_options
+            ),
+        )
 
     def patch_companies_company_id_terminal_logos(
         self,
@@ -141,7 +149,8 @@ class TerminalSettingsCompanyLevel:
                 P400Plus, UX300, UX410, V200cPlus, V240mPlus, V400cPlus, V400m, e280, e285, e285p, S1E, S1EL, S1F2, S1L,
                 S1U, S7T.
             body: The request body.
-            request_options: Per-call overrides for this one request, such as a timeout or extra headers.
+            request_options: Per-call overrides for this one request, such as a timeout, extra headers, or its retry
+                count and statuses.
 
         Returns:
             OK - the request has succeeded.
@@ -151,9 +160,11 @@ class TerminalSettingsCompanyLevel:
                 required. Forbidden - insufficient permissions to process the request. Unprocessable Entity - a request
                 validation error. Internal Server Error - the server could not process the request. ``error`` is
                 ``RestServiceError | RawError``."""
-        return self._with_raw_response.patch_companies_company_id_terminal_logos(
-            company_id, model, body=body, request_options=request_options
-        ).unwrap()
+        return unwrap(
+            self._with_raw_response.patch_companies_company_id_terminal_logos(
+                company_id, model, body=body, request_options=request_options
+            ),
+        )
 
     def patch_companies_company_id_terminal_settings(
         self,
@@ -187,7 +198,8 @@ class TerminalSettingsCompanyLevel:
         Args:
             company_id: The unique identifier of the company account.
             body: The request body.
-            request_options: Per-call overrides for this one request, such as a timeout or extra headers.
+            request_options: Per-call overrides for this one request, such as a timeout, extra headers, or its retry
+                count and statuses.
 
         Returns:
             OK - the request has succeeded.
@@ -197,9 +209,11 @@ class TerminalSettingsCompanyLevel:
                 required. Forbidden - insufficient permissions to process the request. Unprocessable Entity - a request
                 validation error. Internal Server Error - the server could not process the request. ``error`` is
                 ``RestServiceError | RawError``."""
-        return self._with_raw_response.patch_companies_company_id_terminal_settings(
-            company_id, body=body, request_options=request_options
-        ).unwrap()
+        return unwrap(
+            self._with_raw_response.patch_companies_company_id_terminal_settings(
+                company_id, body=body, request_options=request_options
+            ),
+        )
 
     @property
     def with_raw_response(self) -> TerminalSettingsCompanyLevelWithRawResponse:
@@ -233,7 +247,8 @@ class AsyncTerminalSettingsCompanyLevel:
             model: The terminal model. Possible values: E355, VX675WIFIBT, VX680, VX690, VX700, VX820, M400, MX925,
                 P400Plus, UX300, UX410, V200cPlus, V240mPlus, V400cPlus, V400m, e280, e285, e285p, S1E, S1EL, S1F2, S1L,
                 S1U, S7T.
-            request_options: Per-call overrides for this one request, such as a timeout or extra headers.
+            request_options: Per-call overrides for this one request, such as a timeout, extra headers, or its retry
+                count and statuses.
 
         Returns:
             OK - the request has succeeded.
@@ -243,11 +258,11 @@ class AsyncTerminalSettingsCompanyLevel:
                 required. Forbidden - insufficient permissions to process the request. Unprocessable Entity - a request
                 validation error. Internal Server Error - the server could not process the request. ``error`` is
                 ``RestServiceError | RawError``."""
-        return (
+        return unwrap(
             await self._with_raw_response.get_companies_company_id_terminal_logos(
                 company_id, model, request_options=request_options
-            )
-        ).unwrap()
+            ),
+        )
 
     async def get_companies_company_id_terminal_settings(
         self, company_id: str, *, request_options: RequestOptionsOrDict | None = None
@@ -271,7 +286,8 @@ class AsyncTerminalSettingsCompanyLevel:
 
         Args:
             company_id: The unique identifier of the company account.
-            request_options: Per-call overrides for this one request, such as a timeout or extra headers.
+            request_options: Per-call overrides for this one request, such as a timeout, extra headers, or its retry
+                count and statuses.
 
         Returns:
             OK - the request has succeeded.
@@ -281,11 +297,11 @@ class AsyncTerminalSettingsCompanyLevel:
                 required. Forbidden - insufficient permissions to process the request. Unprocessable Entity - a request
                 validation error. Internal Server Error - the server could not process the request. ``error`` is
                 ``RestServiceError | RawError``."""
-        return (
+        return unwrap(
             await self._with_raw_response.get_companies_company_id_terminal_settings(
                 company_id, request_options=request_options
-            )
-        ).unwrap()
+            ),
+        )
 
     async def patch_companies_company_id_terminal_logos(
         self,
@@ -315,7 +331,8 @@ class AsyncTerminalSettingsCompanyLevel:
                 P400Plus, UX300, UX410, V200cPlus, V240mPlus, V400cPlus, V400m, e280, e285, e285p, S1E, S1EL, S1F2, S1L,
                 S1U, S7T.
             body: The request body.
-            request_options: Per-call overrides for this one request, such as a timeout or extra headers.
+            request_options: Per-call overrides for this one request, such as a timeout, extra headers, or its retry
+                count and statuses.
 
         Returns:
             OK - the request has succeeded.
@@ -325,11 +342,11 @@ class AsyncTerminalSettingsCompanyLevel:
                 required. Forbidden - insufficient permissions to process the request. Unprocessable Entity - a request
                 validation error. Internal Server Error - the server could not process the request. ``error`` is
                 ``RestServiceError | RawError``."""
-        return (
+        return unwrap(
             await self._with_raw_response.patch_companies_company_id_terminal_logos(
                 company_id, model, body=body, request_options=request_options
-            )
-        ).unwrap()
+            ),
+        )
 
     async def patch_companies_company_id_terminal_settings(
         self,
@@ -363,7 +380,8 @@ class AsyncTerminalSettingsCompanyLevel:
         Args:
             company_id: The unique identifier of the company account.
             body: The request body.
-            request_options: Per-call overrides for this one request, such as a timeout or extra headers.
+            request_options: Per-call overrides for this one request, such as a timeout, extra headers, or its retry
+                count and statuses.
 
         Returns:
             OK - the request has succeeded.
@@ -373,11 +391,11 @@ class AsyncTerminalSettingsCompanyLevel:
                 required. Forbidden - insufficient permissions to process the request. Unprocessable Entity - a request
                 validation error. Internal Server Error - the server could not process the request. ``error`` is
                 ``RestServiceError | RawError``."""
-        return (
+        return unwrap(
             await self._with_raw_response.patch_companies_company_id_terminal_settings(
                 company_id, body=body, request_options=request_options
-            )
-        ).unwrap()
+            ),
+        )
 
     @property
     def with_raw_response(self) -> AsyncTerminalSettingsCompanyLevelWithRawResponse:
@@ -408,7 +426,8 @@ class TerminalSettingsCompanyLevelWithRawResponse(SecuredRawResponse[RawClient, 
             model: The terminal model. Possible values: E355, VX675WIFIBT, VX680, VX690, VX700, VX820, M400, MX925,
                 P400Plus, UX300, UX410, V200cPlus, V240mPlus, V400cPlus, V400m, e280, e285, e285p, S1E, S1EL, S1F2, S1L,
                 S1U, S7T.
-            request_options: Per-call overrides for this one request, such as a timeout or extra headers.
+            request_options: Per-call overrides for this one request, such as a timeout, extra headers, or its retry
+                count and statuses.
 
         Returns:
             An ``ApiResult`` holding the deserialized response or the error body."""
@@ -445,7 +464,8 @@ class TerminalSettingsCompanyLevelWithRawResponse(SecuredRawResponse[RawClient, 
 
         Args:
             company_id: The unique identifier of the company account.
-            request_options: Per-call overrides for this one request, such as a timeout or extra headers.
+            request_options: Per-call overrides for this one request, such as a timeout, extra headers, or its retry
+                count and statuses.
 
         Returns:
             An ``ApiResult`` holding the deserialized response or the error body."""
@@ -487,7 +507,8 @@ class TerminalSettingsCompanyLevelWithRawResponse(SecuredRawResponse[RawClient, 
                 P400Plus, UX300, UX410, V200cPlus, V240mPlus, V400cPlus, V400m, e280, e285, e285p, S1E, S1EL, S1F2, S1L,
                 S1U, S7T.
             body: The request body.
-            request_options: Per-call overrides for this one request, such as a timeout or extra headers.
+            request_options: Per-call overrides for this one request, such as a timeout, extra headers, or its retry
+                count and statuses.
 
         Returns:
             An ``ApiResult`` holding the deserialized response or the error body."""
@@ -536,7 +557,8 @@ class TerminalSettingsCompanyLevelWithRawResponse(SecuredRawResponse[RawClient, 
         Args:
             company_id: The unique identifier of the company account.
             body: The request body.
-            request_options: Per-call overrides for this one request, such as a timeout or extra headers.
+            request_options: Per-call overrides for this one request, such as a timeout, extra headers, or its retry
+                count and statuses.
 
         Returns:
             An ``ApiResult`` holding the deserialized response or the error body."""
@@ -577,7 +599,8 @@ class AsyncTerminalSettingsCompanyLevelWithRawResponse(SecuredRawResponse[AsyncR
             model: The terminal model. Possible values: E355, VX675WIFIBT, VX680, VX690, VX700, VX820, M400, MX925,
                 P400Plus, UX300, UX410, V200cPlus, V240mPlus, V400cPlus, V400m, e280, e285, e285p, S1E, S1EL, S1F2, S1L,
                 S1U, S7T.
-            request_options: Per-call overrides for this one request, such as a timeout or extra headers.
+            request_options: Per-call overrides for this one request, such as a timeout, extra headers, or its retry
+                count and statuses.
 
         Returns:
             An ``ApiResult`` holding the deserialized response or the error body."""
@@ -587,7 +610,7 @@ class AsyncTerminalSettingsCompanyLevelWithRawResponse(SecuredRawResponse[AsyncR
             path_params=[param[str]("companyId", company_id)],
             query_params=[param[str]("model", model)],
             auth_scheme=AsyncAnySchemes(self._auth.basic_auth, self._auth.api_key_auth),
-            decoder=json_decoder[Logo],
+            decoder=async_json_decoder[Logo],
             error_mapper=get_companies_company_id_terminal_logos_error_mapper,
             request_options=request_options,
         )
@@ -614,7 +637,8 @@ class AsyncTerminalSettingsCompanyLevelWithRawResponse(SecuredRawResponse[AsyncR
 
         Args:
             company_id: The unique identifier of the company account.
-            request_options: Per-call overrides for this one request, such as a timeout or extra headers.
+            request_options: Per-call overrides for this one request, such as a timeout, extra headers, or its retry
+                count and statuses.
 
         Returns:
             An ``ApiResult`` holding the deserialized response or the error body."""
@@ -623,7 +647,7 @@ class AsyncTerminalSettingsCompanyLevelWithRawResponse(SecuredRawResponse[AsyncR
             url_template=self._server.default9("/companies/{companyId}/terminalSettings"),
             path_params=[param[str]("companyId", company_id)],
             auth_scheme=AsyncAnySchemes(self._auth.basic_auth, self._auth.api_key_auth),
-            decoder=json_decoder[TerminalSettings],
+            decoder=async_json_decoder[TerminalSettings],
             error_mapper=get_companies_company_id_terminal_settings_error_mapper,
             request_options=request_options,
         )
@@ -656,7 +680,8 @@ class AsyncTerminalSettingsCompanyLevelWithRawResponse(SecuredRawResponse[AsyncR
                 P400Plus, UX300, UX410, V200cPlus, V240mPlus, V400cPlus, V400m, e280, e285, e285p, S1E, S1EL, S1F2, S1L,
                 S1U, S7T.
             body: The request body.
-            request_options: Per-call overrides for this one request, such as a timeout or extra headers.
+            request_options: Per-call overrides for this one request, such as a timeout, extra headers, or its retry
+                count and statuses.
 
         Returns:
             An ``ApiResult`` holding the deserialized response or the error body."""
@@ -668,7 +693,7 @@ class AsyncTerminalSettingsCompanyLevelWithRawResponse(SecuredRawResponse[AsyncR
             headers=[param[UUID]("Idempotency-Key", uuid4())],
             body=json_body[Logo | LogoDict | None](body),
             auth_scheme=AsyncAnySchemes(self._auth.basic_auth, self._auth.api_key_auth),
-            decoder=json_decoder[Logo],
+            decoder=async_json_decoder[Logo],
             error_mapper=patch_companies_company_id_terminal_logos_error_mapper,
             request_options=request_options,
         )
@@ -705,7 +730,8 @@ class AsyncTerminalSettingsCompanyLevelWithRawResponse(SecuredRawResponse[AsyncR
         Args:
             company_id: The unique identifier of the company account.
             body: The request body.
-            request_options: Per-call overrides for this one request, such as a timeout or extra headers.
+            request_options: Per-call overrides for this one request, such as a timeout, extra headers, or its retry
+                count and statuses.
 
         Returns:
             An ``ApiResult`` holding the deserialized response or the error body."""
@@ -716,7 +742,7 @@ class AsyncTerminalSettingsCompanyLevelWithRawResponse(SecuredRawResponse[AsyncR
             headers=[param[UUID]("Idempotency-Key", uuid4())],
             body=json_body[TerminalSettings | TerminalSettingsDict | None](body),
             auth_scheme=AsyncAnySchemes(self._auth.basic_auth, self._auth.api_key_auth),
-            decoder=json_decoder[TerminalSettings],
+            decoder=async_json_decoder[TerminalSettings],
             error_mapper=patch_companies_company_id_terminal_settings_error_mapper,
             request_options=request_options,
         )

@@ -35,7 +35,7 @@ class ScheduleAccountUpdaterRequest(SdkBaseModel):
 
 class ScheduleAccountUpdaterRequestDict(TypedDict):
     additional_data: NotRequired[dict[str, str]]
-    card: NotRequired[Card | CardDict]
+    card: NotRequired[CardDict]
     merchant_account: str
     reference: str
     selected_recurring_detail_reference: NotRequired[str]

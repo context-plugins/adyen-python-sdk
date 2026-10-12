@@ -22,5 +22,5 @@ class Policy(SdkBaseModel):
 
 
 class PolicyDict(TypedDict):
-    resources: NotRequired[list[Resource | ResourceDict]]
+    resources: NotRequired[list[ResourceDict]]
     roles: NotRequired[list[str]]

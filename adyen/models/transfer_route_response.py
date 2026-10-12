@@ -14,4 +14,4 @@ class TransferRouteResponse(SdkBaseModel):
 
 
 class TransferRouteResponseDict(TypedDict):
-    transfer_routes: NotRequired[list[TransferRoute | TransferRouteDict]]
+    transfer_routes: NotRequired[list[TransferRouteDict]]

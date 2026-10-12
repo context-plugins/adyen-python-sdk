@@ -39,10 +39,10 @@ class InputDetail(SdkBaseModel):
 
 class InputDetailDict(TypedDict):
     configuration: NotRequired[dict[str, str]]
-    details: NotRequired[list[SubInputDetail | SubInputDetailDict]]
-    input_details: NotRequired[list[SubInputDetail | SubInputDetailDict]]
+    details: NotRequired[list[SubInputDetailDict]]
+    input_details: NotRequired[list[SubInputDetailDict]]
     item_search_url: NotRequired[str]
-    items: NotRequired[list[Item | ItemDict]]
+    items: NotRequired[list[ItemDict]]
     key: NotRequired[str]
     optional: NotRequired[bool]
     type_: NotRequired[str]

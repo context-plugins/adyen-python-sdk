@@ -29,6 +29,6 @@ class NumberAndBicAccountIdentification(SdkBaseModel):
 
 class NumberAndBicAccountIdentificationDict(TypedDict):
     account_number: str
-    additional_bank_identification: NotRequired[AdditionalBankIdentification1 | AdditionalBankIdentification1Dict]
+    additional_bank_identification: NotRequired[AdditionalBankIdentification1Dict]
     bic: str
-    type_: NotRequired[Literal["numberAndBic"]]
+    type_: Literal["numberAndBic"]

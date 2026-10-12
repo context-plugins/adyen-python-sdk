@@ -3,7 +3,7 @@ from __future__ import annotations
 from typing import Literal
 
 from pydantic import Field
-from typing_extensions import NotRequired, TypedDict
+from typing_extensions import TypedDict
 
 from ..core import SdkBaseModel
 
@@ -36,4 +36,4 @@ class CzlocalAccountIdentification(SdkBaseModel):
 class CzlocalAccountIdentificationDict(TypedDict):
     account_number: str
     bank_code: str
-    type_: NotRequired[Literal["czLocal"]]
+    type_: Literal["czLocal"]

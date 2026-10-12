@@ -94,13 +94,13 @@ class SourceOfFunds1(SdkBaseModel):
 
 class SourceOfFunds1Dict(TypedDict):
     adyen_processed_funds: bool
-    amount: NotRequired[PatchableAmountDto | PatchableAmountDtoDict]
+    amount: NotRequired[PatchableAmountDtoDict]
     asset_months_held: NotRequired[int]
     cryptocurrency_exchange: NotRequired[str]
     date_of_funds_received: NotRequired[Date]
     date_of_source_event: NotRequired[Date]
     description: NotRequired[str]
-    financiers: NotRequired[list[Financier | FinancierDict]]
+    financiers: NotRequired[list[FinancierDict]]
     originator_legal_entity_id: NotRequired[str]
     purpose: NotRequired[str]
     relationship: NotRequired[str]

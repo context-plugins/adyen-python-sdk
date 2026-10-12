@@ -64,9 +64,9 @@ class LegalArrangementDetail(SdkBaseModel):
 
 
 class LegalArrangementDetailDict(TypedDict):
-    address: ViasAddress4 | ViasAddress4Dict
+    address: ViasAddress4Dict
     legal_arrangement_code: NotRequired[str]
-    legal_arrangement_entities: NotRequired[list[LegalArrangementEntityDetail | LegalArrangementEntityDetailDict]]
+    legal_arrangement_entities: NotRequired[list[LegalArrangementEntityDetailDict]]
     legal_arrangement_reference: NotRequired[str]
     legal_form: NotRequired[LegalFormOrStr]
     name: str

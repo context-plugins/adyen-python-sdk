@@ -11,9 +11,11 @@ from ..core import (
     RawClient,
     RequestOptionsOrDict,
     SecuredRawResponse,
+    async_json_decoder,
     json_body,
     json_decoder,
     param,
+    unwrap,
 )
 from ..errors.post_confirm_third_party_error import (
     PostConfirmThirdPartyErrorBody,
@@ -58,7 +60,8 @@ class Reviewing:
 
         Args:
             body: The request body.
-            request_options: Per-call overrides for this one request, such as a timeout or extra headers.
+            request_options: Per-call overrides for this one request, such as a timeout, extra headers, or its retry
+                count and statuses.
 
         Returns:
             OK - the request has succeeded.
@@ -68,7 +71,7 @@ class Reviewing:
                 required. Forbidden - insufficient permissions to process the request. Unprocessable Entity - a request
                 validation error. Internal Server Error - the server could not process the request. ``error`` is
                 ``ServiceError | RawError``."""
-        return self._with_raw_response.post_confirm_third_party(body=body, request_options=request_options).unwrap()
+        return unwrap(self._with_raw_response.post_confirm_third_party(body=body, request_options=request_options))
 
     def post_decline_third_party(
         self,
@@ -96,7 +99,8 @@ class Reviewing:
 
         Args:
             body: The request body.
-            request_options: Per-call overrides for this one request, such as a timeout or extra headers.
+            request_options: Per-call overrides for this one request, such as a timeout, extra headers, or its retry
+                count and statuses.
 
         Returns:
             OK - the request has succeeded.
@@ -106,7 +110,7 @@ class Reviewing:
                 required. Forbidden - insufficient permissions to process the request. Unprocessable Entity - a request
                 validation error. Internal Server Error - the server could not process the request. ``error`` is
                 ``ServiceError | RawError``."""
-        return self._with_raw_response.post_decline_third_party(body=body, request_options=request_options).unwrap()
+        return unwrap(self._with_raw_response.post_decline_third_party(body=body, request_options=request_options))
 
     @property
     def with_raw_response(self) -> ReviewingWithRawResponse:
@@ -143,7 +147,8 @@ class AsyncReviewing:
 
         Args:
             body: The request body.
-            request_options: Per-call overrides for this one request, such as a timeout or extra headers.
+            request_options: Per-call overrides for this one request, such as a timeout, extra headers, or its retry
+                count and statuses.
 
         Returns:
             OK - the request has succeeded.
@@ -153,9 +158,9 @@ class AsyncReviewing:
                 required. Forbidden - insufficient permissions to process the request. Unprocessable Entity - a request
                 validation error. Internal Server Error - the server could not process the request. ``error`` is
                 ``ServiceError | RawError``."""
-        return (
+        return unwrap(
             await self._with_raw_response.post_confirm_third_party(body=body, request_options=request_options)
-        ).unwrap()
+        )
 
     async def post_decline_third_party(
         self,
@@ -183,7 +188,8 @@ class AsyncReviewing:
 
         Args:
             body: The request body.
-            request_options: Per-call overrides for this one request, such as a timeout or extra headers.
+            request_options: Per-call overrides for this one request, such as a timeout, extra headers, or its retry
+                count and statuses.
 
         Returns:
             OK - the request has succeeded.
@@ -193,9 +199,9 @@ class AsyncReviewing:
                 required. Forbidden - insufficient permissions to process the request. Unprocessable Entity - a request
                 validation error. Internal Server Error - the server could not process the request. ``error`` is
                 ``ServiceError | RawError``."""
-        return (
+        return unwrap(
             await self._with_raw_response.post_decline_third_party(body=body, request_options=request_options)
-        ).unwrap()
+        )
 
     @property
     def with_raw_response(self) -> AsyncReviewingWithRawResponse:
@@ -229,7 +235,8 @@ class ReviewingWithRawResponse(SecuredRawResponse[RawClient, Server, AuthSchemes
 
         Args:
             body: The request body.
-            request_options: Per-call overrides for this one request, such as a timeout or extra headers.
+            request_options: Per-call overrides for this one request, such as a timeout, extra headers, or its retry
+                count and statuses.
 
         Returns:
             An ``ApiResult`` holding the deserialized response or the error body."""
@@ -270,7 +277,8 @@ class ReviewingWithRawResponse(SecuredRawResponse[RawClient, Server, AuthSchemes
 
         Args:
             body: The request body.
-            request_options: Per-call overrides for this one request, such as a timeout or extra headers.
+            request_options: Per-call overrides for this one request, such as a timeout, extra headers, or its retry
+                count and statuses.
 
         Returns:
             An ``ApiResult`` holding the deserialized response or the error body."""
@@ -313,7 +321,8 @@ class AsyncReviewingWithRawResponse(SecuredRawResponse[AsyncRawClient, Server, A
 
         Args:
             body: The request body.
-            request_options: Per-call overrides for this one request, such as a timeout or extra headers.
+            request_options: Per-call overrides for this one request, such as a timeout, extra headers, or its retry
+                count and statuses.
 
         Returns:
             An ``ApiResult`` holding the deserialized response or the error body."""
@@ -323,7 +332,7 @@ class AsyncReviewingWithRawResponse(SecuredRawResponse[AsyncRawClient, Server, A
             headers=[param[UUID]("Idempotency-Key", uuid4())],
             body=json_body[ModifyRequest | ModifyRequestDict | None](body),
             auth_scheme=AsyncAnySchemes(self._auth.basic_auth, self._auth.api_key_auth),
-            decoder=json_decoder[ModifyResponse],
+            decoder=async_json_decoder[ModifyResponse],
             error_mapper=post_confirm_third_party_error_mapper,
             request_options=request_options,
         )
@@ -354,7 +363,8 @@ class AsyncReviewingWithRawResponse(SecuredRawResponse[AsyncRawClient, Server, A
 
         Args:
             body: The request body.
-            request_options: Per-call overrides for this one request, such as a timeout or extra headers.
+            request_options: Per-call overrides for this one request, such as a timeout, extra headers, or its retry
+                count and statuses.
 
         Returns:
             An ``ApiResult`` holding the deserialized response or the error body."""
@@ -364,7 +374,7 @@ class AsyncReviewingWithRawResponse(SecuredRawResponse[AsyncRawClient, Server, A
             headers=[param[UUID]("Idempotency-Key", uuid4())],
             body=json_body[ModifyRequest | ModifyRequestDict | None](body),
             auth_scheme=AsyncAnySchemes(self._auth.basic_auth, self._auth.api_key_auth),
-            decoder=json_decoder[ModifyResponse],
+            decoder=async_json_decoder[ModifyResponse],
             error_mapper=post_decline_third_party_error_mapper,
             request_options=request_options,
         )

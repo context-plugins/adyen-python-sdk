@@ -24,7 +24,7 @@ class StandalonePaymentCancelRequest(SdkBaseModel):
 
 
 class StandalonePaymentCancelRequestDict(TypedDict):
-    application_info: NotRequired[ApplicationInfo | ApplicationInfoDict]
+    application_info: NotRequired[ApplicationInfoDict]
     merchant_account: str
     payment_reference: str
     reference: NotRequired[str]

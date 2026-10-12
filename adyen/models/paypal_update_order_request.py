@@ -44,12 +44,12 @@ class PaypalUpdateOrderRequest(SdkBaseModel):
 
 
 class PaypalUpdateOrderRequestDict(TypedDict):
-    amount: NotRequired[Amount44 | Amount44Dict]
-    delivery_address: NotRequired[DeliveryAddress5 | DeliveryAddress5Dict]
-    delivery_methods: NotRequired[list[DeliveryMethod | DeliveryMethodDict]]
-    discount_amount: NotRequired[Amount45 | Amount45Dict]
+    amount: NotRequired[Amount44Dict]
+    delivery_address: NotRequired[DeliveryAddress5Dict]
+    delivery_methods: NotRequired[list[DeliveryMethodDict]]
+    discount_amount: NotRequired[Amount45Dict]
     payment_data: NotRequired[str]
     psp_reference: NotRequired[str]
     session_id: NotRequired[str]
-    shipping_amount: NotRequired[Amount46 | Amount46Dict]
-    tax_total: NotRequired[TaxTotal2 | TaxTotal2Dict]
+    shipping_amount: NotRequired[Amount46Dict]
+    tax_total: NotRequired[TaxTotal2Dict]

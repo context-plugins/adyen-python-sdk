@@ -27,6 +27,6 @@ class Permit(SdkBaseModel):
 class PermitDict(TypedDict):
     partner_id: NotRequired[str]
     profile_reference: NotRequired[str]
-    restriction: NotRequired[PermitRestriction2 | PermitRestriction2Dict]
+    restriction: NotRequired[PermitRestriction2Dict]
     result_key: NotRequired[str]
     valid_till_date: NotRequired[RFC3339DateTime]

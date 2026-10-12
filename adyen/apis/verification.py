@@ -11,9 +11,11 @@ from ..core import (
     RawClient,
     RequestOptionsOrDict,
     SecuredRawResponse,
+    async_json_decoder,
     json_body,
     json_decoder,
     param,
+    unwrap,
 )
 from ..errors.post_check_account_holder_error import (
     PostCheckAccountHolderErrorBody,
@@ -70,7 +72,8 @@ class Verification:
 
         Args:
             body: The request body.
-            request_options: Per-call overrides for this one request, such as a timeout or extra headers.
+            request_options: Per-call overrides for this one request, such as a timeout, extra headers, or its retry
+                count and statuses.
 
         Returns:
             OK - the request has succeeded.
@@ -80,7 +83,7 @@ class Verification:
                 required. Forbidden - insufficient permissions to process the request. Unprocessable Entity - a request
                 validation error. Internal Server Error - the server could not process the request. ``error`` is
                 ``ServiceError1 | RawError``."""
-        return self._with_raw_response.post_check_account_holder(body=body, request_options=request_options).unwrap()
+        return unwrap(self._with_raw_response.post_check_account_holder(body=body, request_options=request_options))
 
     def post_delete_bank_accounts(
         self,
@@ -92,7 +95,8 @@ class Verification:
 
         Args:
             body: The request body.
-            request_options: Per-call overrides for this one request, such as a timeout or extra headers.
+            request_options: Per-call overrides for this one request, such as a timeout, extra headers, or its retry
+                count and statuses.
 
         Returns:
             OK - the request has succeeded.
@@ -102,7 +106,7 @@ class Verification:
                 required. Forbidden - insufficient permissions to process the request. Unprocessable Entity - a request
                 validation error. Internal Server Error - the server could not process the request. ``error`` is
                 ``ServiceError1 | RawError``."""
-        return self._with_raw_response.post_delete_bank_accounts(body=body, request_options=request_options).unwrap()
+        return unwrap(self._with_raw_response.post_delete_bank_accounts(body=body, request_options=request_options))
 
     def post_delete_legal_arrangements(
         self,
@@ -114,7 +118,8 @@ class Verification:
 
         Args:
             body: The request body.
-            request_options: Per-call overrides for this one request, such as a timeout or extra headers.
+            request_options: Per-call overrides for this one request, such as a timeout, extra headers, or its retry
+                count and statuses.
 
         Returns:
             OK - the request has succeeded.
@@ -124,9 +129,9 @@ class Verification:
                 required. Forbidden - insufficient permissions to process the request. Unprocessable Entity - a request
                 validation error. Internal Server Error - the server could not process the request. ``error`` is
                 ``ServiceError1 | RawError``."""
-        return self._with_raw_response.post_delete_legal_arrangements(
-            body=body, request_options=request_options
-        ).unwrap()
+        return unwrap(
+            self._with_raw_response.post_delete_legal_arrangements(body=body, request_options=request_options)
+        )
 
     def post_delete_payout_methods(
         self,
@@ -138,7 +143,8 @@ class Verification:
 
         Args:
             body: The request body.
-            request_options: Per-call overrides for this one request, such as a timeout or extra headers.
+            request_options: Per-call overrides for this one request, such as a timeout, extra headers, or its retry
+                count and statuses.
 
         Returns:
             OK - the request has succeeded.
@@ -148,7 +154,7 @@ class Verification:
                 required. Forbidden - insufficient permissions to process the request. Unprocessable Entity - a request
                 validation error. Internal Server Error - the server could not process the request. ``error`` is
                 ``ServiceError1 | RawError``."""
-        return self._with_raw_response.post_delete_payout_methods(body=body, request_options=request_options).unwrap()
+        return unwrap(self._with_raw_response.post_delete_payout_methods(body=body, request_options=request_options))
 
     def post_delete_shareholders(
         self,
@@ -160,7 +166,8 @@ class Verification:
 
         Args:
             body: The request body.
-            request_options: Per-call overrides for this one request, such as a timeout or extra headers.
+            request_options: Per-call overrides for this one request, such as a timeout, extra headers, or its retry
+                count and statuses.
 
         Returns:
             OK - the request has succeeded.
@@ -170,7 +177,7 @@ class Verification:
                 required. Forbidden - insufficient permissions to process the request. Unprocessable Entity - a request
                 validation error. Internal Server Error - the server could not process the request. ``error`` is
                 ``ServiceError1 | RawError``."""
-        return self._with_raw_response.post_delete_shareholders(body=body, request_options=request_options).unwrap()
+        return unwrap(self._with_raw_response.post_delete_shareholders(body=body, request_options=request_options))
 
     def post_delete_signatories(
         self,
@@ -182,7 +189,8 @@ class Verification:
 
         Args:
             body: The request body.
-            request_options: Per-call overrides for this one request, such as a timeout or extra headers.
+            request_options: Per-call overrides for this one request, such as a timeout, extra headers, or its retry
+                count and statuses.
 
         Returns:
             OK - the request has succeeded.
@@ -192,7 +200,7 @@ class Verification:
                 required. Forbidden - insufficient permissions to process the request. Unprocessable Entity - a request
                 validation error. Internal Server Error - the server could not process the request. ``error`` is
                 ``ServiceError1 | RawError``."""
-        return self._with_raw_response.post_delete_signatories(body=body, request_options=request_options).unwrap()
+        return unwrap(self._with_raw_response.post_delete_signatories(body=body, request_options=request_options))
 
     def post_get_uploaded_documents(
         self,
@@ -205,7 +213,8 @@ class Verification:
 
         Args:
             body: The request body.
-            request_options: Per-call overrides for this one request, such as a timeout or extra headers.
+            request_options: Per-call overrides for this one request, such as a timeout, extra headers, or its retry
+                count and statuses.
 
         Returns:
             OK - the request has succeeded.
@@ -215,7 +224,7 @@ class Verification:
                 required. Forbidden - insufficient permissions to process the request. Unprocessable Entity - a request
                 validation error. Internal Server Error - the server could not process the request. ``error`` is
                 ``ServiceError1 | RawError``."""
-        return self._with_raw_response.post_get_uploaded_documents(body=body, request_options=request_options).unwrap()
+        return unwrap(self._with_raw_response.post_get_uploaded_documents(body=body, request_options=request_options))
 
     def post_upload_document(
         self,
@@ -228,7 +237,8 @@ class Verification:
 
         Args:
             body: The request body.
-            request_options: Per-call overrides for this one request, such as a timeout or extra headers.
+            request_options: Per-call overrides for this one request, such as a timeout, extra headers, or its retry
+                count and statuses.
 
         Returns:
             OK - the request has succeeded.
@@ -238,7 +248,7 @@ class Verification:
                 required. Forbidden - insufficient permissions to process the request. Unprocessable Entity - a request
                 validation error. Internal Server Error - the server could not process the request. ``error`` is
                 ``ServiceError1 | RawError``."""
-        return self._with_raw_response.post_upload_document(body=body, request_options=request_options).unwrap()
+        return unwrap(self._with_raw_response.post_upload_document(body=body, request_options=request_options))
 
     @property
     def with_raw_response(self) -> VerificationWithRawResponse:
@@ -260,7 +270,8 @@ class AsyncVerification:
 
         Args:
             body: The request body.
-            request_options: Per-call overrides for this one request, such as a timeout or extra headers.
+            request_options: Per-call overrides for this one request, such as a timeout, extra headers, or its retry
+                count and statuses.
 
         Returns:
             OK - the request has succeeded.
@@ -270,9 +281,9 @@ class AsyncVerification:
                 required. Forbidden - insufficient permissions to process the request. Unprocessable Entity - a request
                 validation error. Internal Server Error - the server could not process the request. ``error`` is
                 ``ServiceError1 | RawError``."""
-        return (
+        return unwrap(
             await self._with_raw_response.post_check_account_holder(body=body, request_options=request_options)
-        ).unwrap()
+        )
 
     async def post_delete_bank_accounts(
         self,
@@ -284,7 +295,8 @@ class AsyncVerification:
 
         Args:
             body: The request body.
-            request_options: Per-call overrides for this one request, such as a timeout or extra headers.
+            request_options: Per-call overrides for this one request, such as a timeout, extra headers, or its retry
+                count and statuses.
 
         Returns:
             OK - the request has succeeded.
@@ -294,9 +306,9 @@ class AsyncVerification:
                 required. Forbidden - insufficient permissions to process the request. Unprocessable Entity - a request
                 validation error. Internal Server Error - the server could not process the request. ``error`` is
                 ``ServiceError1 | RawError``."""
-        return (
+        return unwrap(
             await self._with_raw_response.post_delete_bank_accounts(body=body, request_options=request_options)
-        ).unwrap()
+        )
 
     async def post_delete_legal_arrangements(
         self,
@@ -308,7 +320,8 @@ class AsyncVerification:
 
         Args:
             body: The request body.
-            request_options: Per-call overrides for this one request, such as a timeout or extra headers.
+            request_options: Per-call overrides for this one request, such as a timeout, extra headers, or its retry
+                count and statuses.
 
         Returns:
             OK - the request has succeeded.
@@ -318,9 +331,9 @@ class AsyncVerification:
                 required. Forbidden - insufficient permissions to process the request. Unprocessable Entity - a request
                 validation error. Internal Server Error - the server could not process the request. ``error`` is
                 ``ServiceError1 | RawError``."""
-        return (
+        return unwrap(
             await self._with_raw_response.post_delete_legal_arrangements(body=body, request_options=request_options)
-        ).unwrap()
+        )
 
     async def post_delete_payout_methods(
         self,
@@ -332,7 +345,8 @@ class AsyncVerification:
 
         Args:
             body: The request body.
-            request_options: Per-call overrides for this one request, such as a timeout or extra headers.
+            request_options: Per-call overrides for this one request, such as a timeout, extra headers, or its retry
+                count and statuses.
 
         Returns:
             OK - the request has succeeded.
@@ -342,9 +356,9 @@ class AsyncVerification:
                 required. Forbidden - insufficient permissions to process the request. Unprocessable Entity - a request
                 validation error. Internal Server Error - the server could not process the request. ``error`` is
                 ``ServiceError1 | RawError``."""
-        return (
+        return unwrap(
             await self._with_raw_response.post_delete_payout_methods(body=body, request_options=request_options)
-        ).unwrap()
+        )
 
     async def post_delete_shareholders(
         self,
@@ -356,7 +370,8 @@ class AsyncVerification:
 
         Args:
             body: The request body.
-            request_options: Per-call overrides for this one request, such as a timeout or extra headers.
+            request_options: Per-call overrides for this one request, such as a timeout, extra headers, or its retry
+                count and statuses.
 
         Returns:
             OK - the request has succeeded.
@@ -366,9 +381,9 @@ class AsyncVerification:
                 required. Forbidden - insufficient permissions to process the request. Unprocessable Entity - a request
                 validation error. Internal Server Error - the server could not process the request. ``error`` is
                 ``ServiceError1 | RawError``."""
-        return (
+        return unwrap(
             await self._with_raw_response.post_delete_shareholders(body=body, request_options=request_options)
-        ).unwrap()
+        )
 
     async def post_delete_signatories(
         self,
@@ -380,7 +395,8 @@ class AsyncVerification:
 
         Args:
             body: The request body.
-            request_options: Per-call overrides for this one request, such as a timeout or extra headers.
+            request_options: Per-call overrides for this one request, such as a timeout, extra headers, or its retry
+                count and statuses.
 
         Returns:
             OK - the request has succeeded.
@@ -390,9 +406,7 @@ class AsyncVerification:
                 required. Forbidden - insufficient permissions to process the request. Unprocessable Entity - a request
                 validation error. Internal Server Error - the server could not process the request. ``error`` is
                 ``ServiceError1 | RawError``."""
-        return (
-            await self._with_raw_response.post_delete_signatories(body=body, request_options=request_options)
-        ).unwrap()
+        return unwrap(await self._with_raw_response.post_delete_signatories(body=body, request_options=request_options))
 
     async def post_get_uploaded_documents(
         self,
@@ -405,7 +419,8 @@ class AsyncVerification:
 
         Args:
             body: The request body.
-            request_options: Per-call overrides for this one request, such as a timeout or extra headers.
+            request_options: Per-call overrides for this one request, such as a timeout, extra headers, or its retry
+                count and statuses.
 
         Returns:
             OK - the request has succeeded.
@@ -415,9 +430,9 @@ class AsyncVerification:
                 required. Forbidden - insufficient permissions to process the request. Unprocessable Entity - a request
                 validation error. Internal Server Error - the server could not process the request. ``error`` is
                 ``ServiceError1 | RawError``."""
-        return (
+        return unwrap(
             await self._with_raw_response.post_get_uploaded_documents(body=body, request_options=request_options)
-        ).unwrap()
+        )
 
     async def post_upload_document(
         self,
@@ -430,7 +445,8 @@ class AsyncVerification:
 
         Args:
             body: The request body.
-            request_options: Per-call overrides for this one request, such as a timeout or extra headers.
+            request_options: Per-call overrides for this one request, such as a timeout, extra headers, or its retry
+                count and statuses.
 
         Returns:
             OK - the request has succeeded.
@@ -440,7 +456,7 @@ class AsyncVerification:
                 required. Forbidden - insufficient permissions to process the request. Unprocessable Entity - a request
                 validation error. Internal Server Error - the server could not process the request. ``error`` is
                 ``ServiceError1 | RawError``."""
-        return (await self._with_raw_response.post_upload_document(body=body, request_options=request_options)).unwrap()
+        return unwrap(await self._with_raw_response.post_upload_document(body=body, request_options=request_options))
 
     @property
     def with_raw_response(self) -> AsyncVerificationWithRawResponse:
@@ -459,7 +475,8 @@ class VerificationWithRawResponse(SecuredRawResponse[RawClient, Server, AuthSche
 
         Args:
             body: The request body.
-            request_options: Per-call overrides for this one request, such as a timeout or extra headers.
+            request_options: Per-call overrides for this one request, such as a timeout, extra headers, or its retry
+                count and statuses.
 
         Returns:
             An ``ApiResult`` holding the deserialized response or the error body."""
@@ -484,7 +501,8 @@ class VerificationWithRawResponse(SecuredRawResponse[RawClient, Server, AuthSche
 
         Args:
             body: The request body.
-            request_options: Per-call overrides for this one request, such as a timeout or extra headers.
+            request_options: Per-call overrides for this one request, such as a timeout, extra headers, or its retry
+                count and statuses.
 
         Returns:
             An ``ApiResult`` holding the deserialized response or the error body."""
@@ -509,7 +527,8 @@ class VerificationWithRawResponse(SecuredRawResponse[RawClient, Server, AuthSche
 
         Args:
             body: The request body.
-            request_options: Per-call overrides for this one request, such as a timeout or extra headers.
+            request_options: Per-call overrides for this one request, such as a timeout, extra headers, or its retry
+                count and statuses.
 
         Returns:
             An ``ApiResult`` holding the deserialized response or the error body."""
@@ -534,7 +553,8 @@ class VerificationWithRawResponse(SecuredRawResponse[RawClient, Server, AuthSche
 
         Args:
             body: The request body.
-            request_options: Per-call overrides for this one request, such as a timeout or extra headers.
+            request_options: Per-call overrides for this one request, such as a timeout, extra headers, or its retry
+                count and statuses.
 
         Returns:
             An ``ApiResult`` holding the deserialized response or the error body."""
@@ -559,7 +579,8 @@ class VerificationWithRawResponse(SecuredRawResponse[RawClient, Server, AuthSche
 
         Args:
             body: The request body.
-            request_options: Per-call overrides for this one request, such as a timeout or extra headers.
+            request_options: Per-call overrides for this one request, such as a timeout, extra headers, or its retry
+                count and statuses.
 
         Returns:
             An ``ApiResult`` holding the deserialized response or the error body."""
@@ -584,7 +605,8 @@ class VerificationWithRawResponse(SecuredRawResponse[RawClient, Server, AuthSche
 
         Args:
             body: The request body.
-            request_options: Per-call overrides for this one request, such as a timeout or extra headers.
+            request_options: Per-call overrides for this one request, such as a timeout, extra headers, or its retry
+                count and statuses.
 
         Returns:
             An ``ApiResult`` holding the deserialized response or the error body."""
@@ -610,7 +632,8 @@ class VerificationWithRawResponse(SecuredRawResponse[RawClient, Server, AuthSche
 
         Args:
             body: The request body.
-            request_options: Per-call overrides for this one request, such as a timeout or extra headers.
+            request_options: Per-call overrides for this one request, such as a timeout, extra headers, or its retry
+                count and statuses.
 
         Returns:
             An ``ApiResult`` holding the deserialized response or the error body."""
@@ -636,7 +659,8 @@ class VerificationWithRawResponse(SecuredRawResponse[RawClient, Server, AuthSche
 
         Args:
             body: The request body.
-            request_options: Per-call overrides for this one request, such as a timeout or extra headers.
+            request_options: Per-call overrides for this one request, such as a timeout, extra headers, or its retry
+                count and statuses.
 
         Returns:
             An ``ApiResult`` holding the deserialized response or the error body."""
@@ -664,7 +688,8 @@ class AsyncVerificationWithRawResponse(SecuredRawResponse[AsyncRawClient, Server
 
         Args:
             body: The request body.
-            request_options: Per-call overrides for this one request, such as a timeout or extra headers.
+            request_options: Per-call overrides for this one request, such as a timeout, extra headers, or its retry
+                count and statuses.
 
         Returns:
             An ``ApiResult`` holding the deserialized response or the error body."""
@@ -674,7 +699,7 @@ class AsyncVerificationWithRawResponse(SecuredRawResponse[AsyncRawClient, Server
             headers=[param[UUID]("Idempotency-Key", uuid4())],
             body=json_body[PerformVerificationRequest | PerformVerificationRequestDict | None](body),
             auth_scheme=AsyncAnySchemes(self._auth.basic_auth, self._auth.api_key_auth),
-            decoder=json_decoder[GenericResponse],
+            decoder=async_json_decoder[GenericResponse],
             error_mapper=post_check_account_holder_error_mapper,
             request_options=request_options,
         )
@@ -689,7 +714,8 @@ class AsyncVerificationWithRawResponse(SecuredRawResponse[AsyncRawClient, Server
 
         Args:
             body: The request body.
-            request_options: Per-call overrides for this one request, such as a timeout or extra headers.
+            request_options: Per-call overrides for this one request, such as a timeout, extra headers, or its retry
+                count and statuses.
 
         Returns:
             An ``ApiResult`` holding the deserialized response or the error body."""
@@ -699,7 +725,7 @@ class AsyncVerificationWithRawResponse(SecuredRawResponse[AsyncRawClient, Server
             headers=[param[UUID]("Idempotency-Key", uuid4())],
             body=json_body[DeleteBankAccountRequest | DeleteBankAccountRequestDict | None](body),
             auth_scheme=AsyncAnySchemes(self._auth.basic_auth, self._auth.api_key_auth),
-            decoder=json_decoder[GenericResponse],
+            decoder=async_json_decoder[GenericResponse],
             error_mapper=post_delete_bank_accounts_error_mapper,
             request_options=request_options,
         )
@@ -714,7 +740,8 @@ class AsyncVerificationWithRawResponse(SecuredRawResponse[AsyncRawClient, Server
 
         Args:
             body: The request body.
-            request_options: Per-call overrides for this one request, such as a timeout or extra headers.
+            request_options: Per-call overrides for this one request, such as a timeout, extra headers, or its retry
+                count and statuses.
 
         Returns:
             An ``ApiResult`` holding the deserialized response or the error body."""
@@ -724,7 +751,7 @@ class AsyncVerificationWithRawResponse(SecuredRawResponse[AsyncRawClient, Server
             headers=[param[UUID]("Idempotency-Key", uuid4())],
             body=json_body[DeleteLegalArrangementRequest | DeleteLegalArrangementRequestDict | None](body),
             auth_scheme=AsyncAnySchemes(self._auth.basic_auth, self._auth.api_key_auth),
-            decoder=json_decoder[GenericResponse],
+            decoder=async_json_decoder[GenericResponse],
             error_mapper=post_delete_legal_arrangements_error_mapper,
             request_options=request_options,
         )
@@ -739,7 +766,8 @@ class AsyncVerificationWithRawResponse(SecuredRawResponse[AsyncRawClient, Server
 
         Args:
             body: The request body.
-            request_options: Per-call overrides for this one request, such as a timeout or extra headers.
+            request_options: Per-call overrides for this one request, such as a timeout, extra headers, or its retry
+                count and statuses.
 
         Returns:
             An ``ApiResult`` holding the deserialized response or the error body."""
@@ -749,7 +777,7 @@ class AsyncVerificationWithRawResponse(SecuredRawResponse[AsyncRawClient, Server
             headers=[param[UUID]("Idempotency-Key", uuid4())],
             body=json_body[DeletePayoutMethodRequest | DeletePayoutMethodRequestDict | None](body),
             auth_scheme=AsyncAnySchemes(self._auth.basic_auth, self._auth.api_key_auth),
-            decoder=json_decoder[GenericResponse],
+            decoder=async_json_decoder[GenericResponse],
             error_mapper=post_delete_payout_methods_error_mapper,
             request_options=request_options,
         )
@@ -764,7 +792,8 @@ class AsyncVerificationWithRawResponse(SecuredRawResponse[AsyncRawClient, Server
 
         Args:
             body: The request body.
-            request_options: Per-call overrides for this one request, such as a timeout or extra headers.
+            request_options: Per-call overrides for this one request, such as a timeout, extra headers, or its retry
+                count and statuses.
 
         Returns:
             An ``ApiResult`` holding the deserialized response or the error body."""
@@ -774,7 +803,7 @@ class AsyncVerificationWithRawResponse(SecuredRawResponse[AsyncRawClient, Server
             headers=[param[UUID]("Idempotency-Key", uuid4())],
             body=json_body[DeleteShareholderRequest | DeleteShareholderRequestDict | None](body),
             auth_scheme=AsyncAnySchemes(self._auth.basic_auth, self._auth.api_key_auth),
-            decoder=json_decoder[GenericResponse],
+            decoder=async_json_decoder[GenericResponse],
             error_mapper=post_delete_shareholders_error_mapper,
             request_options=request_options,
         )
@@ -789,7 +818,8 @@ class AsyncVerificationWithRawResponse(SecuredRawResponse[AsyncRawClient, Server
 
         Args:
             body: The request body.
-            request_options: Per-call overrides for this one request, such as a timeout or extra headers.
+            request_options: Per-call overrides for this one request, such as a timeout, extra headers, or its retry
+                count and statuses.
 
         Returns:
             An ``ApiResult`` holding the deserialized response or the error body."""
@@ -799,7 +829,7 @@ class AsyncVerificationWithRawResponse(SecuredRawResponse[AsyncRawClient, Server
             headers=[param[UUID]("Idempotency-Key", uuid4())],
             body=json_body[DeleteSignatoriesRequest | DeleteSignatoriesRequestDict | None](body),
             auth_scheme=AsyncAnySchemes(self._auth.basic_auth, self._auth.api_key_auth),
-            decoder=json_decoder[GenericResponse],
+            decoder=async_json_decoder[GenericResponse],
             error_mapper=post_delete_signatories_error_mapper,
             request_options=request_options,
         )
@@ -815,7 +845,8 @@ class AsyncVerificationWithRawResponse(SecuredRawResponse[AsyncRawClient, Server
 
         Args:
             body: The request body.
-            request_options: Per-call overrides for this one request, such as a timeout or extra headers.
+            request_options: Per-call overrides for this one request, such as a timeout, extra headers, or its retry
+                count and statuses.
 
         Returns:
             An ``ApiResult`` holding the deserialized response or the error body."""
@@ -825,7 +856,7 @@ class AsyncVerificationWithRawResponse(SecuredRawResponse[AsyncRawClient, Server
             headers=[param[UUID]("Idempotency-Key", uuid4())],
             body=json_body[GetUploadedDocumentsRequest | GetUploadedDocumentsRequestDict | None](body),
             auth_scheme=AsyncAnySchemes(self._auth.basic_auth, self._auth.api_key_auth),
-            decoder=json_decoder[GetUploadedDocumentsResponse],
+            decoder=async_json_decoder[GetUploadedDocumentsResponse],
             error_mapper=post_get_uploaded_documents_error_mapper,
             request_options=request_options,
         )
@@ -841,7 +872,8 @@ class AsyncVerificationWithRawResponse(SecuredRawResponse[AsyncRawClient, Server
 
         Args:
             body: The request body.
-            request_options: Per-call overrides for this one request, such as a timeout or extra headers.
+            request_options: Per-call overrides for this one request, such as a timeout, extra headers, or its retry
+                count and statuses.
 
         Returns:
             An ``ApiResult`` holding the deserialized response or the error body."""
@@ -851,7 +883,7 @@ class AsyncVerificationWithRawResponse(SecuredRawResponse[AsyncRawClient, Server
             headers=[param[UUID]("Idempotency-Key", uuid4())],
             body=json_body[UploadDocumentRequest | UploadDocumentRequestDict | None](body),
             auth_scheme=AsyncAnySchemes(self._auth.basic_auth, self._auth.api_key_auth),
-            decoder=json_decoder[UpdateAccountHolderResponse],
+            decoder=async_json_decoder[UpdateAccountHolderResponse],
             error_mapper=post_upload_document_error_mapper,
             request_options=request_options,
         )

@@ -16,5 +16,5 @@ class KycpayoutMethodCheckResult(SdkBaseModel):
 
 
 class KycpayoutMethodCheckResultDict(TypedDict):
-    checks: NotRequired[list[KyccheckStatusData | KyccheckStatusDataDict]]
+    checks: NotRequired[list[KyccheckStatusDataDict]]
     payout_method_code: NotRequired[str]

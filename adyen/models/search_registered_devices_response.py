@@ -23,7 +23,7 @@ class SearchRegisteredDevicesResponse(SdkBaseModel):
 
 
 class SearchRegisteredDevicesResponseDict(TypedDict):
-    data: NotRequired[list[Device | DeviceDict]]
+    data: NotRequired[list[DeviceDict]]
     items_total: NotRequired[int]
-    link: NotRequired[Link1 | Link1Dict]
+    link: NotRequired[Link1Dict]
     pages_total: NotRequired[int]

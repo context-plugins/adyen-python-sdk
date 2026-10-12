@@ -18,5 +18,5 @@ class LoyaltyAccount1(SdkBaseModel):
 
 
 class LoyaltyAccount1Dict(TypedDict):
-    loyalty_account_id: LoyaltyAccountId2 | LoyaltyAccountId2Dict
+    loyalty_account_id: LoyaltyAccountId2Dict
     loyalty_brand: NotRequired[str]

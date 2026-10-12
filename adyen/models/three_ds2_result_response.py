@@ -13,4 +13,4 @@ class ThreeDs2ResultResponse(SdkBaseModel):
 
 
 class ThreeDs2ResultResponseDict(TypedDict):
-    three_ds2_result: NotRequired[ThreeDs2Result | ThreeDs2ResultDict]
+    three_ds2_result: NotRequired[ThreeDs2ResultDict]

@@ -13,4 +13,4 @@ class CalculateGrantOfferRequest(SdkBaseModel):
 
 
 class CalculateGrantOfferRequestDict(TypedDict):
-    amount: Amount17 | Amount17Dict
+    amount: Amount17Dict

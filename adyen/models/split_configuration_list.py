@@ -12,4 +12,4 @@ class SplitConfigurationList(SdkBaseModel):
 
 
 class SplitConfigurationListDict(TypedDict):
-    data: NotRequired[list[SplitConfiguration | SplitConfigurationDict]]
+    data: NotRequired[list[SplitConfigurationDict]]

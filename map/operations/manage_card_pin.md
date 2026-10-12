@@ -11,8 +11,8 @@ Each `###` block is one operation and assumes `sdk-map.md` is loaded: blocks omi
 - **Route**: `GET /publicKey`
 - **Auth**: `client_key` OR `basic_auth` OR `api_key_auth`
 - **Server**: `default13`
-- **Signature**: `def get_public_key(*, purpose: str | None = None, format: str | None = None, request_options: RequestOptionsOrDict | None = None)`
-- **Params**: `purpose` — query · `format` — query
+- **Signature**: `def get_public_key(*, purpose: str | None = None, format_: str | None = None, request_options: RequestOptionsOrDict | None = None)`
+- **Params**: `purpose` — query · `format_` — query `format`
 - **Returns (parsed)**: `PublicKeyResponse`
 - **Returns (raw)**: `ApiResult[PublicKeyResponse, GetPublicKeyErrorBody]`
 - **Error**: `GetPublicKeyErrorBody` — **Case A (typed)**

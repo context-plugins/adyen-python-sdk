@@ -11,9 +11,11 @@ from ..core import (
     RawClient,
     RequestOptionsOrDict,
     SecuredRawResponse,
+    async_json_decoder,
     json_body,
     json_decoder,
     param,
+    unwrap,
 )
 from ..errors.get_balance_accounts_id_error import GetBalanceAccountsIdErrorBody, get_balance_accounts_id_error_mapper
 from ..errors.get_balance_accounts_id_payment_instruments_error import (
@@ -42,14 +44,15 @@ class BalanceAccounts:
         self._with_raw_response = BalanceAccountsWithRawResponse(client, server, auth)
 
     def get_balance_accounts_id(
-        self, id: str, *, request_options: RequestOptionsOrDict | None = None
+        self, id_: str, *, request_options: RequestOptionsOrDict | None = None
     ) -> BalanceAccount:
         """Returns a balance account and its balances for the default currency and other currencies with a non-zero
         balance.
 
         Args:
-            id: The unique identifier of the balance account.
-            request_options: Per-call overrides for this one request, such as a timeout or extra headers.
+            id_: The unique identifier of the balance account.
+            request_options: Per-call overrides for this one request, such as a timeout, extra headers, or its retry
+                count and statuses.
 
         Returns:
             OK - the request has succeeded.
@@ -59,11 +62,11 @@ class BalanceAccounts:
                 required. Forbidden - insufficient permissions to process the request. Unprocessable Entity - a request
                 validation error. Internal Server Error - the server could not process the request. ``error`` is
                 ``RestServiceError | RawError``."""
-        return self._with_raw_response.get_balance_accounts_id(id, request_options=request_options).unwrap()
+        return unwrap(self._with_raw_response.get_balance_accounts_id(id_, request_options=request_options))
 
     def get_balance_accounts_id_payment_instruments(
         self,
-        id: str,
+        id_: str,
         *,
         offset: int | None = None,
         limit: int | None = None,
@@ -77,13 +80,14 @@ class BalanceAccounts:
         ``/balanceAccounts/{id}/paymentInstruments?limit=3&offset=6&status=active``.
 
         Args:
-            id: The unique identifier of the balance account.
+            id_: The unique identifier of the balance account.
             offset: The number of items that you want to skip.
             limit: The number of items returned per page, maximum 100 items. By default, the response returns 10 items
                 per page.
             status: The status of the payment instruments that you want to get. By default, the response includes
                 payment instruments with any status.
-            request_options: Per-call overrides for this one request, such as a timeout or extra headers.
+            request_options: Per-call overrides for this one request, such as a timeout, extra headers, or its retry
+                count and statuses.
 
         Returns:
             OK - the request has succeeded.
@@ -93,18 +97,21 @@ class BalanceAccounts:
                 required. Forbidden - insufficient permissions to process the request. Unprocessable Entity - a request
                 validation error. Internal Server Error - the server could not process the request. ``error`` is
                 ``RestServiceError | RawError``."""
-        return self._with_raw_response.get_balance_accounts_id_payment_instruments(
-            id, offset=offset, limit=limit, status=status, request_options=request_options
-        ).unwrap()
+        return unwrap(
+            self._with_raw_response.get_balance_accounts_id_payment_instruments(
+                id_, offset=offset, limit=limit, status=status, request_options=request_options
+            ),
+        )
 
     def get_balance_accounts_id_transaction_rules(
-        self, id: str, *, request_options: RequestOptionsOrDict | None = None
+        self, id_: str, *, request_options: RequestOptionsOrDict | None = None
     ) -> TransactionRulesResponse:
         """Returns a list of transaction rules associated with a balance account.
 
         Args:
-            id: The unique identifier of the balance account.
-            request_options: Per-call overrides for this one request, such as a timeout or extra headers.
+            id_: The unique identifier of the balance account.
+            request_options: Per-call overrides for this one request, such as a timeout, extra headers, or its retry
+                count and statuses.
 
         Returns:
             OK - the request has succeeded.
@@ -114,13 +121,13 @@ class BalanceAccounts:
                 required. Forbidden - insufficient permissions to process the request. Unprocessable Entity - a request
                 validation error. Internal Server Error - the server could not process the request. ``error`` is
                 ``RestServiceError | RawError``."""
-        return self._with_raw_response.get_balance_accounts_id_transaction_rules(
-            id, request_options=request_options
-        ).unwrap()
+        return unwrap(
+            self._with_raw_response.get_balance_accounts_id_transaction_rules(id_, request_options=request_options)
+        )
 
     def patch_balance_accounts_id(
         self,
-        id: str,
+        id_: str,
         *,
         body: BalanceAccountUpdateRequest | BalanceAccountUpdateRequestDict | None = None,
         request_options: RequestOptionsOrDict | None = None,
@@ -128,9 +135,10 @@ class BalanceAccounts:
         """Updates a balance account.
 
         Args:
-            id: The unique identifier of the balance account.
+            id_: The unique identifier of the balance account.
             body: The request body.
-            request_options: Per-call overrides for this one request, such as a timeout or extra headers.
+            request_options: Per-call overrides for this one request, such as a timeout, extra headers, or its retry
+                count and statuses.
 
         Returns:
             OK - the request has succeeded.
@@ -140,9 +148,9 @@ class BalanceAccounts:
                 required. Forbidden - insufficient permissions to process the request. Unprocessable Entity - a request
                 validation error. Internal Server Error - the server could not process the request. ``error`` is
                 ``RestServiceError | RawError``."""
-        return self._with_raw_response.patch_balance_accounts_id(
-            id, body=body, request_options=request_options
-        ).unwrap()
+        return unwrap(
+            self._with_raw_response.patch_balance_accounts_id(id_, body=body, request_options=request_options)
+        )
 
     def post_balance_accounts(
         self,
@@ -154,7 +162,8 @@ class BalanceAccounts:
 
         Args:
             body: The request body.
-            request_options: Per-call overrides for this one request, such as a timeout or extra headers.
+            request_options: Per-call overrides for this one request, such as a timeout, extra headers, or its retry
+                count and statuses.
 
         Returns:
             OK - the request has succeeded.
@@ -164,7 +173,7 @@ class BalanceAccounts:
                 required. Forbidden - insufficient permissions to process the request. Unprocessable Entity - a request
                 validation error. Internal Server Error - the server could not process the request. ``error`` is
                 ``RestServiceError | RawError``."""
-        return self._with_raw_response.post_balance_accounts(body=body, request_options=request_options).unwrap()
+        return unwrap(self._with_raw_response.post_balance_accounts(body=body, request_options=request_options))
 
     @property
     def with_raw_response(self) -> BalanceAccountsWithRawResponse:
@@ -176,14 +185,15 @@ class AsyncBalanceAccounts:
         self._with_raw_response = AsyncBalanceAccountsWithRawResponse(client, server, auth)
 
     async def get_balance_accounts_id(
-        self, id: str, *, request_options: RequestOptionsOrDict | None = None
+        self, id_: str, *, request_options: RequestOptionsOrDict | None = None
     ) -> BalanceAccount:
         """Returns a balance account and its balances for the default currency and other currencies with a non-zero
         balance.
 
         Args:
-            id: The unique identifier of the balance account.
-            request_options: Per-call overrides for this one request, such as a timeout or extra headers.
+            id_: The unique identifier of the balance account.
+            request_options: Per-call overrides for this one request, such as a timeout, extra headers, or its retry
+                count and statuses.
 
         Returns:
             OK - the request has succeeded.
@@ -193,11 +203,11 @@ class AsyncBalanceAccounts:
                 required. Forbidden - insufficient permissions to process the request. Unprocessable Entity - a request
                 validation error. Internal Server Error - the server could not process the request. ``error`` is
                 ``RestServiceError | RawError``."""
-        return (await self._with_raw_response.get_balance_accounts_id(id, request_options=request_options)).unwrap()
+        return unwrap(await self._with_raw_response.get_balance_accounts_id(id_, request_options=request_options))
 
     async def get_balance_accounts_id_payment_instruments(
         self,
-        id: str,
+        id_: str,
         *,
         offset: int | None = None,
         limit: int | None = None,
@@ -211,13 +221,14 @@ class AsyncBalanceAccounts:
         ``/balanceAccounts/{id}/paymentInstruments?limit=3&offset=6&status=active``.
 
         Args:
-            id: The unique identifier of the balance account.
+            id_: The unique identifier of the balance account.
             offset: The number of items that you want to skip.
             limit: The number of items returned per page, maximum 100 items. By default, the response returns 10 items
                 per page.
             status: The status of the payment instruments that you want to get. By default, the response includes
                 payment instruments with any status.
-            request_options: Per-call overrides for this one request, such as a timeout or extra headers.
+            request_options: Per-call overrides for this one request, such as a timeout, extra headers, or its retry
+                count and statuses.
 
         Returns:
             OK - the request has succeeded.
@@ -227,20 +238,21 @@ class AsyncBalanceAccounts:
                 required. Forbidden - insufficient permissions to process the request. Unprocessable Entity - a request
                 validation error. Internal Server Error - the server could not process the request. ``error`` is
                 ``RestServiceError | RawError``."""
-        return (
+        return unwrap(
             await self._with_raw_response.get_balance_accounts_id_payment_instruments(
-                id, offset=offset, limit=limit, status=status, request_options=request_options
-            )
-        ).unwrap()
+                id_, offset=offset, limit=limit, status=status, request_options=request_options
+            ),
+        )
 
     async def get_balance_accounts_id_transaction_rules(
-        self, id: str, *, request_options: RequestOptionsOrDict | None = None
+        self, id_: str, *, request_options: RequestOptionsOrDict | None = None
     ) -> TransactionRulesResponse:
         """Returns a list of transaction rules associated with a balance account.
 
         Args:
-            id: The unique identifier of the balance account.
-            request_options: Per-call overrides for this one request, such as a timeout or extra headers.
+            id_: The unique identifier of the balance account.
+            request_options: Per-call overrides for this one request, such as a timeout, extra headers, or its retry
+                count and statuses.
 
         Returns:
             OK - the request has succeeded.
@@ -250,13 +262,15 @@ class AsyncBalanceAccounts:
                 required. Forbidden - insufficient permissions to process the request. Unprocessable Entity - a request
                 validation error. Internal Server Error - the server could not process the request. ``error`` is
                 ``RestServiceError | RawError``."""
-        return (
-            await self._with_raw_response.get_balance_accounts_id_transaction_rules(id, request_options=request_options)
-        ).unwrap()
+        return unwrap(
+            await self._with_raw_response.get_balance_accounts_id_transaction_rules(
+                id_, request_options=request_options
+            ),
+        )
 
     async def patch_balance_accounts_id(
         self,
-        id: str,
+        id_: str,
         *,
         body: BalanceAccountUpdateRequest | BalanceAccountUpdateRequestDict | None = None,
         request_options: RequestOptionsOrDict | None = None,
@@ -264,9 +278,10 @@ class AsyncBalanceAccounts:
         """Updates a balance account.
 
         Args:
-            id: The unique identifier of the balance account.
+            id_: The unique identifier of the balance account.
             body: The request body.
-            request_options: Per-call overrides for this one request, such as a timeout or extra headers.
+            request_options: Per-call overrides for this one request, such as a timeout, extra headers, or its retry
+                count and statuses.
 
         Returns:
             OK - the request has succeeded.
@@ -276,9 +291,9 @@ class AsyncBalanceAccounts:
                 required. Forbidden - insufficient permissions to process the request. Unprocessable Entity - a request
                 validation error. Internal Server Error - the server could not process the request. ``error`` is
                 ``RestServiceError | RawError``."""
-        return (
-            await self._with_raw_response.patch_balance_accounts_id(id, body=body, request_options=request_options)
-        ).unwrap()
+        return unwrap(
+            await self._with_raw_response.patch_balance_accounts_id(id_, body=body, request_options=request_options)
+        )
 
     async def post_balance_accounts(
         self,
@@ -290,7 +305,8 @@ class AsyncBalanceAccounts:
 
         Args:
             body: The request body.
-            request_options: Per-call overrides for this one request, such as a timeout or extra headers.
+            request_options: Per-call overrides for this one request, such as a timeout, extra headers, or its retry
+                count and statuses.
 
         Returns:
             OK - the request has succeeded.
@@ -300,9 +316,7 @@ class AsyncBalanceAccounts:
                 required. Forbidden - insufficient permissions to process the request. Unprocessable Entity - a request
                 validation error. Internal Server Error - the server could not process the request. ``error`` is
                 ``RestServiceError | RawError``."""
-        return (
-            await self._with_raw_response.post_balance_accounts(body=body, request_options=request_options)
-        ).unwrap()
+        return unwrap(await self._with_raw_response.post_balance_accounts(body=body, request_options=request_options))
 
     @property
     def with_raw_response(self) -> AsyncBalanceAccountsWithRawResponse:
@@ -311,21 +325,22 @@ class AsyncBalanceAccounts:
 
 class BalanceAccountsWithRawResponse(SecuredRawResponse[RawClient, Server, AuthSchemes]):
     def get_balance_accounts_id(
-        self, id: str, *, request_options: RequestOptionsOrDict | None = None
+        self, id_: str, *, request_options: RequestOptionsOrDict | None = None
     ) -> ApiResult[BalanceAccount, GetBalanceAccountsIdErrorBody]:
         """Returns a balance account and its balances for the default currency and other currencies with a non-zero
         balance.
 
         Args:
-            id: The unique identifier of the balance account.
-            request_options: Per-call overrides for this one request, such as a timeout or extra headers.
+            id_: The unique identifier of the balance account.
+            request_options: Per-call overrides for this one request, such as a timeout, extra headers, or its retry
+                count and statuses.
 
         Returns:
             An ``ApiResult`` holding the deserialized response or the error body."""
         return self._client.execute(
             http_method="GET",
             url_template=self._server.default13("/balanceAccounts/{id}"),
-            path_params=[param[str]("id", id)],
+            path_params=[param[str]("id", id_)],
             auth_scheme=AnySchemes(self._auth.client_key, self._auth.basic_auth, self._auth.api_key_auth),
             decoder=json_decoder[BalanceAccount],
             error_mapper=get_balance_accounts_id_error_mapper,
@@ -334,7 +349,7 @@ class BalanceAccountsWithRawResponse(SecuredRawResponse[RawClient, Server, AuthS
 
     def get_balance_accounts_id_payment_instruments(
         self,
-        id: str,
+        id_: str,
         *,
         offset: int | None = None,
         limit: int | None = None,
@@ -348,20 +363,21 @@ class BalanceAccountsWithRawResponse(SecuredRawResponse[RawClient, Server, AuthS
         ``/balanceAccounts/{id}/paymentInstruments?limit=3&offset=6&status=active``.
 
         Args:
-            id: The unique identifier of the balance account.
+            id_: The unique identifier of the balance account.
             offset: The number of items that you want to skip.
             limit: The number of items returned per page, maximum 100 items. By default, the response returns 10 items
                 per page.
             status: The status of the payment instruments that you want to get. By default, the response includes
                 payment instruments with any status.
-            request_options: Per-call overrides for this one request, such as a timeout or extra headers.
+            request_options: Per-call overrides for this one request, such as a timeout, extra headers, or its retry
+                count and statuses.
 
         Returns:
             An ``ApiResult`` holding the deserialized response or the error body."""
         return self._client.execute(
             http_method="GET",
             url_template=self._server.default13("/balanceAccounts/{id}/paymentInstruments"),
-            path_params=[param[str]("id", id)],
+            path_params=[param[str]("id", id_)],
             query_params=[
                 param[int | None]("offset", offset),
                 param[int | None]("limit", limit),
@@ -374,20 +390,21 @@ class BalanceAccountsWithRawResponse(SecuredRawResponse[RawClient, Server, AuthS
         )
 
     def get_balance_accounts_id_transaction_rules(
-        self, id: str, *, request_options: RequestOptionsOrDict | None = None
+        self, id_: str, *, request_options: RequestOptionsOrDict | None = None
     ) -> ApiResult[TransactionRulesResponse, GetBalanceAccountsIdTransactionRulesErrorBody]:
         """Returns a list of transaction rules associated with a balance account.
 
         Args:
-            id: The unique identifier of the balance account.
-            request_options: Per-call overrides for this one request, such as a timeout or extra headers.
+            id_: The unique identifier of the balance account.
+            request_options: Per-call overrides for this one request, such as a timeout, extra headers, or its retry
+                count and statuses.
 
         Returns:
             An ``ApiResult`` holding the deserialized response or the error body."""
         return self._client.execute(
             http_method="GET",
             url_template=self._server.default13("/balanceAccounts/{id}/transactionRules"),
-            path_params=[param[str]("id", id)],
+            path_params=[param[str]("id", id_)],
             auth_scheme=AnySchemes(self._auth.client_key, self._auth.basic_auth, self._auth.api_key_auth),
             decoder=json_decoder[TransactionRulesResponse],
             error_mapper=get_balance_accounts_id_transaction_rules_error_mapper,
@@ -396,7 +413,7 @@ class BalanceAccountsWithRawResponse(SecuredRawResponse[RawClient, Server, AuthS
 
     def patch_balance_accounts_id(
         self,
-        id: str,
+        id_: str,
         *,
         body: BalanceAccountUpdateRequest | BalanceAccountUpdateRequestDict | None = None,
         request_options: RequestOptionsOrDict | None = None,
@@ -404,16 +421,17 @@ class BalanceAccountsWithRawResponse(SecuredRawResponse[RawClient, Server, AuthS
         """Updates a balance account.
 
         Args:
-            id: The unique identifier of the balance account.
+            id_: The unique identifier of the balance account.
             body: The request body.
-            request_options: Per-call overrides for this one request, such as a timeout or extra headers.
+            request_options: Per-call overrides for this one request, such as a timeout, extra headers, or its retry
+                count and statuses.
 
         Returns:
             An ``ApiResult`` holding the deserialized response or the error body."""
         return self._client.execute(
             http_method="PATCH",
             url_template=self._server.default13("/balanceAccounts/{id}"),
-            path_params=[param[str]("id", id)],
+            path_params=[param[str]("id", id_)],
             headers=[param[UUID]("Idempotency-Key", uuid4())],
             body=json_body[BalanceAccountUpdateRequest | BalanceAccountUpdateRequestDict | None](body),
             auth_scheme=AnySchemes(self._auth.client_key, self._auth.basic_auth, self._auth.api_key_auth),
@@ -432,7 +450,8 @@ class BalanceAccountsWithRawResponse(SecuredRawResponse[RawClient, Server, AuthS
 
         Args:
             body: The request body.
-            request_options: Per-call overrides for this one request, such as a timeout or extra headers.
+            request_options: Per-call overrides for this one request, such as a timeout, extra headers, or its retry
+                count and statuses.
 
         Returns:
             An ``ApiResult`` holding the deserialized response or the error body."""
@@ -450,30 +469,31 @@ class BalanceAccountsWithRawResponse(SecuredRawResponse[RawClient, Server, AuthS
 
 class AsyncBalanceAccountsWithRawResponse(SecuredRawResponse[AsyncRawClient, Server, AsyncAuthSchemes]):
     async def get_balance_accounts_id(
-        self, id: str, *, request_options: RequestOptionsOrDict | None = None
+        self, id_: str, *, request_options: RequestOptionsOrDict | None = None
     ) -> ApiResult[BalanceAccount, GetBalanceAccountsIdErrorBody]:
         """Returns a balance account and its balances for the default currency and other currencies with a non-zero
         balance.
 
         Args:
-            id: The unique identifier of the balance account.
-            request_options: Per-call overrides for this one request, such as a timeout or extra headers.
+            id_: The unique identifier of the balance account.
+            request_options: Per-call overrides for this one request, such as a timeout, extra headers, or its retry
+                count and statuses.
 
         Returns:
             An ``ApiResult`` holding the deserialized response or the error body."""
         return await self._client.execute(
             http_method="GET",
             url_template=self._server.default13("/balanceAccounts/{id}"),
-            path_params=[param[str]("id", id)],
+            path_params=[param[str]("id", id_)],
             auth_scheme=AsyncAnySchemes(self._auth.client_key, self._auth.basic_auth, self._auth.api_key_auth),
-            decoder=json_decoder[BalanceAccount],
+            decoder=async_json_decoder[BalanceAccount],
             error_mapper=get_balance_accounts_id_error_mapper,
             request_options=request_options,
         )
 
     async def get_balance_accounts_id_payment_instruments(
         self,
-        id: str,
+        id_: str,
         *,
         offset: int | None = None,
         limit: int | None = None,
@@ -487,55 +507,57 @@ class AsyncBalanceAccountsWithRawResponse(SecuredRawResponse[AsyncRawClient, Ser
         ``/balanceAccounts/{id}/paymentInstruments?limit=3&offset=6&status=active``.
 
         Args:
-            id: The unique identifier of the balance account.
+            id_: The unique identifier of the balance account.
             offset: The number of items that you want to skip.
             limit: The number of items returned per page, maximum 100 items. By default, the response returns 10 items
                 per page.
             status: The status of the payment instruments that you want to get. By default, the response includes
                 payment instruments with any status.
-            request_options: Per-call overrides for this one request, such as a timeout or extra headers.
+            request_options: Per-call overrides for this one request, such as a timeout, extra headers, or its retry
+                count and statuses.
 
         Returns:
             An ``ApiResult`` holding the deserialized response or the error body."""
         return await self._client.execute(
             http_method="GET",
             url_template=self._server.default13("/balanceAccounts/{id}/paymentInstruments"),
-            path_params=[param[str]("id", id)],
+            path_params=[param[str]("id", id_)],
             query_params=[
                 param[int | None]("offset", offset),
                 param[int | None]("limit", limit),
                 param[str | None]("status", status),
             ],
             auth_scheme=AsyncAnySchemes(self._auth.client_key, self._auth.basic_auth, self._auth.api_key_auth),
-            decoder=json_decoder[PaginatedPaymentInstrumentsResponse],
+            decoder=async_json_decoder[PaginatedPaymentInstrumentsResponse],
             error_mapper=get_balance_accounts_id_payment_instruments_error_mapper,
             request_options=request_options,
         )
 
     async def get_balance_accounts_id_transaction_rules(
-        self, id: str, *, request_options: RequestOptionsOrDict | None = None
+        self, id_: str, *, request_options: RequestOptionsOrDict | None = None
     ) -> ApiResult[TransactionRulesResponse, GetBalanceAccountsIdTransactionRulesErrorBody]:
         """Returns a list of transaction rules associated with a balance account.
 
         Args:
-            id: The unique identifier of the balance account.
-            request_options: Per-call overrides for this one request, such as a timeout or extra headers.
+            id_: The unique identifier of the balance account.
+            request_options: Per-call overrides for this one request, such as a timeout, extra headers, or its retry
+                count and statuses.
 
         Returns:
             An ``ApiResult`` holding the deserialized response or the error body."""
         return await self._client.execute(
             http_method="GET",
             url_template=self._server.default13("/balanceAccounts/{id}/transactionRules"),
-            path_params=[param[str]("id", id)],
+            path_params=[param[str]("id", id_)],
             auth_scheme=AsyncAnySchemes(self._auth.client_key, self._auth.basic_auth, self._auth.api_key_auth),
-            decoder=json_decoder[TransactionRulesResponse],
+            decoder=async_json_decoder[TransactionRulesResponse],
             error_mapper=get_balance_accounts_id_transaction_rules_error_mapper,
             request_options=request_options,
         )
 
     async def patch_balance_accounts_id(
         self,
-        id: str,
+        id_: str,
         *,
         body: BalanceAccountUpdateRequest | BalanceAccountUpdateRequestDict | None = None,
         request_options: RequestOptionsOrDict | None = None,
@@ -543,20 +565,21 @@ class AsyncBalanceAccountsWithRawResponse(SecuredRawResponse[AsyncRawClient, Ser
         """Updates a balance account.
 
         Args:
-            id: The unique identifier of the balance account.
+            id_: The unique identifier of the balance account.
             body: The request body.
-            request_options: Per-call overrides for this one request, such as a timeout or extra headers.
+            request_options: Per-call overrides for this one request, such as a timeout, extra headers, or its retry
+                count and statuses.
 
         Returns:
             An ``ApiResult`` holding the deserialized response or the error body."""
         return await self._client.execute(
             http_method="PATCH",
             url_template=self._server.default13("/balanceAccounts/{id}"),
-            path_params=[param[str]("id", id)],
+            path_params=[param[str]("id", id_)],
             headers=[param[UUID]("Idempotency-Key", uuid4())],
             body=json_body[BalanceAccountUpdateRequest | BalanceAccountUpdateRequestDict | None](body),
             auth_scheme=AsyncAnySchemes(self._auth.client_key, self._auth.basic_auth, self._auth.api_key_auth),
-            decoder=json_decoder[BalanceAccount],
+            decoder=async_json_decoder[BalanceAccount],
             error_mapper=patch_balance_accounts_id_error_mapper,
             request_options=request_options,
         )
@@ -571,7 +594,8 @@ class AsyncBalanceAccountsWithRawResponse(SecuredRawResponse[AsyncRawClient, Ser
 
         Args:
             body: The request body.
-            request_options: Per-call overrides for this one request, such as a timeout or extra headers.
+            request_options: Per-call overrides for this one request, such as a timeout, extra headers, or its retry
+                count and statuses.
 
         Returns:
             An ``ApiResult`` holding the deserialized response or the error body."""
@@ -581,7 +605,7 @@ class AsyncBalanceAccountsWithRawResponse(SecuredRawResponse[AsyncRawClient, Ser
             headers=[param[UUID]("Idempotency-Key", uuid4())],
             body=json_body[BalanceAccountInfo | BalanceAccountInfoDict | None](body),
             auth_scheme=AsyncAnySchemes(self._auth.client_key, self._auth.basic_auth, self._auth.api_key_auth),
-            decoder=json_decoder[BalanceAccount],
+            decoder=async_json_decoder[BalanceAccount],
             error_mapper=post_balance_accounts_error_mapper,
             request_options=request_options,
         )

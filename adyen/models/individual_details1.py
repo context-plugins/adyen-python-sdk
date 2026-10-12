@@ -21,5 +21,5 @@ class IndividualDetails1(SdkBaseModel):
 
 
 class IndividualDetails1Dict(TypedDict):
-    name: NotRequired[ViasName2 | ViasName2Dict]
-    personal_data: NotRequired[ViasPersonalData2 | ViasPersonalData2Dict]
+    name: NotRequired[ViasName2Dict]
+    personal_data: NotRequired[ViasPersonalData2Dict]

@@ -17,5 +17,5 @@ class CapabilityProblem(SdkBaseModel):
 
 
 class CapabilityProblemDict(TypedDict):
-    entity: NotRequired[CapabilityProblemEntity2 | CapabilityProblemEntity2Dict]
-    verification_errors: NotRequired[list[VerificationError | VerificationErrorDict]]
+    entity: NotRequired[CapabilityProblemEntity2Dict]
+    verification_errors: NotRequired[list[VerificationErrorDict]]

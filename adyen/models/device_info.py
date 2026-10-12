@@ -23,4 +23,4 @@ class DeviceInfo(SdkBaseModel):
 class DeviceInfoDict(TypedDict):
     form_factor: NotRequired[str]
     os_name: NotRequired[str]
-    phone: NotRequired[PhoneInfo2 | PhoneInfo2Dict]
+    phone: NotRequired[PhoneInfo2Dict]

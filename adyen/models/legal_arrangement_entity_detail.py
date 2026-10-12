@@ -65,14 +65,14 @@ class LegalArrangementEntityDetail(SdkBaseModel):
 
 
 class LegalArrangementEntityDetailDict(TypedDict):
-    address: NotRequired[ViasAddress5 | ViasAddress5Dict]
-    business_details: NotRequired[BusinessDetails1 | BusinessDetails1Dict]
+    address: NotRequired[ViasAddress5Dict]
+    business_details: NotRequired[BusinessDetails1Dict]
     email: NotRequired[str]
     full_phone_number: NotRequired[str]
-    individual_details: NotRequired[IndividualDetails1 | IndividualDetails1Dict]
+    individual_details: NotRequired[IndividualDetails1Dict]
     legal_arrangement_entity_code: NotRequired[str]
     legal_arrangement_entity_reference: NotRequired[str]
     legal_arrangement_members: NotRequired[list[LegalArrangementMemberOrStr]]
     legal_entity_type: NotRequired[LegalEntityTypeOrStr]
-    phone_number: NotRequired[ViasPhoneNumber2 | ViasPhoneNumber2Dict]
+    phone_number: NotRequired[ViasPhoneNumber2Dict]
     web_address: NotRequired[str]

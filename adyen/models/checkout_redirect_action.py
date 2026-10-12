@@ -29,5 +29,5 @@ class CheckoutRedirectActionDict(TypedDict):
     data: NotRequired[dict[str, str]]
     method: NotRequired[str]
     payment_method_type: NotRequired[str]
-    type_: NotRequired[Literal["redirect"]]
+    type_: Literal["redirect"]
     url: NotRequired[str]

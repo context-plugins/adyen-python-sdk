@@ -16,7 +16,7 @@ class AmexInfo1(SdkBaseModel):
      You must provide this field when you request ``gatewayContract`` or ``paymentDesignatorContract`` service
         levels."""
 
-    reuse_mid_number: Optional[bool] = Field(default=UNSET, alias="reuseMidNumber")
+    reuse_mid_number: bool = Field(default=False, alias="reuseMidNumber")
     """Indicates whether the Amex Merchant ID is reused from a previously setup Amex payment method. This is only
     applicable for ``gatewayContract`` and ``paymentDesignatorContract`` service levels. The default value is
     **false**."""

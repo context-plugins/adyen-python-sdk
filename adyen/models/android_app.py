@@ -46,7 +46,7 @@ class AndroidApp(SdkBaseModel):
 class AndroidAppDict(TypedDict):
     description: NotRequired[str]
     error_code: NotRequired[str]
-    errors: NotRequired[list[AndroidAppError | AndroidAppErrorDict]]
+    errors: NotRequired[list[AndroidAppErrorDict]]
     id: str
     label: NotRequired[str]
     package_name: NotRequired[str]

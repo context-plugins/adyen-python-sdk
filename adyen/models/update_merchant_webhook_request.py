@@ -73,7 +73,7 @@ class UpdateMerchantWebhookRequestDict(TypedDict):
     accepts_self_signed_certificate: NotRequired[bool]
     accepts_untrusted_root_certificate: NotRequired[bool]
     active: NotRequired[bool]
-    additional_settings: NotRequired[AdditionalSettings1 | AdditionalSettings1Dict]
+    additional_settings: NotRequired[AdditionalSettings1Dict]
     communication_format: NotRequired[CommunicationFormatOrStr]
     description: NotRequired[str]
     encryption_protocol: NotRequired[EncryptionProtocolOrStr]

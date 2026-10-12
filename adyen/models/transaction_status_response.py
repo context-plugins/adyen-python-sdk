@@ -26,6 +26,6 @@ class TransactionStatusResponse(SdkBaseModel):
 
 
 class TransactionStatusResponseDict(TypedDict):
-    response: Response11 | Response11Dict
-    message_reference: NotRequired[MessageReference3 | MessageReference3Dict]
-    repeated_message_response: NotRequired[RepeatedMessageResponse2 | RepeatedMessageResponse2Dict]
+    response: Response11Dict
+    message_reference: NotRequired[MessageReference3Dict]
+    repeated_message_response: NotRequired[RepeatedMessageResponse2Dict]

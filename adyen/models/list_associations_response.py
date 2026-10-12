@@ -23,7 +23,7 @@ class ListAssociationsResponse(SdkBaseModel):
 
 
 class ListAssociationsResponseDict(TypedDict):
-    links: Link3 | Link3Dict
-    data: list[AssociationListing | AssociationListingDict]
+    links: Link3Dict
+    data: list[AssociationListingDict]
     items_total: int
     pages_total: int

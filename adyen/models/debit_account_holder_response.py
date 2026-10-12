@@ -30,7 +30,7 @@ class DebitAccountHolderResponse(SdkBaseModel):
 class DebitAccountHolderResponseDict(TypedDict):
     account_holder_code: NotRequired[str]
     bank_account_uuid: NotRequired[str]
-    invalid_fields: NotRequired[list[ErrorFieldType | ErrorFieldTypeDict]]
+    invalid_fields: NotRequired[list[ErrorFieldTypeDict]]
     merchant_references: NotRequired[list[str]]
     psp_reference: NotRequired[str]
     result_code: NotRequired[str]

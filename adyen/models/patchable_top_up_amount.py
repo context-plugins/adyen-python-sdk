@@ -15,5 +15,5 @@ class PatchableTopUpAmount(SdkBaseModel):
 
 
 class PatchableTopUpAmountDict(TypedDict):
-    fixed: NotRequired[PatchableAmountDto | PatchableAmountDtoDict | None]
-    target: NotRequired[PatchableAmountDto | PatchableAmountDtoDict | None]
+    fixed: NotRequired[PatchableAmountDtoDict | None]
+    target: NotRequired[PatchableAmountDtoDict | None]

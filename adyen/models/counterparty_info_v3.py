@@ -26,6 +26,6 @@ class CounterpartyInfoV3(SdkBaseModel):
 
 class CounterpartyInfoV3Dict(TypedDict):
     balance_account_id: NotRequired[str]
-    bank_account: NotRequired[BankAccountV31 | BankAccountV31Dict]
-    card: NotRequired[Card12 | Card12Dict]
+    bank_account: NotRequired[BankAccountV31Dict]
+    card: NotRequired[Card12Dict]
     transfer_instrument_id: NotRequired[str]

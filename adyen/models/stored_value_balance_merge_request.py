@@ -49,7 +49,7 @@ class StoredValueBalanceMergeRequest(SdkBaseModel):
 
 
 class StoredValueBalanceMergeRequestDict(TypedDict):
-    amount: NotRequired[Amount | AmountDict]
+    amount: NotRequired[AmountDict]
     merchant_account: str
     payment_method: dict[str, str]
     recurring_detail_reference: NotRequired[str]

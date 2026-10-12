@@ -15,7 +15,7 @@ class TransactionStatusRequest(SdkBaseModel):
     message_reference: Optional[MessageReference2] = Field(default=UNSET, alias="MessageReference")
     """Identification of a previous POI transaction. Present if it contains any data."""
 
-    receipt_reprint_flag: Optional[bool] = Field(default=UNSET, alias="ReceiptReprintFlag")
+    receipt_reprint_flag: bool = Field(default=False, alias="ReceiptReprintFlag")
     """Request to reprint the POI receipt(s). Allows reprinting a receipt with a ``TransactionStatus`` message"""
 
     document_qualifier: Optional[list[DocumentQualifierOrStr]] = Field(default=UNSET, alias="DocumentQualifier")
@@ -31,6 +31,6 @@ class TransactionStatusRequest(SdkBaseModel):
 
 
 class TransactionStatusRequestDict(TypedDict):
-    message_reference: NotRequired[MessageReference2 | MessageReference2Dict]
+    message_reference: NotRequired[MessageReference2Dict]
     receipt_reprint_flag: NotRequired[bool]
     document_qualifier: NotRequired[list[DocumentQualifierOrStr]]

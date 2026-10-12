@@ -3,7 +3,7 @@ from __future__ import annotations
 from pydantic import Field
 from typing_extensions import NotRequired, TypedDict
 
-from ..core import UNSET, Optional, SdkBaseModel
+from ..core import SdkBaseModel
 
 
 class HostStatus(SdkBaseModel):
@@ -12,7 +12,7 @@ class HostStatus(SdkBaseModel):
     acquirer_id: int = Field(alias="AcquirerID")
     """Identification of the Acquirer."""
 
-    is_reachable_flag: Optional[bool] = Field(default=UNSET, alias="IsReachableFlag")
+    is_reachable_flag: bool = Field(default=True, alias="IsReachableFlag")
     """Indicate if a Host is reachable."""
 
 

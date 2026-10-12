@@ -32,7 +32,7 @@ class ReversalRequest2(SdkBaseModel):
 
 
 class ReversalRequest2Dict(TypedDict):
-    sale_data: NotRequired[SaleData | SaleDataDict]
-    original_poi_transaction: OriginalPoitransaction2 | OriginalPoitransaction2Dict
+    sale_data: NotRequired[SaleDataDict]
+    original_poi_transaction: OriginalPoitransaction2Dict
     reversed_amount: NotRequired[float]
     reversal_reason: ReversalReason1OrStr

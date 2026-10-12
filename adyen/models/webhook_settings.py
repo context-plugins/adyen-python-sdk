@@ -13,4 +13,4 @@ class WebhookSettings(SdkBaseModel):
 
 
 class WebhookSettingsDict(TypedDict):
-    webhook_settings: NotRequired[list[WebhookSetting | WebhookSettingDict]]
+    webhook_settings: NotRequired[list[WebhookSettingDict]]

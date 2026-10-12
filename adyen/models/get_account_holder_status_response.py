@@ -27,7 +27,7 @@ class GetAccountHolderStatusResponse(SdkBaseModel):
 
 class GetAccountHolderStatusResponseDict(TypedDict):
     account_holder_code: NotRequired[str]
-    account_holder_status: NotRequired[AccountHolderStatus4 | AccountHolderStatus4Dict]
-    invalid_fields: NotRequired[list[ErrorFieldType | ErrorFieldTypeDict]]
+    account_holder_status: NotRequired[AccountHolderStatus4Dict]
+    invalid_fields: NotRequired[list[ErrorFieldTypeDict]]
     psp_reference: NotRequired[str]
     result_code: NotRequired[str]

@@ -26,6 +26,6 @@ class MerchantPurchaseData(SdkBaseModel):
 
 
 class MerchantPurchaseDataDict(TypedDict):
-    airline: NotRequired[Airline11 | Airline11Dict]
-    lodging: NotRequired[list[Lodging1 | Lodging1Dict]]
-    type_: NotRequired[Literal["merchantPurchaseData"]]
+    airline: NotRequired[Airline11Dict]
+    lodging: NotRequired[list[Lodging1Dict]]
+    type_: Literal["merchantPurchaseData"]

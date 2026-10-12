@@ -24,6 +24,6 @@ class PaymentTransaction1(SdkBaseModel):
 
 
 class PaymentTransaction1Dict(TypedDict):
-    amounts_req: AmountsReq | AmountsReqDict
-    original_poi_transaction: NotRequired[OriginalPoitransaction | OriginalPoitransactionDict]
-    transaction_conditions: NotRequired[TransactionConditions | TransactionConditionsDict]
+    amounts_req: AmountsReqDict
+    original_poi_transaction: NotRequired[OriginalPoitransactionDict]
+    transaction_conditions: NotRequired[TransactionConditionsDict]

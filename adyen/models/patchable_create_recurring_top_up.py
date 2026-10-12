@@ -42,5 +42,5 @@ class PatchableCreateRecurringTopUpDict(TypedDict):
     description: NotRequired[str]
     reference_for_beneficiary: NotRequired[str | None]
     status: NotRequired[Status6OrStr | None]
-    top_up_amount: NotRequired[PatchableTopUpAmount2 | PatchableTopUpAmount2Dict]
-    trigger: NotRequired[PatchableTrigger2 | PatchableTrigger2Dict]
+    top_up_amount: NotRequired[PatchableTopUpAmount2Dict]
+    trigger: NotRequired[PatchableTrigger2Dict]

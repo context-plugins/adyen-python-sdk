@@ -24,6 +24,6 @@ class UltimateParentCompany(SdkBaseModel):
 
 
 class UltimateParentCompanyDict(TypedDict):
-    address: NotRequired[ViasAddress1 | ViasAddress1Dict]
-    business_details: NotRequired[UltimateParentCompanyBusinessDetails2 | UltimateParentCompanyBusinessDetails2Dict]
+    address: NotRequired[ViasAddress1Dict]
+    business_details: NotRequired[UltimateParentCompanyBusinessDetails2Dict]
     ultimate_parent_company_code: NotRequired[str]

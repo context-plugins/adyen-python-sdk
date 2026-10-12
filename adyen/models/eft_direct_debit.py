@@ -4,7 +4,7 @@ from pydantic import Field
 from typing_extensions import NotRequired, TypedDict
 
 from ..core import UNSET, Optional, SdkBaseModel
-from .enums.type30 import Type30OrStr
+from .enums.type30 import Type30, Type30OrStr
 
 
 class EftDirectDebit(SdkBaseModel):
@@ -44,7 +44,7 @@ class EftDirectDebit(SdkBaseModel):
     stored_payment_method_id: Optional[str] = Field(default=UNSET, alias="storedPaymentMethodId")
     """This is the ``recurringDetailReference`` returned in the response when you created the token."""
 
-    type_: Optional[Type30OrStr] = Field(default=UNSET, alias="type")
+    type_: Type30OrStr = Field(default=Type30.EFT_DIRECTDEBIT_CA, alias="type")
     """**eft**"""
 
 

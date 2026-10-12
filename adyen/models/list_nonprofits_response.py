@@ -23,7 +23,7 @@ class ListNonprofitsResponse(SdkBaseModel):
 
 
 class ListNonprofitsResponseDict(TypedDict):
-    links: NotRequired[PaginationLinks1 | PaginationLinks1Dict]
+    links: NotRequired[PaginationLinks1Dict]
     items_total: int
-    nonprofits: NotRequired[list[Nonprofit | NonprofitDict]]
+    nonprofits: NotRequired[list[NonprofitDict]]
     pages_total: int

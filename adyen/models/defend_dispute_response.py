@@ -13,4 +13,4 @@ class DefendDisputeResponse(SdkBaseModel):
 
 
 class DefendDisputeResponseDict(TypedDict):
-    dispute_service_result: DisputeServiceResult1 | DisputeServiceResult1Dict
+    dispute_service_result: DisputeServiceResult1Dict

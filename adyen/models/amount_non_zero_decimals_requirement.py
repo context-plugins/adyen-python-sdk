@@ -19,4 +19,4 @@ class AmountNonZeroDecimalsRequirement(SdkBaseModel):
 
 class AmountNonZeroDecimalsRequirementDict(TypedDict):
     description: NotRequired[str]
-    type_: NotRequired[Literal["amountNonZeroDecimalsRequirement"]]
+    type_: Literal["amountNonZeroDecimalsRequirement"]

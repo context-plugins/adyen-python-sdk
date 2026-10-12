@@ -57,11 +57,11 @@ class UpdateStoreRequest(SdkBaseModel):
 
 
 class UpdateStoreRequestDict(TypedDict):
-    address: NotRequired[UpdatableAddress1 | UpdatableAddress1Dict]
+    address: NotRequired[UpdatableAddress1Dict]
     business_line_ids: NotRequired[list[str]]
     description: NotRequired[str]
     external_reference_id: NotRequired[str]
     phone_number: NotRequired[str]
-    split_configuration: NotRequired[StoreSplitConfiguration1 | StoreSplitConfiguration1Dict]
+    split_configuration: NotRequired[StoreSplitConfiguration1Dict]
     status: NotRequired[Status41OrStr]
-    sub_merchant_data: NotRequired[SubMerchantData1 | SubMerchantData1Dict]
+    sub_merchant_data: NotRequired[SubMerchantData1Dict]

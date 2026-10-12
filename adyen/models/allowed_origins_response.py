@@ -12,4 +12,4 @@ class AllowedOriginsResponse(SdkBaseModel):
 
 
 class AllowedOriginsResponseDict(TypedDict):
-    data: NotRequired[list[AllowedOrigin | AllowedOriginDict]]
+    data: NotRequired[list[AllowedOriginDict]]

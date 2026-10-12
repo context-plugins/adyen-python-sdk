@@ -11,9 +11,9 @@ Each `###` block is one operation and assumes `sdk-map.md` is loaded: blocks omi
 - **Route**: `DELETE /documents/{id}`
 - **Auth**: `basic_auth` OR `api_key_auth`
 - **Server**: `default18`
-- **Signature**: `def delete_documents_id(id: str, *, request_options: RequestOptionsOrDict | None = None)`
-  - required, positional: `id`
-- **Params**: `id` — path
+- **Signature**: `def delete_documents_id(id_: str, *, request_options: RequestOptionsOrDict | None = None)`
+  - required, positional: `id_`
+- **Params**: `id_` — path `id`
 - **Returns (parsed)**: `None`
 - **Returns (raw)**: `ApiResult[None, DeleteDocumentsIdErrorBody]`
 - **Error**: `DeleteDocumentsIdErrorBody` — **Case A (typed)**
@@ -29,9 +29,9 @@ Each `###` block is one operation and assumes `sdk-map.md` is loaded: blocks omi
 - **Route**: `GET /documents/{id}`
 - **Auth**: `basic_auth` OR `api_key_auth`
 - **Server**: `default18`
-- **Signature**: `def get_documents_id(id: str, *, skip_content: bool | None = None, request_options: RequestOptionsOrDict | None = None)`
-  - required, positional: `id`
-- **Params**: `id` — path · `skip_content` — query `skipContent`
+- **Signature**: `def get_documents_id(id_: str, *, skip_content: bool | None = None, request_options: RequestOptionsOrDict | None = None)`
+  - required, positional: `id_`
+- **Params**: `id_` — path `id` · `skip_content` — query `skipContent`
 - **Returns (parsed)**: `Document`
 - **Returns (raw)**: `ApiResult[Document, GetDocumentsIdErrorBody]`
 - **Error**: `GetDocumentsIdErrorBody` — **Case A (typed)**
@@ -48,9 +48,9 @@ Each `###` block is one operation and assumes `sdk-map.md` is loaded: blocks omi
 - **Route**: `PATCH /documents/{id}`
 - **Auth**: `basic_auth` OR `api_key_auth`
 - **Server**: `default18`
-- **Signature**: `def patch_documents_id(id: str, *, x_requested_verification_code: str | None = None, body: Document | DocumentDict | None = None, request_options: RequestOptionsOrDict | None = None)`
-  - required, positional: `id`
-- **Params**: `id` — path · `x_requested_verification_code` — header `x-requested-verification-code` · `body` — JSON body
+- **Signature**: `def patch_documents_id(id_: str, *, x_requested_verification_code: str | None = None, body: Document | DocumentDict | None = None, request_options: RequestOptionsOrDict | None = None)`
+  - required, positional: `id_`
+- **Params**: `id_` — path `id` · `x_requested_verification_code` — header `x-requested-verification-code` · `body` — JSON body
 - **Returns (parsed)**: `Document`
 - **Returns (raw)**: `ApiResult[Document, PatchDocumentsIdErrorBody]`
 - **Error**: `PatchDocumentsIdErrorBody` — **Case A (typed)**

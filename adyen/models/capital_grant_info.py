@@ -19,6 +19,6 @@ class CapitalGrantInfo(SdkBaseModel):
 
 
 class CapitalGrantInfoDict(TypedDict):
-    counterparty: NotRequired[GrantInfoCounterparty2 | GrantInfoCounterparty2Dict]
+    counterparty: NotRequired[GrantInfoCounterparty2Dict]
     grant_account_id: str
     grant_offer_id: str

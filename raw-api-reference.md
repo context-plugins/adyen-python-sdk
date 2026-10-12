@@ -59,7 +59,7 @@ match result:
 | Name | Type | Description |
 | --- | --- | --- |
 | <code>body</code> | <code>[AbortRequest](adyen/models/abort_request.py) \| [AbortRequestDict](adyen/models/abort_request.py) \| None</code> | The request body.<br>**Default**: <code>None</code> |
-| <code>request_options</code> | <code>[RequestOptionsOrDict](adyen/core/request_options.py) \| None</code> | Per-call overrides for this one request, such as a timeout or extra headers. |
+| <code>request_options</code> | <code>[RequestOptionsOrDict](adyen/core/request_options.py) \| None</code> | Per-call overrides for this one request, such as a timeout, extra headers, or its retry count and statuses. |
 
 </dd>
 </dl>
@@ -138,7 +138,7 @@ match result:
 | Name | Type | Description |
 | --- | --- | --- |
 | <code>body</code> | <code>[AdminRequest](adyen/models/admin_request.py) \| [AdminRequestDict](adyen/models/admin_request.py) \| None</code> | The request body.<br>**Default**: <code>None</code> |
-| <code>request_options</code> | <code>[RequestOptionsOrDict](adyen/core/request_options.py) \| None</code> | Per-call overrides for this one request, such as a timeout or extra headers. |
+| <code>request_options</code> | <code>[RequestOptionsOrDict](adyen/core/request_options.py) \| None</code> | Per-call overrides for this one request, such as a timeout, extra headers, or its retry count and statuses. |
 
 </dd>
 </dl>
@@ -218,7 +218,7 @@ match result:
 | Name | Type | Description |
 | --- | --- | --- |
 | <code>body</code> | <code>[BalanceInquiryRequest](adyen/models/balance_inquiry_request.py) \| [BalanceInquiryRequestDict](adyen/models/balance_inquiry_request.py) \| None</code> | The request body.<br>**Default**: <code>None</code> |
-| <code>request_options</code> | <code>[RequestOptionsOrDict](adyen/core/request_options.py) \| None</code> | Per-call overrides for this one request, such as a timeout or extra headers. |
+| <code>request_options</code> | <code>[RequestOptionsOrDict](adyen/core/request_options.py) \| None</code> | Per-call overrides for this one request, such as a timeout, extra headers, or its retry count and statuses. |
 
 </dd>
 </dl>
@@ -298,7 +298,7 @@ match result:
 | Name | Type | Description |
 | --- | --- | --- |
 | <code>body</code> | <code>[CardAcquisitionRequest](adyen/models/card_acquisition_request.py) \| [CardAcquisitionRequestDict](adyen/models/card_acquisition_request.py) \| None</code> | The request body.<br>**Default**: <code>None</code> |
-| <code>request_options</code> | <code>[RequestOptionsOrDict](adyen/core/request_options.py) \| None</code> | Per-call overrides for this one request, such as a timeout or extra headers. |
+| <code>request_options</code> | <code>[RequestOptionsOrDict](adyen/core/request_options.py) \| None</code> | Per-call overrides for this one request, such as a timeout, extra headers, or its retry count and statuses. |
 
 </dd>
 </dl>
@@ -378,7 +378,7 @@ match result:
 | Name | Type | Description |
 | --- | --- | --- |
 | <code>body</code> | <code>[CardReaderApdurequest](adyen/models/card_reader_apdurequest.py) \| [CardReaderApdurequestDict](adyen/models/card_reader_apdurequest.py) \| None</code> | The request body.<br>**Default**: <code>None</code> |
-| <code>request_options</code> | <code>[RequestOptionsOrDict](adyen/core/request_options.py) \| None</code> | Per-call overrides for this one request, such as a timeout or extra headers. |
+| <code>request_options</code> | <code>[RequestOptionsOrDict](adyen/core/request_options.py) \| None</code> | Per-call overrides for this one request, such as a timeout, extra headers, or its retry count and statuses. |
 
 </dd>
 </dl>
@@ -458,7 +458,7 @@ match result:
 | Name | Type | Description |
 | --- | --- | --- |
 | <code>body</code> | <code>[DiagnosisRequest](adyen/models/diagnosis_request.py) \| [DiagnosisRequestDict](adyen/models/diagnosis_request.py) \| None</code> | The request body.<br>**Default**: <code>None</code> |
-| <code>request_options</code> | <code>[RequestOptionsOrDict](adyen/core/request_options.py) \| None</code> | Per-call overrides for this one request, such as a timeout or extra headers. |
+| <code>request_options</code> | <code>[RequestOptionsOrDict](adyen/core/request_options.py) \| None</code> | Per-call overrides for this one request, such as a timeout, extra headers, or its retry count and statuses. |
 
 </dd>
 </dl>
@@ -538,7 +538,7 @@ match result:
 | Name | Type | Description |
 | --- | --- | --- |
 | <code>body</code> | <code>[DisplayRequest](adyen/models/display_request.py) \| [DisplayRequestDict](adyen/models/display_request.py) \| None</code> | The request body.<br>**Default**: <code>None</code> |
-| <code>request_options</code> | <code>[RequestOptionsOrDict](adyen/core/request_options.py) \| None</code> | Per-call overrides for this one request, such as a timeout or extra headers. |
+| <code>request_options</code> | <code>[RequestOptionsOrDict](adyen/core/request_options.py) \| None</code> | Per-call overrides for this one request, such as a timeout, extra headers, or its retry count and statuses. |
 
 </dd>
 </dl>
@@ -618,7 +618,7 @@ match result:
 | Name | Type | Description |
 | --- | --- | --- |
 | <code>body</code> | <code>[EnableServiceRequest](adyen/models/enable_service_request.py) \| [EnableServiceRequestDict](adyen/models/enable_service_request.py) \| None</code> | The request body.<br>**Default**: <code>None</code> |
-| <code>request_options</code> | <code>[RequestOptionsOrDict](adyen/core/request_options.py) \| None</code> | Per-call overrides for this one request, such as a timeout or extra headers. |
+| <code>request_options</code> | <code>[RequestOptionsOrDict](adyen/core/request_options.py) \| None</code> | Per-call overrides for this one request, such as a timeout, extra headers, or its retry count and statuses. |
 
 </dd>
 </dl>
@@ -698,7 +698,7 @@ match result:
 | Name | Type | Description |
 | --- | --- | --- |
 | <code>body</code> | <code>[GetTotalsRequest](adyen/models/get_totals_request.py) \| [GetTotalsRequestDict](adyen/models/get_totals_request.py) \| None</code> | The request body.<br>**Default**: <code>None</code> |
-| <code>request_options</code> | <code>[RequestOptionsOrDict](adyen/core/request_options.py) \| None</code> | Per-call overrides for this one request, such as a timeout or extra headers. |
+| <code>request_options</code> | <code>[RequestOptionsOrDict](adyen/core/request_options.py) \| None</code> | Per-call overrides for this one request, such as a timeout, extra headers, or its retry count and statuses. |
 
 </dd>
 </dl>
@@ -777,7 +777,7 @@ match result:
 | Name | Type | Description |
 | --- | --- | --- |
 | <code>body</code> | <code>[InputRequest](adyen/models/input_request.py) \| [InputRequestDict](adyen/models/input_request.py) \| None</code> | The request body.<br>**Default**: <code>None</code> |
-| <code>request_options</code> | <code>[RequestOptionsOrDict](adyen/core/request_options.py) \| None</code> | Per-call overrides for this one request, such as a timeout or extra headers. |
+| <code>request_options</code> | <code>[RequestOptionsOrDict](adyen/core/request_options.py) \| None</code> | Per-call overrides for this one request, such as a timeout, extra headers, or its retry count and statuses. |
 
 </dd>
 </dl>
@@ -857,7 +857,7 @@ match result:
 | Name | Type | Description |
 | --- | --- | --- |
 | <code>body</code> | <code>[LoginRequest](adyen/models/login_request.py) \| [LoginRequestDict](adyen/models/login_request.py) \| None</code> | The request body.<br>**Default**: <code>None</code> |
-| <code>request_options</code> | <code>[RequestOptionsOrDict](adyen/core/request_options.py) \| None</code> | Per-call overrides for this one request, such as a timeout or extra headers. |
+| <code>request_options</code> | <code>[RequestOptionsOrDict](adyen/core/request_options.py) \| None</code> | Per-call overrides for this one request, such as a timeout, extra headers, or its retry count and statuses. |
 
 </dd>
 </dl>
@@ -937,7 +937,7 @@ match result:
 | Name | Type | Description |
 | --- | --- | --- |
 | <code>body</code> | <code>[LogoutRequest](adyen/models/logout_request.py) \| [LogoutRequestDict](adyen/models/logout_request.py) \| None</code> | The request body.<br>**Default**: <code>None</code> |
-| <code>request_options</code> | <code>[RequestOptionsOrDict](adyen/core/request_options.py) \| None</code> | Per-call overrides for this one request, such as a timeout or extra headers. |
+| <code>request_options</code> | <code>[RequestOptionsOrDict](adyen/core/request_options.py) \| None</code> | Per-call overrides for this one request, such as a timeout, extra headers, or its retry count and statuses. |
 
 </dd>
 </dl>
@@ -1018,7 +1018,7 @@ match result:
 | Name | Type | Description |
 | --- | --- | --- |
 | <code>body</code> | <code>[PaymentRequest2](adyen/models/payment_request2.py) \| [PaymentRequest2Dict](adyen/models/payment_request2.py) \| None</code> | The request body.<br>**Default**: <code>None</code> |
-| <code>request_options</code> | <code>[RequestOptionsOrDict](adyen/core/request_options.py) \| None</code> | Per-call overrides for this one request, such as a timeout or extra headers. |
+| <code>request_options</code> | <code>[RequestOptionsOrDict](adyen/core/request_options.py) \| None</code> | Per-call overrides for this one request, such as a timeout, extra headers, or its retry count and statuses. |
 
 </dd>
 </dl>
@@ -1098,7 +1098,7 @@ match result:
 | Name | Type | Description |
 | --- | --- | --- |
 | <code>body</code> | <code>[PrintRequest](adyen/models/print_request.py) \| [PrintRequestDict](adyen/models/print_request.py) \| None</code> | The request body.<br>**Default**: <code>None</code> |
-| <code>request_options</code> | <code>[RequestOptionsOrDict](adyen/core/request_options.py) \| None</code> | Per-call overrides for this one request, such as a timeout or extra headers. |
+| <code>request_options</code> | <code>[RequestOptionsOrDict](adyen/core/request_options.py) \| None</code> | Per-call overrides for this one request, such as a timeout, extra headers, or its retry count and statuses. |
 
 </dd>
 </dl>
@@ -1178,7 +1178,7 @@ match result:
 | Name | Type | Description |
 | --- | --- | --- |
 | <code>body</code> | <code>[ReconciliationRequest](adyen/models/reconciliation_request.py) \| [ReconciliationRequestDict](adyen/models/reconciliation_request.py) \| None</code> | The request body.<br>**Default**: <code>None</code> |
-| <code>request_options</code> | <code>[RequestOptionsOrDict](adyen/core/request_options.py) \| None</code> | Per-call overrides for this one request, such as a timeout or extra headers. |
+| <code>request_options</code> | <code>[RequestOptionsOrDict](adyen/core/request_options.py) \| None</code> | Per-call overrides for this one request, such as a timeout, extra headers, or its retry count and statuses. |
 
 </dd>
 </dl>
@@ -1258,7 +1258,7 @@ match result:
 | Name | Type | Description |
 | --- | --- | --- |
 | <code>body</code> | <code>[ReversalRequest](adyen/models/reversal_request.py) \| [ReversalRequestDict](adyen/models/reversal_request.py) \| None</code> | The request body.<br>**Default**: <code>None</code> |
-| <code>request_options</code> | <code>[RequestOptionsOrDict](adyen/core/request_options.py) \| None</code> | Per-call overrides for this one request, such as a timeout or extra headers. |
+| <code>request_options</code> | <code>[RequestOptionsOrDict](adyen/core/request_options.py) \| None</code> | Per-call overrides for this one request, such as a timeout, extra headers, or its retry count and statuses. |
 
 </dd>
 </dl>
@@ -1338,7 +1338,7 @@ match result:
 | Name | Type | Description |
 | --- | --- | --- |
 | <code>body</code> | <code>[StoredValueRequest](adyen/models/stored_value_request.py) \| [StoredValueRequestDict](adyen/models/stored_value_request.py) \| None</code> | The request body.<br>**Default**: <code>None</code> |
-| <code>request_options</code> | <code>[RequestOptionsOrDict](adyen/core/request_options.py) \| None</code> | Per-call overrides for this one request, such as a timeout or extra headers. |
+| <code>request_options</code> | <code>[RequestOptionsOrDict](adyen/core/request_options.py) \| None</code> | Per-call overrides for this one request, such as a timeout, extra headers, or its retry count and statuses. |
 
 </dd>
 </dl>
@@ -1418,7 +1418,7 @@ match result:
 | Name | Type | Description |
 | --- | --- | --- |
 | <code>body</code> | <code>[TransactionStatusRequest](adyen/models/transaction_status_request.py) \| [TransactionStatusRequestDict](adyen/models/transaction_status_request.py) \| None</code> | The request body.<br>**Default**: <code>None</code> |
-| <code>request_options</code> | <code>[RequestOptionsOrDict](adyen/core/request_options.py) \| None</code> | Per-call overrides for this one request, such as a timeout or extra headers. |
+| <code>request_options</code> | <code>[RequestOptionsOrDict](adyen/core/request_options.py) \| None</code> | Per-call overrides for this one request, such as a timeout, extra headers, or its retry count and statuses. |
 
 </dd>
 </dl>
@@ -1474,7 +1474,9 @@ To make this request, your API credential must have the following [roles](https:
 **Sync**
 
 ```python
-result = client.api_credentials_company_level.with_raw_response.get_companies_company_id_api_credentials(company_id)
+result = client.api_credentials_company_level.with_raw_response.get_companies_company_id_api_credentials(
+    "some example string"
+)
 match result:
     case Success(payload=payload):
         ...  # TODO: Handle 'payload' of type ListCompanyApiCredentialsResponse
@@ -1486,7 +1488,7 @@ match result:
 
 ```python
 result = await async_client.api_credentials_company_level.with_raw_response.get_companies_company_id_api_credentials(
-    company_id
+    "some example string"
 )
 match result:
     case Success(payload=payload):
@@ -1508,7 +1510,7 @@ match result:
 | <code>company_id</code> | <code>str</code> | The unique identifier of the company account. |
 | <code>page_number</code> | <code>int \| None</code> | The number of the page to fetch.<br>**Default**: <code>None</code> |
 | <code>page_size</code> | <code>int \| None</code> | The number of items to have on a page, maximum 100. The default is 10 items on a page.<br>**Default**: <code>None</code> |
-| <code>request_options</code> | <code>[RequestOptionsOrDict](adyen/core/request_options.py) \| None</code> | Per-call overrides for this one request, such as a timeout or extra headers. |
+| <code>request_options</code> | <code>[RequestOptionsOrDict](adyen/core/request_options.py) \| None</code> | Per-call overrides for this one request, such as a timeout, extra headers, or its retry count and statuses. |
 
 </dd>
 </dl>
@@ -1567,7 +1569,7 @@ To make this request, your API credential must have the following [roles](https:
 
 ```python
 result = client.api_credentials_company_level.with_raw_response.get_companies_company_id_api_credentials_api_credential_id(
-    company_id, api_credential_id
+    "some example string", "some example string"
 )
 match result:
     case Success(payload=payload):
@@ -1580,7 +1582,7 @@ match result:
 
 ```python
 result = await async_client.api_credentials_company_level.with_raw_response.get_companies_company_id_api_credentials_api_credential_id(
-    company_id, api_credential_id
+    "some example string", "some example string"
 )
 match result:
     case Success(payload=payload):
@@ -1601,7 +1603,7 @@ match result:
 | --- | --- | --- |
 | <code>company_id</code> | <code>str</code> | The unique identifier of the company account. |
 | <code>api_credential_id</code> | <code>str</code> | Unique identifier of the API credential. |
-| <code>request_options</code> | <code>[RequestOptionsOrDict](adyen/core/request_options.py) \| None</code> | Per-call overrides for this one request, such as a timeout or extra headers. |
+| <code>request_options</code> | <code>[RequestOptionsOrDict](adyen/core/request_options.py) \| None</code> | Per-call overrides for this one request, such as a timeout, extra headers, or its retry count and statuses. |
 
 </dd>
 </dl>
@@ -1660,7 +1662,7 @@ To make this request, your API credential must have the following [roles](https:
 
 ```python
 result = client.api_credentials_company_level.with_raw_response.patch_companies_company_id_api_credentials_api_credential_id(
-    company_id, api_credential_id
+    "some example string", "some example string", body=UpdateCompanyApiCredentialRequest(active=True)
 )
 match result:
     case Success(payload=payload):
@@ -1673,7 +1675,7 @@ match result:
 
 ```python
 result = await async_client.api_credentials_company_level.with_raw_response.patch_companies_company_id_api_credentials_api_credential_id(
-    company_id, api_credential_id
+    "some example string", "some example string", body=UpdateCompanyApiCredentialRequest(active=True)
 )
 match result:
     case Success(payload=payload):
@@ -1695,7 +1697,7 @@ match result:
 | <code>company_id</code> | <code>str</code> | The unique identifier of the company account. |
 | <code>api_credential_id</code> | <code>str</code> | Unique identifier of the API credential. |
 | <code>body</code> | <code>[UpdateCompanyApiCredentialRequest](adyen/models/update_company_api_credential_request.py) \| [UpdateCompanyApiCredentialRequestDict](adyen/models/update_company_api_credential_request.py) \| None</code> | The request body.<br>**Default**: <code>None</code> |
-| <code>request_options</code> | <code>[RequestOptionsOrDict](adyen/core/request_options.py) \| None</code> | Per-call overrides for this one request, such as a timeout or extra headers. |
+| <code>request_options</code> | <code>[RequestOptionsOrDict](adyen/core/request_options.py) \| None</code> | Per-call overrides for this one request, such as a timeout, extra headers, or its retry count and statuses. |
 
 </dd>
 </dl>
@@ -1762,7 +1764,16 @@ To make this request, your API credential must have the following [roles](https:
 **Sync**
 
 ```python
-result = client.api_credentials_company_level.with_raw_response.post_companies_company_id_api_credentials(company_id)
+result = client.api_credentials_company_level.with_raw_response.post_companies_company_id_api_credentials(
+    "some example string",
+    body=CreateCompanyApiCredentialRequest(
+        allowed_origins=["https://www.mystore.com"],
+        associated_merchant_accounts=[
+            "YOUR_MERCHANT_ACCOUNT_AU", "YOUR_MERCHANT_ACCOUNT_EU", "YOUR_MERCHANT_ACCOUNT_US"
+        ],
+        roles=["Checkout webservice role"],
+    ),
+)
 match result:
     case Success(payload=payload):
         ...  # TODO: Handle 'payload' of type CreateCompanyApiCredentialResponse
@@ -1774,7 +1785,14 @@ match result:
 
 ```python
 result = await async_client.api_credentials_company_level.with_raw_response.post_companies_company_id_api_credentials(
-    company_id
+    "some example string",
+    body=CreateCompanyApiCredentialRequest(
+        allowed_origins=["https://www.mystore.com"],
+        associated_merchant_accounts=[
+            "YOUR_MERCHANT_ACCOUNT_AU", "YOUR_MERCHANT_ACCOUNT_EU", "YOUR_MERCHANT_ACCOUNT_US"
+        ],
+        roles=["Checkout webservice role"],
+    ),
 )
 match result:
     case Success(payload=payload):
@@ -1795,7 +1813,7 @@ match result:
 | --- | --- | --- |
 | <code>company_id</code> | <code>str</code> | The unique identifier of the company account. |
 | <code>body</code> | <code>[CreateCompanyApiCredentialRequest](adyen/models/create_company_api_credential_request.py) \| [CreateCompanyApiCredentialRequestDict](adyen/models/create_company_api_credential_request.py) \| None</code> | The request body.<br>**Default**: <code>None</code> |
-| <code>request_options</code> | <code>[RequestOptionsOrDict](adyen/core/request_options.py) \| None</code> | Per-call overrides for this one request, such as a timeout or extra headers. |
+| <code>request_options</code> | <code>[RequestOptionsOrDict](adyen/core/request_options.py) \| None</code> | Per-call overrides for this one request, such as a timeout, extra headers, or its retry count and statuses. |
 
 </dd>
 </dl>
@@ -1857,7 +1875,9 @@ To make this request, your API credential must have the following [roles](https:
 **Sync**
 
 ```python
-result = client.api_credentials_merchant_level.with_raw_response.get_merchants_merchant_id_api_credentials(merchant_id)
+result = client.api_credentials_merchant_level.with_raw_response.get_merchants_merchant_id_api_credentials(
+    "some example string"
+)
 match result:
     case Success(payload=payload):
         ...  # TODO: Handle 'payload' of type ListMerchantApiCredentialsResponse
@@ -1869,7 +1889,7 @@ match result:
 
 ```python
 result = await async_client.api_credentials_merchant_level.with_raw_response.get_merchants_merchant_id_api_credentials(
-    merchant_id
+    "some example string"
 )
 match result:
     case Success(payload=payload):
@@ -1891,7 +1911,7 @@ match result:
 | <code>merchant_id</code> | <code>str</code> | The unique identifier of the merchant account. |
 | <code>page_number</code> | <code>int \| None</code> | The number of the page to fetch.<br>**Default**: <code>None</code> |
 | <code>page_size</code> | <code>int \| None</code> | The number of items to have on a page, maximum 100. The default is 10 items on a page.<br>**Default**: <code>None</code> |
-| <code>request_options</code> | <code>[RequestOptionsOrDict](adyen/core/request_options.py) \| None</code> | Per-call overrides for this one request, such as a timeout or extra headers. |
+| <code>request_options</code> | <code>[RequestOptionsOrDict](adyen/core/request_options.py) \| None</code> | Per-call overrides for this one request, such as a timeout, extra headers, or its retry count and statuses. |
 
 </dd>
 </dl>
@@ -1950,7 +1970,7 @@ To make this request, your API credential must have the following [roles](https:
 
 ```python
 result = client.api_credentials_merchant_level.with_raw_response.get_merchants_merchant_id_api_credentials_api_credential_id(
-    merchant_id, api_credential_id
+    "some example string", "some example string"
 )
 match result:
     case Success(payload=payload):
@@ -1963,7 +1983,7 @@ match result:
 
 ```python
 result = await async_client.api_credentials_merchant_level.with_raw_response.get_merchants_merchant_id_api_credentials_api_credential_id(
-    merchant_id, api_credential_id
+    "some example string", "some example string"
 )
 match result:
     case Success(payload=payload):
@@ -1984,7 +2004,7 @@ match result:
 | --- | --- | --- |
 | <code>merchant_id</code> | <code>str</code> | The unique identifier of the merchant account. |
 | <code>api_credential_id</code> | <code>str</code> | Unique identifier of the API credential. |
-| <code>request_options</code> | <code>[RequestOptionsOrDict](adyen/core/request_options.py) \| None</code> | Per-call overrides for this one request, such as a timeout or extra headers. |
+| <code>request_options</code> | <code>[RequestOptionsOrDict](adyen/core/request_options.py) \| None</code> | Per-call overrides for this one request, such as a timeout, extra headers, or its retry count and statuses. |
 
 </dd>
 </dl>
@@ -2043,7 +2063,7 @@ To make this request, your API credential must have the following [roles](https:
 
 ```python
 result = client.api_credentials_merchant_level.with_raw_response.patch_merchants_merchant_id_api_credentials_api_credential_id(
-    merchant_id, api_credential_id
+    "some example string", "some example string", body=UpdateMerchantApiCredentialRequest(active=True)
 )
 match result:
     case Success(payload=payload):
@@ -2056,7 +2076,7 @@ match result:
 
 ```python
 result = await async_client.api_credentials_merchant_level.with_raw_response.patch_merchants_merchant_id_api_credentials_api_credential_id(
-    merchant_id, api_credential_id
+    "some example string", "some example string", body=UpdateMerchantApiCredentialRequest(active=True)
 )
 match result:
     case Success(payload=payload):
@@ -2078,7 +2098,7 @@ match result:
 | <code>merchant_id</code> | <code>str</code> | The unique identifier of the merchant account. |
 | <code>api_credential_id</code> | <code>str</code> | Unique identifier of the API credential. |
 | <code>body</code> | <code>[UpdateMerchantApiCredentialRequest](adyen/models/update_merchant_api_credential_request.py) \| [UpdateMerchantApiCredentialRequestDict](adyen/models/update_merchant_api_credential_request.py) \| None</code> | The request body.<br>**Default**: <code>None</code> |
-| <code>request_options</code> | <code>[RequestOptionsOrDict](adyen/core/request_options.py) \| None</code> | Per-call overrides for this one request, such as a timeout or extra headers. |
+| <code>request_options</code> | <code>[RequestOptionsOrDict](adyen/core/request_options.py) \| None</code> | Per-call overrides for this one request, such as a timeout, extra headers, or its retry count and statuses. |
 
 </dd>
 </dl>
@@ -2145,7 +2165,12 @@ To make this request, your API credential must have the following [roles](https:
 **Sync**
 
 ```python
-result = client.api_credentials_merchant_level.with_raw_response.post_merchants_merchant_id_api_credentials(merchant_id)
+result = client.api_credentials_merchant_level.with_raw_response.post_merchants_merchant_id_api_credentials(
+    "some example string",
+    body=CreateMerchantApiCredentialRequest(
+        allowed_origins=["https://www.mystore.com"], roles=["Checkout webservice role"]
+    ),
+)
 match result:
     case Success(payload=payload):
         ...  # TODO: Handle 'payload' of type CreateApiCredentialResponse
@@ -2157,7 +2182,10 @@ match result:
 
 ```python
 result = await async_client.api_credentials_merchant_level.with_raw_response.post_merchants_merchant_id_api_credentials(
-    merchant_id
+    "some example string",
+    body=CreateMerchantApiCredentialRequest(
+        allowed_origins=["https://www.mystore.com"], roles=["Checkout webservice role"]
+    ),
 )
 match result:
     case Success(payload=payload):
@@ -2178,7 +2206,7 @@ match result:
 | --- | --- | --- |
 | <code>merchant_id</code> | <code>str</code> | The unique identifier of the merchant account. |
 | <code>body</code> | <code>[CreateMerchantApiCredentialRequest](adyen/models/create_merchant_api_credential_request.py) \| [CreateMerchantApiCredentialRequestDict](adyen/models/create_merchant_api_credential_request.py) \| None</code> | The request body.<br>**Default**: <code>None</code> |
-| <code>request_options</code> | <code>[RequestOptionsOrDict](adyen/core/request_options.py) \| None</code> | Per-call overrides for this one request, such as a timeout or extra headers. |
+| <code>request_options</code> | <code>[RequestOptionsOrDict](adyen/core/request_options.py) \| None</code> | Per-call overrides for this one request, such as a timeout, extra headers, or its retry count and statuses. |
 
 </dd>
 </dl>
@@ -2241,7 +2269,7 @@ To make this request, your API credential must have the following [roles](https:
 
 ```python
 result = client.api_key_company_level.with_raw_response.post_companies_company_id_api_credentials_api_credential_id_generate_api_key(
-    company_id, api_credential_id
+    "some example string", "some example string"
 )
 match result:
     case Success(payload=payload):
@@ -2254,7 +2282,7 @@ match result:
 
 ```python
 result = await async_client.api_key_company_level.with_raw_response.post_companies_company_id_api_credentials_api_credential_id_generate_api_key(
-    company_id, api_credential_id
+    "some example string", "some example string"
 )
 match result:
     case Success(payload=payload):
@@ -2275,7 +2303,7 @@ match result:
 | --- | --- | --- |
 | <code>company_id</code> | <code>str</code> | The unique identifier of the company account. |
 | <code>api_credential_id</code> | <code>str</code> | Unique identifier of the API credential. |
-| <code>request_options</code> | <code>[RequestOptionsOrDict](adyen/core/request_options.py) \| None</code> | Per-call overrides for this one request, such as a timeout or extra headers. |
+| <code>request_options</code> | <code>[RequestOptionsOrDict](adyen/core/request_options.py) \| None</code> | Per-call overrides for this one request, such as a timeout, extra headers, or its retry count and statuses. |
 
 </dd>
 </dl>
@@ -2338,7 +2366,7 @@ To make this request, your API credential must have the following [roles](https:
 
 ```python
 result = client.api_key_merchant_level.with_raw_response.post_merchants_merchant_id_api_credentials_api_credential_id_generate_api_key(
-    merchant_id, api_credential_id
+    "some example string", "some example string"
 )
 match result:
     case Success(payload=payload):
@@ -2351,7 +2379,7 @@ match result:
 
 ```python
 result = await async_client.api_key_merchant_level.with_raw_response.post_merchants_merchant_id_api_credentials_api_credential_id_generate_api_key(
-    merchant_id, api_credential_id
+    "some example string", "some example string"
 )
 match result:
     case Success(payload=payload):
@@ -2372,7 +2400,7 @@ match result:
 | --- | --- | --- |
 | <code>merchant_id</code> | <code>str</code> | The unique identifier of the merchant account. |
 | <code>api_credential_id</code> | <code>str</code> | Unique identifier of the API credential. |
-| <code>request_options</code> | <code>[RequestOptionsOrDict](adyen/core/request_options.py) \| None</code> | Per-call overrides for this one request, such as a timeout or extra headers. |
+| <code>request_options</code> | <code>[RequestOptionsOrDict](adyen/core/request_options.py) \| None</code> | Per-call overrides for this one request, such as a timeout, extra headers, or its retry count and statuses. |
 
 </dd>
 </dl>
@@ -2466,7 +2494,7 @@ match result:
 | --- | --- | --- |
 | <code>page_number</code> | <code>int \| None</code> | The number of the page to fetch.<br>**Default**: <code>None</code> |
 | <code>page_size</code> | <code>int \| None</code> | The number of items to have on a page, maximum 100. The default is 10 items on a page.<br>**Default**: <code>None</code> |
-| <code>request_options</code> | <code>[RequestOptionsOrDict](adyen/core/request_options.py) \| None</code> | Per-call overrides for this one request, such as a timeout or extra headers. |
+| <code>request_options</code> | <code>[RequestOptionsOrDict](adyen/core/request_options.py) \| None</code> | Per-call overrides for this one request, such as a timeout, extra headers, or its retry count and statuses. |
 
 </dd>
 </dl>
@@ -2524,7 +2552,7 @@ To make this request, your API credential must have the following [roles](https:
 **Sync**
 
 ```python
-result = client.account_company_level.with_raw_response.get_companies_company_id(company_id)
+result = client.account_company_level.with_raw_response.get_companies_company_id("some example string")
 match result:
     case Success(payload=payload):
         ...  # TODO: Handle 'payload' of type Company2
@@ -2535,7 +2563,7 @@ match result:
 **Async**
 
 ```python
-result = await async_client.account_company_level.with_raw_response.get_companies_company_id(company_id)
+result = await async_client.account_company_level.with_raw_response.get_companies_company_id("some example string")
 match result:
     case Success(payload=payload):
         ...  # TODO: Handle 'payload' of type Company2
@@ -2554,7 +2582,7 @@ match result:
 | Name | Type | Description |
 | --- | --- | --- |
 | <code>company_id</code> | <code>str</code> | The unique identifier of the company account. |
-| <code>request_options</code> | <code>[RequestOptionsOrDict](adyen/core/request_options.py) \| None</code> | Per-call overrides for this one request, such as a timeout or extra headers. |
+| <code>request_options</code> | <code>[RequestOptionsOrDict](adyen/core/request_options.py) \| None</code> | Per-call overrides for this one request, such as a timeout, extra headers, or its retry count and statuses. |
 
 </dd>
 </dl>
@@ -2612,7 +2640,7 @@ To make this request, your API credential must have the following [roles](https:
 **Sync**
 
 ```python
-result = client.account_company_level.with_raw_response.get_companies_company_id_merchants(company_id)
+result = client.account_company_level.with_raw_response.get_companies_company_id_merchants("some example string")
 match result:
     case Success(payload=payload):
         ...  # TODO: Handle 'payload' of type ListMerchantResponse
@@ -2623,7 +2651,9 @@ match result:
 **Async**
 
 ```python
-result = await async_client.account_company_level.with_raw_response.get_companies_company_id_merchants(company_id)
+result = await async_client.account_company_level.with_raw_response.get_companies_company_id_merchants(
+    "some example string"
+)
 match result:
     case Success(payload=payload):
         ...  # TODO: Handle 'payload' of type ListMerchantResponse
@@ -2644,7 +2674,7 @@ match result:
 | <code>company_id</code> | <code>str</code> | The unique identifier of the company account. |
 | <code>page_number</code> | <code>int \| None</code> | The number of the page to fetch.<br>**Default**: <code>None</code> |
 | <code>page_size</code> | <code>int \| None</code> | The number of items to have on a page, maximum 100. The default is 10 items on a page.<br>**Default**: <code>None</code> |
-| <code>request_options</code> | <code>[RequestOptionsOrDict](adyen/core/request_options.py) \| None</code> | Per-call overrides for this one request, such as a timeout or extra headers. |
+| <code>request_options</code> | <code>[RequestOptionsOrDict](adyen/core/request_options.py) \| None</code> | Per-call overrides for this one request, such as a timeout, extra headers, or its retry count and statuses. |
 
 </dd>
 </dl>
@@ -2737,7 +2767,7 @@ match result:
 | --- | --- | --- |
 | <code>page_number</code> | <code>int \| None</code> | The number of the page to fetch.<br>**Default**: <code>None</code> |
 | <code>page_size</code> | <code>int \| None</code> | The number of items to have on a page, maximum 100. The default is 10 items on a page.<br>**Default**: <code>None</code> |
-| <code>request_options</code> | <code>[RequestOptionsOrDict](adyen/core/request_options.py) \| None</code> | Per-call overrides for this one request, such as a timeout or extra headers. |
+| <code>request_options</code> | <code>[RequestOptionsOrDict](adyen/core/request_options.py) \| None</code> | Per-call overrides for this one request, such as a timeout, extra headers, or its retry count and statuses. |
 
 </dd>
 </dl>
@@ -2795,7 +2825,7 @@ To make this request, your API credential must have the following [roles](https:
 **Sync**
 
 ```python
-result = client.account_merchant_level.with_raw_response.get_merchants_merchant_id(merchant_id)
+result = client.account_merchant_level.with_raw_response.get_merchants_merchant_id("some example string")
 match result:
     case Success(payload=payload):
         ...  # TODO: Handle 'payload' of type Merchant
@@ -2806,7 +2836,7 @@ match result:
 **Async**
 
 ```python
-result = await async_client.account_merchant_level.with_raw_response.get_merchants_merchant_id(merchant_id)
+result = await async_client.account_merchant_level.with_raw_response.get_merchants_merchant_id("some example string")
 match result:
     case Success(payload=payload):
         ...  # TODO: Handle 'payload' of type Merchant
@@ -2825,7 +2855,7 @@ match result:
 | Name | Type | Description |
 | --- | --- | --- |
 | <code>merchant_id</code> | <code>str</code> | The unique identifier of the merchant account. |
-| <code>request_options</code> | <code>[RequestOptionsOrDict](adyen/core/request_options.py) \| None</code> | Per-call overrides for this one request, such as a timeout or extra headers. |
+| <code>request_options</code> | <code>[RequestOptionsOrDict](adyen/core/request_options.py) \| None</code> | Per-call overrides for this one request, such as a timeout, extra headers, or its retry count and statuses. |
 
 </dd>
 </dl>
@@ -2885,7 +2915,15 @@ To make this request, your API credential must have the following [roles](https:
 **Sync**
 
 ```python
-result = client.account_merchant_level.with_raw_response.post_merchants()
+result = client.account_merchant_level.with_raw_response.post_merchants(
+    body=CreateMerchantRequest(
+        business_line_id="YOUR_BUSINESS_LINE_ID",
+        company_id="YOUR_COMPANY_ACCOUNT",
+        description="YOUR_DESCRIPTION",
+        legal_entity_id="YOUR_LEGAL_ENTITY_ID",
+        reference="YOUR_OWN_REFERENCE",
+    ),
+)
 match result:
     case Success(payload=payload):
         ...  # TODO: Handle 'payload' of type CreateMerchantResponse
@@ -2896,7 +2934,15 @@ match result:
 **Async**
 
 ```python
-result = await async_client.account_merchant_level.with_raw_response.post_merchants()
+result = await async_client.account_merchant_level.with_raw_response.post_merchants(
+    body=CreateMerchantRequest(
+        business_line_id="YOUR_BUSINESS_LINE_ID",
+        company_id="YOUR_COMPANY_ACCOUNT",
+        description="YOUR_DESCRIPTION",
+        legal_entity_id="YOUR_LEGAL_ENTITY_ID",
+        reference="YOUR_OWN_REFERENCE",
+    ),
+)
 match result:
     case Success(payload=payload):
         ...  # TODO: Handle 'payload' of type CreateMerchantResponse
@@ -2915,7 +2961,7 @@ match result:
 | Name | Type | Description |
 | --- | --- | --- |
 | <code>body</code> | <code>[CreateMerchantRequest](adyen/models/create_merchant_request.py) \| [CreateMerchantRequestDict](adyen/models/create_merchant_request.py) \| None</code> | The request body.<br>**Default**: <code>None</code> |
-| <code>request_options</code> | <code>[RequestOptionsOrDict](adyen/core/request_options.py) \| None</code> | Per-call overrides for this one request, such as a timeout or extra headers. |
+| <code>request_options</code> | <code>[RequestOptionsOrDict](adyen/core/request_options.py) \| None</code> | Per-call overrides for this one request, such as a timeout, extra headers, or its retry count and statuses. |
 
 </dd>
 </dl>
@@ -2977,7 +3023,7 @@ To make this request, your API credential must have the following [roles](https:
 **Sync**
 
 ```python
-result = client.account_merchant_level.with_raw_response.post_merchants_merchant_id_activate(merchant_id)
+result = client.account_merchant_level.with_raw_response.post_merchants_merchant_id_activate("some example string")
 match result:
     case Success(payload=payload):
         ...  # TODO: Handle 'payload' of type RequestActivationResponse
@@ -2988,7 +3034,9 @@ match result:
 **Async**
 
 ```python
-result = await async_client.account_merchant_level.with_raw_response.post_merchants_merchant_id_activate(merchant_id)
+result = await async_client.account_merchant_level.with_raw_response.post_merchants_merchant_id_activate(
+    "some example string"
+)
 match result:
     case Success(payload=payload):
         ...  # TODO: Handle 'payload' of type RequestActivationResponse
@@ -3007,7 +3055,7 @@ match result:
 | Name | Type | Description |
 | --- | --- | --- |
 | <code>merchant_id</code> | <code>str</code> | The unique identifier of the merchant account. |
-| <code>request_options</code> | <code>[RequestOptionsOrDict](adyen/core/request_options.py) \| None</code> | Per-call overrides for this one request, such as a timeout or extra headers. |
+| <code>request_options</code> | <code>[RequestOptionsOrDict](adyen/core/request_options.py) \| None</code> | Per-call overrides for this one request, such as a timeout, extra headers, or its retry count and statuses. |
 
 </dd>
 </dl>
@@ -3072,7 +3120,7 @@ In the live environment, requests to this endpoint are subject to [rate limits](
 **Sync**
 
 ```python
-result = client.account_store_level.with_raw_response.get_merchants_merchant_id_stores(merchant_id)
+result = client.account_store_level.with_raw_response.get_merchants_merchant_id_stores("some example string")
 match result:
     case Success(payload=payload):
         ...  # TODO: Handle 'payload' of type ListStoresResponse
@@ -3083,7 +3131,9 @@ match result:
 **Async**
 
 ```python
-result = await async_client.account_store_level.with_raw_response.get_merchants_merchant_id_stores(merchant_id)
+result = await async_client.account_store_level.with_raw_response.get_merchants_merchant_id_stores(
+    "some example string"
+)
 match result:
     case Success(payload=payload):
         ...  # TODO: Handle 'payload' of type ListStoresResponse
@@ -3105,7 +3155,7 @@ match result:
 | <code>page_number</code> | <code>int \| None</code> | The number of the page to fetch.<br>**Default**: <code>None</code> |
 | <code>page_size</code> | <code>int \| None</code> | The number of items to have on a page, maximum 100. The default is 10 items on a page.<br>**Default**: <code>None</code> |
 | <code>reference</code> | <code>str \| None</code> | The reference of the store.<br>**Default**: <code>None</code> |
-| <code>request_options</code> | <code>[RequestOptionsOrDict](adyen/core/request_options.py) \| None</code> | Per-call overrides for this one request, such as a timeout or extra headers. |
+| <code>request_options</code> | <code>[RequestOptionsOrDict](adyen/core/request_options.py) \| None</code> | Per-call overrides for this one request, such as a timeout, extra headers, or its retry count and statuses. |
 
 </dd>
 </dl>
@@ -3166,7 +3216,9 @@ In the live environment, requests to this endpoint are subject to [rate limits](
 **Sync**
 
 ```python
-result = client.account_store_level.with_raw_response.get_merchants_merchant_id_stores_store_id(merchant_id, store_id)
+result = client.account_store_level.with_raw_response.get_merchants_merchant_id_stores_store_id(
+    "some example string", "some example string"
+)
 match result:
     case Success(payload=payload):
         ...  # TODO: Handle 'payload' of type Store
@@ -3178,7 +3230,7 @@ match result:
 
 ```python
 result = await async_client.account_store_level.with_raw_response.get_merchants_merchant_id_stores_store_id(
-    merchant_id, store_id
+    "some example string", "some example string"
 )
 match result:
     case Success(payload=payload):
@@ -3199,7 +3251,7 @@ match result:
 | --- | --- | --- |
 | <code>merchant_id</code> | <code>str</code> | The unique identifier of the merchant account. |
 | <code>store_id</code> | <code>str</code> | The unique identifier of the store. |
-| <code>request_options</code> | <code>[RequestOptionsOrDict](adyen/core/request_options.py) \| None</code> | Per-call overrides for this one request, such as a timeout or extra headers. |
+| <code>request_options</code> | <code>[RequestOptionsOrDict](adyen/core/request_options.py) \| None</code> | Per-call overrides for this one request, such as a timeout, extra headers, or its retry count and statuses. |
 
 </dd>
 </dl>
@@ -3293,7 +3345,7 @@ match result:
 | <code>page_size</code> | <code>int \| None</code> | The number of items to have on a page, maximum 100. The default is 10 items on a page.<br>**Default**: <code>None</code> |
 | <code>reference</code> | <code>str \| None</code> | The reference of the store.<br>**Default**: <code>None</code> |
 | <code>merchant_id</code> | <code>str \| None</code> | The unique identifier of the merchant account.<br>**Default**: <code>None</code> |
-| <code>request_options</code> | <code>[RequestOptionsOrDict](adyen/core/request_options.py) \| None</code> | Per-call overrides for this one request, such as a timeout or extra headers. |
+| <code>request_options</code> | <code>[RequestOptionsOrDict](adyen/core/request_options.py) \| None</code> | Per-call overrides for this one request, such as a timeout, extra headers, or its retry count and statuses. |
 
 </dd>
 </dl>
@@ -3354,7 +3406,7 @@ In the live environment, requests to this endpoint are subject to [rate limits](
 **Sync**
 
 ```python
-result = client.account_store_level.with_raw_response.get_stores_store_id(store_id)
+result = client.account_store_level.with_raw_response.get_stores_store_id("some example string")
 match result:
     case Success(payload=payload):
         ...  # TODO: Handle 'payload' of type Store
@@ -3365,7 +3417,7 @@ match result:
 **Async**
 
 ```python
-result = await async_client.account_store_level.with_raw_response.get_stores_store_id(store_id)
+result = await async_client.account_store_level.with_raw_response.get_stores_store_id("some example string")
 match result:
     case Success(payload=payload):
         ...  # TODO: Handle 'payload' of type Store
@@ -3384,7 +3436,7 @@ match result:
 | Name | Type | Description |
 | --- | --- | --- |
 | <code>store_id</code> | <code>str</code> | The unique identifier of the store. |
-| <code>request_options</code> | <code>[RequestOptionsOrDict](adyen/core/request_options.py) \| None</code> | Per-call overrides for this one request, such as a timeout or extra headers. |
+| <code>request_options</code> | <code>[RequestOptionsOrDict](adyen/core/request_options.py) \| None</code> | Per-call overrides for this one request, such as a timeout, extra headers, or its retry count and statuses. |
 
 </dd>
 </dl>
@@ -3444,7 +3496,15 @@ In the live environment, requests to this endpoint are subject to [rate limits](
 **Sync**
 
 ```python
-result = client.account_store_level.with_raw_response.patch_merchants_merchant_id_stores_store_id(merchant_id, store_id)
+result = client.account_store_level.with_raw_response.patch_merchants_merchant_id_stores_store_id(
+    "some example string",
+    "some example string",
+    body=UpdateStoreRequest(
+        address=UpdatableAddress1(
+            line1="1776 West Pinewood Avenue", line2="Heartland Building", line3="", postal_code="20251"
+        ),
+    ),
+)
 match result:
     case Success(payload=payload):
         ...  # TODO: Handle 'payload' of type Store
@@ -3456,7 +3516,13 @@ match result:
 
 ```python
 result = await async_client.account_store_level.with_raw_response.patch_merchants_merchant_id_stores_store_id(
-    merchant_id, store_id
+    "some example string",
+    "some example string",
+    body=UpdateStoreRequest(
+        address=UpdatableAddress1(
+            line1="1776 West Pinewood Avenue", line2="Heartland Building", line3="", postal_code="20251"
+        ),
+    ),
 )
 match result:
     case Success(payload=payload):
@@ -3478,7 +3544,7 @@ match result:
 | <code>merchant_id</code> | <code>str</code> | The unique identifier of the merchant account. |
 | <code>store_id</code> | <code>str</code> | The unique identifier of the store. |
 | <code>body</code> | <code>[UpdateStoreRequest](adyen/models/update_store_request.py) \| [UpdateStoreRequestDict](adyen/models/update_store_request.py) \| None</code> | The request body.<br>**Default**: <code>None</code> |
-| <code>request_options</code> | <code>[RequestOptionsOrDict](adyen/core/request_options.py) \| None</code> | Per-call overrides for this one request, such as a timeout or extra headers. |
+| <code>request_options</code> | <code>[RequestOptionsOrDict](adyen/core/request_options.py) \| None</code> | Per-call overrides for this one request, such as a timeout, extra headers, or its retry count and statuses. |
 
 </dd>
 </dl>
@@ -3539,7 +3605,14 @@ In the live environment, requests to this endpoint are subject to [rate limits](
 **Sync**
 
 ```python
-result = client.account_store_level.with_raw_response.patch_stores_store_id(store_id)
+result = client.account_store_level.with_raw_response.patch_stores_store_id(
+    "some example string",
+    body=UpdateStoreRequest(
+        address=UpdatableAddress1(
+            line1="1776 West Pinewood Avenue", line2="Heartland Building", line3="", postal_code="20251"
+        ),
+    ),
+)
 match result:
     case Success(payload=payload):
         ...  # TODO: Handle 'payload' of type Store
@@ -3550,7 +3623,14 @@ match result:
 **Async**
 
 ```python
-result = await async_client.account_store_level.with_raw_response.patch_stores_store_id(store_id)
+result = await async_client.account_store_level.with_raw_response.patch_stores_store_id(
+    "some example string",
+    body=UpdateStoreRequest(
+        address=UpdatableAddress1(
+            line1="1776 West Pinewood Avenue", line2="Heartland Building", line3="", postal_code="20251"
+        ),
+    ),
+)
 match result:
     case Success(payload=payload):
         ...  # TODO: Handle 'payload' of type Store
@@ -3570,7 +3650,7 @@ match result:
 | --- | --- | --- |
 | <code>store_id</code> | <code>str</code> | The unique identifier of the store. |
 | <code>body</code> | <code>[UpdateStoreRequest](adyen/models/update_store_request.py) \| [UpdateStoreRequestDict](adyen/models/update_store_request.py) \| None</code> | The request body.<br>**Default**: <code>None</code> |
-| <code>request_options</code> | <code>[RequestOptionsOrDict](adyen/core/request_options.py) \| None</code> | Per-call overrides for this one request, such as a timeout or extra headers. |
+| <code>request_options</code> | <code>[RequestOptionsOrDict](adyen/core/request_options.py) \| None</code> | Per-call overrides for this one request, such as a timeout, extra headers, or its retry count and statuses. |
 
 </dd>
 </dl>
@@ -3630,7 +3710,24 @@ In the live environment, requests to this endpoint are subject to [rate limits](
 **Sync**
 
 ```python
-result = client.account_store_level.with_raw_response.post_merchants_merchant_id_stores(merchant_id)
+result = client.account_store_level.with_raw_response.post_merchants_merchant_id_stores(
+    "some example string",
+    body=StoreCreationRequest(
+        address=StoreLocation1(
+            city="Springfield",
+            country="US",
+            line1="200 Main Street",
+            line2="Building 5A",
+            line3="Suite 3",
+            postal_code="20250",
+            state_or_province="NY",
+        ),
+        description="City centre store",
+        phone_number="13123456789",
+        reference="Spring_store_2",
+        shopper_statement="Springfield Shop",
+    ),
+)
 match result:
     case Success(payload=payload):
         ...  # TODO: Handle 'payload' of type Store
@@ -3641,7 +3738,24 @@ match result:
 **Async**
 
 ```python
-result = await async_client.account_store_level.with_raw_response.post_merchants_merchant_id_stores(merchant_id)
+result = await async_client.account_store_level.with_raw_response.post_merchants_merchant_id_stores(
+    "some example string",
+    body=StoreCreationRequest(
+        address=StoreLocation1(
+            city="Springfield",
+            country="US",
+            line1="200 Main Street",
+            line2="Building 5A",
+            line3="Suite 3",
+            postal_code="20250",
+            state_or_province="NY",
+        ),
+        description="City centre store",
+        phone_number="13123456789",
+        reference="Spring_store_2",
+        shopper_statement="Springfield Shop",
+    ),
+)
 match result:
     case Success(payload=payload):
         ...  # TODO: Handle 'payload' of type Store
@@ -3661,7 +3775,7 @@ match result:
 | --- | --- | --- |
 | <code>merchant_id</code> | <code>str</code> | The unique identifier of the merchant account. |
 | <code>body</code> | <code>[StoreCreationRequest](adyen/models/store_creation_request.py) \| [StoreCreationRequestDict](adyen/models/store_creation_request.py) \| None</code> | The request body.<br>**Default**: <code>None</code> |
-| <code>request_options</code> | <code>[RequestOptionsOrDict](adyen/core/request_options.py) \| None</code> | Per-call overrides for this one request, such as a timeout or extra headers. |
+| <code>request_options</code> | <code>[RequestOptionsOrDict](adyen/core/request_options.py) \| None</code> | Per-call overrides for this one request, such as a timeout, extra headers, or its retry count and statuses. |
 
 </dd>
 </dl>
@@ -3721,7 +3835,24 @@ In the live environment, requests to this endpoint are subject to [rate limits](
 **Sync**
 
 ```python
-result = client.account_store_level.with_raw_response.post_stores()
+result = client.account_store_level.with_raw_response.post_stores(
+    body=StoreCreationWithMerchantCodeRequest(
+        address=StoreLocation1(
+            city="Springfield",
+            country="US",
+            line1="200 Main Street",
+            line2="Building 5A",
+            line3="Suite 3",
+            postal_code="20250",
+            state_or_province="NY",
+        ),
+        description="City centre store",
+        merchant_id="YOUR_MERCHANT_ACCOUNT_ID",
+        phone_number="+13123456789",
+        reference="Spring_store_2",
+        shopper_statement="Springfield Shop",
+    ),
+)
 match result:
     case Success(payload=payload):
         ...  # TODO: Handle 'payload' of type Store
@@ -3732,7 +3863,24 @@ match result:
 **Async**
 
 ```python
-result = await async_client.account_store_level.with_raw_response.post_stores()
+result = await async_client.account_store_level.with_raw_response.post_stores(
+    body=StoreCreationWithMerchantCodeRequest(
+        address=StoreLocation1(
+            city="Springfield",
+            country="US",
+            line1="200 Main Street",
+            line2="Building 5A",
+            line3="Suite 3",
+            postal_code="20250",
+            state_or_province="NY",
+        ),
+        description="City centre store",
+        merchant_id="YOUR_MERCHANT_ACCOUNT_ID",
+        phone_number="+13123456789",
+        reference="Spring_store_2",
+        shopper_statement="Springfield Shop",
+    ),
+)
 match result:
     case Success(payload=payload):
         ...  # TODO: Handle 'payload' of type Store
@@ -3751,7 +3899,7 @@ match result:
 | Name | Type | Description |
 | --- | --- | --- |
 | <code>body</code> | <code>[StoreCreationWithMerchantCodeRequest](adyen/models/store_creation_with_merchant_code_request.py) \| [StoreCreationWithMerchantCodeRequestDict](adyen/models/store_creation_with_merchant_code_request.py) \| None</code> | The request body.<br>**Default**: <code>None</code> |
-| <code>request_options</code> | <code>[RequestOptionsOrDict](adyen/core/request_options.py) \| None</code> | Per-call overrides for this one request, such as a timeout or extra headers. |
+| <code>request_options</code> | <code>[RequestOptionsOrDict](adyen/core/request_options.py) \| None</code> | Per-call overrides for this one request, such as a timeout, extra headers, or its retry count and statuses. |
 
 </dd>
 </dl>
@@ -3810,7 +3958,7 @@ Get the account verification report using a unique code from a successful open b
 **Sync**
 
 ```python
-result = client.account_verification.with_raw_response.get_account_verification_reports_code(code)
+result = client.account_verification.with_raw_response.get_account_verification_reports_code("some example string")
 match result:
     case Success(payload=payload):
         ...  # TODO: Handle 'payload' of type AccountVerificationReportResponse
@@ -3821,7 +3969,9 @@ match result:
 **Async**
 
 ```python
-result = await async_client.account_verification.with_raw_response.get_account_verification_reports_code(code)
+result = await async_client.account_verification.with_raw_response.get_account_verification_reports_code(
+    "some example string"
+)
 match result:
     case Success(payload=payload):
         ...  # TODO: Handle 'payload' of type AccountVerificationReportResponse
@@ -3840,7 +3990,7 @@ match result:
 | Name | Type | Description |
 | --- | --- | --- |
 | <code>code</code> | <code>str</code> | The unique code you receive after a successful open banking flow that is included as a query parameter in the `redirectUrl` callback. |
-| <code>request_options</code> | <code>[RequestOptionsOrDict](adyen/core/request_options.py) \| None</code> | Per-call overrides for this one request, such as a timeout or extra headers. |
+| <code>request_options</code> | <code>[RequestOptionsOrDict](adyen/core/request_options.py) \| None</code> | Per-call overrides for this one request, such as a timeout, extra headers, or its retry count and statuses. |
 
 </dd>
 </dl>
@@ -3895,7 +4045,14 @@ Create a list of routes for verifying bank accounts of third-party individuals. 
 **Sync**
 
 ```python
-result = client.account_verification.with_raw_response.post_account_verification_routes(body)
+result = client.account_verification.with_raw_response.post_account_verification_routes(
+    AccountVerificationRoutesRequest(
+        country=AccountVerificationCountry2.NL,
+        locale="en-US",
+        redirect_url="https://merchanturl.example.org/redirect/url",
+        state="11a1e60a-18b0-4dda-9258-e0ae29e1e2a3",
+    ),
+)
 match result:
     case Success(payload=payload):
         ...  # TODO: Handle 'payload' of type AccountVerificationRoutesResponse
@@ -3906,7 +4063,14 @@ match result:
 **Async**
 
 ```python
-result = await async_client.account_verification.with_raw_response.post_account_verification_routes(body)
+result = await async_client.account_verification.with_raw_response.post_account_verification_routes(
+    AccountVerificationRoutesRequest(
+        country=AccountVerificationCountry2.NL,
+        locale="en-US",
+        redirect_url="https://merchanturl.example.org/redirect/url",
+        state="11a1e60a-18b0-4dda-9258-e0ae29e1e2a3",
+    ),
+)
 match result:
     case Success(payload=payload):
         ...  # TODO: Handle 'payload' of type AccountVerificationRoutesResponse
@@ -3925,7 +4089,7 @@ match result:
 | Name | Type | Description |
 | --- | --- | --- |
 | <code>body</code> | <code>[AccountVerificationRoutesRequest](adyen/models/account_verification_routes_request.py) \| [AccountVerificationRoutesRequestDict](adyen/models/account_verification_routes_request.py)</code> | The request body. |
-| <code>request_options</code> | <code>[RequestOptionsOrDict](adyen/core/request_options.py) \| None</code> | Per-call overrides for this one request, such as a timeout or extra headers. |
+| <code>request_options</code> | <code>[RequestOptionsOrDict](adyen/core/request_options.py) \| None</code> | Per-call overrides for this one request, such as a timeout, extra headers, or its retry count and statuses. |
 
 </dd>
 </dl>
@@ -3961,7 +4125,7 @@ Mapped in first-match order -- an earlier row wins over a later range that also 
 > Source: [AccountHolders](adyen/apis/account_holders.py)
 
 <details>
-<summary><code>def get_account_holders_id(id: str, *, request_options: RequestOptionsOrDict | None = None) -> ApiResult[AccountHolder, GetAccountHoldersIdErrorBody]</code></summary>
+<summary><code>def get_account_holders_id(id_: str, *, request_options: RequestOptionsOrDict | None = None) -> ApiResult[AccountHolder, GetAccountHoldersIdErrorBody]</code></summary>
 
 <dl>
 <dd>
@@ -3984,7 +4148,7 @@ Returns an account holder.
 **Sync**
 
 ```python
-result = client.account_holders.with_raw_response.get_account_holders_id(id)
+result = client.account_holders.with_raw_response.get_account_holders_id("some example string")
 match result:
     case Success(payload=payload):
         ...  # TODO: Handle 'payload' of type AccountHolder
@@ -3995,7 +4159,7 @@ match result:
 **Async**
 
 ```python
-result = await async_client.account_holders.with_raw_response.get_account_holders_id(id)
+result = await async_client.account_holders.with_raw_response.get_account_holders_id("some example string")
 match result:
     case Success(payload=payload):
         ...  # TODO: Handle 'payload' of type AccountHolder
@@ -4013,8 +4177,8 @@ match result:
 
 | Name | Type | Description |
 | --- | --- | --- |
-| <code>id</code> | <code>str</code> | The unique identifier of the account holder. |
-| <code>request_options</code> | <code>[RequestOptionsOrDict](adyen/core/request_options.py) \| None</code> | Per-call overrides for this one request, such as a timeout or extra headers. |
+| <code>id_</code> | <code>str</code> | The unique identifier of the account holder. |
+| <code>request_options</code> | <code>[RequestOptionsOrDict](adyen/core/request_options.py) \| None</code> | Per-call overrides for this one request, such as a timeout, extra headers, or its retry count and statuses. |
 
 </dd>
 </dl>
@@ -4046,7 +4210,7 @@ Mapped in first-match order -- an earlier row wins over a later range that also 
 </details>
 
 <details>
-<summary><code>def get_account_holders_id_balance_accounts(id: str, *, offset: int | None = None, limit: int | None = None, request_options: RequestOptionsOrDict | None = None) -> ApiResult[PaginatedBalanceAccountsResponse, GetAccountHoldersIdBalanceAccountsErrorBody]</code></summary>
+<summary><code>def get_account_holders_id_balance_accounts(id_: str, *, offset: int | None = None, limit: int | None = None, request_options: RequestOptionsOrDict | None = None) -> ApiResult[PaginatedBalanceAccountsResponse, GetAccountHoldersIdBalanceAccountsErrorBody]</code></summary>
 
 <dl>
 <dd>
@@ -4071,7 +4235,7 @@ For example, to limit the page to 5 balance accounts and skip the first 10, use 
 **Sync**
 
 ```python
-result = client.account_holders.with_raw_response.get_account_holders_id_balance_accounts(id)
+result = client.account_holders.with_raw_response.get_account_holders_id_balance_accounts("some example string")
 match result:
     case Success(payload=payload):
         ...  # TODO: Handle 'payload' of type PaginatedBalanceAccountsResponse
@@ -4082,7 +4246,9 @@ match result:
 **Async**
 
 ```python
-result = await async_client.account_holders.with_raw_response.get_account_holders_id_balance_accounts(id)
+result = await async_client.account_holders.with_raw_response.get_account_holders_id_balance_accounts(
+    "some example string"
+)
 match result:
     case Success(payload=payload):
         ...  # TODO: Handle 'payload' of type PaginatedBalanceAccountsResponse
@@ -4100,10 +4266,10 @@ match result:
 
 | Name | Type | Description |
 | --- | --- | --- |
-| <code>id</code> | <code>str</code> | The unique identifier of the account holder. |
+| <code>id_</code> | <code>str</code> | The unique identifier of the account holder. |
 | <code>offset</code> | <code>int \| None</code> | The number of items that you want to skip.<br>**Default**: <code>None</code> |
 | <code>limit</code> | <code>int \| None</code> | The number of items returned per page, maximum 100 items. By default, the response returns 10 items per page.<br>**Default**: <code>None</code> |
-| <code>request_options</code> | <code>[RequestOptionsOrDict](adyen/core/request_options.py) \| None</code> | Per-call overrides for this one request, such as a timeout or extra headers. |
+| <code>request_options</code> | <code>[RequestOptionsOrDict](adyen/core/request_options.py) \| None</code> | Per-call overrides for this one request, such as a timeout, extra headers, or its retry count and statuses. |
 
 </dd>
 </dl>
@@ -4135,7 +4301,7 @@ Mapped in first-match order -- an earlier row wins over a later range that also 
 </details>
 
 <details>
-<summary><code>def get_account_holders_id_tax_form_summary(id: str, form_type: str, *, request_options: RequestOptionsOrDict | None = None) -> ApiResult[TaxFormSummaryResponse, RawError]</code></summary>
+<summary><code>def get_account_holders_id_tax_form_summary(id_: str, form_type: str, *, request_options: RequestOptionsOrDict | None = None) -> ApiResult[TaxFormSummaryResponse, RawError]</code></summary>
 
 <dl>
 <dd>
@@ -4158,7 +4324,9 @@ Returns a summary of all tax forms for an account holder.
 **Sync**
 
 ```python
-result = client.account_holders.with_raw_response.get_account_holders_id_tax_form_summary(id, form_type)
+result = client.account_holders.with_raw_response.get_account_holders_id_tax_form_summary(
+    "some example string", "some example string"
+)
 match result:
     case Success(payload=payload):
         ...  # TODO: Handle 'payload' of type TaxFormSummaryResponse
@@ -4169,7 +4337,9 @@ match result:
 **Async**
 
 ```python
-result = await async_client.account_holders.with_raw_response.get_account_holders_id_tax_form_summary(id, form_type)
+result = await async_client.account_holders.with_raw_response.get_account_holders_id_tax_form_summary(
+    "some example string", "some example string"
+)
 match result:
     case Success(payload=payload):
         ...  # TODO: Handle 'payload' of type TaxFormSummaryResponse
@@ -4187,9 +4357,9 @@ match result:
 
 | Name | Type | Description |
 | --- | --- | --- |
-| <code>id</code> | <code>str</code> | The unique identifier of the account holder. |
+| <code>id_</code> | <code>str</code> | The unique identifier of the account holder. |
 | <code>form_type</code> | <code>str</code> | The type of tax form you want a summary for. Accepted values are **US1099k** and **US1099nec**. |
-| <code>request_options</code> | <code>[RequestOptionsOrDict](adyen/core/request_options.py) \| None</code> | Per-call overrides for this one request, such as a timeout or extra headers. |
+| <code>request_options</code> | <code>[RequestOptionsOrDict](adyen/core/request_options.py) \| None</code> | Per-call overrides for this one request, such as a timeout, extra headers, or its retry count and statuses. |
 
 </dd>
 </dl>
@@ -4214,7 +4384,7 @@ match result:
 </details>
 
 <details>
-<summary><code>def get_account_holders_id_tax_forms(id: str, form_type: FormTypeOrStr, year: int, *, legal_entity_id: str | None = None, request_options: RequestOptionsOrDict | None = None) -> ApiResult[GetTaxFormResponse1, GetAccountHoldersIdTaxFormsErrorBody]</code></summary>
+<summary><code>def get_account_holders_id_tax_forms(id_: str, form_type: FormTypeOrStr, year: int, *, legal_entity_id: str | None = None, request_options: RequestOptionsOrDict | None = None) -> ApiResult[GetTaxFormResponse1, GetAccountHoldersIdTaxFormsErrorBody]</code></summary>
 
 <dl>
 <dd>
@@ -4237,7 +4407,9 @@ Generates a tax form for account holders operating in the US. For more informati
 **Sync**
 
 ```python
-result = client.account_holders.with_raw_response.get_account_holders_id_tax_forms(id, form_type, year)
+result = client.account_holders.with_raw_response.get_account_holders_id_tax_forms(
+    "some example string", FormType.US1099K, 1
+)
 match result:
     case Success(payload=payload):
         ...  # TODO: Handle 'payload' of type GetTaxFormResponse1
@@ -4248,7 +4420,9 @@ match result:
 **Async**
 
 ```python
-result = await async_client.account_holders.with_raw_response.get_account_holders_id_tax_forms(id, form_type, year)
+result = await async_client.account_holders.with_raw_response.get_account_holders_id_tax_forms(
+    "some example string", FormType.US1099K, 1
+)
 match result:
     case Success(payload=payload):
         ...  # TODO: Handle 'payload' of type GetTaxFormResponse1
@@ -4266,11 +4440,11 @@ match result:
 
 | Name | Type | Description |
 | --- | --- | --- |
-| <code>id</code> | <code>str</code> | The unique identifier of the account holder. |
+| <code>id_</code> | <code>str</code> | The unique identifier of the account holder. |
 | <code>form_type</code> | <code>[FormTypeOrStr](adyen/models/enums/form_type.py)</code> | The type of tax form you want to retrieve. Accepted values are **US1099k** and **US1099nec**. |
 | <code>year</code> | <code>int</code> | The tax year in **YYYY** format for the tax form you want to retrieve. |
 | <code>legal_entity_id</code> | <code>str \| None</code> | The legal entity reference whose tax form you want to retrieve.<br>**Default**: <code>None</code> |
-| <code>request_options</code> | <code>[RequestOptionsOrDict](adyen/core/request_options.py) \| None</code> | Per-call overrides for this one request, such as a timeout or extra headers. |
+| <code>request_options</code> | <code>[RequestOptionsOrDict](adyen/core/request_options.py) \| None</code> | Per-call overrides for this one request, such as a timeout, extra headers, or its retry count and statuses. |
 
 </dd>
 </dl>
@@ -4302,7 +4476,7 @@ Mapped in first-match order -- an earlier row wins over a later range that also 
 </details>
 
 <details>
-<summary><code>def get_account_holders_id_transaction_rules(id: str, *, request_options: RequestOptionsOrDict | None = None) -> ApiResult[TransactionRulesResponse, GetAccountHoldersIdTransactionRulesErrorBody]</code></summary>
+<summary><code>def get_account_holders_id_transaction_rules(id_: str, *, request_options: RequestOptionsOrDict | None = None) -> ApiResult[TransactionRulesResponse, GetAccountHoldersIdTransactionRulesErrorBody]</code></summary>
 
 <dl>
 <dd>
@@ -4325,7 +4499,7 @@ Returns a list of transaction rules associated with an account holder.
 **Sync**
 
 ```python
-result = client.account_holders.with_raw_response.get_account_holders_id_transaction_rules(id)
+result = client.account_holders.with_raw_response.get_account_holders_id_transaction_rules("some example string")
 match result:
     case Success(payload=payload):
         ...  # TODO: Handle 'payload' of type TransactionRulesResponse
@@ -4336,7 +4510,9 @@ match result:
 **Async**
 
 ```python
-result = await async_client.account_holders.with_raw_response.get_account_holders_id_transaction_rules(id)
+result = await async_client.account_holders.with_raw_response.get_account_holders_id_transaction_rules(
+    "some example string"
+)
 match result:
     case Success(payload=payload):
         ...  # TODO: Handle 'payload' of type TransactionRulesResponse
@@ -4354,8 +4530,8 @@ match result:
 
 | Name | Type | Description |
 | --- | --- | --- |
-| <code>id</code> | <code>str</code> | The unique identifier of the account holder. |
-| <code>request_options</code> | <code>[RequestOptionsOrDict](adyen/core/request_options.py) \| None</code> | Per-call overrides for this one request, such as a timeout or extra headers. |
+| <code>id_</code> | <code>str</code> | The unique identifier of the account holder. |
+| <code>request_options</code> | <code>[RequestOptionsOrDict](adyen/core/request_options.py) \| None</code> | Per-call overrides for this one request, such as a timeout, extra headers, or its retry count and statuses. |
 
 </dd>
 </dl>
@@ -4387,7 +4563,7 @@ Mapped in first-match order -- an earlier row wins over a later range that also 
 </details>
 
 <details>
-<summary><code>def patch_account_holders_id(id: str, *, body: AccountHolderUpdateRequest | AccountHolderUpdateRequestDict | None = None, request_options: RequestOptionsOrDict | None = None) -> ApiResult[AccountHolder, PatchAccountHoldersIdErrorBody]</code></summary>
+<summary><code>def patch_account_holders_id(id_: str, *, body: AccountHolderUpdateRequest | AccountHolderUpdateRequestDict | None = None, request_options: RequestOptionsOrDict | None = None) -> ApiResult[AccountHolder, PatchAccountHoldersIdErrorBody]</code></summary>
 
 <dl>
 <dd>
@@ -4410,7 +4586,14 @@ Updates an account holder. When updating an account holder resource, if a parame
 **Sync**
 
 ```python
-result = client.account_holders.with_raw_response.patch_account_holders_id(id)
+result = client.account_holders.with_raw_response.patch_account_holders_id(
+    "some example string",
+    body=AccountHolderUpdateRequest(
+        capabilities={"receivePayments": AccountHolderCapability(requested=True)},
+        description="Account holder used for international payments and payouts",
+        reference="S.Eller-001",
+    ),
+)
 match result:
     case Success(payload=payload):
         ...  # TODO: Handle 'payload' of type AccountHolder
@@ -4421,7 +4604,14 @@ match result:
 **Async**
 
 ```python
-result = await async_client.account_holders.with_raw_response.patch_account_holders_id(id)
+result = await async_client.account_holders.with_raw_response.patch_account_holders_id(
+    "some example string",
+    body=AccountHolderUpdateRequest(
+        capabilities={"receivePayments": AccountHolderCapability(requested=True)},
+        description="Account holder used for international payments and payouts",
+        reference="S.Eller-001",
+    ),
+)
 match result:
     case Success(payload=payload):
         ...  # TODO: Handle 'payload' of type AccountHolder
@@ -4439,9 +4629,9 @@ match result:
 
 | Name | Type | Description |
 | --- | --- | --- |
-| <code>id</code> | <code>str</code> | The unique identifier of the account holder. |
+| <code>id_</code> | <code>str</code> | The unique identifier of the account holder. |
 | <code>body</code> | <code>[AccountHolderUpdateRequest](adyen/models/account_holder_update_request.py) \| [AccountHolderUpdateRequestDict](adyen/models/account_holder_update_request.py) \| None</code> | The request body.<br>**Default**: <code>None</code> |
-| <code>request_options</code> | <code>[RequestOptionsOrDict](adyen/core/request_options.py) \| None</code> | Per-call overrides for this one request, such as a timeout or extra headers. |
+| <code>request_options</code> | <code>[RequestOptionsOrDict](adyen/core/request_options.py) \| None</code> | Per-call overrides for this one request, such as a timeout, extra headers, or its retry count and statuses. |
 
 </dd>
 </dl>
@@ -4496,7 +4686,13 @@ Creates an account holder linked to a [legal entity](https://docs.adyen.com/api-
 **Sync**
 
 ```python
-result = client.account_holders.with_raw_response.post_account_holders()
+result = client.account_holders.with_raw_response.post_account_holders(
+    body=AccountHolderInfo(
+        description="Account holder used for international payments and payouts",
+        legal_entity_id="LE322JV223222D5GG42KN6869",
+        reference="S.Eller-001",
+    ),
+)
 match result:
     case Success(payload=payload):
         ...  # TODO: Handle 'payload' of type AccountHolder
@@ -4507,7 +4703,13 @@ match result:
 **Async**
 
 ```python
-result = await async_client.account_holders.with_raw_response.post_account_holders()
+result = await async_client.account_holders.with_raw_response.post_account_holders(
+    body=AccountHolderInfo(
+        description="Account holder used for international payments and payouts",
+        legal_entity_id="LE322JV223222D5GG42KN6869",
+        reference="S.Eller-001",
+    ),
+)
 match result:
     case Success(payload=payload):
         ...  # TODO: Handle 'payload' of type AccountHolder
@@ -4526,7 +4728,7 @@ match result:
 | Name | Type | Description |
 | --- | --- | --- |
 | <code>body</code> | <code>[AccountHolderInfo](adyen/models/account_holder_info.py) \| [AccountHolderInfoDict](adyen/models/account_holder_info.py) \| None</code> | The request body.<br>**Default**: <code>None</code> |
-| <code>request_options</code> | <code>[RequestOptionsOrDict](adyen/core/request_options.py) \| None</code> | Per-call overrides for this one request, such as a timeout or extra headers. |
+| <code>request_options</code> | <code>[RequestOptionsOrDict](adyen/core/request_options.py) \| None</code> | Per-call overrides for this one request, such as a timeout, extra headers, or its retry count and statuses. |
 
 </dd>
 </dl>
@@ -4581,7 +4783,9 @@ Changes the [status of an account holder](https://docs.adyen.com/classic-platfor
 **Sync**
 
 ```python
-result = client.account_holders.with_raw_response.post_close_account_holder()
+result = client.account_holders.with_raw_response.post_close_account_holder(
+    body=CloseAccountHolderRequest(account_holder_code="CODE_OF_ACCOUNT_HOLDER")
+)
 match result:
     case Success(payload=payload):
         ...  # TODO: Handle 'payload' of type CloseAccountHolderResponse
@@ -4592,7 +4796,9 @@ match result:
 **Async**
 
 ```python
-result = await async_client.account_holders.with_raw_response.post_close_account_holder()
+result = await async_client.account_holders.with_raw_response.post_close_account_holder(
+    body=CloseAccountHolderRequest(account_holder_code="CODE_OF_ACCOUNT_HOLDER")
+)
 match result:
     case Success(payload=payload):
         ...  # TODO: Handle 'payload' of type CloseAccountHolderResponse
@@ -4611,7 +4817,7 @@ match result:
 | Name | Type | Description |
 | --- | --- | --- |
 | <code>body</code> | <code>[CloseAccountHolderRequest](adyen/models/close_account_holder_request.py) \| [CloseAccountHolderRequestDict](adyen/models/close_account_holder_request.py) \| None</code> | The request body.<br>**Default**: <code>None</code> |
-| <code>request_options</code> | <code>[RequestOptionsOrDict](adyen/core/request_options.py) \| None</code> | Per-call overrides for this one request, such as a timeout or extra headers. |
+| <code>request_options</code> | <code>[RequestOptionsOrDict](adyen/core/request_options.py) \| None</code> | Per-call overrides for this one request, such as a timeout, extra headers, or its retry count and statuses. |
 
 </dd>
 </dl>
@@ -4696,7 +4902,7 @@ match result:
 | Name | Type | Description |
 | --- | --- | --- |
 | <code>body</code> | <code>[CloseStoresRequest](adyen/models/close_stores_request.py) \| [CloseStoresRequestDict](adyen/models/close_stores_request.py) \| None</code> | The request body.<br>**Default**: <code>None</code> |
-| <code>request_options</code> | <code>[RequestOptionsOrDict](adyen/core/request_options.py) \| None</code> | Per-call overrides for this one request, such as a timeout or extra headers. |
+| <code>request_options</code> | <code>[RequestOptionsOrDict](adyen/core/request_options.py) \| None</code> | Per-call overrides for this one request, such as a timeout, extra headers, or its retry count and statuses. |
 
 </dd>
 </dl>
@@ -4751,7 +4957,22 @@ Creates an account holder that [represents the sub-merchant's entity](https://do
 **Sync**
 
 ```python
-result = client.account_holders.with_raw_response.post_create_account_holder()
+result = client.account_holders.with_raw_response.post_create_account_holder(
+    body=CreateAccountHolderRequest(
+        account_holder_code="YOUR_UNIQUE_ACCOUNT_HOLDER_CODE",
+        account_holder_details=AccountHolderDetails1(
+            address=ViasAddress9(country="US"),
+            business_details=BusinessDetails3(
+                doing_business_as="Real Good Restaurant",
+                legal_business_name="Real Good Restaurant Inc.",
+                shareholders=[ShareholderContact()],
+            ),
+            email="test@email.com",
+            web_address="https://www.your-website.com",
+        ),
+        legal_entity=LegalEntity.BUSINESS,
+    ),
+)
 match result:
     case Success(payload=payload):
         ...  # TODO: Handle 'payload' of type CreateAccountHolderResponse
@@ -4762,7 +4983,22 @@ match result:
 **Async**
 
 ```python
-result = await async_client.account_holders.with_raw_response.post_create_account_holder()
+result = await async_client.account_holders.with_raw_response.post_create_account_holder(
+    body=CreateAccountHolderRequest(
+        account_holder_code="YOUR_UNIQUE_ACCOUNT_HOLDER_CODE",
+        account_holder_details=AccountHolderDetails1(
+            address=ViasAddress9(country="US"),
+            business_details=BusinessDetails3(
+                doing_business_as="Real Good Restaurant",
+                legal_business_name="Real Good Restaurant Inc.",
+                shareholders=[ShareholderContact()],
+            ),
+            email="test@email.com",
+            web_address="https://www.your-website.com",
+        ),
+        legal_entity=LegalEntity.BUSINESS,
+    ),
+)
 match result:
     case Success(payload=payload):
         ...  # TODO: Handle 'payload' of type CreateAccountHolderResponse
@@ -4781,7 +5017,7 @@ match result:
 | Name | Type | Description |
 | --- | --- | --- |
 | <code>body</code> | <code>[CreateAccountHolderRequest](adyen/models/create_account_holder_request.py) \| [CreateAccountHolderRequestDict](adyen/models/create_account_holder_request.py) \| None</code> | The request body.<br>**Default**: <code>None</code> |
-| <code>request_options</code> | <code>[RequestOptionsOrDict](adyen/core/request_options.py) \| None</code> | Per-call overrides for this one request, such as a timeout or extra headers. |
+| <code>request_options</code> | <code>[RequestOptionsOrDict](adyen/core/request_options.py) \| None</code> | Per-call overrides for this one request, such as a timeout, extra headers, or its retry count and statuses. |
 
 </dd>
 </dl>
@@ -4836,7 +5072,9 @@ Returns the details of an account holder.
 **Sync**
 
 ```python
-result = client.account_holders.with_raw_response.post_get_account_holder()
+result = client.account_holders.with_raw_response.post_get_account_holder(
+    body=GetAccountHolderRequest(account_code="CODE_OF_ACCOUNT")
+)
 match result:
     case Success(payload=payload):
         ...  # TODO: Handle 'payload' of type GetAccountHolderResponse
@@ -4847,7 +5085,9 @@ match result:
 **Async**
 
 ```python
-result = await async_client.account_holders.with_raw_response.post_get_account_holder()
+result = await async_client.account_holders.with_raw_response.post_get_account_holder(
+    body=GetAccountHolderRequest(account_code="CODE_OF_ACCOUNT")
+)
 match result:
     case Success(payload=payload):
         ...  # TODO: Handle 'payload' of type GetAccountHolderResponse
@@ -4866,7 +5106,7 @@ match result:
 | Name | Type | Description |
 | --- | --- | --- |
 | <code>body</code> | <code>[GetAccountHolderRequest](adyen/models/get_account_holder_request.py) \| [GetAccountHolderRequestDict](adyen/models/get_account_holder_request.py) \| None</code> | The request body.<br>**Default**: <code>None</code> |
-| <code>request_options</code> | <code>[RequestOptionsOrDict](adyen/core/request_options.py) \| None</code> | Per-call overrides for this one request, such as a timeout or extra headers. |
+| <code>request_options</code> | <code>[RequestOptionsOrDict](adyen/core/request_options.py) \| None</code> | Per-call overrides for this one request, such as a timeout, extra headers, or its retry count and statuses. |
 
 </dd>
 </dl>
@@ -4921,7 +5161,9 @@ Generates a tax form for account holders operating in the US. For more informati
 **Sync**
 
 ```python
-result = client.account_holders.with_raw_response.post_get_tax_form()
+result = client.account_holders.with_raw_response.post_get_tax_form(
+    body=GetTaxFormRequest(account_holder_code="CODE_OF_ACCOUNT_HOLDER", form_type="1099-K", year=2020)
+)
 match result:
     case Success(payload=payload):
         ...  # TODO: Handle 'payload' of type GetTaxFormResponse
@@ -4932,7 +5174,9 @@ match result:
 **Async**
 
 ```python
-result = await async_client.account_holders.with_raw_response.post_get_tax_form()
+result = await async_client.account_holders.with_raw_response.post_get_tax_form(
+    body=GetTaxFormRequest(account_holder_code="CODE_OF_ACCOUNT_HOLDER", form_type="1099-K", year=2020)
+)
 match result:
     case Success(payload=payload):
         ...  # TODO: Handle 'payload' of type GetTaxFormResponse
@@ -4951,7 +5195,7 @@ match result:
 | Name | Type | Description |
 | --- | --- | --- |
 | <code>body</code> | <code>[GetTaxFormRequest](adyen/models/get_tax_form_request.py) \| [GetTaxFormRequestDict](adyen/models/get_tax_form_request.py) \| None</code> | The request body.<br>**Default**: <code>None</code> |
-| <code>request_options</code> | <code>[RequestOptionsOrDict](adyen/core/request_options.py) \| None</code> | Per-call overrides for this one request, such as a timeout or extra headers. |
+| <code>request_options</code> | <code>[RequestOptionsOrDict](adyen/core/request_options.py) \| None</code> | Per-call overrides for this one request, such as a timeout, extra headers, or its retry count and statuses. |
 
 </dd>
 </dl>
@@ -5006,7 +5250,9 @@ Changes the [status of an account holder](https://docs.adyen.com/classic-platfor
 **Sync**
 
 ```python
-result = client.account_holders.with_raw_response.post_suspend_account_holder()
+result = client.account_holders.with_raw_response.post_suspend_account_holder(
+    body=SuspendAccountHolderRequest(account_holder_code="CODE_OF_ACCOUNT_HOLDER")
+)
 match result:
     case Success(payload=payload):
         ...  # TODO: Handle 'payload' of type SuspendAccountHolderResponse
@@ -5017,7 +5263,9 @@ match result:
 **Async**
 
 ```python
-result = await async_client.account_holders.with_raw_response.post_suspend_account_holder()
+result = await async_client.account_holders.with_raw_response.post_suspend_account_holder(
+    body=SuspendAccountHolderRequest(account_holder_code="CODE_OF_ACCOUNT_HOLDER")
+)
 match result:
     case Success(payload=payload):
         ...  # TODO: Handle 'payload' of type SuspendAccountHolderResponse
@@ -5036,7 +5284,7 @@ match result:
 | Name | Type | Description |
 | --- | --- | --- |
 | <code>body</code> | <code>[SuspendAccountHolderRequest](adyen/models/suspend_account_holder_request.py) \| [SuspendAccountHolderRequestDict](adyen/models/suspend_account_holder_request.py) \| None</code> | The request body.<br>**Default**: <code>None</code> |
-| <code>request_options</code> | <code>[RequestOptionsOrDict](adyen/core/request_options.py) \| None</code> | Per-call overrides for this one request, such as a timeout or extra headers. |
+| <code>request_options</code> | <code>[RequestOptionsOrDict](adyen/core/request_options.py) \| None</code> | Per-call overrides for this one request, such as a timeout, extra headers, or its retry count and statuses. |
 
 </dd>
 </dl>
@@ -5094,7 +5342,9 @@ You can only unsuspend account holders if they do not have verification checks w
 **Sync**
 
 ```python
-result = client.account_holders.with_raw_response.post_un_suspend_account_holder()
+result = client.account_holders.with_raw_response.post_un_suspend_account_holder(
+    body=UnSuspendAccountHolderRequest(account_holder_code="CODE_OF_ACCOUNT_HOLDER")
+)
 match result:
     case Success(payload=payload):
         ...  # TODO: Handle 'payload' of type UnSuspendAccountHolderResponse
@@ -5105,7 +5355,9 @@ match result:
 **Async**
 
 ```python
-result = await async_client.account_holders.with_raw_response.post_un_suspend_account_holder()
+result = await async_client.account_holders.with_raw_response.post_un_suspend_account_holder(
+    body=UnSuspendAccountHolderRequest(account_holder_code="CODE_OF_ACCOUNT_HOLDER")
+)
 match result:
     case Success(payload=payload):
         ...  # TODO: Handle 'payload' of type UnSuspendAccountHolderResponse
@@ -5124,7 +5376,7 @@ match result:
 | Name | Type | Description |
 | --- | --- | --- |
 | <code>body</code> | <code>[UnSuspendAccountHolderRequest](adyen/models/un_suspend_account_holder_request.py) \| [UnSuspendAccountHolderRequestDict](adyen/models/un_suspend_account_holder_request.py) \| None</code> | The request body.<br>**Default**: <code>None</code> |
-| <code>request_options</code> | <code>[RequestOptionsOrDict](adyen/core/request_options.py) \| None</code> | Per-call overrides for this one request, such as a timeout or extra headers. |
+| <code>request_options</code> | <code>[RequestOptionsOrDict](adyen/core/request_options.py) \| None</code> | Per-call overrides for this one request, such as a timeout, extra headers, or its retry count and statuses. |
 
 </dd>
 </dl>
@@ -5197,7 +5449,25 @@ To add a bank account or shareholder, provide the bank account or shareholder de
 **Sync**
 
 ```python
-result = client.account_holders.with_raw_response.post_update_account_holder()
+result = client.account_holders.with_raw_response.post_update_account_holder(
+    body=UpdateAccountHolderRequest(
+        account_holder_code="YOUR_UNIQUE_ACCOUNT_HOLDER_CODE",
+        account_holder_details=AccountHolderDetails4(
+            address=ViasAddress9(
+                city="NY",
+                country="US",
+                house_number_or_name="100",
+                postal_code="12345",
+                state_or_province="NH",
+                street="Main Street",
+            ),
+            email="test@adyen.com",
+            full_phone_number="+31612345678",
+            merchant_category_code="7999",
+            web_address="http://www.accountholderwebsite.com",
+        ),
+    ),
+)
 match result:
     case Success(payload=payload):
         ...  # TODO: Handle 'payload' of type UpdateAccountHolderResponse
@@ -5208,7 +5478,25 @@ match result:
 **Async**
 
 ```python
-result = await async_client.account_holders.with_raw_response.post_update_account_holder()
+result = await async_client.account_holders.with_raw_response.post_update_account_holder(
+    body=UpdateAccountHolderRequest(
+        account_holder_code="YOUR_UNIQUE_ACCOUNT_HOLDER_CODE",
+        account_holder_details=AccountHolderDetails4(
+            address=ViasAddress9(
+                city="NY",
+                country="US",
+                house_number_or_name="100",
+                postal_code="12345",
+                state_or_province="NH",
+                street="Main Street",
+            ),
+            email="test@adyen.com",
+            full_phone_number="+31612345678",
+            merchant_category_code="7999",
+            web_address="http://www.accountholderwebsite.com",
+        ),
+    ),
+)
 match result:
     case Success(payload=payload):
         ...  # TODO: Handle 'payload' of type UpdateAccountHolderResponse
@@ -5227,7 +5515,7 @@ match result:
 | Name | Type | Description |
 | --- | --- | --- |
 | <code>body</code> | <code>[UpdateAccountHolderRequest](adyen/models/update_account_holder_request.py) \| [UpdateAccountHolderRequestDict](adyen/models/update_account_holder_request.py) \| None</code> | The request body.<br>**Default**: <code>None</code> |
-| <code>request_options</code> | <code>[RequestOptionsOrDict](adyen/core/request_options.py) \| None</code> | Per-call overrides for this one request, such as a timeout or extra headers. |
+| <code>request_options</code> | <code>[RequestOptionsOrDict](adyen/core/request_options.py) \| None</code> | Per-call overrides for this one request, such as a timeout, extra headers, or its retry count and statuses. |
 
 </dd>
 </dl>
@@ -5282,7 +5570,14 @@ Disables or enables the processing or payout state of an account holder.
 **Sync**
 
 ```python
-result = client.account_holders.with_raw_response.post_update_account_holder_state()
+result = client.account_holders.with_raw_response.post_update_account_holder_state(
+    body=UpdateAccountHolderStateRequest(
+        account_holder_code="CODE_OF_ACCOUNT_HOLDER",
+        disable=True,
+        reason="test reason payout",
+        state_type=StateType.PAYOUT,
+    ),
+)
 match result:
     case Success(payload=payload):
         ...  # TODO: Handle 'payload' of type GetAccountHolderStatusResponse
@@ -5293,7 +5588,14 @@ match result:
 **Async**
 
 ```python
-result = await async_client.account_holders.with_raw_response.post_update_account_holder_state()
+result = await async_client.account_holders.with_raw_response.post_update_account_holder_state(
+    body=UpdateAccountHolderStateRequest(
+        account_holder_code="CODE_OF_ACCOUNT_HOLDER",
+        disable=True,
+        reason="test reason payout",
+        state_type=StateType.PAYOUT,
+    ),
+)
 match result:
     case Success(payload=payload):
         ...  # TODO: Handle 'payload' of type GetAccountHolderStatusResponse
@@ -5312,7 +5614,7 @@ match result:
 | Name | Type | Description |
 | --- | --- | --- |
 | <code>body</code> | <code>[UpdateAccountHolderStateRequest](adyen/models/update_account_holder_state_request.py) \| [UpdateAccountHolderStateRequestDict](adyen/models/update_account_holder_state_request.py) \| None</code> | The request body.<br>**Default**: <code>None</code> |
-| <code>request_options</code> | <code>[RequestOptionsOrDict](adyen/core/request_options.py) \| None</code> | Per-call overrides for this one request, such as a timeout or extra headers. |
+| <code>request_options</code> | <code>[RequestOptionsOrDict](adyen/core/request_options.py) \| None</code> | Per-call overrides for this one request, such as a timeout, extra headers, or its retry count and statuses. |
 
 </dd>
 </dl>
@@ -5371,7 +5673,7 @@ Closes an account. If an account is closed, you cannot process transactions, pay
 **Sync**
 
 ```python
-result = client.accounts.with_raw_response.post_close_account()
+result = client.accounts.with_raw_response.post_close_account(body=CloseAccountRequest(account_code="CODE_OF_ACCOUNT"))
 match result:
     case Success(payload=payload):
         ...  # TODO: Handle 'payload' of type CloseAccountResponse
@@ -5382,7 +5684,9 @@ match result:
 **Async**
 
 ```python
-result = await async_client.accounts.with_raw_response.post_close_account()
+result = await async_client.accounts.with_raw_response.post_close_account(
+    body=CloseAccountRequest(account_code="CODE_OF_ACCOUNT")
+)
 match result:
     case Success(payload=payload):
         ...  # TODO: Handle 'payload' of type CloseAccountResponse
@@ -5401,7 +5705,7 @@ match result:
 | Name | Type | Description |
 | --- | --- | --- |
 | <code>body</code> | <code>[CloseAccountRequest](adyen/models/close_account_request.py) \| [CloseAccountRequestDict](adyen/models/close_account_request.py) \| None</code> | The request body.<br>**Default**: <code>None</code> |
-| <code>request_options</code> | <code>[RequestOptionsOrDict](adyen/core/request_options.py) \| None</code> | Per-call overrides for this one request, such as a timeout or extra headers. |
+| <code>request_options</code> | <code>[RequestOptionsOrDict](adyen/core/request_options.py) \| None</code> | Per-call overrides for this one request, such as a timeout, extra headers, or its retry count and statuses. |
 
 </dd>
 </dl>
@@ -5456,7 +5760,9 @@ Creates an account under an account holder. An account holder can have [multiple
 **Sync**
 
 ```python
-result = client.accounts.with_raw_response.post_create_account()
+result = client.accounts.with_raw_response.post_create_account(
+    body=CreateAccountRequest(account_holder_code="CODE_OF_ACCOUNT_HOLDER")
+)
 match result:
     case Success(payload=payload):
         ...  # TODO: Handle 'payload' of type CreateAccountResponse
@@ -5467,7 +5773,9 @@ match result:
 **Async**
 
 ```python
-result = await async_client.accounts.with_raw_response.post_create_account()
+result = await async_client.accounts.with_raw_response.post_create_account(
+    body=CreateAccountRequest(account_holder_code="CODE_OF_ACCOUNT_HOLDER")
+)
 match result:
     case Success(payload=payload):
         ...  # TODO: Handle 'payload' of type CreateAccountResponse
@@ -5486,7 +5794,7 @@ match result:
 | Name | Type | Description |
 | --- | --- | --- |
 | <code>body</code> | <code>[CreateAccountRequest](adyen/models/create_account_request.py) \| [CreateAccountRequestDict](adyen/models/create_account_request.py) \| None</code> | The request body.<br>**Default**: <code>None</code> |
-| <code>request_options</code> | <code>[RequestOptionsOrDict](adyen/core/request_options.py) \| None</code> | Per-call overrides for this one request, such as a timeout or extra headers. |
+| <code>request_options</code> | <code>[RequestOptionsOrDict](adyen/core/request_options.py) \| None</code> | Per-call overrides for this one request, such as a timeout, extra headers, or its retry count and statuses. |
 
 </dd>
 </dl>
@@ -5541,7 +5849,12 @@ Updates the description or payout schedule of an account.
 **Sync**
 
 ```python
-result = client.accounts.with_raw_response.post_update_account()
+result = client.accounts.with_raw_response.post_update_account(
+    body=UpdateAccountRequest(
+        account_code="CODE_OF_ACCOUNT",
+        payout_schedule=UpdatePayoutScheduleRequest2(action=Action.CLOSE, schedule=Schedule1.WEEKLY),
+    ),
+)
 match result:
     case Success(payload=payload):
         ...  # TODO: Handle 'payload' of type UpdateAccountResponse
@@ -5552,7 +5865,12 @@ match result:
 **Async**
 
 ```python
-result = await async_client.accounts.with_raw_response.post_update_account()
+result = await async_client.accounts.with_raw_response.post_update_account(
+    body=UpdateAccountRequest(
+        account_code="CODE_OF_ACCOUNT",
+        payout_schedule=UpdatePayoutScheduleRequest2(action=Action.CLOSE, schedule=Schedule1.WEEKLY),
+    ),
+)
 match result:
     case Success(payload=payload):
         ...  # TODO: Handle 'payload' of type UpdateAccountResponse
@@ -5571,7 +5889,7 @@ match result:
 | Name | Type | Description |
 | --- | --- | --- |
 | <code>body</code> | <code>[UpdateAccountRequest](adyen/models/update_account_request.py) \| [UpdateAccountRequestDict](adyen/models/update_account_request.py) \| None</code> | The request body.<br>**Default**: <code>None</code> |
-| <code>request_options</code> | <code>[RequestOptionsOrDict](adyen/core/request_options.py) \| None</code> | Per-call overrides for this one request, such as a timeout or extra headers. |
+| <code>request_options</code> | <code>[RequestOptionsOrDict](adyen/core/request_options.py) \| None</code> | Per-call overrides for this one request, such as a timeout, extra headers, or its retry count and statuses. |
 
 </dd>
 </dl>
@@ -5634,7 +5952,7 @@ To make this request, your API credential must have the following [roles](https:
 
 ```python
 result = client.allowed_origins_company_level.with_raw_response.delete_companies_company_id_api_credentials_api_credential_id_allowed_origins_origin_id(
-    company_id, api_credential_id, origin_id
+    "some example string", "some example string", "some example string"
 )
 match result:
     case Success():
@@ -5649,7 +5967,7 @@ match result:
 
 ```python
 result = await async_client.allowed_origins_company_level.with_raw_response.delete_companies_company_id_api_credentials_api_credential_id_allowed_origins_origin_id(
-    company_id, api_credential_id, origin_id
+    "some example string", "some example string", "some example string"
 )
 match result:
     case Success():
@@ -5673,7 +5991,7 @@ match result:
 | <code>company_id</code> | <code>str</code> | The unique identifier of the company account. |
 | <code>api_credential_id</code> | <code>str</code> | Unique identifier of the API credential. |
 | <code>origin_id</code> | <code>str</code> | Unique identifier of the allowed origin. |
-| <code>request_options</code> | <code>[RequestOptionsOrDict](adyen/core/request_options.py) \| None</code> | Per-call overrides for this one request, such as a timeout or extra headers. |
+| <code>request_options</code> | <code>[RequestOptionsOrDict](adyen/core/request_options.py) \| None</code> | Per-call overrides for this one request, such as a timeout, extra headers, or its retry count and statuses. |
 
 </dd>
 </dl>
@@ -5732,7 +6050,7 @@ To make this request, your API credential must have the following [roles](https:
 
 ```python
 result = client.allowed_origins_company_level.with_raw_response.get_companies_company_id_api_credentials_api_credential_id_allowed_origins(
-    company_id, api_credential_id
+    "some example string", "some example string"
 )
 match result:
     case Success(payload=payload):
@@ -5745,7 +6063,7 @@ match result:
 
 ```python
 result = await async_client.allowed_origins_company_level.with_raw_response.get_companies_company_id_api_credentials_api_credential_id_allowed_origins(
-    company_id, api_credential_id
+    "some example string", "some example string"
 )
 match result:
     case Success(payload=payload):
@@ -5766,7 +6084,7 @@ match result:
 | --- | --- | --- |
 | <code>company_id</code> | <code>str</code> | The unique identifier of the company account. |
 | <code>api_credential_id</code> | <code>str</code> | Unique identifier of the API credential. |
-| <code>request_options</code> | <code>[RequestOptionsOrDict](adyen/core/request_options.py) \| None</code> | Per-call overrides for this one request, such as a timeout or extra headers. |
+| <code>request_options</code> | <code>[RequestOptionsOrDict](adyen/core/request_options.py) \| None</code> | Per-call overrides for this one request, such as a timeout, extra headers, or its retry count and statuses. |
 
 </dd>
 </dl>
@@ -5825,7 +6143,7 @@ To make this request, your API credential must have the following [roles](https:
 
 ```python
 result = client.allowed_origins_company_level.with_raw_response.get_companies_company_id_api_credentials_api_credential_id_allowed_origins_origin_id(
-    company_id, api_credential_id, origin_id
+    "some example string", "some example string", "some example string"
 )
 match result:
     case Success(payload=payload):
@@ -5839,7 +6157,7 @@ match result:
 
 ```python
 result = await async_client.allowed_origins_company_level.with_raw_response.get_companies_company_id_api_credentials_api_credential_id_allowed_origins_origin_id(
-    company_id, api_credential_id, origin_id
+    "some example string", "some example string", "some example string"
 )
 match result:
     case Success(payload=payload):
@@ -5862,7 +6180,7 @@ match result:
 | <code>company_id</code> | <code>str</code> | The unique identifier of the company account. |
 | <code>api_credential_id</code> | <code>str</code> | Unique identifier of the API credential. |
 | <code>origin_id</code> | <code>str</code> | Unique identifier of the allowed origin. |
-| <code>request_options</code> | <code>[RequestOptionsOrDict](adyen/core/request_options.py) \| None</code> | Per-call overrides for this one request, such as a timeout or extra headers. |
+| <code>request_options</code> | <code>[RequestOptionsOrDict](adyen/core/request_options.py) \| None</code> | Per-call overrides for this one request, such as a timeout, extra headers, or its retry count and statuses. |
 
 </dd>
 </dl>
@@ -5921,7 +6239,7 @@ To make this request, your API credential must have the following [roles](https:
 
 ```python
 result = client.allowed_origins_company_level.with_raw_response.post_companies_company_id_api_credentials_api_credential_id_allowed_origins(
-    company_id, api_credential_id
+    "some example string", "some example string", body=AllowedOrigin(domain="https://www.eu.mystore.com")
 )
 match result:
     case Success(payload=payload):
@@ -5934,7 +6252,7 @@ match result:
 
 ```python
 result = await async_client.allowed_origins_company_level.with_raw_response.post_companies_company_id_api_credentials_api_credential_id_allowed_origins(
-    company_id, api_credential_id
+    "some example string", "some example string", body=AllowedOrigin(domain="https://www.eu.mystore.com")
 )
 match result:
     case Success(payload=payload):
@@ -5956,7 +6274,7 @@ match result:
 | <code>company_id</code> | <code>str</code> | The unique identifier of the company account. |
 | <code>api_credential_id</code> | <code>str</code> | Unique identifier of the API credential. |
 | <code>body</code> | <code>[AllowedOrigin](adyen/models/allowed_origin.py) \| [AllowedOriginDict](adyen/models/allowed_origin.py) \| None</code> | The request body.<br>**Default**: <code>None</code> |
-| <code>request_options</code> | <code>[RequestOptionsOrDict](adyen/core/request_options.py) \| None</code> | Per-call overrides for this one request, such as a timeout or extra headers. |
+| <code>request_options</code> | <code>[RequestOptionsOrDict](adyen/core/request_options.py) \| None</code> | Per-call overrides for this one request, such as a timeout, extra headers, or its retry count and statuses. |
 
 </dd>
 </dl>
@@ -6019,7 +6337,7 @@ To make this request, your API credential must have the following [roles](https:
 
 ```python
 result = client.allowed_origins_merchant_level.with_raw_response.delete_merchants_merchant_id_api_credentials_api_credential_id_allowed_origins_origin_id(
-    merchant_id, api_credential_id, origin_id
+    "some example string", "some example string", "some example string"
 )
 match result:
     case Success():
@@ -6034,7 +6352,7 @@ match result:
 
 ```python
 result = await async_client.allowed_origins_merchant_level.with_raw_response.delete_merchants_merchant_id_api_credentials_api_credential_id_allowed_origins_origin_id(
-    merchant_id, api_credential_id, origin_id
+    "some example string", "some example string", "some example string"
 )
 match result:
     case Success():
@@ -6058,7 +6376,7 @@ match result:
 | <code>merchant_id</code> | <code>str</code> | The unique identifier of the merchant account. |
 | <code>api_credential_id</code> | <code>str</code> | Unique identifier of the API credential. |
 | <code>origin_id</code> | <code>str</code> | Unique identifier of the allowed origin. |
-| <code>request_options</code> | <code>[RequestOptionsOrDict](adyen/core/request_options.py) \| None</code> | Per-call overrides for this one request, such as a timeout or extra headers. |
+| <code>request_options</code> | <code>[RequestOptionsOrDict](adyen/core/request_options.py) \| None</code> | Per-call overrides for this one request, such as a timeout, extra headers, or its retry count and statuses. |
 
 </dd>
 </dl>
@@ -6117,7 +6435,7 @@ To make this request, your API credential must have the following [roles](https:
 
 ```python
 result = client.allowed_origins_merchant_level.with_raw_response.get_merchants_merchant_id_api_credentials_api_credential_id_allowed_origins(
-    merchant_id, api_credential_id
+    "some example string", "some example string"
 )
 match result:
     case Success(payload=payload):
@@ -6130,7 +6448,7 @@ match result:
 
 ```python
 result = await async_client.allowed_origins_merchant_level.with_raw_response.get_merchants_merchant_id_api_credentials_api_credential_id_allowed_origins(
-    merchant_id, api_credential_id
+    "some example string", "some example string"
 )
 match result:
     case Success(payload=payload):
@@ -6151,7 +6469,7 @@ match result:
 | --- | --- | --- |
 | <code>merchant_id</code> | <code>str</code> | The unique identifier of the merchant account. |
 | <code>api_credential_id</code> | <code>str</code> | Unique identifier of the API credential. |
-| <code>request_options</code> | <code>[RequestOptionsOrDict](adyen/core/request_options.py) \| None</code> | Per-call overrides for this one request, such as a timeout or extra headers. |
+| <code>request_options</code> | <code>[RequestOptionsOrDict](adyen/core/request_options.py) \| None</code> | Per-call overrides for this one request, such as a timeout, extra headers, or its retry count and statuses. |
 
 </dd>
 </dl>
@@ -6210,7 +6528,7 @@ To make this request, your API credential must have the following [roles](https:
 
 ```python
 result = client.allowed_origins_merchant_level.with_raw_response.get_merchants_merchant_id_api_credentials_api_credential_id_allowed_origins_origin_id(
-    merchant_id, api_credential_id, origin_id
+    "some example string", "some example string", "some example string"
 )
 match result:
     case Success(payload=payload):
@@ -6225,7 +6543,7 @@ match result:
 
 ```python
 result = await async_client.allowed_origins_merchant_level.with_raw_response.get_merchants_merchant_id_api_credentials_api_credential_id_allowed_origins_origin_id(
-    merchant_id, api_credential_id, origin_id
+    "some example string", "some example string", "some example string"
 )
 match result:
     case Success(payload=payload):
@@ -6249,7 +6567,7 @@ match result:
 | <code>merchant_id</code> | <code>str</code> | The unique identifier of the merchant account. |
 | <code>api_credential_id</code> | <code>str</code> | Unique identifier of the API credential. |
 | <code>origin_id</code> | <code>str</code> | Unique identifier of the allowed origin. |
-| <code>request_options</code> | <code>[RequestOptionsOrDict](adyen/core/request_options.py) \| None</code> | Per-call overrides for this one request, such as a timeout or extra headers. |
+| <code>request_options</code> | <code>[RequestOptionsOrDict](adyen/core/request_options.py) \| None</code> | Per-call overrides for this one request, such as a timeout, extra headers, or its retry count and statuses. |
 
 </dd>
 </dl>
@@ -6308,7 +6626,7 @@ To make this request, your API credential must have the following [roles](https:
 
 ```python
 result = client.allowed_origins_merchant_level.with_raw_response.post_merchants_merchant_id_api_credentials_api_credential_id_allowed_origins(
-    merchant_id, api_credential_id
+    "some example string", "some example string", body=AllowedOrigin(domain="https://www.eu.mystore.com")
 )
 match result:
     case Success(payload=payload):
@@ -6321,7 +6639,7 @@ match result:
 
 ```python
 result = await async_client.allowed_origins_merchant_level.with_raw_response.post_merchants_merchant_id_api_credentials_api_credential_id_allowed_origins(
-    merchant_id, api_credential_id
+    "some example string", "some example string", body=AllowedOrigin(domain="https://www.eu.mystore.com")
 )
 match result:
     case Success(payload=payload):
@@ -6343,7 +6661,7 @@ match result:
 | <code>merchant_id</code> | <code>str</code> | The unique identifier of the merchant account. |
 | <code>api_credential_id</code> | <code>str</code> | Unique identifier of the API credential. |
 | <code>body</code> | <code>[AllowedOrigin](adyen/models/allowed_origin.py) \| [AllowedOriginDict](adyen/models/allowed_origin.py) \| None</code> | The request body.<br>**Default**: <code>None</code> |
-| <code>request_options</code> | <code>[RequestOptionsOrDict](adyen/core/request_options.py) \| None</code> | Per-call overrides for this one request, such as a timeout or extra headers. |
+| <code>request_options</code> | <code>[RequestOptionsOrDict](adyen/core/request_options.py) \| None</code> | Per-call overrides for this one request, such as a timeout, extra headers, or its retry count and statuses. |
 
 </dd>
 </dl>
@@ -6411,7 +6729,9 @@ In the live environment, requests to this endpoint are subject to [rate limits](
 **Sync**
 
 ```python
-result = client.android_files_company_level.with_raw_response.get_companies_company_id_android_apps(company_id)
+result = client.android_files_company_level.with_raw_response.get_companies_company_id_android_apps(
+    "some example string"
+)
 match result:
     case Success(payload=payload):
         ...  # TODO: Handle 'payload' of type AndroidAppsResponse
@@ -6423,7 +6743,7 @@ match result:
 
 ```python
 result = await async_client.android_files_company_level.with_raw_response.get_companies_company_id_android_apps(
-    company_id
+    "some example string"
 )
 match result:
     case Success(payload=payload):
@@ -6447,7 +6767,7 @@ match result:
 | <code>page_size</code> | <code>int \| None</code> | The number of items to have on a page, maximum 100. The default is 20 items on a page.<br>**Default**: <code>None</code> |
 | <code>package_name</code> | <code>str \| None</code> | The package name that uniquely identifies the Android app.<br>**Default**: <code>None</code> |
 | <code>version_code</code> | <code>int \| None</code> | The version number of the app.<br>**Default**: <code>None</code> |
-| <code>request_options</code> | <code>[RequestOptionsOrDict](adyen/core/request_options.py) \| None</code> | Per-call overrides for this one request, such as a timeout or extra headers. |
+| <code>request_options</code> | <code>[RequestOptionsOrDict](adyen/core/request_options.py) \| None</code> | Per-call overrides for this one request, such as a timeout, extra headers, or its retry count and statuses. |
 
 </dd>
 </dl>
@@ -6479,7 +6799,7 @@ Mapped in first-match order -- an earlier row wins over a later range that also 
 </details>
 
 <details>
-<summary><code>def get_companies_company_id_android_apps_id(company_id: str, id: str, *, request_options: RequestOptionsOrDict | None = None) -> ApiResult[AndroidApp, GetCompaniesCompanyIdAndroidAppsIdErrorBody]</code></summary>
+<summary><code>def get_companies_company_id_android_apps_id(company_id: str, id_: str, *, request_options: RequestOptionsOrDict | None = None) -> ApiResult[AndroidApp, GetCompaniesCompanyIdAndroidAppsIdErrorBody]</code></summary>
 
 <dl>
 <dd>
@@ -6509,7 +6829,9 @@ In the live environment, requests to this endpoint are subject to [rate limits](
 **Sync**
 
 ```python
-result = client.android_files_company_level.with_raw_response.get_companies_company_id_android_apps_id(company_id, id)
+result = client.android_files_company_level.with_raw_response.get_companies_company_id_android_apps_id(
+    "some example string", "some example string"
+)
 match result:
     case Success(payload=payload):
         ...  # TODO: Handle 'payload' of type AndroidApp
@@ -6521,7 +6843,7 @@ match result:
 
 ```python
 result = await async_client.android_files_company_level.with_raw_response.get_companies_company_id_android_apps_id(
-    company_id, id
+    "some example string", "some example string"
 )
 match result:
     case Success(payload=payload):
@@ -6541,8 +6863,8 @@ match result:
 | Name | Type | Description |
 | --- | --- | --- |
 | <code>company_id</code> | <code>str</code> | The unique identifier of the company account. |
-| <code>id</code> | <code>str</code> | The unique identifier of the app. |
-| <code>request_options</code> | <code>[RequestOptionsOrDict](adyen/core/request_options.py) \| None</code> | Per-call overrides for this one request, such as a timeout or extra headers. |
+| <code>id_</code> | <code>str</code> | The unique identifier of the app. |
+| <code>request_options</code> | <code>[RequestOptionsOrDict](adyen/core/request_options.py) \| None</code> | Per-call overrides for this one request, such as a timeout, extra headers, or its retry count and statuses. |
 
 </dd>
 </dl>
@@ -6606,7 +6928,9 @@ In the live environment, requests to this endpoint are subject to [rate limits](
 **Sync**
 
 ```python
-result = client.android_files_company_level.with_raw_response.get_companies_company_id_android_certificates(company_id)
+result = client.android_files_company_level.with_raw_response.get_companies_company_id_android_certificates(
+    "some example string"
+)
 match result:
     case Success(payload=payload):
         ...  # TODO: Handle 'payload' of type AndroidCertificatesResponse
@@ -6618,7 +6942,7 @@ match result:
 
 ```python
 result = await async_client.android_files_company_level.with_raw_response.get_companies_company_id_android_certificates(
-    company_id
+    "some example string"
 )
 match result:
     case Success(payload=payload):
@@ -6641,7 +6965,7 @@ match result:
 | <code>page_number</code> | <code>int \| None</code> | The number of the page to fetch.<br>**Default**: <code>None</code> |
 | <code>page_size</code> | <code>int \| None</code> | The number of items to have on a page, maximum 100. The default is 20 items on a page.<br>**Default**: <code>None</code> |
 | <code>certificate_name</code> | <code>str \| None</code> | The name of the certificate.<br>**Default**: <code>None</code> |
-| <code>request_options</code> | <code>[RequestOptionsOrDict](adyen/core/request_options.py) \| None</code> | Per-call overrides for this one request, such as a timeout or extra headers. |
+| <code>request_options</code> | <code>[RequestOptionsOrDict](adyen/core/request_options.py) \| None</code> | Per-call overrides for this one request, such as a timeout, extra headers, or its retry count and statuses. |
 
 </dd>
 </dl>
@@ -6673,7 +6997,7 @@ Mapped in first-match order -- an earlier row wins over a later range that also 
 </details>
 
 <details>
-<summary><code>def patch_companies_company_id_android_apps_id(company_id: str, id: str, *, request_options: RequestOptionsOrDict | None = None) -> ApiResult[ReprocessAndroidAppResponse, PatchCompaniesCompanyIdAndroidAppsIdErrorBody]</code></summary>
+<summary><code>def patch_companies_company_id_android_apps_id(company_id: str, id_: str, *, request_options: RequestOptionsOrDict | None = None) -> ApiResult[ReprocessAndroidAppResponse, PatchCompaniesCompanyIdAndroidAppsIdErrorBody]</code></summary>
 
 <dl>
 <dd>
@@ -6701,7 +7025,9 @@ In the live environment, requests to this endpoint are subject to [rate limits](
 **Sync**
 
 ```python
-result = client.android_files_company_level.with_raw_response.patch_companies_company_id_android_apps_id(company_id, id)
+result = client.android_files_company_level.with_raw_response.patch_companies_company_id_android_apps_id(
+    "some example string", "some example string"
+)
 match result:
     case Success(payload=payload):
         ...  # TODO: Handle 'payload' of type ReprocessAndroidAppResponse
@@ -6713,7 +7039,7 @@ match result:
 
 ```python
 result = await async_client.android_files_company_level.with_raw_response.patch_companies_company_id_android_apps_id(
-    company_id, id
+    "some example string", "some example string"
 )
 match result:
     case Success(payload=payload):
@@ -6733,8 +7059,8 @@ match result:
 | Name | Type | Description |
 | --- | --- | --- |
 | <code>company_id</code> | <code>str</code> | The unique identifier of the company account. |
-| <code>id</code> | <code>str</code> | The unique identifier of the app. |
-| <code>request_options</code> | <code>[RequestOptionsOrDict](adyen/core/request_options.py) \| None</code> | Per-call overrides for this one request, such as a timeout or extra headers. |
+| <code>id_</code> | <code>str</code> | The unique identifier of the app. |
+| <code>request_options</code> | <code>[RequestOptionsOrDict](adyen/core/request_options.py) \| None</code> | Per-call overrides for this one request, such as a timeout, extra headers, or its retry count and statuses. |
 
 </dd>
 </dl>
@@ -6795,7 +7121,9 @@ In the live environment, requests to this endpoint are subject to [rate limits](
 **Sync**
 
 ```python
-result = client.android_files_company_level.with_raw_response.post_companies_company_id_android_apps(company_id)
+result = client.android_files_company_level.with_raw_response.post_companies_company_id_android_apps(
+    "some example string"
+)
 match result:
     case Success(payload=payload):
         ...  # TODO: Handle 'payload' of type UploadAndroidAppResponse
@@ -6807,7 +7135,7 @@ match result:
 
 ```python
 result = await async_client.android_files_company_level.with_raw_response.post_companies_company_id_android_apps(
-    company_id
+    "some example string"
 )
 match result:
     case Success(payload=payload):
@@ -6827,7 +7155,7 @@ match result:
 | Name | Type | Description |
 | --- | --- | --- |
 | <code>company_id</code> | <code>str</code> | The unique identifier of the company account. |
-| <code>request_options</code> | <code>[RequestOptionsOrDict](adyen/core/request_options.py) \| None</code> | Per-call overrides for this one request, such as a timeout or extra headers. |
+| <code>request_options</code> | <code>[RequestOptionsOrDict](adyen/core/request_options.py) \| None</code> | Per-call overrides for this one request, such as a timeout, extra headers, or its retry count and statuses. |
 
 </dd>
 </dl>
@@ -6884,7 +7212,9 @@ In the live environment, requests to this endpoint are subject to [rate limits](
 **Sync**
 
 ```python
-result = client.android_files_company_level.with_raw_response.post_companies_company_id_android_certificates(company_id)
+result = client.android_files_company_level.with_raw_response.post_companies_company_id_android_certificates(
+    "some example string"
+)
 match result:
     case Success(payload=payload):
         ...  # TODO: Handle 'payload' of type UploadAndroidCertificateResponse
@@ -6896,7 +7226,7 @@ match result:
 
 ```python
 result = await async_client.android_files_company_level.with_raw_response.post_companies_company_id_android_certificates(
-    company_id
+    "some example string"
 )
 match result:
     case Success(payload=payload):
@@ -6916,7 +7246,7 @@ match result:
 | Name | Type | Description |
 | --- | --- | --- |
 | <code>company_id</code> | <code>str</code> | The unique identifier of the company account. |
-| <code>request_options</code> | <code>[RequestOptionsOrDict](adyen/core/request_options.py) \| None</code> | Per-call overrides for this one request, such as a timeout or extra headers. |
+| <code>request_options</code> | <code>[RequestOptionsOrDict](adyen/core/request_options.py) \| None</code> | Per-call overrides for this one request, such as a timeout, extra headers, or its retry count and statuses. |
 
 </dd>
 </dl>
@@ -6976,7 +7306,7 @@ Deletes the list of authorized users assigned to a card.
 
 ```python
 result = client.authorized_card_users.with_raw_response.delete_payment_instruments_payment_instrument_id_authorised_card_users(
-    payment_instrument_id
+    "some example string"
 )
 match result:
     case Success():
@@ -6989,7 +7319,7 @@ match result:
 
 ```python
 result = await async_client.authorized_card_users.with_raw_response.delete_payment_instruments_payment_instrument_id_authorised_card_users(
-    payment_instrument_id
+    "some example string"
 )
 match result:
     case Success():
@@ -7009,7 +7339,7 @@ match result:
 | Name | Type | Description |
 | --- | --- | --- |
 | <code>payment_instrument_id</code> | <code>str</code> | Value sent with the request. |
-| <code>request_options</code> | <code>[RequestOptionsOrDict](adyen/core/request_options.py) \| None</code> | Per-call overrides for this one request, such as a timeout or extra headers. |
+| <code>request_options</code> | <code>[RequestOptionsOrDict](adyen/core/request_options.py) \| None</code> | Per-call overrides for this one request, such as a timeout, extra headers, or its retry count and statuses. |
 
 </dd>
 </dl>
@@ -7065,7 +7395,7 @@ Returns the authorized users for a card.
 
 ```python
 result = client.authorized_card_users.with_raw_response.get_payment_instruments_payment_instrument_id_authorised_card_users(
-    payment_instrument_id
+    "some example string"
 )
 match result:
     case Success(payload=payload):
@@ -7078,7 +7408,7 @@ match result:
 
 ```python
 result = await async_client.authorized_card_users.with_raw_response.get_payment_instruments_payment_instrument_id_authorised_card_users(
-    payment_instrument_id
+    "some example string"
 )
 match result:
     case Success(payload=payload):
@@ -7098,7 +7428,7 @@ match result:
 | Name | Type | Description |
 | --- | --- | --- |
 | <code>payment_instrument_id</code> | <code>str</code> | Value sent with the request. |
-| <code>request_options</code> | <code>[RequestOptionsOrDict](adyen/core/request_options.py) \| None</code> | Per-call overrides for this one request, such as a timeout or extra headers. |
+| <code>request_options</code> | <code>[RequestOptionsOrDict](adyen/core/request_options.py) \| None</code> | Per-call overrides for this one request, such as a timeout, extra headers, or its retry count and statuses. |
 
 </dd>
 </dl>
@@ -7156,7 +7486,8 @@ Updates the list of authorized users for a card.
 
 ```python
 result = client.authorized_card_users.with_raw_response.patch_payment_instruments_payment_instrument_id_authorised_card_users(
-    payment_instrument_id, body
+    "some example string",
+    AuthorisedCardUsers(legal_entity_ids=["LE328V522322685LV3KTNF35M", "LE328SW223226B5LWVWNQ8THN"]),
 )
 match result:
     case Success():
@@ -7169,7 +7500,8 @@ match result:
 
 ```python
 result = await async_client.authorized_card_users.with_raw_response.patch_payment_instruments_payment_instrument_id_authorised_card_users(
-    payment_instrument_id, body
+    "some example string",
+    AuthorisedCardUsers(legal_entity_ids=["LE328V522322685LV3KTNF35M", "LE328SW223226B5LWVWNQ8THN"]),
 )
 match result:
     case Success():
@@ -7190,7 +7522,7 @@ match result:
 | --- | --- | --- |
 | <code>payment_instrument_id</code> | <code>str</code> | Value sent with the request. |
 | <code>body</code> | <code>[AuthorisedCardUsers](adyen/models/authorised_card_users.py) \| [AuthorisedCardUsersDict](adyen/models/authorised_card_users.py)</code> | The request body. |
-| <code>request_options</code> | <code>[RequestOptionsOrDict](adyen/core/request_options.py) \| None</code> | Per-call overrides for this one request, such as a timeout or extra headers. |
+| <code>request_options</code> | <code>[RequestOptionsOrDict](adyen/core/request_options.py) \| None</code> | Per-call overrides for this one request, such as a timeout, extra headers, or its retry count and statuses. |
 
 </dd>
 </dl>
@@ -7246,7 +7578,8 @@ Assigns authorized users to a card. Users must have the **authorisedPaymentInstr
 
 ```python
 result = client.authorized_card_users.with_raw_response.post_payment_instruments_payment_instrument_id_authorised_card_users(
-    payment_instrument_id, body
+    "some example string",
+    AuthorisedCardUsers(legal_entity_ids=["LE328V522322685LV3KTNF35M", "LE328SW223226B5LWVWNQ8THN"]),
 )
 match result:
     case Success():
@@ -7259,7 +7592,8 @@ match result:
 
 ```python
 result = await async_client.authorized_card_users.with_raw_response.post_payment_instruments_payment_instrument_id_authorised_card_users(
-    payment_instrument_id, body
+    "some example string",
+    AuthorisedCardUsers(legal_entity_ids=["LE328V522322685LV3KTNF35M", "LE328SW223226B5LWVWNQ8THN"]),
 )
 match result:
     case Success():
@@ -7280,7 +7614,7 @@ match result:
 | --- | --- | --- |
 | <code>payment_instrument_id</code> | <code>str</code> | Value sent with the request. |
 | <code>body</code> | <code>[AuthorisedCardUsers](adyen/models/authorised_card_users.py) \| [AuthorisedCardUsersDict](adyen/models/authorised_card_users.py)</code> | The request body. |
-| <code>request_options</code> | <code>[RequestOptionsOrDict](adyen/core/request_options.py) \| None</code> | Per-call overrides for this one request, such as a timeout or extra headers. |
+| <code>request_options</code> | <code>[RequestOptionsOrDict](adyen/core/request_options.py) \| None</code> | Per-call overrides for this one request, such as a timeout, extra headers, or its retry count and statuses. |
 
 </dd>
 </dl>
@@ -7316,7 +7650,7 @@ Mapped in first-match order -- an earlier row wins over a later range that also 
 > Source: [BalanceAccounts](adyen/apis/balance_accounts.py)
 
 <details>
-<summary><code>def get_balance_accounts_id(id: str, *, request_options: RequestOptionsOrDict | None = None) -> ApiResult[BalanceAccount, GetBalanceAccountsIdErrorBody]</code></summary>
+<summary><code>def get_balance_accounts_id(id_: str, *, request_options: RequestOptionsOrDict | None = None) -> ApiResult[BalanceAccount, GetBalanceAccountsIdErrorBody]</code></summary>
 
 <dl>
 <dd>
@@ -7339,7 +7673,7 @@ Returns a balance account and its balances for the default currency and other cu
 **Sync**
 
 ```python
-result = client.balance_accounts.with_raw_response.get_balance_accounts_id(id)
+result = client.balance_accounts.with_raw_response.get_balance_accounts_id("some example string")
 match result:
     case Success(payload=payload):
         ...  # TODO: Handle 'payload' of type BalanceAccount
@@ -7350,7 +7684,7 @@ match result:
 **Async**
 
 ```python
-result = await async_client.balance_accounts.with_raw_response.get_balance_accounts_id(id)
+result = await async_client.balance_accounts.with_raw_response.get_balance_accounts_id("some example string")
 match result:
     case Success(payload=payload):
         ...  # TODO: Handle 'payload' of type BalanceAccount
@@ -7368,8 +7702,8 @@ match result:
 
 | Name | Type | Description |
 | --- | --- | --- |
-| <code>id</code> | <code>str</code> | The unique identifier of the balance account. |
-| <code>request_options</code> | <code>[RequestOptionsOrDict](adyen/core/request_options.py) \| None</code> | Per-call overrides for this one request, such as a timeout or extra headers. |
+| <code>id_</code> | <code>str</code> | The unique identifier of the balance account. |
+| <code>request_options</code> | <code>[RequestOptionsOrDict](adyen/core/request_options.py) \| None</code> | Per-call overrides for this one request, such as a timeout, extra headers, or its retry count and statuses. |
 
 </dd>
 </dl>
@@ -7401,7 +7735,7 @@ Mapped in first-match order -- an earlier row wins over a later range that also 
 </details>
 
 <details>
-<summary><code>def get_balance_accounts_id_payment_instruments(id: str, *, offset: int | None = None, limit: int | None = None, status: str | None = None, request_options: RequestOptionsOrDict | None = None) -> ApiResult[PaginatedPaymentInstrumentsResponse, GetBalanceAccountsIdPaymentInstrumentsErrorBody]</code></summary>
+<summary><code>def get_balance_accounts_id_payment_instruments(id_: str, *, offset: int | None = None, limit: int | None = None, status: str | None = None, request_options: RequestOptionsOrDict | None = None) -> ApiResult[PaginatedPaymentInstrumentsResponse, GetBalanceAccountsIdPaymentInstrumentsErrorBody]</code></summary>
 
 <dl>
 <dd>
@@ -7426,7 +7760,7 @@ To fetch multiple pages, use the query parameters.For example, to limit the page
 **Sync**
 
 ```python
-result = client.balance_accounts.with_raw_response.get_balance_accounts_id_payment_instruments(id)
+result = client.balance_accounts.with_raw_response.get_balance_accounts_id_payment_instruments("some example string")
 match result:
     case Success(payload=payload):
         ...  # TODO: Handle 'payload' of type PaginatedPaymentInstrumentsResponse
@@ -7437,7 +7771,9 @@ match result:
 **Async**
 
 ```python
-result = await async_client.balance_accounts.with_raw_response.get_balance_accounts_id_payment_instruments(id)
+result = await async_client.balance_accounts.with_raw_response.get_balance_accounts_id_payment_instruments(
+    "some example string"
+)
 match result:
     case Success(payload=payload):
         ...  # TODO: Handle 'payload' of type PaginatedPaymentInstrumentsResponse
@@ -7455,11 +7791,11 @@ match result:
 
 | Name | Type | Description |
 | --- | --- | --- |
-| <code>id</code> | <code>str</code> | The unique identifier of the balance account. |
+| <code>id_</code> | <code>str</code> | The unique identifier of the balance account. |
 | <code>offset</code> | <code>int \| None</code> | The number of items that you want to skip.<br>**Default**: <code>None</code> |
 | <code>limit</code> | <code>int \| None</code> | The number of items returned per page, maximum 100 items. By default, the response returns 10 items per page.<br>**Default**: <code>None</code> |
 | <code>status</code> | <code>str \| None</code> | The status of the payment instruments that you want to get. By default, the response includes payment instruments with any status.<br>**Default**: <code>None</code> |
-| <code>request_options</code> | <code>[RequestOptionsOrDict](adyen/core/request_options.py) \| None</code> | Per-call overrides for this one request, such as a timeout or extra headers. |
+| <code>request_options</code> | <code>[RequestOptionsOrDict](adyen/core/request_options.py) \| None</code> | Per-call overrides for this one request, such as a timeout, extra headers, or its retry count and statuses. |
 
 </dd>
 </dl>
@@ -7491,7 +7827,7 @@ Mapped in first-match order -- an earlier row wins over a later range that also 
 </details>
 
 <details>
-<summary><code>def get_balance_accounts_id_transaction_rules(id: str, *, request_options: RequestOptionsOrDict | None = None) -> ApiResult[TransactionRulesResponse, GetBalanceAccountsIdTransactionRulesErrorBody]</code></summary>
+<summary><code>def get_balance_accounts_id_transaction_rules(id_: str, *, request_options: RequestOptionsOrDict | None = None) -> ApiResult[TransactionRulesResponse, GetBalanceAccountsIdTransactionRulesErrorBody]</code></summary>
 
 <dl>
 <dd>
@@ -7514,7 +7850,7 @@ Returns a list of transaction rules associated with a balance account.
 **Sync**
 
 ```python
-result = client.balance_accounts.with_raw_response.get_balance_accounts_id_transaction_rules(id)
+result = client.balance_accounts.with_raw_response.get_balance_accounts_id_transaction_rules("some example string")
 match result:
     case Success(payload=payload):
         ...  # TODO: Handle 'payload' of type TransactionRulesResponse
@@ -7525,7 +7861,9 @@ match result:
 **Async**
 
 ```python
-result = await async_client.balance_accounts.with_raw_response.get_balance_accounts_id_transaction_rules(id)
+result = await async_client.balance_accounts.with_raw_response.get_balance_accounts_id_transaction_rules(
+    "some example string"
+)
 match result:
     case Success(payload=payload):
         ...  # TODO: Handle 'payload' of type TransactionRulesResponse
@@ -7543,8 +7881,8 @@ match result:
 
 | Name | Type | Description |
 | --- | --- | --- |
-| <code>id</code> | <code>str</code> | The unique identifier of the balance account. |
-| <code>request_options</code> | <code>[RequestOptionsOrDict](adyen/core/request_options.py) \| None</code> | Per-call overrides for this one request, such as a timeout or extra headers. |
+| <code>id_</code> | <code>str</code> | The unique identifier of the balance account. |
+| <code>request_options</code> | <code>[RequestOptionsOrDict](adyen/core/request_options.py) \| None</code> | Per-call overrides for this one request, such as a timeout, extra headers, or its retry count and statuses. |
 
 </dd>
 </dl>
@@ -7576,7 +7914,7 @@ Mapped in first-match order -- an earlier row wins over a later range that also 
 </details>
 
 <details>
-<summary><code>def patch_balance_accounts_id(id: str, *, body: BalanceAccountUpdateRequest | BalanceAccountUpdateRequestDict | None = None, request_options: RequestOptionsOrDict | None = None) -> ApiResult[BalanceAccount, PatchBalanceAccountsIdErrorBody]</code></summary>
+<summary><code>def patch_balance_accounts_id(id_: str, *, body: BalanceAccountUpdateRequest | BalanceAccountUpdateRequestDict | None = None, request_options: RequestOptionsOrDict | None = None) -> ApiResult[BalanceAccount, PatchBalanceAccountsIdErrorBody]</code></summary>
 
 <dl>
 <dd>
@@ -7599,7 +7937,9 @@ Updates a balance account.
 **Sync**
 
 ```python
-result = client.balance_accounts.with_raw_response.patch_balance_accounts_id(id)
+result = client.balance_accounts.with_raw_response.patch_balance_accounts_id(
+    "some example string", body=BalanceAccountUpdateRequest(time_zone="Europe/Amsterdam")
+)
 match result:
     case Success(payload=payload):
         ...  # TODO: Handle 'payload' of type BalanceAccount
@@ -7610,7 +7950,9 @@ match result:
 **Async**
 
 ```python
-result = await async_client.balance_accounts.with_raw_response.patch_balance_accounts_id(id)
+result = await async_client.balance_accounts.with_raw_response.patch_balance_accounts_id(
+    "some example string", body=BalanceAccountUpdateRequest(time_zone="Europe/Amsterdam")
+)
 match result:
     case Success(payload=payload):
         ...  # TODO: Handle 'payload' of type BalanceAccount
@@ -7628,9 +7970,9 @@ match result:
 
 | Name | Type | Description |
 | --- | --- | --- |
-| <code>id</code> | <code>str</code> | The unique identifier of the balance account. |
+| <code>id_</code> | <code>str</code> | The unique identifier of the balance account. |
 | <code>body</code> | <code>[BalanceAccountUpdateRequest](adyen/models/balance_account_update_request.py) \| [BalanceAccountUpdateRequestDict](adyen/models/balance_account_update_request.py) \| None</code> | The request body.<br>**Default**: <code>None</code> |
-| <code>request_options</code> | <code>[RequestOptionsOrDict](adyen/core/request_options.py) \| None</code> | Per-call overrides for this one request, such as a timeout or extra headers. |
+| <code>request_options</code> | <code>[RequestOptionsOrDict](adyen/core/request_options.py) \| None</code> | Per-call overrides for this one request, such as a timeout, extra headers, or its retry count and statuses. |
 
 </dd>
 </dl>
@@ -7685,7 +8027,11 @@ Creates a balance account that holds the funds of the associated account holder.
 **Sync**
 
 ```python
-result = client.balance_accounts.with_raw_response.post_balance_accounts()
+result = client.balance_accounts.with_raw_response.post_balance_accounts(
+    body=BalanceAccountInfo(
+        account_holder_id="AH32272223222C5GXTD343TKP", description="S.Hopper - Main balance account"
+    ),
+)
 match result:
     case Success(payload=payload):
         ...  # TODO: Handle 'payload' of type BalanceAccount
@@ -7696,7 +8042,11 @@ match result:
 **Async**
 
 ```python
-result = await async_client.balance_accounts.with_raw_response.post_balance_accounts()
+result = await async_client.balance_accounts.with_raw_response.post_balance_accounts(
+    body=BalanceAccountInfo(
+        account_holder_id="AH32272223222C5GXTD343TKP", description="S.Hopper - Main balance account"
+    ),
+)
 match result:
     case Success(payload=payload):
         ...  # TODO: Handle 'payload' of type BalanceAccount
@@ -7715,7 +8065,7 @@ match result:
 | Name | Type | Description |
 | --- | --- | --- |
 | <code>body</code> | <code>[BalanceAccountInfo](adyen/models/balance_account_info.py) \| [BalanceAccountInfoDict](adyen/models/balance_account_info.py) \| None</code> | The request body.<br>**Default**: <code>None</code> |
-| <code>request_options</code> | <code>[RequestOptionsOrDict](adyen/core/request_options.py) \| None</code> | Per-call overrides for this one request, such as a timeout or extra headers. |
+| <code>request_options</code> | <code>[RequestOptionsOrDict](adyen/core/request_options.py) \| None</code> | Per-call overrides for this one request, such as a timeout, extra headers, or its retry count and statuses. |
 
 </dd>
 </dl>
@@ -7778,7 +8128,15 @@ When sending multiple API requests with the same source and destination merchant
 **Sync**
 
 ```python
-result = client.balance_transfers.with_raw_response.post_balance_transfers(body)
+result = client.balance_transfers.with_raw_response.post_balance_transfers(
+    BalanceTransferRequest(
+        amount=Amount17(currency="EUR", value=3000),
+        from_merchant="SOURCE_MERCHANT_ACCOUNT",
+        reference="Your reference for the balance transfer.",
+        to_merchant="DESTINATION_MERCHANT_ACCOUNT",
+        type_=BalanceTransferType2.ADJUSTMENT,
+    ),
+)
 match result:
     case Success(payload=payload):
         ...  # TODO: Handle 'payload' of type BalanceTransferResponse
@@ -7789,7 +8147,15 @@ match result:
 **Async**
 
 ```python
-result = await async_client.balance_transfers.with_raw_response.post_balance_transfers(body)
+result = await async_client.balance_transfers.with_raw_response.post_balance_transfers(
+    BalanceTransferRequest(
+        amount=Amount17(currency="EUR", value=3000),
+        from_merchant="SOURCE_MERCHANT_ACCOUNT",
+        reference="Your reference for the balance transfer.",
+        to_merchant="DESTINATION_MERCHANT_ACCOUNT",
+        type_=BalanceTransferType2.ADJUSTMENT,
+    ),
+)
 match result:
     case Success(payload=payload):
         ...  # TODO: Handle 'payload' of type BalanceTransferResponse
@@ -7808,7 +8174,7 @@ match result:
 | Name | Type | Description |
 | --- | --- | --- |
 | <code>body</code> | <code>[BalanceTransferRequest](adyen/models/balance_transfer_request.py) \| [BalanceTransferRequestDict](adyen/models/balance_transfer_request.py)</code> | The request body. |
-| <code>request_options</code> | <code>[RequestOptionsOrDict](adyen/core/request_options.py) \| None</code> | Per-call overrides for this one request, such as a timeout or extra headers. |
+| <code>request_options</code> | <code>[RequestOptionsOrDict](adyen/core/request_options.py) \| None</code> | Per-call overrides for this one request, such as a timeout, extra headers, or its retry count and statuses. |
 
 </dd>
 </dl>
@@ -7868,7 +8234,7 @@ Deletes a balance webhook setting that contains the conditions for triggering [b
 
 ```python
 result = client.balances.with_raw_response.delete_balance_platforms_balance_platform_id_webhooks_webhook_id_settings_setting_id(
-    balance_platform_id, webhook_id, setting_id
+    "some example string", "some example string", "some example string"
 )
 match result:
     case Success(payload=payload):
@@ -7883,7 +8249,7 @@ match result:
 
 ```python
 result = await async_client.balances.with_raw_response.delete_balance_platforms_balance_platform_id_webhooks_webhook_id_settings_setting_id(
-    balance_platform_id, webhook_id, setting_id
+    "some example string", "some example string", "some example string"
 )
 match result:
     case Success(payload=payload):
@@ -7907,7 +8273,7 @@ match result:
 | <code>balance_platform_id</code> | <code>str</code> | The unique identifier of the balance platform. |
 | <code>webhook_id</code> | <code>str</code> | The unique identifier of the balance webhook. |
 | <code>setting_id</code> | <code>str</code> | The unique identifier of the balance webhook setting. |
-| <code>request_options</code> | <code>[RequestOptionsOrDict](adyen/core/request_options.py) \| None</code> | Per-call overrides for this one request, such as a timeout or extra headers. |
+| <code>request_options</code> | <code>[RequestOptionsOrDict](adyen/core/request_options.py) \| None</code> | Per-call overrides for this one request, such as a timeout, extra headers, or its retry count and statuses. |
 
 </dd>
 </dl>
@@ -7963,7 +8329,7 @@ Returns all balance webhook settings configured for triggering [balance webhooks
 
 ```python
 result = client.balances.with_raw_response.get_balance_platforms_balance_platform_id_webhooks_webhook_id_settings(
-    balance_platform_id, webhook_id
+    "some example string", "some example string"
 )
 match result:
     case Success(payload=payload):
@@ -7976,7 +8342,7 @@ match result:
 
 ```python
 result = await async_client.balances.with_raw_response.get_balance_platforms_balance_platform_id_webhooks_webhook_id_settings(
-    balance_platform_id, webhook_id
+    "some example string", "some example string"
 )
 match result:
     case Success(payload=payload):
@@ -7997,7 +8363,7 @@ match result:
 | --- | --- | --- |
 | <code>balance_platform_id</code> | <code>str</code> | The unique identifier of the balance platform. |
 | <code>webhook_id</code> | <code>str</code> | The unique identifier of the balance webhook. |
-| <code>request_options</code> | <code>[RequestOptionsOrDict](adyen/core/request_options.py) \| None</code> | Per-call overrides for this one request, such as a timeout or extra headers. |
+| <code>request_options</code> | <code>[RequestOptionsOrDict](adyen/core/request_options.py) \| None</code> | Per-call overrides for this one request, such as a timeout, extra headers, or its retry count and statuses. |
 
 </dd>
 </dl>
@@ -8053,7 +8419,7 @@ Returns the details of a specific balance webhook setting configured for trigger
 
 ```python
 result = client.balances.with_raw_response.get_balance_platforms_balance_platform_id_webhooks_webhook_id_settings_setting_id(
-    balance_platform_id, webhook_id, setting_id
+    "some example string", "some example string", "some example string"
 )
 match result:
     case Success(payload=payload):
@@ -8067,7 +8433,7 @@ match result:
 
 ```python
 result = await async_client.balances.with_raw_response.get_balance_platforms_balance_platform_id_webhooks_webhook_id_settings_setting_id(
-    balance_platform_id, webhook_id, setting_id
+    "some example string", "some example string", "some example string"
 )
 match result:
     case Success(payload=payload):
@@ -8090,7 +8456,7 @@ match result:
 | <code>balance_platform_id</code> | <code>str</code> | The unique identifier of the balance platform. |
 | <code>webhook_id</code> | <code>str</code> | The unique identifier of the balance webhook. |
 | <code>setting_id</code> | <code>str</code> | The unique identifier of the balance webhook setting. |
-| <code>request_options</code> | <code>[RequestOptionsOrDict](adyen/core/request_options.py) \| None</code> | Per-call overrides for this one request, such as a timeout or extra headers. |
+| <code>request_options</code> | <code>[RequestOptionsOrDict](adyen/core/request_options.py) \| None</code> | Per-call overrides for this one request, such as a timeout, extra headers, or its retry count and statuses. |
 
 </dd>
 </dl>
@@ -8146,7 +8512,10 @@ Updates the conditions the balance change needs to meet for Adyen to send a [bal
 
 ```python
 result = client.balances.with_raw_response.patch_balance_platforms_balance_platform_id_webhooks_webhook_id_settings_setting_id(
-    balance_platform_id, webhook_id, setting_id, body
+    "some example string",
+    "some example string",
+    "some example string",
+    BalanceWebhookSettingInfoUpdate(status=Status6.INACTIVE, type_=Type201.BALANCE),
 )
 match result:
     case Success(payload=payload):
@@ -8160,7 +8529,10 @@ match result:
 
 ```python
 result = await async_client.balances.with_raw_response.patch_balance_platforms_balance_platform_id_webhooks_webhook_id_settings_setting_id(
-    balance_platform_id, webhook_id, setting_id, body
+    "some example string",
+    "some example string",
+    "some example string",
+    BalanceWebhookSettingInfoUpdate(status=Status6.INACTIVE, type_=Type201.BALANCE),
 )
 match result:
     case Success(payload=payload):
@@ -8184,7 +8556,7 @@ match result:
 | <code>webhook_id</code> | <code>str</code> | The unique identifier of the balance webhook. |
 | <code>setting_id</code> | <code>str</code> | The unique identifier of the balance webhook setting. |
 | <code>body</code> | <code>[BalanceWebhookSettingInfoUpdate](adyen/models/balance_webhook_setting_info_update.py) \| [BalanceWebhookSettingInfoUpdateDict](adyen/models/balance_webhook_setting_info_update.py)</code> | The request body. |
-| <code>request_options</code> | <code>[RequestOptionsOrDict](adyen/core/request_options.py) \| None</code> | Per-call overrides for this one request, such as a timeout or extra headers. |
+| <code>request_options</code> | <code>[RequestOptionsOrDict](adyen/core/request_options.py) \| None</code> | Per-call overrides for this one request, such as a timeout, extra headers, or its retry count and statuses. |
 
 </dd>
 </dl>
@@ -8248,7 +8620,16 @@ You can get notified about balance changes in your entire balance platform, in t
 
 ```python
 result = client.balances.with_raw_response.post_balance_platforms_balance_platform_id_webhooks_webhook_id_settings(
-    balance_platform_id, webhook_id, body
+    "some example string",
+    "some example string",
+    BalanceWebhookSettingInfo(
+        conditions=[
+            Condition(balance_type=BalanceType.AVAILABLE, condition_type=ConditionType.LESS_THAN, value=500000)
+        ],
+        currency="USD",
+        status=Status6.ACTIVE,
+        target=Target1(id="BA00000000000000000LIABLE", type_=Type181.BALANCE_ACCOUNT),
+    ),
 )
 match result:
     case Success(payload=payload):
@@ -8261,7 +8642,16 @@ match result:
 
 ```python
 result = await async_client.balances.with_raw_response.post_balance_platforms_balance_platform_id_webhooks_webhook_id_settings(
-    balance_platform_id, webhook_id, body
+    "some example string",
+    "some example string",
+    BalanceWebhookSettingInfo(
+        conditions=[
+            Condition(balance_type=BalanceType.AVAILABLE, condition_type=ConditionType.LESS_THAN, value=500000)
+        ],
+        currency="USD",
+        status=Status6.ACTIVE,
+        target=Target1(id="BA00000000000000000LIABLE", type_=Type181.BALANCE_ACCOUNT),
+    ),
 )
 match result:
     case Success(payload=payload):
@@ -8283,7 +8673,7 @@ match result:
 | <code>balance_platform_id</code> | <code>str</code> | The unique identifier of the balance platform. |
 | <code>webhook_id</code> | <code>str</code> | The unique identifier of the balance webhook. |
 | <code>body</code> | <code>[BalanceWebhookSettingInfo](adyen/models/balance_webhook_setting_info.py) \| [BalanceWebhookSettingInfoDict](adyen/models/balance_webhook_setting_info.py)</code> | The request body. |
-| <code>request_options</code> | <code>[RequestOptionsOrDict](adyen/core/request_options.py) \| None</code> | Per-call overrides for this one request, such as a timeout or extra headers. |
+| <code>request_options</code> | <code>[RequestOptionsOrDict](adyen/core/request_options.py) \| None</code> | Per-call overrides for this one request, such as a timeout, extra headers, or its retry count and statuses. |
 
 </dd>
 </dl>
@@ -8357,7 +8747,7 @@ Returns an array with details about the balances available for all merchant acco
 
 ```python
 result = client.balances_overview.with_raw_response.get_balance_overview_companies_company_account_code_balances(
-    company_account_code, currency
+    "some example string", "some example string"
 )
 match result:
     case Success(payload=payload):
@@ -8370,7 +8760,7 @@ match result:
 
 ```python
 result = await async_client.balances_overview.with_raw_response.get_balance_overview_companies_company_account_code_balances(
-    company_account_code, currency
+    "some example string", "some example string"
 )
 match result:
     case Success(payload=payload):
@@ -8391,7 +8781,7 @@ match result:
 | --- | --- | --- |
 | <code>company_account_code</code> | <code>str</code> | The unique identifier of your company account. |
 | <code>currency</code> | <code>str</code> | The currency for which you want a balances overview. |
-| <code>request_options</code> | <code>[RequestOptionsOrDict](adyen/core/request_options.py) \| None</code> | Per-call overrides for this one request, such as a timeout or extra headers. |
+| <code>request_options</code> | <code>[RequestOptionsOrDict](adyen/core/request_options.py) \| None</code> | Per-call overrides for this one request, such as a timeout, extra headers, or its retry count and statuses. |
 
 </dd>
 </dl>
@@ -8461,7 +8851,7 @@ Returns an overview of the different balances available for the merchant account
 
 ```python
 result = client.balances_overview.with_raw_response.get_balance_overview_merchants_merchant_account_code_balances(
-    merchant_account_code, currency
+    "some example string", "some example string"
 )
 match result:
     case Success(payload=payload):
@@ -8474,7 +8864,7 @@ match result:
 
 ```python
 result = await async_client.balances_overview.with_raw_response.get_balance_overview_merchants_merchant_account_code_balances(
-    merchant_account_code, currency
+    "some example string", "some example string"
 )
 match result:
     case Success(payload=payload):
@@ -8495,7 +8885,7 @@ match result:
 | --- | --- | --- |
 | <code>merchant_account_code</code> | <code>str</code> | The unique identifier of your merchant account. |
 | <code>currency</code> | <code>str</code> | The currency for which you want a balances overview. |
-| <code>request_options</code> | <code>[RequestOptionsOrDict](adyen/core/request_options.py) \| None</code> | Per-call overrides for this one request, such as a timeout or extra headers. |
+| <code>request_options</code> | <code>[RequestOptionsOrDict](adyen/core/request_options.py) \| None</code> | Per-call overrides for this one request, such as a timeout, extra headers, or its retry count and statuses. |
 
 </dd>
 </dl>
@@ -8584,7 +8974,7 @@ match result:
 | Name | Type | Description |
 | --- | --- | --- |
 | <code>body</code> | <code>[BankAccountIdentificationValidationRequest](adyen/models/bank_account_identification_validation_request.py) \| [BankAccountIdentificationValidationRequestDict](adyen/models/bank_account_identification_validation_request.py) \| None</code> | The request body.<br>**Default**: <code>None</code> |
-| <code>request_options</code> | <code>[RequestOptionsOrDict](adyen/core/request_options.py) \| None</code> | Per-call overrides for this one request, such as a timeout or extra headers. |
+| <code>request_options</code> | <code>[RequestOptionsOrDict](adyen/core/request_options.py) \| None</code> | Per-call overrides for this one request, such as a timeout, extra headers, or its retry count and statuses. |
 
 </dd>
 </dl>
@@ -8620,7 +9010,7 @@ Mapped in first-match order -- an earlier row wins over a later range that also 
 > Source: [BusinessLinesApi](adyen/apis/business_lines_api.py)
 
 <details>
-<summary><code>def delete_business_lines_id(id: str, *, request_options: RequestOptionsOrDict | None = None) -> ApiResult[None, DeleteBusinessLinesIdErrorBody]</code></summary>
+<summary><code>def delete_business_lines_id(id_: str, *, request_options: RequestOptionsOrDict | None = None) -> ApiResult[None, DeleteBusinessLinesIdErrorBody]</code></summary>
 
 <dl>
 <dd>
@@ -8653,7 +9043,7 @@ Requests to this endpoint are subject to rate limits:
 **Sync**
 
 ```python
-result = client.business_lines_api.with_raw_response.delete_business_lines_id(id)
+result = client.business_lines_api.with_raw_response.delete_business_lines_id("some example string")
 match result:
     case Success():
         ...  # 2xx, no content
@@ -8664,7 +9054,7 @@ match result:
 **Async**
 
 ```python
-result = await async_client.business_lines_api.with_raw_response.delete_business_lines_id(id)
+result = await async_client.business_lines_api.with_raw_response.delete_business_lines_id("some example string")
 match result:
     case Success():
         ...  # 2xx, no content
@@ -8682,8 +9072,8 @@ match result:
 
 | Name | Type | Description |
 | --- | --- | --- |
-| <code>id</code> | <code>str</code> | The unique identifier of the business line to be deleted. |
-| <code>request_options</code> | <code>[RequestOptionsOrDict](adyen/core/request_options.py) \| None</code> | Per-call overrides for this one request, such as a timeout or extra headers. |
+| <code>id_</code> | <code>str</code> | The unique identifier of the business line to be deleted. |
+| <code>request_options</code> | <code>[RequestOptionsOrDict](adyen/core/request_options.py) \| None</code> | Per-call overrides for this one request, such as a timeout, extra headers, or its retry count and statuses. |
 
 </dd>
 </dl>
@@ -8715,7 +9105,7 @@ Mapped in first-match order -- an earlier row wins over a later range that also 
 </details>
 
 <details>
-<summary><code>def get_business_lines_id(id: str, *, request_options: RequestOptionsOrDict | None = None) -> ApiResult[BusinessLine, GetBusinessLinesIdErrorBody]</code></summary>
+<summary><code>def get_business_lines_id(id_: str, *, request_options: RequestOptionsOrDict | None = None) -> ApiResult[BusinessLine, GetBusinessLinesIdErrorBody]</code></summary>
 
 <dl>
 <dd>
@@ -8746,7 +9136,7 @@ Requests to this endpoint are subject to rate limits:
 **Sync**
 
 ```python
-result = client.business_lines_api.with_raw_response.get_business_lines_id(id)
+result = client.business_lines_api.with_raw_response.get_business_lines_id("some example string")
 match result:
     case Success(payload=payload):
         ...  # TODO: Handle 'payload' of type BusinessLine
@@ -8757,7 +9147,7 @@ match result:
 **Async**
 
 ```python
-result = await async_client.business_lines_api.with_raw_response.get_business_lines_id(id)
+result = await async_client.business_lines_api.with_raw_response.get_business_lines_id("some example string")
 match result:
     case Success(payload=payload):
         ...  # TODO: Handle 'payload' of type BusinessLine
@@ -8775,8 +9165,8 @@ match result:
 
 | Name | Type | Description |
 | --- | --- | --- |
-| <code>id</code> | <code>str</code> | The unique identifier of the business line. |
-| <code>request_options</code> | <code>[RequestOptionsOrDict](adyen/core/request_options.py) \| None</code> | Per-call overrides for this one request, such as a timeout or extra headers. |
+| <code>id_</code> | <code>str</code> | The unique identifier of the business line. |
+| <code>request_options</code> | <code>[RequestOptionsOrDict](adyen/core/request_options.py) \| None</code> | Per-call overrides for this one request, such as a timeout, extra headers, or its retry count and statuses. |
 
 </dd>
 </dl>
@@ -8808,7 +9198,7 @@ Mapped in first-match order -- an earlier row wins over a later range that also 
 </details>
 
 <details>
-<summary><code>def patch_business_lines_id(id: str, *, body: BusinessLineInfoUpdate | BusinessLineInfoUpdateDict | None = None, request_options: RequestOptionsOrDict | None = None) -> ApiResult[BusinessLine, PatchBusinessLinesIdErrorBody]</code></summary>
+<summary><code>def patch_business_lines_id(id_: str, *, body: BusinessLineInfoUpdate | BusinessLineInfoUpdateDict | None = None, request_options: RequestOptionsOrDict | None = None) -> ApiResult[BusinessLine, PatchBusinessLinesIdErrorBody]</code></summary>
 
 <dl>
 <dd>
@@ -8839,7 +9229,10 @@ Requests to this endpoint are subject to rate limits:
 **Sync**
 
 ```python
-result = client.business_lines_api.with_raw_response.patch_business_lines_id(id)
+result = client.business_lines_api.with_raw_response.patch_business_lines_id(
+    "some example string",
+    body=BusinessLineInfoUpdate(industry_code="55", web_data=[WebData(web_address="https://www.example.com")]),
+)
 match result:
     case Success(payload=payload):
         ...  # TODO: Handle 'payload' of type BusinessLine
@@ -8850,7 +9243,10 @@ match result:
 **Async**
 
 ```python
-result = await async_client.business_lines_api.with_raw_response.patch_business_lines_id(id)
+result = await async_client.business_lines_api.with_raw_response.patch_business_lines_id(
+    "some example string",
+    body=BusinessLineInfoUpdate(industry_code="55", web_data=[WebData(web_address="https://www.example.com")]),
+)
 match result:
     case Success(payload=payload):
         ...  # TODO: Handle 'payload' of type BusinessLine
@@ -8868,9 +9264,9 @@ match result:
 
 | Name | Type | Description |
 | --- | --- | --- |
-| <code>id</code> | <code>str</code> | The unique identifier of the business line. |
+| <code>id_</code> | <code>str</code> | The unique identifier of the business line. |
 | <code>body</code> | <code>[BusinessLineInfoUpdate](adyen/models/business_line_info_update.py) \| [BusinessLineInfoUpdateDict](adyen/models/business_line_info_update.py) \| None</code> | The request body.<br>**Default**: <code>None</code> |
-| <code>request_options</code> | <code>[RequestOptionsOrDict](adyen/core/request_options.py) \| None</code> | Per-call overrides for this one request, such as a timeout or extra headers. |
+| <code>request_options</code> | <code>[RequestOptionsOrDict](adyen/core/request_options.py) \| None</code> | Per-call overrides for this one request, such as a timeout, extra headers, or its retry count and statuses. |
 
 </dd>
 </dl>
@@ -8937,7 +9333,20 @@ Requests to this endpoint are subject to rate limits:
 **Sync**
 
 ```python
-result = client.business_lines_api.with_raw_response.post_business_lines()
+result = client.business_lines_api.with_raw_response.post_business_lines(
+    body=BusinessLineInfo(
+        industry_code="4531",
+        legal_entity_id="LE00000000000000000000001",
+        service=Service.BANKING,
+        source_of_funds=SourceOfFunds11(
+            adyen_processed_funds=False,
+            amount=PatchableAmountDto(currency="EUR", value=600000),
+            description="Funds from my flower shop business",
+            type_=Type74.BUSINESS,
+        ),
+        web_data=[WebData(web_address="https://www.adyen.com")],
+    ),
+)
 match result:
     case Success(payload=payload):
         ...  # TODO: Handle 'payload' of type BusinessLine
@@ -8948,7 +9357,20 @@ match result:
 **Async**
 
 ```python
-result = await async_client.business_lines_api.with_raw_response.post_business_lines()
+result = await async_client.business_lines_api.with_raw_response.post_business_lines(
+    body=BusinessLineInfo(
+        industry_code="4531",
+        legal_entity_id="LE00000000000000000000001",
+        service=Service.BANKING,
+        source_of_funds=SourceOfFunds11(
+            adyen_processed_funds=False,
+            amount=PatchableAmountDto(currency="EUR", value=600000),
+            description="Funds from my flower shop business",
+            type_=Type74.BUSINESS,
+        ),
+        web_data=[WebData(web_address="https://www.adyen.com")],
+    ),
+)
 match result:
     case Success(payload=payload):
         ...  # TODO: Handle 'payload' of type BusinessLine
@@ -8967,7 +9389,7 @@ match result:
 | Name | Type | Description |
 | --- | --- | --- |
 | <code>body</code> | <code>[BusinessLineInfo](adyen/models/business_line_info.py) \| [BusinessLineInfoDict](adyen/models/business_line_info.py) \| None</code> | The request body.<br>**Default**: <code>None</code> |
-| <code>request_options</code> | <code>[RequestOptionsOrDict](adyen/core/request_options.py) \| None</code> | Per-call overrides for this one request, such as a timeout or extra headers. |
+| <code>request_options</code> | <code>[RequestOptionsOrDict](adyen/core/request_options.py) \| None</code> | Per-call overrides for this one request, such as a timeout, extra headers, or its retry count and statuses. |
 
 </dd>
 </dl>
@@ -9056,7 +9478,7 @@ match result:
 | Name | Type | Description |
 | --- | --- | --- |
 | <code>counterparty_account_holder_id</code> | <code>str \| None</code> | The counterparty account holder id.<br>**Default**: <code>None</code> |
-| <code>request_options</code> | <code>[RequestOptionsOrDict](adyen/core/request_options.py) \| None</code> | Per-call overrides for this one request, such as a timeout or extra headers. |
+| <code>request_options</code> | <code>[RequestOptionsOrDict](adyen/core/request_options.py) \| None</code> | Per-call overrides for this one request, such as a timeout, extra headers, or its retry count and statuses. |
 
 </dd>
 </dl>
@@ -9088,7 +9510,7 @@ Mapped in first-match order -- an earlier row wins over a later range that also 
 </details>
 
 <details>
-<summary><code>def get_grants_id(id: str, *, request_options: RequestOptionsOrDict | None = None) -> ApiResult[CapitalGrant, GetGrantsIdErrorBody]</code></summary>
+<summary><code>def get_grants_id(id_: str, *, request_options: RequestOptionsOrDict | None = None) -> ApiResult[CapitalGrant, GetGrantsIdErrorBody]</code></summary>
 
 <dl>
 <dd>
@@ -9111,7 +9533,7 @@ Returns the details of a capital account specified in the path.
 **Sync**
 
 ```python
-result = client.capital.with_raw_response.get_grants_id(id)
+result = client.capital.with_raw_response.get_grants_id("some example string")
 match result:
     case Success(payload=payload):
         ...  # TODO: Handle 'payload' of type CapitalGrant
@@ -9122,7 +9544,7 @@ match result:
 **Async**
 
 ```python
-result = await async_client.capital.with_raw_response.get_grants_id(id)
+result = await async_client.capital.with_raw_response.get_grants_id("some example string")
 match result:
     case Success(payload=payload):
         ...  # TODO: Handle 'payload' of type CapitalGrant
@@ -9140,8 +9562,8 @@ match result:
 
 | Name | Type | Description |
 | --- | --- | --- |
-| <code>id</code> | <code>str</code> | The unique identifier of the grant. |
-| <code>request_options</code> | <code>[RequestOptionsOrDict](adyen/core/request_options.py) \| None</code> | Per-call overrides for this one request, such as a timeout or extra headers. |
+| <code>id_</code> | <code>str</code> | The unique identifier of the grant. |
+| <code>request_options</code> | <code>[RequestOptionsOrDict](adyen/core/request_options.py) \| None</code> | Per-call overrides for this one request, such as a timeout, extra headers, or its retry count and statuses. |
 
 </dd>
 </dl>
@@ -9196,7 +9618,14 @@ Requests the payout of the selected grant offer.
 **Sync**
 
 ```python
-result = client.capital.with_raw_response.post_grants()
+result = client.capital.with_raw_response.post_grants(
+    idempotency_key="37ca9c97-d1d1-4c62-89e8-706891a563ed",
+    body=CapitalGrantInfo(
+        counterparty=GrantInfoCounterparty2(balance_account_id="BA00000000000000000000001"),
+        grant_account_id="CG00000000000000000000001",
+        grant_offer_id="0000000000000001",
+    ),
+)
 match result:
     case Success(payload=payload):
         ...  # TODO: Handle 'payload' of type CapitalGrant
@@ -9207,7 +9636,14 @@ match result:
 **Async**
 
 ```python
-result = await async_client.capital.with_raw_response.post_grants()
+result = await async_client.capital.with_raw_response.post_grants(
+    idempotency_key="37ca9c97-d1d1-4c62-89e8-706891a563ed",
+    body=CapitalGrantInfo(
+        counterparty=GrantInfoCounterparty2(balance_account_id="BA00000000000000000000001"),
+        grant_account_id="CG00000000000000000000001",
+        grant_offer_id="0000000000000001",
+    ),
+)
 match result:
     case Success(payload=payload):
         ...  # TODO: Handle 'payload' of type CapitalGrant
@@ -9227,7 +9663,7 @@ match result:
 | --- | --- | --- |
 | <code>idempotency_key</code> | <code>str \| None</code> | A unique identifier for the message with a maximum of 64 characters (we recommend a UUID).<br>**Default**: <code>None</code> |
 | <code>body</code> | <code>[CapitalGrantInfo](adyen/models/capital_grant_info.py) \| [CapitalGrantInfoDict](adyen/models/capital_grant_info.py) \| None</code> | The request body.<br>**Default**: <code>None</code> |
-| <code>request_options</code> | <code>[RequestOptionsOrDict](adyen/core/request_options.py) \| None</code> | Per-call overrides for this one request, such as a timeout or extra headers. |
+| <code>request_options</code> | <code>[RequestOptionsOrDict](adyen/core/request_options.py) \| None</code> | Per-call overrides for this one request, such as a timeout, extra headers, or its retry count and statuses. |
 
 </dd>
 </dl>
@@ -9263,7 +9699,7 @@ Mapped in first-match order -- an earlier row wins over a later range that also 
 > Source: [CardOrders](adyen/apis/card_orders.py)
 
 <details>
-<summary><code>def get_cardorders(*, id: str | None = None, card_manufacturing_profile_id: str | None = None, status: str | None = None, tx_variant_code: str | None = None, created_since: RFC3339DateTime | None = None, created_until: RFC3339DateTime | None = None, locked_since: RFC3339DateTime | None = None, locked_until: RFC3339DateTime | None = None, service_center: str | None = None, offset: int | None = None, limit: int | None = None, request_options: RequestOptionsOrDict | None = None) -> ApiResult[PaginatedGetCardOrderResponse, GetCardordersErrorBody]</code></summary>
+<summary><code>def get_cardorders(*, id_: str | None = None, card_manufacturing_profile_id: str | None = None, status: str | None = None, tx_variant_code: str | None = None, created_since: RFC3339DateTime | None = None, created_until: RFC3339DateTime | None = None, locked_since: RFC3339DateTime | None = None, locked_until: RFC3339DateTime | None = None, service_center: str | None = None, offset: int | None = None, limit: int | None = None, request_options: RequestOptionsOrDict | None = None) -> ApiResult[PaginatedGetCardOrderResponse, GetCardordersErrorBody]</code></summary>
 
 <dl>
 <dd>
@@ -9315,7 +9751,7 @@ match result:
 
 | Name | Type | Description |
 | --- | --- | --- |
-| <code>id</code> | <code>str \| None</code> | The unique identifier of the card order.<br>**Default**: <code>None</code> |
+| <code>id_</code> | <code>str \| None</code> | The unique identifier of the card order.<br>**Default**: <code>None</code> |
 | <code>card_manufacturing_profile_id</code> | <code>str \| None</code> | The unique identifier of the card manufacturer profile.<br>**Default**: <code>None</code> |
 | <code>status</code> | <code>str \| None</code> | The status of the card order.<br>**Default**: <code>None</code> |
 | <code>tx_variant_code</code> | <code>str \| None</code> | The unique code of the card manufacturer profile.<br><br>Possible values: **mcmaestro**, **mc**, **visa**, **mcdebit**.<br>**Default**: <code>None</code> |
@@ -9326,7 +9762,7 @@ match result:
 | <code>service_center</code> | <code>str \| None</code> | The service center at which the card is issued. The value is case-sensitive.<br>**Default**: <code>None</code> |
 | <code>offset</code> | <code>int \| None</code> | Specifies the position of an element in a list of card orders. The response includes a list of card orders that starts at the specified offset.<br><br>**Default:** 0, which means that the response contains all the elements in the list of card orders.<br>**Default**: <code>None</code> |
 | <code>limit</code> | <code>int \| None</code> | The number of card orders returned per page. **Default:** 10.<br>**Default**: <code>None</code> |
-| <code>request_options</code> | <code>[RequestOptionsOrDict](adyen/core/request_options.py) \| None</code> | Per-call overrides for this one request, such as a timeout or extra headers. |
+| <code>request_options</code> | <code>[RequestOptionsOrDict](adyen/core/request_options.py) \| None</code> | Per-call overrides for this one request, such as a timeout, extra headers, or its retry count and statuses. |
 
 </dd>
 </dl>
@@ -9358,7 +9794,7 @@ Mapped in first-match order -- an earlier row wins over a later range that also 
 </details>
 
 <details>
-<summary><code>def get_cardorders_id_items(id: str, *, offset: int | None = None, limit: int | None = None, request_options: RequestOptionsOrDict | None = None) -> ApiResult[PaginatedGetCardOrderItemResponse, GetCardordersIdItemsErrorBody]</code></summary>
+<summary><code>def get_cardorders_id_items(id_: str, *, offset: int | None = None, limit: int | None = None, request_options: RequestOptionsOrDict | None = None) -> ApiResult[PaginatedGetCardOrderItemResponse, GetCardordersIdItemsErrorBody]</code></summary>
 
 <dl>
 <dd>
@@ -9381,7 +9817,7 @@ Returns the item list of a specific card order.
 **Sync**
 
 ```python
-result = client.card_orders.with_raw_response.get_cardorders_id_items(id)
+result = client.card_orders.with_raw_response.get_cardorders_id_items("some example string")
 match result:
     case Success(payload=payload):
         ...  # TODO: Handle 'payload' of type PaginatedGetCardOrderItemResponse
@@ -9392,7 +9828,7 @@ match result:
 **Async**
 
 ```python
-result = await async_client.card_orders.with_raw_response.get_cardorders_id_items(id)
+result = await async_client.card_orders.with_raw_response.get_cardorders_id_items("some example string")
 match result:
     case Success(payload=payload):
         ...  # TODO: Handle 'payload' of type PaginatedGetCardOrderItemResponse
@@ -9410,10 +9846,10 @@ match result:
 
 | Name | Type | Description |
 | --- | --- | --- |
-| <code>id</code> | <code>str</code> | The unique identifier of the card order. |
+| <code>id_</code> | <code>str</code> | The unique identifier of the card order. |
 | <code>offset</code> | <code>int \| None</code> | Specifies the position of an element in a list of card orders. The response includes a list of card order items that starts at the specified offset.<br><br>**Default:** 0, which means that the response contains all the elements in the list of card order items.<br>**Default**: <code>None</code> |
 | <code>limit</code> | <code>int \| None</code> | The number of card order items returned per page. **Default:** 10.<br>**Default**: <code>None</code> |
-| <code>request_options</code> | <code>[RequestOptionsOrDict](adyen/core/request_options.py) \| None</code> | Per-call overrides for this one request, such as a timeout or extra headers. |
+| <code>request_options</code> | <code>[RequestOptionsOrDict](adyen/core/request_options.py) \| None</code> | Per-call overrides for this one request, such as a timeout, extra headers, or its retry count and statuses. |
 
 </dd>
 </dl>
@@ -9472,7 +9908,16 @@ Initiates a [cashout](https://docs.adyen.com/platforms/cash-out-instantly) reque
 **Sync**
 
 ```python
-result = client.cash_out_api.with_raw_response.post_cashouts(body)
+result = client.cash_out_api.with_raw_response.post_cashouts(
+    CashOutInfo(
+        amount=Amount17(currency="EUR", value=50000),
+        counterparty=CashOutInfoCounterparty1(transfer_instrument_id="SE00000000000000000000001"),
+        description="Cashout to bank account",
+        fee=Fee21(amount=Amount17(currency="EUR", value=500)),
+        instructing_balance_account_id="BA00000000000000000000001",
+        reference_for_beneficiary="CASHOUT-REF-001",
+    ),
+)
 match result:
     case Success(payload=payload):
         ...  # TODO: Handle 'payload' of type CashOut
@@ -9483,7 +9928,16 @@ match result:
 **Async**
 
 ```python
-result = await async_client.cash_out_api.with_raw_response.post_cashouts(body)
+result = await async_client.cash_out_api.with_raw_response.post_cashouts(
+    CashOutInfo(
+        amount=Amount17(currency="EUR", value=50000),
+        counterparty=CashOutInfoCounterparty1(transfer_instrument_id="SE00000000000000000000001"),
+        description="Cashout to bank account",
+        fee=Fee21(amount=Amount17(currency="EUR", value=500)),
+        instructing_balance_account_id="BA00000000000000000000001",
+        reference_for_beneficiary="CASHOUT-REF-001",
+    ),
+)
 match result:
     case Success(payload=payload):
         ...  # TODO: Handle 'payload' of type CashOut
@@ -9502,7 +9956,7 @@ match result:
 | Name | Type | Description |
 | --- | --- | --- |
 | <code>body</code> | <code>[CashOutInfo](adyen/models/cash_out_info.py) \| [CashOutInfoDict](adyen/models/cash_out_info.py)</code> | The request body. |
-| <code>request_options</code> | <code>[RequestOptionsOrDict](adyen/core/request_options.py) \| None</code> | Per-call overrides for this one request, such as a timeout or extra headers. |
+| <code>request_options</code> | <code>[RequestOptionsOrDict](adyen/core/request_options.py) \| None</code> | Per-call overrides for this one request, such as a timeout, extra headers, or its retry count and statuses. |
 
 </dd>
 </dl>
@@ -9565,7 +10019,7 @@ To make this request, your API credential must have the following [roles](https:
 
 ```python
 result = client.client_key_company_level.with_raw_response.post_companies_company_id_api_credentials_api_credential_id_generate_client_key(
-    company_id, api_credential_id
+    "some example string", "some example string"
 )
 match result:
     case Success(payload=payload):
@@ -9579,7 +10033,7 @@ match result:
 
 ```python
 result = await async_client.client_key_company_level.with_raw_response.post_companies_company_id_api_credentials_api_credential_id_generate_client_key(
-    company_id, api_credential_id
+    "some example string", "some example string"
 )
 match result:
     case Success(payload=payload):
@@ -9601,7 +10055,7 @@ match result:
 | --- | --- | --- |
 | <code>company_id</code> | <code>str</code> | The unique identifier of the company account. |
 | <code>api_credential_id</code> | <code>str</code> | Unique identifier of the API credential. |
-| <code>request_options</code> | <code>[RequestOptionsOrDict](adyen/core/request_options.py) \| None</code> | Per-call overrides for this one request, such as a timeout or extra headers. |
+| <code>request_options</code> | <code>[RequestOptionsOrDict](adyen/core/request_options.py) \| None</code> | Per-call overrides for this one request, such as a timeout, extra headers, or its retry count and statuses. |
 
 </dd>
 </dl>
@@ -9664,7 +10118,7 @@ To make this request, your API credential must have the following [roles](https:
 
 ```python
 result = client.client_key_merchant_level.with_raw_response.post_merchants_merchant_id_api_credentials_api_credential_id_generate_client_key(
-    merchant_id, api_credential_id
+    "some example string", "some example string"
 )
 match result:
     case Success(payload=payload):
@@ -9678,7 +10132,7 @@ match result:
 
 ```python
 result = await async_client.client_key_merchant_level.with_raw_response.post_merchants_merchant_id_api_credentials_api_credential_id_generate_client_key(
-    merchant_id, api_credential_id
+    "some example string", "some example string"
 )
 match result:
     case Success(payload=payload):
@@ -9700,7 +10154,7 @@ match result:
 | --- | --- | --- |
 | <code>merchant_id</code> | <code>str</code> | The unique identifier of the merchant account. |
 | <code>api_credential_id</code> | <code>str</code> | Unique identifier of the API credential. |
-| <code>request_options</code> | <code>[RequestOptionsOrDict](adyen/core/request_options.py) \| None</code> | Per-call overrides for this one request, such as a timeout or extra headers. |
+| <code>request_options</code> | <code>[RequestOptionsOrDict](adyen/core/request_options.py) \| None</code> | Per-call overrides for this one request, such as a timeout, extra headers, or its retry count and statuses. |
 
 </dd>
 </dl>
@@ -9760,7 +10214,7 @@ Deletes a sweep for a balance account.
 
 ```python
 result = client.custom_payout_schedules_sweeps.with_raw_response.delete_balance_accounts_balance_account_id_sweeps_sweep_id(
-    balance_account_id, sweep_id
+    "some example string", "some example string"
 )
 match result:
     case Success():
@@ -9773,7 +10227,7 @@ match result:
 
 ```python
 result = await async_client.custom_payout_schedules_sweeps.with_raw_response.delete_balance_accounts_balance_account_id_sweeps_sweep_id(
-    balance_account_id, sweep_id
+    "some example string", "some example string"
 )
 match result:
     case Success():
@@ -9794,7 +10248,7 @@ match result:
 | --- | --- | --- |
 | <code>balance_account_id</code> | <code>str</code> | The unique identifier of the balance account. |
 | <code>sweep_id</code> | <code>str</code> | The unique identifier of the sweep. |
-| <code>request_options</code> | <code>[RequestOptionsOrDict](adyen/core/request_options.py) \| None</code> | Per-call overrides for this one request, such as a timeout or extra headers. |
+| <code>request_options</code> | <code>[RequestOptionsOrDict](adyen/core/request_options.py) \| None</code> | Per-call overrides for this one request, such as a timeout, extra headers, or its retry count and statuses. |
 
 </dd>
 </dl>
@@ -9852,7 +10306,7 @@ To fetch multiple pages, use the query parameters. For example, to limit the pag
 
 ```python
 result = client.custom_payout_schedules_sweeps.with_raw_response.get_balance_accounts_balance_account_id_sweeps(
-    balance_account_id
+    "some example string"
 )
 match result:
     case Success(payload=payload):
@@ -9865,7 +10319,7 @@ match result:
 
 ```python
 result = await async_client.custom_payout_schedules_sweeps.with_raw_response.get_balance_accounts_balance_account_id_sweeps(
-    balance_account_id
+    "some example string"
 )
 match result:
     case Success(payload=payload):
@@ -9887,7 +10341,7 @@ match result:
 | <code>balance_account_id</code> | <code>str</code> | The unique identifier of the balance account. |
 | <code>offset</code> | <code>int \| None</code> | The number of items that you want to skip.<br>**Default**: <code>None</code> |
 | <code>limit</code> | <code>int \| None</code> | The number of items returned per page, maximum 100 items. By default, the response returns 10 items per page.<br>**Default**: <code>None</code> |
-| <code>request_options</code> | <code>[RequestOptionsOrDict](adyen/core/request_options.py) \| None</code> | Per-call overrides for this one request, such as a timeout or extra headers. |
+| <code>request_options</code> | <code>[RequestOptionsOrDict](adyen/core/request_options.py) \| None</code> | Per-call overrides for this one request, such as a timeout, extra headers, or its retry count and statuses. |
 
 </dd>
 </dl>
@@ -9943,7 +10397,7 @@ Returns a sweep.
 
 ```python
 result = client.custom_payout_schedules_sweeps.with_raw_response.get_balance_accounts_balance_account_id_sweeps_sweep_id(
-    balance_account_id, sweep_id
+    "some example string", "some example string"
 )
 match result:
     case Success(payload=payload):
@@ -9956,7 +10410,7 @@ match result:
 
 ```python
 result = await async_client.custom_payout_schedules_sweeps.with_raw_response.get_balance_accounts_balance_account_id_sweeps_sweep_id(
-    balance_account_id, sweep_id
+    "some example string", "some example string"
 )
 match result:
     case Success(payload=payload):
@@ -9977,7 +10431,7 @@ match result:
 | --- | --- | --- |
 | <code>balance_account_id</code> | <code>str</code> | The unique identifier of the balance account. |
 | <code>sweep_id</code> | <code>str</code> | The unique identifier of the sweep. |
-| <code>request_options</code> | <code>[RequestOptionsOrDict](adyen/core/request_options.py) \| None</code> | Per-call overrides for this one request, such as a timeout or extra headers. |
+| <code>request_options</code> | <code>[RequestOptionsOrDict](adyen/core/request_options.py) \| None</code> | Per-call overrides for this one request, such as a timeout, extra headers, or its retry count and statuses. |
 
 </dd>
 </dl>
@@ -10033,7 +10487,7 @@ Updates a sweep. When updating a sweep resource, note that if a request paramete
 
 ```python
 result = client.custom_payout_schedules_sweeps.with_raw_response.patch_balance_accounts_balance_account_id_sweeps_sweep_id(
-    balance_account_id, sweep_id
+    "some example string", "some example string", body=UpdateSweepConfigurationV2(status=Status6.INACTIVE)
 )
 match result:
     case Success(payload=payload):
@@ -10046,7 +10500,7 @@ match result:
 
 ```python
 result = await async_client.custom_payout_schedules_sweeps.with_raw_response.patch_balance_accounts_balance_account_id_sweeps_sweep_id(
-    balance_account_id, sweep_id
+    "some example string", "some example string", body=UpdateSweepConfigurationV2(status=Status6.INACTIVE)
 )
 match result:
     case Success(payload=payload):
@@ -10068,7 +10522,7 @@ match result:
 | <code>balance_account_id</code> | <code>str</code> | The unique identifier of the balance account. |
 | <code>sweep_id</code> | <code>str</code> | The unique identifier of the sweep. |
 | <code>body</code> | <code>[UpdateSweepConfigurationV2](adyen/models/update_sweep_configuration_v2.py) \| [UpdateSweepConfigurationV2Dict](adyen/models/update_sweep_configuration_v2.py) \| None</code> | The request body.<br>**Default**: <code>None</code> |
-| <code>request_options</code> | <code>[RequestOptionsOrDict](adyen/core/request_options.py) \| None</code> | Per-call overrides for this one request, such as a timeout or extra headers. |
+| <code>request_options</code> | <code>[RequestOptionsOrDict](adyen/core/request_options.py) \| None</code> | Per-call overrides for this one request, such as a timeout, extra headers, or its retry count and statuses. |
 
 </dd>
 </dl>
@@ -10126,7 +10580,15 @@ A sweep pulls in or pushes out funds based on a defined schedule, amount, curren
 
 ```python
 result = client.custom_payout_schedules_sweeps.with_raw_response.post_balance_accounts_balance_account_id_sweeps(
-    balance_account_id
+    "some example string",
+    body=CreateSweepConfigurationV2(
+        counterparty=SweepCounterparty1(merchant_account="YOUR_MERCHANT_ACCOUNT"),
+        currency="EUR",
+        schedule=SweepSchedule1(type_=Type62.BALANCE),
+        status=Status6.ACTIVE,
+        trigger_amount=Amount17(currency="EUR", value=50000),
+        type_=Type72.PULL,
+    ),
 )
 match result:
     case Success(payload=payload):
@@ -10139,7 +10601,15 @@ match result:
 
 ```python
 result = await async_client.custom_payout_schedules_sweeps.with_raw_response.post_balance_accounts_balance_account_id_sweeps(
-    balance_account_id
+    "some example string",
+    body=CreateSweepConfigurationV2(
+        counterparty=SweepCounterparty1(merchant_account="YOUR_MERCHANT_ACCOUNT"),
+        currency="EUR",
+        schedule=SweepSchedule1(type_=Type62.BALANCE),
+        status=Status6.ACTIVE,
+        trigger_amount=Amount17(currency="EUR", value=50000),
+        type_=Type72.PULL,
+    ),
 )
 match result:
     case Success(payload=payload):
@@ -10160,7 +10630,7 @@ match result:
 | --- | --- | --- |
 | <code>balance_account_id</code> | <code>str</code> | The unique identifier of the balance account. |
 | <code>body</code> | <code>[CreateSweepConfigurationV2](adyen/models/create_sweep_configuration_v2.py) \| [CreateSweepConfigurationV2Dict](adyen/models/create_sweep_configuration_v2.py) \| None</code> | The request body.<br>**Default**: <code>None</code> |
-| <code>request_options</code> | <code>[RequestOptionsOrDict](adyen/core/request_options.py) \| None</code> | Per-call overrides for this one request, such as a timeout or extra headers. |
+| <code>request_options</code> | <code>[RequestOptionsOrDict](adyen/core/request_options.py) \| None</code> | Per-call overrides for this one request, such as a timeout, extra headers, or its retry count and statuses. |
 
 </dd>
 </dl>
@@ -10251,7 +10721,7 @@ match result:
 | <code>balance_account_id</code> | <code>str \| None</code> | The unique identifier of the balance account linked to the payment instrument.<br>**Default**: <code>None</code> |
 | <code>payment_instrument_id</code> | <code>str \| None</code> | The unique identifier of the payment instrument linked to the mandate.<br>**Default**: <code>None</code> |
 | <code>cursor</code> | <code>str \| None</code> | The pagination cursor returned in a previous GET `/mandates` request.<br>**Default**: <code>None</code> |
-| <code>request_options</code> | <code>[RequestOptionsOrDict](adyen/core/request_options.py) \| None</code> | Per-call overrides for this one request, such as a timeout or extra headers. |
+| <code>request_options</code> | <code>[RequestOptionsOrDict](adyen/core/request_options.py) \| None</code> | Per-call overrides for this one request, such as a timeout, extra headers, or its retry count and statuses. |
 
 </dd>
 </dl>
@@ -10306,7 +10776,7 @@ Returns the details of the specified [direct debit mandate](https://docs.adyen.c
 **Sync**
 
 ```python
-result = client.direct_debit_mandates.with_raw_response.get_mandates_mandate_id(mandate_id)
+result = client.direct_debit_mandates.with_raw_response.get_mandates_mandate_id("some example string")
 match result:
     case Success(payload=payload):
         ...  # TODO: Handle 'payload' of type Mandate1
@@ -10317,7 +10787,7 @@ match result:
 **Async**
 
 ```python
-result = await async_client.direct_debit_mandates.with_raw_response.get_mandates_mandate_id(mandate_id)
+result = await async_client.direct_debit_mandates.with_raw_response.get_mandates_mandate_id("some example string")
 match result:
     case Success(payload=payload):
         ...  # TODO: Handle 'payload' of type Mandate1
@@ -10336,7 +10806,7 @@ match result:
 | Name | Type | Description |
 | --- | --- | --- |
 | <code>mandate_id</code> | <code>str</code> | The unique identifier of the mandate. |
-| <code>request_options</code> | <code>[RequestOptionsOrDict](adyen/core/request_options.py) \| None</code> | Per-call overrides for this one request, such as a timeout or extra headers. |
+| <code>request_options</code> | <code>[RequestOptionsOrDict](adyen/core/request_options.py) \| None</code> | Per-call overrides for this one request, such as a timeout, extra headers, or its retry count and statuses. |
 
 </dd>
 </dl>
@@ -10391,7 +10861,9 @@ Amend the specified [direct debit mandate](https://docs.adyen.com/business-accou
 **Sync**
 
 ```python
-result = client.direct_debit_mandates.with_raw_response.patch_mandates_mandate_id(mandate_id, body)
+result = client.direct_debit_mandates.with_raw_response.patch_mandates_mandate_id(
+    "some example string", MandateUpdate()
+)
 match result:
     case Success():
         ...  # 2xx, no content
@@ -10402,7 +10874,9 @@ match result:
 **Async**
 
 ```python
-result = await async_client.direct_debit_mandates.with_raw_response.patch_mandates_mandate_id(mandate_id, body)
+result = await async_client.direct_debit_mandates.with_raw_response.patch_mandates_mandate_id(
+    "some example string", MandateUpdate()
+)
 match result:
     case Success():
         ...  # 2xx, no content
@@ -10422,7 +10896,7 @@ match result:
 | --- | --- | --- |
 | <code>mandate_id</code> | <code>str</code> | The unique identifier of the mandate. |
 | <code>body</code> | <code>[MandateUpdate](adyen/models/mandate_update.py) \| [MandateUpdateDict](adyen/models/mandate_update.py)</code> | The request body. |
-| <code>request_options</code> | <code>[RequestOptionsOrDict](adyen/core/request_options.py) \| None</code> | Per-call overrides for this one request, such as a timeout or extra headers. |
+| <code>request_options</code> | <code>[RequestOptionsOrDict](adyen/core/request_options.py) \| None</code> | Per-call overrides for this one request, such as a timeout, extra headers, or its retry count and statuses. |
 
 </dd>
 </dl>
@@ -10477,7 +10951,7 @@ Cancel a specified [direct debit mandate](https://docs.adyen.com/business-accoun
 **Sync**
 
 ```python
-result = client.direct_debit_mandates.with_raw_response.post_mandates_mandate_id_cancel(mandate_id)
+result = client.direct_debit_mandates.with_raw_response.post_mandates_mandate_id_cancel("some example string")
 match result:
     case Success():
         ...  # 2xx, no content
@@ -10488,7 +10962,9 @@ match result:
 **Async**
 
 ```python
-result = await async_client.direct_debit_mandates.with_raw_response.post_mandates_mandate_id_cancel(mandate_id)
+result = await async_client.direct_debit_mandates.with_raw_response.post_mandates_mandate_id_cancel(
+    "some example string"
+)
 match result:
     case Success():
         ...  # 2xx, no content
@@ -10507,7 +10983,7 @@ match result:
 | Name | Type | Description |
 | --- | --- | --- |
 | <code>mandate_id</code> | <code>str</code> | The unique identifier of the mandate. |
-| <code>request_options</code> | <code>[RequestOptionsOrDict](adyen/core/request_options.py) \| None</code> | Per-call overrides for this one request, such as a timeout or extra headers. |
+| <code>request_options</code> | <code>[RequestOptionsOrDict](adyen/core/request_options.py) \| None</code> | Per-call overrides for this one request, such as a timeout, extra headers, or its retry count and statuses. |
 
 </dd>
 </dl>
@@ -10567,7 +11043,7 @@ Removes the attachment from the raised dispute. Adyen may keep this file for com
 
 ```python
 result = client.dispute_attachments.with_raw_response.delete_disputes_dispute_id_attachments_attachment_id(
-    dispute_id, attachment_id
+    "some example string", "some example string"
 )
 match result:
     case Success():
@@ -10580,7 +11056,7 @@ match result:
 
 ```python
 result = await async_client.dispute_attachments.with_raw_response.delete_disputes_dispute_id_attachments_attachment_id(
-    dispute_id, attachment_id
+    "some example string", "some example string"
 )
 match result:
     case Success():
@@ -10601,7 +11077,7 @@ match result:
 | --- | --- | --- |
 | <code>dispute_id</code> | <code>str</code> | The unique identifier of the raised dispute. |
 | <code>attachment_id</code> | <code>str</code> | The unique identifier of the attachment. |
-| <code>request_options</code> | <code>[RequestOptionsOrDict](adyen/core/request_options.py) \| None</code> | Per-call overrides for this one request, such as a timeout or extra headers. |
+| <code>request_options</code> | <code>[RequestOptionsOrDict](adyen/core/request_options.py) \| None</code> | Per-call overrides for this one request, such as a timeout, extra headers, or its retry count and statuses. |
 
 </dd>
 </dl>
@@ -10656,7 +11132,7 @@ Get a list of attachments associated with a dispute ID.
 **Sync**
 
 ```python
-result = client.dispute_attachments.with_raw_response.get_disputes_dispute_id_attachments(dispute_id)
+result = client.dispute_attachments.with_raw_response.get_disputes_dispute_id_attachments("some example string")
 match result:
     case Success(payload=payload):
         ...  # TODO: Handle 'payload' of type list[DisputeAttachment]
@@ -10667,7 +11143,9 @@ match result:
 **Async**
 
 ```python
-result = await async_client.dispute_attachments.with_raw_response.get_disputes_dispute_id_attachments(dispute_id)
+result = await async_client.dispute_attachments.with_raw_response.get_disputes_dispute_id_attachments(
+    "some example string"
+)
 match result:
     case Success(payload=payload):
         ...  # TODO: Handle 'payload' of type list[DisputeAttachment]
@@ -10686,7 +11164,7 @@ match result:
 | Name | Type | Description |
 | --- | --- | --- |
 | <code>dispute_id</code> | <code>str</code> | The unique identifier of the raised dispute. |
-| <code>request_options</code> | <code>[RequestOptionsOrDict](adyen/core/request_options.py) \| None</code> | Per-call overrides for this one request, such as a timeout or extra headers. |
+| <code>request_options</code> | <code>[RequestOptionsOrDict](adyen/core/request_options.py) \| None</code> | Per-call overrides for this one request, such as a timeout, extra headers, or its retry count and statuses. |
 
 </dd>
 </dl>
@@ -10742,7 +11220,7 @@ Search for a single attachment, providing the specific dispute ID and attachment
 
 ```python
 result = client.dispute_attachments.with_raw_response.get_disputes_dispute_id_attachments_attachment_id(
-    dispute_id, attachment_id
+    "some example string", "some example string"
 )
 match result:
     case Success(payload=payload):
@@ -10755,7 +11233,7 @@ match result:
 
 ```python
 result = await async_client.dispute_attachments.with_raw_response.get_disputes_dispute_id_attachments_attachment_id(
-    dispute_id, attachment_id
+    "some example string", "some example string"
 )
 match result:
     case Success(payload=payload):
@@ -10776,7 +11254,7 @@ match result:
 | --- | --- | --- |
 | <code>dispute_id</code> | <code>str</code> | The unique identifier of the raised dispute. |
 | <code>attachment_id</code> | <code>str</code> | The unique identifier of the attachment. |
-| <code>request_options</code> | <code>[RequestOptionsOrDict](adyen/core/request_options.py) \| None</code> | Per-call overrides for this one request, such as a timeout or extra headers. |
+| <code>request_options</code> | <code>[RequestOptionsOrDict](adyen/core/request_options.py) \| None</code> | Per-call overrides for this one request, such as a timeout, extra headers, or its retry count and statuses. |
 
 </dd>
 </dl>
@@ -10831,7 +11309,12 @@ Add supporting information as an attachment for the raised dispute. Upload recei
 **Sync**
 
 ```python
-result = client.dispute_attachments.with_raw_response.post_disputes_dispute_id_attachments(dispute_id, body)
+result = client.dispute_attachments.with_raw_response.post_disputes_dispute_id_attachments(
+    "some example string",
+    DisputeAttachment(
+        attachment_type=AttachmentType1.RECEIPT, content="some example string", file_name="some example string"
+    ),
+)
 match result:
     case Success(payload=payload):
         ...  # TODO: Handle 'payload' of type AttachDocumentResponse
@@ -10842,7 +11325,12 @@ match result:
 **Async**
 
 ```python
-result = await async_client.dispute_attachments.with_raw_response.post_disputes_dispute_id_attachments(dispute_id, body)
+result = await async_client.dispute_attachments.with_raw_response.post_disputes_dispute_id_attachments(
+    "some example string",
+    DisputeAttachment(
+        attachment_type=AttachmentType1.RECEIPT, content="some example string", file_name="some example string"
+    ),
+)
 match result:
     case Success(payload=payload):
         ...  # TODO: Handle 'payload' of type AttachDocumentResponse
@@ -10862,7 +11350,7 @@ match result:
 | --- | --- | --- |
 | <code>dispute_id</code> | <code>str</code> | The unique identifier of the raised dispute. |
 | <code>body</code> | <code>[DisputeAttachment](adyen/models/dispute_attachment.py) \| [DisputeAttachmentDict](adyen/models/dispute_attachment.py)</code> | The request body. |
-| <code>request_options</code> | <code>[RequestOptionsOrDict](adyen/core/request_options.py) \| None</code> | Per-call overrides for this one request, such as a timeout or extra headers. |
+| <code>request_options</code> | <code>[RequestOptionsOrDict](adyen/core/request_options.py) \| None</code> | Per-call overrides for this one request, such as a timeout, extra headers, or its retry count and statuses. |
 
 </dd>
 </dl>
@@ -10898,7 +11386,7 @@ Mapped in first-match order -- an earlier row wins over a later range that also 
 > Source: [Documents](adyen/apis/documents.py)
 
 <details>
-<summary><code>def delete_documents_id(id: str, *, request_options: RequestOptionsOrDict | None = None) -> ApiResult[None, DeleteDocumentsIdErrorBody]</code></summary>
+<summary><code>def delete_documents_id(id_: str, *, request_options: RequestOptionsOrDict | None = None) -> ApiResult[None, DeleteDocumentsIdErrorBody]</code></summary>
 
 <dl>
 <dd>
@@ -10929,7 +11417,7 @@ Requests to this endpoint are subject to rate limits:
 **Sync**
 
 ```python
-result = client.documents.with_raw_response.delete_documents_id(id)
+result = client.documents.with_raw_response.delete_documents_id("some example string")
 match result:
     case Success():
         ...  # 2xx, no content
@@ -10940,7 +11428,7 @@ match result:
 **Async**
 
 ```python
-result = await async_client.documents.with_raw_response.delete_documents_id(id)
+result = await async_client.documents.with_raw_response.delete_documents_id("some example string")
 match result:
     case Success():
         ...  # 2xx, no content
@@ -10958,8 +11446,8 @@ match result:
 
 | Name | Type | Description |
 | --- | --- | --- |
-| <code>id</code> | <code>str</code> | The unique identifier of the document to be deleted. |
-| <code>request_options</code> | <code>[RequestOptionsOrDict](adyen/core/request_options.py) \| None</code> | Per-call overrides for this one request, such as a timeout or extra headers. |
+| <code>id_</code> | <code>str</code> | The unique identifier of the document to be deleted. |
+| <code>request_options</code> | <code>[RequestOptionsOrDict](adyen/core/request_options.py) \| None</code> | Per-call overrides for this one request, such as a timeout, extra headers, or its retry count and statuses. |
 
 </dd>
 </dl>
@@ -10991,7 +11479,7 @@ Mapped in first-match order -- an earlier row wins over a later range that also 
 </details>
 
 <details>
-<summary><code>def get_documents_id(id: str, *, skip_content: bool | None = None, request_options: RequestOptionsOrDict | None = None) -> ApiResult[Document, GetDocumentsIdErrorBody]</code></summary>
+<summary><code>def get_documents_id(id_: str, *, skip_content: bool | None = None, request_options: RequestOptionsOrDict | None = None) -> ApiResult[Document, GetDocumentsIdErrorBody]</code></summary>
 
 <dl>
 <dd>
@@ -11022,7 +11510,7 @@ Requests to this endpoint are subject to rate limits:
 **Sync**
 
 ```python
-result = client.documents.with_raw_response.get_documents_id(id)
+result = client.documents.with_raw_response.get_documents_id("some example string")
 match result:
     case Success(payload=payload):
         ...  # TODO: Handle 'payload' of type Document
@@ -11033,7 +11521,7 @@ match result:
 **Async**
 
 ```python
-result = await async_client.documents.with_raw_response.get_documents_id(id)
+result = await async_client.documents.with_raw_response.get_documents_id("some example string")
 match result:
     case Success(payload=payload):
         ...  # TODO: Handle 'payload' of type Document
@@ -11051,9 +11539,9 @@ match result:
 
 | Name | Type | Description |
 | --- | --- | --- |
-| <code>id</code> | <code>str</code> | The unique identifier of the document. |
+| <code>id_</code> | <code>str</code> | The unique identifier of the document. |
 | <code>skip_content</code> | <code>bool \| None</code> | Do not load document content while fetching the document.<br>**Default**: <code>None</code> |
-| <code>request_options</code> | <code>[RequestOptionsOrDict](adyen/core/request_options.py) \| None</code> | Per-call overrides for this one request, such as a timeout or extra headers. |
+| <code>request_options</code> | <code>[RequestOptionsOrDict](adyen/core/request_options.py) \| None</code> | Per-call overrides for this one request, such as a timeout, extra headers, or its retry count and statuses. |
 
 </dd>
 </dl>
@@ -11085,7 +11573,7 @@ Mapped in first-match order -- an earlier row wins over a later range that also 
 </details>
 
 <details>
-<summary><code>def patch_documents_id(id: str, *, x_requested_verification_code: str | None = None, body: Document | DocumentDict | None = None, request_options: RequestOptionsOrDict | None = None) -> ApiResult[Document, PatchDocumentsIdErrorBody]</code></summary>
+<summary><code>def patch_documents_id(id_: str, *, x_requested_verification_code: str | None = None, body: Document | DocumentDict | None = None, request_options: RequestOptionsOrDict | None = None) -> ApiResult[Document, PatchDocumentsIdErrorBody]</code></summary>
 
 <dl>
 <dd>
@@ -11118,7 +11606,11 @@ Requests to this endpoint are subject to rate limits:
 **Sync**
 
 ```python
-result = client.documents.with_raw_response.patch_documents_id(id)
+result = client.documents.with_raw_response.patch_documents_id(
+    "some example string",
+    x_requested_verification_code="0_0001",
+    body=Document(description="Proof of industry doc for Example Company", type_=Type84.PROOF_OF_INDUSTRY),
+)
 match result:
     case Success(payload=payload):
         ...  # TODO: Handle 'payload' of type Document
@@ -11129,7 +11621,11 @@ match result:
 **Async**
 
 ```python
-result = await async_client.documents.with_raw_response.patch_documents_id(id)
+result = await async_client.documents.with_raw_response.patch_documents_id(
+    "some example string",
+    x_requested_verification_code="0_0001",
+    body=Document(description="Proof of industry doc for Example Company", type_=Type84.PROOF_OF_INDUSTRY),
+)
 match result:
     case Success(payload=payload):
         ...  # TODO: Handle 'payload' of type Document
@@ -11147,10 +11643,10 @@ match result:
 
 | Name | Type | Description |
 | --- | --- | --- |
-| <code>id</code> | <code>str</code> | The unique identifier of the document to be updated. |
+| <code>id_</code> | <code>str</code> | The unique identifier of the document to be updated. |
 | <code>x_requested_verification_code</code> | <code>str \| None</code> | Use the requested verification code 0_0001 to resolve any suberrors associated with the document. Requested verification codes can only be used in your test environment.<br>**Default**: <code>None</code> |
 | <code>body</code> | <code>[Document](adyen/models/document.py) \| [DocumentDict](adyen/models/document.py) \| None</code> | The request body.<br>**Default**: <code>None</code> |
-| <code>request_options</code> | <code>[RequestOptionsOrDict](adyen/core/request_options.py) \| None</code> | Per-call overrides for this one request, such as a timeout or extra headers. |
+| <code>request_options</code> | <code>[RequestOptionsOrDict](adyen/core/request_options.py) \| None</code> | Per-call overrides for this one request, such as a timeout, extra headers, or its retry count and statuses. |
 
 </dd>
 </dl>
@@ -11219,7 +11715,15 @@ Requests to this endpoint are subject to rate limits:
 **Sync**
 
 ```python
-result = client.documents.with_raw_response.post_documents()
+result = client.documents.with_raw_response.post_documents(
+    x_requested_verification_code="1_3008",
+    body=Document(
+        attachments=[Attachment(content="JVBERi0xLjQKJcOkw7zDtsOfCjIgMCBv+f/ub0j6JPRX+E3EmC==")],
+        description="Registration doc for Example Company",
+        owner=OwnerEntity2(id="LE00000000000000000000001", type_="legalEntity"),
+        type_=Type84.REGISTRATION_DOCUMENT,
+    ),
+)
 match result:
     case Success(payload=payload):
         ...  # TODO: Handle 'payload' of type Document
@@ -11230,7 +11734,15 @@ match result:
 **Async**
 
 ```python
-result = await async_client.documents.with_raw_response.post_documents()
+result = await async_client.documents.with_raw_response.post_documents(
+    x_requested_verification_code="1_3008",
+    body=Document(
+        attachments=[Attachment(content="JVBERi0xLjQKJcOkw7zDtsOfCjIgMCBv+f/ub0j6JPRX+E3EmC==")],
+        description="Registration doc for Example Company",
+        owner=OwnerEntity2(id="LE00000000000000000000001", type_="legalEntity"),
+        type_=Type84.REGISTRATION_DOCUMENT,
+    ),
+)
 match result:
     case Success(payload=payload):
         ...  # TODO: Handle 'payload' of type Document
@@ -11250,7 +11762,7 @@ match result:
 | --- | --- | --- |
 | <code>x_requested_verification_code</code> | <code>str \| None</code> | Use a suberror code as your requested verification code. You can include one code at a time in your request header. Requested verification codes can only be used in your test environment.<br>**Default**: <code>None</code> |
 | <code>body</code> | <code>[Document](adyen/models/document.py) \| [DocumentDict](adyen/models/document.py) \| None</code> | The request body.<br>**Default**: <code>None</code> |
-| <code>request_options</code> | <code>[RequestOptionsOrDict](adyen/core/request_options.py) \| None</code> | Per-call overrides for this one request, such as a timeout or extra headers. |
+| <code>request_options</code> | <code>[RequestOptionsOrDict](adyen/core/request_options.py) \| None</code> | Per-call overrides for this one request, such as a timeout, extra headers, or its retry count and statuses. |
 
 </dd>
 </dl>
@@ -11313,7 +11825,7 @@ To make this request, your API credential must have the following [role](https:/
 
 ```python
 result = client.donation_campaigns.with_raw_response.delete_companies_company_id_campaign_management_donation_campaign_id(
-    company_id, donation_campaign_id
+    "some example string", "some example string"
 )
 match result:
     case Success():
@@ -11326,7 +11838,7 @@ match result:
 
 ```python
 result = await async_client.donation_campaigns.with_raw_response.delete_companies_company_id_campaign_management_donation_campaign_id(
-    company_id, donation_campaign_id
+    "some example string", "some example string"
 )
 match result:
     case Success():
@@ -11347,7 +11859,7 @@ match result:
 | --- | --- | --- |
 | <code>company_id</code> | <code>str</code> | The unique identifier of the company account. |
 | <code>donation_campaign_id</code> | <code>str</code> | The unique identifier of the donation campaign to be deleted. |
-| <code>request_options</code> | <code>[RequestOptionsOrDict](adyen/core/request_options.py) \| None</code> | Per-call overrides for this one request, such as a timeout or extra headers. |
+| <code>request_options</code> | <code>[RequestOptionsOrDict](adyen/core/request_options.py) \| None</code> | Per-call overrides for this one request, such as a timeout, extra headers, or its retry count and statuses. |
 
 </dd>
 </dl>
@@ -11407,7 +11919,7 @@ To make this request, your API credential must have one of the following [roles]
 
 ```python
 result = client.donation_campaigns.with_raw_response.get_companies_company_id_campaign_management_account_holders_account_holder_id(
-    company_id, account_holder_id
+    "some example string", "some example string"
 )
 match result:
     case Success(payload=payload):
@@ -11421,7 +11933,7 @@ match result:
 
 ```python
 result = await async_client.donation_campaigns.with_raw_response.get_companies_company_id_campaign_management_account_holders_account_holder_id(
-    company_id, account_holder_id
+    "some example string", "some example string"
 )
 match result:
     case Success(payload=payload):
@@ -11446,7 +11958,7 @@ match result:
 | <code>status</code> | <code>str \| None</code> | The campaign status to return campaigns that match. Allowed values: **inactive**, **active**, or **ended**.<br>**Default**: <code>None</code> |
 | <code>page_number</code> | <code>int \| None</code> | The number of the page to fetch.<br>**Default**: <code>1</code> |
 | <code>page_size</code> | <code>int \| None</code> | The number of items to have on a page, maximum 100. The default is 10 items on a page.<br>**Default**: <code>10</code> |
-| <code>request_options</code> | <code>[RequestOptionsOrDict](adyen/core/request_options.py) \| None</code> | Per-call overrides for this one request, such as a timeout or extra headers. |
+| <code>request_options</code> | <code>[RequestOptionsOrDict](adyen/core/request_options.py) \| None</code> | Per-call overrides for this one request, such as a timeout, extra headers, or its retry count and statuses. |
 
 </dd>
 </dl>
@@ -11508,7 +12020,7 @@ To make this request, your API credential must have the following [role](https:/
 
 ```python
 result = client.donation_campaigns.with_raw_response.patch_companies_company_id_campaign_management_donation_campaign_id(
-    company_id, donation_campaign_id
+    "some example string", "some example string"
 )
 match result:
     case Success(payload=payload):
@@ -11521,7 +12033,7 @@ match result:
 
 ```python
 result = await async_client.donation_campaigns.with_raw_response.patch_companies_company_id_campaign_management_donation_campaign_id(
-    company_id, donation_campaign_id
+    "some example string", "some example string"
 )
 match result:
     case Success(payload=payload):
@@ -11543,7 +12055,7 @@ match result:
 | <code>company_id</code> | <code>str</code> | The unique identifier of the company account. |
 | <code>donation_campaign_id</code> | <code>str</code> | The unique identifier of the donation campaign to be updated. |
 | <code>body</code> | <code>[DonationCampaignUpdate](adyen/models/donation_campaign_update.py) \| [DonationCampaignUpdateDict](adyen/models/donation_campaign_update.py) \| None</code> | The request body.<br>**Default**: <code>None</code> |
-| <code>request_options</code> | <code>[RequestOptionsOrDict](adyen/core/request_options.py) \| None</code> | Per-call overrides for this one request, such as a timeout or extra headers. |
+| <code>request_options</code> | <code>[RequestOptionsOrDict](adyen/core/request_options.py) \| None</code> | Per-call overrides for this one request, such as a timeout, extra headers, or its retry count and statuses. |
 
 </dd>
 </dl>
@@ -11601,7 +12113,9 @@ To make this request, your API credential must have the following [role](https:/
 **Sync**
 
 ```python
-result = client.donation_campaigns.with_raw_response.post_companies_company_id_campaign_management(company_id)
+result = client.donation_campaigns.with_raw_response.post_companies_company_id_campaign_management(
+    "some example string"
+)
 match result:
     case Success(payload=payload):
         ...  # TODO: Handle 'payload' of type DonationCampaign1
@@ -11613,7 +12127,7 @@ match result:
 
 ```python
 result = await async_client.donation_campaigns.with_raw_response.post_companies_company_id_campaign_management(
-    company_id
+    "some example string"
 )
 match result:
     case Success(payload=payload):
@@ -11634,7 +12148,7 @@ match result:
 | --- | --- | --- |
 | <code>company_id</code> | <code>str</code> | The unique identifier of the company account. |
 | <code>body</code> | <code>[DonationCampaignRequest](adyen/models/donation_campaign_request.py) \| [DonationCampaignRequestDict](adyen/models/donation_campaign_request.py) \| None</code> | The request body.<br>**Default**: <code>None</code> |
-| <code>request_options</code> | <code>[RequestOptionsOrDict](adyen/core/request_options.py) \| None</code> | Per-call overrides for this one request, such as a timeout or extra headers. |
+| <code>request_options</code> | <code>[RequestOptionsOrDict](adyen/core/request_options.py) \| None</code> | Per-call overrides for this one request, such as a timeout, extra headers, or its retry count and statuses. |
 
 </dd>
 </dl>
@@ -11694,7 +12208,7 @@ To make this request, your API credential must have the following [role](https:/
 
 ```python
 result = client.donation_campaigns.with_raw_response.post_companies_company_id_campaign_management_donation_campaign_id_status_status(
-    company_id, donation_campaign_id, status
+    "some example string", "some example string", CampaignStatusTransition.ACTIVATE
 )
 match result:
     case Success(payload=payload):
@@ -11708,7 +12222,7 @@ match result:
 
 ```python
 result = await async_client.donation_campaigns.with_raw_response.post_companies_company_id_campaign_management_donation_campaign_id_status_status(
-    company_id, donation_campaign_id, status
+    "some example string", "some example string", CampaignStatusTransition.ACTIVATE
 )
 match result:
     case Success(payload=payload):
@@ -11731,7 +12245,7 @@ match result:
 | <code>company_id</code> | <code>str</code> | The unique identifier of the company account. |
 | <code>donation_campaign_id</code> | <code>str</code> | The unique identifier of the donation campaign to activate or end. |
 | <code>status</code> | <code>[CampaignStatusTransitionOrStr](adyen/models/enums/campaign_status_transition.py)</code> | The desired status change. Possible values: **activate** or **end**. |
-| <code>request_options</code> | <code>[RequestOptionsOrDict](adyen/core/request_options.py) \| None</code> | Per-call overrides for this one request, such as a timeout or extra headers. |
+| <code>request_options</code> | <code>[RequestOptionsOrDict](adyen/core/request_options.py) \| None</code> | Per-call overrides for this one request, such as a timeout, extra headers, or its retry count and statuses. |
 
 </dd>
 </dl>
@@ -11786,7 +12300,7 @@ Returns a list of supported nonprofit organizations to choose from when creating
 **Sync**
 
 ```python
-result = client.donation_campaigns.with_raw_response.post_companies_company_id_nonprofits(company_id)
+result = client.donation_campaigns.with_raw_response.post_companies_company_id_nonprofits("some example string")
 match result:
     case Success(payload=payload):
         ...  # TODO: Handle 'payload' of type ListNonprofitsResponse
@@ -11797,7 +12311,9 @@ match result:
 **Async**
 
 ```python
-result = await async_client.donation_campaigns.with_raw_response.post_companies_company_id_nonprofits(company_id)
+result = await async_client.donation_campaigns.with_raw_response.post_companies_company_id_nonprofits(
+    "some example string"
+)
 match result:
     case Success(payload=payload):
         ...  # TODO: Handle 'payload' of type ListNonprofitsResponse
@@ -11821,7 +12337,7 @@ match result:
 | <code>page_size</code> | <code>int \| None</code> | The number of items to have on a page, maximum 100. The default is 10 items on a page.<br>**Default**: <code>10</code> |
 | <code>goal</code> | <code>list&#91;str&#93; \| None</code> | One or more United Nations Sustainable Development Goals to return nonprofit organizations for. Format: `unsdg_<number>`, for example, `&goal=unsdg_6&goal=unsdg_2`.<br>**Default**: <code>None</code> |
 | <code>body</code> | <code>[ListNonprofitsRequest](adyen/models/list_nonprofits_request.py) \| [ListNonprofitsRequestDict](adyen/models/list_nonprofits_request.py) \| None</code> | The request body.<br>**Default**: <code>None</code> |
-| <code>request_options</code> | <code>[RequestOptionsOrDict](adyen/core/request_options.py) \| None</code> | Per-call overrides for this one request, such as a timeout or extra headers. |
+| <code>request_options</code> | <code>[RequestOptionsOrDict](adyen/core/request_options.py) \| None</code> | Per-call overrides for this one request, such as a timeout, extra headers, or its retry count and statuses. |
 
 </dd>
 </dl>
@@ -11880,7 +12396,10 @@ Queries the available donation campaigns for a donation based on the donation co
 **Sync**
 
 ```python
-result = client.donations.with_raw_response.post_donation_campaigns()
+result = client.donations.with_raw_response.post_donation_campaigns(
+    idempotency_key="37ca9c97-d1d1-4c62-89e8-706891a563ed",
+    body=DonationCampaignsRequest(currency="EUR", merchant_account="YOUR_MERCHANT_ACCOUNT"),
+)
 match result:
     case Success(payload=payload):
         ...  # TODO: Handle 'payload' of type DonationCampaignsResponse
@@ -11891,7 +12410,10 @@ match result:
 **Async**
 
 ```python
-result = await async_client.donations.with_raw_response.post_donation_campaigns()
+result = await async_client.donations.with_raw_response.post_donation_campaigns(
+    idempotency_key="37ca9c97-d1d1-4c62-89e8-706891a563ed",
+    body=DonationCampaignsRequest(currency="EUR", merchant_account="YOUR_MERCHANT_ACCOUNT"),
+)
 match result:
     case Success(payload=payload):
         ...  # TODO: Handle 'payload' of type DonationCampaignsResponse
@@ -11911,7 +12433,7 @@ match result:
 | --- | --- | --- |
 | <code>idempotency_key</code> | <code>str \| None</code> | A unique identifier for the message with a maximum of 64 characters (we recommend a UUID).<br>**Default**: <code>None</code> |
 | <code>body</code> | <code>[DonationCampaignsRequest](adyen/models/donation_campaigns_request.py) \| [DonationCampaignsRequestDict](adyen/models/donation_campaigns_request.py) \| None</code> | The request body.<br>**Default**: <code>None</code> |
-| <code>request_options</code> | <code>[RequestOptionsOrDict](adyen/core/request_options.py) \| None</code> | Per-call overrides for this one request, such as a timeout or extra headers. |
+| <code>request_options</code> | <code>[RequestOptionsOrDict](adyen/core/request_options.py) \| None</code> | Per-call overrides for this one request, such as a timeout, extra headers, or its retry count and statuses. |
 
 </dd>
 </dl>
@@ -11968,7 +12490,19 @@ For more information, see [Donations](https://docs.adyen.com/online-payments/don
 **Sync**
 
 ```python
-result = client.donations.with_raw_response.post_donations()
+result = client.donations.with_raw_response.post_donations(
+    idempotency_key="37ca9c97-d1d1-4c62-89e8-706891a563ed",
+    body=DonationPaymentRequest(
+        amount=Amount2(currency="EUR", value=1000),
+        donation_campaign_id="DONATION_CAMPAIGN_ID",
+        donation_original_psp_reference="991559660454807J",
+        donation_token="YOUR_DONATION_TOKEN",
+        merchant_account="YOUR_MERCHANT_ACCOUNT",
+        payment_method=CardDonations(type_="scheme"),
+        reference="YOUR_DONATION_REFERENCE",
+        return_url="https://your-company.example.com/...",
+    ),
+)
 match result:
     case Success(payload=payload):
         ...  # TODO: Handle 'payload' of type DonationPaymentResponse
@@ -11979,7 +12513,19 @@ match result:
 **Async**
 
 ```python
-result = await async_client.donations.with_raw_response.post_donations()
+result = await async_client.donations.with_raw_response.post_donations(
+    idempotency_key="37ca9c97-d1d1-4c62-89e8-706891a563ed",
+    body=DonationPaymentRequest(
+        amount=Amount2(currency="EUR", value=1000),
+        donation_campaign_id="DONATION_CAMPAIGN_ID",
+        donation_original_psp_reference="991559660454807J",
+        donation_token="YOUR_DONATION_TOKEN",
+        merchant_account="YOUR_MERCHANT_ACCOUNT",
+        payment_method=CardDonations(type_="scheme"),
+        reference="YOUR_DONATION_REFERENCE",
+        return_url="https://your-company.example.com/...",
+    ),
+)
 match result:
     case Success(payload=payload):
         ...  # TODO: Handle 'payload' of type DonationPaymentResponse
@@ -11999,7 +12545,7 @@ match result:
 | --- | --- | --- |
 | <code>idempotency_key</code> | <code>str \| None</code> | A unique identifier for the message with a maximum of 64 characters (we recommend a UUID).<br>**Default**: <code>None</code> |
 | <code>body</code> | <code>[DonationPaymentRequest](adyen/models/donation_payment_request.py) \| [DonationPaymentRequestDict](adyen/models/donation_payment_request.py) \| None</code> | The request body.<br>**Default**: <code>None</code> |
-| <code>request_options</code> | <code>[RequestOptionsOrDict](adyen/core/request_options.py) \| None</code> | Per-call overrides for this one request, such as a timeout or extra headers. |
+| <code>request_options</code> | <code>[RequestOptionsOrDict](adyen/core/request_options.py) \| None</code> | Per-call overrides for this one request, such as a timeout, extra headers, or its retry count and statuses. |
 
 </dd>
 </dl>
@@ -12058,7 +12604,7 @@ Returns a list of all [dynamic offers](https://docs.adyen.com/capital/get-grant-
 **Sync**
 
 ```python
-result = client.dynamic_offers.with_raw_response.get_dynamic_offers(account_holder_id)
+result = client.dynamic_offers.with_raw_response.get_dynamic_offers("some example string")
 match result:
     case Success(payload=payload):
         ...  # TODO: Handle 'payload' of type GetDynamicOffersResponse
@@ -12069,7 +12615,7 @@ match result:
 **Async**
 
 ```python
-result = await async_client.dynamic_offers.with_raw_response.get_dynamic_offers(account_holder_id)
+result = await async_client.dynamic_offers.with_raw_response.get_dynamic_offers("some example string")
 match result:
     case Success(payload=payload):
         ...  # TODO: Handle 'payload' of type GetDynamicOffersResponse
@@ -12089,7 +12635,7 @@ match result:
 | --- | --- | --- |
 | <code>account_holder_id</code> | <code>str</code> | The unique identifier of the account holder that the dynamic offer is for. |
 | <code>financing_type</code> | <code>[FinancingTypeOrStr](adyen/models/enums/financing_type.py) \| None</code> | The type of financing that the offer is for. If the value is not specified, returns all available types.<br><br>Possible values: **businessFinancing**<br>**Default**: <code>None</code> |
-| <code>request_options</code> | <code>[RequestOptionsOrDict](adyen/core/request_options.py) \| None</code> | Per-call overrides for this one request, such as a timeout or extra headers. |
+| <code>request_options</code> | <code>[RequestOptionsOrDict](adyen/core/request_options.py) \| None</code> | Per-call overrides for this one request, such as a timeout, extra headers, or its retry count and statuses. |
 
 </dd>
 </dl>
@@ -12121,7 +12667,7 @@ Mapped in first-match order -- an earlier row wins over a later range that also 
 </details>
 
 <details>
-<summary><code>def post_dynamic_offers_id_calculate(id: str, *, body: CalculateGrantOfferRequest | CalculateGrantOfferRequestDict | None = None, request_options: RequestOptionsOrDict | None = None) -> ApiResult[CalculatedGrantOffer, PostDynamicOffersIdCalculateErrorBody]</code></summary>
+<summary><code>def post_dynamic_offers_id_calculate(id_: str, *, body: CalculateGrantOfferRequest | CalculateGrantOfferRequestDict | None = None, request_options: RequestOptionsOrDict | None = None) -> ApiResult[CalculatedGrantOffer, PostDynamicOffersIdCalculateErrorBody]</code></summary>
 
 <dl>
 <dd>
@@ -12150,7 +12696,7 @@ Requests to this endpoint are subject to rate limits:
 **Sync**
 
 ```python
-result = client.dynamic_offers.with_raw_response.post_dynamic_offers_id_calculate(id)
+result = client.dynamic_offers.with_raw_response.post_dynamic_offers_id_calculate("some example string")
 match result:
     case Success(payload=payload):
         ...  # TODO: Handle 'payload' of type CalculatedGrantOffer
@@ -12161,7 +12707,7 @@ match result:
 **Async**
 
 ```python
-result = await async_client.dynamic_offers.with_raw_response.post_dynamic_offers_id_calculate(id)
+result = await async_client.dynamic_offers.with_raw_response.post_dynamic_offers_id_calculate("some example string")
 match result:
     case Success(payload=payload):
         ...  # TODO: Handle 'payload' of type CalculatedGrantOffer
@@ -12179,9 +12725,9 @@ match result:
 
 | Name | Type | Description |
 | --- | --- | --- |
-| <code>id</code> | <code>str</code> | The unique identifier of the dynamic offer from which the user selected the financing amount. |
+| <code>id_</code> | <code>str</code> | The unique identifier of the dynamic offer from which the user selected the financing amount. |
 | <code>body</code> | <code>[CalculateGrantOfferRequest](adyen/models/calculate_grant_offer_request.py) \| [CalculateGrantOfferRequestDict](adyen/models/calculate_grant_offer_request.py) \| None</code> | The request body.<br>**Default**: <code>None</code> |
-| <code>request_options</code> | <code>[RequestOptionsOrDict](adyen/core/request_options.py) \| None</code> | Per-call overrides for this one request, such as a timeout or extra headers. |
+| <code>request_options</code> | <code>[RequestOptionsOrDict](adyen/core/request_options.py) \| None</code> | Per-call overrides for this one request, such as a timeout, extra headers, or its retry count and statuses. |
 
 </dd>
 </dl>
@@ -12213,7 +12759,7 @@ Mapped in first-match order -- an earlier row wins over a later range that also 
 </details>
 
 <details>
-<summary><code>def post_dynamic_offers_id_grant_offer(id: str, *, body: CreateGrantOfferRequest | CreateGrantOfferRequestDict | None = None, request_options: RequestOptionsOrDict | None = None) -> ApiResult[GrantOffer1, PostDynamicOffersIdGrantOfferErrorBody]</code></summary>
+<summary><code>def post_dynamic_offers_id_grant_offer(id_: str, *, body: CreateGrantOfferRequest | CreateGrantOfferRequestDict | None = None, request_options: RequestOptionsOrDict | None = None) -> ApiResult[GrantOffer1, PostDynamicOffersIdGrantOfferErrorBody]</code></summary>
 
 <dl>
 <dd>
@@ -12242,7 +12788,7 @@ Requests to this endpoint are subject to rate limits:
 **Sync**
 
 ```python
-result = client.dynamic_offers.with_raw_response.post_dynamic_offers_id_grant_offer(id)
+result = client.dynamic_offers.with_raw_response.post_dynamic_offers_id_grant_offer("some example string")
 match result:
     case Success(payload=payload):
         ...  # TODO: Handle 'payload' of type GrantOffer1
@@ -12253,7 +12799,7 @@ match result:
 **Async**
 
 ```python
-result = await async_client.dynamic_offers.with_raw_response.post_dynamic_offers_id_grant_offer(id)
+result = await async_client.dynamic_offers.with_raw_response.post_dynamic_offers_id_grant_offer("some example string")
 match result:
     case Success(payload=payload):
         ...  # TODO: Handle 'payload' of type GrantOffer1
@@ -12271,9 +12817,9 @@ match result:
 
 | Name | Type | Description |
 | --- | --- | --- |
-| <code>id</code> | <code>str</code> | The unique identifier of the dynamic offer from which the user selected the financing amount. |
+| <code>id_</code> | <code>str</code> | The unique identifier of the dynamic offer from which the user selected the financing amount. |
 | <code>body</code> | <code>[CreateGrantOfferRequest](adyen/models/create_grant_offer_request.py) \| [CreateGrantOfferRequestDict](adyen/models/create_grant_offer_request.py) \| None</code> | The request body.<br>**Default**: <code>None</code> |
-| <code>request_options</code> | <code>[RequestOptionsOrDict](adyen/core/request_options.py) \| None</code> | Per-call overrides for this one request, such as a timeout or extra headers. |
+| <code>request_options</code> | <code>[RequestOptionsOrDict](adyen/core/request_options.py) \| None</code> | Per-call overrides for this one request, such as a timeout, extra headers, or its retry count and statuses. |
 
 </dd>
 </dl>
@@ -12332,7 +12878,9 @@ Accepts a specific dispute.
 **Sync**
 
 ```python
-result = client.general.with_raw_response.post_accept_dispute()
+result = client.general.with_raw_response.post_accept_dispute(
+    body=AcceptDisputeRequest(dispute_psp_reference="DZ4DPSHB4WD2WN82", merchant_account_code="YOUR_MERCHANT_ACCOUNT")
+)
 match result:
     case Success(payload=payload):
         ...  # TODO: Handle 'payload' of type AcceptDisputeResponse
@@ -12343,7 +12891,9 @@ match result:
 **Async**
 
 ```python
-result = await async_client.general.with_raw_response.post_accept_dispute()
+result = await async_client.general.with_raw_response.post_accept_dispute(
+    body=AcceptDisputeRequest(dispute_psp_reference="DZ4DPSHB4WD2WN82", merchant_account_code="YOUR_MERCHANT_ACCOUNT")
+)
 match result:
     case Success(payload=payload):
         ...  # TODO: Handle 'payload' of type AcceptDisputeResponse
@@ -12362,7 +12912,7 @@ match result:
 | Name | Type | Description |
 | --- | --- | --- |
 | <code>body</code> | <code>[AcceptDisputeRequest](adyen/models/accept_dispute_request.py) \| [AcceptDisputeRequestDict](adyen/models/accept_dispute_request.py) \| None</code> | The request body.<br>**Default**: <code>None</code> |
-| <code>request_options</code> | <code>[RequestOptionsOrDict](adyen/core/request_options.py) \| None</code> | Per-call overrides for this one request, such as a timeout or extra headers. |
+| <code>request_options</code> | <code>[RequestOptionsOrDict](adyen/core/request_options.py) \| None</code> | Per-call overrides for this one request, such as a timeout, extra headers, or its retry count and statuses. |
 
 </dd>
 </dl>
@@ -12417,7 +12967,9 @@ Returns the account balances of an account holder. An account's balances are org
 **Sync**
 
 ```python
-result = client.general.with_raw_response.post_account_holder_balance()
+result = client.general.with_raw_response.post_account_holder_balance(
+    body=CloseAccountHolderRequest(account_holder_code="CODE_OF_ACCOUNT_HOLDER")
+)
 match result:
     case Success(payload=payload):
         ...  # TODO: Handle 'payload' of type AccountHolderBalanceResponse
@@ -12428,7 +12980,9 @@ match result:
 **Async**
 
 ```python
-result = await async_client.general.with_raw_response.post_account_holder_balance()
+result = await async_client.general.with_raw_response.post_account_holder_balance(
+    body=CloseAccountHolderRequest(account_holder_code="CODE_OF_ACCOUNT_HOLDER")
+)
 match result:
     case Success(payload=payload):
         ...  # TODO: Handle 'payload' of type AccountHolderBalanceResponse
@@ -12447,7 +13001,7 @@ match result:
 | Name | Type | Description |
 | --- | --- | --- |
 | <code>body</code> | <code>[CloseAccountHolderRequest](adyen/models/close_account_holder_request.py) \| [CloseAccountHolderRequestDict](adyen/models/close_account_holder_request.py) \| None</code> | The request body.<br>**Default**: <code>None</code> |
-| <code>request_options</code> | <code>[RequestOptionsOrDict](adyen/core/request_options.py) \| None</code> | Per-call overrides for this one request, such as a timeout or extra headers. |
+| <code>request_options</code> | <code>[RequestOptionsOrDict](adyen/core/request_options.py) \| None</code> | Per-call overrides for this one request, such as a timeout, extra headers, or its retry count and statuses. |
 
 </dd>
 </dl>
@@ -12502,7 +13056,12 @@ Returns a list of transactions for an account holder's accounts. You can specify
 **Sync**
 
 ```python
-result = client.general.with_raw_response.post_account_holder_transaction_list()
+result = client.general.with_raw_response.post_account_holder_transaction_list(
+    body=AccountHolderTransactionListRequest(
+        account_holder_code="CODE_OF_ACCOUNT_HOLDER",
+        transaction_lists_per_account=[TransactionListForAccount(account_code="195752115", page=1)],
+    ),
+)
 match result:
     case Success(payload=payload):
         ...  # TODO: Handle 'payload' of type AccountHolderTransactionListResponse
@@ -12513,7 +13072,12 @@ match result:
 **Async**
 
 ```python
-result = await async_client.general.with_raw_response.post_account_holder_transaction_list()
+result = await async_client.general.with_raw_response.post_account_holder_transaction_list(
+    body=AccountHolderTransactionListRequest(
+        account_holder_code="CODE_OF_ACCOUNT_HOLDER",
+        transaction_lists_per_account=[TransactionListForAccount(account_code="195752115", page=1)],
+    ),
+)
 match result:
     case Success(payload=payload):
         ...  # TODO: Handle 'payload' of type AccountHolderTransactionListResponse
@@ -12532,7 +13096,7 @@ match result:
 | Name | Type | Description |
 | --- | --- | --- |
 | <code>body</code> | <code>[AccountHolderTransactionListRequest](adyen/models/account_holder_transaction_list_request.py) \| [AccountHolderTransactionListRequestDict](adyen/models/account_holder_transaction_list_request.py) \| None</code> | The request body.<br>**Default**: <code>None</code> |
-| <code>request_options</code> | <code>[RequestOptionsOrDict](adyen/core/request_options.py) \| None</code> | Per-call overrides for this one request, such as a timeout or extra headers. |
+| <code>request_options</code> | <code>[RequestOptionsOrDict](adyen/core/request_options.py) \| None</code> | Per-call overrides for this one request, such as a timeout, extra headers, or its retry count and statuses. |
 
 </dd>
 </dl>
@@ -12589,7 +13153,9 @@ Assigns one or more payment terminals to a merchant account or a store. You can 
 **Sync**
 
 ```python
-result = client.general.with_raw_response.post_assign_terminals()
+result = client.general.with_raw_response.post_assign_terminals(
+    body=AssignTerminalsRequest(company_account="YOUR_COMPANY_ACCOUNT", terminals=["P400Plus-275479597"])
+)
 match result:
     case Success(payload=payload):
         ...  # TODO: Handle 'payload' of type AssignTerminalsResponse
@@ -12600,7 +13166,9 @@ match result:
 **Async**
 
 ```python
-result = await async_client.general.with_raw_response.post_assign_terminals()
+result = await async_client.general.with_raw_response.post_assign_terminals(
+    body=AssignTerminalsRequest(company_account="YOUR_COMPANY_ACCOUNT", terminals=["P400Plus-275479597"])
+)
 match result:
     case Success(payload=payload):
         ...  # TODO: Handle 'payload' of type AssignTerminalsResponse
@@ -12619,7 +13187,7 @@ match result:
 | Name | Type | Description |
 | --- | --- | --- |
 | <code>body</code> | <code>[AssignTerminalsRequest](adyen/models/assign_terminals_request.py) \| [AssignTerminalsRequestDict](adyen/models/assign_terminals_request.py) \| None</code> | The request body.<br>**Default**: <code>None</code> |
-| <code>request_options</code> | <code>[RequestOptionsOrDict](adyen/core/request_options.py) \| None</code> | Per-call overrides for this one request, such as a timeout or extra headers. |
+| <code>request_options</code> | <code>[RequestOptionsOrDict](adyen/core/request_options.py) \| None</code> | Per-call overrides for this one request, such as a timeout, extra headers, or its retry count and statuses. |
 
 </dd>
 </dl>
@@ -12704,7 +13272,7 @@ match result:
 | Name | Type | Description |
 | --- | --- | --- |
 | <code>body</code> | <code>[StoredValueStatusChangeRequest](adyen/models/stored_value_status_change_request.py) \| [StoredValueStatusChangeRequestDict](adyen/models/stored_value_status_change_request.py) \| None</code> | The request body.<br>**Default**: <code>None</code> |
-| <code>request_options</code> | <code>[RequestOptionsOrDict](adyen/core/request_options.py) \| None</code> | Per-call overrides for this one request, such as a timeout or extra headers. |
+| <code>request_options</code> | <code>[RequestOptionsOrDict](adyen/core/request_options.py) \| None</code> | Per-call overrides for this one request, such as a timeout, extra headers, or its retry count and statuses. |
 
 </dd>
 </dl>
@@ -12789,7 +13357,7 @@ match result:
 | Name | Type | Description |
 | --- | --- | --- |
 | <code>body</code> | <code>[StoredValueBalanceCheckRequest](adyen/models/stored_value_balance_check_request.py) \| [StoredValueBalanceCheckRequestDict](adyen/models/stored_value_balance_check_request.py) \| None</code> | The request body.<br>**Default**: <code>None</code> |
-| <code>request_options</code> | <code>[RequestOptionsOrDict](adyen/core/request_options.py) \| None</code> | Per-call overrides for this one request, such as a timeout or extra headers. |
+| <code>request_options</code> | <code>[RequestOptionsOrDict](adyen/core/request_options.py) \| None</code> | Per-call overrides for this one request, such as a timeout, extra headers, or its retry count and statuses. |
 
 </dd>
 </dl>
@@ -12844,7 +13412,23 @@ Creates a subscription to notifications informing you of events on your platform
 **Sync**
 
 ```python
-result = client.general.with_raw_response.post_create_notification_configuration()
+result = client.general.with_raw_response.post_create_notification_configuration(
+    body=CreateNotificationConfigurationRequest(
+        configuration_details=NotificationConfigurationDetails4(
+            active=True,
+            description="Unique description 123",
+            event_configs=[
+                NotificationEventConfiguration(
+                    event_type=EventType.ACCOUNT_HOLDER_VERIFICATION, include_mode=IncludeMode.INCLUDE
+                ),
+            ],
+            notify_password="testPassword",
+            notify_url="https://www.adyen.com/notification-handler",
+            notify_username="testUserName",
+            ssl_protocol=SslProtocol.TL_SV13,
+        ),
+    ),
+)
 match result:
     case Success(payload=payload):
         ...  # TODO: Handle 'payload' of type GetNotificationConfigurationResponse
@@ -12855,7 +13439,23 @@ match result:
 **Async**
 
 ```python
-result = await async_client.general.with_raw_response.post_create_notification_configuration()
+result = await async_client.general.with_raw_response.post_create_notification_configuration(
+    body=CreateNotificationConfigurationRequest(
+        configuration_details=NotificationConfigurationDetails4(
+            active=True,
+            description="Unique description 123",
+            event_configs=[
+                NotificationEventConfiguration(
+                    event_type=EventType.ACCOUNT_HOLDER_VERIFICATION, include_mode=IncludeMode.INCLUDE
+                ),
+            ],
+            notify_password="testPassword",
+            notify_url="https://www.adyen.com/notification-handler",
+            notify_username="testUserName",
+            ssl_protocol=SslProtocol.TL_SV13,
+        ),
+    ),
+)
 match result:
     case Success(payload=payload):
         ...  # TODO: Handle 'payload' of type GetNotificationConfigurationResponse
@@ -12874,7 +13474,7 @@ match result:
 | Name | Type | Description |
 | --- | --- | --- |
 | <code>body</code> | <code>[CreateNotificationConfigurationRequest](adyen/models/create_notification_configuration_request.py) \| [CreateNotificationConfigurationRequestDict](adyen/models/create_notification_configuration_request.py) \| None</code> | The request body.<br>**Default**: <code>None</code> |
-| <code>request_options</code> | <code>[RequestOptionsOrDict](adyen/core/request_options.py) \| None</code> | Per-call overrides for this one request, such as a timeout or extra headers. |
+| <code>request_options</code> | <code>[RequestOptionsOrDict](adyen/core/request_options.py) \| None</code> | Per-call overrides for this one request, such as a timeout, extra headers, or its retry count and statuses. |
 
 </dd>
 </dl>
@@ -12959,7 +13559,7 @@ match result:
 | Name | Type | Description |
 | --- | --- | --- |
 | <code>body</code> | <code>[CreatePermitRequest](adyen/models/create_permit_request.py) \| [CreatePermitRequestDict](adyen/models/create_permit_request.py) \| None</code> | The request body.<br>**Default**: <code>None</code> |
-| <code>request_options</code> | <code>[RequestOptionsOrDict](adyen/core/request_options.py) \| None</code> | Per-call overrides for this one request, such as a timeout or extra headers. |
+| <code>request_options</code> | <code>[RequestOptionsOrDict](adyen/core/request_options.py) \| None</code> | Per-call overrides for this one request, such as a timeout, extra headers, or its retry count and statuses. |
 
 </dd>
 </dl>
@@ -13044,7 +13644,7 @@ match result:
 | Name | Type | Description |
 | --- | --- | --- |
 | <code>body</code> | <code>[CreateTestCardRangesRequest](adyen/models/create_test_card_ranges_request.py) \| [CreateTestCardRangesRequestDict](adyen/models/create_test_card_ranges_request.py) \| None</code> | The request body.<br>**Default**: <code>None</code> |
-| <code>request_options</code> | <code>[RequestOptionsOrDict](adyen/core/request_options.py) \| None</code> | Per-call overrides for this one request, such as a timeout or extra headers. |
+| <code>request_options</code> | <code>[RequestOptionsOrDict](adyen/core/request_options.py) \| None</code> | Per-call overrides for this one request, such as a timeout, extra headers, or its retry count and statuses. |
 
 </dd>
 </dl>
@@ -13101,7 +13701,24 @@ To learn more about direct debits, see [Top up accounts](https://docs.adyen.com/
 **Sync**
 
 ```python
-result = client.general.with_raw_response.post_debit_account_holder()
+result = client.general.with_raw_response.post_debit_account_holder(
+    body=DebitAccountHolderRequest(
+        account_holder_code="ACCOUNT_HOLDER_CODE",
+        amount=Amount(currency="USD", value=6200),
+        bank_account_uuid="000b81aa-ae7e-4492-aa7e-72b2129dce0c",
+        description="YOUR_DESCRIPTION",
+        merchant_account="YOUR_MERCHANT_ACCOUNT",
+        splits=[
+            Split1(
+                account="8535516988037431",
+                amount=SplitAmount(value=6000),
+                reference="YOUR_SPLIT_REFERENCE_1",
+                type_=Type60.MARKET_PLACE,
+            ),
+            Split1(amount=SplitAmount(value=200), reference="YOUR_SPLIT_REFERENCE_2", type_=Type60.COMMISSION),
+        ],
+    ),
+)
 match result:
     case Success(payload=payload):
         ...  # TODO: Handle 'payload' of type DebitAccountHolderResponse
@@ -13112,7 +13729,24 @@ match result:
 **Async**
 
 ```python
-result = await async_client.general.with_raw_response.post_debit_account_holder()
+result = await async_client.general.with_raw_response.post_debit_account_holder(
+    body=DebitAccountHolderRequest(
+        account_holder_code="ACCOUNT_HOLDER_CODE",
+        amount=Amount(currency="USD", value=6200),
+        bank_account_uuid="000b81aa-ae7e-4492-aa7e-72b2129dce0c",
+        description="YOUR_DESCRIPTION",
+        merchant_account="YOUR_MERCHANT_ACCOUNT",
+        splits=[
+            Split1(
+                account="8535516988037431",
+                amount=SplitAmount(value=6000),
+                reference="YOUR_SPLIT_REFERENCE_1",
+                type_=Type60.MARKET_PLACE,
+            ),
+            Split1(amount=SplitAmount(value=200), reference="YOUR_SPLIT_REFERENCE_2", type_=Type60.COMMISSION),
+        ],
+    ),
+)
 match result:
     case Success(payload=payload):
         ...  # TODO: Handle 'payload' of type DebitAccountHolderResponse
@@ -13131,7 +13765,7 @@ match result:
 | Name | Type | Description |
 | --- | --- | --- |
 | <code>body</code> | <code>[DebitAccountHolderRequest](adyen/models/debit_account_holder_request.py) \| [DebitAccountHolderRequestDict](adyen/models/debit_account_holder_request.py) \| None</code> | The request body.<br>**Default**: <code>None</code> |
-| <code>request_options</code> | <code>[RequestOptionsOrDict](adyen/core/request_options.py) \| None</code> | Per-call overrides for this one request, such as a timeout or extra headers. |
+| <code>request_options</code> | <code>[RequestOptionsOrDict](adyen/core/request_options.py) \| None</code> | Per-call overrides for this one request, such as a timeout, extra headers, or its retry count and statuses. |
 
 </dd>
 </dl>
@@ -13186,7 +13820,13 @@ Defends a specific dispute.
 **Sync**
 
 ```python
-result = client.general.with_raw_response.post_defend_dispute()
+result = client.general.with_raw_response.post_defend_dispute(
+    body=DefendDisputeRequest(
+        defense_reason_code="SupplyDefenseMaterial",
+        dispute_psp_reference="DZ4DPSHB4WD2WN82",
+        merchant_account_code="YOUR_MERCHANT_ACCOUNT",
+    ),
+)
 match result:
     case Success(payload=payload):
         ...  # TODO: Handle 'payload' of type DefendDisputeResponse
@@ -13197,7 +13837,13 @@ match result:
 **Async**
 
 ```python
-result = await async_client.general.with_raw_response.post_defend_dispute()
+result = await async_client.general.with_raw_response.post_defend_dispute(
+    body=DefendDisputeRequest(
+        defense_reason_code="SupplyDefenseMaterial",
+        dispute_psp_reference="DZ4DPSHB4WD2WN82",
+        merchant_account_code="YOUR_MERCHANT_ACCOUNT",
+    ),
+)
 match result:
     case Success(payload=payload):
         ...  # TODO: Handle 'payload' of type DefendDisputeResponse
@@ -13216,7 +13862,7 @@ match result:
 | Name | Type | Description |
 | --- | --- | --- |
 | <code>body</code> | <code>[DefendDisputeRequest](adyen/models/defend_dispute_request.py) \| [DefendDisputeRequestDict](adyen/models/defend_dispute_request.py) \| None</code> | The request body.<br>**Default**: <code>None</code> |
-| <code>request_options</code> | <code>[RequestOptionsOrDict](adyen/core/request_options.py) \| None</code> | Per-call overrides for this one request, such as a timeout or extra headers. |
+| <code>request_options</code> | <code>[RequestOptionsOrDict](adyen/core/request_options.py) \| None</code> | Per-call overrides for this one request, such as a timeout, extra headers, or its retry count and statuses. |
 
 </dd>
 </dl>
@@ -13271,7 +13917,13 @@ Deletes a specific dispute defense document that was supplied earlier.
 **Sync**
 
 ```python
-result = client.general.with_raw_response.post_delete_dispute_defense_document()
+result = client.general.with_raw_response.post_delete_dispute_defense_document(
+    body=DeleteDefenseDocumentRequest(
+        defense_document_type="DefenseMaterial",
+        dispute_psp_reference="DZ4DPSHB4WD2WN82",
+        merchant_account_code="YOUR_MERCHANT_ACCOUNT",
+    ),
+)
 match result:
     case Success(payload=payload):
         ...  # TODO: Handle 'payload' of type DeleteDefenseDocumentResponse
@@ -13282,7 +13934,13 @@ match result:
 **Async**
 
 ```python
-result = await async_client.general.with_raw_response.post_delete_dispute_defense_document()
+result = await async_client.general.with_raw_response.post_delete_dispute_defense_document(
+    body=DeleteDefenseDocumentRequest(
+        defense_document_type="DefenseMaterial",
+        dispute_psp_reference="DZ4DPSHB4WD2WN82",
+        merchant_account_code="YOUR_MERCHANT_ACCOUNT",
+    ),
+)
 match result:
     case Success(payload=payload):
         ...  # TODO: Handle 'payload' of type DeleteDefenseDocumentResponse
@@ -13301,7 +13959,7 @@ match result:
 | Name | Type | Description |
 | --- | --- | --- |
 | <code>body</code> | <code>[DeleteDefenseDocumentRequest](adyen/models/delete_defense_document_request.py) \| [DeleteDefenseDocumentRequestDict](adyen/models/delete_defense_document_request.py) \| None</code> | The request body.<br>**Default**: <code>None</code> |
-| <code>request_options</code> | <code>[RequestOptionsOrDict](adyen/core/request_options.py) \| None</code> | Per-call overrides for this one request, such as a timeout or extra headers. |
+| <code>request_options</code> | <code>[RequestOptionsOrDict](adyen/core/request_options.py) \| None</code> | Per-call overrides for this one request, such as a timeout, extra headers, or its retry count and statuses. |
 
 </dd>
 </dl>
@@ -13356,7 +14014,9 @@ Deletes an existing notification subscription configuration. After the subscript
 **Sync**
 
 ```python
-result = client.general.with_raw_response.post_delete_notification_configurations()
+result = client.general.with_raw_response.post_delete_notification_configurations(
+    body=DeleteNotificationConfigurationRequest(notification_ids=[27891])
+)
 match result:
     case Success(payload=payload):
         ...  # TODO: Handle 'payload' of type GenericResponse
@@ -13367,7 +14027,9 @@ match result:
 **Async**
 
 ```python
-result = await async_client.general.with_raw_response.post_delete_notification_configurations()
+result = await async_client.general.with_raw_response.post_delete_notification_configurations(
+    body=DeleteNotificationConfigurationRequest(notification_ids=[27891])
+)
 match result:
     case Success(payload=payload):
         ...  # TODO: Handle 'payload' of type GenericResponse
@@ -13386,7 +14048,7 @@ match result:
 | Name | Type | Description |
 | --- | --- | --- |
 | <code>body</code> | <code>[DeleteNotificationConfigurationRequest](adyen/models/delete_notification_configuration_request.py) \| [DeleteNotificationConfigurationRequestDict](adyen/models/delete_notification_configuration_request.py) \| None</code> | The request body.<br>**Default**: <code>None</code> |
-| <code>request_options</code> | <code>[RequestOptionsOrDict](adyen/core/request_options.py) \| None</code> | Per-call overrides for this one request, such as a timeout or extra headers. |
+| <code>request_options</code> | <code>[RequestOptionsOrDict](adyen/core/request_options.py) \| None</code> | Per-call overrides for this one request, such as a timeout, extra headers, or its retry count and statuses. |
 
 </dd>
 </dl>
@@ -13443,7 +14105,13 @@ For more information, refer to [Disable stored details](https://docs.adyen.com/o
 **Sync**
 
 ```python
-result = client.general.with_raw_response.post_disable()
+result = client.general.with_raw_response.post_disable(
+    body=DisableRequest(
+        merchant_account="YOUR_MERCHANT_ACCOUNT",
+        recurring_detail_reference="8314442372419167",
+        shopper_reference="YOUR_SHOPPER_REFERENCE",
+    ),
+)
 match result:
     case Success(payload=payload):
         ...  # TODO: Handle 'payload' of type DisableResult
@@ -13454,7 +14122,13 @@ match result:
 **Async**
 
 ```python
-result = await async_client.general.with_raw_response.post_disable()
+result = await async_client.general.with_raw_response.post_disable(
+    body=DisableRequest(
+        merchant_account="YOUR_MERCHANT_ACCOUNT",
+        recurring_detail_reference="8314442372419167",
+        shopper_reference="YOUR_SHOPPER_REFERENCE",
+    ),
+)
 match result:
     case Success(payload=payload):
         ...  # TODO: Handle 'payload' of type DisableResult
@@ -13473,7 +14147,7 @@ match result:
 | Name | Type | Description |
 | --- | --- | --- |
 | <code>body</code> | <code>[DisableRequest](adyen/models/disable_request.py) \| [DisableRequestDict](adyen/models/disable_request.py) \| None</code> | The request body.<br>**Default**: <code>None</code> |
-| <code>request_options</code> | <code>[RequestOptionsOrDict](adyen/core/request_options.py) \| None</code> | Per-call overrides for this one request, such as a timeout or extra headers. |
+| <code>request_options</code> | <code>[RequestOptionsOrDict](adyen/core/request_options.py) \| None</code> | Per-call overrides for this one request, such as a timeout, extra headers, or its retry count and statuses. |
 
 </dd>
 </dl>
@@ -13558,7 +14232,7 @@ match result:
 | Name | Type | Description |
 | --- | --- | --- |
 | <code>body</code> | <code>[DisablePermitRequest](adyen/models/disable_permit_request.py) \| [DisablePermitRequestDict](adyen/models/disable_permit_request.py) \| None</code> | The request body.<br>**Default**: <code>None</code> |
-| <code>request_options</code> | <code>[RequestOptionsOrDict](adyen/core/request_options.py) \| None</code> | Per-call overrides for this one request, such as a timeout or extra headers. |
+| <code>request_options</code> | <code>[RequestOptionsOrDict](adyen/core/request_options.py) \| None</code> | Per-call overrides for this one request, such as a timeout, extra headers, or its retry count and statuses. |
 
 </dd>
 </dl>
@@ -13615,7 +14289,7 @@ Returns the company account, merchant account, or store that a payment terminal 
 **Sync**
 
 ```python
-result = client.general.with_raw_response.post_find_terminal()
+result = client.general.with_raw_response.post_find_terminal(body=FindTerminalRequest(terminal="M400-401972715"))
 match result:
     case Success(payload=payload):
         ...  # TODO: Handle 'payload' of type FindTerminalResponse
@@ -13626,7 +14300,9 @@ match result:
 **Async**
 
 ```python
-result = await async_client.general.with_raw_response.post_find_terminal()
+result = await async_client.general.with_raw_response.post_find_terminal(
+    body=FindTerminalRequest(terminal="M400-401972715")
+)
 match result:
     case Success(payload=payload):
         ...  # TODO: Handle 'payload' of type FindTerminalResponse
@@ -13645,7 +14321,7 @@ match result:
 | Name | Type | Description |
 | --- | --- | --- |
 | <code>body</code> | <code>[FindTerminalRequest](adyen/models/find_terminal_request.py) \| [FindTerminalRequestDict](adyen/models/find_terminal_request.py) \| None</code> | The request body.<br>**Default**: <code>None</code> |
-| <code>request_options</code> | <code>[RequestOptionsOrDict](adyen/core/request_options.py) \| None</code> | Per-call overrides for this one request, such as a timeout or extra headers. |
+| <code>request_options</code> | <code>[RequestOptionsOrDict](adyen/core/request_options.py) \| None</code> | Per-call overrides for this one request, such as a timeout, extra headers, or its retry count and statuses. |
 
 </dd>
 </dl>
@@ -13702,7 +14378,9 @@ For more information, refer to [3D Secure 2](https://docs.adyen.com/online-payme
 **Sync**
 
 ```python
-result = client.general.with_raw_response.post_get3ds_availability()
+result = client.general.with_raw_response.post_get3ds_availability(
+    body=ThreeDsavailabilityRequest(card_number="4111111111111111", merchant_account="YOUR_MERCHANT_ACCOUNT")
+)
 match result:
     case Success(payload=payload):
         ...  # TODO: Handle 'payload' of type ThreeDsavailabilityResponse
@@ -13713,7 +14391,9 @@ match result:
 **Async**
 
 ```python
-result = await async_client.general.with_raw_response.post_get3ds_availability()
+result = await async_client.general.with_raw_response.post_get3ds_availability(
+    body=ThreeDsavailabilityRequest(card_number="4111111111111111", merchant_account="YOUR_MERCHANT_ACCOUNT")
+)
 match result:
     case Success(payload=payload):
         ...  # TODO: Handle 'payload' of type ThreeDsavailabilityResponse
@@ -13732,7 +14412,7 @@ match result:
 | Name | Type | Description |
 | --- | --- | --- |
 | <code>body</code> | <code>[ThreeDsavailabilityRequest](adyen/models/three_dsavailability_request.py) \| [ThreeDsavailabilityRequestDict](adyen/models/three_dsavailability_request.py) \| None</code> | The request body.<br>**Default**: <code>None</code> |
-| <code>request_options</code> | <code>[RequestOptionsOrDict](adyen/core/request_options.py) \| None</code> | Per-call overrides for this one request, such as a timeout or extra headers. |
+| <code>request_options</code> | <code>[RequestOptionsOrDict](adyen/core/request_options.py) \| None</code> | Per-call overrides for this one request, such as a timeout, extra headers, or its retry count and statuses. |
 
 </dd>
 </dl>
@@ -13793,7 +14473,16 @@ To retrieve this information, make the call to the `/getCostEstimate` endpoint. 
 **Sync**
 
 ```python
-result = client.general.with_raw_response.post_get_cost_estimate()
+result = client.general.with_raw_response.post_get_cost_estimate(
+    body=CostEstimateRequest(
+        amount=Amount(currency="EUR", value=1234),
+        assumptions=CostEstimateAssumptions1(assume3_d_secure_authenticated=True, assume_level3_data=True),
+        card_number="5101180000000007",
+        merchant_account="YOUR_MERCHANT_ACCOUNT",
+        merchant_details=MerchantDetails2(country_code="NL", enrolled_in3_d_secure=True, mcc="7411"),
+        shopper_interaction=ShopperInteraction.ECOMMERCE,
+    ),
+)
 match result:
     case Success(payload=payload):
         ...  # TODO: Handle 'payload' of type CostEstimateResponse
@@ -13804,7 +14493,16 @@ match result:
 **Async**
 
 ```python
-result = await async_client.general.with_raw_response.post_get_cost_estimate()
+result = await async_client.general.with_raw_response.post_get_cost_estimate(
+    body=CostEstimateRequest(
+        amount=Amount(currency="EUR", value=1234),
+        assumptions=CostEstimateAssumptions1(assume3_d_secure_authenticated=True, assume_level3_data=True),
+        card_number="5101180000000007",
+        merchant_account="YOUR_MERCHANT_ACCOUNT",
+        merchant_details=MerchantDetails2(country_code="NL", enrolled_in3_d_secure=True, mcc="7411"),
+        shopper_interaction=ShopperInteraction.ECOMMERCE,
+    ),
+)
 match result:
     case Success(payload=payload):
         ...  # TODO: Handle 'payload' of type CostEstimateResponse
@@ -13823,7 +14521,7 @@ match result:
 | Name | Type | Description |
 | --- | --- | --- |
 | <code>body</code> | <code>[CostEstimateRequest](adyen/models/cost_estimate_request.py) \| [CostEstimateRequestDict](adyen/models/cost_estimate_request.py) \| None</code> | The request body.<br>**Default**: <code>None</code> |
-| <code>request_options</code> | <code>[RequestOptionsOrDict](adyen/core/request_options.py) \| None</code> | Per-call overrides for this one request, such as a timeout or extra headers. |
+| <code>request_options</code> | <code>[RequestOptionsOrDict](adyen/core/request_options.py) \| None</code> | Per-call overrides for this one request, such as a timeout, extra headers, or its retry count and statuses. |
 
 </dd>
 </dl>
@@ -13878,7 +14576,9 @@ Returns the details of the configuration of a notification subscription.
 **Sync**
 
 ```python
-result = client.general.with_raw_response.post_get_notification_configuration()
+result = client.general.with_raw_response.post_get_notification_configuration(
+    body=GetNotificationConfigurationRequest(notification_id=21259)
+)
 match result:
     case Success(payload=payload):
         ...  # TODO: Handle 'payload' of type GetNotificationConfigurationResponse
@@ -13889,7 +14589,9 @@ match result:
 **Async**
 
 ```python
-result = await async_client.general.with_raw_response.post_get_notification_configuration()
+result = await async_client.general.with_raw_response.post_get_notification_configuration(
+    body=GetNotificationConfigurationRequest(notification_id=21259)
+)
 match result:
     case Success(payload=payload):
         ...  # TODO: Handle 'payload' of type GetNotificationConfigurationResponse
@@ -13908,7 +14610,7 @@ match result:
 | Name | Type | Description |
 | --- | --- | --- |
 | <code>body</code> | <code>[GetNotificationConfigurationRequest](adyen/models/get_notification_configuration_request.py) \| [GetNotificationConfigurationRequestDict](adyen/models/get_notification_configuration_request.py) \| None</code> | The request body.<br>**Default**: <code>None</code> |
-| <code>request_options</code> | <code>[RequestOptionsOrDict](adyen/core/request_options.py) \| None</code> | Per-call overrides for this one request, such as a timeout or extra headers. |
+| <code>request_options</code> | <code>[RequestOptionsOrDict](adyen/core/request_options.py) \| None</code> | Per-call overrides for this one request, such as a timeout, extra headers, or its retry count and statuses. |
 
 </dd>
 </dl>
@@ -13963,7 +14665,7 @@ Returns the details of the configurations of all of the notification subscriptio
 **Sync**
 
 ```python
-result = client.general.with_raw_response.post_get_notification_configuration_list()
+result = client.general.with_raw_response.post_get_notification_configuration_list(body={})
 match result:
     case Success(payload=payload):
         ...  # TODO: Handle 'payload' of type GetNotificationConfigurationListResponse
@@ -13974,7 +14676,7 @@ match result:
 **Async**
 
 ```python
-result = await async_client.general.with_raw_response.post_get_notification_configuration_list()
+result = await async_client.general.with_raw_response.post_get_notification_configuration_list(body={})
 match result:
     case Success(payload=payload):
         ...  # TODO: Handle 'payload' of type GetNotificationConfigurationListResponse
@@ -13993,7 +14695,7 @@ match result:
 | Name | Type | Description |
 | --- | --- | --- |
 | <code>body</code> | <code>Any \| None</code> | The request body.<br>**Default**: <code>None</code> |
-| <code>request_options</code> | <code>[RequestOptionsOrDict](adyen/core/request_options.py) \| None</code> | Per-call overrides for this one request, such as a timeout or extra headers. |
+| <code>request_options</code> | <code>[RequestOptionsOrDict](adyen/core/request_options.py) \| None</code> | Per-call overrides for this one request, such as a timeout, extra headers, or its retry count and statuses. |
 
 </dd>
 </dl>
@@ -14050,7 +14752,9 @@ Returns a list of stores associated with a company account or a merchant account
 **Sync**
 
 ```python
-result = client.general.with_raw_response.post_get_stores_under_account()
+result = client.general.with_raw_response.post_get_stores_under_account(
+    body=GetStoresUnderAccountRequest(company_account="YOUR_COMPANY_ACCOUNT")
+)
 match result:
     case Success(payload=payload):
         ...  # TODO: Handle 'payload' of type GetStoresUnderAccountResponse
@@ -14061,7 +14765,9 @@ match result:
 **Async**
 
 ```python
-result = await async_client.general.with_raw_response.post_get_stores_under_account()
+result = await async_client.general.with_raw_response.post_get_stores_under_account(
+    body=GetStoresUnderAccountRequest(company_account="YOUR_COMPANY_ACCOUNT")
+)
 match result:
     case Success(payload=payload):
         ...  # TODO: Handle 'payload' of type GetStoresUnderAccountResponse
@@ -14080,7 +14786,7 @@ match result:
 | Name | Type | Description |
 | --- | --- | --- |
 | <code>body</code> | <code>[GetStoresUnderAccountRequest](adyen/models/get_stores_under_account_request.py) \| [GetStoresUnderAccountRequestDict](adyen/models/get_stores_under_account_request.py) \| None</code> | The request body.<br>**Default**: <code>None</code> |
-| <code>request_options</code> | <code>[RequestOptionsOrDict](adyen/core/request_options.py) \| None</code> | Per-call overrides for this one request, such as a timeout or extra headers. |
+| <code>request_options</code> | <code>[RequestOptionsOrDict](adyen/core/request_options.py) \| None</code> | Per-call overrides for this one request, such as a timeout, extra headers, or its retry count and statuses. |
 
 </dd>
 </dl>
@@ -14137,7 +14843,9 @@ Returns the details of a payment terminal, including where the terminal is assig
 **Sync**
 
 ```python
-result = client.general.with_raw_response.post_get_terminal_details()
+result = client.general.with_raw_response.post_get_terminal_details(
+    body=GetTerminalDetailsRequest(terminal="M400-401972715")
+)
 match result:
     case Success(payload=payload):
         ...  # TODO: Handle 'payload' of type GetTerminalDetailsResponse
@@ -14148,7 +14856,9 @@ match result:
 **Async**
 
 ```python
-result = await async_client.general.with_raw_response.post_get_terminal_details()
+result = await async_client.general.with_raw_response.post_get_terminal_details(
+    body=GetTerminalDetailsRequest(terminal="M400-401972715")
+)
 match result:
     case Success(payload=payload):
         ...  # TODO: Handle 'payload' of type GetTerminalDetailsResponse
@@ -14167,7 +14877,7 @@ match result:
 | Name | Type | Description |
 | --- | --- | --- |
 | <code>body</code> | <code>[GetTerminalDetailsRequest](adyen/models/get_terminal_details_request.py) \| [GetTerminalDetailsRequestDict](adyen/models/get_terminal_details_request.py) \| None</code> | The request body.<br>**Default**: <code>None</code> |
-| <code>request_options</code> | <code>[RequestOptionsOrDict](adyen/core/request_options.py) \| None</code> | Per-call overrides for this one request, such as a timeout or extra headers. |
+| <code>request_options</code> | <code>[RequestOptionsOrDict](adyen/core/request_options.py) \| None</code> | Per-call overrides for this one request, such as a timeout, extra headers, or its retry count and statuses. |
 
 </dd>
 </dl>
@@ -14224,7 +14934,9 @@ Returns a list of payment terminals associated with a company account, merchant 
 **Sync**
 
 ```python
-result = client.general.with_raw_response.post_get_terminals_under_account()
+result = client.general.with_raw_response.post_get_terminals_under_account(
+    body=GetTerminalsUnderAccountRequest(company_account="YOUR_COMPANY_ACCOUNT")
+)
 match result:
     case Success(payload=payload):
         ...  # TODO: Handle 'payload' of type GetTerminalsUnderAccountResponse
@@ -14235,7 +14947,9 @@ match result:
 **Async**
 
 ```python
-result = await async_client.general.with_raw_response.post_get_terminals_under_account()
+result = await async_client.general.with_raw_response.post_get_terminals_under_account(
+    body=GetTerminalsUnderAccountRequest(company_account="YOUR_COMPANY_ACCOUNT")
+)
 match result:
     case Success(payload=payload):
         ...  # TODO: Handle 'payload' of type GetTerminalsUnderAccountResponse
@@ -14254,7 +14968,7 @@ match result:
 | Name | Type | Description |
 | --- | --- | --- |
 | <code>body</code> | <code>[GetTerminalsUnderAccountRequest](adyen/models/get_terminals_under_account_request.py) \| [GetTerminalsUnderAccountRequestDict](adyen/models/get_terminals_under_account_request.py) \| None</code> | The request body.<br>**Default**: <code>None</code> |
-| <code>request_options</code> | <code>[RequestOptionsOrDict](adyen/core/request_options.py) \| None</code> | Per-call overrides for this one request, such as a timeout or extra headers. |
+| <code>request_options</code> | <code>[RequestOptionsOrDict](adyen/core/request_options.py) \| None</code> | Per-call overrides for this one request, such as a timeout, extra headers, or its retry count and statuses. |
 
 </dd>
 </dl>
@@ -14339,7 +15053,7 @@ match result:
 | Name | Type | Description |
 | --- | --- | --- |
 | <code>body</code> | <code>[StoredValueIssueRequest](adyen/models/stored_value_issue_request.py) \| [StoredValueIssueRequestDict](adyen/models/stored_value_issue_request.py) \| None</code> | The request body.<br>**Default**: <code>None</code> |
-| <code>request_options</code> | <code>[RequestOptionsOrDict](adyen/core/request_options.py) \| None</code> | Per-call overrides for this one request, such as a timeout or extra headers. |
+| <code>request_options</code> | <code>[RequestOptionsOrDict](adyen/core/request_options.py) \| None</code> | Per-call overrides for this one request, such as a timeout, extra headers, or its retry count and statuses. |
 
 </dd>
 </dl>
@@ -14396,7 +15110,13 @@ For more information, refer to [Retrieve stored details](https://docs.adyen.com/
 **Sync**
 
 ```python
-result = client.general.with_raw_response.post_list_recurring_details()
+result = client.general.with_raw_response.post_list_recurring_details(
+    body=RecurringDetailsRequest(
+        merchant_account="YOUR_MERCHANT_ACCOUNT",
+        recurring=Recurring(contract=Contract.RECURRING),
+        shopper_reference="YOUR_SHOPPER_REFERENCE",
+    ),
+)
 match result:
     case Success(payload=payload):
         ...  # TODO: Handle 'payload' of type RecurringDetailsResult
@@ -14407,7 +15127,13 @@ match result:
 **Async**
 
 ```python
-result = await async_client.general.with_raw_response.post_list_recurring_details()
+result = await async_client.general.with_raw_response.post_list_recurring_details(
+    body=RecurringDetailsRequest(
+        merchant_account="YOUR_MERCHANT_ACCOUNT",
+        recurring=Recurring(contract=Contract.RECURRING),
+        shopper_reference="YOUR_SHOPPER_REFERENCE",
+    ),
+)
 match result:
     case Success(payload=payload):
         ...  # TODO: Handle 'payload' of type RecurringDetailsResult
@@ -14426,7 +15152,7 @@ match result:
 | Name | Type | Description |
 | --- | --- | --- |
 | <code>body</code> | <code>[RecurringDetailsRequest](adyen/models/recurring_details_request.py) \| [RecurringDetailsRequestDict](adyen/models/recurring_details_request.py) \| None</code> | The request body.<br>**Default**: <code>None</code> |
-| <code>request_options</code> | <code>[RequestOptionsOrDict](adyen/core/request_options.py) \| None</code> | Per-call overrides for this one request, such as a timeout or extra headers. |
+| <code>request_options</code> | <code>[RequestOptionsOrDict](adyen/core/request_options.py) \| None</code> | Per-call overrides for this one request, such as a timeout, extra headers, or its retry count and statuses. |
 
 </dd>
 </dl>
@@ -14511,7 +15237,7 @@ match result:
 | Name | Type | Description |
 | --- | --- | --- |
 | <code>body</code> | <code>[StoredValueLoadRequest](adyen/models/stored_value_load_request.py) \| [StoredValueLoadRequestDict](adyen/models/stored_value_load_request.py) \| None</code> | The request body.<br>**Default**: <code>None</code> |
-| <code>request_options</code> | <code>[RequestOptionsOrDict](adyen/core/request_options.py) \| None</code> | Per-call overrides for this one request, such as a timeout or extra headers. |
+| <code>request_options</code> | <code>[RequestOptionsOrDict](adyen/core/request_options.py) \| None</code> | Per-call overrides for this one request, such as a timeout, extra headers, or its retry count and statuses. |
 
 </dd>
 </dl>
@@ -14596,7 +15322,7 @@ match result:
 | Name | Type | Description |
 | --- | --- | --- |
 | <code>body</code> | <code>[StoredValueBalanceMergeRequest](adyen/models/stored_value_balance_merge_request.py) \| [StoredValueBalanceMergeRequestDict](adyen/models/stored_value_balance_merge_request.py) \| None</code> | The request body.<br>**Default**: <code>None</code> |
-| <code>request_options</code> | <code>[RequestOptionsOrDict](adyen/core/request_options.py) \| None</code> | Per-call overrides for this one request, such as a timeout or extra headers. |
+| <code>request_options</code> | <code>[RequestOptionsOrDict](adyen/core/request_options.py) \| None</code> | Per-call overrides for this one request, such as a timeout, extra headers, or its retry count and statuses. |
 
 </dd>
 </dl>
@@ -14651,7 +15377,17 @@ Sends a request to the issuer so they can inform the shopper about the upcoming 
 **Sync**
 
 ```python
-result = client.general.with_raw_response.post_notify_shopper()
+result = client.general.with_raw_response.post_notify_shopper(
+    body=NotifyShopperRequest(
+        amount=Amount(currency="INR", value=1000),
+        billing_date="2021-03-16",
+        displayed_reference="exampleDisplayedReference",
+        merchant_account="YOUR_MERCHANT_ACCOUNT",
+        reference="Example reference",
+        shopper_reference="YOUR_SHOPPER_REFERENCE",
+        stored_payment_method_id="8415995487234100",
+    ),
+)
 match result:
     case Success(payload=payload):
         ...  # TODO: Handle 'payload' of type NotifyShopperResult
@@ -14662,7 +15398,17 @@ match result:
 **Async**
 
 ```python
-result = await async_client.general.with_raw_response.post_notify_shopper()
+result = await async_client.general.with_raw_response.post_notify_shopper(
+    body=NotifyShopperRequest(
+        amount=Amount(currency="INR", value=1000),
+        billing_date="2021-03-16",
+        displayed_reference="exampleDisplayedReference",
+        merchant_account="YOUR_MERCHANT_ACCOUNT",
+        reference="Example reference",
+        shopper_reference="YOUR_SHOPPER_REFERENCE",
+        stored_payment_method_id="8415995487234100",
+    ),
+)
 match result:
     case Success(payload=payload):
         ...  # TODO: Handle 'payload' of type NotifyShopperResult
@@ -14681,7 +15427,7 @@ match result:
 | Name | Type | Description |
 | --- | --- | --- |
 | <code>body</code> | <code>[NotifyShopperRequest](adyen/models/notify_shopper_request.py) \| [NotifyShopperRequestDict](adyen/models/notify_shopper_request.py) \| None</code> | The request body.<br>**Default**: <code>None</code> |
-| <code>request_options</code> | <code>[RequestOptionsOrDict](adyen/core/request_options.py) \| None</code> | Per-call overrides for this one request, such as a timeout or extra headers. |
+| <code>request_options</code> | <code>[RequestOptionsOrDict](adyen/core/request_options.py) \| None</code> | Per-call overrides for this one request, such as a timeout, extra headers, or its retry count and statuses. |
 
 </dd>
 </dl>
@@ -14736,7 +15482,15 @@ Pays out a specified amount from an account to the bank account of account holde
 **Sync**
 
 ```python
-result = client.general.with_raw_response.post_payout_account_holder()
+result = client.general.with_raw_response.post_payout_account_holder(
+    body=PayoutAccountHolderRequest(
+        account_code="118731451",
+        account_holder_code="CODE_OF_ACCOUNT_HOLDER",
+        amount=Amount(currency="EUR", value=99792),
+        bank_account_uuid="000b81aa-ae7e-4492-aa7e-72b2129dce0c",
+        description="12345 – Test",
+    ),
+)
 match result:
     case Success(payload=payload):
         ...  # TODO: Handle 'payload' of type PayoutAccountHolderResponse
@@ -14747,7 +15501,15 @@ match result:
 **Async**
 
 ```python
-result = await async_client.general.with_raw_response.post_payout_account_holder()
+result = await async_client.general.with_raw_response.post_payout_account_holder(
+    body=PayoutAccountHolderRequest(
+        account_code="118731451",
+        account_holder_code="CODE_OF_ACCOUNT_HOLDER",
+        amount=Amount(currency="EUR", value=99792),
+        bank_account_uuid="000b81aa-ae7e-4492-aa7e-72b2129dce0c",
+        description="12345 – Test",
+    ),
+)
 match result:
     case Success(payload=payload):
         ...  # TODO: Handle 'payload' of type PayoutAccountHolderResponse
@@ -14766,7 +15528,7 @@ match result:
 | Name | Type | Description |
 | --- | --- | --- |
 | <code>body</code> | <code>[PayoutAccountHolderRequest](adyen/models/payout_account_holder_request.py) \| [PayoutAccountHolderRequestDict](adyen/models/payout_account_holder_request.py) \| None</code> | The request body.<br>**Default**: <code>None</code> |
-| <code>request_options</code> | <code>[RequestOptionsOrDict](adyen/core/request_options.py) \| None</code> | Per-call overrides for this one request, such as a timeout or extra headers. |
+| <code>request_options</code> | <code>[RequestOptionsOrDict](adyen/core/request_options.py) \| None</code> | Per-call overrides for this one request, such as a timeout, extra headers, or its retry count and statuses. |
 
 </dd>
 </dl>
@@ -14821,7 +15583,13 @@ Refunds funds transferred from one account to another. Both accounts must be in 
 **Sync**
 
 ```python
-result = client.general.with_raw_response.post_refund_funds_transfer()
+result = client.general.with_raw_response.post_refund_funds_transfer(
+    body=RefundFundsTransferRequest(
+        amount=Amount(currency="EUR", value=1000),
+        merchant_reference="YOUR_REFERENCE_ID",
+        original_reference="PSP_REFERENCE_OF_TRANSFER_TO_REFUND",
+    ),
+)
 match result:
     case Success(payload=payload):
         ...  # TODO: Handle 'payload' of type RefundFundsTransferResponse
@@ -14832,7 +15600,13 @@ match result:
 **Async**
 
 ```python
-result = await async_client.general.with_raw_response.post_refund_funds_transfer()
+result = await async_client.general.with_raw_response.post_refund_funds_transfer(
+    body=RefundFundsTransferRequest(
+        amount=Amount(currency="EUR", value=1000),
+        merchant_reference="YOUR_REFERENCE_ID",
+        original_reference="PSP_REFERENCE_OF_TRANSFER_TO_REFUND",
+    ),
+)
 match result:
     case Success(payload=payload):
         ...  # TODO: Handle 'payload' of type RefundFundsTransferResponse
@@ -14851,7 +15625,7 @@ match result:
 | Name | Type | Description |
 | --- | --- | --- |
 | <code>body</code> | <code>[RefundFundsTransferRequest](adyen/models/refund_funds_transfer_request.py) \| [RefundFundsTransferRequestDict](adyen/models/refund_funds_transfer_request.py) \| None</code> | The request body.<br>**Default**: <code>None</code> |
-| <code>request_options</code> | <code>[RequestOptionsOrDict](adyen/core/request_options.py) \| None</code> | Per-call overrides for this one request, such as a timeout or extra headers. |
+| <code>request_options</code> | <code>[RequestOptionsOrDict](adyen/core/request_options.py) \| None</code> | Per-call overrides for this one request, such as a timeout, extra headers, or its retry count and statuses. |
 
 </dd>
 </dl>
@@ -14906,7 +15680,9 @@ Refunds all the transactions of an account that have taken place since the most 
 **Sync**
 
 ```python
-result = client.general.with_raw_response.post_refund_not_paid_out_transfers()
+result = client.general.with_raw_response.post_refund_not_paid_out_transfers(
+    body=RefundNotPaidOutTransfersRequest(account_code="189184578", account_holder_code="CODE_OF_ACCOUNT_HOLDER")
+)
 match result:
     case Success(payload=payload):
         ...  # TODO: Handle 'payload' of type GenericResponse
@@ -14917,7 +15693,9 @@ match result:
 **Async**
 
 ```python
-result = await async_client.general.with_raw_response.post_refund_not_paid_out_transfers()
+result = await async_client.general.with_raw_response.post_refund_not_paid_out_transfers(
+    body=RefundNotPaidOutTransfersRequest(account_code="189184578", account_holder_code="CODE_OF_ACCOUNT_HOLDER")
+)
 match result:
     case Success(payload=payload):
         ...  # TODO: Handle 'payload' of type GenericResponse
@@ -14936,7 +15714,7 @@ match result:
 | Name | Type | Description |
 | --- | --- | --- |
 | <code>body</code> | <code>[RefundNotPaidOutTransfersRequest](adyen/models/refund_not_paid_out_transfers_request.py) \| [RefundNotPaidOutTransfersRequestDict](adyen/models/refund_not_paid_out_transfers_request.py) \| None</code> | The request body.<br>**Default**: <code>None</code> |
-| <code>request_options</code> | <code>[RequestOptionsOrDict](adyen/core/request_options.py) \| None</code> | Per-call overrides for this one request, such as a timeout or extra headers. |
+| <code>request_options</code> | <code>[RequestOptionsOrDict](adyen/core/request_options.py) \| None</code> | Per-call overrides for this one request, such as a timeout, extra headers, or its retry count and statuses. |
 
 </dd>
 </dl>
@@ -15021,7 +15799,7 @@ match result:
 | Name | Type | Description |
 | --- | --- | --- |
 | <code>body</code> | <code>[SubjectErasureByPspReferenceRequest](adyen/models/subject_erasure_by_psp_reference_request.py) \| [SubjectErasureByPspReferenceRequestDict](adyen/models/subject_erasure_by_psp_reference_request.py) \| None</code> | The request body.<br>**Default**: <code>None</code> |
-| <code>request_options</code> | <code>[RequestOptionsOrDict](adyen/core/request_options.py) \| None</code> | Per-call overrides for this one request, such as a timeout or extra headers. |
+| <code>request_options</code> | <code>[RequestOptionsOrDict](adyen/core/request_options.py) \| None</code> | Per-call overrides for this one request, such as a timeout, extra headers, or its retry count and statuses. |
 
 </dd>
 </dl>
@@ -15076,7 +15854,9 @@ Returns a list of all applicable defense reasons to defend a specific dispute.
 **Sync**
 
 ```python
-result = client.general.with_raw_response.post_retrieve_applicable_defense_reasons()
+result = client.general.with_raw_response.post_retrieve_applicable_defense_reasons(
+    body=DefenseReasonsRequest(dispute_psp_reference="DZ4DPSHB4WD2WN82", merchant_account_code="YOUR_MERCHANT_ACCOUNT")
+)
 match result:
     case Success(payload=payload):
         ...  # TODO: Handle 'payload' of type DefenseReasonsResponse
@@ -15087,7 +15867,9 @@ match result:
 **Async**
 
 ```python
-result = await async_client.general.with_raw_response.post_retrieve_applicable_defense_reasons()
+result = await async_client.general.with_raw_response.post_retrieve_applicable_defense_reasons(
+    body=DefenseReasonsRequest(dispute_psp_reference="DZ4DPSHB4WD2WN82", merchant_account_code="YOUR_MERCHANT_ACCOUNT")
+)
 match result:
     case Success(payload=payload):
         ...  # TODO: Handle 'payload' of type DefenseReasonsResponse
@@ -15106,7 +15888,7 @@ match result:
 | Name | Type | Description |
 | --- | --- | --- |
 | <code>body</code> | <code>[DefenseReasonsRequest](adyen/models/defense_reasons_request.py) \| [DefenseReasonsRequestDict](adyen/models/defense_reasons_request.py) \| None</code> | The request body.<br>**Default**: <code>None</code> |
-| <code>request_options</code> | <code>[RequestOptionsOrDict](adyen/core/request_options.py) \| None</code> | Per-call overrides for this one request, such as a timeout or extra headers. |
+| <code>request_options</code> | <code>[RequestOptionsOrDict](adyen/core/request_options.py) \| None</code> | Per-call overrides for this one request, such as a timeout, extra headers, or its retry count and statuses. |
 
 </dd>
 </dl>
@@ -15163,7 +15945,13 @@ When making the API call, you can submit either the credit card information, or 
 **Sync**
 
 ```python
-result = client.general.with_raw_response.post_schedule_account_updater()
+result = client.general.with_raw_response.post_schedule_account_updater(
+    body=ScheduleAccountUpdaterRequest(
+        card=Card(expiry_month="03", expiry_year="2030", holder_name="Adyen Test", number="4111111111111111"),
+        merchant_account="YOUR_MERCHANT_ACCOUNT",
+        reference="YOUR_REFERENCE",
+    ),
+)
 match result:
     case Success(payload=payload):
         ...  # TODO: Handle 'payload' of type ScheduleAccountUpdaterResult
@@ -15174,7 +15962,13 @@ match result:
 **Async**
 
 ```python
-result = await async_client.general.with_raw_response.post_schedule_account_updater()
+result = await async_client.general.with_raw_response.post_schedule_account_updater(
+    body=ScheduleAccountUpdaterRequest(
+        card=Card(expiry_month="03", expiry_year="2030", holder_name="Adyen Test", number="4111111111111111"),
+        merchant_account="YOUR_MERCHANT_ACCOUNT",
+        reference="YOUR_REFERENCE",
+    ),
+)
 match result:
     case Success(payload=payload):
         ...  # TODO: Handle 'payload' of type ScheduleAccountUpdaterResult
@@ -15193,7 +15987,7 @@ match result:
 | Name | Type | Description |
 | --- | --- | --- |
 | <code>body</code> | <code>[ScheduleAccountUpdaterRequest](adyen/models/schedule_account_updater_request.py) \| [ScheduleAccountUpdaterRequestDict](adyen/models/schedule_account_updater_request.py) \| None</code> | The request body.<br>**Default**: <code>None</code> |
-| <code>request_options</code> | <code>[RequestOptionsOrDict](adyen/core/request_options.py) \| None</code> | Per-call overrides for this one request, such as a timeout or extra headers. |
+| <code>request_options</code> | <code>[RequestOptionsOrDict](adyen/core/request_options.py) \| None</code> | Per-call overrides for this one request, such as a timeout, extra headers, or its retry count and statuses. |
 
 </dd>
 </dl>
@@ -15250,7 +16044,11 @@ The request sends a setup token that identifies the SDK and the device. The resp
 **Sync**
 
 ```python
-result = client.general.with_raw_response.post_sessions3()
+result = client.general.with_raw_response.post_sessions3(
+    body=CreateSessionRequest(
+        merchant_account="YOUR_MERCHANT_ACCOUNT", setup_token="SETUP_TOKEN", store="YOUR_STORE_ID"
+    ),
+)
 match result:
     case Success(payload=payload):
         ...  # TODO: Handle 'payload' of type CertificateLoadingResponse
@@ -15261,7 +16059,11 @@ match result:
 **Async**
 
 ```python
-result = await async_client.general.with_raw_response.post_sessions3()
+result = await async_client.general.with_raw_response.post_sessions3(
+    body=CreateSessionRequest(
+        merchant_account="YOUR_MERCHANT_ACCOUNT", setup_token="SETUP_TOKEN", store="YOUR_STORE_ID"
+    ),
+)
 match result:
     case Success(payload=payload):
         ...  # TODO: Handle 'payload' of type CertificateLoadingResponse
@@ -15280,7 +16082,7 @@ match result:
 | Name | Type | Description |
 | --- | --- | --- |
 | <code>body</code> | <code>[CreateSessionRequest](adyen/models/create_session_request.py) \| [CreateSessionRequestDict](adyen/models/create_session_request.py) \| None</code> | The request body.<br>**Default**: <code>None</code> |
-| <code>request_options</code> | <code>[RequestOptionsOrDict](adyen/core/request_options.py) \| None</code> | Per-call overrides for this one request, such as a timeout or extra headers. |
+| <code>request_options</code> | <code>[RequestOptionsOrDict](adyen/core/request_options.py) \| None</code> | Per-call overrides for this one request, such as a timeout, extra headers, or its retry count and statuses. |
 
 </dd>
 </dl>
@@ -15328,7 +16130,11 @@ Defines a benefactor and a beneficiary relationship between two accounts. At the
 **Sync**
 
 ```python
-result = client.general.with_raw_response.post_setup_beneficiary()
+result = client.general.with_raw_response.post_setup_beneficiary(
+    body=SetupBeneficiaryRequest(
+        destination_account_code="128952522", merchant_reference="YOUR_REFERENCE_ID", source_account_code="134498192"
+    ),
+)
 match result:
     case Success(payload=payload):
         ...  # TODO: Handle 'payload' of type GenericResponse
@@ -15339,7 +16145,11 @@ match result:
 **Async**
 
 ```python
-result = await async_client.general.with_raw_response.post_setup_beneficiary()
+result = await async_client.general.with_raw_response.post_setup_beneficiary(
+    body=SetupBeneficiaryRequest(
+        destination_account_code="128952522", merchant_reference="YOUR_REFERENCE_ID", source_account_code="134498192"
+    ),
+)
 match result:
     case Success(payload=payload):
         ...  # TODO: Handle 'payload' of type GenericResponse
@@ -15358,7 +16168,7 @@ match result:
 | Name | Type | Description |
 | --- | --- | --- |
 | <code>body</code> | <code>[SetupBeneficiaryRequest](adyen/models/setup_beneficiary_request.py) \| [SetupBeneficiaryRequestDict](adyen/models/setup_beneficiary_request.py) \| None</code> | The request body.<br>**Default**: <code>None</code> |
-| <code>request_options</code> | <code>[RequestOptionsOrDict](adyen/core/request_options.py) \| None</code> | Per-call overrides for this one request, such as a timeout or extra headers. |
+| <code>request_options</code> | <code>[RequestOptionsOrDict](adyen/core/request_options.py) \| None</code> | Per-call overrides for this one request, such as a timeout, extra headers, or its retry count and statuses. |
 
 </dd>
 </dl>
@@ -15413,7 +16223,19 @@ Supplies a specific dispute defense document.
 **Sync**
 
 ```python
-result = client.general.with_raw_response.post_supply_defense_document()
+result = client.general.with_raw_response.post_supply_defense_document(
+    body=SupplyDefenseDocumentRequest(
+        defense_documents=[
+            DefenseDocument(
+                content="JVBERi0xLjQKJcOkw7zDtsOfCjIgMCBv+f/ub0j6JPRX+E3EmC==",
+                content_type="application/pdf",
+                defense_document_type_code="DefenseMaterial",
+            ),
+        ],
+        dispute_psp_reference="DZ4DPSHB4WD2WN82",
+        merchant_account_code="YOUR_MERCHANT_ACCOUNT",
+    ),
+)
 match result:
     case Success(payload=payload):
         ...  # TODO: Handle 'payload' of type SupplyDefenseDocumentResponse
@@ -15424,7 +16246,19 @@ match result:
 **Async**
 
 ```python
-result = await async_client.general.with_raw_response.post_supply_defense_document()
+result = await async_client.general.with_raw_response.post_supply_defense_document(
+    body=SupplyDefenseDocumentRequest(
+        defense_documents=[
+            DefenseDocument(
+                content="JVBERi0xLjQKJcOkw7zDtsOfCjIgMCBv+f/ub0j6JPRX+E3EmC==",
+                content_type="application/pdf",
+                defense_document_type_code="DefenseMaterial",
+            ),
+        ],
+        dispute_psp_reference="DZ4DPSHB4WD2WN82",
+        merchant_account_code="YOUR_MERCHANT_ACCOUNT",
+    ),
+)
 match result:
     case Success(payload=payload):
         ...  # TODO: Handle 'payload' of type SupplyDefenseDocumentResponse
@@ -15443,7 +16277,7 @@ match result:
 | Name | Type | Description |
 | --- | --- | --- |
 | <code>body</code> | <code>[SupplyDefenseDocumentRequest](adyen/models/supply_defense_document_request.py) \| [SupplyDefenseDocumentRequestDict](adyen/models/supply_defense_document_request.py) \| None</code> | The request body.<br>**Default**: <code>None</code> |
-| <code>request_options</code> | <code>[RequestOptionsOrDict](adyen/core/request_options.py) \| None</code> | Per-call overrides for this one request, such as a timeout or extra headers. |
+| <code>request_options</code> | <code>[RequestOptionsOrDict](adyen/core/request_options.py) \| None</code> | Per-call overrides for this one request, such as a timeout, extra headers, or its retry count and statuses. |
 
 </dd>
 </dl>
@@ -15498,7 +16332,11 @@ Tests an existing notification subscription configuration. For each event type s
 **Sync**
 
 ```python
-result = client.general.with_raw_response.post_test_notification_configuration()
+result = client.general.with_raw_response.post_test_notification_configuration(
+    body=TestNotificationConfigurationRequest(
+        event_types=[EventType1.ACCOUNT_HOLDER_VERIFICATION], notification_id=25032
+    ),
+)
 match result:
     case Success(payload=payload):
         ...  # TODO: Handle 'payload' of type TestNotificationConfigurationResponse
@@ -15509,7 +16347,11 @@ match result:
 **Async**
 
 ```python
-result = await async_client.general.with_raw_response.post_test_notification_configuration()
+result = await async_client.general.with_raw_response.post_test_notification_configuration(
+    body=TestNotificationConfigurationRequest(
+        event_types=[EventType1.ACCOUNT_HOLDER_VERIFICATION], notification_id=25032
+    ),
+)
 match result:
     case Success(payload=payload):
         ...  # TODO: Handle 'payload' of type TestNotificationConfigurationResponse
@@ -15528,7 +16370,7 @@ match result:
 | Name | Type | Description |
 | --- | --- | --- |
 | <code>body</code> | <code>[TestNotificationConfigurationRequest](adyen/models/test_notification_configuration_request.py) \| [TestNotificationConfigurationRequestDict](adyen/models/test_notification_configuration_request.py) \| None</code> | The request body.<br>**Default**: <code>None</code> |
-| <code>request_options</code> | <code>[RequestOptionsOrDict](adyen/core/request_options.py) \| None</code> | Per-call overrides for this one request, such as a timeout or extra headers. |
+| <code>request_options</code> | <code>[RequestOptionsOrDict](adyen/core/request_options.py) \| None</code> | Per-call overrides for this one request, such as a timeout, extra headers, or its retry count and statuses. |
 
 </dd>
 </dl>
@@ -15583,7 +16425,14 @@ Transfers funds from one account to another account. Both accounts must be in th
 **Sync**
 
 ```python
-result = client.general.with_raw_response.post_transfer_funds()
+result = client.general.with_raw_response.post_transfer_funds(
+    body=TransferFundsRequest(
+        amount=Amount(currency="EUR", value=2000),
+        destination_account_code="190324759",
+        source_account_code="100000000",
+        transfer_code="TransferCode_1",
+    ),
+)
 match result:
     case Success(payload=payload):
         ...  # TODO: Handle 'payload' of type TransferFundsResponse
@@ -15594,7 +16443,14 @@ match result:
 **Async**
 
 ```python
-result = await async_client.general.with_raw_response.post_transfer_funds()
+result = await async_client.general.with_raw_response.post_transfer_funds(
+    body=TransferFundsRequest(
+        amount=Amount(currency="EUR", value=2000),
+        destination_account_code="190324759",
+        source_account_code="100000000",
+        transfer_code="TransferCode_1",
+    ),
+)
 match result:
     case Success(payload=payload):
         ...  # TODO: Handle 'payload' of type TransferFundsResponse
@@ -15613,7 +16469,7 @@ match result:
 | Name | Type | Description |
 | --- | --- | --- |
 | <code>body</code> | <code>[TransferFundsRequest](adyen/models/transfer_funds_request.py) \| [TransferFundsRequestDict](adyen/models/transfer_funds_request.py) \| None</code> | The request body.<br>**Default**: <code>None</code> |
-| <code>request_options</code> | <code>[RequestOptionsOrDict](adyen/core/request_options.py) \| None</code> | Per-call overrides for this one request, such as a timeout or extra headers. |
+| <code>request_options</code> | <code>[RequestOptionsOrDict](adyen/core/request_options.py) \| None</code> | Per-call overrides for this one request, such as a timeout, extra headers, or its retry count and statuses. |
 
 </dd>
 </dl>
@@ -15668,7 +16524,25 @@ Updates an existing notification subscription configuration. If you are updating
 **Sync**
 
 ```python
-result = client.general.with_raw_response.post_update_notification_configuration()
+result = client.general.with_raw_response.post_update_notification_configuration(
+    body=UpdateNotificationConfigurationRequest(
+        configuration_details=NotificationConfigurationDetails3(
+            active=False,
+            description="Test notif config 756",
+            event_configs=[
+                NotificationEventConfiguration(
+                    event_type=EventType.ACCOUNT_HOLDER_CREATED, include_mode=IncludeMode.EXCLUDE
+                ),
+                NotificationEventConfiguration(event_type=EventType.ACCOUNT_CREATED, include_mode=IncludeMode.INCLUDE),
+            ],
+            notification_id=21259,
+            notify_password="testPassword2",
+            notify_url="https://www.adyen.com/notification-handler",
+            notify_username="testUserName2",
+            ssl_protocol=SslProtocol.TL_SV13,
+        ),
+    ),
+)
 match result:
     case Success(payload=payload):
         ...  # TODO: Handle 'payload' of type GetNotificationConfigurationResponse
@@ -15679,7 +16553,25 @@ match result:
 **Async**
 
 ```python
-result = await async_client.general.with_raw_response.post_update_notification_configuration()
+result = await async_client.general.with_raw_response.post_update_notification_configuration(
+    body=UpdateNotificationConfigurationRequest(
+        configuration_details=NotificationConfigurationDetails3(
+            active=False,
+            description="Test notif config 756",
+            event_configs=[
+                NotificationEventConfiguration(
+                    event_type=EventType.ACCOUNT_HOLDER_CREATED, include_mode=IncludeMode.EXCLUDE
+                ),
+                NotificationEventConfiguration(event_type=EventType.ACCOUNT_CREATED, include_mode=IncludeMode.INCLUDE),
+            ],
+            notification_id=21259,
+            notify_password="testPassword2",
+            notify_url="https://www.adyen.com/notification-handler",
+            notify_username="testUserName2",
+            ssl_protocol=SslProtocol.TL_SV13,
+        ),
+    ),
+)
 match result:
     case Success(payload=payload):
         ...  # TODO: Handle 'payload' of type GetNotificationConfigurationResponse
@@ -15698,7 +16590,7 @@ match result:
 | Name | Type | Description |
 | --- | --- | --- |
 | <code>body</code> | <code>[UpdateNotificationConfigurationRequest](adyen/models/update_notification_configuration_request.py) \| [UpdateNotificationConfigurationRequestDict](adyen/models/update_notification_configuration_request.py) \| None</code> | The request body.<br>**Default**: <code>None</code> |
-| <code>request_options</code> | <code>[RequestOptionsOrDict](adyen/core/request_options.py) \| None</code> | Per-call overrides for this one request, such as a timeout or extra headers. |
+| <code>request_options</code> | <code>[RequestOptionsOrDict](adyen/core/request_options.py) \| None</code> | Per-call overrides for this one request, such as a timeout, extra headers, or its retry count and statuses. |
 
 </dd>
 </dl>
@@ -15783,7 +16675,7 @@ match result:
 | Name | Type | Description |
 | --- | --- | --- |
 | <code>body</code> | <code>[StoredValueVoidRequest](adyen/models/stored_value_void_request.py) \| [StoredValueVoidRequestDict](adyen/models/stored_value_void_request.py) \| None</code> | The request body.<br>**Default**: <code>None</code> |
-| <code>request_options</code> | <code>[RequestOptionsOrDict](adyen/core/request_options.py) \| None</code> | Per-call overrides for this one request, such as a timeout or extra headers. |
+| <code>request_options</code> | <code>[RequestOptionsOrDict](adyen/core/request_options.py) \| None</code> | Per-call overrides for this one request, such as a timeout, extra headers, or its retry count and statuses. |
 
 </dd>
 </dl>
@@ -15819,7 +16711,7 @@ Mapped in first-match order -- an earlier row wins over a later range that also 
 > Source: [GrantAccounts](adyen/apis/grant_accounts.py)
 
 <details>
-<summary><code>def get_grant_accounts_id(id: str, *, request_options: RequestOptionsOrDict | None = None) -> ApiResult[CapitalGrantAccount, GetGrantAccountsIdErrorBody]</code></summary>
+<summary><code>def get_grant_accounts_id(id_: str, *, request_options: RequestOptionsOrDict | None = None) -> ApiResult[CapitalGrantAccount, GetGrantAccountsIdErrorBody]</code></summary>
 
 <dl>
 <dd>
@@ -15842,7 +16734,7 @@ Returns the details of the [grant account](https://docs.adyen.com/platforms/capi
 **Sync**
 
 ```python
-result = client.grant_accounts.with_raw_response.get_grant_accounts_id(id)
+result = client.grant_accounts.with_raw_response.get_grant_accounts_id("some example string")
 match result:
     case Success(payload=payload):
         ...  # TODO: Handle 'payload' of type CapitalGrantAccount
@@ -15853,7 +16745,7 @@ match result:
 **Async**
 
 ```python
-result = await async_client.grant_accounts.with_raw_response.get_grant_accounts_id(id)
+result = await async_client.grant_accounts.with_raw_response.get_grant_accounts_id("some example string")
 match result:
     case Success(payload=payload):
         ...  # TODO: Handle 'payload' of type CapitalGrantAccount
@@ -15871,8 +16763,8 @@ match result:
 
 | Name | Type | Description |
 | --- | --- | --- |
-| <code>id</code> | <code>str</code> | The unique identifier of the grant account. |
-| <code>request_options</code> | <code>[RequestOptionsOrDict](adyen/core/request_options.py) \| None</code> | Per-call overrides for this one request, such as a timeout or extra headers. |
+| <code>id_</code> | <code>str</code> | The unique identifier of the grant account. |
+| <code>request_options</code> | <code>[RequestOptionsOrDict](adyen/core/request_options.py) \| None</code> | Per-call overrides for this one request, such as a timeout, extra headers, or its retry count and statuses. |
 
 </dd>
 </dl>
@@ -15904,7 +16796,7 @@ Mapped in first-match order -- an earlier row wins over a later range that also 
 </details>
 
 <details>
-<summary><code>def get_grant_accounts_id1(id: str, *, request_options: RequestOptionsOrDict | None = None) -> ApiResult[GrantAccount, GetGrantAccountsId1ErrorBody]</code></summary>
+<summary><code>def get_grant_accounts_id1(id_: str, *, request_options: RequestOptionsOrDict | None = None) -> ApiResult[GrantAccount, GetGrantAccountsId1ErrorBody]</code></summary>
 
 <dl>
 <dd>
@@ -15927,7 +16819,7 @@ Returns the details of the specified grant account. This account tracks existing
 **Sync**
 
 ```python
-result = client.grant_accounts.with_raw_response.get_grant_accounts_id1(id)
+result = client.grant_accounts.with_raw_response.get_grant_accounts_id1("some example string")
 match result:
     case Success(payload=payload):
         ...  # TODO: Handle 'payload' of type GrantAccount
@@ -15938,7 +16830,7 @@ match result:
 **Async**
 
 ```python
-result = await async_client.grant_accounts.with_raw_response.get_grant_accounts_id1(id)
+result = await async_client.grant_accounts.with_raw_response.get_grant_accounts_id1("some example string")
 match result:
     case Success(payload=payload):
         ...  # TODO: Handle 'payload' of type GrantAccount
@@ -15956,8 +16848,8 @@ match result:
 
 | Name | Type | Description |
 | --- | --- | --- |
-| <code>id</code> | <code>str</code> | The unique identifier of the grant account. |
-| <code>request_options</code> | <code>[RequestOptionsOrDict](adyen/core/request_options.py) \| None</code> | Per-call overrides for this one request, such as a timeout or extra headers. |
+| <code>id_</code> | <code>str</code> | The unique identifier of the grant account. |
+| <code>request_options</code> | <code>[RequestOptionsOrDict](adyen/core/request_options.py) \| None</code> | Per-call overrides for this one request, such as a timeout, extra headers, or its retry count and statuses. |
 
 </dd>
 </dl>
@@ -16016,7 +16908,7 @@ Returns a list of all [grant offers](https://docs.adyen.com/platforms/capital#gr
 **Sync**
 
 ```python
-result = client.grant_offers_api.with_raw_response.get_grant_offers(account_holder_id)
+result = client.grant_offers_api.with_raw_response.get_grant_offers("some example string")
 match result:
     case Success(payload=payload):
         ...  # TODO: Handle 'payload' of type GrantOffers
@@ -16027,7 +16919,7 @@ match result:
 **Async**
 
 ```python
-result = await async_client.grant_offers_api.with_raw_response.get_grant_offers(account_holder_id)
+result = await async_client.grant_offers_api.with_raw_response.get_grant_offers("some example string")
 match result:
     case Success(payload=payload):
         ...  # TODO: Handle 'payload' of type GrantOffers
@@ -16046,7 +16938,7 @@ match result:
 | Name | Type | Description |
 | --- | --- | --- |
 | <code>account_holder_id</code> | <code>str</code> | The unique identifier of the grant account. |
-| <code>request_options</code> | <code>[RequestOptionsOrDict](adyen/core/request_options.py) \| None</code> | Per-call overrides for this one request, such as a timeout or extra headers. |
+| <code>request_options</code> | <code>[RequestOptionsOrDict](adyen/core/request_options.py) \| None</code> | Per-call overrides for this one request, such as a timeout, extra headers, or its retry count and statuses. |
 
 </dd>
 </dl>
@@ -16101,7 +16993,7 @@ Returns the details of a single grant offer.
 **Sync**
 
 ```python
-result = client.grant_offers_api.with_raw_response.get_grant_offers_grant_offer_id(grant_offer_id)
+result = client.grant_offers_api.with_raw_response.get_grant_offers_grant_offer_id("some example string")
 match result:
     case Success(payload=payload):
         ...  # TODO: Handle 'payload' of type GrantOffer
@@ -16112,7 +17004,7 @@ match result:
 **Async**
 
 ```python
-result = await async_client.grant_offers_api.with_raw_response.get_grant_offers_grant_offer_id(grant_offer_id)
+result = await async_client.grant_offers_api.with_raw_response.get_grant_offers_grant_offer_id("some example string")
 match result:
     case Success(payload=payload):
         ...  # TODO: Handle 'payload' of type GrantOffer
@@ -16131,7 +17023,7 @@ match result:
 | Name | Type | Description |
 | --- | --- | --- |
 | <code>grant_offer_id</code> | <code>str</code> | The unique identifier of the grant offer. |
-| <code>request_options</code> | <code>[RequestOptionsOrDict](adyen/core/request_options.py) \| None</code> | Per-call overrides for this one request, such as a timeout or extra headers. |
+| <code>request_options</code> | <code>[RequestOptionsOrDict](adyen/core/request_options.py) \| None</code> | Per-call overrides for this one request, such as a timeout, extra headers, or its retry count and statuses. |
 
 </dd>
 </dl>
@@ -16163,7 +17055,7 @@ Mapped in first-match order -- an earlier row wins over a later range that also 
 </details>
 
 <details>
-<summary><code>def get_grant_offers_id(id: str, *, request_options: RequestOptionsOrDict | None = None) -> ApiResult[GrantOffer1, GetGrantOffersIdErrorBody]</code></summary>
+<summary><code>def get_grant_offers_id(id_: str, *, request_options: RequestOptionsOrDict | None = None) -> ApiResult[GrantOffer1, GetGrantOffersIdErrorBody]</code></summary>
 
 <dl>
 <dd>
@@ -16186,7 +17078,7 @@ Returns the details of the specified static offer.
 **Sync**
 
 ```python
-result = client.grant_offers_api.with_raw_response.get_grant_offers_id(id)
+result = client.grant_offers_api.with_raw_response.get_grant_offers_id("some example string")
 match result:
     case Success(payload=payload):
         ...  # TODO: Handle 'payload' of type GrantOffer1
@@ -16197,7 +17089,7 @@ match result:
 **Async**
 
 ```python
-result = await async_client.grant_offers_api.with_raw_response.get_grant_offers_id(id)
+result = await async_client.grant_offers_api.with_raw_response.get_grant_offers_id("some example string")
 match result:
     case Success(payload=payload):
         ...  # TODO: Handle 'payload' of type GrantOffer1
@@ -16215,8 +17107,8 @@ match result:
 
 | Name | Type | Description |
 | --- | --- | --- |
-| <code>id</code> | <code>str</code> | The unique identifier of the static offer. |
-| <code>request_options</code> | <code>[RequestOptionsOrDict](adyen/core/request_options.py) \| None</code> | Per-call overrides for this one request, such as a timeout or extra headers. |
+| <code>id_</code> | <code>str</code> | The unique identifier of the static offer. |
+| <code>request_options</code> | <code>[RequestOptionsOrDict](adyen/core/request_options.py) \| None</code> | Per-call overrides for this one request, such as a timeout, extra headers, or its retry count and statuses. |
 
 </dd>
 </dl>
@@ -16271,7 +17163,7 @@ Returns a list of all [static offers](https://docs.adyen.com/capital/get-grant-o
 **Sync**
 
 ```python
-result = client.grant_offers_api.with_raw_response.get_grant_offers1(account_holder_id)
+result = client.grant_offers_api.with_raw_response.get_grant_offers1("some example string")
 match result:
     case Success(payload=payload):
         ...  # TODO: Handle 'payload' of type GrantOffers
@@ -16282,7 +17174,7 @@ match result:
 **Async**
 
 ```python
-result = await async_client.grant_offers_api.with_raw_response.get_grant_offers1(account_holder_id)
+result = await async_client.grant_offers_api.with_raw_response.get_grant_offers1("some example string")
 match result:
     case Success(payload=payload):
         ...  # TODO: Handle 'payload' of type GrantOffers
@@ -16301,7 +17193,7 @@ match result:
 | Name | Type | Description |
 | --- | --- | --- |
 | <code>account_holder_id</code> | <code>str</code> | The unique identifier of the account holder for which you want to get the available static offers. |
-| <code>request_options</code> | <code>[RequestOptionsOrDict](adyen/core/request_options.py) \| None</code> | Per-call overrides for this one request, such as a timeout or extra headers. |
+| <code>request_options</code> | <code>[RequestOptionsOrDict](adyen/core/request_options.py) \| None</code> | Per-call overrides for this one request, such as a timeout, extra headers, or its retry count and statuses. |
 
 </dd>
 </dl>
@@ -16360,7 +17252,7 @@ Returns the details of the specified grant.
 **Sync**
 
 ```python
-result = client.grants_api.with_raw_response.get_grants_grant_id(grant_id)
+result = client.grants_api.with_raw_response.get_grants_grant_id("some example string")
 match result:
     case Success(payload=payload):
         ...  # TODO: Handle 'payload' of type Grant
@@ -16371,7 +17263,7 @@ match result:
 **Async**
 
 ```python
-result = await async_client.grants_api.with_raw_response.get_grants_grant_id(grant_id)
+result = await async_client.grants_api.with_raw_response.get_grants_grant_id("some example string")
 match result:
     case Success(payload=payload):
         ...  # TODO: Handle 'payload' of type Grant
@@ -16390,7 +17282,7 @@ match result:
 | Name | Type | Description |
 | --- | --- | --- |
 | <code>grant_id</code> | <code>str</code> | The unique identifier of the grant reference. |
-| <code>request_options</code> | <code>[RequestOptionsOrDict](adyen/core/request_options.py) \| None</code> | Per-call overrides for this one request, such as a timeout or extra headers. |
+| <code>request_options</code> | <code>[RequestOptionsOrDict](adyen/core/request_options.py) \| None</code> | Per-call overrides for this one request, such as a timeout, extra headers, or its retry count and statuses. |
 
 </dd>
 </dl>
@@ -16445,7 +17337,7 @@ Returns the disbursements of a specified grant.
 **Sync**
 
 ```python
-result = client.grants_api.with_raw_response.get_grants_grant_id_disbursements(grant_id)
+result = client.grants_api.with_raw_response.get_grants_grant_id_disbursements("some example string")
 match result:
     case Success(payload=payload):
         ...  # TODO: Handle 'payload' of type Disbursements
@@ -16456,7 +17348,7 @@ match result:
 **Async**
 
 ```python
-result = await async_client.grants_api.with_raw_response.get_grants_grant_id_disbursements(grant_id)
+result = await async_client.grants_api.with_raw_response.get_grants_grant_id_disbursements("some example string")
 match result:
     case Success(payload=payload):
         ...  # TODO: Handle 'payload' of type Disbursements
@@ -16475,7 +17367,7 @@ match result:
 | Name | Type | Description |
 | --- | --- | --- |
 | <code>grant_id</code> | <code>str</code> | The unique identifier of the grant reference. |
-| <code>request_options</code> | <code>[RequestOptionsOrDict](adyen/core/request_options.py) \| None</code> | Per-call overrides for this one request, such as a timeout or extra headers. |
+| <code>request_options</code> | <code>[RequestOptionsOrDict](adyen/core/request_options.py) \| None</code> | Per-call overrides for this one request, such as a timeout, extra headers, or its retry count and statuses. |
 
 </dd>
 </dl>
@@ -16531,7 +17423,7 @@ Returns the details of a disbursement specified in the path.
 
 ```python
 result = client.grants_api.with_raw_response.get_grants_grant_id_disbursements_disbursement_id(
-    grant_id, disbursement_id
+    "some example string", "some example string"
 )
 match result:
     case Success(payload=payload):
@@ -16544,7 +17436,7 @@ match result:
 
 ```python
 result = await async_client.grants_api.with_raw_response.get_grants_grant_id_disbursements_disbursement_id(
-    grant_id, disbursement_id
+    "some example string", "some example string"
 )
 match result:
     case Success(payload=payload):
@@ -16565,7 +17457,7 @@ match result:
 | --- | --- | --- |
 | <code>grant_id</code> | <code>str</code> | The unique identifier of the grant reference. |
 | <code>disbursement_id</code> | <code>str</code> | The unique identifier of the disbursement. |
-| <code>request_options</code> | <code>[RequestOptionsOrDict](adyen/core/request_options.py) \| None</code> | Per-call overrides for this one request, such as a timeout or extra headers. |
+| <code>request_options</code> | <code>[RequestOptionsOrDict](adyen/core/request_options.py) \| None</code> | Per-call overrides for this one request, such as a timeout, extra headers, or its retry count and statuses. |
 
 </dd>
 </dl>
@@ -16620,7 +17512,7 @@ Returns a list of all the grants of a specific account holder.
 **Sync**
 
 ```python
-result = client.grants_api.with_raw_response.get_grants2(counterparty_account_holder_id)
+result = client.grants_api.with_raw_response.get_grants2("some example string")
 match result:
     case Success(payload=payload):
         ...  # TODO: Handle 'payload' of type Grants
@@ -16631,7 +17523,7 @@ match result:
 **Async**
 
 ```python
-result = await async_client.grants_api.with_raw_response.get_grants2(counterparty_account_holder_id)
+result = await async_client.grants_api.with_raw_response.get_grants2("some example string")
 match result:
     case Success(payload=payload):
         ...  # TODO: Handle 'payload' of type Grants
@@ -16650,7 +17542,7 @@ match result:
 | Name | Type | Description |
 | --- | --- | --- |
 | <code>counterparty_account_holder_id</code> | <code>str</code> | The unique identifier of the account holder that received the grants. |
-| <code>request_options</code> | <code>[RequestOptionsOrDict](adyen/core/request_options.py) \| None</code> | Per-call overrides for this one request, such as a timeout or extra headers. |
+| <code>request_options</code> | <code>[RequestOptionsOrDict](adyen/core/request_options.py) \| None</code> | Per-call overrides for this one request, such as a timeout, extra headers, or its retry count and statuses. |
 
 </dd>
 </dl>
@@ -16706,7 +17598,7 @@ Update the percentage of your user's net income that is deducted for repaying th
 
 ```python
 result = client.grants_api.with_raw_response.patch_grants_grant_id_disbursements_disbursement_id(
-    grant_id, disbursement_id, body
+    "some example string", "some example string", DisbursementInfoUpdate()
 )
 match result:
     case Success(payload=payload):
@@ -16719,7 +17611,7 @@ match result:
 
 ```python
 result = await async_client.grants_api.with_raw_response.patch_grants_grant_id_disbursements_disbursement_id(
-    grant_id, disbursement_id, body
+    "some example string", "some example string", DisbursementInfoUpdate()
 )
 match result:
     case Success(payload=payload):
@@ -16741,7 +17633,7 @@ match result:
 | <code>grant_id</code> | <code>str</code> | The unique identifier of the grant reference. |
 | <code>disbursement_id</code> | <code>str</code> | The unique identifier of the disbursement. |
 | <code>body</code> | <code>[DisbursementInfoUpdate](adyen/models/disbursement_info_update.py) \| [DisbursementInfoUpdateDict](adyen/models/disbursement_info_update.py)</code> | The request body. |
-| <code>request_options</code> | <code>[RequestOptionsOrDict](adyen/core/request_options.py) \| None</code> | Per-call overrides for this one request, such as a timeout or extra headers. |
+| <code>request_options</code> | <code>[RequestOptionsOrDict](adyen/core/request_options.py) \| None</code> | Per-call overrides for this one request, such as a timeout, extra headers, or its retry count and statuses. |
 
 </dd>
 </dl>
@@ -16826,7 +17718,7 @@ match result:
 | Name | Type | Description |
 | --- | --- | --- |
 | <code>body</code> | <code>[CapitalGrantInfo](adyen/models/capital_grant_info.py) \| [CapitalGrantInfoDict](adyen/models/capital_grant_info.py) \| None</code> | The request body.<br>**Default**: <code>None</code> |
-| <code>request_options</code> | <code>[RequestOptionsOrDict](adyen/core/request_options.py) \| None</code> | Per-call overrides for this one request, such as a timeout or extra headers. |
+| <code>request_options</code> | <code>[RequestOptionsOrDict](adyen/core/request_options.py) \| None</code> | Per-call overrides for this one request, such as a timeout, extra headers, or its retry count and statuses. |
 
 </dd>
 </dl>
@@ -16922,7 +17814,7 @@ match result:
 
 | Name | Type | Description |
 | --- | --- | --- |
-| <code>request_options</code> | <code>[RequestOptionsOrDict](adyen/core/request_options.py) \| None</code> | Per-call overrides for this one request, such as a timeout or extra headers. |
+| <code>request_options</code> | <code>[RequestOptionsOrDict](adyen/core/request_options.py) \| None</code> | Per-call overrides for this one request, such as a timeout, extra headers, or its retry count and statuses. |
 
 </dd>
 </dl>
@@ -16954,7 +17846,7 @@ Mapped in first-match order -- an earlier row wins over a later range that also 
 </details>
 
 <details>
-<summary><code>def get_themes_id(id: str, *, request_options: RequestOptionsOrDict | None = None) -> ApiResult[OnboardingTheme, GetThemesIdErrorBody]</code></summary>
+<summary><code>def get_themes_id(id_: str, *, request_options: RequestOptionsOrDict | None = None) -> ApiResult[OnboardingTheme, GetThemesIdErrorBody]</code></summary>
 
 <dl>
 <dd>
@@ -16985,7 +17877,7 @@ Requests to this endpoint are subject to rate limits:
 **Sync**
 
 ```python
-result = client.hosted_onboarding.with_raw_response.get_themes_id(id)
+result = client.hosted_onboarding.with_raw_response.get_themes_id("some example string")
 match result:
     case Success(payload=payload):
         ...  # TODO: Handle 'payload' of type OnboardingTheme
@@ -16996,7 +17888,7 @@ match result:
 **Async**
 
 ```python
-result = await async_client.hosted_onboarding.with_raw_response.get_themes_id(id)
+result = await async_client.hosted_onboarding.with_raw_response.get_themes_id("some example string")
 match result:
     case Success(payload=payload):
         ...  # TODO: Handle 'payload' of type OnboardingTheme
@@ -17014,8 +17906,8 @@ match result:
 
 | Name | Type | Description |
 | --- | --- | --- |
-| <code>id</code> | <code>str</code> | The unique identifier of the theme |
-| <code>request_options</code> | <code>[RequestOptionsOrDict](adyen/core/request_options.py) \| None</code> | Per-call overrides for this one request, such as a timeout or extra headers. |
+| <code>id_</code> | <code>str</code> | The unique identifier of the theme |
+| <code>request_options</code> | <code>[RequestOptionsOrDict](adyen/core/request_options.py) \| None</code> | Per-call overrides for this one request, such as a timeout, extra headers, or its retry count and statuses. |
 
 </dd>
 </dl>
@@ -17047,7 +17939,7 @@ Mapped in first-match order -- an earlier row wins over a later range that also 
 </details>
 
 <details>
-<summary><code>def post_legal_entities_id_onboarding_links(id: str, *, body: OnboardingLinkInfo | OnboardingLinkInfoDict | None = None, request_options: RequestOptionsOrDict | None = None) -> ApiResult[OnboardingLink, PostLegalEntitiesIdOnboardingLinksErrorBody]</code></summary>
+<summary><code>def post_legal_entities_id_onboarding_links(id_: str, *, body: OnboardingLinkInfo | OnboardingLinkInfoDict | None = None, request_options: RequestOptionsOrDict | None = None) -> ApiResult[OnboardingLink, PostLegalEntitiesIdOnboardingLinksErrorBody]</code></summary>
 
 <dl>
 <dd>
@@ -17078,7 +17970,10 @@ Requests to this endpoint are subject to rate limits:
 **Sync**
 
 ```python
-result = client.hosted_onboarding.with_raw_response.post_legal_entities_id_onboarding_links(id)
+result = client.hosted_onboarding.with_raw_response.post_legal_entities_id_onboarding_links(
+    "some example string",
+    body=OnboardingLinkInfo(locale="nl-NL", redirect_url="https://your-company.example.com", theme_id="YOUR_THEME_ID"),
+)
 match result:
     case Success(payload=payload):
         ...  # TODO: Handle 'payload' of type OnboardingLink
@@ -17089,7 +17984,10 @@ match result:
 **Async**
 
 ```python
-result = await async_client.hosted_onboarding.with_raw_response.post_legal_entities_id_onboarding_links(id)
+result = await async_client.hosted_onboarding.with_raw_response.post_legal_entities_id_onboarding_links(
+    "some example string",
+    body=OnboardingLinkInfo(locale="nl-NL", redirect_url="https://your-company.example.com", theme_id="YOUR_THEME_ID"),
+)
 match result:
     case Success(payload=payload):
         ...  # TODO: Handle 'payload' of type OnboardingLink
@@ -17107,9 +18005,9 @@ match result:
 
 | Name | Type | Description |
 | --- | --- | --- |
-| <code>id</code> | <code>str</code> | The unique identifier of the legal entity |
+| <code>id_</code> | <code>str</code> | The unique identifier of the legal entity |
 | <code>body</code> | <code>[OnboardingLinkInfo](adyen/models/onboarding_link_info.py) \| [OnboardingLinkInfoDict](adyen/models/onboarding_link_info.py) \| None</code> | The request body.<br>**Default**: <code>None</code> |
-| <code>request_options</code> | <code>[RequestOptionsOrDict](adyen/core/request_options.py) \| None</code> | Per-call overrides for this one request, such as a timeout or extra headers. |
+| <code>request_options</code> | <code>[RequestOptionsOrDict](adyen/core/request_options.py) \| None</code> | Per-call overrides for this one request, such as a timeout, extra headers, or its retry count and statuses. |
 
 </dd>
 </dl>
@@ -17168,7 +18066,11 @@ Returns a link to an Adyen-hosted onboarding page (HOP) that you can send to you
 **Sync**
 
 ```python
-result = client.hosted_onboarding_page.with_raw_response.post_get_onboarding_url()
+result = client.hosted_onboarding_page.with_raw_response.post_get_onboarding_url(
+    body=GetOnboardingUrlRequest(
+        account_holder_code="CODE_OF_ACCOUNT_HOLDER", return_url="https://your.return-url.com/?submerchant=123"
+    ),
+)
 match result:
     case Success(payload=payload):
         ...  # TODO: Handle 'payload' of type GetOnboardingUrlResponse
@@ -17179,7 +18081,11 @@ match result:
 **Async**
 
 ```python
-result = await async_client.hosted_onboarding_page.with_raw_response.post_get_onboarding_url()
+result = await async_client.hosted_onboarding_page.with_raw_response.post_get_onboarding_url(
+    body=GetOnboardingUrlRequest(
+        account_holder_code="CODE_OF_ACCOUNT_HOLDER", return_url="https://your.return-url.com/?submerchant=123"
+    ),
+)
 match result:
     case Success(payload=payload):
         ...  # TODO: Handle 'payload' of type GetOnboardingUrlResponse
@@ -17198,7 +18104,7 @@ match result:
 | Name | Type | Description |
 | --- | --- | --- |
 | <code>body</code> | <code>[GetOnboardingUrlRequest](adyen/models/get_onboarding_url_request.py) \| [GetOnboardingUrlRequestDict](adyen/models/get_onboarding_url_request.py) \| None</code> | The request body.<br>**Default**: <code>None</code> |
-| <code>request_options</code> | <code>[RequestOptionsOrDict](adyen/core/request_options.py) \| None</code> | Per-call overrides for this one request, such as a timeout or extra headers. |
+| <code>request_options</code> | <code>[RequestOptionsOrDict](adyen/core/request_options.py) \| None</code> | Per-call overrides for this one request, such as a timeout, extra headers, or its retry count and statuses. |
 
 </dd>
 </dl>
@@ -17298,7 +18204,7 @@ match result:
 | Name | Type | Description |
 | --- | --- | --- |
 | <code>body</code> | <code>[StoreDetailRequest](adyen/models/store_detail_request.py) \| [StoreDetailRequestDict](adyen/models/store_detail_request.py) \| None</code> | The request body.<br>**Default**: <code>None</code> |
-| <code>request_options</code> | <code>[RequestOptionsOrDict](adyen/core/request_options.py) \| None</code> | Per-call overrides for this one request, such as a timeout or extra headers. |
+| <code>request_options</code> | <code>[RequestOptionsOrDict](adyen/core/request_options.py) \| None</code> | Per-call overrides for this one request, such as a timeout, extra headers, or its retry count and statuses. |
 
 </dd>
 </dl>
@@ -17396,7 +18302,7 @@ match result:
 | Name | Type | Description |
 | --- | --- | --- |
 | <code>body</code> | <code>[StoreDetailAndSubmitRequest](adyen/models/store_detail_and_submit_request.py) \| [StoreDetailAndSubmitRequestDict](adyen/models/store_detail_and_submit_request.py) \| None</code> | The request body.<br>**Default**: <code>None</code> |
-| <code>request_options</code> | <code>[RequestOptionsOrDict](adyen/core/request_options.py) \| None</code> | Per-call overrides for this one request, such as a timeout or extra headers. |
+| <code>request_options</code> | <code>[RequestOptionsOrDict](adyen/core/request_options.py) \| None</code> | Per-call overrides for this one request, such as a timeout, extra headers, or its retry count and statuses. |
 
 </dd>
 </dl>
@@ -17494,7 +18400,7 @@ match result:
 | Name | Type | Description |
 | --- | --- | --- |
 | <code>body</code> | <code>[SubmitRequest](adyen/models/submit_request.py) \| [SubmitRequestDict](adyen/models/submit_request.py) \| None</code> | The request body.<br>**Default**: <code>None</code> |
-| <code>request_options</code> | <code>[RequestOptionsOrDict](adyen/core/request_options.py) \| None</code> | Per-call overrides for this one request, such as a timeout or extra headers. |
+| <code>request_options</code> | <code>[RequestOptionsOrDict](adyen/core/request_options.py) \| None</code> | Per-call overrides for this one request, such as a timeout, extra headers, or its retry count and statuses. |
 
 </dd>
 </dl>
@@ -17564,7 +18470,23 @@ With this call, you can pay out to your customers, and funds will be made availa
 **Sync**
 
 ```python
-result = client.instant_payouts.with_raw_response.post_payout()
+result = client.instant_payouts.with_raw_response.post_payout(
+    body=PayoutRequest(
+        amount=Amount(currency="USD", value=2500),
+        billing_address=Address(
+            city="Beverly Hills",
+            country="US",
+            house_number_or_name="121",
+            postal_code="90210",
+            state_or_province="CA",
+            street="Brannan Street",
+        ),
+        card=Card(expiry_month="03", expiry_year="2030", holder_name="John Smith", number="4111111111111111"),
+        merchant_account="YOUR_MERCHANT_ACCOUNT",
+        reference="P9999999999999999",
+        shopper_name=Name(first_name="John", last_name="Smith"),
+    ),
+)
 match result:
     case Success(payload=payload):
         ...  # TODO: Handle 'payload' of type PayoutResponse
@@ -17575,7 +18497,23 @@ match result:
 **Async**
 
 ```python
-result = await async_client.instant_payouts.with_raw_response.post_payout()
+result = await async_client.instant_payouts.with_raw_response.post_payout(
+    body=PayoutRequest(
+        amount=Amount(currency="USD", value=2500),
+        billing_address=Address(
+            city="Beverly Hills",
+            country="US",
+            house_number_or_name="121",
+            postal_code="90210",
+            state_or_province="CA",
+            street="Brannan Street",
+        ),
+        card=Card(expiry_month="03", expiry_year="2030", holder_name="John Smith", number="4111111111111111"),
+        merchant_account="YOUR_MERCHANT_ACCOUNT",
+        reference="P9999999999999999",
+        shopper_name=Name(first_name="John", last_name="Smith"),
+    ),
+)
 match result:
     case Success(payload=payload):
         ...  # TODO: Handle 'payload' of type PayoutResponse
@@ -17594,7 +18532,7 @@ match result:
 | Name | Type | Description |
 | --- | --- | --- |
 | <code>body</code> | <code>[PayoutRequest](adyen/models/payout_request.py) \| [PayoutRequestDict](adyen/models/payout_request.py) \| None</code> | The request body.<br>**Default**: <code>None</code> |
-| <code>request_options</code> | <code>[RequestOptionsOrDict](adyen/core/request_options.py) \| None</code> | Per-call overrides for this one request, such as a timeout or extra headers. |
+| <code>request_options</code> | <code>[RequestOptionsOrDict](adyen/core/request_options.py) \| None</code> | Per-call overrides for this one request, such as a timeout, extra headers, or its retry count and statuses. |
 
 </dd>
 </dl>
@@ -17630,7 +18568,7 @@ Mapped in first-match order -- an earlier row wins over a later range that also 
 > Source: [LegalEntities](adyen/apis/legal_entities.py)
 
 <details>
-<summary><code>def get_legal_entities_id(id: str, *, request_options: RequestOptionsOrDict | None = None) -> ApiResult[LegalEntity3, GetLegalEntitiesIdErrorBody]</code></summary>
+<summary><code>def get_legal_entities_id(id_: str, *, request_options: RequestOptionsOrDict | None = None) -> ApiResult[LegalEntity3, GetLegalEntitiesIdErrorBody]</code></summary>
 
 <dl>
 <dd>
@@ -17661,7 +18599,7 @@ Requests to this endpoint are subject to rate limits:
 **Sync**
 
 ```python
-result = client.legal_entities.with_raw_response.get_legal_entities_id(id)
+result = client.legal_entities.with_raw_response.get_legal_entities_id("some example string")
 match result:
     case Success(payload=payload):
         ...  # TODO: Handle 'payload' of type LegalEntity3
@@ -17672,7 +18610,7 @@ match result:
 **Async**
 
 ```python
-result = await async_client.legal_entities.with_raw_response.get_legal_entities_id(id)
+result = await async_client.legal_entities.with_raw_response.get_legal_entities_id("some example string")
 match result:
     case Success(payload=payload):
         ...  # TODO: Handle 'payload' of type LegalEntity3
@@ -17690,8 +18628,8 @@ match result:
 
 | Name | Type | Description |
 | --- | --- | --- |
-| <code>id</code> | <code>str</code> | The unique identifier of the legal entity. |
-| <code>request_options</code> | <code>[RequestOptionsOrDict](adyen/core/request_options.py) \| None</code> | Per-call overrides for this one request, such as a timeout or extra headers. |
+| <code>id_</code> | <code>str</code> | The unique identifier of the legal entity. |
+| <code>request_options</code> | <code>[RequestOptionsOrDict](adyen/core/request_options.py) \| None</code> | Per-call overrides for this one request, such as a timeout, extra headers, or its retry count and statuses. |
 
 </dd>
 </dl>
@@ -17723,7 +18661,7 @@ Mapped in first-match order -- an earlier row wins over a later range that also 
 </details>
 
 <details>
-<summary><code>def get_legal_entities_id_business_lines(id: str, *, request_options: RequestOptionsOrDict | None = None) -> ApiResult[BusinessLines, GetLegalEntitiesIdBusinessLinesErrorBody]</code></summary>
+<summary><code>def get_legal_entities_id_business_lines(id_: str, *, request_options: RequestOptionsOrDict | None = None) -> ApiResult[BusinessLines, GetLegalEntitiesIdBusinessLinesErrorBody]</code></summary>
 
 <dl>
 <dd>
@@ -17754,7 +18692,7 @@ Requests to this endpoint are subject to rate limits:
 **Sync**
 
 ```python
-result = client.legal_entities.with_raw_response.get_legal_entities_id_business_lines(id)
+result = client.legal_entities.with_raw_response.get_legal_entities_id_business_lines("some example string")
 match result:
     case Success(payload=payload):
         ...  # TODO: Handle 'payload' of type BusinessLines
@@ -17765,7 +18703,7 @@ match result:
 **Async**
 
 ```python
-result = await async_client.legal_entities.with_raw_response.get_legal_entities_id_business_lines(id)
+result = await async_client.legal_entities.with_raw_response.get_legal_entities_id_business_lines("some example string")
 match result:
     case Success(payload=payload):
         ...  # TODO: Handle 'payload' of type BusinessLines
@@ -17783,8 +18721,8 @@ match result:
 
 | Name | Type | Description |
 | --- | --- | --- |
-| <code>id</code> | <code>str</code> | The unique identifier of the legal entity. |
-| <code>request_options</code> | <code>[RequestOptionsOrDict](adyen/core/request_options.py) \| None</code> | Per-call overrides for this one request, such as a timeout or extra headers. |
+| <code>id_</code> | <code>str</code> | The unique identifier of the legal entity. |
+| <code>request_options</code> | <code>[RequestOptionsOrDict](adyen/core/request_options.py) \| None</code> | Per-call overrides for this one request, such as a timeout, extra headers, or its retry count and statuses. |
 
 </dd>
 </dl>
@@ -17816,7 +18754,7 @@ Mapped in first-match order -- an earlier row wins over a later range that also 
 </details>
 
 <details>
-<summary><code>def patch_legal_entities_id(id: str, *, x_requested_verification_code: str | None = None, body: LegalEntityInfo | LegalEntityInfoDict | None = None, request_options: RequestOptionsOrDict | None = None) -> ApiResult[LegalEntity3, PatchLegalEntitiesIdErrorBody]</code></summary>
+<summary><code>def patch_legal_entities_id(id_: str, *, x_requested_verification_code: str | None = None, body: LegalEntityInfo | LegalEntityInfoDict | None = None, request_options: RequestOptionsOrDict | None = None) -> ApiResult[LegalEntity3, PatchLegalEntitiesIdErrorBody]</code></summary>
 
 <dl>
 <dd>
@@ -17851,7 +18789,9 @@ Requests to this endpoint are subject to rate limits:
 **Sync**
 
 ```python
-result = client.legal_entities.with_raw_response.patch_legal_entities_id(id)
+result = client.legal_entities.with_raw_response.patch_legal_entities_id(
+    "some example string", x_requested_verification_code="0_0001", body=LegalEntityInfo(type_=Type182.INDIVIDUAL)
+)
 match result:
     case Success(payload=payload):
         ...  # TODO: Handle 'payload' of type LegalEntity3
@@ -17862,7 +18802,9 @@ match result:
 **Async**
 
 ```python
-result = await async_client.legal_entities.with_raw_response.patch_legal_entities_id(id)
+result = await async_client.legal_entities.with_raw_response.patch_legal_entities_id(
+    "some example string", x_requested_verification_code="0_0001", body=LegalEntityInfo(type_=Type182.INDIVIDUAL)
+)
 match result:
     case Success(payload=payload):
         ...  # TODO: Handle 'payload' of type LegalEntity3
@@ -17880,10 +18822,10 @@ match result:
 
 | Name | Type | Description |
 | --- | --- | --- |
-| <code>id</code> | <code>str</code> | The unique identifier of the legal entity. |
+| <code>id_</code> | <code>str</code> | The unique identifier of the legal entity. |
 | <code>x_requested_verification_code</code> | <code>str \| None</code> | Use the requested verification code 0_0001 to resolve any suberrors associated with the legal entity. Requested verification codes can only be used in your test environment.<br>**Default**: <code>None</code> |
 | <code>body</code> | <code>[LegalEntityInfo](adyen/models/legal_entity_info.py) \| [LegalEntityInfoDict](adyen/models/legal_entity_info.py) \| None</code> | The request body.<br>**Default**: <code>None</code> |
-| <code>request_options</code> | <code>[RequestOptionsOrDict](adyen/core/request_options.py) \| None</code> | Per-call overrides for this one request, such as a timeout or extra headers. |
+| <code>request_options</code> | <code>[RequestOptionsOrDict](adyen/core/request_options.py) \| None</code> | Per-call overrides for this one request, such as a timeout, extra headers, or its retry count and statuses. |
 
 </dd>
 </dl>
@@ -17948,7 +18890,28 @@ Requests to this endpoint are subject to rate limits:
 **Sync**
 
 ```python
-result = client.legal_entities.with_raw_response.post_legal_entities()
+result = client.legal_entities.with_raw_response.post_legal_entities(
+    x_requested_verification_code="1_3004",
+    body=LegalEntityInfoRequiredType(
+        individual=Individual1(
+            birth_data=BirthData1(date_of_birth="1991-01-01"),
+            email="s.hopper@example.com",
+            identification_data=IdentificationData1(
+                card_number="112327", issuer_state="NSW", number="1234567891", type_=Type132.DRIVERS_LICENSE
+            ),
+            name=Name23(first_name="Shelly", last_name="Eller"),
+            residential_address=Address13(
+                city="Sydney",
+                country="AU",
+                postal_code="1122",
+                state_or_province="NSW",
+                street="Winfield Avenue",
+                street2="12",
+            ),
+        ),
+        type_=Type213.INDIVIDUAL,
+    ),
+)
 match result:
     case Success(payload=payload):
         ...  # TODO: Handle 'payload' of type LegalEntity3
@@ -17959,7 +18922,28 @@ match result:
 **Async**
 
 ```python
-result = await async_client.legal_entities.with_raw_response.post_legal_entities()
+result = await async_client.legal_entities.with_raw_response.post_legal_entities(
+    x_requested_verification_code="1_3004",
+    body=LegalEntityInfoRequiredType(
+        individual=Individual1(
+            birth_data=BirthData1(date_of_birth="1991-01-01"),
+            email="s.hopper@example.com",
+            identification_data=IdentificationData1(
+                card_number="112327", issuer_state="NSW", number="1234567891", type_=Type132.DRIVERS_LICENSE
+            ),
+            name=Name23(first_name="Shelly", last_name="Eller"),
+            residential_address=Address13(
+                city="Sydney",
+                country="AU",
+                postal_code="1122",
+                state_or_province="NSW",
+                street="Winfield Avenue",
+                street2="12",
+            ),
+        ),
+        type_=Type213.INDIVIDUAL,
+    ),
+)
 match result:
     case Success(payload=payload):
         ...  # TODO: Handle 'payload' of type LegalEntity3
@@ -17979,7 +18963,7 @@ match result:
 | --- | --- | --- |
 | <code>x_requested_verification_code</code> | <code>str \| None</code> | Use a suberror code as your requested verification code. You can include one code at a time in your request header. Requested verification codes can only be used in your test environment.<br>**Default**: <code>None</code> |
 | <code>body</code> | <code>[LegalEntityInfoRequiredType](adyen/models/legal_entity_info_required_type.py) \| [LegalEntityInfoRequiredTypeDict](adyen/models/legal_entity_info_required_type.py) \| None</code> | The request body.<br>**Default**: <code>None</code> |
-| <code>request_options</code> | <code>[RequestOptionsOrDict](adyen/core/request_options.py) \| None</code> | Per-call overrides for this one request, such as a timeout or extra headers. |
+| <code>request_options</code> | <code>[RequestOptionsOrDict](adyen/core/request_options.py) \| None</code> | Per-call overrides for this one request, such as a timeout, extra headers, or its retry count and statuses. |
 
 </dd>
 </dl>
@@ -18011,7 +18995,7 @@ Mapped in first-match order -- an earlier row wins over a later range that also 
 </details>
 
 <details>
-<summary><code>def post_legal_entities_id_check_verification_errors(id: str, *, request_options: RequestOptionsOrDict | None = None) -> ApiResult[VerificationErrors, PostLegalEntitiesIdCheckVerificationErrorsErrorBody]</code></summary>
+<summary><code>def post_legal_entities_id_check_verification_errors(id_: str, *, request_options: RequestOptionsOrDict | None = None) -> ApiResult[VerificationErrors, PostLegalEntitiesIdCheckVerificationErrorsErrorBody]</code></summary>
 
 <dl>
 <dd>
@@ -18042,7 +19026,7 @@ Requests to this endpoint are subject to rate limits:
 **Sync**
 
 ```python
-result = client.legal_entities.with_raw_response.post_legal_entities_id_check_verification_errors(id)
+result = client.legal_entities.with_raw_response.post_legal_entities_id_check_verification_errors("some example string")
 match result:
     case Success(payload=payload):
         ...  # TODO: Handle 'payload' of type VerificationErrors
@@ -18053,7 +19037,9 @@ match result:
 **Async**
 
 ```python
-result = await async_client.legal_entities.with_raw_response.post_legal_entities_id_check_verification_errors(id)
+result = await async_client.legal_entities.with_raw_response.post_legal_entities_id_check_verification_errors(
+    "some example string"
+)
 match result:
     case Success(payload=payload):
         ...  # TODO: Handle 'payload' of type VerificationErrors
@@ -18071,8 +19057,8 @@ match result:
 
 | Name | Type | Description |
 | --- | --- | --- |
-| <code>id</code> | <code>str</code> | The unique identifier of the legal entity. |
-| <code>request_options</code> | <code>[RequestOptionsOrDict](adyen/core/request_options.py) \| None</code> | Per-call overrides for this one request, such as a timeout or extra headers. |
+| <code>id_</code> | <code>str</code> | The unique identifier of the legal entity. |
+| <code>request_options</code> | <code>[RequestOptionsOrDict](adyen/core/request_options.py) \| None</code> | Per-call overrides for this one request, such as a timeout, extra headers, or its retry count and statuses. |
 
 </dd>
 </dl>
@@ -18104,7 +19090,7 @@ Mapped in first-match order -- an earlier row wins over a later range that also 
 </details>
 
 <details>
-<summary><code>def post_legal_entities_id_confirm_data_review(id: str, *, request_options: RequestOptionsOrDict | None = None) -> ApiResult[DataReviewConfirmationResponse, PostLegalEntitiesIdConfirmDataReviewErrorBody]</code></summary>
+<summary><code>def post_legal_entities_id_confirm_data_review(id_: str, *, request_options: RequestOptionsOrDict | None = None) -> ApiResult[DataReviewConfirmationResponse, PostLegalEntitiesIdConfirmDataReviewErrorBody]</code></summary>
 
 <dl>
 <dd>
@@ -18135,7 +19121,7 @@ Requests to this endpoint are subject to rate limits:
 **Sync**
 
 ```python
-result = client.legal_entities.with_raw_response.post_legal_entities_id_confirm_data_review(id)
+result = client.legal_entities.with_raw_response.post_legal_entities_id_confirm_data_review("some example string")
 match result:
     case Success(payload=payload):
         ...  # TODO: Handle 'payload' of type DataReviewConfirmationResponse
@@ -18146,7 +19132,9 @@ match result:
 **Async**
 
 ```python
-result = await async_client.legal_entities.with_raw_response.post_legal_entities_id_confirm_data_review(id)
+result = await async_client.legal_entities.with_raw_response.post_legal_entities_id_confirm_data_review(
+    "some example string"
+)
 match result:
     case Success(payload=payload):
         ...  # TODO: Handle 'payload' of type DataReviewConfirmationResponse
@@ -18164,8 +19152,8 @@ match result:
 
 | Name | Type | Description |
 | --- | --- | --- |
-| <code>id</code> | <code>str</code> | The unique identifier of the legal entity. |
-| <code>request_options</code> | <code>[RequestOptionsOrDict](adyen/core/request_options.py) \| None</code> | Per-call overrides for this one request, such as a timeout or extra headers. |
+| <code>id_</code> | <code>str</code> | The unique identifier of the legal entity. |
+| <code>request_options</code> | <code>[RequestOptionsOrDict](adyen/core/request_options.py) \| None</code> | Per-call overrides for this one request, such as a timeout, extra headers, or its retry count and statuses. |
 
 </dd>
 </dl>
@@ -18197,7 +19185,7 @@ Mapped in first-match order -- an earlier row wins over a later range that also 
 </details>
 
 <details>
-<summary><code>def post_legal_entities_id_request_periodic_review(id: str, *, request_options: RequestOptionsOrDict | None = None) -> ApiResult[Any, RawError]</code></summary>
+<summary><code>def post_legal_entities_id_request_periodic_review(id_: str, *, request_options: RequestOptionsOrDict | None = None) -> ApiResult[Any, RawError]</code></summary>
 
 <dl>
 <dd>
@@ -18220,7 +19208,7 @@ Requests a periodic data review for the legal entity of the user specified in th
 **Sync**
 
 ```python
-result = client.legal_entities.with_raw_response.post_legal_entities_id_request_periodic_review(id)
+result = client.legal_entities.with_raw_response.post_legal_entities_id_request_periodic_review("some example string")
 match result:
     case Success(payload=payload):
         ...  # TODO: Handle 'payload' of type Any
@@ -18231,7 +19219,9 @@ match result:
 **Async**
 
 ```python
-result = await async_client.legal_entities.with_raw_response.post_legal_entities_id_request_periodic_review(id)
+result = await async_client.legal_entities.with_raw_response.post_legal_entities_id_request_periodic_review(
+    "some example string"
+)
 match result:
     case Success(payload=payload):
         ...  # TODO: Handle 'payload' of type Any
@@ -18249,8 +19239,8 @@ match result:
 
 | Name | Type | Description |
 | --- | --- | --- |
-| <code>id</code> | <code>str</code> | The unique identifier of the legal entity. |
-| <code>request_options</code> | <code>[RequestOptionsOrDict](adyen/core/request_options.py) \| None</code> | Per-call overrides for this one request, such as a timeout or extra headers. |
+| <code>id_</code> | <code>str</code> | The unique identifier of the legal entity. |
+| <code>request_options</code> | <code>[RequestOptionsOrDict](adyen/core/request_options.py) \| None</code> | Per-call overrides for this one request, such as a timeout, extra headers, or its retry count and statuses. |
 
 </dd>
 </dl>
@@ -18279,7 +19269,7 @@ match result:
 > Source: [ManageScaDevices](adyen/apis/manage_sca_devices.py)
 
 <details>
-<summary><code>def delete_registered_devices_id(id: str, payment_instrument_id: str, *, request_options: RequestOptionsOrDict | None = None) -> ApiResult[None, DeleteRegisteredDevicesIdErrorBody]</code></summary>
+<summary><code>def delete_registered_devices_id(id_: str, payment_instrument_id: str, *, request_options: RequestOptionsOrDict | None = None) -> ApiResult[None, DeleteRegisteredDevicesIdErrorBody]</code></summary>
 
 <dl>
 <dd>
@@ -18302,7 +19292,9 @@ Deletes an SCA device from the list of registered devices of a specific payment 
 **Sync**
 
 ```python
-result = client.manage_sca_devices.with_raw_response.delete_registered_devices_id(id, payment_instrument_id)
+result = client.manage_sca_devices.with_raw_response.delete_registered_devices_id(
+    "some example string", "some example string"
+)
 match result:
     case Success():
         ...  # 2xx, no content
@@ -18313,7 +19305,9 @@ match result:
 **Async**
 
 ```python
-result = await async_client.manage_sca_devices.with_raw_response.delete_registered_devices_id(id, payment_instrument_id)
+result = await async_client.manage_sca_devices.with_raw_response.delete_registered_devices_id(
+    "some example string", "some example string"
+)
 match result:
     case Success():
         ...  # 2xx, no content
@@ -18331,9 +19325,9 @@ match result:
 
 | Name | Type | Description |
 | --- | --- | --- |
-| <code>id</code> | <code>str</code> | The unique identifier of the SCA device. |
+| <code>id_</code> | <code>str</code> | The unique identifier of the SCA device. |
 | <code>payment_instrument_id</code> | <code>str</code> | The unique identifier of the payment instrument linked to the SCA device. |
-| <code>request_options</code> | <code>[RequestOptionsOrDict](adyen/core/request_options.py) \| None</code> | Per-call overrides for this one request, such as a timeout or extra headers. |
+| <code>request_options</code> | <code>[RequestOptionsOrDict](adyen/core/request_options.py) \| None</code> | Per-call overrides for this one request, such as a timeout, extra headers, or its retry count and statuses. |
 
 </dd>
 </dl>
@@ -18388,7 +19382,7 @@ Get a paginated list of the SCA devices you have currently registered for a spec
 **Sync**
 
 ```python
-result = client.manage_sca_devices.with_raw_response.get_registered_devices(payment_instrument_id)
+result = client.manage_sca_devices.with_raw_response.get_registered_devices("some example string")
 match result:
     case Success(payload=payload):
         ...  # TODO: Handle 'payload' of type SearchRegisteredDevicesResponse
@@ -18399,7 +19393,7 @@ match result:
 **Async**
 
 ```python
-result = await async_client.manage_sca_devices.with_raw_response.get_registered_devices(payment_instrument_id)
+result = await async_client.manage_sca_devices.with_raw_response.get_registered_devices("some example string")
 match result:
     case Success(payload=payload):
         ...  # TODO: Handle 'payload' of type SearchRegisteredDevicesResponse
@@ -18420,7 +19414,7 @@ match result:
 | <code>payment_instrument_id</code> | <code>str</code> | The unique identifier of a payment instrument. It limits the returned list to SCA devices associated to this payment instrument. |
 | <code>page_number</code> | <code>int \| None</code> | The index of the page to retrieve. The index of the first page is 0 (zero).<br><br>Default: 0.<br>**Default**: <code>None</code> |
 | <code>page_size</code> | <code>int \| None</code> | The number of items to have on a page.<br><br>Default: 20. Maximum: 100.<br>**Default**: <code>None</code> |
-| <code>request_options</code> | <code>[RequestOptionsOrDict](adyen/core/request_options.py) \| None</code> | Per-call overrides for this one request, such as a timeout or extra headers. |
+| <code>request_options</code> | <code>[RequestOptionsOrDict](adyen/core/request_options.py) \| None</code> | Per-call overrides for this one request, such as a timeout, extra headers, or its retry count and statuses. |
 
 </dd>
 </dl>
@@ -18477,7 +19471,9 @@ To complete the association, this endpoint validates the authentication data of 
 **Sync**
 
 ```python
-result = client.manage_sca_devices.with_raw_response.patch_registered_devices_device_id_associations(device_id)
+result = client.manage_sca_devices.with_raw_response.patch_registered_devices_device_id_associations(
+    "some example string"
+)
 match result:
     case Success(payload=payload):
         ...  # TODO: Handle 'payload' of type AssociationFinaliseResponse
@@ -18489,7 +19485,7 @@ match result:
 
 ```python
 result = await async_client.manage_sca_devices.with_raw_response.patch_registered_devices_device_id_associations(
-    device_id
+    "some example string"
 )
 match result:
     case Success(payload=payload):
@@ -18510,7 +19506,7 @@ match result:
 | --- | --- | --- |
 | <code>device_id</code> | <code>str</code> | The unique identifier of the SCA device that you are associating with a resource. |
 | <code>body</code> | <code>[AssociationFinaliseRequest](adyen/models/association_finalise_request.py) \| [AssociationFinaliseRequestDict](adyen/models/association_finalise_request.py) \| None</code> | The request body.<br>**Default**: <code>None</code> |
-| <code>request_options</code> | <code>[RequestOptionsOrDict](adyen/core/request_options.py) \| None</code> | Per-call overrides for this one request, such as a timeout or extra headers. |
+| <code>request_options</code> | <code>[RequestOptionsOrDict](adyen/core/request_options.py) \| None</code> | Per-call overrides for this one request, such as a timeout, extra headers, or its retry count and statuses. |
 
 </dd>
 </dl>
@@ -18542,7 +19538,7 @@ Mapped in first-match order -- an earlier row wins over a later range that also 
 </details>
 
 <details>
-<summary><code>def patch_registered_devices_id(id: str, *, body: RegisterScarequest | RegisterScarequestDict | None = None, request_options: RequestOptionsOrDict | None = None) -> ApiResult[RegisterScafinalResponse, PatchRegisteredDevicesIdErrorBody]</code></summary>
+<summary><code>def patch_registered_devices_id(id_: str, *, body: RegisterScarequest | RegisterScarequestDict | None = None, request_options: RequestOptionsOrDict | None = None) -> ApiResult[RegisterScafinalResponse, PatchRegisteredDevicesIdErrorBody]</code></summary>
 
 <dl>
 <dd>
@@ -18565,7 +19561,7 @@ Completes the registration of an SCA device by validating the authentication dat
 **Sync**
 
 ```python
-result = client.manage_sca_devices.with_raw_response.patch_registered_devices_id(id)
+result = client.manage_sca_devices.with_raw_response.patch_registered_devices_id("some example string")
 match result:
     case Success(payload=payload):
         ...  # TODO: Handle 'payload' of type RegisterScafinalResponse
@@ -18576,7 +19572,7 @@ match result:
 **Async**
 
 ```python
-result = await async_client.manage_sca_devices.with_raw_response.patch_registered_devices_id(id)
+result = await async_client.manage_sca_devices.with_raw_response.patch_registered_devices_id("some example string")
 match result:
     case Success(payload=payload):
         ...  # TODO: Handle 'payload' of type RegisterScafinalResponse
@@ -18594,9 +19590,9 @@ match result:
 
 | Name | Type | Description |
 | --- | --- | --- |
-| <code>id</code> | <code>str</code> | The unique identifier of the SCA device. You obtain this `id` in the response of a POST&nbsp;[/registeredDevices](https://docs.adyen.com/api-explorer/balanceplatform/2/post/registeredDevices#responses-200-id) request. |
+| <code>id_</code> | <code>str</code> | The unique identifier of the SCA device. You obtain this `id` in the response of a POST&nbsp;[/registeredDevices](https://docs.adyen.com/api-explorer/balanceplatform/2/post/registeredDevices#responses-200-id) request. |
 | <code>body</code> | <code>[RegisterScarequest](adyen/models/register_scarequest.py) \| [RegisterScarequestDict](adyen/models/register_scarequest.py) \| None</code> | The request body.<br>**Default**: <code>None</code> |
-| <code>request_options</code> | <code>[RequestOptionsOrDict](adyen/core/request_options.py) \| None</code> | Per-call overrides for this one request, such as a timeout or extra headers. |
+| <code>request_options</code> | <code>[RequestOptionsOrDict](adyen/core/request_options.py) \| None</code> | Per-call overrides for this one request, such as a timeout, extra headers, or its retry count and statuses. |
 
 </dd>
 </dl>
@@ -18683,7 +19679,7 @@ match result:
 | Name | Type | Description |
 | --- | --- | --- |
 | <code>body</code> | <code>[RegisterScarequest](adyen/models/register_scarequest.py) \| [RegisterScarequestDict](adyen/models/register_scarequest.py) \| None</code> | The request body.<br>**Default**: <code>None</code> |
-| <code>request_options</code> | <code>[RequestOptionsOrDict](adyen/core/request_options.py) \| None</code> | Per-call overrides for this one request, such as a timeout or extra headers. |
+| <code>request_options</code> | <code>[RequestOptionsOrDict](adyen/core/request_options.py) \| None</code> | Per-call overrides for this one request, such as a timeout, extra headers, or its retry count and statuses. |
 
 </dd>
 </dl>
@@ -18738,7 +19734,9 @@ Initiates an association between a user's registered SCA device and an Adyen res
 **Sync**
 
 ```python
-result = client.manage_sca_devices.with_raw_response.post_registered_devices_device_id_associations(device_id)
+result = client.manage_sca_devices.with_raw_response.post_registered_devices_device_id_associations(
+    "some example string"
+)
 match result:
     case Success(payload=payload):
         ...  # TODO: Handle 'payload' of type AssociationInitiateResponse
@@ -18750,7 +19748,7 @@ match result:
 
 ```python
 result = await async_client.manage_sca_devices.with_raw_response.post_registered_devices_device_id_associations(
-    device_id
+    "some example string"
 )
 match result:
     case Success(payload=payload):
@@ -18771,7 +19769,7 @@ match result:
 | --- | --- | --- |
 | <code>device_id</code> | <code>str</code> | The unique identifier of the SCA device that you are associating with a resource. |
 | <code>body</code> | <code>[AssociationInitiateRequest](adyen/models/association_initiate_request.py) \| [AssociationInitiateRequestDict](adyen/models/association_initiate_request.py) \| None</code> | The request body.<br>**Default**: <code>None</code> |
-| <code>request_options</code> | <code>[RequestOptionsOrDict](adyen/core/request_options.py) \| None</code> | Per-call overrides for this one request, such as a timeout or extra headers. |
+| <code>request_options</code> | <code>[RequestOptionsOrDict](adyen/core/request_options.py) \| None</code> | Per-call overrides for this one request, such as a timeout, extra headers, or its retry count and statuses. |
 
 </dd>
 </dl>
@@ -18807,7 +19805,7 @@ Mapped in first-match order -- an earlier row wins over a later range that also 
 > Source: [ManageCardPin](adyen/apis/manage_card_pin.py)
 
 <details>
-<summary><code>def get_public_key(*, purpose: str | None = None, format: str | None = None, request_options: RequestOptionsOrDict | None = None) -> ApiResult[PublicKeyResponse, GetPublicKeyErrorBody]</code></summary>
+<summary><code>def get_public_key(*, purpose: str | None = None, format_: str | None = None, request_options: RequestOptionsOrDict | None = None) -> ApiResult[PublicKeyResponse, GetPublicKeyErrorBody]</code></summary>
 
 <dl>
 <dd>
@@ -18865,8 +19863,8 @@ match result:
 | Name | Type | Description |
 | --- | --- | --- |
 | <code>purpose</code> | <code>str \| None</code> | The purpose of the public key.<br><br>Possible values: **pinChange**, **pinReveal**, **panReveal**.<br><br>Default value: **pinReveal**.<br>**Default**: <code>None</code> |
-| <code>format</code> | <code>str \| None</code> | The encoding format of public key.<br><br>Possible values: **jwk**, **pem**.<br><br>Default value: **pem**.<br>**Default**: <code>None</code> |
-| <code>request_options</code> | <code>[RequestOptionsOrDict](adyen/core/request_options.py) \| None</code> | Per-call overrides for this one request, such as a timeout or extra headers. |
+| <code>format_</code> | <code>str \| None</code> | The encoding format of public key.<br><br>Possible values: **jwk**, **pem**.<br><br>Default value: **pem**.<br>**Default**: <code>None</code> |
+| <code>request_options</code> | <code>[RequestOptionsOrDict](adyen/core/request_options.py) \| None</code> | Per-call overrides for this one request, such as a timeout, extra headers, or its retry count and statuses. |
 
 </dd>
 </dl>
@@ -18924,7 +19922,14 @@ To make this request, your API credential must have the following role:
 **Sync**
 
 ```python
-result = client.manage_card_pin.with_raw_response.post_pins_change()
+result = client.manage_card_pin.with_raw_response.post_pins_change(
+    body=PinChangeRequest(
+        encrypted_key="75989E8881284D10153ABACF022EEA09F5...",
+        encrypted_pin_block="63E5060591EF65F48DD1D4FECD0FECD5",
+        payment_instrument_id="PI6789678967896789",
+        token="5555341244441115",
+    ),
+)
 match result:
     case Success(payload=payload):
         ...  # TODO: Handle 'payload' of type PinChangeResponse
@@ -18935,7 +19940,14 @@ match result:
 **Async**
 
 ```python
-result = await async_client.manage_card_pin.with_raw_response.post_pins_change()
+result = await async_client.manage_card_pin.with_raw_response.post_pins_change(
+    body=PinChangeRequest(
+        encrypted_key="75989E8881284D10153ABACF022EEA09F5...",
+        encrypted_pin_block="63E5060591EF65F48DD1D4FECD0FECD5",
+        payment_instrument_id="PI6789678967896789",
+        token="5555341244441115",
+    ),
+)
 match result:
     case Success(payload=payload):
         ...  # TODO: Handle 'payload' of type PinChangeResponse
@@ -18954,7 +19966,7 @@ match result:
 | Name | Type | Description |
 | --- | --- | --- |
 | <code>body</code> | <code>[PinChangeRequest](adyen/models/pin_change_request.py) \| [PinChangeRequestDict](adyen/models/pin_change_request.py) \| None</code> | The request body.<br>**Default**: <code>None</code> |
-| <code>request_options</code> | <code>[RequestOptionsOrDict](adyen/core/request_options.py) \| None</code> | Per-call overrides for this one request, such as a timeout or extra headers. |
+| <code>request_options</code> | <code>[RequestOptionsOrDict](adyen/core/request_options.py) \| None</code> | Per-call overrides for this one request, such as a timeout, extra headers, or its retry count and statuses. |
 
 </dd>
 </dl>
@@ -19012,7 +20024,11 @@ To make this request, your API credential must have the following role:
 **Sync**
 
 ```python
-result = client.manage_card_pin.with_raw_response.post_pins_reveal()
+result = client.manage_card_pin.with_raw_response.post_pins_reveal(
+    body=RevealPinRequest(
+        encrypted_key="75989E8881284D10153ABACF022EEA09F5...", payment_instrument_id="PI3227C223222B5BPCMFXD2XG"
+    ),
+)
 match result:
     case Success(payload=payload):
         ...  # TODO: Handle 'payload' of type RevealPinResponse
@@ -19023,7 +20039,11 @@ match result:
 **Async**
 
 ```python
-result = await async_client.manage_card_pin.with_raw_response.post_pins_reveal()
+result = await async_client.manage_card_pin.with_raw_response.post_pins_reveal(
+    body=RevealPinRequest(
+        encrypted_key="75989E8881284D10153ABACF022EEA09F5...", payment_instrument_id="PI3227C223222B5BPCMFXD2XG"
+    ),
+)
 match result:
     case Success(payload=payload):
         ...  # TODO: Handle 'payload' of type RevealPinResponse
@@ -19042,7 +20062,7 @@ match result:
 | Name | Type | Description |
 | --- | --- | --- |
 | <code>body</code> | <code>[RevealPinRequest](adyen/models/reveal_pin_request.py) \| [RevealPinRequestDict](adyen/models/reveal_pin_request.py) \| None</code> | The request body.<br>**Default**: <code>None</code> |
-| <code>request_options</code> | <code>[RequestOptionsOrDict](adyen/core/request_options.py) \| None</code> | Per-call overrides for this one request, such as a timeout or extra headers. |
+| <code>request_options</code> | <code>[RequestOptionsOrDict](adyen/core/request_options.py) \| None</code> | Per-call overrides for this one request, such as a timeout, extra headers, or its retry count and statuses. |
 
 </dd>
 </dl>
@@ -19078,7 +20098,7 @@ Mapped in first-match order -- an earlier row wins over a later range that also 
 > Source: [ManagedPayoutSchedules](adyen/apis/managed_payout_schedules.py)
 
 <details>
-<summary><code>def delete_balance_accounts_balance_account_id_payout_schedules_id(balance_account_id: str, id: str, *, request_options: RequestOptionsOrDict | None = None) -> ApiResult[None, DeleteBalanceAccountsBalanceAccountIdPayoutSchedulesIdErrorBody]</code></summary>
+<summary><code>def delete_balance_accounts_balance_account_id_payout_schedules_id(balance_account_id: str, id_: str, *, request_options: RequestOptionsOrDict | None = None) -> ApiResult[None, DeleteBalanceAccountsBalanceAccountIdPayoutSchedulesIdErrorBody]</code></summary>
 
 <dl>
 <dd>
@@ -19102,7 +20122,7 @@ Delete a payout schedule applied to a balance account.
 
 ```python
 result = client.managed_payout_schedules.with_raw_response.delete_balance_accounts_balance_account_id_payout_schedules_id(
-    balance_account_id, id
+    "some example string", "some example string"
 )
 match result:
     case Success():
@@ -19115,7 +20135,7 @@ match result:
 
 ```python
 result = await async_client.managed_payout_schedules.with_raw_response.delete_balance_accounts_balance_account_id_payout_schedules_id(
-    balance_account_id, id
+    "some example string", "some example string"
 )
 match result:
     case Success():
@@ -19135,8 +20155,8 @@ match result:
 | Name | Type | Description |
 | --- | --- | --- |
 | <code>balance_account_id</code> | <code>str</code> | The unique identifier of the balance account. |
-| <code>id</code> | <code>str</code> | The unique identifier of the payout schedule applied to the balance account. |
-| <code>request_options</code> | <code>[RequestOptionsOrDict](adyen/core/request_options.py) \| None</code> | Per-call overrides for this one request, such as a timeout or extra headers. |
+| <code>id_</code> | <code>str</code> | The unique identifier of the payout schedule applied to the balance account. |
+| <code>request_options</code> | <code>[RequestOptionsOrDict](adyen/core/request_options.py) \| None</code> | Per-call overrides for this one request, such as a timeout, extra headers, or its retry count and statuses. |
 
 </dd>
 </dl>
@@ -19192,7 +20212,7 @@ Returns a list of all managed payout schedules that are configured on a balance 
 
 ```python
 result = client.managed_payout_schedules.with_raw_response.get_balance_accounts_balance_account_id_payout_schedules(
-    balance_account_id
+    "some example string"
 )
 match result:
     case Success(payload=payload):
@@ -19205,7 +20225,7 @@ match result:
 
 ```python
 result = await async_client.managed_payout_schedules.with_raw_response.get_balance_accounts_balance_account_id_payout_schedules(
-    balance_account_id
+    "some example string"
 )
 match result:
     case Success(payload=payload):
@@ -19228,7 +20248,7 @@ match result:
 | <code>currency</code> | <code>str \| None</code> | The three-character [ISO currency code](https://docs.adyen.com/development-resources/currency-codes) of the currency used in the payout schedule.<br>**Default**: <code>None</code> |
 | <code>cursor</code> | <code>str \| None</code> | The `cursor` returned in the links of the previous response.<br>**Default**: <code>None</code> |
 | <code>limit</code> | <code>int \| None</code> | The number of items returned per page, maximum of 100 items. By default, the response returns 10 items per page.<br>**Default**: <code>10</code> |
-| <code>request_options</code> | <code>[RequestOptionsOrDict](adyen/core/request_options.py) \| None</code> | Per-call overrides for this one request, such as a timeout or extra headers. |
+| <code>request_options</code> | <code>[RequestOptionsOrDict](adyen/core/request_options.py) \| None</code> | Per-call overrides for this one request, such as a timeout, extra headers, or its retry count and statuses. |
 
 </dd>
 </dl>
@@ -19260,7 +20280,7 @@ Mapped in first-match order -- an earlier row wins over a later range that also 
 </details>
 
 <details>
-<summary><code>def get_balance_accounts_balance_account_id_payout_schedules_id(balance_account_id: str, id: str, *, request_options: RequestOptionsOrDict | None = None) -> ApiResult[BalanceAccountConfiguration, GetBalanceAccountsBalanceAccountIdPayoutSchedulesIdErrorBody]</code></summary>
+<summary><code>def get_balance_accounts_balance_account_id_payout_schedules_id(balance_account_id: str, id_: str, *, request_options: RequestOptionsOrDict | None = None) -> ApiResult[BalanceAccountConfiguration, GetBalanceAccountsBalanceAccountIdPayoutSchedulesIdErrorBody]</code></summary>
 
 <dl>
 <dd>
@@ -19284,7 +20304,7 @@ Returns the specified payout schedule.
 
 ```python
 result = client.managed_payout_schedules.with_raw_response.get_balance_accounts_balance_account_id_payout_schedules_id(
-    balance_account_id, id
+    "some example string", "some example string"
 )
 match result:
     case Success(payload=payload):
@@ -19297,7 +20317,7 @@ match result:
 
 ```python
 result = await async_client.managed_payout_schedules.with_raw_response.get_balance_accounts_balance_account_id_payout_schedules_id(
-    balance_account_id, id
+    "some example string", "some example string"
 )
 match result:
     case Success(payload=payload):
@@ -19317,8 +20337,8 @@ match result:
 | Name | Type | Description |
 | --- | --- | --- |
 | <code>balance_account_id</code> | <code>str</code> | The unique identifier of the balance account. |
-| <code>id</code> | <code>str</code> | The unique identifier of the payout schedule for the balance account. |
-| <code>request_options</code> | <code>[RequestOptionsOrDict](adyen/core/request_options.py) \| None</code> | Per-call overrides for this one request, such as a timeout or extra headers. |
+| <code>id_</code> | <code>str</code> | The unique identifier of the payout schedule for the balance account. |
+| <code>request_options</code> | <code>[RequestOptionsOrDict](adyen/core/request_options.py) \| None</code> | Per-call overrides for this one request, such as a timeout, extra headers, or its retry count and statuses. |
 
 </dd>
 </dl>
@@ -19350,7 +20370,7 @@ Mapped in first-match order -- an earlier row wins over a later range that also 
 </details>
 
 <details>
-<summary><code>def get_balance_accounts_balance_account_id_payout_schedules_id_executions(balance_account_id: str, id: str, offset: int, *, results: list[ExecutionResultOrStr] | None = None, limit: int | None = None, request_options: RequestOptionsOrDict | None = None) -> ApiResult[PayoutScheduleExecutions, GetBalanceAccountsBalanceAccountIdPayoutSchedulesIdExecutionsErrorBody]</code></summary>
+<summary><code>def get_balance_accounts_balance_account_id_payout_schedules_id_executions(balance_account_id: str, id_: str, offset: int, *, results: list[ExecutionResultOrStr] | None = None, limit: int | None = None, request_options: RequestOptionsOrDict | None = None) -> ApiResult[PayoutScheduleExecutions, GetBalanceAccountsBalanceAccountIdPayoutSchedulesIdExecutionsErrorBody]</code></summary>
 
 <dl>
 <dd>
@@ -19374,7 +20394,7 @@ View information about the executions of a managed payout schedule on the specif
 
 ```python
 result = client.managed_payout_schedules.with_raw_response.get_balance_accounts_balance_account_id_payout_schedules_id_executions(
-    balance_account_id, id, offset
+    "some example string", "some example string", 1
 )
 match result:
     case Success(payload=payload):
@@ -19387,7 +20407,7 @@ match result:
 
 ```python
 result = await async_client.managed_payout_schedules.with_raw_response.get_balance_accounts_balance_account_id_payout_schedules_id_executions(
-    balance_account_id, id, offset
+    "some example string", "some example string", 1
 )
 match result:
     case Success(payload=payload):
@@ -19407,11 +20427,11 @@ match result:
 | Name | Type | Description |
 | --- | --- | --- |
 | <code>balance_account_id</code> | <code>str</code> | The unique identifier of the balance account. |
-| <code>id</code> | <code>str</code> | The unique identifier of the payout schedule on the balance account. |
+| <code>id_</code> | <code>str</code> | The unique identifier of the payout schedule on the balance account. |
 | <code>offset</code> | <code>int</code> | The page number to be returned.<br><br>Default: **1** |
 | <code>results</code> | <code>list&#91;[ExecutionResultOrStr](adyen/models/enums/execution_result.py)&#93; \| None</code> | Contains a list of payout statuses. If included, the response returns only executed payouts that currently have one of the specified statuses.<br><br>Possible statuses:<br>- **succeeded**: The payout was sent successfully.<br>- **failed**: The payout was not sent due to an error.<br>- **skipped**: The payout was not triggered as expected.<br>**Default**: <code>None</code> |
 | <code>limit</code> | <code>int \| None</code> | The number of items returned per page.<br><br>Default: **10**<br>**Default**: <code>None</code> |
-| <code>request_options</code> | <code>[RequestOptionsOrDict](adyen/core/request_options.py) \| None</code> | Per-call overrides for this one request, such as a timeout or extra headers. |
+| <code>request_options</code> | <code>[RequestOptionsOrDict](adyen/core/request_options.py) \| None</code> | Per-call overrides for this one request, such as a timeout, extra headers, or its retry count and statuses. |
 
 </dd>
 </dl>
@@ -19467,7 +20487,7 @@ Returns a list of all the payout schedules that are configured for your balance 
 
 ```python
 result = client.managed_payout_schedules.with_raw_response.get_balance_platforms_balance_platform_id_payout_schedules(
-    balance_platform_id
+    "some example string"
 )
 match result:
     case Success(payload=payload):
@@ -19480,7 +20500,7 @@ match result:
 
 ```python
 result = await async_client.managed_payout_schedules.with_raw_response.get_balance_platforms_balance_platform_id_payout_schedules(
-    balance_platform_id
+    "some example string"
 )
 match result:
     case Success(payload=payload):
@@ -19502,7 +20522,7 @@ match result:
 | <code>balance_platform_id</code> | <code>str</code> | The unique identifier of the balance platform. |
 | <code>country_code</code> | <code>str \| None</code> | The two-letter [ISO 3166-1 alpha-2](https://en.wikipedia.org/wiki/ISO_3166-1_alpha-2) country code of the country to which the payout configuration applies.<br>**Default**: <code>None</code> |
 | <code>currency</code> | <code>str \| None</code> | The three-character [ISO currency code](https://docs.adyen.com/development-resources/currency-codes) of the currency used in the payout configuration.<br>**Default**: <code>None</code> |
-| <code>request_options</code> | <code>[RequestOptionsOrDict](adyen/core/request_options.py) \| None</code> | Per-call overrides for this one request, such as a timeout or extra headers. |
+| <code>request_options</code> | <code>[RequestOptionsOrDict](adyen/core/request_options.py) \| None</code> | Per-call overrides for this one request, such as a timeout, extra headers, or its retry count and statuses. |
 
 </dd>
 </dl>
@@ -19534,7 +20554,7 @@ Mapped in first-match order -- an earlier row wins over a later range that also 
 </details>
 
 <details>
-<summary><code>def get_balance_platforms_balance_platform_id_payout_schedules_id(balance_platform_id: str, id: str, *, request_options: RequestOptionsOrDict | None = None) -> ApiResult[BalancePlatformConfiguration, GetBalancePlatformsBalancePlatformIdPayoutSchedulesIdErrorBody]</code></summary>
+<summary><code>def get_balance_platforms_balance_platform_id_payout_schedules_id(balance_platform_id: str, id_: str, *, request_options: RequestOptionsOrDict | None = None) -> ApiResult[BalancePlatformConfiguration, GetBalancePlatformsBalancePlatformIdPayoutSchedulesIdErrorBody]</code></summary>
 
 <dl>
 <dd>
@@ -19558,7 +20578,7 @@ Returns the specified managed payout schedule configured on your balance platfor
 
 ```python
 result = client.managed_payout_schedules.with_raw_response.get_balance_platforms_balance_platform_id_payout_schedules_id(
-    balance_platform_id, id
+    "some example string", "some example string"
 )
 match result:
     case Success(payload=payload):
@@ -19571,7 +20591,7 @@ match result:
 
 ```python
 result = await async_client.managed_payout_schedules.with_raw_response.get_balance_platforms_balance_platform_id_payout_schedules_id(
-    balance_platform_id, id
+    "some example string", "some example string"
 )
 match result:
     case Success(payload=payload):
@@ -19591,8 +20611,8 @@ match result:
 | Name | Type | Description |
 | --- | --- | --- |
 | <code>balance_platform_id</code> | <code>str</code> | The unique identifier of the balance platform. |
-| <code>id</code> | <code>str</code> | The unique identifier of the payout configuration for your balance platform. |
-| <code>request_options</code> | <code>[RequestOptionsOrDict](adyen/core/request_options.py) \| None</code> | Per-call overrides for this one request, such as a timeout or extra headers. |
+| <code>id_</code> | <code>str</code> | The unique identifier of the payout configuration for your balance platform. |
+| <code>request_options</code> | <code>[RequestOptionsOrDict](adyen/core/request_options.py) \| None</code> | Per-call overrides for this one request, such as a timeout, extra headers, or its retry count and statuses. |
 
 </dd>
 </dl>
@@ -19624,7 +20644,7 @@ Mapped in first-match order -- an earlier row wins over a later range that also 
 </details>
 
 <details>
-<summary><code>def patch_balance_accounts_balance_account_id_payout_schedules_id(balance_account_id: str, id: str, body: BalanceAccountConfigurationUpdate | BalanceAccountConfigurationUpdateDict, *, request_options: RequestOptionsOrDict | None = None) -> ApiResult[BalanceAccountConfiguration, PatchBalanceAccountsBalanceAccountIdPayoutSchedulesIdErrorBody]</code></summary>
+<summary><code>def patch_balance_accounts_balance_account_id_payout_schedules_id(balance_account_id: str, id_: str, body: BalanceAccountConfigurationUpdate | BalanceAccountConfigurationUpdateDict, *, request_options: RequestOptionsOrDict | None = None) -> ApiResult[BalanceAccountConfiguration, PatchBalanceAccountsBalanceAccountIdPayoutSchedulesIdErrorBody]</code></summary>
 
 <dl>
 <dd>
@@ -19648,7 +20668,9 @@ Update a managed payout schedule applied to a balance account. If an optional pa
 
 ```python
 result = client.managed_payout_schedules.with_raw_response.patch_balance_accounts_balance_account_id_payout_schedules_id(
-    balance_account_id, id, body
+    "some example string",
+    "some example string",
+    BalanceAccountConfigurationUpdate(description="Updated payout description", enabled=False, retained_amount=20000),
 )
 match result:
     case Success(payload=payload):
@@ -19661,7 +20683,9 @@ match result:
 
 ```python
 result = await async_client.managed_payout_schedules.with_raw_response.patch_balance_accounts_balance_account_id_payout_schedules_id(
-    balance_account_id, id, body
+    "some example string",
+    "some example string",
+    BalanceAccountConfigurationUpdate(description="Updated payout description", enabled=False, retained_amount=20000),
 )
 match result:
     case Success(payload=payload):
@@ -19681,9 +20705,9 @@ match result:
 | Name | Type | Description |
 | --- | --- | --- |
 | <code>balance_account_id</code> | <code>str</code> | The unique identifier of the balance account. |
-| <code>id</code> | <code>str</code> | The unique identifier of the payout schedule applied to the balance account. |
+| <code>id_</code> | <code>str</code> | The unique identifier of the payout schedule applied to the balance account. |
 | <code>body</code> | <code>[BalanceAccountConfigurationUpdate](adyen/models/balance_account_configuration_update.py) \| [BalanceAccountConfigurationUpdateDict](adyen/models/balance_account_configuration_update.py)</code> | The request body. |
-| <code>request_options</code> | <code>[RequestOptionsOrDict](adyen/core/request_options.py) \| None</code> | Per-call overrides for this one request, such as a timeout or extra headers. |
+| <code>request_options</code> | <code>[RequestOptionsOrDict](adyen/core/request_options.py) \| None</code> | Per-call overrides for this one request, such as a timeout, extra headers, or its retry count and statuses. |
 
 </dd>
 </dl>
@@ -19739,7 +20763,21 @@ Apply a managed payout schedule to a balance account. This payout schedule is ba
 
 ```python
 result = client.managed_payout_schedules.with_raw_response.post_balance_accounts_balance_account_id_payout_schedules(
-    balance_account_id, body
+    "some example string",
+    BalanceAccountConfigurationRequest(
+        balance_platform_payout_schedule_id="PSPC00000000000000000000000001",
+        currency="EUR",
+        description="Scheduled payout to merchant bank account",
+        enabled=True,
+        frequency=Frequency1.MONTHLY,
+        frequency_value=1,
+        max_payout_amount=100000000,
+        min_payout_amount=1000,
+        reference="Monthly payout",
+        reference_for_beneficiary="PAYOUT-REF-001",
+        retained_amount=10000,
+        transfer_instrument_id="SE00000000000000000000001",
+    ),
 )
 match result:
     case Success(payload=payload):
@@ -19752,7 +20790,21 @@ match result:
 
 ```python
 result = await async_client.managed_payout_schedules.with_raw_response.post_balance_accounts_balance_account_id_payout_schedules(
-    balance_account_id, body
+    "some example string",
+    BalanceAccountConfigurationRequest(
+        balance_platform_payout_schedule_id="PSPC00000000000000000000000001",
+        currency="EUR",
+        description="Scheduled payout to merchant bank account",
+        enabled=True,
+        frequency=Frequency1.MONTHLY,
+        frequency_value=1,
+        max_payout_amount=100000000,
+        min_payout_amount=1000,
+        reference="Monthly payout",
+        reference_for_beneficiary="PAYOUT-REF-001",
+        retained_amount=10000,
+        transfer_instrument_id="SE00000000000000000000001",
+    ),
 )
 match result:
     case Success(payload=payload):
@@ -19773,7 +20825,7 @@ match result:
 | --- | --- | --- |
 | <code>balance_account_id</code> | <code>str</code> | The unique identifier of the balance account. |
 | <code>body</code> | <code>[BalanceAccountConfigurationRequest](adyen/models/balance_account_configuration_request.py) \| [BalanceAccountConfigurationRequestDict](adyen/models/balance_account_configuration_request.py)</code> | The request body. |
-| <code>request_options</code> | <code>[RequestOptionsOrDict](adyen/core/request_options.py) \| None</code> | Per-call overrides for this one request, such as a timeout or extra headers. |
+| <code>request_options</code> | <code>[RequestOptionsOrDict](adyen/core/request_options.py) \| None</code> | Per-call overrides for this one request, such as a timeout, extra headers, or its retry count and statuses. |
 
 </dd>
 </dl>
@@ -19838,7 +20890,14 @@ Allows you to increase or decrease the authorised amount after the initial autho
 **Sync**
 
 ```python
-result = client.modifications.with_raw_response.post_adjust_authorisation()
+result = client.modifications.with_raw_response.post_adjust_authorisation(
+    body=AdjustAuthorisationRequest(
+        merchant_account="YOUR_MERCHANT_ACCOUNT",
+        modification_amount=Amount(currency="USD", value=1700),
+        original_reference="COPY_PSP_REFERENCE_FROM_AUTHORISE_RESPONSE",
+        reference="YourModificationReference",
+    ),
+)
 match result:
     case Success(payload=payload):
         ...  # TODO: Handle 'payload' of type ModificationResult
@@ -19849,7 +20908,14 @@ match result:
 **Async**
 
 ```python
-result = await async_client.modifications.with_raw_response.post_adjust_authorisation()
+result = await async_client.modifications.with_raw_response.post_adjust_authorisation(
+    body=AdjustAuthorisationRequest(
+        merchant_account="YOUR_MERCHANT_ACCOUNT",
+        modification_amount=Amount(currency="USD", value=1700),
+        original_reference="COPY_PSP_REFERENCE_FROM_AUTHORISE_RESPONSE",
+        reference="YourModificationReference",
+    ),
+)
 match result:
     case Success(payload=payload):
         ...  # TODO: Handle 'payload' of type ModificationResult
@@ -19868,7 +20934,7 @@ match result:
 | Name | Type | Description |
 | --- | --- | --- |
 | <code>body</code> | <code>[AdjustAuthorisationRequest](adyen/models/adjust_authorisation_request.py) \| [AdjustAuthorisationRequestDict](adyen/models/adjust_authorisation_request.py) \| None</code> | The request body.<br>**Default**: <code>None</code> |
-| <code>request_options</code> | <code>[RequestOptionsOrDict](adyen/core/request_options.py) \| None</code> | Per-call overrides for this one request, such as a timeout or extra headers. |
+| <code>request_options</code> | <code>[RequestOptionsOrDict](adyen/core/request_options.py) \| None</code> | Per-call overrides for this one request, such as a timeout, extra headers, or its retry count and statuses. |
 
 </dd>
 </dl>
@@ -19931,7 +20997,13 @@ For more information, refer to [Cancel](https://docs.adyen.com/online-payments/c
 **Sync**
 
 ```python
-result = client.modifications.with_raw_response.post_cancel()
+result = client.modifications.with_raw_response.post_cancel(
+    body=CancelRequest(
+        merchant_account="YOUR_MERCHANT_ACCOUNT",
+        original_reference="COPY_PSP_REFERENCE_FROM_AUTHORISE_RESPONSE",
+        reference="YourModificationReference",
+    ),
+)
 match result:
     case Success(payload=payload):
         ...  # TODO: Handle 'payload' of type ModificationResult
@@ -19942,7 +21014,13 @@ match result:
 **Async**
 
 ```python
-result = await async_client.modifications.with_raw_response.post_cancel()
+result = await async_client.modifications.with_raw_response.post_cancel(
+    body=CancelRequest(
+        merchant_account="YOUR_MERCHANT_ACCOUNT",
+        original_reference="COPY_PSP_REFERENCE_FROM_AUTHORISE_RESPONSE",
+        reference="YourModificationReference",
+    ),
+)
 match result:
     case Success(payload=payload):
         ...  # TODO: Handle 'payload' of type ModificationResult
@@ -19961,7 +21039,7 @@ match result:
 | Name | Type | Description |
 | --- | --- | --- |
 | <code>body</code> | <code>[CancelRequest](adyen/models/cancel_request.py) \| [CancelRequestDict](adyen/models/cancel_request.py) \| None</code> | The request body.<br>**Default**: <code>None</code> |
-| <code>request_options</code> | <code>[RequestOptionsOrDict](adyen/core/request_options.py) \| None</code> | Per-call overrides for this one request, such as a timeout or extra headers. |
+| <code>request_options</code> | <code>[RequestOptionsOrDict](adyen/core/request_options.py) \| None</code> | Per-call overrides for this one request, such as a timeout, extra headers, or its retry count and statuses. |
 
 </dd>
 </dl>
@@ -20030,7 +21108,13 @@ For more information, refer to [Cancel or refund](https://docs.adyen.com/online-
 **Sync**
 
 ```python
-result = client.modifications.with_raw_response.post_cancel_or_refund()
+result = client.modifications.with_raw_response.post_cancel_or_refund(
+    body=CancelOrRefundRequest(
+        merchant_account="YOUR_MERCHANT_ACCOUNT",
+        original_reference="COPY_PSP_REFERENCE_FROM_AUTHORISE_RESPONSE",
+        reference="YourModificationReference",
+    ),
+)
 match result:
     case Success(payload=payload):
         ...  # TODO: Handle 'payload' of type ModificationResult
@@ -20041,7 +21125,13 @@ match result:
 **Async**
 
 ```python
-result = await async_client.modifications.with_raw_response.post_cancel_or_refund()
+result = await async_client.modifications.with_raw_response.post_cancel_or_refund(
+    body=CancelOrRefundRequest(
+        merchant_account="YOUR_MERCHANT_ACCOUNT",
+        original_reference="COPY_PSP_REFERENCE_FROM_AUTHORISE_RESPONSE",
+        reference="YourModificationReference",
+    ),
+)
 match result:
     case Success(payload=payload):
         ...  # TODO: Handle 'payload' of type ModificationResult
@@ -20060,7 +21150,7 @@ match result:
 | Name | Type | Description |
 | --- | --- | --- |
 | <code>body</code> | <code>[CancelOrRefundRequest](adyen/models/cancel_or_refund_request.py) \| [CancelOrRefundRequestDict](adyen/models/cancel_or_refund_request.py) \| None</code> | The request body.<br>**Default**: <code>None</code> |
-| <code>request_options</code> | <code>[RequestOptionsOrDict](adyen/core/request_options.py) \| None</code> | Per-call overrides for this one request, such as a timeout or extra headers. |
+| <code>request_options</code> | <code>[RequestOptionsOrDict](adyen/core/request_options.py) \| None</code> | Per-call overrides for this one request, such as a timeout, extra headers, or its retry count and statuses. |
 
 </dd>
 </dl>
@@ -20121,7 +21211,14 @@ For more information, refer to [Cancel](https://docs.adyen.com/online-payments/c
 **Sync**
 
 ```python
-result = client.modifications.with_raw_response.post_cancels()
+result = client.modifications.with_raw_response.post_cancels(
+    idempotency_key="37ca9c97-d1d1-4c62-89e8-706891a563ed",
+    body=StandalonePaymentCancelRequest(
+        merchant_account="YOUR_MERCHANT_ACCOUNT",
+        payment_reference="YOUR_UNIQUE_REFERENCE_FOR_THE_PAYMENT",
+        reference="YOUR_UNIQUE_REFERENCE_FOR_THE_CANCELLATION",
+    ),
+)
 match result:
     case Success(payload=payload):
         ...  # TODO: Handle 'payload' of type StandalonePaymentCancelResponse
@@ -20132,7 +21229,14 @@ match result:
 **Async**
 
 ```python
-result = await async_client.modifications.with_raw_response.post_cancels()
+result = await async_client.modifications.with_raw_response.post_cancels(
+    idempotency_key="37ca9c97-d1d1-4c62-89e8-706891a563ed",
+    body=StandalonePaymentCancelRequest(
+        merchant_account="YOUR_MERCHANT_ACCOUNT",
+        payment_reference="YOUR_UNIQUE_REFERENCE_FOR_THE_PAYMENT",
+        reference="YOUR_UNIQUE_REFERENCE_FOR_THE_CANCELLATION",
+    ),
+)
 match result:
     case Success(payload=payload):
         ...  # TODO: Handle 'payload' of type StandalonePaymentCancelResponse
@@ -20152,7 +21256,7 @@ match result:
 | --- | --- | --- |
 | <code>idempotency_key</code> | <code>str \| None</code> | A unique identifier for the message with a maximum of 64 characters (we recommend a UUID).<br>**Default**: <code>None</code> |
 | <code>body</code> | <code>[StandalonePaymentCancelRequest](adyen/models/standalone_payment_cancel_request.py) \| [StandalonePaymentCancelRequestDict](adyen/models/standalone_payment_cancel_request.py) \| None</code> | The request body.<br>**Default**: <code>None</code> |
-| <code>request_options</code> | <code>[RequestOptionsOrDict](adyen/core/request_options.py) \| None</code> | Per-call overrides for this one request, such as a timeout or extra headers. |
+| <code>request_options</code> | <code>[RequestOptionsOrDict](adyen/core/request_options.py) \| None</code> | Per-call overrides for this one request, such as a timeout, extra headers, or its retry count and statuses. |
 
 </dd>
 </dl>
@@ -20217,7 +21321,14 @@ For more information refer to [Capture](https://docs.adyen.com/online-payments/c
 **Sync**
 
 ```python
-result = client.modifications.with_raw_response.post_capture()
+result = client.modifications.with_raw_response.post_capture(
+    body=CaptureRequest(
+        merchant_account="YOUR_MERCHANT_ACCOUNT",
+        modification_amount=Amount(currency="EUR", value=500),
+        original_reference="COPY_PSP_REFERENCE_FROM_AUTHORISE_RESPONSE",
+        reference="YOUR_REFERENCE",
+    ),
+)
 match result:
     case Success(payload=payload):
         ...  # TODO: Handle 'payload' of type ModificationResult
@@ -20228,7 +21339,14 @@ match result:
 **Async**
 
 ```python
-result = await async_client.modifications.with_raw_response.post_capture()
+result = await async_client.modifications.with_raw_response.post_capture(
+    body=CaptureRequest(
+        merchant_account="YOUR_MERCHANT_ACCOUNT",
+        modification_amount=Amount(currency="EUR", value=500),
+        original_reference="COPY_PSP_REFERENCE_FROM_AUTHORISE_RESPONSE",
+        reference="YOUR_REFERENCE",
+    ),
+)
 match result:
     case Success(payload=payload):
         ...  # TODO: Handle 'payload' of type ModificationResult
@@ -20247,7 +21365,7 @@ match result:
 | Name | Type | Description |
 | --- | --- | --- |
 | <code>body</code> | <code>[CaptureRequest](adyen/models/capture_request.py) \| [CaptureRequestDict](adyen/models/capture_request.py) \| None</code> | The request body.<br>**Default**: <code>None</code> |
-| <code>request_options</code> | <code>[RequestOptionsOrDict](adyen/core/request_options.py) \| None</code> | Per-call overrides for this one request, such as a timeout or extra headers. |
+| <code>request_options</code> | <code>[RequestOptionsOrDict](adyen/core/request_options.py) \| None</code> | Per-call overrides for this one request, such as a timeout, extra headers, or its retry count and statuses. |
 
 </dd>
 </dl>
@@ -20308,7 +21426,15 @@ Schedules a new payment to be created (including a new authorisation request) fo
 **Sync**
 
 ```python
-result = client.modifications.with_raw_response.post_donate()
+result = client.modifications.with_raw_response.post_donate(
+    body=DonationRequest(
+        donation_account="AdyenGivingDemo",
+        merchant_account="YOUR_MERCHANT_ACCOUNT",
+        modification_amount=Amount(currency="EUR", value=500),
+        original_reference="COPY_PSP_REFERENCE_FROM_AUTHORISE_RESPONSE",
+        reference="YOUR_DONATION_REFERENCE",
+    ),
+)
 match result:
     case Success(payload=payload):
         ...  # TODO: Handle 'payload' of type ModificationResult
@@ -20319,7 +21445,15 @@ match result:
 **Async**
 
 ```python
-result = await async_client.modifications.with_raw_response.post_donate()
+result = await async_client.modifications.with_raw_response.post_donate(
+    body=DonationRequest(
+        donation_account="AdyenGivingDemo",
+        merchant_account="YOUR_MERCHANT_ACCOUNT",
+        modification_amount=Amount(currency="EUR", value=500),
+        original_reference="COPY_PSP_REFERENCE_FROM_AUTHORISE_RESPONSE",
+        reference="YOUR_DONATION_REFERENCE",
+    ),
+)
 match result:
     case Success(payload=payload):
         ...  # TODO: Handle 'payload' of type ModificationResult
@@ -20338,7 +21472,7 @@ match result:
 | Name | Type | Description |
 | --- | --- | --- |
 | <code>body</code> | <code>[DonationRequest](adyen/models/donation_request.py) \| [DonationRequestDict](adyen/models/donation_request.py) \| None</code> | The request body.<br>**Default**: <code>None</code> |
-| <code>request_options</code> | <code>[RequestOptionsOrDict](adyen/core/request_options.py) \| None</code> | Per-call overrides for this one request, such as a timeout or extra headers. |
+| <code>request_options</code> | <code>[RequestOptionsOrDict](adyen/core/request_options.py) \| None</code> | Per-call overrides for this one request, such as a timeout, extra headers, or its retry count and statuses. |
 
 </dd>
 </dl>
@@ -20400,7 +21534,13 @@ For more information, refer to [Authorisation adjustment](https://docs.adyen.com
 
 ```python
 result = client.modifications.with_raw_response.post_payments_payment_psp_reference_amount_updates(
-    payment_psp_reference
+    "some example string",
+    idempotency_key="37ca9c97-d1d1-4c62-89e8-706891a563ed",
+    body=PaymentAmountUpdateRequest(
+        amount=Amount29(currency="EUR", value=2500),
+        merchant_account="YOUR_MERCHANT_ACCOUNT",
+        reference="YOUR_UNIQUE_REFERENCE",
+    ),
 )
 match result:
     case Success(payload=payload):
@@ -20413,7 +21553,13 @@ match result:
 
 ```python
 result = await async_client.modifications.with_raw_response.post_payments_payment_psp_reference_amount_updates(
-    payment_psp_reference
+    "some example string",
+    idempotency_key="37ca9c97-d1d1-4c62-89e8-706891a563ed",
+    body=PaymentAmountUpdateRequest(
+        amount=Amount29(currency="EUR", value=2500),
+        merchant_account="YOUR_MERCHANT_ACCOUNT",
+        reference="YOUR_UNIQUE_REFERENCE",
+    ),
 )
 match result:
     case Success(payload=payload):
@@ -20435,7 +21581,7 @@ match result:
 | <code>payment_psp_reference</code> | <code>str</code> | The https://docs.adyen.com/api-explorer/Checkout/latest/post/payments#responses-200-pspReference of the payment. |
 | <code>idempotency_key</code> | <code>str \| None</code> | A unique identifier for the message with a maximum of 64 characters (we recommend a UUID).<br>**Default**: <code>None</code> |
 | <code>body</code> | <code>[PaymentAmountUpdateRequest](adyen/models/payment_amount_update_request.py) \| [PaymentAmountUpdateRequestDict](adyen/models/payment_amount_update_request.py) \| None</code> | The request body.<br>**Default**: <code>None</code> |
-| <code>request_options</code> | <code>[RequestOptionsOrDict](adyen/core/request_options.py) \| None</code> | Per-call overrides for this one request, such as a timeout or extra headers. |
+| <code>request_options</code> | <code>[RequestOptionsOrDict](adyen/core/request_options.py) \| None</code> | Per-call overrides for this one request, such as a timeout, extra headers, or its retry count and statuses. |
 
 </dd>
 </dl>
@@ -20496,7 +21642,11 @@ For more information, refer to [Cancel](https://docs.adyen.com/online-payments/c
 **Sync**
 
 ```python
-result = client.modifications.with_raw_response.post_payments_payment_psp_reference_cancels(payment_psp_reference)
+result = client.modifications.with_raw_response.post_payments_payment_psp_reference_cancels(
+    "some example string",
+    idempotency_key="37ca9c97-d1d1-4c62-89e8-706891a563ed",
+    body=PaymentCancelRequest(merchant_account="YOUR_MERCHANT_ACCOUNT", reference="YOUR_UNIQUE_REFERENCE"),
+)
 match result:
     case Success(payload=payload):
         ...  # TODO: Handle 'payload' of type PaymentCancelResponse
@@ -20508,7 +21658,9 @@ match result:
 
 ```python
 result = await async_client.modifications.with_raw_response.post_payments_payment_psp_reference_cancels(
-    payment_psp_reference
+    "some example string",
+    idempotency_key="37ca9c97-d1d1-4c62-89e8-706891a563ed",
+    body=PaymentCancelRequest(merchant_account="YOUR_MERCHANT_ACCOUNT", reference="YOUR_UNIQUE_REFERENCE"),
 )
 match result:
     case Success(payload=payload):
@@ -20530,7 +21682,7 @@ match result:
 | <code>payment_psp_reference</code> | <code>str</code> | The https://docs.adyen.com/api-explorer/Checkout/latest/post/payments#responses-200-pspReference of the payment that you want to cancel. |
 | <code>idempotency_key</code> | <code>str \| None</code> | A unique identifier for the message with a maximum of 64 characters (we recommend a UUID).<br>**Default**: <code>None</code> |
 | <code>body</code> | <code>[PaymentCancelRequest](adyen/models/payment_cancel_request.py) \| [PaymentCancelRequestDict](adyen/models/payment_cancel_request.py) \| None</code> | The request body.<br>**Default**: <code>None</code> |
-| <code>request_options</code> | <code>[RequestOptionsOrDict](adyen/core/request_options.py) \| None</code> | Per-call overrides for this one request, such as a timeout or extra headers. |
+| <code>request_options</code> | <code>[RequestOptionsOrDict](adyen/core/request_options.py) \| None</code> | Per-call overrides for this one request, such as a timeout, extra headers, or its retry count and statuses. |
 
 </dd>
 </dl>
@@ -20591,7 +21743,15 @@ For more information, refer to [Capture](https://docs.adyen.com/online-payments/
 **Sync**
 
 ```python
-result = client.modifications.with_raw_response.post_payments_payment_psp_reference_captures(payment_psp_reference)
+result = client.modifications.with_raw_response.post_payments_payment_psp_reference_captures(
+    "some example string",
+    idempotency_key="37ca9c97-d1d1-4c62-89e8-706891a563ed",
+    body=PaymentCaptureRequest(
+        amount=Amount31(currency="EUR", value=2000),
+        merchant_account="YOUR_MERCHANT_ACCOUNT",
+        reference="YOUR_UNIQUE_REFERENCE",
+    ),
+)
 match result:
     case Success(payload=payload):
         ...  # TODO: Handle 'payload' of type PaymentCaptureResponse
@@ -20603,7 +21763,13 @@ match result:
 
 ```python
 result = await async_client.modifications.with_raw_response.post_payments_payment_psp_reference_captures(
-    payment_psp_reference
+    "some example string",
+    idempotency_key="37ca9c97-d1d1-4c62-89e8-706891a563ed",
+    body=PaymentCaptureRequest(
+        amount=Amount31(currency="EUR", value=2000),
+        merchant_account="YOUR_MERCHANT_ACCOUNT",
+        reference="YOUR_UNIQUE_REFERENCE",
+    ),
 )
 match result:
     case Success(payload=payload):
@@ -20625,7 +21791,7 @@ match result:
 | <code>payment_psp_reference</code> | <code>str</code> | The https://docs.adyen.com/api-explorer/Checkout/latest/post/payments#responses-200-pspReference of the payment that you want to capture. |
 | <code>idempotency_key</code> | <code>str \| None</code> | A unique identifier for the message with a maximum of 64 characters (we recommend a UUID).<br>**Default**: <code>None</code> |
 | <code>body</code> | <code>[PaymentCaptureRequest](adyen/models/payment_capture_request.py) \| [PaymentCaptureRequestDict](adyen/models/payment_capture_request.py) \| None</code> | The request body.<br>**Default**: <code>None</code> |
-| <code>request_options</code> | <code>[RequestOptionsOrDict](adyen/core/request_options.py) \| None</code> | Per-call overrides for this one request, such as a timeout or extra headers. |
+| <code>request_options</code> | <code>[RequestOptionsOrDict](adyen/core/request_options.py) \| None</code> | Per-call overrides for this one request, such as a timeout, extra headers, or its retry count and statuses. |
 
 </dd>
 </dl>
@@ -20688,7 +21854,15 @@ For more information, refer to [Refund](https://docs.adyen.com/online-payments/r
 **Sync**
 
 ```python
-result = client.modifications.with_raw_response.post_payments_payment_psp_reference_refunds(payment_psp_reference)
+result = client.modifications.with_raw_response.post_payments_payment_psp_reference_refunds(
+    "some example string",
+    idempotency_key="37ca9c97-d1d1-4c62-89e8-706891a563ed",
+    body=PaymentRefundRequest(
+        amount=Amount38(currency="EUR", value=2500),
+        merchant_account="YOUR_MERCHANT_ACCOUNT",
+        reference="YOUR_UNIQUE_REFERENCE",
+    ),
+)
 match result:
     case Success(payload=payload):
         ...  # TODO: Handle 'payload' of type PaymentRefundResponse
@@ -20700,7 +21874,13 @@ match result:
 
 ```python
 result = await async_client.modifications.with_raw_response.post_payments_payment_psp_reference_refunds(
-    payment_psp_reference
+    "some example string",
+    idempotency_key="37ca9c97-d1d1-4c62-89e8-706891a563ed",
+    body=PaymentRefundRequest(
+        amount=Amount38(currency="EUR", value=2500),
+        merchant_account="YOUR_MERCHANT_ACCOUNT",
+        reference="YOUR_UNIQUE_REFERENCE",
+    ),
 )
 match result:
     case Success(payload=payload):
@@ -20722,7 +21902,7 @@ match result:
 | <code>payment_psp_reference</code> | <code>str</code> | The https://docs.adyen.com/api-explorer/Checkout/latest/post/payments#responses-200-pspReference of the payment that you want to refund. |
 | <code>idempotency_key</code> | <code>str \| None</code> | A unique identifier for the message with a maximum of 64 characters (we recommend a UUID).<br>**Default**: <code>None</code> |
 | <code>body</code> | <code>[PaymentRefundRequest](adyen/models/payment_refund_request.py) \| [PaymentRefundRequestDict](adyen/models/payment_refund_request.py) \| None</code> | The request body.<br>**Default**: <code>None</code> |
-| <code>request_options</code> | <code>[RequestOptionsOrDict](adyen/core/request_options.py) \| None</code> | Per-call overrides for this one request, such as a timeout or extra headers. |
+| <code>request_options</code> | <code>[RequestOptionsOrDict](adyen/core/request_options.py) \| None</code> | Per-call overrides for this one request, such as a timeout, extra headers, or its retry count and statuses. |
 
 </dd>
 </dl>
@@ -20782,7 +21962,11 @@ For more information, refer to [Reversal](https://docs.adyen.com/online-payments
 **Sync**
 
 ```python
-result = client.modifications.with_raw_response.post_payments_payment_psp_reference_reversals(payment_psp_reference)
+result = client.modifications.with_raw_response.post_payments_payment_psp_reference_reversals(
+    "some example string",
+    idempotency_key="37ca9c97-d1d1-4c62-89e8-706891a563ed",
+    body=PaymentReversalRequest(merchant_account="YOUR_MERCHANT_ACCOUNT", reference="YOUR_UNIQUE_REFERENCE"),
+)
 match result:
     case Success(payload=payload):
         ...  # TODO: Handle 'payload' of type PaymentReversalResponse
@@ -20794,7 +21978,9 @@ match result:
 
 ```python
 result = await async_client.modifications.with_raw_response.post_payments_payment_psp_reference_reversals(
-    payment_psp_reference
+    "some example string",
+    idempotency_key="37ca9c97-d1d1-4c62-89e8-706891a563ed",
+    body=PaymentReversalRequest(merchant_account="YOUR_MERCHANT_ACCOUNT", reference="YOUR_UNIQUE_REFERENCE"),
 )
 match result:
     case Success(payload=payload):
@@ -20816,7 +22002,7 @@ match result:
 | <code>payment_psp_reference</code> | <code>str</code> | The https://docs.adyen.com/api-explorer/Checkout/latest/post/payments#responses-200-pspReference of the payment that you want to reverse. |
 | <code>idempotency_key</code> | <code>str \| None</code> | A unique identifier for the message with a maximum of 64 characters (we recommend a UUID).<br>**Default**: <code>None</code> |
 | <code>body</code> | <code>[PaymentReversalRequest](adyen/models/payment_reversal_request.py) \| [PaymentReversalRequestDict](adyen/models/payment_reversal_request.py) \| None</code> | The request body.<br>**Default**: <code>None</code> |
-| <code>request_options</code> | <code>[RequestOptionsOrDict](adyen/core/request_options.py) \| None</code> | Per-call overrides for this one request, such as a timeout or extra headers. |
+| <code>request_options</code> | <code>[RequestOptionsOrDict](adyen/core/request_options.py) \| None</code> | Per-call overrides for this one request, such as a timeout, extra headers, or its retry count and statuses. |
 
 </dd>
 </dl>
@@ -20882,7 +22068,14 @@ For more information, refer to [Refund](https://docs.adyen.com/online-payments/c
 **Sync**
 
 ```python
-result = client.modifications.with_raw_response.post_refund()
+result = client.modifications.with_raw_response.post_refund(
+    body=RefundRequest(
+        merchant_account="YOUR_MERCHANT_ACCOUNT",
+        modification_amount=Amount(currency="EUR", value=500),
+        original_reference="COPY_PSP_REFERENCE_FROM_AUTHORISE_RESPONSE",
+        reference="YOUR_REFERENCE",
+    ),
+)
 match result:
     case Success(payload=payload):
         ...  # TODO: Handle 'payload' of type ModificationResult
@@ -20893,7 +22086,14 @@ match result:
 **Async**
 
 ```python
-result = await async_client.modifications.with_raw_response.post_refund()
+result = await async_client.modifications.with_raw_response.post_refund(
+    body=RefundRequest(
+        merchant_account="YOUR_MERCHANT_ACCOUNT",
+        modification_amount=Amount(currency="EUR", value=500),
+        original_reference="COPY_PSP_REFERENCE_FROM_AUTHORISE_RESPONSE",
+        reference="YOUR_REFERENCE",
+    ),
+)
 match result:
     case Success(payload=payload):
         ...  # TODO: Handle 'payload' of type ModificationResult
@@ -20912,7 +22112,7 @@ match result:
 | Name | Type | Description |
 | --- | --- | --- |
 | <code>body</code> | <code>[RefundRequest](adyen/models/refund_request.py) \| [RefundRequestDict](adyen/models/refund_request.py) \| None</code> | The request body.<br>**Default**: <code>None</code> |
-| <code>request_options</code> | <code>[RequestOptionsOrDict](adyen/core/request_options.py) \| None</code> | Per-call overrides for this one request, such as a timeout or extra headers. |
+| <code>request_options</code> | <code>[RequestOptionsOrDict](adyen/core/request_options.py) \| None</code> | Per-call overrides for this one request, such as a timeout, extra headers, or its retry count and statuses. |
 
 </dd>
 </dl>
@@ -20977,7 +22177,13 @@ For more information, see [Technical cancel](https://docs.adyen.com/online-payme
 **Sync**
 
 ```python
-result = client.modifications.with_raw_response.post_technical_cancel()
+result = client.modifications.with_raw_response.post_technical_cancel(
+    body=TechnicalCancelRequest(
+        merchant_account="YOUR_MERCHANT_ACCOUNT",
+        original_merchant_reference="YOUR_MERCHANT_REFERENCE",
+        reference="YOUR_MODIFICATION_REFERENCE",
+    ),
+)
 match result:
     case Success(payload=payload):
         ...  # TODO: Handle 'payload' of type ModificationResult
@@ -20988,7 +22194,13 @@ match result:
 **Async**
 
 ```python
-result = await async_client.modifications.with_raw_response.post_technical_cancel()
+result = await async_client.modifications.with_raw_response.post_technical_cancel(
+    body=TechnicalCancelRequest(
+        merchant_account="YOUR_MERCHANT_ACCOUNT",
+        original_merchant_reference="YOUR_MERCHANT_REFERENCE",
+        reference="YOUR_MODIFICATION_REFERENCE",
+    ),
+)
 match result:
     case Success(payload=payload):
         ...  # TODO: Handle 'payload' of type ModificationResult
@@ -21007,7 +22219,7 @@ match result:
 | Name | Type | Description |
 | --- | --- | --- |
 | <code>body</code> | <code>[TechnicalCancelRequest](adyen/models/technical_cancel_request.py) \| [TechnicalCancelRequestDict](adyen/models/technical_cancel_request.py) \| None</code> | The request body.<br>**Default**: <code>None</code> |
-| <code>request_options</code> | <code>[RequestOptionsOrDict](adyen/core/request_options.py) \| None</code> | Per-call overrides for this one request, such as a timeout or extra headers. |
+| <code>request_options</code> | <code>[RequestOptionsOrDict](adyen/core/request_options.py) \| None</code> | Per-call overrides for this one request, such as a timeout, extra headers, or its retry count and statuses. |
 
 </dd>
 </dl>
@@ -21066,7 +22278,9 @@ For more information, refer to [Cancel an unreferenced refund](https://docs.adye
 **Sync**
 
 ```python
-result = client.modifications.with_raw_response.post_void_pending_refund()
+result = client.modifications.with_raw_response.post_void_pending_refund(
+    body=VoidPendingRefundRequest(merchant_account="YOUR_MERCHANT_ACCOUNT", original_reference="9914748988390044")
+)
 match result:
     case Success(payload=payload):
         ...  # TODO: Handle 'payload' of type ModificationResult
@@ -21077,7 +22291,9 @@ match result:
 **Async**
 
 ```python
-result = await async_client.modifications.with_raw_response.post_void_pending_refund()
+result = await async_client.modifications.with_raw_response.post_void_pending_refund(
+    body=VoidPendingRefundRequest(merchant_account="YOUR_MERCHANT_ACCOUNT", original_reference="9914748988390044")
+)
 match result:
     case Success(payload=payload):
         ...  # TODO: Handle 'payload' of type ModificationResult
@@ -21096,7 +22312,7 @@ match result:
 | Name | Type | Description |
 | --- | --- | --- |
 | <code>body</code> | <code>[VoidPendingRefundRequest](adyen/models/void_pending_refund_request.py) \| [VoidPendingRefundRequestDict](adyen/models/void_pending_refund_request.py) \| None</code> | The request body.<br>**Default**: <code>None</code> |
-| <code>request_options</code> | <code>[RequestOptionsOrDict](adyen/core/request_options.py) \| None</code> | Per-call overrides for this one request, such as a timeout or extra headers. |
+| <code>request_options</code> | <code>[RequestOptionsOrDict](adyen/core/request_options.py) \| None</code> | Per-call overrides for this one request, such as a timeout, extra headers, or its retry count and statuses. |
 
 </dd>
 </dl>
@@ -21158,7 +22374,7 @@ You can make this request with any of the Management API roles.
 **Sync**
 
 ```python
-result = client.my_api_credential.with_raw_response.delete_me_allowed_origins_origin_id(origin_id)
+result = client.my_api_credential.with_raw_response.delete_me_allowed_origins_origin_id("some example string")
 match result:
     case Success():
         ...  # 2xx, no content
@@ -21169,7 +22385,9 @@ match result:
 **Async**
 
 ```python
-result = await async_client.my_api_credential.with_raw_response.delete_me_allowed_origins_origin_id(origin_id)
+result = await async_client.my_api_credential.with_raw_response.delete_me_allowed_origins_origin_id(
+    "some example string"
+)
 match result:
     case Success():
         ...  # 2xx, no content
@@ -21188,7 +22406,7 @@ match result:
 | Name | Type | Description |
 | --- | --- | --- |
 | <code>origin_id</code> | <code>str</code> | Unique identifier of the allowed origin. |
-| <code>request_options</code> | <code>[RequestOptionsOrDict](adyen/core/request_options.py) \| None</code> | Per-call overrides for this one request, such as a timeout or extra headers. |
+| <code>request_options</code> | <code>[RequestOptionsOrDict](adyen/core/request_options.py) \| None</code> | Per-call overrides for this one request, such as a timeout, extra headers, or its retry count and statuses. |
 
 </dd>
 </dl>
@@ -21274,7 +22492,7 @@ match result:
 
 | Name | Type | Description |
 | --- | --- | --- |
-| <code>request_options</code> | <code>[RequestOptionsOrDict](adyen/core/request_options.py) \| None</code> | Per-call overrides for this one request, such as a timeout or extra headers. |
+| <code>request_options</code> | <code>[RequestOptionsOrDict](adyen/core/request_options.py) \| None</code> | Per-call overrides for this one request, such as a timeout, extra headers, or its retry count and statuses. |
 
 </dd>
 </dl>
@@ -21360,7 +22578,7 @@ match result:
 
 | Name | Type | Description |
 | --- | --- | --- |
-| <code>request_options</code> | <code>[RequestOptionsOrDict](adyen/core/request_options.py) \| None</code> | Per-call overrides for this one request, such as a timeout or extra headers. |
+| <code>request_options</code> | <code>[RequestOptionsOrDict](adyen/core/request_options.py) \| None</code> | Per-call overrides for this one request, such as a timeout, extra headers, or its retry count and statuses. |
 
 </dd>
 </dl>
@@ -21418,7 +22636,7 @@ You can make this request with any of the Management API roles.
 **Sync**
 
 ```python
-result = client.my_api_credential.with_raw_response.get_me_allowed_origins_origin_id(origin_id)
+result = client.my_api_credential.with_raw_response.get_me_allowed_origins_origin_id("some example string")
 match result:
     case Success(payload=payload):
         ...  # TODO: Handle 'payload' of type AllowedOrigin
@@ -21429,7 +22647,7 @@ match result:
 **Async**
 
 ```python
-result = await async_client.my_api_credential.with_raw_response.get_me_allowed_origins_origin_id(origin_id)
+result = await async_client.my_api_credential.with_raw_response.get_me_allowed_origins_origin_id("some example string")
 match result:
     case Success(payload=payload):
         ...  # TODO: Handle 'payload' of type AllowedOrigin
@@ -21448,7 +22666,7 @@ match result:
 | Name | Type | Description |
 | --- | --- | --- |
 | <code>origin_id</code> | <code>str</code> | Unique identifier of the allowed origin. |
-| <code>request_options</code> | <code>[RequestOptionsOrDict](adyen/core/request_options.py) \| None</code> | Per-call overrides for this one request, such as a timeout or extra headers. |
+| <code>request_options</code> | <code>[RequestOptionsOrDict](adyen/core/request_options.py) \| None</code> | Per-call overrides for this one request, such as a timeout, extra headers, or its retry count and statuses. |
 
 </dd>
 </dl>
@@ -21536,7 +22754,7 @@ match result:
 | Name | Type | Description |
 | --- | --- | --- |
 | <code>body</code> | <code>[CreateAllowedOriginRequest](adyen/models/create_allowed_origin_request.py) \| [CreateAllowedOriginRequestDict](adyen/models/create_allowed_origin_request.py) \| None</code> | The request body.<br>**Default**: <code>None</code> |
-| <code>request_options</code> | <code>[RequestOptionsOrDict](adyen/core/request_options.py) \| None</code> | Per-call overrides for this one request, such as a timeout or extra headers. |
+| <code>request_options</code> | <code>[RequestOptionsOrDict](adyen/core/request_options.py) \| None</code> | Per-call overrides for this one request, such as a timeout, extra headers, or its retry count and statuses. |
 
 </dd>
 </dl>
@@ -21625,7 +22843,7 @@ match result:
 
 | Name | Type | Description |
 | --- | --- | --- |
-| <code>request_options</code> | <code>[RequestOptionsOrDict](adyen/core/request_options.py) \| None</code> | Per-call overrides for this one request, such as a timeout or extra headers. |
+| <code>request_options</code> | <code>[RequestOptionsOrDict](adyen/core/request_options.py) \| None</code> | Per-call overrides for this one request, such as a timeout, extra headers, or its retry count and statuses. |
 
 </dd>
 </dl>
@@ -21684,7 +22902,7 @@ Returns the details of a network token.
 **Sync**
 
 ```python
-result = client.network_tokens.with_raw_response.get_network_tokens_network_token_id(network_token_id)
+result = client.network_tokens.with_raw_response.get_network_tokens_network_token_id("some example string")
 match result:
     case Success(payload=payload):
         ...  # TODO: Handle 'payload' of type GetNetworkTokenResponse
@@ -21695,7 +22913,7 @@ match result:
 **Async**
 
 ```python
-result = await async_client.network_tokens.with_raw_response.get_network_tokens_network_token_id(network_token_id)
+result = await async_client.network_tokens.with_raw_response.get_network_tokens_network_token_id("some example string")
 match result:
     case Success(payload=payload):
         ...  # TODO: Handle 'payload' of type GetNetworkTokenResponse
@@ -21714,7 +22932,7 @@ match result:
 | Name | Type | Description |
 | --- | --- | --- |
 | <code>network_token_id</code> | <code>str</code> | The unique identifier of the network token. |
-| <code>request_options</code> | <code>[RequestOptionsOrDict](adyen/core/request_options.py) \| None</code> | Per-call overrides for this one request, such as a timeout or extra headers. |
+| <code>request_options</code> | <code>[RequestOptionsOrDict](adyen/core/request_options.py) \| None</code> | Per-call overrides for this one request, such as a timeout, extra headers, or its retry count and statuses. |
 
 </dd>
 </dl>
@@ -21769,7 +22987,7 @@ Updates the status of the network token.
 **Sync**
 
 ```python
-result = client.network_tokens.with_raw_response.patch_network_tokens_network_token_id(network_token_id)
+result = client.network_tokens.with_raw_response.patch_network_tokens_network_token_id("some example string")
 match result:
     case Success():
         ...  # 2xx, no content
@@ -21780,7 +22998,9 @@ match result:
 **Async**
 
 ```python
-result = await async_client.network_tokens.with_raw_response.patch_network_tokens_network_token_id(network_token_id)
+result = await async_client.network_tokens.with_raw_response.patch_network_tokens_network_token_id(
+    "some example string"
+)
 match result:
     case Success():
         ...  # 2xx, no content
@@ -21800,7 +23020,7 @@ match result:
 | --- | --- | --- |
 | <code>network_token_id</code> | <code>str</code> | The unique identifier of the network token. |
 | <code>body</code> | <code>[UpdateNetworkTokenRequest](adyen/models/update_network_token_request.py) \| [UpdateNetworkTokenRequestDict](adyen/models/update_network_token_request.py) \| None</code> | The request body.<br>**Default**: <code>None</code> |
-| <code>request_options</code> | <code>[RequestOptionsOrDict](adyen/core/request_options.py) \| None</code> | Per-call overrides for this one request, such as a timeout or extra headers. |
+| <code>request_options</code> | <code>[RequestOptionsOrDict](adyen/core/request_options.py) \| None</code> | Per-call overrides for this one request, such as a timeout, extra headers, or its retry count and statuses. |
 
 </dd>
 </dl>
@@ -21859,7 +23079,14 @@ Creates an order to be used for partial payments. Make a POST `/orders` call bef
 **Sync**
 
 ```python
-result = client.orders.with_raw_response.post_orders()
+result = client.orders.with_raw_response.post_orders(
+    idempotency_key="37ca9c97-d1d1-4c62-89e8-706891a563ed",
+    body=CreateOrderRequest(
+        amount=Amount21(currency="EUR", value=2500),
+        merchant_account="YOUR_MERCHANT_ACCOUNT",
+        reference="YOUR_ORDER_REFERENCE",
+    ),
+)
 match result:
     case Success(payload=payload):
         ...  # TODO: Handle 'payload' of type CreateOrderResponse
@@ -21870,7 +23097,14 @@ match result:
 **Async**
 
 ```python
-result = await async_client.orders.with_raw_response.post_orders()
+result = await async_client.orders.with_raw_response.post_orders(
+    idempotency_key="37ca9c97-d1d1-4c62-89e8-706891a563ed",
+    body=CreateOrderRequest(
+        amount=Amount21(currency="EUR", value=2500),
+        merchant_account="YOUR_MERCHANT_ACCOUNT",
+        reference="YOUR_ORDER_REFERENCE",
+    ),
+)
 match result:
     case Success(payload=payload):
         ...  # TODO: Handle 'payload' of type CreateOrderResponse
@@ -21890,7 +23124,7 @@ match result:
 | --- | --- | --- |
 | <code>idempotency_key</code> | <code>str \| None</code> | A unique identifier for the message with a maximum of 64 characters (we recommend a UUID).<br>**Default**: <code>None</code> |
 | <code>body</code> | <code>[CreateOrderRequest](adyen/models/create_order_request.py) \| [CreateOrderRequestDict](adyen/models/create_order_request.py) \| None</code> | The request body.<br>**Default**: <code>None</code> |
-| <code>request_options</code> | <code>[RequestOptionsOrDict](adyen/core/request_options.py) \| None</code> | Per-call overrides for this one request, such as a timeout or extra headers. |
+| <code>request_options</code> | <code>[RequestOptionsOrDict](adyen/core/request_options.py) \| None</code> | Per-call overrides for this one request, such as a timeout, extra headers, or its retry count and statuses. |
 
 </dd>
 </dl>
@@ -21945,7 +23179,13 @@ Cancels an order. Cancellation of an order results in an automatic rollback of a
 **Sync**
 
 ```python
-result = client.orders.with_raw_response.post_orders_cancel()
+result = client.orders.with_raw_response.post_orders_cancel(
+    idempotency_key="37ca9c97-d1d1-4c62-89e8-706891a563ed",
+    body=CancelOrderRequest(
+        merchant_account="YOUR_MERCHANT_ACCOUNT",
+        order=EncryptedOrderData4(order_data="823fh892f8f18f4...148f13f9f3f", psp_reference="8815517812932012"),
+    ),
+)
 match result:
     case Success(payload=payload):
         ...  # TODO: Handle 'payload' of type CancelOrderResponse
@@ -21956,7 +23196,13 @@ match result:
 **Async**
 
 ```python
-result = await async_client.orders.with_raw_response.post_orders_cancel()
+result = await async_client.orders.with_raw_response.post_orders_cancel(
+    idempotency_key="37ca9c97-d1d1-4c62-89e8-706891a563ed",
+    body=CancelOrderRequest(
+        merchant_account="YOUR_MERCHANT_ACCOUNT",
+        order=EncryptedOrderData4(order_data="823fh892f8f18f4...148f13f9f3f", psp_reference="8815517812932012"),
+    ),
+)
 match result:
     case Success(payload=payload):
         ...  # TODO: Handle 'payload' of type CancelOrderResponse
@@ -21976,7 +23222,7 @@ match result:
 | --- | --- | --- |
 | <code>idempotency_key</code> | <code>str \| None</code> | A unique identifier for the message with a maximum of 64 characters (we recommend a UUID).<br>**Default**: <code>None</code> |
 | <code>body</code> | <code>[CancelOrderRequest](adyen/models/cancel_order_request.py) \| [CancelOrderRequestDict](adyen/models/cancel_order_request.py) \| None</code> | The request body.<br>**Default**: <code>None</code> |
-| <code>request_options</code> | <code>[RequestOptionsOrDict](adyen/core/request_options.py) \| None</code> | Per-call overrides for this one request, such as a timeout or extra headers. |
+| <code>request_options</code> | <code>[RequestOptionsOrDict](adyen/core/request_options.py) \| None</code> | Per-call overrides for this one request, such as a timeout, extra headers, or its retry count and statuses. |
 
 </dd>
 </dl>
@@ -22031,7 +23277,14 @@ Retrieves the balance remaining on a shopper's gift card. To check a gift card's
 **Sync**
 
 ```python
-result = client.orders.with_raw_response.post_payment_methods_balance()
+result = client.orders.with_raw_response.post_payment_methods_balance(
+    idempotency_key="37ca9c97-d1d1-4c62-89e8-706891a563ed",
+    body=BalanceCheckRequest(
+        amount=Amount2(currency="EUR", value=1000),
+        merchant_account="YOUR_MERCHANT_ACCOUNT",
+        payment_method={"type": "givex", "number": "4126491073027401", "cvc": "737"},
+    ),
+)
 match result:
     case Success(payload=payload):
         ...  # TODO: Handle 'payload' of type BalanceCheckResponse
@@ -22042,7 +23295,14 @@ match result:
 **Async**
 
 ```python
-result = await async_client.orders.with_raw_response.post_payment_methods_balance()
+result = await async_client.orders.with_raw_response.post_payment_methods_balance(
+    idempotency_key="37ca9c97-d1d1-4c62-89e8-706891a563ed",
+    body=BalanceCheckRequest(
+        amount=Amount2(currency="EUR", value=1000),
+        merchant_account="YOUR_MERCHANT_ACCOUNT",
+        payment_method={"type": "givex", "number": "4126491073027401", "cvc": "737"},
+    ),
+)
 match result:
     case Success(payload=payload):
         ...  # TODO: Handle 'payload' of type BalanceCheckResponse
@@ -22062,7 +23322,7 @@ match result:
 | --- | --- | --- |
 | <code>idempotency_key</code> | <code>str \| None</code> | A unique identifier for the message with a maximum of 64 characters (we recommend a UUID).<br>**Default**: <code>None</code> |
 | <code>body</code> | <code>[BalanceCheckRequest](adyen/models/balance_check_request.py) \| [BalanceCheckRequestDict](adyen/models/balance_check_request.py) \| None</code> | The request body.<br>**Default**: <code>None</code> |
-| <code>request_options</code> | <code>[RequestOptionsOrDict](adyen/core/request_options.py) \| None</code> | Per-call overrides for this one request, such as a timeout or extra headers. |
+| <code>request_options</code> | <code>[RequestOptionsOrDict](adyen/core/request_options.py) \| None</code> | Per-call overrides for this one request, such as a timeout, extra headers, or its retry count and statuses. |
 
 </dd>
 </dl>
@@ -22122,7 +23382,11 @@ Returns a link to a PCI compliance questionnaire that you can send to your accou
 **Sync**
 
 ```python
-result = client.pci_compliance_questionnaire_page.with_raw_response.post_get_pci_questionnaire_url()
+result = client.pci_compliance_questionnaire_page.with_raw_response.post_get_pci_questionnaire_url(
+    body=GetPciUrlRequest(
+        account_holder_code="CODE_OF_ACCOUNT_HOLDER", return_url="https://your.return-url.com/?submerchant=123"
+    ),
+)
 match result:
     case Success(payload=payload):
         ...  # TODO: Handle 'payload' of type GetPciUrlResponse
@@ -22133,7 +23397,11 @@ match result:
 **Async**
 
 ```python
-result = await async_client.pci_compliance_questionnaire_page.with_raw_response.post_get_pci_questionnaire_url()
+result = await async_client.pci_compliance_questionnaire_page.with_raw_response.post_get_pci_questionnaire_url(
+    body=GetPciUrlRequest(
+        account_holder_code="CODE_OF_ACCOUNT_HOLDER", return_url="https://your.return-url.com/?submerchant=123"
+    ),
+)
 match result:
     case Success(payload=payload):
         ...  # TODO: Handle 'payload' of type GetPciUrlResponse
@@ -22152,7 +23420,7 @@ match result:
 | Name | Type | Description |
 | --- | --- | --- |
 | <code>body</code> | <code>[GetPciUrlRequest](adyen/models/get_pci_url_request.py) \| [GetPciUrlRequestDict](adyen/models/get_pci_url_request.py) \| None</code> | The request body.<br>**Default**: <code>None</code> |
-| <code>request_options</code> | <code>[RequestOptionsOrDict](adyen/core/request_options.py) \| None</code> | Per-call overrides for this one request, such as a timeout or extra headers. |
+| <code>request_options</code> | <code>[RequestOptionsOrDict](adyen/core/request_options.py) \| None</code> | Per-call overrides for this one request, such as a timeout, extra headers, or its retry count and statuses. |
 
 </dd>
 </dl>
@@ -22188,7 +23456,7 @@ Mapped in first-match order -- an earlier row wins over a later range that also 
 > Source: [PciQuestionnaires](adyen/apis/pci_questionnaires.py)
 
 <details>
-<summary><code>def get_legal_entities_id_pci_questionnaires(id: str, *, request_options: RequestOptionsOrDict | None = None) -> ApiResult[GetPciQuestionnaireInfosResponse, GetLegalEntitiesIdPciQuestionnairesErrorBody]</code></summary>
+<summary><code>def get_legal_entities_id_pci_questionnaires(id_: str, *, request_options: RequestOptionsOrDict | None = None) -> ApiResult[GetPciQuestionnaireInfosResponse, GetLegalEntitiesIdPciQuestionnairesErrorBody]</code></summary>
 
 <dl>
 <dd>
@@ -22219,7 +23487,7 @@ Requests to this endpoint are subject to rate limits:
 **Sync**
 
 ```python
-result = client.pci_questionnaires.with_raw_response.get_legal_entities_id_pci_questionnaires(id)
+result = client.pci_questionnaires.with_raw_response.get_legal_entities_id_pci_questionnaires("some example string")
 match result:
     case Success(payload=payload):
         ...  # TODO: Handle 'payload' of type GetPciQuestionnaireInfosResponse
@@ -22230,7 +23498,9 @@ match result:
 **Async**
 
 ```python
-result = await async_client.pci_questionnaires.with_raw_response.get_legal_entities_id_pci_questionnaires(id)
+result = await async_client.pci_questionnaires.with_raw_response.get_legal_entities_id_pci_questionnaires(
+    "some example string"
+)
 match result:
     case Success(payload=payload):
         ...  # TODO: Handle 'payload' of type GetPciQuestionnaireInfosResponse
@@ -22248,8 +23518,8 @@ match result:
 
 | Name | Type | Description |
 | --- | --- | --- |
-| <code>id</code> | <code>str</code> | The unique identifier of the legal entity to get PCI questionnaire information. |
-| <code>request_options</code> | <code>[RequestOptionsOrDict](adyen/core/request_options.py) \| None</code> | Per-call overrides for this one request, such as a timeout or extra headers. |
+| <code>id_</code> | <code>str</code> | The unique identifier of the legal entity to get PCI questionnaire information. |
+| <code>request_options</code> | <code>[RequestOptionsOrDict](adyen/core/request_options.py) \| None</code> | Per-call overrides for this one request, such as a timeout, extra headers, or its retry count and statuses. |
 
 </dd>
 </dl>
@@ -22281,7 +23551,7 @@ Mapped in first-match order -- an earlier row wins over a later range that also 
 </details>
 
 <details>
-<summary><code>def get_legal_entities_id_pci_questionnaires_pciid(id: str, pciid: str, *, request_options: RequestOptionsOrDict | None = None) -> ApiResult[GetPciQuestionnaireResponse, GetLegalEntitiesIdPciQuestionnairesPciidErrorBody]</code></summary>
+<summary><code>def get_legal_entities_id_pci_questionnaires_pciid(id_: str, pciid: str, *, request_options: RequestOptionsOrDict | None = None) -> ApiResult[GetPciQuestionnaireResponse, GetLegalEntitiesIdPciQuestionnairesPciidErrorBody]</code></summary>
 
 <dl>
 <dd>
@@ -22312,7 +23582,9 @@ Requests to this endpoint are subject to rate limits:
 **Sync**
 
 ```python
-result = client.pci_questionnaires.with_raw_response.get_legal_entities_id_pci_questionnaires_pciid(id, pciid)
+result = client.pci_questionnaires.with_raw_response.get_legal_entities_id_pci_questionnaires_pciid(
+    "some example string", "some example string"
+)
 match result:
     case Success(payload=payload):
         ...  # TODO: Handle 'payload' of type GetPciQuestionnaireResponse
@@ -22324,7 +23596,7 @@ match result:
 
 ```python
 result = await async_client.pci_questionnaires.with_raw_response.get_legal_entities_id_pci_questionnaires_pciid(
-    id, pciid
+    "some example string", "some example string"
 )
 match result:
     case Success(payload=payload):
@@ -22343,9 +23615,9 @@ match result:
 
 | Name | Type | Description |
 | --- | --- | --- |
-| <code>id</code> | <code>str</code> | The legal entity ID of the individual who signed the PCI questionnaire. |
+| <code>id_</code> | <code>str</code> | The legal entity ID of the individual who signed the PCI questionnaire. |
 | <code>pciid</code> | <code>str</code> | The unique identifier of the signed PCI questionnaire. |
-| <code>request_options</code> | <code>[RequestOptionsOrDict](adyen/core/request_options.py) \| None</code> | Per-call overrides for this one request, such as a timeout or extra headers. |
+| <code>request_options</code> | <code>[RequestOptionsOrDict](adyen/core/request_options.py) \| None</code> | Per-call overrides for this one request, such as a timeout, extra headers, or its retry count and statuses. |
 
 </dd>
 </dl>
@@ -22377,7 +23649,7 @@ Mapped in first-match order -- an earlier row wins over a later range that also 
 </details>
 
 <details>
-<summary><code>def post_legal_entities_id_pci_questionnaires_generate_pci_templates(id: str, *, body: GeneratePciDescriptionRequest | GeneratePciDescriptionRequestDict | None = None, request_options: RequestOptionsOrDict | None = None) -> ApiResult[GeneratePciDescriptionResponse, PostLegalEntitiesIdPciQuestionnairesGeneratePciTemplatesErrorBody]</code></summary>
+<summary><code>def post_legal_entities_id_pci_questionnaires_generate_pci_templates(id_: str, *, body: GeneratePciDescriptionRequest | GeneratePciDescriptionRequestDict | None = None, request_options: RequestOptionsOrDict | None = None) -> ApiResult[GeneratePciDescriptionResponse, PostLegalEntitiesIdPciQuestionnairesGeneratePciTemplatesErrorBody]</code></summary>
 
 <dl>
 <dd>
@@ -22409,7 +23681,7 @@ Requests to this endpoint are subject to rate limits:
 
 ```python
 result = client.pci_questionnaires.with_raw_response.post_legal_entities_id_pci_questionnaires_generate_pci_templates(
-    id
+    "some example string", body=GeneratePciDescriptionRequest(language="fr")
 )
 match result:
     case Success(payload=payload):
@@ -22422,7 +23694,7 @@ match result:
 
 ```python
 result = await async_client.pci_questionnaires.with_raw_response.post_legal_entities_id_pci_questionnaires_generate_pci_templates(
-    id
+    "some example string", body=GeneratePciDescriptionRequest(language="fr")
 )
 match result:
     case Success(payload=payload):
@@ -22441,9 +23713,9 @@ match result:
 
 | Name | Type | Description |
 | --- | --- | --- |
-| <code>id</code> | <code>str</code> | The unique identifier of the legal entity to get PCI questionnaire information. |
+| <code>id_</code> | <code>str</code> | The unique identifier of the legal entity to get PCI questionnaire information. |
 | <code>body</code> | <code>[GeneratePciDescriptionRequest](adyen/models/generate_pci_description_request.py) \| [GeneratePciDescriptionRequestDict](adyen/models/generate_pci_description_request.py) \| None</code> | The request body.<br>**Default**: <code>None</code> |
-| <code>request_options</code> | <code>[RequestOptionsOrDict](adyen/core/request_options.py) \| None</code> | Per-call overrides for this one request, such as a timeout or extra headers. |
+| <code>request_options</code> | <code>[RequestOptionsOrDict](adyen/core/request_options.py) \| None</code> | Per-call overrides for this one request, such as a timeout, extra headers, or its retry count and statuses. |
 
 </dd>
 </dl>
@@ -22475,7 +23747,7 @@ Mapped in first-match order -- an earlier row wins over a later range that also 
 </details>
 
 <details>
-<summary><code>def post_legal_entities_id_pci_questionnaires_sign_pci_templates(id: str, *, body: PciSigningRequest | PciSigningRequestDict | None = None, request_options: RequestOptionsOrDict | None = None) -> ApiResult[PciSigningResponse, PostLegalEntitiesIdPciQuestionnairesSignPciTemplatesErrorBody]</code></summary>
+<summary><code>def post_legal_entities_id_pci_questionnaires_sign_pci_templates(id_: str, *, body: PciSigningRequest | PciSigningRequestDict | None = None, request_options: RequestOptionsOrDict | None = None) -> ApiResult[PciSigningResponse, PostLegalEntitiesIdPciQuestionnairesSignPciTemplatesErrorBody]</code></summary>
 
 <dl>
 <dd>
@@ -22506,7 +23778,12 @@ Requests to this endpoint are subject to rate limits:
 **Sync**
 
 ```python
-result = client.pci_questionnaires.with_raw_response.post_legal_entities_id_pci_questionnaires_sign_pci_templates(id)
+result = client.pci_questionnaires.with_raw_response.post_legal_entities_id_pci_questionnaires_sign_pci_templates(
+    "some example string",
+    body=PciSigningRequest(
+        pci_template_references=["PCIT-T7KC6VGL", "PCIT-PKB6DKS4"], signed_by="LE00000000000000000000002"
+    ),
+)
 match result:
     case Success(payload=payload):
         ...  # TODO: Handle 'payload' of type PciSigningResponse
@@ -22518,7 +23795,10 @@ match result:
 
 ```python
 result = await async_client.pci_questionnaires.with_raw_response.post_legal_entities_id_pci_questionnaires_sign_pci_templates(
-    id
+    "some example string",
+    body=PciSigningRequest(
+        pci_template_references=["PCIT-T7KC6VGL", "PCIT-PKB6DKS4"], signed_by="LE00000000000000000000002"
+    ),
 )
 match result:
     case Success(payload=payload):
@@ -22537,9 +23817,9 @@ match result:
 
 | Name | Type | Description |
 | --- | --- | --- |
-| <code>id</code> | <code>str</code> | The legal entity ID of the user that has a contractual relationship with your platform. |
+| <code>id_</code> | <code>str</code> | The legal entity ID of the user that has a contractual relationship with your platform. |
 | <code>body</code> | <code>[PciSigningRequest](adyen/models/pci_signing_request.py) \| [PciSigningRequestDict](adyen/models/pci_signing_request.py) \| None</code> | The request body.<br>**Default**: <code>None</code> |
-| <code>request_options</code> | <code>[RequestOptionsOrDict](adyen/core/request_options.py) \| None</code> | Per-call overrides for this one request, such as a timeout or extra headers. |
+| <code>request_options</code> | <code>[RequestOptionsOrDict](adyen/core/request_options.py) \| None</code> | Per-call overrides for this one request, such as a timeout, extra headers, or its retry count and statuses. |
 
 </dd>
 </dl>
@@ -22571,7 +23851,7 @@ Mapped in first-match order -- an earlier row wins over a later range that also 
 </details>
 
 <details>
-<summary><code>def post_legal_entities_id_pci_questionnaires_signing_required(id: str, *, body: CalculatePciStatusRequest | CalculatePciStatusRequestDict | None = None, request_options: RequestOptionsOrDict | None = None) -> ApiResult[CalculatePciStatusResponse, PostLegalEntitiesIdPciQuestionnairesSigningRequiredErrorBody]</code></summary>
+<summary><code>def post_legal_entities_id_pci_questionnaires_signing_required(id_: str, *, body: CalculatePciStatusRequest | CalculatePciStatusRequestDict | None = None, request_options: RequestOptionsOrDict | None = None) -> ApiResult[CalculatePciStatusResponse, PostLegalEntitiesIdPciQuestionnairesSigningRequiredErrorBody]</code></summary>
 
 <dl>
 <dd>
@@ -22602,7 +23882,9 @@ Requests to this endpoint are subject to rate limits:
 **Sync**
 
 ```python
-result = client.pci_questionnaires.with_raw_response.post_legal_entities_id_pci_questionnaires_signing_required(id)
+result = client.pci_questionnaires.with_raw_response.post_legal_entities_id_pci_questionnaires_signing_required(
+    "some example string"
+)
 match result:
     case Success(payload=payload):
         ...  # TODO: Handle 'payload' of type CalculatePciStatusResponse
@@ -22614,7 +23896,7 @@ match result:
 
 ```python
 result = await async_client.pci_questionnaires.with_raw_response.post_legal_entities_id_pci_questionnaires_signing_required(
-    id
+    "some example string"
 )
 match result:
     case Success(payload=payload):
@@ -22633,9 +23915,9 @@ match result:
 
 | Name | Type | Description |
 | --- | --- | --- |
-| <code>id</code> | <code>str</code> | The unique identifier of the legal entity to calculate PCI status. |
+| <code>id_</code> | <code>str</code> | The unique identifier of the legal entity to calculate PCI status. |
 | <code>body</code> | <code>[CalculatePciStatusRequest](adyen/models/calculate_pci_status_request.py) \| [CalculatePciStatusRequestDict](adyen/models/calculate_pci_status_request.py) \| None</code> | The request body.<br>**Default**: <code>None</code> |
-| <code>request_options</code> | <code>[RequestOptionsOrDict](adyen/core/request_options.py) \| None</code> | Per-call overrides for this one request, such as a timeout or extra headers. |
+| <code>request_options</code> | <code>[RequestOptionsOrDict](adyen/core/request_options.py) \| None</code> | Per-call overrides for this one request, such as a timeout, extra headers, or its retry count and statuses. |
 
 </dd>
 </dl>
@@ -22671,7 +23953,7 @@ Mapped in first-match order -- an earlier row wins over a later range that also 
 > Source: [PaymentInstrumentGroups](adyen/apis/payment_instrument_groups.py)
 
 <details>
-<summary><code>def get_payment_instrument_groups_id(id: str, *, request_options: RequestOptionsOrDict | None = None) -> ApiResult[PaymentInstrumentGroup, GetPaymentInstrumentGroupsIdErrorBody]</code></summary>
+<summary><code>def get_payment_instrument_groups_id(id_: str, *, request_options: RequestOptionsOrDict | None = None) -> ApiResult[PaymentInstrumentGroup, GetPaymentInstrumentGroupsIdErrorBody]</code></summary>
 
 <dl>
 <dd>
@@ -22694,7 +23976,7 @@ Returns the details of a payment instrument group.
 **Sync**
 
 ```python
-result = client.payment_instrument_groups.with_raw_response.get_payment_instrument_groups_id(id)
+result = client.payment_instrument_groups.with_raw_response.get_payment_instrument_groups_id("some example string")
 match result:
     case Success(payload=payload):
         ...  # TODO: Handle 'payload' of type PaymentInstrumentGroup
@@ -22705,7 +23987,9 @@ match result:
 **Async**
 
 ```python
-result = await async_client.payment_instrument_groups.with_raw_response.get_payment_instrument_groups_id(id)
+result = await async_client.payment_instrument_groups.with_raw_response.get_payment_instrument_groups_id(
+    "some example string"
+)
 match result:
     case Success(payload=payload):
         ...  # TODO: Handle 'payload' of type PaymentInstrumentGroup
@@ -22723,8 +24007,8 @@ match result:
 
 | Name | Type | Description |
 | --- | --- | --- |
-| <code>id</code> | <code>str</code> | The unique identifier of the payment instrument group. |
-| <code>request_options</code> | <code>[RequestOptionsOrDict](adyen/core/request_options.py) \| None</code> | Per-call overrides for this one request, such as a timeout or extra headers. |
+| <code>id_</code> | <code>str</code> | The unique identifier of the payment instrument group. |
+| <code>request_options</code> | <code>[RequestOptionsOrDict](adyen/core/request_options.py) \| None</code> | Per-call overrides for this one request, such as a timeout, extra headers, or its retry count and statuses. |
 
 </dd>
 </dl>
@@ -22756,7 +24040,7 @@ Mapped in first-match order -- an earlier row wins over a later range that also 
 </details>
 
 <details>
-<summary><code>def get_payment_instrument_groups_id_transaction_rules(id: str, *, request_options: RequestOptionsOrDict | None = None) -> ApiResult[TransactionRulesResponse, GetPaymentInstrumentGroupsIdTransactionRulesErrorBody]</code></summary>
+<summary><code>def get_payment_instrument_groups_id_transaction_rules(id_: str, *, request_options: RequestOptionsOrDict | None = None) -> ApiResult[TransactionRulesResponse, GetPaymentInstrumentGroupsIdTransactionRulesErrorBody]</code></summary>
 
 <dl>
 <dd>
@@ -22779,7 +24063,9 @@ Returns a list of all the transaction rules associated with a payment instrument
 **Sync**
 
 ```python
-result = client.payment_instrument_groups.with_raw_response.get_payment_instrument_groups_id_transaction_rules(id)
+result = client.payment_instrument_groups.with_raw_response.get_payment_instrument_groups_id_transaction_rules(
+    "some example string"
+)
 match result:
     case Success(payload=payload):
         ...  # TODO: Handle 'payload' of type TransactionRulesResponse
@@ -22791,7 +24077,7 @@ match result:
 
 ```python
 result = await async_client.payment_instrument_groups.with_raw_response.get_payment_instrument_groups_id_transaction_rules(
-    id
+    "some example string"
 )
 match result:
     case Success(payload=payload):
@@ -22810,8 +24096,8 @@ match result:
 
 | Name | Type | Description |
 | --- | --- | --- |
-| <code>id</code> | <code>str</code> | The unique identifier of the payment instrument group. |
-| <code>request_options</code> | <code>[RequestOptionsOrDict](adyen/core/request_options.py) \| None</code> | Per-call overrides for this one request, such as a timeout or extra headers. |
+| <code>id_</code> | <code>str</code> | The unique identifier of the payment instrument group. |
+| <code>request_options</code> | <code>[RequestOptionsOrDict](adyen/core/request_options.py) \| None</code> | Per-call overrides for this one request, such as a timeout, extra headers, or its retry count and statuses. |
 
 </dd>
 </dl>
@@ -22866,7 +24152,9 @@ Creates a payment instrument group to associate and group payment instrument res
 **Sync**
 
 ```python
-result = client.payment_instrument_groups.with_raw_response.post_payment_instrument_groups()
+result = client.payment_instrument_groups.with_raw_response.post_payment_instrument_groups(
+    body=PaymentInstrumentGroupInfo(balance_platform="YOUR_BALANCE_PLATFORM", tx_variant="mc")
+)
 match result:
     case Success(payload=payload):
         ...  # TODO: Handle 'payload' of type PaymentInstrumentGroup
@@ -22877,7 +24165,9 @@ match result:
 **Async**
 
 ```python
-result = await async_client.payment_instrument_groups.with_raw_response.post_payment_instrument_groups()
+result = await async_client.payment_instrument_groups.with_raw_response.post_payment_instrument_groups(
+    body=PaymentInstrumentGroupInfo(balance_platform="YOUR_BALANCE_PLATFORM", tx_variant="mc")
+)
 match result:
     case Success(payload=payload):
         ...  # TODO: Handle 'payload' of type PaymentInstrumentGroup
@@ -22896,7 +24186,7 @@ match result:
 | Name | Type | Description |
 | --- | --- | --- |
 | <code>body</code> | <code>[PaymentInstrumentGroupInfo](adyen/models/payment_instrument_group_info.py) \| [PaymentInstrumentGroupInfoDict](adyen/models/payment_instrument_group_info.py) \| None</code> | The request body.<br>**Default**: <code>None</code> |
-| <code>request_options</code> | <code>[RequestOptionsOrDict](adyen/core/request_options.py) \| None</code> | Per-call overrides for this one request, such as a timeout or extra headers. |
+| <code>request_options</code> | <code>[RequestOptionsOrDict](adyen/core/request_options.py) \| None</code> | Per-call overrides for this one request, such as a timeout, extra headers, or its retry count and statuses. |
 
 </dd>
 </dl>
@@ -22932,7 +24222,7 @@ Mapped in first-match order -- an earlier row wins over a later range that also 
 > Source: [PaymentInstruments](adyen/apis/payment_instruments.py)
 
 <details>
-<summary><code>def get_payment_instruments_id(id: str, *, request_options: RequestOptionsOrDict | None = None) -> ApiResult[PaymentInstrument1, GetPaymentInstrumentsIdErrorBody]</code></summary>
+<summary><code>def get_payment_instruments_id(id_: str, *, request_options: RequestOptionsOrDict | None = None) -> ApiResult[PaymentInstrument1, GetPaymentInstrumentsIdErrorBody]</code></summary>
 
 <dl>
 <dd>
@@ -22955,7 +24245,7 @@ Returns the details of a payment instrument.
 **Sync**
 
 ```python
-result = client.payment_instruments.with_raw_response.get_payment_instruments_id(id)
+result = client.payment_instruments.with_raw_response.get_payment_instruments_id("some example string")
 match result:
     case Success(payload=payload):
         ...  # TODO: Handle 'payload' of type PaymentInstrument1
@@ -22966,7 +24256,7 @@ match result:
 **Async**
 
 ```python
-result = await async_client.payment_instruments.with_raw_response.get_payment_instruments_id(id)
+result = await async_client.payment_instruments.with_raw_response.get_payment_instruments_id("some example string")
 match result:
     case Success(payload=payload):
         ...  # TODO: Handle 'payload' of type PaymentInstrument1
@@ -22984,8 +24274,8 @@ match result:
 
 | Name | Type | Description |
 | --- | --- | --- |
-| <code>id</code> | <code>str</code> | The unique identifier of the payment instrument. |
-| <code>request_options</code> | <code>[RequestOptionsOrDict](adyen/core/request_options.py) \| None</code> | Per-call overrides for this one request, such as a timeout or extra headers. |
+| <code>id_</code> | <code>str</code> | The unique identifier of the payment instrument. |
+| <code>request_options</code> | <code>[RequestOptionsOrDict](adyen/core/request_options.py) \| None</code> | Per-call overrides for this one request, such as a timeout, extra headers, or its retry count and statuses. |
 
 </dd>
 </dl>
@@ -23017,7 +24307,7 @@ Mapped in first-match order -- an earlier row wins over a later range that also 
 </details>
 
 <details>
-<summary><code>def get_payment_instruments_id_network_token_activation_data(id: str, *, request_options: RequestOptionsOrDict | None = None) -> ApiResult[NetworkTokenActivationDataResponse, GetPaymentInstrumentsIdNetworkTokenActivationDataErrorBody]</code></summary>
+<summary><code>def get_payment_instruments_id_network_token_activation_data(id_: str, *, request_options: RequestOptionsOrDict | None = None) -> ApiResult[NetworkTokenActivationDataResponse, GetPaymentInstrumentsIdNetworkTokenActivationDataErrorBody]</code></summary>
 
 <dl>
 <dd>
@@ -23040,7 +24330,9 @@ Get the network token activation data for a payment instrument.
 **Sync**
 
 ```python
-result = client.payment_instruments.with_raw_response.get_payment_instruments_id_network_token_activation_data(id)
+result = client.payment_instruments.with_raw_response.get_payment_instruments_id_network_token_activation_data(
+    "some example string"
+)
 match result:
     case Success(payload=payload):
         ...  # TODO: Handle 'payload' of type NetworkTokenActivationDataResponse
@@ -23052,7 +24344,7 @@ match result:
 
 ```python
 result = await async_client.payment_instruments.with_raw_response.get_payment_instruments_id_network_token_activation_data(
-    id
+    "some example string"
 )
 match result:
     case Success(payload=payload):
@@ -23071,8 +24363,8 @@ match result:
 
 | Name | Type | Description |
 | --- | --- | --- |
-| <code>id</code> | <code>str</code> | The unique identifier of the payment instrument. |
-| <code>request_options</code> | <code>[RequestOptionsOrDict](adyen/core/request_options.py) \| None</code> | Per-call overrides for this one request, such as a timeout or extra headers. |
+| <code>id_</code> | <code>str</code> | The unique identifier of the payment instrument. |
+| <code>request_options</code> | <code>[RequestOptionsOrDict](adyen/core/request_options.py) \| None</code> | Per-call overrides for this one request, such as a timeout, extra headers, or its retry count and statuses. |
 
 </dd>
 </dl>
@@ -23104,7 +24396,7 @@ Mapped in first-match order -- an earlier row wins over a later range that also 
 </details>
 
 <details>
-<summary><code>def get_payment_instruments_id_network_tokens(id: str, *, request_options: RequestOptionsOrDict | None = None) -> ApiResult[ListNetworkTokensResponse, GetPaymentInstrumentsIdNetworkTokensErrorBody]</code></summary>
+<summary><code>def get_payment_instruments_id_network_tokens(id_: str, *, request_options: RequestOptionsOrDict | None = None) -> ApiResult[ListNetworkTokensResponse, GetPaymentInstrumentsIdNetworkTokensErrorBody]</code></summary>
 
 <dl>
 <dd>
@@ -23127,7 +24419,7 @@ List the network tokens connected to a payment instrument.
 **Sync**
 
 ```python
-result = client.payment_instruments.with_raw_response.get_payment_instruments_id_network_tokens(id)
+result = client.payment_instruments.with_raw_response.get_payment_instruments_id_network_tokens("some example string")
 match result:
     case Success(payload=payload):
         ...  # TODO: Handle 'payload' of type ListNetworkTokensResponse
@@ -23138,7 +24430,9 @@ match result:
 **Async**
 
 ```python
-result = await async_client.payment_instruments.with_raw_response.get_payment_instruments_id_network_tokens(id)
+result = await async_client.payment_instruments.with_raw_response.get_payment_instruments_id_network_tokens(
+    "some example string"
+)
 match result:
     case Success(payload=payload):
         ...  # TODO: Handle 'payload' of type ListNetworkTokensResponse
@@ -23156,8 +24450,8 @@ match result:
 
 | Name | Type | Description |
 | --- | --- | --- |
-| <code>id</code> | <code>str</code> | The unique identifier of the payment instrument. |
-| <code>request_options</code> | <code>[RequestOptionsOrDict](adyen/core/request_options.py) \| None</code> | Per-call overrides for this one request, such as a timeout or extra headers. |
+| <code>id_</code> | <code>str</code> | The unique identifier of the payment instrument. |
+| <code>request_options</code> | <code>[RequestOptionsOrDict](adyen/core/request_options.py) \| None</code> | Per-call overrides for this one request, such as a timeout, extra headers, or its retry count and statuses. |
 
 </dd>
 </dl>
@@ -23189,7 +24483,7 @@ Mapped in first-match order -- an earlier row wins over a later range that also 
 </details>
 
 <details>
-<summary><code>def get_payment_instruments_id_reveal(id: str, *, request_options: RequestOptionsOrDict | None = None) -> ApiResult[PaymentInstrumentRevealInfo, GetPaymentInstrumentsIdRevealErrorBody]</code></summary>
+<summary><code>def get_payment_instruments_id_reveal(id_: str, *, request_options: RequestOptionsOrDict | None = None) -> ApiResult[PaymentInstrumentRevealInfo, GetPaymentInstrumentsIdRevealErrorBody]</code></summary>
 
 <dl>
 <dd>
@@ -23216,7 +24510,7 @@ To make this request, your API credential must have the following [role](https:/
 **Sync**
 
 ```python
-result = client.payment_instruments.with_raw_response.get_payment_instruments_id_reveal(id)
+result = client.payment_instruments.with_raw_response.get_payment_instruments_id_reveal("some example string")
 match result:
     case Success(payload=payload):
         ...  # TODO: Handle 'payload' of type PaymentInstrumentRevealInfo
@@ -23227,7 +24521,9 @@ match result:
 **Async**
 
 ```python
-result = await async_client.payment_instruments.with_raw_response.get_payment_instruments_id_reveal(id)
+result = await async_client.payment_instruments.with_raw_response.get_payment_instruments_id_reveal(
+    "some example string"
+)
 match result:
     case Success(payload=payload):
         ...  # TODO: Handle 'payload' of type PaymentInstrumentRevealInfo
@@ -23245,8 +24541,8 @@ match result:
 
 | Name | Type | Description |
 | --- | --- | --- |
-| <code>id</code> | <code>str</code> | The unique identifier of the payment instrument. |
-| <code>request_options</code> | <code>[RequestOptionsOrDict](adyen/core/request_options.py) \| None</code> | Per-call overrides for this one request, such as a timeout or extra headers. |
+| <code>id_</code> | <code>str</code> | The unique identifier of the payment instrument. |
+| <code>request_options</code> | <code>[RequestOptionsOrDict](adyen/core/request_options.py) \| None</code> | Per-call overrides for this one request, such as a timeout, extra headers, or its retry count and statuses. |
 
 </dd>
 </dl>
@@ -23278,7 +24574,7 @@ Mapped in first-match order -- an earlier row wins over a later range that also 
 </details>
 
 <details>
-<summary><code>def get_payment_instruments_id_transaction_rules(id: str, *, request_options: RequestOptionsOrDict | None = None) -> ApiResult[TransactionRulesResponse, GetPaymentInstrumentsIdTransactionRulesErrorBody]</code></summary>
+<summary><code>def get_payment_instruments_id_transaction_rules(id_: str, *, request_options: RequestOptionsOrDict | None = None) -> ApiResult[TransactionRulesResponse, GetPaymentInstrumentsIdTransactionRulesErrorBody]</code></summary>
 
 <dl>
 <dd>
@@ -23301,7 +24597,9 @@ Returns a list of transaction rules associated with a payment instrument.
 **Sync**
 
 ```python
-result = client.payment_instruments.with_raw_response.get_payment_instruments_id_transaction_rules(id)
+result = client.payment_instruments.with_raw_response.get_payment_instruments_id_transaction_rules(
+    "some example string"
+)
 match result:
     case Success(payload=payload):
         ...  # TODO: Handle 'payload' of type TransactionRulesResponse
@@ -23312,7 +24610,9 @@ match result:
 **Async**
 
 ```python
-result = await async_client.payment_instruments.with_raw_response.get_payment_instruments_id_transaction_rules(id)
+result = await async_client.payment_instruments.with_raw_response.get_payment_instruments_id_transaction_rules(
+    "some example string"
+)
 match result:
     case Success(payload=payload):
         ...  # TODO: Handle 'payload' of type TransactionRulesResponse
@@ -23330,8 +24630,8 @@ match result:
 
 | Name | Type | Description |
 | --- | --- | --- |
-| <code>id</code> | <code>str</code> | The unique identifier of the payment instrument. |
-| <code>request_options</code> | <code>[RequestOptionsOrDict](adyen/core/request_options.py) \| None</code> | Per-call overrides for this one request, such as a timeout or extra headers. |
+| <code>id_</code> | <code>str</code> | The unique identifier of the payment instrument. |
+| <code>request_options</code> | <code>[RequestOptionsOrDict](adyen/core/request_options.py) \| None</code> | Per-call overrides for this one request, such as a timeout, extra headers, or its retry count and statuses. |
 
 </dd>
 </dl>
@@ -23363,7 +24663,7 @@ Mapped in first-match order -- an earlier row wins over a later range that also 
 </details>
 
 <details>
-<summary><code>def patch_payment_instruments_id(id: str, *, body: PaymentInstrumentUpdateRequest | PaymentInstrumentUpdateRequestDict | None = None, request_options: RequestOptionsOrDict | None = None) -> ApiResult[UpdatePaymentInstrument, PatchPaymentInstrumentsIdErrorBody]</code></summary>
+<summary><code>def patch_payment_instruments_id(id_: str, *, body: PaymentInstrumentUpdateRequest | PaymentInstrumentUpdateRequestDict | None = None, request_options: RequestOptionsOrDict | None = None) -> ApiResult[UpdatePaymentInstrument, PatchPaymentInstrumentsIdErrorBody]</code></summary>
 
 <dl>
 <dd>
@@ -23386,7 +24686,9 @@ Updates a payment instrument. Once a payment instrument is already active, you c
 **Sync**
 
 ```python
-result = client.payment_instruments.with_raw_response.patch_payment_instruments_id(id)
+result = client.payment_instruments.with_raw_response.patch_payment_instruments_id(
+    "some example string", body=PaymentInstrumentUpdateRequest(balance_account_id="BA32272223222B5CM82WL892M")
+)
 match result:
     case Success(payload=payload):
         ...  # TODO: Handle 'payload' of type UpdatePaymentInstrument
@@ -23397,7 +24699,9 @@ match result:
 **Async**
 
 ```python
-result = await async_client.payment_instruments.with_raw_response.patch_payment_instruments_id(id)
+result = await async_client.payment_instruments.with_raw_response.patch_payment_instruments_id(
+    "some example string", body=PaymentInstrumentUpdateRequest(balance_account_id="BA32272223222B5CM82WL892M")
+)
 match result:
     case Success(payload=payload):
         ...  # TODO: Handle 'payload' of type UpdatePaymentInstrument
@@ -23415,9 +24719,9 @@ match result:
 
 | Name | Type | Description |
 | --- | --- | --- |
-| <code>id</code> | <code>str</code> | The unique identifier of the payment instrument. |
+| <code>id_</code> | <code>str</code> | The unique identifier of the payment instrument. |
 | <code>body</code> | <code>[PaymentInstrumentUpdateRequest](adyen/models/payment_instrument_update_request.py) \| [PaymentInstrumentUpdateRequestDict](adyen/models/payment_instrument_update_request.py) \| None</code> | The request body.<br>**Default**: <code>None</code> |
-| <code>request_options</code> | <code>[RequestOptionsOrDict](adyen/core/request_options.py) \| None</code> | Per-call overrides for this one request, such as a timeout or extra headers. |
+| <code>request_options</code> | <code>[RequestOptionsOrDict](adyen/core/request_options.py) \| None</code> | Per-call overrides for this one request, such as a timeout, extra headers, or its retry count and statuses. |
 
 </dd>
 </dl>
@@ -23474,7 +24778,14 @@ For more information, refer to [Issue cards](https://docs.adyen.com/issuing/crea
 **Sync**
 
 ```python
-result = client.payment_instruments.with_raw_response.post_payment_instruments()
+result = client.payment_instruments.with_raw_response.post_payment_instruments(
+    body=PaymentInstrumentInfo(
+        balance_account_id="BA3227C223222B5CTBLR8BWJB",
+        description="YOUR_DESCRIPTION",
+        issuing_country_code="NL",
+        type_=Type111.BANK_ACCOUNT,
+    ),
+)
 match result:
     case Success(payload=payload):
         ...  # TODO: Handle 'payload' of type PaymentInstrument1
@@ -23485,7 +24796,14 @@ match result:
 **Async**
 
 ```python
-result = await async_client.payment_instruments.with_raw_response.post_payment_instruments()
+result = await async_client.payment_instruments.with_raw_response.post_payment_instruments(
+    body=PaymentInstrumentInfo(
+        balance_account_id="BA3227C223222B5CTBLR8BWJB",
+        description="YOUR_DESCRIPTION",
+        issuing_country_code="NL",
+        type_=Type111.BANK_ACCOUNT,
+    ),
+)
 match result:
     case Success(payload=payload):
         ...  # TODO: Handle 'payload' of type PaymentInstrument1
@@ -23504,7 +24822,7 @@ match result:
 | Name | Type | Description |
 | --- | --- | --- |
 | <code>body</code> | <code>[PaymentInstrumentInfo](adyen/models/payment_instrument_info.py) \| [PaymentInstrumentInfoDict](adyen/models/payment_instrument_info.py) \| None</code> | The request body.<br>**Default**: <code>None</code> |
-| <code>request_options</code> | <code>[RequestOptionsOrDict](adyen/core/request_options.py) \| None</code> | Per-call overrides for this one request, such as a timeout or extra headers. |
+| <code>request_options</code> | <code>[RequestOptionsOrDict](adyen/core/request_options.py) \| None</code> | Per-call overrides for this one request, such as a timeout, extra headers, or its retry count and statuses. |
 
 </dd>
 </dl>
@@ -23536,7 +24854,7 @@ Mapped in first-match order -- an earlier row wins over a later range that also 
 </details>
 
 <details>
-<summary><code>def post_payment_instruments_id_network_token_activation_data(id: str, *, body: NetworkTokenActivationDataRequest | NetworkTokenActivationDataRequestDict | None = None, request_options: RequestOptionsOrDict | None = None) -> ApiResult[NetworkTokenActivationDataResponse, PostPaymentInstrumentsIdNetworkTokenActivationDataErrorBody]</code></summary>
+<summary><code>def post_payment_instruments_id_network_token_activation_data(id_: str, *, body: NetworkTokenActivationDataRequest | NetworkTokenActivationDataRequestDict | None = None, request_options: RequestOptionsOrDict | None = None) -> ApiResult[NetworkTokenActivationDataResponse, PostPaymentInstrumentsIdNetworkTokenActivationDataErrorBody]</code></summary>
 
 <dl>
 <dd>
@@ -23559,7 +24877,9 @@ Create provisioning data for a network token. Use the provisioning data to add a
 **Sync**
 
 ```python
-result = client.payment_instruments.with_raw_response.post_payment_instruments_id_network_token_activation_data(id)
+result = client.payment_instruments.with_raw_response.post_payment_instruments_id_network_token_activation_data(
+    "some example string"
+)
 match result:
     case Success(payload=payload):
         ...  # TODO: Handle 'payload' of type NetworkTokenActivationDataResponse
@@ -23571,7 +24891,7 @@ match result:
 
 ```python
 result = await async_client.payment_instruments.with_raw_response.post_payment_instruments_id_network_token_activation_data(
-    id
+    "some example string"
 )
 match result:
     case Success(payload=payload):
@@ -23590,9 +24910,9 @@ match result:
 
 | Name | Type | Description |
 | --- | --- | --- |
-| <code>id</code> | <code>str</code> | The unique identifier of the payment instrument. |
+| <code>id_</code> | <code>str</code> | The unique identifier of the payment instrument. |
 | <code>body</code> | <code>[NetworkTokenActivationDataRequest](adyen/models/network_token_activation_data_request.py) \| [NetworkTokenActivationDataRequestDict](adyen/models/network_token_activation_data_request.py) \| None</code> | The request body.<br>**Default**: <code>None</code> |
-| <code>request_options</code> | <code>[RequestOptionsOrDict](adyen/core/request_options.py) \| None</code> | Per-call overrides for this one request, such as a timeout or extra headers. |
+| <code>request_options</code> | <code>[RequestOptionsOrDict](adyen/core/request_options.py) \| None</code> | Per-call overrides for this one request, such as a timeout, extra headers, or its retry count and statuses. |
 
 </dd>
 </dl>
@@ -23686,7 +25006,7 @@ match result:
 | Name | Type | Description |
 | --- | --- | --- |
 | <code>body</code> | <code>[PaymentInstrumentRevealRequest](adyen/models/payment_instrument_reveal_request.py) \| [PaymentInstrumentRevealRequestDict](adyen/models/payment_instrument_reveal_request.py) \| None</code> | The request body.<br>**Default**: <code>None</code> |
-| <code>request_options</code> | <code>[RequestOptionsOrDict](adyen/core/request_options.py) \| None</code> | Per-call overrides for this one request, such as a timeout or extra headers. |
+| <code>request_options</code> | <code>[RequestOptionsOrDict](adyen/core/request_options.py) \| None</code> | Per-call overrides for this one request, such as a timeout, extra headers, or its retry count and statuses. |
 
 </dd>
 </dl>
@@ -23745,7 +25065,7 @@ Retrieves the payment link details using the payment link `id`.
 **Sync**
 
 ```python
-result = client.payment_links.with_raw_response.get_payment_links_link_id(link_id)
+result = client.payment_links.with_raw_response.get_payment_links_link_id("some example string")
 match result:
     case Success(payload=payload):
         ...  # TODO: Handle 'payload' of type PaymentLinkResponse
@@ -23756,7 +25076,7 @@ match result:
 **Async**
 
 ```python
-result = await async_client.payment_links.with_raw_response.get_payment_links_link_id(link_id)
+result = await async_client.payment_links.with_raw_response.get_payment_links_link_id("some example string")
 match result:
     case Success(payload=payload):
         ...  # TODO: Handle 'payload' of type PaymentLinkResponse
@@ -23775,7 +25095,7 @@ match result:
 | Name | Type | Description |
 | --- | --- | --- |
 | <code>link_id</code> | <code>str</code> | Unique identifier of the payment link. |
-| <code>request_options</code> | <code>[RequestOptionsOrDict](adyen/core/request_options.py) \| None</code> | Per-call overrides for this one request, such as a timeout or extra headers. |
+| <code>request_options</code> | <code>[RequestOptionsOrDict](adyen/core/request_options.py) \| None</code> | Per-call overrides for this one request, such as a timeout, extra headers, or its retry count and statuses. |
 
 </dd>
 </dl>
@@ -23830,7 +25150,9 @@ Updates the status of a payment link. Use this endpoint to [force the expiry of 
 **Sync**
 
 ```python
-result = client.payment_links.with_raw_response.patch_payment_links_link_id(link_id)
+result = client.payment_links.with_raw_response.patch_payment_links_link_id(
+    "some example string", body=UpdatePaymentLinkRequest()
+)
 match result:
     case Success(payload=payload):
         ...  # TODO: Handle 'payload' of type PaymentLinkResponse
@@ -23841,7 +25163,9 @@ match result:
 **Async**
 
 ```python
-result = await async_client.payment_links.with_raw_response.patch_payment_links_link_id(link_id)
+result = await async_client.payment_links.with_raw_response.patch_payment_links_link_id(
+    "some example string", body=UpdatePaymentLinkRequest()
+)
 match result:
     case Success(payload=payload):
         ...  # TODO: Handle 'payload' of type PaymentLinkResponse
@@ -23861,7 +25185,7 @@ match result:
 | --- | --- | --- |
 | <code>link_id</code> | <code>str</code> | Unique identifier of the payment link. |
 | <code>body</code> | <code>[UpdatePaymentLinkRequest](adyen/models/update_payment_link_request.py) \| [UpdatePaymentLinkRequestDict](adyen/models/update_payment_link_request.py) \| None</code> | The request body.<br>**Default**: <code>None</code> |
-| <code>request_options</code> | <code>[RequestOptionsOrDict](adyen/core/request_options.py) \| None</code> | Per-call overrides for this one request, such as a timeout or extra headers. |
+| <code>request_options</code> | <code>[RequestOptionsOrDict](adyen/core/request_options.py) \| None</code> | Per-call overrides for this one request, such as a timeout, extra headers, or its retry count and statuses. |
 
 </dd>
 </dl>
@@ -23918,7 +25242,34 @@ For more information, refer to [Pay by Link documentation](https://docs.adyen.co
 **Sync**
 
 ```python
-result = client.payment_links.with_raw_response.post_payment_links()
+result = client.payment_links.with_raw_response.post_payment_links(
+    idempotency_key="37ca9c97-d1d1-4c62-89e8-706891a563ed",
+    body=PaymentLinkRequest(
+        amount=Amount35(currency="BRL", value=1250),
+        billing_address=Address3(
+            city="São Paulo",
+            country="BR",
+            house_number_or_name="999",
+            postal_code="59000060",
+            state_or_province="SP",
+            street="Roque Petroni Jr",
+        ),
+        country_code="BR",
+        delivery_address=Address2(
+            city="São Paulo",
+            country="BR",
+            house_number_or_name="999",
+            postal_code="59000060",
+            state_or_province="SP",
+            street="Roque Petroni Jr",
+        ),
+        merchant_account="YOUR_MERCHANT_ACCOUNT",
+        reference="YOUR_ORDER_NUMBER",
+        shopper_email="test@email.com",
+        shopper_locale="pt-BR",
+        shopper_reference="YOUR_SHOPPER_REFERENCE",
+    ),
+)
 match result:
     case Success(payload=payload):
         ...  # TODO: Handle 'payload' of type PaymentLinkResponse
@@ -23929,7 +25280,34 @@ match result:
 **Async**
 
 ```python
-result = await async_client.payment_links.with_raw_response.post_payment_links()
+result = await async_client.payment_links.with_raw_response.post_payment_links(
+    idempotency_key="37ca9c97-d1d1-4c62-89e8-706891a563ed",
+    body=PaymentLinkRequest(
+        amount=Amount35(currency="BRL", value=1250),
+        billing_address=Address3(
+            city="São Paulo",
+            country="BR",
+            house_number_or_name="999",
+            postal_code="59000060",
+            state_or_province="SP",
+            street="Roque Petroni Jr",
+        ),
+        country_code="BR",
+        delivery_address=Address2(
+            city="São Paulo",
+            country="BR",
+            house_number_or_name="999",
+            postal_code="59000060",
+            state_or_province="SP",
+            street="Roque Petroni Jr",
+        ),
+        merchant_account="YOUR_MERCHANT_ACCOUNT",
+        reference="YOUR_ORDER_NUMBER",
+        shopper_email="test@email.com",
+        shopper_locale="pt-BR",
+        shopper_reference="YOUR_SHOPPER_REFERENCE",
+    ),
+)
 match result:
     case Success(payload=payload):
         ...  # TODO: Handle 'payload' of type PaymentLinkResponse
@@ -23949,7 +25327,7 @@ match result:
 | --- | --- | --- |
 | <code>idempotency_key</code> | <code>str \| None</code> | A unique identifier for the message with a maximum of 64 characters (we recommend a UUID).<br>**Default**: <code>None</code> |
 | <code>body</code> | <code>[PaymentLinkRequest](adyen/models/payment_link_request.py) \| [PaymentLinkRequestDict](adyen/models/payment_link_request.py) \| None</code> | The request body.<br>**Default**: <code>None</code> |
-| <code>request_options</code> | <code>[RequestOptionsOrDict](adyen/core/request_options.py) \| None</code> | Per-call overrides for this one request, such as a timeout or extra headers. |
+| <code>request_options</code> | <code>[RequestOptionsOrDict](adyen/core/request_options.py) \| None</code> | Per-call overrides for this one request, such as a timeout, extra headers, or its retry count and statuses. |
 
 </dd>
 </dl>
@@ -24012,7 +25390,7 @@ To make this request, your API credential must have the following [role](https:/
 
 ```python
 result = client.payment_methods_merchant_level.with_raw_response.get_merchants_merchant_id_payment_method_settings(
-    merchant_id
+    "some example string"
 )
 match result:
     case Success(payload=payload):
@@ -24025,7 +25403,7 @@ match result:
 
 ```python
 result = await async_client.payment_methods_merchant_level.with_raw_response.get_merchants_merchant_id_payment_method_settings(
-    merchant_id
+    "some example string"
 )
 match result:
     case Success(payload=payload):
@@ -24049,7 +25427,7 @@ match result:
 | <code>business_line_id</code> | <code>str \| None</code> | The unique identifier of the Business Line for which to return the payment methods.<br>**Default**: <code>None</code> |
 | <code>page_size</code> | <code>int \| None</code> | The number of items to have on a page, maximum 100. The default is 10 items on a page.<br>**Default**: <code>None</code> |
 | <code>page_number</code> | <code>int \| None</code> | The number of the page to fetch.<br>**Default**: <code>None</code> |
-| <code>request_options</code> | <code>[RequestOptionsOrDict](adyen/core/request_options.py) \| None</code> | Per-call overrides for this one request, such as a timeout or extra headers. |
+| <code>request_options</code> | <code>[RequestOptionsOrDict](adyen/core/request_options.py) \| None</code> | Per-call overrides for this one request, such as a timeout, extra headers, or its retry count and statuses. |
 
 </dd>
 </dl>
@@ -24108,7 +25486,7 @@ To make this request, your API credential must have the following [role](https:/
 
 ```python
 result = client.payment_methods_merchant_level.with_raw_response.get_merchants_merchant_id_payment_method_settings_payment_method_id(
-    merchant_id, payment_method_id
+    "some example string", "some example string"
 )
 match result:
     case Success(payload=payload):
@@ -24121,7 +25499,7 @@ match result:
 
 ```python
 result = await async_client.payment_methods_merchant_level.with_raw_response.get_merchants_merchant_id_payment_method_settings_payment_method_id(
-    merchant_id, payment_method_id
+    "some example string", "some example string"
 )
 match result:
     case Success(payload=payload):
@@ -24142,7 +25520,7 @@ match result:
 | --- | --- | --- |
 | <code>merchant_id</code> | <code>str</code> | The unique identifier of the merchant account. |
 | <code>payment_method_id</code> | <code>str</code> | The unique identifier of the payment method. |
-| <code>request_options</code> | <code>[RequestOptionsOrDict](adyen/core/request_options.py) \| None</code> | Per-call overrides for this one request, such as a timeout or extra headers. |
+| <code>request_options</code> | <code>[RequestOptionsOrDict](adyen/core/request_options.py) \| None</code> | Per-call overrides for this one request, such as a timeout, extra headers, or its retry count and statuses. |
 
 </dd>
 </dl>
@@ -24201,7 +25579,7 @@ To make this request, your API credential must have the following [role](https:/
 
 ```python
 result = client.payment_methods_merchant_level.with_raw_response.get_merchants_merchant_id_payment_method_settings_payment_method_id_get_apple_pay_domains(
-    merchant_id, payment_method_id
+    "some example string", "some example string"
 )
 match result:
     case Success(payload=payload):
@@ -24216,7 +25594,7 @@ match result:
 
 ```python
 result = await async_client.payment_methods_merchant_level.with_raw_response.get_merchants_merchant_id_payment_method_settings_payment_method_id_get_apple_pay_domains(
-    merchant_id, payment_method_id
+    "some example string", "some example string"
 )
 match result:
     case Success(payload=payload):
@@ -24239,7 +25617,7 @@ match result:
 | --- | --- | --- |
 | <code>merchant_id</code> | <code>str</code> | The unique identifier of the merchant account. |
 | <code>payment_method_id</code> | <code>str</code> | The unique identifier of the payment method. |
-| <code>request_options</code> | <code>[RequestOptionsOrDict](adyen/core/request_options.py) \| None</code> | Per-call overrides for this one request, such as a timeout or extra headers. |
+| <code>request_options</code> | <code>[RequestOptionsOrDict](adyen/core/request_options.py) \| None</code> | Per-call overrides for this one request, such as a timeout, extra headers, or its retry count and statuses. |
 
 </dd>
 </dl>
@@ -24299,7 +25677,7 @@ To make this request, your API credential must have the following [role](https:/
 
 ```python
 result = client.payment_methods_merchant_level.with_raw_response.patch_merchants_merchant_id_payment_method_settings_payment_method_id(
-    merchant_id, payment_method_id
+    "some example string", "some example string", body=UpdatePaymentMethodInfo(countries=["NL"], currencies=["EUR"])
 )
 match result:
     case Success(payload=payload):
@@ -24312,7 +25690,7 @@ match result:
 
 ```python
 result = await async_client.payment_methods_merchant_level.with_raw_response.patch_merchants_merchant_id_payment_method_settings_payment_method_id(
-    merchant_id, payment_method_id
+    "some example string", "some example string", body=UpdatePaymentMethodInfo(countries=["NL"], currencies=["EUR"])
 )
 match result:
     case Success(payload=payload):
@@ -24334,7 +25712,7 @@ match result:
 | <code>merchant_id</code> | <code>str</code> | The unique identifier of the merchant account. |
 | <code>payment_method_id</code> | <code>str</code> | The unique identifier of the payment method. |
 | <code>body</code> | <code>[UpdatePaymentMethodInfo](adyen/models/update_payment_method_info.py) \| [UpdatePaymentMethodInfoDict](adyen/models/update_payment_method_info.py) \| None</code> | The request body.<br>**Default**: <code>None</code> |
-| <code>request_options</code> | <code>[RequestOptionsOrDict](adyen/core/request_options.py) \| None</code> | Per-call overrides for this one request, such as a timeout or extra headers. |
+| <code>request_options</code> | <code>[RequestOptionsOrDict](adyen/core/request_options.py) \| None</code> | Per-call overrides for this one request, such as a timeout, extra headers, or its retry count and statuses. |
 
 </dd>
 </dl>
@@ -24394,7 +25772,7 @@ To make this request, your API credential must have the following [role](https:/
 
 ```python
 result = client.payment_methods_merchant_level.with_raw_response.post_merchants_merchant_id_payment_method_settings(
-    merchant_id
+    "some example string", body=PaymentMethodSetupInfo(countries=["US"], currencies=["USD"], type_=Type59.VISA)
 )
 match result:
     case Success(payload=payload):
@@ -24407,7 +25785,7 @@ match result:
 
 ```python
 result = await async_client.payment_methods_merchant_level.with_raw_response.post_merchants_merchant_id_payment_method_settings(
-    merchant_id
+    "some example string", body=PaymentMethodSetupInfo(countries=["US"], currencies=["USD"], type_=Type59.VISA)
 )
 match result:
     case Success(payload=payload):
@@ -24428,7 +25806,7 @@ match result:
 | --- | --- | --- |
 | <code>merchant_id</code> | <code>str</code> | The unique identifier of the merchant account. |
 | <code>body</code> | <code>[PaymentMethodSetupInfo](adyen/models/payment_method_setup_info.py) \| [PaymentMethodSetupInfoDict](adyen/models/payment_method_setup_info.py) \| None</code> | The request body.<br>**Default**: <code>None</code> |
-| <code>request_options</code> | <code>[RequestOptionsOrDict](adyen/core/request_options.py) \| None</code> | Per-call overrides for this one request, such as a timeout or extra headers. |
+| <code>request_options</code> | <code>[RequestOptionsOrDict](adyen/core/request_options.py) \| None</code> | Per-call overrides for this one request, such as a timeout, extra headers, or its retry count and statuses. |
 
 </dd>
 </dl>
@@ -24487,7 +25865,7 @@ To make this request, your API credential must have the following [role](https:/
 
 ```python
 result = client.payment_methods_merchant_level.with_raw_response.post_merchants_merchant_id_payment_method_settings_payment_method_id_add_apple_pay_domains(
-    merchant_id, payment_method_id
+    "some example string", "some example string", body=ApplePayInfo(domains=["https://example.com"])
 )
 match result:
     case Success():
@@ -24502,7 +25880,7 @@ match result:
 
 ```python
 result = await async_client.payment_methods_merchant_level.with_raw_response.post_merchants_merchant_id_payment_method_settings_payment_method_id_add_apple_pay_domains(
-    merchant_id, payment_method_id
+    "some example string", "some example string", body=ApplePayInfo(domains=["https://example.com"])
 )
 match result:
     case Success():
@@ -24526,7 +25904,7 @@ match result:
 | <code>merchant_id</code> | <code>str</code> | The unique identifier of the merchant account. |
 | <code>payment_method_id</code> | <code>str</code> | The unique identifier of the payment method. |
 | <code>body</code> | <code>[ApplePayInfo](adyen/models/apple_pay_info.py) \| [ApplePayInfoDict](adyen/models/apple_pay_info.py) \| None</code> | The request body.<br>**Default**: <code>None</code> |
-| <code>request_options</code> | <code>[RequestOptionsOrDict](adyen/core/request_options.py) \| None</code> | Per-call overrides for this one request, such as a timeout or extra headers. |
+| <code>request_options</code> | <code>[RequestOptionsOrDict](adyen/core/request_options.py) \| None</code> | Per-call overrides for this one request, such as a timeout, extra headers, or its retry count and statuses. |
 
 </dd>
 </dl>
@@ -24585,7 +25963,7 @@ Returns the status of the payment session with the `sessionId` and `sessionResul
 **Sync**
 
 ```python
-result = client.payments.with_raw_response.get_sessions_session_id(session_id, session_result)
+result = client.payments.with_raw_response.get_sessions_session_id("some example string", "some example string")
 match result:
     case Success(payload=payload):
         ...  # TODO: Handle 'payload' of type SessionResultResponse
@@ -24596,7 +25974,9 @@ match result:
 **Async**
 
 ```python
-result = await async_client.payments.with_raw_response.get_sessions_session_id(session_id, session_result)
+result = await async_client.payments.with_raw_response.get_sessions_session_id(
+    "some example string", "some example string"
+)
 match result:
     case Success(payload=payload):
         ...  # TODO: Handle 'payload' of type SessionResultResponse
@@ -24616,7 +25996,7 @@ match result:
 | --- | --- | --- |
 | <code>session_id</code> | <code>str</code> | A unique identifier of the session. |
 | <code>session_result</code> | <code>str</code> | The `sessionResult` value from the Drop-in or Component. |
-| <code>request_options</code> | <code>[RequestOptionsOrDict](adyen/core/request_options.py) \| None</code> | Per-call overrides for this one request, such as a timeout or extra headers. |
+| <code>request_options</code> | <code>[RequestOptionsOrDict](adyen/core/request_options.py) \| None</code> | Per-call overrides for this one request, such as a timeout, extra headers, or its retry count and statuses. |
 
 </dd>
 </dl>
@@ -24670,7 +26050,40 @@ Creates a payment with a unique reference (`pspReference`) and attempts to obtai
 **Sync**
 
 ```python
-result = client.payments.with_raw_response.post_authorise()
+result = client.payments.with_raw_response.post_authorise(
+    body=PaymentRequest1(
+        account_info=AccountInfo(account_creation_date=datetime(2019, 1, 17, 12, 42, 40, tzinfo=timezone.utc)),
+        amount=Amount(currency="USD", value=1500),
+        billing_address=Address(
+            city="New York",
+            country="US",
+            house_number_or_name="37C",
+            postal_code="10039",
+            state_or_province="NY",
+            street="Redwood Block",
+        ),
+        browser_info=BrowserInfo(
+            accept_header="text/html,application/xhtml+xml,application/xml;q=0.9,image/webp,image/apng,*/*;q=0.8",
+            color_depth=24,
+            java_enabled=False,
+            language="en",
+            screen_height=723,
+            screen_width=1536,
+            time_zone_offset=0,
+            user_agent="Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/70.0.3538.110 Safari/537.36",
+        ),
+        card=Card3(
+            cvc="737", expiry_month="03", expiry_year="2030", holder_name="John Smith", number="4917610000000000"
+        ),
+        merchant_account="YOUR_MERCHANT_ACCOUNT",
+        reference="YOUR_REFERENCE_NUMBER",
+        shopper_email="s.hopper@test.com",
+        shopper_ip="192.0.2.1",
+        three_ds2_request_data=ThreeDs2RequestData11(
+            device_channel="browser", notification_url="https://www.example.com/YOUR_3DS_NOTIFICATION_URL"
+        ),
+    ),
+)
 match result:
     case Success(payload=payload):
         ...  # TODO: Handle 'payload' of type PaymentResult
@@ -24681,7 +26094,40 @@ match result:
 **Async**
 
 ```python
-result = await async_client.payments.with_raw_response.post_authorise()
+result = await async_client.payments.with_raw_response.post_authorise(
+    body=PaymentRequest1(
+        account_info=AccountInfo(account_creation_date=datetime(2019, 1, 17, 12, 42, 40, tzinfo=timezone.utc)),
+        amount=Amount(currency="USD", value=1500),
+        billing_address=Address(
+            city="New York",
+            country="US",
+            house_number_or_name="37C",
+            postal_code="10039",
+            state_or_province="NY",
+            street="Redwood Block",
+        ),
+        browser_info=BrowserInfo(
+            accept_header="text/html,application/xhtml+xml,application/xml;q=0.9,image/webp,image/apng,*/*;q=0.8",
+            color_depth=24,
+            java_enabled=False,
+            language="en",
+            screen_height=723,
+            screen_width=1536,
+            time_zone_offset=0,
+            user_agent="Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/70.0.3538.110 Safari/537.36",
+        ),
+        card=Card3(
+            cvc="737", expiry_month="03", expiry_year="2030", holder_name="John Smith", number="4917610000000000"
+        ),
+        merchant_account="YOUR_MERCHANT_ACCOUNT",
+        reference="YOUR_REFERENCE_NUMBER",
+        shopper_email="s.hopper@test.com",
+        shopper_ip="192.0.2.1",
+        three_ds2_request_data=ThreeDs2RequestData11(
+            device_channel="browser", notification_url="https://www.example.com/YOUR_3DS_NOTIFICATION_URL"
+        ),
+    ),
+)
 match result:
     case Success(payload=payload):
         ...  # TODO: Handle 'payload' of type PaymentResult
@@ -24700,7 +26146,7 @@ match result:
 | Name | Type | Description |
 | --- | --- | --- |
 | <code>body</code> | <code>[PaymentRequest1](adyen/models/payment_request1.py) \| [PaymentRequest1Dict](adyen/models/payment_request1.py) \| None</code> | The request body.<br>**Default**: <code>None</code> |
-| <code>request_options</code> | <code>[RequestOptionsOrDict](adyen/core/request_options.py) \| None</code> | Per-call overrides for this one request, such as a timeout or extra headers. |
+| <code>request_options</code> | <code>[RequestOptionsOrDict](adyen/core/request_options.py) \| None</code> | Per-call overrides for this one request, such as a timeout, extra headers, or its retry count and statuses. |
 
 </dd>
 </dl>
@@ -24761,7 +26207,14 @@ For an authenticated 3D Secure session, completes the payment authorisation. Thi
 **Sync**
 
 ```python
-result = client.payments.with_raw_response.post_authorise3d()
+result = client.payments.with_raw_response.post_authorise3d(
+    body=PaymentRequest3D(
+        md="31h..........vOXek7w",
+        merchant_account="YOUR_MERCHANT_ACCOUNT",
+        pa_response="eNqtmF........wGVA4Ch",
+        shopper_ip="61.294.12.12",
+    ),
+)
 match result:
     case Success(payload=payload):
         ...  # TODO: Handle 'payload' of type PaymentResult
@@ -24772,7 +26225,14 @@ match result:
 **Async**
 
 ```python
-result = await async_client.payments.with_raw_response.post_authorise3d()
+result = await async_client.payments.with_raw_response.post_authorise3d(
+    body=PaymentRequest3D(
+        md="31h..........vOXek7w",
+        merchant_account="YOUR_MERCHANT_ACCOUNT",
+        pa_response="eNqtmF........wGVA4Ch",
+        shopper_ip="61.294.12.12",
+    ),
+)
 match result:
     case Success(payload=payload):
         ...  # TODO: Handle 'payload' of type PaymentResult
@@ -24791,7 +26251,7 @@ match result:
 | Name | Type | Description |
 | --- | --- | --- |
 | <code>body</code> | <code>[PaymentRequest3D](adyen/models/payment_request3_d.py) \| [PaymentRequest3DDict](adyen/models/payment_request3_d.py) \| None</code> | The request body.<br>**Default**: <code>None</code> |
-| <code>request_options</code> | <code>[RequestOptionsOrDict](adyen/core/request_options.py) \| None</code> | Per-call overrides for this one request, such as a timeout or extra headers. |
+| <code>request_options</code> | <code>[RequestOptionsOrDict](adyen/core/request_options.py) \| None</code> | Per-call overrides for this one request, such as a timeout, extra headers, or its retry count and statuses. |
 
 </dd>
 </dl>
@@ -24852,7 +26312,15 @@ For an authenticated 3D Secure 2 session, completes the payment authorisation. T
 **Sync**
 
 ```python
-result = client.payments.with_raw_response.post_authorise3ds2()
+result = client.payments.with_raw_response.post_authorise3ds2(
+    body=PaymentRequest3Ds2(
+        amount=Amount(currency="EUR", value=1000),
+        merchant_account="YOUR_MERCHANT_ACCOUNT",
+        reference="YOUR_ORDER_NUMBER",
+        three_ds2_request_data=ThreeDs2RequestData11(device_channel="app", three_ds_comp_ind="Y"),
+        three_ds2_token="— - BINARY DATA - -",
+    ),
+)
 match result:
     case Success(payload=payload):
         ...  # TODO: Handle 'payload' of type PaymentResult
@@ -24863,7 +26331,15 @@ match result:
 **Async**
 
 ```python
-result = await async_client.payments.with_raw_response.post_authorise3ds2()
+result = await async_client.payments.with_raw_response.post_authorise3ds2(
+    body=PaymentRequest3Ds2(
+        amount=Amount(currency="EUR", value=1000),
+        merchant_account="YOUR_MERCHANT_ACCOUNT",
+        reference="YOUR_ORDER_NUMBER",
+        three_ds2_request_data=ThreeDs2RequestData11(device_channel="app", three_ds_comp_ind="Y"),
+        three_ds2_token="— - BINARY DATA - -",
+    ),
+)
 match result:
     case Success(payload=payload):
         ...  # TODO: Handle 'payload' of type PaymentResult
@@ -24882,7 +26358,7 @@ match result:
 | Name | Type | Description |
 | --- | --- | --- |
 | <code>body</code> | <code>[PaymentRequest3Ds2](adyen/models/payment_request3_ds2.py) \| [PaymentRequest3Ds2Dict](adyen/models/payment_request3_ds2.py) \| None</code> | The request body.<br>**Default**: <code>None</code> |
-| <code>request_options</code> | <code>[RequestOptionsOrDict](adyen/core/request_options.py) \| None</code> | Per-call overrides for this one request, such as a timeout or extra headers. |
+| <code>request_options</code> | <code>[RequestOptionsOrDict](adyen/core/request_options.py) \| None</code> | Per-call overrides for this one request, such as a timeout, extra headers, or its retry count and statuses. |
 
 </dd>
 </dl>
@@ -24959,7 +26435,10 @@ BIN Lookup API is available through a Postman collection. Click the button below
 **Sync**
 
 ```python
-result = client.payments.with_raw_response.post_card_details()
+result = client.payments.with_raw_response.post_card_details(
+    idempotency_key="37ca9c97-d1d1-4c62-89e8-706891a563ed",
+    body=CardDetailsRequest(card_number="411111", merchant_account="YOUR_MERCHANT_ACCOUNT"),
+)
 match result:
     case Success(payload=payload):
         ...  # TODO: Handle 'payload' of type CardDetailsResponse
@@ -24970,7 +26449,10 @@ match result:
 **Async**
 
 ```python
-result = await async_client.payments.with_raw_response.post_card_details()
+result = await async_client.payments.with_raw_response.post_card_details(
+    idempotency_key="37ca9c97-d1d1-4c62-89e8-706891a563ed",
+    body=CardDetailsRequest(card_number="411111", merchant_account="YOUR_MERCHANT_ACCOUNT"),
+)
 match result:
     case Success(payload=payload):
         ...  # TODO: Handle 'payload' of type CardDetailsResponse
@@ -24990,7 +26472,7 @@ match result:
 | --- | --- | --- |
 | <code>idempotency_key</code> | <code>str \| None</code> | A unique identifier for the message with a maximum of 64 characters (we recommend a UUID).<br>**Default**: <code>None</code> |
 | <code>body</code> | <code>[CardDetailsRequest](adyen/models/card_details_request.py) \| [CardDetailsRequestDict](adyen/models/card_details_request.py) \| None</code> | The request body.<br>**Default**: <code>None</code> |
-| <code>request_options</code> | <code>[RequestOptionsOrDict](adyen/core/request_options.py) \| None</code> | Per-call overrides for this one request, such as a timeout or extra headers. |
+| <code>request_options</code> | <code>[RequestOptionsOrDict](adyen/core/request_options.py) \| None</code> | Per-call overrides for this one request, such as a timeout, extra headers, or its retry count and statuses. |
 
 </dd>
 </dl>
@@ -25038,7 +26520,9 @@ Return the authentication result after doing a 3D Secure authentication only.
 **Sync**
 
 ```python
-result = client.payments.with_raw_response.post_get_authentication_result()
+result = client.payments.with_raw_response.post_get_authentication_result(
+    body=AuthenticationResultRequest(merchant_account="YOUR_MERCHANT_ACCOUNT", psp_reference="9935272408535455")
+)
 match result:
     case Success(payload=payload):
         ...  # TODO: Handle 'payload' of type AuthenticationResultResponse
@@ -25049,7 +26533,9 @@ match result:
 **Async**
 
 ```python
-result = await async_client.payments.with_raw_response.post_get_authentication_result()
+result = await async_client.payments.with_raw_response.post_get_authentication_result(
+    body=AuthenticationResultRequest(merchant_account="YOUR_MERCHANT_ACCOUNT", psp_reference="9935272408535455")
+)
 match result:
     case Success(payload=payload):
         ...  # TODO: Handle 'payload' of type AuthenticationResultResponse
@@ -25068,7 +26554,7 @@ match result:
 | Name | Type | Description |
 | --- | --- | --- |
 | <code>body</code> | <code>[AuthenticationResultRequest](adyen/models/authentication_result_request.py) \| [AuthenticationResultRequestDict](adyen/models/authentication_result_request.py) \| None</code> | The request body.<br>**Default**: <code>None</code> |
-| <code>request_options</code> | <code>[RequestOptionsOrDict](adyen/core/request_options.py) \| None</code> | Per-call overrides for this one request, such as a timeout or extra headers. |
+| <code>request_options</code> | <code>[RequestOptionsOrDict](adyen/core/request_options.py) \| None</code> | Per-call overrides for this one request, such as a timeout, extra headers, or its retry count and statuses. |
 
 </dd>
 </dl>
@@ -25123,7 +26609,10 @@ Retrieves the list of available payment methods for the transaction, based on th
 **Sync**
 
 ```python
-result = client.payments.with_raw_response.post_payment_methods()
+result = client.payments.with_raw_response.post_payment_methods(
+    idempotency_key="37ca9c97-d1d1-4c62-89e8-706891a563ed",
+    body=PaymentMethodsRequest(merchant_account="YOUR_MERCHANT_ACCOUNT"),
+)
 match result:
     case Success(payload=payload):
         ...  # TODO: Handle 'payload' of type PaymentMethodsResponse
@@ -25134,7 +26623,10 @@ match result:
 **Async**
 
 ```python
-result = await async_client.payments.with_raw_response.post_payment_methods()
+result = await async_client.payments.with_raw_response.post_payment_methods(
+    idempotency_key="37ca9c97-d1d1-4c62-89e8-706891a563ed",
+    body=PaymentMethodsRequest(merchant_account="YOUR_MERCHANT_ACCOUNT"),
+)
 match result:
     case Success(payload=payload):
         ...  # TODO: Handle 'payload' of type PaymentMethodsResponse
@@ -25154,7 +26646,7 @@ match result:
 | --- | --- | --- |
 | <code>idempotency_key</code> | <code>str \| None</code> | A unique identifier for the message with a maximum of 64 characters (we recommend a UUID).<br>**Default**: <code>None</code> |
 | <code>body</code> | <code>[PaymentMethodsRequest](adyen/models/payment_methods_request.py) \| [PaymentMethodsRequestDict](adyen/models/payment_methods_request.py) \| None</code> | The request body.<br>**Default**: <code>None</code> |
-| <code>request_options</code> | <code>[RequestOptionsOrDict](adyen/core/request_options.py) \| None</code> | Per-call overrides for this one request, such as a timeout or extra headers. |
+| <code>request_options</code> | <code>[RequestOptionsOrDict](adyen/core/request_options.py) \| None</code> | Per-call overrides for this one request, such as a timeout, extra headers, or its retry count and statuses. |
 
 </dd>
 </dl>
@@ -25212,7 +26704,16 @@ The response depends on the [payment flow](https://docs.adyen.com/payment-method
 **Sync**
 
 ```python
-result = client.payments.with_raw_response.post_payments()
+result = client.payments.with_raw_response.post_payments(
+    idempotency_key="37ca9c97-d1d1-4c62-89e8-706891a563ed",
+    body=PaymentRequest(
+        amount=Amount2(currency="USD", value=1000),
+        merchant_account="YOUR_MERCHANT_ACCOUNT",
+        payment_method=ApplePayDetails(apple_pay_token="VNRWtuNlNEWkRCSm1xWndjMDFFbktkQU...", type_="applepay"),
+        reference="Your order number",
+        return_url="https://your-company.example.com/...",
+    ),
+)
 match result:
     case Success(payload=payload):
         ...  # TODO: Handle 'payload' of type PaymentResponse
@@ -25223,7 +26724,16 @@ match result:
 **Async**
 
 ```python
-result = await async_client.payments.with_raw_response.post_payments()
+result = await async_client.payments.with_raw_response.post_payments(
+    idempotency_key="37ca9c97-d1d1-4c62-89e8-706891a563ed",
+    body=PaymentRequest(
+        amount=Amount2(currency="USD", value=1000),
+        merchant_account="YOUR_MERCHANT_ACCOUNT",
+        payment_method=ApplePayDetails(apple_pay_token="VNRWtuNlNEWkRCSm1xWndjMDFFbktkQU...", type_="applepay"),
+        reference="Your order number",
+        return_url="https://your-company.example.com/...",
+    ),
+)
 match result:
     case Success(payload=payload):
         ...  # TODO: Handle 'payload' of type PaymentResponse
@@ -25243,7 +26753,7 @@ match result:
 | --- | --- | --- |
 | <code>idempotency_key</code> | <code>str \| None</code> | A unique identifier for the message with a maximum of 64 characters (we recommend a UUID).<br>**Default**: <code>None</code> |
 | <code>body</code> | <code>[PaymentRequest](adyen/models/payment_request.py) \| [PaymentRequestDict](adyen/models/payment_request.py) \| None</code> | The request body.<br>**Default**: <code>None</code> |
-| <code>request_options</code> | <code>[RequestOptionsOrDict](adyen/core/request_options.py) \| None</code> | Per-call overrides for this one request, such as a timeout or extra headers. |
+| <code>request_options</code> | <code>[RequestOptionsOrDict](adyen/core/request_options.py) \| None</code> | Per-call overrides for this one request, such as a timeout, extra headers, or its retry count and statuses. |
 
 </dd>
 </dl>
@@ -25298,7 +26808,7 @@ Cancels the payment. Returns a URL for user redirection.
 **Sync**
 
 ```python
-result = client.payments.with_raw_response.post_payments_cancel(body)
+result = client.payments.with_raw_response.post_payments_cancel(CancelPaymentRequest(token="TOKEN_PLACEHOLDER"))
 match result:
     case Success(payload=payload):
         ...  # TODO: Handle 'payload' of type CancelPaymentResponse
@@ -25309,7 +26819,9 @@ match result:
 **Async**
 
 ```python
-result = await async_client.payments.with_raw_response.post_payments_cancel(body)
+result = await async_client.payments.with_raw_response.post_payments_cancel(
+    CancelPaymentRequest(token="TOKEN_PLACEHOLDER")
+)
 match result:
     case Success(payload=payload):
         ...  # TODO: Handle 'payload' of type CancelPaymentResponse
@@ -25328,7 +26840,7 @@ match result:
 | Name | Type | Description |
 | --- | --- | --- |
 | <code>body</code> | <code>[CancelPaymentRequest](adyen/models/cancel_payment_request.py) \| [CancelPaymentRequestDict](adyen/models/cancel_payment_request.py)</code> | The request body. |
-| <code>request_options</code> | <code>[RequestOptionsOrDict](adyen/core/request_options.py) \| None</code> | Per-call overrides for this one request, such as a timeout or extra headers. |
+| <code>request_options</code> | <code>[RequestOptionsOrDict](adyen/core/request_options.py) \| None</code> | Per-call overrides for this one request, such as a timeout, extra headers, or its retry count and statuses. |
 
 </dd>
 </dl>
@@ -25391,7 +26903,10 @@ For more information, see our [documentation](https://docs.adyen.com/business-ac
 **Sync**
 
 ```python
-result = client.payments.with_raw_response.post_payments_confirm(body)
+result = client.payments.with_raw_response.post_payments_confirm(
+    ConfirmPaymentRequest(balance_account_id="BA00000000000000000000000", token="TOKEN_PLACEHOLDER"),
+    www_authenticate="SCA realm=\"Transfer\" auth-param1=\"eyJjaGFsbGVuZ2UiOiJiVlV6ZW5wek0waFNl...\"",
+)
 match result:
     case Success(payload=payload):
         ...  # TODO: Handle 'payload' of type ConfirmPaymentResponse
@@ -25402,7 +26917,10 @@ match result:
 **Async**
 
 ```python
-result = await async_client.payments.with_raw_response.post_payments_confirm(body)
+result = await async_client.payments.with_raw_response.post_payments_confirm(
+    ConfirmPaymentRequest(balance_account_id="BA00000000000000000000000", token="TOKEN_PLACEHOLDER"),
+    www_authenticate="SCA realm=\"Transfer\" auth-param1=\"eyJjaGFsbGVuZ2UiOiJiVlV6ZW5wek0waFNl...\"",
+)
 match result:
     case Success(payload=payload):
         ...  # TODO: Handle 'payload' of type ConfirmPaymentResponse
@@ -25422,7 +26940,7 @@ match result:
 | --- | --- | --- |
 | <code>body</code> | <code>[ConfirmPaymentRequest](adyen/models/confirm_payment_request.py) \| [ConfirmPaymentRequestDict](adyen/models/confirm_payment_request.py)</code> | The request body. |
 | <code>www_authenticate</code> | <code>str \| None</code> | Header for authenticating through SCA: Contains information for an SCA challenge for A2A payments.<br>**Default**: <code>None</code> |
-| <code>request_options</code> | <code>[RequestOptionsOrDict](adyen/core/request_options.py) \| None</code> | Per-call overrides for this one request, such as a timeout or extra headers. |
+| <code>request_options</code> | <code>[RequestOptionsOrDict](adyen/core/request_options.py) \| None</code> | Per-call overrides for this one request, such as a timeout, extra headers, or its retry count and statuses. |
 
 </dd>
 </dl>
@@ -25477,7 +26995,10 @@ Submits details for a payment created using `/payments`. This step is only neede
 **Sync**
 
 ```python
-result = client.payments.with_raw_response.post_payments_details()
+result = client.payments.with_raw_response.post_payments_details(
+    idempotency_key="37ca9c97-d1d1-4c62-89e8-706891a563ed",
+    body=PaymentDetailsRequest(details=PaymentCompletionDetails1(redirect_result="X6XtfGC3!Y...")),
+)
 match result:
     case Success(payload=payload):
         ...  # TODO: Handle 'payload' of type PaymentDetailsResponse
@@ -25488,7 +27009,10 @@ match result:
 **Async**
 
 ```python
-result = await async_client.payments.with_raw_response.post_payments_details()
+result = await async_client.payments.with_raw_response.post_payments_details(
+    idempotency_key="37ca9c97-d1d1-4c62-89e8-706891a563ed",
+    body=PaymentDetailsRequest(details=PaymentCompletionDetails1(redirect_result="X6XtfGC3!Y...")),
+)
 match result:
     case Success(payload=payload):
         ...  # TODO: Handle 'payload' of type PaymentDetailsResponse
@@ -25508,7 +27032,7 @@ match result:
 | --- | --- | --- |
 | <code>idempotency_key</code> | <code>str \| None</code> | A unique identifier for the message with a maximum of 64 characters (we recommend a UUID).<br>**Default**: <code>None</code> |
 | <code>body</code> | <code>[PaymentDetailsRequest](adyen/models/payment_details_request.py) \| [PaymentDetailsRequestDict](adyen/models/payment_details_request.py) \| None</code> | The request body.<br>**Default**: <code>None</code> |
-| <code>request_options</code> | <code>[RequestOptionsOrDict](adyen/core/request_options.py) \| None</code> | Per-call overrides for this one request, such as a timeout or extra headers. |
+| <code>request_options</code> | <code>[RequestOptionsOrDict](adyen/core/request_options.py) \| None</code> | Per-call overrides for this one request, such as a timeout, extra headers, or its retry count and statuses. |
 
 </dd>
 </dl>
@@ -25563,7 +27087,13 @@ Returns the details of an open payment, which you must show to the user. Also pr
 **Sync**
 
 ```python
-result = client.payments.with_raw_response.post_payments_details1(body)
+result = client.payments.with_raw_response.post_payments_details1(
+    IdealPaymentDetailsRequest(
+        method="ideal",
+        payload="https://ext.tx.ideal.nl/2/AXE4R72TLPRCRN6Y4FDZX7MZHJQ?sig=BGBCQEIIA2F3CF7KR2SVLSJEDUJABL62V7TI4Y2LJPJIJBZEP6HXCHXPQCLTAEIB2FNUD3COVRNIT27TT7NFKYD5UJCUY4NMPS4NUCTKA6KIBHSRXWI",
+        source=PaymentSource2.REDIRECT,
+    ),
+)
 match result:
     case Success(payload=payload):
         ...  # TODO: Handle 'payload' of type PaymentDetailsResponse1
@@ -25574,7 +27104,13 @@ match result:
 **Async**
 
 ```python
-result = await async_client.payments.with_raw_response.post_payments_details1(body)
+result = await async_client.payments.with_raw_response.post_payments_details1(
+    IdealPaymentDetailsRequest(
+        method="ideal",
+        payload="https://ext.tx.ideal.nl/2/AXE4R72TLPRCRN6Y4FDZX7MZHJQ?sig=BGBCQEIIA2F3CF7KR2SVLSJEDUJABL62V7TI4Y2LJPJIJBZEP6HXCHXPQCLTAEIB2FNUD3COVRNIT27TT7NFKYD5UJCUY4NMPS4NUCTKA6KIBHSRXWI",
+        source=PaymentSource2.REDIRECT,
+    ),
+)
 match result:
     case Success(payload=payload):
         ...  # TODO: Handle 'payload' of type PaymentDetailsResponse1
@@ -25593,7 +27129,7 @@ match result:
 | Name | Type | Description |
 | --- | --- | --- |
 | <code>body</code> | <code>[IdealPaymentDetailsRequest](adyen/models/ideal_payment_details_request.py) \| [IdealPaymentDetailsRequestDict](adyen/models/ideal_payment_details_request.py)</code> | The request body. |
-| <code>request_options</code> | <code>[RequestOptionsOrDict](adyen/core/request_options.py) \| None</code> | Per-call overrides for this one request, such as a timeout or extra headers. |
+| <code>request_options</code> | <code>[RequestOptionsOrDict](adyen/core/request_options.py) \| None</code> | Per-call overrides for this one request, such as a timeout, extra headers, or its retry count and statuses. |
 
 </dd>
 </dl>
@@ -25648,7 +27184,9 @@ Retrieves the `threeDS2Result` after doing a 3D Secure 2 authentication only.
 **Sync**
 
 ```python
-result = client.payments.with_raw_response.post_retrieve3ds2_result()
+result = client.payments.with_raw_response.post_retrieve3ds2_result(
+    body=ThreeDs2ResultRequest(merchant_account="YOUR_MERCHANT_ACCOUNT", psp_reference="9935272408535455")
+)
 match result:
     case Success(payload=payload):
         ...  # TODO: Handle 'payload' of type ThreeDs2ResultResponse
@@ -25659,7 +27197,9 @@ match result:
 **Async**
 
 ```python
-result = await async_client.payments.with_raw_response.post_retrieve3ds2_result()
+result = await async_client.payments.with_raw_response.post_retrieve3ds2_result(
+    body=ThreeDs2ResultRequest(merchant_account="YOUR_MERCHANT_ACCOUNT", psp_reference="9935272408535455")
+)
 match result:
     case Success(payload=payload):
         ...  # TODO: Handle 'payload' of type ThreeDs2ResultResponse
@@ -25678,7 +27218,7 @@ match result:
 | Name | Type | Description |
 | --- | --- | --- |
 | <code>body</code> | <code>[ThreeDs2ResultRequest](adyen/models/three_ds2_result_request.py) \| [ThreeDs2ResultRequestDict](adyen/models/three_ds2_result_request.py) \| None</code> | The request body.<br>**Default**: <code>None</code> |
-| <code>request_options</code> | <code>[RequestOptionsOrDict](adyen/core/request_options.py) \| None</code> | Per-call overrides for this one request, such as a timeout or extra headers. |
+| <code>request_options</code> | <code>[RequestOptionsOrDict](adyen/core/request_options.py) \| None</code> | Per-call overrides for this one request, such as a timeout, extra headers, or its retry count and statuses. |
 
 </dd>
 </dl>
@@ -25737,7 +27277,16 @@ You get the payment outcome asynchronously, in an [AUTHORISATION](https://docs.a
 **Sync**
 
 ```python
-result = client.payments.with_raw_response.post_sessions()
+result = client.payments.with_raw_response.post_sessions(
+    idempotency_key="37ca9c97-d1d1-4c62-89e8-706891a563ed",
+    body=CreateCheckoutSessionRequest(
+        amount=Amount18(currency="EUR", value=100),
+        country_code="NL",
+        merchant_account="YOUR_MERCHANT_ACCOUNT",
+        reference="YOUR_PAYMENT_REFERENCE",
+        return_url="https://your-company.example.com/checkout?shopperOrder=12xy..",
+    ),
+)
 match result:
     case Success(payload=payload):
         ...  # TODO: Handle 'payload' of type CreateCheckoutSessionResponse
@@ -25748,7 +27297,16 @@ match result:
 **Async**
 
 ```python
-result = await async_client.payments.with_raw_response.post_sessions()
+result = await async_client.payments.with_raw_response.post_sessions(
+    idempotency_key="37ca9c97-d1d1-4c62-89e8-706891a563ed",
+    body=CreateCheckoutSessionRequest(
+        amount=Amount18(currency="EUR", value=100),
+        country_code="NL",
+        merchant_account="YOUR_MERCHANT_ACCOUNT",
+        reference="YOUR_PAYMENT_REFERENCE",
+        return_url="https://your-company.example.com/checkout?shopperOrder=12xy..",
+    ),
+)
 match result:
     case Success(payload=payload):
         ...  # TODO: Handle 'payload' of type CreateCheckoutSessionResponse
@@ -25768,7 +27326,7 @@ match result:
 | --- | --- | --- |
 | <code>idempotency_key</code> | <code>str \| None</code> | A unique identifier for the message with a maximum of 64 characters (we recommend a UUID).<br>**Default**: <code>None</code> |
 | <code>body</code> | <code>[CreateCheckoutSessionRequest](adyen/models/create_checkout_session_request.py) \| [CreateCheckoutSessionRequestDict](adyen/models/create_checkout_session_request.py) \| None</code> | The request body.<br>**Default**: <code>None</code> |
-| <code>request_options</code> | <code>[RequestOptionsOrDict](adyen/core/request_options.py) \| None</code> | Per-call overrides for this one request, such as a timeout or extra headers. |
+| <code>request_options</code> | <code>[RequestOptionsOrDict](adyen/core/request_options.py) \| None</code> | Per-call overrides for this one request, such as a timeout, extra headers, or its retry count and statuses. |
 
 </dd>
 </dl>
@@ -25823,7 +27381,7 @@ To make this request, your API credential must have the following [role](https:/
 **Sync**
 
 ```python
-result = client.payments_app.with_raw_response.get_merchants_merchant_id_payments_apps(merchant_id)
+result = client.payments_app.with_raw_response.get_merchants_merchant_id_payments_apps("some example string")
 match result:
     case Success(payload=payload):
         ...  # TODO: Handle 'payload' of type PaymentsAppResponse
@@ -25834,7 +27392,9 @@ match result:
 **Async**
 
 ```python
-result = await async_client.payments_app.with_raw_response.get_merchants_merchant_id_payments_apps(merchant_id)
+result = await async_client.payments_app.with_raw_response.get_merchants_merchant_id_payments_apps(
+    "some example string"
+)
 match result:
     case Success(payload=payload):
         ...  # TODO: Handle 'payload' of type PaymentsAppResponse
@@ -25856,7 +27416,7 @@ match result:
 | <code>statuses</code> | <code>str \| None</code> | The status of the Payments App. Comma-separated list of one or more values. If no value is provided, the list returns all statuses. <br><br>Possible values:<br><br>* **BOARDING**<br><br> * **BOARDED**<br><br> * **REVOKED**<br>**Default**: <code>None</code> |
 | <code>limit</code> | <code>int \| None</code> | The number of items to return.<br>**Default**: <code>10</code> |
 | <code>offset</code> | <code>int \| None</code> | The number of items to skip.<br>**Default**: <code>0</code> |
-| <code>request_options</code> | <code>[RequestOptionsOrDict](adyen/core/request_options.py) \| None</code> | Per-call overrides for this one request, such as a timeout or extra headers. |
+| <code>request_options</code> | <code>[RequestOptionsOrDict](adyen/core/request_options.py) \| None</code> | Per-call overrides for this one request, such as a timeout, extra headers, or its retry count and statuses. |
 
 </dd>
 </dl>
@@ -25915,7 +27475,7 @@ To make this request, your API credential must have the following [role](https:/
 
 ```python
 result = client.payments_app.with_raw_response.get_merchants_merchant_id_stores_store_id_payments_apps(
-    merchant_id, store_id
+    "some example string", "some example string"
 )
 match result:
     case Success(payload=payload):
@@ -25928,7 +27488,7 @@ match result:
 
 ```python
 result = await async_client.payments_app.with_raw_response.get_merchants_merchant_id_stores_store_id_payments_apps(
-    merchant_id, store_id
+    "some example string", "some example string"
 )
 match result:
     case Success(payload=payload):
@@ -25952,7 +27512,7 @@ match result:
 | <code>statuses</code> | <code>str \| None</code> | The status of the Payments App. Comma-separated list of one or more values. If no value is provided, the list returns all statuses. <br><br>Possible values:<br><br>* **BOARDING**<br><br> * **BOARDED**<br><br> * **REVOKED**<br>**Default**: <code>None</code> |
 | <code>limit</code> | <code>int \| None</code> | The number of items to return.<br>**Default**: <code>10</code> |
 | <code>offset</code> | <code>int \| None</code> | The number of items to skip.<br>**Default**: <code>0</code> |
-| <code>request_options</code> | <code>[RequestOptionsOrDict](adyen/core/request_options.py) \| None</code> | Per-call overrides for this one request, such as a timeout or extra headers. |
+| <code>request_options</code> | <code>[RequestOptionsOrDict](adyen/core/request_options.py) \| None</code> | Per-call overrides for this one request, such as a timeout, extra headers, or its retry count and statuses. |
 
 </dd>
 </dl>
@@ -26011,7 +27571,7 @@ To make this request, your API credential must have the following [role](https:/
 
 ```python
 result = client.payments_app.with_raw_response.post_merchants_merchant_id_generate_payments_app_boarding_token(
-    merchant_id, body
+    "some example string", BoardingTokenRequest(boarding_request_token="some example string")
 )
 match result:
     case Success(payload=payload):
@@ -26024,7 +27584,7 @@ match result:
 
 ```python
 result = await async_client.payments_app.with_raw_response.post_merchants_merchant_id_generate_payments_app_boarding_token(
-    merchant_id, body
+    "some example string", BoardingTokenRequest(boarding_request_token="some example string")
 )
 match result:
     case Success(payload=payload):
@@ -26045,7 +27605,7 @@ match result:
 | --- | --- | --- |
 | <code>merchant_id</code> | <code>str</code> | The unique identifier of the merchant account. |
 | <code>body</code> | <code>[BoardingTokenRequest](adyen/models/boarding_token_request.py) \| [BoardingTokenRequestDict](adyen/models/boarding_token_request.py)</code> | The request body. |
-| <code>request_options</code> | <code>[RequestOptionsOrDict](adyen/core/request_options.py) \| None</code> | Per-call overrides for this one request, such as a timeout or extra headers. |
+| <code>request_options</code> | <code>[RequestOptionsOrDict](adyen/core/request_options.py) \| None</code> | Per-call overrides for this one request, such as a timeout, extra headers, or its retry count and statuses. |
 
 </dd>
 </dl>
@@ -26104,7 +27664,7 @@ To make this request, your API credential must have the following [role](https:/
 
 ```python
 result = client.payments_app.with_raw_response.post_merchants_merchant_id_payments_apps_installation_id_revoke(
-    merchant_id, installation_id
+    "some example string", "some example string"
 )
 match result:
     case Success(payload=payload):
@@ -26117,7 +27677,7 @@ match result:
 
 ```python
 result = await async_client.payments_app.with_raw_response.post_merchants_merchant_id_payments_apps_installation_id_revoke(
-    merchant_id, installation_id
+    "some example string", "some example string"
 )
 match result:
     case Success(payload=payload):
@@ -26138,7 +27698,7 @@ match result:
 | --- | --- | --- |
 | <code>merchant_id</code> | <code>str</code> | The unique identifier of the merchant account. |
 | <code>installation_id</code> | <code>str</code> | The unique identifier of the Payments App instance on a device. |
-| <code>request_options</code> | <code>[RequestOptionsOrDict](adyen/core/request_options.py) \| None</code> | Per-call overrides for this one request, such as a timeout or extra headers. |
+| <code>request_options</code> | <code>[RequestOptionsOrDict](adyen/core/request_options.py) \| None</code> | Per-call overrides for this one request, such as a timeout, extra headers, or its retry count and statuses. |
 
 </dd>
 </dl>
@@ -26197,7 +27757,7 @@ To make this request, your API credential must have the following [role](https:/
 
 ```python
 result = client.payments_app.with_raw_response.post_merchants_merchant_id_stores_store_id_generate_payments_app_boarding_token(
-    merchant_id, store_id, body
+    "some example string", "some example string", BoardingTokenRequest(boarding_request_token="some example string")
 )
 match result:
     case Success(payload=payload):
@@ -26211,7 +27771,7 @@ match result:
 
 ```python
 result = await async_client.payments_app.with_raw_response.post_merchants_merchant_id_stores_store_id_generate_payments_app_boarding_token(
-    merchant_id, store_id, body
+    "some example string", "some example string", BoardingTokenRequest(boarding_request_token="some example string")
 )
 match result:
     case Success(payload=payload):
@@ -26234,7 +27794,7 @@ match result:
 | <code>merchant_id</code> | <code>str</code> | The unique identifier of the merchant account. |
 | <code>store_id</code> | <code>str</code> | The unique identifier of the store. |
 | <code>body</code> | <code>[BoardingTokenRequest](adyen/models/boarding_token_request.py) \| [BoardingTokenRequestDict](adyen/models/boarding_token_request.py)</code> | The request body. |
-| <code>request_options</code> | <code>[RequestOptionsOrDict](adyen/core/request_options.py) \| None</code> | Per-call overrides for this one request, such as a timeout or extra headers. |
+| <code>request_options</code> | <code>[RequestOptionsOrDict](adyen/core/request_options.py) \| None</code> | Per-call overrides for this one request, such as a timeout, extra headers, or its retry count and statuses. |
 
 </dd>
 </dl>
@@ -26300,7 +27860,7 @@ To make this request, your API credential must have the following [roles](https:
 
 ```python
 result = client.payout_settings_merchant_level.with_raw_response.delete_merchants_merchant_id_payout_settings_payout_settings_id(
-    merchant_id, payout_settings_id
+    "some example string", "some example string"
 )
 match result:
     case Success():
@@ -26313,7 +27873,7 @@ match result:
 
 ```python
 result = await async_client.payout_settings_merchant_level.with_raw_response.delete_merchants_merchant_id_payout_settings_payout_settings_id(
-    merchant_id, payout_settings_id
+    "some example string", "some example string"
 )
 match result:
     case Success():
@@ -26334,7 +27894,7 @@ match result:
 | --- | --- | --- |
 | <code>merchant_id</code> | <code>str</code> | The unique identifier of the merchant account. |
 | <code>payout_settings_id</code> | <code>str</code> | The unique identifier of the payout setting. |
-| <code>request_options</code> | <code>[RequestOptionsOrDict](adyen/core/request_options.py) \| None</code> | Per-call overrides for this one request, such as a timeout or extra headers. |
+| <code>request_options</code> | <code>[RequestOptionsOrDict](adyen/core/request_options.py) \| None</code> | Per-call overrides for this one request, such as a timeout, extra headers, or its retry count and statuses. |
 
 </dd>
 </dl>
@@ -26394,7 +27954,9 @@ To make this request, your API credential must have the following [roles](https:
 **Sync**
 
 ```python
-result = client.payout_settings_merchant_level.with_raw_response.get_merchants_merchant_id_payout_settings(merchant_id)
+result = client.payout_settings_merchant_level.with_raw_response.get_merchants_merchant_id_payout_settings(
+    "some example string"
+)
 match result:
     case Success(payload=payload):
         ...  # TODO: Handle 'payload' of type PayoutSettingsResponse
@@ -26406,7 +27968,7 @@ match result:
 
 ```python
 result = await async_client.payout_settings_merchant_level.with_raw_response.get_merchants_merchant_id_payout_settings(
-    merchant_id
+    "some example string"
 )
 match result:
     case Success(payload=payload):
@@ -26426,7 +27988,7 @@ match result:
 | Name | Type | Description |
 | --- | --- | --- |
 | <code>merchant_id</code> | <code>str</code> | The unique identifier of the merchant account. |
-| <code>request_options</code> | <code>[RequestOptionsOrDict](adyen/core/request_options.py) \| None</code> | Per-call overrides for this one request, such as a timeout or extra headers. |
+| <code>request_options</code> | <code>[RequestOptionsOrDict](adyen/core/request_options.py) \| None</code> | Per-call overrides for this one request, such as a timeout, extra headers, or its retry count and statuses. |
 
 </dd>
 </dl>
@@ -26487,7 +28049,7 @@ To make this request, your API credential must have the following [roles](https:
 
 ```python
 result = client.payout_settings_merchant_level.with_raw_response.get_merchants_merchant_id_payout_settings_payout_settings_id(
-    merchant_id, payout_settings_id
+    "some example string", "some example string"
 )
 match result:
     case Success(payload=payload):
@@ -26500,7 +28062,7 @@ match result:
 
 ```python
 result = await async_client.payout_settings_merchant_level.with_raw_response.get_merchants_merchant_id_payout_settings_payout_settings_id(
-    merchant_id, payout_settings_id
+    "some example string", "some example string"
 )
 match result:
     case Success(payload=payload):
@@ -26521,7 +28083,7 @@ match result:
 | --- | --- | --- |
 | <code>merchant_id</code> | <code>str</code> | The unique identifier of the merchant account. |
 | <code>payout_settings_id</code> | <code>str</code> | The unique identifier of the payout setting. |
-| <code>request_options</code> | <code>[RequestOptionsOrDict](adyen/core/request_options.py) \| None</code> | Per-call overrides for this one request, such as a timeout or extra headers. |
+| <code>request_options</code> | <code>[RequestOptionsOrDict](adyen/core/request_options.py) \| None</code> | Per-call overrides for this one request, such as a timeout, extra headers, or its retry count and statuses. |
 
 </dd>
 </dl>
@@ -26583,7 +28145,7 @@ To make this request, your API credential must have the following [roles](https:
 
 ```python
 result = client.payout_settings_merchant_level.with_raw_response.patch_merchants_merchant_id_payout_settings_payout_settings_id(
-    merchant_id, payout_settings_id
+    "some example string", "some example string"
 )
 match result:
     case Success(payload=payload):
@@ -26596,7 +28158,7 @@ match result:
 
 ```python
 result = await async_client.payout_settings_merchant_level.with_raw_response.patch_merchants_merchant_id_payout_settings_payout_settings_id(
-    merchant_id, payout_settings_id
+    "some example string", "some example string"
 )
 match result:
     case Success(payload=payload):
@@ -26618,7 +28180,7 @@ match result:
 | <code>merchant_id</code> | <code>str</code> | The unique identifier of the merchant account. |
 | <code>payout_settings_id</code> | <code>str</code> | The unique identifier of the payout setting. |
 | <code>body</code> | <code>[UpdatePayoutSettingsRequest](adyen/models/update_payout_settings_request.py) \| [UpdatePayoutSettingsRequestDict](adyen/models/update_payout_settings_request.py) \| None</code> | The request body.<br>**Default**: <code>None</code> |
-| <code>request_options</code> | <code>[RequestOptionsOrDict](adyen/core/request_options.py) \| None</code> | Per-call overrides for this one request, such as a timeout or extra headers. |
+| <code>request_options</code> | <code>[RequestOptionsOrDict](adyen/core/request_options.py) \| None</code> | Per-call overrides for this one request, such as a timeout, extra headers, or its retry count and statuses. |
 
 </dd>
 </dl>
@@ -26681,7 +28243,9 @@ To make this request, your API credential must have the following [roles](https:
 **Sync**
 
 ```python
-result = client.payout_settings_merchant_level.with_raw_response.post_merchants_merchant_id_payout_settings(merchant_id)
+result = client.payout_settings_merchant_level.with_raw_response.post_merchants_merchant_id_payout_settings(
+    "some example string"
+)
 match result:
     case Success(payload=payload):
         ...  # TODO: Handle 'payload' of type PayoutSettings
@@ -26693,7 +28257,7 @@ match result:
 
 ```python
 result = await async_client.payout_settings_merchant_level.with_raw_response.post_merchants_merchant_id_payout_settings(
-    merchant_id
+    "some example string"
 )
 match result:
     case Success(payload=payload):
@@ -26714,7 +28278,7 @@ match result:
 | --- | --- | --- |
 | <code>merchant_id</code> | <code>str</code> | The unique identifier of the merchant account. |
 | <code>body</code> | <code>[PayoutSettingsRequest](adyen/models/payout_settings_request.py) \| [PayoutSettingsRequestDict](adyen/models/payout_settings_request.py) \| None</code> | The request body.<br>**Default**: <code>None</code> |
-| <code>request_options</code> | <code>[RequestOptionsOrDict](adyen/core/request_options.py) \| None</code> | Per-call overrides for this one request, such as a timeout or extra headers. |
+| <code>request_options</code> | <code>[RequestOptionsOrDict](adyen/core/request_options.py) \| None</code> | Per-call overrides for this one request, such as a timeout, extra headers, or its retry count and statuses. |
 
 </dd>
 </dl>
@@ -26750,7 +28314,7 @@ Mapped in first-match order -- an earlier row wins over a later range that also 
 > Source: [Platform](adyen/apis/platform.py)
 
 <details>
-<summary><code>def get_balance_platforms_id(id: str, *, request_options: RequestOptionsOrDict | None = None) -> ApiResult[BalancePlatform, GetBalancePlatformsIdErrorBody]</code></summary>
+<summary><code>def get_balance_platforms_id(id_: str, *, request_options: RequestOptionsOrDict | None = None) -> ApiResult[BalancePlatform, GetBalancePlatformsIdErrorBody]</code></summary>
 
 <dl>
 <dd>
@@ -26773,7 +28337,7 @@ Returns a balance platform.
 **Sync**
 
 ```python
-result = client.platform.with_raw_response.get_balance_platforms_id(id)
+result = client.platform.with_raw_response.get_balance_platforms_id("some example string")
 match result:
     case Success(payload=payload):
         ...  # TODO: Handle 'payload' of type BalancePlatform
@@ -26784,7 +28348,7 @@ match result:
 **Async**
 
 ```python
-result = await async_client.platform.with_raw_response.get_balance_platforms_id(id)
+result = await async_client.platform.with_raw_response.get_balance_platforms_id("some example string")
 match result:
     case Success(payload=payload):
         ...  # TODO: Handle 'payload' of type BalancePlatform
@@ -26802,8 +28366,8 @@ match result:
 
 | Name | Type | Description |
 | --- | --- | --- |
-| <code>id</code> | <code>str</code> | The unique identifier of the balance platform. |
-| <code>request_options</code> | <code>[RequestOptionsOrDict](adyen/core/request_options.py) \| None</code> | Per-call overrides for this one request, such as a timeout or extra headers. |
+| <code>id_</code> | <code>str</code> | The unique identifier of the balance platform. |
+| <code>request_options</code> | <code>[RequestOptionsOrDict](adyen/core/request_options.py) \| None</code> | Per-call overrides for this one request, such as a timeout, extra headers, or its retry count and statuses. |
 
 </dd>
 </dl>
@@ -26835,7 +28399,7 @@ Mapped in first-match order -- an earlier row wins over a later range that also 
 </details>
 
 <details>
-<summary><code>def get_balance_platforms_id_account_holders(id: str, *, offset: int | None = None, limit: int | None = None, request_options: RequestOptionsOrDict | None = None) -> ApiResult[PaginatedAccountHoldersResponse, GetBalancePlatformsIdAccountHoldersErrorBody]</code></summary>
+<summary><code>def get_balance_platforms_id_account_holders(id_: str, *, offset: int | None = None, limit: int | None = None, request_options: RequestOptionsOrDict | None = None) -> ApiResult[PaginatedAccountHoldersResponse, GetBalancePlatformsIdAccountHoldersErrorBody]</code></summary>
 
 <dl>
 <dd>
@@ -26860,7 +28424,7 @@ For example, to limit the page to 5 account holders and to skip the first 20, us
 **Sync**
 
 ```python
-result = client.platform.with_raw_response.get_balance_platforms_id_account_holders(id)
+result = client.platform.with_raw_response.get_balance_platforms_id_account_holders("some example string")
 match result:
     case Success(payload=payload):
         ...  # TODO: Handle 'payload' of type PaginatedAccountHoldersResponse
@@ -26871,7 +28435,7 @@ match result:
 **Async**
 
 ```python
-result = await async_client.platform.with_raw_response.get_balance_platforms_id_account_holders(id)
+result = await async_client.platform.with_raw_response.get_balance_platforms_id_account_holders("some example string")
 match result:
     case Success(payload=payload):
         ...  # TODO: Handle 'payload' of type PaginatedAccountHoldersResponse
@@ -26889,10 +28453,10 @@ match result:
 
 | Name | Type | Description |
 | --- | --- | --- |
-| <code>id</code> | <code>str</code> | The unique identifier of the balance platform. |
+| <code>id_</code> | <code>str</code> | The unique identifier of the balance platform. |
 | <code>offset</code> | <code>int \| None</code> | The number of items that you want to skip.<br>**Default**: <code>None</code> |
 | <code>limit</code> | <code>int \| None</code> | The number of items returned per page, maximum 100 items. By default, the response returns 10 items per page.<br>**Default**: <code>None</code> |
-| <code>request_options</code> | <code>[RequestOptionsOrDict](adyen/core/request_options.py) \| None</code> | Per-call overrides for this one request, such as a timeout or extra headers. |
+| <code>request_options</code> | <code>[RequestOptionsOrDict](adyen/core/request_options.py) \| None</code> | Per-call overrides for this one request, such as a timeout, extra headers, or its retry count and statuses. |
 
 </dd>
 </dl>
@@ -26924,7 +28488,7 @@ Mapped in first-match order -- an earlier row wins over a later range that also 
 </details>
 
 <details>
-<summary><code>def get_balance_platforms_id_transaction_rules(id: str, *, request_options: RequestOptionsOrDict | None = None) -> ApiResult[TransactionRulesResponse, GetBalancePlatformsIdTransactionRulesErrorBody]</code></summary>
+<summary><code>def get_balance_platforms_id_transaction_rules(id_: str, *, request_options: RequestOptionsOrDict | None = None) -> ApiResult[TransactionRulesResponse, GetBalancePlatformsIdTransactionRulesErrorBody]</code></summary>
 
 <dl>
 <dd>
@@ -26947,7 +28511,7 @@ Returns a list of transaction rules associated with a balance platform.
 **Sync**
 
 ```python
-result = client.platform.with_raw_response.get_balance_platforms_id_transaction_rules(id)
+result = client.platform.with_raw_response.get_balance_platforms_id_transaction_rules("some example string")
 match result:
     case Success(payload=payload):
         ...  # TODO: Handle 'payload' of type TransactionRulesResponse
@@ -26958,7 +28522,7 @@ match result:
 **Async**
 
 ```python
-result = await async_client.platform.with_raw_response.get_balance_platforms_id_transaction_rules(id)
+result = await async_client.platform.with_raw_response.get_balance_platforms_id_transaction_rules("some example string")
 match result:
     case Success(payload=payload):
         ...  # TODO: Handle 'payload' of type TransactionRulesResponse
@@ -26976,8 +28540,8 @@ match result:
 
 | Name | Type | Description |
 | --- | --- | --- |
-| <code>id</code> | <code>str</code> | The unique identifier of the balance platform. |
-| <code>request_options</code> | <code>[RequestOptionsOrDict](adyen/core/request_options.py) \| None</code> | Per-call overrides for this one request, such as a timeout or extra headers. |
+| <code>id_</code> | <code>str</code> | The unique identifier of the balance platform. |
+| <code>request_options</code> | <code>[RequestOptionsOrDict](adyen/core/request_options.py) \| None</code> | Per-call overrides for this one request, such as a timeout, extra headers, or its retry count and statuses. |
 
 </dd>
 </dl>
@@ -27073,7 +28637,7 @@ match result:
 | <code>created_until</code> | <code>str \| None</code> | Only include disputes that have been created on or before this point in time. The value must be in [ISO 8601](https://en.wikipedia.org/wiki/ISO_8601\) format. For example, **2021-05-30T15:07:40Z**.<br>**Default**: <code>None</code> |
 | <code>offset</code> | <code>str \| None</code> | The number of items that you want to skip.<br>**Default**: <code>None</code> |
 | <code>limit</code> | <code>str \| None</code> | The number of items returned per page, maximum of 500 items. By default, the response returns 100 items per page.<br>**Default**: <code>None</code> |
-| <code>request_options</code> | <code>[RequestOptionsOrDict](adyen/core/request_options.py) \| None</code> | Per-call overrides for this one request, such as a timeout or extra headers. |
+| <code>request_options</code> | <code>[RequestOptionsOrDict](adyen/core/request_options.py) \| None</code> | Per-call overrides for this one request, such as a timeout, extra headers, or its retry count and statuses. |
 
 </dd>
 </dl>
@@ -27105,7 +28669,7 @@ Mapped in first-match order -- an earlier row wins over a later range that also 
 </details>
 
 <details>
-<summary><code>def get_disputes_id(id: str, *, request_options: RequestOptionsOrDict | None = None) -> ApiResult[DisputeResponse, GetDisputesIdErrorBody]</code></summary>
+<summary><code>def get_disputes_id(id_: str, *, request_options: RequestOptionsOrDict | None = None) -> ApiResult[DisputeResponse, GetDisputesIdErrorBody]</code></summary>
 
 <dl>
 <dd>
@@ -27128,7 +28692,7 @@ Get a raised dispute by ID.
 **Sync**
 
 ```python
-result = client.raise_disputes.with_raw_response.get_disputes_id(id)
+result = client.raise_disputes.with_raw_response.get_disputes_id("some example string")
 match result:
     case Success(payload=payload):
         ...  # TODO: Handle 'payload' of type DisputeResponse
@@ -27139,7 +28703,7 @@ match result:
 **Async**
 
 ```python
-result = await async_client.raise_disputes.with_raw_response.get_disputes_id(id)
+result = await async_client.raise_disputes.with_raw_response.get_disputes_id("some example string")
 match result:
     case Success(payload=payload):
         ...  # TODO: Handle 'payload' of type DisputeResponse
@@ -27157,8 +28721,8 @@ match result:
 
 | Name | Type | Description |
 | --- | --- | --- |
-| <code>id</code> | <code>str</code> | The unique identifier of the raised dispute. |
-| <code>request_options</code> | <code>[RequestOptionsOrDict](adyen/core/request_options.py) \| None</code> | Per-call overrides for this one request, such as a timeout or extra headers. |
+| <code>id_</code> | <code>str</code> | The unique identifier of the raised dispute. |
+| <code>request_options</code> | <code>[RequestOptionsOrDict](adyen/core/request_options.py) \| None</code> | Per-call overrides for this one request, such as a timeout, extra headers, or its retry count and statuses. |
 
 </dd>
 </dl>
@@ -27190,7 +28754,7 @@ Mapped in first-match order -- an earlier row wins over a later range that also 
 </details>
 
 <details>
-<summary><code>def patch_disputes_id(id: str, *, body: PatchableDisputeRequest | PatchableDisputeRequestDict | None = None, request_options: RequestOptionsOrDict | None = None) -> ApiResult[DisputeResponse, PatchDisputesIdErrorBody]</code></summary>
+<summary><code>def patch_disputes_id(id_: str, *, body: PatchableDisputeRequest | PatchableDisputeRequestDict | None = None, request_options: RequestOptionsOrDict | None = None) -> ApiResult[DisputeResponse, PatchDisputesIdErrorBody]</code></summary>
 
 <dl>
 <dd>
@@ -27215,7 +28779,7 @@ Update information related to a raised dispute, or change a dispute's status fro
 **Sync**
 
 ```python
-result = client.raise_disputes.with_raw_response.patch_disputes_id(id)
+result = client.raise_disputes.with_raw_response.patch_disputes_id("some example string")
 match result:
     case Success(payload=payload):
         ...  # TODO: Handle 'payload' of type DisputeResponse
@@ -27226,7 +28790,7 @@ match result:
 **Async**
 
 ```python
-result = await async_client.raise_disputes.with_raw_response.patch_disputes_id(id)
+result = await async_client.raise_disputes.with_raw_response.patch_disputes_id("some example string")
 match result:
     case Success(payload=payload):
         ...  # TODO: Handle 'payload' of type DisputeResponse
@@ -27244,9 +28808,9 @@ match result:
 
 | Name | Type | Description |
 | --- | --- | --- |
-| <code>id</code> | <code>str</code> | The unique identifier of the raised dispute. |
+| <code>id_</code> | <code>str</code> | The unique identifier of the raised dispute. |
 | <code>body</code> | <code>[PatchableDisputeRequest](adyen/models/patchable_dispute_request.py) \| [PatchableDisputeRequestDict](adyen/models/patchable_dispute_request.py) \| None</code> | The request body.<br>**Default**: <code>None</code> |
-| <code>request_options</code> | <code>[RequestOptionsOrDict](adyen/core/request_options.py) \| None</code> | Per-call overrides for this one request, such as a timeout or extra headers. |
+| <code>request_options</code> | <code>[RequestOptionsOrDict](adyen/core/request_options.py) \| None</code> | Per-call overrides for this one request, such as a timeout, extra headers, or its retry count and statuses. |
 
 </dd>
 </dl>
@@ -27303,7 +28867,9 @@ Raising a dispute returns a dispute ID, which you can use to update details abou
 **Sync**
 
 ```python
-result = client.raise_disputes.with_raw_response.post_disputes(body)
+result = client.raise_disputes.with_raw_response.post_disputes(
+    DisputeRequest(transaction_id="some example string", type_="some example string")
+)
 match result:
     case Success(payload=payload):
         ...  # TODO: Handle 'payload' of type DisputeResponse
@@ -27314,7 +28880,9 @@ match result:
 **Async**
 
 ```python
-result = await async_client.raise_disputes.with_raw_response.post_disputes(body)
+result = await async_client.raise_disputes.with_raw_response.post_disputes(
+    DisputeRequest(transaction_id="some example string", type_="some example string")
+)
 match result:
     case Success(payload=payload):
         ...  # TODO: Handle 'payload' of type DisputeResponse
@@ -27333,7 +28901,7 @@ match result:
 | Name | Type | Description |
 | --- | --- | --- |
 | <code>body</code> | <code>[DisputeRequest](adyen/models/dispute_request.py) \| [DisputeRequestDict](adyen/models/dispute_request.py)</code> | The request body. |
-| <code>request_options</code> | <code>[RequestOptionsOrDict](adyen/core/request_options.py) \| None</code> | Per-call overrides for this one request, such as a timeout or extra headers. |
+| <code>request_options</code> | <code>[RequestOptionsOrDict](adyen/core/request_options.py) \| None</code> | Per-call overrides for this one request, such as a timeout, extra headers, or its retry count and statuses. |
 
 </dd>
 </dl>
@@ -27392,7 +28960,24 @@ Returns the calculated amounts and rates required to convert the currency of a t
 **Sync**
 
 ```python
-result = client.rates.with_raw_response.post_rates_calculate(body)
+result = client.rates.with_raw_response.post_rates_calculate(
+    CalculateRateRequest(
+        exchange_calculations=[
+            CalculateRateRequestItem(
+                exchange_side=ExchangeSide2.BUY,
+                source_amount=Amount19(currency="CZK", value=112300),
+                target_currency="EUR",
+                type_=RateType2.SPLIT_PAYMENT,
+            ),
+            CalculateRateRequestItem(
+                exchange_side=ExchangeSide2.SELL,
+                source_amount=Amount19(currency="CZK", value=24000),
+                target_currency="USD",
+                type_=RateType2.SPLIT_REFUND,
+            ),
+        ],
+    ),
+)
 match result:
     case Success(payload=payload):
         ...  # TODO: Handle 'payload' of type CalculateRateResponse
@@ -27403,7 +28988,24 @@ match result:
 **Async**
 
 ```python
-result = await async_client.rates.with_raw_response.post_rates_calculate(body)
+result = await async_client.rates.with_raw_response.post_rates_calculate(
+    CalculateRateRequest(
+        exchange_calculations=[
+            CalculateRateRequestItem(
+                exchange_side=ExchangeSide2.BUY,
+                source_amount=Amount19(currency="CZK", value=112300),
+                target_currency="EUR",
+                type_=RateType2.SPLIT_PAYMENT,
+            ),
+            CalculateRateRequestItem(
+                exchange_side=ExchangeSide2.SELL,
+                source_amount=Amount19(currency="CZK", value=24000),
+                target_currency="USD",
+                type_=RateType2.SPLIT_REFUND,
+            ),
+        ],
+    ),
+)
 match result:
     case Success(payload=payload):
         ...  # TODO: Handle 'payload' of type CalculateRateResponse
@@ -27422,7 +29024,7 @@ match result:
 | Name | Type | Description |
 | --- | --- | --- |
 | <code>body</code> | <code>[CalculateRateRequest](adyen/models/calculate_rate_request.py) \| [CalculateRateRequestDict](adyen/models/calculate_rate_request.py)</code> | The request body. |
-| <code>request_options</code> | <code>[RequestOptionsOrDict](adyen/core/request_options.py) \| None</code> | Per-call overrides for this one request, such as a timeout or extra headers. |
+| <code>request_options</code> | <code>[RequestOptionsOrDict](adyen/core/request_options.py) \| None</code> | Per-call overrides for this one request, such as a timeout, extra headers, or its retry count and statuses. |
 
 </dd>
 </dl>
@@ -27482,7 +29084,7 @@ Deletes the token identified in the path. The token can no longer be used with p
 
 ```python
 result = client.recurring_api.with_raw_response.delete_stored_payment_methods_stored_payment_method_id(
-    stored_payment_method_id, shopper_reference, merchant_account
+    "some example string", "some example string", "some example string"
 )
 match result:
     case Success():
@@ -27495,7 +29097,7 @@ match result:
 
 ```python
 result = await async_client.recurring_api.with_raw_response.delete_stored_payment_methods_stored_payment_method_id(
-    stored_payment_method_id, shopper_reference, merchant_account
+    "some example string", "some example string", "some example string"
 )
 match result:
     case Success():
@@ -27517,7 +29119,7 @@ match result:
 | <code>stored_payment_method_id</code> | <code>str</code> | The unique identifier of the token. |
 | <code>shopper_reference</code> | <code>str</code> | Your reference to uniquely identify this shopper, for example user ID or account ID. Minimum length: 3 characters.<br>> Your reference must not include personally identifiable information (PII), for example name or email address. |
 | <code>merchant_account</code> | <code>str</code> | Your merchant account. |
-| <code>request_options</code> | <code>[RequestOptionsOrDict](adyen/core/request_options.py) \| None</code> | Per-call overrides for this one request, such as a timeout or extra headers. |
+| <code>request_options</code> | <code>[RequestOptionsOrDict](adyen/core/request_options.py) \| None</code> | Per-call overrides for this one request, such as a timeout, extra headers, or its retry count and statuses. |
 
 </dd>
 </dl>
@@ -27596,7 +29198,7 @@ match result:
 | --- | --- | --- |
 | <code>shopper_reference</code> | <code>str \| None</code> | Your reference to uniquely identify this shopper, for example user ID or account ID. Minimum length: 3 characters.<br>> Your reference must not include personally identifiable information (PII), for example name or email address.<br>**Default**: <code>None</code> |
 | <code>merchant_account</code> | <code>str \| None</code> | Your merchant account.<br>**Default**: <code>None</code> |
-| <code>request_options</code> | <code>[RequestOptionsOrDict](adyen/core/request_options.py) \| None</code> | Per-call overrides for this one request, such as a timeout or extra headers. |
+| <code>request_options</code> | <code>[RequestOptionsOrDict](adyen/core/request_options.py) \| None</code> | Per-call overrides for this one request, such as a timeout, extra headers, or its retry count and statuses. |
 
 </dd>
 </dl>
@@ -27644,7 +29246,22 @@ Forwards the payment details you stored with Adyen to a third-party that you spe
 **Sync**
 
 ```python
-result = client.recurring_api.with_raw_response.post_forward()
+result = client.recurring_api.with_raw_response.post_forward(
+    idempotency_key="37ca9c97-d1d1-4c62-89e8-706891a563ed",
+    body=CheckoutForwardRequest(
+        base_url="http://thirdparty.example.com",
+        merchant_account="YOUR_MERCHANT_ACCOUNT",
+        request=CheckoutOutgoingForwardRequest2(
+            body="{\"amount\":{\"value\":100,\"currency\":\"USD\"},\"paymentMethod\":{\"creditCard\":{\"holderName\":\"{{holderName}}\",\"number\":\"{{number}}\",\"expiryMonth\":\"{{expiryMonth}}\",\"expiryYear\":\"{{expiryYear}}\"}}}",
+            credentials="YOUR_CREDENTIALS_FOR_THE_THIRD_PARTY",
+            headers={"Authorization": "Basic {{credentials}}"},
+            http_method=HttpMethodModel.POST,
+            url_suffix="/payments",
+        ),
+        shopper_reference="YOUR_SHOPPER_REFERENCE",
+        stored_payment_method_id="M5N7TQ4TG5PFWR50",
+    ),
+)
 match result:
     case Success(payload=payload):
         ...  # TODO: Handle 'payload' of type CheckoutForwardResponse
@@ -27655,7 +29272,22 @@ match result:
 **Async**
 
 ```python
-result = await async_client.recurring_api.with_raw_response.post_forward()
+result = await async_client.recurring_api.with_raw_response.post_forward(
+    idempotency_key="37ca9c97-d1d1-4c62-89e8-706891a563ed",
+    body=CheckoutForwardRequest(
+        base_url="http://thirdparty.example.com",
+        merchant_account="YOUR_MERCHANT_ACCOUNT",
+        request=CheckoutOutgoingForwardRequest2(
+            body="{\"amount\":{\"value\":100,\"currency\":\"USD\"},\"paymentMethod\":{\"creditCard\":{\"holderName\":\"{{holderName}}\",\"number\":\"{{number}}\",\"expiryMonth\":\"{{expiryMonth}}\",\"expiryYear\":\"{{expiryYear}}\"}}}",
+            credentials="YOUR_CREDENTIALS_FOR_THE_THIRD_PARTY",
+            headers={"Authorization": "Basic {{credentials}}"},
+            http_method=HttpMethodModel.POST,
+            url_suffix="/payments",
+        ),
+        shopper_reference="YOUR_SHOPPER_REFERENCE",
+        stored_payment_method_id="M5N7TQ4TG5PFWR50",
+    ),
+)
 match result:
     case Success(payload=payload):
         ...  # TODO: Handle 'payload' of type CheckoutForwardResponse
@@ -27675,7 +29307,7 @@ match result:
 | --- | --- | --- |
 | <code>idempotency_key</code> | <code>str \| None</code> | A unique identifier for the message with a maximum of 64 characters (we recommend a UUID).<br>**Default**: <code>None</code> |
 | <code>body</code> | <code>[CheckoutForwardRequest](adyen/models/checkout_forward_request.py) \| [CheckoutForwardRequestDict](adyen/models/checkout_forward_request.py) \| None</code> | The request body.<br>**Default**: <code>None</code> |
-| <code>request_options</code> | <code>[RequestOptionsOrDict](adyen/core/request_options.py) \| None</code> | Per-call overrides for this one request, such as a timeout or extra headers. |
+| <code>request_options</code> | <code>[RequestOptionsOrDict](adyen/core/request_options.py) \| None</code> | Per-call overrides for this one request, such as a timeout, extra headers, or its retry count and statuses. |
 
 </dd>
 </dl>
@@ -27723,7 +29355,24 @@ Creates a token to store the shopper's payment details. This token can be used f
 **Sync**
 
 ```python
-result = client.recurring_api.with_raw_response.post_stored_payment_methods()
+result = client.recurring_api.with_raw_response.post_stored_payment_methods(
+    idempotency_key="37ca9c97-d1d1-4c62-89e8-706891a563ed",
+    body=StoredPaymentMethodRequest(
+        merchant_account="YOUR_MERCHANT_ACCOUNT",
+        payment_method=PaymentMethodToStore1(
+            encrypted_card_number="test_4111111111111111",
+            encrypted_expiry_month="test_03",
+            encrypted_expiry_year="test_2030",
+            encrypted_security_code="test_737",
+            holder_name="John Smith",
+            type_="scheme",
+        ),
+        recurring_processing_model=RecurringProcessingModel1.SUBSCRIPTION,
+        shopper_email="s.hopper@test.com",
+        shopper_ip="192.0.2.1",
+        shopper_reference="YOUR_SHOPPER_REFERENCE",
+    ),
+)
 match result:
     case Success(payload=payload):
         ...  # TODO: Handle 'payload' of type StoredPaymentMethodResource
@@ -27734,7 +29383,24 @@ match result:
 **Async**
 
 ```python
-result = await async_client.recurring_api.with_raw_response.post_stored_payment_methods()
+result = await async_client.recurring_api.with_raw_response.post_stored_payment_methods(
+    idempotency_key="37ca9c97-d1d1-4c62-89e8-706891a563ed",
+    body=StoredPaymentMethodRequest(
+        merchant_account="YOUR_MERCHANT_ACCOUNT",
+        payment_method=PaymentMethodToStore1(
+            encrypted_card_number="test_4111111111111111",
+            encrypted_expiry_month="test_03",
+            encrypted_expiry_year="test_2030",
+            encrypted_security_code="test_737",
+            holder_name="John Smith",
+            type_="scheme",
+        ),
+        recurring_processing_model=RecurringProcessingModel1.SUBSCRIPTION,
+        shopper_email="s.hopper@test.com",
+        shopper_ip="192.0.2.1",
+        shopper_reference="YOUR_SHOPPER_REFERENCE",
+    ),
+)
 match result:
     case Success(payload=payload):
         ...  # TODO: Handle 'payload' of type StoredPaymentMethodResource
@@ -27754,7 +29420,7 @@ match result:
 | --- | --- | --- |
 | <code>idempotency_key</code> | <code>str \| None</code> | A unique identifier for the message with a maximum of 64 characters (we recommend a UUID).<br>**Default**: <code>None</code> |
 | <code>body</code> | <code>[StoredPaymentMethodRequest](adyen/models/stored_payment_method_request.py) \| [StoredPaymentMethodRequestDict](adyen/models/stored_payment_method_request.py) \| None</code> | The request body.<br>**Default**: <code>None</code> |
-| <code>request_options</code> | <code>[RequestOptionsOrDict](adyen/core/request_options.py) \| None</code> | Per-call overrides for this one request, such as a timeout or extra headers. |
+| <code>request_options</code> | <code>[RequestOptionsOrDict](adyen/core/request_options.py) \| None</code> | Per-call overrides for this one request, such as a timeout, extra headers, or its retry count and statuses. |
 
 </dd>
 </dl>
@@ -27809,7 +29475,7 @@ For more information, refer to [Manage recurring top-ups](https://docs.adyen.com
 
 ```python
 result = client.recurring_top_ups.with_raw_response.delete_balance_accounts_balance_account_id_recurring_top_ups_top_up_id(
-    balance_account_id, top_up_id
+    "some example string", "some example string"
 )
 match result:
     case Success(payload=payload):
@@ -27822,7 +29488,7 @@ match result:
 
 ```python
 result = await async_client.recurring_top_ups.with_raw_response.delete_balance_accounts_balance_account_id_recurring_top_ups_top_up_id(
-    balance_account_id, top_up_id
+    "some example string", "some example string"
 )
 match result:
     case Success(payload=payload):
@@ -27843,7 +29509,7 @@ match result:
 | --- | --- | --- |
 | <code>balance_account_id</code> | <code>str</code> | The unique identifier of the balance account. |
 | <code>top_up_id</code> | <code>str</code> | The unique identifier of the recurring top-up you want to delete. |
-| <code>request_options</code> | <code>[RequestOptionsOrDict](adyen/core/request_options.py) \| None</code> | Per-call overrides for this one request, such as a timeout or extra headers. |
+| <code>request_options</code> | <code>[RequestOptionsOrDict](adyen/core/request_options.py) \| None</code> | Per-call overrides for this one request, such as a timeout, extra headers, or its retry count and statuses. |
 
 </dd>
 </dl>
@@ -27901,7 +29567,7 @@ For more information, refer to [Manage recurring top-ups](https://docs.adyen.com
 
 ```python
 result = client.recurring_top_ups.with_raw_response.get_balance_accounts_balance_account_id_recurring_top_ups(
-    balance_account_id
+    "some example string"
 )
 match result:
     case Success(payload=payload):
@@ -27914,7 +29580,7 @@ match result:
 
 ```python
 result = await async_client.recurring_top_ups.with_raw_response.get_balance_accounts_balance_account_id_recurring_top_ups(
-    balance_account_id
+    "some example string"
 )
 match result:
     case Success(payload=payload):
@@ -27936,7 +29602,7 @@ match result:
 | <code>balance_account_id</code> | <code>str</code> | The unique identifier of the balance account. |
 | <code>limit</code> | <code>int \| None</code> | The number of items to return per page. Value must be between 1 and 100.<br>**Default**: <code>10</code> |
 | <code>cursor</code> | <code>str \| None</code> | The cursor used for pagination. Required if you want to see the next or previous page of results.<br>**Default**: <code>None</code> |
-| <code>request_options</code> | <code>[RequestOptionsOrDict](adyen/core/request_options.py) \| None</code> | Per-call overrides for this one request, such as a timeout or extra headers. |
+| <code>request_options</code> | <code>[RequestOptionsOrDict](adyen/core/request_options.py) \| None</code> | Per-call overrides for this one request, such as a timeout, extra headers, or its retry count and statuses. |
 
 </dd>
 </dl>
@@ -27994,7 +29660,7 @@ For more information, refer to [Manage recurring top-ups](https://docs.adyen.com
 
 ```python
 result = client.recurring_top_ups.with_raw_response.patch_balance_accounts_balance_account_id_recurring_top_ups_top_up_id(
-    balance_account_id, top_up_id, body
+    "some example string", "some example string", PatchableCreateRecurringTopUp(description="new description")
 )
 match result:
     case Success(payload=payload):
@@ -28007,7 +29673,7 @@ match result:
 
 ```python
 result = await async_client.recurring_top_ups.with_raw_response.patch_balance_accounts_balance_account_id_recurring_top_ups_top_up_id(
-    balance_account_id, top_up_id, body
+    "some example string", "some example string", PatchableCreateRecurringTopUp(description="new description")
 )
 match result:
     case Success(payload=payload):
@@ -28029,7 +29695,7 @@ match result:
 | <code>balance_account_id</code> | <code>str</code> | The unique identifier of the balance account. |
 | <code>top_up_id</code> | <code>str</code> | The unique identifier of the recurring top-up you want to update. |
 | <code>body</code> | <code>[PatchableCreateRecurringTopUp](adyen/models/patchable_create_recurring_top_up.py) \| [PatchableCreateRecurringTopUpDict](adyen/models/patchable_create_recurring_top_up.py)</code> | The request body. |
-| <code>request_options</code> | <code>[RequestOptionsOrDict](adyen/core/request_options.py) \| None</code> | Per-call overrides for this one request, such as a timeout or extra headers. |
+| <code>request_options</code> | <code>[RequestOptionsOrDict](adyen/core/request_options.py) \| None</code> | Per-call overrides for this one request, such as a timeout, extra headers, or its retry count and statuses. |
 
 </dd>
 </dl>
@@ -28087,7 +29753,15 @@ For more information, refer to [Create recurring top-ups](https://docs.adyen.com
 
 ```python
 result = client.recurring_top_ups.with_raw_response.post_balance_accounts_balance_account_id_recurring_top_ups(
-    balance_account_id, body
+    "some example string",
+    CreateRecurringTopUp(
+        counterparty=TopUpCounterparty1(transfer_instrument_id="SE000000000000000000000001"),
+        description="My description",
+        top_up_amount=TopUpAmount1(fixed=Amount17(currency="EUR", value=1000)),
+        trigger=Trigger1(
+            schedule=Schedule21(type_=ScheduleType1.WEEKDAYS), threshold=Amount17(currency="EUR", value=100)
+        ),
+    ),
 )
 match result:
     case Success(payload=payload):
@@ -28100,7 +29774,15 @@ match result:
 
 ```python
 result = await async_client.recurring_top_ups.with_raw_response.post_balance_accounts_balance_account_id_recurring_top_ups(
-    balance_account_id, body
+    "some example string",
+    CreateRecurringTopUp(
+        counterparty=TopUpCounterparty1(transfer_instrument_id="SE000000000000000000000001"),
+        description="My description",
+        top_up_amount=TopUpAmount1(fixed=Amount17(currency="EUR", value=1000)),
+        trigger=Trigger1(
+            schedule=Schedule21(type_=ScheduleType1.WEEKDAYS), threshold=Amount17(currency="EUR", value=100)
+        ),
+    ),
 )
 match result:
     case Success(payload=payload):
@@ -28121,7 +29803,7 @@ match result:
 | --- | --- | --- |
 | <code>balance_account_id</code> | <code>str</code> | The unique identifier of the balance account. |
 | <code>body</code> | <code>[CreateRecurringTopUp](adyen/models/create_recurring_top_up.py) \| [CreateRecurringTopUpDict](adyen/models/create_recurring_top_up.py)</code> | The request body. |
-| <code>request_options</code> | <code>[RequestOptionsOrDict](adyen/core/request_options.py) \| None</code> | Per-call overrides for this one request, such as a timeout or extra headers. |
+| <code>request_options</code> | <code>[RequestOptionsOrDict](adyen/core/request_options.py) \| None</code> | Per-call overrides for this one request, such as a timeout, extra headers, or its retry count and statuses. |
 
 </dd>
 </dl>
@@ -28193,7 +29875,9 @@ To cancel a payout, use the `/declineThirdParty` endpoint.
 **Sync**
 
 ```python
-result = client.reviewing.with_raw_response.post_confirm_third_party()
+result = client.reviewing.with_raw_response.post_confirm_third_party(
+    body=ModifyRequest(merchant_account="YOUR_MERCHANT_ACCOUNT", original_reference="9913140798220028")
+)
 match result:
     case Success(payload=payload):
         ...  # TODO: Handle 'payload' of type ModifyResponse
@@ -28204,7 +29888,9 @@ match result:
 **Async**
 
 ```python
-result = await async_client.reviewing.with_raw_response.post_confirm_third_party()
+result = await async_client.reviewing.with_raw_response.post_confirm_third_party(
+    body=ModifyRequest(merchant_account="YOUR_MERCHANT_ACCOUNT", original_reference="9913140798220028")
+)
 match result:
     case Success(payload=payload):
         ...  # TODO: Handle 'payload' of type ModifyResponse
@@ -28223,7 +29909,7 @@ match result:
 | Name | Type | Description |
 | --- | --- | --- |
 | <code>body</code> | <code>[ModifyRequest](adyen/models/modify_request.py) \| [ModifyRequestDict](adyen/models/modify_request.py) \| None</code> | The request body.<br>**Default**: <code>None</code> |
-| <code>request_options</code> | <code>[RequestOptionsOrDict](adyen/core/request_options.py) \| None</code> | Per-call overrides for this one request, such as a timeout or extra headers. |
+| <code>request_options</code> | <code>[RequestOptionsOrDict](adyen/core/request_options.py) \| None</code> | Per-call overrides for this one request, such as a timeout, extra headers, or its retry count and statuses. |
 
 </dd>
 </dl>
@@ -28291,7 +29977,9 @@ To confirm and send a payout, use the `/confirmThirdParty` endpoint.
 **Sync**
 
 ```python
-result = client.reviewing.with_raw_response.post_decline_third_party()
+result = client.reviewing.with_raw_response.post_decline_third_party(
+    body=ModifyRequest(merchant_account="YOUR_MERCHANT_ACCOUNT", original_reference="9913140798220028")
+)
 match result:
     case Success(payload=payload):
         ...  # TODO: Handle 'payload' of type ModifyResponse
@@ -28302,7 +29990,9 @@ match result:
 **Async**
 
 ```python
-result = await async_client.reviewing.with_raw_response.post_decline_third_party()
+result = await async_client.reviewing.with_raw_response.post_decline_third_party(
+    body=ModifyRequest(merchant_account="YOUR_MERCHANT_ACCOUNT", original_reference="9913140798220028")
+)
 match result:
     case Success(payload=payload):
         ...  # TODO: Handle 'payload' of type ModifyResponse
@@ -28321,7 +30011,7 @@ match result:
 | Name | Type | Description |
 | --- | --- | --- |
 | <code>body</code> | <code>[ModifyRequest](adyen/models/modify_request.py) \| [ModifyRequestDict](adyen/models/modify_request.py) \| None</code> | The request body.<br>**Default**: <code>None</code> |
-| <code>request_options</code> | <code>[RequestOptionsOrDict](adyen/core/request_options.py) \| None</code> | Per-call overrides for this one request, such as a timeout or extra headers. |
+| <code>request_options</code> | <code>[RequestOptionsOrDict](adyen/core/request_options.py) \| None</code> | Per-call overrides for this one request, such as a timeout, extra headers, or its retry count and statuses. |
 
 </dd>
 </dl>
@@ -28380,7 +30070,14 @@ Deletes one or more SCA associations for a device.
 **Sync**
 
 ```python
-result = client.sca_association_management.with_raw_response.delete_sca_associations(www_authenticate)
+result = client.sca_association_management.with_raw_response.delete_sca_associations(
+    "some example string",
+    body=RemoveAssociationRequest(
+        entity_id="AH00000000000000000000001",
+        entity_type=ScaEntityType3.ACCOUNT_HOLDER,
+        sca_device_ids=["BSDR42XV3223223S5N6CDQDGH53M8H"],
+    ),
+)
 match result:
     case Success():
         ...  # 2xx, no content
@@ -28391,7 +30088,14 @@ match result:
 **Async**
 
 ```python
-result = await async_client.sca_association_management.with_raw_response.delete_sca_associations(www_authenticate)
+result = await async_client.sca_association_management.with_raw_response.delete_sca_associations(
+    "some example string",
+    body=RemoveAssociationRequest(
+        entity_id="AH00000000000000000000001",
+        entity_type=ScaEntityType3.ACCOUNT_HOLDER,
+        sca_device_ids=["BSDR42XV3223223S5N6CDQDGH53M8H"],
+    ),
+)
 match result:
     case Success():
         ...  # 2xx, no content
@@ -28411,7 +30115,7 @@ match result:
 | --- | --- | --- |
 | <code>www_authenticate</code> | <code>str</code> | The header for authenticating through SCA. |
 | <code>body</code> | <code>[RemoveAssociationRequest](adyen/models/remove_association_request.py) \| [RemoveAssociationRequestDict](adyen/models/remove_association_request.py) \| None</code> | The request body.<br>**Default**: <code>None</code> |
-| <code>request_options</code> | <code>[RequestOptionsOrDict](adyen/core/request_options.py) \| None</code> | Per-call overrides for this one request, such as a timeout or extra headers. |
+| <code>request_options</code> | <code>[RequestOptionsOrDict](adyen/core/request_options.py) \| None</code> | Per-call overrides for this one request, such as a timeout, extra headers, or its retry count and statuses. |
 
 </dd>
 </dl>
@@ -28467,7 +30171,7 @@ Returns a paginated list of the SCA devices associated with a specific entity.
 
 ```python
 result = client.sca_association_management.with_raw_response.get_sca_associations(
-    entity_type, entity_id, page_size, page_number
+    ScaEntityType.ACCOUNT_HOLDER, "some example string", 1, 1
 )
 match result:
     case Success(payload=payload):
@@ -28480,7 +30184,7 @@ match result:
 
 ```python
 result = await async_client.sca_association_management.with_raw_response.get_sca_associations(
-    entity_type, entity_id, page_size, page_number
+    ScaEntityType.ACCOUNT_HOLDER, "some example string", 1, 1
 )
 match result:
     case Success(payload=payload):
@@ -28503,7 +30207,7 @@ match result:
 | <code>entity_id</code> | <code>str</code> | The unique identifier of the entity. |
 | <code>page_size</code> | <code>int</code> | The number of items to have on a page. <br><br>Default: **5**. |
 | <code>page_number</code> | <code>int</code> | The index of the page to retrieve. The index of the first page is **0** (zero). <br><br>Default:  **0**. |
-| <code>request_options</code> | <code>[RequestOptionsOrDict](adyen/core/request_options.py) \| None</code> | Per-call overrides for this one request, such as a timeout or extra headers. |
+| <code>request_options</code> | <code>[RequestOptionsOrDict](adyen/core/request_options.py) \| None</code> | Per-call overrides for this one request, such as a timeout, extra headers, or its retry count and statuses. |
 
 </dd>
 </dl>
@@ -28558,7 +30262,15 @@ Approves a previously created association that is in a pending state.
 **Sync**
 
 ```python
-result = client.sca_association_management.with_raw_response.patch_sca_associations(www_authenticate)
+result = client.sca_association_management.with_raw_response.patch_sca_associations(
+    "some example string",
+    body=ApproveAssociationRequest(
+        entity_id="AH00000000000000000000001",
+        entity_type=ScaEntityType2.ACCOUNT_HOLDER,
+        sca_device_ids=["BSDR42XV3223223S5N6CDQDGH53M8H"],
+        status=AssociationStatus1.ACTIVE,
+    ),
+)
 match result:
     case Success(payload=payload):
         ...  # TODO: Handle 'payload' of type ApproveAssociationResponse
@@ -28569,7 +30281,15 @@ match result:
 **Async**
 
 ```python
-result = await async_client.sca_association_management.with_raw_response.patch_sca_associations(www_authenticate)
+result = await async_client.sca_association_management.with_raw_response.patch_sca_associations(
+    "some example string",
+    body=ApproveAssociationRequest(
+        entity_id="AH00000000000000000000001",
+        entity_type=ScaEntityType2.ACCOUNT_HOLDER,
+        sca_device_ids=["BSDR42XV3223223S5N6CDQDGH53M8H"],
+        status=AssociationStatus1.ACTIVE,
+    ),
+)
 match result:
     case Success(payload=payload):
         ...  # TODO: Handle 'payload' of type ApproveAssociationResponse
@@ -28589,7 +30309,7 @@ match result:
 | --- | --- | --- |
 | <code>www_authenticate</code> | <code>str</code> | The header for authenticating through SCA. |
 | <code>body</code> | <code>[ApproveAssociationRequest](adyen/models/approve_association_request.py) \| [ApproveAssociationRequestDict](adyen/models/approve_association_request.py) \| None</code> | The request body.<br>**Default**: <code>None</code> |
-| <code>request_options</code> | <code>[RequestOptionsOrDict](adyen/core/request_options.py) \| None</code> | Per-call overrides for this one request, such as a timeout or extra headers. |
+| <code>request_options</code> | <code>[RequestOptionsOrDict](adyen/core/request_options.py) \| None</code> | Per-call overrides for this one request, such as a timeout, extra headers, or its retry count and statuses. |
 
 </dd>
 </dl>
@@ -28648,7 +30368,7 @@ Deletes a Strong Customer Authentication (SCA) device.
 **Sync**
 
 ```python
-result = client.sca_device_management.with_raw_response.delete_sca_devices_device_id(device_id)
+result = client.sca_device_management.with_raw_response.delete_sca_devices_device_id("some example string")
 match result:
     case Success():
         ...  # 2xx, no content
@@ -28659,7 +30379,7 @@ match result:
 **Async**
 
 ```python
-result = await async_client.sca_device_management.with_raw_response.delete_sca_devices_device_id(device_id)
+result = await async_client.sca_device_management.with_raw_response.delete_sca_devices_device_id("some example string")
 match result:
     case Success():
         ...  # 2xx, no content
@@ -28678,7 +30398,7 @@ match result:
 | Name | Type | Description |
 | --- | --- | --- |
 | <code>device_id</code> | <code>str</code> | The unique identifier of the SCA device to delete. |
-| <code>request_options</code> | <code>[RequestOptionsOrDict](adyen/core/request_options.py) \| None</code> | Per-call overrides for this one request, such as a timeout or extra headers. |
+| <code>request_options</code> | <code>[RequestOptionsOrDict](adyen/core/request_options.py) \| None</code> | Per-call overrides for this one request, such as a timeout, extra headers, or its retry count and statuses. |
 
 </dd>
 </dl>
@@ -28733,7 +30453,12 @@ Finishes the registration process for a new Strong Customer Authentication (SCA)
 **Sync**
 
 ```python
-result = client.sca_device_management.with_raw_response.patch_sca_devices_device_id(device_id)
+result = client.sca_device_management.with_raw_response.patch_sca_devices_device_id(
+    "some example string",
+    body=FinishScaDeviceRegistrationRequest(
+        sdk_output="eyJjaGFsbGVuZ2UiOiJVWEZaTURONGNXWjZUVFExUlhWV2JuaEJPVzVzTm05cVVEUktUbFZtZGtrPSJ9"
+    ),
+)
 match result:
     case Success(payload=payload):
         ...  # TODO: Handle 'payload' of type FinishScaDeviceRegistrationResponse
@@ -28744,7 +30469,12 @@ match result:
 **Async**
 
 ```python
-result = await async_client.sca_device_management.with_raw_response.patch_sca_devices_device_id(device_id)
+result = await async_client.sca_device_management.with_raw_response.patch_sca_devices_device_id(
+    "some example string",
+    body=FinishScaDeviceRegistrationRequest(
+        sdk_output="eyJjaGFsbGVuZ2UiOiJVWEZaTURONGNXWjZUVFExUlhWV2JuaEJPVzVzTm05cVVEUktUbFZtZGtrPSJ9"
+    ),
+)
 match result:
     case Success(payload=payload):
         ...  # TODO: Handle 'payload' of type FinishScaDeviceRegistrationResponse
@@ -28764,7 +30494,7 @@ match result:
 | --- | --- | --- |
 | <code>device_id</code> | <code>str</code> | The unique identifier of the SCA device that you are associating with a resource. |
 | <code>body</code> | <code>[FinishScaDeviceRegistrationRequest](adyen/models/finish_sca_device_registration_request.py) \| [FinishScaDeviceRegistrationRequestDict](adyen/models/finish_sca_device_registration_request.py) \| None</code> | The request body.<br>**Default**: <code>None</code> |
-| <code>request_options</code> | <code>[RequestOptionsOrDict](adyen/core/request_options.py) \| None</code> | Per-call overrides for this one request, such as a timeout or extra headers. |
+| <code>request_options</code> | <code>[RequestOptionsOrDict](adyen/core/request_options.py) \| None</code> | Per-call overrides for this one request, such as a timeout, extra headers, or its retry count and statuses. |
 
 </dd>
 </dl>
@@ -28819,7 +30549,11 @@ Begins the registration process for a new Strong Customer Authentication (SCA) d
 **Sync**
 
 ```python
-result = client.sca_device_management.with_raw_response.post_sca_devices()
+result = client.sca_device_management.with_raw_response.post_sca_devices(
+    body=BeginScaDeviceRegistrationRequest(
+        name="My Device", sdk_output="eyJjaGFsbGVuZ2UiOiJVWEZaTURONGNXWjZUVFExUlhWV2JuaEJPVzVzTm05cVVEUktUbFZtZGtrPSJ9"
+    ),
+)
 match result:
     case Success(payload=payload):
         ...  # TODO: Handle 'payload' of type BeginScaDeviceRegistrationResponse
@@ -28830,7 +30564,11 @@ match result:
 **Async**
 
 ```python
-result = await async_client.sca_device_management.with_raw_response.post_sca_devices()
+result = await async_client.sca_device_management.with_raw_response.post_sca_devices(
+    body=BeginScaDeviceRegistrationRequest(
+        name="My Device", sdk_output="eyJjaGFsbGVuZ2UiOiJVWEZaTURONGNXWjZUVFExUlhWV2JuaEJPVzVzTm05cVVEUktUbFZtZGtrPSJ9"
+    ),
+)
 match result:
     case Success(payload=payload):
         ...  # TODO: Handle 'payload' of type BeginScaDeviceRegistrationResponse
@@ -28849,7 +30587,7 @@ match result:
 | Name | Type | Description |
 | --- | --- | --- |
 | <code>body</code> | <code>[BeginScaDeviceRegistrationRequest](adyen/models/begin_sca_device_registration_request.py) \| [BeginScaDeviceRegistrationRequestDict](adyen/models/begin_sca_device_registration_request.py) \| None</code> | The request body.<br>**Default**: <code>None</code> |
-| <code>request_options</code> | <code>[RequestOptionsOrDict](adyen/core/request_options.py) \| None</code> | Per-call overrides for this one request, such as a timeout or extra headers. |
+| <code>request_options</code> | <code>[RequestOptionsOrDict](adyen/core/request_options.py) \| None</code> | Per-call overrides for this one request, such as a timeout, extra headers, or its retry count and statuses. |
 
 </dd>
 </dl>
@@ -28904,7 +30642,12 @@ Creates an association between an SCA-enabled device and an entity, such as an a
 **Sync**
 
 ```python
-result = client.sca_device_management.with_raw_response.post_sca_devices_device_id_sca_associations(device_id)
+result = client.sca_device_management.with_raw_response.post_sca_devices_device_id_sca_associations(
+    "some example string",
+    body=SubmitScaAssociationRequest(
+        entities=[ScaEntity(id="AH00000000000000000000001", type_=ScaEntityType4.ACCOUNT_HOLDER)]
+    ),
+)
 match result:
     case Success(payload=payload):
         ...  # TODO: Handle 'payload' of type SubmitScaAssociationResponse
@@ -28916,7 +30659,10 @@ match result:
 
 ```python
 result = await async_client.sca_device_management.with_raw_response.post_sca_devices_device_id_sca_associations(
-    device_id
+    "some example string",
+    body=SubmitScaAssociationRequest(
+        entities=[ScaEntity(id="AH00000000000000000000001", type_=ScaEntityType4.ACCOUNT_HOLDER)]
+    ),
 )
 match result:
     case Success(payload=payload):
@@ -28937,7 +30683,7 @@ match result:
 | --- | --- | --- |
 | <code>device_id</code> | <code>str</code> | The unique identifier of the SCA device that you are associating with a resource. |
 | <code>body</code> | <code>[SubmitScaAssociationRequest](adyen/models/submit_sca_association_request.py) \| [SubmitScaAssociationRequestDict](adyen/models/submit_sca_association_request.py) \| None</code> | The request body.<br>**Default**: <code>None</code> |
-| <code>request_options</code> | <code>[RequestOptionsOrDict](adyen/core/request_options.py) \| None</code> | Per-call overrides for this one request, such as a timeout or extra headers. |
+| <code>request_options</code> | <code>[RequestOptionsOrDict](adyen/core/request_options.py) \| None</code> | Per-call overrides for this one request, such as a timeout, extra headers, or its retry count and statuses. |
 
 </dd>
 </dl>
@@ -28996,7 +30742,11 @@ Establishes a secure communication session between the Mobile SDK and the Adyen 
 **Sync**
 
 ```python
-result = client.session_authentication.with_raw_response.post_auth_certificate()
+result = client.session_authentication.with_raw_response.post_auth_certificate(
+    body=CertificateLoadingRequest(
+        merchant_account="YOUR_MERCHANT_ACCOUNT", setup_token="SETUP_TOKEN", store="YOUR_STORE_REFERENCE"
+    ),
+)
 match result:
     case Success(payload=payload):
         ...  # TODO: Handle 'payload' of type CertificateLoadingResponse
@@ -29007,7 +30757,11 @@ match result:
 **Async**
 
 ```python
-result = await async_client.session_authentication.with_raw_response.post_auth_certificate()
+result = await async_client.session_authentication.with_raw_response.post_auth_certificate(
+    body=CertificateLoadingRequest(
+        merchant_account="YOUR_MERCHANT_ACCOUNT", setup_token="SETUP_TOKEN", store="YOUR_STORE_REFERENCE"
+    ),
+)
 match result:
     case Success(payload=payload):
         ...  # TODO: Handle 'payload' of type CertificateLoadingResponse
@@ -29027,7 +30781,7 @@ match result:
 | --- | --- | --- |
 | <code>x_api_key</code> | <code>str \| None</code> | The API key to authenticate API requests.<br>**Default**: <code>None</code> |
 | <code>body</code> | <code>[CertificateLoadingRequest](adyen/models/certificate_loading_request.py) \| [CertificateLoadingRequestDict](adyen/models/certificate_loading_request.py) \| None</code> | The request body.<br>**Default**: <code>None</code> |
-| <code>request_options</code> | <code>[RequestOptionsOrDict](adyen/core/request_options.py) \| None</code> | Per-call overrides for this one request, such as a timeout or extra headers. |
+| <code>request_options</code> | <code>[RequestOptionsOrDict](adyen/core/request_options.py) \| None</code> | Per-call overrides for this one request, such as a timeout, extra headers, or its retry count and statuses. |
 
 </dd>
 </dl>
@@ -29086,7 +30840,16 @@ To create a token, you must meet specific requirements. These requirements vary 
 **Sync**
 
 ```python
-result = client.session_authentication.with_raw_response.post_sessions2(body)
+result = client.session_authentication.with_raw_response.post_sessions2(
+    AuthenticationSessionRequest(
+        allow_origin="https://www.your-website.com",
+        policy=Policy2(
+            resources=[LegalEntityResource(type_="legalEntity", legal_entity_id="LE00000000000000000000001")],
+            roles=["createTransferInstrumentComponent", "manageTransferInstrumentComponent"],
+        ),
+        product=ProductType2.ONBOARDING,
+    ),
+)
 match result:
     case Success(payload=payload):
         ...  # TODO: Handle 'payload' of type AuthenticationSessionResponse
@@ -29097,7 +30860,16 @@ match result:
 **Async**
 
 ```python
-result = await async_client.session_authentication.with_raw_response.post_sessions2(body)
+result = await async_client.session_authentication.with_raw_response.post_sessions2(
+    AuthenticationSessionRequest(
+        allow_origin="https://www.your-website.com",
+        policy=Policy2(
+            resources=[LegalEntityResource(type_="legalEntity", legal_entity_id="LE00000000000000000000001")],
+            roles=["createTransferInstrumentComponent", "manageTransferInstrumentComponent"],
+        ),
+        product=ProductType2.ONBOARDING,
+    ),
+)
 match result:
     case Success(payload=payload):
         ...  # TODO: Handle 'payload' of type AuthenticationSessionResponse
@@ -29116,7 +30888,7 @@ match result:
 | Name | Type | Description |
 | --- | --- | --- |
 | <code>body</code> | <code>[AuthenticationSessionRequest](adyen/models/authentication_session_request.py) \| [AuthenticationSessionRequestDict](adyen/models/authentication_session_request.py)</code> | The request body. |
-| <code>request_options</code> | <code>[RequestOptionsOrDict](adyen/core/request_options.py) \| None</code> | Per-call overrides for this one request, such as a timeout or extra headers. |
+| <code>request_options</code> | <code>[RequestOptionsOrDict](adyen/core/request_options.py) \| None</code> | Per-call overrides for this one request, such as a timeout, extra headers, or its retry count and statuses. |
 
 </dd>
 </dl>
@@ -29179,7 +30951,7 @@ To make this request, your API credential must have the following [role](https:/
 
 ```python
 result = client.split_configuration_merchant_level.with_raw_response.delete_merchants_merchant_id_split_configurations_split_configuration_id(
-    merchant_id, split_configuration_id
+    "some example string", "some example string"
 )
 match result:
     case Success(payload=payload):
@@ -29192,7 +30964,7 @@ match result:
 
 ```python
 result = await async_client.split_configuration_merchant_level.with_raw_response.delete_merchants_merchant_id_split_configurations_split_configuration_id(
-    merchant_id, split_configuration_id
+    "some example string", "some example string"
 )
 match result:
     case Success(payload=payload):
@@ -29213,7 +30985,7 @@ match result:
 | --- | --- | --- |
 | <code>merchant_id</code> | <code>str</code> | The unique identifier of the merchant account. |
 | <code>split_configuration_id</code> | <code>str</code> | The unique identifier of the split configuration. |
-| <code>request_options</code> | <code>[RequestOptionsOrDict](adyen/core/request_options.py) \| None</code> | Per-call overrides for this one request, such as a timeout or extra headers. |
+| <code>request_options</code> | <code>[RequestOptionsOrDict](adyen/core/request_options.py) \| None</code> | Per-call overrides for this one request, such as a timeout, extra headers, or its retry count and statuses. |
 
 </dd>
 </dl>
@@ -29272,7 +31044,7 @@ To make this request, your API credential must have the following [role](https:/
 
 ```python
 result = client.split_configuration_merchant_level.with_raw_response.delete_merchants_merchant_id_split_configurations_split_configuration_id_rules_rule_id(
-    merchant_id, split_configuration_id, rule_id
+    "some example string", "some example string", "some example string"
 )
 match result:
     case Success(payload=payload):
@@ -29287,7 +31059,7 @@ match result:
 
 ```python
 result = await async_client.split_configuration_merchant_level.with_raw_response.delete_merchants_merchant_id_split_configurations_split_configuration_id_rules_rule_id(
-    merchant_id, split_configuration_id, rule_id
+    "some example string", "some example string", "some example string"
 )
 match result:
     case Success(payload=payload):
@@ -29311,7 +31083,7 @@ match result:
 | <code>merchant_id</code> | <code>str</code> | The unique identifier of the merchant account. |
 | <code>split_configuration_id</code> | <code>str</code> | The unique identifier of the split configuration. |
 | <code>rule_id</code> | <code>str</code> | Value sent with the request. |
-| <code>request_options</code> | <code>[RequestOptionsOrDict](adyen/core/request_options.py) \| None</code> | Per-call overrides for this one request, such as a timeout or extra headers. |
+| <code>request_options</code> | <code>[RequestOptionsOrDict](adyen/core/request_options.py) \| None</code> | Per-call overrides for this one request, such as a timeout, extra headers, or its retry count and statuses. |
 
 </dd>
 </dl>
@@ -29370,7 +31142,7 @@ To make this request, your API credential must have the following [role](https:/
 
 ```python
 result = client.split_configuration_merchant_level.with_raw_response.get_merchants_merchant_id_split_configurations(
-    merchant_id
+    "some example string"
 )
 match result:
     case Success(payload=payload):
@@ -29383,7 +31155,7 @@ match result:
 
 ```python
 result = await async_client.split_configuration_merchant_level.with_raw_response.get_merchants_merchant_id_split_configurations(
-    merchant_id
+    "some example string"
 )
 match result:
     case Success(payload=payload):
@@ -29403,7 +31175,7 @@ match result:
 | Name | Type | Description |
 | --- | --- | --- |
 | <code>merchant_id</code> | <code>str</code> | The unique identifier of the merchant account. |
-| <code>request_options</code> | <code>[RequestOptionsOrDict](adyen/core/request_options.py) \| None</code> | Per-call overrides for this one request, such as a timeout or extra headers. |
+| <code>request_options</code> | <code>[RequestOptionsOrDict](adyen/core/request_options.py) \| None</code> | Per-call overrides for this one request, such as a timeout, extra headers, or its retry count and statuses. |
 
 </dd>
 </dl>
@@ -29462,7 +31234,7 @@ To make this request, your API credential must have the following [role](https:/
 
 ```python
 result = client.split_configuration_merchant_level.with_raw_response.get_merchants_merchant_id_split_configurations_split_configuration_id(
-    merchant_id, split_configuration_id
+    "some example string", "some example string"
 )
 match result:
     case Success(payload=payload):
@@ -29475,7 +31247,7 @@ match result:
 
 ```python
 result = await async_client.split_configuration_merchant_level.with_raw_response.get_merchants_merchant_id_split_configurations_split_configuration_id(
-    merchant_id, split_configuration_id
+    "some example string", "some example string"
 )
 match result:
     case Success(payload=payload):
@@ -29496,7 +31268,7 @@ match result:
 | --- | --- | --- |
 | <code>merchant_id</code> | <code>str</code> | The unique identifier of the merchant account. |
 | <code>split_configuration_id</code> | <code>str</code> | The unique identifier of the split configuration. |
-| <code>request_options</code> | <code>[RequestOptionsOrDict](adyen/core/request_options.py) \| None</code> | Per-call overrides for this one request, such as a timeout or extra headers. |
+| <code>request_options</code> | <code>[RequestOptionsOrDict](adyen/core/request_options.py) \| None</code> | Per-call overrides for this one request, such as a timeout, extra headers, or its retry count and statuses. |
 
 </dd>
 </dl>
@@ -29555,7 +31327,9 @@ To make this request, your API credential must have the following [role](https:/
 
 ```python
 result = client.split_configuration_merchant_level.with_raw_response.patch_merchants_merchant_id_split_configurations_split_configuration_id(
-    merchant_id, split_configuration_id
+    "some example string",
+    "some example string",
+    body=UpdateSplitConfigurationRequest(description="Updated description for the split configuration"),
 )
 match result:
     case Success(payload=payload):
@@ -29568,7 +31342,9 @@ match result:
 
 ```python
 result = await async_client.split_configuration_merchant_level.with_raw_response.patch_merchants_merchant_id_split_configurations_split_configuration_id(
-    merchant_id, split_configuration_id
+    "some example string",
+    "some example string",
+    body=UpdateSplitConfigurationRequest(description="Updated description for the split configuration"),
 )
 match result:
     case Success(payload=payload):
@@ -29590,7 +31366,7 @@ match result:
 | <code>merchant_id</code> | <code>str</code> | The unique identifier of the merchant account. |
 | <code>split_configuration_id</code> | <code>str</code> | The unique identifier of the split configuration. |
 | <code>body</code> | <code>[UpdateSplitConfigurationRequest](adyen/models/update_split_configuration_request.py) \| [UpdateSplitConfigurationRequestDict](adyen/models/update_split_configuration_request.py) \| None</code> | The request body.<br>**Default**: <code>None</code> |
-| <code>request_options</code> | <code>[RequestOptionsOrDict](adyen/core/request_options.py) \| None</code> | Per-call overrides for this one request, such as a timeout or extra headers. |
+| <code>request_options</code> | <code>[RequestOptionsOrDict](adyen/core/request_options.py) \| None</code> | Per-call overrides for this one request, such as a timeout, extra headers, or its retry count and statuses. |
 
 </dd>
 </dl>
@@ -29649,7 +31425,12 @@ To make this request, your API credential must have the following [role](https:/
 
 ```python
 result = client.split_configuration_merchant_level.with_raw_response.patch_merchants_merchant_id_split_configurations_split_configuration_id_rules_rule_id(
-    merchant_id, split_configuration_id, rule_id
+    "some example string",
+    "some example string",
+    "some example string",
+    body=UpdateSplitConfigurationRuleRequest(
+        currency="EUR", funding_source="ANY", payment_method="visa", shopper_interaction="ANY"
+    ),
 )
 match result:
     case Success(payload=payload):
@@ -29664,7 +31445,12 @@ match result:
 
 ```python
 result = await async_client.split_configuration_merchant_level.with_raw_response.patch_merchants_merchant_id_split_configurations_split_configuration_id_rules_rule_id(
-    merchant_id, split_configuration_id, rule_id
+    "some example string",
+    "some example string",
+    "some example string",
+    body=UpdateSplitConfigurationRuleRequest(
+        currency="EUR", funding_source="ANY", payment_method="visa", shopper_interaction="ANY"
+    ),
 )
 match result:
     case Success(payload=payload):
@@ -29689,7 +31475,7 @@ match result:
 | <code>split_configuration_id</code> | <code>str</code> | The identifier of the split configuration. |
 | <code>rule_id</code> | <code>str</code> | The unique identifier of the split configuration rule. |
 | <code>body</code> | <code>[UpdateSplitConfigurationRuleRequest](adyen/models/update_split_configuration_rule_request.py) \| [UpdateSplitConfigurationRuleRequestDict](adyen/models/update_split_configuration_rule_request.py) \| None</code> | The request body.<br>**Default**: <code>None</code> |
-| <code>request_options</code> | <code>[RequestOptionsOrDict](adyen/core/request_options.py) \| None</code> | Per-call overrides for this one request, such as a timeout or extra headers. |
+| <code>request_options</code> | <code>[RequestOptionsOrDict](adyen/core/request_options.py) \| None</code> | Per-call overrides for this one request, such as a timeout, extra headers, or its retry count and statuses. |
 
 </dd>
 </dl>
@@ -29748,7 +31534,20 @@ To make this request, your API credential must have the following [role](https:/
 
 ```python
 result = client.split_configuration_merchant_level.with_raw_response.patch_merchants_split_configurations_rules_split_logic(
-    merchant_id, split_configuration_id, rule_id, split_logic_id
+    "some example string",
+    "some example string",
+    "some example string",
+    "some example string",
+    body=UpdateSplitConfigurationLogicRequest(
+        additional_commission=AdditionalCommission1(
+            balance_account_id="BA3227C223222H5HQ2XX77VVH", fixed_amount=100, variable_percentage=0
+        ),
+        chargeback=Behavior.DEDUCT_FROM_LIABLE_ACCOUNT,
+        commission=Commission1(fixed_amount=100, variable_percentage=100),
+        payment_fee=PaymentFee.DEDUCT_FROM_LIABLE_ACCOUNT,
+        remainder=Remainder.ADD_TO_LIABLE_ACCOUNT,
+        tip=Tip.ADD_TO_LIABLE_ACCOUNT,
+    ),
 )
 match result:
     case Success(payload=payload):
@@ -29761,7 +31560,20 @@ match result:
 
 ```python
 result = await async_client.split_configuration_merchant_level.with_raw_response.patch_merchants_split_configurations_rules_split_logic(
-    merchant_id, split_configuration_id, rule_id, split_logic_id
+    "some example string",
+    "some example string",
+    "some example string",
+    "some example string",
+    body=UpdateSplitConfigurationLogicRequest(
+        additional_commission=AdditionalCommission1(
+            balance_account_id="BA3227C223222H5HQ2XX77VVH", fixed_amount=100, variable_percentage=0
+        ),
+        chargeback=Behavior.DEDUCT_FROM_LIABLE_ACCOUNT,
+        commission=Commission1(fixed_amount=100, variable_percentage=100),
+        payment_fee=PaymentFee.DEDUCT_FROM_LIABLE_ACCOUNT,
+        remainder=Remainder.ADD_TO_LIABLE_ACCOUNT,
+        tip=Tip.ADD_TO_LIABLE_ACCOUNT,
+    ),
 )
 match result:
     case Success(payload=payload):
@@ -29785,7 +31597,7 @@ match result:
 | <code>rule_id</code> | <code>str</code> | The unique identifier of the split configuration rule. |
 | <code>split_logic_id</code> | <code>str</code> | The unique identifier of the split configuration split. |
 | <code>body</code> | <code>[UpdateSplitConfigurationLogicRequest](adyen/models/update_split_configuration_logic_request.py) \| [UpdateSplitConfigurationLogicRequestDict](adyen/models/update_split_configuration_logic_request.py) \| None</code> | The request body.<br>**Default**: <code>None</code> |
-| <code>request_options</code> | <code>[RequestOptionsOrDict](adyen/core/request_options.py) \| None</code> | Per-call overrides for this one request, such as a timeout or extra headers. |
+| <code>request_options</code> | <code>[RequestOptionsOrDict](adyen/core/request_options.py) \| None</code> | Per-call overrides for this one request, such as a timeout, extra headers, or its retry count and statuses. |
 
 </dd>
 </dl>
@@ -29844,7 +31656,26 @@ To make this request, your API credential must have the following [role](https:/
 
 ```python
 result = client.split_configuration_merchant_level.with_raw_response.post_merchants_merchant_id_split_configurations(
-    merchant_id
+    "some example string",
+    body=SplitConfiguration(
+        description="Your description for the split configuration",
+        rules=[
+            SplitConfigurationRule(
+                currency="ANY",
+                funding_source=FundingSource1.ANY,
+                payment_method="ANY",
+                shopper_interaction=ShopperInteraction11.ANY,
+                split_logic=SplitConfigurationLogic2(
+                    additional_commission=AdditionalCommission1(),
+                    chargeback=Behavior.DEDUCT_FROM_LIABLE_ACCOUNT,
+                    commission=Commission1(),
+                    payment_fee=PaymentFee.DEDUCT_FROM_LIABLE_ACCOUNT,
+                    remainder=Remainder.ADD_TO_ONE_BALANCE_ACCOUNT,
+                    tip=Tip.ADD_TO_ONE_BALANCE_ACCOUNT,
+                ),
+            ),
+        ],
+    ),
 )
 match result:
     case Success(payload=payload):
@@ -29857,7 +31688,26 @@ match result:
 
 ```python
 result = await async_client.split_configuration_merchant_level.with_raw_response.post_merchants_merchant_id_split_configurations(
-    merchant_id
+    "some example string",
+    body=SplitConfiguration(
+        description="Your description for the split configuration",
+        rules=[
+            SplitConfigurationRule(
+                currency="ANY",
+                funding_source=FundingSource1.ANY,
+                payment_method="ANY",
+                shopper_interaction=ShopperInteraction11.ANY,
+                split_logic=SplitConfigurationLogic2(
+                    additional_commission=AdditionalCommission1(),
+                    chargeback=Behavior.DEDUCT_FROM_LIABLE_ACCOUNT,
+                    commission=Commission1(),
+                    payment_fee=PaymentFee.DEDUCT_FROM_LIABLE_ACCOUNT,
+                    remainder=Remainder.ADD_TO_ONE_BALANCE_ACCOUNT,
+                    tip=Tip.ADD_TO_ONE_BALANCE_ACCOUNT,
+                ),
+            ),
+        ],
+    ),
 )
 match result:
     case Success(payload=payload):
@@ -29878,7 +31728,7 @@ match result:
 | --- | --- | --- |
 | <code>merchant_id</code> | <code>str</code> | The unique identifier of the merchant account. |
 | <code>body</code> | <code>[SplitConfiguration](adyen/models/split_configuration.py) \| [SplitConfigurationDict](adyen/models/split_configuration.py) \| None</code> | The request body.<br>**Default**: <code>None</code> |
-| <code>request_options</code> | <code>[RequestOptionsOrDict](adyen/core/request_options.py) \| None</code> | Per-call overrides for this one request, such as a timeout or extra headers. |
+| <code>request_options</code> | <code>[RequestOptionsOrDict](adyen/core/request_options.py) \| None</code> | Per-call overrides for this one request, such as a timeout, extra headers, or its retry count and statuses. |
 
 </dd>
 </dl>
@@ -29937,7 +31787,24 @@ To make this request, your API credential must have the following [role](https:/
 
 ```python
 result = client.split_configuration_merchant_level.with_raw_response.post_merchants_merchant_id_split_configurations_split_configuration_id(
-    merchant_id, split_configuration_id
+    "some example string",
+    "some example string",
+    body=SplitConfigurationRule(
+        currency="USD",
+        funding_source=FundingSource1.ANY,
+        payment_method="visa",
+        shopper_interaction=ShopperInteraction11.POS,
+        split_logic=SplitConfigurationLogic2(
+            additional_commission=AdditionalCommission1(
+                balance_account_id="BA3227C223222H5HQ2XX77VVH", fixed_amount=10, variable_percentage=50
+            ),
+            chargeback=Behavior.DEDUCT_FROM_LIABLE_ACCOUNT,
+            commission=Commission1(fixed_amount=10, variable_percentage=100),
+            payment_fee=PaymentFee.DEDUCT_FROM_LIABLE_ACCOUNT,
+            remainder=Remainder.ADD_TO_LIABLE_ACCOUNT,
+            tip=Tip.ADD_TO_ONE_BALANCE_ACCOUNT,
+        ),
+    ),
 )
 match result:
     case Success(payload=payload):
@@ -29950,7 +31817,24 @@ match result:
 
 ```python
 result = await async_client.split_configuration_merchant_level.with_raw_response.post_merchants_merchant_id_split_configurations_split_configuration_id(
-    merchant_id, split_configuration_id
+    "some example string",
+    "some example string",
+    body=SplitConfigurationRule(
+        currency="USD",
+        funding_source=FundingSource1.ANY,
+        payment_method="visa",
+        shopper_interaction=ShopperInteraction11.POS,
+        split_logic=SplitConfigurationLogic2(
+            additional_commission=AdditionalCommission1(
+                balance_account_id="BA3227C223222H5HQ2XX77VVH", fixed_amount=10, variable_percentage=50
+            ),
+            chargeback=Behavior.DEDUCT_FROM_LIABLE_ACCOUNT,
+            commission=Commission1(fixed_amount=10, variable_percentage=100),
+            payment_fee=PaymentFee.DEDUCT_FROM_LIABLE_ACCOUNT,
+            remainder=Remainder.ADD_TO_LIABLE_ACCOUNT,
+            tip=Tip.ADD_TO_ONE_BALANCE_ACCOUNT,
+        ),
+    ),
 )
 match result:
     case Success(payload=payload):
@@ -29972,7 +31856,7 @@ match result:
 | <code>merchant_id</code> | <code>str</code> | The unique identifier of the merchant account. |
 | <code>split_configuration_id</code> | <code>str</code> | The unique identifier of the split configuration. |
 | <code>body</code> | <code>[SplitConfigurationRule](adyen/models/split_configuration_rule.py) \| [SplitConfigurationRuleDict](adyen/models/split_configuration_rule.py) \| None</code> | The request body.<br>**Default**: <code>None</code> |
-| <code>request_options</code> | <code>[RequestOptionsOrDict](adyen/core/request_options.py) \| None</code> | Per-call overrides for this one request, such as a timeout or extra headers. |
+| <code>request_options</code> | <code>[RequestOptionsOrDict](adyen/core/request_options.py) \| None</code> | Per-call overrides for this one request, such as a timeout, extra headers, or its retry count and statuses. |
 
 </dd>
 </dl>
@@ -30008,7 +31892,7 @@ Mapped in first-match order -- an earlier row wins over a later range that also 
 > Source: [TaxEDeliveryConsent](adyen/apis/tax_e_delivery_consent.py)
 
 <details>
-<summary><code>def post_legal_entities_id_check_tax_electronic_delivery_consent(id: str, *, request_options: RequestOptionsOrDict | None = None) -> ApiResult[CheckTaxElectronicDeliveryConsentResponse, PostLegalEntitiesIdCheckTaxElectronicDeliveryConsentErrorBody]</code></summary>
+<summary><code>def post_legal_entities_id_check_tax_electronic_delivery_consent(id_: str, *, request_options: RequestOptionsOrDict | None = None) -> ApiResult[CheckTaxElectronicDeliveryConsentResponse, PostLegalEntitiesIdCheckTaxElectronicDeliveryConsentErrorBody]</code></summary>
 
 <dl>
 <dd>
@@ -30040,7 +31924,7 @@ Requests to this endpoint are subject to rate limits:
 
 ```python
 result = client.tax_e_delivery_consent.with_raw_response.post_legal_entities_id_check_tax_electronic_delivery_consent(
-    id
+    "some example string"
 )
 match result:
     case Success(payload=payload):
@@ -30053,7 +31937,7 @@ match result:
 
 ```python
 result = await async_client.tax_e_delivery_consent.with_raw_response.post_legal_entities_id_check_tax_electronic_delivery_consent(
-    id
+    "some example string"
 )
 match result:
     case Success(payload=payload):
@@ -30072,8 +31956,8 @@ match result:
 
 | Name | Type | Description |
 | --- | --- | --- |
-| <code>id</code> | <code>str</code> | The unique identifier of the legal entity. For sole proprietorships, this is the individual legal entity ID of the owner. For organizations, this is the ID of the organization. |
-| <code>request_options</code> | <code>[RequestOptionsOrDict](adyen/core/request_options.py) \| None</code> | Per-call overrides for this one request, such as a timeout or extra headers. |
+| <code>id_</code> | <code>str</code> | The unique identifier of the legal entity. For sole proprietorships, this is the individual legal entity ID of the owner. For organizations, this is the ID of the organization. |
+| <code>request_options</code> | <code>[RequestOptionsOrDict](adyen/core/request_options.py) \| None</code> | Per-call overrides for this one request, such as a timeout, extra headers, or its retry count and statuses. |
 
 </dd>
 </dl>
@@ -30105,7 +31989,7 @@ Mapped in first-match order -- an earlier row wins over a later range that also 
 </details>
 
 <details>
-<summary><code>def post_legal_entities_id_set_tax_electronic_delivery_consent(id: str, *, body: SetTaxElectronicDeliveryConsentRequest | SetTaxElectronicDeliveryConsentRequestDict | None = None, request_options: RequestOptionsOrDict | None = None) -> ApiResult[None, PostLegalEntitiesIdSetTaxElectronicDeliveryConsentErrorBody]</code></summary>
+<summary><code>def post_legal_entities_id_set_tax_electronic_delivery_consent(id_: str, *, body: SetTaxElectronicDeliveryConsentRequest | SetTaxElectronicDeliveryConsentRequestDict | None = None, request_options: RequestOptionsOrDict | None = None) -> ApiResult[None, PostLegalEntitiesIdSetTaxElectronicDeliveryConsentErrorBody]</code></summary>
 
 <dl>
 <dd>
@@ -30136,7 +32020,9 @@ Requests to this endpoint are subject to rate limits:
 **Sync**
 
 ```python
-result = client.tax_e_delivery_consent.with_raw_response.post_legal_entities_id_set_tax_electronic_delivery_consent(id)
+result = client.tax_e_delivery_consent.with_raw_response.post_legal_entities_id_set_tax_electronic_delivery_consent(
+    "some example string"
+)
 match result:
     case Success():
         ...  # 2xx, no content
@@ -30148,7 +32034,7 @@ match result:
 
 ```python
 result = await async_client.tax_e_delivery_consent.with_raw_response.post_legal_entities_id_set_tax_electronic_delivery_consent(
-    id
+    "some example string"
 )
 match result:
     case Success():
@@ -30167,9 +32053,9 @@ match result:
 
 | Name | Type | Description |
 | --- | --- | --- |
-| <code>id</code> | <code>str</code> | The unique identifier of the legal entity. For sole proprietorships, this is the individual legal entity ID of the owner. For organizations, this is the ID of the organization. |
+| <code>id_</code> | <code>str</code> | The unique identifier of the legal entity. For sole proprietorships, this is the individual legal entity ID of the owner. For organizations, this is the ID of the organization. |
 | <code>body</code> | <code>[SetTaxElectronicDeliveryConsentRequest](adyen/models/set_tax_electronic_delivery_consent_request.py) \| [SetTaxElectronicDeliveryConsentRequestDict](adyen/models/set_tax_electronic_delivery_consent_request.py) \| None</code> | The request body.<br>**Default**: <code>None</code> |
-| <code>request_options</code> | <code>[RequestOptionsOrDict](adyen/core/request_options.py) \| None</code> | Per-call overrides for this one request, such as a timeout or extra headers. |
+| <code>request_options</code> | <code>[RequestOptionsOrDict](adyen/core/request_options.py) \| None</code> | Per-call overrides for this one request, such as a timeout, extra headers, or its retry count and statuses. |
 
 </dd>
 </dl>
@@ -30233,7 +32119,9 @@ In the live environment, requests to this endpoint are subject to [rate limits](
 **Sync**
 
 ```python
-result = client.terminal_actions_company_level.with_raw_response.get_companies_company_id_terminal_actions(company_id)
+result = client.terminal_actions_company_level.with_raw_response.get_companies_company_id_terminal_actions(
+    "some example string"
+)
 match result:
     case Success(payload=payload):
         ...  # TODO: Handle 'payload' of type ListExternalTerminalActionsResponse
@@ -30245,7 +32133,7 @@ match result:
 
 ```python
 result = await async_client.terminal_actions_company_level.with_raw_response.get_companies_company_id_terminal_actions(
-    company_id
+    "some example string"
 )
 match result:
     case Success(payload=payload):
@@ -30269,7 +32157,7 @@ match result:
 | <code>page_size</code> | <code>int \| None</code> | The number of items to have on a page, maximum 100. The default is 20 items on a page.<br>**Default**: <code>None</code> |
 | <code>status</code> | <code>str \| None</code> | Returns terminal actions with the specified status. <br>Allowed values: **pending**, **successful**, **failed**, **cancelled**, **tryLater**.<br>**Default**: <code>None</code> |
 | <code>type_</code> | <code>str \| None</code> | Returns terminal actions of the specified type. <br>Allowed values: **InstallAndroidApp**, **UninstallAndroidApp**, **InstallAndroidCertificate**, **UninstallAndroidCertificate**.<br>**Default**: <code>None</code> |
-| <code>request_options</code> | <code>[RequestOptionsOrDict](adyen/core/request_options.py) \| None</code> | Per-call overrides for this one request, such as a timeout or extra headers. |
+| <code>request_options</code> | <code>[RequestOptionsOrDict](adyen/core/request_options.py) \| None</code> | Per-call overrides for this one request, such as a timeout, extra headers, or its retry count and statuses. |
 
 </dd>
 </dl>
@@ -30330,7 +32218,7 @@ In the live environment, requests to this endpoint are subject to [rate limits](
 
 ```python
 result = client.terminal_actions_company_level.with_raw_response.get_companies_company_id_terminal_actions_action_id(
-    company_id, action_id
+    "some example string", "some example string"
 )
 match result:
     case Success(payload=payload):
@@ -30343,7 +32231,7 @@ match result:
 
 ```python
 result = await async_client.terminal_actions_company_level.with_raw_response.get_companies_company_id_terminal_actions_action_id(
-    company_id, action_id
+    "some example string", "some example string"
 )
 match result:
     case Success(payload=payload):
@@ -30364,7 +32252,7 @@ match result:
 | --- | --- | --- |
 | <code>company_id</code> | <code>str</code> | The unique identifier of the company account. |
 | <code>action_id</code> | <code>str</code> | The unique identifier of the terminal action. |
-| <code>request_options</code> | <code>[RequestOptionsOrDict](adyen/core/request_options.py) \| None</code> | Per-call overrides for this one request, such as a timeout or extra headers. |
+| <code>request_options</code> | <code>[RequestOptionsOrDict](adyen/core/request_options.py) \| None</code> | Per-call overrides for this one request, such as a timeout, extra headers, or its retry count and statuses. |
 
 </dd>
 </dl>
@@ -30463,7 +32351,7 @@ match result:
 | Name | Type | Description |
 | --- | --- | --- |
 | <code>body</code> | <code>[ScheduleTerminalActionsRequest](adyen/models/schedule_terminal_actions_request.py) \| [ScheduleTerminalActionsRequestDict](adyen/models/schedule_terminal_actions_request.py) \| None</code> | The request body.<br>**Default**: <code>None</code> |
-| <code>request_options</code> | <code>[RequestOptionsOrDict](adyen/core/request_options.py) \| None</code> | Per-call overrides for this one request, such as a timeout or extra headers. |
+| <code>request_options</code> | <code>[RequestOptionsOrDict](adyen/core/request_options.py) \| None</code> | Per-call overrides for this one request, such as a timeout, extra headers, or its retry count and statuses. |
 
 </dd>
 </dl>
@@ -30529,7 +32417,9 @@ In the live environment, requests to this endpoint are subject to [rate limits](
 **Sync**
 
 ```python
-result = client.terminal_orders_company_level.with_raw_response.get_companies_company_id_billing_entities(company_id)
+result = client.terminal_orders_company_level.with_raw_response.get_companies_company_id_billing_entities(
+    "some example string"
+)
 match result:
     case Success(payload=payload):
         ...  # TODO: Handle 'payload' of type BillingEntitiesResponse
@@ -30541,7 +32431,7 @@ match result:
 
 ```python
 result = await async_client.terminal_orders_company_level.with_raw_response.get_companies_company_id_billing_entities(
-    company_id
+    "some example string"
 )
 match result:
     case Success(payload=payload):
@@ -30562,7 +32452,7 @@ match result:
 | --- | --- | --- |
 | <code>company_id</code> | <code>str</code> | The unique identifier of the company account. |
 | <code>name</code> | <code>str \| None</code> | The name of the billing entity.<br>**Default**: <code>None</code> |
-| <code>request_options</code> | <code>[RequestOptionsOrDict](adyen/core/request_options.py) \| None</code> | Per-call overrides for this one request, such as a timeout or extra headers. |
+| <code>request_options</code> | <code>[RequestOptionsOrDict](adyen/core/request_options.py) \| None</code> | Per-call overrides for this one request, such as a timeout, extra headers, or its retry count and statuses. |
 
 </dd>
 </dl>
@@ -30624,7 +32514,9 @@ In the live environment, requests to this endpoint are subject to [rate limits](
 **Sync**
 
 ```python
-result = client.terminal_orders_company_level.with_raw_response.get_companies_company_id_shipping_locations(company_id)
+result = client.terminal_orders_company_level.with_raw_response.get_companies_company_id_shipping_locations(
+    "some example string"
+)
 match result:
     case Success(payload=payload):
         ...  # TODO: Handle 'payload' of type ShippingLocationsResponse
@@ -30636,7 +32528,7 @@ match result:
 
 ```python
 result = await async_client.terminal_orders_company_level.with_raw_response.get_companies_company_id_shipping_locations(
-    company_id
+    "some example string"
 )
 match result:
     case Success(payload=payload):
@@ -30659,7 +32551,7 @@ match result:
 | <code>name</code> | <code>str \| None</code> | The name of the shipping location.<br>**Default**: <code>None</code> |
 | <code>offset</code> | <code>int \| None</code> | The number of locations to skip.<br>**Default**: <code>None</code> |
 | <code>limit</code> | <code>int \| None</code> | The number of locations to return.<br>**Default**: <code>None</code> |
-| <code>request_options</code> | <code>[RequestOptionsOrDict](adyen/core/request_options.py) \| None</code> | Per-call overrides for this one request, such as a timeout or extra headers. |
+| <code>request_options</code> | <code>[RequestOptionsOrDict](adyen/core/request_options.py) \| None</code> | Per-call overrides for this one request, such as a timeout, extra headers, or its retry count and statuses. |
 
 </dd>
 </dl>
@@ -30721,7 +32613,9 @@ In the live environment, requests to this endpoint are subject to [rate limits](
 **Sync**
 
 ```python
-result = client.terminal_orders_company_level.with_raw_response.get_companies_company_id_terminal_models(company_id)
+result = client.terminal_orders_company_level.with_raw_response.get_companies_company_id_terminal_models(
+    "some example string"
+)
 match result:
     case Success(payload=payload):
         ...  # TODO: Handle 'payload' of type TerminalModelsResponse
@@ -30733,7 +32627,7 @@ match result:
 
 ```python
 result = await async_client.terminal_orders_company_level.with_raw_response.get_companies_company_id_terminal_models(
-    company_id
+    "some example string"
 )
 match result:
     case Success(payload=payload):
@@ -30753,7 +32647,7 @@ match result:
 | Name | Type | Description |
 | --- | --- | --- |
 | <code>company_id</code> | <code>str</code> | The unique identifier of the company account. |
-| <code>request_options</code> | <code>[RequestOptionsOrDict](adyen/core/request_options.py) \| None</code> | Per-call overrides for this one request, such as a timeout or extra headers. |
+| <code>request_options</code> | <code>[RequestOptionsOrDict](adyen/core/request_options.py) \| None</code> | Per-call overrides for this one request, such as a timeout, extra headers, or its retry count and statuses. |
 
 </dd>
 </dl>
@@ -30815,7 +32709,9 @@ In the live environment, requests to this endpoint are subject to [rate limits](
 **Sync**
 
 ```python
-result = client.terminal_orders_company_level.with_raw_response.get_companies_company_id_terminal_orders(company_id)
+result = client.terminal_orders_company_level.with_raw_response.get_companies_company_id_terminal_orders(
+    "some example string"
+)
 match result:
     case Success(payload=payload):
         ...  # TODO: Handle 'payload' of type TerminalOrdersResponse
@@ -30827,7 +32723,7 @@ match result:
 
 ```python
 result = await async_client.terminal_orders_company_level.with_raw_response.get_companies_company_id_terminal_orders(
-    company_id
+    "some example string"
 )
 match result:
     case Success(payload=payload):
@@ -30851,7 +32747,7 @@ match result:
 | <code>status</code> | <code>str \| None</code> | The order status. Possible values (not case-sensitive): Placed, Confirmed, Cancelled, Shipped, Delivered.<br>**Default**: <code>None</code> |
 | <code>offset</code> | <code>int \| None</code> | The number of orders to skip.<br>**Default**: <code>None</code> |
 | <code>limit</code> | <code>int \| None</code> | The number of orders to return.<br>**Default**: <code>None</code> |
-| <code>request_options</code> | <code>[RequestOptionsOrDict](adyen/core/request_options.py) \| None</code> | Per-call overrides for this one request, such as a timeout or extra headers. |
+| <code>request_options</code> | <code>[RequestOptionsOrDict](adyen/core/request_options.py) \| None</code> | Per-call overrides for this one request, such as a timeout, extra headers, or its retry count and statuses. |
 
 </dd>
 </dl>
@@ -30913,7 +32809,7 @@ In the live environment, requests to this endpoint are subject to [rate limits](
 
 ```python
 result = client.terminal_orders_company_level.with_raw_response.get_companies_company_id_terminal_orders_order_id(
-    company_id, order_id
+    "some example string", "some example string"
 )
 match result:
     case Success(payload=payload):
@@ -30926,7 +32822,7 @@ match result:
 
 ```python
 result = await async_client.terminal_orders_company_level.with_raw_response.get_companies_company_id_terminal_orders_order_id(
-    company_id, order_id
+    "some example string", "some example string"
 )
 match result:
     case Success(payload=payload):
@@ -30947,7 +32843,7 @@ match result:
 | --- | --- | --- |
 | <code>company_id</code> | <code>str</code> | The unique identifier of the company account. |
 | <code>order_id</code> | <code>str</code> | The unique identifier of the order. |
-| <code>request_options</code> | <code>[RequestOptionsOrDict](adyen/core/request_options.py) \| None</code> | Per-call overrides for this one request, such as a timeout or extra headers. |
+| <code>request_options</code> | <code>[RequestOptionsOrDict](adyen/core/request_options.py) \| None</code> | Per-call overrides for this one request, such as a timeout, extra headers, or its retry count and statuses. |
 
 </dd>
 </dl>
@@ -31009,7 +32905,7 @@ In the live environment, requests to this endpoint are subject to [rate limits](
 
 ```python
 result = client.terminal_orders_company_level.with_raw_response.get_companies_company_id_terminal_products(
-    company_id, country
+    "some example string", "some example string"
 )
 match result:
     case Success(payload=payload):
@@ -31022,7 +32918,7 @@ match result:
 
 ```python
 result = await async_client.terminal_orders_company_level.with_raw_response.get_companies_company_id_terminal_products(
-    company_id, country
+    "some example string", "some example string"
 )
 match result:
     case Success(payload=payload):
@@ -31046,7 +32942,7 @@ match result:
 | <code>terminal_model_id</code> | <code>str \| None</code> | The terminal model to return products for. Use the ID returned in the https://docs.adyen.com/api-explorer/#/ManagementService/latest/get/companies/{companyId}/terminalModels response. For example, **Verifone.M400**<br>**Default**: <code>None</code> |
 | <code>offset</code> | <code>int \| None</code> | The number of products to skip.<br>**Default**: <code>None</code> |
 | <code>limit</code> | <code>int \| None</code> | The number of products to return.<br>**Default**: <code>None</code> |
-| <code>request_options</code> | <code>[RequestOptionsOrDict](adyen/core/request_options.py) \| None</code> | Per-call overrides for this one request, such as a timeout or extra headers. |
+| <code>request_options</code> | <code>[RequestOptionsOrDict](adyen/core/request_options.py) \| None</code> | Per-call overrides for this one request, such as a timeout, extra headers, or its retry count and statuses. |
 
 </dd>
 </dl>
@@ -31112,7 +33008,15 @@ In the live environment, requests to this endpoint are subject to [rate limits](
 
 ```python
 result = client.terminal_orders_company_level.with_raw_response.patch_companies_company_id_terminal_orders_order_id(
-    company_id, order_id
+    "some example string",
+    "some example string",
+    body=TerminalOrderRequest(
+        items=[
+            OrderItem(id="TBOX-V400m-684-EU", name="V400m Package", quantity=1),
+            OrderItem(id="PART-175746-EU", name="Adyen Test Card", quantity=1),
+            OrderItem(id="PART-620222-EU", name="Receipt Roll", quantity=5),
+        ],
+    ),
 )
 match result:
     case Success(payload=payload):
@@ -31125,7 +33029,15 @@ match result:
 
 ```python
 result = await async_client.terminal_orders_company_level.with_raw_response.patch_companies_company_id_terminal_orders_order_id(
-    company_id, order_id
+    "some example string",
+    "some example string",
+    body=TerminalOrderRequest(
+        items=[
+            OrderItem(id="TBOX-V400m-684-EU", name="V400m Package", quantity=1),
+            OrderItem(id="PART-175746-EU", name="Adyen Test Card", quantity=1),
+            OrderItem(id="PART-620222-EU", name="Receipt Roll", quantity=5),
+        ],
+    ),
 )
 match result:
     case Success(payload=payload):
@@ -31147,7 +33059,7 @@ match result:
 | <code>company_id</code> | <code>str</code> | The unique identifier of the company account. |
 | <code>order_id</code> | <code>str</code> | The unique identifier of the order. |
 | <code>body</code> | <code>[TerminalOrderRequest](adyen/models/terminal_order_request.py) \| [TerminalOrderRequestDict](adyen/models/terminal_order_request.py) \| None</code> | The request body.<br>**Default**: <code>None</code> |
-| <code>request_options</code> | <code>[RequestOptionsOrDict](adyen/core/request_options.py) \| None</code> | Per-call overrides for this one request, such as a timeout or extra headers. |
+| <code>request_options</code> | <code>[RequestOptionsOrDict](adyen/core/request_options.py) \| None</code> | Per-call overrides for this one request, such as a timeout, extra headers, or its retry count and statuses. |
 
 </dd>
 </dl>
@@ -31207,7 +33119,23 @@ In the live environment, requests to this endpoint are subject to [rate limits](
 **Sync**
 
 ```python
-result = client.terminal_orders_company_level.with_raw_response.post_companies_company_id_shipping_locations(company_id)
+result = client.terminal_orders_company_level.with_raw_response.post_companies_company_id_shipping_locations(
+    "some example string",
+    body=ShippingLocation(
+        address=Address21(
+            city="Amsterdam",
+            company_name="YOUR_COMPANY",
+            country="NL",
+            postal_code="1012 KS",
+            state_or_province="",
+            street_address="Rokin 21",
+        ),
+        contact=Contact1(
+            email="Paul.Green@company.com", first_name="Paul", last_name="Green", phone_number="+31 020 1234567"
+        ),
+        name="YOUR_COMPANY Rokin depot",
+    ),
+)
 match result:
     case Success(payload=payload):
         ...  # TODO: Handle 'payload' of type ShippingLocation
@@ -31219,7 +33147,21 @@ match result:
 
 ```python
 result = await async_client.terminal_orders_company_level.with_raw_response.post_companies_company_id_shipping_locations(
-    company_id
+    "some example string",
+    body=ShippingLocation(
+        address=Address21(
+            city="Amsterdam",
+            company_name="YOUR_COMPANY",
+            country="NL",
+            postal_code="1012 KS",
+            state_or_province="",
+            street_address="Rokin 21",
+        ),
+        contact=Contact1(
+            email="Paul.Green@company.com", first_name="Paul", last_name="Green", phone_number="+31 020 1234567"
+        ),
+        name="YOUR_COMPANY Rokin depot",
+    ),
 )
 match result:
     case Success(payload=payload):
@@ -31240,7 +33182,7 @@ match result:
 | --- | --- | --- |
 | <code>company_id</code> | <code>str</code> | The unique identifier of the company account. |
 | <code>body</code> | <code>[ShippingLocation](adyen/models/shipping_location.py) \| [ShippingLocationDict](adyen/models/shipping_location.py) \| None</code> | The request body.<br>**Default**: <code>None</code> |
-| <code>request_options</code> | <code>[RequestOptionsOrDict](adyen/core/request_options.py) \| None</code> | Per-call overrides for this one request, such as a timeout or extra headers. |
+| <code>request_options</code> | <code>[RequestOptionsOrDict](adyen/core/request_options.py) \| None</code> | Per-call overrides for this one request, such as a timeout, extra headers, or its retry count and statuses. |
 
 </dd>
 </dl>
@@ -31301,7 +33243,18 @@ In the live environment, requests to this endpoint are subject to [rate limits](
 **Sync**
 
 ```python
-result = client.terminal_orders_company_level.with_raw_response.post_companies_company_id_terminal_orders(company_id)
+result = client.terminal_orders_company_level.with_raw_response.post_companies_company_id_terminal_orders(
+    "some example string",
+    body=TerminalOrderRequest(
+        billing_entity_id="Company.YOUR_COMPANY",
+        customer_order_reference="YOUR_REFERENCE",
+        items=[
+            OrderItem(id="TBOX-V400m-684-EU", name="V400m Package", quantity=1),
+            OrderItem(id="PART-175746-EU", name="Adyen Test Card", quantity=1),
+        ],
+        shipping_location_id="S2-6A6C2E3432747D4F2F2C3455485E3836457D",
+    ),
+)
 match result:
     case Success(payload=payload):
         ...  # TODO: Handle 'payload' of type TerminalOrder
@@ -31313,7 +33266,16 @@ match result:
 
 ```python
 result = await async_client.terminal_orders_company_level.with_raw_response.post_companies_company_id_terminal_orders(
-    company_id
+    "some example string",
+    body=TerminalOrderRequest(
+        billing_entity_id="Company.YOUR_COMPANY",
+        customer_order_reference="YOUR_REFERENCE",
+        items=[
+            OrderItem(id="TBOX-V400m-684-EU", name="V400m Package", quantity=1),
+            OrderItem(id="PART-175746-EU", name="Adyen Test Card", quantity=1),
+        ],
+        shipping_location_id="S2-6A6C2E3432747D4F2F2C3455485E3836457D",
+    ),
 )
 match result:
     case Success(payload=payload):
@@ -31334,7 +33296,7 @@ match result:
 | --- | --- | --- |
 | <code>company_id</code> | <code>str</code> | The unique identifier of the company account. |
 | <code>body</code> | <code>[TerminalOrderRequest](adyen/models/terminal_order_request.py) \| [TerminalOrderRequestDict](adyen/models/terminal_order_request.py) \| None</code> | The request body.<br>**Default**: <code>None</code> |
-| <code>request_options</code> | <code>[RequestOptionsOrDict](adyen/core/request_options.py) \| None</code> | Per-call overrides for this one request, such as a timeout or extra headers. |
+| <code>request_options</code> | <code>[RequestOptionsOrDict](adyen/core/request_options.py) \| None</code> | Per-call overrides for this one request, such as a timeout, extra headers, or its retry count and statuses. |
 
 </dd>
 </dl>
@@ -31397,7 +33359,7 @@ In the live environment, requests to this endpoint are subject to [rate limits](
 
 ```python
 result = client.terminal_orders_company_level.with_raw_response.post_companies_company_id_terminal_orders_order_id_cancel(
-    company_id, order_id
+    "some example string", "some example string"
 )
 match result:
     case Success(payload=payload):
@@ -31410,7 +33372,7 @@ match result:
 
 ```python
 result = await async_client.terminal_orders_company_level.with_raw_response.post_companies_company_id_terminal_orders_order_id_cancel(
-    company_id, order_id
+    "some example string", "some example string"
 )
 match result:
     case Success(payload=payload):
@@ -31431,7 +33393,7 @@ match result:
 | --- | --- | --- |
 | <code>company_id</code> | <code>str</code> | The unique identifier of the company account. |
 | <code>order_id</code> | <code>str</code> | The unique identifier of the order. |
-| <code>request_options</code> | <code>[RequestOptionsOrDict](adyen/core/request_options.py) \| None</code> | Per-call overrides for this one request, such as a timeout or extra headers. |
+| <code>request_options</code> | <code>[RequestOptionsOrDict](adyen/core/request_options.py) \| None</code> | Per-call overrides for this one request, such as a timeout, extra headers, or its retry count and statuses. |
 
 </dd>
 </dl>
@@ -31497,7 +33459,9 @@ In the live environment, requests to this endpoint are subject to [rate limits](
 **Sync**
 
 ```python
-result = client.terminal_orders_merchant_level.with_raw_response.get_merchants_merchant_id_billing_entities(merchant_id)
+result = client.terminal_orders_merchant_level.with_raw_response.get_merchants_merchant_id_billing_entities(
+    "some example string"
+)
 match result:
     case Success(payload=payload):
         ...  # TODO: Handle 'payload' of type BillingEntitiesResponse
@@ -31509,7 +33473,7 @@ match result:
 
 ```python
 result = await async_client.terminal_orders_merchant_level.with_raw_response.get_merchants_merchant_id_billing_entities(
-    merchant_id
+    "some example string"
 )
 match result:
     case Success(payload=payload):
@@ -31530,7 +33494,7 @@ match result:
 | --- | --- | --- |
 | <code>merchant_id</code> | <code>str</code> | The unique identifier of the merchant account. |
 | <code>name</code> | <code>str \| None</code> | The name of the billing entity.<br>**Default**: <code>None</code> |
-| <code>request_options</code> | <code>[RequestOptionsOrDict](adyen/core/request_options.py) \| None</code> | Per-call overrides for this one request, such as a timeout or extra headers. |
+| <code>request_options</code> | <code>[RequestOptionsOrDict](adyen/core/request_options.py) \| None</code> | Per-call overrides for this one request, such as a timeout, extra headers, or its retry count and statuses. |
 
 </dd>
 </dl>
@@ -31593,7 +33557,7 @@ In the live environment, requests to this endpoint are subject to [rate limits](
 
 ```python
 result = client.terminal_orders_merchant_level.with_raw_response.get_merchants_merchant_id_shipping_locations(
-    merchant_id
+    "some example string"
 )
 match result:
     case Success(payload=payload):
@@ -31606,7 +33570,7 @@ match result:
 
 ```python
 result = await async_client.terminal_orders_merchant_level.with_raw_response.get_merchants_merchant_id_shipping_locations(
-    merchant_id
+    "some example string"
 )
 match result:
     case Success(payload=payload):
@@ -31629,7 +33593,7 @@ match result:
 | <code>name</code> | <code>str \| None</code> | The name of the shipping location.<br>**Default**: <code>None</code> |
 | <code>offset</code> | <code>int \| None</code> | The number of locations to skip.<br>**Default**: <code>None</code> |
 | <code>limit</code> | <code>int \| None</code> | The number of locations to return.<br>**Default**: <code>None</code> |
-| <code>request_options</code> | <code>[RequestOptionsOrDict](adyen/core/request_options.py) \| None</code> | Per-call overrides for this one request, such as a timeout or extra headers. |
+| <code>request_options</code> | <code>[RequestOptionsOrDict](adyen/core/request_options.py) \| None</code> | Per-call overrides for this one request, such as a timeout, extra headers, or its retry count and statuses. |
 
 </dd>
 </dl>
@@ -31690,7 +33654,9 @@ In the live environment, requests to this endpoint are subject to [rate limits](
 **Sync**
 
 ```python
-result = client.terminal_orders_merchant_level.with_raw_response.get_merchants_merchant_id_terminal_models(merchant_id)
+result = client.terminal_orders_merchant_level.with_raw_response.get_merchants_merchant_id_terminal_models(
+    "some example string"
+)
 match result:
     case Success(payload=payload):
         ...  # TODO: Handle 'payload' of type TerminalModelsResponse
@@ -31702,7 +33668,7 @@ match result:
 
 ```python
 result = await async_client.terminal_orders_merchant_level.with_raw_response.get_merchants_merchant_id_terminal_models(
-    merchant_id
+    "some example string"
 )
 match result:
     case Success(payload=payload):
@@ -31722,7 +33688,7 @@ match result:
 | Name | Type | Description |
 | --- | --- | --- |
 | <code>merchant_id</code> | <code>str</code> | The unique identifier of the merchant account. |
-| <code>request_options</code> | <code>[RequestOptionsOrDict](adyen/core/request_options.py) \| None</code> | Per-call overrides for this one request, such as a timeout or extra headers. |
+| <code>request_options</code> | <code>[RequestOptionsOrDict](adyen/core/request_options.py) \| None</code> | Per-call overrides for this one request, such as a timeout, extra headers, or its retry count and statuses. |
 
 </dd>
 </dl>
@@ -31783,7 +33749,9 @@ In the live environment, requests to this endpoint are subject to [rate limits](
 **Sync**
 
 ```python
-result = client.terminal_orders_merchant_level.with_raw_response.get_merchants_merchant_id_terminal_orders(merchant_id)
+result = client.terminal_orders_merchant_level.with_raw_response.get_merchants_merchant_id_terminal_orders(
+    "some example string"
+)
 match result:
     case Success(payload=payload):
         ...  # TODO: Handle 'payload' of type TerminalOrdersResponse
@@ -31795,7 +33763,7 @@ match result:
 
 ```python
 result = await async_client.terminal_orders_merchant_level.with_raw_response.get_merchants_merchant_id_terminal_orders(
-    merchant_id
+    "some example string"
 )
 match result:
     case Success(payload=payload):
@@ -31819,7 +33787,7 @@ match result:
 | <code>status</code> | <code>str \| None</code> | The order status. Possible values (not case-sensitive): Placed, Confirmed, Cancelled, Shipped, Delivered.<br>**Default**: <code>None</code> |
 | <code>offset</code> | <code>int \| None</code> | The number of orders to skip.<br>**Default**: <code>None</code> |
 | <code>limit</code> | <code>int \| None</code> | The number of orders to return.<br>**Default**: <code>None</code> |
-| <code>request_options</code> | <code>[RequestOptionsOrDict](adyen/core/request_options.py) \| None</code> | Per-call overrides for this one request, such as a timeout or extra headers. |
+| <code>request_options</code> | <code>[RequestOptionsOrDict](adyen/core/request_options.py) \| None</code> | Per-call overrides for this one request, such as a timeout, extra headers, or its retry count and statuses. |
 
 </dd>
 </dl>
@@ -31881,7 +33849,7 @@ In the live environment, requests to this endpoint are subject to [rate limits](
 
 ```python
 result = client.terminal_orders_merchant_level.with_raw_response.get_merchants_merchant_id_terminal_orders_order_id(
-    merchant_id, order_id
+    "some example string", "some example string"
 )
 match result:
     case Success(payload=payload):
@@ -31894,7 +33862,7 @@ match result:
 
 ```python
 result = await async_client.terminal_orders_merchant_level.with_raw_response.get_merchants_merchant_id_terminal_orders_order_id(
-    merchant_id, order_id
+    "some example string", "some example string"
 )
 match result:
     case Success(payload=payload):
@@ -31915,7 +33883,7 @@ match result:
 | --- | --- | --- |
 | <code>merchant_id</code> | <code>str</code> | The unique identifier of the merchant account. |
 | <code>order_id</code> | <code>str</code> | The unique identifier of the order. |
-| <code>request_options</code> | <code>[RequestOptionsOrDict](adyen/core/request_options.py) \| None</code> | Per-call overrides for this one request, such as a timeout or extra headers. |
+| <code>request_options</code> | <code>[RequestOptionsOrDict](adyen/core/request_options.py) \| None</code> | Per-call overrides for this one request, such as a timeout, extra headers, or its retry count and statuses. |
 
 </dd>
 </dl>
@@ -31977,7 +33945,7 @@ In the live environment, requests to this endpoint are subject to [rate limits](
 
 ```python
 result = client.terminal_orders_merchant_level.with_raw_response.get_merchants_merchant_id_terminal_products(
-    merchant_id, country
+    "some example string", "some example string"
 )
 match result:
     case Success(payload=payload):
@@ -31990,7 +33958,7 @@ match result:
 
 ```python
 result = await async_client.terminal_orders_merchant_level.with_raw_response.get_merchants_merchant_id_terminal_products(
-    merchant_id, country
+    "some example string", "some example string"
 )
 match result:
     case Success(payload=payload):
@@ -32014,7 +33982,7 @@ match result:
 | <code>terminal_model_id</code> | <code>str \| None</code> | The terminal model to return products for. Use the ID returned in the https://docs.adyen.com/api-explorer/#/ManagementService/latest/get/merchants/{merchantId}/terminalModels response. For example, **Verifone.M400**<br>**Default**: <code>None</code> |
 | <code>offset</code> | <code>int \| None</code> | The number of products to skip.<br>**Default**: <code>None</code> |
 | <code>limit</code> | <code>int \| None</code> | The number of products to return.<br>**Default**: <code>None</code> |
-| <code>request_options</code> | <code>[RequestOptionsOrDict](adyen/core/request_options.py) \| None</code> | Per-call overrides for this one request, such as a timeout or extra headers. |
+| <code>request_options</code> | <code>[RequestOptionsOrDict](adyen/core/request_options.py) \| None</code> | Per-call overrides for this one request, such as a timeout, extra headers, or its retry count and statuses. |
 
 </dd>
 </dl>
@@ -32080,7 +34048,15 @@ In the live environment, requests to this endpoint are subject to [rate limits](
 
 ```python
 result = client.terminal_orders_merchant_level.with_raw_response.patch_merchants_merchant_id_terminal_orders_order_id(
-    merchant_id, order_id
+    "some example string",
+    "some example string",
+    body=TerminalOrderRequest(
+        items=[
+            OrderItem(id="TBOX-V400m-684-EU", name="V400m Package", quantity=1),
+            OrderItem(id="PART-287001-EU", name="Bluetooth Charging Base - V400m", quantity=2),
+            OrderItem(id="PART-620222-EU", name="Receipt Roll", quantity=20),
+        ],
+    ),
 )
 match result:
     case Success(payload=payload):
@@ -32093,7 +34069,15 @@ match result:
 
 ```python
 result = await async_client.terminal_orders_merchant_level.with_raw_response.patch_merchants_merchant_id_terminal_orders_order_id(
-    merchant_id, order_id
+    "some example string",
+    "some example string",
+    body=TerminalOrderRequest(
+        items=[
+            OrderItem(id="TBOX-V400m-684-EU", name="V400m Package", quantity=1),
+            OrderItem(id="PART-287001-EU", name="Bluetooth Charging Base - V400m", quantity=2),
+            OrderItem(id="PART-620222-EU", name="Receipt Roll", quantity=20),
+        ],
+    ),
 )
 match result:
     case Success(payload=payload):
@@ -32115,7 +34099,7 @@ match result:
 | <code>merchant_id</code> | <code>str</code> | The unique identifier of the merchant account. |
 | <code>order_id</code> | <code>str</code> | The unique identifier of the order. |
 | <code>body</code> | <code>[TerminalOrderRequest](adyen/models/terminal_order_request.py) \| [TerminalOrderRequestDict](adyen/models/terminal_order_request.py) \| None</code> | The request body.<br>**Default**: <code>None</code> |
-| <code>request_options</code> | <code>[RequestOptionsOrDict](adyen/core/request_options.py) \| None</code> | Per-call overrides for this one request, such as a timeout or extra headers. |
+| <code>request_options</code> | <code>[RequestOptionsOrDict](adyen/core/request_options.py) \| None</code> | Per-call overrides for this one request, such as a timeout, extra headers, or its retry count and statuses. |
 
 </dd>
 </dl>
@@ -32176,7 +34160,21 @@ In the live environment, requests to this endpoint are subject to [rate limits](
 
 ```python
 result = client.terminal_orders_merchant_level.with_raw_response.post_merchants_merchant_id_shipping_locations(
-    merchant_id
+    "some example string",
+    body=ShippingLocation(
+        address=Address21(
+            city="Barcelona",
+            company_name="YOUR_COMPANY",
+            country="ES",
+            postal_code="08012",
+            state_or_province="",
+            street_address="El quinto pino 42",
+        ),
+        contact=Contact1(
+            email="Rita.Perengano@company.com", first_name="Rita", last_name="Perengano", phone_number="+34 93 1234567"
+        ),
+        name="YOUR_MERCHANT_ACCOUNT Barcelona depot",
+    ),
 )
 match result:
     case Success(payload=payload):
@@ -32189,7 +34187,21 @@ match result:
 
 ```python
 result = await async_client.terminal_orders_merchant_level.with_raw_response.post_merchants_merchant_id_shipping_locations(
-    merchant_id
+    "some example string",
+    body=ShippingLocation(
+        address=Address21(
+            city="Barcelona",
+            company_name="YOUR_COMPANY",
+            country="ES",
+            postal_code="08012",
+            state_or_province="",
+            street_address="El quinto pino 42",
+        ),
+        contact=Contact1(
+            email="Rita.Perengano@company.com", first_name="Rita", last_name="Perengano", phone_number="+34 93 1234567"
+        ),
+        name="YOUR_MERCHANT_ACCOUNT Barcelona depot",
+    ),
 )
 match result:
     case Success(payload=payload):
@@ -32210,7 +34222,7 @@ match result:
 | --- | --- | --- |
 | <code>merchant_id</code> | <code>str</code> | The unique identifier of the merchant account. |
 | <code>body</code> | <code>[ShippingLocation](adyen/models/shipping_location.py) \| [ShippingLocationDict](adyen/models/shipping_location.py) \| None</code> | The request body.<br>**Default**: <code>None</code> |
-| <code>request_options</code> | <code>[RequestOptionsOrDict](adyen/core/request_options.py) \| None</code> | Per-call overrides for this one request, such as a timeout or extra headers. |
+| <code>request_options</code> | <code>[RequestOptionsOrDict](adyen/core/request_options.py) \| None</code> | Per-call overrides for this one request, such as a timeout, extra headers, or its retry count and statuses. |
 
 </dd>
 </dl>
@@ -32271,7 +34283,18 @@ In the live environment, requests to this endpoint are subject to [rate limits](
 **Sync**
 
 ```python
-result = client.terminal_orders_merchant_level.with_raw_response.post_merchants_merchant_id_terminal_orders(merchant_id)
+result = client.terminal_orders_merchant_level.with_raw_response.post_merchants_merchant_id_terminal_orders(
+    "some example string",
+    body=TerminalOrderRequest(
+        billing_entity_id="MerchantAccount.YOUR_MERCHANT_ACCOUNT",
+        customer_order_reference="YOUR_REFERENCE",
+        items=[
+            OrderItem(id="PART-287001-EU", name="Bluetooth Charging Base - V400m", quantity=2),
+            OrderItem(id="PART-620222-EU", name="Receipt Roll", quantity=20),
+        ],
+        shipping_location_id="S2-6A6C2E3432747D4F2F2C3455485E3836457D",
+    ),
+)
 match result:
     case Success(payload=payload):
         ...  # TODO: Handle 'payload' of type TerminalOrder
@@ -32283,7 +34306,16 @@ match result:
 
 ```python
 result = await async_client.terminal_orders_merchant_level.with_raw_response.post_merchants_merchant_id_terminal_orders(
-    merchant_id
+    "some example string",
+    body=TerminalOrderRequest(
+        billing_entity_id="MerchantAccount.YOUR_MERCHANT_ACCOUNT",
+        customer_order_reference="YOUR_REFERENCE",
+        items=[
+            OrderItem(id="PART-287001-EU", name="Bluetooth Charging Base - V400m", quantity=2),
+            OrderItem(id="PART-620222-EU", name="Receipt Roll", quantity=20),
+        ],
+        shipping_location_id="S2-6A6C2E3432747D4F2F2C3455485E3836457D",
+    ),
 )
 match result:
     case Success(payload=payload):
@@ -32304,7 +34336,7 @@ match result:
 | --- | --- | --- |
 | <code>merchant_id</code> | <code>str</code> | The unique identifier of the merchant account. |
 | <code>body</code> | <code>[TerminalOrderRequest](adyen/models/terminal_order_request.py) \| [TerminalOrderRequestDict](adyen/models/terminal_order_request.py) \| None</code> | The request body.<br>**Default**: <code>None</code> |
-| <code>request_options</code> | <code>[RequestOptionsOrDict](adyen/core/request_options.py) \| None</code> | Per-call overrides for this one request, such as a timeout or extra headers. |
+| <code>request_options</code> | <code>[RequestOptionsOrDict](adyen/core/request_options.py) \| None</code> | Per-call overrides for this one request, such as a timeout, extra headers, or its retry count and statuses. |
 
 </dd>
 </dl>
@@ -32367,7 +34399,7 @@ In the live environment, requests to this endpoint are subject to [rate limits](
 
 ```python
 result = client.terminal_orders_merchant_level.with_raw_response.post_merchants_merchant_id_terminal_orders_order_id_cancel(
-    merchant_id, order_id
+    "some example string", "some example string"
 )
 match result:
     case Success(payload=payload):
@@ -32380,7 +34412,7 @@ match result:
 
 ```python
 result = await async_client.terminal_orders_merchant_level.with_raw_response.post_merchants_merchant_id_terminal_orders_order_id_cancel(
-    merchant_id, order_id
+    "some example string", "some example string"
 )
 match result:
     case Success(payload=payload):
@@ -32401,7 +34433,7 @@ match result:
 | --- | --- | --- |
 | <code>merchant_id</code> | <code>str</code> | The unique identifier of the merchant account. |
 | <code>order_id</code> | <code>str</code> | The unique identifier of the order. |
-| <code>request_options</code> | <code>[RequestOptionsOrDict](adyen/core/request_options.py) \| None</code> | Per-call overrides for this one request, such as a timeout or extra headers. |
+| <code>request_options</code> | <code>[RequestOptionsOrDict](adyen/core/request_options.py) \| None</code> | Per-call overrides for this one request, such as a timeout, extra headers, or its retry count and statuses. |
 
 </dd>
 </dl>
@@ -32470,7 +34502,7 @@ In the live environment, requests to this endpoint are subject to [rate limits](
 
 ```python
 result = client.terminal_settings_company_level.with_raw_response.get_companies_company_id_terminal_logos(
-    company_id, model
+    "some example string", "some example string"
 )
 match result:
     case Success(payload=payload):
@@ -32483,7 +34515,7 @@ match result:
 
 ```python
 result = await async_client.terminal_settings_company_level.with_raw_response.get_companies_company_id_terminal_logos(
-    company_id, model
+    "some example string", "some example string"
 )
 match result:
     case Success(payload=payload):
@@ -32504,7 +34536,7 @@ match result:
 | --- | --- | --- |
 | <code>company_id</code> | <code>str</code> | The unique identifier of the company account. |
 | <code>model</code> | <code>str</code> | The terminal model. Possible values: E355, VX675WIFIBT, VX680, VX690, VX700, VX820, M400, MX925, P400Plus, UX300, UX410, V200cPlus, V240mPlus, V400cPlus, V400m, e280, e285, e285p, S1E, S1EL, S1F2, S1L, S1U, S7T. |
-| <code>request_options</code> | <code>[RequestOptionsOrDict](adyen/core/request_options.py) \| None</code> | Per-call overrides for this one request, such as a timeout or extra headers. |
+| <code>request_options</code> | <code>[RequestOptionsOrDict](adyen/core/request_options.py) \| None</code> | Per-call overrides for this one request, such as a timeout, extra headers, or its retry count and statuses. |
 
 </dd>
 </dl>
@@ -32568,7 +34600,9 @@ In the live environment, requests to this endpoint are subject to [rate limits](
 **Sync**
 
 ```python
-result = client.terminal_settings_company_level.with_raw_response.get_companies_company_id_terminal_settings(company_id)
+result = client.terminal_settings_company_level.with_raw_response.get_companies_company_id_terminal_settings(
+    "some example string"
+)
 match result:
     case Success(payload=payload):
         ...  # TODO: Handle 'payload' of type TerminalSettings
@@ -32580,7 +34614,7 @@ match result:
 
 ```python
 result = await async_client.terminal_settings_company_level.with_raw_response.get_companies_company_id_terminal_settings(
-    company_id
+    "some example string"
 )
 match result:
     case Success(payload=payload):
@@ -32600,7 +34634,7 @@ match result:
 | Name | Type | Description |
 | --- | --- | --- |
 | <code>company_id</code> | <code>str</code> | The unique identifier of the company account. |
-| <code>request_options</code> | <code>[RequestOptionsOrDict](adyen/core/request_options.py) \| None</code> | Per-call overrides for this one request, such as a timeout or extra headers. |
+| <code>request_options</code> | <code>[RequestOptionsOrDict](adyen/core/request_options.py) \| None</code> | Per-call overrides for this one request, such as a timeout, extra headers, or its retry count and statuses. |
 
 </dd>
 </dl>
@@ -32664,7 +34698,7 @@ In the live environment, requests to this endpoint are subject to [rate limits](
 
 ```python
 result = client.terminal_settings_company_level.with_raw_response.patch_companies_company_id_terminal_logos(
-    company_id, model
+    "some example string", "some example string", body=Logo(data="")
 )
 match result:
     case Success(payload=payload):
@@ -32677,7 +34711,7 @@ match result:
 
 ```python
 result = await async_client.terminal_settings_company_level.with_raw_response.patch_companies_company_id_terminal_logos(
-    company_id, model
+    "some example string", "some example string", body=Logo(data="")
 )
 match result:
     case Success(payload=payload):
@@ -32699,7 +34733,7 @@ match result:
 | <code>company_id</code> | <code>str</code> | The unique identifier of the company account. |
 | <code>model</code> | <code>str</code> | The terminal model. Possible values: E355, VX675WIFIBT, VX680, VX690, VX700, VX820, M400, MX925, P400Plus, UX300, UX410, V200cPlus, V240mPlus, V400cPlus, V400m, e280, e285, e285p, S1E, S1EL, S1F2, S1L, S1U, S7T. |
 | <code>body</code> | <code>[Logo](adyen/models/logo.py) \| [LogoDict](adyen/models/logo.py) \| None</code> | The request body.<br>**Default**: <code>None</code> |
-| <code>request_options</code> | <code>[RequestOptionsOrDict](adyen/core/request_options.py) \| None</code> | Per-call overrides for this one request, such as a timeout or extra headers. |
+| <code>request_options</code> | <code>[RequestOptionsOrDict](adyen/core/request_options.py) \| None</code> | Per-call overrides for this one request, such as a timeout, extra headers, or its retry count and statuses. |
 
 </dd>
 </dl>
@@ -32767,7 +34801,42 @@ In the live environment, requests to this endpoint are subject to [rate limits](
 
 ```python
 result = client.terminal_settings_company_level.with_raw_response.patch_companies_company_id_terminal_settings(
-    company_id
+    "some example string",
+    body=TerminalSettings(
+        wifi_profiles=WifiProfiles2(
+            profiles=[
+                Profile(
+                    auth_type="wpa-eap",
+                    auto_wifi=False,
+                    bss_type="infra",
+                    channel=0,
+                    default_profile=True,
+                    eap="peap",
+                    eap_ca_cert=File1(),
+                    eap_identity="admin",
+                    eap_intermediate_cert=File4(),
+                    eap_pwd="EAP_PEAP_PASSWORD",
+                    hidden_ssid=False,
+                    name="Profile-eap-peap-1",
+                    ssid="your-network",
+                    wsec="ccmp",
+                ),
+                Profile(
+                    auth_type="wpa-psk",
+                    auto_wifi=False,
+                    bss_type="infra",
+                    channel=0,
+                    default_profile=False,
+                    hidden_ssid=False,
+                    name="Profile-guest-wifi",
+                    psk="WIFI_PASSWORD",
+                    ssid="your-network",
+                    wsec="ccmp",
+                ),
+            ],
+            settings=Settings1(band="2.4GHz", roaming=True, timeout=5),
+        ),
+    ),
 )
 match result:
     case Success(payload=payload):
@@ -32780,7 +34849,42 @@ match result:
 
 ```python
 result = await async_client.terminal_settings_company_level.with_raw_response.patch_companies_company_id_terminal_settings(
-    company_id
+    "some example string",
+    body=TerminalSettings(
+        wifi_profiles=WifiProfiles2(
+            profiles=[
+                Profile(
+                    auth_type="wpa-eap",
+                    auto_wifi=False,
+                    bss_type="infra",
+                    channel=0,
+                    default_profile=True,
+                    eap="peap",
+                    eap_ca_cert=File1(),
+                    eap_identity="admin",
+                    eap_intermediate_cert=File4(),
+                    eap_pwd="EAP_PEAP_PASSWORD",
+                    hidden_ssid=False,
+                    name="Profile-eap-peap-1",
+                    ssid="your-network",
+                    wsec="ccmp",
+                ),
+                Profile(
+                    auth_type="wpa-psk",
+                    auto_wifi=False,
+                    bss_type="infra",
+                    channel=0,
+                    default_profile=False,
+                    hidden_ssid=False,
+                    name="Profile-guest-wifi",
+                    psk="WIFI_PASSWORD",
+                    ssid="your-network",
+                    wsec="ccmp",
+                ),
+            ],
+            settings=Settings1(band="2.4GHz", roaming=True, timeout=5),
+        ),
+    ),
 )
 match result:
     case Success(payload=payload):
@@ -32801,7 +34905,7 @@ match result:
 | --- | --- | --- |
 | <code>company_id</code> | <code>str</code> | The unique identifier of the company account. |
 | <code>body</code> | <code>[TerminalSettings](adyen/models/terminal_settings.py) \| [TerminalSettingsDict](adyen/models/terminal_settings.py) \| None</code> | The request body.<br>**Default**: <code>None</code> |
-| <code>request_options</code> | <code>[RequestOptionsOrDict](adyen/core/request_options.py) \| None</code> | Per-call overrides for this one request, such as a timeout or extra headers. |
+| <code>request_options</code> | <code>[RequestOptionsOrDict](adyen/core/request_options.py) \| None</code> | Per-call overrides for this one request, such as a timeout, extra headers, or its retry count and statuses. |
 
 </dd>
 </dl>
@@ -32869,7 +34973,7 @@ In the live environment, requests to this endpoint are subject to [rate limits](
 
 ```python
 result = client.terminal_settings_merchant_level.with_raw_response.get_merchants_merchant_id_terminal_logos(
-    merchant_id, model
+    "some example string", "some example string"
 )
 match result:
     case Success(payload=payload):
@@ -32882,7 +34986,7 @@ match result:
 
 ```python
 result = await async_client.terminal_settings_merchant_level.with_raw_response.get_merchants_merchant_id_terminal_logos(
-    merchant_id, model
+    "some example string", "some example string"
 )
 match result:
     case Success(payload=payload):
@@ -32903,7 +35007,7 @@ match result:
 | --- | --- | --- |
 | <code>merchant_id</code> | <code>str</code> | The unique identifier of the merchant account. |
 | <code>model</code> | <code>str</code> | The terminal model. Possible values: E355, VX675WIFIBT, VX680, VX690, VX700, VX820, M400, MX925, P400Plus, UX300, UX410, V200cPlus, V240mPlus, V400cPlus, V400m, e280, e285, e285p, S1E, S1EL, S1F2, S1L, S1U, S7T. |
-| <code>request_options</code> | <code>[RequestOptionsOrDict](adyen/core/request_options.py) \| None</code> | Per-call overrides for this one request, such as a timeout or extra headers. |
+| <code>request_options</code> | <code>[RequestOptionsOrDict](adyen/core/request_options.py) \| None</code> | Per-call overrides for this one request, such as a timeout, extra headers, or its retry count and statuses. |
 
 </dd>
 </dl>
@@ -32968,7 +35072,7 @@ In the live environment, requests to this endpoint are subject to [rate limits](
 
 ```python
 result = client.terminal_settings_merchant_level.with_raw_response.get_merchants_merchant_id_terminal_settings(
-    merchant_id
+    "some example string"
 )
 match result:
     case Success(payload=payload):
@@ -32981,7 +35085,7 @@ match result:
 
 ```python
 result = await async_client.terminal_settings_merchant_level.with_raw_response.get_merchants_merchant_id_terminal_settings(
-    merchant_id
+    "some example string"
 )
 match result:
     case Success(payload=payload):
@@ -33001,7 +35105,7 @@ match result:
 | Name | Type | Description |
 | --- | --- | --- |
 | <code>merchant_id</code> | <code>str</code> | The unique identifier of the merchant account. |
-| <code>request_options</code> | <code>[RequestOptionsOrDict](adyen/core/request_options.py) \| None</code> | Per-call overrides for this one request, such as a timeout or extra headers. |
+| <code>request_options</code> | <code>[RequestOptionsOrDict](adyen/core/request_options.py) \| None</code> | Per-call overrides for this one request, such as a timeout, extra headers, or its retry count and statuses. |
 
 </dd>
 </dl>
@@ -33066,7 +35170,7 @@ In the live environment, requests to this endpoint are subject to [rate limits](
 
 ```python
 result = client.terminal_settings_merchant_level.with_raw_response.patch_merchants_merchant_id_terminal_logos(
-    merchant_id, model
+    "some example string", "some example string", body=Logo(data="")
 )
 match result:
     case Success(payload=payload):
@@ -33079,7 +35183,7 @@ match result:
 
 ```python
 result = await async_client.terminal_settings_merchant_level.with_raw_response.patch_merchants_merchant_id_terminal_logos(
-    merchant_id, model
+    "some example string", "some example string", body=Logo(data="")
 )
 match result:
     case Success(payload=payload):
@@ -33101,7 +35205,7 @@ match result:
 | <code>merchant_id</code> | <code>str</code> | The unique identifier of the merchant account. |
 | <code>model</code> | <code>str</code> | The terminal model. Allowed values: E355, VX675WIFIBT, VX680, VX690, VX700, VX820, M400, MX925, P400Plus, UX300, UX410, V200cPlus, V240mPlus, V400cPlus, V400m, e280, e285, e285p, S1E, S1EL, S1F2, S1L, S1U, S7T. |
 | <code>body</code> | <code>[Logo](adyen/models/logo.py) \| [LogoDict](adyen/models/logo.py) \| None</code> | The request body.<br>**Default**: <code>None</code> |
-| <code>request_options</code> | <code>[RequestOptionsOrDict](adyen/core/request_options.py) \| None</code> | Per-call overrides for this one request, such as a timeout or extra headers. |
+| <code>request_options</code> | <code>[RequestOptionsOrDict](adyen/core/request_options.py) \| None</code> | Per-call overrides for this one request, such as a timeout, extra headers, or its retry count and statuses. |
 
 </dd>
 </dl>
@@ -33172,7 +35276,42 @@ In the live environment, requests to this endpoint are subject to [rate limits](
 
 ```python
 result = client.terminal_settings_merchant_level.with_raw_response.patch_merchants_merchant_id_terminal_settings(
-    merchant_id
+    "some example string",
+    body=TerminalSettings(
+        wifi_profiles=WifiProfiles2(
+            profiles=[
+                Profile(
+                    auth_type="wpa-eap",
+                    auto_wifi=False,
+                    bss_type="infra",
+                    channel=0,
+                    default_profile=True,
+                    eap="peap",
+                    eap_ca_cert=File1(),
+                    eap_identity="admin",
+                    eap_intermediate_cert=File4(),
+                    eap_pwd="EAP_PEAP_PASSWORD",
+                    hidden_ssid=False,
+                    name="Profile-eap-peap-1",
+                    ssid="your-network",
+                    wsec="ccmp",
+                ),
+                Profile(
+                    auth_type="wpa-psk",
+                    auto_wifi=False,
+                    bss_type="infra",
+                    channel=0,
+                    default_profile=False,
+                    hidden_ssid=False,
+                    name="Profile-guest-wifi",
+                    psk="WIFI_PASSWORD",
+                    ssid="your-network",
+                    wsec="ccmp",
+                ),
+            ],
+            settings=Settings1(band="2.4GHz", roaming=True, timeout=5),
+        ),
+    ),
 )
 match result:
     case Success(payload=payload):
@@ -33185,7 +35324,42 @@ match result:
 
 ```python
 result = await async_client.terminal_settings_merchant_level.with_raw_response.patch_merchants_merchant_id_terminal_settings(
-    merchant_id
+    "some example string",
+    body=TerminalSettings(
+        wifi_profiles=WifiProfiles2(
+            profiles=[
+                Profile(
+                    auth_type="wpa-eap",
+                    auto_wifi=False,
+                    bss_type="infra",
+                    channel=0,
+                    default_profile=True,
+                    eap="peap",
+                    eap_ca_cert=File1(),
+                    eap_identity="admin",
+                    eap_intermediate_cert=File4(),
+                    eap_pwd="EAP_PEAP_PASSWORD",
+                    hidden_ssid=False,
+                    name="Profile-eap-peap-1",
+                    ssid="your-network",
+                    wsec="ccmp",
+                ),
+                Profile(
+                    auth_type="wpa-psk",
+                    auto_wifi=False,
+                    bss_type="infra",
+                    channel=0,
+                    default_profile=False,
+                    hidden_ssid=False,
+                    name="Profile-guest-wifi",
+                    psk="WIFI_PASSWORD",
+                    ssid="your-network",
+                    wsec="ccmp",
+                ),
+            ],
+            settings=Settings1(band="2.4GHz", roaming=True, timeout=5),
+        ),
+    ),
 )
 match result:
     case Success(payload=payload):
@@ -33206,7 +35380,7 @@ match result:
 | --- | --- | --- |
 | <code>merchant_id</code> | <code>str</code> | The unique identifier of the merchant account. |
 | <code>body</code> | <code>[TerminalSettings](adyen/models/terminal_settings.py) \| [TerminalSettingsDict](adyen/models/terminal_settings.py) \| None</code> | The request body.<br>**Default**: <code>None</code> |
-| <code>request_options</code> | <code>[RequestOptionsOrDict](adyen/core/request_options.py) \| None</code> | Per-call overrides for this one request, such as a timeout or extra headers. |
+| <code>request_options</code> | <code>[RequestOptionsOrDict](adyen/core/request_options.py) \| None</code> | Per-call overrides for this one request, such as a timeout, extra headers, or its retry count and statuses. |
 
 </dd>
 </dl>
@@ -33274,7 +35448,7 @@ In the live environment, requests to this endpoint are subject to [rate limits](
 
 ```python
 result = client.terminal_settings_store_level.with_raw_response.get_merchants_merchant_id_stores_reference_terminal_logos(
-    merchant_id, reference, model
+    "some example string", "some example string", "some example string"
 )
 match result:
     case Success(payload=payload):
@@ -33287,7 +35461,7 @@ match result:
 
 ```python
 result = await async_client.terminal_settings_store_level.with_raw_response.get_merchants_merchant_id_stores_reference_terminal_logos(
-    merchant_id, reference, model
+    "some example string", "some example string", "some example string"
 )
 match result:
     case Success(payload=payload):
@@ -33309,7 +35483,7 @@ match result:
 | <code>merchant_id</code> | <code>str</code> | The unique identifier of the merchant account. |
 | <code>reference</code> | <code>str</code> | The reference that identifies the store. |
 | <code>model</code> | <code>str</code> | The terminal model. Possible values: E355, VX675WIFIBT, VX680, VX690, VX700, VX820, M400, MX925, P400Plus, UX300, UX410, V200cPlus, V240mPlus, V400cPlus, V400m, e280, e285, e285p, S1E, S1EL, S1F2, S1L, S1U, S7T. |
-| <code>request_options</code> | <code>[RequestOptionsOrDict](adyen/core/request_options.py) \| None</code> | Per-call overrides for this one request, such as a timeout or extra headers. |
+| <code>request_options</code> | <code>[RequestOptionsOrDict](adyen/core/request_options.py) \| None</code> | Per-call overrides for this one request, such as a timeout, extra headers, or its retry count and statuses. |
 
 </dd>
 </dl>
@@ -33374,7 +35548,7 @@ In the live environment, requests to this endpoint are subject to [rate limits](
 
 ```python
 result = client.terminal_settings_store_level.with_raw_response.get_merchants_merchant_id_stores_reference_terminal_settings(
-    merchant_id, reference
+    "some example string", "some example string"
 )
 match result:
     case Success(payload=payload):
@@ -33387,7 +35561,7 @@ match result:
 
 ```python
 result = await async_client.terminal_settings_store_level.with_raw_response.get_merchants_merchant_id_stores_reference_terminal_settings(
-    merchant_id, reference
+    "some example string", "some example string"
 )
 match result:
     case Success(payload=payload):
@@ -33408,7 +35582,7 @@ match result:
 | --- | --- | --- |
 | <code>merchant_id</code> | <code>str</code> | The unique identifier of the merchant account. |
 | <code>reference</code> | <code>str</code> | The reference that identifies the store. |
-| <code>request_options</code> | <code>[RequestOptionsOrDict](adyen/core/request_options.py) \| None</code> | Per-call overrides for this one request, such as a timeout or extra headers. |
+| <code>request_options</code> | <code>[RequestOptionsOrDict](adyen/core/request_options.py) \| None</code> | Per-call overrides for this one request, such as a timeout, extra headers, or its retry count and statuses. |
 
 </dd>
 </dl>
@@ -33471,7 +35645,9 @@ In the live environment, requests to this endpoint are subject to [rate limits](
 **Sync**
 
 ```python
-result = client.terminal_settings_store_level.with_raw_response.get_stores_store_id_terminal_logos(store_id, model)
+result = client.terminal_settings_store_level.with_raw_response.get_stores_store_id_terminal_logos(
+    "some example string", "some example string"
+)
 match result:
     case Success(payload=payload):
         ...  # TODO: Handle 'payload' of type Logo
@@ -33483,7 +35659,7 @@ match result:
 
 ```python
 result = await async_client.terminal_settings_store_level.with_raw_response.get_stores_store_id_terminal_logos(
-    store_id, model
+    "some example string", "some example string"
 )
 match result:
     case Success(payload=payload):
@@ -33504,7 +35680,7 @@ match result:
 | --- | --- | --- |
 | <code>store_id</code> | <code>str</code> | The unique identifier of the store. |
 | <code>model</code> | <code>str</code> | The terminal model. Possible values: E355, VX675WIFIBT, VX680, VX690, VX700, VX820, M400, MX925, P400Plus, UX300, UX410, V200cPlus, V240mPlus, V400cPlus, V400m, e280, e285, e285p, S1E, S1EL, S1F2, S1L, S1U, S7T. |
-| <code>request_options</code> | <code>[RequestOptionsOrDict](adyen/core/request_options.py) \| None</code> | Per-call overrides for this one request, such as a timeout or extra headers. |
+| <code>request_options</code> | <code>[RequestOptionsOrDict](adyen/core/request_options.py) \| None</code> | Per-call overrides for this one request, such as a timeout, extra headers, or its retry count and statuses. |
 
 </dd>
 </dl>
@@ -33568,7 +35744,9 @@ In the live environment, requests to this endpoint are subject to [rate limits](
 **Sync**
 
 ```python
-result = client.terminal_settings_store_level.with_raw_response.get_stores_store_id_terminal_settings(store_id)
+result = client.terminal_settings_store_level.with_raw_response.get_stores_store_id_terminal_settings(
+    "some example string"
+)
 match result:
     case Success(payload=payload):
         ...  # TODO: Handle 'payload' of type TerminalSettings
@@ -33580,7 +35758,7 @@ match result:
 
 ```python
 result = await async_client.terminal_settings_store_level.with_raw_response.get_stores_store_id_terminal_settings(
-    store_id
+    "some example string"
 )
 match result:
     case Success(payload=payload):
@@ -33600,7 +35778,7 @@ match result:
 | Name | Type | Description |
 | --- | --- | --- |
 | <code>store_id</code> | <code>str</code> | The unique identifier of the store. |
-| <code>request_options</code> | <code>[RequestOptionsOrDict](adyen/core/request_options.py) \| None</code> | Per-call overrides for this one request, such as a timeout or extra headers. |
+| <code>request_options</code> | <code>[RequestOptionsOrDict](adyen/core/request_options.py) \| None</code> | Per-call overrides for this one request, such as a timeout, extra headers, or its retry count and statuses. |
 
 </dd>
 </dl>
@@ -33665,7 +35843,7 @@ In the live environment, requests to this endpoint are subject to [rate limits](
 
 ```python
 result = client.terminal_settings_store_level.with_raw_response.patch_merchants_merchant_id_stores_reference_terminal_logos(
-    merchant_id, reference, model
+    "some example string", "some example string", "some example string", body=Logo(data="")
 )
 match result:
     case Success(payload=payload):
@@ -33678,7 +35856,7 @@ match result:
 
 ```python
 result = await async_client.terminal_settings_store_level.with_raw_response.patch_merchants_merchant_id_stores_reference_terminal_logos(
-    merchant_id, reference, model
+    "some example string", "some example string", "some example string", body=Logo(data="")
 )
 match result:
     case Success(payload=payload):
@@ -33701,7 +35879,7 @@ match result:
 | <code>reference</code> | <code>str</code> | The reference that identifies the store. |
 | <code>model</code> | <code>str</code> | The terminal model. Possible values: E355, VX675WIFIBT, VX680, VX690, VX700, VX820, M400, MX925, P400Plus, UX300, UX410, V200cPlus, V240mPlus, V400cPlus, V400m, e280, e285, e285p, S1E, S1EL, S1F2, S1L, S1U, S7T |
 | <code>body</code> | <code>[Logo](adyen/models/logo.py) \| [LogoDict](adyen/models/logo.py) \| None</code> | The request body.<br>**Default**: <code>None</code> |
-| <code>request_options</code> | <code>[RequestOptionsOrDict](adyen/core/request_options.py) \| None</code> | Per-call overrides for this one request, such as a timeout or extra headers. |
+| <code>request_options</code> | <code>[RequestOptionsOrDict](adyen/core/request_options.py) \| None</code> | Per-call overrides for this one request, such as a timeout, extra headers, or its retry count and statuses. |
 
 </dd>
 </dl>
@@ -33769,7 +35947,41 @@ In the live environment, requests to this endpoint are subject to [rate limits](
 
 ```python
 result = client.terminal_settings_store_level.with_raw_response.patch_merchants_merchant_id_stores_reference_terminal_settings(
-    merchant_id, reference
+    "some example string",
+    "some example string",
+    body=TerminalSettings(
+        wifi_profiles=WifiProfiles2(
+            profiles=[
+                Profile(
+                    auth_type="wpa-eap",
+                    auto_wifi=False,
+                    bss_type="infra",
+                    channel=0,
+                    default_profile=True,
+                    eap="peap",
+                    eap_ca_cert=File1(),
+                    eap_identity="admin",
+                    eap_intermediate_cert=File4(),
+                    eap_pwd="EAP_PEAP_PASSWORD",
+                    name="Profile-eap-peap-1",
+                    ssid="your-network",
+                    wsec="ccmp",
+                ),
+                Profile(
+                    auth_type="wpa-psk",
+                    auto_wifi=False,
+                    bss_type="infra",
+                    channel=0,
+                    default_profile=False,
+                    name="Profile-guest-wifi",
+                    psk="WIFI_PASSWORD",
+                    ssid="your-network",
+                    wsec="ccmp",
+                ),
+            ],
+            settings=Settings1(band="2.4GHz", roaming=True, timeout=5),
+        ),
+    ),
 )
 match result:
     case Success(payload=payload):
@@ -33782,7 +35994,41 @@ match result:
 
 ```python
 result = await async_client.terminal_settings_store_level.with_raw_response.patch_merchants_merchant_id_stores_reference_terminal_settings(
-    merchant_id, reference
+    "some example string",
+    "some example string",
+    body=TerminalSettings(
+        wifi_profiles=WifiProfiles2(
+            profiles=[
+                Profile(
+                    auth_type="wpa-eap",
+                    auto_wifi=False,
+                    bss_type="infra",
+                    channel=0,
+                    default_profile=True,
+                    eap="peap",
+                    eap_ca_cert=File1(),
+                    eap_identity="admin",
+                    eap_intermediate_cert=File4(),
+                    eap_pwd="EAP_PEAP_PASSWORD",
+                    name="Profile-eap-peap-1",
+                    ssid="your-network",
+                    wsec="ccmp",
+                ),
+                Profile(
+                    auth_type="wpa-psk",
+                    auto_wifi=False,
+                    bss_type="infra",
+                    channel=0,
+                    default_profile=False,
+                    name="Profile-guest-wifi",
+                    psk="WIFI_PASSWORD",
+                    ssid="your-network",
+                    wsec="ccmp",
+                ),
+            ],
+            settings=Settings1(band="2.4GHz", roaming=True, timeout=5),
+        ),
+    ),
 )
 match result:
     case Success(payload=payload):
@@ -33804,7 +36050,7 @@ match result:
 | <code>merchant_id</code> | <code>str</code> | The unique identifier of the merchant account. |
 | <code>reference</code> | <code>str</code> | The reference that identifies the store. |
 | <code>body</code> | <code>[TerminalSettings](adyen/models/terminal_settings.py) \| [TerminalSettingsDict](adyen/models/terminal_settings.py) \| None</code> | The request body.<br>**Default**: <code>None</code> |
-| <code>request_options</code> | <code>[RequestOptionsOrDict](adyen/core/request_options.py) \| None</code> | Per-call overrides for this one request, such as a timeout or extra headers. |
+| <code>request_options</code> | <code>[RequestOptionsOrDict](adyen/core/request_options.py) \| None</code> | Per-call overrides for this one request, such as a timeout, extra headers, or its retry count and statuses. |
 
 </dd>
 </dl>
@@ -33868,7 +36114,9 @@ In the live environment, requests to this endpoint are subject to [rate limits](
 **Sync**
 
 ```python
-result = client.terminal_settings_store_level.with_raw_response.patch_stores_store_id_terminal_logos(store_id, model)
+result = client.terminal_settings_store_level.with_raw_response.patch_stores_store_id_terminal_logos(
+    "some example string", "some example string", body=Logo(data="")
+)
 match result:
     case Success(payload=payload):
         ...  # TODO: Handle 'payload' of type Logo
@@ -33880,7 +36128,7 @@ match result:
 
 ```python
 result = await async_client.terminal_settings_store_level.with_raw_response.patch_stores_store_id_terminal_logos(
-    store_id, model
+    "some example string", "some example string", body=Logo(data="")
 )
 match result:
     case Success(payload=payload):
@@ -33902,7 +36150,7 @@ match result:
 | <code>store_id</code> | <code>str</code> | The unique identifier of the store. |
 | <code>model</code> | <code>str</code> | The terminal model. Possible values: E355, VX675WIFIBT, VX680, VX690, VX700, VX820, M400, MX925, P400Plus, UX300, UX410, V200cPlus, V240mPlus, V400cPlus, V400m, e280, e285, e285p, S1E, S1EL, S1F2, S1L, S1U, S7T. |
 | <code>body</code> | <code>[Logo](adyen/models/logo.py) \| [LogoDict](adyen/models/logo.py) \| None</code> | The request body.<br>**Default**: <code>None</code> |
-| <code>request_options</code> | <code>[RequestOptionsOrDict](adyen/core/request_options.py) \| None</code> | Per-call overrides for this one request, such as a timeout or extra headers. |
+| <code>request_options</code> | <code>[RequestOptionsOrDict](adyen/core/request_options.py) \| None</code> | Per-call overrides for this one request, such as a timeout, extra headers, or its retry count and statuses. |
 
 </dd>
 </dl>
@@ -33969,7 +36217,44 @@ In the live environment, requests to this endpoint are subject to [rate limits](
 **Sync**
 
 ```python
-result = client.terminal_settings_store_level.with_raw_response.patch_stores_store_id_terminal_settings(store_id)
+result = client.terminal_settings_store_level.with_raw_response.patch_stores_store_id_terminal_settings(
+    "some example string",
+    body=TerminalSettings(
+        wifi_profiles=WifiProfiles2(
+            profiles=[
+                Profile(
+                    auth_type="wpa-eap",
+                    auto_wifi=False,
+                    bss_type="infra",
+                    channel=0,
+                    default_profile=True,
+                    eap="peap",
+                    eap_ca_cert=File1(),
+                    eap_identity="admin",
+                    eap_intermediate_cert=File4(),
+                    eap_pwd="EAP_PEAP_PASSWORD",
+                    hidden_ssid=False,
+                    name="Profile-eap-peap-1",
+                    ssid="your-network",
+                    wsec="ccmp",
+                ),
+                Profile(
+                    auth_type="wpa-psk",
+                    auto_wifi=False,
+                    bss_type="infra",
+                    channel=0,
+                    default_profile=False,
+                    hidden_ssid=False,
+                    name="Profile-guest-wifi",
+                    psk="WIFI_PASSWORD",
+                    ssid="your-network",
+                    wsec="ccmp",
+                ),
+            ],
+            settings=Settings1(band="2.4GHz", roaming=True, timeout=5),
+        ),
+    ),
+)
 match result:
     case Success(payload=payload):
         ...  # TODO: Handle 'payload' of type TerminalSettings
@@ -33981,7 +36266,42 @@ match result:
 
 ```python
 result = await async_client.terminal_settings_store_level.with_raw_response.patch_stores_store_id_terminal_settings(
-    store_id
+    "some example string",
+    body=TerminalSettings(
+        wifi_profiles=WifiProfiles2(
+            profiles=[
+                Profile(
+                    auth_type="wpa-eap",
+                    auto_wifi=False,
+                    bss_type="infra",
+                    channel=0,
+                    default_profile=True,
+                    eap="peap",
+                    eap_ca_cert=File1(),
+                    eap_identity="admin",
+                    eap_intermediate_cert=File4(),
+                    eap_pwd="EAP_PEAP_PASSWORD",
+                    hidden_ssid=False,
+                    name="Profile-eap-peap-1",
+                    ssid="your-network",
+                    wsec="ccmp",
+                ),
+                Profile(
+                    auth_type="wpa-psk",
+                    auto_wifi=False,
+                    bss_type="infra",
+                    channel=0,
+                    default_profile=False,
+                    hidden_ssid=False,
+                    name="Profile-guest-wifi",
+                    psk="WIFI_PASSWORD",
+                    ssid="your-network",
+                    wsec="ccmp",
+                ),
+            ],
+            settings=Settings1(band="2.4GHz", roaming=True, timeout=5),
+        ),
+    ),
 )
 match result:
     case Success(payload=payload):
@@ -34002,7 +36322,7 @@ match result:
 | --- | --- | --- |
 | <code>store_id</code> | <code>str</code> | The unique identifier of the store. |
 | <code>body</code> | <code>[TerminalSettings](adyen/models/terminal_settings.py) \| [TerminalSettingsDict](adyen/models/terminal_settings.py) \| None</code> | The request body.<br>**Default**: <code>None</code> |
-| <code>request_options</code> | <code>[RequestOptionsOrDict](adyen/core/request_options.py) \| None</code> | Per-call overrides for this one request, such as a timeout or extra headers. |
+| <code>request_options</code> | <code>[RequestOptionsOrDict](adyen/core/request_options.py) \| None</code> | Per-call overrides for this one request, such as a timeout, extra headers, or its retry count and statuses. |
 
 </dd>
 </dl>
@@ -34068,7 +36388,9 @@ In the live environment, requests to this endpoint are subject to [rate limits](
 **Sync**
 
 ```python
-result = client.terminal_settings_terminal_level.with_raw_response.get_terminals_terminal_id_terminal_logos(terminal_id)
+result = client.terminal_settings_terminal_level.with_raw_response.get_terminals_terminal_id_terminal_logos(
+    "some example string"
+)
 match result:
     case Success(payload=payload):
         ...  # TODO: Handle 'payload' of type Logo
@@ -34080,7 +36402,7 @@ match result:
 
 ```python
 result = await async_client.terminal_settings_terminal_level.with_raw_response.get_terminals_terminal_id_terminal_logos(
-    terminal_id
+    "some example string"
 )
 match result:
     case Success(payload=payload):
@@ -34100,7 +36422,7 @@ match result:
 | Name | Type | Description |
 | --- | --- | --- |
 | <code>terminal_id</code> | <code>str</code> | The unique identifier of the payment terminal. |
-| <code>request_options</code> | <code>[RequestOptionsOrDict](adyen/core/request_options.py) \| None</code> | Per-call overrides for this one request, such as a timeout or extra headers. |
+| <code>request_options</code> | <code>[RequestOptionsOrDict](adyen/core/request_options.py) \| None</code> | Per-call overrides for this one request, such as a timeout, extra headers, or its retry count and statuses. |
 
 </dd>
 </dl>
@@ -34165,7 +36487,7 @@ In the live environment, requests to this endpoint are subject to [rate limits](
 
 ```python
 result = client.terminal_settings_terminal_level.with_raw_response.get_terminals_terminal_id_terminal_settings(
-    terminal_id
+    "some example string"
 )
 match result:
     case Success(payload=payload):
@@ -34178,7 +36500,7 @@ match result:
 
 ```python
 result = await async_client.terminal_settings_terminal_level.with_raw_response.get_terminals_terminal_id_terminal_settings(
-    terminal_id
+    "some example string"
 )
 match result:
     case Success(payload=payload):
@@ -34198,7 +36520,7 @@ match result:
 | Name | Type | Description |
 | --- | --- | --- |
 | <code>terminal_id</code> | <code>str</code> | The unique identifier of the payment terminal. |
-| <code>request_options</code> | <code>[RequestOptionsOrDict](adyen/core/request_options.py) \| None</code> | Per-call overrides for this one request, such as a timeout or extra headers. |
+| <code>request_options</code> | <code>[RequestOptionsOrDict](adyen/core/request_options.py) \| None</code> | Per-call overrides for this one request, such as a timeout, extra headers, or its retry count and statuses. |
 
 </dd>
 </dl>
@@ -34262,7 +36584,7 @@ In the live environment, requests to this endpoint are subject to [rate limits](
 
 ```python
 result = client.terminal_settings_terminal_level.with_raw_response.patch_terminals_terminal_id_terminal_logos(
-    terminal_id
+    "some example string", body=Logo(data="")
 )
 match result:
     case Success(payload=payload):
@@ -34275,7 +36597,7 @@ match result:
 
 ```python
 result = await async_client.terminal_settings_terminal_level.with_raw_response.patch_terminals_terminal_id_terminal_logos(
-    terminal_id
+    "some example string", body=Logo(data="")
 )
 match result:
     case Success(payload=payload):
@@ -34296,7 +36618,7 @@ match result:
 | --- | --- | --- |
 | <code>terminal_id</code> | <code>str</code> | The unique identifier of the payment terminal. |
 | <code>body</code> | <code>[Logo](adyen/models/logo.py) \| [LogoDict](adyen/models/logo.py) \| None</code> | The request body.<br>**Default**: <code>None</code> |
-| <code>request_options</code> | <code>[RequestOptionsOrDict](adyen/core/request_options.py) \| None</code> | Per-call overrides for this one request, such as a timeout or extra headers. |
+| <code>request_options</code> | <code>[RequestOptionsOrDict](adyen/core/request_options.py) \| None</code> | Per-call overrides for this one request, such as a timeout, extra headers, or its retry count and statuses. |
 
 </dd>
 </dl>
@@ -34364,7 +36686,42 @@ In the live environment, requests to this endpoint are subject to [rate limits](
 
 ```python
 result = client.terminal_settings_terminal_level.with_raw_response.patch_terminals_terminal_id_terminal_settings(
-    terminal_id
+    "some example string",
+    body=TerminalSettings(
+        wifi_profiles=WifiProfiles2(
+            profiles=[
+                Profile(
+                    auth_type="wpa-eap",
+                    auto_wifi=False,
+                    bss_type="infra",
+                    channel=0,
+                    default_profile=True,
+                    eap="peap",
+                    eap_ca_cert=File1(),
+                    eap_identity="admin",
+                    eap_intermediate_cert=File4(),
+                    eap_pwd="EAP_PEAP_PASSWORD",
+                    hidden_ssid=False,
+                    name="Profile-eap-peap-1",
+                    ssid="your-network",
+                    wsec="ccmp",
+                ),
+                Profile(
+                    auth_type="wpa-psk",
+                    auto_wifi=False,
+                    bss_type="infra",
+                    channel=0,
+                    default_profile=False,
+                    hidden_ssid=False,
+                    name="Profile-guest-wifi",
+                    psk="WIFI_PASSWORD",
+                    ssid="your-network",
+                    wsec="ccmp",
+                ),
+            ],
+            settings=Settings1(band="2.4GHz", roaming=True, timeout=5),
+        ),
+    ),
 )
 match result:
     case Success(payload=payload):
@@ -34377,7 +36734,42 @@ match result:
 
 ```python
 result = await async_client.terminal_settings_terminal_level.with_raw_response.patch_terminals_terminal_id_terminal_settings(
-    terminal_id
+    "some example string",
+    body=TerminalSettings(
+        wifi_profiles=WifiProfiles2(
+            profiles=[
+                Profile(
+                    auth_type="wpa-eap",
+                    auto_wifi=False,
+                    bss_type="infra",
+                    channel=0,
+                    default_profile=True,
+                    eap="peap",
+                    eap_ca_cert=File1(),
+                    eap_identity="admin",
+                    eap_intermediate_cert=File4(),
+                    eap_pwd="EAP_PEAP_PASSWORD",
+                    hidden_ssid=False,
+                    name="Profile-eap-peap-1",
+                    ssid="your-network",
+                    wsec="ccmp",
+                ),
+                Profile(
+                    auth_type="wpa-psk",
+                    auto_wifi=False,
+                    bss_type="infra",
+                    channel=0,
+                    default_profile=False,
+                    hidden_ssid=False,
+                    name="Profile-guest-wifi",
+                    psk="WIFI_PASSWORD",
+                    ssid="your-network",
+                    wsec="ccmp",
+                ),
+            ],
+            settings=Settings1(band="2.4GHz", roaming=True, timeout=5),
+        ),
+    ),
 )
 match result:
     case Success(payload=payload):
@@ -34398,7 +36790,7 @@ match result:
 | --- | --- | --- |
 | <code>terminal_id</code> | <code>str</code> | The unique identifier of the payment terminal. |
 | <code>body</code> | <code>[TerminalSettings](adyen/models/terminal_settings.py) \| [TerminalSettingsDict](adyen/models/terminal_settings.py) \| None</code> | The request body.<br>**Default**: <code>None</code> |
-| <code>request_options</code> | <code>[RequestOptionsOrDict](adyen/core/request_options.py) \| None</code> | Per-call overrides for this one request, such as a timeout or extra headers. |
+| <code>request_options</code> | <code>[RequestOptionsOrDict](adyen/core/request_options.py) \| None</code> | Per-call overrides for this one request, such as a timeout, extra headers, or its retry count and statuses. |
 
 </dd>
 </dl>
@@ -34498,7 +36890,7 @@ match result:
 | <code>brand_models</code> | <code>str \| None</code> | Returns terminals of the [models](https://docs.adyen.com/api-explorer/#/ManagementService/latest/get/companies/{companyId}/terminalModels) specified in the format *brand.model*.<br>**Default**: <code>None</code> |
 | <code>page_number</code> | <code>int \| None</code> | The number of the page to fetch.<br>**Default**: <code>None</code> |
 | <code>page_size</code> | <code>int \| None</code> | The number of items to have on a page, maximum 100. The default is 20 items on a page.<br>**Default**: <code>None</code> |
-| <code>request_options</code> | <code>[RequestOptionsOrDict](adyen/core/request_options.py) \| None</code> | Per-call overrides for this one request, such as a timeout or extra headers. |
+| <code>request_options</code> | <code>[RequestOptionsOrDict](adyen/core/request_options.py) \| None</code> | Per-call overrides for this one request, such as a timeout, extra headers, or its retry count and statuses. |
 
 </dd>
 </dl>
@@ -34558,7 +36950,9 @@ In the live environment, requests to this endpoint are subject to [rate limits](
 **Sync**
 
 ```python
-result = client.terminals_terminal_level.with_raw_response.post_terminals_terminal_id_reassign(terminal_id)
+result = client.terminals_terminal_level.with_raw_response.post_terminals_terminal_id_reassign(
+    "some example string", body=TerminalReassignmentRequest(inventory=False, merchant_id="YOUR_MERCHANT_ID")
+)
 match result:
     case Success():
         ...  # 2xx, no content
@@ -34569,7 +36963,9 @@ match result:
 **Async**
 
 ```python
-result = await async_client.terminals_terminal_level.with_raw_response.post_terminals_terminal_id_reassign(terminal_id)
+result = await async_client.terminals_terminal_level.with_raw_response.post_terminals_terminal_id_reassign(
+    "some example string", body=TerminalReassignmentRequest(inventory=False, merchant_id="YOUR_MERCHANT_ID")
+)
 match result:
     case Success():
         ...  # 2xx, no content
@@ -34589,7 +36985,7 @@ match result:
 | --- | --- | --- |
 | <code>terminal_id</code> | <code>str</code> | The unique identifier of the payment terminal. |
 | <code>body</code> | <code>[TerminalReassignmentRequest](adyen/models/terminal_reassignment_request.py) \| [TerminalReassignmentRequestDict](adyen/models/terminal_reassignment_request.py) \| None</code> | The request body.<br>**Default**: <code>None</code> |
-| <code>request_options</code> | <code>[RequestOptionsOrDict](adyen/core/request_options.py) \| None</code> | Per-call overrides for this one request, such as a timeout or extra headers. |
+| <code>request_options</code> | <code>[RequestOptionsOrDict](adyen/core/request_options.py) \| None</code> | Per-call overrides for this one request, such as a timeout, extra headers, or its retry count and statuses. |
 
 </dd>
 </dl>
@@ -34625,7 +37021,7 @@ Mapped in first-match order -- an earlier row wins over a later range that also 
 > Source: [TermsOfService](adyen/apis/terms_of_service.py)
 
 <details>
-<summary><code>def get_legal_entities_id_accepted_terms_of_service_document_termsofserviceacceptancereference(id: str, termsofserviceacceptancereference: str, *, terms_of_service_document_format: str | None = None, request_options: RequestOptionsOrDict | None = None) -> ApiResult[GetAcceptedTermsOfServiceDocumentResponse, GetLegalEntitiesIdAcceptedTermsOfServiceDocumentTermsofserviceacceptancereferenceErrorBody]</code></summary>
+<summary><code>def get_legal_entities_id_accepted_terms_of_service_document_termsofserviceacceptancereference(id_: str, termsofserviceacceptancereference: str, *, terms_of_service_document_format: str | None = None, request_options: RequestOptionsOrDict | None = None) -> ApiResult[GetAcceptedTermsOfServiceDocumentResponse, GetLegalEntitiesIdAcceptedTermsOfServiceDocumentTermsofserviceacceptancereferenceErrorBody]</code></summary>
 
 <dl>
 <dd>
@@ -34657,7 +37053,7 @@ Requests to this endpoint are subject to rate limits:
 
 ```python
 result = client.terms_of_service.with_raw_response.get_legal_entities_id_accepted_terms_of_service_document_termsofserviceacceptancereference(
-    id, termsofserviceacceptancereference
+    "some example string", "some example string"
 )
 match result:
     case Success(payload=payload):
@@ -34672,7 +37068,7 @@ match result:
 
 ```python
 result = await async_client.terms_of_service.with_raw_response.get_legal_entities_id_accepted_terms_of_service_document_termsofserviceacceptancereference(
-    id, termsofserviceacceptancereference
+    "some example string", "some example string"
 )
 match result:
     case Success(payload=payload):
@@ -34693,10 +37089,10 @@ match result:
 
 | Name | Type | Description |
 | --- | --- | --- |
-| <code>id</code> | <code>str</code> | The unique identifier of the legal entity. For sole proprietorship, this is the individual legal entity ID of the owner. For organizations, this is the ID of the organization. |
+| <code>id_</code> | <code>str</code> | The unique identifier of the legal entity. For sole proprietorship, this is the individual legal entity ID of the owner. For organizations, this is the ID of the organization. |
 | <code>termsofserviceacceptancereference</code> | <code>str</code> | An Adyen-generated reference for the accepted Terms of Service. |
 | <code>terms_of_service_document_format</code> | <code>str \| None</code> | The format of the Terms of Service document. Possible values: **JSON**, **PDF**, or **TXT**<br>**Default**: <code>None</code> |
-| <code>request_options</code> | <code>[RequestOptionsOrDict](adyen/core/request_options.py) \| None</code> | Per-call overrides for this one request, such as a timeout or extra headers. |
+| <code>request_options</code> | <code>[RequestOptionsOrDict](adyen/core/request_options.py) \| None</code> | Per-call overrides for this one request, such as a timeout, extra headers, or its retry count and statuses. |
 
 </dd>
 </dl>
@@ -34728,7 +37124,7 @@ Mapped in first-match order -- an earlier row wins over a later range that also 
 </details>
 
 <details>
-<summary><code>def get_legal_entities_id_terms_of_service_acceptance_infos(id: str, *, request_options: RequestOptionsOrDict | None = None) -> ApiResult[GetTermsOfServiceAcceptanceInfosResponse, GetLegalEntitiesIdTermsOfServiceAcceptanceInfosErrorBody]</code></summary>
+<summary><code>def get_legal_entities_id_terms_of_service_acceptance_infos(id_: str, *, request_options: RequestOptionsOrDict | None = None) -> ApiResult[GetTermsOfServiceAcceptanceInfosResponse, GetLegalEntitiesIdTermsOfServiceAcceptanceInfosErrorBody]</code></summary>
 
 <dl>
 <dd>
@@ -34759,7 +37155,9 @@ Requests to this endpoint are subject to rate limits:
 **Sync**
 
 ```python
-result = client.terms_of_service.with_raw_response.get_legal_entities_id_terms_of_service_acceptance_infos(id)
+result = client.terms_of_service.with_raw_response.get_legal_entities_id_terms_of_service_acceptance_infos(
+    "some example string"
+)
 match result:
     case Success(payload=payload):
         ...  # TODO: Handle 'payload' of type GetTermsOfServiceAcceptanceInfosResponse
@@ -34771,7 +37169,7 @@ match result:
 
 ```python
 result = await async_client.terms_of_service.with_raw_response.get_legal_entities_id_terms_of_service_acceptance_infos(
-    id
+    "some example string"
 )
 match result:
     case Success(payload=payload):
@@ -34790,8 +37188,8 @@ match result:
 
 | Name | Type | Description |
 | --- | --- | --- |
-| <code>id</code> | <code>str</code> | The unique identifier of the legal entity. For sole proprietorships, this is the individual legal entity ID of the owner. For organizations, this is the ID of the organization. |
-| <code>request_options</code> | <code>[RequestOptionsOrDict](adyen/core/request_options.py) \| None</code> | Per-call overrides for this one request, such as a timeout or extra headers. |
+| <code>id_</code> | <code>str</code> | The unique identifier of the legal entity. For sole proprietorships, this is the individual legal entity ID of the owner. For organizations, this is the ID of the organization. |
+| <code>request_options</code> | <code>[RequestOptionsOrDict](adyen/core/request_options.py) \| None</code> | Per-call overrides for this one request, such as a timeout, extra headers, or its retry count and statuses. |
 
 </dd>
 </dl>
@@ -34823,7 +37221,7 @@ Mapped in first-match order -- an earlier row wins over a later range that also 
 </details>
 
 <details>
-<summary><code>def get_legal_entities_id_terms_of_service_status(id: str, *, request_options: RequestOptionsOrDict | None = None) -> ApiResult[CalculateTermsOfServiceStatusResponse, GetLegalEntitiesIdTermsOfServiceStatusErrorBody]</code></summary>
+<summary><code>def get_legal_entities_id_terms_of_service_status(id_: str, *, request_options: RequestOptionsOrDict | None = None) -> ApiResult[CalculateTermsOfServiceStatusResponse, GetLegalEntitiesIdTermsOfServiceStatusErrorBody]</code></summary>
 
 <dl>
 <dd>
@@ -34854,7 +37252,7 @@ Requests to this endpoint are subject to rate limits:
 **Sync**
 
 ```python
-result = client.terms_of_service.with_raw_response.get_legal_entities_id_terms_of_service_status(id)
+result = client.terms_of_service.with_raw_response.get_legal_entities_id_terms_of_service_status("some example string")
 match result:
     case Success(payload=payload):
         ...  # TODO: Handle 'payload' of type CalculateTermsOfServiceStatusResponse
@@ -34865,7 +37263,9 @@ match result:
 **Async**
 
 ```python
-result = await async_client.terms_of_service.with_raw_response.get_legal_entities_id_terms_of_service_status(id)
+result = await async_client.terms_of_service.with_raw_response.get_legal_entities_id_terms_of_service_status(
+    "some example string"
+)
 match result:
     case Success(payload=payload):
         ...  # TODO: Handle 'payload' of type CalculateTermsOfServiceStatusResponse
@@ -34883,8 +37283,8 @@ match result:
 
 | Name | Type | Description |
 | --- | --- | --- |
-| <code>id</code> | <code>str</code> | The unique identifier of the legal entity. For sole proprietorships, this is the individual legal entity ID of the owner. For organizations, this is the ID of the organization. |
-| <code>request_options</code> | <code>[RequestOptionsOrDict](adyen/core/request_options.py) \| None</code> | Per-call overrides for this one request, such as a timeout or extra headers. |
+| <code>id_</code> | <code>str</code> | The unique identifier of the legal entity. For sole proprietorships, this is the individual legal entity ID of the owner. For organizations, this is the ID of the organization. |
+| <code>request_options</code> | <code>[RequestOptionsOrDict](adyen/core/request_options.py) \| None</code> | Per-call overrides for this one request, such as a timeout, extra headers, or its retry count and statuses. |
 
 </dd>
 </dl>
@@ -34916,7 +37316,7 @@ Mapped in first-match order -- an earlier row wins over a later range that also 
 </details>
 
 <details>
-<summary><code>def patch_legal_entities_id_terms_of_service_termsofservicedocumentid(id: str, termsofservicedocumentid: str, *, body: AcceptTermsOfServiceRequest | AcceptTermsOfServiceRequestDict | None = None, request_options: RequestOptionsOrDict | None = None) -> ApiResult[AcceptTermsOfServiceResponse, PatchLegalEntitiesIdTermsOfServiceTermsofservicedocumentidErrorBody]</code></summary>
+<summary><code>def patch_legal_entities_id_terms_of_service_termsofservicedocumentid(id_: str, termsofservicedocumentid: str, *, body: AcceptTermsOfServiceRequest | AcceptTermsOfServiceRequestDict | None = None, request_options: RequestOptionsOrDict | None = None) -> ApiResult[AcceptTermsOfServiceResponse, PatchLegalEntitiesIdTermsOfServiceTermsofservicedocumentidErrorBody]</code></summary>
 
 <dl>
 <dd>
@@ -34948,7 +37348,9 @@ Requests to this endpoint are subject to rate limits:
 
 ```python
 result = client.terms_of_service.with_raw_response.patch_legal_entities_id_terms_of_service_termsofservicedocumentid(
-    id, termsofservicedocumentid
+    "some example string",
+    "some example string",
+    body=AcceptTermsOfServiceRequest(accepted_by="LE00000000000000000000002"),
 )
 match result:
     case Success(payload=payload):
@@ -34961,7 +37363,9 @@ match result:
 
 ```python
 result = await async_client.terms_of_service.with_raw_response.patch_legal_entities_id_terms_of_service_termsofservicedocumentid(
-    id, termsofservicedocumentid
+    "some example string",
+    "some example string",
+    body=AcceptTermsOfServiceRequest(accepted_by="LE00000000000000000000002"),
 )
 match result:
     case Success(payload=payload):
@@ -34980,10 +37384,10 @@ match result:
 
 | Name | Type | Description |
 | --- | --- | --- |
-| <code>id</code> | <code>str</code> | The unique identifier of the legal entity.<br><br>For sole proprietorships, this is the individual legal entity ID of the owner.<br><br>For organizations, this is the ID of the organization.<br><br>For legal representatives of individuals, this is the ID of the individual. |
+| <code>id_</code> | <code>str</code> | The unique identifier of the legal entity.<br><br>For sole proprietorships, this is the individual legal entity ID of the owner.<br><br>For organizations, this is the ID of the organization.<br><br>For legal representatives of individuals, this is the ID of the individual. |
 | <code>termsofservicedocumentid</code> | <code>str</code> | The unique identifier of the Terms of Service document. |
 | <code>body</code> | <code>[AcceptTermsOfServiceRequest](adyen/models/accept_terms_of_service_request.py) \| [AcceptTermsOfServiceRequestDict](adyen/models/accept_terms_of_service_request.py) \| None</code> | The request body.<br>**Default**: <code>None</code> |
-| <code>request_options</code> | <code>[RequestOptionsOrDict](adyen/core/request_options.py) \| None</code> | Per-call overrides for this one request, such as a timeout or extra headers. |
+| <code>request_options</code> | <code>[RequestOptionsOrDict](adyen/core/request_options.py) \| None</code> | Per-call overrides for this one request, such as a timeout, extra headers, or its retry count and statuses. |
 
 </dd>
 </dl>
@@ -35015,7 +37419,7 @@ Mapped in first-match order -- an earlier row wins over a later range that also 
 </details>
 
 <details>
-<summary><code>def post_legal_entities_id_terms_of_service(id: str, *, body: GetTermsOfServiceDocumentRequest | GetTermsOfServiceDocumentRequestDict | None = None, request_options: RequestOptionsOrDict | None = None) -> ApiResult[GetTermsOfServiceDocumentResponse, PostLegalEntitiesIdTermsOfServiceErrorBody]</code></summary>
+<summary><code>def post_legal_entities_id_terms_of_service(id_: str, *, body: GetTermsOfServiceDocumentRequest | GetTermsOfServiceDocumentRequestDict | None = None, request_options: RequestOptionsOrDict | None = None) -> ApiResult[GetTermsOfServiceDocumentResponse, PostLegalEntitiesIdTermsOfServiceErrorBody]</code></summary>
 
 <dl>
 <dd>
@@ -35046,7 +37450,9 @@ Requests to this endpoint are subject to rate limits:
 **Sync**
 
 ```python
-result = client.terms_of_service.with_raw_response.post_legal_entities_id_terms_of_service(id)
+result = client.terms_of_service.with_raw_response.post_legal_entities_id_terms_of_service(
+    "some example string", body=GetTermsOfServiceDocumentRequest(language="en", type_=Type64.ADYEN_ISSUING)
+)
 match result:
     case Success(payload=payload):
         ...  # TODO: Handle 'payload' of type GetTermsOfServiceDocumentResponse
@@ -35057,7 +37463,9 @@ match result:
 **Async**
 
 ```python
-result = await async_client.terms_of_service.with_raw_response.post_legal_entities_id_terms_of_service(id)
+result = await async_client.terms_of_service.with_raw_response.post_legal_entities_id_terms_of_service(
+    "some example string", body=GetTermsOfServiceDocumentRequest(language="en", type_=Type64.ADYEN_ISSUING)
+)
 match result:
     case Success(payload=payload):
         ...  # TODO: Handle 'payload' of type GetTermsOfServiceDocumentResponse
@@ -35075,9 +37483,9 @@ match result:
 
 | Name | Type | Description |
 | --- | --- | --- |
-| <code>id</code> | <code>str</code> | The unique identifier of the legal entity. For sole proprietorships, this is the individual legal entity ID of the owner. For organizations, this is the ID of the organization. |
+| <code>id_</code> | <code>str</code> | The unique identifier of the legal entity. For sole proprietorships, this is the individual legal entity ID of the owner. For organizations, this is the ID of the organization. |
 | <code>body</code> | <code>[GetTermsOfServiceDocumentRequest](adyen/models/get_terms_of_service_document_request.py) \| [GetTermsOfServiceDocumentRequestDict](adyen/models/get_terms_of_service_document_request.py) \| None</code> | The request body.<br>**Default**: <code>None</code> |
-| <code>request_options</code> | <code>[RequestOptionsOrDict](adyen/core/request_options.py) \| None</code> | Per-call overrides for this one request, such as a timeout or extra headers. |
+| <code>request_options</code> | <code>[RequestOptionsOrDict](adyen/core/request_options.py) \| None</code> | Per-call overrides for this one request, such as a timeout, extra headers, or its retry count and statuses. |
 
 </dd>
 </dl>
@@ -35136,7 +37544,7 @@ Deletes a transaction rule.
 **Sync**
 
 ```python
-result = client.transaction_rules.with_raw_response.delete_transaction_rules_transaction_rule_id(transaction_rule_id)
+result = client.transaction_rules.with_raw_response.delete_transaction_rules_transaction_rule_id("some example string")
 match result:
     case Success(payload=payload):
         ...  # TODO: Handle 'payload' of type TransactionRule
@@ -35148,7 +37556,7 @@ match result:
 
 ```python
 result = await async_client.transaction_rules.with_raw_response.delete_transaction_rules_transaction_rule_id(
-    transaction_rule_id
+    "some example string"
 )
 match result:
     case Success(payload=payload):
@@ -35168,7 +37576,7 @@ match result:
 | Name | Type | Description |
 | --- | --- | --- |
 | <code>transaction_rule_id</code> | <code>str</code> | The unique identifier of the transaction rule. |
-| <code>request_options</code> | <code>[RequestOptionsOrDict](adyen/core/request_options.py) \| None</code> | Per-call overrides for this one request, such as a timeout or extra headers. |
+| <code>request_options</code> | <code>[RequestOptionsOrDict](adyen/core/request_options.py) \| None</code> | Per-call overrides for this one request, such as a timeout, extra headers, or its retry count and statuses. |
 
 </dd>
 </dl>
@@ -35223,7 +37631,7 @@ Returns the details of a transaction rule.
 **Sync**
 
 ```python
-result = client.transaction_rules.with_raw_response.get_transaction_rules_transaction_rule_id(transaction_rule_id)
+result = client.transaction_rules.with_raw_response.get_transaction_rules_transaction_rule_id("some example string")
 match result:
     case Success(payload=payload):
         ...  # TODO: Handle 'payload' of type TransactionRuleResponse
@@ -35235,7 +37643,7 @@ match result:
 
 ```python
 result = await async_client.transaction_rules.with_raw_response.get_transaction_rules_transaction_rule_id(
-    transaction_rule_id
+    "some example string"
 )
 match result:
     case Success(payload=payload):
@@ -35255,7 +37663,7 @@ match result:
 | Name | Type | Description |
 | --- | --- | --- |
 | <code>transaction_rule_id</code> | <code>str</code> | The unique identifier of the transaction rule. |
-| <code>request_options</code> | <code>[RequestOptionsOrDict](adyen/core/request_options.py) \| None</code> | Per-call overrides for this one request, such as a timeout or extra headers. |
+| <code>request_options</code> | <code>[RequestOptionsOrDict](adyen/core/request_options.py) \| None</code> | Per-call overrides for this one request, such as a timeout, extra headers, or its retry count and statuses. |
 
 </dd>
 </dl>
@@ -35314,7 +37722,22 @@ Updates a transaction rule.
 **Sync**
 
 ```python
-result = client.transaction_rules.with_raw_response.patch_transaction_rules_transaction_rule_id(transaction_rule_id)
+result = client.transaction_rules.with_raw_response.patch_transaction_rules_transaction_rule_id(
+    "some example string",
+    body=TransactionRuleInfo(
+        description="Allow only point-of-sale transactions",
+        entity_key=TransactionRuleEntityKey2(
+            entity_reference="PI3227C223222B5FG88SB8BHR", entity_type="paymentInstrument"
+        ),
+        interval=TransactionRuleInterval1(type_=Type131.WEEKLY),
+        reference="YOUR_REFERENCE_4F7346",
+        rule_restrictions=TransactionRuleRestrictions1(
+            processing_types=ProcessingTypesRestriction1(operation="noneMatch", value=[Value4.POS])
+        ),
+        status=Status6.INACTIVE,
+        type_=Type141.BLOCK_LIST,
+    ),
+)
 match result:
     case Success(payload=payload):
         ...  # TODO: Handle 'payload' of type TransactionRule
@@ -35326,7 +37749,20 @@ match result:
 
 ```python
 result = await async_client.transaction_rules.with_raw_response.patch_transaction_rules_transaction_rule_id(
-    transaction_rule_id
+    "some example string",
+    body=TransactionRuleInfo(
+        description="Allow only point-of-sale transactions",
+        entity_key=TransactionRuleEntityKey2(
+            entity_reference="PI3227C223222B5FG88SB8BHR", entity_type="paymentInstrument"
+        ),
+        interval=TransactionRuleInterval1(type_=Type131.WEEKLY),
+        reference="YOUR_REFERENCE_4F7346",
+        rule_restrictions=TransactionRuleRestrictions1(
+            processing_types=ProcessingTypesRestriction1(operation="noneMatch", value=[Value4.POS])
+        ),
+        status=Status6.INACTIVE,
+        type_=Type141.BLOCK_LIST,
+    ),
 )
 match result:
     case Success(payload=payload):
@@ -35347,7 +37783,7 @@ match result:
 | --- | --- | --- |
 | <code>transaction_rule_id</code> | <code>str</code> | The unique identifier of the transaction rule. |
 | <code>body</code> | <code>[TransactionRuleInfo](adyen/models/transaction_rule_info.py) \| [TransactionRuleInfoDict](adyen/models/transaction_rule_info.py) \| None</code> | The request body.<br>**Default**: <code>None</code> |
-| <code>request_options</code> | <code>[RequestOptionsOrDict](adyen/core/request_options.py) \| None</code> | Per-call overrides for this one request, such as a timeout or extra headers. |
+| <code>request_options</code> | <code>[RequestOptionsOrDict](adyen/core/request_options.py) \| None</code> | Per-call overrides for this one request, such as a timeout, extra headers, or its retry count and statuses. |
 
 </dd>
 </dl>
@@ -35402,7 +37838,21 @@ Creates a [transaction rule](https://docs.adyen.com/issuing/transaction-rules). 
 **Sync**
 
 ```python
-result = client.transaction_rules.with_raw_response.post_transaction_rules()
+result = client.transaction_rules.with_raw_response.post_transaction_rules(
+    body=TransactionRuleInfo(
+        description="Allow only point-of-sale transactions",
+        entity_key=TransactionRuleEntityKey2(
+            entity_reference="PI3227C223222B5FG88SB8BHR", entity_type="paymentInstrument"
+        ),
+        interval=TransactionRuleInterval1(type_=Type131.PER_TRANSACTION),
+        reference="YOUR_REFERENCE_4F7346",
+        rule_restrictions=TransactionRuleRestrictions1(
+            processing_types=ProcessingTypesRestriction1(operation="noneMatch", value=[Value4.POS])
+        ),
+        status=Status6.ACTIVE,
+        type_=Type141.BLOCK_LIST,
+    ),
+)
 match result:
     case Success(payload=payload):
         ...  # TODO: Handle 'payload' of type TransactionRule
@@ -35413,7 +37863,21 @@ match result:
 **Async**
 
 ```python
-result = await async_client.transaction_rules.with_raw_response.post_transaction_rules()
+result = await async_client.transaction_rules.with_raw_response.post_transaction_rules(
+    body=TransactionRuleInfo(
+        description="Allow only point-of-sale transactions",
+        entity_key=TransactionRuleEntityKey2(
+            entity_reference="PI3227C223222B5FG88SB8BHR", entity_type="paymentInstrument"
+        ),
+        interval=TransactionRuleInterval1(type_=Type131.PER_TRANSACTION),
+        reference="YOUR_REFERENCE_4F7346",
+        rule_restrictions=TransactionRuleRestrictions1(
+            processing_types=ProcessingTypesRestriction1(operation="noneMatch", value=[Value4.POS])
+        ),
+        status=Status6.ACTIVE,
+        type_=Type141.BLOCK_LIST,
+    ),
+)
 match result:
     case Success(payload=payload):
         ...  # TODO: Handle 'payload' of type TransactionRule
@@ -35432,7 +37896,7 @@ match result:
 | Name | Type | Description |
 | --- | --- | --- |
 | <code>body</code> | <code>[TransactionRuleInfo](adyen/models/transaction_rule_info.py) \| [TransactionRuleInfoDict](adyen/models/transaction_rule_info.py) \| None</code> | The request body.<br>**Default**: <code>None</code> |
-| <code>request_options</code> | <code>[RequestOptionsOrDict](adyen/core/request_options.py) \| None</code> | Per-call overrides for this one request, such as a timeout or extra headers. |
+| <code>request_options</code> | <code>[RequestOptionsOrDict](adyen/core/request_options.py) \| None</code> | Per-call overrides for this one request, such as a timeout, extra headers, or its retry count and statuses. |
 
 </dd>
 </dl>
@@ -35500,7 +37964,9 @@ This endpoint supports cursor-based pagination. The response returns the first p
 **Sync**
 
 ```python
-result = client.transactions.with_raw_response.get_transactions(created_since, created_until)
+result = client.transactions.with_raw_response.get_transactions(
+    datetime(2024, 1, 15, 9, 30, 0, tzinfo=timezone.utc), datetime(2024, 1, 15, 9, 30, 0, tzinfo=timezone.utc)
+)
 match result:
     case Success(payload=payload):
         ...  # TODO: Handle 'payload' of type TransactionSearchResponse
@@ -35511,7 +37977,9 @@ match result:
 **Async**
 
 ```python
-result = await async_client.transactions.with_raw_response.get_transactions(created_since, created_until)
+result = await async_client.transactions.with_raw_response.get_transactions(
+    datetime(2024, 1, 15, 9, 30, 0, tzinfo=timezone.utc), datetime(2024, 1, 15, 9, 30, 0, tzinfo=timezone.utc)
+)
 match result:
     case Success(payload=payload):
         ...  # TODO: Handle 'payload' of type TransactionSearchResponse
@@ -35538,7 +38006,7 @@ match result:
 | <code>cursor</code> | <code>str \| None</code> | The `cursor` returned in the links of the previous response.<br>**Default**: <code>None</code> |
 | <code>sort_order</code> | <code>[SortOrderOrStr](adyen/models/enums/sort_order.py) \| None</code> | Determines the sort order of the returned transactions. The sort order is based on the creation date of the transaction.<br><br>Possible values:<br><br> - **asc**: Ascending order, from oldest to most recent.<br><br>- **desc**: Descending order, from most recent to oldest.<br><br>Default value: **asc**.<br>**Default**: <code>None</code> |
 | <code>limit</code> | <code>int \| None</code> | The number of items returned per page, maximum of 100 items. By default, the response returns 10 items per page.<br>**Default**: <code>None</code> |
-| <code>request_options</code> | <code>[RequestOptionsOrDict](adyen/core/request_options.py) \| None</code> | Per-call overrides for this one request, such as a timeout or extra headers. |
+| <code>request_options</code> | <code>[RequestOptionsOrDict](adyen/core/request_options.py) \| None</code> | Per-call overrides for this one request, such as a timeout, extra headers, or its retry count and statuses. |
 
 </dd>
 </dl>
@@ -35570,7 +38038,7 @@ Mapped in first-match order -- an earlier row wins over a later range that also 
 </details>
 
 <details>
-<summary><code>def get_transactions_id(id: str, *, request_options: RequestOptionsOrDict | None = None) -> ApiResult[Transaction, GetTransactionsIdErrorBody]</code></summary>
+<summary><code>def get_transactions_id(id_: str, *, request_options: RequestOptionsOrDict | None = None) -> ApiResult[Transaction, GetTransactionsIdErrorBody]</code></summary>
 
 <dl>
 <dd>
@@ -35595,7 +38063,7 @@ Returns a transaction.
 **Sync**
 
 ```python
-result = client.transactions.with_raw_response.get_transactions_id(id)
+result = client.transactions.with_raw_response.get_transactions_id("some example string")
 match result:
     case Success(payload=payload):
         ...  # TODO: Handle 'payload' of type Transaction
@@ -35606,7 +38074,7 @@ match result:
 **Async**
 
 ```python
-result = await async_client.transactions.with_raw_response.get_transactions_id(id)
+result = await async_client.transactions.with_raw_response.get_transactions_id("some example string")
 match result:
     case Success(payload=payload):
         ...  # TODO: Handle 'payload' of type Transaction
@@ -35624,8 +38092,8 @@ match result:
 
 | Name | Type | Description |
 | --- | --- | --- |
-| <code>id</code> | <code>str</code> | The unique identifier of the transaction. |
-| <code>request_options</code> | <code>[RequestOptionsOrDict](adyen/core/request_options.py) \| None</code> | Per-call overrides for this one request, such as a timeout or extra headers. |
+| <code>id_</code> | <code>str</code> | The unique identifier of the transaction. |
+| <code>request_options</code> | <code>[RequestOptionsOrDict](adyen/core/request_options.py) \| None</code> | Per-call overrides for this one request, such as a timeout, extra headers, or its retry count and statuses. |
 
 </dd>
 </dl>
@@ -35661,7 +38129,7 @@ Mapped in first-match order -- an earlier row wins over a later range that also 
 > Source: [TransferInstruments](adyen/apis/transfer_instruments.py)
 
 <details>
-<summary><code>def delete_transfer_instruments_id(id: str, *, request_options: RequestOptionsOrDict | None = None) -> ApiResult[None, DeleteTransferInstrumentsIdErrorBody]</code></summary>
+<summary><code>def delete_transfer_instruments_id(id_: str, *, request_options: RequestOptionsOrDict | None = None) -> ApiResult[None, DeleteTransferInstrumentsIdErrorBody]</code></summary>
 
 <dl>
 <dd>
@@ -35692,7 +38160,7 @@ Requests to this endpoint are subject to rate limits:
 **Sync**
 
 ```python
-result = client.transfer_instruments.with_raw_response.delete_transfer_instruments_id(id)
+result = client.transfer_instruments.with_raw_response.delete_transfer_instruments_id("some example string")
 match result:
     case Success():
         ...  # 2xx, no content
@@ -35703,7 +38171,7 @@ match result:
 **Async**
 
 ```python
-result = await async_client.transfer_instruments.with_raw_response.delete_transfer_instruments_id(id)
+result = await async_client.transfer_instruments.with_raw_response.delete_transfer_instruments_id("some example string")
 match result:
     case Success():
         ...  # 2xx, no content
@@ -35721,8 +38189,8 @@ match result:
 
 | Name | Type | Description |
 | --- | --- | --- |
-| <code>id</code> | <code>str</code> | The unique identifier of the transfer instrument to be deleted. |
-| <code>request_options</code> | <code>[RequestOptionsOrDict](adyen/core/request_options.py) \| None</code> | Per-call overrides for this one request, such as a timeout or extra headers. |
+| <code>id_</code> | <code>str</code> | The unique identifier of the transfer instrument to be deleted. |
+| <code>request_options</code> | <code>[RequestOptionsOrDict](adyen/core/request_options.py) \| None</code> | Per-call overrides for this one request, such as a timeout, extra headers, or its retry count and statuses. |
 
 </dd>
 </dl>
@@ -35754,7 +38222,7 @@ Mapped in first-match order -- an earlier row wins over a later range that also 
 </details>
 
 <details>
-<summary><code>def get_transfer_instruments_id(id: str, *, request_options: RequestOptionsOrDict | None = None) -> ApiResult[TransferInstrument, GetTransferInstrumentsIdErrorBody]</code></summary>
+<summary><code>def get_transfer_instruments_id(id_: str, *, request_options: RequestOptionsOrDict | None = None) -> ApiResult[TransferInstrument, GetTransferInstrumentsIdErrorBody]</code></summary>
 
 <dl>
 <dd>
@@ -35785,7 +38253,7 @@ Requests to this endpoint are subject to rate limits:
 **Sync**
 
 ```python
-result = client.transfer_instruments.with_raw_response.get_transfer_instruments_id(id)
+result = client.transfer_instruments.with_raw_response.get_transfer_instruments_id("some example string")
 match result:
     case Success(payload=payload):
         ...  # TODO: Handle 'payload' of type TransferInstrument
@@ -35796,7 +38264,7 @@ match result:
 **Async**
 
 ```python
-result = await async_client.transfer_instruments.with_raw_response.get_transfer_instruments_id(id)
+result = await async_client.transfer_instruments.with_raw_response.get_transfer_instruments_id("some example string")
 match result:
     case Success(payload=payload):
         ...  # TODO: Handle 'payload' of type TransferInstrument
@@ -35814,8 +38282,8 @@ match result:
 
 | Name | Type | Description |
 | --- | --- | --- |
-| <code>id</code> | <code>str</code> | The unique identifier of the transfer instrument. |
-| <code>request_options</code> | <code>[RequestOptionsOrDict](adyen/core/request_options.py) \| None</code> | Per-call overrides for this one request, such as a timeout or extra headers. |
+| <code>id_</code> | <code>str</code> | The unique identifier of the transfer instrument. |
+| <code>request_options</code> | <code>[RequestOptionsOrDict](adyen/core/request_options.py) \| None</code> | Per-call overrides for this one request, such as a timeout, extra headers, or its retry count and statuses. |
 
 </dd>
 </dl>
@@ -35847,7 +38315,7 @@ Mapped in first-match order -- an earlier row wins over a later range that also 
 </details>
 
 <details>
-<summary><code>def patch_transfer_instruments_id(id: str, *, x_requested_verification_code: str | None = None, body: TransferInstrumentInfo | TransferInstrumentInfoDict | None = None, request_options: RequestOptionsOrDict | None = None) -> ApiResult[TransferInstrument, PatchTransferInstrumentsIdErrorBody]</code></summary>
+<summary><code>def patch_transfer_instruments_id(id_: str, *, x_requested_verification_code: str | None = None, body: TransferInstrumentInfo | TransferInstrumentInfoDict | None = None, request_options: RequestOptionsOrDict | None = None) -> ApiResult[TransferInstrument, PatchTransferInstrumentsIdErrorBody]</code></summary>
 
 <dl>
 <dd>
@@ -35878,7 +38346,15 @@ Requests to this endpoint are subject to rate limits:
 **Sync**
 
 ```python
-result = client.transfer_instruments.with_raw_response.patch_transfer_instruments_id(id)
+result = client.transfer_instruments.with_raw_response.patch_transfer_instruments_id(
+    "some example string",
+    x_requested_verification_code="0_0001",
+    body=TransferInstrumentInfo(
+        bank_account=BankAccountInfo1(account_identification=IbanAccountIdentification(iban="NL02ABNA0123456789")),
+        legal_entity_id="LE00000000000000000000001",
+        type_=Type221.BANK_ACCOUNT,
+    ),
+)
 match result:
     case Success(payload=payload):
         ...  # TODO: Handle 'payload' of type TransferInstrument
@@ -35889,7 +38365,15 @@ match result:
 **Async**
 
 ```python
-result = await async_client.transfer_instruments.with_raw_response.patch_transfer_instruments_id(id)
+result = await async_client.transfer_instruments.with_raw_response.patch_transfer_instruments_id(
+    "some example string",
+    x_requested_verification_code="0_0001",
+    body=TransferInstrumentInfo(
+        bank_account=BankAccountInfo1(account_identification=IbanAccountIdentification(iban="NL02ABNA0123456789")),
+        legal_entity_id="LE00000000000000000000001",
+        type_=Type221.BANK_ACCOUNT,
+    ),
+)
 match result:
     case Success(payload=payload):
         ...  # TODO: Handle 'payload' of type TransferInstrument
@@ -35907,10 +38391,10 @@ match result:
 
 | Name | Type | Description |
 | --- | --- | --- |
-| <code>id</code> | <code>str</code> | The unique identifier of the transfer instrument. |
+| <code>id_</code> | <code>str</code> | The unique identifier of the transfer instrument. |
 | <code>x_requested_verification_code</code> | <code>str \| None</code> | Use the requested verification code 0_0001 to resolve any suberrors associated with the transfer instrument. Requested verification codes can only be used in your test environment.<br>**Default**: <code>None</code> |
 | <code>body</code> | <code>[TransferInstrumentInfo](adyen/models/transfer_instrument_info.py) \| [TransferInstrumentInfoDict](adyen/models/transfer_instrument_info.py) \| None</code> | The request body.<br>**Default**: <code>None</code> |
-| <code>request_options</code> | <code>[RequestOptionsOrDict](adyen/core/request_options.py) \| None</code> | Per-call overrides for this one request, such as a timeout or extra headers. |
+| <code>request_options</code> | <code>[RequestOptionsOrDict](adyen/core/request_options.py) \| None</code> | Per-call overrides for this one request, such as a timeout, extra headers, or its retry count and statuses. |
 
 </dd>
 </dl>
@@ -35977,7 +38461,14 @@ Requests to this endpoint are subject to rate limits:
 **Sync**
 
 ```python
-result = client.transfer_instruments.with_raw_response.post_transfer_instruments()
+result = client.transfer_instruments.with_raw_response.post_transfer_instruments(
+    x_requested_verification_code="1_7002",
+    body=TransferInstrumentInfo(
+        bank_account=BankAccountInfo1(account_identification=IbanAccountIdentification(iban="NL62ABNA0000000123")),
+        legal_entity_id="LE00000000000000000000001",
+        type_=Type221.BANK_ACCOUNT,
+    ),
+)
 match result:
     case Success(payload=payload):
         ...  # TODO: Handle 'payload' of type TransferInstrument
@@ -35988,7 +38479,14 @@ match result:
 **Async**
 
 ```python
-result = await async_client.transfer_instruments.with_raw_response.post_transfer_instruments()
+result = await async_client.transfer_instruments.with_raw_response.post_transfer_instruments(
+    x_requested_verification_code="1_7002",
+    body=TransferInstrumentInfo(
+        bank_account=BankAccountInfo1(account_identification=IbanAccountIdentification(iban="NL62ABNA0000000123")),
+        legal_entity_id="LE00000000000000000000001",
+        type_=Type221.BANK_ACCOUNT,
+    ),
+)
 match result:
     case Success(payload=payload):
         ...  # TODO: Handle 'payload' of type TransferInstrument
@@ -36008,7 +38506,7 @@ match result:
 | --- | --- | --- |
 | <code>x_requested_verification_code</code> | <code>str \| None</code> | Use a suberror code as your requested verification code. You can include one code at a time in your request header. Requested verification codes can only be used in your test environment.<br>**Default**: <code>None</code> |
 | <code>body</code> | <code>[TransferInstrumentInfo](adyen/models/transfer_instrument_info.py) \| [TransferInstrumentInfoDict](adyen/models/transfer_instrument_info.py) \| None</code> | The request body.<br>**Default**: <code>None</code> |
-| <code>request_options</code> | <code>[RequestOptionsOrDict](adyen/core/request_options.py) \| None</code> | Per-call overrides for this one request, such as a timeout or extra headers. |
+| <code>request_options</code> | <code>[RequestOptionsOrDict](adyen/core/request_options.py) \| None</code> | Per-call overrides for this one request, such as a timeout, extra headers, or its retry count and statuses. |
 
 </dd>
 </dl>
@@ -36044,7 +38542,7 @@ Mapped in first-match order -- an earlier row wins over a later range that also 
 > Source: [TransferLimitsBalanceAccountLevel](adyen/apis/transfer_limits_balance_account_level.py)
 
 <details>
-<summary><code>def delete_balance_accounts_id_transfer_limits_transfer_limit_id(id: str, transfer_limit_id: str, *, request_options: RequestOptionsOrDict | None = None) -> ApiResult[None, DeleteBalanceAccountsIdTransferLimitsTransferLimitIdErrorBody]</code></summary>
+<summary><code>def delete_balance_accounts_id_transfer_limits_transfer_limit_id(id_: str, transfer_limit_id: str, *, request_options: RequestOptionsOrDict | None = None) -> ApiResult[None, DeleteBalanceAccountsIdTransferLimitsTransferLimitIdErrorBody]</code></summary>
 
 <dl>
 <dd>
@@ -36068,7 +38566,7 @@ Delete a scheduled or pending transfer limit using its unique `transferLimitId`.
 
 ```python
 result = client.transfer_limits_balance_account_level.with_raw_response.delete_balance_accounts_id_transfer_limits_transfer_limit_id(
-    id, transfer_limit_id
+    "some example string", "some example string"
 )
 match result:
     case Success():
@@ -36081,7 +38579,7 @@ match result:
 
 ```python
 result = await async_client.transfer_limits_balance_account_level.with_raw_response.delete_balance_accounts_id_transfer_limits_transfer_limit_id(
-    id, transfer_limit_id
+    "some example string", "some example string"
 )
 match result:
     case Success():
@@ -36100,9 +38598,9 @@ match result:
 
 | Name | Type | Description |
 | --- | --- | --- |
-| <code>id</code> | <code>str</code> | The unique identifier of the balance account. |
+| <code>id_</code> | <code>str</code> | The unique identifier of the balance account. |
 | <code>transfer_limit_id</code> | <code>str</code> | The unique identifier of the transfer limit. |
-| <code>request_options</code> | <code>[RequestOptionsOrDict](adyen/core/request_options.py) \| None</code> | Per-call overrides for this one request, such as a timeout or extra headers. |
+| <code>request_options</code> | <code>[RequestOptionsOrDict](adyen/core/request_options.py) \| None</code> | Per-call overrides for this one request, such as a timeout, extra headers, or its retry count and statuses. |
 
 </dd>
 </dl>
@@ -36134,7 +38632,7 @@ Mapped in first-match order -- an earlier row wins over a later range that also 
 </details>
 
 <details>
-<summary><code>def get_balance_accounts_id_transfer_limits(id: str, *, scope: ScopeOrStr | None = None, transfer_type: TransferTypeOrStr | None = None, status: LimitStatusOrStr | None = None, request_options: RequestOptionsOrDict | None = None) -> ApiResult[TransferLimitListResponse, GetBalanceAccountsIdTransferLimitsErrorBody]</code></summary>
+<summary><code>def get_balance_accounts_id_transfer_limits(id_: str, *, scope: ScopeOrStr | None = None, transfer_type: TransferTypeOrStr | None = None, status: LimitStatusOrStr | None = None, request_options: RequestOptionsOrDict | None = None) -> ApiResult[TransferLimitListResponse, GetBalanceAccountsIdTransferLimitsErrorBody]</code></summary>
 
 <dl>
 <dd>
@@ -36157,7 +38655,9 @@ Filter and view the transfer limits configured for a balance account using the b
 **Sync**
 
 ```python
-result = client.transfer_limits_balance_account_level.with_raw_response.get_balance_accounts_id_transfer_limits(id)
+result = client.transfer_limits_balance_account_level.with_raw_response.get_balance_accounts_id_transfer_limits(
+    "some example string"
+)
 match result:
     case Success(payload=payload):
         ...  # TODO: Handle 'payload' of type TransferLimitListResponse
@@ -36169,7 +38669,7 @@ match result:
 
 ```python
 result = await async_client.transfer_limits_balance_account_level.with_raw_response.get_balance_accounts_id_transfer_limits(
-    id
+    "some example string"
 )
 match result:
     case Success(payload=payload):
@@ -36188,11 +38688,11 @@ match result:
 
 | Name | Type | Description |
 | --- | --- | --- |
-| <code>id</code> | <code>str</code> | The unique identifier of the balance account. |
+| <code>id_</code> | <code>str</code> | The unique identifier of the balance account. |
 | <code>scope</code> | <code>[ScopeOrStr](adyen/models/enums/scope.py) \| None</code> | The scope to which the transfer limit applies. Possible values:<br>* **perTransaction**: you set a maximum amount for each transfer made from the balance account or balance platform.<br>* **perDay**: you set a maximum total amount for all transfers made from the balance account or balance platform in a day.<br>**Default**: <code>None</code> |
 | <code>transfer_type</code> | <code>[TransferTypeOrStr](adyen/models/enums/transfer_type.py) \| None</code> | The type of transfer to which the limit applies. Possible values:<br>* **instant**: the limit applies to transfers with an **instant** priority.<br>* **all**: the limit applies to all transfers, regardless of priority.<br>**Default**: <code>None</code> |
 | <code>status</code> | <code>[LimitStatusOrStr](adyen/models/enums/limit_status.py) \| None</code> | The status of the transfer limit. Possible values:   <br>* **active**: the limit is currently active.<br>* **inactive**: the limit is currently inactive.<br>* **pendingSCA**: the limit is pending until your user performs SCA.<br>* **scheduled**: the limit is scheduled to become active at a future date.<br>**Default**: <code>None</code> |
-| <code>request_options</code> | <code>[RequestOptionsOrDict](adyen/core/request_options.py) \| None</code> | Per-call overrides for this one request, such as a timeout or extra headers. |
+| <code>request_options</code> | <code>[RequestOptionsOrDict](adyen/core/request_options.py) \| None</code> | Per-call overrides for this one request, such as a timeout, extra headers, or its retry count and statuses. |
 
 </dd>
 </dl>
@@ -36224,7 +38724,7 @@ Mapped in first-match order -- an earlier row wins over a later range that also 
 </details>
 
 <details>
-<summary><code>def get_balance_accounts_id_transfer_limits_current(id: str, *, scope: ScopeOrStr | None = None, transfer_type: TransferTypeOrStr | None = None, request_options: RequestOptionsOrDict | None = None) -> ApiResult[TransferLimitListResponse, GetBalanceAccountsIdTransferLimitsCurrentErrorBody]</code></summary>
+<summary><code>def get_balance_accounts_id_transfer_limits_current(id_: str, *, scope: ScopeOrStr | None = None, transfer_type: TransferTypeOrStr | None = None, request_options: RequestOptionsOrDict | None = None) -> ApiResult[TransferLimitListResponse, GetBalanceAccountsIdTransferLimitsCurrentErrorBody]</code></summary>
 
 <dl>
 <dd>
@@ -36248,7 +38748,7 @@ Get all transfer limits that currently apply to a balance account using the uniq
 
 ```python
 result = client.transfer_limits_balance_account_level.with_raw_response.get_balance_accounts_id_transfer_limits_current(
-    id
+    "some example string"
 )
 match result:
     case Success(payload=payload):
@@ -36261,7 +38761,7 @@ match result:
 
 ```python
 result = await async_client.transfer_limits_balance_account_level.with_raw_response.get_balance_accounts_id_transfer_limits_current(
-    id
+    "some example string"
 )
 match result:
     case Success(payload=payload):
@@ -36280,10 +38780,10 @@ match result:
 
 | Name | Type | Description |
 | --- | --- | --- |
-| <code>id</code> | <code>str</code> | The unique identifier of the balance account. |
+| <code>id_</code> | <code>str</code> | The unique identifier of the balance account. |
 | <code>scope</code> | <code>[ScopeOrStr](adyen/models/enums/scope.py) \| None</code> | The scope to which the transfer limit applies. Possible values:<br>* **perTransaction**: you set a maximum amount for each transfer made from the balance account or balance platform.<br>* **perDay**: you set a maximum total amount for all transfers made from the balance account or balance platform in a day.<br>**Default**: <code>None</code> |
 | <code>transfer_type</code> | <code>[TransferTypeOrStr](adyen/models/enums/transfer_type.py) \| None</code> | The type of transfer to which the limit applies. Possible values:<br>* **instant**: the limit applies to transfers with an **instant** priority.<br>* **all**: the limit applies to all transfers, regardless of priority.<br>**Default**: <code>None</code> |
-| <code>request_options</code> | <code>[RequestOptionsOrDict](adyen/core/request_options.py) \| None</code> | Per-call overrides for this one request, such as a timeout or extra headers. |
+| <code>request_options</code> | <code>[RequestOptionsOrDict](adyen/core/request_options.py) \| None</code> | Per-call overrides for this one request, such as a timeout, extra headers, or its retry count and statuses. |
 
 </dd>
 </dl>
@@ -36315,7 +38815,7 @@ Mapped in first-match order -- an earlier row wins over a later range that also 
 </details>
 
 <details>
-<summary><code>def get_balance_accounts_id_transfer_limits_transfer_limit_id(id: str, transfer_limit_id: str, *, request_options: RequestOptionsOrDict | None = None) -> ApiResult[TransferLimit, GetBalanceAccountsIdTransferLimitsTransferLimitIdErrorBody]</code></summary>
+<summary><code>def get_balance_accounts_id_transfer_limits_transfer_limit_id(id_: str, transfer_limit_id: str, *, request_options: RequestOptionsOrDict | None = None) -> ApiResult[TransferLimit, GetBalanceAccountsIdTransferLimitsTransferLimitIdErrorBody]</code></summary>
 
 <dl>
 <dd>
@@ -36339,7 +38839,7 @@ Get the details of a transfer limit using its unique `transferLimitId`.
 
 ```python
 result = client.transfer_limits_balance_account_level.with_raw_response.get_balance_accounts_id_transfer_limits_transfer_limit_id(
-    id, transfer_limit_id
+    "some example string", "some example string"
 )
 match result:
     case Success(payload=payload):
@@ -36352,7 +38852,7 @@ match result:
 
 ```python
 result = await async_client.transfer_limits_balance_account_level.with_raw_response.get_balance_accounts_id_transfer_limits_transfer_limit_id(
-    id, transfer_limit_id
+    "some example string", "some example string"
 )
 match result:
     case Success(payload=payload):
@@ -36371,9 +38871,9 @@ match result:
 
 | Name | Type | Description |
 | --- | --- | --- |
-| <code>id</code> | <code>str</code> | The unique identifier of the balance account. |
+| <code>id_</code> | <code>str</code> | The unique identifier of the balance account. |
 | <code>transfer_limit_id</code> | <code>str</code> | The unique identifier of the transfer limit. |
-| <code>request_options</code> | <code>[RequestOptionsOrDict](adyen/core/request_options.py) \| None</code> | Per-call overrides for this one request, such as a timeout or extra headers. |
+| <code>request_options</code> | <code>[RequestOptionsOrDict](adyen/core/request_options.py) \| None</code> | Per-call overrides for this one request, such as a timeout, extra headers, or its retry count and statuses. |
 
 </dd>
 </dl>
@@ -36405,7 +38905,7 @@ Mapped in first-match order -- an earlier row wins over a later range that also 
 </details>
 
 <details>
-<summary><code>def post_balance_accounts_id_transfer_limits(id: str, body: CreateTransferLimitRequest | CreateTransferLimitRequestDict, *, www_authenticate: str | None = None, request_options: RequestOptionsOrDict | None = None) -> ApiResult[TransferLimit, PostBalanceAccountsIdTransferLimitsErrorBody]</code></summary>
+<summary><code>def post_balance_accounts_id_transfer_limits(id_: str, body: CreateTransferLimitRequest | CreateTransferLimitRequestDict, *, www_authenticate: str | None = None, request_options: RequestOptionsOrDict | None = None) -> ApiResult[TransferLimit, PostBalanceAccountsIdTransferLimitsErrorBody]</code></summary>
 
 <dl>
 <dd>
@@ -36429,7 +38929,17 @@ Create a transfer limit for your balance account using the unique `id` of your b
 
 ```python
 result = client.transfer_limits_balance_account_level.with_raw_response.post_balance_accounts_id_transfer_limits(
-    id, body
+    "some example string",
+    CreateTransferLimitRequest(
+        amount=Amount17(currency="EUR", value=10000),
+        ends_at=datetime(2026, 8, 13, 23, 0, 0, tzinfo=timezone.utc),
+        reference="Your reference for the transfer limit",
+        sca_information=CreateScaInformation1(sca_on_approval=True),
+        scope=Scope.PER_TRANSACTION,
+        starts_at=datetime(2025, 8, 15, 5, 36, 20, tzinfo=timezone.utc),
+        transfer_type=TransferType.ALL,
+    ),
+    www_authenticate="SCA realm=\"TransferLimit\" auth-param1=\"eyJjaGFsbGVuZ2UiOiJiVlV6ZW5wek0waFNl...\"",
 )
 match result:
     case Success(payload=payload):
@@ -36442,7 +38952,17 @@ match result:
 
 ```python
 result = await async_client.transfer_limits_balance_account_level.with_raw_response.post_balance_accounts_id_transfer_limits(
-    id, body
+    "some example string",
+    CreateTransferLimitRequest(
+        amount=Amount17(currency="EUR", value=10000),
+        ends_at=datetime(2026, 8, 13, 23, 0, 0, tzinfo=timezone.utc),
+        reference="Your reference for the transfer limit",
+        sca_information=CreateScaInformation1(sca_on_approval=True),
+        scope=Scope.PER_TRANSACTION,
+        starts_at=datetime(2025, 8, 15, 5, 36, 20, tzinfo=timezone.utc),
+        transfer_type=TransferType.ALL,
+    ),
+    www_authenticate="SCA realm=\"TransferLimit\" auth-param1=\"eyJjaGFsbGVuZ2UiOiJiVlV6ZW5wek0waFNl...\"",
 )
 match result:
     case Success(payload=payload):
@@ -36461,10 +38981,10 @@ match result:
 
 | Name | Type | Description |
 | --- | --- | --- |
-| <code>id</code> | <code>str</code> | The unique identifier of the balance account. |
+| <code>id_</code> | <code>str</code> | The unique identifier of the balance account. |
 | <code>body</code> | <code>[CreateTransferLimitRequest](adyen/models/create_transfer_limit_request.py) \| [CreateTransferLimitRequestDict](adyen/models/create_transfer_limit_request.py)</code> | The request body. |
 | <code>www_authenticate</code> | <code>str \| None</code> | Header for authenticating through SCA<br>**Default**: <code>None</code> |
-| <code>request_options</code> | <code>[RequestOptionsOrDict](adyen/core/request_options.py) \| None</code> | Per-call overrides for this one request, such as a timeout or extra headers. |
+| <code>request_options</code> | <code>[RequestOptionsOrDict](adyen/core/request_options.py) \| None</code> | Per-call overrides for this one request, such as a timeout, extra headers, or its retry count and statuses. |
 
 </dd>
 </dl>
@@ -36496,7 +39016,7 @@ Mapped in first-match order -- an earlier row wins over a later range that also 
 </details>
 
 <details>
-<summary><code>def post_balance_accounts_id_transfer_limits_approve(id: str, body: ApproveTransferLimitRequest | ApproveTransferLimitRequestDict, *, www_authenticate: str | None = None, request_options: RequestOptionsOrDict | None = None) -> ApiResult[None, PostBalanceAccountsIdTransferLimitsApproveErrorBody]</code></summary>
+<summary><code>def post_balance_accounts_id_transfer_limits_approve(id_: str, body: ApproveTransferLimitRequest | ApproveTransferLimitRequestDict, *, www_authenticate: str | None = None, request_options: RequestOptionsOrDict | None = None) -> ApiResult[None, PostBalanceAccountsIdTransferLimitsApproveErrorBody]</code></summary>
 
 <dl>
 <dd>
@@ -36520,7 +39040,11 @@ Approve transfer limits that are pending SCA authentication.
 
 ```python
 result = client.transfer_limits_balance_account_level.with_raw_response.post_balance_accounts_id_transfer_limits_approve(
-    id, body
+    "some example string",
+    ApproveTransferLimitRequest(
+        transfer_limit_ids=["TRLI00000000000000000000000001", "TRLI00000000000000000000000002"]
+    ),
+    www_authenticate="SCA realm=\"TransferLimit\" auth-param1=\"eyJjaGFsbGVuZ2UiOiJiVlV6ZW5wek0waFNl...\"",
 )
 match result:
     case Success():
@@ -36533,7 +39057,11 @@ match result:
 
 ```python
 result = await async_client.transfer_limits_balance_account_level.with_raw_response.post_balance_accounts_id_transfer_limits_approve(
-    id, body
+    "some example string",
+    ApproveTransferLimitRequest(
+        transfer_limit_ids=["TRLI00000000000000000000000001", "TRLI00000000000000000000000002"]
+    ),
+    www_authenticate="SCA realm=\"TransferLimit\" auth-param1=\"eyJjaGFsbGVuZ2UiOiJiVlV6ZW5wek0waFNl...\"",
 )
 match result:
     case Success():
@@ -36552,10 +39080,10 @@ match result:
 
 | Name | Type | Description |
 | --- | --- | --- |
-| <code>id</code> | <code>str</code> | The unique identifier of the balance account. |
+| <code>id_</code> | <code>str</code> | The unique identifier of the balance account. |
 | <code>body</code> | <code>[ApproveTransferLimitRequest](adyen/models/approve_transfer_limit_request.py) \| [ApproveTransferLimitRequestDict](adyen/models/approve_transfer_limit_request.py)</code> | The request body. |
 | <code>www_authenticate</code> | <code>str \| None</code> | Header for authenticating using SCA.<br>**Default**: <code>None</code> |
-| <code>request_options</code> | <code>[RequestOptionsOrDict](adyen/core/request_options.py) \| None</code> | Per-call overrides for this one request, such as a timeout or extra headers. |
+| <code>request_options</code> | <code>[RequestOptionsOrDict](adyen/core/request_options.py) \| None</code> | Per-call overrides for this one request, such as a timeout, extra headers, or its retry count and statuses. |
 
 </dd>
 </dl>
@@ -36591,7 +39119,7 @@ Mapped in first-match order -- an earlier row wins over a later range that also 
 > Source: [TransferLimitsBalancePlatformLevel](adyen/apis/transfer_limits_balance_platform_level.py)
 
 <details>
-<summary><code>def delete_balance_platforms_id_transfer_limits_transfer_limit_id(id: str, transfer_limit_id: str, *, request_options: RequestOptionsOrDict | None = None) -> ApiResult[None, DeleteBalancePlatformsIdTransferLimitsTransferLimitIdErrorBody]</code></summary>
+<summary><code>def delete_balance_platforms_id_transfer_limits_transfer_limit_id(id_: str, transfer_limit_id: str, *, request_options: RequestOptionsOrDict | None = None) -> ApiResult[None, DeleteBalancePlatformsIdTransferLimitsTransferLimitIdErrorBody]</code></summary>
 
 <dl>
 <dd>
@@ -36615,7 +39143,7 @@ Delete a scheduled or pending transfer limit using its unique `transferLimitId`.
 
 ```python
 result = client.transfer_limits_balance_platform_level.with_raw_response.delete_balance_platforms_id_transfer_limits_transfer_limit_id(
-    id, transfer_limit_id
+    "some example string", "some example string"
 )
 match result:
     case Success():
@@ -36628,7 +39156,7 @@ match result:
 
 ```python
 result = await async_client.transfer_limits_balance_platform_level.with_raw_response.delete_balance_platforms_id_transfer_limits_transfer_limit_id(
-    id, transfer_limit_id
+    "some example string", "some example string"
 )
 match result:
     case Success():
@@ -36647,9 +39175,9 @@ match result:
 
 | Name | Type | Description |
 | --- | --- | --- |
-| <code>id</code> | <code>str</code> | The unique identifier of the balance platform. |
+| <code>id_</code> | <code>str</code> | The unique identifier of the balance platform. |
 | <code>transfer_limit_id</code> | <code>str</code> | The unique identifier of the transfer limit. |
-| <code>request_options</code> | <code>[RequestOptionsOrDict](adyen/core/request_options.py) \| None</code> | Per-call overrides for this one request, such as a timeout or extra headers. |
+| <code>request_options</code> | <code>[RequestOptionsOrDict](adyen/core/request_options.py) \| None</code> | Per-call overrides for this one request, such as a timeout, extra headers, or its retry count and statuses. |
 
 </dd>
 </dl>
@@ -36681,7 +39209,7 @@ Mapped in first-match order -- an earlier row wins over a later range that also 
 </details>
 
 <details>
-<summary><code>def get_balance_platforms_id_transfer_limits(id: str, *, scope: ScopeOrStr | None = None, transfer_type: TransferTypeOrStr | None = None, status: LimitStatusOrStr | None = None, request_options: RequestOptionsOrDict | None = None) -> ApiResult[TransferLimitListResponse, GetBalancePlatformsIdTransferLimitsErrorBody]</code></summary>
+<summary><code>def get_balance_platforms_id_transfer_limits(id_: str, *, scope: ScopeOrStr | None = None, transfer_type: TransferTypeOrStr | None = None, status: LimitStatusOrStr | None = None, request_options: RequestOptionsOrDict | None = None) -> ApiResult[TransferLimitListResponse, GetBalancePlatformsIdTransferLimitsErrorBody]</code></summary>
 
 <dl>
 <dd>
@@ -36704,7 +39232,9 @@ Filter and view the transfer limits configured for your balance platform using t
 **Sync**
 
 ```python
-result = client.transfer_limits_balance_platform_level.with_raw_response.get_balance_platforms_id_transfer_limits(id)
+result = client.transfer_limits_balance_platform_level.with_raw_response.get_balance_platforms_id_transfer_limits(
+    "some example string"
+)
 match result:
     case Success(payload=payload):
         ...  # TODO: Handle 'payload' of type TransferLimitListResponse
@@ -36716,7 +39246,7 @@ match result:
 
 ```python
 result = await async_client.transfer_limits_balance_platform_level.with_raw_response.get_balance_platforms_id_transfer_limits(
-    id
+    "some example string"
 )
 match result:
     case Success(payload=payload):
@@ -36735,11 +39265,11 @@ match result:
 
 | Name | Type | Description |
 | --- | --- | --- |
-| <code>id</code> | <code>str</code> | The unique identifier of the balance platform. |
+| <code>id_</code> | <code>str</code> | The unique identifier of the balance platform. |
 | <code>scope</code> | <code>[ScopeOrStr](adyen/models/enums/scope.py) \| None</code> | The scope to which the transfer limit applies. Possible values:<br>* **perTransaction**: you set a maximum amount for each transfer made from the balance account or balance platform.<br>* **perDay**: you set a maximum total amount for all transfers made from the balance account or balance platform in a day.<br>**Default**: <code>None</code> |
 | <code>transfer_type</code> | <code>[TransferTypeOrStr](adyen/models/enums/transfer_type.py) \| None</code> | The type of transfer to which the limit applies. Possible values:<br>* **instant**: the limit applies to transfers with an **instant** priority.<br>* **all**: the limit applies to all transfers, regardless of priority.<br>**Default**: <code>None</code> |
 | <code>status</code> | <code>[LimitStatusOrStr](adyen/models/enums/limit_status.py) \| None</code> | The status of the transfer limit. Possible values:   <br>* **active**: the limit is currently active.<br>* **inactive**: the limit is currently inactive.<br>* **pendingSCA**: the limit is pending until your user performs SCA.<br>* **scheduled**: the limit is scheduled to become active at a future date.<br>**Default**: <code>None</code> |
-| <code>request_options</code> | <code>[RequestOptionsOrDict](adyen/core/request_options.py) \| None</code> | Per-call overrides for this one request, such as a timeout or extra headers. |
+| <code>request_options</code> | <code>[RequestOptionsOrDict](adyen/core/request_options.py) \| None</code> | Per-call overrides for this one request, such as a timeout, extra headers, or its retry count and statuses. |
 
 </dd>
 </dl>
@@ -36771,7 +39301,7 @@ Mapped in first-match order -- an earlier row wins over a later range that also 
 </details>
 
 <details>
-<summary><code>def get_balance_platforms_id_transfer_limits_transfer_limit_id(id: str, transfer_limit_id: str, *, request_options: RequestOptionsOrDict | None = None) -> ApiResult[TransferLimit, GetBalancePlatformsIdTransferLimitsTransferLimitIdErrorBody]</code></summary>
+<summary><code>def get_balance_platforms_id_transfer_limits_transfer_limit_id(id_: str, transfer_limit_id: str, *, request_options: RequestOptionsOrDict | None = None) -> ApiResult[TransferLimit, GetBalancePlatformsIdTransferLimitsTransferLimitIdErrorBody]</code></summary>
 
 <dl>
 <dd>
@@ -36795,7 +39325,7 @@ Get the details of a transfer limit using its unique `transferLimitId`.
 
 ```python
 result = client.transfer_limits_balance_platform_level.with_raw_response.get_balance_platforms_id_transfer_limits_transfer_limit_id(
-    id, transfer_limit_id
+    "some example string", "some example string"
 )
 match result:
     case Success(payload=payload):
@@ -36808,7 +39338,7 @@ match result:
 
 ```python
 result = await async_client.transfer_limits_balance_platform_level.with_raw_response.get_balance_platforms_id_transfer_limits_transfer_limit_id(
-    id, transfer_limit_id
+    "some example string", "some example string"
 )
 match result:
     case Success(payload=payload):
@@ -36827,9 +39357,9 @@ match result:
 
 | Name | Type | Description |
 | --- | --- | --- |
-| <code>id</code> | <code>str</code> | The unique identifier of the balance platform. |
+| <code>id_</code> | <code>str</code> | The unique identifier of the balance platform. |
 | <code>transfer_limit_id</code> | <code>str</code> | The unique identifier of the transfer limit. |
-| <code>request_options</code> | <code>[RequestOptionsOrDict](adyen/core/request_options.py) \| None</code> | Per-call overrides for this one request, such as a timeout or extra headers. |
+| <code>request_options</code> | <code>[RequestOptionsOrDict](adyen/core/request_options.py) \| None</code> | Per-call overrides for this one request, such as a timeout, extra headers, or its retry count and statuses. |
 
 </dd>
 </dl>
@@ -36861,7 +39391,7 @@ Mapped in first-match order -- an earlier row wins over a later range that also 
 </details>
 
 <details>
-<summary><code>def post_balance_platforms_id_transfer_limits(id: str, body: CreateTransferLimitRequest | CreateTransferLimitRequestDict, *, request_options: RequestOptionsOrDict | None = None) -> ApiResult[TransferLimit, PostBalancePlatformsIdTransferLimitsErrorBody]</code></summary>
+<summary><code>def post_balance_platforms_id_transfer_limits(id_: str, body: CreateTransferLimitRequest | CreateTransferLimitRequestDict, *, request_options: RequestOptionsOrDict | None = None) -> ApiResult[TransferLimit, PostBalancePlatformsIdTransferLimitsErrorBody]</code></summary>
 
 <dl>
 <dd>
@@ -36885,7 +39415,16 @@ Create a transfer limit for your balance platform using the unique `id` of your 
 
 ```python
 result = client.transfer_limits_balance_platform_level.with_raw_response.post_balance_platforms_id_transfer_limits(
-    id, body
+    "some example string",
+    CreateTransferLimitRequest(
+        amount=Amount17(currency="EUR", value=10000),
+        ends_at=datetime(2026, 8, 13, 23, 0, 0, tzinfo=timezone.utc),
+        reference="Your reference for the transfer limit",
+        sca_information=CreateScaInformation1(sca_on_approval=True),
+        scope=Scope.PER_TRANSACTION,
+        starts_at=datetime(2025, 8, 15, 5, 36, 20, tzinfo=timezone.utc),
+        transfer_type=TransferType.ALL,
+    ),
 )
 match result:
     case Success(payload=payload):
@@ -36898,7 +39437,16 @@ match result:
 
 ```python
 result = await async_client.transfer_limits_balance_platform_level.with_raw_response.post_balance_platforms_id_transfer_limits(
-    id, body
+    "some example string",
+    CreateTransferLimitRequest(
+        amount=Amount17(currency="EUR", value=10000),
+        ends_at=datetime(2026, 8, 13, 23, 0, 0, tzinfo=timezone.utc),
+        reference="Your reference for the transfer limit",
+        sca_information=CreateScaInformation1(sca_on_approval=True),
+        scope=Scope.PER_TRANSACTION,
+        starts_at=datetime(2025, 8, 15, 5, 36, 20, tzinfo=timezone.utc),
+        transfer_type=TransferType.ALL,
+    ),
 )
 match result:
     case Success(payload=payload):
@@ -36917,9 +39465,9 @@ match result:
 
 | Name | Type | Description |
 | --- | --- | --- |
-| <code>id</code> | <code>str</code> | The unique identifier of the balance platform. |
+| <code>id_</code> | <code>str</code> | The unique identifier of the balance platform. |
 | <code>body</code> | <code>[CreateTransferLimitRequest](adyen/models/create_transfer_limit_request.py) \| [CreateTransferLimitRequestDict](adyen/models/create_transfer_limit_request.py)</code> | The request body. |
-| <code>request_options</code> | <code>[RequestOptionsOrDict](adyen/core/request_options.py) \| None</code> | Per-call overrides for this one request, such as a timeout or extra headers. |
+| <code>request_options</code> | <code>[RequestOptionsOrDict](adyen/core/request_options.py) \| None</code> | Per-call overrides for this one request, such as a timeout, extra headers, or its retry count and statuses. |
 
 </dd>
 </dl>
@@ -36978,7 +39526,13 @@ Returns available transfer routes based on a combination of transfer `country`, 
 **Sync**
 
 ```python
-result = client.transfer_routes.with_raw_response.post_transfer_routes_calculate()
+result = client.transfer_routes.with_raw_response.post_transfer_routes_calculate(
+    body=TransferRouteRequest(
+        balance_platform="YOUR_BALANCE_PLATFORM",
+        counterparty=Counterparty1(bank_account=BankAccount11(account_identification=IbanAccountIdentification())),
+        currency="USD",
+    ),
+)
 match result:
     case Success(payload=payload):
         ...  # TODO: Handle 'payload' of type TransferRouteResponse
@@ -36989,7 +39543,13 @@ match result:
 **Async**
 
 ```python
-result = await async_client.transfer_routes.with_raw_response.post_transfer_routes_calculate()
+result = await async_client.transfer_routes.with_raw_response.post_transfer_routes_calculate(
+    body=TransferRouteRequest(
+        balance_platform="YOUR_BALANCE_PLATFORM",
+        counterparty=Counterparty1(bank_account=BankAccount11(account_identification=IbanAccountIdentification())),
+        currency="USD",
+    ),
+)
 match result:
     case Success(payload=payload):
         ...  # TODO: Handle 'payload' of type TransferRouteResponse
@@ -37008,7 +39568,7 @@ match result:
 | Name | Type | Description |
 | --- | --- | --- |
 | <code>body</code> | <code>[TransferRouteRequest](adyen/models/transfer_route_request.py) \| [TransferRouteRequestDict](adyen/models/transfer_route_request.py) \| None</code> | The request body.<br>**Default**: <code>None</code> |
-| <code>request_options</code> | <code>[RequestOptionsOrDict](adyen/core/request_options.py) \| None</code> | Per-call overrides for this one request, such as a timeout or extra headers. |
+| <code>request_options</code> | <code>[RequestOptionsOrDict](adyen/core/request_options.py) \| None</code> | Per-call overrides for this one request, such as a timeout, extra headers, or its retry count and statuses. |
 
 </dd>
 </dl>
@@ -37074,7 +39634,9 @@ This endpoint supports cursor-based pagination. The response returns the first p
 **Sync**
 
 ```python
-result = client.transfers.with_raw_response.get_transfers(created_since, created_until)
+result = client.transfers.with_raw_response.get_transfers(
+    datetime(2024, 1, 15, 9, 30, 0, tzinfo=timezone.utc), datetime(2024, 1, 15, 9, 30, 0, tzinfo=timezone.utc)
+)
 match result:
     case Success(payload=payload):
         ...  # TODO: Handle 'payload' of type FindTransfersResponse
@@ -37085,7 +39647,9 @@ match result:
 **Async**
 
 ```python
-result = await async_client.transfers.with_raw_response.get_transfers(created_since, created_until)
+result = await async_client.transfers.with_raw_response.get_transfers(
+    datetime(2024, 1, 15, 9, 30, 0, tzinfo=timezone.utc), datetime(2024, 1, 15, 9, 30, 0, tzinfo=timezone.utc)
+)
 match result:
     case Success(payload=payload):
         ...  # TODO: Handle 'payload' of type FindTransfersResponse
@@ -37114,7 +39678,7 @@ match result:
 | <code>sort_order</code> | <code>[SortOrderOrStr](adyen/models/enums/sort_order.py) \| None</code> | Determines the sort order of the returned transfers. The sort order is based on the creation date of the transfers.<br><br>Possible values:<br><br> - **asc**: Ascending order, from oldest to most recent.<br><br>- **desc**: Descending order, from most recent to oldest.<br><br>Default value: **asc**.<br>**Default**: <code>None</code> |
 | <code>cursor</code> | <code>str \| None</code> | The `cursor` returned in the links of the previous response.<br>**Default**: <code>None</code> |
 | <code>limit</code> | <code>int \| None</code> | The number of items returned per page, maximum of 100 items. By default, the response returns 10 items per page.<br>**Default**: <code>None</code> |
-| <code>request_options</code> | <code>[RequestOptionsOrDict](adyen/core/request_options.py) \| None</code> | Per-call overrides for this one request, such as a timeout or extra headers. |
+| <code>request_options</code> | <code>[RequestOptionsOrDict](adyen/core/request_options.py) \| None</code> | Per-call overrides for this one request, such as a timeout, extra headers, or its retry count and statuses. |
 
 </dd>
 </dl>
@@ -37146,7 +39710,7 @@ Mapped in first-match order -- an earlier row wins over a later range that also 
 </details>
 
 <details>
-<summary><code>def get_transfers_id(id: str, *, request_options: RequestOptionsOrDict | None = None) -> ApiResult[TransferData, GetTransfersIdErrorBody]</code></summary>
+<summary><code>def get_transfers_id(id_: str, *, request_options: RequestOptionsOrDict | None = None) -> ApiResult[TransferData, GetTransfersIdErrorBody]</code></summary>
 
 <dl>
 <dd>
@@ -37169,7 +39733,7 @@ Returns the details of a specified transfer.
 **Sync**
 
 ```python
-result = client.transfers.with_raw_response.get_transfers_id(id)
+result = client.transfers.with_raw_response.get_transfers_id("some example string")
 match result:
     case Success(payload=payload):
         ...  # TODO: Handle 'payload' of type TransferData
@@ -37180,7 +39744,7 @@ match result:
 **Async**
 
 ```python
-result = await async_client.transfers.with_raw_response.get_transfers_id(id)
+result = await async_client.transfers.with_raw_response.get_transfers_id("some example string")
 match result:
     case Success(payload=payload):
         ...  # TODO: Handle 'payload' of type TransferData
@@ -37198,8 +39762,8 @@ match result:
 
 | Name | Type | Description |
 | --- | --- | --- |
-| <code>id</code> | <code>str</code> | Unique identifier of the transfer. |
-| <code>request_options</code> | <code>[RequestOptionsOrDict](adyen/core/request_options.py) \| None</code> | Per-call overrides for this one request, such as a timeout or extra headers. |
+| <code>id_</code> | <code>str</code> | Unique identifier of the transfer. |
+| <code>request_options</code> | <code>[RequestOptionsOrDict](adyen/core/request_options.py) \| None</code> | Per-call overrides for this one request, such as a timeout, extra headers, or its retry count and statuses. |
 
 </dd>
 </dl>
@@ -37268,7 +39832,24 @@ Reach out to your Adyen contact to set up these permissions.
 **Sync**
 
 ```python
-result = client.transfers.with_raw_response.post_transfers()
+result = client.transfers.with_raw_response.post_transfers(
+    idempotency_key="37ca9c97-d1d1-4c62-89e8-706891a563ed",
+    www_authenticate="SCA realm=\"Transfer\" auth-param1=\"eyJjaGFsbGVuZ2UiOiJiVlV6ZW5wek0waFNl...\"",
+    body=TransferInfo(
+        amount=Amount17(currency="EUR", value=110000),
+        balance_account_id="BAB8B2C3D4E5F6G7H8D9J6GD4",
+        category=Category3.BANK,
+        counterparty=CounterpartyInfoV31(
+            bank_account=BankAccountV31(
+                account_holder=PartyIdentification3(), account_identification=NumberAndBicAccountIdentification()
+            ),
+        ),
+        description="Your description for the transfer",
+        priority=Priority1.CROSS_BORDER,
+        reference="Your internal reference for the transfer",
+        reference_for_beneficiary="Your-reference-sent-to-the-beneficiary",
+    ),
+)
 match result:
     case Success(payload=payload):
         ...  # TODO: Handle 'payload' of type Transfer
@@ -37279,7 +39860,24 @@ match result:
 **Async**
 
 ```python
-result = await async_client.transfers.with_raw_response.post_transfers()
+result = await async_client.transfers.with_raw_response.post_transfers(
+    idempotency_key="37ca9c97-d1d1-4c62-89e8-706891a563ed",
+    www_authenticate="SCA realm=\"Transfer\" auth-param1=\"eyJjaGFsbGVuZ2UiOiJiVlV6ZW5wek0waFNl...\"",
+    body=TransferInfo(
+        amount=Amount17(currency="EUR", value=110000),
+        balance_account_id="BAB8B2C3D4E5F6G7H8D9J6GD4",
+        category=Category3.BANK,
+        counterparty=CounterpartyInfoV31(
+            bank_account=BankAccountV31(
+                account_holder=PartyIdentification3(), account_identification=NumberAndBicAccountIdentification()
+            ),
+        ),
+        description="Your description for the transfer",
+        priority=Priority1.CROSS_BORDER,
+        reference="Your internal reference for the transfer",
+        reference_for_beneficiary="Your-reference-sent-to-the-beneficiary",
+    ),
+)
 match result:
     case Success(payload=payload):
         ...  # TODO: Handle 'payload' of type Transfer
@@ -37300,7 +39898,7 @@ match result:
 | <code>idempotency_key</code> | <code>str \| None</code> | A unique identifier for the message with a maximum of 64 characters (we recommend a UUID).<br>**Default**: <code>None</code> |
 | <code>www_authenticate</code> | <code>str \| None</code> | Header for authenticating through SCA<br>**Default**: <code>None</code> |
 | <code>body</code> | <code>[TransferInfo](adyen/models/transfer_info.py) \| [TransferInfoDict](adyen/models/transfer_info.py) \| None</code> | The request body.<br>**Default**: <code>None</code> |
-| <code>request_options</code> | <code>[RequestOptionsOrDict](adyen/core/request_options.py) \| None</code> | Per-call overrides for this one request, such as a timeout or extra headers. |
+| <code>request_options</code> | <code>[RequestOptionsOrDict](adyen/core/request_options.py) \| None</code> | Per-call overrides for this one request, such as a timeout, extra headers, or its retry count and statuses. |
 
 </dd>
 </dl>
@@ -37362,7 +39960,11 @@ Reach out to your Adyen contact to set up these permissions.
 **Sync**
 
 ```python
-result = client.transfers.with_raw_response.post_transfers_approve()
+result = client.transfers.with_raw_response.post_transfers_approve(
+    idempotency_key="37ca9c97-d1d1-4c62-89e8-706891a563ed",
+    www_authenticate="SCA realm=\"ApproveTransfers\" auth-param1=\"eyJjaGFsbGVuZ2UiOiJiVlV6ZW5wek0waFNl...\"",
+    body=ApproveTransfersRequest(transfer_ids=["APUFHASUDF4AS", "407ASFPUAHSFA"]),
+)
 match result:
     case Success(payload=payload):
         ...  # TODO: Handle 'payload' of type Any
@@ -37373,7 +39975,11 @@ match result:
 **Async**
 
 ```python
-result = await async_client.transfers.with_raw_response.post_transfers_approve()
+result = await async_client.transfers.with_raw_response.post_transfers_approve(
+    idempotency_key="37ca9c97-d1d1-4c62-89e8-706891a563ed",
+    www_authenticate="SCA realm=\"ApproveTransfers\" auth-param1=\"eyJjaGFsbGVuZ2UiOiJiVlV6ZW5wek0waFNl...\"",
+    body=ApproveTransfersRequest(transfer_ids=["APUFHASUDF4AS", "407ASFPUAHSFA"]),
+)
 match result:
     case Success(payload=payload):
         ...  # TODO: Handle 'payload' of type Any
@@ -37394,7 +40000,7 @@ match result:
 | <code>idempotency_key</code> | <code>str \| None</code> | A unique identifier for the message with a maximum of 64 characters (we recommend a UUID).<br>**Default**: <code>None</code> |
 | <code>www_authenticate</code> | <code>str \| None</code> | Header for authenticating through SCA<br>**Default**: <code>None</code> |
 | <code>body</code> | <code>[ApproveTransfersRequest](adyen/models/approve_transfers_request.py) \| [ApproveTransfersRequestDict](adyen/models/approve_transfers_request.py) \| None</code> | The request body.<br>**Default**: <code>None</code> |
-| <code>request_options</code> | <code>[RequestOptionsOrDict](adyen/core/request_options.py) \| None</code> | Per-call overrides for this one request, such as a timeout or extra headers. |
+| <code>request_options</code> | <code>[RequestOptionsOrDict](adyen/core/request_options.py) \| None</code> | Per-call overrides for this one request, such as a timeout, extra headers, or its retry count and statuses. |
 
 </dd>
 </dl>
@@ -37456,7 +40062,10 @@ Reach out to your Adyen contact to set up these permissions.
 **Sync**
 
 ```python
-result = client.transfers.with_raw_response.post_transfers_cancel()
+result = client.transfers.with_raw_response.post_transfers_cancel(
+    idempotency_key="37ca9c97-d1d1-4c62-89e8-706891a563ed",
+    body=CancelTransfersRequest(transfer_ids=["APUFHASUDF4AS", "407ASFPUAHSFA"]),
+)
 match result:
     case Success(payload=payload):
         ...  # TODO: Handle 'payload' of type Any
@@ -37467,7 +40076,10 @@ match result:
 **Async**
 
 ```python
-result = await async_client.transfers.with_raw_response.post_transfers_cancel()
+result = await async_client.transfers.with_raw_response.post_transfers_cancel(
+    idempotency_key="37ca9c97-d1d1-4c62-89e8-706891a563ed",
+    body=CancelTransfersRequest(transfer_ids=["APUFHASUDF4AS", "407ASFPUAHSFA"]),
+)
 match result:
     case Success(payload=payload):
         ...  # TODO: Handle 'payload' of type Any
@@ -37487,7 +40099,7 @@ match result:
 | --- | --- | --- |
 | <code>idempotency_key</code> | <code>str \| None</code> | A unique identifier for the message with a maximum of 64 characters (we recommend a UUID).<br>**Default**: <code>None</code> |
 | <code>body</code> | <code>[CancelTransfersRequest](adyen/models/cancel_transfers_request.py) \| [CancelTransfersRequestDict](adyen/models/cancel_transfers_request.py) \| None</code> | The request body.<br>**Default**: <code>None</code> |
-| <code>request_options</code> | <code>[RequestOptionsOrDict](adyen/core/request_options.py) \| None</code> | Per-call overrides for this one request, such as a timeout or extra headers. |
+| <code>request_options</code> | <code>[RequestOptionsOrDict](adyen/core/request_options.py) \| None</code> | Per-call overrides for this one request, such as a timeout, extra headers, or its retry count and statuses. |
 
 </dd>
 </dl>
@@ -37542,7 +40154,13 @@ Initiates the return of previously transferred funds without creating a new `tra
 **Sync**
 
 ```python
-result = client.transfers.with_raw_response.post_transfers_transfer_id_returns(transfer_id)
+result = client.transfers.with_raw_response.post_transfers_transfer_id_returns(
+    "some example string",
+    idempotency_key="37ca9c97-d1d1-4c62-89e8-706891a563ed",
+    body=ReturnTransferRequest(
+        amount=Amount17(currency="EUR", value=189), reference="Your internal reference for the return"
+    ),
+)
 match result:
     case Success(payload=payload):
         ...  # TODO: Handle 'payload' of type ReturnTransferResponse
@@ -37553,7 +40171,13 @@ match result:
 **Async**
 
 ```python
-result = await async_client.transfers.with_raw_response.post_transfers_transfer_id_returns(transfer_id)
+result = await async_client.transfers.with_raw_response.post_transfers_transfer_id_returns(
+    "some example string",
+    idempotency_key="37ca9c97-d1d1-4c62-89e8-706891a563ed",
+    body=ReturnTransferRequest(
+        amount=Amount17(currency="EUR", value=189), reference="Your internal reference for the return"
+    ),
+)
 match result:
     case Success(payload=payload):
         ...  # TODO: Handle 'payload' of type ReturnTransferResponse
@@ -37574,7 +40198,7 @@ match result:
 | <code>transfer_id</code> | <code>str</code> | The unique identifier of the transfer to be returned. |
 | <code>idempotency_key</code> | <code>str \| None</code> | A unique identifier for the message with a maximum of 64 characters (we recommend a UUID).<br>**Default**: <code>None</code> |
 | <code>body</code> | <code>[ReturnTransferRequest](adyen/models/return_transfer_request.py) \| [ReturnTransferRequestDict](adyen/models/return_transfer_request.py) \| None</code> | The request body.<br>**Default**: <code>None</code> |
-| <code>request_options</code> | <code>[RequestOptionsOrDict](adyen/core/request_options.py) \| None</code> | Per-call overrides for this one request, such as a timeout or extra headers. |
+| <code>request_options</code> | <code>[RequestOptionsOrDict](adyen/core/request_options.py) \| None</code> | Per-call overrides for this one request, such as a timeout, extra headers, or its retry count and statuses. |
 
 </dd>
 </dl>
@@ -37636,7 +40260,7 @@ To make this request, your API credential must have the following [role](https:/
 **Sync**
 
 ```python
-result = client.users_company_level.with_raw_response.get_companies_company_id_users(company_id)
+result = client.users_company_level.with_raw_response.get_companies_company_id_users("some example string")
 match result:
     case Success(payload=payload):
         ...  # TODO: Handle 'payload' of type ListCompanyUsersResponse
@@ -37647,7 +40271,7 @@ match result:
 **Async**
 
 ```python
-result = await async_client.users_company_level.with_raw_response.get_companies_company_id_users(company_id)
+result = await async_client.users_company_level.with_raw_response.get_companies_company_id_users("some example string")
 match result:
     case Success(payload=payload):
         ...  # TODO: Handle 'payload' of type ListCompanyUsersResponse
@@ -37669,7 +40293,7 @@ match result:
 | <code>page_number</code> | <code>int \| None</code> | The number of the page to return.<br>**Default**: <code>None</code> |
 | <code>page_size</code> | <code>int \| None</code> | The number of items to have on a page. Maximum value is **100**. The default is **10** items on a page.<br>**Default**: <code>None</code> |
 | <code>username</code> | <code>str \| None</code> | The partial or complete username to select all users that match.<br>**Default**: <code>None</code> |
-| <code>request_options</code> | <code>[RequestOptionsOrDict](adyen/core/request_options.py) \| None</code> | Per-call overrides for this one request, such as a timeout or extra headers. |
+| <code>request_options</code> | <code>[RequestOptionsOrDict](adyen/core/request_options.py) \| None</code> | Per-call overrides for this one request, such as a timeout, extra headers, or its retry count and statuses. |
 
 </dd>
 </dl>
@@ -37727,7 +40351,9 @@ To make this request, your API credential must have the following [role](https:/
 **Sync**
 
 ```python
-result = client.users_company_level.with_raw_response.get_companies_company_id_users_user_id(company_id, user_id)
+result = client.users_company_level.with_raw_response.get_companies_company_id_users_user_id(
+    "some example string", "some example string"
+)
 match result:
     case Success(payload=payload):
         ...  # TODO: Handle 'payload' of type CompanyUser
@@ -37739,7 +40365,7 @@ match result:
 
 ```python
 result = await async_client.users_company_level.with_raw_response.get_companies_company_id_users_user_id(
-    company_id, user_id
+    "some example string", "some example string"
 )
 match result:
     case Success(payload=payload):
@@ -37760,7 +40386,7 @@ match result:
 | --- | --- | --- |
 | <code>company_id</code> | <code>str</code> | The unique identifier of the company account. |
 | <code>user_id</code> | <code>str</code> | The unique identifier of the user. |
-| <code>request_options</code> | <code>[RequestOptionsOrDict](adyen/core/request_options.py) \| None</code> | Per-call overrides for this one request, such as a timeout or extra headers. |
+| <code>request_options</code> | <code>[RequestOptionsOrDict](adyen/core/request_options.py) \| None</code> | Per-call overrides for this one request, such as a timeout, extra headers, or its retry count and statuses. |
 
 </dd>
 </dl>
@@ -37818,7 +40444,9 @@ To make this request, your API credential must have the following [role](https:/
 **Sync**
 
 ```python
-result = client.users_company_level.with_raw_response.patch_companies_company_id_users_user_id(company_id, user_id)
+result = client.users_company_level.with_raw_response.patch_companies_company_id_users_user_id(
+    "some example string", "some example string"
+)
 match result:
     case Success(payload=payload):
         ...  # TODO: Handle 'payload' of type CompanyUser
@@ -37830,7 +40458,7 @@ match result:
 
 ```python
 result = await async_client.users_company_level.with_raw_response.patch_companies_company_id_users_user_id(
-    company_id, user_id
+    "some example string", "some example string"
 )
 match result:
     case Success(payload=payload):
@@ -37852,7 +40480,7 @@ match result:
 | <code>company_id</code> | <code>str</code> | The unique identifier of the company account. |
 | <code>user_id</code> | <code>str</code> | The unique identifier of the user. |
 | <code>body</code> | <code>[UpdateCompanyUserRequest](adyen/models/update_company_user_request.py) \| [UpdateCompanyUserRequestDict](adyen/models/update_company_user_request.py) \| None</code> | The request body.<br>**Default**: <code>None</code> |
-| <code>request_options</code> | <code>[RequestOptionsOrDict](adyen/core/request_options.py) \| None</code> | Per-call overrides for this one request, such as a timeout or extra headers. |
+| <code>request_options</code> | <code>[RequestOptionsOrDict](adyen/core/request_options.py) \| None</code> | Per-call overrides for this one request, such as a timeout, extra headers, or its retry count and statuses. |
 
 </dd>
 </dl>
@@ -37910,7 +40538,18 @@ To make this request, your API credential must have the following [role](https:/
 **Sync**
 
 ```python
-result = client.users_company_level.with_raw_response.post_companies_company_id_users(company_id)
+result = client.users_company_level.with_raw_response.post_companies_company_id_users(
+    "some example string",
+    body=CreateCompanyUserRequest(
+        associated_merchant_accounts=["YOUR_MERCHANT_ACCOUNT"],
+        email="john.smith@example.com",
+        login_method="Email",
+        name=Name(first_name="John", last_name="Smith"),
+        roles=["Merchant standard role", "Merchant admin"],
+        time_zone_code="Europe/Amsterdam",
+        username="johnsmith",
+    ),
+)
 match result:
     case Success(payload=payload):
         ...  # TODO: Handle 'payload' of type CreateCompanyUserResponse
@@ -37921,7 +40560,18 @@ match result:
 **Async**
 
 ```python
-result = await async_client.users_company_level.with_raw_response.post_companies_company_id_users(company_id)
+result = await async_client.users_company_level.with_raw_response.post_companies_company_id_users(
+    "some example string",
+    body=CreateCompanyUserRequest(
+        associated_merchant_accounts=["YOUR_MERCHANT_ACCOUNT"],
+        email="john.smith@example.com",
+        login_method="Email",
+        name=Name(first_name="John", last_name="Smith"),
+        roles=["Merchant standard role", "Merchant admin"],
+        time_zone_code="Europe/Amsterdam",
+        username="johnsmith",
+    ),
+)
 match result:
     case Success(payload=payload):
         ...  # TODO: Handle 'payload' of type CreateCompanyUserResponse
@@ -37941,7 +40591,7 @@ match result:
 | --- | --- | --- |
 | <code>company_id</code> | <code>str</code> | The unique identifier of the company account. |
 | <code>body</code> | <code>[CreateCompanyUserRequest](adyen/models/create_company_user_request.py) \| [CreateCompanyUserRequestDict](adyen/models/create_company_user_request.py) \| None</code> | The request body.<br>**Default**: <code>None</code> |
-| <code>request_options</code> | <code>[RequestOptionsOrDict](adyen/core/request_options.py) \| None</code> | Per-call overrides for this one request, such as a timeout or extra headers. |
+| <code>request_options</code> | <code>[RequestOptionsOrDict](adyen/core/request_options.py) \| None</code> | Per-call overrides for this one request, such as a timeout, extra headers, or its retry count and statuses. |
 
 </dd>
 </dl>
@@ -38003,7 +40653,7 @@ To make this request, your API credential must have the following [role](https:/
 **Sync**
 
 ```python
-result = client.users_merchant_level.with_raw_response.get_merchants_merchant_id_users(merchant_id)
+result = client.users_merchant_level.with_raw_response.get_merchants_merchant_id_users("some example string")
 match result:
     case Success(payload=payload):
         ...  # TODO: Handle 'payload' of type ListMerchantUsersResponse
@@ -38014,7 +40664,9 @@ match result:
 **Async**
 
 ```python
-result = await async_client.users_merchant_level.with_raw_response.get_merchants_merchant_id_users(merchant_id)
+result = await async_client.users_merchant_level.with_raw_response.get_merchants_merchant_id_users(
+    "some example string"
+)
 match result:
     case Success(payload=payload):
         ...  # TODO: Handle 'payload' of type ListMerchantUsersResponse
@@ -38036,7 +40688,7 @@ match result:
 | <code>page_number</code> | <code>int \| None</code> | The number of the page to fetch.<br>**Default**: <code>None</code> |
 | <code>page_size</code> | <code>int \| None</code> | The number of items to have on a page. Maximum value is **100**. The default is **10** items on a page.<br>**Default**: <code>None</code> |
 | <code>username</code> | <code>str \| None</code> | The partial or complete username to select all users that match.<br>**Default**: <code>None</code> |
-| <code>request_options</code> | <code>[RequestOptionsOrDict](adyen/core/request_options.py) \| None</code> | Per-call overrides for this one request, such as a timeout or extra headers. |
+| <code>request_options</code> | <code>[RequestOptionsOrDict](adyen/core/request_options.py) \| None</code> | Per-call overrides for this one request, such as a timeout, extra headers, or its retry count and statuses. |
 
 </dd>
 </dl>
@@ -38094,7 +40746,9 @@ To make this request, your API credential must have the following [role](https:/
 **Sync**
 
 ```python
-result = client.users_merchant_level.with_raw_response.get_merchants_merchant_id_users_user_id(merchant_id, user_id)
+result = client.users_merchant_level.with_raw_response.get_merchants_merchant_id_users_user_id(
+    "some example string", "some example string"
+)
 match result:
     case Success(payload=payload):
         ...  # TODO: Handle 'payload' of type User
@@ -38106,7 +40760,7 @@ match result:
 
 ```python
 result = await async_client.users_merchant_level.with_raw_response.get_merchants_merchant_id_users_user_id(
-    merchant_id, user_id
+    "some example string", "some example string"
 )
 match result:
     case Success(payload=payload):
@@ -38127,7 +40781,7 @@ match result:
 | --- | --- | --- |
 | <code>merchant_id</code> | <code>str</code> | Unique identifier of the merchant. |
 | <code>user_id</code> | <code>str</code> | Unique identifier of the user. |
-| <code>request_options</code> | <code>[RequestOptionsOrDict](adyen/core/request_options.py) \| None</code> | Per-call overrides for this one request, such as a timeout or extra headers. |
+| <code>request_options</code> | <code>[RequestOptionsOrDict](adyen/core/request_options.py) \| None</code> | Per-call overrides for this one request, such as a timeout, extra headers, or its retry count and statuses. |
 
 </dd>
 </dl>
@@ -38185,7 +40839,9 @@ To make this request, your API credential must have the following [role](https:/
 **Sync**
 
 ```python
-result = client.users_merchant_level.with_raw_response.patch_merchants_merchant_id_users_user_id(merchant_id, user_id)
+result = client.users_merchant_level.with_raw_response.patch_merchants_merchant_id_users_user_id(
+    "some example string", "some example string"
+)
 match result:
     case Success(payload=payload):
         ...  # TODO: Handle 'payload' of type User
@@ -38197,7 +40853,7 @@ match result:
 
 ```python
 result = await async_client.users_merchant_level.with_raw_response.patch_merchants_merchant_id_users_user_id(
-    merchant_id, user_id
+    "some example string", "some example string"
 )
 match result:
     case Success(payload=payload):
@@ -38219,7 +40875,7 @@ match result:
 | <code>merchant_id</code> | <code>str</code> | Unique identifier of the merchant. |
 | <code>user_id</code> | <code>str</code> | Unique identifier of the user. |
 | <code>body</code> | <code>[UpdateMerchantUserRequest](adyen/models/update_merchant_user_request.py) \| [UpdateMerchantUserRequestDict](adyen/models/update_merchant_user_request.py) \| None</code> | The request body.<br>**Default**: <code>None</code> |
-| <code>request_options</code> | <code>[RequestOptionsOrDict](adyen/core/request_options.py) \| None</code> | Per-call overrides for this one request, such as a timeout or extra headers. |
+| <code>request_options</code> | <code>[RequestOptionsOrDict](adyen/core/request_options.py) \| None</code> | Per-call overrides for this one request, such as a timeout, extra headers, or its retry count and statuses. |
 
 </dd>
 </dl>
@@ -38277,7 +40933,17 @@ To make this request, your API credential must have the following [role](https:/
 **Sync**
 
 ```python
-result = client.users_merchant_level.with_raw_response.post_merchants_merchant_id_users(merchant_id)
+result = client.users_merchant_level.with_raw_response.post_merchants_merchant_id_users(
+    "some example string",
+    body=CreateMerchantUserRequest(
+        email="john.smith@example.com",
+        login_method="Email",
+        name=Name(first_name="John", last_name="Smith"),
+        roles=["Merchant standard role"],
+        time_zone_code="Europe/Amsterdam",
+        username="johnsmith",
+    ),
+)
 match result:
     case Success(payload=payload):
         ...  # TODO: Handle 'payload' of type CreateUserResponse
@@ -38288,7 +40954,17 @@ match result:
 **Async**
 
 ```python
-result = await async_client.users_merchant_level.with_raw_response.post_merchants_merchant_id_users(merchant_id)
+result = await async_client.users_merchant_level.with_raw_response.post_merchants_merchant_id_users(
+    "some example string",
+    body=CreateMerchantUserRequest(
+        email="john.smith@example.com",
+        login_method="Email",
+        name=Name(first_name="John", last_name="Smith"),
+        roles=["Merchant standard role"],
+        time_zone_code="Europe/Amsterdam",
+        username="johnsmith",
+    ),
+)
 match result:
     case Success(payload=payload):
         ...  # TODO: Handle 'payload' of type CreateUserResponse
@@ -38308,7 +40984,7 @@ match result:
 | --- | --- | --- |
 | <code>merchant_id</code> | <code>str</code> | Unique identifier of the merchant. |
 | <code>body</code> | <code>[CreateMerchantUserRequest](adyen/models/create_merchant_user_request.py) \| [CreateMerchantUserRequestDict](adyen/models/create_merchant_user_request.py) \| None</code> | The request body.<br>**Default**: <code>None</code> |
-| <code>request_options</code> | <code>[RequestOptionsOrDict](adyen/core/request_options.py) \| None</code> | Per-call overrides for this one request, such as a timeout or extra headers. |
+| <code>request_options</code> | <code>[RequestOptionsOrDict](adyen/core/request_options.py) \| None</code> | Per-call overrides for this one request, such as a timeout, extra headers, or its retry count and statuses. |
 
 </dd>
 </dl>
@@ -38369,7 +41045,12 @@ The endpoint returns the Apple Pay session data which you need to complete the [
 **Sync**
 
 ```python
-result = client.utility.with_raw_response.post_apple_pay_sessions()
+result = client.utility.with_raw_response.post_apple_pay_sessions(
+    idempotency_key="37ca9c97-d1d1-4c62-89e8-706891a563ed",
+    body=ApplePaySessionRequest(
+        display_name="YOUR_MERCHANT_NAME", domain_name="YOUR_DOMAIN_NAME", merchant_identifier="YOUR_MERCHANT_ID"
+    ),
+)
 match result:
     case Success(payload=payload):
         ...  # TODO: Handle 'payload' of type ApplePaySessionResponse
@@ -38380,7 +41061,12 @@ match result:
 **Async**
 
 ```python
-result = await async_client.utility.with_raw_response.post_apple_pay_sessions()
+result = await async_client.utility.with_raw_response.post_apple_pay_sessions(
+    idempotency_key="37ca9c97-d1d1-4c62-89e8-706891a563ed",
+    body=ApplePaySessionRequest(
+        display_name="YOUR_MERCHANT_NAME", domain_name="YOUR_DOMAIN_NAME", merchant_identifier="YOUR_MERCHANT_ID"
+    ),
+)
 match result:
     case Success(payload=payload):
         ...  # TODO: Handle 'payload' of type ApplePaySessionResponse
@@ -38400,7 +41086,7 @@ match result:
 | --- | --- | --- |
 | <code>idempotency_key</code> | <code>str \| None</code> | A unique identifier for the message with a maximum of 64 characters (we recommend a UUID).<br>**Default**: <code>None</code> |
 | <code>body</code> | <code>[ApplePaySessionRequest](adyen/models/apple_pay_session_request.py) \| [ApplePaySessionRequestDict](adyen/models/apple_pay_session_request.py) \| None</code> | The request body.<br>**Default**: <code>None</code> |
-| <code>request_options</code> | <code>[RequestOptionsOrDict](adyen/core/request_options.py) \| None</code> | Per-call overrides for this one request, such as a timeout or extra headers. |
+| <code>request_options</code> | <code>[RequestOptionsOrDict](adyen/core/request_options.py) \| None</code> | Per-call overrides for this one request, such as a timeout, extra headers, or its retry count and statuses. |
 
 </dd>
 </dl>
@@ -38449,7 +41135,12 @@ This operation takes the origin domains and returns a JSON object containing the
 **Sync**
 
 ```python
-result = client.utility.with_raw_response.post_origin_keys()
+result = client.utility.with_raw_response.post_origin_keys(
+    idempotency_key="37ca9c97-d1d1-4c62-89e8-706891a563ed",
+    body=UtilityRequest(
+        origin_domains=["https://www.your-domain1.com", "https://www.your-domain2.com", "https://www.your-domain3.com"]
+    ),
+)
 match result:
     case Success(payload=payload):
         ...  # TODO: Handle 'payload' of type UtilityResponse
@@ -38460,7 +41151,12 @@ match result:
 **Async**
 
 ```python
-result = await async_client.utility.with_raw_response.post_origin_keys()
+result = await async_client.utility.with_raw_response.post_origin_keys(
+    idempotency_key="37ca9c97-d1d1-4c62-89e8-706891a563ed",
+    body=UtilityRequest(
+        origin_domains=["https://www.your-domain1.com", "https://www.your-domain2.com", "https://www.your-domain3.com"]
+    ),
+)
 match result:
     case Success(payload=payload):
         ...  # TODO: Handle 'payload' of type UtilityResponse
@@ -38480,7 +41176,7 @@ match result:
 | --- | --- | --- |
 | <code>idempotency_key</code> | <code>str \| None</code> | A unique identifier for the message with a maximum of 64 characters (we recommend a UUID).<br>**Default**: <code>None</code> |
 | <code>body</code> | <code>[UtilityRequest](adyen/models/utility_request.py) \| [UtilityRequestDict](adyen/models/utility_request.py) \| None</code> | The request body.<br>**Default**: <code>None</code> |
-| <code>request_options</code> | <code>[RequestOptionsOrDict](adyen/core/request_options.py) \| None</code> | Per-call overrides for this one request, such as a timeout or extra headers. |
+| <code>request_options</code> | <code>[RequestOptionsOrDict](adyen/core/request_options.py) \| None</code> | Per-call overrides for this one request, such as a timeout, extra headers, or its retry count and statuses. |
 
 </dd>
 </dl>
@@ -38535,7 +41231,30 @@ Updates the order for PayPal Express Checkout. This can be used to update the Pa
 **Sync**
 
 ```python
-result = client.utility.with_raw_response.post_paypal_update_order()
+result = client.utility.with_raw_response.post_paypal_update_order(
+    idempotency_key="37ca9c97-d1d1-4c62-89e8-706891a563ed",
+    body=PaypalUpdateOrderRequest(
+        amount=Amount44(currency="EUR", value=12000),
+        delivery_methods=[
+            DeliveryMethod(
+                amount=Amount24(currency="EUR", value=1000),
+                description="Express Shipping",
+                reference="1",
+                selected=True,
+                type_=Type21.SHIPPING,
+            ),
+            DeliveryMethod(
+                amount=Amount24(currency="EUR", value=500),
+                description="Standard Ground",
+                reference="2",
+                selected=False,
+                type_=Type21.SHIPPING,
+            ),
+        ],
+        payment_data="po7XZ...",
+        psp_reference="DZ4DPSHB4WD2WN82",
+    ),
+)
 match result:
     case Success(payload=payload):
         ...  # TODO: Handle 'payload' of type PaypalUpdateOrderResponse
@@ -38546,7 +41265,30 @@ match result:
 **Async**
 
 ```python
-result = await async_client.utility.with_raw_response.post_paypal_update_order()
+result = await async_client.utility.with_raw_response.post_paypal_update_order(
+    idempotency_key="37ca9c97-d1d1-4c62-89e8-706891a563ed",
+    body=PaypalUpdateOrderRequest(
+        amount=Amount44(currency="EUR", value=12000),
+        delivery_methods=[
+            DeliveryMethod(
+                amount=Amount24(currency="EUR", value=1000),
+                description="Express Shipping",
+                reference="1",
+                selected=True,
+                type_=Type21.SHIPPING,
+            ),
+            DeliveryMethod(
+                amount=Amount24(currency="EUR", value=500),
+                description="Standard Ground",
+                reference="2",
+                selected=False,
+                type_=Type21.SHIPPING,
+            ),
+        ],
+        payment_data="po7XZ...",
+        psp_reference="DZ4DPSHB4WD2WN82",
+    ),
+)
 match result:
     case Success(payload=payload):
         ...  # TODO: Handle 'payload' of type PaypalUpdateOrderResponse
@@ -38566,7 +41308,7 @@ match result:
 | --- | --- | --- |
 | <code>idempotency_key</code> | <code>str \| None</code> | A unique identifier for the message with a maximum of 64 characters (we recommend a UUID).<br>**Default**: <code>None</code> |
 | <code>body</code> | <code>[PaypalUpdateOrderRequest](adyen/models/paypal_update_order_request.py) \| [PaypalUpdateOrderRequestDict](adyen/models/paypal_update_order_request.py) \| None</code> | The request body.<br>**Default**: <code>None</code> |
-| <code>request_options</code> | <code>[RequestOptionsOrDict](adyen/core/request_options.py) \| None</code> | Per-call overrides for this one request, such as a timeout or extra headers. |
+| <code>request_options</code> | <code>[RequestOptionsOrDict](adyen/core/request_options.py) \| None</code> | Per-call overrides for this one request, such as a timeout, extra headers, or its retry count and statuses. |
 
 </dd>
 </dl>
@@ -38621,7 +41363,9 @@ Validates the shopperId.
 **Sync**
 
 ```python
-result = client.utility.with_raw_response.post_validate_shopper_id(body)
+result = client.utility.with_raw_response.post_validate_shopper_id(
+    ValidateShopperIdRequest(merchant_account="some example string", payment_method=ShopperIdPaymentMethod1())
+)
 match result:
     case Success(payload=payload):
         ...  # TODO: Handle 'payload' of type ValidateShopperIdResponse
@@ -38632,7 +41376,9 @@ match result:
 **Async**
 
 ```python
-result = await async_client.utility.with_raw_response.post_validate_shopper_id(body)
+result = await async_client.utility.with_raw_response.post_validate_shopper_id(
+    ValidateShopperIdRequest(merchant_account="some example string", payment_method=ShopperIdPaymentMethod1())
+)
 match result:
     case Success(payload=payload):
         ...  # TODO: Handle 'payload' of type ValidateShopperIdResponse
@@ -38651,7 +41397,7 @@ match result:
 | Name | Type | Description |
 | --- | --- | --- |
 | <code>body</code> | <code>[ValidateShopperIdRequest](adyen/models/validate_shopper_id_request.py) \| [ValidateShopperIdRequestDict](adyen/models/validate_shopper_id_request.py)</code> | The request body. |
-| <code>request_options</code> | <code>[RequestOptionsOrDict](adyen/core/request_options.py) \| None</code> | Per-call overrides for this one request, such as a timeout or extra headers. |
+| <code>request_options</code> | <code>[RequestOptionsOrDict](adyen/core/request_options.py) \| None</code> | Per-call overrides for this one request, such as a timeout, extra headers, or its retry count and statuses. |
 
 </dd>
 </dl>
@@ -38710,7 +41456,11 @@ Triggers the verification of an account holder even if the checks are not yet re
 **Sync**
 
 ```python
-result = client.verification.with_raw_response.post_check_account_holder()
+result = client.verification.with_raw_response.post_check_account_holder(
+    body=PerformVerificationRequest(
+        account_holder_code="CODE_OF_ACCOUNT_HOLDER", account_state_type=AccountStateType.PROCESSING, tier=2
+    ),
+)
 match result:
     case Success(payload=payload):
         ...  # TODO: Handle 'payload' of type GenericResponse
@@ -38721,7 +41471,11 @@ match result:
 **Async**
 
 ```python
-result = await async_client.verification.with_raw_response.post_check_account_holder()
+result = await async_client.verification.with_raw_response.post_check_account_holder(
+    body=PerformVerificationRequest(
+        account_holder_code="CODE_OF_ACCOUNT_HOLDER", account_state_type=AccountStateType.PROCESSING, tier=2
+    ),
+)
 match result:
     case Success(payload=payload):
         ...  # TODO: Handle 'payload' of type GenericResponse
@@ -38740,7 +41494,7 @@ match result:
 | Name | Type | Description |
 | --- | --- | --- |
 | <code>body</code> | <code>[PerformVerificationRequest](adyen/models/perform_verification_request.py) \| [PerformVerificationRequestDict](adyen/models/perform_verification_request.py) \| None</code> | The request body.<br>**Default**: <code>None</code> |
-| <code>request_options</code> | <code>[RequestOptionsOrDict](adyen/core/request_options.py) \| None</code> | Per-call overrides for this one request, such as a timeout or extra headers. |
+| <code>request_options</code> | <code>[RequestOptionsOrDict](adyen/core/request_options.py) \| None</code> | Per-call overrides for this one request, such as a timeout, extra headers, or its retry count and statuses. |
 
 </dd>
 </dl>
@@ -38795,7 +41549,11 @@ Deletes bank accounts associated with an account holder.
 **Sync**
 
 ```python
-result = client.verification.with_raw_response.post_delete_bank_accounts()
+result = client.verification.with_raw_response.post_delete_bank_accounts(
+    body=DeleteBankAccountRequest(
+        account_holder_code="CODE_OF_ACCOUNT_HOLDER", bank_account_uuids=["eeb6ed22-3bae-483c-83b9-bc2097a75d40"]
+    ),
+)
 match result:
     case Success(payload=payload):
         ...  # TODO: Handle 'payload' of type GenericResponse
@@ -38806,7 +41564,11 @@ match result:
 **Async**
 
 ```python
-result = await async_client.verification.with_raw_response.post_delete_bank_accounts()
+result = await async_client.verification.with_raw_response.post_delete_bank_accounts(
+    body=DeleteBankAccountRequest(
+        account_holder_code="CODE_OF_ACCOUNT_HOLDER", bank_account_uuids=["eeb6ed22-3bae-483c-83b9-bc2097a75d40"]
+    ),
+)
 match result:
     case Success(payload=payload):
         ...  # TODO: Handle 'payload' of type GenericResponse
@@ -38825,7 +41587,7 @@ match result:
 | Name | Type | Description |
 | --- | --- | --- |
 | <code>body</code> | <code>[DeleteBankAccountRequest](adyen/models/delete_bank_account_request.py) \| [DeleteBankAccountRequestDict](adyen/models/delete_bank_account_request.py) \| None</code> | The request body.<br>**Default**: <code>None</code> |
-| <code>request_options</code> | <code>[RequestOptionsOrDict](adyen/core/request_options.py) \| None</code> | Per-call overrides for this one request, such as a timeout or extra headers. |
+| <code>request_options</code> | <code>[RequestOptionsOrDict](adyen/core/request_options.py) \| None</code> | Per-call overrides for this one request, such as a timeout, extra headers, or its retry count and statuses. |
 
 </dd>
 </dl>
@@ -38880,7 +41642,12 @@ Deletes legal arrangements and/or legal arrangement entities associated with an 
 **Sync**
 
 ```python
-result = client.verification.with_raw_response.post_delete_legal_arrangements()
+result = client.verification.with_raw_response.post_delete_legal_arrangements(
+    body=DeleteLegalArrangementRequest(
+        account_holder_code="CODE_OF_ACCOUNT_HOLDER",
+        legal_arrangements=[LegalArrangementRequest(legal_arrangement_code="cdf92f5a-a114-4ce6-8f19-c3f6ec83141c")],
+    ),
+)
 match result:
     case Success(payload=payload):
         ...  # TODO: Handle 'payload' of type GenericResponse
@@ -38891,7 +41658,12 @@ match result:
 **Async**
 
 ```python
-result = await async_client.verification.with_raw_response.post_delete_legal_arrangements()
+result = await async_client.verification.with_raw_response.post_delete_legal_arrangements(
+    body=DeleteLegalArrangementRequest(
+        account_holder_code="CODE_OF_ACCOUNT_HOLDER",
+        legal_arrangements=[LegalArrangementRequest(legal_arrangement_code="cdf92f5a-a114-4ce6-8f19-c3f6ec83141c")],
+    ),
+)
 match result:
     case Success(payload=payload):
         ...  # TODO: Handle 'payload' of type GenericResponse
@@ -38910,7 +41682,7 @@ match result:
 | Name | Type | Description |
 | --- | --- | --- |
 | <code>body</code> | <code>[DeleteLegalArrangementRequest](adyen/models/delete_legal_arrangement_request.py) \| [DeleteLegalArrangementRequestDict](adyen/models/delete_legal_arrangement_request.py) \| None</code> | The request body.<br>**Default**: <code>None</code> |
-| <code>request_options</code> | <code>[RequestOptionsOrDict](adyen/core/request_options.py) \| None</code> | Per-call overrides for this one request, such as a timeout or extra headers. |
+| <code>request_options</code> | <code>[RequestOptionsOrDict](adyen/core/request_options.py) \| None</code> | Per-call overrides for this one request, such as a timeout, extra headers, or its retry count and statuses. |
 
 </dd>
 </dl>
@@ -38965,7 +41737,11 @@ Deletes payout methods associated with an account holder.
 **Sync**
 
 ```python
-result = client.verification.with_raw_response.post_delete_payout_methods()
+result = client.verification.with_raw_response.post_delete_payout_methods(
+    body=DeletePayoutMethodRequest(
+        account_holder_code="CODE_OF_ACCOUNT_HOLDER", payout_method_codes=["34b6ed22-3bae-483c-83b9-bc2097a75d40"]
+    ),
+)
 match result:
     case Success(payload=payload):
         ...  # TODO: Handle 'payload' of type GenericResponse
@@ -38976,7 +41752,11 @@ match result:
 **Async**
 
 ```python
-result = await async_client.verification.with_raw_response.post_delete_payout_methods()
+result = await async_client.verification.with_raw_response.post_delete_payout_methods(
+    body=DeletePayoutMethodRequest(
+        account_holder_code="CODE_OF_ACCOUNT_HOLDER", payout_method_codes=["34b6ed22-3bae-483c-83b9-bc2097a75d40"]
+    ),
+)
 match result:
     case Success(payload=payload):
         ...  # TODO: Handle 'payload' of type GenericResponse
@@ -38995,7 +41775,7 @@ match result:
 | Name | Type | Description |
 | --- | --- | --- |
 | <code>body</code> | <code>[DeletePayoutMethodRequest](adyen/models/delete_payout_method_request.py) \| [DeletePayoutMethodRequestDict](adyen/models/delete_payout_method_request.py) \| None</code> | The request body.<br>**Default**: <code>None</code> |
-| <code>request_options</code> | <code>[RequestOptionsOrDict](adyen/core/request_options.py) \| None</code> | Per-call overrides for this one request, such as a timeout or extra headers. |
+| <code>request_options</code> | <code>[RequestOptionsOrDict](adyen/core/request_options.py) \| None</code> | Per-call overrides for this one request, such as a timeout, extra headers, or its retry count and statuses. |
 
 </dd>
 </dl>
@@ -39050,7 +41830,11 @@ Deletes shareholders associated with an account holder.
 **Sync**
 
 ```python
-result = client.verification.with_raw_response.post_delete_shareholders()
+result = client.verification.with_raw_response.post_delete_shareholders(
+    body=DeleteShareholderRequest(
+        account_holder_code="CODE_OF_ACCOUNT_HOLDER", shareholder_codes=["9188218c-576e-4cbe-8e86-72722f453920"]
+    ),
+)
 match result:
     case Success(payload=payload):
         ...  # TODO: Handle 'payload' of type GenericResponse
@@ -39061,7 +41845,11 @@ match result:
 **Async**
 
 ```python
-result = await async_client.verification.with_raw_response.post_delete_shareholders()
+result = await async_client.verification.with_raw_response.post_delete_shareholders(
+    body=DeleteShareholderRequest(
+        account_holder_code="CODE_OF_ACCOUNT_HOLDER", shareholder_codes=["9188218c-576e-4cbe-8e86-72722f453920"]
+    ),
+)
 match result:
     case Success(payload=payload):
         ...  # TODO: Handle 'payload' of type GenericResponse
@@ -39080,7 +41868,7 @@ match result:
 | Name | Type | Description |
 | --- | --- | --- |
 | <code>body</code> | <code>[DeleteShareholderRequest](adyen/models/delete_shareholder_request.py) \| [DeleteShareholderRequestDict](adyen/models/delete_shareholder_request.py) \| None</code> | The request body.<br>**Default**: <code>None</code> |
-| <code>request_options</code> | <code>[RequestOptionsOrDict](adyen/core/request_options.py) \| None</code> | Per-call overrides for this one request, such as a timeout or extra headers. |
+| <code>request_options</code> | <code>[RequestOptionsOrDict](adyen/core/request_options.py) \| None</code> | Per-call overrides for this one request, such as a timeout, extra headers, or its retry count and statuses. |
 
 </dd>
 </dl>
@@ -39165,7 +41953,7 @@ match result:
 | Name | Type | Description |
 | --- | --- | --- |
 | <code>body</code> | <code>[DeleteSignatoriesRequest](adyen/models/delete_signatories_request.py) \| [DeleteSignatoriesRequestDict](adyen/models/delete_signatories_request.py) \| None</code> | The request body.<br>**Default**: <code>None</code> |
-| <code>request_options</code> | <code>[RequestOptionsOrDict](adyen/core/request_options.py) \| None</code> | Per-call overrides for this one request, such as a timeout or extra headers. |
+| <code>request_options</code> | <code>[RequestOptionsOrDict](adyen/core/request_options.py) \| None</code> | Per-call overrides for this one request, such as a timeout, extra headers, or its retry count and statuses. |
 
 </dd>
 </dl>
@@ -39220,7 +42008,9 @@ Returns documents that were previously uploaded for an account holder. Adyen use
 **Sync**
 
 ```python
-result = client.verification.with_raw_response.post_get_uploaded_documents()
+result = client.verification.with_raw_response.post_get_uploaded_documents(
+    body=GetUploadedDocumentsRequest(account_holder_code="CODE_OF_ACCOUNT_HOLDER", bank_account_uuid="EXAMPLE_UUID")
+)
 match result:
     case Success(payload=payload):
         ...  # TODO: Handle 'payload' of type GetUploadedDocumentsResponse
@@ -39231,7 +42021,9 @@ match result:
 **Async**
 
 ```python
-result = await async_client.verification.with_raw_response.post_get_uploaded_documents()
+result = await async_client.verification.with_raw_response.post_get_uploaded_documents(
+    body=GetUploadedDocumentsRequest(account_holder_code="CODE_OF_ACCOUNT_HOLDER", bank_account_uuid="EXAMPLE_UUID")
+)
 match result:
     case Success(payload=payload):
         ...  # TODO: Handle 'payload' of type GetUploadedDocumentsResponse
@@ -39250,7 +42042,7 @@ match result:
 | Name | Type | Description |
 | --- | --- | --- |
 | <code>body</code> | <code>[GetUploadedDocumentsRequest](adyen/models/get_uploaded_documents_request.py) \| [GetUploadedDocumentsRequestDict](adyen/models/get_uploaded_documents_request.py) \| None</code> | The request body.<br>**Default**: <code>None</code> |
-| <code>request_options</code> | <code>[RequestOptionsOrDict](adyen/core/request_options.py) \| None</code> | Per-call overrides for this one request, such as a timeout or extra headers. |
+| <code>request_options</code> | <code>[RequestOptionsOrDict](adyen/core/request_options.py) \| None</code> | Per-call overrides for this one request, such as a timeout, extra headers, or its retry count and statuses. |
 
 </dd>
 </dl>
@@ -39305,7 +42097,17 @@ Uploads a document for an account holder. Adyen uses the documents during the [v
 **Sync**
 
 ```python
-result = client.verification.with_raw_response.post_upload_document()
+result = client.verification.with_raw_response.post_upload_document(
+    body=UploadDocumentRequest(
+        document_content="dGVzdCBkb2N1bWVudCBjb250ZW50",
+        document_detail=DocumentDetail1(
+            account_holder_code="CODE_OF_ACCOUNT_HOLDER",
+            description="test passport description",
+            document_type=DocumentType.PASSPORT,
+            filename="passport.png",
+        ),
+    ),
+)
 match result:
     case Success(payload=payload):
         ...  # TODO: Handle 'payload' of type UpdateAccountHolderResponse
@@ -39316,7 +42118,17 @@ match result:
 **Async**
 
 ```python
-result = await async_client.verification.with_raw_response.post_upload_document()
+result = await async_client.verification.with_raw_response.post_upload_document(
+    body=UploadDocumentRequest(
+        document_content="dGVzdCBkb2N1bWVudCBjb250ZW50",
+        document_detail=DocumentDetail1(
+            account_holder_code="CODE_OF_ACCOUNT_HOLDER",
+            description="test passport description",
+            document_type=DocumentType.PASSPORT,
+            filename="passport.png",
+        ),
+    ),
+)
 match result:
     case Success(payload=payload):
         ...  # TODO: Handle 'payload' of type UpdateAccountHolderResponse
@@ -39335,7 +42147,7 @@ match result:
 | Name | Type | Description |
 | --- | --- | --- |
 | <code>body</code> | <code>[UploadDocumentRequest](adyen/models/upload_document_request.py) \| [UploadDocumentRequestDict](adyen/models/upload_document_request.py) \| None</code> | The request body.<br>**Default**: <code>None</code> |
-| <code>request_options</code> | <code>[RequestOptionsOrDict](adyen/core/request_options.py) \| None</code> | Per-call overrides for this one request, such as a timeout or extra headers. |
+| <code>request_options</code> | <code>[RequestOptionsOrDict](adyen/core/request_options.py) \| None</code> | Per-call overrides for this one request, such as a timeout, extra headers, or its retry count and statuses. |
 
 </dd>
 </dl>
@@ -39398,7 +42210,7 @@ To make this request, your API credential must have the following [roles](https:
 
 ```python
 result = client.webhooks_company_level.with_raw_response.delete_companies_company_id_webhooks_webhook_id(
-    company_id, webhook_id
+    "some example string", "some example string"
 )
 match result:
     case Success():
@@ -39411,7 +42223,7 @@ match result:
 
 ```python
 result = await async_client.webhooks_company_level.with_raw_response.delete_companies_company_id_webhooks_webhook_id(
-    company_id, webhook_id
+    "some example string", "some example string"
 )
 match result:
     case Success():
@@ -39432,7 +42244,7 @@ match result:
 | --- | --- | --- |
 | <code>company_id</code> | <code>str</code> | The unique identifier of the company account. |
 | <code>webhook_id</code> | <code>str</code> | Unique identifier of the webhook configuration. |
-| <code>request_options</code> | <code>[RequestOptionsOrDict](adyen/core/request_options.py) \| None</code> | Per-call overrides for this one request, such as a timeout or extra headers. |
+| <code>request_options</code> | <code>[RequestOptionsOrDict](adyen/core/request_options.py) \| None</code> | Per-call overrides for this one request, such as a timeout, extra headers, or its retry count and statuses. |
 
 </dd>
 </dl>
@@ -39491,7 +42303,7 @@ To make this request, your API credential must have one of the following [roles]
 **Sync**
 
 ```python
-result = client.webhooks_company_level.with_raw_response.get_companies_company_id_webhooks(company_id)
+result = client.webhooks_company_level.with_raw_response.get_companies_company_id_webhooks("some example string")
 match result:
     case Success(payload=payload):
         ...  # TODO: Handle 'payload' of type ListWebhooksResponse
@@ -39502,7 +42314,9 @@ match result:
 **Async**
 
 ```python
-result = await async_client.webhooks_company_level.with_raw_response.get_companies_company_id_webhooks(company_id)
+result = await async_client.webhooks_company_level.with_raw_response.get_companies_company_id_webhooks(
+    "some example string"
+)
 match result:
     case Success(payload=payload):
         ...  # TODO: Handle 'payload' of type ListWebhooksResponse
@@ -39523,7 +42337,7 @@ match result:
 | <code>company_id</code> | <code>str</code> | Unique identifier of the [company account](https://docs.adyen.com/account/account-structure#company-account). |
 | <code>page_number</code> | <code>int \| None</code> | The number of the page to fetch.<br>**Default**: <code>None</code> |
 | <code>page_size</code> | <code>int \| None</code> | The number of items to have on a page, maximum 100. The default is 10 items on a page.<br>**Default**: <code>None</code> |
-| <code>request_options</code> | <code>[RequestOptionsOrDict](adyen/core/request_options.py) \| None</code> | Per-call overrides for this one request, such as a timeout or extra headers. |
+| <code>request_options</code> | <code>[RequestOptionsOrDict](adyen/core/request_options.py) \| None</code> | Per-call overrides for this one request, such as a timeout, extra headers, or its retry count and statuses. |
 
 </dd>
 </dl>
@@ -39583,7 +42397,7 @@ To make this request, your API credential must have one of the following [roles]
 
 ```python
 result = client.webhooks_company_level.with_raw_response.get_companies_company_id_webhooks_webhook_id(
-    company_id, webhook_id
+    "some example string", "some example string"
 )
 match result:
     case Success(payload=payload):
@@ -39596,7 +42410,7 @@ match result:
 
 ```python
 result = await async_client.webhooks_company_level.with_raw_response.get_companies_company_id_webhooks_webhook_id(
-    company_id, webhook_id
+    "some example string", "some example string"
 )
 match result:
     case Success(payload=payload):
@@ -39617,7 +42431,7 @@ match result:
 | --- | --- | --- |
 | <code>company_id</code> | <code>str</code> | Unique identifier of the [company account](https://docs.adyen.com/account/account-structure#company-account). |
 | <code>webhook_id</code> | <code>str</code> | Unique identifier of the webhook configuration. |
-| <code>request_options</code> | <code>[RequestOptionsOrDict](adyen/core/request_options.py) \| None</code> | Per-call overrides for this one request, such as a timeout or extra headers. |
+| <code>request_options</code> | <code>[RequestOptionsOrDict](adyen/core/request_options.py) \| None</code> | Per-call overrides for this one request, such as a timeout, extra headers, or its retry count and statuses. |
 
 </dd>
 </dl>
@@ -39676,7 +42490,7 @@ To make this request, your API credential must have the following [roles](https:
 
 ```python
 result = client.webhooks_company_level.with_raw_response.patch_companies_company_id_webhooks_webhook_id(
-    company_id, webhook_id
+    "some example string", "some example string", body=UpdateCompanyWebhookRequest(active=True)
 )
 match result:
     case Success(payload=payload):
@@ -39689,7 +42503,7 @@ match result:
 
 ```python
 result = await async_client.webhooks_company_level.with_raw_response.patch_companies_company_id_webhooks_webhook_id(
-    company_id, webhook_id
+    "some example string", "some example string", body=UpdateCompanyWebhookRequest(active=True)
 )
 match result:
     case Success(payload=payload):
@@ -39711,7 +42525,7 @@ match result:
 | <code>company_id</code> | <code>str</code> | The unique identifier of the company account. |
 | <code>webhook_id</code> | <code>str</code> | Unique identifier of the webhook configuration. |
 | <code>body</code> | <code>[UpdateCompanyWebhookRequest](adyen/models/update_company_webhook_request.py) \| [UpdateCompanyWebhookRequestDict](adyen/models/update_company_webhook_request.py) \| None</code> | The request body.<br>**Default**: <code>None</code> |
-| <code>request_options</code> | <code>[RequestOptionsOrDict](adyen/core/request_options.py) \| None</code> | Per-call overrides for this one request, such as a timeout or extra headers. |
+| <code>request_options</code> | <code>[RequestOptionsOrDict](adyen/core/request_options.py) \| None</code> | Per-call overrides for this one request, such as a timeout, extra headers, or its retry count and statuses. |
 
 </dd>
 </dl>
@@ -39769,7 +42583,23 @@ To make this request, your API credential must have the following [roles](https:
 **Sync**
 
 ```python
-result = client.webhooks_company_level.with_raw_response.post_companies_company_id_webhooks(company_id)
+result = client.webhooks_company_level.with_raw_response.post_companies_company_id_webhooks(
+    "some example string",
+    body=CreateCompanyWebhookRequest(
+        accepts_expired_certificate=False,
+        accepts_self_signed_certificate=True,
+        accepts_untrusted_root_certificate=True,
+        active=True,
+        communication_format=CommunicationFormat.SOAP,
+        filter_merchant_account_type=FilterMerchantAccountType.INCLUDE_ACCOUNTS,
+        filter_merchant_accounts=["YOUR_MERCHANT_ACCOUNT"],
+        password="YOUR_PASSWORD",
+        populate_soap_action_header=False,
+        type_="standard",
+        url="YOUR_WEBHOOK_URL",
+        username="YOUR_USER",
+    ),
+)
 match result:
     case Success(payload=payload):
         ...  # TODO: Handle 'payload' of type Webhook
@@ -39780,7 +42610,23 @@ match result:
 **Async**
 
 ```python
-result = await async_client.webhooks_company_level.with_raw_response.post_companies_company_id_webhooks(company_id)
+result = await async_client.webhooks_company_level.with_raw_response.post_companies_company_id_webhooks(
+    "some example string",
+    body=CreateCompanyWebhookRequest(
+        accepts_expired_certificate=False,
+        accepts_self_signed_certificate=True,
+        accepts_untrusted_root_certificate=True,
+        active=True,
+        communication_format=CommunicationFormat.SOAP,
+        filter_merchant_account_type=FilterMerchantAccountType.INCLUDE_ACCOUNTS,
+        filter_merchant_accounts=["YOUR_MERCHANT_ACCOUNT"],
+        password="YOUR_PASSWORD",
+        populate_soap_action_header=False,
+        type_="standard",
+        url="YOUR_WEBHOOK_URL",
+        username="YOUR_USER",
+    ),
+)
 match result:
     case Success(payload=payload):
         ...  # TODO: Handle 'payload' of type Webhook
@@ -39800,7 +42646,7 @@ match result:
 | --- | --- | --- |
 | <code>company_id</code> | <code>str</code> | Unique identifier of the [company account](https://docs.adyen.com/account/account-structure#company-account). |
 | <code>body</code> | <code>[CreateCompanyWebhookRequest](adyen/models/create_company_webhook_request.py) \| [CreateCompanyWebhookRequestDict](adyen/models/create_company_webhook_request.py) \| None</code> | The request body.<br>**Default**: <code>None</code> |
-| <code>request_options</code> | <code>[RequestOptionsOrDict](adyen/core/request_options.py) \| None</code> | Per-call overrides for this one request, such as a timeout or extra headers. |
+| <code>request_options</code> | <code>[RequestOptionsOrDict](adyen/core/request_options.py) \| None</code> | Per-call overrides for this one request, such as a timeout, extra headers, or its retry count and statuses. |
 
 </dd>
 </dl>
@@ -39859,7 +42705,7 @@ To make this request, your API credential must have the following [roles](https:
 
 ```python
 result = client.webhooks_company_level.with_raw_response.post_companies_company_id_webhooks_webhook_id_generate_hmac(
-    company_id, webhook_id
+    "some example string", "some example string"
 )
 match result:
     case Success(payload=payload):
@@ -39872,7 +42718,7 @@ match result:
 
 ```python
 result = await async_client.webhooks_company_level.with_raw_response.post_companies_company_id_webhooks_webhook_id_generate_hmac(
-    company_id, webhook_id
+    "some example string", "some example string"
 )
 match result:
     case Success(payload=payload):
@@ -39893,7 +42739,7 @@ match result:
 | --- | --- | --- |
 | <code>company_id</code> | <code>str</code> | The unique identifier of the company account. |
 | <code>webhook_id</code> | <code>str</code> | Unique identifier of the webhook configuration. |
-| <code>request_options</code> | <code>[RequestOptionsOrDict](adyen/core/request_options.py) \| None</code> | Per-call overrides for this one request, such as a timeout or extra headers. |
+| <code>request_options</code> | <code>[RequestOptionsOrDict](adyen/core/request_options.py) \| None</code> | Per-call overrides for this one request, such as a timeout, extra headers, or its retry count and statuses. |
 
 </dd>
 </dl>
@@ -39958,7 +42804,9 @@ To make this request, your API credential must have the following [roles](https:
 
 ```python
 result = client.webhooks_company_level.with_raw_response.post_companies_company_id_webhooks_webhook_id_test(
-    company_id, webhook_id
+    "some example string",
+    "some example string",
+    body=TestCompanyWebhookRequest(merchant_ids=["YOUR_MERCHANT_ACCOUNT"], types=["AUTHORISATION"]),
 )
 match result:
     case Success(payload=payload):
@@ -39971,7 +42819,9 @@ match result:
 
 ```python
 result = await async_client.webhooks_company_level.with_raw_response.post_companies_company_id_webhooks_webhook_id_test(
-    company_id, webhook_id
+    "some example string",
+    "some example string",
+    body=TestCompanyWebhookRequest(merchant_ids=["YOUR_MERCHANT_ACCOUNT"], types=["AUTHORISATION"]),
 )
 match result:
     case Success(payload=payload):
@@ -39993,7 +42843,7 @@ match result:
 | <code>company_id</code> | <code>str</code> | The unique identifier of the company account. |
 | <code>webhook_id</code> | <code>str</code> | Unique identifier of the webhook configuration. |
 | <code>body</code> | <code>[TestCompanyWebhookRequest](adyen/models/test_company_webhook_request.py) \| [TestCompanyWebhookRequestDict](adyen/models/test_company_webhook_request.py) \| None</code> | The request body.<br>**Default**: <code>None</code> |
-| <code>request_options</code> | <code>[RequestOptionsOrDict](adyen/core/request_options.py) \| None</code> | Per-call overrides for this one request, such as a timeout or extra headers. |
+| <code>request_options</code> | <code>[RequestOptionsOrDict](adyen/core/request_options.py) \| None</code> | Per-call overrides for this one request, such as a timeout, extra headers, or its retry count and statuses. |
 
 </dd>
 </dl>
@@ -40056,7 +42906,7 @@ To make this request, your API credential must have the following [roles](https:
 
 ```python
 result = client.webhooks_merchant_level.with_raw_response.delete_merchants_merchant_id_webhooks_webhook_id(
-    merchant_id, webhook_id
+    "some example string", "some example string"
 )
 match result:
     case Success():
@@ -40069,7 +42919,7 @@ match result:
 
 ```python
 result = await async_client.webhooks_merchant_level.with_raw_response.delete_merchants_merchant_id_webhooks_webhook_id(
-    merchant_id, webhook_id
+    "some example string", "some example string"
 )
 match result:
     case Success():
@@ -40090,7 +42940,7 @@ match result:
 | --- | --- | --- |
 | <code>merchant_id</code> | <code>str</code> | The unique identifier of the merchant account. |
 | <code>webhook_id</code> | <code>str</code> | Unique identifier of the webhook configuration. |
-| <code>request_options</code> | <code>[RequestOptionsOrDict](adyen/core/request_options.py) \| None</code> | Per-call overrides for this one request, such as a timeout or extra headers. |
+| <code>request_options</code> | <code>[RequestOptionsOrDict](adyen/core/request_options.py) \| None</code> | Per-call overrides for this one request, such as a timeout, extra headers, or its retry count and statuses. |
 
 </dd>
 </dl>
@@ -40151,7 +43001,7 @@ To make this request, your API credential must have one of the following [roles]
 **Sync**
 
 ```python
-result = client.webhooks_merchant_level.with_raw_response.get_merchants_merchant_id_webhooks(merchant_id)
+result = client.webhooks_merchant_level.with_raw_response.get_merchants_merchant_id_webhooks("some example string")
 match result:
     case Success(payload=payload):
         ...  # TODO: Handle 'payload' of type ListWebhooksResponse
@@ -40162,7 +43012,9 @@ match result:
 **Async**
 
 ```python
-result = await async_client.webhooks_merchant_level.with_raw_response.get_merchants_merchant_id_webhooks(merchant_id)
+result = await async_client.webhooks_merchant_level.with_raw_response.get_merchants_merchant_id_webhooks(
+    "some example string"
+)
 match result:
     case Success(payload=payload):
         ...  # TODO: Handle 'payload' of type ListWebhooksResponse
@@ -40183,7 +43035,7 @@ match result:
 | <code>merchant_id</code> | <code>str</code> | The unique identifier of the merchant account. |
 | <code>page_number</code> | <code>int \| None</code> | The number of the page to fetch.<br>**Default**: <code>None</code> |
 | <code>page_size</code> | <code>int \| None</code> | The number of items to have on a page, maximum 100. The default is 10 items on a page.<br>**Default**: <code>None</code> |
-| <code>request_options</code> | <code>[RequestOptionsOrDict](adyen/core/request_options.py) \| None</code> | Per-call overrides for this one request, such as a timeout or extra headers. |
+| <code>request_options</code> | <code>[RequestOptionsOrDict](adyen/core/request_options.py) \| None</code> | Per-call overrides for this one request, such as a timeout, extra headers, or its retry count and statuses. |
 
 </dd>
 </dl>
@@ -40243,7 +43095,7 @@ To make this request, your API credential must have one of the following [roles]
 
 ```python
 result = client.webhooks_merchant_level.with_raw_response.get_merchants_merchant_id_webhooks_webhook_id(
-    merchant_id, webhook_id
+    "some example string", "some example string"
 )
 match result:
     case Success(payload=payload):
@@ -40256,7 +43108,7 @@ match result:
 
 ```python
 result = await async_client.webhooks_merchant_level.with_raw_response.get_merchants_merchant_id_webhooks_webhook_id(
-    merchant_id, webhook_id
+    "some example string", "some example string"
 )
 match result:
     case Success(payload=payload):
@@ -40277,7 +43129,7 @@ match result:
 | --- | --- | --- |
 | <code>merchant_id</code> | <code>str</code> | The unique identifier of the merchant account. |
 | <code>webhook_id</code> | <code>str</code> | Unique identifier of the webhook configuration. |
-| <code>request_options</code> | <code>[RequestOptionsOrDict](adyen/core/request_options.py) \| None</code> | Per-call overrides for this one request, such as a timeout or extra headers. |
+| <code>request_options</code> | <code>[RequestOptionsOrDict](adyen/core/request_options.py) \| None</code> | Per-call overrides for this one request, such as a timeout, extra headers, or its retry count and statuses. |
 
 </dd>
 </dl>
@@ -40336,7 +43188,7 @@ To make this request, your API credential must have the following [roles](https:
 
 ```python
 result = client.webhooks_merchant_level.with_raw_response.patch_merchants_merchant_id_webhooks_webhook_id(
-    merchant_id, webhook_id
+    "some example string", "some example string", body=UpdateMerchantWebhookRequest(active=True)
 )
 match result:
     case Success(payload=payload):
@@ -40349,7 +43201,7 @@ match result:
 
 ```python
 result = await async_client.webhooks_merchant_level.with_raw_response.patch_merchants_merchant_id_webhooks_webhook_id(
-    merchant_id, webhook_id
+    "some example string", "some example string", body=UpdateMerchantWebhookRequest(active=True)
 )
 match result:
     case Success(payload=payload):
@@ -40371,7 +43223,7 @@ match result:
 | <code>merchant_id</code> | <code>str</code> | The unique identifier of the merchant account. |
 | <code>webhook_id</code> | <code>str</code> | Unique identifier of the webhook configuration. |
 | <code>body</code> | <code>[UpdateMerchantWebhookRequest](adyen/models/update_merchant_webhook_request.py) \| [UpdateMerchantWebhookRequestDict](adyen/models/update_merchant_webhook_request.py) \| None</code> | The request body.<br>**Default**: <code>None</code> |
-| <code>request_options</code> | <code>[RequestOptionsOrDict](adyen/core/request_options.py) \| None</code> | Per-call overrides for this one request, such as a timeout or extra headers. |
+| <code>request_options</code> | <code>[RequestOptionsOrDict](adyen/core/request_options.py) \| None</code> | Per-call overrides for this one request, such as a timeout, extra headers, or its retry count and statuses. |
 
 </dd>
 </dl>
@@ -40429,7 +43281,21 @@ To make this request, your API credential must have the following [roles](https:
 **Sync**
 
 ```python
-result = client.webhooks_merchant_level.with_raw_response.post_merchants_merchant_id_webhooks(merchant_id)
+result = client.webhooks_merchant_level.with_raw_response.post_merchants_merchant_id_webhooks(
+    "some example string",
+    body=CreateMerchantWebhookRequest(
+        accepts_expired_certificate=False,
+        accepts_self_signed_certificate=True,
+        accepts_untrusted_root_certificate=True,
+        active=True,
+        communication_format=CommunicationFormat.JSON,
+        password="YOUR_PASSWORD",
+        populate_soap_action_header=False,
+        type_="standard",
+        url="YOUR_WEBHOOK_URL",
+        username="YOUR_USER",
+    ),
+)
 match result:
     case Success(payload=payload):
         ...  # TODO: Handle 'payload' of type Webhook
@@ -40440,7 +43306,21 @@ match result:
 **Async**
 
 ```python
-result = await async_client.webhooks_merchant_level.with_raw_response.post_merchants_merchant_id_webhooks(merchant_id)
+result = await async_client.webhooks_merchant_level.with_raw_response.post_merchants_merchant_id_webhooks(
+    "some example string",
+    body=CreateMerchantWebhookRequest(
+        accepts_expired_certificate=False,
+        accepts_self_signed_certificate=True,
+        accepts_untrusted_root_certificate=True,
+        active=True,
+        communication_format=CommunicationFormat.JSON,
+        password="YOUR_PASSWORD",
+        populate_soap_action_header=False,
+        type_="standard",
+        url="YOUR_WEBHOOK_URL",
+        username="YOUR_USER",
+    ),
+)
 match result:
     case Success(payload=payload):
         ...  # TODO: Handle 'payload' of type Webhook
@@ -40460,7 +43340,7 @@ match result:
 | --- | --- | --- |
 | <code>merchant_id</code> | <code>str</code> | The unique identifier of the merchant account. |
 | <code>body</code> | <code>[CreateMerchantWebhookRequest](adyen/models/create_merchant_webhook_request.py) \| [CreateMerchantWebhookRequestDict](adyen/models/create_merchant_webhook_request.py) \| None</code> | The request body.<br>**Default**: <code>None</code> |
-| <code>request_options</code> | <code>[RequestOptionsOrDict](adyen/core/request_options.py) \| None</code> | Per-call overrides for this one request, such as a timeout or extra headers. |
+| <code>request_options</code> | <code>[RequestOptionsOrDict](adyen/core/request_options.py) \| None</code> | Per-call overrides for this one request, such as a timeout, extra headers, or its retry count and statuses. |
 
 </dd>
 </dl>
@@ -40519,7 +43399,7 @@ To make this request, your API credential must have the following [roles](https:
 
 ```python
 result = client.webhooks_merchant_level.with_raw_response.post_merchants_merchant_id_webhooks_webhook_id_generate_hmac(
-    merchant_id, webhook_id
+    "some example string", "some example string"
 )
 match result:
     case Success(payload=payload):
@@ -40532,7 +43412,7 @@ match result:
 
 ```python
 result = await async_client.webhooks_merchant_level.with_raw_response.post_merchants_merchant_id_webhooks_webhook_id_generate_hmac(
-    merchant_id, webhook_id
+    "some example string", "some example string"
 )
 match result:
     case Success(payload=payload):
@@ -40553,7 +43433,7 @@ match result:
 | --- | --- | --- |
 | <code>merchant_id</code> | <code>str</code> | The unique identifier of the merchant account. |
 | <code>webhook_id</code> | <code>str</code> | Value sent with the request. |
-| <code>request_options</code> | <code>[RequestOptionsOrDict](adyen/core/request_options.py) \| None</code> | Per-call overrides for this one request, such as a timeout or extra headers. |
+| <code>request_options</code> | <code>[RequestOptionsOrDict](adyen/core/request_options.py) \| None</code> | Per-call overrides for this one request, such as a timeout, extra headers, or its retry count and statuses. |
 
 </dd>
 </dl>
@@ -40616,7 +43496,7 @@ To make this request, your API credential must have the following [roles](https:
 
 ```python
 result = client.webhooks_merchant_level.with_raw_response.post_merchants_merchant_id_webhooks_webhook_id_test(
-    merchant_id, webhook_id
+    "some example string", "some example string", body=TestWebhookRequest(types=["AUTHORISATION"])
 )
 match result:
     case Success(payload=payload):
@@ -40629,7 +43509,7 @@ match result:
 
 ```python
 result = await async_client.webhooks_merchant_level.with_raw_response.post_merchants_merchant_id_webhooks_webhook_id_test(
-    merchant_id, webhook_id
+    "some example string", "some example string", body=TestWebhookRequest(types=["AUTHORISATION"])
 )
 match result:
     case Success(payload=payload):
@@ -40651,7 +43531,7 @@ match result:
 | <code>merchant_id</code> | <code>str</code> | The unique identifier of the merchant account. |
 | <code>webhook_id</code> | <code>str</code> | Unique identifier of the webhook configuration. |
 | <code>body</code> | <code>[TestWebhookRequest](adyen/models/test_webhook_request.py) \| [TestWebhookRequestDict](adyen/models/test_webhook_request.py) \| None</code> | The request body.<br>**Default**: <code>None</code> |
-| <code>request_options</code> | <code>[RequestOptionsOrDict](adyen/core/request_options.py) \| None</code> | Per-call overrides for this one request, such as a timeout or extra headers. |
+| <code>request_options</code> | <code>[RequestOptionsOrDict](adyen/core/request_options.py) \| None</code> | Per-call overrides for this one request, such as a timeout, extra headers, or its retry count and statuses. |
 
 </dd>
 </dl>
@@ -40710,7 +43590,9 @@ Manage an already registered iDEAL profile. Generates a redirection URL to manag
 **Sync**
 
 ```python
-result = client.i_deal_profiles.with_raw_response.post_ideal_profile_auth_link(body)
+result = client.i_deal_profiles.with_raw_response.post_ideal_profile_auth_link(
+    IdealAuthLinkRequest(account_holder_id="AH00000000000000000000000")
+)
 match result:
     case Success(payload=payload):
         ...  # TODO: Handle 'payload' of type IdealAuthLinkResponse
@@ -40721,7 +43603,9 @@ match result:
 **Async**
 
 ```python
-result = await async_client.i_deal_profiles.with_raw_response.post_ideal_profile_auth_link(body)
+result = await async_client.i_deal_profiles.with_raw_response.post_ideal_profile_auth_link(
+    IdealAuthLinkRequest(account_holder_id="AH00000000000000000000000")
+)
 match result:
     case Success(payload=payload):
         ...  # TODO: Handle 'payload' of type IdealAuthLinkResponse
@@ -40740,7 +43624,7 @@ match result:
 | Name | Type | Description |
 | --- | --- | --- |
 | <code>body</code> | <code>[IdealAuthLinkRequest](adyen/models/ideal_auth_link_request.py) \| [IdealAuthLinkRequestDict](adyen/models/ideal_auth_link_request.py)</code> | The request body. |
-| <code>request_options</code> | <code>[RequestOptionsOrDict](adyen/core/request_options.py) \| None</code> | Per-call overrides for this one request, such as a timeout or extra headers. |
+| <code>request_options</code> | <code>[RequestOptionsOrDict](adyen/core/request_options.py) \| None</code> | Per-call overrides for this one request, such as a timeout, extra headers, or its retry count and statuses. |
 
 </dd>
 </dl>
@@ -40795,7 +43679,9 @@ Generates an redirection URL to finish the authentication flow when requested by
 **Sync**
 
 ```python
-result = client.i_deal_profiles.with_raw_response.post_ideal_profile_authenticate(body)
+result = client.i_deal_profiles.with_raw_response.post_ideal_profile_authenticate(
+    IdealAuthenticateRequest(account_holder_id="AH00000000000000000000000", payload="https://ideal.auth/somePayload")
+)
 match result:
     case Success(payload=payload):
         ...  # TODO: Handle 'payload' of type IdealAuthenticateResponse
@@ -40806,7 +43692,9 @@ match result:
 **Async**
 
 ```python
-result = await async_client.i_deal_profiles.with_raw_response.post_ideal_profile_authenticate(body)
+result = await async_client.i_deal_profiles.with_raw_response.post_ideal_profile_authenticate(
+    IdealAuthenticateRequest(account_holder_id="AH00000000000000000000000", payload="https://ideal.auth/somePayload")
+)
 match result:
     case Success(payload=payload):
         ...  # TODO: Handle 'payload' of type IdealAuthenticateResponse
@@ -40825,7 +43713,7 @@ match result:
 | Name | Type | Description |
 | --- | --- | --- |
 | <code>body</code> | <code>[IdealAuthenticateRequest](adyen/models/ideal_authenticate_request.py) \| [IdealAuthenticateRequestDict](adyen/models/ideal_authenticate_request.py)</code> | The request body. |
-| <code>request_options</code> | <code>[RequestOptionsOrDict](adyen/core/request_options.py) \| None</code> | Per-call overrides for this one request, such as a timeout or extra headers. |
+| <code>request_options</code> | <code>[RequestOptionsOrDict](adyen/core/request_options.py) \| None</code> | Per-call overrides for this one request, such as a timeout, extra headers, or its retry count and statuses. |
 
 </dd>
 </dl>
@@ -40880,7 +43768,12 @@ Register a new iDEAL profile. The profile is linked to the account holder and pa
 **Sync**
 
 ```python
-result = client.i_deal_profiles.with_raw_response.post_ideal_profile_register(body)
+result = client.i_deal_profiles.with_raw_response.post_ideal_profile_register(
+    ProfileRegistrationRequest(
+        account_holder_id="AH00000000000000000000000",
+        payment_instrument_ids=["PI00000000000000000000000", "PI11111111111111111111111"],
+    ),
+)
 match result:
     case Success(payload=payload):
         ...  # TODO: Handle 'payload' of type ProfileRegistrationResponse
@@ -40891,7 +43784,12 @@ match result:
 **Async**
 
 ```python
-result = await async_client.i_deal_profiles.with_raw_response.post_ideal_profile_register(body)
+result = await async_client.i_deal_profiles.with_raw_response.post_ideal_profile_register(
+    ProfileRegistrationRequest(
+        account_holder_id="AH00000000000000000000000",
+        payment_instrument_ids=["PI00000000000000000000000", "PI11111111111111111111111"],
+    ),
+)
 match result:
     case Success(payload=payload):
         ...  # TODO: Handle 'payload' of type ProfileRegistrationResponse
@@ -40910,7 +43808,7 @@ match result:
 | Name | Type | Description |
 | --- | --- | --- |
 | <code>body</code> | <code>[ProfileRegistrationRequest](adyen/models/profile_registration_request.py) \| [ProfileRegistrationRequestDict](adyen/models/profile_registration_request.py)</code> | The request body. |
-| <code>request_options</code> | <code>[RequestOptionsOrDict](adyen/core/request_options.py) \| None</code> | Per-call overrides for this one request, such as a timeout or extra headers. |
+| <code>request_options</code> | <code>[RequestOptionsOrDict](adyen/core/request_options.py) \| None</code> | Per-call overrides for this one request, such as a timeout, extra headers, or its retry count and statuses. |
 
 </dd>
 </dl>

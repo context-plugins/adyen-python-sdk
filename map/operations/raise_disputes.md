@@ -27,9 +27,9 @@ Each `###` block is one operation and assumes `sdk-map.md` is loaded: blocks omi
 
 - **Route**: `GET /disputes/{id}`
 - **Server**: `default23`
-- **Signature**: `def get_disputes_id(id: str, *, request_options: RequestOptionsOrDict | None = None)`
-  - required, positional: `id`
-- **Params**: `id` — path
+- **Signature**: `def get_disputes_id(id_: str, *, request_options: RequestOptionsOrDict | None = None)`
+  - required, positional: `id_`
+- **Params**: `id_` — path `id`
 - **Returns (parsed)**: `DisputeResponse`
 - **Returns (raw)**: `ApiResult[DisputeResponse, GetDisputesIdErrorBody]`
 - **Error**: `GetDisputesIdErrorBody` — **Case A (typed)**
@@ -45,9 +45,9 @@ Each `###` block is one operation and assumes `sdk-map.md` is loaded: blocks omi
 
 - **Route**: `PATCH /disputes/{id}`
 - **Server**: `default23`
-- **Signature**: `def patch_disputes_id(id: str, *, body: PatchableDisputeRequest | PatchableDisputeRequestDict | None = None, request_options: RequestOptionsOrDict | None = None)`
-  - required, positional: `id`
-- **Params**: `id` — path · `body` — JSON body
+- **Signature**: `def patch_disputes_id(id_: str, *, body: PatchableDisputeRequest | PatchableDisputeRequestDict | None = None, request_options: RequestOptionsOrDict | None = None)`
+  - required, positional: `id_`
+- **Params**: `id_` — path `id` · `body` — JSON body
 - **Returns (parsed)**: `DisputeResponse`
 - **Returns (raw)**: `ApiResult[DisputeResponse, PatchDisputesIdErrorBody]`
 - **Error**: `PatchDisputesIdErrorBody` — **Case A (typed)**

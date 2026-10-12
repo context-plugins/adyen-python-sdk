@@ -29,8 +29,8 @@ class CapabilitySettings21(SdkBaseModel):
 
 
 class CapabilitySettings21Dict(TypedDict):
-    amount_per_industry: NotRequired[dict[str, PatchableAmountDto | PatchableAmountDtoDict]]
+    amount_per_industry: NotRequired[dict[str, PatchableAmountDtoDict]]
     authorized_card_users: NotRequired[bool]
     funding_source: NotRequired[list[FundingSourceOrStr]]
     interval: NotRequired[IntervalOrStr]
-    max_amount: NotRequired[PatchableAmountDto | PatchableAmountDtoDict]
+    max_amount: NotRequired[PatchableAmountDtoDict]

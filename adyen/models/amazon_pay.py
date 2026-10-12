@@ -4,7 +4,7 @@ from pydantic import Field
 from typing_extensions import NotRequired, TypedDict
 
 from ..core import UNSET, Optional, SdkBaseModel
-from .enums.type4 import Type4OrStr
+from .enums.type4 import Type4, Type4OrStr
 
 
 class AmazonPay(SdkBaseModel):
@@ -23,7 +23,7 @@ class AmazonPay(SdkBaseModel):
     sdk_data: Optional[str] = Field(default=UNSET, alias="sdkData")
     """Base64-encoded JSON object containing SDK related parameters required by the SDK"""
 
-    type_: Optional[Type4OrStr] = Field(default=UNSET, alias="type")
+    type_: Type4OrStr = Field(default=Type4.AMAZONPAY, alias="type")
     """**amazonpay**"""
 
 

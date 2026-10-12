@@ -13,4 +13,4 @@ class PaymentsAppResponse(SdkBaseModel):
 
 
 class PaymentsAppResponseDict(TypedDict):
-    payments_apps: list[PaymentsAppDto | PaymentsAppDtoDict]
+    payments_apps: list[PaymentsAppDtoDict]

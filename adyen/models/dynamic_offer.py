@@ -51,7 +51,7 @@ class DynamicOfferDict(TypedDict):
     expires_at: RFC3339DateTime
     financing_type: FinancingType2OrStr
     id: str
-    maximum_amount: Amount17 | Amount17Dict
-    minimum_amount: Amount17 | Amount17Dict
-    repayment: DynamicOfferRepayment2 | DynamicOfferRepayment2Dict
+    maximum_amount: Amount17Dict
+    minimum_amount: Amount17Dict
+    repayment: DynamicOfferRepayment2Dict
     starts_at: RFC3339DateTime

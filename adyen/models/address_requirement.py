@@ -25,4 +25,4 @@ class AddressRequirement(SdkBaseModel):
 class AddressRequirementDict(TypedDict):
     description: NotRequired[str]
     required_address_fields: NotRequired[list[RequiredAddressFieldOrStr]]
-    type_: NotRequired[Literal["addressRequirement"]]
+    type_: Literal["addressRequirement"]

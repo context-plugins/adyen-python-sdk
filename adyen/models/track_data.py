@@ -12,7 +12,7 @@ class TrackData(SdkBaseModel):
     used when the magstripe card reader is located on the Sale Terminal, or for magstripe Card Reader device request.
     The data structure is also used to store the line at the bottom of a bank check."""
 
-    track_numb: Optional[int] = Field(default=UNSET, alias="TrackNumb")
+    track_numb: int = Field(default=2, alias="TrackNumb")
     """Card track number."""
 
     track_format: Optional[TrackFormat1OrStr] = Field(default=UNSET, alias="TrackFormat")

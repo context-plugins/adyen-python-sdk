@@ -46,10 +46,10 @@ class TransferServiceRestServiceErrorDict(TypedDict):
     detail: str
     error_code: str
     instance: NotRequired[str]
-    invalid_fields: NotRequired[list[InvalidField | InvalidFieldDict]]
+    invalid_fields: NotRequired[list[InvalidFieldDict]]
     request_id: NotRequired[str]
     response: NotRequired[Any]
-    routing_details: NotRequired[list[RoutingDetails | RoutingDetailsDict]]
+    routing_details: NotRequired[list[RoutingDetailsDict]]
     status: int
     title: str
     type_: str

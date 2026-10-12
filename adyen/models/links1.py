@@ -14,4 +14,4 @@ class Links1(SdkBaseModel):
 
 
 class Links1Dict(TypedDict):
-    self: LinksElement6 | LinksElement6Dict
+    self: LinksElement6Dict

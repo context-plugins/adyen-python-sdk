@@ -15,4 +15,4 @@ class EnableServiceResponse(SdkBaseModel):
 
 
 class EnableServiceResponseDict(TypedDict):
-    response: Response11 | Response11Dict
+    response: Response11Dict

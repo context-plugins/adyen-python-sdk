@@ -9,8 +9,10 @@ from ..core import (
     RawClient,
     RequestOptionsOrDict,
     SecuredRawResponse,
+    async_json_decoder,
     json_decoder,
     param,
+    unwrap,
 )
 from ..errors.get_grant_offers1_error import GetGrantOffers1ErrorBody, get_grant_offers1_error_mapper
 from ..errors.get_grant_offers_error import GetGrantOffersErrorBody, get_grant_offers_error_mapper
@@ -37,7 +39,8 @@ class GrantOffersApi:
 
         Args:
             account_holder_id: The unique identifier of the grant account.
-            request_options: Per-call overrides for this one request, such as a timeout or extra headers.
+            request_options: Per-call overrides for this one request, such as a timeout, extra headers, or its retry
+                count and statuses.
 
         Returns:
             OK - the request has succeeded.
@@ -47,7 +50,7 @@ class GrantOffersApi:
                 required. Forbidden - insufficient permissions to process the request. Unprocessable Entity - a request
                 validation error. Internal Server Error - the server could not process the request. ``error`` is
                 ``RestServiceError | RawError``."""
-        return self._with_raw_response.get_grant_offers(account_holder_id, request_options=request_options).unwrap()
+        return unwrap(self._with_raw_response.get_grant_offers(account_holder_id, request_options=request_options))
 
     def get_grant_offers_grant_offer_id(
         self, grant_offer_id: str, *, request_options: RequestOptionsOrDict | None = None
@@ -56,7 +59,8 @@ class GrantOffersApi:
 
         Args:
             grant_offer_id: The unique identifier of the grant offer.
-            request_options: Per-call overrides for this one request, such as a timeout or extra headers.
+            request_options: Per-call overrides for this one request, such as a timeout, extra headers, or its retry
+                count and statuses.
 
         Returns:
             OK - the request has succeeded.
@@ -66,16 +70,17 @@ class GrantOffersApi:
                 required. Forbidden - insufficient permissions to process the request. Unprocessable Entity - a request
                 validation error. Internal Server Error - the server could not process the request. ``error`` is
                 ``RestServiceError | RawError``."""
-        return self._with_raw_response.get_grant_offers_grant_offer_id(
-            grant_offer_id, request_options=request_options
-        ).unwrap()
+        return unwrap(
+            self._with_raw_response.get_grant_offers_grant_offer_id(grant_offer_id, request_options=request_options)
+        )
 
-    def get_grant_offers_id(self, id: str, *, request_options: RequestOptionsOrDict | None = None) -> GrantOffer1:
+    def get_grant_offers_id(self, id_: str, *, request_options: RequestOptionsOrDict | None = None) -> GrantOffer1:
         """Returns the details of the specified static offer.
 
         Args:
-            id: The unique identifier of the static offer.
-            request_options: Per-call overrides for this one request, such as a timeout or extra headers.
+            id_: The unique identifier of the static offer.
+            request_options: Per-call overrides for this one request, such as a timeout, extra headers, or its retry
+                count and statuses.
 
         Returns:
             OK - The request has succeeded.
@@ -83,7 +88,7 @@ class GrantOffersApi:
         Raises:
             ApiError: Not Found - The entity was not found. Unprocessable Entity - A request validation error. ``error``
                 is ``DefaultErrorResponseEntity | RawError``."""
-        return self._with_raw_response.get_grant_offers_id(id, request_options=request_options).unwrap()
+        return unwrap(self._with_raw_response.get_grant_offers_id(id_, request_options=request_options))
 
     def get_grant_offers1(
         self, account_holder_id: str, *, request_options: RequestOptionsOrDict | None = None
@@ -96,7 +101,8 @@ class GrantOffersApi:
         Args:
             account_holder_id: The unique identifier of the account holder for which you want to get the available
                 static offers.
-            request_options: Per-call overrides for this one request, such as a timeout or extra headers.
+            request_options: Per-call overrides for this one request, such as a timeout, extra headers, or its retry
+                count and statuses.
 
         Returns:
             OK - The request has succeeded.
@@ -104,7 +110,7 @@ class GrantOffersApi:
         Raises:
             ApiError: Not Found - The entity was not found. Unprocessable Entity - A request validation error. ``error``
                 is ``DefaultErrorResponseEntity | RawError``."""
-        return self._with_raw_response.get_grant_offers1(account_holder_id, request_options=request_options).unwrap()
+        return unwrap(self._with_raw_response.get_grant_offers1(account_holder_id, request_options=request_options))
 
     @property
     def with_raw_response(self) -> GrantOffersApiWithRawResponse:
@@ -123,7 +129,8 @@ class AsyncGrantOffersApi:
 
         Args:
             account_holder_id: The unique identifier of the grant account.
-            request_options: Per-call overrides for this one request, such as a timeout or extra headers.
+            request_options: Per-call overrides for this one request, such as a timeout, extra headers, or its retry
+                count and statuses.
 
         Returns:
             OK - the request has succeeded.
@@ -133,9 +140,9 @@ class AsyncGrantOffersApi:
                 required. Forbidden - insufficient permissions to process the request. Unprocessable Entity - a request
                 validation error. Internal Server Error - the server could not process the request. ``error`` is
                 ``RestServiceError | RawError``."""
-        return (
+        return unwrap(
             await self._with_raw_response.get_grant_offers(account_holder_id, request_options=request_options)
-        ).unwrap()
+        )
 
     async def get_grant_offers_grant_offer_id(
         self, grant_offer_id: str, *, request_options: RequestOptionsOrDict | None = None
@@ -144,7 +151,8 @@ class AsyncGrantOffersApi:
 
         Args:
             grant_offer_id: The unique identifier of the grant offer.
-            request_options: Per-call overrides for this one request, such as a timeout or extra headers.
+            request_options: Per-call overrides for this one request, such as a timeout, extra headers, or its retry
+                count and statuses.
 
         Returns:
             OK - the request has succeeded.
@@ -154,18 +162,21 @@ class AsyncGrantOffersApi:
                 required. Forbidden - insufficient permissions to process the request. Unprocessable Entity - a request
                 validation error. Internal Server Error - the server could not process the request. ``error`` is
                 ``RestServiceError | RawError``."""
-        return (
+        return unwrap(
             await self._with_raw_response.get_grant_offers_grant_offer_id(
                 grant_offer_id, request_options=request_options
-            )
-        ).unwrap()
+            ),
+        )
 
-    async def get_grant_offers_id(self, id: str, *, request_options: RequestOptionsOrDict | None = None) -> GrantOffer1:
+    async def get_grant_offers_id(
+        self, id_: str, *, request_options: RequestOptionsOrDict | None = None
+    ) -> GrantOffer1:
         """Returns the details of the specified static offer.
 
         Args:
-            id: The unique identifier of the static offer.
-            request_options: Per-call overrides for this one request, such as a timeout or extra headers.
+            id_: The unique identifier of the static offer.
+            request_options: Per-call overrides for this one request, such as a timeout, extra headers, or its retry
+                count and statuses.
 
         Returns:
             OK - The request has succeeded.
@@ -173,7 +184,7 @@ class AsyncGrantOffersApi:
         Raises:
             ApiError: Not Found - The entity was not found. Unprocessable Entity - A request validation error. ``error``
                 is ``DefaultErrorResponseEntity | RawError``."""
-        return (await self._with_raw_response.get_grant_offers_id(id, request_options=request_options)).unwrap()
+        return unwrap(await self._with_raw_response.get_grant_offers_id(id_, request_options=request_options))
 
     async def get_grant_offers1(
         self, account_holder_id: str, *, request_options: RequestOptionsOrDict | None = None
@@ -186,7 +197,8 @@ class AsyncGrantOffersApi:
         Args:
             account_holder_id: The unique identifier of the account holder for which you want to get the available
                 static offers.
-            request_options: Per-call overrides for this one request, such as a timeout or extra headers.
+            request_options: Per-call overrides for this one request, such as a timeout, extra headers, or its retry
+                count and statuses.
 
         Returns:
             OK - The request has succeeded.
@@ -194,9 +206,9 @@ class AsyncGrantOffersApi:
         Raises:
             ApiError: Not Found - The entity was not found. Unprocessable Entity - A request validation error. ``error``
                 is ``DefaultErrorResponseEntity | RawError``."""
-        return (
+        return unwrap(
             await self._with_raw_response.get_grant_offers1(account_holder_id, request_options=request_options)
-        ).unwrap()
+        )
 
     @property
     def with_raw_response(self) -> AsyncGrantOffersApiWithRawResponse:
@@ -212,7 +224,8 @@ class GrantOffersApiWithRawResponse(SecuredRawResponse[RawClient, Server, AuthSc
 
         Args:
             account_holder_id: The unique identifier of the grant account.
-            request_options: Per-call overrides for this one request, such as a timeout or extra headers.
+            request_options: Per-call overrides for this one request, such as a timeout, extra headers, or its retry
+                count and statuses.
 
         Returns:
             An ``ApiResult`` holding the deserialized response or the error body."""
@@ -233,7 +246,8 @@ class GrantOffersApiWithRawResponse(SecuredRawResponse[RawClient, Server, AuthSc
 
         Args:
             grant_offer_id: The unique identifier of the grant offer.
-            request_options: Per-call overrides for this one request, such as a timeout or extra headers.
+            request_options: Per-call overrides for this one request, such as a timeout, extra headers, or its retry
+                count and statuses.
 
         Returns:
             An ``ApiResult`` holding the deserialized response or the error body."""
@@ -248,20 +262,21 @@ class GrantOffersApiWithRawResponse(SecuredRawResponse[RawClient, Server, AuthSc
         )
 
     def get_grant_offers_id(
-        self, id: str, *, request_options: RequestOptionsOrDict | None = None
+        self, id_: str, *, request_options: RequestOptionsOrDict | None = None
     ) -> ApiResult[GrantOffer1, GetGrantOffersIdErrorBody]:
         """Returns the details of the specified static offer.
 
         Args:
-            id: The unique identifier of the static offer.
-            request_options: Per-call overrides for this one request, such as a timeout or extra headers.
+            id_: The unique identifier of the static offer.
+            request_options: Per-call overrides for this one request, such as a timeout, extra headers, or its retry
+                count and statuses.
 
         Returns:
             An ``ApiResult`` holding the deserialized response or the error body."""
         return self._client.execute(
             http_method="GET",
             url_template=self._server.default15("/grantOffers/{id}"),
-            path_params=[param[str]("id", id)],
+            path_params=[param[str]("id", id_)],
             decoder=json_decoder[GrantOffer1],
             error_mapper=get_grant_offers_id_error_mapper,
             request_options=request_options,
@@ -278,7 +293,8 @@ class GrantOffersApiWithRawResponse(SecuredRawResponse[RawClient, Server, AuthSc
         Args:
             account_holder_id: The unique identifier of the account holder for which you want to get the available
                 static offers.
-            request_options: Per-call overrides for this one request, such as a timeout or extra headers.
+            request_options: Per-call overrides for this one request, such as a timeout, extra headers, or its retry
+                count and statuses.
 
         Returns:
             An ``ApiResult`` holding the deserialized response or the error body."""
@@ -301,7 +317,8 @@ class AsyncGrantOffersApiWithRawResponse(SecuredRawResponse[AsyncRawClient, Serv
 
         Args:
             account_holder_id: The unique identifier of the grant account.
-            request_options: Per-call overrides for this one request, such as a timeout or extra headers.
+            request_options: Per-call overrides for this one request, such as a timeout, extra headers, or its retry
+                count and statuses.
 
         Returns:
             An ``ApiResult`` holding the deserialized response or the error body."""
@@ -310,7 +327,7 @@ class AsyncGrantOffersApiWithRawResponse(SecuredRawResponse[AsyncRawClient, Serv
             url_template=self._server.default13("/grantOffers"),
             query_params=[param[str]("accountHolderId", account_holder_id)],
             auth_scheme=AsyncAnySchemes(self._auth.client_key, self._auth.basic_auth, self._auth.api_key_auth),
-            decoder=json_decoder[GrantOffers],
+            decoder=async_json_decoder[GrantOffers],
             error_mapper=get_grant_offers_error_mapper,
             request_options=request_options,
         )
@@ -322,7 +339,8 @@ class AsyncGrantOffersApiWithRawResponse(SecuredRawResponse[AsyncRawClient, Serv
 
         Args:
             grant_offer_id: The unique identifier of the grant offer.
-            request_options: Per-call overrides for this one request, such as a timeout or extra headers.
+            request_options: Per-call overrides for this one request, such as a timeout, extra headers, or its retry
+                count and statuses.
 
         Returns:
             An ``ApiResult`` holding the deserialized response or the error body."""
@@ -331,27 +349,28 @@ class AsyncGrantOffersApiWithRawResponse(SecuredRawResponse[AsyncRawClient, Serv
             url_template=self._server.default13("/grantOffers/{grantOfferId}"),
             path_params=[param[str]("grantOfferId", grant_offer_id)],
             auth_scheme=AsyncAnySchemes(self._auth.client_key, self._auth.basic_auth, self._auth.api_key_auth),
-            decoder=json_decoder[GrantOffer],
+            decoder=async_json_decoder[GrantOffer],
             error_mapper=get_grant_offers_grant_offer_id_error_mapper,
             request_options=request_options,
         )
 
     async def get_grant_offers_id(
-        self, id: str, *, request_options: RequestOptionsOrDict | None = None
+        self, id_: str, *, request_options: RequestOptionsOrDict | None = None
     ) -> ApiResult[GrantOffer1, GetGrantOffersIdErrorBody]:
         """Returns the details of the specified static offer.
 
         Args:
-            id: The unique identifier of the static offer.
-            request_options: Per-call overrides for this one request, such as a timeout or extra headers.
+            id_: The unique identifier of the static offer.
+            request_options: Per-call overrides for this one request, such as a timeout, extra headers, or its retry
+                count and statuses.
 
         Returns:
             An ``ApiResult`` holding the deserialized response or the error body."""
         return await self._client.execute(
             http_method="GET",
             url_template=self._server.default15("/grantOffers/{id}"),
-            path_params=[param[str]("id", id)],
-            decoder=json_decoder[GrantOffer1],
+            path_params=[param[str]("id", id_)],
+            decoder=async_json_decoder[GrantOffer1],
             error_mapper=get_grant_offers_id_error_mapper,
             request_options=request_options,
         )
@@ -367,7 +386,8 @@ class AsyncGrantOffersApiWithRawResponse(SecuredRawResponse[AsyncRawClient, Serv
         Args:
             account_holder_id: The unique identifier of the account holder for which you want to get the available
                 static offers.
-            request_options: Per-call overrides for this one request, such as a timeout or extra headers.
+            request_options: Per-call overrides for this one request, such as a timeout, extra headers, or its retry
+                count and statuses.
 
         Returns:
             An ``ApiResult`` holding the deserialized response or the error body."""
@@ -375,7 +395,7 @@ class AsyncGrantOffersApiWithRawResponse(SecuredRawResponse[AsyncRawClient, Serv
             http_method="GET",
             url_template=self._server.default15("/grantOffers"),
             query_params=[param[str]("accountHolderId", account_holder_id)],
-            decoder=json_decoder[GrantOffers],
+            decoder=async_json_decoder[GrantOffers],
             error_mapper=get_grant_offers1_error_mapper,
             request_options=request_options,
         )

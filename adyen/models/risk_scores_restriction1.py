@@ -22,4 +22,4 @@ class RiskScoresRestriction1(SdkBaseModel):
 
 class RiskScoresRestriction1Dict(TypedDict):
     operation: str
-    value: NotRequired[RiskScores | RiskScoresDict]
+    value: NotRequired[RiskScoresDict]

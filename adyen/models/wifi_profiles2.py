@@ -18,5 +18,5 @@ class WifiProfiles2(SdkBaseModel):
 
 
 class WifiProfiles2Dict(TypedDict):
-    profiles: NotRequired[list[Profile | ProfileDict]]
-    settings: NotRequired[Settings1 | Settings1Dict]
+    profiles: NotRequired[list[ProfileDict]]
+    settings: NotRequired[Settings1Dict]

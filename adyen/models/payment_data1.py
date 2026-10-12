@@ -29,7 +29,7 @@ class PaymentData1(SdkBaseModel):
     * **Refund**
     * **UpdateReservation**"""
 
-    split_payment_flag: Optional[bool] = Field(default=UNSET, alias="SplitPaymentFlag")
+    split_payment_flag: bool = Field(default=False, alias="SplitPaymentFlag")
     """Indicates if the payment of the Sale transaction is split. Allows the POI to decline payment means that cannot
     accept split payment."""
 
@@ -53,6 +53,6 @@ class PaymentData1Dict(TypedDict):
     payment_type: NotRequired[PaymentType1OrStr]
     split_payment_flag: NotRequired[bool]
     requested_validity_date: NotRequired[Date]
-    card_acquisition_reference: NotRequired[TransactionIdtype | TransactionIdtypeDict]
-    instalment: NotRequired[Instalment1 | Instalment1Dict]
-    payment_instrument_data: NotRequired[PaymentInstrumentData | PaymentInstrumentDataDict]
+    card_acquisition_reference: NotRequired[TransactionIdtypeDict]
+    instalment: NotRequired[Instalment1Dict]
+    payment_instrument_data: NotRequired[PaymentInstrumentDataDict]

@@ -8,10 +8,13 @@ from ..core import (
     BaseRawResponse,
     RawClient,
     RequestOptionsOrDict,
+    async_empty_response,
+    async_json_decoder,
     empty_response,
     json_body,
     json_decoder,
     param,
+    unwrap,
 )
 from ..errors.delete_balance_accounts_balance_account_id_payout_schedules_id_error import (
     DeleteBalanceAccountsBalanceAccountIdPayoutSchedulesIdErrorBody,
@@ -67,14 +70,15 @@ class ManagedPayoutSchedules:
         self._with_raw_response = ManagedPayoutSchedulesWithRawResponse(client, server)
 
     def delete_balance_accounts_balance_account_id_payout_schedules_id(
-        self, balance_account_id: str, id: str, *, request_options: RequestOptionsOrDict | None = None
+        self, balance_account_id: str, id_: str, *, request_options: RequestOptionsOrDict | None = None
     ) -> None:
         """Delete a payout schedule applied to a balance account.
 
         Args:
             balance_account_id: The unique identifier of the balance account.
-            id: The unique identifier of the payout schedule applied to the balance account.
-            request_options: Per-call overrides for this one request, such as a timeout or extra headers.
+            id_: The unique identifier of the payout schedule applied to the balance account.
+            request_options: Per-call overrides for this one request, such as a timeout, extra headers, or its retry
+                count and statuses.
 
         Returns:
             OK - The request has succeeded.
@@ -84,9 +88,11 @@ class ManagedPayoutSchedules:
                 request. Not Found - the resource was not found Unprocessable Entity - a request validation error.
                 Internal Server Error - the server could not process the request. ``error`` is
                 ``DefaultErrorResponseEntity | RawError``."""
-        return self._with_raw_response.delete_balance_accounts_balance_account_id_payout_schedules_id(
-            balance_account_id, id, request_options=request_options
-        ).unwrap()
+        return unwrap(
+            self._with_raw_response.delete_balance_accounts_balance_account_id_payout_schedules_id(
+                balance_account_id, id_, request_options=request_options
+            ),
+        )
 
     def get_balance_accounts_balance_account_id_payout_schedules(
         self,
@@ -108,7 +114,8 @@ class ManagedPayoutSchedules:
             cursor: The ``cursor`` returned in the links of the previous response.
             limit: The number of items returned per page, maximum of 100 items. By default, the response returns 10
                 items per page.
-            request_options: Per-call overrides for this one request, such as a timeout or extra headers.
+            request_options: Per-call overrides for this one request, such as a timeout, extra headers, or its retry
+                count and statuses.
 
         Returns:
             OK - The request has succeeded.
@@ -118,19 +125,22 @@ class ManagedPayoutSchedules:
                 request. Not Found - the resource was not found Unprocessable Entity - a request validation error.
                 Internal Server Error - the server could not process the request. ``error`` is
                 ``DefaultErrorResponseEntity | RawError``."""
-        return self._with_raw_response.get_balance_accounts_balance_account_id_payout_schedules(
-            balance_account_id, currency=currency, cursor=cursor, limit=limit, request_options=request_options
-        ).unwrap()
+        return unwrap(
+            self._with_raw_response.get_balance_accounts_balance_account_id_payout_schedules(
+                balance_account_id, currency=currency, cursor=cursor, limit=limit, request_options=request_options
+            ),
+        )
 
     def get_balance_accounts_balance_account_id_payout_schedules_id(
-        self, balance_account_id: str, id: str, *, request_options: RequestOptionsOrDict | None = None
+        self, balance_account_id: str, id_: str, *, request_options: RequestOptionsOrDict | None = None
     ) -> BalanceAccountConfiguration:
         """Returns the specified payout schedule.
 
         Args:
             balance_account_id: The unique identifier of the balance account.
-            id: The unique identifier of the payout schedule for the balance account.
-            request_options: Per-call overrides for this one request, such as a timeout or extra headers.
+            id_: The unique identifier of the payout schedule for the balance account.
+            request_options: Per-call overrides for this one request, such as a timeout, extra headers, or its retry
+                count and statuses.
 
         Returns:
             OK - The request has succeeded.
@@ -140,14 +150,16 @@ class ManagedPayoutSchedules:
                 request. Not Found - the resource was not found Unprocessable Entity - a request validation error.
                 Internal Server Error - the server could not process the request. ``error`` is
                 ``DefaultErrorResponseEntity | RawError``."""
-        return self._with_raw_response.get_balance_accounts_balance_account_id_payout_schedules_id(
-            balance_account_id, id, request_options=request_options
-        ).unwrap()
+        return unwrap(
+            self._with_raw_response.get_balance_accounts_balance_account_id_payout_schedules_id(
+                balance_account_id, id_, request_options=request_options
+            ),
+        )
 
     def get_balance_accounts_balance_account_id_payout_schedules_id_executions(
         self,
         balance_account_id: str,
-        id: str,
+        id_: str,
         offset: int,
         *,
         results: list[ExecutionResultOrStr] | None = None,
@@ -159,14 +171,15 @@ class ManagedPayoutSchedules:
 
         Args:
             balance_account_id: The unique identifier of the balance account.
-            id: The unique identifier of the payout schedule on the balance account.
+            id_: The unique identifier of the payout schedule on the balance account.
             offset: The page number to be returned. Default: **1**
             results: Contains a list of payout statuses. If included, the response returns only executed payouts that
                 currently have one of the specified statuses. Possible statuses: - **succeeded**: The payout was sent
                 successfully. - **failed**: The payout was not sent due to an error. - **skipped**: The payout was not
                 triggered as expected.
             limit: The number of items returned per page. Default: **10**
-            request_options: Per-call overrides for this one request, such as a timeout or extra headers.
+            request_options: Per-call overrides for this one request, such as a timeout, extra headers, or its retry
+                count and statuses.
 
         Returns:
             OK - The request has succeeded.
@@ -176,9 +189,11 @@ class ManagedPayoutSchedules:
                 request. Not Found - the resource was not found Unprocessable Entity - a request validation error.
                 Internal Server Error - the server could not process the request. ``error`` is
                 ``DefaultErrorResponseEntity | RawError``."""
-        return self._with_raw_response.get_balance_accounts_balance_account_id_payout_schedules_id_executions(
-            balance_account_id, id, offset, results=results, limit=limit, request_options=request_options
-        ).unwrap()
+        return unwrap(
+            self._with_raw_response.get_balance_accounts_balance_account_id_payout_schedules_id_executions(
+                balance_account_id, id_, offset, results=results, limit=limit, request_options=request_options
+            ),
+        )
 
     def get_balance_platforms_balance_platform_id_payout_schedules(
         self,
@@ -198,7 +213,8 @@ class ManagedPayoutSchedules:
             currency: The three-character `ISO currency code
                 <https://docs.adyen.com/development-resources/currency-codes>`__ of the currency used in the payout
                 configuration.
-            request_options: Per-call overrides for this one request, such as a timeout or extra headers.
+            request_options: Per-call overrides for this one request, such as a timeout, extra headers, or its retry
+                count and statuses.
 
         Returns:
             OK - The request has succeeded.
@@ -208,19 +224,22 @@ class ManagedPayoutSchedules:
                 request. Not Found - the resource was not found Unprocessable Entity - a request validation error.
                 Internal Server Error - the server could not process the request. ``error`` is
                 ``DefaultErrorResponseEntity | RawError``."""
-        return self._with_raw_response.get_balance_platforms_balance_platform_id_payout_schedules(
-            balance_platform_id, country_code=country_code, currency=currency, request_options=request_options
-        ).unwrap()
+        return unwrap(
+            self._with_raw_response.get_balance_platforms_balance_platform_id_payout_schedules(
+                balance_platform_id, country_code=country_code, currency=currency, request_options=request_options
+            ),
+        )
 
     def get_balance_platforms_balance_platform_id_payout_schedules_id(
-        self, balance_platform_id: str, id: str, *, request_options: RequestOptionsOrDict | None = None
+        self, balance_platform_id: str, id_: str, *, request_options: RequestOptionsOrDict | None = None
     ) -> BalancePlatformConfiguration:
         """Returns the specified managed payout schedule configured on your balance platform.
 
         Args:
             balance_platform_id: The unique identifier of the balance platform.
-            id: The unique identifier of the payout configuration for your balance platform.
-            request_options: Per-call overrides for this one request, such as a timeout or extra headers.
+            id_: The unique identifier of the payout configuration for your balance platform.
+            request_options: Per-call overrides for this one request, such as a timeout, extra headers, or its retry
+                count and statuses.
 
         Returns:
             OK - The request has succeeded.
@@ -230,14 +249,16 @@ class ManagedPayoutSchedules:
                 request. Not Found - the resource was not found Unprocessable Entity - a request validation error.
                 Internal Server Error - the server could not process the request. ``error`` is
                 ``DefaultErrorResponseEntity | RawError``."""
-        return self._with_raw_response.get_balance_platforms_balance_platform_id_payout_schedules_id(
-            balance_platform_id, id, request_options=request_options
-        ).unwrap()
+        return unwrap(
+            self._with_raw_response.get_balance_platforms_balance_platform_id_payout_schedules_id(
+                balance_platform_id, id_, request_options=request_options
+            ),
+        )
 
     def patch_balance_accounts_balance_account_id_payout_schedules_id(
         self,
         balance_account_id: str,
-        id: str,
+        id_: str,
         body: BalanceAccountConfigurationUpdate | BalanceAccountConfigurationUpdateDict,
         *,
         request_options: RequestOptionsOrDict | None = None,
@@ -247,9 +268,10 @@ class ManagedPayoutSchedules:
 
         Args:
             balance_account_id: The unique identifier of the balance account.
-            id: The unique identifier of the payout schedule applied to the balance account.
+            id_: The unique identifier of the payout schedule applied to the balance account.
             body: The request body.
-            request_options: Per-call overrides for this one request, such as a timeout or extra headers.
+            request_options: Per-call overrides for this one request, such as a timeout, extra headers, or its retry
+                count and statuses.
 
         Returns:
             OK - The request has succeeded.
@@ -259,9 +281,11 @@ class ManagedPayoutSchedules:
                 request. Not Found - the resource was not found Unprocessable Entity - a request validation error.
                 Internal Server Error - the server could not process the request. ``error`` is
                 ``DefaultErrorResponseEntity | RawError``."""
-        return self._with_raw_response.patch_balance_accounts_balance_account_id_payout_schedules_id(
-            balance_account_id, id, body, request_options=request_options
-        ).unwrap()
+        return unwrap(
+            self._with_raw_response.patch_balance_accounts_balance_account_id_payout_schedules_id(
+                balance_account_id, id_, body, request_options=request_options
+            ),
+        )
 
     def post_balance_accounts_balance_account_id_payout_schedules(
         self,
@@ -276,7 +300,8 @@ class ManagedPayoutSchedules:
         Args:
             balance_account_id: The unique identifier of the balance account.
             body: The request body.
-            request_options: Per-call overrides for this one request, such as a timeout or extra headers.
+            request_options: Per-call overrides for this one request, such as a timeout, extra headers, or its retry
+                count and statuses.
 
         Returns:
             OK - The request has succeeded.
@@ -286,9 +311,11 @@ class ManagedPayoutSchedules:
                 request. Not Found - the resource was not found Unprocessable Entity - a request validation error.
                 Internal Server Error - the server could not process the request. ``error`` is
                 ``DefaultErrorResponseEntity | RawError``."""
-        return self._with_raw_response.post_balance_accounts_balance_account_id_payout_schedules(
-            balance_account_id, body, request_options=request_options
-        ).unwrap()
+        return unwrap(
+            self._with_raw_response.post_balance_accounts_balance_account_id_payout_schedules(
+                balance_account_id, body, request_options=request_options
+            ),
+        )
 
     @property
     def with_raw_response(self) -> ManagedPayoutSchedulesWithRawResponse:
@@ -300,14 +327,15 @@ class AsyncManagedPayoutSchedules:
         self._with_raw_response = AsyncManagedPayoutSchedulesWithRawResponse(client, server)
 
     async def delete_balance_accounts_balance_account_id_payout_schedules_id(
-        self, balance_account_id: str, id: str, *, request_options: RequestOptionsOrDict | None = None
+        self, balance_account_id: str, id_: str, *, request_options: RequestOptionsOrDict | None = None
     ) -> None:
         """Delete a payout schedule applied to a balance account.
 
         Args:
             balance_account_id: The unique identifier of the balance account.
-            id: The unique identifier of the payout schedule applied to the balance account.
-            request_options: Per-call overrides for this one request, such as a timeout or extra headers.
+            id_: The unique identifier of the payout schedule applied to the balance account.
+            request_options: Per-call overrides for this one request, such as a timeout, extra headers, or its retry
+                count and statuses.
 
         Returns:
             OK - The request has succeeded.
@@ -317,11 +345,11 @@ class AsyncManagedPayoutSchedules:
                 request. Not Found - the resource was not found Unprocessable Entity - a request validation error.
                 Internal Server Error - the server could not process the request. ``error`` is
                 ``DefaultErrorResponseEntity | RawError``."""
-        return (
+        return unwrap(
             await self._with_raw_response.delete_balance_accounts_balance_account_id_payout_schedules_id(
-                balance_account_id, id, request_options=request_options
-            )
-        ).unwrap()
+                balance_account_id, id_, request_options=request_options
+            ),
+        )
 
     async def get_balance_accounts_balance_account_id_payout_schedules(
         self,
@@ -343,7 +371,8 @@ class AsyncManagedPayoutSchedules:
             cursor: The ``cursor`` returned in the links of the previous response.
             limit: The number of items returned per page, maximum of 100 items. By default, the response returns 10
                 items per page.
-            request_options: Per-call overrides for this one request, such as a timeout or extra headers.
+            request_options: Per-call overrides for this one request, such as a timeout, extra headers, or its retry
+                count and statuses.
 
         Returns:
             OK - The request has succeeded.
@@ -353,21 +382,22 @@ class AsyncManagedPayoutSchedules:
                 request. Not Found - the resource was not found Unprocessable Entity - a request validation error.
                 Internal Server Error - the server could not process the request. ``error`` is
                 ``DefaultErrorResponseEntity | RawError``."""
-        return (
+        return unwrap(
             await self._with_raw_response.get_balance_accounts_balance_account_id_payout_schedules(
                 balance_account_id, currency=currency, cursor=cursor, limit=limit, request_options=request_options
-            )
-        ).unwrap()
+            ),
+        )
 
     async def get_balance_accounts_balance_account_id_payout_schedules_id(
-        self, balance_account_id: str, id: str, *, request_options: RequestOptionsOrDict | None = None
+        self, balance_account_id: str, id_: str, *, request_options: RequestOptionsOrDict | None = None
     ) -> BalanceAccountConfiguration:
         """Returns the specified payout schedule.
 
         Args:
             balance_account_id: The unique identifier of the balance account.
-            id: The unique identifier of the payout schedule for the balance account.
-            request_options: Per-call overrides for this one request, such as a timeout or extra headers.
+            id_: The unique identifier of the payout schedule for the balance account.
+            request_options: Per-call overrides for this one request, such as a timeout, extra headers, or its retry
+                count and statuses.
 
         Returns:
             OK - The request has succeeded.
@@ -377,16 +407,16 @@ class AsyncManagedPayoutSchedules:
                 request. Not Found - the resource was not found Unprocessable Entity - a request validation error.
                 Internal Server Error - the server could not process the request. ``error`` is
                 ``DefaultErrorResponseEntity | RawError``."""
-        return (
+        return unwrap(
             await self._with_raw_response.get_balance_accounts_balance_account_id_payout_schedules_id(
-                balance_account_id, id, request_options=request_options
-            )
-        ).unwrap()
+                balance_account_id, id_, request_options=request_options
+            ),
+        )
 
     async def get_balance_accounts_balance_account_id_payout_schedules_id_executions(
         self,
         balance_account_id: str,
-        id: str,
+        id_: str,
         offset: int,
         *,
         results: list[ExecutionResultOrStr] | None = None,
@@ -398,14 +428,15 @@ class AsyncManagedPayoutSchedules:
 
         Args:
             balance_account_id: The unique identifier of the balance account.
-            id: The unique identifier of the payout schedule on the balance account.
+            id_: The unique identifier of the payout schedule on the balance account.
             offset: The page number to be returned. Default: **1**
             results: Contains a list of payout statuses. If included, the response returns only executed payouts that
                 currently have one of the specified statuses. Possible statuses: - **succeeded**: The payout was sent
                 successfully. - **failed**: The payout was not sent due to an error. - **skipped**: The payout was not
                 triggered as expected.
             limit: The number of items returned per page. Default: **10**
-            request_options: Per-call overrides for this one request, such as a timeout or extra headers.
+            request_options: Per-call overrides for this one request, such as a timeout, extra headers, or its retry
+                count and statuses.
 
         Returns:
             OK - The request has succeeded.
@@ -415,11 +446,11 @@ class AsyncManagedPayoutSchedules:
                 request. Not Found - the resource was not found Unprocessable Entity - a request validation error.
                 Internal Server Error - the server could not process the request. ``error`` is
                 ``DefaultErrorResponseEntity | RawError``."""
-        return (
+        return unwrap(
             await self._with_raw_response.get_balance_accounts_balance_account_id_payout_schedules_id_executions(
-                balance_account_id, id, offset, results=results, limit=limit, request_options=request_options
-            )
-        ).unwrap()
+                balance_account_id, id_, offset, results=results, limit=limit, request_options=request_options
+            ),
+        )
 
     async def get_balance_platforms_balance_platform_id_payout_schedules(
         self,
@@ -439,7 +470,8 @@ class AsyncManagedPayoutSchedules:
             currency: The three-character `ISO currency code
                 <https://docs.adyen.com/development-resources/currency-codes>`__ of the currency used in the payout
                 configuration.
-            request_options: Per-call overrides for this one request, such as a timeout or extra headers.
+            request_options: Per-call overrides for this one request, such as a timeout, extra headers, or its retry
+                count and statuses.
 
         Returns:
             OK - The request has succeeded.
@@ -449,21 +481,22 @@ class AsyncManagedPayoutSchedules:
                 request. Not Found - the resource was not found Unprocessable Entity - a request validation error.
                 Internal Server Error - the server could not process the request. ``error`` is
                 ``DefaultErrorResponseEntity | RawError``."""
-        return (
+        return unwrap(
             await self._with_raw_response.get_balance_platforms_balance_platform_id_payout_schedules(
                 balance_platform_id, country_code=country_code, currency=currency, request_options=request_options
-            )
-        ).unwrap()
+            ),
+        )
 
     async def get_balance_platforms_balance_platform_id_payout_schedules_id(
-        self, balance_platform_id: str, id: str, *, request_options: RequestOptionsOrDict | None = None
+        self, balance_platform_id: str, id_: str, *, request_options: RequestOptionsOrDict | None = None
     ) -> BalancePlatformConfiguration:
         """Returns the specified managed payout schedule configured on your balance platform.
 
         Args:
             balance_platform_id: The unique identifier of the balance platform.
-            id: The unique identifier of the payout configuration for your balance platform.
-            request_options: Per-call overrides for this one request, such as a timeout or extra headers.
+            id_: The unique identifier of the payout configuration for your balance platform.
+            request_options: Per-call overrides for this one request, such as a timeout, extra headers, or its retry
+                count and statuses.
 
         Returns:
             OK - The request has succeeded.
@@ -473,16 +506,16 @@ class AsyncManagedPayoutSchedules:
                 request. Not Found - the resource was not found Unprocessable Entity - a request validation error.
                 Internal Server Error - the server could not process the request. ``error`` is
                 ``DefaultErrorResponseEntity | RawError``."""
-        return (
+        return unwrap(
             await self._with_raw_response.get_balance_platforms_balance_platform_id_payout_schedules_id(
-                balance_platform_id, id, request_options=request_options
-            )
-        ).unwrap()
+                balance_platform_id, id_, request_options=request_options
+            ),
+        )
 
     async def patch_balance_accounts_balance_account_id_payout_schedules_id(
         self,
         balance_account_id: str,
-        id: str,
+        id_: str,
         body: BalanceAccountConfigurationUpdate | BalanceAccountConfigurationUpdateDict,
         *,
         request_options: RequestOptionsOrDict | None = None,
@@ -492,9 +525,10 @@ class AsyncManagedPayoutSchedules:
 
         Args:
             balance_account_id: The unique identifier of the balance account.
-            id: The unique identifier of the payout schedule applied to the balance account.
+            id_: The unique identifier of the payout schedule applied to the balance account.
             body: The request body.
-            request_options: Per-call overrides for this one request, such as a timeout or extra headers.
+            request_options: Per-call overrides for this one request, such as a timeout, extra headers, or its retry
+                count and statuses.
 
         Returns:
             OK - The request has succeeded.
@@ -504,11 +538,11 @@ class AsyncManagedPayoutSchedules:
                 request. Not Found - the resource was not found Unprocessable Entity - a request validation error.
                 Internal Server Error - the server could not process the request. ``error`` is
                 ``DefaultErrorResponseEntity | RawError``."""
-        return (
+        return unwrap(
             await self._with_raw_response.patch_balance_accounts_balance_account_id_payout_schedules_id(
-                balance_account_id, id, body, request_options=request_options
-            )
-        ).unwrap()
+                balance_account_id, id_, body, request_options=request_options
+            ),
+        )
 
     async def post_balance_accounts_balance_account_id_payout_schedules(
         self,
@@ -523,7 +557,8 @@ class AsyncManagedPayoutSchedules:
         Args:
             balance_account_id: The unique identifier of the balance account.
             body: The request body.
-            request_options: Per-call overrides for this one request, such as a timeout or extra headers.
+            request_options: Per-call overrides for this one request, such as a timeout, extra headers, or its retry
+                count and statuses.
 
         Returns:
             OK - The request has succeeded.
@@ -533,11 +568,11 @@ class AsyncManagedPayoutSchedules:
                 request. Not Found - the resource was not found Unprocessable Entity - a request validation error.
                 Internal Server Error - the server could not process the request. ``error`` is
                 ``DefaultErrorResponseEntity | RawError``."""
-        return (
+        return unwrap(
             await self._with_raw_response.post_balance_accounts_balance_account_id_payout_schedules(
                 balance_account_id, body, request_options=request_options
-            )
-        ).unwrap()
+            ),
+        )
 
     @property
     def with_raw_response(self) -> AsyncManagedPayoutSchedulesWithRawResponse:
@@ -546,21 +581,22 @@ class AsyncManagedPayoutSchedules:
 
 class ManagedPayoutSchedulesWithRawResponse(BaseRawResponse[RawClient, Server]):
     def delete_balance_accounts_balance_account_id_payout_schedules_id(
-        self, balance_account_id: str, id: str, *, request_options: RequestOptionsOrDict | None = None
+        self, balance_account_id: str, id_: str, *, request_options: RequestOptionsOrDict | None = None
     ) -> ApiResult[None, DeleteBalanceAccountsBalanceAccountIdPayoutSchedulesIdErrorBody]:
         """Delete a payout schedule applied to a balance account.
 
         Args:
             balance_account_id: The unique identifier of the balance account.
-            id: The unique identifier of the payout schedule applied to the balance account.
-            request_options: Per-call overrides for this one request, such as a timeout or extra headers.
+            id_: The unique identifier of the payout schedule applied to the balance account.
+            request_options: Per-call overrides for this one request, such as a timeout, extra headers, or its retry
+                count and statuses.
 
         Returns:
             An ``ApiResult`` holding the deserialized response or the error body."""
         return self._client.execute(
             http_method="DELETE",
             url_template=self._server.default13("/balanceAccounts/{balanceAccountId}/payoutSchedules/{id}"),
-            path_params=[param[str]("balanceAccountId", balance_account_id), param[str]("id", id)],
+            path_params=[param[str]("balanceAccountId", balance_account_id), param[str]("id", id_)],
             headers=[param[UUID]("Idempotency-Key", uuid4())],
             decoder=empty_response,
             error_mapper=delete_balance_accounts_balance_account_id_payout_schedules_id_error_mapper,
@@ -587,7 +623,8 @@ class ManagedPayoutSchedulesWithRawResponse(BaseRawResponse[RawClient, Server]):
             cursor: The ``cursor`` returned in the links of the previous response.
             limit: The number of items returned per page, maximum of 100 items. By default, the response returns 10
                 items per page.
-            request_options: Per-call overrides for this one request, such as a timeout or extra headers.
+            request_options: Per-call overrides for this one request, such as a timeout, extra headers, or its retry
+                count and statuses.
 
         Returns:
             An ``ApiResult`` holding the deserialized response or the error body."""
@@ -606,21 +643,22 @@ class ManagedPayoutSchedulesWithRawResponse(BaseRawResponse[RawClient, Server]):
         )
 
     def get_balance_accounts_balance_account_id_payout_schedules_id(
-        self, balance_account_id: str, id: str, *, request_options: RequestOptionsOrDict | None = None
+        self, balance_account_id: str, id_: str, *, request_options: RequestOptionsOrDict | None = None
     ) -> ApiResult[BalanceAccountConfiguration, GetBalanceAccountsBalanceAccountIdPayoutSchedulesIdErrorBody]:
         """Returns the specified payout schedule.
 
         Args:
             balance_account_id: The unique identifier of the balance account.
-            id: The unique identifier of the payout schedule for the balance account.
-            request_options: Per-call overrides for this one request, such as a timeout or extra headers.
+            id_: The unique identifier of the payout schedule for the balance account.
+            request_options: Per-call overrides for this one request, such as a timeout, extra headers, or its retry
+                count and statuses.
 
         Returns:
             An ``ApiResult`` holding the deserialized response or the error body."""
         return self._client.execute(
             http_method="GET",
             url_template=self._server.default13("/balanceAccounts/{balanceAccountId}/payoutSchedules/{id}"),
-            path_params=[param[str]("balanceAccountId", balance_account_id), param[str]("id", id)],
+            path_params=[param[str]("balanceAccountId", balance_account_id), param[str]("id", id_)],
             decoder=json_decoder[BalanceAccountConfiguration],
             error_mapper=get_balance_accounts_balance_account_id_payout_schedules_id_error_mapper,
             request_options=request_options,
@@ -629,7 +667,7 @@ class ManagedPayoutSchedulesWithRawResponse(BaseRawResponse[RawClient, Server]):
     def get_balance_accounts_balance_account_id_payout_schedules_id_executions(
         self,
         balance_account_id: str,
-        id: str,
+        id_: str,
         offset: int,
         *,
         results: list[ExecutionResultOrStr] | None = None,
@@ -641,21 +679,22 @@ class ManagedPayoutSchedulesWithRawResponse(BaseRawResponse[RawClient, Server]):
 
         Args:
             balance_account_id: The unique identifier of the balance account.
-            id: The unique identifier of the payout schedule on the balance account.
+            id_: The unique identifier of the payout schedule on the balance account.
             offset: The page number to be returned. Default: **1**
             results: Contains a list of payout statuses. If included, the response returns only executed payouts that
                 currently have one of the specified statuses. Possible statuses: - **succeeded**: The payout was sent
                 successfully. - **failed**: The payout was not sent due to an error. - **skipped**: The payout was not
                 triggered as expected.
             limit: The number of items returned per page. Default: **10**
-            request_options: Per-call overrides for this one request, such as a timeout or extra headers.
+            request_options: Per-call overrides for this one request, such as a timeout, extra headers, or its retry
+                count and statuses.
 
         Returns:
             An ``ApiResult`` holding the deserialized response or the error body."""
         return self._client.execute(
             http_method="GET",
             url_template=self._server.default13("/balanceAccounts/{balanceAccountId}/payoutSchedules/{id}/executions"),
-            path_params=[param[str]("balanceAccountId", balance_account_id), param[str]("id", id)],
+            path_params=[param[str]("balanceAccountId", balance_account_id), param[str]("id", id_)],
             query_params=[
                 param[int]("offset", offset),
                 param[list[ExecutionResultOrStr] | None]("results", results),
@@ -684,7 +723,8 @@ class ManagedPayoutSchedulesWithRawResponse(BaseRawResponse[RawClient, Server]):
             currency: The three-character `ISO currency code
                 <https://docs.adyen.com/development-resources/currency-codes>`__ of the currency used in the payout
                 configuration.
-            request_options: Per-call overrides for this one request, such as a timeout or extra headers.
+            request_options: Per-call overrides for this one request, such as a timeout, extra headers, or its retry
+                count and statuses.
 
         Returns:
             An ``ApiResult`` holding the deserialized response or the error body."""
@@ -699,21 +739,22 @@ class ManagedPayoutSchedulesWithRawResponse(BaseRawResponse[RawClient, Server]):
         )
 
     def get_balance_platforms_balance_platform_id_payout_schedules_id(
-        self, balance_platform_id: str, id: str, *, request_options: RequestOptionsOrDict | None = None
+        self, balance_platform_id: str, id_: str, *, request_options: RequestOptionsOrDict | None = None
     ) -> ApiResult[BalancePlatformConfiguration, GetBalancePlatformsBalancePlatformIdPayoutSchedulesIdErrorBody]:
         """Returns the specified managed payout schedule configured on your balance platform.
 
         Args:
             balance_platform_id: The unique identifier of the balance platform.
-            id: The unique identifier of the payout configuration for your balance platform.
-            request_options: Per-call overrides for this one request, such as a timeout or extra headers.
+            id_: The unique identifier of the payout configuration for your balance platform.
+            request_options: Per-call overrides for this one request, such as a timeout, extra headers, or its retry
+                count and statuses.
 
         Returns:
             An ``ApiResult`` holding the deserialized response or the error body."""
         return self._client.execute(
             http_method="GET",
             url_template=self._server.default13("/balancePlatforms/{balancePlatformId}/payoutSchedules/{id}"),
-            path_params=[param[str]("balancePlatformId", balance_platform_id), param[str]("id", id)],
+            path_params=[param[str]("balancePlatformId", balance_platform_id), param[str]("id", id_)],
             decoder=json_decoder[BalancePlatformConfiguration],
             error_mapper=get_balance_platforms_balance_platform_id_payout_schedules_id_error_mapper,
             request_options=request_options,
@@ -722,7 +763,7 @@ class ManagedPayoutSchedulesWithRawResponse(BaseRawResponse[RawClient, Server]):
     def patch_balance_accounts_balance_account_id_payout_schedules_id(
         self,
         balance_account_id: str,
-        id: str,
+        id_: str,
         body: BalanceAccountConfigurationUpdate | BalanceAccountConfigurationUpdateDict,
         *,
         request_options: RequestOptionsOrDict | None = None,
@@ -732,16 +773,17 @@ class ManagedPayoutSchedulesWithRawResponse(BaseRawResponse[RawClient, Server]):
 
         Args:
             balance_account_id: The unique identifier of the balance account.
-            id: The unique identifier of the payout schedule applied to the balance account.
+            id_: The unique identifier of the payout schedule applied to the balance account.
             body: The request body.
-            request_options: Per-call overrides for this one request, such as a timeout or extra headers.
+            request_options: Per-call overrides for this one request, such as a timeout, extra headers, or its retry
+                count and statuses.
 
         Returns:
             An ``ApiResult`` holding the deserialized response or the error body."""
         return self._client.execute(
             http_method="PATCH",
             url_template=self._server.default13("/balanceAccounts/{balanceAccountId}/payoutSchedules/{id}"),
-            path_params=[param[str]("balanceAccountId", balance_account_id), param[str]("id", id)],
+            path_params=[param[str]("balanceAccountId", balance_account_id), param[str]("id", id_)],
             headers=[param[UUID]("Idempotency-Key", uuid4())],
             body=json_body[BalanceAccountConfigurationUpdate | BalanceAccountConfigurationUpdateDict](body),
             decoder=json_decoder[BalanceAccountConfiguration],
@@ -762,7 +804,8 @@ class ManagedPayoutSchedulesWithRawResponse(BaseRawResponse[RawClient, Server]):
         Args:
             balance_account_id: The unique identifier of the balance account.
             body: The request body.
-            request_options: Per-call overrides for this one request, such as a timeout or extra headers.
+            request_options: Per-call overrides for this one request, such as a timeout, extra headers, or its retry
+                count and statuses.
 
         Returns:
             An ``ApiResult`` holding the deserialized response or the error body."""
@@ -780,23 +823,24 @@ class ManagedPayoutSchedulesWithRawResponse(BaseRawResponse[RawClient, Server]):
 
 class AsyncManagedPayoutSchedulesWithRawResponse(BaseRawResponse[AsyncRawClient, Server]):
     async def delete_balance_accounts_balance_account_id_payout_schedules_id(
-        self, balance_account_id: str, id: str, *, request_options: RequestOptionsOrDict | None = None
+        self, balance_account_id: str, id_: str, *, request_options: RequestOptionsOrDict | None = None
     ) -> ApiResult[None, DeleteBalanceAccountsBalanceAccountIdPayoutSchedulesIdErrorBody]:
         """Delete a payout schedule applied to a balance account.
 
         Args:
             balance_account_id: The unique identifier of the balance account.
-            id: The unique identifier of the payout schedule applied to the balance account.
-            request_options: Per-call overrides for this one request, such as a timeout or extra headers.
+            id_: The unique identifier of the payout schedule applied to the balance account.
+            request_options: Per-call overrides for this one request, such as a timeout, extra headers, or its retry
+                count and statuses.
 
         Returns:
             An ``ApiResult`` holding the deserialized response or the error body."""
         return await self._client.execute(
             http_method="DELETE",
             url_template=self._server.default13("/balanceAccounts/{balanceAccountId}/payoutSchedules/{id}"),
-            path_params=[param[str]("balanceAccountId", balance_account_id), param[str]("id", id)],
+            path_params=[param[str]("balanceAccountId", balance_account_id), param[str]("id", id_)],
             headers=[param[UUID]("Idempotency-Key", uuid4())],
-            decoder=empty_response,
+            decoder=async_empty_response,
             error_mapper=delete_balance_accounts_balance_account_id_payout_schedules_id_error_mapper,
             request_options=request_options,
         )
@@ -821,7 +865,8 @@ class AsyncManagedPayoutSchedulesWithRawResponse(BaseRawResponse[AsyncRawClient,
             cursor: The ``cursor`` returned in the links of the previous response.
             limit: The number of items returned per page, maximum of 100 items. By default, the response returns 10
                 items per page.
-            request_options: Per-call overrides for this one request, such as a timeout or extra headers.
+            request_options: Per-call overrides for this one request, such as a timeout, extra headers, or its retry
+                count and statuses.
 
         Returns:
             An ``ApiResult`` holding the deserialized response or the error body."""
@@ -834,28 +879,29 @@ class AsyncManagedPayoutSchedulesWithRawResponse(BaseRawResponse[AsyncRawClient,
                 param[str | None]("cursor", cursor),
                 param[int | None]("limit", limit),
             ],
-            decoder=json_decoder[BalanceAccountConfigurations],
+            decoder=async_json_decoder[BalanceAccountConfigurations],
             error_mapper=get_balance_accounts_balance_account_id_payout_schedules_error_mapper,
             request_options=request_options,
         )
 
     async def get_balance_accounts_balance_account_id_payout_schedules_id(
-        self, balance_account_id: str, id: str, *, request_options: RequestOptionsOrDict | None = None
+        self, balance_account_id: str, id_: str, *, request_options: RequestOptionsOrDict | None = None
     ) -> ApiResult[BalanceAccountConfiguration, GetBalanceAccountsBalanceAccountIdPayoutSchedulesIdErrorBody]:
         """Returns the specified payout schedule.
 
         Args:
             balance_account_id: The unique identifier of the balance account.
-            id: The unique identifier of the payout schedule for the balance account.
-            request_options: Per-call overrides for this one request, such as a timeout or extra headers.
+            id_: The unique identifier of the payout schedule for the balance account.
+            request_options: Per-call overrides for this one request, such as a timeout, extra headers, or its retry
+                count and statuses.
 
         Returns:
             An ``ApiResult`` holding the deserialized response or the error body."""
         return await self._client.execute(
             http_method="GET",
             url_template=self._server.default13("/balanceAccounts/{balanceAccountId}/payoutSchedules/{id}"),
-            path_params=[param[str]("balanceAccountId", balance_account_id), param[str]("id", id)],
-            decoder=json_decoder[BalanceAccountConfiguration],
+            path_params=[param[str]("balanceAccountId", balance_account_id), param[str]("id", id_)],
+            decoder=async_json_decoder[BalanceAccountConfiguration],
             error_mapper=get_balance_accounts_balance_account_id_payout_schedules_id_error_mapper,
             request_options=request_options,
         )
@@ -863,7 +909,7 @@ class AsyncManagedPayoutSchedulesWithRawResponse(BaseRawResponse[AsyncRawClient,
     async def get_balance_accounts_balance_account_id_payout_schedules_id_executions(
         self,
         balance_account_id: str,
-        id: str,
+        id_: str,
         offset: int,
         *,
         results: list[ExecutionResultOrStr] | None = None,
@@ -875,27 +921,28 @@ class AsyncManagedPayoutSchedulesWithRawResponse(BaseRawResponse[AsyncRawClient,
 
         Args:
             balance_account_id: The unique identifier of the balance account.
-            id: The unique identifier of the payout schedule on the balance account.
+            id_: The unique identifier of the payout schedule on the balance account.
             offset: The page number to be returned. Default: **1**
             results: Contains a list of payout statuses. If included, the response returns only executed payouts that
                 currently have one of the specified statuses. Possible statuses: - **succeeded**: The payout was sent
                 successfully. - **failed**: The payout was not sent due to an error. - **skipped**: The payout was not
                 triggered as expected.
             limit: The number of items returned per page. Default: **10**
-            request_options: Per-call overrides for this one request, such as a timeout or extra headers.
+            request_options: Per-call overrides for this one request, such as a timeout, extra headers, or its retry
+                count and statuses.
 
         Returns:
             An ``ApiResult`` holding the deserialized response or the error body."""
         return await self._client.execute(
             http_method="GET",
             url_template=self._server.default13("/balanceAccounts/{balanceAccountId}/payoutSchedules/{id}/executions"),
-            path_params=[param[str]("balanceAccountId", balance_account_id), param[str]("id", id)],
+            path_params=[param[str]("balanceAccountId", balance_account_id), param[str]("id", id_)],
             query_params=[
                 param[int]("offset", offset),
                 param[list[ExecutionResultOrStr] | None]("results", results),
                 param[int | None]("limit", limit),
             ],
-            decoder=json_decoder[PayoutScheduleExecutions],
+            decoder=async_json_decoder[PayoutScheduleExecutions],
             error_mapper=get_balance_accounts_balance_account_id_payout_schedules_id_executions_error_mapper,
             request_options=request_options,
         )
@@ -918,7 +965,8 @@ class AsyncManagedPayoutSchedulesWithRawResponse(BaseRawResponse[AsyncRawClient,
             currency: The three-character `ISO currency code
                 <https://docs.adyen.com/development-resources/currency-codes>`__ of the currency used in the payout
                 configuration.
-            request_options: Per-call overrides for this one request, such as a timeout or extra headers.
+            request_options: Per-call overrides for this one request, such as a timeout, extra headers, or its retry
+                count and statuses.
 
         Returns:
             An ``ApiResult`` holding the deserialized response or the error body."""
@@ -927,28 +975,29 @@ class AsyncManagedPayoutSchedulesWithRawResponse(BaseRawResponse[AsyncRawClient,
             url_template=self._server.default13("/balancePlatforms/{balancePlatformId}/payoutSchedules"),
             path_params=[param[str]("balancePlatformId", balance_platform_id)],
             query_params=[param[str | None]("countryCode", country_code), param[str | None]("currency", currency)],
-            decoder=json_decoder[BalancePlatformConfigurations],
+            decoder=async_json_decoder[BalancePlatformConfigurations],
             error_mapper=get_balance_platforms_balance_platform_id_payout_schedules_error_mapper,
             request_options=request_options,
         )
 
     async def get_balance_platforms_balance_platform_id_payout_schedules_id(
-        self, balance_platform_id: str, id: str, *, request_options: RequestOptionsOrDict | None = None
+        self, balance_platform_id: str, id_: str, *, request_options: RequestOptionsOrDict | None = None
     ) -> ApiResult[BalancePlatformConfiguration, GetBalancePlatformsBalancePlatformIdPayoutSchedulesIdErrorBody]:
         """Returns the specified managed payout schedule configured on your balance platform.
 
         Args:
             balance_platform_id: The unique identifier of the balance platform.
-            id: The unique identifier of the payout configuration for your balance platform.
-            request_options: Per-call overrides for this one request, such as a timeout or extra headers.
+            id_: The unique identifier of the payout configuration for your balance platform.
+            request_options: Per-call overrides for this one request, such as a timeout, extra headers, or its retry
+                count and statuses.
 
         Returns:
             An ``ApiResult`` holding the deserialized response or the error body."""
         return await self._client.execute(
             http_method="GET",
             url_template=self._server.default13("/balancePlatforms/{balancePlatformId}/payoutSchedules/{id}"),
-            path_params=[param[str]("balancePlatformId", balance_platform_id), param[str]("id", id)],
-            decoder=json_decoder[BalancePlatformConfiguration],
+            path_params=[param[str]("balancePlatformId", balance_platform_id), param[str]("id", id_)],
+            decoder=async_json_decoder[BalancePlatformConfiguration],
             error_mapper=get_balance_platforms_balance_platform_id_payout_schedules_id_error_mapper,
             request_options=request_options,
         )
@@ -956,7 +1005,7 @@ class AsyncManagedPayoutSchedulesWithRawResponse(BaseRawResponse[AsyncRawClient,
     async def patch_balance_accounts_balance_account_id_payout_schedules_id(
         self,
         balance_account_id: str,
-        id: str,
+        id_: str,
         body: BalanceAccountConfigurationUpdate | BalanceAccountConfigurationUpdateDict,
         *,
         request_options: RequestOptionsOrDict | None = None,
@@ -966,19 +1015,20 @@ class AsyncManagedPayoutSchedulesWithRawResponse(BaseRawResponse[AsyncRawClient,
 
         Args:
             balance_account_id: The unique identifier of the balance account.
-            id: The unique identifier of the payout schedule applied to the balance account.
+            id_: The unique identifier of the payout schedule applied to the balance account.
             body: The request body.
-            request_options: Per-call overrides for this one request, such as a timeout or extra headers.
+            request_options: Per-call overrides for this one request, such as a timeout, extra headers, or its retry
+                count and statuses.
 
         Returns:
             An ``ApiResult`` holding the deserialized response or the error body."""
         return await self._client.execute(
             http_method="PATCH",
             url_template=self._server.default13("/balanceAccounts/{balanceAccountId}/payoutSchedules/{id}"),
-            path_params=[param[str]("balanceAccountId", balance_account_id), param[str]("id", id)],
+            path_params=[param[str]("balanceAccountId", balance_account_id), param[str]("id", id_)],
             headers=[param[UUID]("Idempotency-Key", uuid4())],
             body=json_body[BalanceAccountConfigurationUpdate | BalanceAccountConfigurationUpdateDict](body),
-            decoder=json_decoder[BalanceAccountConfiguration],
+            decoder=async_json_decoder[BalanceAccountConfiguration],
             error_mapper=patch_balance_accounts_balance_account_id_payout_schedules_id_error_mapper,
             request_options=request_options,
         )
@@ -996,7 +1046,8 @@ class AsyncManagedPayoutSchedulesWithRawResponse(BaseRawResponse[AsyncRawClient,
         Args:
             balance_account_id: The unique identifier of the balance account.
             body: The request body.
-            request_options: Per-call overrides for this one request, such as a timeout or extra headers.
+            request_options: Per-call overrides for this one request, such as a timeout, extra headers, or its retry
+                count and statuses.
 
         Returns:
             An ``ApiResult`` holding the deserialized response or the error body."""
@@ -1006,7 +1057,7 @@ class AsyncManagedPayoutSchedulesWithRawResponse(BaseRawResponse[AsyncRawClient,
             path_params=[param[str]("balanceAccountId", balance_account_id)],
             headers=[param[UUID]("Idempotency-Key", uuid4())],
             body=json_body[BalanceAccountConfigurationRequest | BalanceAccountConfigurationRequestDict](body),
-            decoder=json_decoder[BalanceAccountConfiguration],
+            decoder=async_json_decoder[BalanceAccountConfiguration],
             error_mapper=post_balance_accounts_balance_account_id_payout_schedules_error_mapper,
             request_options=request_options,
         )

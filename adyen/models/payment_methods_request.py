@@ -91,7 +91,7 @@ class PaymentMethodsRequest(SdkBaseModel):
     ID. The value is case-sensitive and must be at least three characters.
     > Your reference must not include personally identifiable information (PII) such as name or email address."""
 
-    split_card_funding_sources: Optional[bool] = Field(default=UNSET, alias="splitCardFundingSources")
+    split_card_funding_sources: bool = Field(default=False, alias="splitCardFundingSources")
     """Boolean value indicating whether the card payment method should be split into separate debit and credit
     options."""
 
@@ -120,13 +120,13 @@ class PaymentMethodsRequest(SdkBaseModel):
 class PaymentMethodsRequestDict(TypedDict):
     additional_data: NotRequired[dict[str, str]]
     allowed_payment_methods: NotRequired[list[str]]
-    amount: NotRequired[Amount2 | Amount2Dict]
+    amount: NotRequired[Amount2Dict]
     blocked_payment_methods: NotRequired[list[str]]
-    browser_info: NotRequired[BrowserInfo | BrowserInfoDict]
+    browser_info: NotRequired[BrowserInfoDict]
     channel: NotRequired[Channel3OrStr]
     country_code: NotRequired[str]
     merchant_account: str
-    order: NotRequired[EncryptedOrderData2 | EncryptedOrderData2Dict]
+    order: NotRequired[EncryptedOrderData2Dict]
     shopper_conversion_id: NotRequired[str]
     shopper_email: NotRequired[str]
     shopper_ip: NotRequired[str]

@@ -22,6 +22,6 @@ class AmountAdjustment(SdkBaseModel):
 
 
 class AmountAdjustmentDict(TypedDict):
-    amount: NotRequired[Amount17 | Amount17Dict]
+    amount: NotRequired[Amount17Dict]
     amount_adjustment_type: NotRequired[AmountAdjustmentTypeOrStr]
     basepoints: NotRequired[int]

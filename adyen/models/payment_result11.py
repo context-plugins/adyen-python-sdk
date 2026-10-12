@@ -54,7 +54,7 @@ class PaymentResult11(SdkBaseModel):
     """Information related to a currency conversion. A currency conversion occurred in the payment, and the merchant
     needs to know information related to this conversion (e.g. to print on the sale receipt)."""
 
-    merchant_override_flag: Optional[bool] = Field(default=UNSET, alias="MerchantOverrideFlag")
+    merchant_override_flag: bool = Field(default=False, alias="MerchantOverrideFlag")
     """Indicates that the Merchant forced the result of the payment to successful. Allows the Sale System to be sure
     that the payment has been forced."""
 
@@ -75,7 +75,7 @@ class PaymentResult11(SdkBaseModel):
     """The language of the customer that was used on the terminal screen or in text printed by the terminal. Format:
     two-character `ISO 639:2023 <https://en.wikipedia.org/wiki/List_of_ISO_639_language_codes>`__ format."""
 
-    online_flag: Optional[bool] = Field(default=UNSET, alias="OnlineFlag")
+    online_flag: bool = Field(default=True, alias="OnlineFlag")
     """Indicate that the payment transaction processing has required the approval of a host. Allows the Sale System to
     know if the payment was online or offline."""
 
@@ -106,15 +106,15 @@ class PaymentResult11(SdkBaseModel):
 
 class PaymentResult11Dict(TypedDict):
     payment_type: NotRequired[PaymentType1OrStr]
-    payment_instrument_data: NotRequired[PaymentInstrumentData | PaymentInstrumentDataDict]
-    amounts_resp: NotRequired[AmountsResp1 | AmountsResp1Dict]
-    instalment: NotRequired[Instalment1 | Instalment1Dict]
-    currency_conversion: NotRequired[list[CurrencyConversion | CurrencyConversionDict]]
+    payment_instrument_data: NotRequired[PaymentInstrumentDataDict]
+    amounts_resp: NotRequired[AmountsResp1Dict]
+    instalment: NotRequired[Instalment1Dict]
+    currency_conversion: NotRequired[list[CurrencyConversionDict]]
     merchant_override_flag: NotRequired[bool]
-    captured_signature: NotRequired[CapturedSignature1 | CapturedSignature1Dict]
+    captured_signature: NotRequired[CapturedSignature1Dict]
     protected_signature: NotRequired[str]
     customer_language: NotRequired[str]
     online_flag: NotRequired[bool]
     authentication_method: NotRequired[list[AuthenticationMethod1OrStr]]
     validity_date: NotRequired[Date]
-    payment_acquirer_data: NotRequired[PaymentAcquirerData | PaymentAcquirerDataDict]
+    payment_acquirer_data: NotRequired[PaymentAcquirerDataDict]

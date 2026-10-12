@@ -15,4 +15,4 @@ class BalancePlatformConfigurations(SdkBaseModel):
 
 
 class BalancePlatformConfigurationsDict(TypedDict):
-    balance_platform_payout_schedules: list[BalancePlatformConfiguration | BalancePlatformConfigurationDict]
+    balance_platform_payout_schedules: list[BalancePlatformConfigurationDict]

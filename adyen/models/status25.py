@@ -29,5 +29,5 @@ class Status25(SdkBaseModel):
 
 
 class Status25Dict(TypedDict):
-    actions: NotRequired[list[Action1 | Action1Dict]]
+    actions: NotRequired[list[Action1Dict]]
     code: CodeOrStr

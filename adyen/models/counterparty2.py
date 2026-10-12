@@ -17,5 +17,5 @@ class Counterparty2(SdkBaseModel):
 
 
 class Counterparty2Dict(TypedDict):
-    account_holder: AccountHolder11 | AccountHolder11Dict
-    account_identification: AccountIdentification1 | AccountIdentification1Dict
+    account_holder: AccountHolder11Dict
+    account_identification: AccountIdentification1Dict

@@ -11,9 +11,9 @@ Each `###` block is one operation and assumes `sdk-map.md` is loaded: blocks omi
 - **Route**: `GET /paymentInstrumentGroups/{id}`
 - **Auth**: `client_key` OR `basic_auth` OR `api_key_auth`
 - **Server**: `default13`
-- **Signature**: `def get_payment_instrument_groups_id(id: str, *, request_options: RequestOptionsOrDict | None = None)`
-  - required, positional: `id`
-- **Params**: `id` — path
+- **Signature**: `def get_payment_instrument_groups_id(id_: str, *, request_options: RequestOptionsOrDict | None = None)`
+  - required, positional: `id_`
+- **Params**: `id_` — path `id`
 - **Returns (parsed)**: `PaymentInstrumentGroup`
 - **Returns (raw)**: `ApiResult[PaymentInstrumentGroup, GetPaymentInstrumentGroupsIdErrorBody]`
 - **Error**: `GetPaymentInstrumentGroupsIdErrorBody` — **Case A (typed)**
@@ -30,9 +30,9 @@ Each `###` block is one operation and assumes `sdk-map.md` is loaded: blocks omi
 - **Route**: `GET /paymentInstrumentGroups/{id}/transactionRules`
 - **Auth**: `client_key` OR `basic_auth` OR `api_key_auth`
 - **Server**: `default13`
-- **Signature**: `def get_payment_instrument_groups_id_transaction_rules(id: str, *, request_options: RequestOptionsOrDict | None = None)`
-  - required, positional: `id`
-- **Params**: `id` — path
+- **Signature**: `def get_payment_instrument_groups_id_transaction_rules(id_: str, *, request_options: RequestOptionsOrDict | None = None)`
+  - required, positional: `id_`
+- **Params**: `id_` — path `id`
 - **Returns (parsed)**: `TransactionRulesResponse`
 - **Returns (raw)**: `ApiResult[TransactionRulesResponse, GetPaymentInstrumentGroupsIdTransactionRulesErrorBody]`
 - **Error**: `GetPaymentInstrumentGroupsIdTransactionRulesErrorBody` — **Case A (typed)**

@@ -39,9 +39,9 @@ class ApplicationInfo(SdkBaseModel):
 
 
 class ApplicationInfoDict(TypedDict):
-    adyen_library: NotRequired[CommonField4 | CommonField4Dict]
-    adyen_payment_source: NotRequired[CommonField1 | CommonField1Dict]
-    external_platform: NotRequired[ExternalPlatform | ExternalPlatformDict]
-    merchant_application: NotRequired[CommonField2 | CommonField2Dict]
-    merchant_device: NotRequired[MerchantDevice | MerchantDeviceDict]
-    shopper_interaction_device: NotRequired[ShopperInteractionDevice | ShopperInteractionDeviceDict]
+    adyen_library: NotRequired[CommonField4Dict]
+    adyen_payment_source: NotRequired[CommonField1Dict]
+    external_platform: NotRequired[ExternalPlatformDict]
+    merchant_application: NotRequired[CommonField2Dict]
+    merchant_device: NotRequired[MerchantDeviceDict]
+    shopper_interaction_device: NotRequired[ShopperInteractionDeviceDict]

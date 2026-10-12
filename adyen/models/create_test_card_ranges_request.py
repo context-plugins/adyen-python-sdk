@@ -26,4 +26,4 @@ class CreateTestCardRangesRequest(SdkBaseModel):
 class CreateTestCardRangesRequestDict(TypedDict):
     account_code: str
     account_type_code: str
-    test_card_ranges: list[TestCardRange | TestCardRangeDict]
+    test_card_ranges: list[TestCardRangeDict]

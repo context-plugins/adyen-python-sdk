@@ -23,7 +23,7 @@ class UnSuspendAccountHolderResponse(SdkBaseModel):
 
 
 class UnSuspendAccountHolderResponseDict(TypedDict):
-    account_holder_status: NotRequired[AccountHolderStatus1 | AccountHolderStatus1Dict]
-    invalid_fields: NotRequired[list[ErrorFieldType | ErrorFieldTypeDict]]
+    account_holder_status: NotRequired[AccountHolderStatus1Dict]
+    invalid_fields: NotRequired[list[ErrorFieldTypeDict]]
     psp_reference: NotRequired[str]
     result_code: NotRequired[str]

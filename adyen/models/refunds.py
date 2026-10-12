@@ -16,5 +16,5 @@ class Refunds(SdkBaseModel):
 
 
 class RefundsDict(TypedDict):
-    referenced: NotRequired[Referenced1 | Referenced1Dict]
-    unreferenced: NotRequired[Unreferenced2 | Unreferenced2Dict]
+    referenced: NotRequired[Referenced1Dict]
+    unreferenced: NotRequired[Unreferenced2Dict]

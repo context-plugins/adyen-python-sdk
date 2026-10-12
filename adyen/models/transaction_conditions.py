@@ -38,7 +38,7 @@ class TransactionConditions(SdkBaseModel):
     language on unattended terminals. Format: two-character `ISO 639:2023
     <https://en.wikipedia.org/wiki/List_of_ISO_639_language_codes>`__ format."""
 
-    force_online_flag: Optional[bool] = Field(default=UNSET, alias="ForceOnlineFlag")
+    force_online_flag: bool = Field(default=False, alias="ForceOnlineFlag")
     """Indicates if the Cashier requires POI forces online access to the Acquirer. Go online if data sent."""
 
     force_entry_mode: Optional[list[ForceEntryModeOrStr]] = Field(default=UNSET, alias="ForceEntryMode")

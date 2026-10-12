@@ -4,7 +4,7 @@ from pydantic import Field
 from typing_extensions import NotRequired, TypedDict
 
 from ..core import UNSET, Optional, SdkBaseModel
-from .enums.type18 import Type18OrStr
+from .enums.type18 import Type18, Type18OrStr
 
 
 class CheckoutForwardRequestCard2(SdkBaseModel):
@@ -44,7 +44,7 @@ class CheckoutForwardRequestCard2(SdkBaseModel):
     """The card number. Only collect raw card data if you are fully `PCI compliant
     <https://docs.adyen.com/development-resources/pci-dss-compliance-guide>`__. Format: Do not use separators."""
 
-    type_: Optional[Type18OrStr] = Field(default=UNSET, alias="type")
+    type_: Type18OrStr = Field(default=Type18.SCHEME, alias="type")
     """Default payment method details. Common for scheme payment methods, and for simple payment method details."""
 
 

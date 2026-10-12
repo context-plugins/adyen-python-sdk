@@ -14,4 +14,4 @@ class DynamicOfferRepayment2(SdkBaseModel):
 
 
 class DynamicOfferRepayment2Dict(TypedDict):
-    term: RepaymentTerm | RepaymentTermDict
+    term: RepaymentTermDict

@@ -36,4 +36,4 @@ class EnableServiceRequest(SdkBaseModel):
 class EnableServiceRequestDict(TypedDict):
     transaction_action: TransactionAction1OrStr
     services_enabled: NotRequired[list[ServicesEnabledOrStr]]
-    display_output: NotRequired[DisplayOutput2 | DisplayOutput2Dict]
+    display_output: NotRequired[DisplayOutput2Dict]

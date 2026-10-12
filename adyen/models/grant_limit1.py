@@ -12,4 +12,4 @@ class GrantLimit1(SdkBaseModel):
 
 
 class GrantLimit1Dict(TypedDict):
-    amount: NotRequired[Amount17 | Amount17Dict]
+    amount: NotRequired[Amount17Dict]

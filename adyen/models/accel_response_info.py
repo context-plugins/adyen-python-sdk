@@ -29,4 +29,4 @@ class AccelResponseInfo(SdkBaseModel):
 
 class AccelResponseInfoDict(TypedDict):
     processing_type: NotRequired[ProcessingTypeOrStr]
-    transaction_description: NotRequired[TransactionDescriptionResponseInfo1 | TransactionDescriptionResponseInfo1Dict]
+    transaction_description: NotRequired[TransactionDescriptionResponseInfo1Dict]

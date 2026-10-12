@@ -18,5 +18,5 @@ class EventUrl3(SdkBaseModel):
 
 
 class EventUrl3Dict(TypedDict):
-    event_local_urls: NotRequired[list[Url | UrlDict]]
-    event_public_urls: NotRequired[list[Url | UrlDict]]
+    event_local_urls: NotRequired[list[UrlDict]]
+    event_public_urls: NotRequired[list[UrlDict]]

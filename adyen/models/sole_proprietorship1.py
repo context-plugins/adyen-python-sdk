@@ -62,12 +62,12 @@ class SoleProprietorship1Dict(TypedDict):
     date_of_incorporation: NotRequired[str]
     doing_business_as: NotRequired[str]
     doing_business_as_absent: NotRequired[bool | None]
-    financial_reports: NotRequired[list[FinancialReport | FinancialReportDict]]
+    financial_reports: NotRequired[list[FinancialReportDict]]
     name: str
-    principal_place_of_business: NotRequired[Address41 | Address41Dict]
-    registered_address: Address51 | Address51Dict
+    principal_place_of_business: NotRequired[Address41Dict]
+    registered_address: Address51Dict
     registration_number: NotRequired[str]
     tax_absent: NotRequired[bool | None]
-    tax_information: NotRequired[list[TaxInformation | TaxInformationDict]]
+    tax_information: NotRequired[list[TaxInformationDict]]
     vat_absence_reason: NotRequired[VatAbsenceReason1OrStr]
     vat_number: NotRequired[str]

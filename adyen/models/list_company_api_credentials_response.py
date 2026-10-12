@@ -23,7 +23,7 @@ class ListCompanyApiCredentialsResponse(SdkBaseModel):
 
 
 class ListCompanyApiCredentialsResponseDict(TypedDict):
-    links: NotRequired[PaginationLinks1 | PaginationLinks1Dict]
-    data: NotRequired[list[CompanyApiCredential | CompanyApiCredentialDict]]
+    links: NotRequired[PaginationLinks1Dict]
+    data: NotRequired[list[CompanyApiCredentialDict]]
     items_total: int
     pages_total: int

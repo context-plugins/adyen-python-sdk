@@ -27,7 +27,7 @@ class BillingEntity1(SdkBaseModel):
 
 
 class BillingEntity1Dict(TypedDict):
-    address: NotRequired[Address11 | Address11Dict]
+    address: NotRequired[Address11Dict]
     email: NotRequired[str]
     id: NotRequired[str]
     name: NotRequired[str]

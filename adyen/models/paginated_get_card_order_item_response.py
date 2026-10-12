@@ -19,6 +19,6 @@ class PaginatedGetCardOrderItemResponse(SdkBaseModel):
 
 
 class PaginatedGetCardOrderItemResponseDict(TypedDict):
-    data: list[CardOrderItem | CardOrderItemDict]
+    data: list[CardOrderItemDict]
     has_next: bool
     has_previous: bool

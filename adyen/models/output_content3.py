@@ -38,7 +38,7 @@ class OutputContent3(SdkBaseModel):
 
 class OutputContent3Dict(TypedDict):
     output_format: OutputFormat1OrStr
-    predefined_content: NotRequired[PredefinedContent1 | PredefinedContent1Dict]
-    output_text: NotRequired[list[OutputText | OutputTextDict]]
+    predefined_content: NotRequired[PredefinedContent1Dict]
+    output_text: NotRequired[list[OutputTextDict]]
     output_xhtml: NotRequired[str]
-    output_barcode: NotRequired[OutputBarcode1 | OutputBarcode1Dict]
+    output_barcode: NotRequired[OutputBarcode1Dict]

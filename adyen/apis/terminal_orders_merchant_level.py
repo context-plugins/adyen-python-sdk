@@ -11,9 +11,11 @@ from ..core import (
     RawClient,
     RequestOptionsOrDict,
     SecuredRawResponse,
+    async_json_decoder,
     json_body,
     json_decoder,
     param,
+    unwrap,
 )
 from ..errors.get_merchants_merchant_id_billing_entities_error import (
     GetMerchantsMerchantIdBillingEntitiesErrorBody,
@@ -87,7 +89,8 @@ class TerminalOrdersMerchantLevel:
         Args:
             merchant_id: The unique identifier of the merchant account.
             name: The name of the billing entity.
-            request_options: Per-call overrides for this one request, such as a timeout or extra headers.
+            request_options: Per-call overrides for this one request, such as a timeout, extra headers, or its retry
+                count and statuses.
 
         Returns:
             OK - the request has succeeded.
@@ -97,9 +100,11 @@ class TerminalOrdersMerchantLevel:
                 required. Forbidden - insufficient permissions to process the request. Unprocessable Entity - a request
                 validation error. Internal Server Error - the server could not process the request. ``error`` is
                 ``RestServiceError | RawError``."""
-        return self._with_raw_response.get_merchants_merchant_id_billing_entities(
-            merchant_id, name=name, request_options=request_options
-        ).unwrap()
+        return unwrap(
+            self._with_raw_response.get_merchants_merchant_id_billing_entities(
+                merchant_id, name=name, request_options=request_options
+            ),
+        )
 
     def get_merchants_merchant_id_shipping_locations(
         self,
@@ -126,7 +131,8 @@ class TerminalOrdersMerchantLevel:
             name: The name of the shipping location.
             offset: The number of locations to skip.
             limit: The number of locations to return.
-            request_options: Per-call overrides for this one request, such as a timeout or extra headers.
+            request_options: Per-call overrides for this one request, such as a timeout, extra headers, or its retry
+                count and statuses.
 
         Returns:
             OK - the request has succeeded.
@@ -136,9 +142,11 @@ class TerminalOrdersMerchantLevel:
                 required. Forbidden - insufficient permissions to process the request. Unprocessable Entity - a request
                 validation error. Internal Server Error - the server could not process the request. ``error`` is
                 ``RestServiceError | RawError``."""
-        return self._with_raw_response.get_merchants_merchant_id_shipping_locations(
-            merchant_id, name=name, offset=offset, limit=limit, request_options=request_options
-        ).unwrap()
+        return unwrap(
+            self._with_raw_response.get_merchants_merchant_id_shipping_locations(
+                merchant_id, name=name, offset=offset, limit=limit, request_options=request_options
+            ),
+        )
 
     def get_merchants_merchant_id_terminal_models(
         self, merchant_id: str, *, request_options: RequestOptionsOrDict | None = None
@@ -157,7 +165,8 @@ class TerminalOrdersMerchantLevel:
 
         Args:
             merchant_id: The unique identifier of the merchant account.
-            request_options: Per-call overrides for this one request, such as a timeout or extra headers.
+            request_options: Per-call overrides for this one request, such as a timeout, extra headers, or its retry
+                count and statuses.
 
         Returns:
             OK - the request has succeeded.
@@ -167,9 +176,11 @@ class TerminalOrdersMerchantLevel:
                 required. Forbidden - insufficient permissions to process the request. Unprocessable Entity - a request
                 validation error. Internal Server Error - the server could not process the request. ``error`` is
                 ``RestServiceError | RawError``."""
-        return self._with_raw_response.get_merchants_merchant_id_terminal_models(
-            merchant_id, request_options=request_options
-        ).unwrap()
+        return unwrap(
+            self._with_raw_response.get_merchants_merchant_id_terminal_models(
+                merchant_id, request_options=request_options
+            ),
+        )
 
     def get_merchants_merchant_id_terminal_orders(
         self,
@@ -198,7 +209,8 @@ class TerminalOrdersMerchantLevel:
                 Delivered.
             offset: The number of orders to skip.
             limit: The number of orders to return.
-            request_options: Per-call overrides for this one request, such as a timeout or extra headers.
+            request_options: Per-call overrides for this one request, such as a timeout, extra headers, or its retry
+                count and statuses.
 
         Returns:
             OK - the request has succeeded.
@@ -208,14 +220,16 @@ class TerminalOrdersMerchantLevel:
                 required. Forbidden - insufficient permissions to process the request. Unprocessable Entity - a request
                 validation error. Internal Server Error - the server could not process the request. ``error`` is
                 ``RestServiceError | RawError``."""
-        return self._with_raw_response.get_merchants_merchant_id_terminal_orders(
-            merchant_id,
-            customer_order_reference=customer_order_reference,
-            status=status,
-            offset=offset,
-            limit=limit,
-            request_options=request_options,
-        ).unwrap()
+        return unwrap(
+            self._with_raw_response.get_merchants_merchant_id_terminal_orders(
+                merchant_id,
+                customer_order_reference=customer_order_reference,
+                status=status,
+                offset=offset,
+                limit=limit,
+                request_options=request_options,
+            ),
+        )
 
     def get_merchants_merchant_id_terminal_orders_order_id(
         self, merchant_id: str, order_id: str, *, request_options: RequestOptionsOrDict | None = None
@@ -233,7 +247,8 @@ class TerminalOrdersMerchantLevel:
         Args:
             merchant_id: The unique identifier of the merchant account.
             order_id: The unique identifier of the order.
-            request_options: Per-call overrides for this one request, such as a timeout or extra headers.
+            request_options: Per-call overrides for this one request, such as a timeout, extra headers, or its retry
+                count and statuses.
 
         Returns:
             OK - the request has succeeded.
@@ -243,9 +258,11 @@ class TerminalOrdersMerchantLevel:
                 required. Forbidden - insufficient permissions to process the request. Unprocessable Entity - a request
                 validation error. Internal Server Error - the server could not process the request. ``error`` is
                 ``RestServiceError | RawError``."""
-        return self._with_raw_response.get_merchants_merchant_id_terminal_orders_order_id(
-            merchant_id, order_id, request_options=request_options
-        ).unwrap()
+        return unwrap(
+            self._with_raw_response.get_merchants_merchant_id_terminal_orders_order_id(
+                merchant_id, order_id, request_options=request_options
+            ),
+        )
 
     def get_merchants_merchant_id_terminal_products(
         self,
@@ -277,7 +294,8 @@ class TerminalOrdersMerchantLevel:
                 response. For example, **Verifone.M400**
             offset: The number of products to skip.
             limit: The number of products to return.
-            request_options: Per-call overrides for this one request, such as a timeout or extra headers.
+            request_options: Per-call overrides for this one request, such as a timeout, extra headers, or its retry
+                count and statuses.
 
         Returns:
             OK - the request has succeeded.
@@ -287,14 +305,16 @@ class TerminalOrdersMerchantLevel:
                 required. Forbidden - insufficient permissions to process the request. Unprocessable Entity - a request
                 validation error. Internal Server Error - the server could not process the request. ``error`` is
                 ``RestServiceError | RawError``."""
-        return self._with_raw_response.get_merchants_merchant_id_terminal_products(
-            merchant_id,
-            country,
-            terminal_model_id=terminal_model_id,
-            offset=offset,
-            limit=limit,
-            request_options=request_options,
-        ).unwrap()
+        return unwrap(
+            self._with_raw_response.get_merchants_merchant_id_terminal_products(
+                merchant_id,
+                country,
+                terminal_model_id=terminal_model_id,
+                offset=offset,
+                limit=limit,
+                request_options=request_options,
+            ),
+        )
 
     def patch_merchants_merchant_id_terminal_orders_order_id(
         self,
@@ -323,7 +343,8 @@ class TerminalOrdersMerchantLevel:
             merchant_id: The unique identifier of the merchant account.
             order_id: The unique identifier of the order.
             body: The request body.
-            request_options: Per-call overrides for this one request, such as a timeout or extra headers.
+            request_options: Per-call overrides for this one request, such as a timeout, extra headers, or its retry
+                count and statuses.
 
         Returns:
             OK - the request has succeeded.
@@ -333,9 +354,11 @@ class TerminalOrdersMerchantLevel:
                 required. Forbidden - insufficient permissions to process the request. Unprocessable Entity - a request
                 validation error. Internal Server Error - the server could not process the request. ``error`` is
                 ``RestServiceError | RawError``."""
-        return self._with_raw_response.patch_merchants_merchant_id_terminal_orders_order_id(
-            merchant_id, order_id, body=body, request_options=request_options
-        ).unwrap()
+        return unwrap(
+            self._with_raw_response.patch_merchants_merchant_id_terminal_orders_order_id(
+                merchant_id, order_id, body=body, request_options=request_options
+            ),
+        )
 
     def post_merchants_merchant_id_shipping_locations(
         self,
@@ -357,7 +380,8 @@ class TerminalOrdersMerchantLevel:
         Args:
             merchant_id: The unique identifier of the merchant account.
             body: The request body.
-            request_options: Per-call overrides for this one request, such as a timeout or extra headers.
+            request_options: Per-call overrides for this one request, such as a timeout, extra headers, or its retry
+                count and statuses.
 
         Returns:
             OK - the request has succeeded.
@@ -367,9 +391,11 @@ class TerminalOrdersMerchantLevel:
                 required. Forbidden - insufficient permissions to process the request. Unprocessable Entity - a request
                 validation error. Internal Server Error - the server could not process the request. ``error`` is
                 ``RestServiceError | RawError``."""
-        return self._with_raw_response.post_merchants_merchant_id_shipping_locations(
-            merchant_id, body=body, request_options=request_options
-        ).unwrap()
+        return unwrap(
+            self._with_raw_response.post_merchants_merchant_id_shipping_locations(
+                merchant_id, body=body, request_options=request_options
+            ),
+        )
 
     def post_merchants_merchant_id_terminal_orders(
         self,
@@ -394,7 +420,8 @@ class TerminalOrdersMerchantLevel:
         Args:
             merchant_id: The unique identifier of the merchant account.
             body: The request body.
-            request_options: Per-call overrides for this one request, such as a timeout or extra headers.
+            request_options: Per-call overrides for this one request, such as a timeout, extra headers, or its retry
+                count and statuses.
 
         Returns:
             OK - the request has succeeded.
@@ -404,9 +431,11 @@ class TerminalOrdersMerchantLevel:
                 required. Forbidden - insufficient permissions to process the request. Unprocessable Entity - a request
                 validation error. Internal Server Error - the server could not process the request. ``error`` is
                 ``RestServiceError | RawError``."""
-        return self._with_raw_response.post_merchants_merchant_id_terminal_orders(
-            merchant_id, body=body, request_options=request_options
-        ).unwrap()
+        return unwrap(
+            self._with_raw_response.post_merchants_merchant_id_terminal_orders(
+                merchant_id, body=body, request_options=request_options
+            ),
+        )
 
     def post_merchants_merchant_id_terminal_orders_order_id_cancel(
         self, merchant_id: str, order_id: str, *, request_options: RequestOptionsOrDict | None = None
@@ -425,7 +454,8 @@ class TerminalOrdersMerchantLevel:
         Args:
             merchant_id: The unique identifier of the merchant account.
             order_id: The unique identifier of the order.
-            request_options: Per-call overrides for this one request, such as a timeout or extra headers.
+            request_options: Per-call overrides for this one request, such as a timeout, extra headers, or its retry
+                count and statuses.
 
         Returns:
             OK - the request has succeeded.
@@ -435,9 +465,11 @@ class TerminalOrdersMerchantLevel:
                 required. Forbidden - insufficient permissions to process the request. Unprocessable Entity - a request
                 validation error. Internal Server Error - the server could not process the request. ``error`` is
                 ``RestServiceError | RawError``."""
-        return self._with_raw_response.post_merchants_merchant_id_terminal_orders_order_id_cancel(
-            merchant_id, order_id, request_options=request_options
-        ).unwrap()
+        return unwrap(
+            self._with_raw_response.post_merchants_merchant_id_terminal_orders_order_id_cancel(
+                merchant_id, order_id, request_options=request_options
+            ),
+        )
 
     @property
     def with_raw_response(self) -> TerminalOrdersMerchantLevelWithRawResponse:
@@ -465,7 +497,8 @@ class AsyncTerminalOrdersMerchantLevel:
         Args:
             merchant_id: The unique identifier of the merchant account.
             name: The name of the billing entity.
-            request_options: Per-call overrides for this one request, such as a timeout or extra headers.
+            request_options: Per-call overrides for this one request, such as a timeout, extra headers, or its retry
+                count and statuses.
 
         Returns:
             OK - the request has succeeded.
@@ -475,11 +508,11 @@ class AsyncTerminalOrdersMerchantLevel:
                 required. Forbidden - insufficient permissions to process the request. Unprocessable Entity - a request
                 validation error. Internal Server Error - the server could not process the request. ``error`` is
                 ``RestServiceError | RawError``."""
-        return (
+        return unwrap(
             await self._with_raw_response.get_merchants_merchant_id_billing_entities(
                 merchant_id, name=name, request_options=request_options
-            )
-        ).unwrap()
+            ),
+        )
 
     async def get_merchants_merchant_id_shipping_locations(
         self,
@@ -506,7 +539,8 @@ class AsyncTerminalOrdersMerchantLevel:
             name: The name of the shipping location.
             offset: The number of locations to skip.
             limit: The number of locations to return.
-            request_options: Per-call overrides for this one request, such as a timeout or extra headers.
+            request_options: Per-call overrides for this one request, such as a timeout, extra headers, or its retry
+                count and statuses.
 
         Returns:
             OK - the request has succeeded.
@@ -516,11 +550,11 @@ class AsyncTerminalOrdersMerchantLevel:
                 required. Forbidden - insufficient permissions to process the request. Unprocessable Entity - a request
                 validation error. Internal Server Error - the server could not process the request. ``error`` is
                 ``RestServiceError | RawError``."""
-        return (
+        return unwrap(
             await self._with_raw_response.get_merchants_merchant_id_shipping_locations(
                 merchant_id, name=name, offset=offset, limit=limit, request_options=request_options
-            )
-        ).unwrap()
+            ),
+        )
 
     async def get_merchants_merchant_id_terminal_models(
         self, merchant_id: str, *, request_options: RequestOptionsOrDict | None = None
@@ -539,7 +573,8 @@ class AsyncTerminalOrdersMerchantLevel:
 
         Args:
             merchant_id: The unique identifier of the merchant account.
-            request_options: Per-call overrides for this one request, such as a timeout or extra headers.
+            request_options: Per-call overrides for this one request, such as a timeout, extra headers, or its retry
+                count and statuses.
 
         Returns:
             OK - the request has succeeded.
@@ -549,11 +584,11 @@ class AsyncTerminalOrdersMerchantLevel:
                 required. Forbidden - insufficient permissions to process the request. Unprocessable Entity - a request
                 validation error. Internal Server Error - the server could not process the request. ``error`` is
                 ``RestServiceError | RawError``."""
-        return (
+        return unwrap(
             await self._with_raw_response.get_merchants_merchant_id_terminal_models(
                 merchant_id, request_options=request_options
-            )
-        ).unwrap()
+            ),
+        )
 
     async def get_merchants_merchant_id_terminal_orders(
         self,
@@ -582,7 +617,8 @@ class AsyncTerminalOrdersMerchantLevel:
                 Delivered.
             offset: The number of orders to skip.
             limit: The number of orders to return.
-            request_options: Per-call overrides for this one request, such as a timeout or extra headers.
+            request_options: Per-call overrides for this one request, such as a timeout, extra headers, or its retry
+                count and statuses.
 
         Returns:
             OK - the request has succeeded.
@@ -592,7 +628,7 @@ class AsyncTerminalOrdersMerchantLevel:
                 required. Forbidden - insufficient permissions to process the request. Unprocessable Entity - a request
                 validation error. Internal Server Error - the server could not process the request. ``error`` is
                 ``RestServiceError | RawError``."""
-        return (
+        return unwrap(
             await self._with_raw_response.get_merchants_merchant_id_terminal_orders(
                 merchant_id,
                 customer_order_reference=customer_order_reference,
@@ -600,8 +636,8 @@ class AsyncTerminalOrdersMerchantLevel:
                 offset=offset,
                 limit=limit,
                 request_options=request_options,
-            )
-        ).unwrap()
+            ),
+        )
 
     async def get_merchants_merchant_id_terminal_orders_order_id(
         self, merchant_id: str, order_id: str, *, request_options: RequestOptionsOrDict | None = None
@@ -619,7 +655,8 @@ class AsyncTerminalOrdersMerchantLevel:
         Args:
             merchant_id: The unique identifier of the merchant account.
             order_id: The unique identifier of the order.
-            request_options: Per-call overrides for this one request, such as a timeout or extra headers.
+            request_options: Per-call overrides for this one request, such as a timeout, extra headers, or its retry
+                count and statuses.
 
         Returns:
             OK - the request has succeeded.
@@ -629,11 +666,11 @@ class AsyncTerminalOrdersMerchantLevel:
                 required. Forbidden - insufficient permissions to process the request. Unprocessable Entity - a request
                 validation error. Internal Server Error - the server could not process the request. ``error`` is
                 ``RestServiceError | RawError``."""
-        return (
+        return unwrap(
             await self._with_raw_response.get_merchants_merchant_id_terminal_orders_order_id(
                 merchant_id, order_id, request_options=request_options
-            )
-        ).unwrap()
+            ),
+        )
 
     async def get_merchants_merchant_id_terminal_products(
         self,
@@ -665,7 +702,8 @@ class AsyncTerminalOrdersMerchantLevel:
                 response. For example, **Verifone.M400**
             offset: The number of products to skip.
             limit: The number of products to return.
-            request_options: Per-call overrides for this one request, such as a timeout or extra headers.
+            request_options: Per-call overrides for this one request, such as a timeout, extra headers, or its retry
+                count and statuses.
 
         Returns:
             OK - the request has succeeded.
@@ -675,7 +713,7 @@ class AsyncTerminalOrdersMerchantLevel:
                 required. Forbidden - insufficient permissions to process the request. Unprocessable Entity - a request
                 validation error. Internal Server Error - the server could not process the request. ``error`` is
                 ``RestServiceError | RawError``."""
-        return (
+        return unwrap(
             await self._with_raw_response.get_merchants_merchant_id_terminal_products(
                 merchant_id,
                 country,
@@ -683,8 +721,8 @@ class AsyncTerminalOrdersMerchantLevel:
                 offset=offset,
                 limit=limit,
                 request_options=request_options,
-            )
-        ).unwrap()
+            ),
+        )
 
     async def patch_merchants_merchant_id_terminal_orders_order_id(
         self,
@@ -713,7 +751,8 @@ class AsyncTerminalOrdersMerchantLevel:
             merchant_id: The unique identifier of the merchant account.
             order_id: The unique identifier of the order.
             body: The request body.
-            request_options: Per-call overrides for this one request, such as a timeout or extra headers.
+            request_options: Per-call overrides for this one request, such as a timeout, extra headers, or its retry
+                count and statuses.
 
         Returns:
             OK - the request has succeeded.
@@ -723,11 +762,11 @@ class AsyncTerminalOrdersMerchantLevel:
                 required. Forbidden - insufficient permissions to process the request. Unprocessable Entity - a request
                 validation error. Internal Server Error - the server could not process the request. ``error`` is
                 ``RestServiceError | RawError``."""
-        return (
+        return unwrap(
             await self._with_raw_response.patch_merchants_merchant_id_terminal_orders_order_id(
                 merchant_id, order_id, body=body, request_options=request_options
-            )
-        ).unwrap()
+            ),
+        )
 
     async def post_merchants_merchant_id_shipping_locations(
         self,
@@ -749,7 +788,8 @@ class AsyncTerminalOrdersMerchantLevel:
         Args:
             merchant_id: The unique identifier of the merchant account.
             body: The request body.
-            request_options: Per-call overrides for this one request, such as a timeout or extra headers.
+            request_options: Per-call overrides for this one request, such as a timeout, extra headers, or its retry
+                count and statuses.
 
         Returns:
             OK - the request has succeeded.
@@ -759,11 +799,11 @@ class AsyncTerminalOrdersMerchantLevel:
                 required. Forbidden - insufficient permissions to process the request. Unprocessable Entity - a request
                 validation error. Internal Server Error - the server could not process the request. ``error`` is
                 ``RestServiceError | RawError``."""
-        return (
+        return unwrap(
             await self._with_raw_response.post_merchants_merchant_id_shipping_locations(
                 merchant_id, body=body, request_options=request_options
-            )
-        ).unwrap()
+            ),
+        )
 
     async def post_merchants_merchant_id_terminal_orders(
         self,
@@ -788,7 +828,8 @@ class AsyncTerminalOrdersMerchantLevel:
         Args:
             merchant_id: The unique identifier of the merchant account.
             body: The request body.
-            request_options: Per-call overrides for this one request, such as a timeout or extra headers.
+            request_options: Per-call overrides for this one request, such as a timeout, extra headers, or its retry
+                count and statuses.
 
         Returns:
             OK - the request has succeeded.
@@ -798,11 +839,11 @@ class AsyncTerminalOrdersMerchantLevel:
                 required. Forbidden - insufficient permissions to process the request. Unprocessable Entity - a request
                 validation error. Internal Server Error - the server could not process the request. ``error`` is
                 ``RestServiceError | RawError``."""
-        return (
+        return unwrap(
             await self._with_raw_response.post_merchants_merchant_id_terminal_orders(
                 merchant_id, body=body, request_options=request_options
-            )
-        ).unwrap()
+            ),
+        )
 
     async def post_merchants_merchant_id_terminal_orders_order_id_cancel(
         self, merchant_id: str, order_id: str, *, request_options: RequestOptionsOrDict | None = None
@@ -821,7 +862,8 @@ class AsyncTerminalOrdersMerchantLevel:
         Args:
             merchant_id: The unique identifier of the merchant account.
             order_id: The unique identifier of the order.
-            request_options: Per-call overrides for this one request, such as a timeout or extra headers.
+            request_options: Per-call overrides for this one request, such as a timeout, extra headers, or its retry
+                count and statuses.
 
         Returns:
             OK - the request has succeeded.
@@ -831,11 +873,11 @@ class AsyncTerminalOrdersMerchantLevel:
                 required. Forbidden - insufficient permissions to process the request. Unprocessable Entity - a request
                 validation error. Internal Server Error - the server could not process the request. ``error`` is
                 ``RestServiceError | RawError``."""
-        return (
+        return unwrap(
             await self._with_raw_response.post_merchants_merchant_id_terminal_orders_order_id_cancel(
                 merchant_id, order_id, request_options=request_options
-            )
-        ).unwrap()
+            ),
+        )
 
     @property
     def with_raw_response(self) -> AsyncTerminalOrdersMerchantLevelWithRawResponse:
@@ -860,7 +902,8 @@ class TerminalOrdersMerchantLevelWithRawResponse(SecuredRawResponse[RawClient, S
         Args:
             merchant_id: The unique identifier of the merchant account.
             name: The name of the billing entity.
-            request_options: Per-call overrides for this one request, such as a timeout or extra headers.
+            request_options: Per-call overrides for this one request, such as a timeout, extra headers, or its retry
+                count and statuses.
 
         Returns:
             An ``ApiResult`` holding the deserialized response or the error body."""
@@ -900,7 +943,8 @@ class TerminalOrdersMerchantLevelWithRawResponse(SecuredRawResponse[RawClient, S
             name: The name of the shipping location.
             offset: The number of locations to skip.
             limit: The number of locations to return.
-            request_options: Per-call overrides for this one request, such as a timeout or extra headers.
+            request_options: Per-call overrides for this one request, such as a timeout, extra headers, or its retry
+                count and statuses.
 
         Returns:
             An ``ApiResult`` holding the deserialized response or the error body."""
@@ -934,7 +978,8 @@ class TerminalOrdersMerchantLevelWithRawResponse(SecuredRawResponse[RawClient, S
 
         Args:
             merchant_id: The unique identifier of the merchant account.
-            request_options: Per-call overrides for this one request, such as a timeout or extra headers.
+            request_options: Per-call overrides for this one request, such as a timeout, extra headers, or its retry
+                count and statuses.
 
         Returns:
             An ``ApiResult`` holding the deserialized response or the error body."""
@@ -975,7 +1020,8 @@ class TerminalOrdersMerchantLevelWithRawResponse(SecuredRawResponse[RawClient, S
                 Delivered.
             offset: The number of orders to skip.
             limit: The number of orders to return.
-            request_options: Per-call overrides for this one request, such as a timeout or extra headers.
+            request_options: Per-call overrides for this one request, such as a timeout, extra headers, or its retry
+                count and statuses.
 
         Returns:
             An ``ApiResult`` holding the deserialized response or the error body."""
@@ -1011,7 +1057,8 @@ class TerminalOrdersMerchantLevelWithRawResponse(SecuredRawResponse[RawClient, S
         Args:
             merchant_id: The unique identifier of the merchant account.
             order_id: The unique identifier of the order.
-            request_options: Per-call overrides for this one request, such as a timeout or extra headers.
+            request_options: Per-call overrides for this one request, such as a timeout, extra headers, or its retry
+                count and statuses.
 
         Returns:
             An ``ApiResult`` holding the deserialized response or the error body."""
@@ -1055,7 +1102,8 @@ class TerminalOrdersMerchantLevelWithRawResponse(SecuredRawResponse[RawClient, S
                 response. For example, **Verifone.M400**
             offset: The number of products to skip.
             limit: The number of products to return.
-            request_options: Per-call overrides for this one request, such as a timeout or extra headers.
+            request_options: Per-call overrides for this one request, such as a timeout, extra headers, or its retry
+                count and statuses.
 
         Returns:
             An ``ApiResult`` holding the deserialized response or the error body."""
@@ -1102,7 +1150,8 @@ class TerminalOrdersMerchantLevelWithRawResponse(SecuredRawResponse[RawClient, S
             merchant_id: The unique identifier of the merchant account.
             order_id: The unique identifier of the order.
             body: The request body.
-            request_options: Per-call overrides for this one request, such as a timeout or extra headers.
+            request_options: Per-call overrides for this one request, such as a timeout, extra headers, or its retry
+                count and statuses.
 
         Returns:
             An ``ApiResult`` holding the deserialized response or the error body."""
@@ -1138,7 +1187,8 @@ class TerminalOrdersMerchantLevelWithRawResponse(SecuredRawResponse[RawClient, S
         Args:
             merchant_id: The unique identifier of the merchant account.
             body: The request body.
-            request_options: Per-call overrides for this one request, such as a timeout or extra headers.
+            request_options: Per-call overrides for this one request, such as a timeout, extra headers, or its retry
+                count and statuses.
 
         Returns:
             An ``ApiResult`` holding the deserialized response or the error body."""
@@ -1177,7 +1227,8 @@ class TerminalOrdersMerchantLevelWithRawResponse(SecuredRawResponse[RawClient, S
         Args:
             merchant_id: The unique identifier of the merchant account.
             body: The request body.
-            request_options: Per-call overrides for this one request, such as a timeout or extra headers.
+            request_options: Per-call overrides for this one request, such as a timeout, extra headers, or its retry
+                count and statuses.
 
         Returns:
             An ``ApiResult`` holding the deserialized response or the error body."""
@@ -1210,7 +1261,8 @@ class TerminalOrdersMerchantLevelWithRawResponse(SecuredRawResponse[RawClient, S
         Args:
             merchant_id: The unique identifier of the merchant account.
             order_id: The unique identifier of the order.
-            request_options: Per-call overrides for this one request, such as a timeout or extra headers.
+            request_options: Per-call overrides for this one request, such as a timeout, extra headers, or its retry
+                count and statuses.
 
         Returns:
             An ``ApiResult`` holding the deserialized response or the error body."""
@@ -1244,7 +1296,8 @@ class AsyncTerminalOrdersMerchantLevelWithRawResponse(SecuredRawResponse[AsyncRa
         Args:
             merchant_id: The unique identifier of the merchant account.
             name: The name of the billing entity.
-            request_options: Per-call overrides for this one request, such as a timeout or extra headers.
+            request_options: Per-call overrides for this one request, such as a timeout, extra headers, or its retry
+                count and statuses.
 
         Returns:
             An ``ApiResult`` holding the deserialized response or the error body."""
@@ -1254,7 +1307,7 @@ class AsyncTerminalOrdersMerchantLevelWithRawResponse(SecuredRawResponse[AsyncRa
             path_params=[param[str]("merchantId", merchant_id)],
             query_params=[param[str | None]("name", name)],
             auth_scheme=AsyncAnySchemes(self._auth.basic_auth, self._auth.api_key_auth),
-            decoder=json_decoder[BillingEntitiesResponse],
+            decoder=async_json_decoder[BillingEntitiesResponse],
             error_mapper=get_merchants_merchant_id_billing_entities_error_mapper,
             request_options=request_options,
         )
@@ -1284,7 +1337,8 @@ class AsyncTerminalOrdersMerchantLevelWithRawResponse(SecuredRawResponse[AsyncRa
             name: The name of the shipping location.
             offset: The number of locations to skip.
             limit: The number of locations to return.
-            request_options: Per-call overrides for this one request, such as a timeout or extra headers.
+            request_options: Per-call overrides for this one request, such as a timeout, extra headers, or its retry
+                count and statuses.
 
         Returns:
             An ``ApiResult`` holding the deserialized response or the error body."""
@@ -1296,7 +1350,7 @@ class AsyncTerminalOrdersMerchantLevelWithRawResponse(SecuredRawResponse[AsyncRa
                 param[str | None]("name", name), param[int | None]("offset", offset), param[int | None]("limit", limit)
             ],
             auth_scheme=AsyncAnySchemes(self._auth.basic_auth, self._auth.api_key_auth),
-            decoder=json_decoder[ShippingLocationsResponse],
+            decoder=async_json_decoder[ShippingLocationsResponse],
             error_mapper=get_merchants_merchant_id_shipping_locations_error_mapper,
             request_options=request_options,
         )
@@ -1318,7 +1372,8 @@ class AsyncTerminalOrdersMerchantLevelWithRawResponse(SecuredRawResponse[AsyncRa
 
         Args:
             merchant_id: The unique identifier of the merchant account.
-            request_options: Per-call overrides for this one request, such as a timeout or extra headers.
+            request_options: Per-call overrides for this one request, such as a timeout, extra headers, or its retry
+                count and statuses.
 
         Returns:
             An ``ApiResult`` holding the deserialized response or the error body."""
@@ -1327,7 +1382,7 @@ class AsyncTerminalOrdersMerchantLevelWithRawResponse(SecuredRawResponse[AsyncRa
             url_template=self._server.default9("/merchants/{merchantId}/terminalModels"),
             path_params=[param[str]("merchantId", merchant_id)],
             auth_scheme=AsyncAnySchemes(self._auth.basic_auth, self._auth.api_key_auth),
-            decoder=json_decoder[TerminalModelsResponse],
+            decoder=async_json_decoder[TerminalModelsResponse],
             error_mapper=get_merchants_merchant_id_terminal_models_error_mapper,
             request_options=request_options,
         )
@@ -1359,7 +1414,8 @@ class AsyncTerminalOrdersMerchantLevelWithRawResponse(SecuredRawResponse[AsyncRa
                 Delivered.
             offset: The number of orders to skip.
             limit: The number of orders to return.
-            request_options: Per-call overrides for this one request, such as a timeout or extra headers.
+            request_options: Per-call overrides for this one request, such as a timeout, extra headers, or its retry
+                count and statuses.
 
         Returns:
             An ``ApiResult`` holding the deserialized response or the error body."""
@@ -1374,7 +1430,7 @@ class AsyncTerminalOrdersMerchantLevelWithRawResponse(SecuredRawResponse[AsyncRa
                 param[int | None]("limit", limit),
             ],
             auth_scheme=AsyncAnySchemes(self._auth.basic_auth, self._auth.api_key_auth),
-            decoder=json_decoder[TerminalOrdersResponse],
+            decoder=async_json_decoder[TerminalOrdersResponse],
             error_mapper=get_merchants_merchant_id_terminal_orders_error_mapper,
             request_options=request_options,
         )
@@ -1395,7 +1451,8 @@ class AsyncTerminalOrdersMerchantLevelWithRawResponse(SecuredRawResponse[AsyncRa
         Args:
             merchant_id: The unique identifier of the merchant account.
             order_id: The unique identifier of the order.
-            request_options: Per-call overrides for this one request, such as a timeout or extra headers.
+            request_options: Per-call overrides for this one request, such as a timeout, extra headers, or its retry
+                count and statuses.
 
         Returns:
             An ``ApiResult`` holding the deserialized response or the error body."""
@@ -1404,7 +1461,7 @@ class AsyncTerminalOrdersMerchantLevelWithRawResponse(SecuredRawResponse[AsyncRa
             url_template=self._server.default9("/merchants/{merchantId}/terminalOrders/{orderId}"),
             path_params=[param[str]("merchantId", merchant_id), param[str]("orderId", order_id)],
             auth_scheme=AsyncAnySchemes(self._auth.basic_auth, self._auth.api_key_auth),
-            decoder=json_decoder[TerminalOrder],
+            decoder=async_json_decoder[TerminalOrder],
             error_mapper=get_merchants_merchant_id_terminal_orders_order_id_error_mapper,
             request_options=request_options,
         )
@@ -1439,7 +1496,8 @@ class AsyncTerminalOrdersMerchantLevelWithRawResponse(SecuredRawResponse[AsyncRa
                 response. For example, **Verifone.M400**
             offset: The number of products to skip.
             limit: The number of products to return.
-            request_options: Per-call overrides for this one request, such as a timeout or extra headers.
+            request_options: Per-call overrides for this one request, such as a timeout, extra headers, or its retry
+                count and statuses.
 
         Returns:
             An ``ApiResult`` holding the deserialized response or the error body."""
@@ -1454,7 +1512,7 @@ class AsyncTerminalOrdersMerchantLevelWithRawResponse(SecuredRawResponse[AsyncRa
                 param[int | None]("limit", limit),
             ],
             auth_scheme=AsyncAnySchemes(self._auth.basic_auth, self._auth.api_key_auth),
-            decoder=json_decoder[TerminalProductsResponse],
+            decoder=async_json_decoder[TerminalProductsResponse],
             error_mapper=get_merchants_merchant_id_terminal_products_error_mapper,
             request_options=request_options,
         )
@@ -1486,7 +1544,8 @@ class AsyncTerminalOrdersMerchantLevelWithRawResponse(SecuredRawResponse[AsyncRa
             merchant_id: The unique identifier of the merchant account.
             order_id: The unique identifier of the order.
             body: The request body.
-            request_options: Per-call overrides for this one request, such as a timeout or extra headers.
+            request_options: Per-call overrides for this one request, such as a timeout, extra headers, or its retry
+                count and statuses.
 
         Returns:
             An ``ApiResult`` holding the deserialized response or the error body."""
@@ -1497,7 +1556,7 @@ class AsyncTerminalOrdersMerchantLevelWithRawResponse(SecuredRawResponse[AsyncRa
             headers=[param[UUID]("Idempotency-Key", uuid4())],
             body=json_body[TerminalOrderRequest | TerminalOrderRequestDict | None](body),
             auth_scheme=AsyncAnySchemes(self._auth.basic_auth, self._auth.api_key_auth),
-            decoder=json_decoder[TerminalOrder],
+            decoder=async_json_decoder[TerminalOrder],
             error_mapper=patch_merchants_merchant_id_terminal_orders_order_id_error_mapper,
             request_options=request_options,
         )
@@ -1522,7 +1581,8 @@ class AsyncTerminalOrdersMerchantLevelWithRawResponse(SecuredRawResponse[AsyncRa
         Args:
             merchant_id: The unique identifier of the merchant account.
             body: The request body.
-            request_options: Per-call overrides for this one request, such as a timeout or extra headers.
+            request_options: Per-call overrides for this one request, such as a timeout, extra headers, or its retry
+                count and statuses.
 
         Returns:
             An ``ApiResult`` holding the deserialized response or the error body."""
@@ -1533,7 +1593,7 @@ class AsyncTerminalOrdersMerchantLevelWithRawResponse(SecuredRawResponse[AsyncRa
             headers=[param[UUID]("Idempotency-Key", uuid4())],
             body=json_body[ShippingLocation | ShippingLocationDict | None](body),
             auth_scheme=AsyncAnySchemes(self._auth.basic_auth, self._auth.api_key_auth),
-            decoder=json_decoder[ShippingLocation],
+            decoder=async_json_decoder[ShippingLocation],
             error_mapper=post_merchants_merchant_id_shipping_locations_error_mapper,
             request_options=request_options,
         )
@@ -1561,7 +1621,8 @@ class AsyncTerminalOrdersMerchantLevelWithRawResponse(SecuredRawResponse[AsyncRa
         Args:
             merchant_id: The unique identifier of the merchant account.
             body: The request body.
-            request_options: Per-call overrides for this one request, such as a timeout or extra headers.
+            request_options: Per-call overrides for this one request, such as a timeout, extra headers, or its retry
+                count and statuses.
 
         Returns:
             An ``ApiResult`` holding the deserialized response or the error body."""
@@ -1572,7 +1633,7 @@ class AsyncTerminalOrdersMerchantLevelWithRawResponse(SecuredRawResponse[AsyncRa
             headers=[param[UUID]("Idempotency-Key", uuid4())],
             body=json_body[TerminalOrderRequest | TerminalOrderRequestDict | None](body),
             auth_scheme=AsyncAnySchemes(self._auth.basic_auth, self._auth.api_key_auth),
-            decoder=json_decoder[TerminalOrder],
+            decoder=async_json_decoder[TerminalOrder],
             error_mapper=post_merchants_merchant_id_terminal_orders_error_mapper,
             request_options=request_options,
         )
@@ -1594,7 +1655,8 @@ class AsyncTerminalOrdersMerchantLevelWithRawResponse(SecuredRawResponse[AsyncRa
         Args:
             merchant_id: The unique identifier of the merchant account.
             order_id: The unique identifier of the order.
-            request_options: Per-call overrides for this one request, such as a timeout or extra headers.
+            request_options: Per-call overrides for this one request, such as a timeout, extra headers, or its retry
+                count and statuses.
 
         Returns:
             An ``ApiResult`` holding the deserialized response or the error body."""
@@ -1604,7 +1666,7 @@ class AsyncTerminalOrdersMerchantLevelWithRawResponse(SecuredRawResponse[AsyncRa
             path_params=[param[str]("merchantId", merchant_id), param[str]("orderId", order_id)],
             headers=[param[UUID]("Idempotency-Key", uuid4())],
             auth_scheme=AsyncAnySchemes(self._auth.basic_auth, self._auth.api_key_auth),
-            decoder=json_decoder[TerminalOrder],
+            decoder=async_json_decoder[TerminalOrder],
             error_mapper=post_merchants_merchant_id_terminal_orders_order_id_cancel_error_mapper,
             request_options=request_options,
         )

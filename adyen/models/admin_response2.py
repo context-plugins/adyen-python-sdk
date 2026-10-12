@@ -15,4 +15,4 @@ class AdminResponse2(SdkBaseModel):
 
 
 class AdminResponse2Dict(TypedDict):
-    response: Response11 | Response11Dict
+    response: Response11Dict

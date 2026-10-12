@@ -4,7 +4,7 @@ from pydantic import Field
 from typing_extensions import NotRequired, TypedDict
 
 from ..core import UNSET, Optional, SdkBaseModel
-from .enums.type54 import Type54OrStr
+from .enums.type54 import Type54, Type54OrStr
 
 
 class Vipps(SdkBaseModel):
@@ -21,7 +21,7 @@ class Vipps(SdkBaseModel):
     """This is the ``recurringDetailReference`` returned in the response when you created the token."""
 
     telephone_number: str = Field(alias="telephoneNumber")
-    type_: Optional[Type54OrStr] = Field(default=UNSET, alias="type")
+    type_: Type54OrStr = Field(default=Type54.VIPPS, alias="type")
     """**vipps**"""
 
 

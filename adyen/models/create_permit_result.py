@@ -17,5 +17,5 @@ class CreatePermitResult(SdkBaseModel):
 
 
 class CreatePermitResultDict(TypedDict):
-    permit_result_list: NotRequired[list[PermitResult | PermitResultDict]]
+    permit_result_list: NotRequired[list[PermitResultDict]]
     psp_reference: NotRequired[str]

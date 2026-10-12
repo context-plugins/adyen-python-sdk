@@ -41,10 +41,10 @@ class DonationPaymentResponse(SdkBaseModel):
 
 
 class DonationPaymentResponseDict(TypedDict):
-    amount: NotRequired[Amount26 | Amount26Dict]
+    amount: NotRequired[Amount26Dict]
     donation_account: NotRequired[str]
     id: NotRequired[str]
     merchant_account: NotRequired[str]
-    payment: NotRequired[PaymentResponse9 | PaymentResponse9Dict]
+    payment: NotRequired[PaymentResponse9Dict]
     reference: NotRequired[str]
     status: NotRequired[Status1OrStr]

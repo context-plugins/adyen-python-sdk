@@ -52,12 +52,12 @@ class PaymentCaptureRequest(SdkBaseModel):
 
 
 class PaymentCaptureRequestDict(TypedDict):
-    amount: Amount31 | Amount31Dict
-    application_info: NotRequired[ApplicationInfo | ApplicationInfoDict]
-    enhanced_scheme_data: NotRequired[EnhancedSchemeData1 | EnhancedSchemeData1Dict]
-    line_items: NotRequired[list[LineItem | LineItemDict]]
+    amount: Amount31Dict
+    application_info: NotRequired[ApplicationInfoDict]
+    enhanced_scheme_data: NotRequired[EnhancedSchemeData1Dict]
+    line_items: NotRequired[list[LineItemDict]]
     merchant_account: str
-    platform_chargeback_logic: NotRequired[PlatformChargebackLogic | PlatformChargebackLogicDict]
+    platform_chargeback_logic: NotRequired[PlatformChargebackLogicDict]
     reference: NotRequired[str]
-    splits: NotRequired[list[Split | SplitDict]]
-    sub_merchants: NotRequired[list[SubMerchantInfo | SubMerchantInfoDict]]
+    splits: NotRequired[list[SplitDict]]
+    sub_merchants: NotRequired[list[SubMerchantInfoDict]]

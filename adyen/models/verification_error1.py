@@ -43,6 +43,6 @@ class VerificationError1Dict(TypedDict):
     capabilities: NotRequired[list[CapabilityOrStr]]
     code: NotRequired[str]
     message: NotRequired[str]
-    remediating_actions: NotRequired[list[RemediatingAction | RemediatingActionDict]]
-    sub_errors: NotRequired[list[VerificationErrorRecursive1 | VerificationErrorRecursive1Dict]]
+    remediating_actions: NotRequired[list[RemediatingActionDict]]
+    sub_errors: NotRequired[list[VerificationErrorRecursive1Dict]]
     type_: NotRequired[Type512OrStr]

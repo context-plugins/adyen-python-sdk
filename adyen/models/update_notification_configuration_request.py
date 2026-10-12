@@ -16,4 +16,4 @@ class UpdateNotificationConfigurationRequest(SdkBaseModel):
 
 
 class UpdateNotificationConfigurationRequestDict(TypedDict):
-    configuration_details: NotificationConfigurationDetails3 | NotificationConfigurationDetails3Dict
+    configuration_details: NotificationConfigurationDetails3Dict

@@ -19,5 +19,5 @@ class StoredValueRequest2(SdkBaseModel):
 
 
 class StoredValueRequest2Dict(TypedDict):
-    sale_data: SaleData1 | SaleData1Dict
-    stored_value_data: list[StoredValueData | StoredValueDataDict]
+    sale_data: SaleData1Dict
+    stored_value_data: list[StoredValueDataDict]

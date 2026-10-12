@@ -16,5 +16,5 @@ class KycsignatoryCheckResult(SdkBaseModel):
 
 
 class KycsignatoryCheckResultDict(TypedDict):
-    checks: NotRequired[list[KyccheckStatusData | KyccheckStatusDataDict]]
+    checks: NotRequired[list[KyccheckStatusDataDict]]
     signatory_code: NotRequired[str]
